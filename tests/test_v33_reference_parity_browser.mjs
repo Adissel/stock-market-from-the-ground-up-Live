@@ -116,6 +116,12 @@ try{
   assert.equal(await view.locator('[data-reference-field="vwap"]').count(),1);
   assert.match(await view.locator('[data-reference-field="vwap"]').innerText(),/^\$\d+\.\d{2}$/);
   await host.getByRole('button',{name:'Next learning stage'}).click();
+  await host.locator('.gu-v44-calculate-gate').waitFor();
+  assert.equal(await host.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'The shared Calculate method gate is mandatory, not a bypassed illustration');
+  await host.locator('.gu-v44-calc-check input[value="0"]').check();
+  await host.getByRole('button',{name:'Check my answer'}).click();
+  await host.getByRole('button',{name:/Continue to Experiment/}).click();
   const slider=host.locator('input[type="range"]').first();
   assert.equal(await slider.count(),1,'Reference VWAP experimentation needs a direct volume slider');
   const output=host.locator('.gu-v32-output');
@@ -163,6 +169,12 @@ try{
   const submit=teacher.getByRole('button',{name:'Submit answer'});
   await answer.fill('The open and close prices determine the completed candle body.');
   await submit.click();
+  await host.locator('.gu-v44-calculate-gate').waitFor();
+  assert.equal(await host.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'The shared Calculate method gate is mandatory, not a bypassed illustration');
+  await host.locator('.gu-v44-calc-check input[value="0"]').check();
+  await host.getByRole('button',{name:'Check my answer'}).click();
+  await host.getByRole('button',{name:/Continue to Experiment/}).click();
   await host.getByRole('heading',{name:/^Experiment —/}).waitFor();
   const closing=host.locator('input[type="range"]').first();
   const initial=await host.locator('.gu-v32-output').textContent();
