@@ -153,9 +153,12 @@ if(!email||!password){
   assert.equal(prefPreflight.status(),200,'Free learning preference API must authorize real QA member');
   const prefBefore=await prefPreflight.json();
   assert.equal(prefBefore.ok,true);
+  try {
   if(!prefBefore.preferences.saved){
-   await page.goto(origin+'/dashboard',{waitUntil:'domcontentloaded',timeout:30000});
-   await page.locator('#free-start-choose').waitFor({state:'attached',timeout:10000}).catch(()=>{throw Error('Free Dashboard teaching controls unavailable at '+new URL(page.url()).pathname);});
+   const dashboardResponse=await page.goto(origin+'/dashboard.html',{waitUntil:'domcontentloaded',timeout:30000});
+   const loadedPath=new URL(page.url()).pathname;
+   const controls=await page.locator('#free-start-choose').count();
+   if(controls!==1)throw Error('Dashboard controls absent; requested=/dashboard.html; landing='+loadedPath+'; HTTP='+dashboardResponse?.status()+'; pageTitle='+String(await page.title()).slice(0,60));
    await page.locator('details.free-learning-starting-point summary').click();
    await page.locator('#free-start-level').selectOption('1');
    await page.locator('#free-coach-focus').selectOption('WATCHLIST');
@@ -180,6 +183,10 @@ if(!email||!password){
   assert.equal(prefBody.recommendation.savedReflections,5,
    'Talia must observe all five genuine saved ungraded reflections');
   note('checks','Talia private preferences and five-day progress verified by authenticated API.');
+  }catch(e){
+   note('failures','Real signed-in Talia preference workflow: '+String(e.message||e).slice(0,300));
+  }
+  try {
   const watchPreflight=await page.request.get(origin+'/api/free-watchlist',
    {headers:bearer,timeout:30000});
   assert.equal(watchPreflight.status(),200);
@@ -214,6 +221,9 @@ if(!email||!password){
    x.status==='NO_TRADE'&&x.researchNote===qaResearch),
    'Private watchlist did not preserve exact fictional QA research after reload');
   note('checks','Free watchlist persisted across reload and private authenticated API readback.');
+  }catch(e){
+   note('failures','Real signed-in Free Watchlist workflow: '+String(e.message||e).slice(0,300));
+  }
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
@@ -257,7 +267,7 @@ if(!email||!password){
   }else{
    note('blocked','Full cross-account isolation needs separate existing LAB_QA_SECOND_EMAIL/PASSWORD GitHub secrets. Anonymous denial is proven but not sufficient for two-member acceptance.');
   }
-  report.completed=report.blocked.length===0;
+  report.completed=report.blocked.length===0&&report.failures.length===0;
   await context.close();
  }catch(e){
   note('failures',String(e.message||e).slice(0,470));
