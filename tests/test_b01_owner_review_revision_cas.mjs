@@ -48,11 +48,12 @@ try{
  assert.equal(response.status,409);assert.equal(updated,0);
  const err=await response.json();assert.match(err.error,/changed after it was loaded/i);
  response=await request(stamp);
- assert.notEqual(response.status,409,'Exact timestamp moves to normal authored-content checks, not stale rejection');
+ assert.equal(response.status,409,'Frozen B01 v97 requires independent editorial review even when Owner timestamp matches');
+ assert.match((await response.json()).error,/independent editorial acceptance/i);
  assert.equal(updated,0,'Invalid synthetic questions cannot be approved');
  assert.equal(seenReviewPath,'','Malformed content must be refused before PATCH');
  owner=false;
  response=await request(stamp);assert.equal(response.status,403);
  assert.equal(updated,0);
 }finally{globalThis.fetch=original;}
-console.log('PASS Owner assessment publication: requires original inspected timestamp, stale view blocked, invalid content denied, no Member/Owner bypass.');
+console.log('PASS Owner assessment: stale revision blocked; frozen v97 independently reviewed release required; no PATCH and no Member/Owner bypass.');
