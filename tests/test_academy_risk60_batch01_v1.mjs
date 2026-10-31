@@ -13,8 +13,17 @@ for(const [i,source] of risk60LearnBatch01.entries()){
  assert.equal(d.day,i+1);
  assert.equal(d.sourceDay,risk60SourceDays[i]);
  assert.equal(d.programCode,'risk60');
- assert.strictEqual(d.lesson,source,'The original guided engine must render the authored source');
- assert.equal(d.sourceStatus,'original_risk60_day_specific_ungraded_editorial_review_pending');
+ assert(d.lesson&&d.lesson.explanation===source.explanation&&
+  d.lesson.workedExample===source.workedExample&&d.lesson.transfer===source.transfer,
+  'Existing lesson substance must survive additive instruction fields');
+ if(i<2){
+  assert.equal(d.sourceStatus,'original_risk60_advanced_package_owner_beta_review_20261031');
+  assert.equal(d.lesson.formativeQuestions.length,12);
+  assert.equal(d.lesson.advancedPracticums.length,1);
+ }else{
+  assert.strictEqual(d.lesson,source,'Unchanged unit must preserve original source reference');
+  assert.equal(d.sourceStatus,'original_risk60_day_specific_ungraded_editorial_review_pending');
+ }
  assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
  assert.equal(source.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
  assert(source.explanation.length>=60&&source.workedExample.length>=80&&/FICTIONAL/.test(source.workedExample));
