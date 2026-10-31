@@ -15,6 +15,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify Founding Chart Studio source-bound paid membership and noncommercial QA distinction
+        run: |
+          node --check tests/test_founder_chart_tier_paid_source_boundaries_v1.mjs
+          node tests/test_founder_chart_tier_paid_source_boundaries_v1.mjs
+
       - name: Validate frozen Founding contract and staged 14-day checkout lock
         run: |
           node --check functions/_lib/founding600-benefit-guards-v014170.mjs
