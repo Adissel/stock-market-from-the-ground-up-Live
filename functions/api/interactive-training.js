@@ -100,6 +100,16 @@ function approvedSelectedWrongFeedback(q,selected){
  if(q?.kind!=='choice'||!Array.isArray(q?.distractorFeedback))return null;
  const item=q.distractorFeedback.find(x=>x?.option===selected &&
    x?.reviewStatus==='INDEPENDENT_EDITORIAL_APPROVED');
+ // A free-form status label is not an attributable editorial decision.
+ // Require distinct authenticated human reviewer metadata and a case-level
+ // evidence reference before disclosing a formerly draft correction.
+ const proof=item?.independentReview;
+ if(proof?.reviewerRole!=='INDEPENDENT_EDITOR'||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(proof?.reviewerUserId||''))||
+    !/^SMFGU-[A-Z0-9-]{10,100}$/.test(String(proof?.evidenceRef||''))||
+    !Number.isFinite(Date.parse(String(proof?.decisionAt||'')))||
+    proof?.actualQuestionReviewed!==true||
+    proof?.correctiveFeedbackReviewed!==true)return null;
  const value=typeof item?.feedback==='string'?item.feedback.trim():'';
  if(value.length<30||value.length>1600)return null;
  // A reviewer flag cannot promote the mechanical B01 v98 template into
@@ -114,9 +124,11 @@ async function safePrivateFeedbackQuestions(env,labId,version){
  // After a completed scoring RPC only. Never return an unsubmitted private case.
  if(!Number.isSafeInteger(Number(version))||Number(version)<1)return null;
  try{
-  const records=await db(env,'lab_training_sets_v014?select=questions&lab_id=eq.'+
+  const records=await db(env,'lab_training_sets_v014?select=questions,reviewed_by,reviewed_at&lab_id=eq.'+
    esc(labId)+'&version=eq.'+Number(version)+'&review_state=eq.reviewed&limit=1');
-  return Array.isArray(records?.[0]?.questions)?records[0].questions:null;
+  const set=records?.[0];
+  return set?.reviewed_by&&Number.isFinite(Date.parse(String(set?.reviewed_at||'')))&&
+   Array.isArray(set?.questions)?set.questions:null;
  }catch{return null} // A committed answer must not become an HTTP failure on remediation read.
 }
 
