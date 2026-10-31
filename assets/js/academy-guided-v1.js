@@ -43,6 +43,39 @@ function plan(d){
    6:{question:'How should this skill transfer?',correct:clean(l.transfer)},
    8:{question:'What is the independent transfer task?',correct:clean(l.transfer)}}};
  }
+ // Reference-batch lessons use their actual authored evidence and mistakes
+ // instead of displaying the same generic calculator for unrelated subjects.
+ if(d.lesson?.status==='ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING'){
+  const lesson=d.lesson,kind=classify(d),steps=lesson.sourceProcedure||[],limits=clean(lesson.whenNot),
+   source=lesson.reference||{},numeric=lesson.numericChecks||[];
+  const stages=[
+   ['Start',[clean(d.title),clean(d.objective),clean(lesson.why)]],
+   ['Learn',[clean(lesson.explanation),'Evidence reference: '+clean(source.label||'Original primary sources still required.'),'Reference scope: '+clean(source.scope)]],
+   ['Calculate / Analyze',[clean(lesson.workedExample),...steps.map(clean),'The example is fictional and explicitly ungraded.']],
+   ['Experiment',['Change one fictional input or source-quality condition, then reassess the conclusion.',clean(d.practice),clean(lesson.error)]],
+   ['Predict',[clean(d.observe),'Predict what evidence would be necessary at the frozen observation time, not a future market price.']],
+   ['Replay / Practice',[clean(lesson.investigation),'Freeze the current evidence; do not use a later publication or future candle in this decision.']],
+   ['Assess',[clean(lesson.selfCheck),clean(lesson.transfer),'First response is instructional only. The protected assessor still controls any official grade.']],
+   ['Review & Retry',[clean(lesson.reviewGuide),'Specific misconception: '+clean(lesson.error),'Retry the reasoning using a new original evidence case.']],
+   ['Transfer Challenge',[clean(lesson.investigation),clean(lesson.transfer),limits]],
+   ['Results',['Use the existing Save Reflection service to preserve study notes.','No score, independent grading or historical replay certification is claimed.','Editorial status: Not Yet Approved.']]
+  ];
+  const checks={
+   2:{question:'Which study procedure uses the actual evidence correctly?',correct:clean(steps[0]||d.practice)},
+   4:{question:'What is the required current observation?',correct:clean(d.observe)},
+   5:{question:'Which practice uses the actual lesson method?',correct:clean(steps[1]||d.practice)},
+   6:{question:'In an unfamiliar case, what is the defensible verification step?',correct:clean(steps[0]||d.practice)},
+   8:{question:'How should an unfamiliar case be investigated?',correct:clean(lesson.transfer)}
+  };
+  if(numeric.length){
+   checks[2]={numeric:true,question:'Independently calculate the following fictional quantities (use the units shown).',
+    labels:numeric.map((c,i)=>(i+1)+'. '+clean(c.operation)+' ('+clean(c.unit)+')'),
+    expected:numeric.map(c=>c.expected),
+    tolerance:numeric.map(c=>c.tolerance),
+    hints:numeric.map(c=>'Recompute '+clean(c.operation)+' from '+c.inputs.join(', ')+' using the stated operation and units.')};
+  }
+  return {kind,stages,checks,limitation:limits};
+ }
  const kind=classify(d),teach=guidance(d,kind),method=clean((Array.isArray(d.method)?d.method[0]:d.method)||d.practice);
  const limitation=clean(d.limitation||d.caution||'An observation cannot guarantee a future market outcome.');
  const stages=[
@@ -167,7 +200,7 @@ function mount(host,{day,programCode}={}){
     const values=numericInputs.map(x=>x.value.trim());
     const empty=values.findIndex(v=>v===''||!Number.isFinite(Number(v)));
     if(empty>=0){feedback.textContent='Enter a valid number for '+q.labels[empty]+'.';return}
-    const wrong=values.findIndex((v,i)=>Math.abs(Number(v)-q.expected[i])>(q.labels[i].includes('VWAP')?.0051:.011));
+    const wrong=values.findIndex((v,i)=>Math.abs(Number(v)-q.expected[i])>(q.tolerance?.[i]??(q.labels[i].includes('VWAP')?.0051:.011)));
     if(wrong>=0){misses++;feedback.textContent=(misses===1?'Not yet. ':'Work through the intermediate step. ')+q.hints[wrong]+' Correct the entry and retry for free.';return}
    }else{
     if(answer<0){feedback.textContent='Choose an answer before submitting. You can retry for free.';return}
