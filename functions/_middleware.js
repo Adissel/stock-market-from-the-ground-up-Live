@@ -180,7 +180,8 @@ async function staffMfaBoundary(context,url){
  if(context.env.REQUIRE_STAFF_AAL2_V135!=='true')return null;
  const path=url.pathname.toLowerCase();
  const staffPath=/^\/api\/admin(?:-[a-z0-9-]+)?$/.test(path)||
-    path==='/api/showcase-v0135'||path==='/api/book-catalog-v0135';
+    path==='/api/showcase-v0135'||path==='/api/book-catalog-v0135'||
+    path==='/api/prototype-document'||path==='/api/prototype-training-cases';
  if(!staffPath)return null;
  const token=bearer(context.request);
  if(!token)return reject('Sign in before accessing staff operations.',401);
@@ -264,6 +265,14 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
   const response=new Response(upstream.body,{status:upstream.status,statusText:upstream.statusText,headers:hardened});
   const type=(response.headers.get('content-type')||'').toLowerCase();
   if(!type.includes('text/html'))return response;
+  // The authenticated prototype document is a complete, isolated HTML artifact:
+  // never rewrite it with generic website chrome or additional script imports.
+  // Its originating Pages Function has already applied fresh staff authorization.
+  if(path==='/api/prototype-document'){
+    response.headers.set('cache-control','private, no-store, max-age=0');
+    response.headers.set('x-robots-tag','noindex, nofollow, noarchive');
+    return response;
+  }
   // Exact, owner-approved v3.2 standalone demonstrations must never inherit
   // the website's legacy CSS, authentication overlay or DOM injection.
   // The two fictional v3.2 previews remain isolated from website chrome.
