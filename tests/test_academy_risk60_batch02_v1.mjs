@@ -51,4 +51,4 @@ assert.equal(m.parentDaysNewlyAuthored,m.authoredTotal-22,'Parent authoring must
 assert.equal(m.parentDaysStillNeedingLesson,247-m.authoredTotal,'247-day register may advance without invalidating previous source evidence');
 assert.equal(m.approvedByThisScript,0);
 assert.equal(m.protectedAssessmentsApprovedByThisScript,0);
-console.log('PASS Risk60 20 original guided practice days 21–40; 137/247 authoring; 110 remaining; 0 independent approvals or protected grades.');
+console.log('PASS Risk60 20 original guided practice days 21–40; 157/247 authoring; 90 remaining; 0 independent approvals or protected grades.');
