@@ -14,7 +14,7 @@ for(const course of threeCampDefinitions){
     course.code+' day '+(index+1)+' needs actual '+field);
   }
   assert.equal(lesson.evidenceType,'FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE');
-  assert.equal(lesson.editorialStatus,'original_instruction_source_reviewed_whole_lesson_editorial_pending');
+  assert.equal(lesson.editorialStatus,'owner_approved_invite_beta_instruction_20261031');
   assert(/^https:\/\//.test(lesson.source.url));
  }
 }
