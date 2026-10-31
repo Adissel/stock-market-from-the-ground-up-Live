@@ -9,6 +9,7 @@ on:
       - '.github/workflows/chart-b01-acceptance-preflight-v1.yml'
 permissions:
   contents: read
+  issues: write
 jobs:
   source-integrity:
     runs-on: ubuntu-latest
@@ -21,8 +22,34 @@ jobs:
         with:
           node-version: '22'
       - name: Verify human-authenticated Chart browser harness syntax
+        id: chart_source
+        continue-on-error: true
         run: node --check tests/test_chart_authenticated_manual_browser_v1.mjs
       - name: Verify B01 five-day source cases and quantitative examples
+        id: b01_source
+        continue-on-error: true
         run: node tests/test_b01_truth5_source_preflight_v1.mjs
-      - name: Preserve release boundaries
-        run: echo "This is source and arithmetic QA, not actual member sign-in, protected grade, legal rights or full beta editorial acceptance. Human CAPTCHA-protected browser login remains required for Chart Studio."
+      - name: Record exact-commit source outcomes without claiming real-member acceptance
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHART_SOURCE: ${{ steps.chart_source.outcome }}
+          B01_SOURCE: ${{ steps.b01_source.outcome }}
+        run: |
+          {
+            echo "## Chart Studio / B01 source-only QA — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "GitHub source SHA: \`$GITHUB_SHA\`"
+            echo
+            echo "GitHub Actions run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "Chart human-CAPTCHA browser harness syntax: **$CHART_SOURCE**"
+            echo
+            echo "Five-day B01 original case and arithmetic preflight: **$B01_SOURCE**"
+            echo
+            echo "NOT ACCEPTED by these checks: authenticated member session, QA role configuration, cross-account isolation, protected grades, signed editorial review, licensing, Stripe provider or LIVE deployment."
+          } > /tmp/b01-chart-source-qa.md
+          gh issue comment 153 --repo "$GITHUB_REPOSITORY" --body-file /tmp/b01-chart-source-qa.md
+      - name: Fail when either source check fails
+        if: steps.chart_source.outcome != 'success' || steps.b01_source.outcome != 'success'
+        run: exit 1
