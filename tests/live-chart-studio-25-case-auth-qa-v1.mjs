@@ -59,6 +59,10 @@ await case25('Stored Professional workspace projects safely to Advanced',()=>{
  assert.equal(w.data.workspace?.selected,'ADVANCED');assert.equal(w.data.workspace?.layout,'SIDE_BY_SIDE');
 });
 await case25('Existing EMA/RSI preferences are intact',()=>assert.deepEqual(w.data.workspace?.studies,['EMA','RSI']));
+await case25('Workspace API never exposes private provider credentials',()=>{
+ const raw=JSON.stringify(w.data);
+ assert(!/"(access_token|refresh_token|api_key|secret_key|password)"\s*:/i.test(raw));
+});
 await case25('Original sync preference remains false',()=>{
  assert.equal(w.data.workspace?.sync,false);assert(w.data.updatedAt);
 });
