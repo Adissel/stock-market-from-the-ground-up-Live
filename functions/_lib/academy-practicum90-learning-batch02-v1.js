@@ -20,7 +20,7 @@ export const practicum90LearnBatch02=Object.freeze(rows.map(v=>{
   reviewGuide:explanation+' Common error to correct: '+error,
   transfer:'FRESH FICTIONAL TRANSFER — '+transfer,
   investigation:'FRESH FICTIONAL TRANSFER — '+transfer,
-  selfCheck,
+  selfCheck:selfCheck+' Identify the observation cutoff, units, missing source evidence, and an independently reasoned WAIT or NO TRADE alternative without hindsight or an actual broker execution.',
   reviewPrompts:Object.freeze([
    'Recalculate the exact fictional numbers and label the denominator and as-of cutoff.',
    'Identify one necessary missing source or execution condition and its consequence.',
