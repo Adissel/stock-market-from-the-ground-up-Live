@@ -91,6 +91,7 @@ async function submitBookKey(){
       await loadRedeemedBookKeys(sb);
       return;
     }
+    if(result.status==='rate_limited')return bookKeyMessage('Too many Book Key attempts. Try again in about one hour. Your existing account and books are unchanged.','error');
     if(result.status==='already_redeemed'){
       return bookKeyMessage('A Book Key for this book has already been used on this account. The same book cannot be redeemed again.','error');
     }
