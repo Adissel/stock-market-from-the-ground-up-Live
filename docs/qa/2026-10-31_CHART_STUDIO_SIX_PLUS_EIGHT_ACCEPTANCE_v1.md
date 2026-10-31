@@ -7,12 +7,30 @@
 **Google Drive document ID:** Not assigned  
 **Filename:** `docs/qa/2026-10-31_CHART_STUDIO_SIX_PLUS_EIGHT_ACCEPTANCE_v1.md`  
 **File type:** Markdown (.md)  
-**Version:** 1.1  
+**Version:** 1.2  
 **Date:** October 31, 2026  
-**Status:** ACTIVE EXECUTION — 3/14 strict full gates accepted, 9 partial, 2 open; full release NOT certified.  
+**Status:** ACTIVE EXECUTION — 3/14 strict full gates accepted, 10 partial, 1 open; full release NOT certified.  
 **Dependencies:** AGENTS.md; issues #154, #155, #156 and #158; Supabase Primary; Cloudflare Pages production; GitHub Actions; Stripe TEST.  
 **Purpose:** Execute exactly the six owner-ordered Chart Studio release priorities plus eight related technical exit gates, without relabeling fixture runs as commercial or human-browser acceptance.  
 **New file required:** Yes—separate execution register, not a replacement for previously accepted evidence.
+
+## Version 1.2 — Active CI evidence and batch disposition (October 31, 2026)
+
+**Updated owner/engineering status:** **3/14 = 21.4% strictly accepted**, **10/14 partially verified**, **1/14 open**. Equal gate, half-credit progress estimate is **(3 + 10 × 0.5)/14 = 57.1%**, NOT a release-readiness certification, developer-time estimate, or acceptance of any queued test. This supersedes the v1.1 53.6% planning estimate and preserves its historical reasoning.
+
+**New source and acceptance work:** `tests/live-chart-studio-25-case-auth-qa-v1.mjs` contains exactly 25 real member, noncharging independent API and Chromium checks. Source commits `a7052b0` and CI workflow `af24099d`; [Actions 41237482584](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237482584) has real authenticated API prerequisite **PASS**, 25-case browser job **QUEUED at last inspection**, so the 25 are **NOT YET ACCEPTED**.
+
+**C12 advanced from OPEN to PARTIAL:** `tests/test_chart_backend_outage_failclosed_v1.mjs` and V7 CI commit `761a40d8` pass [Actions 41237621772](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237621772) both jobs. Actual log: `PASS FIXTURE backend outage: no premium entitlement, no private workspace exposure, no false-positive save; all no-store`. This establishes fixture server fail-closed protection, not genuine Tiingo/Alpaca outage recovery, client retry or operator alerting.
+
+**Four time-separated GitHub CI inspections were performed:** GitHub's concurrent main pushes generated extensive queued/pending and superseded jobs. Do not misclassify cancellations or queued browser work as product acceptance. A source-test failure for old Founder checkout Free messaging was on an outdated commit; current `store.html` already contains the corrected eligible-Free-access language and the corresponding test now expects it. Cloudflare deployment history also contained failed bundles from an early Risk60 transfer lesson title-length assertion; current source corrects its title-length validation without relaxing the substantive 20-case guard, and several subsequent Cloudflare deployments succeeded. Neither unrelated stale failure is grounds to delete the owner-frozen boot-camp or Free program.
+
+**Security advisor register:** Supabase current lints: 212 INFO RLS-enabled/no-policy (many service-only intentional), 7 WARN anonymous SECURITY DEFINER EXECUTE, 90 WARN authenticated SECURITY DEFINER EXECUTE, and 1 WARN password breach-protection setting. This is **not** a declaration of breach; each callable RPC requires body/role inspection before changing privileges. `email_is_available(text)` is public and explicitly reports whether an email exists; track signup-enumeration risk. Prior confirmed private Chart Studio tables and five privileged Chart RPCs are not executable directly by anonymous or authenticated users. **C13 stays PARTIAL.**
+
+**Database reconciliation after implementation:** James_Test 29 Lumens, zero active cash upgrades, zero active manual Chart QA grants, and one original immutable Professional / PRICE_FOCUS EMA+RSI workspace. No LIVE charge, credit spend, staff grant or customer workspace mutation.
+
+**Next execution:** Await and adjudicate exactly the 25 signed-in browser assertions; if they error, repair and rerun the particular failing selectors/contracts without silently accepting them. Finish authentic staff/paid-founder roles (none currently provisioned except one OWNER; no active paid Founder cycles), real member CSV/BYO cases, final accessibility and financial event exceptions, and a frozen exact-SHA production release. Complete the owner acceptance only after external evidence passes.
+
+---
 
 ## Version 1.1 controlling owner/engineering acceptance update (October 31, 2026)
 
@@ -97,5 +115,6 @@ Do not mark all 14 gates completed merely because their source tests exist. Reta
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Formalize owner's six priorities, next eight QA gates, controlling evidence and new GitHub mobile/financial source coverage | Superseded baseline |
 | 1.1 | 2026-10-31 | Signed-in Standard/Professional Chromium and real 2-tab CAS, owner BYO/CAPTCHA scope, precise percentages and financial exception | Internal owner/engineering scoped acceptance |
+| 1.2 | 2026-10-31 | New real 25-case suite pending runner, backend outage fixture accepted, security advisors and precise 57.1% estimate | Active acceptance, no launch signoff |
 
-**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.1 · Internal engineering and QA · Not a commercial release certificate.
+**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.2 · Internal engineering and QA · Not a commercial release certificate.
