@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-TALIA-QA-025
 **Project:** The Stock Market: From the Ground Up
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-10-31
 **Status:** IMPLEMENTED — FINAL ACCEPTANCE NOT YET VERIFIED
 **Google Drive location:** Not created; GitHub Research is the controlling location
@@ -96,3 +96,16 @@ The browser checks exact `programCode`, day number, canonical title, review stat
 
 ## Revision history
 - **v1.1 — 2026-10-31:** recorded isolated OHLC pass and subsequent Talia progression failure; updated three additional Playwright fixtures, live read-only Free/Founding access policy findings and aligned SEC registered-offering source.
+
+## Version 1.2 — recorded confirmed Tutor CI totals and deployment lineage
+- **Focused Tutor Trust confirmed**, GitHub Actions first-party Tutor job `124581674319`, checked-out SHA `1edde89ab09fdf657f59ee36504f8c11748a9e47`: **PASS 39 synthetic source response cases**, **PASS 74 independent arithmetic and chronology guards**, **PASS 66 synthetic identity/entitlement assertions**, and **PASS three Academy units, 24 claim fields, five independent numerical/chronology guards**. The underlying canonical Lab evidence register is 17 units; tests are not editorial release approvals.
+- `source-and-build` and `curriculum-evidence` also passed on that source-implementation commit; concurrent main pushes cancelled other long-running workflow checks.
+- The prior sitewide rerun `124580858903` specifically proved **LAB-UX-STD-001 PASS at 390px and 1280px**, but ended FAILED in the next outdated Talia question-flow fixture. Subsequent commits `ec3887e`, `f5b930e`, `1bc2cc4` updated all three legacy Calculate/Experiment assumptions; an isolated rerun `124583297118` was submitted on the documented source-and-test commit `db799b6ec83e143756fc9ba4e39265e271b59b50`. That rerun remained in progress at this report revision and cannot be called successful.
+- Cloudflare deployment `0e46448f-fdb1-4fda-a40d-286d48b55a47` for exactly `db799b6...` was skipped when newer concurrent main revisions superseded it. The later production deployment `da44e3cd-de60-4356-81e2-551e2e8cd3f3` for `80087e200bf8c42a328a34a5daa51e05fdc606af` reported success; GitHub compare confirmed `80087e2` is **three commits ahead of** `db799b6` with **no Tutor/Academy source, OHLC browser test, or Talia research files changed** in that span. This is evidence of deployed code lineage, not live authenticated served-behavior acceptance.
+- Source-specific primary authorities for the later batch: SEC liquidity glossary; Investor.gov EDGAR form comparison; SEC Securities Act registration introduction. Original calculation examples remain visibly fictional. No third-party copyright re-ingestion was authorized.
+- **No production authentication credentials, protected answer keys, member Journal bodies, private profile fields or full market history were retrieved or changed.** Live status of AI model provider remains unverified; no charges were made or approved.
+
+**Final research-source status:** IMPLEMENTED AND FOCUSED CONTRACTS PASSED; SITEWIDE BROWSER, MEMBER-ROLE ACCEPTANCE AND FULL EDITORIAL/PROVENANCE GATES NOT YET ACCEPTED.
+
+### Revision history supplement
+- **v1.2 — 2026-10-31:** added exact test-count evidence, isolated Playwright rerun identifiers, Cloudflare deployment lineage and clarified outstanding source/identity gates.
