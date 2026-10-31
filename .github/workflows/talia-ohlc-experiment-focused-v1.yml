@@ -1,0 +1,63 @@
+name: Talia OHLC and VWAP Calculate-to-Experiment Focused Browser Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/talia-ohlc-experiment-focused-v1.yml
+      - tests/test_lab_ux_std001_browser.mjs
+      - tests/test_v33_talia_question_flow_browser.mjs
+      - tests/test_v33_reference_parity_browser.mjs
+      - tests/test_v36_candle_slider_and_worked_browser.mjs
+      - assets/js/lab-engine-v32-universal.js
+permissions:
+  contents: read
+concurrency:
+  group: talia-ohlc-focused-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  focused-browser:
+    name: OHLC/VWAP responsive Calculate gate, charts and protected Assess
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build immutable local static Pages fixture
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/index.html
+          test ! -d public/functions
+          test ! -e public/data/interactive-labs.json
+      - name: Install pinned free Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start localhost-only source fixture
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory public >/tmp/talia-ohlc-fixture.log 2>&1 &
+          for n in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null
+      - name: Verify original ten-stage LAB-UX standard at 390 and 1280px
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_lab_ux_std001_browser.mjs
+      - name: Verify question-by-question Talia through required Calculate stage
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_v33_talia_question_flow_browser.mjs
+      - name: Verify VWAP/OHLC reference parity at three widths
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_v33_reference_parity_browser.mjs
+      - name: Verify worked OHLC slider and protected teaching limits
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_v36_candle_slider_and_worked_browser.mjs
