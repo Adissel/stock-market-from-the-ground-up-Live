@@ -105,6 +105,29 @@ try{
  await page.reload({waitUntil:'domcontentloaded'});
  const second=await verify('Reload');
  assert.equal(second.workspaceRevision,first.workspaceRevision,'Saved workspace was unexpectedly mutated');
+ // Genuine signed-in member browser: keyboard and 390px phone-specific controls.
+ // This is not a screen-reader audit or human CAPTCHA form test.
+ await page.setViewportSize({width:390,height:844});
+ const picker=page.locator('.cl-chart-tier-bar select');
+ await picker.waitFor({state:'visible'});
+ await picker.focus();
+ assert.equal(await picker.evaluate(el=>document.activeElement===el),true,
+  'Advanced picker must accept keyboard focus on mobile');
+ const phone=await picker.evaluate(el=>{
+  const rect=el.getBoundingClientRect(),shell=document.getElementById('cl-chart-tier-switcher')?.getBoundingClientRect();
+  return {left:rect.left,right:rect.right,width:rect.width,shellRight:shell?.right||0,
+   screen:innerWidth,label:el.getAttribute('aria-label')};
+ });
+ assert(phone.width>=150&&phone.left>=-3&&phone.right<=phone.screen+4,
+  'Member mobile Studio picker must remain operable within viewport: '+JSON.stringify(phone));
+ assert.match(phone.label||'',/Choose a Chart Studio/);
+ const locked=await picker.locator('option[value="PROFESSIONAL"]').isDisabled();
+ assert.equal(locked,true,'Professional must remain locked on mobile Advanced');
+ assert.equal(await page.locator('select[data-cl-layout]').isDisabled(),true);
+ assert.equal(await page.locator('input[data-cl-studies]').inputValue(),'EMA, RSI',
+  'Phone resize must preserve read-only saved studies');
+ await page.setViewportSize({width:1440,height:900});
+ console.log('PASS REAL AUTHENTICATED CHROMIUM James_Test 390px keyboard focus, Advanced/Professional locks and study restoration without writes');
  assert.equal(browserWrites,0,'Browser must never mutate private workspace, payment, Lumens or orders');
  if(automaticApiWrites.length)console.log('INFO Normal site background API methods (no protected payment/workspace/Lumens routes): '+JSON.stringify([...new Set(automaticApiWrites)]));
  assert.equal(errors.length,0,'Unhandled browser errors: '+JSON.stringify(errors.slice(0,3)));
