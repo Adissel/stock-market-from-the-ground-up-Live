@@ -14,6 +14,7 @@ on:
       - '.github/workflows/crownlight-chart-studio-v7.yml'
 permissions:
   contents: read
+  issues: write
 jobs:
   private-workspace-source-contracts:
     runs-on: ubuntu-latest
@@ -65,3 +66,19 @@ jobs:
           node tests/test_crownlight_workspace_sync_v6_browser.mjs
           node tests/test_crownlight_chart_studio_v3_browser.mjs
           node tests/test_crownlight_source_to_chart_v5_browser.mjs
+      - name: Record offline Chromium result with fixture-only classification
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_JOB_STATUS: ${{ job.status }}
+        run: |
+          {
+            echo "## Advanced Chart Studio fixture-only Chromium — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "Commit: \`$GITHUB_SHA\`"
+            echo "GitHub Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Job status: **$QA_JOB_STATUS**"
+            echo "Coverage: Advanced downshift workspace restore, reload, locked Professional layout and preserved saved studies, plus existing studio browser regressions."
+            echo "Classification: **MOCKED Chromium**, not an authenticated production browser. No payment, wallet or member workspace writes."
+          } > /tmp/chart-fixture-qa.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-fixture-qa.md
