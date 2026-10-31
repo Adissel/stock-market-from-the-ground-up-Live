@@ -44,7 +44,7 @@ Specific results:
 3. Free5 Days 2, 3, 4 and 5 each PASS authentic UI save, full reload and authorized API readback; no unrelated member note overwritten.
 4. Unsigned Academy read blocked; forged caller account selectors ineffective; direct browser `SELECT` on service-private progress table rejected.
 5. A second separately authenticated QA account was not available in this workflow's encrypted `LAB_QA_SECOND_EMAIL` / `LAB_QA_SECOND_PASSWORD` settings. This gate is BLOCKED, not accepted.
-6. Existing distinct Owner/Jam es_Test Day 1 isolation acceptance is preserved as previously recorded in `docs/releases/2026-10-29_PUBLIC_ACQUISITION_AND_CONVERSION_V1.md`; it is **not** a five-day two-QA-account test.
+6. Existing distinct Owner/James_Test Day 1 isolation acceptance is preserved as previously recorded in `docs/releases/2026-10-29_PUBLIC_ACQUISITION_AND_CONVERSION_V1.md`; it is **not** a five-day two-QA-account test.
 
 **Read-only production database postflight, 2026-10-31:** one `free5` progress row for each of days 1, 2, 3, 4 and 5. No private reflections or identifiers were retrieved for this report.
 
