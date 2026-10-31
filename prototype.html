@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive">
+<title>Crownlight Prototype Center</title>
+<link rel="stylesheet" href="/assets/css/styles.css"><link rel="stylesheet" href="/assets/css/prototype-center-v1.css">
+<script src="/config.js"></script><script defer src="/assets/js/supabase-client.js"></script>
+<script defer src="/assets/js/crownlight-echarts-loader-v1.js"></script><script defer src="/assets/js/prototype-center-v1.js"></script>
+</head><body data-auth-required="true" data-route-access="staff">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="/admin.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a><nav class="navlinks" aria-label="Administration"><a href="/admin.html">Admin Control Center</a><a href="/admin-unified-preview.html">Admin Preview</a></nav></div></header>
+<main id="pt-root" class="pt-root">
+<header class="pt-head"><div><p class="pt-eyebrow">Owner / Administrator · Internal prototype environment</p><h1>Crownlight Prototype Center</h1><p>Build, test and compare classroom and platform interfaces without changing member progress or live settings.</p></div><strong class="pt-tag">FICTIONAL DATA · NOT PUBLISHED</strong></header>
+<p id="pt-gate" role="status" aria-live="polite">Verifying authenticated administrative access…</p>
+<section id="pt-app" hidden aria-label="Restricted Prototype Center">
+<div class="pt-layout">
+<aside class="pt-sidebar"><label for="pt-search">Find a workspace</label><input id="pt-search" type="search" placeholder="Search 23 workspaces" autocomplete="off"><nav id="pt-nav" aria-label="Prototype workspaces"></nav></aside>
+<section class="pt-main">
+<div class="pt-toolbar"><div><p id="pt-group" class="pt-eyebrow"></p><h2 id="pt-title" tabindex="-1">Classroom Builder</h2><p id="pt-desc"></p></div><span id="pt-role" class="pt-tag">Role verified</span></div>
+<div class="pt-controls"><label>Device preview<select id="pt-device"><option value="desktop">Desktop</option><option value="tablet">Tablet</option><option value="mobile">Mobile</option></select></label><label>ECharts experiment<select id="pt-kind"><option value="candlestick">Candlestick</option><option value="line">Line</option><option value="bar">Bar</option><option value="heatmap">Heatmap</option></select></label><button id="pt-save" type="button">Save local design</button><button id="pt-reset" type="button">Reset design</button></div>
+<div id="pt-content" class="pt-preview" data-device="desktop"></div>
+<section class="pt-card"><div class="pt-plot-head"><h3>ECharts Visualization Laboratory</h3><span>DETERMINISTIC FICTIONAL DATA</span></div><div id="pt-chart" role="img" aria-label="Illustrative fictional stock and learning chart" tabindex="0"></div><p id="pt-chart-status" role="status">Loading locally hosted ECharts…</p></section>
+<p id="pt-feedback" role="status" aria-live="polite"></p>
+</section>
+</div></section>
+</main></body></html>
