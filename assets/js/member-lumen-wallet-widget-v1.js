@@ -10,14 +10,18 @@ async function render(){
   const sb=await window.getSupabaseClient();
   const a=await sb.auth.getUser();const uid=a.data?.user?.id;
   if(!uid){mount.replaceChildren(p('p','Sign in to see your Lumens.'));return}
-  const r=await sb.rpc('groundup_question_pass_summary',{p_user_id:uid});
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session?.access_token)throw Error('Sign-in session unavailable');
+  const response=await fetch('/api/member-sparks-balance',{headers:{authorization:'Bearer '+session.access_token},cache:'no-store'});
+  if(!response.ok)throw Error('Wallet unavailable');
+  const r=await response.json();
   const b=await sb.auth.getUser();
   if(b.data?.user?.id!==uid){mount.replaceChildren(p('p','Account changed. Reload your wallet.'));return}
-  if(r.error||!r.data||!Number.isSafeInteger(r.data.available)||r.data.available<0)
+  if(r.ok!==true||!r.wallet||!Number.isSafeInteger(r.wallet.available)||r.wallet.available<0)
    throw Error('Wallet balance is unavailable');
   mount.replaceChildren();
   const title=p('h3','Crownlight Lumens');
-  const balance=p('p',r.data.available.toLocaleString()+' Lumens available');
+  const balance=p('p',r.wallet.available.toLocaleString()+' Lumens available');
   balance.className='gu-lumen-wallet-balance';
   const details=p('p','Lumens have no cash-out value. The wallet uses your existing member balance.');
   const links=p('p','');
