@@ -15,6 +15,9 @@ assert(route.includes("reviewerRole!=='INDEPENDENT_EDITOR'"),'AI-only draft stat
 assert(route.includes("proof?.actualQuestionReviewed!==true"),'Question-specific evidence is mandatory');
 assert(route.includes("proof?.correctiveFeedbackReviewed!==true"),'Wrong-option feedback-specific evidence is mandatory');
 assert(!route.includes("aiEditorialDecision"),'Publisher AI Draft metadata is not a member-facing grading authorization');
+assert(!route.includes("'aiEditorialReview'"),'AI publisher EVIDENCE-case draft metadata cannot unlock grades');
+assert(!route.includes("'aiExplanationReview'"),'AI publisher numeric explanation editing is not a protected grading approval');
+assert(route.includes('review_state=eq.reviewed'),'Official protected question sets must be reviewed, not merely edited');
 assert(migration.includes("'draft','b01_private_feedback_draft_awaiting_independent_review_v98'"));
 assert(migration.includes('feedback_count<>200'));
 assert(migration.includes('review_count<>0'));
