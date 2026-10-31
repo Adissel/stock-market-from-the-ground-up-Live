@@ -5,6 +5,7 @@ import {giftingPolicy,validateGiftAmount} from '../functions/_lib/lumen-member-g
 import {onRequest as giftRoute} from '../functions/api/member-lumen-gifts.js';
 import {onRequest as studyRoute} from '../functions/api/member-learning-quick-view.js';
 import {onRequest as activityRoute} from '../functions/api/member-lumen-activity.js';
+import {onRequest as integrityRoute} from '../functions/api/member-lumen-integrity.js';
 assert.equal(awardPolicy.enabled,false);
 assert.equal(giftingPolicy.enabled,false);
 assert.equal(rewardPreview({}).lumens,null);
@@ -14,7 +15,7 @@ assert.equal(plannedCompletionAmount('bootcamp','not-known'),null);
 for(const bad of [0,9,201,10.5,'100',null])assert.equal(validateGiftAmount(bad),false);
 for(const ok of [10,100,200])assert.equal(validateGiftAmount(ok),true);
 const get=url=>new Request('https://example.invalid'+url,{method:'GET'});
-for(const route of [giftRoute,studyRoute,activityRoute]){
+for(const route of [giftRoute,studyRoute,activityRoute,integrityRoute]){
  const x=await route({request:get('/api/test'),env:{}});
  assert.equal(x.status,401,'Private API must deny anonymous requests');
 }
@@ -46,6 +47,14 @@ assert.match(cards,/lab-card-heading/);
 assert.match(cards,/academy-program-compact-link/);
 assert.match(cards,/not yet earnable/);
 assert.match(preview,/planned_not_yet_earnable/);
+assert.match(preview,/gu_lumen_learning_rewards_v1/);
+assert.match(preview,/gu_lumen_completion_release_v1/);
+assert.match(preview,/rows.length!==429/);
+const reconcile=readFileSync('functions/api/member-lumen-integrity.js','utf8');
+assert.match(reconcile,/gu_lumen_member_wallet_integrity_v1/);
+assert.match(reconcile,/memberIdentity/);
+assert.match(sources[1],/gift-received-reversal/);
+assert.match(sources[3],/refreshIntegrity/);
 const giftUi=readFileSync('assets/js/crownlight-member-gifting-v1.js','utf8');
 assert.match(giftUi,/member-lumen-gifts/);
 assert.match(giftUi,/toggle\(false\)/);
