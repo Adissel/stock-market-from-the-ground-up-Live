@@ -1,0 +1,33 @@
+name: James_Test — Genuine Founding Grant Rollback and Commons Denial QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/test_james_founder_rollback_real_browser_v1.mjs'
+      - '.github/workflows/james-founder-rollback-browser-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: james-founder-rollback-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  browser-rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verify no protected actions or real-money calls
+        run: node --check tests/test_james_founder_rollback_real_browser_v1.mjs
+      - name: Install pinned free Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Confirm no Founder grant, paid subscription, paid Commons access or residual session
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/test_james_founder_rollback_real_browser_v1.mjs
