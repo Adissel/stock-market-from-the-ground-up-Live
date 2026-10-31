@@ -10,7 +10,7 @@ assert(!front.includes('prepareBookKeyClaim('),'Anonymous Book Key candidate loo
 assert(!front.includes('prepare_book_key_claim'),'Pre-signup code oracle call present');
 assert(!html.includes('id="signup-book-key"'),'Pre-signup Book Key input should no longer probe codes');
 assert(html.includes('settings.html'),'Post-signin redemption path must be visible');
-assert(front.includes("bookClaimToken:claimToken"),'Preserve server's legacy signup compatibility field as null');
+assert(front.includes("bookClaimToken:claimToken"),'Preserve legacy server signup compatibility field as null');
 assert(front.includes('const claimToken=null'),'No automatic Book Key claim token may be created');
 assert(settings.includes("rpc('redeem_book_key'"),'Existing signed-in customer redemption pathway must be retained');
 assert(settings.includes("result.status==='rate_limited'"),'Too-many-attempts status must have accessible UI feedback');
