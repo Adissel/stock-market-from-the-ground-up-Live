@@ -1,0 +1,31 @@
+name: Crownlight Prototype Live HTTP Privacy
+on:
+  workflow_run:
+    workflows: ["Crownlight Prototype Center V1"]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  anonymous-privacy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read-only anonymous HTTP acceptance of deployed Prototype Center
+        run: |
+          for attempt in $(seq 1 12); do
+            if node tests/prototype-live-anon-http-v3.mjs; then
+              exit 0
+            fi
+            echo "Live privacy not verified on attempt $attempt; checking deployment synchronization."
+            sleep 8
+          done
+          echo 'FAIL: latest live deployment did not meet anonymous privacy requirements.' >&2
+          exit 1
