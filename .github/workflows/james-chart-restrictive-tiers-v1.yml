@@ -15,6 +15,10 @@ jobs:
   genuine-chart-tiers:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        tier: [STANDARD, ADVANCED, PROFESSIONAL]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,6 +42,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Test actual member session, server tier locks and saved data
         env:
+          CHART_QA_EXPECTED_TIER: ${{ matrix.tier }}
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/test_chart_james_restrictive_tiers_browser_v1.mjs
