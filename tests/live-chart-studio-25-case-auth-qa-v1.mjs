@@ -162,6 +162,14 @@ try{
  // Entire file is fictional, generated inside the test, never an external feed.
  await p.locator('#sim-mode-csv').click();
  await p.locator('#sim-content').waitFor({state:'visible',timeout:25000});
+ const importDisclosure=p.locator('#cl-replay-import details.cl-workbench-import');
+ assert.equal(await importDisclosure.count(),1,'CSV import must have one user-facing disclosure');
+ if(!await importDisclosure.evaluate(el=>el.open)){
+  const summary=importDisclosure.locator('summary');
+  await summary.waitFor({state:'visible',timeout:10000});
+  await summary.click();
+ }
+ await p.locator('#sim-source').waitFor({state:'visible',timeout:10000});
  await p.locator('#sim-source').selectOption('csv');
  await p.locator('#sim-start-context').selectOption('0');
  const teachingCSV=[
