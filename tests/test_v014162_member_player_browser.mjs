@@ -225,7 +225,11 @@ try{
  const chooser=await browser.newPage();let called=false;
  await chooser.route('**/api/lab-content*',route=>{called=true;return route.abort()});
  await chooser.goto(base+'/lab-player.html',{waitUntil:'domcontentloaded'});
- await chooser.locator('#lab-player-gate').getByRole('link',{name:'Open Lab Registry'}).waitFor({timeout:12000});
+ await chooser.waitForFunction(()=>document.getElementById('player-title')?.textContent==='Choose a Lab',null,{timeout:12000});
+ assert.equal(await chooser.locator('#player-title').innerText(),'Choose a Lab');
+ assert.match(await chooser.locator('#lab-player-gate').innerText(),/Select an available learning experience/);
+ assert.equal(await chooser.locator('a[href="labs.html"]').count()>0,true,
+  'The canonical Registry remains reachable when no Lab ID is selected');
  assert.equal(called,false,'A missing ID must not call the private API');
  await chooser.close();
  console.log('PASS missing Lab ID links to the canonical Registry without an API request');
