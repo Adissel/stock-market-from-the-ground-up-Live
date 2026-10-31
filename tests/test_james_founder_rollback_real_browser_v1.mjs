@@ -50,6 +50,11 @@ try{
  const chart=await page.request.get(site+'/api/chart-tier-access',{headers:{authorization:'Bearer '+actual.jwt}});
  const chartResult=await chart.json();
  pass(chart.status()===200&&chartResult.ok===true,'Chart Studio access re-evaluated under reverted account');
+ pass(chartResult.staffChartRole==null&&chartResult.ownerChartAccess!==true,'James_Test cannot inherit staff Chart Studio privileges');
+ const withoutToken=await page.request.get(site+'/api/chart-tier-access',{timeout:25000});
+ pass(withoutToken.status()===401,'Chart entitlement refuses anonymous requests');
+ const invalidToken=await page.request.get(site+'/api/chart-tier-access',{headers:{authorization:'Bearer invalid.qa.token'},timeout:25000});
+ pass(invalidToken.status()===401,'Chart entitlement refuses invalid bearer tokens');
  pass(!/Verified active FOUNDING_(14|30|60) paid term/.test(chartResult.reason||''),
   'chart tier is not falsely attributed to a paid Founding term');
  console.log('ROLLBACK_CHART_SOURCE '+JSON.stringify({tier:chartResult.tier,reason:chartResult.reason}));
