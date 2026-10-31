@@ -50,6 +50,12 @@ try{
  let res=await academy({request:req(route),env}),data=await res.json();
  assert.equal(res.status,200);assert.equal(data.program.code,'tape10');
  assert.equal(data.betaStudy,true);assert.equal(data.curriculum.length,10);
+ const baselineCalls=calls.length;
+ res=await academy({request:new Request('https://member.example/api/bootcamp-academy',{
+  method:'POST',headers:{origin:'https://external.example',authorization:'Bearer fake-member','content-type':'application/json'},
+  body:JSON.stringify({version:'0.14.0.168',program:'tape10',action:'enroll',day:0})}),env});
+ assert.equal(res.status,403,'Cross-origin Beta progress write denied');
+ assert.equal(calls.length,baselineCalls,'Cross-origin Beta write must fail before provider reads');
  let write=await academy({request:req('/api/bootcamp-academy','POST',
   {version:'0.14.0.168',program:'tape10',action:'enroll',day:0}),env});
  assert.equal(write.status,200);assert.equal((await write.json()).enrolled,true);
