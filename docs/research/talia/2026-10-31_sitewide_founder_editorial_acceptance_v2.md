@@ -4,7 +4,7 @@
 |---|---|
 | Project | The Stock Market: From the Ground Up |
 | Document ID | SMFGU-TALIA-REVIEW-027 |
-| Version / date | 2.1 / October 31, 2026 |
+| Version / date | 2.2 / October 31, 2026 |
 | Status | PARTIALLY IMPLEMENTED — FULL ACCEPTANCE BLOCKED |
 | Filename / type | `2026-10-31_sitewide_founder_editorial_acceptance_v2.md` / Markdown |
 | Controlling location | GitHub `main` → `docs/research/talia/` |
@@ -88,3 +88,15 @@ The original fictional transfer cases remain non-historical and unsolved. The ex
 
 ### Revision history supplement
 - **v2.1 — October 31, 2026:** added four narrowly validated SEC secondary sources and corresponding API/Tutor source-link protections; full editorial and production acceptance remain pending.
+
+## Version 2.2 — CI failure corrective action and verified Founding-account absence
+
+- **Tutor CI defect found, not suppressed:** the Tutor Trust job on source commit `d49e563ae220303abb415f1331a8ad4fa9d9ccd1` (GitHub Actions run `41228738238`, job `124618271699`) failed because `tests/test_talia_20sources_claim_evaluation_v1.mjs` still asserted the *legacy* `row.transfer` appeared after the four source-reviewed entries correctly switched to `row.freshTransfer`. It was a test-contract mismatch, not evidence of a protected-data leak. Commit `40a164d40286883d208ccb6c6e7c1dff83a45c0b` updated the assertion to accept the verified unsolved transfer whenever present, while keeping the existing original transfer for the other thirteen source records. The corrected test requires a fresh successful Tutor Trust run; the earlier failing run is never represented as passing.
+- The independent technical packet test `tests/test_talia_four_lesson_editorial_packet_v1.mjs` and the malformed secondary-source test are committed under the Market Tutor Trust workflow. Their existence is not independent editorial approval.
+- **Live QA-identity inventory (read-only aggregate only):** no production `auth.users` rows currently have the existing owner-only QA markers `smfgu_qa_only=true` together with `qa_target_plan` equal to `FOUNDING_14`, `FOUNDING_30` or `FOUNDING_60`. The earlier verified **zero active grants and zero active subscriptions for all three plans** remains controlling. This blocks genuine Founding plan browser acceptance; the new manual-only workflow cannot honestly pass until separate valid credentials and actual RLS-visible plan evidence exist. No user identities, emails or credentials were exposed.
+- **Isolated browser acceptance attempt:** GitHub Actions run `41228738256` was retried as attempt 2 for the exact code commit `d49e563ae220303abb415f1331a8ad4fa9d9ccd1`. It bypasses push-cancellation by existing release-workflow concurrency policy, without bypassing any browser test. At this documentation revision it remained **in progress**; no full-site success is claimed. Earlier full-site run `41225322722` remains the only completed pass established in this handoff, at its earlier commit.
+- **Founding QA is a noncommercial privilege test, not an actual paid subscription acceptance.** Even after test identities are provisioned, a paid-cycle/webhook/cancellation test must retain its separate Stripe TEST controls; no new live charges are authorized.
+- **Reviewer independence:** every submitted four-lesson record continues with `independentReviewer=null` and `independentEditorialDecision=PENDING`. A different named reviewer must sign a source-specific decision; the author's algorithmic evaluation cannot self-certify.
+
+### Revision history supplement
+- **v2.2 — October 31, 2026:** recorded actual Tutor CI failure and correction, absence of existing Founding QA profiles, isolated sitewide run status, and unwaived independent approval requirement.
