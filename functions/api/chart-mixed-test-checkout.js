@@ -65,6 +65,16 @@ export async function onRequestPost({request,env}){
    const order=orders?.[0];
    if(!order||order.status!=='bound'||!validId(order.stripe_session_id,'cs_test'))return respond({ok:false,error:'NOT_CANCELABLE'},409);
    const session=await stripe(env,'checkout/sessions/'+encodeURIComponent(order.stripe_session_id));
+   // A caller's order alone is insufficient to expire a provider payment.
+   // Verify TEST mode, unpaid state and provider/session ownership before mutation.
+   const metadata=session.metadata||{};
+   if(session.id!==order.stripe_session_id||session.livemode!==false||
+      session.mode!=='payment'||session.client_reference_id!==order.upgrade_id||
+      metadata.chart_mixed_test_id!==order.upgrade_id||
+      metadata.chart_mixed_test_user!==identity.userId||
+      metadata.chart_mixed_test_sku!==order.sku||
+      session.payment_status==='paid'||session.payment_intent)
+    return respond({ok:false,error:'MIXED_CHECKOUT_PROVIDER_RECONCILIATION_REQUIRED'},409);
    if(session.status==='open'){
     const expired=await stripe(env,'checkout/sessions/'+encodeURIComponent(session.id)+'/expire',{method:'POST'});
     if(expired.status!=='expired')throw Error('STRIPE_EXPIRY_UNVERIFIED');
