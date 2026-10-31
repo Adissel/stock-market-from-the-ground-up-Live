@@ -1,7 +1,11 @@
 /* Crownlight member gifting form. No balance writes unless the verified
  * legal/security release switch is active on the server.
  */
-(()=>{'use strict';const root=document.querySelector('[data-member-lumen-gifting]');if(!root)return;
+(()=>{'use strict';let root=document.querySelector('[data-member-lumen-gifting]');
+if(!root){const history=document.querySelector('[data-member-lumen-history]');
+ if(!history)return;root=document.createElement('section');root.dataset.memberLumenGifting='1';
+ root.className='wrap';root.setAttribute('aria-label','Member-to-member Lumen gifts');
+ history.after(root)}
 const el=(tag,text)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;return x};
 const msg=el('p','Checking member gifting availability…');msg.setAttribute('role','status');
 const h=el('h3','Send Lumens to another member');
