@@ -77,7 +77,9 @@ export async function onRequestPost({request,env}){
     return respond({ok:false,error:'MIXED_CHECKOUT_PROVIDER_RECONCILIATION_REQUIRED'},409);
    if(session.status==='open'){
     const expired=await stripe(env,'checkout/sessions/'+encodeURIComponent(session.id)+'/expire',{method:'POST'});
-    if(expired.status!=='expired')throw Error('STRIPE_EXPIRY_UNVERIFIED');
+    if(expired.id!==session.id||expired.livemode!==false||expired.status!=='expired'||
+       expired.payment_status==='paid'||expired.payment_intent)
+     throw Error('STRIPE_EXPIRY_UNVERIFIED');
    }else if(session.status!=='expired')return respond({ok:false,error:'PAYMENT_RECONCILIATION_REQUIRED'},409);
    // Signed Stripe session.expired webhook releases the reserved credits.
    return respond({ok:true,canceled:true,releasePendingWebhook:true});
