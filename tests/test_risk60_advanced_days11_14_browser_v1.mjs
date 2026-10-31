@@ -44,7 +44,7 @@ try{
    await page.locator('#academy-days .gu-bc-day').nth(index).click();
    const host=page.locator('#academy-guided-host .academy-guided-ten');
    await host.waitFor({state:'visible'});
-   assert.match(await host.innerText(),/45-minute suggested practice plan/,
+   assert.match(await host.innerText(),/Suggested active-learning itinerary\s*[—–-]\s*45 minutes\s*\(self-paced\)/,
     'Full-depth original Risk60 days must provide the 45-minute itinerary');
    const sizing=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
    assert(sizing<=4,'No horizontal body overflow at '+width+'px, Risk60 D'+(index+1));
