@@ -55,7 +55,7 @@ begin
     return jsonb_build_object('status','invalid');
   end if;
   select * into key_row from public.book_keys
-   where code_hash=encode(digest(normalized,'sha256'),'hex')
+   where code_hash=encode(extensions.digest(normalized,'sha256'),'hex')
      and is_active=true and book_code is not null
      and (expires_at is null or expires_at>now())
      and (max_redemptions is null or redemption_count < max_redemptions)
