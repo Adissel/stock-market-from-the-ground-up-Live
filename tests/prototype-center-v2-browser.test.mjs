@@ -1,6 +1,9 @@
 /* Synthetic Prototype Center Chromium browser acceptance; no LIVE sign-ins or payment calls. */
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
+import {onRequest as accessLauncher} from '../functions/_middleware.js';
+import {readFileSync} from 'node:fs';
+const protectedHtml=readFileSync('prototype.html','utf8');
 const BASE=process.env.PT_BROWSER_BASE||'http://127.0.0.1:8768';
 const fakeCases=[
  {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP calculation',type:'FICTIONAL',objective:'Calculate volume-weighted average price.',note:'Synthetic example only.',candles:[
@@ -20,6 +23,15 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 async function session(role,viewport){
  let currentRole=role;
  const context=await browser.newContext({viewport,serviceWorkers:'block'});
+ await context.route('**/prototype.html',async route=>{
+  const response=await accessLauncher({request:new Request(route.request().url()),env:{},next:async()=>{throw Error('Public static prototype must not be returned')}});
+  await route.fulfill({status:response.status,contentType:'text/html',headers:Object.fromEntries(response.headers),body:await response.text()});
+ });
+ await context.route('**/api/prototype-document',route=>{
+  if(currentRole==='OWNER'||currentRole==='ADMIN')
+   return route.fulfill({status:200,contentType:'text/html',body:protectedHtml,headers:{'cache-control':'private, no-store'}});
+  return route.fulfill({status:403,contentType:'application/json',body:JSON.stringify({ok:false,error:'Denied'})});
+ });
  await context.route('**/assets/js/supabase-client.js',route=>route.fulfill({status:200,contentType:'application/javascript',body:`
 window.getSupabaseClient=async()=>({auth:{
  getSession:async()=>({data:{session:{access_token:'qa-test-token',user:{id:'qa-user'}}}}),
@@ -35,8 +47,8 @@ try{
  for(const role of ['MODERATOR','SHOWCASE_VIEWER','FREE']){
   const {context,page}=await session(role,{width:1100,height:750});
   await page.goto(BASE+'/prototype.html',{waitUntil:'domcontentloaded'});
-  await page.waitForFunction(()=>document.getElementById('pt-gate')?.textContent?.includes('Owner or authorized Administrator'),{timeout:12000});
-  assert.equal(await page.locator('#pt-app').isVisible(),false,role+' must not see workbench');
+  await page.waitForFunction(()=>document.getElementById('prototype-access-status')?.textContent?.includes('access denied'),null,{timeout:12000});
+  assert.equal(await page.locator('#pt-app').count(),0,role+' must not receive protected application HTML');
   await context.close();
  }
  for(const [role,viewport] of [['OWNER',{width:1280,height:900}],['ADMIN',{width:768,height:900}],['OWNER',{width:390,height:844}]]){
