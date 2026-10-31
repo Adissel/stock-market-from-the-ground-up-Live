@@ -1,0 +1,37 @@
+name: Crownlight Member Wallet, Progress and Gifting Safety V1
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/crownlight-member-lumens-v1.yml'
+      - 'tests/test_member_lumen_wallet_progress_gifts_v1.mjs'
+      - 'functions/api/member-lumen-gifts.js'
+      - 'functions/api/member-lumen-activity.js'
+      - 'functions/api/member-learning-quick-view.js'
+      - 'functions/_lib/lumen-learning-award-policy-v1.js'
+      - 'functions/_lib/lumen-member-gifting-policy-v1.js'
+      - 'assets/js/crownlight-member-quickview-v1.js'
+      - 'assets/js/site.js'
+      - 'assets/js/navigation.js'
+      - 'dashboard.html'
+permissions:
+  contents: read
+jobs:
+  verify-private-member-systems:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and disabled release controls
+        run: |
+          node --check assets/js/crownlight-member-quickview-v1.js
+          node --check functions/api/member-lumen-gifts.js
+          node --check functions/api/member-lumen-activity.js
+          node --check functions/api/member-learning-quick-view.js
+          node tests/test_member_lumen_wallet_progress_gifts_v1.mjs
