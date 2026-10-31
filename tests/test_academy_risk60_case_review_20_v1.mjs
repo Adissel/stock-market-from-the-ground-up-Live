@@ -14,8 +14,14 @@ for(let i=0;i<20;i++){
  assert.equal(day.day,i+1);
  assert(day.lesson&&day.lesson.explanation===row.explanation&&day.lesson.workedExample===row.workedExample&&day.lesson.transfer===row.transfer,
   'Retain authored Risk60 case after additive advanced-stage fields');
- if(i>=2)assert.strictEqual(day.lesson,row);
- if(i<2)assert.equal(day.lesson.formativeQuestions.length,12);
+ if(day.sourceStatus==='original_risk60_advanced_package_owner_beta_review_20261031'){
+  assert.equal(day.lesson.formativeQuestions.length,12,
+   'Upgraded authored day must retain twelve distinct guided prompts');
+  assert.equal(day.lesson.advancedPracticums.length,1,
+   'Upgraded authored day must retain one distinct advanced practicum');
+ }else{
+  assert.strictEqual(day.lesson,row,'Unchanged case must preserve exact source reference');
+ }
  assert.equal(day.officiallyGraded,false);
  assert.equal(day.masteryAwarded,false);
  assert.equal(row.topicSourceDay,sourceDays[i]);
