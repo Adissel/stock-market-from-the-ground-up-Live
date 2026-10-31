@@ -17,3 +17,10 @@
 #pt-root .pt-classroom[data-density="Compact"] .pt-tile{padding:.45rem}
 #pt-root .pt-classroom[data-density="Compact"] .pt-tile p{line-height:1.3}
 @media(max-width:700px){#pt-root .pt-classroom,#pt-root .pt-classroom[data-layout="Reading-first"],#pt-root .pt-classroom[data-layout="Chart-first"]{grid-template-columns:1fr}#pt-root .pt-classroom .pt-tile,#pt-root .pt-classroom[data-layout="Chart-first"] .pt-tile:last-child,#pt-root .pt-classroom[data-tutor="Bottom"] .pt-tile:nth-child(2){grid-column:auto;grid-row:auto}}
+
+/* V2 responsive instructional table: contain wide numerical evidence within its panel. */
+#pt-root .pt-card,#pt-root .pt-preview,#pt-root .pt-main,#pt-root .pt-layout{min-width:0;max-width:100%}
+#pt-root .pt-table-scroll{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-gutter:stable}
+#pt-root .pt-table-scroll .pt-table{min-width:650px;width:max-content}
+#pt-root .pt-table-scroll:focus-visible{outline:3px solid #f6d37d;outline-offset:2px}
+#pt-root .pt-card{overflow-wrap:anywhere}
