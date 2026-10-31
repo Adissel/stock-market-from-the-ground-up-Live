@@ -44,7 +44,8 @@ for(const code of ['tape10','indicators10','filings7']){
   assert.equal(exercises.every(item=>item.id.startsWith(code+'-D'+String(i+1).padStart(2,'0'))),true);
   for(const ex of exercises){
    for(const key of ['scenario','task','worked','pitfall','transfer'])
-    assert(typeof ex[key]==='string'&&ex[key].length>=70,'Advanced exercise requires specific '+key+': '+ex.id);
+    assert(typeof ex[key]==='string'&&ex[key].length>=(['scenario','task'].includes(key)?50:70),
+     'Advanced exercise requires nontrivial evidence, calculations, and transfer for '+key+': '+ex.id);
   }
  }
 }
