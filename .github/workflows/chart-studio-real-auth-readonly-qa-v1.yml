@@ -69,8 +69,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify real member browser script parses
-        run: node --check tests/live-chart-studio-browser-readonly-qa-v1.mjs
+      - name: Verify production browser and entitlement sources parse
+        run: |
+          node --check tests/live-chart-studio-browser-readonly-qa-v1.mjs
+          node --check functions/api/chart-workspace.js
+          node --check assets/js/crownlight-workspace-v2.js
       - name: Install no-cost Chromium browser
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
@@ -93,7 +96,7 @@ jobs:
             echo "Commit: \`$GITHUB_SHA\`"
             echo "Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo "Real Supabase password-grant session bootstrapped in Chromium: **$QA_RESULT**"
-            echo "Scope: Advanced Studio, real fictional KLine pane, Pro lock, saved EMA/RSI and reload; read-only, no charges or Lumen usage."
+            echo "Scope: Advanced Studio, real fictional KLine pane, Pro lock, saved EMA/RSI and reload; no protected workspace/payment/Lumen writes; no charges or Lumen usage."
             echo "This does not test the interactive CAPTCHA sign-in page or the full three-tier role matrix."
           } > /tmp/chart-auth-chromium-qa.md
           gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-auth-chromium-qa.md
