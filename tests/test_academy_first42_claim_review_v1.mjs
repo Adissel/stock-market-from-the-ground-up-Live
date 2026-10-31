@@ -31,6 +31,21 @@ assert.equal(master.length,671);
 assert.equal(claims.length,42);
 assert.equal(designs.length,22);
 assert.equal(new Set(claims.map(c=>c.day_key)).size,42);
+const contextOnly={
+ 'watchlist7:3':'GENERAL_SEC_RESEARCH_CONTEXT_ONLY_EVENT_SOURCE_REQUIRED',
+ 'scanners10:7':'GENERAL_SEC_RESEARCH_CONTEXT_ONLY_EVENT_SOURCE_REQUIRED',
+ 'foundations30:9':'TECHNICAL_BACKGROUND_ONLY_LEVEL_RULE_REVIEW_REQUIRED',
+ 'foundations30:14':'TECHNICAL_BACKGROUND_ONLY_FEED_FINALITY_REVIEW_REQUIRED'
+};
+for(const [day,status] of Object.entries(contextOnly)){
+ const row=claims.find(x=>x.day_key===day);
+ assert(row&&row.narrow_review_result===status,'Do not present topical source as exact factual case proof: '+day);
+ assert(row.remaining_source_gap.length>100,'Source limitation must be documented: '+day);
+ assert.equal(row.editorial_decision,'NOT_ACCEPTED');
+}
+assert.equal(claims.filter(x=>/CONTEXT_ONLY|TECHNICAL_BACKGROUND_ONLY/.test(x.narrow_review_result)).length,4,
+ 'Every previously identified source-to-claim mismatch must remain unapproved');
+
 const byQA=new Map(qa.map(d=>[d.program_code+':'+d.program_day,d]));
 const byMaster=new Map(master.filter(d=>d.unit_type==='academy_or_free').map(d=>[d.unit_id,d]));
 const classes={'PUBLIC_REGULATOR_OR_EXCHANGE':29,'INDEPENDENT_TECHNICAL_REFERENCE':7,'AUTHOR_DEFINED_METHOD_OR_ARITHMETIC':6};
