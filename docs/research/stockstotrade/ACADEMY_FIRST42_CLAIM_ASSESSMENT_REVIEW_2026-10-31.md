@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.0
+**Version:** 1.1
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -39,6 +39,22 @@ The source work is recorded in `ACADEMY_FIRST42_NARROW_CLAIM_EVIDENCE_2026-10-31
 - Version 96 has 419 draft rows in the queried snapshot, none reviewer-attributed. Do not confuse the broader Lab draft corpus with accepted B01 instruction.
 - `competency_cases_v135`: **54** cases, none active and none reviewer-attributed. `gu_academy_protected_cases_v1`: **54** routes, none approved. These are for the separately feature-flagged tape10/indicators10/filings7 courses, **not the original 22**.
 - No live data changed in this review. No confidential assessment content or member information was retrieved. This query does not establish authenticated member testing or assess question-answer correctness.
+
+## Post-write verified test and protected B01 structural evidence
+
+The targeted [Academy First-42 Claim Review Boundaries CI run](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216677030) completed **successfully**. It verified:
+- 42 selected claim records and 22 distinct *unapproved* assessment-review specifications matched to the canonical day keys.
+- 252-row and 671-row controlling register lengths and unchanged unit-level editorial/assessment denials.
+- 19 arithmetic expressions checked for the 17 newer Watchlist/Scanners authored days; 17 arithmetic expressions checked for the first 20 Foundations days. These tests do not certify every freeform worked answer, transfer or regulatory assertion.
+- Separate targeted [Foundations Days 1–20 CI](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216057618) passed its source and canonical curriculum checks after twenty formative questions were individualized.
+
+Additional **read-only** private B01 v97 assessment structure queries verified:
+- 20 sets, six questions each, totaling 120 question prompts, all structurally present and prompt-unique (by digest, without exporting text).
+- 100 choice-type questions with three options each, and 20 number-type questions.
+- 120 question identifiers have corresponding private answer-key entries; zero absent stems or short explanations under the tested minimum.
+- All twenty sets are reviewer-attributed and frozen, **but** same review timestamp and `source_status` indicating pending individual review remain unresolved. Correct answers, arithmetic tolerances, distractor validity, reviewer independence and permissioned live member acceptance have **not** been audited here.
+
+**Implementation commits:** `1d026e8ac10ae3d9a0715330acb8ec136d28c546` added first-20 individualized formative questions; `f1f0e4d1f7e0695bfc12613ab66dd4585afbc4ed` created selected-claim annex; `416db67adf36fb554235a471a2a324137dd34189` created private assessment design specification; `f873b496f204897e2272c60df8ac718615f4fbca` reconciled 42 rows in the 252 QA register; `5b6a7320f6dc4a9231fcfc7d4229f8c07ccba0ee` added successful CI entry point.
 
 ## Subject-specific source issues that still need independent review
 
@@ -81,5 +97,6 @@ The reference statements were checked against those accessible sources on Octobe
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Selected source-claim crosswalk for 42 days; 22 non-secret protected assessment design requirements; read-only database metadata reconciliation | Research evidence only; no final editorial, independent case or production release approval |
+| 1.1 | 2026-10-31 | Recorded passing source CI and B01 120-question private structural audit; flagged outstanding reviewer independence and per-claim gaps | Targeted technical evidence verified; full release and editorial acceptance open |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
