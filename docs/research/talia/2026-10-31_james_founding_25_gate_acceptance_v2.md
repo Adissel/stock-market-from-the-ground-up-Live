@@ -6,7 +6,7 @@
 | Document ID | SMFGU-F600-JAMES-QA-029 |
 | Filename | 2026-10-31_james_founding_25_gate_acceptance_v2.md |
 | File type | Markdown (.md) |
-| Version / date | 2.1 / October 31, 2026 |
+| Version / date | 2.2 / October 31, 2026 |
 | Status | CONDITIONAL, PARTIALLY ACCEPTED — NOT FULL RELEASE APPROVAL |
 | Owner | Owner-delegated product administration and QA |
 | GitHub location | `docs/research/talia/`, `main` |
@@ -75,6 +75,30 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 
 Complete negative-access and two-account isolation (Gates 21–22), attribute Chart tier correctly (Gates 18–20), test paid-only privileges and TEST payment lifecycle (Gate 23), obtain final exact-SHA GitHub/Cloudflare acceptance (Gate 24), and close independently reviewed instructional records (Gate 25).
 
+## October 31 continuation: security, chart source, curriculum and CI
+
+**Progress remains 17 of 25 gates = 68%.** Work performed below is source-verified or in-queue, but no new mandatory gate is accepted without the corresponding completed evidence.
+
+### Source and audit changes
+- Chart source regression `tests/test_founder_chart_tier_paid_source_boundaries_v1.mjs`, connected to `.github/workflows/founding600-source-gate-v014172.yml`. Checks Founder 14/30/60 tiers, nonrevoked real paid cycles, refund reversal, bounded QA-only grants, James_Test restrictive ceiling and no paid Founder impersonation. It is a code/source guard, **not** a signed-in Professional paid-plan test.
+- Production Supabase `pg_class` and `has_table_privilege` review: RLS enabled on `user_plan_grants`, `gu_founder_members_v014173`, `gu_founder_paid_cycles_v014173`, `crownlight_chart_qa_grants_v1`, `crownlight_chart_restrictive_qa_v1`. `anon` has no SELECT privilege and `authenticated` has no direct INSERT, UPDATE or DELETE privilege on each inspected table. This verifies table boundaries, not the entire RPC authorization chain.
+- `tests/test_james_founder_rollback_real_browser_v1.mjs` expanded with unauthorized/invalid-bearer Chart API and nonstaff role-negative checks. The prior genuine rollback run 41236744222 passed 10/10; the expanded run must pass before considering additional security acceptance.
+- Genuine distinct-member test workflow `Chart Studio Genuine Two-Account Isolation QA` [41237915385](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237915385) triggered as a noncharging no-push-cancel isolated run. Outcome pending at this record; a missing second GoTrue login **is a blocker**, not a pass.
+- Founding Membership Stripe TEST Signed Lifecycle V2 [41237946062](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237946062) triggered as an isolated source/TEST-fixture workflow. Covers signed paid TEST, failure, cancellation, refund, signature rejection, replay and migrations without LIVE charges. Outcome pending at this record.
+- An obsolete Founding page claim that Free accounts require a book purchase was corrected to match current public Free registration and separately verified book entitlements. Its regression test was corrected; commercial Founder enrollment and numbered seat reservation remain distinct.
+- Three Academy CI assertions corrected for ongoing cumulative lesson authoring: source fields, frozen 22-day baseline, 247-row continuity and zero independent grade approvals remain controlling. Exact authoring totals are no longer incorrectly frozen to earlier batch sizes; affected CI reruns pending.
+
+### First-party editorial decisions — protected publication not approved
+`SMFGU-TALIA-REVIEW-030` at `docs/research/talia/2026-10-31_four_lesson_owner_technical_editorial_review_v1.md` records owner-delegated first-party technical review for four fictional ungraded Labs. Independently recomputed bid/ask spread and midpoint, spread-width/liquidity caveat, market-order execution uncertainty and limit-price/partial-fill constraints; confirmed official SEC general source pages and the 2026-updated order-type bulletin. All four **remain independently editorial PENDING** in controlling `SMFGU-TALIA-REVIEW-027A`. No answer keys, mastery or independent reviewer identity were invented.
+
+### Next acceptance actions
+1. Obtain completed, successful expanded James_Test negative-browser run before security signoff.
+2. Obtain completed true two-distinct-account production privacy isolation test.
+3. Obtain signed Stripe TEST-only lifecycle test success and inspect hidden lifecycle failures.
+4. Verify Chart Standard, Advanced and Professional using entitled sources and separate existing Sparks passes without changing owned commercial pass balances. Current per-plan source remains unverified.
+5. Finish whole-site CI on a single stable exact SHA; confirm matching Cloudflare production deployment.
+6. Close owner-reviewed editorial quality while recording all independently unreviewed units, real historical evidence and protected assessment holds accurately.
+
 ## Document history
 
 | Version | Date | Change |
@@ -82,5 +106,6 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 | 1.0 predecessor | October 31, 2026 | `SMFGU-F600-JAMES-QA-028` original 16-step tracker, 14-Day pass, 30-Day staged |
 | 2.0 | October 31, 2026 | 25 verified-evidence gates; all three Founding plans 16/16; grants revoked; separated Chart attribution, rollback, paid-only benefits and independent editorial work |
 | 2.1 | October 31, 2026 | Real post-revocation production Chromium run 41236744222 passed 10/10 including paid Commons denial, restoring baseline and closing Gates 16–17; 17/25 (68%) |
+| 2.2 | October 31, 2026 | Logged expanded negative-auth tests, isolated two-member and TEST payment workflows, RLS audit, Chart paid-vs-QA source regression, CI corrections and four first-party technical editorial dispositions; no false gate promotion |
 
 **Footer — Controlled internal QA evidence:** This document is a product-owner acceptance register, not legal, tax or investment advice; it does not certify a commercial paying Founder or an independent editorial review.
