@@ -118,7 +118,12 @@ try{
    await page.locator('#academy-days button').nth(i).click();
    const dayTitle=(await page.locator('#academy-day-title').innerText()).trim();
    assert(dayTitle.length>5,program+' Day '+(i+1)+' title missing');
-   assert((await page.locator('#academy-objective').innerText()).trim().length>20);
+   // The goals are intentionally inside a collapsed learner-controlled
+   // briefing; expand it before asserting *visible* rendered instruction.
+   const briefing=page.locator('details.academy-classroom-briefing');
+   if(!(await briefing.evaluate(el=>el.open)))await briefing.locator('summary').click();
+   assert((await page.locator('#academy-objective').innerText()).trim().length>20,
+    'Missing visible objective after expanding lesson briefing '+program+':'+(i+1));
    const lesson=await page.locator('#academy-original-instruction').innerText();
    assert(lesson.length>120,'Missing day-specific source lesson '+program+':'+(i+1));
    assert(!/answer_key|private_rubric|grading_secret/i.test(lesson),
