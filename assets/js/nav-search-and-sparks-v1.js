@@ -1,4 +1,4 @@
-/* Accessible first-party search and exclusive Sparks/Profile popovers.
+/* Accessible first-party search and exclusive Lumens/Profile popovers.
  * No paid dependencies, browser storage, or external search providers.
  */
 (()=>{'use strict';
@@ -17,7 +17,7 @@ const pages=[
  ['Trading Journal','/journal.html','Document and review trades'],
  ['Market Simulator','/simulator.html','Fictional market practice'],
  ['Tools','/tools.html','Market research and education tools'],
- ['Crownlight Sparks','/store-sparks.html','Sparks balance bundles and wallet'],
+ ['Crownlight Lumens','/store-sparks.html','Lumens balance, rewards and wallet'],
  ['Help and Support','/dashboard.html?tab=support','Member support and receipts'],
  ['Account Settings','/dashboard.html?tab=settings','Preferences and settings'],
  ['Advertise','/advertise.html','Sponsorships and advertising information']
