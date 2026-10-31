@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-TALIA-FREE-026
 **Project:** THE STOCK MARKET: FROM THE GROUND UP
-**Version:** 1.0
+**Version:** 1.1
 **Owner:** Project Owner; implementation delegated to ChatGPT
 **Created / verified:** 2026-10-31
 **Status:** FREE SOURCE-ONLY TUTOR ACCEPTED FOR TESTED PRODUCTION ACCOUNT; FULL-SITE / FOUNDER / EDITORIAL ACCEPTANCE OPEN
@@ -16,7 +16,7 @@
 **Supersedes finding:** Free-plan Market Tutor authorization discrepancy documented in SMFGU-TALIA-QA-025 v1.2; the discrepancy is now resolved for the verified production Free QA account. Other QA-025 blockers are not automatically accepted.
 
 ## Approved scope and controlling decision
-Market Tutor's original source-based explanations, unguided/ung raded concept questions and original approved public-source citations are an eligible Free-member learning benefit. Instructional quality must not change by membership tier once teaching is accessible. This does NOT grant arbitrary paid-only tools, activate optional paid inference, remove quotas, convert resources to proprietary historical data, grant live-market execution, or change membership or Stripe prices.
+Market Tutor's original source-based explanations, ungraded concept questions and original approved public-source citations are an eligible Free-member learning benefit. Instructional quality must not change by membership tier once teaching is accessible. This does NOT grant arbitrary paid-only tools, activate optional paid inference, remove quotas, convert resources to proprietary historical data, grant live-market execution, or change membership or Stripe prices.
 
 ## Root cause
 - Production table `public.gu_product_access_config_v1` had `MARKET_TUTOR.free_access=true` and `policy_mode='legacy'`.
@@ -82,3 +82,14 @@ The successful run logged **16 passed acceptance checks**. The first QA automati
 | 1.0 | 2026-10-31 | Applied source-only Free entitlement, verified live SQL, fixed composer readiness and Store description, documented 16-pass genuine Free-member QA and remaining gates | Free Tutor accepted, other scope pending |
 
 **No new Google Drive file is required until a Drive-controlled version is explicitly adopted.**
+
+## Version 1.1 — Responsive regression and claim-specific source improvement
+- Focused GitHub Actions `41219701385` on commit `739baaea7f1bf94c8dd5d85318b96b10233040af` **completed successfully**. All four browser tests passed: `test_lab_ux_std001_browser.mjs` (responsive chart-first/predict/Assess), `test_v33_talia_question_flow_browser.mjs` (ten-stage Talia teaching), `test_v33_reference_parity_browser.mjs` (OHLC/VWAP reference values), and `test_v36_candle_slider_and_worked_browser.mjs` (illustrated candle and responsive slider). This clears the specific historical Calculate→Experiment test regression at local source-fixture scope; the complete sitewide browser suite remains a separate acceptance.
+- Research correction `11bbf2a4cee3067614109904635498df37f1110d`: Lab `DT-C10-L03` now cites the exact SEC Investor.gov `https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price` rather than a broad glossary-index page. The SEC page defines bid, ask and spread; midpoint/percent-spread examples are *original mathematical derivations*, independently checked rather than externally certified by a source URL.
+- Independent arithmetic source guard `tests/test_talia_independent_calculations_v1.mjs` updated at `0a143b469a2daa1e5b57e2a81b9c43a623e7ae7e`; source records remain **17 individually ungraded claims** and three day-specific Academy lessons remain independently editorial-review pending.
+- No protected question, market history, paid AI, pricing, or member billing rule was altered.
+
+### Revision history supplement
+| Version | Date | Change | Status |
+|---|---|---|---|
+| 1.1 | 2026-10-31 | Confirmed four focused responsive browser regressions pass and improved one exact SEC quote citation | Free Tutor accepted; complete sitewide / Founder / independent editorial still open |
