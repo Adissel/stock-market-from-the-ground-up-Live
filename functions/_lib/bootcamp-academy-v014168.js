@@ -9,6 +9,7 @@ import {freeFoundationsV1} from './free-foundations-v1.js';
 import {phaseAFreeFoundations} from './free-foundations-phase-a-v1.js';
 import {threeCampDefinitions} from './academy-three-camps-v1.js';
 import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
+import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -290,6 +291,10 @@ function dayFor(d,i){
   sourceStatus:d.code==='truth5'?'original_authored_truth5_editorial_review_pending':
    first22DayLessons[d.code]?.[i]?'original_day_specific_ungraded_independent_review_pending':
    'approved_parent_30_day_topic_with_program_specific_original_exercise',
+  ...(d.code==='charts45'&&chartCaseBySourcePhase[sourceDay]?.[Math.floor(i/d.source.length)]?{
+   lesson:chartCaseBySourcePhase[sourceDay][Math.floor(i/d.source.length)],
+   sourceStatus:'original_chart_day_specific_ungraded_editorial_review_pending'
+  }:{}),
   ...(d.code==='truth5'?{
    lesson:truth5Lessons[i],
    approvedSupplement:approvedB01Supplements[day]||null,
