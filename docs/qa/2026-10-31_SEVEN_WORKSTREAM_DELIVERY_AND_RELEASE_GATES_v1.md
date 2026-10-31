@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-QA-SEVEN-GATES-20261031-001  
 **Project:** The Stock Market: From the Ground Up — integrated website / learning / Chart Studio / security  
-**Version:** 1.2  
+**Version:** 1.3  
 **Status:** PARTIAL IMPLEMENTATION AND VERIFIED SUBGATES; FINAL RELEASE NOT ACCEPTED  
 **Created / reviewed:** 2026-10-31, America/Chicago  
 **Authoritative location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, branch `main`  
@@ -10,6 +10,14 @@
 **Google Drive folder / ID:** Not created / not assigned. New GitHub-controlled evidence file required for consolidation; no Drive duplicate is asserted.  
 **Purpose:** Preserve exact achieved evidence while executing the Owner's seven-workstream request. Do not conflate implemented source, cloud deployment, real auth, independent human editorial acceptance, commercial provider status or final-release signoff.  
 **Dependencies:** `AGENTS.md`; `PROJECT_SITEWIDE_RULES.md`; `SMFGU-ACADEMY-247-ACCEPTANCE-001 v0.4`; `SMFGU-QA-CHART-B01-20261031-001 v1.3`; `SMFGU-SEC-PUBLIC-RPC-20261031-001 v1.0`; GitHub issues #153, #154, #155, #156, #157, #158.
+
+## Latest 25-item controlled source update — October 31, 2026
+
+**Newest controlling source-authoring measure:** The 247-day original Boot Camp register v0.6 supersedes the 117/247 historical baseline in the original v1.2 snapshot below. **162/247 (65.59%) separately authored fictional day cases; 85/247 (34.41%) still lack original cases**, all Practicum90 D06–D90. Risk60 complete at **60/60 originally source-authored** across Learn, Practice and Transfer, but not independently accredited or graded. Five original Practicum90 Learn-phase cases added; no private keys, progress or mastery released. Dedicated twenty-five-unit execution record: `docs/qa/2026-10-31_RISK60_TRANSFER_PRACTICUM25_EXECUTION_V1.md`, ID `SMFGU-ACADEMY-NEXT25-20261031-001`.
+
+**Testing:** risk60 add-on advanced teaching caused older exact-reference tests to fail; case-preserving unit assertions were corrected and prior-coverage runs 41237356136 and 41237417343 passed their precise SHAs. The twenty-five-new-unit workflow is separately triggered and may not be considered passed until an exact post-fix run completes successfully. Four spaced CI reviews are documented in the 25-unit record. Cloudflare source deployment (when success) is not identical to accepted full matrix; target release remains HOLD.
+
+**Other recent evidence:** genuine signed-in Standard and Professional Chart Studio Chromium, two-tab stale revision 409, mobile/keyboard and account cleanup passed [41236465069](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236465069); expanded role, native CAPTCHA and complete payments remain open. Three new Boot Camps read-only authenticated teaching 27/27 and 324/324 formative items passed [41234911946](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41234911946), but actual six genuine course enrollment/save journeys were not accepted. B01 current private v98 draft 20/20 remains unapproved and official grading withheld despite later AI-draft corrections. Owner 380-unit advanced-depth acceptance remains **73/380=19.2%** rather than treating baseline lesson source as approved units. Signup enumeration and Book Key throttling still open.
 
 ## Executive score
 
@@ -56,5 +64,6 @@ B01 protected private version 98 retains 20 draft sets, 120 questions (100 choic
 | 1.0 | 2026-10-31 | Seven-workstream sourced progress, genuine two-member Chart success, service-only trigger privilege remediation, twenty new Risk60 lessons with exact CI and Cloudflare results, genuine three-course Beta QA prepared, separate outstanding human/release gates | PARTIAL, FINAL RELEASE HOLD |
 | 1.1 | 2026-10-31 | Record real invited 27-day Beta test failed narrow guest-response assertion, preserve genuine HTTP 401 denial, log focused corrected regression and remaining exact-run gate | PARTIAL; 27-day real-member acceptance NOT YET PASSED |
 | 1.2 | 2026-10-31 | Verify post-fix real B01 Owner stale-revision and independent-review guard test at exact source SHA 5e963f34 in GitHub Actions 41234664595; technical CI success, independent editorial gate held | TECHNICAL GUARD PASSED; GRADED RELEASE HOLD |
+| 1.3 | 2026-10-31 | Latest twenty Risk60 transfer and five Practicum90 authored lessons, four spaced CI reviews and genuine Standard/Professional Chart acceptance; preserve full release hold | SOURCE 162/247, FORMAL ADVANCED GATES OPEN |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Internal controlled engineering and editorial evidence. This record does not establish market-data licensing, legal compliance, trading advice, secure penetration-test signoff or formal educational certification.
