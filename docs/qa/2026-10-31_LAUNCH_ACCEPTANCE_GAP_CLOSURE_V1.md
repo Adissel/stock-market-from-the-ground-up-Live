@@ -7,8 +7,8 @@
 **File type:** Markdown  
 **Google Drive location:** Not assigned; no Google Drive duplicate created.  
 **Google Drive document ID:** Not assigned.  
-**Version:** 1.1  
-**Status:** PARTIAL EXECUTION; production public-policy and anonymous tool gate CI PASS; Day Trading working-edition sale hold applied; paid/provider/human/legal acceptance and sitewide exact-commit browser OPEN  
+**Version:** 1.2  
+**Status:** PARTIAL EXECUTION; production policy/tool CI PASS; live Supabase four-tool noncommercial authorization decision PASS; working-edition sale hold applied; sitewide browser run diagnosed FAILURE, isolated recheck running; paid/provider/human/legal gates OPEN  
 **Prepared / last verified:** 2026-10-31 (America/Chicago and UTC; evidence is timestamped by providers)  
 **Purpose:** Do not repeat accepted tests. Preserve controlling approvals and list precisely what still prevents unrestricted paid-product acceptance.  
 **Dependencies:** Existing Stripe TEST/LIVE, Supabase Primary `oxihglyfgzywsupnyicb`, Cloudflare production Pages, GitHub Actions, legal publication register, approved book edition inventory, named independent professional review.  
@@ -107,11 +107,42 @@
 - Existing GitHub Actions [sitewide rerun 41216565779](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216565779), attempt 2, was explicitly rerun as an isolated noncharging browser job. Status on latest inspection **in_progress** against historical SHA `bfab04e5abda2e328ec27846178b063d7da3cfab`; no final PASS can yet be recorded.
 - Stripe TEST account operations expose test-clock creation, not advance-time. No duplicate 14/30/60 initial paid subscriptions created because genuine later renewal requires the unavailable advance or an independently controlled provider workflow.
 
+## V1.2 real entitlement and isolated browser diagnosis
+
+### Production four-tool entitlement engine — read-only PASS
+
+Direct read-only executions of the actual service-only Supabase `public.user_has_tool_access(uuid,text)` function in rolled-back transactions, without impersonating an HTTP session, found:
+
+| Tool | Qualified existing active full-platform noncommercial grant | Member with canceled plan grants and canceled tool passes | Nonexistent member |
+|---|---|---|---|
+| INTERACTIVE_LEARNING | true | false | false |
+| JOURNAL_ANALYTICS | true | false | false |
+| MARKET_SIMULATOR | true | false | false |
+| MARKET_TUTOR | true | false | false |
+
+- Function execution is unavailable to `anon` and `authenticated` database roles and allowed only to `service_role`. Production protected GET route separately returned HTTP 401 anonymously.
+- Existing QA member's four canceled plan grants and two canceled tool passes did **not** leave premium tool access active. The positive case uses an existing administrative/noncommercial full-plan grant; it is **not** a Stripe-financed purchase.
+- No user IDs, identifying customer data, account secrets or credential values were included in this public QA register, and no database writes persisted.
+- **PASS:** actual database resolver granting/denying the four tools based on entitlement status. **OPEN:** genuine Stripe TEST/LIVE paid tool acquisition, signed provider settlement, downstream user session, renewal, refund and downgrade browser verification.
+
+### Sitewide exact-commit job — failure isolated
+
+- [GitHub Actions sitewide attempt 2, run 41216565779](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216565779) finished `cancelled` overall because the earlier mocked Stripe subjob remained canceled, while the independently re-run **browser** job `124582752215` failed.
+- The browser suite had passed its LAB-UX-STD-001 mobile (390px) and desktop (1280px) cases before failing in `tests/test_v33_talia_question_flow_browser.mjs` at line 53: timeout waiting for the visible `Experiment —` heading after the ungraded Calculate gate's `Continue to Experiment` action. This is a **specific browser defect/test mismatch** and does not establish that the entire website failed.
+- Added a nonsecret stage snapshot diagnostic to that exact test on `main` at `3c2dccf08b8bb0e684960cb1e0d775e8187665dd`. Added isolated free CI `.github/workflows/talia-calculate-experiment-browser.yml` at `a889a9e0d6f7997e122de95da557d96f47a4a070`, job [41217569351](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41217569351), running at last inspection. No private quiz answers, Stripe money or membership changes.
+- Do not silently remove the stage, downgrade the educational gate, extend a timeout as a substitute for an application fix, or assert a PASS before the targeted browser run finishes.
+- A final all-green release gate must cover the exact production-deployed commit; fast-moving pushes still cancel many ordinary sitewide checks.
+
+### Published legal copy verification
+
+The five key policies `TERMS`, `SUBSCRIPTION`, `REFUNDS`, `FOUNDING_600`, and `CROWNLIGHT_SPARKS` contain **no explicit citation** to the vacated 2024 expanded FTC negative-option rule or its `Click-to-Cancel` label based on case-insensitive text search. No legal rewrite was necessary solely to remove such a reference. This limited string check is not legal review; Missouri business-name qualification, consumer recurring-billing requirements and all transaction-tax determinations remain open.
+
 ## Revision history
 
 | Version | Date | Status | Change |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Partial execution / evidence controlled | Consolidated five workstreams, linked preexisting acceptance, performed no-charge live access checks and price verification, started isolated browser rerun, retained explicit provider/human/legal blockers. |
 | 1.1 | 2026-10-31 | Read-only CI accepted; one unsafe sale held | Production tool/legal smoke PASS, guarded Day Trading working-edition sale hold, updated policy/Turnstile evidence; browser, provider-renewal and professional approvals remain open. |
+| 1.2 | 2026-10-31 | Database entitlements verified; sitewide failure isolated | Four live tool entitlement grants/denials verified via actual Supabase RPC; Talia browser Calculate-to-Experiment timeout recorded and standalone reproduction started; legal copy search completed. |
 
-**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.1 • Controlled technical acceptance evidence • Not attorney or tax advice.
+**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.2 • Controlled technical acceptance evidence • Not attorney or tax advice.
