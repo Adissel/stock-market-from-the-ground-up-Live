@@ -7,7 +7,7 @@
 BEGIN;
 DO $repair$
 DECLARE v_source text;
-DECLARE v_needle constant text := 'where id=p_user';
+        v_needle constant text := 'where id=p_user';
 BEGIN
   SELECT pg_get_functiondef(p.oid) INTO v_source
     FROM pg_proc p
