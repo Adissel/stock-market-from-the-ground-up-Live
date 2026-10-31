@@ -1,0 +1,31 @@
+name: Boot Camp Foundations Days 21-30 Editorial Preflight
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-foundations-batch03-v1.yml'
+      - 'functions/_lib/academy-foundations-batch03-v1.js'
+      - 'functions/_lib/bootcamp-curriculum-v014144.js'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'tests/test_academy_foundations_batch03_v1.mjs'
+      - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
+permissions: {contents: read}
+jobs:
+  original-30-day-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: |
+          node tests/test_academy_foundations_batch02_v1.mjs
+          node tests/test_academy_foundations_batch03_v1.mjs
+          node tests/test_bootcamp_first22_editorial_preflight_v1.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: foundations-all-30-lesson-editorial-queue
+          path: |
+            artifacts/bootcamp-247-editorial-queue.csv
+            artifacts/bootcamp-247-batch-manifest.json
