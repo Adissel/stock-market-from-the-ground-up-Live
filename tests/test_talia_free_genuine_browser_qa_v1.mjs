@@ -77,6 +77,10 @@ try{
  // Test the actual member-facing Tutor controls, not only authenticated APIs.
  // AI stays unchecked; private history is explicitly disabled for this QA.
  await page.goto(site+'/market-tutor.html',{waitUntil:'domcontentloaded',timeout:30000});
+ // No submission before session verification, curriculum loading, and Tutor-ready status.
+ await page.waitForFunction(()=>document.getElementById('tutor-ask')?.disabled===false,null,{timeout:30000});
+ assertCheck((await page.locator('#tutor-status').innerText()).includes('Tutor ready'),
+  'Member-facing Tutor is ready before accepting a request');
  await page.locator('#tutor-question').fill(
   'For Lab DT-C10-L03 Learning Journey stage: Learn, explain the fictional bid, ask and spread calculation.');
  await page.locator('#tutor-mode').selectOption('explain');
