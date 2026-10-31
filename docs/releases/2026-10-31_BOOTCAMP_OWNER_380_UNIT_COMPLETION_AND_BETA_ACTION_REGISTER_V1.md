@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.4  
+**Version:** 1.5  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -58,6 +58,20 @@ This denominator remains constant for the current ten-camp V1 advanced teaching 
 
 This section supersedes the older 73/380 point-in-time totals in sections above without overwriting their historical evidence.
 
+## 2C. Current implementation delta — v1.5, Risk60 ten-day depth and 13 protected drafts
+
+**Verified accepted baseline: 78/380 = 20.5%.** The prior five Risk60 advanced days passed exact GitHub CI and matching Cloudflare deployment; no additional acceptance unit is double-counted. **New source-authored but not yet fully accepted:** Risk60 canonical Days 6–10, corresponding to parent source days 8, 10, 11, 12 and 13, each with **12 distinct original formative Q/feedback pairs plus one advanced independent worked case**. Combined original Risk60 Days 1–10 now have **120 different prompts and 10 different advanced practicum cases** in the existing shared Academy engine. Owner editorial approval is conditional on the matching source/build/browser CI and production descendant. Thus **83/380 = 21.8% conditional source-ready, not 21.8% accepted**. The original-course uncompleted full-depth package queue is **237 days by authored source, 242 by accepted release gates** until the next five pass.
+
+**Private assessment content:** Live Supabase postflight confirmed **13/54 inactive cases fully drafted**, with **52/216 substantive rubric texts** and **156/648 option-specific corrective explanations**. **164** private rubrics and **492** option-specific explanations remain unwritten, and **41** case drafts lack their full package. **216/216** scoring-key references resolve to exactly one private option. **All 54 inactive, 0 officially reviewed**; no grading or Lumens/certificates activated.
+
+The additional newly drafted cases are `BC3_TAPE10_D04_V1`, `BC3_INDICATORS10_D03_V1`, and `BC3_FILINGS7_D03_V1`. They replace broad, ambiguous recognition distractors with measured Time & Sales, exact cumulative trade VWAP and matched-period financial statements, respectively. Their **draft completion is not a case-level grading signoff**.
+
+The next-five-day Risk60 source changes reside in `functions/_lib/academy-risk60-depth-day06-07-v1.js`, `academy-risk60-depth-day08-09-v1.js`, and `academy-risk60-depth-day10-v1.js`, wired to `bootcamp-academy-v014168.js` with unchanged canonical identity. Dedicated CI/source audit is triggered on `main` with GitHub run [41241764379](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41241764379). Its outcome must be checked after the arithmetic-units correction `6edaf857993ee7b672c4cda5ad002749cb23932f`; do not attribute the queued earlier run to the later corrected SHA.
+
+**Tester evidence unchanged:** Real `Adissel` and `James_Test` remain **0/6** course journeys and 0 saved days in the live membership audit. Synthetic fixture tests cannot produce an authentic session, and creating direct database enrollment rows on their behalf is prohibited by the evidence-quality gate.
+
+This section supersedes older point-in-time draft-field counts and incomplete authoring estimates while retaining the same fixed 380-item acceptance denominator.
+
 ## 2A. Current controlling implementation delta — v1.3
 
 **Preserve the fixed denominator and distinguishing evidence:** The previously accepted total is **73/380 = 19.2%**; three-new-camp baseline remains **73/133 = 54.9%**. The expanded 274-day source/build/mobile-browser CI [41236543559](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236543559) completed SUCCESS. The first two individually upgraded Risk60 days passed dedicated CI [41237262356](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237262356). Five Risk60 days now have fully original 12-question and advanced-case packages in source (**60 formative prompts, five worked cases**); full five-day CI and post-correction Cloudflare production verification are separate release gates. **Conditional source-complete total = 78/380 = 20.5%; do not promote this to final accepted status before the five-day checks pass.**
@@ -106,4 +120,5 @@ For the next implementation wave prioritize **45 of the 54 protected draft cases
 **v1.1 — October 31, 2026 — 20 additional Risk60 guided cases authored; source coverage 137/247; 110 remain; fixed accepted count 73/380 unchanged.**
 **v1.3 — October 31, 2026 — Five original Risk60 study days fully advanced-source-authored (pending final CI/deploy), ten private protected cases with complete draft rubric/feedback fields, 176/528 detailed remaining fields, old transfer-guard failure fixed, accepted baseline still 73/380 until exact acceptance.**
 **v1.4 — October 31, 2026 — ACCEPTED five original Risk60 advanced source days after exact-success CI 41237868004 and matching successful Cloudflare deployment. Increased fixed ledger 73→78/380, retained 0/54 graded cases and 0/6 genuine journeys.**
+**v1.5 — October 31, 2026 — Authored next five original Risk60 advanced days (ten source-complete total, five accepted) and three more private assessment candidates (13 full draft cases, 52/216 rubrics, 156/648 feedback); fixed accepted tally 78/380 pending next CI/deploy.**
 **Footer:** Crown & Lantern Press — Owner-directed noncommercial Beta report; not an attestation of independent professional review, official market competency, historical-data licensing, or real subscriber acceptance.
