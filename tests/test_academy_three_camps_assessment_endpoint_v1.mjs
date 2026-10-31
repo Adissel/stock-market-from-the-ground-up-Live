@@ -4,7 +4,7 @@ import {onRequest} from '../functions/api/academy-protected-assessment-v1.js';
 const uid='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 const original=globalThis.fetch;
 const answers=new Map(),calls=[];
-let allowed=true,enrolled=true,reviewed=true,approved=true;
+let allowed=true,enrolled=true,reviewed=true,approved=true,missingFeedback=false;
 const json=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'content-type':'application/json'}});
 const q=d=>({id:d,dimension:({Q1:'knowledge',Q2:'recognition',Q3:'decision',Q4:'process'})[d],
  prompt:'Which evidence and conditions are justified by this unfamiliar fictional case? '+d,
@@ -27,8 +27,10 @@ globalThis.fetch=async(url,options={})=>{
  if(u.includes('/competency_attempts_v135?'))return json([...answers.keys()].map(code=>({case_code:code,submitted_at:'2026-10-31T01:00:00Z',final_score:75})));
  if(u.includes('/competency_cases_v135?')){
   const code=u.includes('V2')?'BC3_TAPE10_D01_V2':'BC3_TAPE10_D01_V1';
+  const questions=['Q1','Q2','Q3','Q4'].map(q);
+  if(missingFeedback)delete questions[0].options[0].corrective_feedback;
   return json([{case_code:code,title:'Fictional unseen research case',description:'Secure',
-   competency_code:'TAPE_READING',questions:['Q1','Q2','Q3','Q4'].map(q),version:1,
+   competency_code:'TAPE_READING',questions,version:1,
    answer_key:{Q1:'A'},reviewed_by:reviewed?uid:null,reviewed_at:reviewed?'2026-10-31T01:00:00Z':null,active:true}]);
  }
  if(u.endsWith('/rpc/submit_competency_case_v135')){
@@ -80,7 +82,10 @@ try{
  assert.equal(data.assessment.caseCode,'BC3_TAPE10_D01_V2','Already submitted primary may remain reviewed');
  approved=true;reviewed=false;res=await onRequest({request:request(),env});data=await res.json();
  assert.equal(data.officialAssessment,false,'Unreviewed case is never served');
- reviewed=true;allowed=false;res=await onRequest({request:request(),env});assert.equal(res.status,403);
+ reviewed=true;missingFeedback=true;res=await onRequest({request:request(),env});data=await res.json();
+ assert.equal(data.officialAssessment,false,'Incomplete option feedback must block an otherwise reviewed case');
+ assert.equal(data.reason,'assessment_invalid');
+ missingFeedback=false;allowed=false;res=await onRequest({request:request(),env});assert.equal(res.status,403);
  allowed=true;enrolled=false;res=await onRequest({request:request(),env});assert.equal(res.status,403);
  enrolled=true;
  res=await onRequest({request:request(),env:{...env,ACADEMY_THREE_CAMPS_ENABLED:'false'}});
