@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.5  
+**Version:** 1.6  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -57,6 +57,18 @@ This denominator remains constant for the current ten-camp V1 advanced teaching 
 - Project accepted total: **27+45+5+1 = 78 of 380 = 20.5%**. New three-course subledger remains **73/133 = 54.9%**.
 
 This section supersedes the older 73/380 point-in-time totals in sections above without overwriting their historical evidence.
+
+## 2D. Second Risk60 advanced batch and private-case authoring — v1.6
+
+**Formal accepted baseline remains 78/380 = 20.5% until the matching enhanced browser CI finishes SUCCESS.** Source and production now contain the next original Risk60 five-day advanced package (Days 6–10; parent source days 8, 10, 11, 12, 13), each with 12 original question-and-feedback prompts, a worked independent transfer case, no-lookahead boundaries and free remediation. **Original advanced source coverage is 10/247, with 237 days requiring the full-depth package.** The provisional source-ready total is **83/380 = 21.8%**, subject to exact revision acceptance.
+
+**Source preflight verification:** 120 distinct original Risk60 formative prompts across canonical Days 1–10; 10 unique advanced cases; all ten day IDs and source-day mappings preserved; all required scenario/worked/error/transfer fields present. The specific arithmetic share-unit notation in Day 9 was corrected at commit `6edaf857993ee7b672c4cda5ad002749cb23932f`. **Cloudflare Pages confirmed this exact commit deployed SUCCESS.** GitHub Actions [41241945706](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41241945706) is the corresponding source/build/browser acceptance run, executing at the time of this entry. Do not sign off the additional five days before it passes.
+
+**Protected case drafts:** The live private Supabase audit confirms **16/54** candidate cases contain all four substantive grading rubrics and twelve option-specific feedback entries. Totals are **64/216 rubrics** and **192/648 explanations**, leaving **152 rubrics**, **456 explanations**, and **38 case drafts** incomplete. The three latest newly authored distinct alternate variants are `BC3_TAPE10_D04_V2`, `BC3_INDICATORS10_D03_V2`, `BC3_FILINGS7_D03_V2`; all use independent source and math examples. **216/216 private key links are structurally valid**, but independent single-answer fairness, grading RPC and case-level reviewer approval remain separately required. **All 54 are inactive, 0 officially reviewed.** No private answer keys or item labels are reproduced in this register.
+
+**Genuine invited member journeys:** Still **0/6**, with live account read-only inspection showing zero three-course enrollments or saved study days for `Adissel` and `James_Test` at the prior checkpoint. Automated synthetic fixtures are not mislabeled as actual member sessions.
+
+**Owner decision:** Approve these five new fictional advanced **source drafts** for continued ungraded teaching, conditional on successful CI. Official graded release, full public catalog, awards and LIVE payment remain disabled and require separate acceptance evidence.
 
 ## 2C. Current implementation delta — v1.5, Risk60 ten-day depth and 13 protected drafts
 
@@ -121,4 +133,5 @@ For the next implementation wave prioritize **45 of the 54 protected draft cases
 **v1.3 — October 31, 2026 — Five original Risk60 study days fully advanced-source-authored (pending final CI/deploy), ten private protected cases with complete draft rubric/feedback fields, 176/528 detailed remaining fields, old transfer-guard failure fixed, accepted baseline still 73/380 until exact acceptance.**
 **v1.4 — October 31, 2026 — ACCEPTED five original Risk60 advanced source days after exact-success CI 41237868004 and matching successful Cloudflare deployment. Increased fixed ledger 73→78/380, retained 0/54 graded cases and 0/6 genuine journeys.**
 **v1.5 — October 31, 2026 — Authored next five original Risk60 advanced days (ten source-complete total, five accepted) and three more private assessment candidates (13 full draft cases, 52/216 rubrics, 156/648 feedback); fixed accepted tally 78/380 pending next CI/deploy.**
+**v1.6 — October 31, 2026 — Cloudflare successful deployment of second Risk60 five-day module, exact CI pending; 16/54 complete private draft cases, 64/216 rubrics, 192/648 explanations; fixed accepted total 78/380 until CI passes.**
 **Footer:** Crown & Lantern Press — Owner-directed noncommercial Beta report; not an attestation of independent professional review, official market competency, historical-data licensing, or real subscriber acceptance.
