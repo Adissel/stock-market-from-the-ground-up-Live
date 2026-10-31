@@ -33,7 +33,7 @@ assert.equal((22-22),0,'Zero candle range requires undefined percent');
 assert(!Number.isFinite(body/0),'Zero-range division must never be displayed as a percent');
 assert.equal(Math.floor(20/(10-9.8)),100,'Whole-share hypothetical planned risk');
 assert.equal(Math.floor(20/(10-9.75)),80,'Fresh transfer-case arithmetic');
-assert.equal((10-9.6)*100,40,'Gap/slippage counterexample loss');
+assert(Math.abs((10-9.6)*100-40)<1e-9,'Gap/slippage counterexample loss');
 const html=read('assets/js/bootcamp-academy-v014168.js'),build=read('scripts/build-pages.sh');
 assert(html.includes('showFreeEvidence(d,mount)')&&html.includes('await loadFreeEvidence()'));
 assert(html.includes('SOURCE-RESEARCHED · ORIGINAL UNGRADED TEACHING'));
