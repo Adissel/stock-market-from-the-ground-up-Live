@@ -240,3 +240,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/css/crownlight-member-quickview-v1.css?v=1';
  link.dataset.guMemberQuickCss='1';document.head.append(link);
 })();
+
+/* Planned, non-earnable Lab and Boot Camp completion-reward card labels. */
+(()=>{if(typeof document==='undefined'||!['labs.html','bootcamp-academy.html'].includes(location.pathname.split('/').pop()))return;
+ const script=document.createElement('script');script.src='/assets/js/crownlight-learning-reward-badges-v1.js?v=1';
+ script.defer=true;script.dataset.guRewardBadges='1';document.head.append(script);
+})();
