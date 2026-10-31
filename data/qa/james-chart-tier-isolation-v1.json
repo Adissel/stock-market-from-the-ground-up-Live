@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "stage": "STANDARD_CEILING",
+  "expectedTier": "STANDARD",
+  "expectedUser": "f42f9301-18e6-43a3-8531-32d371fd22c1",
+  "noPaidSource": true,
+  "expiresAutomatic": true
+}
