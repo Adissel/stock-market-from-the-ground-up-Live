@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-BETA-EDITORIAL-001  
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — Academy B01 / First 42  
-**Version:** 1.0  
+**Version:** 1.1  
 **Owner decision date:** October 31, 2026  
 **Document status:** OWNER-DIRECTED POLICY; implementation and individual reviewer acceptance PENDING  
 **GitHub location:** `main/docs/research/stockstotrade/ACADEMY_BETA_TESTER_EDITORIAL_PANEL_POLICY_2026-10-31.md`  
@@ -72,10 +72,31 @@ Version 1 is restricted to the **first 42 study-day review queue and 20 B01 priv
 
 This is a suggested acknowledgment, **not a verified enforceable agreement**. Obtain jurisdiction-appropriate privacy and confidentiality review before using it as a contractual undertaking.
 
-## 9. Document control and revision history
+## 9. Implementation inspection and owner-controlled V1 execution
+
+**Inspection date:** October 31, 2026. The real stock-site Supabase role inventory currently has an `OWNER` role but no separately assigned Academy editorial reviewer role. The existing `gu_tutor_editorial_cases_v014149`, `gu_tutor_editorial_audit_v014149`, and `lab_concept_reviews_v014` tables support Tutor incident review and member learning recall—not confidential Academy assessment or source approval. Do not co-opt their statuses as B01 independent acceptance or copy grading keys into them.
+
+**Implementation status — NOT IMPLEMENTED:** dedicated beta-reviewer opt-in/consent collection, reviewer vetting and assignment, structured nonsecret Track A submissions, confidential Track B question/rubric review UI, role isolation, audit trail and reconciliation with the two authoritative registers. The policy alone does not establish functioning review portals, active volunteers, independent decisions or release eligibility.
+
+The next implementation batch must complete the following in this order:
+
+1. **Member invitation and express opt-in.** Provide eligible beta users a voluntary, accessible, distinct editorial-review invitation (not a purchased membership benefit). Identity is always server verified; record a consent version, UTC acceptance/withdrawal, disclosed privacy purpose, and optional areas of expertise. A willing beginner qualifies for usability and teaching clarity only—not automatic financial-regulatory expertise. Do not enroll, reward or elevate existing member accounts without opt-in.
+2. **Private Owner-controlled qualification and conflict screen.** Select actual consenting accounts, document the reason each is qualified for the exact type of review, and assign account-specific `Track A` or `Track B` work. A subject-matter reviewer who saw the solution to private set `S` is thereafter excluded from blind scoring for `S` and materially equivalent variants. Only Owner-controlled assignment changes may confer Track B access; generic paid status, public profile role, and client-provided claims never confer it.
+3. **Nonsecret Track A packet and submission.** Use stable `day_key`, `claim_location` and source revision/hash from the existing 945-item queue, without copying grading secrets. Receive typed `ACCEPT`, `REVISE`, `NOT_ENOUGH_EVIDENCE` recommendations with a reviewer-authored explanation, cited source/observed example, UTC time, conflict declaration, withdrawal state and immutable original decision. Reviewers may suggest corrections but not overwrite source text or mark the canonical registers approved.
+4. **Track B confidential packet after separate QA.** Build a least-privilege, assigned-set-only server route with verified identity, account eligibility, explicit consent and training/reviewer authorization. Protect every actual question, key, rubric, numeric tolerance and wrong-option explanation from ordinary members, logs, analytics, preview routes and GitHub. Reviewer acknowledgement, set/version/hash and individual decisions are mandatory. Prevent access to other sets, other reviewer submissions and any customer responses. Browser/API tests must verify failed authorization, assignment withdrawal, replay, source revision drift and role isolation.
+5. **Adjudication and publication.** Keep the AI working review separate from real-member recommendations. Resolve disagreement, re-review corrected items, verify expert suitability for current rules, and write final approved/rejected status to `252_instruction_source_field_QA_v2.csv` and `MASTER_671_ROW_EVIDENCE_AND_ACCEPTANCE_v1.csv` only after documented Owner reconciliation; protect row identity and revision history. Unlock no protected official grade until every applicable day/assessment release gate and its real authenticated acceptance tests pass.
+
+**Execution grouping:** original first 22 days (5 Truth + 7 Watchlist + 10 Scanners), Trading Foundations Days 1–20, and five four-set assessment-review batches. These are scheduling groups only, not additional approval ledgers. One qualified Track B review per private set and a different blind learner for that set are minimum independent populations, with reassignment required on conflicts. Four source-sensitive topic families—current regulation, trading-venue data, calculation/denominators and observed historical timing—receive explicit competency checks.
+
+**Acceptance proof needed to count volunteer progress:** member opt-in → Owner assignment → verified credential and scope → actual item viewed → original typed reason/source receipt → independent decision → publisher reconciliation → changed canonical register and protected acceptance tests. Counting volunteers, invitations or generic helpfulness surveys as editorial acceptance is prohibited.
+
+**V1 noncommercial control:** no outside paid service, no automatic Lumens grant, no member price change, no live Stripe transaction, and no administrative default visibility of private answer keys. Treat V1 review software as unreleased until authorization/RLS, privacy, accessibility and genuine-member browser checks pass.
+
+## 10. Document control and revision history
 
 | Version | Date | Decision / change | Status |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Owner selected real beta testers as human editorial cohort; established Tracks A/B, source evidence, independent-blind segregation, privacy and controlling-register approval procedure | Policy adopted; assignments, secure tooling and individual approvals open |
+| 1.1 | 2026-10-31 | Examined existing roles and feedback tables; clarified not-yet-implemented intake, qualifications, private Track B access, authorization and canonical-register reconciliation | Owner-directed controls retained; zero actual reviewer approvals; engineering and volunteer onboarding pending |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Controlled Academy beta editorial policy. Not a legal opinion, accreditation, official skill certification or assurance that external sources have all been independently verified.
