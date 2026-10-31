@@ -63,6 +63,13 @@ assert(read('bootcamp.html').includes('gu-bc-guided'));
 assert(read('bootcamp-academy.html').includes('academy-guided-v1.js'));
 assert(read('assets/css/academy-guided-v1.css').includes('grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)'));
 assert(js.includes('Owner editorial approval: released for invited instructional Beta.'));
+for(const [varName,expected] of [['STANDARD_MINUTES',35],['REFERENCE_MINUTES',45]]){
+ const m=js.match(new RegExp('const '+varName+'=Object\\\\.freeze\\\\((\\\\[[^\\\\]]+\\\\])\\\\)'));
+ assert(m,'Every study day must carry a source-defined active learning schedule: '+varName);
+ assert.equal(JSON.parse(m[1]).reduce((a,b)=>a+b,0),expected,'Honest suggested study minutes: '+varName);
+}
+assert(js.includes('35-minute suggested ten-stage practice plan for this existing Boot Camp day.'));
+assert(js.includes('45-minute suggested practice plan.'));
 assert(js.includes('Suggested active-learning itinerary — '));
 assert(js.includes('REFERENCE_MINUTES'));
 assert(js.includes("isNewCourse"));
