@@ -61,6 +61,6 @@ try{
   }
   assert.ok(Number.isFinite(weighted/sum));
  }
- assert.ok(identityCalls>=9);
+ assert.equal(identityCalls,8,'Two early denials must avoid identity provider calls');
  console.log('PASS Prototype V2: 9 API authentication scenarios + 3 fictional case provenance/calculation contracts.');
 }finally{globalThis.fetch=oldFetch}
