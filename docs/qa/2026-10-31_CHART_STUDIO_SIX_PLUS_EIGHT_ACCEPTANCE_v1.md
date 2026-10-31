@@ -7,12 +7,45 @@
 **Google Drive document ID:** Not assigned  
 **Filename:** `docs/qa/2026-10-31_CHART_STUDIO_SIX_PLUS_EIGHT_ACCEPTANCE_v1.md`  
 **File type:** Markdown (.md)  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** October 31, 2026  
-**Status:** ACTIVE EXECUTION; no global launch acceptance. Individual results only as explicitly evidenced.  
+**Status:** ACTIVE EXECUTION — 3/14 strict full gates accepted, 9 partial, 2 open; full release NOT certified.  
 **Dependencies:** AGENTS.md; issues #154, #155, #156 and #158; Supabase Primary; Cloudflare Pages production; GitHub Actions; Stripe TEST.  
 **Purpose:** Execute exactly the six owner-ordered Chart Studio release priorities plus eight related technical exit gates, without relabeling fixture runs as commercial or human-browser acceptance.  
 **New file required:** Yes—separate execution register, not a replacement for previously accepted evidence.
+
+## Version 1.1 controlling owner/engineering acceptance update (October 31, 2026)
+
+**Authorized internal sign-off:** Crownlight product-owner, QA, technical documentation and editorial scope decisions are approved for the specific verified requirements below. This does **not** assert paid-customer evidence, external legal review, third-party terms compliance, a human CAPTCHA completion or a final production-wide release. The former 50% statement based on "7 of 14 gates passed" was internally inconsistent with the listed open/partial rows; it is superseded.
+
+**Strict complete acceptance:** **3 / 14 = 21.4%** fully closed gates.  
+**Planning-progress estimate:** **53.6%**, calculated transparently as (3 fully passed × 1 + 9 partially tested × 0.5 + 2 open × 0) / 14. This is an equal-gate heuristic, **not an engineering-hours estimate or claim that 53.6% is production-certified**.  
+**Test coverage advances:** Genuine Standard/Professional Chromium and two-tab CAS passed after the older v1.0 baseline; all three current Studio tiers have now been tested using real GoTrue sessions, but Founding billing rows and staff roles were not used to manufacture subscription acceptance.
+
+| Gate | v1.1 strict disposition | Supported scope and remaining work |
+| --- | --- | --- |
+| **C01** Real Standard/Professional Chromium | **ACCEPTED** | [GitHub Actions 41236465069](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236465069) PASS: independent actual GoTrue Standard and separately scoped Professional member; correct layout/locked options, desktop + phone, keyboard and persisted studies. QA-only grant, not purchased Founding 60. Earlier real Advanced [41235291824](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41235291824) remains passed. |
+| **C02** Full role and plan matrix | **PARTIAL** | Free/Founding14/30/60 and OWNER/ADMIN/MODERATOR plus expired/reversed/restricted/suspended fixture server contracts PASS (latest source CI [41236500803](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236500803)). Real paid-plan/role lifecycle still separate; no forged commercial entitlement. |
+| **C03** Complete Professional workspace | **PARTIAL** | Actual Professional layout, EMA/RSI and sync persisted through authenticated reload; real two-tab CAS PASSED; two-pane drawing and symbol collections in fixture. Real Pro drawing + multi-chart UI save/restore not individually certified end-to-end. |
+| **C04** Fictional/CSV/member BYO | **PARTIAL** | Owner scope decision: private member-connected **Tiingo/Alpaca BYO API key data is an accepted supported source class**, not a publisher-licensed historical library. Existing fictional/CSV parsing, BYO source integrity source tests and Owner-confirmed Tiingo ingestion are retained. Provider terms, secure handling and distribution limitations remain; any packaged official replay datasets need separate provenance. |
+| **C05** Accessibility and configured CAPTCHA | **PARTIAL** | Real Advanced, Standard and Professional mobile keyboard checks passed; full screen reader, contrast, focus-order and error recovery audit open. CAPTCHA is **intentionally disabled for Owner QA**, so an active CAPTCHA challenge is NOT a prerequisite for this QA window; before enabling it again, run a separate form-specific release check. |
+| **C06** Stripe TEST / Lumens settlement | **PARTIAL** | Genuine Stripe TEST paid Professional mixed checkout, signed refund, restoring Lumens and revoking Pro, plus signed unpaid expiration are ACCEPTED (commerce register v1.2). Original wallet remains 29 Lumens. **Provider-backed charge.dispute.created and actual fully-Lumen $0 cash order/reversal remain OPEN**; transaction-rollback proofs do not substitute for these. |
+| **C07** Two-account workspace isolation | **ACCEPTED** | Two distinct real GoTrue accounts, denied cross-account reads, direct table inaccessible, QA cleanup [41233580742](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41233580742); additional real account-owned workspaces in [41236465069](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236465069). Wallet and broader system BOLA separately tracked. |
+| **C08** Expiry and revocation | **PARTIAL** | Real Advanced effective-tier refund downgrade previously passed, fixture QA pass/cash expiry, staff role expiry, restricted and suspended denial. Actual paid full lifecycle / in-browser revocation for all real roles remains. |
+| **C09** Two-tab concurrency and CAS recovery | **ACCEPTED for Chart Studio workspace** | Same-auth-user two actual Chromium tabs, older revision denied HTTP 409 WORKSPACE_CHANGED, winner's data and revision preserved, verified for Standard and Professional; [41236465069](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236465069). Other products not covered. |
+| **C10** Sign-out / account-switch | **PARTIAL** | Actual earlier James_Test sign-out/re-login and privacy, plus fixture signed-out/account switch state clearing. Current separate Standard/Pro run preserved own records; live cross-user back-navigation/sign-out matrix still open. |
+| **C11** Replay chronology and rights | **PARTIAL** | BYO ungraded personal chart paths may proceed with provider terms and provenance labels, not as an official redistributable replay product. Source checks protect against future bars and mislabeling; real 1/3/5-minute multi-timeframe no-lookahead/graded replay certification remains. |
+| **C12** Provider outage/recovery operations | **OPEN** | Source-level fallback exists. Need authenticated provider-outage simulation, UI recovery, runbook and monitoring evidence. |
+| **C13** Security audit | **PARTIAL** | Supabase SQL verified Chart Studio private workspace, QA grant, cash upgrade, mixed order and Lumen-pass tables: RLS enabled and no direct anon/authenticated grants. Five elevated RPCs checked: anon/member EXECUTE false; service_role true. Broader security advisor / API and staff privilege review #158 still open. |
+| **C14** Final exact-head release certification | **OPEN** | Targeted SHA test/deploy accepted, but concurrent main commits mean no frozen full-release SHA and all required workflows + Cloudflare parity + rollback have been accepted together. |
+
+**Temporary test account safeguards:** Real browser acceptance returned `CLEANUP {ok:true, deleted:2, failed:0}`. Separate postflight SQL returned **0 temporary Auth users, 0 QA grants, 0 temporary profiles, 1 original saved workspace, James_Test 29 Lumens and 0 active paid upgrades**. The OIDC QA Edge function was retired to unconditional HTTP **410** with `verify_jwt=true` (v2); its workflow automatic push trigger was disabled. No permanent privileged browser-testing endpoint exists.
+
+**Financial source verification nuance:** Stripe TEST charge disputes were zero when checked, and the accepted historical register explicitly names only **rollback** dispute/zero-cash simulations. An owner/editor signature cannot convert either into an actual provider event.
+
+**Next execution sequence:** (1) targeted genuine Founding14/30/60 and staff authorized role expiry/revocation matrix using signed disposable QA roles without commercial purchase claims; (2) real Pro drawings/two synchronized datasets and cross-login privacy; (3) provider outage/mobile accessibility audits; (4) Stripe TEST genuine dispute and Lumen-only provider-free order, if safely attainable at $0; (5) full head SHA freeze, CI/Cloudflare parity and rollback. CAPTCHA-off remains a documented owner-controlled configuration decision.
+
+---
 
 ## Frozen constraints
 
@@ -62,6 +95,7 @@ Do not mark all 14 gates completed merely because their source tests exist. Reta
 
 | Version | Date | Revision | Status |
 |---|---|---|---|
-| 1.0 | 2026-10-31 | Formalize owner's six priorities, next eight QA gates, controlling evidence and new GitHub mobile/financial source coverage | Active execution |
+| 1.0 | 2026-10-31 | Formalize owner's six priorities, next eight QA gates, controlling evidence and new GitHub mobile/financial source coverage | Superseded baseline |
+| 1.1 | 2026-10-31 | Signed-in Standard/Professional Chromium and real 2-tab CAS, owner BYO/CAPTCHA scope, precise percentages and financial exception | Internal owner/engineering scoped acceptance |
 
-**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.0 · Internal engineering and QA · Not a commercial release certificate.
+**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.1 · Internal engineering and QA · Not a commercial release certificate.
