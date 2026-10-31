@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.1
+**Version:** 1.2
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -84,6 +84,12 @@ The intended assessment standard is an unseen case distinct from the published e
 
 The reference statements were checked against those accessible sources on October 31, 2026. Their availability does not establish date-specific compliance advice or endorsement of market trading. Where third-party chart text is used for a concept, independently authored fictional illustrations remain the deliverable.
 
+## Complete sentence-level inventory control — execution evidence pending
+
+A source-driven enumerator, `scripts/academy-first42-claim-inventory-v1.mjs` (commit `05cef4702636219eda9f99ba95b206d9fb7d6fe1`), and [Academy First-42 Sentence-Level Evidence Inventory workflow](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216936931) (workflow commit `0bc52a4dbca3d435cc66f633d5bfa36b81ac849f`) were added. The program iterates all 42 day bodies, collects explanation, fictional worked examples, common errors, correction guides, independent transfer instructions, source-reported caveats, and instructional procedure steps into an evidence review CSV.
+
+The generated CSV is explicitly a **review queue**: each item is marked `PENDING_SENTENCE_LEVEL_AUTHORITY_AND_ARITHMETIC_CHECK`. It does not assign research verification, editorial approval, score, grade, market-data authenticity or rights permission. Its workflow was **queued**, not successful, at this report update. The exact workflow run and artifact must be checked before claiming the full inventory was generated.
+
 ## Next bounded acceptance work
 
 1. Expand from the 42 selected claims to an **exhaustive claim inventory** for the 22 reference days, including exact source version, publication and effective dates and each calculation.
@@ -98,5 +104,6 @@ The reference statements were checked against those accessible sources on Octobe
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Selected source-claim crosswalk for 42 days; 22 non-secret protected assessment design requirements; read-only database metadata reconciliation | Research evidence only; no final editorial, independent case or production release approval |
 | 1.1 | 2026-10-31 | Recorded passing source CI and B01 120-question private structural audit; flagged outstanding reviewer independence and per-claim gaps | Targeted technical evidence verified; full release and editorial acceptance open |
+| 1.2 | 2026-10-31 | Added source-driven sentence-level audit generation protocol; CI run queued | Review queue code committed; generated artifact unverified |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
