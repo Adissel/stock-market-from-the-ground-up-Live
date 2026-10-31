@@ -24,7 +24,7 @@ for(let i=0;i<30;i++){
   assert(typeof lesson[k]==='string'&&lesson[k].length>40,'Missing '+k+' on '+(i+1));
  assert(lesson.sourceProcedure.length>=3,'Missing day-specific sequence '+(i+1));
  assert(/FICTIONAL EDUCATIONAL CASE/.test(lesson.workedExample),'Synthetic scenario must be labeled');
- assert(lesson.reference.url.startsWith('https://www.'),'Source should be an original public topical reference');
+ assert(/^https:$/.test(new URL(lesson.reference.url).protocol)&&/^(?:[a-z0-9-]+\.)*(?:investor\.gov|sec\.gov|finra\.org|nyse\.com)$/.test(new URL(lesson.reference.url).hostname),'Source must be an authoritative public topical reference');
  assert(!examples.has(lesson.workedExample));examples.add(lesson.workedExample);
  assert(!fresh.has(lesson.investigation));fresh.add(lesson.investigation);
  assert(lesson.selfCheck.startsWith('FICTIONAL:'),'Missing specific formative question Day '+(i+1));
