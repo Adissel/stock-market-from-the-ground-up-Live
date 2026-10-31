@@ -868,7 +868,8 @@
     dayIndex=Number.isSafeInteger(desired)&&desired>=1&&desired<=5?desired:firstUnsaved;
    }
    get('academy-course-title').textContent=program.title;
-   get('academy-length').textContent=program.days+(code==='free5'?' free beginner lessons · ':'-day Boot Camp · ')+program.level;
+   get('academy-length').textContent=program.days+(code==='free5'?' free beginner lessons · ':'-day Boot Camp · ')+program.level+
+    (data.betaStudy===true?' · INVITE-ONLY INSTRUCTIONAL BETA — NO OFFICIAL GRADE':'');
    get('academy-enroll').textContent=code==='free5'?'Start my free learning journey':'Enroll in this Boot Camp';
    get('academy-course-summary').textContent=program.summary;
    get('academy-workspace').hidden=false;
@@ -890,7 +891,8 @@
      target.focus({preventScroll:true});
     }));
    }
-   status(progressAvailable?(code==='free5'?'Choose a lesson and learn with Talia at your own pace.':'Choose a study day and begin learning with Talia.'):
+   status(progressAvailable?(data.betaStudy===true?'Invite-only instructional Beta: study and save private reflections. Protected grading, certificates and Lumens awards are not enabled.':
+    code==='free5'?'Choose a lesson and learn with Talia at your own pace.':'Choose a study day and begin learning with Talia.'):
     'You can read the lessons, but we cannot save your notes right now. Please try again later.');
   }catch(error){
    if(epoch!==sessionSerial)return;clean();
