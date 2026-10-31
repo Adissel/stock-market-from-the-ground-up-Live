@@ -77,8 +77,28 @@ try{
    });
    assert(area.left>=-3&&area.right<=area.viewport+4&&area.width>150,
     'Mobile tier selector must be within viewport');
-   await p.locator('.cl-chart-tier-bar select').focus();
-   assert.equal(await p.locator('.cl-chart-tier-bar select').evaluate(el=>document.activeElement===el),true);
+   const focusTarget=p.locator('.cl-chart-tier-bar select');
+   assert.equal(await focusTarget.isVisible(),true,'Studio selector must be visible on 390px mobile');
+   assert.equal(await focusTarget.isEnabled(),true,'Studio selector must be enabled for signed-in member');
+   await focusTarget.focus();
+   let focused=await focusTarget.evaluate(el=>document.activeElement===el);
+   if(!focused){
+    // Auth expiry/renderer updates can replace the selector. Refocus after a
+    // stable permission epoch rather than treating a DOM replacement as a pass.
+    await p.waitForFunction(()=>{
+     const select=document.querySelector('.cl-chart-tier-bar select');
+     return window.CrownlightChartTiers?.getStatus?.()?.verified&&select&&!select.disabled;
+    },null,{timeout:6000});
+    await focusTarget.focus();
+    focused=await focusTarget.evaluate(el=>document.activeElement===el);
+   }
+   if(!focused){
+    const diag=await focusTarget.evaluate(el=>({disabled:el.disabled,
+      attached:el.isConnected,visibility:getComputedStyle(el).visibility,
+      display:getComputedStyle(el).display,activeTag:document.activeElement?.tagName,
+      activeClass:document.activeElement?.className?.toString().slice(0,80)}));
+    throw Error('Mobile keyboard focus actual UI failure for '+s.tier+': '+JSON.stringify(diag));
+   }
    await p.setViewportSize({width:1440,height:900});
    // Legitimate browser must restore its own private settings; tests do not
    // access another user's workspace via admin or shared elevated sessions.
