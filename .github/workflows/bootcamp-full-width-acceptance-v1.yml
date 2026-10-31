@@ -29,6 +29,10 @@ on:
       - 'functions/_lib/academy-risk60-depth-initial-v1.js'
       - 'functions/_lib/academy-risk60-depth-followup-v1.js'
       - 'functions/_lib/academy-risk60-depth-day10-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day14-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day13-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day12-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day11-v1.js'
       - 'functions/_lib/academy-risk60-depth-day08-09-v1.js'
       - 'functions/_lib/academy-risk60-depth-day06-07-v1.js'
       - 'functions/_lib/academy-risk60-transfer-batch03-v1.js'
@@ -44,6 +48,7 @@ on:
       - 'tests/test_academy_guided_v1.mjs'
       - 'tests/test_academy_three_camps_completion_contract_v1.mjs'
       - 'tests/test_academy_three_camps_browser_v1.mjs'
+      - 'tests/test_risk60_advanced_days11_14_browser_v1.mjs'
       - 'assets/css/bootcamp.css'
       - 'assets/css/bootcamp-academy-compact-v2.css'
       - 'assets/css/learning-workstation-v44.css'
@@ -92,6 +97,10 @@ jobs:
           node --check functions/_lib/academy-risk60-depth-initial-v1.js
           node --check functions/_lib/academy-risk60-depth-followup-v1.js
           node --check functions/_lib/academy-risk60-depth-day10-v1.js
+          node --check functions/_lib/academy-risk60-depth-day14-v1.js
+          node --check functions/_lib/academy-risk60-depth-day13-v1.js
+          node --check functions/_lib/academy-risk60-depth-day12-v1.js
+          node --check functions/_lib/academy-risk60-depth-day11-v1.js
           node --check functions/_lib/academy-risk60-depth-day08-09-v1.js
           node --check functions/_lib/academy-risk60-depth-day06-07-v1.js
           node --check functions/_lib/academy-risk60-transfer-batch03-v1.js
@@ -133,6 +142,10 @@ jobs:
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
         run: node tests/test_v014168_academy_browser.mjs
+      - name: Browser-verify Risk60 advanced original Days 11 and 14 at mobile, tablet, desktop
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_risk60_advanced_days11_14_browser_v1.mjs
       - name: Browser-verify all three new Boot Camp routes at mobile and desktop widths
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
