@@ -60,7 +60,7 @@ await check('60-day actual non-reversed verified billing cycle',
 await check('30-day actual non-reversed verified billing cycle',
  {cycles:[billing('FOUNDING_30')]},'ADVANCED','Verified active FOUNDING_30 paid term');
 await check('14-day actual non-reversed verified billing cycle',
- {cycles:[billing('FOUNDING_14')]},'STANDARD','Free Membership');
+ {cycles:[billing('FOUNDING_14')]},'STANDARD','Verified active FOUNDING_14 paid term');
 await check('60-day paid cycle reversed',
  {cycles:[billing('FOUNDING_60',{reversed:true})]},'STANDARD','Free Membership');
 await check('60-day paid cycle expired',
