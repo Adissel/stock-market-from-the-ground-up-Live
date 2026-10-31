@@ -96,6 +96,31 @@ BEGIN
  VALUES(a,'TEST',CURRENT_DATE,'paper','draft','csv_upload');
  RAISE NOTICE 'PASS v121: 15 Journal/week, 10 saved simulator/week, update bypass denial, deletion persistence, per-tool paid exemptions and owner meter';
 END $v121$;
+-- Verify previous-week counters do not block the next ISO UTC week (disposable PG16 only).
+DO $week_boundary$
+DECLARE
+ member uuid:='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
+ prior date:=(date_trunc('week',now() AT TIME ZONE 'UTC'))::date-7;
+ current_week date:=(date_trunc('week',now() AT TIME ZONE 'UTC'))::date;
+ current_usage integer;
+ previous_usage integer;
+BEGIN
+ INSERT INTO auth.users(id) VALUES(member);
+ INSERT INTO public.gu_free_weekly_usage_v014121(user_id,week_start,usage_kind,used_count)
+ VALUES(member,prior,'journal',15),(member,prior,'simulator_save',10);
+ INSERT INTO public.decision_journal(user_id,ticker,trade_date,journal_type,status,simulator_source)
+ VALUES(member,'TEST',CURRENT_DATE,'paper','draft','csv_upload');
+ SELECT used_count INTO current_usage FROM public.gu_free_weekly_usage_v014121
+ WHERE user_id=member AND week_start=current_week AND usage_kind='journal';
+ SELECT used_count INTO previous_usage FROM public.gu_free_weekly_usage_v014121
+ WHERE user_id=member AND week_start=prior AND usage_kind='journal';
+ IF current_usage<>1 OR previous_usage<>15 OR
+    (SELECT used_count FROM public.gu_free_weekly_usage_v014121
+     WHERE user_id=member AND week_start=current_week AND usage_kind='simulator_save')<>1
+ THEN RAISE EXCEPTION 'ISO weekly rollover counter isolation failed'; END IF;
+ RAISE NOTICE 'PASS v121 ISO rollover: previous 15/10 retained; next week starts with 1/1';
+END $week_boundary$;
+
 -- Role tests are read only (still ONLY run disposable).
 DO $acl$
 BEGIN
