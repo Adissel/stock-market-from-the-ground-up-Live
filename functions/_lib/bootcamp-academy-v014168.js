@@ -8,6 +8,7 @@ import {bootcampCurriculumV014144 as original} from './bootcamp-curriculum-v0141
 import {freeFoundationsV1} from './free-foundations-v1.js';
 import {phaseAFreeFoundations} from './free-foundations-phase-a-v1.js';
 import {threeCampDefinitions} from './academy-three-camps-v1.js';
+import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -277,6 +278,10 @@ function dayFor(d,i){
   day,programDay:day,programCode:d.code,sourceDay,title:topic,
   objective,observe,practice,phase,phaseLabel:info.label,
   researchEnrichment:researchFor(topic,objective),
+  ...(first22DayLessons[d.code]?.[i]?{
+   lesson:first22DayLessons[d.code][i],
+   sourceStatus:'original_day_specific_ungraded_independent_review_pending'
+  }:{}),
   method:[info.lead,info.method,practice],
   remediation:'If a necessary observation is unavailable, stop and return to the source before concluding.',
   limitation:source.caution+' '+info.boundary,
@@ -286,6 +291,7 @@ function dayFor(d,i){
   sourceStatus:d.code==='truth5'?'original_authored_truth5_editorial_review_pending':'approved_parent_30_day_topic_with_program_specific_original_exercise',
   ...(d.code==='truth5'?{
    lesson:truth5Lessons[i],
+   approvedSupplement:approvedB01Supplements[day]||null,
    method:[...truth5Lessons[i].sourceProcedure],
    limitation:source.caution+' '+truth5Lessons[i].error+' No independent graded mastery or verified historical feed is inferred.',
    remediation:truth5Lessons[i].reviewGuide
