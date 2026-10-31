@@ -18,7 +18,7 @@ const r=await fetch(url+'/auth/v1/signup',{
  method:'POST',cache:'no-store',signal:AbortSignal.timeout(25000),
  headers:{apikey:anon,'content-type':'application/json'},
  body:JSON.stringify({email:root,password:secret,
-  data:{qa_noncommercial:true,qa_purpose:'two-distinct-member-isolation',first_party_qa_only:true}})});
+  data:{username:'QA_Secondary',qa_noncommercial:true,qa_purpose:'two-distinct-member-isolation',first_party_qa_only:true}})});
 const body=await r.json().catch(()=>({}));
 if(!r.ok)throw Error('Second user signup HTTP '+r.status+': '+String(body.code||body.error_code||'signup_failed'));
 if(body?.access_token)throw Error('Email confirmation unexpectedly bypassed');
