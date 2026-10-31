@@ -4,7 +4,7 @@
 **Project:** The Stock Market: From the Ground Up  
 **File:** `docs/qa/2026-10-31_BOOTCAMP_247_INSTRUCTIONAL_STRENGTHENING_REGISTER.md`  
 **File type:** Markdown  
-**Version:** 0.2 · October 31, 2026  
+**Version:** 0.3 · October 31, 2026  
 **Status:** **ACTIVE DRAFT; NO INDIVIDUAL FORMAL ACCEPTANCES RECORDED**  
 **GitHub:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main` only  
 **Google Drive:** Not created; no designated Drive path has been supplied.  
@@ -19,10 +19,10 @@
 | `watchlist7` | 7 | 7 distinct new source/check cases | 0 | 0 |
 | `scanners10` | 10 | 10 distinct new scan/risk cases | 0 | 0 |
 | `foundations30` | 30 | 30 distinct additional cases on existing canonical days | 0 | 0 |
-| `charts45` | 45 | Parent-derived day objectives currently only | 45 | 0 |
+| `charts45` | 45 | 45 day-specific fictional cases across fifteen subjects and three phases | 0 | 0 |
 | `risk60` | 60 | Parent-derived day objectives currently only | 60 | 0 |
 | `practicum90` | 90 | Parent-derived day objectives currently only | 90 | 0 |
-| **TOTAL** | **247** | **52 authored study-day modules** | **195** | **0 independently evidenced** |
+| **TOTAL** | **247** | **97 authored study-day modules** | **150** | **0 independently evidenced** |
 
 **Inventory note:** The three separately drafted 10-, 10- and 7-day courses add 27 further positions and are excluded from the original 247-day freeze. The five Free Foundations lessons are also excluded from this Boot Camp inventory.
 
@@ -31,6 +31,7 @@
 - The canonical five B01 day lessons remain as originally authored. Only owner-approved source-literacy supplements for Days 1, 3 and 4 are displayed as separate, ungraded material.
 - The 17 Watchlist/Scanner days now contain individual fictional worked cases, source procedures, limitations, misconceptions, independent transfer situations and original topical references.
 - The 30-day original Boot Camp retains every controlling day title, objective, ID, related Lab association, entitlement and progress contract. Additional original day-specific fictional teaching is attached to all 30 days.
+- Charts45 now has 45 distinct fictional worked scenarios and 45 distinct transfer cases mapped to the fifteen original subjects and the learning/practice/transfer phases. Chart literacy is not proof of historical-pattern profitability or independently verified replay.
 - Talia's ten-stage workstation uses these authored cases and case-appropriate numeric checks instead of generic source text where an original module exists.
 - Only educational, ungraded calculation fixtures are held in the public authored cases. The existing private assessment service retains authority over independent grading and protected answers.
 - The source links checked during this authoring wave were broad SEC Investor.gov investment research, SEC EDGAR discovery, SEC order and execution education, and SEC antifraud materials. These validate narrow general reference topics, **not** unit-specific historical market claims, source timing or licensing.
@@ -59,7 +60,7 @@ Run `node scripts/bootcamp-247-editorial-preflight-v1.mjs` from repository root.
 
 The reproducible GitHub Actions workflows upload these artifacts as QA evidence. The artifact queue is not a replacement for independent human/editorial decisions; `docs/curriculum-acceptance-decisions-v014150.json` remains authoritative until properly supported new decisions are entered.
 
-**Next blocking engineering/editorial batches:** 45 `charts45` days, 60 `risk60` days, and 90 `practicum90` days; exact canonical IDs and titles are in the CSV. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
+**Next blocking authoring batches:** 60 `risk60` days and 90 `practicum90` days. **Next verification across all 97 authored days:** claim-specific primary-source evidence, individual numerical and misconception review, truly independent protected assessments, rights-cleared historical replay where required, and authenticated member testing. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
 
 ## 5. Security, commerce, release and operational boundaries
 
@@ -75,5 +76,6 @@ The reproducible GitHub Actions workflows upload these artifacts as QA evidence.
 |---|---|---|---|
 | 0.1 | 2026-10-31 | Created owner-directed 247-day acceptance program and frozen B01 boundary | Draft |
 | 0.2 | 2026-10-31 | 17 Watchlist/Scanner and 30 Foundations study-day teaching modules, new source/math tests and reproducible 247-day QA queue | Implementation draft; approval pending |
+| 0.3 | 2026-10-31 | Charts45 supplemental 45 individual day/phase scenarios; 97 authored total; 150 remaining authoring days | Draft; independent editorial approval pending |
 
 **Footer:** Crown & Lantern Press · The Stock Market: From the Ground Up · Controlled QA record · Not a statement of legal compliance, trading profitability or formal educational accreditation.
