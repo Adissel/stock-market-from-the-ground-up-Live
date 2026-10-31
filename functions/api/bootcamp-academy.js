@@ -3,6 +3,7 @@
  * No payment, credit, grade, independent mastery or historical-bar invention.
  */
 import {toolAccess} from './member-tool-access.js';
+import {academyBetaCourse} from '../_lib/academy-three-camps-beta-access-v1.js';
 import {academyCatalog,academyByCode,ACADEMY_VERSION} from '../_lib/bootcamp-academy-v014168.js';
 const HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'x-content-type-options':'nosniff'};
@@ -10,8 +11,8 @@ const respond=(data,status=200)=>new Response(JSON.stringify(data),{status,heade
 const fault=(reason,status=400)=>Object.assign(new Error(reason),{status});
 const newCourses=new Set(['tape10','indicators10','filings7']);
 const released=env=>env?.ACADEMY_THREE_CAMPS_ENABLED==='true';
-const allowed=(code,env)=>Object.hasOwn(academyByCode,code)&&
- (!newCourses.has(code)||released(env));
+const allowed=(code,env,userId)=>Object.hasOwn(academyByCode,code)&&
+ (!newCourses.has(code)||released(env)||academyBetaCourse(env,code,userId));
 function database(env){
  const base=String(env.SUPABASE_URL||'').replace(/\/$/,'');
  const secret=String(env.SUPABASE_SECRET_KEY||'');
@@ -38,7 +39,7 @@ function sameOrigin(request){
  const site=request.headers.get('sec-fetch-site');
  if(site&&!['same-origin','none'].includes(site))throw fault('Cross-site changes are denied.',403);
 }
-async function readInput(request,env){
+async function readInput(request,env,userId){
  const declared=Number(request.headers.get('content-length')||0);
  if(declared>5000)throw fault('Request is too large.',413);
  const body=await request.text();
@@ -46,7 +47,7 @@ async function readInput(request,env){
  let data;
  try{data=JSON.parse(body)}catch{throw fault('Invalid JSON request.')}
  if(!data||typeof data!=='object'||Array.isArray(data))throw fault('Invalid Academy request.');
- if(!allowed(data.program,env))throw fault('Unknown Academy program. The existing 30-day course has a separate route.');
+ if(!allowed(data.program,env,userId))throw fault('Unknown Academy program. The existing 30-day course has a separate route.');
  const plan=academyByCode[data.program];
  if(!['enroll','start','save_reflection'].includes(data.action))throw fault('Unknown progress action.');
  if(data.program==='foundations30'&&data.action!=='enroll')throw fault('The existing 30-day learning service owns all day-progress updates.');
@@ -77,16 +78,17 @@ export async function onRequest({request,env}){
   let form=null;
   if(request.method==='POST'){
    sameOrigin(request);
-   form=await readInput(request,env);
+   form=await readInput(request,env,auth.userId);
   }
   const requestedCode=request.method==='GET'?url.searchParams.get('program'):form.program;
   const eligibleFree=requestedCode==='free5'&&
    auth.freeEligible===true;
-  if(!auth.userId||(!auth.authorized&&!eligibleFree))
+  const eligibleBeta=academyBetaCourse(env,requestedCode,auth.userId)&&auth.freeEligible===true;
+  if(!auth.userId||(!auth.authorized&&!eligibleFree&&!eligibleBeta))
    throw fault(auth.reason||'Authorized member training access required.',403);
   if(request.method==='GET'){
    const code=url.searchParams.get('program');
-   if(!allowed(code,env))throw fault('Unknown Academy program.',404);
+   if(!allowed(code,env,auth.userId))throw fault('Unknown Academy program.',404);
    if(code==='foundations30'){
     const rows=await db(env,'gu_bootcamp_academy_enrollments_v014168?select=status,program_version&user_id=eq.'+
      encodeURIComponent(auth.userId)+'&program_code=eq.foundations30&limit=1');
@@ -119,6 +121,7 @@ export async function onRequest({request,env}){
      startedAt:x.started_at,updatedAt:x.updated_at}));
    }catch{progressAvailable=false;enrolled=false;rows=[]}
    return respond({ok:true,version:ACADEMY_VERSION,program,curriculum,
+    betaStudy:eligibleBeta&&!released(env),
     progress:progressAvailable?rows:null,progressAvailable,enrolled,
     disclaimer:progressAvailable?'Member study progress is ungraded and does not grant official mastery.':
      'Private Academy storage is unavailable; no enrollment or completed-day status can be confirmed.'});
