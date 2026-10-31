@@ -36,27 +36,33 @@ assert.equal((await onRequest({request:new Request('https://site.test/api/chart-
 const url='https://mockchart.supabase.co';
 const env={SUPABASE_URL:url,SUPABASE_SECRET_KEY:'test_service',SUPABASE_PUBLISHABLE_KEY:'test_public'};
 const uid='11111111-1111-4111-8111-111111111111';
+const otherUid='22222222-2222-4222-8222-222222222222';
 const events=[],now=Date.now(),before=new Date(now-60000).toISOString(),after=new Date(now+60000).toISOString();
 let db={settings:{version:2,selected:'PROFESSIONAL',studies:['EMA'],sync:true,drawings:[]},updated_at:before};
+const otherDb={settings:{version:2,selected:'STANDARD',studies:['MA'],sync:true,drawings:[]},updated_at:after};
 const j=x=>new Response(JSON.stringify(x),{status:200,headers:{'content-type':'application/json'}});
 const original=globalThis.fetch;
 globalThis.fetch=async(input,opts={})=>{const u=new URL(input);assert.equal(u.origin,url);events.push({path:u.pathname,method:opts.method||'GET',body:opts.body});
- if(u.pathname==='/auth/v1/user')return j({id:uid});
+ if(u.pathname==='/auth/v1/user')return j({id:String(opts.headers?.authorization||'').endsWith('QA_TOKEN_OTHER')?otherUid:uid});
  if(u.pathname==='/rest/v1/profiles')return j([{account_kind:'member',deleted_at:null}]);
  if(u.pathname==='/rest/v1/admin_user_flags'||u.pathname==='/rest/v1/admin_user_roles')return j([]);
  if(u.pathname==='/rest/v1/rpc/user_has_tool_access')return j(false);
  if(u.pathname==='/rest/v1/gu_founder_release_v014173')return j([{public_launch_open:false,enrollment_enabled:false}]);
- if(u.pathname==='/rest/v1/gu_founder_members_v014173')return j(u.searchParams.has('user_id')?[{revoked_at:null}]:[]);
- if(u.pathname==='/rest/v1/gu_founder_paid_cycles_v014173')return j([{plan_code:'FOUNDING_60',billing_start:before,billing_end:after,reversed_at:null}]);
+ if(u.pathname==='/rest/v1/gu_founder_members_v014173')return j(u.searchParams.has('user_id')&&u.searchParams.get('user_id')==='eq.'+uid?[{revoked_at:null}]:[]);
+ if(u.pathname==='/rest/v1/gu_founder_paid_cycles_v014173')return j(u.searchParams.get('user_id')==='eq.'+uid?[{plan_code:'FOUNDING_60',billing_start:before,billing_end:after,reversed_at:null}]:[]);
  if(u.pathname==='/rest/v1/gu_founder_reservations_v014173'||u.pathname==='/rest/v1/user_plan_grants')return j([]);
  if(u.pathname==='/rest/v1/gu_storefront_items_v014174')return j([]);
  if(u.pathname==='/rest/v1/gu_sparks_chart_passes_v1')return j([]);
  if(u.pathname==='/rest/v1/crownlight_chart_cash_upgrades_v1'){
-  assert.equal(u.searchParams.get('user_id'),'eq.'+uid);
+  assert([uid,otherUid].some(id=>u.searchParams.get('user_id')==='eq.'+id));
   return j([]);
  }
  if(u.pathname==='/rest/v1/crownlight_chart_qa_grants_v1')return j([]);
- if(u.pathname==='/rest/v1/crownlight_chart_workspaces_v1')return j([db]);
+ if(u.pathname==='/rest/v1/crownlight_chart_workspaces_v1'){
+  const selected=u.searchParams.get('user_id');
+  assert([uid,otherUid].some(id=>selected==='eq.'+id),'Every private read must use the authenticated member identifier');
+  return j([selected==='eq.'+uid?db:otherDb]);
+}
  if(u.pathname==='/rest/v1/rpc/gu_crownlight_chart_workspace_save_v4'){
   const b=JSON.parse(opts.body);assert.equal(b.p_user,uid,'Server must bind signed-in identity');
   assert.equal(b.p_max_tier,'PROFESSIONAL','Only verified server tier may authorize premium saves');
