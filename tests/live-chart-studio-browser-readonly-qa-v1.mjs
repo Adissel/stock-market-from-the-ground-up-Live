@@ -77,20 +77,21 @@ try{
  const load=page.locator('#sim-load-fictional');
  assert(await source.count()&&await load.count(),'Existing fictional chart controls unavailable');
  await source.click();
- if(await load.isVisible()){
-  await load.click();
- }else{
-  // The production layout can hide legacy controls when Enhanced Studio
-  // is selected. Exercise the exact first-party handler without claiming
-  // the legacy load button was visually clickable.
-  console.log('WARN Legacy fictional-load button hidden in Advanced workspace; checking engine with first-party DOM action. Visible starter path remains unaccepted.');
-  await page.evaluate(()=>{
-   const button=document.getElementById('sim-load-fictional');
-   if(!button||button.disabled||typeof button.onclick!=='function')
-    throw Error('Existing first-party fictional starter action is not initialized');
-   button.click();
-  });
+ if(!await load.isVisible()){
+  // Selecting Advanced intentionally closes the data-import disclosure.
+  // Open it through the actual visible, keyboard-accessible <summary>:
+  // no DOM.click bypass of a hidden control is accepted.
+  const disclosure=page.locator('#cl-replay-import details.cl-workbench-import');
+  assert.equal(await disclosure.count(),1,
+   'Advanced data-source disclosure missing from the member workbench');
+  const summary=disclosure.locator('summary');
+  assert(await summary.isVisible(),'Data-source disclosure must have a visible summary');
+  if(!await disclosure.evaluate(e=>e.open))await summary.click();
+  await load.waitFor({state:'visible',timeout:15000});
+  console.log('PASS user-accessible Advanced data-source disclosure reveals fictional starter');
  }
+ assert(await load.isEnabled(),'Fictional starter must be enabled for eligible QA member');
+ await load.click();
  await page.waitForFunction(()=>window.CrownlightChartTiers?.getRevealedBars?.().length>=2,null,{timeout:30000});
  await page.waitForFunction(()=>window.CrownlightChartTiers?.getInstances?.().some(x=>x.chart?.getDataList?.().length>=2),
   null,{timeout:30000});
