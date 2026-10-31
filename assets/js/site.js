@@ -234,3 +234,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const script=document.createElement('script');script.src='/assets/js/crownlight-member-quickview-v1.js?v=1';
  script.defer=true;script.dataset.guMemberQuickview='1';document.head.append(script);
 })();
+
+/* Small responsive stylesheet for authenticated private wallet activity. */
+(()=>{if(typeof document==='undefined'||document.querySelector('link[data-gu-member-quick-css]'))return;
+ const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/css/crownlight-member-quickview-v1.css?v=1';
+ link.dataset.guMemberQuickCss='1';document.head.append(link);
+})();
