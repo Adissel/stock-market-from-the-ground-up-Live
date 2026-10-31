@@ -13,6 +13,9 @@ import {formativeDay02V1} from './academy-three-camps-formative-day02-v1.js';
 import {formativeDay03V1} from './academy-three-camps-formative-day03-v1.js';
 import {formativeDay04V1} from './academy-three-camps-formative-day04-v1.js';
 import {formativeDay05V1} from './academy-three-camps-formative-day05-v1.js';
+import {formativeDay06V1} from './academy-three-camps-formative-day06-v1.js';
+import {formativeDay07V1} from './academy-three-camps-formative-day07-v1.js';
+import {formativeDay08V1} from './academy-three-camps-formative-day08-v1.js';
 import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
 import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
@@ -250,7 +253,8 @@ function dayFor(d,i){
   const originalLesson=d.lessons[i];
   const questions=day===1?formativeReferenceV1[d.code]:day===2?formativeDay02V1[d.code]:
    day===3?formativeDay03V1[d.code]:day===4?formativeDay04V1[d.code]:
-   day===5?formativeDay05V1[d.code]:null;
+   day===5?formativeDay05V1[d.code]:day===6?formativeDay06V1[d.code]:
+   day===7?formativeDay07V1[d.code]:day===8?formativeDay08V1[d.code]||null:null;
   const lesson=questions?Object.freeze({...originalLesson,formativeQuestions:questions}):originalLesson;
   return Object.freeze({day,programDay:day,programCode:d.code,title:lesson.title,
    objective:lesson.teach,observe:lesson.terms,practice:lesson.transfer,
