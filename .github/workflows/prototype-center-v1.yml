@@ -16,6 +16,10 @@ on:
       - 'tests/prototype-center-v2-browser.test.mjs'
       - 'assets/js/prototype-teaching-v2.js'
       - 'functions/api/prototype-training-cases.js'
+      - 'functions/api/prototype-document.js'
+      - 'functions/_middleware.js'
+      - 'assets/js/prototype-bootstrap-v3.js'
+      - 'tests/prototype-private-document-v3.test.mjs'
       - '.github/workflows/prototype-center-v1.yml'
   workflow_dispatch:
 permissions:
@@ -35,12 +39,16 @@ jobs:
           node --check assets/js/prototype-admin-link-v1.js
           node --check assets/js/prototype-teaching-v2.js
           node --check functions/api/prototype-training-cases.js
+          node --check functions/api/prototype-document.js
+          node --check functions/_middleware.js
+          node --check assets/js/prototype-bootstrap-v3.js
           node --check assets/js/route-policy.js
       - name: Verify Prototype Center source contracts
         run: |
           node tests/prototype-center-v1-contract.test.mjs
           node tests/prototype-center-v1-auth.test.mjs
           node tests/prototype-teaching-v2.test.mjs
+          node tests/prototype-private-document-v3.test.mjs
       - name: Build exact public Cloudflare Pages output and verify private-source exclusions
         run: |
           bash scripts/build-pages.sh
