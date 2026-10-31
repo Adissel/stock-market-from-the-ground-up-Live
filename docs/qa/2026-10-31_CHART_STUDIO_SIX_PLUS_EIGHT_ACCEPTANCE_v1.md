@@ -7,12 +7,24 @@
 **Google Drive document ID:** Not assigned  
 **Filename:** `docs/qa/2026-10-31_CHART_STUDIO_SIX_PLUS_EIGHT_ACCEPTANCE_v1.md`  
 **File type:** Markdown (.md)  
-**Version:** 1.2  
+**Version:** 1.3  
 **Date:** October 31, 2026  
 **Status:** ACTIVE EXECUTION — 3/14 strict full gates accepted, 10 partial, 1 open; full release NOT certified.  
 **Dependencies:** AGENTS.md; issues #154, #155, #156 and #158; Supabase Primary; Cloudflare Pages production; GitHub Actions; Stripe TEST.  
 **Purpose:** Execute exactly the six owner-ordered Chart Studio release priorities plus eight related technical exit gates, without relabeling fixture runs as commercial or human-browser acceptance.  
 **New file required:** Yes—separate execution register, not a replacement for previously accepted evidence.
+
+## Version 1.3 — 25/25 genuinely authenticated production checks accepted
+
+**Test evidence:** [GitHub Actions run 41237482584](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237482584) at source commit `af24099dc74285fa78ba6c5f77a440f51caa16b4`; both `production-signed-in-chart-api` and `production-browser-chart-ui` jobs **COMPLETED/SUCCESS**. The second job executed the original authenticated Chromium acceptance **and** the exact 25-case additional regression. Its live log recorded **QA25 01–QA25 25 PASS** and `QA25 SUMMARY {"passed":25,"total":25,"classification":"REAL_AUTH_BROWSER_AND_READ_ONLY_API","livePaidCharges":0,"lumenDebits":0,"humanCaptchaLoginValidated":false}`.
+
+**Acceptance boundaries:** The accepted checks cover genuine James_Test GoTrue session, private Chart tier/workspace caching, Advanced authorization, Standard/Advanced permitted tiers, disallowed Professional controls, saved EMA/RSI projection and synchronization, guest/foreign-selector isolation, 403 cross-origin PUT, 409 unversioned PUT, fictional starter visible controls and actual KLineChart, 390px mobile/keyboard, saved revision after reload and zero protected browser API writes. **Do not represent this as paid Founding 14/30/60 signup, staff role-matrix approval, full BYO feed, supported Stripe dispute, screen-reader certification, or human CAPTCHA form acceptance.**
+
+**Latest completed offline fault/fixture checks:** [V7 Actions 41237621772](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237621772), both source contracts and Chromium fixture jobs SUCCESS, including backend outage fail-closed and signed Stripe TEST unit/source boundaries. Risk60 Cloudflare failure from earlier SHAs was traced to a title-length guard; current source corrected the guard, and subsequent Cloudflare production deployments succeeded. No lesson-editorial status was waived.
+
+**Maintained calibrated completion score:** 3/14 gates **fully accepted** (21.4% strict); 10 partially evidenced; 1 open. Half-credit engineering planning score **57.1%**. The accepted QA25 batch adds evidence *within* existing partial gates and does not independently certify every remaining gate. Final release certification is still held for genuine paid-plan/staff matrix, official source compliance, accessibility, payment-provider exceptions and one frozen full-workflow production SHA.
+
+---
 
 ## Version 1.2 — Active CI evidence and batch disposition (October 31, 2026)
 
@@ -116,5 +128,6 @@ Do not mark all 14 gates completed merely because their source tests exist. Reta
 | 1.0 | 2026-10-31 | Formalize owner's six priorities, next eight QA gates, controlling evidence and new GitHub mobile/financial source coverage | Superseded baseline |
 | 1.1 | 2026-10-31 | Signed-in Standard/Professional Chromium and real 2-tab CAS, owner BYO/CAPTCHA scope, precise percentages and financial exception | Internal owner/engineering scoped acceptance |
 | 1.2 | 2026-10-31 | New real 25-case suite pending runner, backend outage fixture accepted, security advisors and precise 57.1% estimate | Active acceptance, no launch signoff |
+| 1.3 | 2026-10-31 | 25/25 actual authenticated production Chromium/API cases verified, evidence and QA boundaries frozen | Internal QA25 acceptance, overall release held |
 
-**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.2 · Internal engineering and QA · Not a commercial release certificate.
+**Footer:** SMFGU-QA-CHART-ROADMAP-20261031-003 · v1.3 · Internal engineering and QA · Not a commercial release certificate.
