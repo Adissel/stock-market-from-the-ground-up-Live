@@ -16,6 +16,7 @@ assert(migration.includes('review_count<>0'));
 assert(!migration.includes("'reviewed','b01_private_feedback"));
 const old=globalThis.fetch,uid='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 let reviewedFeedback='DRAFT_PENDING_SEPARATE_PEDAGOGICAL_APPROVAL';
+let feedbackText='This answer uses future information that was not available at the decision pause. Retain only completed verified evidence.';
 let scoreCalls=0,assessDenied=0;
 const json=x=>new Response(JSON.stringify(x),{headers:{'content-type':'application/json'}});
 globalThis.fetch=async(raw,opts={})=>{
@@ -35,7 +36,7 @@ globalThis.fetch=async(raw,opts={})=>{
    questions:[{id:'Q1',kind:'choice',prompt:'Which claim is justified?',
     options:['Correct evidence','Known wrong conclusion','Unrelated future fact'],
     distractorFeedback:[{option:'Known wrong conclusion',
-     feedback:'This answer uses future information that was not available at the decision pause. Retain only completed verified evidence.',
+     feedback:feedbackText,
      reviewStatus:reviewedFeedback}]}]}]);
  }
  if(p==='/rest/v1/rpc/v014_training_answer'){
@@ -62,6 +63,16 @@ try{
  assert.match(body.explanation,/future information/);
  assert(!JSON.stringify(body).includes('distractorFeedback'));
  assert(!JSON.stringify(body).includes('answer_key'));
- assert.equal(scoreCalls,2);
- console.log('PASS B01 private option feedback: pending corrections hidden; independently reviewed chosen misconception only after scoring.');
+ // A mechanical copy of v98's generic generated template must still be
+ // suppressed if someone flips only a reviewStatus field without rewriting it.
+ feedbackText='Why this choice is incorrect: Known wrong conclusion / Correction: '+
+  'Only completed evidence belongs in an assessment. Review the case evidence: '+
+  'Always separate assumptions from the information available at the pause.';
+ r=await onRequest({request:req(),env});body=await r.json();
+ assert.equal(r.status,200);
+ assert.equal(body.explanation,'General existing corrective advice',
+  'Mechanical template cannot become approved option-specific teaching through a flag');
+ assert(!JSON.stringify(body).includes(' / Correction: '));
+ assert.equal(scoreCalls,3);
+ console.log('PASS B01 protected feedback: draft or template correction suppressed even with a false approval flag; genuinely reviewed option-specific remediation returned only after scoring.');
 }finally{globalThis.fetch=old}
