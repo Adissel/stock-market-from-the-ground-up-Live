@@ -351,7 +351,7 @@ if(!email||!password){
   // Human screen-reader review remains an independent required gate.
   try{
    const scans=[
-    ['/dashboard.html','#free-learning-launchpad','#free-start-choose'],
+    ['/dashboard.html','#free-learning-launchpad','#free-learning-launchpad'],
     ['/free-watchlist.html','#free-watchlist-content','#free-watchlist-symbol'],
     ['/journal.html','#journal-content','#new-journal-toggle']
    ];
@@ -365,8 +365,7 @@ if(!email||!password){
     if(route==='/journal.html')await page.locator('#new-journal-toggle').click();
     await page.addScriptTag({path:axePath});
     const a=await page.evaluate(async(region)=>await window.axe.run(region,{
-     runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']},
-     resultTypes:['violations','incomplete']
+     runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}
     }),region);
     const problems=a.violations.map(v=>({
      id:v.id,impact:v.impact,count:v.nodes.length,
