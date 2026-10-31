@@ -5,7 +5,7 @@
  * Never copy user text to localStorage, never award grades, and never render HTML
  * returned by a learner, provider, or database as markup.
  */
-const TUTOR={index:[],sb:null,user:null,entries:[],busy:false,saving:false,lastTopic:'',serverHistory:false,guides:[],competencyMap:null,identityEpoch:0,conversations:[],currentConversationId:null,conversationsAvailable:false,abortController:null,lastDraft:null};
+const TUTOR={index:[],sb:null,user:null,entries:[],ready:false,busy:false,saving:false,lastTopic:'',serverHistory:false,guides:[],competencyMap:null,identityEpoch:0,conversations:[],currentConversationId:null,conversationsAvailable:false,abortController:null,lastDraft:null};
 const $=id=>document.getElementById(id);
 function status(message,kind=''){const node=$('tutor-status');node.textContent=message;node.className='status-message'+(kind?' '+kind:'');}
 function historyStatus(message){$('tutor-history-state').textContent=message;}
@@ -538,6 +538,7 @@ async function memberExplanation(q,mode,learnerAnswer,conversationId,signal){
   conversationLinked:data.conversationLinked===true};
 }
 async function ask(){
+ if(!TUTOR.ready){status('Market Tutor is preparing your verified learning session. Submit after the Tutor becomes ready.');return}
  if(TUTOR.busy)return;
  const q=$('tutor-question').value.trim(),learnerAnswer=$('tutor-reflection').value.trim(),chosen=$('tutor-mode').value;
  // Practice suggestions must use actual member history, not general glossary guesses.
@@ -628,6 +629,9 @@ async function refreshAiServiceStatus(){
  }
 }
 async function initTutor(){
+ TUTOR.ready=false;
+ $('tutor-ask').disabled=true;
+ status('Loading verified Tutor resources and member session…');
  window.addEventListener('talia-guided-practice-ready',renderConversation);
  $('tutor-ask').addEventListener('click',ask);
  $('tutor-stop').addEventListener('click',()=>{
@@ -700,6 +704,10 @@ async function initTutor(){
  }catch{TUTOR.user=null}
  renderConversation();
  await Promise.all([loadHistory(),refreshConversations(),refreshAiServiceStatus()]);
+ // A question submitted before the authorized identity/source initialization
+ // could be discarded when renderConversation() clears the placeholder state.
+ TUTOR.ready=true;
+ $('tutor-ask').disabled=false;
  if(query&&TUTOR.user){$('tutor-question').focus();status('The linked question is ready for you to submit.');}
  else if(query){status('The linked public glossary question is ready to submit.');}
  else status(TUTOR.user?'Member Tutor ready. Submit a question to begin.':'Public glossary ready. Sign in to access member teaching.');
