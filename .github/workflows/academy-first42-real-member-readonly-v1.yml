@@ -1,0 +1,27 @@
+name: Academy First-42 Genuine Member Read-Only Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-first42-real-member-readonly-v1.yml'
+      - 'tests/live-academy-first42-readonly-member-v1.mjs'
+permissions: {contents: read}
+concurrency:
+  group: academy-first42-real-member-readonly-v1
+  cancel-in-progress: false
+jobs:
+  authenticated-qa-member-observation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node --check tests/live-academy-first42-readonly-member-v1.mjs
+      - name: Genuine Supabase-authenticated, no-write production member acceptance
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-academy-first42-readonly-member-v1.mjs
