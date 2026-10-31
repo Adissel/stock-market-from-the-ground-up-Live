@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 1.1  
+**Version:** 1.2  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -52,6 +52,14 @@ The Owner has designated actual beta members as the source of human editorial re
 
 **Percentage impact:** defining the reviewer population is an owner staffing decision, not proof of completed source or review work. Therefore the weighed estimate remains **52% completed / 48% remaining**, with **0/42 human-reviewed days and 0/20 independently approved private assessment sets**. The next actionable work is to invite volunteers, verify suitability and consent, assign the 42/20 units under conflict rules, and deploy/test restricted private reviewer tooling before any protected answer-key access.
 
+## Owner appointment — GPT-6 working editorial reviewer
+
+**Appointed working reviewer:** GPT-6, acting as an AI editorial researcher, instructional editor, numerical verifier and protected-content draft reviewer for all first-42/B01 work. Owner delegated these operational tasks, including revisions and transparent AI-authored findings. This is not a human-independent editorial signoff. The separate human evidence population remains qualified real beta testers under `ACADEMY_BETA_TESTER_EDITORIAL_PANEL_POLICY_2026-10-31.md`. The Owner's AI appointment changes the work assignment, not the final acceptance standard.
+
+**Additional completed bounded research:** `ACADEMY_FIRST42_ORDER_EXECUTION_PRIMARY_SOURCE_CHECK_2026-10-31.md` independently cross-checks eight narrow order-execution and EDGAR timeline propositions using the SEC investor bulletins updated August 18, 2026 and the SEC publication-lag FAQ. Together with the prior four narrow primary-source findings, **12 scoped statement families** now have explicit authority findings. This does not establish final independent approval for any whole day or all 945 source-current claim locations.
+
+**Weighted progress:** Retain **52/100**, 48% remaining. Two sources of misleading arithmetic are prohibited: (i) equating 945 generated risk-screening entries with 945 individually verified and accepted claims, and (ii) adding the separate 45-task commerce / Chart Studio backlog to this B01 denominator without a shared task register. The separate payment-and-Chart-Studio 45-task plan still requires its own reconciliation and percent.
+
 ## Explicit prohibitions / release boundaries
 
 No official B01 protected grading, mastery awards, certificates dependent on those grades, financial charge, new entitlement, assumed historical data licence or fictitious staff signoff. No replacement or auto-acceptance of the authoritative 252-day and 671-row registers. Store confidential answers in private Supabase only.
@@ -62,5 +70,6 @@ No official B01 protected grading, mastery awards, certificates dependent on tho
 |---|---|---|---|
 | 1.0 | October 31, 2026 | Measured source-current gate, closed Owner approval shortcut, confirmed 20/20 arithmetic, specified remaining work and transparent 52% methodology | HOLD — independent review and graded beta acceptance not completed |
 | 1.1 | October 31, 2026 | Owner selected independent reviewers from qualified beta testers; formalized reviewer tracks, confidential answer-key separation and 62 unassigned slots | 52% estimate unchanged; independent acceptance pending |
+| 1.2 | October 31, 2026 | GPT-6 assigned working AI editorial role; beta testers reserved for independent human validation; eight additional narrow SEC source findings linked | 52% unchanged; no human content acceptance or graded release |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
