@@ -38,7 +38,8 @@ function mount(target,{programCode,day}={}){
    const payload=await request();
    if(disposed||epoch!==current)return;
    if(payload.officialAssessment!==true||!payload.assessment){
-    report(payload.reason==='assessment_not_reviewed'?'Independent assessment is pending editorial approval. No official grade can be recorded.':
+    report(payload.reason==='beta_instruction_only'?'Instructional Beta: official assessments, grades, certificates and Lumens rewards are disabled. Continue with Talia and your private learning reflection.':
+     payload.reason==='assessment_not_reviewed'?'Independent assessment is pending editorial approval. No official grade can be recorded.':
      payload.reason==='no_fresh_reviewed_case'?'No new approved independent retake is available. The original submission remains preserved.':
      'No protected independent assessment has been released for this study day.');
     return;
