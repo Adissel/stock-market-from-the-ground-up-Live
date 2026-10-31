@@ -34,7 +34,7 @@ export const risk60LearnBatch01=Object.freeze(rows.map(lesson));
 export const risk60SourceDays=Object.freeze(approvedSourceDays);
 if(risk60LearnBatch01.length!==20||
  new Set(rows.map(r=>r[0])).size!==20||
- rows.some((row,i)=>row[0]!==approvedSourceDays[i]||row.slice(1).some(s=>typeof s!=='string'||s.length<30))||
+ rows.some((row,i)=>row[0]!==approvedSourceDays[i]||(typeof row[1]!=='string'||row[1].length<12||row.slice(2).some(s=>typeof s!=='string'||s.length<45)))||
  new Set(rows.map(r=>r[3])).size!==20||
  risk60LearnBatch01.some(l=>l.officiallyGraded===true||!l.reviewGuide||!l.transfer))
  throw Error('Risk60 Batch01 independent fictional source content incomplete.');
