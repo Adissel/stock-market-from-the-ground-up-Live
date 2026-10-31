@@ -1,6 +1,6 @@
 {
   "kind": "public_tutor_lab_claim_bridges_v1",
-  "version": "1.1",
+  "version": "1.2",
   "registeredLabsUnaffected": 419,
   "records": [
     {
@@ -162,6 +162,42 @@
       "title": "Read the Quote Before the Tape — The quote is a pair of invitations",
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
       "evidenceScope": "Verified general SEC/FINRA educational principle, not independently verified market history or individually approved full Lab."
+    },
+    {
+      "id": "F2-C05-L03",
+      "claim": "High reported share volume does not independently establish immediate liquidity for a particular order size. Liquidity concerns the ability to transact promptly without materially moving the price, while depth and available prices may change before an order reaches the market.",
+      "worked": "FICTIONAL: a stock reports 100,000 shares traded in one minute, but only 300 shares are displayed at the current ask. A hypothetical incoming buy of 2,000 shares cannot assume that all 2,000 execute at that quote. A minute volume statistic is past transactions, not a current book guarantee.",
+      "counterexample": "A 4x reported volume spike with a 40-cent spread and five displayed shares at the best ask may still be illiquid for a 500-share order. Inferring that the previous volume provides enough current ask-side depth confuses different measurements.",
+      "transfer": "FICTIONAL: a past five-minute interval traded 90,000 shares, the current best ask shows 500 shares, and a possible buy would be 5,000 shares. Identify which 500 may be potentially available at that moment and what source/time/price evidence is missing for the rest. A NO TRADE decision is valid.",
+      "sourceId": "SEC_LIQUIDITY",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability",
+      "title": "High Volume Still Requires Liquidity and Order-Size Context",
+      "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
+      "evidenceScope": "Original fictional arithmetic with SEC general educational references only; not actual corporate actions or individual full-Lab editorial approval."
+    },
+    {
+      "id": "DT-C23-L02",
+      "claim": "For domestic public companies, Form 10-K is generally the audited annual report, while Form 10-Q supplies unaudited quarterly statements and interim updates; the reporting period and amendments must be identified before comparing financial metrics.",
+      "worked": "FICTIONAL: Issuer A's 2025 10-K reports full-year revenue of $80 million, while its Q1 2026 10-Q reports three-month revenue of $19 million. Comparing $19 million directly with $80 million as if both were quarterly values is invalid; a period-aligned comparison requires the prior-year three-month figure and other context.",
+      "counterexample": "Calling a single unaudited quarterly disclosure an audited annual result—or treating a 10-K/A amendment as a second independent full-year result—can misstate the source, accounting scope, and chronology.",
+      "transfer": "FICTIONAL: a 10-K shows annual revenue $120 million and a Q2 10-Q shows its current three-month revenue $28 million against $25 million in the comparable prior-year quarter. Compute the period-aligned $3 million or 12% change and explain why it is not directly a 28/120 growth-rate comparison.",
+      "sourceId": "SEC_EDGAR_FORM_GUIDE",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+      "title": "SEC Filings for Day Traders — Forms 10-Q and 10-K",
+      "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
+      "evidenceScope": "Original fictional arithmetic with SEC general educational references only; not actual corporate actions or individual full-Lab editorial approval."
+    },
+    {
+      "id": "DT-C24-L01",
+      "claim": "SEC current-report disclosures can describe unregistered equity sales and possible dilution. If an issuer actually issues additional equivalent common shares, all else equal an existing holder's percentage ownership falls; authorization, registration, warrants, and actual issued shares are different facts.",
+      "worked": "FICTIONAL fully-issued simplified case: 10,000,000 common shares outstanding and 2,500,000 genuinely new equivalent shares issued produce 12,500,000 total shares. Existing holders together then hold 10,000,000/12,500,000=80% of the new total, before considering voting classes, convertibles or buybacks. This is not a verified issuer event.",
+      "counterexample": "Announcing a shelf registration, ATM facility, warrant authorization or proposed offering does not establish that every share has already been sold or issued. Counting merely authorized shares as outstanding would manufacture dilution.",
+      "transfer": "FICTIONAL: assume precisely 20 million identical common shares were outstanding and 5 million additional identical shares have actually been issued. Calculate 25 million new outstanding shares and a pre-issuance holder group's 80% proportion, then list what would be required to verify a real company's filing terms.",
+      "sourceId": "SEC_8K_GUIDE",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+      "title": "Offerings, ATM Programs, Warrants, Convertibles, and Dilution Risk — Public and Registered Direct Offerings",
+      "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
+      "evidenceScope": "Original fictional arithmetic with SEC general educational references only; not actual corporate actions or individual full-Lab editorial approval."
     }
   ],
   "sourceReviewDate": "2026-10-31"
