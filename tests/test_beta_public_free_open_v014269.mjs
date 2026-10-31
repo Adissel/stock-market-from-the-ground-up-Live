@@ -13,7 +13,7 @@ test('free beta signup is visibly available but is not payment or founder reserv
  // enrollment for unavailable Free educational registration.
  assert.match(site,/href="founding600\.html" data-founder-offer-link hidden/);
  assert.doesNotMatch(site,/Education and simulation, not trade signals/);
- assert.match(store,/Free Membership is retained for verified book purchasers/);
+ assert.match(store,/Free Membership is available to eligible registered members without a book purchase/);
  assert.match(store,/href="founding600\.html"/);
  assert.match(founder,/Founding enrollment status/);
  assert.match(founder,/FOUNDING STARTER/);
@@ -25,7 +25,7 @@ test('free beta signup is visibly available but is not payment or founder reserv
  assert.match(founder,/FOUNDING EXTENDED/);
  assert.match(founder,/\$59\.99/);
  assert.match(founder,/every 60 days/);
- assert.match(founder,/Free Membership is retained for verified book purchasers/);
+ assert.match(founder,/Free Membership is available to eligible registered members without a book purchase/);
  assert.match(founder,/No new purchase is made on this page/);
  assert.doesNotMatch(founder,/15 new Journal records and 10 saved simulator exercises/);
  assert.match(founder,/id="f600-enrollment-closed" hidden/);
