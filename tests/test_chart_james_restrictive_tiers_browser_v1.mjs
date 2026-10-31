@@ -73,7 +73,7 @@ try{
  assert.equal(workspace.data?.ok,true);
  assert.equal(workspace.data?.tier,EXPECTED_TIER);
  assert.equal(workspace.data?.workspace?.selected,
-  EXPECTED_TIER==='PROFESSIONAL'?'PROFESSIONAL':'STANDARD',
+  EXPECTED_TIER==='PROFESSIONAL'?'PROFESSIONAL':EXPECTED_TIER,
   'API must project saved premium settings to the currently authorized tier');
  console.log('PASS real '+EXPECTED_TIER+
   ' Chart Studio UI locks and fictional candles; GET returned safely projected workspace. Raw saved Pro workspace is separately verified in Supabase.');
