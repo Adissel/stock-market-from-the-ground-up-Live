@@ -7,6 +7,7 @@ on:
       - '.github/workflows/academy-first42-sentence-triage-v1.yml'
       - 'scripts/academy-first42-evidence-triage-v1.mjs'
       - 'scripts/academy-first42-claim-inventory-v1.mjs'
+      - 'scripts/academy-first42-substantive-source-controls-v1.mjs'
       - 'docs/research/stockstotrade/ACADEMY_FIRST42_NARROW_CLAIM_EVIDENCE_2026-10-31.csv'
       - 'functions/_lib/academy-first22-teaching-v1.js'
       - 'functions/_lib/academy-foundations-batch02-v1.js'
@@ -25,6 +26,7 @@ jobs:
           node --check scripts/academy-first42-evidence-triage-v1.mjs
           node scripts/academy-first42-claim-inventory-v1.mjs
           node scripts/academy-first42-evidence-triage-v1.mjs
+          node scripts/academy-first42-substantive-source-controls-v1.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: academy-first42-940-sentence-reviewed-triage
@@ -32,3 +34,6 @@ jobs:
             artifacts/academy-first42-940-sentence-review-dispositions.csv
             artifacts/academy-first42-42-day-editorial-queue.csv
             artifacts/academy-first42-940-disposition-manifest.json
+            artifacts/academy-first42-claim-substantive-control-audit.csv
+            artifacts/academy-first42-source-control-day-register.csv
+            artifacts/academy-first42-source-controls-result.json
