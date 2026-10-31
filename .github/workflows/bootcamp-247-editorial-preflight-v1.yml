@@ -7,10 +7,12 @@ on:
       - '.github/workflows/bootcamp-247-editorial-preflight-v1.yml'
       - 'functions/_lib/academy-first22-teaching-v1.js'
       - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'functions/_lib/academy-risk60-learning-batch01-v1.js'
       - 'assets/js/bootcamp-academy-v014168.js'
       - 'assets/js/academy-guided-v1.js'
       - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
       - 'tests/test_bootcamp_first22_editorial_preflight_v1.mjs'
+      - 'tests/test_academy_risk60_batch01_v1.mjs'
 permissions: {contents: read}
 jobs:
   original-seven-content:
@@ -25,6 +27,8 @@ jobs:
           node --check assets/js/academy-guided-v1.js
           node --check assets/js/bootcamp-academy-v014168.js
           node tests/test_bootcamp_first22_editorial_preflight_v1.mjs
+          node tests/test_academy_charts45_batch04_v1.mjs
+          node tests/test_academy_risk60_batch01_v1.mjs
           node tests/test_academy_guided_v1.mjs
       - name: Save 247 unit-by-unit nonapproving review register
         uses: actions/upload-artifact@v4
