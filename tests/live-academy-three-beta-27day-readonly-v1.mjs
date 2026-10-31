@@ -50,7 +50,7 @@ for(let i=0;i<codes.length;i++){
   assert(!days.has(code+':'+day.day),'Duplicate study day');days.add(code+':'+day.day);
   assert.equal(day.officiallyGraded,false);
   assert.equal(day.masteryAwarded,false);
-  assert(day.lesson?.explanation?.length>=60,'Lesson explanation missing '+code+':'+day.day);
+  assert(day.lesson?.teach?.length>=60&&day.lesson?.worked?.length>=60,'Original teaching explanation or worked case missing '+code+':'+day.day);
   assert(day.lesson?.formativeQuestions?.length===12,'Day lacks twelve individual formative reviews '+code+':'+day.day);
   formative+=day.lesson.formativeQuestions.length;
  }
