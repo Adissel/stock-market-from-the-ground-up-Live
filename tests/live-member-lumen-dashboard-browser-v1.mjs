@@ -36,8 +36,20 @@ try{
  assert.equal(session.id,login.user.id);
  await page.goto(origin+'/dashboard.html?tab=wallet',{waitUntil:'domcontentloaded',timeout:30000});
  await page.waitForFunction(()=>document.querySelector('[data-member-lumen-wallet]')?.textContent?.includes('Lumens available'),null,{timeout:35000});
- const wallet=await page.locator('[data-member-lumen-wallet]').innerText();
+ const wNode=page.locator('[data-member-lumen-wallet]');
+ const diagnostic=await wNode.evaluate(el=>({
+  clientRectCount:el.getClientRects().length,
+  isVisible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),
+  display:getComputedStyle(el).display,
+  visibility:getComputedStyle(el).visibility,
+  textContentLength:el.textContent?.length||0,
+  visibleTextLength:el.innerText?.length||0,
+  parentDisplay:getComputedStyle(el.parentElement).display
+ }));
+ console.log('Wallet visibility diagnostic (no amount or account content): '+JSON.stringify(diagnostic));
+ const wallet=await wNode.textContent();
  assert.match(wallet,/Crownlight Lumens/);assert.match(wallet,/Included:/);assert.match(wallet,/Purchased:/);
+ assert(diagnostic.isVisible,'Wallet populated but hidden; diagnose dashboard CSS/auth layout');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-history] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-member-lumen-history]').innerText(),/Recent Lumen wallet activity/);
  await page.waitForFunction(()=>!!document.querySelector('[data-academy-study-progress] h3'),null,{timeout:35000});
