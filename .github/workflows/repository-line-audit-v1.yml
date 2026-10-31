@@ -1,0 +1,42 @@
+name: Whole Repository Tracked-File Line Audit V1
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/repository-line-audit-v1.mjs'
+      - '.github/workflows/repository-line-audit-v1.yml'
+permissions:
+  contents: read
+jobs:
+  audit-all-tracked-files:
+    name: Noncharging all-file inventory and static line inspection
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify scanner syntax
+        run: node --check scripts/repository-line-audit-v1.mjs
+      - name: Inventory every tracked file and statically scan all readable UTF-8 lines
+        id: scan
+        continue-on-error: true
+        run: node scripts/repository-line-audit-v1.mjs
+      - name: Upload complete audit evidence and individual file/line manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-line-audit-v1
+          path: artifacts/repository-line-audit/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Fail on scan integrity errors
+        if: steps.scan.outcome != 'success'
+        run: exit 1
+      - name: State what this acceptance does not prove
+        if: always()
+        run: echo "This scans all git-tracked text lines with static rules. It does NOT certify human semantic review, binaries, Stripe LIVE, real-member auth, licensing, or final production acceptance."
