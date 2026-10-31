@@ -7,6 +7,10 @@ on:
       - '.github/workflows/public-acquisition-live-acceptance-v1.yml'
       - 'tests/test_public_15_page_browser_production_v1.mjs'
       - 'tests/test_live_free_foundations_browser_v1.mjs'
+      - 'assets/js/dashboard.js'
+      - 'assets/js/dashboard-ui-legacy.js'
+      - 'dashboard.html'
+      - 'functions/_lib/free-foundations-v1.js'
 permissions:
   contents: read
 concurrency:
@@ -40,7 +44,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
   free-foundations:
-    name: Real QA sign-in — Free5 Day 1 persistence and privacy
+    name: Real QA sign-in — Free5 Days 1–5, Talia and Watchlist
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -54,7 +58,7 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Genuine QA sign-in, Day 1 save/reload and separate-member isolation
+      - name: Genuine QA lessons, study preferences, watchlist and account isolation
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
