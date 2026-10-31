@@ -67,6 +67,7 @@ try{
  assert.equal(await details.getAttribute('href'),'/dashboard.html?tab=wallet');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-gifting]'),null,{timeout:22000});
  const gifting=page.locator('[data-member-lumen-gifting]');
+ assert(await gifting.isVisible(),'Gifting widget must be visible after Dashboard DOM ready');
  assert.match(await gifting.innerText(),/Transfers are not yet enabled/);
  assert.equal(await gifting.locator('button[type=submit]').isDisabled(),true);
  const guest=await context.newPage();
