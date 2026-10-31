@@ -12,7 +12,7 @@ function serviceKey(raw){
  if(/^eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(key))return {apikey:key,authorization:'Bearer '+key};
  throw Error('Server database authorization unavailable');
 }
-async function allowed(request,env){
+export async function verifyPrototypeStaff(request,env){
  const jwt=/^Bearer\s+(\S+)$/i.exec(request.headers.get('authorization')||'')?.[1];
  if(!jwt)return {status:401};
  const base=clean(env.SUPABASE_URL).replace(/\/$/,'');
@@ -65,7 +65,7 @@ const cases=Object.freeze([
 export async function onRequest({request,env}){
  if(request.method!=='GET')return fail('Method not allowed',405);
  try{
-  const status=await allowed(request,env);if(status.status!==200)return fail(status.status===401?'Authenticated session required':status.status===403?'Owner or Administrator authorization required':'Authorization service unavailable',status.status);
+  const status=await verifyPrototypeStaff(request,env);if(status.status!==200)return fail(status.status===401?'Authenticated session required':status.status===403?'Owner or Administrator authorization required':'Authorization service unavailable',status.status);
   const publicCases=cases.map(({expectedNumerator,expectedDenominator,...item})=>item);
   return response({ok:true,source:'FICTIONAL_PROTOTYPE',safeForPublicInstruction:true,privateAnswerKeysIncluded:false,gradingEnabled:false,generatedAt:null,cases:publicCases});
  }catch{return fail('Prototype instructional cases are temporarily unavailable',503)}
