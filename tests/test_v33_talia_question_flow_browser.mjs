@@ -50,6 +50,14 @@ try{
   assert.match(await root.locator('.gu-v33-instructor-reply').textContent(),/Open price.*Close price/s,
    'Diagnostic feedback must identify missing Open and Close evidence instead of generic rejection');
   await submit('The open and close values determine the real body of the completed candle.');
+  // The approved ten-stage flow inserts an ungraded Calculate method gate
+  // between Learn and Experiment, without changing protected backend stage IDs.
+  await root.locator('.gu-v44-calculate-gate').waitFor();
+  assert.equal(await root.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'Talia must not skip the original method check after Learn');
+  await root.locator('.gu-v44-calc-check input[value="0"]').check();
+  await root.getByRole('button',{name:'Check my answer'}).click();
+  await root.getByRole('button',{name:/Continue to Experiment/}).click();
   await root.getByRole('heading',{name:/Experiment —/}).waitFor();
   assert.match(await progress().textContent(),/Question 1 of 2/);
   await submit(good);await submit(good);
