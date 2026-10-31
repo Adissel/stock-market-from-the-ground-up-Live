@@ -114,6 +114,6 @@ BEGIN
  ) THEN RETURN true; END IF;
  RETURN false;
 END;
-$function$
+$function$;
 
 COMMIT;
