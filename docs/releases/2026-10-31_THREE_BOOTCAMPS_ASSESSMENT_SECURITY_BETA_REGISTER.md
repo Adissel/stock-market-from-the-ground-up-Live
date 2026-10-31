@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-THREE-001
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy
-**Version:** 1.2
+**Version:** 1.3
 **Created:** October 31, 2026
 **Last reviewed:** October 31, 2026
 **File type:** Markdown (.md)
@@ -10,7 +10,7 @@
 **Repository location:** `docs/releases/` on GitHub `main`
 **Google Drive location:** Not created; repository is current source of record
 **Google Drive document ID:** Not assigned
-**Status:** Implemented source and private assessment drafts; editorial and authenticated acceptance BLOCKED
+**Status:** INVITE-ONLY INSTRUCTIONAL BETA ACCESS ENABLED FOR TWO VERIFIED QA MEMBERS; protected grading, individual editorial approval and public release BLOCKED
 **Purpose:** Reconcile every new Academy day, protected case, access boundary and release evidence without inventing successful assessments.
 **Dependencies:** `AGENTS.md`; `functions/_lib/academy-three-camps-v1.js`; `functions/_lib/bootcamp-academy-v014168.js`; `functions/api/bootcamp-academy.js`; `functions/api/academy-protected-assessment-v1.js`; `functions/api/assessment-v0135.js`; `public.competency_cases_v135`; `public.gu_academy_protected_cases_v1`; `ACADEMY_THREE_CAMPS_ENABLED`; existing single grading RPC.
 
@@ -113,6 +113,28 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 - Reproducible audit: `supabase/admin/20261031_three_bootcamps_release_readiness_read_only.sql`. Executed against the live project without mutation. The last reported output confirmed protected-table RLS and privilege settings; earlier inventory/structural queries were also executed individually.
 - **Release remains blocked.** No grades or question-review fields were modified; full instructional depth, individual independent editorial sign-off, genuine enrolled-member assessment, accessibility, mobile and exact-commit deployment acceptance remain open.
 
+## Owner-directed controlled instructional Beta — October 31, 2026
+
+**Decision:** Owner explicitly requested release for Beta testing. This supersedes the prior blanket hold **for limited instructional testing only**, not the general-release, paid-product, editorial or official-grading gates.
+
+**Beta architecture and deployment:**
+- GitHub `main` has separate invitation-only course authorization in `functions/_lib/academy-three-camps-beta-access-v1.js`. Authorized codes are `tape10`, `indicators10` and `filings7` only.
+- Cloudflare production configuration has `ACADEMY_THREE_CAMPS_ENABLED=false` (general release remains OFF); `ACADEMY_THREE_CAMPS_BETA_ENABLED=true` and an encrypted `ACADEMY_THREE_CAMPS_BETA_USERS` allowlist.
+- Two existing, verified active test members have restricted access: Owner QA (`Adissel`) and Free baseline QA (`James_Test`). Their underlying user IDs are intentionally excluded from this public source document. No new QA accounts, memberships, purchases or paid transactions were created.
+- The general public catalog remains **seven programs**, with no public listing or standalone sale for the three new courses. Eligible invited testers may use existing direct routes:
+  `/bootcamp-academy.html?program=tape10`,
+  `/bootcamp-academy.html?program=indicators10`,
+  `/bootcamp-academy.html?program=filings7`.
+- A verified enrolled test member can see fictional instruction and Talia evidence and save private reflections through the original progress RPC. The service labels this `betaStudy`; its enrollment and progress results explicitly remain ungraded and make no mastery or historical-outcome claims.
+- The protected assessment endpoint returns `beta_instruction_only` to authenticated, enrolled Beta testers. It rejects all graded POSTs with HTTP 409 *before reading any private case keys or grading RPC*, even if review status changes. The old general assessment endpoint still blocks BC3 case-code bypass.
+- Every non-invited member is rejected from the new course route, including existing paid members; suspended/restricted, deleted and Showcase identities remain excluded by existing member access checks.
+- Tester enrollment **does not authorize** mastery, independent grades, certificates, Lumens issuance, new commerce entitlements, or unlocking the general-release switch.
+- The source-only security and Beta entitlement contract is covered by `tests/test_academy_three_camps_invite_beta_v1.mjs`, included in the dedicated GitHub Actions Boot Camp workflow. GitHub Actions and Cloudflare release acceptance must be attributed to an exact commit and independently rechecked.
+
+**Rollback:** Set `ACADEMY_THREE_CAMPS_BETA_ENABLED=false` (or clear the restricted list), redeploy the latest verified source, and confirm anonymous plus invited requests are denied. Preserve stored member progress and existing first attempts. Do not force-push or delete tables.
+
+**Outstanding:** Truly authenticated tester browser sessions and per-user private progress verification; per-day editorial depth (at least twelve individually authored formative questions and 30–45 minutes planned active work); 54 individually reviewed protected assessment cases; supported accessibility review; and exact production deployment acceptance. Beta availability is **not** Beta acceptance or public-sale authorization.
+
 ## Revision history
 
 | Version | Date | Author | Change |
@@ -120,5 +142,6 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 | 1.0 | October 31, 2026 | Project engineering | Established 27-day private assessment inventory and acceptance register without declaring editorial or member beta approval. |
 | 1.1 | October 31, 2026 | Project engineering | Incorporated later controlling 30–45-minute and 12-formative-question daily depth requirement; revised unfinished release classification. |
 | 1.2 | October 31, 2026 | Security and release audit | Verified live case completeness, answer references, option-reuse risk and RLS; recorded source security hardening and read-only audit without promoting review status. |
+| 1.3 | October 31, 2026 | Owner-directed Beta implementation | Introduced separate invitation-only Beta access for two verified existing QA identities while withholding grades, Lumens, certificates, public catalog visibility and general release. |
 
-**Status classification:** All three courses: IN DEVELOPMENT (technical infrastructure deployed, depth and assessment editorial acceptance unfinished); **not Beta Testing Ready, not Beta Accepted and not Production Release Approved**.
+**Status classification:** All three courses: **INVITE-ONLY INSTRUCTIONAL BETA ACCESS** for explicitly authorized QA members only; instructional depth and official assessment remain in development. **Not Beta Accepted, not General Availability, not authorized for public sale or graded certification.**
