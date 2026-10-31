@@ -58,6 +58,15 @@ try{
   await root.locator('.gu-v44-calc-check input[value="0"]').check();
   await root.getByRole('button',{name:'Check my answer'}).click();
   await root.getByRole('button',{name:/Continue to Experiment/}).click();
+  // Safe local-only diagnostic for the historically flaky Calculate -> Experiment
+  // transition; never inspect private answer keys or send provider requests.
+  const experimentStage=await root.evaluate(node=>({
+    headings:[...node.querySelectorAll('h2,h3')].map(el=>({text:el.textContent.slice(0,90),hidden:el.hidden,display:getComputedStyle(el).display})).slice(0,12),
+    calculateGate:!!node.querySelector('.gu-v44-calculate-gate'),
+    progress:node.querySelector('.gu-v44-stage-progress')?.textContent?.slice(0,100)||null,
+    status:node.querySelector('[role="status"]')?.textContent?.slice(0,150)||null
+  }));
+  console.log('TALIA_EXPERIMENT_STAGE_DIAGNOSTIC '+width+'px',JSON.stringify(experimentStage),'pageerrors',JSON.stringify(errors));
   await root.getByRole('heading',{name:/Experiment —/}).waitFor();
   assert.match(await progress().textContent(),/Question 1 of 2/);
   await submit(good);await submit(good);
