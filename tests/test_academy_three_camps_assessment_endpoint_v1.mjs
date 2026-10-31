@@ -54,9 +54,14 @@ try{
  assert(!JSON.stringify(data).includes('answer_key'));
  for(const q of data.assessment.questions)assert.deepEqual(Object.keys(q),['id','dimension','prompt','options']);
  const attempt=Object.fromEntries(['Q1','Q2','Q3','Q4'].map(id=>[id,'A']));
+ const priorProviderCalls=calls.length;
  res=await onRequest({request:request('POST',{caseCode:'BC3_TAPE10_D01_V1',answers:attempt},{origin:'https://evil.example'}),env});
  assert.equal(res.status,403,'Cross-origin attempt denied');
  assert.equal(answers.size,0);
+ assert.equal(calls.length,priorProviderCalls,'Cross-origin writes must never trigger private provider calls');
+ res=await onRequest({request:request('POST',{caseCode:'BC3_TAPE10_D01_V1',answers:attempt},{origin:'https://academy.example','sec-fetch-site':'cross-site'}),env});
+ assert.equal(res.status,403,'Cross-site fetch metadata denied even with a matching origin');
+ assert.equal(calls.length,priorProviderCalls,'Cross-site fetch metadata must fail before provider access');
  res=await onRequest({request:request('POST',{caseCode:'BC3_TAPE10_D01_V1',answers:attempt},{origin:'https://academy.example'}),env});
  assert.equal(res.status,200,'First case must grade server-side');
  assert.equal(answers.size,1);
