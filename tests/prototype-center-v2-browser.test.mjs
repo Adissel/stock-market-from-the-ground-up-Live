@@ -18,6 +18,7 @@ const fakeCases=[
 ];
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 async function session(role,viewport){
+ let currentRole=role;
  const context=await browser.newContext({viewport,serviceWorkers:'block'});
  await context.route('**/assets/js/supabase-client.js',route=>route.fulfill({status:200,contentType:'application/javascript',body:`
 window.getSupabaseClient=async()=>({auth:{
@@ -26,9 +27,9 @@ window.getSupabaseClient=async()=>({auth:{
  onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})
 }});
 `}));
- await context.route('**/api/admin?action=context',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,roles:[role],permissions:role==='OWNER'||role==='ADMIN'?['control_panel.access']:[]})}));
- await context.route('**/api/prototype-training-cases',route=>route.fulfill({status:role==='OWNER'||role==='ADMIN'?200:403,contentType:'application/json',body:JSON.stringify({ok:role==='OWNER'||role==='ADMIN',source:'FICTIONAL_PROTOTYPE',gradingEnabled:false,privateAnswerKeysIncluded:false,cases:fakeCases})}));
- const page=await context.newPage();return{context,page};
+ await context.route('**/api/admin?action=context',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,roles:[currentRole],permissions:currentRole==='OWNER'||currentRole==='ADMIN'?['control_panel.access']:[]})}));
+ await context.route('**/api/prototype-training-cases',route=>route.fulfill({status:currentRole==='OWNER'||currentRole==='ADMIN'?200:403,contentType:'application/json',body:JSON.stringify({ok:currentRole==='OWNER'||currentRole==='ADMIN',source:'FICTIONAL_PROTOTYPE',gradingEnabled:false,privateAnswerKeysIncluded:false,cases:fakeCases})}));
+ const page=await context.newPage();return{context,page,revoke:()=>{currentRole='MODERATOR'}};
 }
 try{
  for(const role of ['MODERATOR','SHOWCASE_VIEWER','FREE']){
@@ -39,13 +40,13 @@ try{
   await context.close();
  }
  for(const [role,viewport] of [['OWNER',{width:1280,height:900}],['ADMIN',{width:768,height:900}],['OWNER',{width:390,height:844}]]){
-  const {context,page}=await session(role,viewport);
+  const {context,page,revoke}=await session(role,viewport);
   const exceptions=[];page.on('pageerror',error=>exceptions.push(error.message));
   await page.goto(BASE+'/prototype.html',{waitUntil:'domcontentloaded'});
   await page.locator('#pt-app').waitFor({state:'visible',timeout:16000});
   await page.locator('[data-prototype-case]').waitFor({state:'visible',timeout:14000});
   assert.equal(await page.locator('#pt-nav button').count(),23);
-  assert.match(await page.locator('#pt-chart-status').textContent(),/Interactive|Loading locally hosted|ECharts unavailable/);
+  await page.waitForFunction(()=>document.querySelector('#pt-chart-status')?.textContent?.startsWith('Interactive'),null,{timeout:20000});
   await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 3 of 4 candles/);
   await page.locator('#pt-nav button:has-text("Boot Camp Classroom")').click();
@@ -60,6 +61,11 @@ try{
   const bounds=await page.evaluate(()=>({body:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
   assert.ok(bounds.body<=bounds.width+12,'no significant horizontal overflow at '+viewport.width+': '+JSON.stringify(bounds));
   assert.deepEqual(exceptions,[],'browser JavaScript exceptions');
+  if(role==='OWNER'&&viewport.width===1280){
+   revoke();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+   await page.waitForFunction(()=>document.querySelector('#pt-gate')?.textContent?.includes('no longer has Prototype Center permissions'),null,{timeout:12000});
+   assert.equal(await page.locator('#pt-app').isVisible(),false,'role revocation must immediately hide the workbench');
+  }
   await context.close();
   console.log('PASS role '+role+' at '+viewport.width+'px: navigation, protected case, layout, replay and responsive shell');
  }
