@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/academy-first42-real-member-readonly-v1.yml'
       - 'tests/live-academy-first42-readonly-member-v1.mjs'
+      - 'functions/api/bootcamp-academy.js'
 permissions: {contents: read}
 concurrency:
   group: academy-first42-real-member-readonly-v1
@@ -19,7 +20,9 @@ jobs:
         with: {persist-credentials: false}
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
-      - run: node --check tests/live-academy-first42-readonly-member-v1.mjs
+      - run: |
+          node --check tests/live-academy-first42-readonly-member-v1.mjs
+          node tests/test_v014168_academy_family.mjs
       - name: Genuine Supabase-authenticated, no-write production member acceptance
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
