@@ -523,6 +523,33 @@ if(!email||!password){
    assert.equal(journalRead.rows.length,0,
     'Second Free account could read first account private Journal records');
    note('checks','Second account private Journal query cannot expose first member rows.');
+   // Replay is service-private. A member cannot read another member's sessions
+   // through direct PostgREST or override the authenticated resume lookup.
+   const secondReplayRead=await secondPage.evaluate(async(primaryId)=>{
+    const client=await window.getSupabaseClient();
+    const result=await client.from('gu_replay_sessions_v01492')
+      .select('id,user_id').eq('user_id',primaryId).limit(1);
+    return {rows:Array.isArray(result.data)?result.data:[],
+      rejected:!!result.error,code:result.error?.code||null};
+   },signed.id);
+   assert.equal(secondReplayRead.rows.length,0,
+     'Second member accessed primary member replay session table');
+   assert(secondReplayRead.rejected,
+     'Service-private replay sessions should reject direct member table access');
+   const otherReplay=await secondPage.request.get(
+    origin+'/api/learning-replay-v01492?scope=fictional&action=resume',
+    {headers:secondAuth,timeout:25000});
+   assert.equal(otherReplay.status(),200,'Second member should query only own replay session');
+   const otherReplayBody=await otherReplay.json();
+   const spoofedReplay=await secondPage.request.get(
+    origin+'/api/learning-replay-v01492?scope=fictional&action=resume&user_id='+signed.id,
+    {headers:secondAuth,timeout:25000});
+   assert.equal(spoofedReplay.status(),200,
+     'Spoofed replay query must retain authenticated GET semantics');
+   const spoofedReplayBody=await spoofedReplay.json();
+   assert.deepEqual(spoofedReplayBody.session,otherReplayBody.session,
+     'Caller supplied first-member ID switched second-member replay session');
+   note('checks','Second authenticated member cannot access first member private fictional replay sessions.');
    await anotherContext.close();
   }else{
    note('blocked','Full cross-account isolation needs separate existing LAB_QA_SECOND_EMAIL/PASSWORD GitHub secrets. Anonymous denial is proven but not sufficient for two-member acceptance.');
