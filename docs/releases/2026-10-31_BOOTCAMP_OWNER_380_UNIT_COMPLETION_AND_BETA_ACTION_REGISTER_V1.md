@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.8  
+**Version:** 1.9  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -11,6 +11,12 @@
 **Google Drive document ID:** Not assigned  
 **Status:** OWNER APPROVED for ungraded three-camp Beta; official assessed-course and ten-camp advanced-depth acceptance INCOMPLETE  
 **Purpose:** A single denominator-locked progress register for the four owner-directed priorities and all ten Boot Camps, with legitimate role-separated authorization.
+
+## October 31 Owner D15 disposition — controlling latest acceptance
+
+**Current accepted educational advanced-depth total: 88/380 = 23.16%; 292 open.** The prior 87/380 and historical 83/380 totals below remain preserved as earlier snapshots and **must not be reported as current**. Original full-depth days accepted for ungraded Beta now total **15/247 (6.07%)**, and 232 advanced-depth acceptance units remain. Initial fictional source authoring remains 247/247 (100%).
+
+The controlling additive decision is document **SMFGU-ACADEMY-OWNER-RISK60-D15-016** (GitHub: docs/releases/2026-10-31_ACADEMY_OWNER_RISK60_DAY15_ACCEPTANCE_V1.md). D15 arithmetic was independently reproduced; focused synthetic responsive CI **41244413953** passed at exact source SHA 2b80a9c5750c9a275a31caaf7989ff314f5591df; production Cloudflare successfully deployed descendant 94279091e276d4ecfdd9167d671d5e882a2c7ea7 (GitHub comparison ahead 76/behind 0). The limited Owner-delegated approval is **UNGRADED instructional Beta only**. No independent human protected grading acceptance, real-member certification or full release is implied. Preserve the B01 weighted preparation 57% as a **separate** denominator and maintain its 20 private sets in Draft.
 
 ## October 31 final reconciliation — multi-workstream accepted baseline
 
