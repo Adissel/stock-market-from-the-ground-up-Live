@@ -1,0 +1,30 @@
+name: Academy First-22 Genuine Authenticated Browser Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-first22-real-browser-acceptance-v1.yml'
+      - 'tests/live-academy-first22-auth-browser-v1.mjs'
+permissions: {contents: read}
+concurrency:
+  group: academy-first22-real-browser-acceptance-v1
+  cancel-in-progress: false
+jobs:
+  real-signed-in-22-day-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: |
+          node --check tests/live-academy-first22-auth-browser-v1.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Real issued QA token; render all 22 original lessons with genuine membership
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-academy-first22-auth-browser-v1.mjs
