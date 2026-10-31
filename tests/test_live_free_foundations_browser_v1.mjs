@@ -277,6 +277,73 @@ if(!email||!password){
   }catch(e){
    note('failures','Real signed-in Free fictional replay lifecycle: '+String(e.message||e).slice(0,350));
   }
+  // One noncommercial, explicitly fictional Journal UI record on the authorized QA identity.
+  // Never overwrite or delete records and never exceed the original Free weekly quota.
+  try{
+   const marker='FICTIONAL QA FREE JOURNAL SMOKE 20261031';
+   await page.goto(origin+'/journal.html',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.locator('#journal-content').waitFor({state:'visible',timeout:30000});
+   const jBefore=await page.evaluate(async(marker)=>{
+    const sb=await window.getSupabaseClient();
+    const current=(await sb.auth.getUser()).data?.user;
+    const q=await sb.from('decision_journal')
+     .select('id,user_id,ticker,journal_type,setup,status')
+     .eq('user_id',current.id).eq('setup',marker).limit(2);
+    const met=await sb.rpc('gu_v014121_my_free_week_usage');
+    return {id:current?.id,rows:q.data,error:q.error?.message||null,
+     usage:met.data,usageError:met.error?.message||null};
+   },marker);
+   assert.equal(jBefore.id,signed.id,'QA identity changed before Journal acceptance');
+   assert.equal(jBefore.error,null,'Journal private list read failed');
+   assert.equal(jBefore.usageError,null,'Server-account weekly usage unavailable');
+   assert(Array.isArray(jBefore.rows)&&jBefore.rows.length<=1,'Unexpected duplicate QA Journal marker');
+   if(!jBefore.rows.length){
+    const u=jBefore.usage;
+    assert(u&&Number.isInteger(u.journalUsed)&&Number.isInteger(u.journalLimit),
+     'Journal weekly quota was not returned by authenticated server');
+    if(u.journalUnlimited || u.journalUsed>=u.journalLimit){
+     note('blocked','Authorized QA account cannot safely consume one more Free Journal slot; no record created.');
+    }else{
+     await page.locator('#new-journal-toggle').click();
+     await page.locator('#new-journal-panel').waitFor({state:'visible',timeout:15000});
+     await page.locator('#new-type').selectOption('observation');
+     await page.locator('#new-ticker').fill('GUSIM');
+     await page.locator('#new-setup').selectOption('__CUSTOM__');
+     await page.locator('#new-setup-custom').fill(marker);
+     await page.locator('#new-timeframe').fill('5-minute fictional');
+     await page.locator('#new-journal-form button[type="submit"]').click();
+     await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html'&&
+      Number(new URL(url).searchParams.get('id'))>0,{timeout:30000});
+     note('checks','One original fictional NO TRADE educational Journal record created via actual authenticated UI.');
+    }
+   }else note('checks','Existing exact QA-only fictional Journal marker preserved without duplicate creation.');
+   const jAfter=await page.evaluate(async(marker)=>{
+    const sb=await window.getSupabaseClient();
+    const q=await sb.from('decision_journal')
+     .select('id,user_id,ticker,journal_type,setup,status')
+     .eq('user_id',(await sb.auth.getUser()).data.user.id)
+     .eq('setup',marker).limit(2);
+    const met=await sb.rpc('gu_v014121_my_free_week_usage');
+    return {rows:q.data,error:q.error?.message||null,usage:met.data};
+   },marker);
+   if(!report.blocked.some(x=>x.includes('one more Free Journal slot'))){
+    assert.equal(jAfter.error,null);
+    assert.equal(jAfter.rows.length,1,'One QA-only Journal record should exist, not multiple');
+    assert.equal(jAfter.rows[0].user_id,signed.id);
+    assert.equal(jAfter.rows[0].ticker,'GUSIM');
+    assert.equal(jAfter.rows[0].journal_type,'observation');
+    assert.equal(jAfter.rows[0].setup,marker);
+    await page.goto(origin+'/journal.html',{waitUntil:'domcontentloaded',timeout:30000});
+    await page.locator('#journal-content').waitFor({state:'visible',timeout:25000});
+    await page.locator('#journal-search').fill('GUSIM');
+    await page.waitForFunction(()=>Array.from(document.querySelectorAll('#journal-rows tr'))
+      .some(x=>x.textContent?.includes('GUSIM')),{timeout:15000});
+    await page.locator('#journal-rows tr a[href*="journal-entry.html"]').first().click();
+    await page.waitForURL(/\\/journal-entry\\.html\\?id=/,{timeout:20000});
+    assert.equal(Number(new URL(page.url()).searchParams.get('id')),Number(jAfter.rows[0].id));
+    note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
+   }
+  }catch(e){note('failures','Real Free QA Journal create/reopen: '+String(e.message||e).slice(0,450))}
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
