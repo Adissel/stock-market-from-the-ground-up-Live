@@ -13,7 +13,7 @@ const SPLIT='https://www.investor.gov/introduction-investing/investing-basics/gl
 const L=(title,terms,teach,worked,method,experiment,predict,replay,review,transfer,source,visual)=>Object.freeze({
  title,terms,teach,worked,method,experiment,predict,replay,review,transfer,
  source:Object.freeze({url:source,status:'primary_definition_or_publisher_method_reviewed'}),
- visual,editorialStatus:'original_instruction_source_reviewed_whole_lesson_editorial_pending',
+ visual,editorialStatus:'owner_approved_invite_beta_instruction_20261031',
  evidenceType:'FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE'
 });
 export const threeCampDefinitions=Object.freeze([
