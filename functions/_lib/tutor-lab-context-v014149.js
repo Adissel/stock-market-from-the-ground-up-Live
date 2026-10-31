@@ -21,7 +21,12 @@ async function checkedPublicClaim(env,request,labId,title){
       !trusted.test(x.sourceUrl)||x.reviewStatus!=='source_specific_general_claim_checked_ungraded_not_independently_approved'||
       ['title','claim','worked','counterexample','transfer','sourceId'].some(k=>typeof x[k]!=='string'||x[k].trim().length<5)||
       (['learningObjective','evidenceProcedure','freshTransfer'].some(k=>Object.hasOwn(x,k))&&
-       ['learningObjective','evidenceProcedure','freshTransfer'].some(k=>typeof x[k]!=='string'||x[k].trim().length<45)))
+       ['learningObjective','evidenceProcedure','freshTransfer'].some(k=>typeof x[k]!=='string'||x[k].trim().length<45))||
+      (x.supplementarySourceUrls!==undefined&&
+       (!Array.isArray(x.supplementarySourceUrls)||x.supplementarySourceUrls.length<1||
+        x.supplementarySourceUrls.length>2||
+        new Set(x.supplementarySourceUrls).size!==x.supplementarySourceUrls.length||
+        x.supplementarySourceUrls.some(url=>typeof url!=='string'||!trusted.test(url)||url===x.sourceUrl))))
      return null;
    index.set(x.id,x);
   }
@@ -94,6 +99,8 @@ export function labGuidance(context,mode,reflection=''){
     '\n\nWhat could go wrong: '+researched.counterexample+
     '\n\nIndependent transfer task (ungraded): '+(researched.freshTransfer||researched.transfer))+
   '\n\nTechnical/primary reference: '+researched.sourceId+' — '+researched.sourceUrl+
+  (researched.supplementarySourceUrls?.length?'\nSupplemental SEC references for the execution/quote limitation: '+
+    researched.supplementarySourceUrls.join(' ; '):'')+
   '\nThese specific general references do not certify historical price data, protected assessment answers, or unit editorial approval.':'';
  if(mode==='question')return a+sourceTeaching+'\n\nUngraded self-check: Which visible observation supports your interpretation and which would change your decision?';
  if(mode==='review')return a+sourceTeaching+'\n\nUngraded reflection received ('+
