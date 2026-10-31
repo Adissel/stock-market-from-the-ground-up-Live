@@ -316,7 +316,7 @@ if(!email||!password){
      await page.locator('#new-journal-form button[type="submit"]').click();
      await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html'&&
       Number(new URL(url).searchParams.get('id'))>0,{timeout:30000});
-     note('checks','One original fictional NO TRADE educational Journal record created via actual authenticated UI.');
+     note('checks','One original fictional observation Journal draft created via actual authenticated UI.');
     }
    }else note('checks','Existing exact QA-only fictional Journal marker preserved without duplicate creation.');
    const jAfter=await page.evaluate(async(marker)=>{
@@ -340,7 +340,7 @@ if(!email||!password){
     await page.locator('#journal-search').fill('GUSIM');
     await page.waitForFunction(()=>Array.from(document.querySelectorAll('#journal-rows tr'))
       .some(x=>x.textContent?.includes('GUSIM')),{timeout:15000});
-    await page.locator('#journal-rows tr a[href*="journal-entry.html"]').first().click();
+    await page.locator('#journal-rows tr[data-id="'+jAfter.rows[0].id+'"] a[href*="journal-entry.html"]').click();
     await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html' &&\n     Number(new URL(url).searchParams.get('id'))>0,{timeout:20000});
     assert.equal(Number(new URL(page.url()).searchParams.get('id')),Number(jAfter.rows[0].id));
     note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
