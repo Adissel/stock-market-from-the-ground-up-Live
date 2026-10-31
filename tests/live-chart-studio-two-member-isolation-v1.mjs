@@ -4,7 +4,7 @@
  */
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {createHmac} from 'node:crypto';
+import {createHmac,randomUUID} from 'node:crypto';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const cfg=readFileSync('config.js','utf8');
 const url=cfg.match(/SUPABASE_URL:\s*'([^']+)'/)?.[1];
@@ -89,6 +89,36 @@ for(const endpoint of ['/api/member-learning-quick-view','/api/member-lumen-acti
  assert.deepEqual(fakeB.body,ownB.body,'Member B read another member\'s learning/wallet records');
  const guest=await req(origin+endpoint);assert([401,403].includes(guest.status));
 }
+
+/* Genuine production gift-gate QA: zero transfers, zero writes, two separate
+ * member tokens and mandatory recipient-consent/release restriction. */
+for(const [actor,recipient] of [[a,b],[b,a]]){
+ const start=await get(actor,'/api/member-lumen-integrity');
+ assert.equal(start.status,200);
+ assert.equal(start.body?.balanced,true);
+ const policy=await get(actor,'/api/member-lumen-gifts');
+ assert.equal(policy.status,200);
+ assert.equal(policy.body?.enabled,false,'Gifting must remain disabled');
+ const hidden=await get(actor,'/api/member-lumen-gifts?handle=@QA_Secondary');
+ assert.equal(hidden.status,409,'Recipient lookup must be unavailable before release');
+ const attempt=await req(origin+'/api/member-lumen-gifts',{
+  method:'POST',headers:{authorization:'Bearer '+actor.token,origin,
+   'content-type':'application/json'},
+  body:JSON.stringify({action:'send',recipient:actor.uid===a.uid?'@QA_Secondary':'@James_Test',
+   lumens:10,requestId:randomUUID()})});
+ assert.equal(attempt.status,409,'Transfer must fail closed when not legally/security released');
+ const optin=await req(origin+'/api/member-lumen-gifts',{
+  method:'POST',headers:{authorization:'Bearer '+actor.token,origin,
+   'content-type':'application/json'},
+  body:JSON.stringify({action:'optin',discoverable:true,receivingEnabled:true})});
+ assert.equal(optin.status,409,'No recipient enrollment before gifting release');
+ const end=await get(actor,'/api/member-lumen-integrity');
+ assert.equal(end.status,200);
+ assert.deepEqual(end.body,start.body,'Disabled gift request must not change wallet or credit history');
+}
+const guestGift=await req(origin+'/api/member-lumen-gifts');
+assert([401,403].includes(guestGift.status));
+console.log('PASS two real member sessions: gifting disabled, private lookup denied, consent/transfer denied, balances unchanged, guests denied.');
 console.log('PASS two real users: private learning progress and Lumen activity scoped to authenticated actor, forged selectors ignored.');
 console.log('PASS real two-member cross-account Chart Studio API isolation and exact Standard/Advanced entitlements');
 console.log('RESULT '+JSON.stringify({scope:'REAL_DISTINCT_GOTRUE_TOKENS',actors:2,
