@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'tests/live-member-lumen-dashboard-browser-v1.mjs'
+      - 'dashboard.html'
+      - 'assets/js/crownlight-member-quickview-v1.js'
+      - 'functions/api/member-lumen-integrity.js'
       - '.github/workflows/member-lumen-dashboard-real-browser-v1.yml'
   workflow_dispatch:
 permissions:
