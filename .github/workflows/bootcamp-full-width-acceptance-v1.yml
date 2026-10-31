@@ -34,6 +34,7 @@ on:
       - 'tests/test_academy_three_camps_protected_assessment_v1.mjs'
       - 'tests/test_academy_three_camps_assessment_endpoint_v1.mjs'
       - 'tests/test_academy_three_camps_invite_beta_v1.mjs'
+      - 'scripts/academy-274-advanced-readiness-preflight-v1.mjs'
       - 'tests/test_academy_guided_v1.mjs'
       - 'tests/test_academy_three_camps_completion_contract_v1.mjs'
       - 'tests/test_academy_three_camps_browser_v1.mjs'
@@ -87,6 +88,7 @@ jobs:
           node tests/test_academy_three_camps_protected_assessment_v1.mjs
           node tests/test_academy_three_camps_assessment_endpoint_v1.mjs
           node tests/test_academy_three_camps_invite_beta_v1.mjs
+          node scripts/academy-274-advanced-readiness-preflight-v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_three_camps_completion_contract_v1.mjs
           node tests/test_v135_public_assessment_projection.mjs
