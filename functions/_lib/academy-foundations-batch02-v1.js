@@ -11,13 +11,37 @@ const sources={
  exec:{label:'SEC Investor.gov executing an order',url:'https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order',scope:'General price-improvement and execution uncertainty, not proof of a simulated trade.'},
  fraud:{label:'SEC Investor.gov research and avoid fraud',url:'https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/what-you-can-do-avoid-investment-fraud',scope:'Independent source-check guidance; never a direct historical price feed.'}
 };
+// Specific formative prompts supplement the twenty original authored scenarios.
+// They are visible, ungraded questions, not protected independent examinations.
+const dayCheckpoints=Object.freeze([
+ 'FICTIONAL: A learner has no identified data source and writes an attractive trade thesis after a rally. What original question, timestamp, no-trade boundary, and next review event must be added before claiming a repeatable learning process?',
+ 'FICTIONAL: Price rises from $4.80 to $5.04 while the ask changes to $5.12 for only 30 displayed shares. Compute the percent change from $4.80, then identify why the last trade cannot guarantee a 200-share entry.',
+ 'FICTIONAL: A learner completes six guided sessions, logs four corrected misconceptions and has no independent assessment. What accurate progress statement distinguishes practice from documented mastery?',
+ 'FICTIONAL: An issuer has 16 million outstanding shares and an estimated 6 million float; 9 million shares trade in one session. Compute shares traded as a percentage of float and state why this is not the fraction of unique owners that sold.',
+ 'FICTIONAL: A five-minute completed candle shows O=$7.50, H=$7.80, L=$7.30, C=$7.65. Find body, full range and the unsupportable intrabar order of the extreme prices.',
+ 'FICTIONAL: Bid/ask at 10:04 is $8.01/$8.09 with 50 shares at the best ask, while a 400-share market buy is considered. Identify the spread, potential partial depth, and which execution claim must be withheld.',
+ 'FICTIONAL: A social post at 08:16 promises immediate sales from an issuer\'s 08:05 conditional letter of intent. At an 08:10 cutoff, which claims are supported and which published information is in the future?',
+ 'FICTIONAL: A five-minute scanner requires 60,000 shares but sees 75,000 shares and a 12-minute-old quote against a three-minute freshness rule. Which predicate fails and how should the alert be recorded?',
+ 'FICTIONAL: Two completed five-minute tests occur at $11.02 and $10.98, then a later bar trades at $10.72. State a tentative support zone and a falsifying observation without claiming a guaranteed future bounce.',
+ 'FICTIONAL: Planned long entry $12.40, reference stop $12.15, budget $37.50. Compute planned risk per share and maximum whole-share quantity; explain why a stop-market fill can exceed this loss.',
+ 'FICTIONAL: A simulation starts with 140 shares and proposes reductions of 35 and 45. Compute the planned remainder and distinguish orders planned from a verified broker fill.',
+ 'FICTIONAL: A replay print shows $6.00 for 4,000 shares but the contemporaneous offer displays 25 shares. Can a simulated 300-share buy be assumed at $6.00? Explain the missing quote depth and routing facts.',
+ 'FICTIONAL: A five-bar sequence first forms a higher low at $6.10 and later breaks $6.00. Which earlier structure observation remains valid and which conclusion may only be made after the break?',
+ 'FICTIONAL: After two completed red sessions, an intraday candle is green at 11:00 ET but the session has not closed. What provisional classification is justified, and what must remain uncertain?',
+ 'FICTIONAL: A historical ticker rallied last year, but a new alert today has no source-verified catalyst and a wide spread. Which former-runner inference is unsupported and which present-day facts are needed?',
+ 'FICTIONAL: One fictional stock declines in two orderly completed bars with shrinking volume; another gaps below a halt and reopens to a wide spread. What would you observe before labeling either a panic rather than a normal pullback?',
+ 'FICTIONAL: A client asks whether 800 shares may be sold short when no locate or borrowing availability is documented. Separate the broker\'s locate requirement, possible costs and an appropriate no-trade response.',
+ 'FICTIONAL: Today opens at $5.10, the price at noon is $5.02, and yesterday closed at $4.90. Explain red-candle versus down-day comparisons and why no completed first-red-day can yet be asserted.',
+ 'FICTIONAL: A paid newsletter claims an insured 80% return supported only by a winning screenshot. Which source, compensation and sample-denominator checks are required before treating the claim as credible?',
+ 'FICTIONAL: Reported short-sale volume is 360,000 shares and all-session reported volume is 900,000 shares from possibly different venue scopes. Compute the apparent ratio and name the scope and short-interest distinction that prevents a squeeze conclusion.'
+]);
 const make=(x,index)=>{
  const [explanation,example,procedure,error,review,transfer,source,calculations]=x;
  return Object.freeze({
   title:'Foundations Day '+(index+1)+' — Original instructional case',
   explanation,workedExample:'FICTIONAL EDUCATIONAL CASE — '+example,sourceProcedure:Object.freeze(procedure),
   error,reviewGuide:review,transfer,investigation:'FRESH FICTIONAL INDEPENDENT CASE — '+transfer,
-  selfCheck:'Which evidence was observable at the stated decision time, what remains unknown, and which conclusion must be withheld?',
+  selfCheck:dayCheckpoints[index],
   reviewPrompts:Object.freeze(['Show the original observation and its timestamp.','Recompute any displayed quantity and units without assuming a fill.','Identify an invalidating case or an appropriate NO TRADE outcome.']),
   why:'This day is about repeatable evidence and decisions, not producing attractive hindsight-based charts.',
   whenNot:'No historical execution, rights-cleared market replay, account-specific broker rule or independently passed assessment is asserted.',

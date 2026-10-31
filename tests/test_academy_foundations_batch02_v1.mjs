@@ -7,7 +7,7 @@ assert.equal(foundationsBatch02.length,20);
 assert.equal(bootcampCurriculumV014144.days.length,30);
 const f=academyPrograms.find(x=>x.code==='foundations30');
 assert(f&&f.curriculum.length===30);
-let examples=new Set(),fresh=new Set(),numeric=0;
+let examples=new Set(),fresh=new Set(),checkpointQuestions=new Set(),numeric=0;
 for(let i=0;i<30;i++){
  const original=bootcampCurriculumV014144.days[i],academy=f.curriculum[i];
  assert.equal(original.day,i+1);assert.equal(academy.day,i+1);
@@ -27,6 +27,9 @@ for(let i=0;i<30;i++){
  assert(lesson.reference.url.startsWith('https://www.'),'Source should be an original public topical reference');
  assert(!examples.has(lesson.workedExample));examples.add(lesson.workedExample);
  assert(!fresh.has(lesson.investigation));fresh.add(lesson.investigation);
+ assert(lesson.selfCheck.startsWith('FICTIONAL:'),'Missing specific formative question Day '+(i+1));
+ assert(!checkpointQuestions.has(lesson.selfCheck),'Repeated formative question Day '+(i+1));
+ checkpointQuestions.add(lesson.selfCheck);
  for(const x of lesson.numericChecks){
   numeric++;
   const [a,b]=x.inputs;let val;
@@ -43,6 +46,7 @@ for(let i=0;i<30;i++){
  }
  assert.equal(lesson.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
 }
+assert.equal(checkpointQuestions.size,20,'Every first-20 day must have its own formative case');
 assert(numeric>=12,'Arithmetic fixture coverage unexpectedly sparse: '+numeric);
 const ui=readFileSync('assets/js/academy-guided-v1.js','utf8');
 assert(ui.includes('d.lesson?.status'));
