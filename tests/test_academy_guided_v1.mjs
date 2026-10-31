@@ -13,7 +13,11 @@ for(const code of ['tape10','indicators10','filings7']){
  assert.equal(new Set(benchmark.map(q=>q.prompt)).size,12,'No repeated formative prompts for '+code);
  for(const question of benchmark)assert(question.prompt.length>=30&&question.review.length>=30,
   'Question and corrective explanation independently written for '+code);
- for(const day of program.curriculum.slice(1))assert.equal(day.lesson.formativeQuestions,undefined,
+ const dayTwo=program.curriculum[1].lesson.formativeQuestions;
+ assert.equal(dayTwo.length,12,'Twelve original formative questions on day two for '+code);
+ assert.equal(new Set(dayTwo.map(q=>q.prompt)).size,12,'Unique formative prompts on day two for '+code);
+ for(const question of dayTwo)assert(question.prompt.length>=30&&question.review.length>=30);
+ for(const day of program.curriculum.slice(2))assert.equal(day.lesson.formativeQuestions,undefined,
   'Other draft days must not be falsely certified to the twelve-question requirement');
 }
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
