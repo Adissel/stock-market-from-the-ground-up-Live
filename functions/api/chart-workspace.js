@@ -13,8 +13,16 @@ const validNumber=n=>typeof n==='number'&&Number.isFinite(n);
 export function normalizeWorkspace(input,entitlement){
  const raw=input&&typeof input==='object'&&!Array.isArray(input)?input:{};
  const requested=String(raw.selected||'STANDARD');
- const selected=Object.hasOwn(ranks,requested)&&ranks[requested]<=ranks[entitlement.tier]&&
-  entitlement.allowed?.includes(requested)?requested:'STANDARD';
+ // When a saved Professional workspace outlives its entitlement, open it
+ // in the highest currently allowed Studio rather than forcing Advanced
+ // members back to Standard. This is a read-only projection: the stored
+ // Professional document is never downgraded or overwritten by GET.
+ const known=Object.hasOwn(ranks,requested);
+ const eligible=known&&ranks[requested]<=ranks[entitlement.tier]&&
+  entitlement.allowed?.includes(requested);
+ const selected=eligible?requested:
+  known&&ranks[requested]>ranks[entitlement.tier]&&
+  entitlement.allowed?.includes(entitlement.tier)?entitlement.tier:'STANDARD';
  const studies=[...new Set((Array.isArray(raw.studies)?raw.studies:[])
   .map(x=>String(x)).filter(x=>VALID_STUDIES.has(x)))].slice(0,8);
  const drawings=[];
