@@ -68,7 +68,8 @@ async function run(body) {
   assert.equal((await run({...base,password:'short',confirmPassword:'short'})).status,400);
   const before=calls.length;
   available=false;
-  assert.equal((await run(base)).status,409);
+  const taken=await run(base);
+  assert.equal(taken.status,409,'Known-name rejection should preserve 409; fixture failure: '+String(taken.body?.error||'unknown').slice(0,150));
   assert.ok(!calls.slice(before).some(x=>x.target.includes('/auth/v1/signup')),'Unavailable username must not create an Auth user');
   available=true;
   const result=await run(base);
