@@ -11,6 +11,7 @@ on:
       - 'admin.html'
       - '_headers'
       - 'tests/prototype-center-v1-contract.test.mjs'
+      - 'tests/prototype-center-v1-auth.test.mjs'
       - '.github/workflows/prototype-center-v1.yml'
   workflow_dispatch:
 permissions:
@@ -30,4 +31,6 @@ jobs:
           node --check assets/js/prototype-admin-link-v1.js
           node --check assets/js/route-policy.js
       - name: Verify Prototype Center source contracts
-        run: node tests/prototype-center-v1-contract.test.mjs
+        run: |
+          node tests/prototype-center-v1-contract.test.mjs
+          node tests/prototype-center-v1-auth.test.mjs
