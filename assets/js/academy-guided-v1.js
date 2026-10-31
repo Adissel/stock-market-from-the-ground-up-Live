@@ -5,6 +5,9 @@
 (function(root){'use strict';
 const active=new WeakMap();
 const STEPS=['Start','Learn','Calculate / Analyze','Experiment','Predict','Replay / Practice','Assess','Review & Retry','Transfer Challenge','Results'];
+// Suggested active work, not minimum dwell time. Work is self-paced.
+const STANDARD_MINUTES=Object.freeze([2,5,6,3,3,4,3,3,4,2]);
+const REFERENCE_MINUTES=Object.freeze([2,4,5,3,3,4,14,3,5,2]);
 const el=(tag,content,cl)=>{const x=document.createElement(tag);if(content!==undefined)x.textContent=String(content);if(cl)x.className=cl;return x};
 const clean=s=>String(s||'').slice(0,1400);
 function classify(d){
@@ -105,7 +108,10 @@ function plan(d){
 function mount(host,{day,programCode}={}){
  if(!host||!day||!Number.isSafeInteger(day.day))return null;
  active.get(host)?.dispose();
- const cfg=plan(day);let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
+ const cfg=plan(day);const isNewCourse=day.lesson?.evidenceType==='FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE';
+ const authoredFormative=Array.isArray(day.lesson?.formativeQuestions)&&day.lesson.formativeQuestions.length===12;
+ const plannedMinutes=authoredFormative?REFERENCE_MINUTES:STANDARD_MINUTES;
+ let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
    answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
  const shell=el('section',undefined,'academy-guided-ten'),head=el('div',undefined,'academy-guided-head'),
    nav=el('ol',undefined,'academy-guided-nav'),meter=el('progress'),play=el('button','Play guided teaching','btn secondary'),
@@ -118,7 +124,15 @@ function mount(host,{day,programCode}={}){
    feedback=el('p');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
  meter.max=10;meter.value=0;meter.setAttribute('aria-label','Completed formative steps');
  status.setAttribute('role','status');
- head.append(el('h3','Talia · Ten-stage Boot Camp journey'),meter,play,status,nav);
+ head.append(el('h3','Talia · Ten-stage Boot Camp journey'));
+ if(isNewCourse){
+  const itinerary=el('details');itinerary.className='academy-active-itinerary';
+  itinerary.append(el('summary','Suggested active-learning itinerary — '+plannedMinutes.reduce((a,b)=>a+b,0)+' minutes (self-paced)'));
+  const schedule=el('ol');STEPS.forEach((name,i)=>schedule.append(el('li',name+' — '+plannedMinutes[i]+' min of active work')));
+  itinerary.append(schedule,el('p','Suggested practice time, not required seat time or a completion timer. The 12-question minimum is editorially evidenced only for separately authored reference days.'));
+  head.append(itinerary);
+ }
+ head.append(meter,play,status,nav);
  evidence.append(el('h4','Illustrative ECharts & evidence'),visual);
  instructor.append(el('h4','Talia Mercer — Guided instructor'));
  controls.append(previous,next,explain,depth);grid.append(evidence,instructor);
@@ -161,6 +175,29 @@ function mount(host,{day,programCode}={}){
   content.append(el('h4',(stage+1)+'. '+cfg.stages[stage][0]));
   for(const text of cfg.stages[stage][1])content.append(el('p',clean(text)));
   const check=cfg.checks[stage];selectedOptions=[];numericInputs=[];
+  if(isNewCourse)content.append(el('p','Suggested active work at this step: '+plannedMinutes[stage]+' minutes. Pause as needed; there is no time gate.'));
+  if(stage===6&&isNewCourse){
+   const quiz=el('section');quiz.className='academy-formative-reference';
+   if(authoredFormative){
+    quiz.append(el('h5','Talia’s 12 authored formative practice questions'));
+    quiz.append(el('p','Write your own reasoning before revealing each corrective explanation. Responses are local to this screen only. Copy anything worth preserving into Save Reflection. No grade or Lumens.'));
+    day.lesson.formativeQuestions.forEach((item,index)=>{
+     const block=el('details');block.className='academy-formative-question';
+     block.append(el('summary',(index+1)+'. '+clean(item.prompt)));
+     const response=el('textarea');response.rows=3;
+     response.setAttribute('aria-label','Practice answer '+(index+1)+': '+clean(item.prompt));
+     response.placeholder='Type your observation, computation, or no-conclusion rule before review';
+     const reveal=el('button','Review my reasoning','btn secondary');reveal.type='button';reveal.disabled=true;
+     const correction=el('p');correction.setAttribute('role','status');correction.hidden=true;
+     response.addEventListener('input',()=>{reveal.disabled=response.value.trim().length<20});
+     reveal.addEventListener('click',()=>{correction.textContent='Teaching feedback: '+clean(item.review);correction.hidden=false});
+     block.append(response,reveal,correction);quiz.append(block);
+    });
+   }else{
+    quiz.append(el('p','Full 12-question individual authorship and editorial review remain pending for this study day. Existing guided checkpoints are provisional.'));
+   }
+   content.append(quiz);
+  }
   if(check){
    content.append(el('h5',check.question));
    if(check.numeric){
