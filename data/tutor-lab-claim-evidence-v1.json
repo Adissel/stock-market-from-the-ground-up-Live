@@ -146,10 +146,10 @@
       "counterexample": "A narrow quoted spread with only five displayed shares cannot guarantee execution of 500 shares, and the last trade may predate the snapshot. A midpoint order can receive no fill.",
       "transfer": "Compute fictional bid $8.00 and ask $8.24: spread $0.24, midpoint $8.12 and relative spread ≈2.96% of midpoint; identify why size and timestamp are still necessary.",
       "sourceId": "SEC_BIDASK",
-      "sourceUrl": "https://www.investor.gov/glossary-term-categories/stocks?page=3",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price",
       "title": "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread",
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
-      "evidenceScope": "Verified general SEC/FINRA educational principle, not independently verified market history or individually approved full Lab."
+      "evidenceScope": "SEC Investor.gov defines the bid, ask and their quoted spread. Midpoint/spread arithmetic is original fictional instruction independently checked; the source does not certify fillability."
     },
     {
       "id": "TAPE-C04-L01",
