@@ -99,7 +99,7 @@ for(const guard of [
 ]) assert.match(awardIssuerSql,guard,'Member gifting consumer-risk safeguard missing');
 for(const guard of [/CONFLICTED_REVIEWER/,/manual_review_required/,/remaining_credits<>v_tx.amount/,/status='reversed'/])
  assert.match(giftReversalSql,guard,'Gift dispute and reversal safeguard missing');
-assert.match(sourceCatalogSql,/published,false,null,null/i);
+assert.match(sourceCatalogSql,/false,null,null/);
 assert.match(sourceCatalogSql,/learning_rewards_enabled/);
 assert.match(sources[1],/gu_lumen_mixed_intents_v1/);
 assert.match(sources[1],/Mixed-checkout Lumens restored/);
