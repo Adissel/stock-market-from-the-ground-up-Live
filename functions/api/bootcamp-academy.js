@@ -10,7 +10,7 @@ const respond=(data,status=200)=>new Response(JSON.stringify(data),{status,heade
 const fault=(reason,status=400)=>Object.assign(new Error(reason),{status});
 const newCourses=new Set(['tape10','indicators10','filings7']);
 const released=env=>env?.ACADEMY_THREE_CAMPS_ENABLED==='true';
-const allowed=(code,env)=>Object.hasOwn(academyByCode,code)&&code!=='foundations30'&&
+const allowed=(code,env)=>Object.hasOwn(academyByCode,code)&&
  (!newCourses.has(code)||released(env));
 function database(env){
  const base=String(env.SUPABASE_URL||'').replace(/\/$/,'');
