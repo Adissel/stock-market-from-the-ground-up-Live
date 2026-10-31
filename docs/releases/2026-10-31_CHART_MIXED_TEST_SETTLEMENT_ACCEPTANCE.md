@@ -5,9 +5,9 @@
 **Filename / type:** `2026-10-31_CHART_MIXED_TEST_SETTLEMENT_ACCEPTANCE.md` / Markdown  
 **Repository:** `cybernexuspublishing/stock-market-from-the-ground-up` — `main/docs/releases/`  
 **Google Drive location:** Not established  
-**Version:** 1.1  
+**Version:** 1.2  
 **Review date:** October 31, 2026  
-**Status:** **TEST purchase/refund lifecycle ACCEPTED; full commercial acceptance OPEN**  
+**Status:** **Genuine Stripe TEST mixed paid/refund AND provider-expired/Lumen-restored lifecycle ACCEPTED; customer cancel-button, dispute, zero-cash member path and commercial acceptance OPEN**  
 **Dependencies:** Stripe TEST, Supabase private settlement ledger, signed Stripe webhook, Cloudflare Pages, Chart Studio effective-tier resolver  
 **Purpose:** Preserve actual accepted evidence and untested risks without conflating simulated tests with genuine Stripe provider events.
 
@@ -38,6 +38,16 @@ Signed paid and refunded events were independently present in the private event 
 
 **Separate full-price (nonmixed) checkout expiration:** The abandoned $19.99 Professional TEST session `cs_test_a11DxLJD9zfvIfrjdmNKsaQeMJ4jDWhx8IEw7V7pG3Sy7YD2dPHqsOYF04` is recorded as expired. Signed expiration event `evt_1UWXwvJY9FI7byHB004XzX7g` is recorded in the **cash-only** event ledger. This does not satisfy mixed-credit cancellation acceptance.
 
+## v1.2 genuine TEST expiration and restored reservation — October 31, 2026
+
+**Independent evidence:** Read-only Stripe TEST connected account `acct_1URGkDJY9FI7byHB` returned a real mixed-checkout session `cs_test_a1opFD2BmystbGxhpaM9j0uom9d22mGR1jTf3laMJuetNH0MFQarzmnp2v` with `livemode=false`, `status=expired`, `payment_status=unpaid` and `amount_total=1992` cents. Stripe returned matching `evt_1UWeTQJY9FI7byHBq0DedrlD` of type `checkout.session.expired`, with the same session ID and zero pending webhook deliveries. Supabase's private `crownlight_chart_mixed_test_v1` record is `status=expired`, `cash_cents=1992`, `lumens=1`, **no PaymentIntent**, and the event ledger independently stores that exact event ID as `expired`. The original reserved one-Lumen debit bucket is marked returned, exactly once.
+
+**Disposition:** **Real provider-backed mixed unpaid expiration and server-ledger credit restoration ACCEPTED**, replacing the earlier SQL-only expiration evidence for this narrow path. Whether the *member-facing cancel control* initiated this exact expiry remains **NOT INDEPENDENTLY VERIFIED**; preserve that browser acceptance requirement. No Stripe charge was captured for the expired session.
+
+**Current aggregate TEST ledger (read-only):** four mixed paid/refunded orders; one separate expired/unpaid mixed order; four recorded paid events, four refund events, one expired event; five Lumen debit rows totaling 14, all 14 Lumens restored. Stripe TEST lists no disputes at the check time. A completed provider refund does not substitute for genuine dispute acceptance or a fully Lumen-funded authenticated zero-cash order.
+
+**Remaining gates:** real member-facing cancel-button-to-provider-expiry workflow; actual supported Stripe TEST dispute event; signed-webhook idempotency under duplicate/reordering; genuine fully Lumen-funded QA order and reversal; authenticated Chart Studio entitlement downgrade/workspace isolation; exact-head CI and Cloudflare production acceptance. **No LIVE changes.**
+
 ## Database rollback tests — verified, not genuine provider acceptance
 
 - Atomic mixed reservation and debit calculated the correct reduced cash amount, without permanently consuming credits.
@@ -55,7 +65,7 @@ The expected effective tier is **Advanced**, but authenticated member-browser do
 
 ## Open acceptance gates
 
-1. **Mixed-payment cancellation/expiration:** Create an authenticated QA mixed session without paying, cancel it through the member-facing control, verify Stripe's actual expired session and the signed `checkout.session.expired` event, and confirm the Lumen reservation is returned exactly once.
+1. **Mixed-payment member-facing cancellation:** Provider `checkout.session.expired` and one-credit restoration independently verified in v1.2. Confirm in a genuine member browser that its Cancel control initiates the expected provider expiry and subsequent signed webhook idempotently (rather than a separate manually expired session).
 2. **Actual dispute:** Use a genuine supported Stripe TEST dispute scenario on an eligible QA payment, verify signed `charge.dispute.created`, immediate entitlement protection, correct Lumen restoration, and subsequent event idempotency. SQL simulation is not acceptance.
 3. **Authenticated downgrade/workspace:** Sign into James_Test, verify its actual effective Advanced tier, confirm Professional-only controls are inaccessible, and reopen the existing private saved workspace. Cross-account workspace isolation must remain enforced.
 4. **Final release gate:** Review exact-commit CI and Cloudflare deployment for changes made during acceptance. LIVE checkout and unrelated product classes stay disabled.
@@ -65,6 +75,6 @@ The expected effective tier is **Advanced**, but authenticated member-browser do
 | Version | Date | Summary | Status |
 | --- | --- | --- | --- |
 | 1.0 | 2026-10-31 | Initial implementation and database simulation evidence | Superseded |
-| 1.1 | 2026-10-31 | Recorded genuine discounted TEST purchase/refund, signed events, wallet reconciliation, and separate dispute simulation | Controlling register |
+| 1.1 | 2026-10-31 | Recorded genuine discounted TEST purchase/refund, signed events, wallet reconciliation, and separate dispute simulation | Superseded |\n| 1.2 | 2026-10-31 | Verified real TEST unpaid mixed-session expiration and exact signed provider event, one-Lumen return, updated four refunds/one expired ledger aggregate | Controlling register |
 
-**Decision:** Accept the Professional mixed TEST purchase/refund lifecycle. Do **not** classify disputes, mixed cancellation/expiration, authenticated downgrade, or public LIVE sale as accepted.
+**Decision:** Accept genuine mixed TEST payment/refund and provider-unpaid-expiration/Lumen-restoration paths. Do **not** classify user-facing cancellation, actual dispute, independent zero-cash browser fulfillment, authenticated downgrade, or public LIVE sale as accepted.
