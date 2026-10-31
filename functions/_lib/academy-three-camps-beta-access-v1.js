@@ -1,0 +1,20 @@
+/* Invite-only instructional Beta for the three new Academy programs.
+ * Distinct from ACADEMY_THREE_CAMPS_ENABLED (general release).
+ * Do not grant paid entitlement, publish private grading keys, or award mastery.
+ * Tester IDs are server-controlled Cloudflare bindings, never sent to clients.
+ */
+export const newAcademyPrograms=Object.freeze(new Set(['tape10','indicators10','filings7']));
+const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+export const generalAcademyReleased=env=>env?.ACADEMY_THREE_CAMPS_ENABLED==='true';
+export const academyBetaEnabled=env=>env?.ACADEMY_THREE_CAMPS_BETA_ENABLED==='true'&&!generalAcademyReleased(env);
+export function academyBetaTester(env,userId){
+ if(!academyBetaEnabled(env)||typeof userId!=='string'||!uuid.test(userId))return false;
+ const binding=env?.ACADEMY_THREE_CAMPS_BETA_USERS;
+ if(typeof binding!=='string'||binding.length>4000)return false;
+ const ids=binding.split(',').map(x=>x.trim().toLowerCase());
+ if(ids.length<1||ids.length>30||ids.some(x=>!uuid.test(x)))return false;
+ return ids.includes(userId.toLowerCase());
+}
+export const academyBetaCourse=(env,code,userId)=>newAcademyPrograms.has(code)&&academyBetaTester(env,userId);
+export const academyCourseAvailable=(env,code,userId)=>!newAcademyPrograms.has(code)||
+ generalAcademyReleased(env)||academyBetaCourse(env,code,userId);
