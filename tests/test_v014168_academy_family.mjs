@@ -102,7 +102,9 @@ assert(sql.includes('competencyMasteryAwarded'));
 assert(!sql.includes('gu_bootcamp_progress_v014144('),'No writes to established thirty-day progress');
 const api=fs.readFileSync('functions/api/bootcamp-academy.js','utf8');
 assert(!api.includes("code!=='foundations30'"),'Original 30-day read/enroll must not be unreachable');
-assert(api.includes("const allowed=(code,env)=>Object.hasOwn(academyByCode,code)"),'Canonical code must be eligible for its read-only program route');
+assert(api.includes("const allowed=(code,env,userId)=>Object.hasOwn(academyByCode,code)")&&
+ api.includes("!newCourses.has(code)||released(env)||academyBetaCourse(env,code,userId)"),
+ 'Canonical Academy program access must remain scoped to released or authorized per-user beta courses');
 assert(api.includes("toolAccess(env,request,'ONDEMAND_TRAINING')"));
 assert(api.includes('sameOrigin(request)'));
 assert(api.includes('expectedRevision'));
