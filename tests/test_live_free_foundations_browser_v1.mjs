@@ -154,7 +154,7 @@ if(!email||!password){
   const prefBefore=await prefPreflight.json();
   assert.equal(prefBefore.ok,true);
   if(!prefBefore.preferences.saved){
-   await page.goto(origin+'/dashboard.html',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.goto(origin+'/dashboard',{waitUntil:'domcontentloaded',timeout:30000});
    await page.locator('#free-start-choose').waitFor({state:'attached',timeout:25000});
    await page.locator('details.free-learning-starting-point summary').click();
    await page.locator('#free-start-level').selectOption('1');
