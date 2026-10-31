@@ -61,7 +61,7 @@ function build(root,tab,mode){
  nav.append(prev,next,h('span','Visible '+state.revealed+' of '+x.candles.length+' candles'));
  root.append(nav);
  const limit=tab==='replay'?state.revealed:x.candles.length;
- root.append(makeTable(x,limit));
+ const tableScroller=h('div',undefined,'pt-table-scroll');tableScroller.setAttribute('role','region');tableScroller.setAttribute('aria-label','Fictional candle calculations (horizontally scrollable on small screens)');tableScroller.tabIndex=0;tableScroller.append(makeTable(x,limit));root.append(tableScroller);
  const formula=h('div',undefined,'pt-stage');
  formula.append(h('strong','Worked calculation — cumulative session VWAP'));
  const rows=calc(x,limit),last=rows[rows.length-1];
