@@ -69,7 +69,11 @@
   summary.setAttribute('role','status');
   const buy=el('button','Open discounted Stripe TEST checkout');buy.type='button';buy.className='btn';buy.disabled=true;
   const cancelCard=el('button','Cancel unpaid card-only TEST checkout');
-  cancelCard.type='button';cancelCard.className='btn secondary';cancelCard.hidden=true;cancelCard.disabled=true;
+  cancelCard.type='button';cancelCard.className='btn secondary';cancelCard.disabled=true;
+  // The site's button styles can override the HTML hidden attribute. Keep
+  // the absence of a pending checkout unambiguously hidden from members.
+  const showCancel=value=>{cancelCard.hidden=!value;cancelCard.style.setProperty('display',value?'inline-flex':'none','important')};
+  showCancel(false);
   let quote=null,requestId=null,revision=0,cancelMode=null,cancelUpgradeId=null;
   const reset=()=>{revision++;quote=null;requestId=null;buy.disabled=true;preview.disabled=false;summary.textContent='Selection changed. Verifying your new Lumen quote…';preview.click()};
   input.addEventListener('change',reset);
@@ -90,13 +94,13 @@
     if(currentRevision!==revision)return;
     if(d.originalCents!==p.cents||d.selectedLumens!==n)throw Error('Quote no longer matches the selection.');
     summary.textContent='Available: '+d.availableLumens+' Lumens · Apply: '+n+' · Discount: '+usd(d.discountCents)+' · Card due: '+usd(d.cashDueCents)+' · Balance after: '+d.remainingLumens+'.';
-    cancelCard.hidden=true;cancelCard.disabled=true;
+    showCancel(false);cancelCard.disabled=true;
     cancelMode=null;cancelUpgradeId=null;
     if(d.pendingCardCheckout){
      summary.textContent+=' An unpaid full-price TEST checkout is still pending for this product. Cancel it before using Lumens.';
      cancelMode='card';
      cancelCard.textContent='Cancel unpaid card-only TEST checkout';
-     cancelCard.hidden=!d.cancelPendingCardAvailable;
+     showCancel(d.cancelPendingCardAvailable);
      cancelCard.disabled=!d.cancelPendingCardAvailable;
      if(!d.cancelPendingCardAvailable)summary.textContent+=' Checkout creation is still completing; retry Preview shortly.';
      return;
@@ -107,7 +111,7 @@
      if(d.cancelPendingMixedAvailable===true&&safeId.test(d.pendingMixedUpgradeId||'')){
       cancelMode='mixed';cancelUpgradeId=d.pendingMixedUpgradeId;
       cancelCard.textContent='Cancel unpaid mixed TEST checkout';
-      cancelCard.hidden=false;cancelCard.disabled=false;
+      showCancel(true);cancelCard.disabled=false;
      }else summary.textContent+=' If checkout is still being created, refresh the quote shortly.';
      return;
     }
@@ -128,7 +132,7 @@
     const result=await requestJson('/api/chart-mixed-test-checkout',{method:'POST',
      headers:{'content-type':'application/json'},body:JSON.stringify(payload)});
     if(result.canceled!==true)throw Error('TEST cancellation not verified.');
-    cancelCard.hidden=true;cancelMode=null;cancelUpgradeId=null;
+    showCancel(false);cancelMode=null;cancelUpgradeId=null;
     summary.textContent='Unpaid Stripe TEST checkout expired. Awaiting the signed Stripe expiration event to restore any reserved Lumens. Please refresh the quote before another purchase.';
     setTimeout(()=>{if(!preview.disabled)preview.click()},1200);
    }catch(error){
