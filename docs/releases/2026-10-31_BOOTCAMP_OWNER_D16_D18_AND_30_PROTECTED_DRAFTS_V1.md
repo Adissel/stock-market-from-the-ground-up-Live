@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PARALLEL-017  
 **Project:** The Stock Market: From the Ground Up / Boot Camp Academy  
-**Version:** 1.0  
+**Version:** 1.1  
 **Prepared:** October 31, 2026  
 **Document status:** Source implemented, original study-day final CI/browser acceptance pending; private assessment draft postflight VERIFIED; graded/general release HOLD  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_D16_D18_AND_30_PROTECTED_DRAFTS_V1.md`  
@@ -10,6 +10,16 @@
 **Authoritative location:** `cybernexuspublishing/stock-market-from-the-ground-up/docs/releases/`, `main`  
 **Google Drive location / document ID:** Not created / not assigned. A new Drive file would be required for an authorized synchronized copy.  
 **Purpose:** Maintain fixed-denominator evidence and distinguish case writing, source deployment, synthetic browser checks, real learner progress, and independent official scoring.
+
+## Latest owner postflight addendum — Version 1.1
+
+A second guarded private-draft batch has been completed since v1.0, using new retake examples with distinct source and numeric data. The six new complete draft IDs in this execution are `BC3_FILINGS7_D06_V1`, `BC3_FILINGS7_D06_V2`, `BC3_INDICATORS10_D05_V1`, `BC3_INDICATORS10_D05_V2`, `BC3_TAPE10_D07_V1`, and `BC3_TAPE10_D07_V2`. Live Supabase postflight now confirms **33/54 complete private candidate draft sets = 61.11%**, **132/216 rubrics = 61.11%**, **396/648 option-specific explanations = 61.11%**. The editorial authoring backlog has fallen to **21 incomplete private candidates, 84 rubrics and 252 explanations**. All **216/216 private answer-option references** resolve uniquely; all **54 candidates are inactive** and **0/54 officially reviewed or graded**. These are verified *writing/structure* metrics, not certified case-level scoring quality.
+
+The controlled fourteen-to-eighteen-day Risk60 source extension remains **source-ready only** for newly introduced Days 16–18. Latest dedicated browser CI [41253510586](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41253510586) was still executing at this addendum's source cutoff; Cloudflare may skip intermediate main commits while newer commits deploy. Confirm a successful descendant production deployment **and** the completed matching CI before increasing the fixed **88/380** formal acceptance numerator. Provisional source-ready total remains **91/380**, and original full-depth source authoring is **18/247**.
+
+Supabase direct access verification for the four protected/progress tables found **RLS enabled** and **no anon/authenticated direct SELECT or INSERT privileges**. This is structural defense-in-depth only and not a replacement for all role-scoped authenticated API tests.
+
+**Version 1.1 revision:** October 31, 2026 — three additional private draft retake cases, verified full 33/54 postflight, private grading held, original Day 16–18 CI still open.
 
 ## 1. Work implemented on main
 
