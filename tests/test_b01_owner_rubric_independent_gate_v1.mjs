@@ -28,7 +28,7 @@ globalThis.fetch=async(request,opts={})=>{
 };
 const req=()=>new Request('https://fixture.example/api/training-editor?action=review',{
  method:'POST',headers:{authorization:'Bearer synthetic-owner-token',origin:'https://fixture.example','content-type':'application/json'},
- body:JSON.stringify({labId:'F1-C02-L01',version:state.version,
+ body:JSON.stringify({labId:'F1-C02-L01',title:'Reviewed fictional B01 primary-source case',version:state.version,
   expectedUpdatedAt:'2026-10-31T18:10:00.000Z',confirmPhrase:'REVIEW BOOK RUBRIC'})
 });
 try{
