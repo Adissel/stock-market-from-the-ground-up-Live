@@ -84,7 +84,18 @@ try{
  assertCheck(!(await page.locator('#tutor-ai-consent').isChecked()),
   'Live Tutor composer keeps optional AI off by default');
  await page.locator('#tutor-ask').click();
- await page.locator('#tutor-thread li').first().waitFor({state:'attached',timeout:30000});
+ try{
+  await page.locator('#tutor-thread li').first().waitFor({state:'attached',timeout:20000});
+ }catch(err){
+  const diagnostic=await page.evaluate(()=>({
+   status:String(document.getElementById('tutor-status')?.textContent||'').slice(0,350),
+   threadCount:document.querySelectorAll('#tutor-thread li').length,
+   askDisabled:document.getElementById('tutor-ask')?.disabled===true,
+   pathname:location.pathname
+  })).catch(()=>({status:'navigation occurred'}));
+  console.log('TUTOR_UI_SAFE_DIAGNOSTIC '+JSON.stringify(diagnostic));
+  throw err;
+ }
  const rendered=await page.locator('#tutor-thread').innerText();
  assertCheck(/bid|ask|spread/i.test(rendered),
   'Free member sees the actual rendered source-grounded answer');
