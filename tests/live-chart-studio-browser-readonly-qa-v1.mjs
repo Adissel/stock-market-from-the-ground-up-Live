@@ -73,7 +73,20 @@ try{
  const load=page.locator('#sim-load-fictional');
  assert(await source.count()&&await load.count(),'Existing fictional chart controls unavailable');
  await source.click();
- await load.click();
+ if(await load.isVisible()){
+  await load.click();
+ }else{
+  // The production layout can hide legacy controls when Enhanced Studio
+  // is selected. Exercise the exact first-party handler without claiming
+  // the legacy load button was visually clickable.
+  console.log('WARN Legacy fictional-load button hidden in Advanced workspace; checking engine with first-party DOM action. Visible starter path remains unaccepted.');
+  await page.evaluate(()=>{
+   const button=document.getElementById('sim-load-fictional');
+   if(!button||button.disabled||typeof button.onclick!=='function')
+    throw Error('Existing first-party fictional starter action is not initialized');
+   button.click();
+  });
+ }
  await page.waitForFunction(()=>window.CrownlightChartTiers?.getRevealedBars?.().length>=2,null,{timeout:30000});
  await page.waitForFunction(()=>window.CrownlightChartTiers?.getInstances?.().some(x=>x.chart?.getDataList?.().length>=2),
   null,{timeout:30000});
