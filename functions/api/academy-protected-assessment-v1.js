@@ -86,6 +86,9 @@ export async function onRequest({request,env}){
  try{
   if(!['GET','POST'].includes(request.method))throw reject('Method not allowed.',405);
   const {program,day}=gate(request,env);
+  // Reject cross-origin writes before identity, entitlement or private-case lookups.
+  // This avoids making privileged service requests for an invalid browser origin.
+  if(request.method==='POST')originCheck(request);
   // Same server-side paid-training entitlement and account restrictions as Academy.
   const a=await toolAccess(env,request,'ONDEMAND_TRAINING');
   if(!a.userId||!a.authorized)throw reject(a.reason||'Eligible training access required.',403);
@@ -99,7 +102,6 @@ export async function onRequest({request,env}){
     ...(state.case?{assessment:state.case}:{reason:state.reason}),
     priorSubmissions:state.attempts});
   }
-  originCheck(request);
   const raw=await request.text();
   if(raw.length>7000)throw reject('Assessment submission too large.',413);
   let input;try{input=JSON.parse(raw)}catch{throw reject('Invalid assessment submission.')}
