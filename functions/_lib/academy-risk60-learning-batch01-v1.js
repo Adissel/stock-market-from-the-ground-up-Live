@@ -26,7 +26,7 @@ function lesson(row,index){
   why:'The objective is source literacy, process discipline and defensible risk interpretation, not a trading return.',
   whenNot:'All numbers and issuers are fictional. This exercise establishes no market-data license, historical fill, independent grade or verified mastery.',
   reference:Object.freeze(ref),numericChecks:Object.freeze([]),
-  status:'ORIGINAL_RISK60_UNGRADED_HUMAN_EDITORIAL_AND_PROTECTED_ASSESSMENT_PENDING',
+  status:'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING',
   topicSourceDay:sourceDay,phase:'Learn and recognize',day:index+1
  });
 }
