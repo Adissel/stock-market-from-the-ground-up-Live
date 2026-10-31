@@ -145,6 +145,75 @@ if(!email||!password){
   }
   const finalProgress=await progress(page.request,signed.access);
   assert.equal(finalProgress.status,200);
+  // Extend the same genuine QA session to the two Free member services.
+  // Only create new clearly fictional QA content; never overwrite a user's work.
+  const bearer={authorization:'Bearer '+signed.access};
+  const prefPreflight=await page.request.get(origin+'/api/free-learning-coach',
+   {headers:bearer,timeout:30000});
+  assert.equal(prefPreflight.status(),200,'Free learning preference API must authorize real QA member');
+  const prefBefore=await prefPreflight.json();
+  assert.equal(prefBefore.ok,true);
+  if(!prefBefore.preferences.saved){
+   await page.goto(origin+'/dashboard.html',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.locator('#free-start-choose').waitFor({state:'attached',timeout:25000});
+   await page.locator('details.free-learning-starting-point summary').click();
+   await page.locator('#free-start-level').selectOption('1');
+   await page.locator('#free-coach-focus').selectOption('WATCHLIST');
+   await page.locator('#free-coach-minutes').selectOption('10');
+   await page.locator('#free-start-choose').click();
+   await page.waitForFunction(()=>/Preferences saved to your account/i.test(
+    document.getElementById('free-start-result')?.textContent||''),{timeout:20000});
+   note('checks','Free learner preference saved through real signed-in Dashboard.');
+  }else{
+   assert.equal(prefBefore.preferences.focus,'WATCHLIST','Existing QA learner preferences differ; never overwrite.');
+   assert.equal(prefBefore.preferences.sessionMinutes,10,'Existing QA study time differs; never overwrite.');
+   note('checks','Existing QA-only study preference preserved without overwrite.');
+  }
+  const prefAgain=await page.request.get(origin+'/api/free-learning-coach',
+   {headers:bearer,timeout:30000});
+  assert.equal(prefAgain.status(),200);
+  const prefBody=await prefAgain.json();
+  assert.equal(prefBody.ok,true);
+  assert.equal(prefBody.preferences.saved,true);
+  assert.equal(prefBody.preferences.focus,'WATCHLIST');
+  assert.equal(prefBody.preferences.sessionMinutes,10);
+  assert.equal(prefBody.recommendation.savedReflections,5,
+   'Talia must observe all five genuine saved ungraded reflections');
+  note('checks','Talia private preferences and five-day progress verified by authenticated API.');
+  const watchPreflight=await page.request.get(origin+'/api/free-watchlist',
+   {headers:bearer,timeout:30000});
+  assert.equal(watchPreflight.status(),200);
+  const watchBefore=await watchPreflight.json();
+  assert.equal(watchBefore.ok,true);
+  assert(Array.isArray(watchBefore.entries));
+  const qaResearch='FICTIONAL QA STUDY ONLY: The GUSIM teaching candles do not represent an issuer, an executable quotation, or verified market liquidity. Choose NO TRADE until genuine independent evidence exists.';
+  const prior=watchBefore.entries.find(x=>x.symbol==='GUSIM');
+  assert(!prior||(prior.sourceKind==='FICTIONAL'&&prior.status==='NO_TRADE'&&prior.researchNote===qaResearch),
+   'Existing GUSIM research differs from authorized QA sample; refusing to change it.');
+  await page.goto(origin+'/free-watchlist.html',{waitUntil:'domcontentloaded',timeout:30000});
+  await page.locator('#free-watchlist-content').waitFor({state:'visible',timeout:30000});
+  if(!prior){
+   await page.locator('#free-watchlist-symbol').fill('GUSIM');
+   await page.locator('#free-watchlist-status').selectOption('NO_TRADE');
+   await page.locator('#free-watchlist-source-kind').selectOption('FICTIONAL');
+   await page.locator('#free-watchlist-research-note').fill(qaResearch);
+   await page.locator('#free-watchlist-source-note').fill('Original platform fictional education only; no market feed.');
+   await page.locator('#free-watchlist-save').click();
+   await page.waitForFunction(()=>/GUSIM saved to your private member research watchlist/i.test(
+    document.getElementById('free-watchlist-save-status')?.textContent||''),{timeout:20000});
+   note('checks','Free fictional watchlist entry saved through real signed-in UI.');
+  }else note('checks','Exact QA watchlist record already exists; no overwrite.');
+  await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+  await page.locator('#free-watchlist-content').waitFor({state:'visible',timeout:30000});
+  assert.match(await page.locator('#free-watchlist-list').innerText(),/GUSIM/);
+  const watchAgain=await page.request.get(origin+'/api/free-watchlist',
+   {headers:bearer,timeout:30000});
+  assert.equal(watchAgain.status(),200);
+  const watchBody=await watchAgain.json();
+  assert(watchBody.entries?.some(x=>x.symbol==='GUSIM'&&x.sourceKind==='FICTIONAL'&&
+   x.status==='NO_TRADE'&&x.researchNote===qaResearch),
+   'Private watchlist did not preserve exact fictional QA research after reload');
+  note('checks','Free watchlist persisted across reload and private authenticated API readback.');
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
