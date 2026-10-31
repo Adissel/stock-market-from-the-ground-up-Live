@@ -8,9 +8,11 @@ const publicPages=['/terms.html','/refund-policy.html','/subscription-terms.html
 const failures=[];
 async function probe(path){
  const url=new URL(path,origin);
- const response=await fetch(url,{method:'GET',redirect:'manual',headers:{'accept':'application/json, text/html;q=0.9'},
+ const response=await fetch(url,{method:'GET',redirect:'follow',headers:{'accept':'application/json, text/html;q=0.9'},
   signal:AbortSignal.timeout(20000),cache:'no-store'});
- return {status:response.status,contentType:response.headers.get('content-type')||'',body:(await response.text()).slice(0,900)};
+ const final=new URL(response.url);
+ if(final.origin!==url.origin)throw Error('Unexpected cross-origin redirect '+final.origin);
+ return {status:response.status,finalPath:final.pathname,contentType:response.headers.get('content-type')||'',body:(await response.text()).slice(0,900)};
 }
 for(const tool of tools){
  try{
@@ -23,9 +25,9 @@ for(const tool of tools){
 for(const path of publicPages){
  try{
   const r=await probe(path);
-  if(r.status!==200||!r.contentType.includes('text/html')||!/<html|<!doctype/i.test(r.body))
+  if(r.status!==200||!r.contentType.includes('text/html')||!/<html|<!doctype/i.test(r.body)||!r.finalPath.toLowerCase().includes(path.replace('.html','').slice(1)))
    throw Error('expected HTML 200, got '+r.status+' ('+r.contentType+')');
-  console.log('PASS: public legal page '+path+' (HTTP 200)');
+  console.log('PASS: public legal page '+path+' -> '+r.finalPath+' (HTTP 200)');
  }catch(e){failures.push(path+': '+String(e.message||e))}
 }
 if(failures.length){
