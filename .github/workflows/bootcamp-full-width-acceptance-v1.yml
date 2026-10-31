@@ -14,6 +14,7 @@ on:
       - 'functions/_lib/academy-three-camps-beta-access-v1.js'
       - 'functions/_lib/academy-three-camps-v1.js'
       - 'functions/_lib/academy-three-camps-formative-reference-v1.js'
+      - 'functions/_lib/academy-three-camps-formative-day02-v1.js'
       - 'assets/js/academy-guided-v1.js'
       - 'supabase/admin/20261031_three_bootcamps_release_readiness_read_only.sql'
       - 'docs/releases/2026-10-31_THREE_BOOTCAMPS_ASSESSMENT_SECURITY_BETA_REGISTER.md'
@@ -56,6 +57,7 @@ jobs:
           node --check functions/api/bootcamp-academy.js
           node --check functions/_lib/academy-three-camps-beta-access-v1.js
           node --check functions/_lib/academy-three-camps-formative-reference-v1.js
+          node --check functions/_lib/academy-three-camps-formative-day02-v1.js
           node --check assets/js/academy-protected-assessment-v1.js
           node --check assets/js/academy-three-camps-evidence-v1.js
           node --check assets/js/academy-guided-v1.js
