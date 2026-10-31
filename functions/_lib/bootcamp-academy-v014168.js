@@ -41,6 +41,9 @@ import {risk60PracticeBatch02,risk60PracticeSourceDays} from './academy-risk60-p
 import {risk60TransferBatch03,risk60TransferSourceDays} from './academy-risk60-transfer-batch03-v1.js';
 import {practicum90LearnBatch01} from './academy-practicum90-learning-batch01-v1.js';
 import {practicum90LearnBatch02} from './academy-practicum90-learning-batch02-v1.js';
+import {practicum90Batch05} from './academy-practicum90-batch05-days66-90-v1.js';
+import {practicum90Batch04} from './academy-practicum90-batch04-days46-65-v1.js';
+import {practicum90Batch03} from './academy-practicum90-batch03-days26-45-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -336,6 +339,15 @@ function dayFor(d,i){
   ...(d.code==='charts45'&&chartCaseBySourcePhase[sourceDay]?.[Math.floor(i/d.source.length)]?{
    lesson:chartCaseBySourcePhase[sourceDay][Math.floor(i/d.source.length)],
    sourceStatus:'original_chart_day_specific_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='practicum90'&&i>=25&&i<45&&practicum90Batch03[i-25]?.topicSourceDay===sourceDay?{
+   lesson:practicum90Batch03[i-25],sourceStatus:'original_practicum90_batch03_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='practicum90'&&i>=45&&i<65&&practicum90Batch04[i-45]?.topicSourceDay===sourceDay?{
+   lesson:practicum90Batch04[i-45],sourceStatus:'original_practicum90_batch04_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='practicum90'&&i>=65&&practicum90Batch05[i-65]?.topicSourceDay===sourceDay?{
+   lesson:practicum90Batch05[i-65],sourceStatus:'original_practicum90_batch05_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='practicum90'&&i>=5&&i<25&&practicum90LearnBatch02[i-5]?.topicSourceDay===sourceDay?{
    lesson:practicum90LearnBatch02[i-5],
