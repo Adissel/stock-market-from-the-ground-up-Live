@@ -13,6 +13,13 @@ on:
       - 'tests/test_crownlight_chart_workspace_v2.mjs'
       - 'tests/test_crownlight_chart_tiers_v1.mjs'
       - 'tests/test_crownlight_chart_tiers_browser_v1.mjs'
+      - 'tests/test_free_simulator_starter_v1.mjs'
+      - 'tests/test_sellable_simulator_csv_integrity_v1.mjs'
+      - 'tests/test_chart_mixed_contract_v1.mjs'
+      - 'tests/test_chart_mixed_test_boundary_v1.mjs'
+      - 'tests/test_stripe_test_unified_webhook_20261030.mjs'
+      - 'tests/test_chart_mixed_cancel_card_mock_v1.mjs'
+      - 'tests/test_crownlight_chart_pass_lifecycle_v5.mjs'
       - 'tests/test_crownlight_advanced_downgrade_browser_v1.mjs'
       - '.github/workflows/crownlight-chart-studio-v7.yml'
 permissions:
@@ -40,6 +47,15 @@ jobs:
           node tests/test_crownlight_chart_entitlement_continuity_v4.mjs
           node tests/test_crownlight_chart_provider_inventory_v6.mjs
           node tests/test_v014145_marketdata_byo_security.mjs
+      - name: Chart Studio release V1 financial, CSV and rights boundaries (fixture-only)
+        run: |
+          node tests/test_free_simulator_starter_v1.mjs
+          node tests/test_sellable_simulator_csv_integrity_v1.mjs
+          node tests/test_crownlight_chart_pass_lifecycle_v5.mjs
+          node tests/test_chart_mixed_contract_v1.mjs
+          node tests/test_chart_mixed_test_boundary_v1.mjs
+          node tests/test_chart_mixed_cancel_card_mock_v1.mjs
+          node tests/test_stripe_test_unified_webhook_20261030.mjs
       - name: Verify no private backend code/secret bundled in Pages
         run: |
           bash scripts/build-pages.sh
