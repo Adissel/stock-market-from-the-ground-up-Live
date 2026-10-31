@@ -20,7 +20,7 @@
 | `scanners10` | 10 | 10 distinct new scan/risk cases | 0 | 0 |
 | `foundations30` | 30 | 30 distinct additional cases on existing canonical days | 0 | 0 |
 | `charts45` | 45 | 45 day-specific fictional cases across fifteen subjects and three phases | 0 | 0 |
-| `risk60` | 60 | 20 original Learn cases plus 20 distinct guided Practice cases; final 20 Transfer days remain | 40 | 0 |
+| `risk60` | 60 | 20 original Learn cases plus 20 distinct guided Practice cases; final 20 Transfer days remain | 20 | 0 |
 | `practicum90` | 90 | Parent-derived day objectives currently only | 90 | 0 |
 | **TOTAL** | **247** | **137 authored study-day modules** | **110** | **0 independently evidenced** |
 
