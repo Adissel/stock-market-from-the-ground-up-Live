@@ -1,0 +1,53 @@
+name: Chart Studio Genuine Two-Account Isolation QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-chart-studio-two-member-isolation-v1.mjs'
+      - '.github/workflows/chart-studio-two-member-isolation-v1.yml'
+permissions:
+  contents: read
+  issues: write
+jobs:
+  real-cross-account:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse strict separate-member test
+        run: node --check tests/live-chart-studio-two-member-isolation-v1.mjs
+      - name: Authenticate distinct production members and enforce private workspace isolation
+        id: isolation
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+          CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
+          CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
+        run: node tests/live-chart-studio-two-member-isolation-v1.mjs
+      - name: Record genuine acceptance or credential blocker without secrets
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.isolation.outcome }}
+        run: |
+          {
+            echo "## Chart Studio two-distinct-member isolation — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "Commit: $GITHUB_SHA"
+            echo "Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Production real-account result: **$QA_RESULT**"
+            echo "Genuine distinct GoTrue accounts; signed-in private workspace scoping; client-controlled user_id/member_id ignored; Standard vs Advanced server tier; zero workspace/payment writes."
+            echo "A missing second credential remains BLOCKED, not a mocked or accepted real-member test."
+          } > /tmp/chart-two-member-qa.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-two-member-qa.md
+      - name: Fail closed unless genuinely authenticated across two distinct accounts
+        if: steps.isolation.outcome != 'success'
+        run: exit 1
