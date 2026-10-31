@@ -5,13 +5,10 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 const ORIGIN='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const EXPECTED_USER='f42f9301-18e6-43a3-8531-32d371fd22c1';
-const EXPECTED_TIER='PREPARED';
+const EXPECTED_TIER=process.env.CHART_QA_EXPECTED_TIER||'';
 const ranks={STANDARD:0,ADVANCED:1,PROFESSIONAL:2};
 const email=process.env.LAB_QA_EMAIL||'',pass=process.env.LAB_QA_PASSWORD||'';
-if(EXPECTED_TIER==='PREPARED'){
- console.log('PREPARED: waiting for Owner-controlled expiring James_Test-only QA ceiling.');
- process.exit(0);
-}
+if(!Object.hasOwn(ranks,EXPECTED_TIER))throw Error('BLOCKED: set CHART_QA_EXPECTED_TIER to STANDARD, ADVANCED, or PROFESSIONAL; a skipped test is not acceptance');
 if(!email||!pass)throw Error('BLOCKED: original James_Test encrypted QA credentials missing');
 const guard=await fetch(ORIGIN+'/api/auth-guard-v0135').then(r=>r.json());
 if(guard?.ok!==true||guard.enabled!==false)throw Error('BLOCKED: login CAPTCHA QA window not enabled by Owner');
