@@ -1,0 +1,53 @@
+name: Academy Three Boot Camps Real Invited 27-Day Read-only QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-three-beta-27day-real-readonly-v1.yml'
+      - 'tests/live-academy-three-beta-27day-readonly-v1.mjs'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: academy-beta-27day-readonly
+  cancel-in-progress: false
+jobs:
+  real-member-27day-read-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse the real invited-member test
+        run: node --check tests/live-academy-three-beta-27day-readonly-v1.mjs
+      - name: Test true Supabase-invited member and all 27 live lesson responses without writes
+        id: beta
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-academy-three-beta-27day-readonly-v1.mjs
+      - name: Record exact tested commit and genuine 27-day acceptance result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BETA_OUTCOME: ${{ steps.beta.outcome }}
+        run: |
+          {
+            echo "### Original invited beta: three new Boot Camps real-member READ-ONLY 27-day QA"
+            echo "Tested SHA: \`$GITHUB_SHA\`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Actual GoTrue invited-member 27-day instructional GET acceptance: **$BETA_OUTCOME**"
+            echo "PASS requires real existing QA credentials, distinct 27 protected teaching day responses, all 324 formative reviews, public seven-course catalog, guest denial, private progress read and zero enrollment/payment/Lumen/grade writes."
+            echo "NOT tested: full member enrollment/resume CAS, second-account isolation, real CAPTCHA UI, graded private cases, keyboard/mobile accessibility or independent human editorial signoff."
+            echo "An absent QA credential or an unexpected entitlement is BLOCKED/FAILED, never simulated as success."
+          } > /tmp/academy-beta-27-real-qa.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/academy-beta-27-real-qa.md
+      - name: Fail closed unless real invited QA passed
+        if: steps.beta.outcome != 'success'
+        run: exit 1
