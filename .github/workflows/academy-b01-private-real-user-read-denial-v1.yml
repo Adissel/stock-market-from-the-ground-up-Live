@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/academy-b01-private-real-user-read-denial-v1.yml'
       - 'tests/live-b01-private-rest-isolation-v1.mjs'
+      - 'tests/live-b01-two-real-members-private-readonly-v1.mjs'
 permissions: {contents: read}
 concurrency:
   group: b01-real-qa-private-read-denial-v1
@@ -25,3 +26,11 @@ jobs:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-b01-private-rest-isolation-v1.mjs
+      - run: node --check tests/live-b01-two-real-members-private-readonly-v1.mjs
+      - name: Verify distinct genuine QA members remain isolated from private assessment data
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-b01-two-real-members-private-readonly-v1.mjs
