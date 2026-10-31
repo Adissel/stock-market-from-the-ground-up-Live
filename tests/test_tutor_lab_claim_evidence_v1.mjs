@@ -40,4 +40,4 @@ const noResearch={ASSETS:{fetch:async req=>new URL(req.url).pathname.endsWith('/
  ?Response.json(registry):Response.json({error:'unavailable'},{status:503})}};
 const fallback=await getApprovedLabContext(noResearch,new Request('https://example.com/api/market-tutor-v01492'),'Explain F2-C04-L01');
 assert(fallback&&!fallback.claimEvidence,'Unverified optional asset cannot break original Tutor');
-console.log('PASS eight researched canonical Lab Tutor bridges, 419 ID invariant, source safety, original examples and fail-closed fallback.');
+console.log('PASS fourteen researched canonical Lab Tutor bridges, 419 ID invariant, source safety, original examples and fail-closed fallback.');
