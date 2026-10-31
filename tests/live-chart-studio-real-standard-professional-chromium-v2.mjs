@@ -77,6 +77,20 @@ try{
    });
    assert(area.left>=-3&&area.right<=area.viewport+4&&area.width>150,
     'Mobile tier selector must be within viewport');
+   // The member site may present a native onboarding/notification dialog
+   // after new-account authentication. Keyboard focus must remain inside a
+   // modal while it is open, so close it through the user-facing button
+   // before asserting focus on background Studio controls.
+   for(let i=0;i<3&&await p.locator('dialog[open]').count();i++){
+    const modal=p.locator('dialog[open]').first();
+    const closer=modal.locator('button.fe-dialog-close, button[aria-label="Close"], button[aria-label="Close dialog"], button[data-close]').first();
+    assert.equal(await closer.isVisible(),true,
+     'Visible account dialog must expose an operable close button before Studio use');
+    await closer.click();
+    await p.waitForTimeout(120);
+   }
+   assert.equal(await p.locator('dialog[open]').count(),0,
+    'Account modal must be dismissible before Studio keyboard use');
    const focusTarget=p.locator('.cl-chart-tier-bar select');
    assert.equal(await focusTarget.isVisible(),true,'Studio selector must be visible on 390px mobile');
    assert.equal(await focusTarget.isEnabled(),true,'Studio selector must be enabled for signed-in member');
