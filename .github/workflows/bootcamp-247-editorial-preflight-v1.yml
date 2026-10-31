@@ -13,7 +13,9 @@ on:
       - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
       - 'tests/test_bootcamp_first22_editorial_preflight_v1.mjs'
       - 'tests/test_academy_risk60_batch01_v1.mjs'
-permissions: {contents: read}
+permissions:
+  contents: read
+  issues: write
 jobs:
   original-seven-content:
     runs-on: ubuntu-latest
@@ -37,3 +39,17 @@ jobs:
           path: |
             artifacts/bootcamp-247-editorial-queue.csv
             artifacts/bootcamp-247-batch-manifest.json
+      - name: Record passing 247-day authoring evidence (NOT editorial approval)
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### Original seven Boot Camps — first 20 Risk60 cases CI"
+            echo "Tested SHA: \`$GITHUB_SHA\`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "PASS only if prior tests and artifact upload completed successfully."
+            echo "Coverage: 247-day canonical length, 20 Risk60 authored/unique fictional cases and transfer scenarios, independently recalculated example math, protected grading=false, Charts45 and first-22 regressions, nonapproving review-register export."
+            echo "Does NOT constitute 247-day editorial approval, protected grading, human independent assessment, authentic member browser acceptance or proof of historical market-data rights."
+          } > /tmp/risk60-ci.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci.md
