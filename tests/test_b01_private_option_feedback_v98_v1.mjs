@@ -8,14 +8,15 @@ const route=readFileSync('functions/api/interactive-training.js','utf8');
 const migration=readFileSync('supabase/migrations/20261031_b01_private_feedback_v98_draft_only.sql','utf8');
 assert(route.includes('approvedSelectedWrongFeedback'));
 assert(route.includes("x?.reviewStatus==='INDEPENDENT_EDITORIAL_APPROVED'"));
-assert(route.includes("select=questions&lab_id=eq."));
+assert(route.includes('select=questions,reviewed_by,reviewed_at&lab_id=eq.'));
 assert(!route.includes('select=questions,answer_key&lab_id=eq.'));
 assert(migration.includes("'draft','b01_private_feedback_draft_awaiting_independent_review_v98'"));
 assert(migration.includes('feedback_count<>200'));
 assert(migration.includes('review_count<>0'));
 assert(!migration.includes("'reviewed','b01_private_feedback"));
 const old=globalThis.fetch,uid='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
-let reviewedFeedback='DRAFT_PENDING_SEPARATE_PEDAGOGICAL_APPROVAL';
+let reviewedFeedback='AI_REVISED_DRAFT_PENDING_INDEPENDENT_EDITORIAL_APPROVAL';
+let attributableReview=null;
 let feedbackText='This answer uses future information that was not available at the decision pause. Retain only completed verified evidence.';
 let scoreCalls=0,assessDenied=0;
 const json=x=>new Response(JSON.stringify(x),{headers:{'content-type':'application/json'}});
@@ -32,12 +33,13 @@ globalThis.fetch=async(raw,opts={})=>{
  if(p==='/rest/v1/lab_training_attempts_v014')return json([{lab_id:'F1-C02-L01',set_version:98,mode:'guided'}]);
  if(p==='/rest/v1/lab_training_sets_v014'){
   return json([{lab_id:'F1-C02-L01',version:98,review_state:'reviewed',
+   reviewed_by:'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',reviewed_at:'2026-10-31T18:00:00Z',
    source_status:'b01_independently_reviewed_protected_assessment_approved_v1',
    questions:[{id:'Q1',kind:'choice',prompt:'Which claim is justified?',
     options:['Correct evidence','Known wrong conclusion','Unrelated future fact'],
     distractorFeedback:[{option:'Known wrong conclusion',
      feedback:feedbackText,
-     reviewStatus:reviewedFeedback}]}]}]);
+     reviewStatus:reviewedFeedback,independentReview:attributableReview}]}]}]);
  }
  if(p==='/rest/v1/rpc/v014_training_answer'){
   scoreCalls++;return json({ok:true,complete:false,correct:false,
@@ -58,6 +60,13 @@ try{
   'Pending feedback must remain private');
  assert(!JSON.stringify(body).includes('future information'));
  reviewedFeedback='INDEPENDENT_EDITORIAL_APPROVED';
+ // Merely flipping a status flag is not independent reviewer attribution.
+ r=await onRequest({request:req(),env});body=await r.json();
+ assert.equal(body.explanation,'General existing corrective advice');
+ attributableReview={reviewerRole:'INDEPENDENT_EDITOR',
+  reviewerUserId:'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+  evidenceRef:'SMFGU-B01-PRIVATE-EDITORIAL-CASE-Q1-001',
+  decisionAt:'2026-10-31T18:00:00Z',actualQuestionReviewed:true,correctiveFeedbackReviewed:true};
  r=await onRequest({request:req(),env});body=await r.json();
  assert.equal(r.status,200);
  assert.match(body.explanation,/future information/);
@@ -73,6 +82,6 @@ try{
  assert.equal(body.explanation,'General existing corrective advice',
   'Mechanical template cannot become approved option-specific teaching through a flag');
  assert(!JSON.stringify(body).includes(' / Correction: '));
- assert.equal(scoreCalls,3);
- console.log('PASS B01 protected feedback: draft or template correction suppressed even with a false approval flag; genuinely reviewed option-specific remediation returned only after scoring.');
+ assert.equal(scoreCalls,4);
+ console.log('PASS B01 protected feedback: draft and unattributed approval-status suppressed, documented independent reviewer attribution required; original mechanical template stays hidden, remediation after scoring only.');
 }finally{globalThis.fetch=old}
