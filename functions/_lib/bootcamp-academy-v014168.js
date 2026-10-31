@@ -279,8 +279,7 @@ function dayFor(d,i){
   objective,observe,practice,phase,phaseLabel:info.label,
   researchEnrichment:researchFor(topic,objective),
   ...(first22DayLessons[d.code]?.[i]?{
-   lesson:first22DayLessons[d.code][i],
-   sourceStatus:'original_day_specific_ungraded_independent_review_pending'
+   lesson:first22DayLessons[d.code][i]
   }:{}),
   method:[info.lead,info.method,practice],
   remediation:'If a necessary observation is unavailable, stop and return to the source before concluding.',
@@ -288,7 +287,9 @@ function dayFor(d,i){
   competencies:[...source.competencies],
   relatedLabs:source.relatedLabs.map(row=>Object.freeze({...row,editorial:'PROVISIONAL_UNGRADED_REUSE'})),
   toolPath:source.toolPath,officiallyGraded:false,masteryAwarded:false,
-  sourceStatus:d.code==='truth5'?'original_authored_truth5_editorial_review_pending':'approved_parent_30_day_topic_with_program_specific_original_exercise',
+  sourceStatus:d.code==='truth5'?'original_authored_truth5_editorial_review_pending':
+   first22DayLessons[d.code]?.[i]?'original_day_specific_ungraded_independent_review_pending':
+   'approved_parent_30_day_topic_with_program_specific_original_exercise',
   ...(d.code==='truth5'?{
    lesson:truth5Lessons[i],
    approvedSupplement:approvedB01Supplements[day]||null,
