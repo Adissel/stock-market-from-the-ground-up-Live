@@ -1,0 +1,44 @@
+name: James_Test — Sequential 14/30/60 Genuine Noncommercial Founding QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/qa/james-founding-sequential-v1.json'
+      - 'tests/test_james_sequential_founding_real_browser_v1.mjs'
+      - '.github/workflows/james-sequential-founding-member-qa-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: james-founding-sequential-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  authenticated-sequential-plan:
+    name: James_Test true JWT, RLS plan, UI and protected Tutor (no billing)
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Validate scope and check encrypted James_Test QA credentials
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: |
+          node --check tests/test_james_sequential_founding_real_browser_v1.mjs
+          node -e "const x=require('./data/qa/james-founding-sequential-v1.json');if(x.noncommercial!==true||x.paymentTests!==false||x.protectedAssessmentTests!==false||!['FOUNDING_14','FOUNDING_30','FOUNDING_60'].includes(x.plan))process.exit(2)"
+          if test -z "$LAB_QA_EMAIL" || test -z "$LAB_QA_PASSWORD"; then
+            echo 'BLOCKED: James_Test encrypted QA login unavailable. Do not invent identities.'
+            exit 2
+          fi
+      - name: Install pinned free Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify actual James_Test member session and exactly one time-limited plan
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/test_james_sequential_founding_real_browser_v1.mjs
