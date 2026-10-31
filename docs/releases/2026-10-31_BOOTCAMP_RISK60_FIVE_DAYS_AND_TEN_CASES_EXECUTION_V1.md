@@ -2,13 +2,13 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-EXECUTION-009  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_RISK60_FIVE_DAYS_AND_TEN_CASES_EXECUTION_V1.md`  
 **GitHub location:** `cybernexuspublishing/stock-market-from-the-ground-up/docs/releases/` on `main`  
 **Google Drive location/document ID:** Not created / not assigned  
-**Status:** SOURCE IMPLEMENTED; first two original upgraded days PASS dedicated CI; five-day acceptance CI and Cloudflare deployment after source fix pending; ten protected cases COMPLETE DRAFT FIELDS / official grading inactive  
+**Status:** SOURCE IMPLEMENTED and deployed successfully at exact fix SHA; first two original upgraded days PASS dedicated CI; full five-day enhanced browser acceptance CI still queued; ten protected cases COMPLETE DRAFT FIELDS / official grading inactive  
 **Purpose:** Separately account for substantive actions completed by the delegated Owner/Editor/QA operator, and prevent simulation or content-field completion from being mistaken for evidence of authenticated testing or official grading.
 
 ## 1. Original Risk60 day-by-day implementation
@@ -53,9 +53,21 @@ The newly drafted variants use distinct numbers, issuer conditions, cutoff times
 - **Full 274-day baseline:** GitHub Actions [41236543559](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236543559) passed full source/build/browser regression.
 - **Risk60 first two deep lessons:** GitHub Actions [41237262356](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237262356) completed SUCCESS.
 - **Expanded five-day source and browser:** GitHub Actions [41237571436](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237571436) queued at this report check.
-- **Risk60 independent transfer validation defect:** The 20 complete third-cycle lesson cases had 13 concise topic titles shorter than a mistakenly global 35-character threshold. Substantive content passed the 35-character minimum. Updated `functions/_lib/academy-risk60-transfer-batch03-v1.js` to validate topic titles at 12 characters while retaining the existing substantive teaching threshold. Fix commit `d02013d6e049217a45c608399600874fe0953d2b`. Updated dedicated workflow trigger in commit `1cac1c5b890694e0a2944bdc8abfcb8356f80259`, which queued run [41237868004](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237868004). Earlier failed Cloudflare deployments specifically showed this issue in their Function-publish logs; later exact-revision production recovery must be rechecked before sign-off.
+- **Risk60 independent transfer validation defect:** The 20 complete third-cycle lesson cases had 13 concise topic titles shorter than a mistakenly global 35-character threshold. Substantive content passed the 35-character minimum. Updated `functions/_lib/academy-risk60-transfer-batch03-v1.js` to validate topic titles at 12 characters while retaining the existing substantive teaching threshold. Fix commit `d02013d6e049217a45c608399600874fe0953d2b`. Updated dedicated workflow trigger in commit `1cac1c5b890694e0a2944bdc8abfcb8356f80259`, which queued run [41237868004](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237868004). Earlier failed Cloudflare deployments specifically showed this issue in their Function-publish logs. **Cloudflare subsequently reported SUCCESS for production commit `1cac1c5b890694e0a2944bdc8abfcb8356f80259`**, which includes the validator fix and all five original-day upgrades. The matching enhanced browser CI run remains queued and must not be marked passed.
 
 **Security decision:** `ACADEMY_THREE_CAMPS_ENABLED=false`, `ACADEMY_THREE_CAMPS_BETA_ENABLED=true`; only existing allowlisted QA identities can access the invited three courses; no LIVE charges or paid services initiated.
+
+## 3A. Owner educational arithmetic and source-cutoff verification
+
+The following fictional, ungraded source calculations were checked in this revision:
+
+- Risk60 D01: the 08:55 decision cannot cite a 09:03 filing; a last trade without current bids or offers cannot establish executable spread.
+- Risk60 D02: `($12.52 − $11.80)/$11.80 × 100 ≈ 6.10%` ask-to-prior-close distance, while `($12.52 − $12.40)/(($12.52+$12.40)/2) × 100 ≈ 0.963%` midpoint spread; denominators are explicitly distinct.
+- Risk60 D03: dated-source compliance `14/18≈77.78%`, sizing-check compliance `11/18≈61.11%`, and hypothetical later favorable moves `16/18≈88.89%` are different measurements; market outcomes do not validate missing process records.
+- Risk60 D04: `1,200,000/300,000=4.0×` is a conditional turnover ratio only after float corporate-action adjustment and date matching; never a proof of unique holder turnover or fill.
+- Risk60 D05: `80×$6.20+120×$6.23=$1,243.60` across 200 quoted shares, static average `$6.218/share`; a 250-share buy has 50 unpriced shares.
+
+**Owner/editorial approval:** The five fictional teaching examples and their 12-per-day formative question banks are editorially authorized for self-paced ungraded instruction *conditioned on completed source/browser acceptance*. This is not independent professional review or permission to activate protected private grading.
 
 ## 4. Fixed-denominator progress, without artificial approvals
 
@@ -75,5 +87,6 @@ The **six genuine signed-in tester-course journeys are still 0/6** at the last d
 | Version | Date | Status | Summary |
 |---|---|---|---|
 | 1.0 | October 31, 2026 | SOURCE IMPLEMENTED / BETA GATES OPEN | Five Risk60 days deep-authored; ten private candidates fully drafted; 216 valid key links; fixed 380-item denominator maintained; Risk60 transfer validator corrected. |
+| 1.1 | October 31, 2026 | DEPLOYED SOURCE / FINAL BROWSER CI PENDING | Confirmed Cloudflare successful exact production commit `1cac1c5b`; retained remaining real tester and protected-grade hold; checked five subject-specific worked-case arithmetic and source cutoff conditions. |
 
 **Footer:** Crown & Lantern Press — internal controlled release evidence; not independent accounting/legal advice, actual broker execution, paid QA or externally certified editorial review.
