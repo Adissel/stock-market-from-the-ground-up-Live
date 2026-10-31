@@ -64,6 +64,16 @@ async function requireMatchingBook(env,request,labId,verifiedActorId,forOfficial
  if(lab.book_code==='SITE_EXCLUSIVE')return lab.book_code;
  throw fail('Unknown or unapproved Lab collection.',403);
 }
+// The B01 v97 question sets carry a technical "reviewed" flag but retain
+// an explicit pending individual-content acceptance status. A technical
+// review flag is not an official grading authorization. Never release
+// assessment mode for these sets until a separately approved source version
+// and independently reviewed rubric are published.
+// Guided/Practice/Blind instruction remains eligible under existing access.
+function protectedB01AssessmentPending(set,mode){
+ return mode==='assessment' &&
+  String(set?.source_status||'').startsWith('original_hypothetical_b01_individual_review_pending');
+}
 // The same private key must never always appear as option one.
 // Shuffle answer options per pinned attempt and question, reproducibly on refresh.
 function shuffledChoiceOptions(options,attemptId,questionId){
@@ -147,6 +157,7 @@ export async function onRequest({request,env}){try{
  }
  if(action==='available'&&request.method==='GET'){const id=u.searchParams.get('labId')||'';if(!/^[A-Za-z0-9_-]{3,90}$/.test(id))throw fail('Invalid Lab ID.');await requireMatchingBook(env,request,id,acl.userId);const rows=await db(env,'lab_training_sets_v014?select=lab_id,version,review_state,source_status,title,questions&lab_id=eq.'+esc(id)+'&review_state=eq.reviewed&order=version.desc&limit=1');return reply({ok:true,available:!!rows[0],sourceStatus:rows[0]?.source_status||null,questionCount:rows[0]?.questions?.length||0})}
  if(action==='start'&&request.method==='POST'){const body=await request.json().catch(()=>null),id=String(body?.labId||''),mode=String(body?.mode||'');if(!/^[A-Za-z0-9_-]{3,90}$/.test(id)||!['guided','practice','blind','assessment'].includes(mode))throw fail('Valid Lab and learning mode required.');await requireMatchingBook(env,request,id,acl.userId,mode==='assessment');const sets=await db(env,'lab_training_sets_v014?select=lab_id,version,review_state,source_status,title,questions&lab_id=eq.'+esc(id)+'&review_state=eq.reviewed&order=version.desc&limit=1');const set=sets[0];if(!set)return reply({ok:false,error:'Reviewed question-by-question training is not published for this Lab.'},404);
+ if(protectedB01AssessmentPending(set,mode))throw fail('Official B01 assessment remains in individual editorial review. Guided study is available.',409);
  const record=await db(env,'rpc/v014_training_start','POST',{p_actor:acl.userId,p_lab:id,p_mode:mode});
  if(!record?.id)throw fail('Training attempt was not created.',503);
  // Resume uses the original review version, not a rubric published since start.
@@ -156,15 +167,27 @@ export async function onRequest({request,env}){try{
  // Existing member grades stay intact in the private history route.
  if(pinned.review_state!=='reviewed')
   return reply({ok:false,error:'This pinned grading version is no longer reviewed. Your saved record remains preserved.'},409);
+ if(protectedB01AssessmentPending(pinned,mode))throw fail('Official B01 assessment remains in individual editorial review. Guided study is available.',409);
  return reply(publicState(record,pinned),record.resumed?200:201)}
  if(action==='resume'&&request.method==='GET'){const id=u.searchParams.get('id')||'';if(!uuid.test(id))throw fail('Invalid attempt ID.');const rows=await db(env,'lab_training_attempts_v014?select=id,user_id,lab_id,set_version,mode,step_index,completed_at,report&id=eq.'+esc(id)+'&user_id=eq.'+esc(acl.userId)+'&limit=1');const a=rows[0];if(!a)return reply({ok:false,error:'Attempt not found.'},404);await requireMatchingBook(env,request,a.lab_id,acl.userId,a.mode==='assessment');const sets=await db(env,'lab_training_sets_v014?select=lab_id,version,review_state,source_status,questions&lab_id=eq.'+esc(a.lab_id)+'&version=eq.'+a.set_version+'&limit=1');const set=sets[0];if(!set)return reply({ok:false,error:'Training version unavailable.'},503);
  // Do not reveal questions or old answer-bearing reports after editorial withdrawal.
  if(set.review_state!=='reviewed')
   return reply({ok:false,error:'This pinned training version is no longer reviewed. Prior completed results remain in your private progress record.'},409);
+ if(protectedB01AssessmentPending(set,a.mode))throw fail('Official B01 assessment remains in individual editorial review. Saved records are preserved.',409);
  return reply(publicState(a,set))}
  if(action==='answer'&&request.method==='POST'){const b=await request.json().catch(()=>null),id=String(b?.attemptId||''),answer=String(b?.answer??'').trim();
  if(!uuid.test(id)||!answer||answer.length>600||!Number.isSafeInteger(b?.expectedStep)||b.expectedStep<0)throw fail('Attempt, current step, and response are required.');
- const attempts=await db(env,'lab_training_attempts_v014?select=lab_id,mode&user_id=eq.'+esc(acl.userId)+'&id=eq.'+esc(id)+'&limit=1');if(!attempts[0])throw fail('Attempt not found.',404);await requireMatchingBook(env,request,attempts[0].lab_id,acl.userId,attempts[0].mode==='assessment');const r=await db(env,'rpc/v014_training_answer','POST',{p_actor:acl.userId,p_attempt:id,p_answer:answer,p_expected_step:b.expectedStep});if(!r?.ok)throw fail('Answer could not be evaluated.',503);
+ const attempts=await db(env,'lab_training_attempts_v014?select=lab_id,mode,set_version&user_id=eq.'+esc(acl.userId)+'&id=eq.'+esc(id)+'&limit=1');if(!attempts[0])throw fail('Attempt not found.',404);await requireMatchingBook(env,request,attempts[0].lab_id,acl.userId,attempts[0].mode==='assessment');
+ // An in-progress, older B01 assessment must not bypass the source-review gate.
+ // Grade RPC privileges are service-role-only; enforce the review at the
+ // authenticated edge before invoking any scoring side effect.
+ if(attempts[0].mode==='assessment'){
+  const pinned=await db(env,'lab_training_sets_v014?select=source_status,review_state&lab_id=eq.'+
+   esc(attempts[0].lab_id)+'&version=eq.'+Number(attempts[0].set_version)+'&limit=1');
+  if(!pinned[0]||pinned[0].review_state!=='reviewed')throw fail('Protected assessment version is not reviewed.',409);
+  if(protectedB01AssessmentPending(pinned[0],attempts[0].mode))throw fail('Official B01 assessment remains in individual editorial review. No grade was submitted.',409);
+ }
+ const r=await db(env,'rpc/v014_training_answer','POST',{p_actor:acl.userId,p_attempt:id,p_answer:answer,p_expected_step:b.expectedStep});if(!r?.ok)throw fail('Answer could not be evaluated.',503);
  let knowledgeSync=r.complete===true?'formative_mode_not_eligible':'not_applicable';
  if(r.complete===true&&attempts[0].mode==='assessment'){
   // The grade was already committed atomically. A missing optional v105 mapping
