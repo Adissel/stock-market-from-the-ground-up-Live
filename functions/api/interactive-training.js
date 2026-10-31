@@ -74,14 +74,24 @@ function protectedB01AssessmentPending(set,mode){
  return mode==='assessment' &&
   String(set?.source_status||'').startsWith('original_hypothetical_b01_individual_review_pending');
 }
-// The same private key must never always appear as option one.
-// Shuffle answer options per pinned attempt and question, reproducibly on refresh.
-function shuffledChoiceOptions(options,attemptId,questionId){
+// Never make a source-ordered answer (including frozen B01 v97's originally
+// first-position choices) recoverable by reversing a public deterministic seed.
+// A secret-keyed, domain-separated HMAC yields a stable permutation per attempt
+// and question. The private secret never crosses the API boundary.
+async function shuffledChoiceOptions(options,attemptId,questionId,env){
  if(!Array.isArray(options)||options.length<2)return Array.isArray(options)?options:[];
- const arr=[...options];let seed=2166136261;
- for(const ch of String(attemptId)+'|'+String(questionId))seed=Math.imul(seed^ch.charCodeAt(0),16777619)>>>0;
- for(let i=arr.length-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;
- const j=seed%(i+1);[arr[i],arr[j]]=[arr[j],arr[i]]}
+ const secret=String(env?.ASSESSMENT_OPTION_HMAC_KEY||env?.SUPABASE_SECRET_KEY||'');
+ if(!secret)throw fail('Protected option ordering unavailable.',503);
+ const enc=new TextEncoder();
+ const key=await crypto.subtle.importKey('raw',enc.encode(secret),
+  {name:'HMAC',hash:'SHA-256'},false,['sign']);
+ const digest=new DataView(await crypto.subtle.sign('HMAC',key,
+  enc.encode('SMFGU|private-training-choice|v1|'+String(attemptId)+'|'+String(questionId))));
+ const arr=[...options];
+ for(let i=arr.length-1,offset=0;i>0;i--,offset+=4){
+  const j=digest.getUint32(offset,false)%(i+1);
+  [arr[i],arr[j]]=[arr[j],arr[i]];
+ }
  return arr;
 }
 // Completion feedback is teaching output, not an answer-key export. The
@@ -110,7 +120,7 @@ function memberReport(raw){
   note:String(raw.note??'').slice(0,600),
   sourceStatus:String(raw.sourceStatus??'').slice(0,120)};
 }
-function publicState(attempt,set){const step=attempt.step_index||0,n=set.questions.length;return{ok:true,attemptId:attempt.id,labId:attempt.lab_id,mode:attempt.mode,stepIndex:step,total:n,complete:!!attempt.completed_at,question:step<n?{id:set.questions[step].id,prompt:set.questions[step].prompt,kind:set.questions[step].kind,options:shuffledChoiceOptions(set.questions[step].options,attempt.id,set.questions[step].id)}:null,report:attempt.completed_at?memberReport(attempt.report):null,sourceStatus:set.source_status,note:set.source_status?.startsWith('original_hypothetical')?'Original hypothetical instructional assessment. Its invented numbers are NOT historical or actual market observations.':'Uses reviewed book-authored answers only. Historical market data/tape has not been independently verified.'}}
+async function publicState(attempt,set,env){const step=attempt.step_index||0,n=set.questions.length;return{ok:true,attemptId:attempt.id,labId:attempt.lab_id,mode:attempt.mode,stepIndex:step,total:n,complete:!!attempt.completed_at,question:step<n?{id:set.questions[step].id,prompt:set.questions[step].prompt,kind:set.questions[step].kind,options:await shuffledChoiceOptions(set.questions[step].options,attempt.id,set.questions[step].id,env)}:null,report:attempt.completed_at?memberReport(attempt.report):null,sourceStatus:set.source_status,note:set.source_status?.startsWith('original_hypothetical')?'Original hypothetical instructional assessment. Its invented numbers are NOT historical or actual market observations.':'Uses reviewed book-authored answers only. Historical market data/tape has not been independently verified.'}}
 export async function onRequest({request,env}){try{
  const acl=await toolAccess(env,request,'ONDEMAND_TRAINING');if(!acl.authorized)return reply({ok:false,error:acl.reason},403);
  const u=new URL(request.url),action=u.searchParams.get('action')||'';
@@ -168,13 +178,13 @@ export async function onRequest({request,env}){try{
  if(pinned.review_state!=='reviewed')
   return reply({ok:false,error:'This pinned grading version is no longer reviewed. Your saved record remains preserved.'},409);
  if(protectedB01AssessmentPending(pinned,mode))throw fail('Official B01 assessment remains in individual editorial review. Guided study is available.',409);
- return reply(publicState(record,pinned),record.resumed?200:201)}
+ return reply(await publicState(record,pinned,env),record.resumed?200:201)}
  if(action==='resume'&&request.method==='GET'){const id=u.searchParams.get('id')||'';if(!uuid.test(id))throw fail('Invalid attempt ID.');const rows=await db(env,'lab_training_attempts_v014?select=id,user_id,lab_id,set_version,mode,step_index,completed_at,report&id=eq.'+esc(id)+'&user_id=eq.'+esc(acl.userId)+'&limit=1');const a=rows[0];if(!a)return reply({ok:false,error:'Attempt not found.'},404);await requireMatchingBook(env,request,a.lab_id,acl.userId,a.mode==='assessment');const sets=await db(env,'lab_training_sets_v014?select=lab_id,version,review_state,source_status,questions&lab_id=eq.'+esc(a.lab_id)+'&version=eq.'+a.set_version+'&limit=1');const set=sets[0];if(!set)return reply({ok:false,error:'Training version unavailable.'},503);
  // Do not reveal questions or old answer-bearing reports after editorial withdrawal.
  if(set.review_state!=='reviewed')
   return reply({ok:false,error:'This pinned training version is no longer reviewed. Prior completed results remain in your private progress record.'},409);
  if(protectedB01AssessmentPending(set,a.mode))throw fail('Official B01 assessment remains in individual editorial review. Saved records are preserved.',409);
- return reply(publicState(a,set))}
+ return reply(await publicState(a,set,env))}
  if(action==='answer'&&request.method==='POST'){const b=await request.json().catch(()=>null),id=String(b?.attemptId||''),answer=String(b?.answer??'').trim();
  if(!uuid.test(id)||!answer||answer.length>600||!Number.isSafeInteger(b?.expectedStep)||b.expectedStep<0)throw fail('Attempt, current step, and response are required.');
  const attempts=await db(env,'lab_training_attempts_v014?select=lab_id,mode,set_version&user_id=eq.'+esc(acl.userId)+'&id=eq.'+esc(id)+'&limit=1');if(!attempts[0])throw fail('Attempt not found.',404);await requireMatchingBook(env,request,attempts[0].lab_id,acl.userId,attempts[0].mode==='assessment');
