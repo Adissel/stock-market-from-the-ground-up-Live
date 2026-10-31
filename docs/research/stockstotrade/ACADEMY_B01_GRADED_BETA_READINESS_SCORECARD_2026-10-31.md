@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 1.7  
+**Version:** 1.8  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -14,22 +14,22 @@
 
 ## Executive disposition
 
-**Estimated work performed toward B01 officially graded beta: 55% of the defined, weighted work packages, with 45% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 55% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
+**Estimated work performed toward B01 officially graded beta: 57% of the defined, weighted work packages, with 43% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 57% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
 
 ## Weighted methodology and evidence
 
 | Scope for this estimate | Weight | Earned | Evidence / remaining condition |
 |---|---:|---:|---|
 | Canonical first-42 curriculum and current statement inventory | 20 | 20 | 42 original study-day packages; 949 statements/instructions individually indexed and risk-triaged; not certified |
-| Draft private B01 assessments and misconception teaching | 20 | 19 | All 20 private v98 Draft sets received targeted distractor/feedback revisions, 19 fresh application cases and 20 new fictional numerical questions with recalculated private answer keys. Each set still needs comprehensive editorial/independent case acceptance before graded release |
-| Technical protection and genuine member classroom QA | 20 | 15 | Genuine-member read-only API acceptance, 22/22 Chromium lesson screens via genuine GoTrue QA bridge, protected grading closed, Owner rubric shortcut blocked. Native CAPTCHA sign-in and second-identity privacy remain |
+| Draft private B01 assessments and misconception teaching | 20 | 20 | All 20 Draft sets have authored prompts, keys, distractors and 200 unique wrong-answer corrections; all 20 new numeric cases now have corrected case-specific explanations and 20/20 arithmetic/tolerance rechecks. This is **Draft authoring complete**, not actual question/answer validity or independent set approval |
+| Technical protection and genuine member classroom QA | 20 | 16 | Genuine QA member and anonymous private REST access denial to actual keys/attempts PASSED; 22/22 Chromium lesson screens previously passed via GoTrue QA bridge; protected grading closed and Owner shortcut blocked. Native CAPTCHA, actual second-member isolation and graded official acceptance remain |
 | Independently supportable source verification for individual statements | 20 | 1 | Four narrowly supported first-42 regulatory/exchange/FINRA claims verified against primary sources; 36 other arithmetic fixtures computed; most 949 entries still need individual source/method review and evidence |
 | 42 independently attributable day-package acceptances | 10 | 0 | 42 AI preliminary rework dispositions exist; **0** separately accountable human approvals in the 252-day register |
 | 20 private-set independent assessment approvals | 5 | 0 | **0/20** complete independent 120-question/200-feedback signoffs, including answer keys, distractor discrimination and tolerances |
 | Final graded beta member, entitlement, RLS and release acceptance | 5 | 0 | Full native-login, isolated second account, reviewed-case genuine grading + ledger/awards and exact-deploy acceptance not yet passed |
-| **TOTAL** | **100** | **55** | **About 55% work complete; official graded release still not authorized** |
+| **TOTAL** | **100** | **57** | **About 57% weighted preparation complete; official graded release still not authorized** |
 
-**Calculation:** 20+19+15+1+0+0+0 = **55/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
+**Calculation:** 20+20+16+1+0+0+0 = **57/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
 
 ## Next actions, in controlling order
 
@@ -110,6 +110,16 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 
 **Weighted delta:** The drafting/remediation package advanced from **18/20 to 19/20** because the 20 private numeric cases now provide substantially fresher application than the previous repeated source quantities. Total **54/100 → 55/100**, i.e., **45% remaining** under this managerial weighting. Actual private-set review approval remains **0/20**, day-level final acceptance **0/42**, and final graded-beta member testing **0/5 awarded points**. The revised Draft corpus is not a validated final exam.
 
+## October 31 — cross-workstream bulk acceptance: numerical case repair and live member confidentiality
+
+**Private content defects:** A true protected v98 SQL read found that all 20 previously reauthored numeric cases retained their pre-revision numeric answer explanations. This was a substantive latent pedagogical error. GPT-6 rewrote all 20 explanations to match the new case quantities and interpretations in one guarded transaction. Supabase admin audit **#375** identifies the actual AI author; correct numeric keys were unchanged during the explanation repair. A separate SQL arithmetic recheck independently computed the results from the prompt quantities: **20/20 matching numeric keys, zero tolerance errors**. Final private-state postflight: **20** Draft sets, **100** choice cases, **20** numeric cases, **200** distinct wrong-choice explanations, **zero** choice-key/feedback mismatch, **zero** reviewer signoffs and **zero** version-98 learner attempts. The protected version-97 archive remains frozen.
+
+**Real member security evidence:** New read-only GitHub Actions run [41243696824](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41243696824) **SUCCESS**. It used the approved QA account's genuine Supabase GoTrue identity and verified both anonymous and authenticated QA requests to private REST sets and attempt tables were **denied**. No answer content or JWT was logged and no writes, purchases or awards occurred. Supabase direct RLS checks show these tables enabled with no `anon` or `authenticated` SELECT privileges. This is legitimate **single-member + guest** confidentiality evidence, NOT a two-member or native-login acceptance.
+
+**Audit receipt:** `ACADEMY_B01_PRIVATE_NUMERIC_CORRECTION_AND_REAL_QA_SECURITY_2026-10-31.md` on `main`. No new Google Drive file and no parallel acceptance register.
+
+**Weighted assessment:** Draft authoring 19/20→**20/20** (all private prompts, answer mappings and case-specific explanations now structurally and arithmetically consistent). Technical preparation 15/20→**16/20** (live anonymous/genuine member private REST read denial). Thus **55%→57% work complete; 43% remaining**. These scores are **not human-independent approved assessment percentages**: 42 whole-day packages remain unaccepted and 20 private sets remain Draft, all official graded releases blocked. Remaining credit is withheld for 949 individual factual/source dispositions, independent set case validity, real blind-member evidence, second-account isolation and accessibility/final protected scoring.
+
 ## Revision history
 
 | Version | Date | Change | Decision |
@@ -122,6 +132,7 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 | 1.4 | October 31, 2026 | Inspected first private v98 question set; corrected two distractor pairs, validated all 100 question feedback mappings, logged AI editorial mutation as audit #368 | No official private grading approval or human tester acceptance; 52% estimate unchanged |
 | 1.5 | October 31, 2026 | Revised selected focus-question distractors and feedback in all 19 remaining v98 sets; verified 20/20 Draft, 200 distinct feedback and no learner attempts (Supabase audit #372) | Assessment drafting +1 weighted point; 53% preparation, 47% remaining; grading on HOLD |
 | 1.6 | October 31, 2026 | Reauthored 19 nonduplicate fictional private application questions (audit #373); verified all 100 choice maps and recorded passing B01 grading safeguard CI | 54% estimated work complete, 46% remaining; official graded beta HOLD |
-| 1.7 | October 31, 2026 | Corrected four fictional-provenance day passages and reauthored 20 v98 numeric Drafts (audit #374); 949 current statements, CI passed | 55% estimated preparation, 45% remaining; official graded beta HOLD | 
+| 1.7 | October 31, 2026 | Corrected four fictional-provenance day passages and reauthored 20 v98 numeric Drafts (audit #374); 949 current statements, CI passed | 55% estimated preparation, 45% remaining; official graded beta HOLD |
+| 1.8 | October 31, 2026 | Corrected all 20 stale private numerical-case explanations (audit #375), verified 20/20 arithmetic and passed actual QA member/guest private table data-denial CI | 57% estimated preparation / 43% remaining; 0/20 private grading approvals and beta grade release HOLD | 
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
