@@ -4,12 +4,22 @@
 **Project:** The Stock Market: From the Ground Up  
 **File:** `docs/qa/2026-10-31_BOOTCAMP_247_INSTRUCTIONAL_STRENGTHENING_REGISTER.md`  
 **File type:** Markdown  
-**Version:** 0.7 · October 31, 2026  
+**Version:** 0.8 · October 31, 2026  
 **Status:** **ACTIVE DRAFT; NO INDIVIDUAL FORMAL ACCEPTANCES RECORDED**  
 **GitHub:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main` only  
 **Google Drive:** Not created; no designated Drive path has been supplied.  
 **Purpose:** Preserve unit-level educational acceptance evidence while improving the original seven Boot Camps without falsely reporting a structurally populated course as approved.  
 **Dependencies:** `AGENTS.md`, approved B01 decisions, original 30-day curriculum, `academyPrograms`, 247-unit editorial queue, paid-training entitlement contract, protected grading and server-owned member progress.
+
+## Latest 65-item Practicum source completion — v0.8
+
+**October 31 authoring milestone:** The original seven-camp source-authoring register is now **247/247 = 100%**, with **0 initial un-authored lesson positions**. The remaining 65 original Practicum90 positions D26–D90 have individually different fictional worked cases, source-time calculations, misconception corrections and independent transfer exercises, in three new source modules: `functions/_lib/academy-practicum90-batch03-days26-45-v1.js`, `academy-practicum90-batch04-days46-65-v1.js` and `academy-practicum90-batch05-days66-90-v1.js`.
+
+**No product duplication:** All new cases are imported by `functions/_lib/bootcamp-academy-v014168.js` and retain the canonical 90 study IDs, three 30-day phases, parent topic/source-day mapping, existing member progress, entitlement and protected grading. The shared automated `scripts/bootcamp-247-editorial-preflight-v1.mjs` now reports 225 of 225 parent-derived source-authored days (plus 22 frozen reference teaching days) and zero automatic approvals. The new `tests/test_academy_practicum90_all90_v1.mjs` checks all 90 unique examples and transfers, phase/day ID mapping, numerical fixture integrity, reference categories, fail-closed grading and 247-unit inventory. Older fixed-authoring-denominator assertions were synchronized rather than removing tests.
+
+**Acceptance distinction:** Source authoring **100%** is NOT the stronger deep instructional standard, which requires individually authored twelve formative questions, one advanced worked transfer and independent editorial/rights/member acceptance for each defined unit. Historical market data rights have not been established. This register still records **0/247 independently verified human course-day approvals**. The formal cross-ten-camp acceptance ledger is separately **83/380 = 21.8% accepted** according to controlling addendum `SMFGU-ACADEMY-OWNER-ACCEPTANCE-010`, which counts different requirements and must not be increased merely because the 65 original cases have been written. Private B01 v98 grading remains held.
+
+**NEXT**: Strengthen the remaining unaccepted original advanced-depth packages (not further baseline authoring), perform distinct independent B01 reviewer acceptance, genuine two-member enrollment/progress, production role matrix, and public RPC/Book Key security corrections before final release.
 
 ## 1. Controlling inventory and stage allocation
 
@@ -21,8 +31,8 @@
 | `foundations30` | 30 | 30 distinct additional cases on existing canonical days | 0 | 0 |
 | `charts45` | 45 | 45 day-specific fictional cases across fifteen subjects and three phases | 0 | 0 |
 | `risk60` | 60 | 20 Learn, 20 guided Practice and 20 unfamiliar Transfer cases, all original and ungraded | 0 | 0 |
-| `practicum90` | 90 | 25 original Learn-phase worked/transfer studies on Days 1–25; remaining 65 parent objectives only | 65 | 0 |
-| **TOTAL** | **247** | **182 authored study-day modules** | **65** | **0 independently evidenced** |
+| `practicum90` | 90 | 30 distinct Learn, 30 guided Practice, 30 independent Transfer source-case lessons | 0 | 0 |
+| **TOTAL** | **247** | **247 individually source-authored study-day modules** | **0** | **0 independently evidenced** |
 
 **Inventory note:** The three separately drafted 10-, 10- and 7-day courses add 27 further positions and are excluded from the original 247-day freeze. The five Free Foundations lessons are also excluded from this Boot Camp inventory.
 
@@ -121,5 +131,6 @@ The reproducible GitHub Actions workflows upload these artifacts as QA evidence.
 | 0.5 | 2026-10-31 | Risk60 guided Practice Days 21–40 original fictional authored case/transfer integration; 137 of 247 authored, 110 remaining; separate 20 existing case AI preflight | SOURCE AUTHORED; CI and independent human acceptance distinct |
 | 0.6 | 2026-10-31 | Risk60 Transfer D41–D60 and Practicum90 original D1–D5; 162/247 source-authored, 85 remaining, 0/247 independent approvals | SOURCE INTEGRATED; separate exact CI and human acceptance gates |
 | 0.7 | 2026-10-31 | Original Practicum90 D06–D25 twenty new fictional lessons and CI source validation; 182/247 source authored, 65 remaining | SOURCE INTEGRATED; exact CI and independent review distinct |
+| 0.8 | 2026-10-31 | Complete remaining 65 Practicum source-case modules, 247/247 authored and zero initial gaps, independent acceptance unchanged | AUTHORING COMPLETE; RELEASE/GRADING HOLD |
 
 **Footer:** Crown & Lantern Press · The Stock Market: From the Ground Up · Controlled QA record · Not a statement of legal compliance, trading profitability or formal educational accreditation.
