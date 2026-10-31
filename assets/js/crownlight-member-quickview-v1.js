@@ -127,14 +127,14 @@ async function init(){
   try{if(typeof window.getSupabaseClient==='function')client=await window.getSupabaseClient()}catch{}
   if(!client)await new Promise(done=>setTimeout(done,150));
  }
- if(!client)return;
+ if(!client||typeof client.auth?.getSession!=='function'||typeof client.auth?.onAuthStateChange!=='function')return;
  client.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_OUT'||(actor&&session?.user?.id!==actor))wipe();
   if(event==='SIGNED_IN'||event==='TOKEN_REFRESHED')setTimeout(()=>{void refreshProgress();void refreshHistory();void refreshIntegrity()},150);
  });
- void refreshProgress();void refreshHistory();
+ void refreshProgress();void refreshHistory();void refreshIntegrity();
  setInterval(()=>{if(!document.hidden)void refreshProgress()},45000);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden){void refreshProgress();void refreshHistory()}});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden){void refreshProgress();void refreshHistory();void refreshIntegrity()}});
  new MutationObserver(()=>{if(actor&&progress?.ok===true&&document.querySelector('.gu-nav-sparks-popup')&&!document.querySelector('[data-crownlight-quick-progress]'))mountProgress()})
  .observe(document.querySelector('.site-header')||document.body,{childList:true,subtree:true});
 }
