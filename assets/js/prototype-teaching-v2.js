@@ -9,6 +9,7 @@ const fmt=n=>Number(n).toFixed(2);
 function data(){return state.cache?.cases?.[state.selected]||null}
 function sampleCandles(){const x=data();if(!x||!eligible.has(state.tab))return null;const count=state.tab==='replay'?state.revealed:x.candles.length;
  return x.candles.slice(0,count).map(d=>({t:d.time,open:d.open,close:d.close,low:d.low,high:d.high,volume:d.volume}));}
+function setActiveTab(tab){state.tab=eligible.has(tab)?tab:null;}
 function reset(){state.cache=null;state.pending=null;state.selected=0;state.revealed=2;state.active++;state.tab=null;}
 function event(){window.dispatchEvent(new Event('crownlight:prototype-case-change'));}
 function button(title,fn){const e=h('button',title);e.type='button';e.addEventListener('click',fn);return e;}
@@ -111,5 +112,5 @@ async function mount(root,tab,mode){
  try{await fetchData();if(epoch!==state.active||!panel.isConnected)return;build(panel,tab,mode);event();}
  catch(error){if(epoch!==state.active||!panel.isConnected)return;panel.replaceChildren(h('p','Instructional case unavailable: '+(error?.message||'Authorization required.')));}
 }
-window.CrownlightPrototypeTeaching=Object.freeze({mount,getChartCandles:sampleCandles,reset});
+window.CrownlightPrototypeTeaching=Object.freeze({mount,getChartCandles:sampleCandles,setActiveTab,reset});
 })();
