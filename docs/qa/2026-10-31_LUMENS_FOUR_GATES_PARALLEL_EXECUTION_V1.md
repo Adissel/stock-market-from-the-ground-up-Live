@@ -8,9 +8,9 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.2 |
+| Version | 1.3 |
 | Date | 2026-10-31 |
-| Status | **IMMUTABLE GRADING BRIDGE DEPLOYED; SECURITY POSTFLIGHT VERIFIED; REAL REWARDS, SETTLEMENT AND GIFTING RELEASE REMAIN ON HOLD** |
+| Status | **GRADING BRIDGE AND V135 RUNTIME DEFECT REPAIR DEPLOYED; REAL EARNING, SETTLEMENT AND GIFTING RELEASE REMAIN ON HOLD** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
 | Purpose | Consolidate owner-delegated execution on the four V1 acceptance milestones and preserve reproducible evidence |
 | Owner authority | Owner reaffirmed delegated routine engineering, editorial and QA decisions on 2026-10-31 and accepted retention of the gifting release hold. This is **not** legal clearance, human-review impersonation or LIVE-charge authorization. |
@@ -92,6 +92,14 @@ After bridge application, Supabase returned **429 catalog reward definitions, 0 
 
 The deployed `e4c3f26643a4b944dd448a8888ab2daedcfe17cf` baseline had 24 successful and 1 failed GitHub Actions runs. The failed `Founding 600 Source & Security Gate` job exhibited a JavaScript syntax error from an over-escaped regular-expression slash in `tests/test_f600_signed_sandbox_webhook_v014217.mjs`. One redundant escape was removed directly on `main` at commit `4c4ebba2c13be23a26e48e7aa0253d53f894abdd`. The replacement `Founding 600 Source & Security Gate` run [41252172602](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41252172602) **PASSED**. The entire replacement matrix and an exact matching new Pages deployment must still be confirmed before final release acceptance.
 
+### Official protected grading runtime correction — executed 2026-10-31
+
+A live, noncharging, intended-denial test invoked the actual server-only `submit_competency_case_v135` function with an existing QA member and a draft case. It initially raised **SQLSTATE 42702: ambiguous reference to id** because the function has a PL/pgSQL local variable named `id` and its member profile query used `WHERE id=p_user`. This blocked evaluation before the approved-case gate.
+
+A guarded forward migration was committed on `main` at `supabase/migrations/20261031_v135_competency_grader_profile_id_ambiguity_fix_v1.sql` and successfully applied in Supabase as **20261031232323 / v135_competency_grader_profile_id_ambiguity_fix_v1_20261031**. It qualifies the profile ID reference without altering grades, rubric logic, review requirements, function ownership or privileges.
+
+**Postflight PASS:** Production stored function contains the qualified `member_profile.id=p_user`; `anon` and `authenticated` EXECUTE remain denied and `service_role` remains allowed. Repeating the same QA call returned `{"ok":false,"reason":"case_not_published"}` as required. There were **0 persistent immutable grading attempts, 0 queue entries, 0 Lumen learning awards and 0 gifts**. This proves the draft-rejection path now functions; it does **not** claim tested approval or actual grade-to-wallet issuance because all 54 cases remain draft and inactive.
+
 ### Reconciled legal-technical gate
 
 A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion cannot be assumed to apply to transferable Crownlight Lumens without reviewing the entire scheme, particularly the separation of earned, purchased and gifted balances and any dollar-value equivalence. Marketing must not claim cash redemption or legal exemption. The operator may approve UX and internal engineering tests, but cannot assert licensed legal clearance without such professional review.
@@ -100,6 +108,7 @@ A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion can
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-10-31 | 1.3 | Repaired production v135 grader SQLSTATE 42702 ambiguous member id lookup with forward-only migration; confirmed draft rejection, service-only grants, zero attempts and no credits | Grader draft fail-closed path PASS; genuine approved scoring and final release OPEN |
 | 2026-10-31 | 1.2 | Applied immutable grading bridge to Supabase; verified permissions, zero awards and disabled release flags; audited all 54 draft competency cases; corrected Founding 600 signed TEST webhook CI regex | Database engineering deployment PASS; independent grades, wallet settlement, gifting release and final CI OPEN |
 | 2026-10-31 | 1.1 | Identified immutable real-grade evidence mismatch and staged reviewer-gated migration; application blocked by platform safety controls | Source committed; deploy and true-grading acceptance open |
 | 2026-10-31 | 1.0 | Synthetic grade-to-award rollback, full four-case Stripe TEST refund parity, genuine two-account gifting-denial QA, federal/Missouri legal risk register | Owner-delegated ENGINEERING QA accepted; release/legal/independent grading acceptance explicitly OPEN |
