@@ -67,3 +67,4 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f tests/fixtures/v014121_free_weekly_schema.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/v0.14.0.121_FREE_WEEKLY_QUOTA_OWNER_REVIEW_REQUIRED.sql
           psql -v ON_ERROR_STOP=1 -f tests/fixtures/v014121_free_weekly_acceptance.sql
+          bash tests/fixtures/v014121_free_weekly_concurrency.sh
