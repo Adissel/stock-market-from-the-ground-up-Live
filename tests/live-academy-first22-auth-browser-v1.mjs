@@ -48,7 +48,7 @@ try{
   async route=>{
    const request=route.request(),headers=request.headers();
    const bearer=headers.authorization||'';
-   if(!/^Bearer\\s+[^\\s]+$/.test(bearer))return route.continue();
+   if(!bearer.startsWith('Bearer ')||bearer.length<40)throw Error('QA browser identity request had no genuine bearer token');
    const upstream=await fetch(request.url(),{
     method:'GET',cache:'no-store',signal:AbortSignal.timeout(25000),
     headers:{apikey:key,authorization:bearer}
