@@ -52,6 +52,9 @@ try{
  assert(diagnostic.isVisible,'Wallet populated but hidden; diagnose dashboard CSS/auth layout');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-history] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-member-lumen-history]').innerText(),/Recent Lumen wallet activity/);
+ await page.waitForFunction(()=>document.querySelector('[data-member-lumen-integrity]')?.dataset.ledgerVerified==='true',
+  null,{timeout:35000});
+ assert.match(await page.locator('[data-member-lumen-integrity]').innerText(),/balance reconciled/i);
  await page.waitForFunction(()=>!!document.querySelector('[data-academy-study-progress] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-academy-study-progress]').innerText(),/Labs and Boot Camps/);
  await page.waitForFunction(()=>!!document.querySelector('.gu-nav-sparks-popup [data-crownlight-quick-progress]'),null,{timeout:30000});
