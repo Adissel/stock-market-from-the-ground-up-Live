@@ -39,7 +39,7 @@ const fakeFetch=async (url,opts={}) => {
   else throw Error('Unexpected test network request: '+target);
   return new Response(JSON.stringify(body),{headers:{'content-type':'application/json'}});
 };
-const sandbox={fetch:fakeFetch,Request,Response,URL,Date,JSON,Error,encodeURIComponent};
+const sandbox={fetch:fakeFetch,Request,Response,URL,Date,JSON,Error,encodeURIComponent,crypto:require('node:crypto').webcrypto};
 vm.createContext(sandbox);
 vm.runInContext(apiSource+'\nthis.signupHandler=onRequest; this.canonicalUsername=normalizeUsername;',sandbox);
 assert.equal(sandbox.canonicalUsername('James_Test'),'James_Test');
