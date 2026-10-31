@@ -21,7 +21,7 @@ globalThis.fetch=async(url,opt={})=>{
     qa_chart_expires_at:state.qaExpired?before:after}});
  }
  if(u.pathname==='/rest/v1/profiles')return json(state.profile?[{account_kind:'member',deleted_at:null}]:[]);
- if(u.pathname==='/rest/v1/admin_user_flags')return json(state.restricted?[{status:'restricted'}]:[]);
+ if(u.pathname==='/rest/v1/admin_user_flags')return json(state.restricted?[{status:state.restricted===true?'restricted':state.restricted}]:[]);
  if(u.pathname==='/rest/v1/admin_user_roles'){
   const role=state.owner?'OWNER':state.staffRole;
   return json(role?[{role_code:role,expires_at:(state.ownerExpired||state.staffExpired)?before:null}]:[]);
@@ -103,6 +103,10 @@ try{
  state.publicLaunch=false;state.restricted=true;
  const deny=await (await chartTier({request:request(),env})).json();
  assert.deepEqual(deny.allowed,[]);assert.equal(deny.eligible,false);
+ state.restricted='suspended';
+ const suspended=await (await chartTier({request:request(),env})).json();
+ assert.deepEqual(suspended.allowed,[]);assert.equal(suspended.eligible,false,
+  'Suspended member must lose all chart access, including staff/purchased access');
  state.restricted=false;state.profile=false;
  const ineligible=await (await chartTier({request:request(),env})).json();assert.deepEqual(ineligible.allowed,[]);
  const guest=await chartTier({request:new Request('https://website.test/api/chart-tier-access'),env});
