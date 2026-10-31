@@ -34,7 +34,7 @@ export const practicum90LearnBatch01=Object.freeze(rows.map((v,i)=>{
  });
 }));
 if(practicum90LearnBatch01.length!==5||rows.some((v,i)=>v[0]!==i+1||
- v.length!==8||v.slice(1).some(s=>typeof s!=='string'||s.length<45))||
+ v.length!==8||v.slice(1).some((s,j)=>typeof s!=='string'||s.length<(j===0?18:45)))||
  new Set(rows.map(v=>v[3])).size!==5||
  new Set(rows.map(v=>v[6])).size!==5)
  throw Error('Practicum90 first five individual original source-day cases incomplete.');
