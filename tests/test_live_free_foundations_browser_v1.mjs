@@ -306,6 +306,51 @@ if(!email||!password){
   assert.equal(direct.rows,0,'Direct client obtained data from a service-private Academy table');
   assert(direct.rejected,'Direct Academy table read must fail closed, not silently return private rows');
   note('checks','Authenticated member browser cannot directly read the service-private progress table.');
+  // Authenticated keyboard, programmatic names and responsive usability smoke.
+  // Not a substitute for an independent screen-reader or WCAG audit.
+  try{
+   await page.setViewportSize({width:390,height:900});
+   await page.goto(origin+'/dashboard.html',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.locator('#free-start-choose').waitFor({state:'attached',timeout:20000});
+   await page.locator('details.free-learning-starting-point summary').click();
+   const dashboardLabels=await page.evaluate(()=>{
+    const fields=['free-start-level','free-coach-focus','free-coach-minutes'];
+    const labeled=fields.every(id=>!!document.querySelector('label[for="'+id+'"]'));
+    const live=document.getElementById('free-coach-suggestion')?.getAttribute('aria-live');
+    return {labeled,live};
+   });
+   assert(dashboardLabels.labeled&&dashboardLabels.live==='polite',
+    'Talia Free form needs programmatic labels and a nonintrusive live status');
+   await page.locator('#free-coach-focus').focus();
+   await page.keyboard.press('Tab');
+   assert.equal(await page.evaluate(()=>document.activeElement?.id),'free-coach-minutes',
+    'Keyboard cannot tab from learning focus to session duration');
+   await page.keyboard.press('Shift+Tab');
+   assert.equal(await page.evaluate(()=>document.activeElement?.id),'free-coach-focus',
+    'Keyboard reverse navigation failed in Free Talia preferences');
+   note('checks','Mobile 390px Talia form labels, live announcement and keyboard navigation passed.');
+   await page.setViewportSize({width:1440,height:900});
+   assert.equal(await page.locator('#free-start-choose').isVisible(),true,
+    'Desktop Talia submit control must remain visible within the expanded Free section');
+   note('checks','Desktop 1440px authenticated Free Talia control retained.');
+   await page.setViewportSize({width:390,height:900});
+   await page.goto(origin+'/free-watchlist.html',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.locator('#free-watchlist-content').waitFor({state:'visible',timeout:25000});
+   const watchLabels=await page.evaluate(()=>{
+    const fields=['free-watchlist-symbol','free-watchlist-status','free-watchlist-research-note'];
+    return {labeled:fields.every(id=>!!document.querySelector('label[for="'+id+'"]')),
+     live:document.getElementById('free-watchlist-save-status')?.getAttribute('aria-live')};
+   });
+   assert(watchLabels.labeled&&watchLabels.live==='polite',
+    'Free Watchlist needs labels and an accessible save status announcement');
+   await page.locator('#free-watchlist-symbol').focus();
+   await page.keyboard.press('Tab');
+   assert.equal(await page.evaluate(()=>document.activeElement?.id),'free-watchlist-status',
+    'Watchlist keyboard navigation did not reach the next form field');
+   note('checks','Mobile 390px Free research form labels, status announcement and keyboard navigation passed.');
+  }catch(e){
+   note('failures','Authenticated Free keyboard/responsive/accessibility smoke: '+String(e.message||e).slice(0,420));
+  }
   if(secondEmail&&secondPassword){
    const anotherContext=await browser.newContext({viewport:{width:390,height:900},serviceWorkers:'block'});
    const secondPage=await anotherContext.newPage();
