@@ -66,8 +66,8 @@ check(by['DT-C23-L02'].sourceUrl.includes('using-edgar-research-investments'),
  '10-K vs 10-Q must cite primary SEC form guide');
 check(10000000/(10000000+2500000)===0.8,'Only genuinely issued equal shares in hypothetical ownership denominator');
 check(20000000/(20000000+5000000)===0.8,'Independent dilution transfer arithmetic');
-check(by['DT-C24-L01'].sourceUrl.includes('how-read-8'),
- 'Original current-report rule source must be tied to narrow claim');
+check(by['DT-C24-L01'].sourceUrl.includes('registration-under-securities-act-1933'),
+ 'Original SEC public-registration reference must match the offering claim');
 // No external instructor text or member-specific data may become sources.
 for(const e of raw.records){
  check(!('privateAnswer' in e||'grade' in e||'userId' in e||'futureBars' in e),
