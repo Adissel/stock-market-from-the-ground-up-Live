@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 1.3  
+**Version:** 1.4  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -72,6 +72,14 @@ On October 31, 2026 GPT-6 checked original Trading Foundations Day 20 against FI
 
 This finding was already counted within the original narrow-source review allocation. Authorizing the AI role therefore does not increase the weighted readiness beyond **52%**. The controlling 252-day and 671-row acceptance records are unchanged, and official protected grading remains on hold.
 
+## First private-set editorial correction under the delegated AI role
+
+On October 31, 2026 GPT-6 inspected the actual service-role-protected B01 version-98 `F1-C02-L01` question set: all five choice questions, correct keys, ten wrong-answer corrections and the five-minute numeric question. Two choice items, `FOCUS` and `B01_LIMITATION`, contained low-discrimination incorrect alternatives. The **four wrong options and their corresponding four explanations** were rewritten to distinguish real replay mistakes (timestamp convention, feed delivery, finality, documented observation versus foreknowledge). The protected correct answers were preserved.
+
+Supabase postflight confirmed **20/20 Draft private sets, 100 choice questions, 20 numeric questions, zero invalid answer-to-feedback option maps, zero reviewer-signature changes and zero v98 attempts**. Admin audit entry **368** records the AI editor's actual identity and Owner delegation. No version-97 frozen questions or private member grading were changed. This is a **case-specific AI editorial revision**, not a separate human signature or an overall approval of `F1-C02-L01` for graded beta.
+
+The existing **52%** weighted score continues to cover preliminary drafting and corrections; changes within an unfinished review bucket do not warrant counting it as fully accepted. The next protected content work is to audit and correct the remaining 19 private sets and obtain verified end-to-end grading/regression acceptance before changing their Draft release status.
+
 ## Revision history
 
 | Version | Date | Change | Decision |
@@ -80,6 +88,7 @@ This finding was already counted within the original narrow-source review alloca
 | 1.1 | October 31, 2026 | Owner selected independent reviewers from qualified beta testers; formalized reviewer tracks, confidential answer-key separation and 62 unassigned slots | 52% estimate unchanged; independent acceptance pending |
 | 1.2 | October 31, 2026 | GPT-6 assigned working AI editorial role; beta testers reserved for independent human validation; eight additional narrow SEC source findings linked | 52% unchanged; no human content acceptance or graded release |
 
-| 1.3 | October 31, 2026 | Owner designated GPT-6 as accountable AI publisher editor; recorded narrow FINRA/mathematics review | 52% estimate unchanged; no graded release | 
+| 1.3 | October 31, 2026 | Owner designated GPT-6 as accountable AI publisher editor; recorded narrow FINRA/mathematics review | 52% estimate unchanged; no graded release |
+| 1.4 | October 31, 2026 | Inspected first private v98 question set; corrected two distractor pairs, validated all 100 question feedback mappings, logged AI editorial mutation as audit #368 | No official private grading approval or human tester acceptance; 52% estimate unchanged | 
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
