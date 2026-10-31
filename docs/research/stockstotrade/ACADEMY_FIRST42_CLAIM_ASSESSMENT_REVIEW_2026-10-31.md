@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.4
+**Version:** 1.5
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -127,6 +127,38 @@ A separate read-only field-level query found **120/120** questions have an `expl
 4. Exercise signed-in enrollment, save/resume, restricted-role denial, signed assessment grading, keyboard and mobile interaction, and exact-commit deployed behavior.
 5. Complete the same detailed source/assessment review for the first 20 Foundations days before starting the remaining parent-derived 195 days; no catalog expansion is necessary.
 
+## October 31 execution — full sentence-triage, private feedback and genuine member tests
+
+**Document control:** Updated in-place rather than creating an alternate editorial register. Source audit workbook and CI artifacts supplement, never replace, the 252-row and 671-row authoritative acceptance records. Report status remains **TECHNICAL / PRELIMINARY SOURCE REVIEW ONLY; INDEPENDENT HUMAN EDITORIAL AND GRADED ASSESSMENT APPROVAL OPEN**.
+
+### Full 940-sentence materiality triage
+
+[CI 41227889226](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41227889226) verified that exactly 940 source-current statements and instructional steps, distributed over 42 original study days, were individually given an audit ID, materiality category, review priority, nearest relevant day-family source and an explicit next-verification instruction. Artifact: `academy-first42-940-sentence-reviewed-triage`. Source family allocations are **not** individual source attestations. Categories: source-evidence assertion 118, fictional/math/market case 255, general teaching/concept 153, instructional method or prompt 371, publisher secondary content 33, regulatory/current rule 4, and data provenance/execution 6. **940 automatically triaged; 0 human independently signed; 0 fully source-cleared individual Academy days.** Computational labels must not be misrepresented as source truth. The earlier 42 selected narrow source links are still the controlling *supplemental selected-claim* crosswalk, not universal 940 verification.
+
+[Separate arithmetic CI 41228632294](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41228632294) passed a separately coded set of fictional formula recalculations without touching protected answer keys or member records. This verifies only tested arithmetic and cannot establish 255 entire fictional case reviews or historical trading evidence.
+
+### Private B01 v98 remediation drafts in production data storage
+
+On this date the versioned migration `supabase/migrations/20261031_b01_private_feedback_v98_draft_only.sql` was applied to the connected stock-site Supabase project. This is a **real database change** and must be distinguished from the prior report's read-only B01 review. Version 97's 20 frozen sets, private answers and reviewer attribution were not altered; **20 new version-98 Draft copies** were created with **200 distinct, selected-wrong-option corrective-feedback drafts** across 100 three-option questions. The 20 numeric questions were copied with a correction-policy note; a reviewer must still inspect rounding and numeric error feedback.
+
+Read-only post-migration SQL verified 20 v98 sets, 100 private choice questions, 200 unique feedback entries, all 200 status `DRAFT_PENDING_SEPARATE_PEDAGOGICAL_APPROVAL`, and **0** v98 question-set reviewer attributes / frozen reviews / official assessments. The content is **preliminary assisted authoring**, not a separately attributable pedagogy or answer review. It cannot be promoted automatically. The existing V97 source-status inconsistency (marked `reviewed` while individual source review pending) remains under controlled release denial.
+
+The server `functions/api/interactive-training.js` now rejects any official B01 assessment with the pending v97 or v98 source status, including start, resume and grade submission. After a successful authorized scored response only, the route can look up a *separately reviewed* wrong-choice correction in a pinned private set and disclose only the chosen feedback. Unapproved draft entries are withheld and error paths fall back to existing safe generic explanations. The [B01 private grading/feedback test](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41228124805) **PASSED**. No independently approved v98 correction is currently available.
+
+### Real authentication, research inventory and routes
+
+[Real-member read-only Academy API run 41229053907](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229053907) **PASSED** using the existing James_Test QA credentials from GitHub secret storage. The noncommercial QA training tool-pass was granted for 30 minutes with an administrative audit record and no Stripe charge. It must be canceled when tests conclude. The workflow observed four canonical course paths, truth5/watchlist7/scanners10 full day counts and a foundations30 read route, read-only private progress, ungraded/no-mastery flags, unauthenticated guest denial, attempted forged identity selector containment, foreign-origin POST denial and authentic Supabase token-refresh continuity.
+
+**Source defect corrected:** `functions/api/bootcamp-academy.js` previously excluded `foundations30` in `allowed()`, even though it contained dedicated read and enrollment branches for that program. This created an unreachable legitimate route; main was corrected without routing original 30-day progress writes through the new Academy ledger. Genuine production pass proves the corrected path responded at test time. Separate screen-level Chromium acceptance is not certified by this API pass.
+
+[Real signed-in browser testing](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229091636) is distinct and was still under diagnostic retest at this revision; earlier runs obtained real credentials but did not retain a browser Supabase session before day navigation. Do not treat a scripted mock browser as real-member acceptance or conclude all 22 day interfaces passed.
+
+### Individually attributable approval decisions
+
+**0 decisions issued**. None of the 940 preliminary triage rows or 200 private Draft corrections has an independent editor's signed day/case decision. Required reviewer: distinct attributable human or suitably independent editorial process with reviewed source record, field-level mathematical answer audit, actual counterexamples, materiality severity, source effective dates, private grading rubric and answer-option feedback, and final acceptance/rejection *in the existing controlling registers*. Existing B01 product beta approval of **ungraded instruction only** stays frozen; never conflate draft creation with published assessment.
+
+**Risks / dependencies:** production Cloudflare exact-source parity, read-only authenticated browser QA and separately authorized member write/save QA, second-member RLS isolation, accessibility, private grade version acceptance, regulatory/source effective-date checks, historically licensed data, and no-hindsight replay authenticity. New monetary/entitlement purchases are expressly out of scope.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -136,5 +168,6 @@ A separate read-only field-level query found **120/120** questions have an `expl
 | 1.2 | 2026-10-31 | Added source-driven sentence-level audit generation protocol; CI run queued | Review queue code committed; generated artifact unverified |
 | 1.3 | 2026-10-31 | Verified 940-claim inventory, performed preliminary private B01 content/math checks, corrected pending-grade and reversible answer-order defects with passing CI | Technical safeguards verified; 42-day claims and independent editorial/assessment acceptance OPEN |
 | 1.4 | 2026-10-31 | Recorded missing structured per-option remediation in frozen B01 private set, with appropriate next-version instructions | Editorial correction-and-retry gate OPEN; private set unchanged |
+| 1.5 | 2026-10-31 | 940 individual triage records, separate numeric checks, 20 private v98 Draft remediation sets with 200 corrections, protected grader regression and real-member API acceptance | Technical evidence verified; 0 human editorial approvals, browser release OPEN |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
