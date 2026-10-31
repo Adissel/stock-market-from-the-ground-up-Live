@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.0  
+**Version:** 1.1  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -31,7 +31,7 @@ This denominator remains constant for the current ten-camp V1 advanced teaching 
 | New advanced worked practicum cases | 45 | 45 | 0 | 45 distinct cases attached across 27 days, client interactive teaching, earlier CI and descendant deployment |
 | Private graded assessment cases | 54 | 0 | 54 | All must receive case-level rubric, feedback, answer fairness, scoring, reviewer and access acceptance; 4 cases have complete *draft fields* but are not approved |
 | Genuine invited account-course Beta acceptance journeys | 6 | 0 | 6 | Two real accounts × three new courses, including save/reopen/private isolation; synthetic login does not count |
-| Original seven courses' day-specific advanced package | 247 | 0 | 247 | Existing 247 study-day records are not equivalent to a 12-prompt+advanced-case formally accepted package; 117 have some individually authored original lesson fields, 130 still lack those older fields |
+| Original seven courses' day-specific advanced package | 247 | 0 | 247 | Existing 247 study-day records are not equivalent to a 12-prompt+advanced-case formally accepted package; 137 have individually authored original lesson cases, 110 still lack those case fields |
 | Software CI / production descendant deployment gate | 1 | 1 | 0 | Dedicated SUCCESS run `41234540709`; Cloudflare confirmed successful deployed descendant |
 | **TOTAL** | **380** | **73** | **307** | **73 ÷ 380 = 19.21% complete** |
 
@@ -39,7 +39,9 @@ This denominator remains constant for the current ten-camp V1 advanced teaching 
 
 **Three-new-camp-only completion** (exclude the 247 original day items): `(27+45+1)/(27+45+54+6+1)=73/133=54.89%`, or **54.9%**. This is the comparable continuation of the previous 54.1% milestone count; it adds one proven software/deployment gate. The percentage is **not** a time estimate or a prediction of readiness for public sale.
 
-**Curriculum source coverage:** `27/274=9.85%`, or **9.9%** of all study days have the newly defined 12-question-plus-advanced-case source package. This is a stricter requirement than simply having an original authored instructional lesson. The existing 247-course authoring inventory has 117 original case-containing days and 130 that still require original content work; none can yet be counted as accepting the new full-depth standard without the corresponding per-day evidence.
+**Curriculum source coverage:** `27/274=9.85%`, or **9.9%** of all study days have the newly defined 12-question-plus-advanced-case source package. This is a stricter requirement than simply having an original authored instructional lesson. The existing 247-course authoring inventory has 137 original case-containing days and 110 that still require original content work; none can yet be counted as accepting the new full-depth standard without the corresponding per-day evidence.
+
+**October 31 authoring update, v1.1:** The separate verified original seven-program source register v0.5 and Risk60 CI [41236898725](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236898725) establish twenty *additional* original guided practice lessons (Risk60 D21–D40). Original case authoring advanced from **117/247 (47.4%)** to **137/247 (55.5%)**; **110** days lack original individual cases (20 final Risk60 Transfer + 90 Practicum90). **The fixed owner 380-unit accepted count remains 73/380 = 19.2%**, since these twenty do not yet have the full required 12-question + advanced case, rights and independent release acceptance. AI preflight of existing Risk60 D01–D20 is separate and does not create additional units. Source delivery, CI and independent acceptance are different denominators.
 
 ## 3. Actual assessment remediation progress (inside the 54 outstanding units)
 
@@ -58,7 +60,7 @@ Four *inactive draft* cases now contain all four substantive rubrics and twelve 
 1. **Confirm newest audit CI gate.** The original tested source/build/Chromium gate passed at `c8a01f29`. A later code-independent acceptance enhancement at `6918640f6cbd6092612a523de7a672ed8782fff0` adds a read-only, 274-day source-depth manifest to the dedicated workflow. At the preparation cutoff the subsequent run `41236543559` was performing browser regression, **not yet accepted**. Investigate any new failure; only report full exact-commit acceptance after a successful run.
 2. **Beta tester journeys (during Beta, not a pre-invitation block):** The real invited `Adissel` and `James_Test` accounts need to enroll in `tape10`, `indicators10`, and `filings7`. For each of six paths verify sign-in, 12 responses/advanced cases, enrollment, 80–2000-character reflection saved, revision and reload, another account cannot read it, stale revision rejects, mobile/keyboard and accessibility. As last checked, the DB has **0 enrollments / 0 private saved days** for these account-course pairs. Never insert synthetic records into production as fake user activity.
 3. **Private protected assessment candidate remediation:** Finish the **200 remaining rubrics and 600 option explanations**, rewrite any ambiguous content and verify true single-correct-answer semantics with a new unseen variant; test server-side first-grading, retake and no-answer-leak controls. Record genuine case-level review approvals and then explicitly plan a separate graded-release decision.
-4. **247 original study-day upgrades:** The existing reference-day frozen B01 decisions control. Author the 130 days missing original lesson fields, then upgrade all 247 to 12 independent source-aligned questions, worked numerical/source evidence, an advanced case/transfer task, named errors, feedback, version-provenance and source-specific acceptance. Use batches, but **do not claim a batch accepted simply by populating fields**.
+4. **247 original study-day upgrades:** The existing reference-day frozen B01 decisions control. Author the 110 days still missing original lesson cases, then upgrade all 247 to 12 independent source-aligned questions, worked numerical/source evidence, an advanced case/transfer task, named errors, feedback, version-provenance and source-specific acceptance. Use batches, but **do not claim a batch accepted simply by populating fields**.
 5. **Controlled publication:** Keep `ACADEMY_THREE_CAMPS_ENABLED=false` for broad access and `ACADEMY_THREE_CAMPS_BETA_ENABLED=true` for the invited users. Public catalog/pricing and LIVE payment are explicitly separate approvals; protected grades/certificates/Lumens remain disabled.
 
 ## 5. Next 45 substantive units
@@ -76,4 +78,5 @@ For the next implementation wave prioritize **45 of the 54 protected draft cases
 - Dependencies: `AGENTS.md`, existing authentic Supabase identity/RLS and progress ledgers, Cloudflare Pages, original 419 Lab protected content, and all canonical 274 source day IDs.
 
 **Revision history:** v1.0 — October 31, 2026 — established fixed 380-unit denominator, 73/380 and 73/133 signed-off progress, 54-case editorial risk triage, four privately remediated drafts, six real Beta paths and original seven-course depth work.  
+**v1.1 — October 31, 2026 — 20 additional Risk60 guided cases authored; source coverage 137/247; 110 remain; fixed accepted count 73/380 unchanged.**
 **Footer:** Crown & Lantern Press — Owner-directed noncommercial Beta report; not an attestation of independent professional review, official market competency, historical-data licensing, or real subscriber acceptance.
