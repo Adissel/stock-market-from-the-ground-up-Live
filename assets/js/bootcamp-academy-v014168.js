@@ -343,6 +343,16 @@
    section.append(review);
    mount.append(section);
   }
+  // B01 frozen lesson bodies remain unchanged. Approved extra topics are
+  // separated clearly from independent grades and historical evidence.
+  if(d.programCode==='truth5'&&d.approvedSupplement){
+   const x=d.approvedSupplement,area=node('section');area.className='academy-beta-daily-coach';
+   area.setAttribute('aria-label','Approved B01 additional teaching');
+   area.append(node('h4','Approved supplemental practice: '+x.title),node('p',x.example),
+    node('p',x.teach),node('h5','Your independent reflection'),node('p',x.checkpoint),
+    node('p','Fictional and ungraded. B01’s original sequence and private assessments are unchanged.'));
+   mount.append(area);
+  }
   if(!d.lesson){
    // The 7/10/45/60/90-day beta courses reuse Owner-approved market topics
    // but did not previously render direct teaching when the Lab bridge failed.
@@ -417,6 +427,13 @@
   }
   mount.append(node('h4',d.programCode==='free5'?'Talia explains — start from zero knowledge':'Learn the concept'),node('p',lesson.explanation));
   if(lesson.why)mount.append(node('h4','Why this matters'),node('p',lesson.why));
+  if(lesson.reference){
+   const ref=lesson.reference,section=node('section');section.className='academy-source-claim-case';
+   const citation=node('a',ref.label);citation.href=ref.url;citation.target='_blank';citation.rel='noopener noreferrer';
+   section.append(node('h5','Public reference — scoped evidence'),citation,node('p',ref.scope),
+    node('p','Topic-level background reference only; this exact study day and its independent assessment are not yet editorially approved.'));
+   mount.append(section);
+  }
   mount.append(node('h4',d.programCode==='free5'?'Worked FICTIONAL demonstration':'Worked source-check example'),
    node('p',lesson.workedExample),node('h4','Guided practice — your turn'));
   const steps=node('ol');
