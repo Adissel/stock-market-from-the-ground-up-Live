@@ -5,6 +5,9 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const html = fs.readFileSync('create-account.html','utf8');
 const signup = fs.readFileSync('assets/js/signup.js','utf8');
+assert.ok(!signup.includes("sb.rpc('username_is_available'"),'Signup UI must not probe known usernames directly');
+assert.ok(!signup.includes("sb.rpc('email_is_available'"),'Signup UI must not probe registered emails directly');
+assert.ok(signup.includes('Availability is verified when you submit'),'Client must distinguish syntactic format from true availability');
 const legacy = fs.readFileSync('assets/js/production-completion.js','utf8');
 const ts = fs.readFileSync('src/ts/production-completion.ts','utf8');
 for (const id of ['signup-first-name','signup-last-name','signup-dob','signup-username','signup-email','signup-password','signup-password-confirm','signup-terms']) {
