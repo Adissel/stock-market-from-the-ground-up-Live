@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-TALIA-QA-025
 **Project:** The Stock Market: From the Ground Up
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-10-31
 **Status:** IMPLEMENTED — FINAL ACCEPTANCE NOT YET VERIFIED
 **Google Drive location:** Not created; GitHub Research is the controlling location
@@ -71,3 +71,28 @@ The browser checks exact `programCode`, day number, canonical title, review stat
 
 ## Revision history
 - **v1.0 — 2026-10-31:** ten-stage browser regression contract; synthetic identity matrix; three exact Academy day source integrations; three further Lab claims; 17-record public Tutor evidence register. Full acceptance pending.
+
+## Version 1.1 — exact browser rerun, live read-only policy and corrected parity checks
+
+### Isolated Playwright evidence and follow-up
+- The isolated manual retry on the OHLC-test-updated commit `8324ae34a5503c00ad232bb6ebb77887dd936b7a` ran GitHub Actions workflow `41216008709`, job `124580858903`. The log explicitly recorded **PASS LAB-UX-STD-001 at 390px** and **PASS LAB-UX-STD-001 at 1280px**, including candles, VWAP, tape, depth, and assessment concealment. This independently clears the original missing-chart assertion *within that specific test*.
+- The same job did **not** pass sitewide. After both LAB-UX-STD-001 widths passed, the next test `tests/test_v33_talia_question_flow_browser.mjs` timed out waiting for Experiment because its older script also skipped Calculate. Thus the sitewide job ended **failure**; a partial passed step is not full sitewide acceptance.
+- Follow-up changes `ec3887e485a81ebc9e20df746ef1fe9fc45ce55c`, `f5b930ed9ef99f12735cc34aae0cf3255fcb12d4`, `1bc2cc48c9d3626ce9da8a6f94ad577d789d4cbd` correct the same ten-stage protocol in Talia question-flow, VWAP/OHLC reference parity, and candle slider/worked-example browser fixtures. These changes **preserve** Calculate and its fail-closed Next button. Each test selects the correct ungraded method answer before proceeding to Experiment.
+- This rerun is still needed on the amended exact commit; no successful complete browser suite is inferred from the first fixed LAB-UX-STD-001 test.
+
+### Live Supabase product-access evidence (read-only; no private members queried)
+- Production project ref `oxihglyfgzywsupnyicb`, database healthy during read-only inspection. The live `platform_tools` record for `MARKET_TUTOR` was active/live.
+- Active Founding 14/30/60 plans each showed `includes_all_tools=true`, conditional on an actual active grant/subscription and all checks in the `public.user_has_tool_access(uuid,text)` security-definer RPC. Suspended, Showcase, expired/non-member accounts are refused before the entitlement checks.
+- The active Free plan showed `includes_all_tools=false` and **no explicit `plan_tool_access` mapping for `MARKET_TUTOR`**. Separate `gu_product_access_config_v1` has `free_access=true` with `policy_mode='legacy'`, but the actual authoritative RPC does not consume that flag. A normal Free-only plan cannot be treated as a confirmed Tutor entitlement. A separate actually active member tool pass/grant would be needed under current logic.
+- **Access-policy reconciliation required**: decide whether Free should have baseline `MARKET_TUTOR` entitlement or only separately authorized Tutor access, then update official database and member-facing copy via a separately controlled change if authorized. This implementation **did not grant Free access**, change entitlements, create QA customers, query personal notes, or modify payment settings. Synthetic Free-with-verified-grant teaching parity remains valid for *that conditional scenario only*.
+- Authenticated production browser acceptance remains open because no legitimate member browser session/access token was available through these read-only connections.
+
+### Exact new public source alignment
+- `8114e8bf623acd2f040c0a9a63ed046098bcd97e`: narrowed `DT-C24-L01` to SEC primary public-registration guidance rather than wrongly using an 8-K unregistered private-sale disclosure as authority for a public offering.
+- `1edde89ab09fdf657f59ee36504f8c11748a9e47`: updated independent source-alignment check. The issuance arithmetic remains **fictional**, with a registered or proposed offering explicitly distinguished from shares actually outstanding.
+- Latest source count is **17** exact Lab claim records plus three original, source-checked Academy days added this turn; no completed full-lesson editorial acceptance is claimed.
+
+**Updated acceptance:** SOURCE CHANGES IMPLEMENTED; EXACT FULL SITEWIDE REGRESSION, MEMBER-BROWSER ENTITLEMENT BEHAVIOR AND INDIVIDUAL EDITORIAL ACCEPTANCE STILL OPEN.
+
+## Revision history
+- **v1.1 — 2026-10-31:** recorded isolated OHLC pass and subsequent Talia progression failure; updated three additional Playwright fixtures, live read-only Free/Founding access policy findings and aligned SEC registered-offering source.
