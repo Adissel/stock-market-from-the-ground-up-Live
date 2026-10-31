@@ -15,6 +15,7 @@ on:
       - 'functions/_lib/lumen-learning-award-policy-v1.js'
       - 'functions/_lib/lumen-member-gifting-policy-v1.js'
       - 'assets/js/crownlight-member-quickview-v1.js'
+      - 'assets/js/crownlight-member-gifting-v1.js'
       - 'assets/js/site.js'
       - 'assets/js/navigation.js'
       - 'dashboard.html'
@@ -34,6 +35,7 @@ jobs:
       - name: Syntax and disabled release controls
         run: |
           node --check assets/js/crownlight-member-quickview-v1.js
+          node --check assets/js/crownlight-member-gifting-v1.js
           node --check functions/api/member-lumen-gifts.js
           node --check functions/api/learning-reward-preview.js
           node --check assets/js/crownlight-learning-reward-badges-v1.js
