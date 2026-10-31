@@ -47,6 +47,7 @@ jobs:
           const t=s.totals;
           const message=[
             '## Automated repository line-audit run — '+s.createdUtc,
+            '**Run:** https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/'+process.env.GITHUB_RUN_ID,
             '**Exact SHA:** `'+s.auditedCommit+'`',
             '**Tracked files:** '+t.tracked+'; **UTF-8 text files:** '+t.textFiles+'; **text lines scanned:** '+t.textLines,
             '**Binary/non-UTF8 inventory-only:** '+t.binaryFiles+'; **symlinks:** '+t.symlinks+'; **unreadable:** '+t.unreadable,
@@ -56,7 +57,12 @@ jobs:
             '**Full file manifest, finding lines and summary:** Actions artifact `repository-line-audit-v1` for this commit.',
             'Scope: automated rules on every readable tracked text line; not independent semantic review, secrets review, binary inspection, browser authentication or release certification.'
           ].join('\n\n');
-          fs.writeFileSync('artifacts/repository-line-audit/ISSUE_SUMMARY.md',message+'\n');
+          const urgent=fs.readFileSync('artifacts/repository-line-audit/line-findings.csv','utf8')
+            .split('\n').filter(line=>line.includes(',"P0",'))
+            .slice(0,30).map(line=>'- '+line.replaceAll('","',' · ').replace(/^"|"$/g,'').slice(0,350));
+          const body=message+'\n\n**P0 candidates (static triage only, not confirmed defects):**\n'+
+            (urgent.length?urgent.join('\n'):'No P0 pattern candidates.')+'\n';
+          fs.writeFileSync('artifacts/repository-line-audit/ISSUE_SUMMARY.md',body);
           NODE
             gh issue comment 158 --repo cybernexuspublishing/stock-market-from-the-ground-up --body-file artifacts/repository-line-audit/ISSUE_SUMMARY.md
           fi
