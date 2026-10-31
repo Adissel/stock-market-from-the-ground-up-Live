@@ -1,3 +1,4 @@
+# Owner-requested noncharging acceptance rerun; execute on main (2026-10-31).
 name: Chart mixed Lumens plus Stripe TEST source gate
 on:
   push:
