@@ -51,9 +51,9 @@ for(const code of ['tape10','indicators10','filings7']){
 }
 const upgradedRisk60=academyPrograms.find(p=>p.code==='risk60');
 assert(upgradedRisk60,'Original Risk60 remains a canonical existing course');
-for(const i of Array.from({length:15},(_,i)=>i)){
+for(const i of Array.from({length:18},(_,i)=>i)){
  const day=upgradedRisk60.curriculum[i],pack=day.lesson;
- assert.equal(day.sourceDay,[1,2,3,4,6,8,10,11,12,13,16,17,19,20,23][i],'Risk60 must preserve original parent-source mapping');
+ assert.equal(day.sourceDay,[1,2,3,4,6,8,10,11,12,13,16,17,19,20,23,24,25,26][i],'Risk60 must preserve original parent-source mapping');
  assert.equal(pack.formativeQuestions.length,12,'Original Risk60 deep teaching must carry twelve individually authored questions');
  assert.equal(new Set(pack.formativeQuestions.map(q=>q.id)).size,12);
  assert.equal(pack.advancedPracticums.length,1,'Every original Risk60 upgraded day requires a distinct worked case');
@@ -61,8 +61,8 @@ for(const i of Array.from({length:15},(_,i)=>i)){
  assert.equal(day.officiallyGraded,false,'A teaching upgrade cannot change private grading');
  assert.equal(day.masteryAwarded,false);
 }
-assert.equal(new Set(upgradedRisk60.curriculum.slice(0,15).flatMap(d=>d.lesson.formativeQuestions.map(q=>q.prompt))).size,180,
- 'Risk60 fifteen-day deep teaching prompts must not repeat');
+assert.equal(new Set(upgradedRisk60.curriculum.slice(0,18).flatMap(d=>d.lesson.formativeQuestions.map(q=>q.prompt))).size,216,
+ 'Risk60 eighteen-day deep teaching prompts must not repeat');
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
 const catalogRequest=new Request('https://example.test/api/bootcamp-academy?action=catalog');
 const defaultCatalog=await(await academyRequest({request:catalogRequest,env:{}})).json();
