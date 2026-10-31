@@ -18,13 +18,16 @@ export async function onRequest({request,env}){
  try{
   const {userId,config}=await memberIdentity(env,request);
   const uid=encodeURIComponent(userId);
-  const [profile,flags,buckets,spends,adjustments,sentGifts]=await Promise.all([
+  const [profile,flags,buckets,spends,adjustments,sentGifts,chart,adfree,tools]=await Promise.all([
    rows(config,'profiles?select=account_kind,deleted_at&id=eq.'+uid+'&limit=1'),
    rows(config,'admin_user_flags?select=status&user_id=eq.'+uid+'&limit=20'),
    rows(config,'groundup_question_pass_buckets?select=id,source,origin_key,initial_credits,remaining_credits,issued_at&user_id=eq.'+uid+'&order=issued_at.desc&limit=60'),
    rows(config,'groundup_question_pass_spends?select=id,action,lab_id,credits_spent,spent_at&user_id=eq.'+uid+'&order=spent_at.desc&limit=60'),
    rows(config,'groundup_question_pass_adjustments?select=id,operation,delta,reason,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
-   rows(config,'gu_lumen_peer_gift_transfers_v1?select=id,amount,status,completed_at&sender_id=eq.'+uid+'&status=eq.completed&order=completed_at.desc&limit=60')
+   rows(config,'gu_lumen_peer_gift_transfers_v1?select=id,amount,status,completed_at&sender_id=eq.'+uid+'&status=eq.completed&order=completed_at.desc&limit=60'),
+   rows(config,'gu_sparks_chart_redemptions_v1?select=id,sku,sparks_spent,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
+   rows(config,'gu_sparks_adfree_redemptions_v1?select=id,sku,sparks_spent,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
+   rows(config,'gu_lumen_tool_redemptions_v1?select=id,offer_code,cost_lumens,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60')
   ]);
   if(profile.length!==1||profile[0].account_kind!=='member'||profile[0].deleted_at!==null||
    flags.some(x=>['suspended','restricted'].includes(String(x.status||'').toLowerCase())))
@@ -54,6 +57,21 @@ export async function onRequest({request,env}){
    if(!safeNumber(g.amount)||g.amount<10||g.amount>200)throw Error('Invalid gift data');
    events.push({id:'gift:'+g.id,kind:'gift',lumens:-g.amount,
     description:'Member-to-member Lumens sent',occurredAt:g.completed_at});
+  }
+  for(const item of chart){
+   if(!safeNumber(item.sparks_spent)||item.sparks_spent<1)throw Error('Invalid chart Lumen debit');
+   events.push({id:'chart:'+item.id,kind:'spend',lumens:-item.sparks_spent,
+    description:'Chart Studio Lumen pass · '+String(item.sku||'').slice(0,60),occurredAt:item.created_at});
+  }
+  for(const item of adfree){
+   if(!safeNumber(item.sparks_spent)||item.sparks_spent<1)throw Error('Invalid ad-free Lumen debit');
+   events.push({id:'adfree:'+item.id,kind:'spend',lumens:-item.sparks_spent,
+    description:'Ad-free Lumen pass · '+String(item.sku||'').slice(0,60),occurredAt:item.created_at});
+  }
+  for(const item of tools){
+   if(!safeNumber(item.cost_lumens)||item.cost_lumens<1)throw Error('Invalid tool Lumen debit');
+   events.push({id:'tool:'+item.id,kind:'spend',lumens:-item.cost_lumens,
+    description:'Tool Lumen pass · '+String(item.offer_code||'').slice(0,60),occurredAt:item.created_at});
   }
   events.sort((a,b)=>String(b.occurredAt||'').localeCompare(String(a.occurredAt||'')));
   return reply({ok:true,currency:'Crownlight Lumens',
