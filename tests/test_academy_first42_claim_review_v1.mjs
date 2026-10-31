@@ -46,6 +46,8 @@ for(const [day,status] of Object.entries(contextOnly)){
 assert.equal(claims.filter(x=>/CONTEXT_ONLY|TECHNICAL_BACKGROUND_ONLY/.test(x.narrow_review_result)).length,4,
  'Every previously identified source-to-claim mismatch must remain unapproved');
 
+const narrowRechecked=new Set(["truth5:2","truth5:3","truth5:4","watchlist7:2","watchlist7:5","scanners10:4","scanners10:5","scanners10:6","foundations30:1","foundations30:10","foundations30:17","foundations30:20"]);
+assert.equal(narrowRechecked.size,12);
 const byQA=new Map(qa.map(d=>[d.program_code+':'+d.program_day,d]));
 const byMaster=new Map(master.filter(d=>d.unit_type==='academy_or_free').map(d=>[d.unit_id,d]));
 const classes={'PUBLIC_REGULATOR_OR_EXCHANGE':29,'INDEPENDENT_TECHNICAL_REFERENCE':7,'AUTHOR_DEFINED_METHOD_OR_ARITHMETIC':6};
@@ -63,7 +65,9 @@ for(const c of claims){
  assert.equal(c.protected_assessment_gate,'PRIVATE_CASE_AND_INDEPENDENT_RUBRIC_NOT_SIGNED');
  counts[c.authority_class]=(counts[c.authority_class]||0)+1;
  if(c.authority_class==='PUBLIC_REGULATOR_OR_EXCHANGE'){
-  assert(d.verified_external_claims==='SELECTED_PRIMARY_CLAIM_ONLY');
+  assert.equal(d.verified_external_claims,
+   narrowRechecked.has(c.day_key)?'NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031':'SELECTED_PRIMARY_CLAIM_ONLY',
+   'Canonical 252 selected-source reconciliation must not claim day acceptance: '+c.day_key);
   assert(/^https:\/\/(www\.)?(?:sec\.gov|investor\.gov|nyse\.com|syndication\.finra\.org)\//.test(c.authority_url),
     'Non-authoritative source attributed as primary '+c.day_key);
  }else if(c.authority_class==='INDEPENDENT_TECHNICAL_REFERENCE'){
@@ -78,6 +82,9 @@ for(const c of claims){
  if(c.day_key.startsWith('foundations30:'))
   assert(Number(c.day_key.split(':')[1])<=20);
 }
+assert.equal(qa.filter(x=>x.verified_external_claims==='NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031').length,12);
+assert(qa.every(x=>x.editorial_status==='NOT_ACCEPTED'));
+assert(master.every(x=>x.editorial_decision==='NOT_APPROVED'));
 assert.deepEqual(counts,classes);
 for(const b of designs){
  assert(claims.some(c=>c.day_key===b.day_key));
