@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-QA-CHART-B01-20261031-001  
 **Project:** The Stock Market: From the Ground Up — Website / Crownlight Chart Studio / Boot Camp Academy  
 **Filename / file type:** `docs/qa/2026-10-31_CHART_B01_SECURITY_ACCEPTANCE_EXECUTION_v1.md` / Markdown  
-**Version:** 1.2  
+**Version:** 1.3  
 **Date:** 2026-10-31 (America/Chicago)  
 **Status:** **Genuine authenticated ADVANCED Chart API, workspace restoration AND user-visible fictional starter acceptance PASSED on tested SHA; cross-account, CAPTCHA-form, full role matrix, editorial and security acceptance remain OPEN**  
 **Google Drive location/document ID:** Not created / not assigned. The GitHub `main` record is authoritative.  
@@ -107,3 +107,21 @@ No LIVE payment, credit, role, membership, private case, historical data or prod
 **Test/rollback distinction:** The committed script and workflow are source-only until a genuine two-member run is recorded; they are not authority to close #154. Revert the two named additive commits if the test infrastructure itself must be withdrawn. No database rollback applies.
 
 **Revision history addition:** v1.2 — 2026-10-31: second-real-identity isolation automation available as on-demand, fail-closed noncharging QA; no second-account acceptance was inferred.
+
+## 2026-10-31 addendum — v1.3: B01 v98 individual feedback safety gate
+
+**Scope/requirements:** #153 protected grading and #157 individual B01 assessment review. This is a source-level content-quality and confidentiality safeguard; **not** an approval of v98.
+
+**Read-only production Supabase evidence:** `lab_training_sets_v014` contains 419 canonical v96 draft sets, 20 v97 B01 sets marked reviewed with `source_status=original_hypothetical_b01_individual_review_pending_v01497`, and 20 **new v98 draft** B01 sets with zero attributed editorial approvals. The v98 rows contain **120 questions** (100 choices, 20 other/numeric cases) and **200 wrong-option corrective-feedback entries**. All 200 entries have `reviewStatus=DRAFT_PENDING_SEPARATE_PEDAGOGICAL_APPROVAL`; zero are independently approved. All 200 follow the same mechanical `Why this choice is incorrect: ... / Correction: ... Review the case evidence: ...` construction. The common per-Lab domain correction is reused across different wrong options, so structural population is **not** proof of distractor-specific pedagogical reasoning.
+
+**Confirmed quality risk:** Merely updating a review flag would otherwise permit generated, unreviewed, template-based feedback to enter post-submission responses. Real item-specific remediation must explain each misconception or calculation error in the distinct context of that response, not quote the wrong option and append the same generic Lab-level paragraph.
+
+**Implemented minimal fail-closed correction:**
+- `functions/api/interactive-training.js`, commit `a2f60a402ec06920e7587209cc4b1e1682965784`: `approvedSelectedWrongFeedback` continues to require matching selected option, `INDEPENDENT_EDITORIAL_APPROVED` and valid feedback length, and now additionally excludes the exact generic v98 mechanical-template pattern even when a review flag is changed. The existing general scored-question correction remains available as a fallback. This does not reveal answers, change scoring/mastery or activate a draft set.
+- `tests/test_b01_private_option_feedback_v98_v1.mjs`, commit `1ab8e3e251f7e357f4abc1b349782fb941a46760`: existing synthetic fixture tests still require genuinely tailored, reviewed wrong-option feedback after scoring. Added a negative case proving that the same generic v98 template is withheld even with a falsely approved `reviewStatus`; no raw keys or production question content in test fixtures.
+
+**Deployment evidence:** Cloudflare production deployment reported active/success for `1ab8e3e251f7e357f4abc1b349782fb941a46760`, ID `add6fafc-d618-41f8-9bd1-e8f0c6862899`; later production commits exist. **Exact-commit GitHub Actions test conclusion is not independently confirmed in this record**; the existing `B01 Pending Editorial Grade Guard` workflow is configured to run the edited handler and B01 private-option feedback regression on matching pushes. Do not treat source-level implementation or a Cloudflare deployment as official B01 editorial acceptance.
+
+**Editorial disposition:** v98 stays **DRAFT; 0/200 option-specific corrections independently approved**, 20/20 v98 sets unapproved, 20/20 v97 previous reviewed sets unchanged, 419 v96 canonical drafts unchanged. Before any v98 official assessment promotion, independently rewrite and review all 200 alternatives (and the 20 numeric corrections), verify claim-specific sources and arithmetic, run real signed-in protected grade leakage/feedback checks, and record reviewer/date/hash and full role isolation. No new owner approval, enrollment, wallet grant, Lumen spend or grade was created.
+
+**Revision history:** v1.3 — 2026-10-31: audited v98 120-question/200-feedback state; rejected mechanically generated feedback from promotion by flag alone; protected private grading pending independent editorial signoff.
