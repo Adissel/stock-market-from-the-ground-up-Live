@@ -6,7 +6,7 @@
 | Project | The Stock Market: From the Ground Up — Integrated V1 Completion |
 | Filename | `2026-10-31_LUMEN_REWARDS_CATALOG_GIFT_REVERSAL_WALLET_QA_v1.md` |
 | File type | Markdown |
-| Version | 1.0 |
+| Version | 1.1 |
 | Date | October 31, 2026 |
 | Status | **ENGINEERING QA PARTIAL PASS; REWARDS, GIFTING AND FINAL RELEASE HELD** |
 | Location | GitHub `main` → `docs/qa/` |
@@ -55,10 +55,19 @@ All synthetic credit activity ran in a Postgres `BEGIN ... ROLLBACK` transaction
 
 Using the previously approved twelve equal engineering-and-acceptance milestones, **8/12 = 66.7%, reported as 67% accepted; 33% remains**. This work materially strengthens open milestones 3, 4 and 5 but does **not** count any of them as fully accepted absent required real signed assessment/financial/legal evidence. Production deployment success alone does not close milestone 6.
 
+## Supplemental execution — service-only grading outbox and exact production CI
+
+- **Assessment handoff:** Migration `20261031_lumen_protected_grade_outbox_v1.sql` deployed. The existing protected `competency_evidence` table now queues only independently graded, approved, released, human-beta-accepted `system_assessment` records; routine journal reflections are excluded. Service-role-only processor rechecks the approved grade, staff reviewer, award schedule and global release flag before invoking the existing exactly-once issuer.
+- **Rollback-only trigger QA:** A synthetic passing protected-grade fixture entered the outbox within a transaction and an ungraded journal fixture did not. Both transactions rolled back. A disabled processor returned `issued=0, enabled=false`. Postflight verified zero queued production grades or persistent awards and no direct `authenticated` SELECT/EXECUTE access to the outbox or processor.
+- **Complete Lumen activity scope:** Member private wallet history now includes mixed cash/Lumen reservation debit events and paired positive returned-credit events from the authoritative mixed checkout debit table; it never labels these as cash receipts. Production contained **zero** mixed-checkout intents and zero mixed debit rows when inspected, so this additional branch is source-tested but **not** real-commerce history accepted.
+- **Real browser regression fixed:** The sitewide member quickview previously called `client.auth.onAuthStateChange` on a test stub lacking that method, which failed one sitewide Founders Commons browser check on commit `01281e6b`. Commit `3e4ed469` now checks for genuine Auth methods and also starts wallet integrity on initial Dashboard load. GitHub run `41241450647` passed wallet/reward/gift source checks and `41241450678` passed real James_Test Chromium. Cloudflare deployed exact `3e4ed469b8130b5a88de7d6bf71095cc9802fd26` successfully. The complete sitewide CI run `41241450715` required an isolated rerun, and its result is not represented here as accepted unless its current attempt reports success.
+- **Signoff boundaries:** Internal engineering source and rollback-only QA evidence accepted by delegated owner/editorial operator. No genuine member earned an official protected reward, no actual transfer or real refund was initiated, no live paid charge was authorized, and no licensed legal review took place. All earning, gifting and grading activation holds remain unchanged.
+
 ## Revision history
 
 | Date | Version | Action | Status |
 | --- | --- | --- | --- |
+| 2026-10-31 | 1.1 | Protected assessment outbox, synthetic positive/negative trigger tests, mixed checkout history, exact-deployment browser regression fix | Internal engineering QA recorded; activation holds unchanged |
 | 2026-10-31 | 1.0 | Deployed protected catalog, assessment adapter, gift reversal/dispute, member wallet integrity; completed read-only and rollback QA | Partial engineering acceptance; earning, gifting and final release on hold |
 
 Footer: Crown & Lantern Press / Cyber Nexus — internal QA and product-control document. Not licensed legal advice or proof of real protected assessment acceptance.
