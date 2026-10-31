@@ -93,5 +93,25 @@ try{
  assert.equal(r.status,403,'Cross-site writes must be denied');
  r=await onRequest({request:reqPut({...body,expectedUpdatedAt:undefined}),env});
  assert.equal(r.status,409,'Unversioned saves must be denied');
+ // A second independent authenticated account must never receive the first
+ // account's saved indicators or revision, even if the caller supplies its ID.
+ const otherRequest=(query='')=>new Request('https://site.test/api/chart-workspace'+query,
+  {headers:{authorization:'Bearer QA_TOKEN_OTHER'}});
+ let foreign=await onRequest({request:otherRequest(),env});
+ assert.equal(foreign.status,200);
+ const distinct=await foreign.json();
+ assert.equal(distinct.tier,'STANDARD','Second member has no paid or manual QA entitlement');
+ assert.deepEqual(distinct.workspace.studies,['MA']);
+ assert.equal(distinct.updatedAt,after);
+ foreign=await onRequest({request:otherRequest('?user_id='+uid+'&member_id='+uid),env});
+ assert.equal(foreign.status,200);
+ assert.deepEqual(await foreign.json(),distinct,'Foreign query selectors must not reveal another member');
+ foreign=await onRequest({request:new Request('https://site.test/api/chart-workspace?user_id='+otherUid,
+  {headers:{authorization:'Bearer QA_TOKEN'}}),env});
+ assert.equal(foreign.status,200);
+ assert.deepEqual((await foreign.json()).workspace.studies,['ATR'],
+  'First member cannot request a different private workspace');
+ assert.deepEqual(otherDb.settings.studies,['MA'],'Second member record must remain unchanged');
+ console.log('PASS independent account isolation: two actual server identities in mocked auth, different workspaces and revisions, cross-account selectors ignored');
  console.log('PASS Crownlight private workspace: auth, atomic revision CAS, stale tab denial, same-origin, tier normalization, secret stripping');
 }finally{globalThis.fetch=original}
