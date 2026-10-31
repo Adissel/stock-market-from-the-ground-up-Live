@@ -43,24 +43,43 @@ try{
  // QA-only network bridge returns a GENUINE upstream GoTrue response obtained
  // with the browser's own issued bearer token. Never fabricate an Auth user.
  // This verifies rendered member access, not native browser cross-origin CORS.
- let bridgedAuthCalls=0;
- await context.route(url=>url.toString().startsWith(supabase+'/auth/v1/user'),
-  async route=>{
-   const request=route.request(),headers=request.headers();
-   const bearer=headers.authorization||'';
-   if(!bearer.startsWith('Bearer ')||bearer.length<40)throw Error('QA browser identity request had no genuine bearer token');
-   const upstream=await fetch(request.url(),{
+ let bridgedAuthCalls=0,bridgedPreflights=0;
+ const requestFailures=[];
+ context.on('requestfailed',request=>{
+  const url=new URL(request.url());
+  requestFailures.push({host:url.hostname,path:url.pathname,
+   method:request.method(),error:String(request.failure()?.errorText||'unknown').slice(0,80)});
+ });
+ // This bridge performs a genuine upstream GET /auth/v1/user; its return is
+ // NEVER a fabricated identity. It is QA-only and not a login/CAPTCHA test.
+ await context.route(url=>{
+   const u=new URL(url.toString());
+   return u.origin===new URL(supabase).origin&&u.pathname==='/auth/v1/user';
+ },async route=>{
+   const request=route.request();
+   const common={'access-control-allow-origin':origin,
+    'access-control-allow-methods':'GET, OPTIONS',
+    'access-control-allow-headers':'apikey, authorization, content-type, x-client-info',
+    'access-control-allow-credentials':'true',
+    'cache-control':'private, no-store',
+    'vary':'Origin'};
+   if(request.method()==='OPTIONS'){
+    bridgedPreflights++;
+    await route.fulfill({status:204,headers:common,body:''});
+    return;
+   }
+   const bearer=request.headers().authorization||'';
+   if(request.method()!=='GET'||!bearer.startsWith('Bearer ')||bearer.length<40)
+    throw Error('QA identity request invalid method or bearer');
+   const upstream=await fetch(supabase+'/auth/v1/user',{
     method:'GET',cache:'no-store',signal:AbortSignal.timeout(25000),
     headers:{apikey:key,authorization:bearer}
    });
    const content=await upstream.text();
    if(upstream.ok)bridgedAuthCalls++;
-   await route.fulfill({
-    status:upstream.status,contentType:'application/json',
-    headers:{'access-control-allow-origin':'*','cache-control':'private, no-store'},
-    body:content
-   });
-  });
+   await route.fulfill({status:upstream.status,contentType:'application/json',headers:common,
+    body:content});
+ });
  const page=await context.newPage();
  const browserErrors=[];
  page.on('pageerror',error=>browserErrors.push(String(error.message||error).slice(0,180)));
@@ -83,7 +102,7 @@ try{
  assert(identity.validatedUserMatches&&identity.storedSessionMatches,
   'Browser genuine session mismatch: user='+identity.validatedUserMatches+
   ' storage='+identity.storedSessionMatches+' hasUser='+identity.hasUser+
-  ' hasSession='+identity.hasSession+' initial='+identity.initialUserMatches+' authError='+identity.authError);
+  ' hasSession='+identity.hasSession+' initial='+identity.initialUserMatches+' authError='+identity.authError+' bridge='+bridgedAuthCalls+' preflight='+bridgedPreflights+' failures='+JSON.stringify(requestFailures.slice(-4)));
  const counts={truth5:5,watchlist7:7,scanners10:10};
  let examined=0;
  for(const [program,n] of Object.entries(counts)){
