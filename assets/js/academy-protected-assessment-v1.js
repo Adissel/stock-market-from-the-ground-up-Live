@@ -80,9 +80,25 @@ function mount(target,{programCode,day}={}){
      if(disposed||epoch!==attempt)return;
      detail.replaceChildren();
      report('Your independent first submission has been recorded by the protected assessment service.');
-     const summary=el('p','Recorded score: '+Number(payload.result?.score||0).toFixed(2)+'%. Correct answers and protected grading rubrics are not returned to the browser.');
+     const summary=el('p','Recorded score: '+Number(payload.result?.score||0).toFixed(2)+'%. Your selected answers can now receive case-specific teaching feedback; private grading keys were never exposed before submission.');
+     detail.append(summary);
+     if(Array.isArray(payload.feedback)&&payload.feedback.length===assessment.questions.length){
+      const reviewed=el('section',undefined,'academy-assessment-corrective-review');
+      reviewed.append(el('h5','Your option-specific corrective feedback'));
+      const list=el('ol');
+      payload.feedback.forEach((row,i)=>{
+       const question=assessment.questions[i];
+       if(row.questionId!==question.id||row.selectedCode!==answers[question.id]||
+        typeof row.correctiveExplanation!=='string'||!row.correctiveExplanation.trim())return;
+       const item=el('li');
+       item.append(el('p','Question '+(i+1)+': '+question.prompt),
+        el('p','Teaching feedback: '+row.correctiveExplanation));
+       list.append(item);
+      });
+      reviewed.append(list);detail.append(reviewed);
+     }else detail.append(el('p','Detailed corrective feedback was unavailable. The recorded grade remains unchanged; do not infer a missing submission.'));
      const refresh=el('button','Check for a fresh independent retake','btn secondary');refresh.type='button';refresh.onclick=load;
-     detail.append(summary,refresh);
+     detail.append(refresh);
     }catch(e){
      if(!disposed&&epoch===attempt){
       report(String(e.message||'Assessment could not be recorded.')+' Do not assume that the first submission was lost; reload to verify its status.');
