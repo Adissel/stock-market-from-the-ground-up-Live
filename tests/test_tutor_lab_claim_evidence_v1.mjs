@@ -5,9 +5,9 @@ const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const evidence=read('data/tutor-lab-claim-evidence-v1.json'),registry=read('data/competency-lab-paths-v01499.json');
 assert.equal(evidence.kind,'public_tutor_lab_claim_bridges_v1');
 assert.equal(evidence.registeredLabsUnaffected,419);
-assert.equal(evidence.records.length,14);
+assert.equal(evidence.records.length,17);
 assert.equal(registry.totalCanonicalLabs,419);
-assert.equal(new Set(evidence.records.map(r=>r.id)).size,14);
+assert.equal(new Set(evidence.records.map(r=>r.id)).size,17);
 const sourceAllowed=/^https:\/\/(?:www\.)?(?:investor\.gov|sec\.gov|syndication\.finra\.org|chartschool\.stockcharts\.com)\//;
 for(const item of evidence.records){
  assert.equal(item.title,registry.byLab[item.id].title,'Canonical Lab title must match '+item.id);
@@ -40,4 +40,4 @@ const noResearch={ASSETS:{fetch:async req=>new URL(req.url).pathname.endsWith('/
  ?Response.json(registry):Response.json({error:'unavailable'},{status:503})}};
 const fallback=await getApprovedLabContext(noResearch,new Request('https://example.com/api/market-tutor-v01492'),'Explain F2-C04-L01');
 assert(fallback&&!fallback.claimEvidence,'Unverified optional asset cannot break original Tutor');
-console.log('PASS fourteen researched canonical Lab Tutor bridges, 419 ID invariant, source safety, original examples and fail-closed fallback.');
+console.log('PASS seventeen researched canonical Lab Tutor bridges, 419 ID invariant, source safety, original examples and fail-closed fallback.');
