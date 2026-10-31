@@ -62,7 +62,7 @@ try{
  assert.equal(first.status,200,'Real private workspace inaccessible');
  assert.equal(first.body?.ok,true);
  assert.equal(first.body?.tier,expectedTier);
- assert.equal(first.body?.workspace?.selected,'STANDARD',
+ assert.equal(first.body?.workspace?.selected,'ADVANCED',
   'Saved former Professional engine must be projected to a safe allowed layout');
  assert.equal(typeof first.body?.updatedAt,'string','Expected existing saved QA workspace');
  assert(/private/.test(first.cache||'')&&/no-store/.test(first.cache||''),
