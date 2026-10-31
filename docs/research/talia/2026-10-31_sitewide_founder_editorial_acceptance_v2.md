@@ -4,7 +4,7 @@
 |---|---|
 | Project | The Stock Market: From the Ground Up |
 | Document ID | SMFGU-TALIA-REVIEW-027 |
-| Version / date | 2.2 / October 31, 2026 |
+| Version / date | 2.3 / October 31, 2026 |
 | Status | PARTIALLY IMPLEMENTED — FULL ACCEPTANCE BLOCKED |
 | Filename / type | `2026-10-31_sitewide_founder_editorial_acceptance_v2.md` / Markdown |
 | Controlling location | GitHub `main` → `docs/research/talia/` |
@@ -100,3 +100,26 @@ The original fictional transfer cases remain non-historical and unsolved. The ex
 
 ### Revision history supplement
 - **v2.2 — October 31, 2026:** recorded actual Tutor CI failure and correction, absence of existing Founding QA profiles, isolated sitewide run status, and unwaived independent approval requirement.
+
+## Version 2.3 — verified focused Tutor acceptance, remaining sitewide and genuine-member gates
+
+**Focused Tutor Trust accepted at exact commit `40a164d40286883d208ccb6c6e7c1dff83a45c0b`.** [GitHub Actions run 41228956923](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41228956923), job `124618908307`, completed **SUCCESS**. Log evidence:
+- 17 original canonical Lab claim bridges and fail-closed canonical metadata;
+- four owner-supplied source-review packets passed technical preflight, with no reviewer self-approval;
+- **39 synthetic Tutor source and protected-stage cases**;
+- **74 independent calculation and chronology guards**;
+- **74 synthetic plan/role access assertions**;
+- three Academy claim-specific source units, 24 checked fields and five independent calculations.
+
+This successful check is after the earlier failing transfer-assertion run and includes the corrected unsolved-transfer behavior, cited SEC supplementary sources, and noncharging manual Founding browser test's static syntax gate. The acceptance covers focused source, safety and fixture contracts only; it does not establish genuine Founding sessions or formal editorial approval.
+
+**Isolated full browser run:** [GitHub Actions 41228738256 attempt 2](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41228738256) on `d49e563ae220303abb415f1331a8ad4fa9d9ccd1` has completed 21 browser workflow steps with no failed step at last inspection, but remained **in progress**, currently exercising multi-program Academy enrollment/private-progress/account-switch isolation. Do not label it successful until final conclusion is returned. Earlier full run `41225322722` remains the historical accepted exact-commit baseline.
+
+**Genuine Founder blocker remains confirmed:** a fresh aggregate auth query found no existing `smfgu_qa_only=true` QA users tagged `FOUNDING_14`, `FOUNDING_30`, or `FOUNDING_60`. All three plans have zero active grants and active subscriptions. The manual-only authenticated test is implemented but **cannot run successfully** without legitimate independent identities, current entitlements and encrypted QA credentials. Account creation/grants require the existing authorized Owner workflow; no payment, fake subscription, paid seats, or direct privileged database writes were performed here.
+
+**Independent editorial blocker remains confirmed:** each of four study records has `independentReviewer=null`, `independentEditorialDecision='PENDING'`, and `assessmentPublicationAuthorized=false`. Original example arithmetic, sources, counterexamples and ungraded transfers have been technically verified; an independent named reviewer must still decide complete-lesson acceptance. The user-provided content hashes were preserved as original metadata, not represented as post-change signed hashes.
+
+**Release state:** PARTIALLY IMPLEMENTED — NOT ACCEPTED IN FULL. Focused Tutor CI passed; deployed-code lineage and exact historic sitewide pass documented; newest full sitewide, real Founding browser access, and independent editorial acceptance remain open.
+
+### Revision history supplement
+- **v2.3 — October 31, 2026:** recorded successful corrected Tutor Trust run, 21-step sitewide partial progress, Founder QA-account absence and unwaived independent editorial gate.
