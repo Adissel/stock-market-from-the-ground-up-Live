@@ -9,6 +9,23 @@ assert.equal(normalizeWorkspace({selected:'PROFESSIONAL'}, {tier:'STANDARD',allo
 assert.equal(normalizeWorkspace({selected:'STANDARD'}, entitlement).selected,'STANDARD','Explicit Standard preferences remain Standard');
 assert.equal(normalized.layout,'SIDE_BY_SIDE','Advanced member cannot persist a Professional layout');
 const pro={tier:'PROFESSIONAL',allowed:['STANDARD','ADVANCED','PROFESSIONAL']};
+const standard={tier:'STANDARD',allowed:['STANDARD']};
+const matrix=[
+ ['STANDARD',standard,'STANDARD','SIDE_BY_SIDE'],
+ ['ADVANCED',entitlement,'ADVANCED','SIDE_BY_SIDE'],
+ ['PROFESSIONAL',pro,'PROFESSIONAL','PRICE_FOCUS']
+];
+for(const [label,grant,selected,layout] of matrix){
+ const resolved=normalizeWorkspace({selected:'PROFESSIONAL',layout:'PRICE_FOCUS',studies:['EMA','RSI']},grant);
+ assert.equal(resolved.selected,selected,label+' viewer must respect the server-authorized tier');
+ assert.equal(resolved.layout,layout,label+' Professional-only layout cannot cross tiers');
+ assert.deepEqual(resolved.studies,['EMA','RSI'],label+' valid shared studies survive read-only projection');
+}
+for(const [tier,grant] of [['STANDARD',standard],['ADVANCED',entitlement],['PROFESSIONAL',pro]]){
+ const normal=normalizeWorkspace({selected:tier,layout:'STACKED'},grant);
+ assert.equal(normal.selected,tier);
+ assert.equal(normal.layout,tier==='PROFESSIONAL'?'STACKED':'SIDE_BY_SIDE');
+}
 assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'STACKED'},pro).layout,'STACKED');
 assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'PRICE_FOCUS'},pro).layout,'PRICE_FOCUS');
 assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'UNSAFE_CSS'},pro).layout,'SIDE_BY_SIDE');
