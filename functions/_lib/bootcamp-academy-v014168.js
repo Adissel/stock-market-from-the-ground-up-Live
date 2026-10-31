@@ -323,7 +323,7 @@ function dayFor(d,i){
 export const academyPrograms=Object.freeze(definitions.map(d=>Object.freeze({
  code:d.code,title:d.metadata.title,days:d.days,level:d.metadata.level,theme:d.metadata.theme,
  summary:d.metadata.summary,
- version:ACADEMY_VERSION,status:d.code==='foundations30'?'original_30_day_controlling':d.lessons?'original_27_day_instruction_editorial_acceptance_pending':'original_study_design_editorial_acceptance_pending',
+ version:ACADEMY_VERSION,status:d.code==='foundations30'?'original_30_day_controlling':d.lessons?'owner_approved_27_day_invite_beta_instruction_20261031':'original_study_design_editorial_acceptance_pending',
  entitlement:'ONDEMAND_TRAINING',route:d.code==='foundations30'?'bootcamp.html':'bootcamp-academy.html?program='+d.code,
  priceStatus:'covered_by_existing_authorized_training_entitlement_no_new_purchase',
  creditPolicy:'No Crownlight Sparks needed for teaching; optional assisted Practice has separate authenticated service.',
