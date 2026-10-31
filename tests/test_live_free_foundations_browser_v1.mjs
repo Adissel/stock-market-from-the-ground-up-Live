@@ -316,6 +316,69 @@ if(!email||!password){
    assert(!(their.body.progress||[]).some(x=>x.reflection===reflection),
     'Member A\'s private reflection leaked to member B');
    note('checks','Second genuine QA account cannot read the first account\'s reflection.');
+   // Verify the entire five-day record set and the other two Free member tools.
+   const otherProgressProbe=await progress(secondPage.request,other.access);
+   assert.equal(otherProgressProbe.status,200);
+   assert.deepEqual(otherProgressProbe.body.progress,their.body.progress,
+    'Second member course evidence changed between independent reads');
+   const otherForgedProgress=await secondPage.request.get(origin+
+    '/api/bootcamp-academy?program=free5&user_id='+signed.id+'&member_id='+signed.id,
+    {headers:{authorization:'Bearer '+other.access},timeout:25000});
+   assert.equal(otherForgedProgress.status(),200);
+   assert.deepEqual((await otherForgedProgress.json()).progress,their.body.progress,
+    'Caller supplied first member ID switched the second member course response');
+   assert(!(their.body.progress||[]).some(x=>
+    finalProgress.body.progress.some(a=>a.reflection&&a.reflection===x.reflection)),
+    'Any of first member\'s five exact private reflections appeared in second member data');
+   note('checks','Second authenticated member cannot read or select all five first-member reflections.');
+
+   const secondAuth={authorization:'Bearer '+other.access};
+   const secondPreferences=await secondPage.request.get(origin+'/api/free-learning-coach',
+    {headers:secondAuth,timeout:25000});
+   assert.equal(secondPreferences.status(),200);
+   const secondPrefBody=await secondPreferences.json();
+   assert.equal(secondPrefBody.ok,true);
+   const forgedPrefs=await secondPage.request.get(origin+
+    '/api/free-learning-coach?user_id='+signed.id,{headers:secondAuth,timeout:25000});
+   assert.equal(forgedPrefs.status(),200);
+   assert.deepEqual((await forgedPrefs.json()).preferences,secondPrefBody.preferences,
+    'Another member\'s Talia preferences were exposed by a forged identity parameter');
+   note('checks','Second authenticated member Talia preferences ignore first-member selector.');
+
+   const secondResearch=await secondPage.request.get(origin+'/api/free-watchlist',
+    {headers:secondAuth,timeout:25000});
+   assert.equal(secondResearch.status(),200);
+   const secondWatchBody=await secondResearch.json();
+   assert.equal(secondWatchBody.ok,true);
+   assert(!secondWatchBody.entries.some(x=>x.researchNote===qaResearch),
+    'First-member fictional research leaked into another member\'s watchlist');
+   const forgedResearch=await secondPage.request.get(origin+
+    '/api/free-watchlist?user_id='+signed.id,{headers:secondAuth,timeout:25000});
+   assert.equal(forgedResearch.status(),200);
+   assert.deepEqual((await forgedResearch.json()).entries,secondWatchBody.entries,
+    'Forged owner ID changed second member research records');
+   if(!secondWatchBody.entries.some(x=>x.symbol==='GUSIM')){
+    const unauthorizedUpdate=await secondPage.request.post(origin+'/api/free-watchlist',
+     {headers:{...secondAuth,'content-type':'application/json'},
+      data:{action:'update',symbol:'GUSIM',user_id:signed.id,status:'NO_TRADE',
+       sourceKind:'FICTIONAL',researchNote:qaResearch,sourceNote:'Fictional security QA only'},
+      timeout:25000});
+    assert.equal(unauthorizedUpdate.status(),404,
+     'Second member could modify first member watchlist through a forged owner ID');
+   }
+   note('checks','Second account cannot select or modify first member research data.');
+
+   // The browser client must enforce real database row ownership for Journal.
+   // These are read-only requests; they never insert, update or delete member work.
+   const journalRead=await secondPage.evaluate(async(primaryId)=>{
+    const client=await window.getSupabaseClient();
+    const result=await client.from('decision_journal')
+     .select('id,user_id').eq('user_id',primaryId).limit(5);
+    return {rows:Array.isArray(result.data)?result.data:[],error:result.error?.code||null};
+   },signed.id);
+   assert.equal(journalRead.rows.length,0,
+    'Second Free account could read first account private Journal records');
+   note('checks','Second account private Journal query cannot expose first member rows.');
    await anotherContext.close();
   }else{
    note('blocked','Full cross-account isolation needs separate existing LAB_QA_SECOND_EMAIL/PASSWORD GitHub secrets. Anonymous denial is proven but not sufficient for two-member acceptance.');
