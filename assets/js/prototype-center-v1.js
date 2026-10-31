@@ -109,10 +109,12 @@ function release(root){
 function draw(){const root=$('pt-content');root.replaceChildren();root.dataset.device=state.device;
  if(state.id==='classroom')classroom(root);else if(state.id==='admin')admin(root);else if(state.id==='test')test(root);else if(state.id==='release')release(root);
  else if(state.id==='overview')root.append(grid([['23 workspaces','18 capability tabs and 5 shared workspaces.'],['Synthetic charts','Deterministic fictional examples using local ECharts.'],['Permission boundary','Owner or Administrator context required.'],['Release boundary','No production writes or member records.']]));
- else feature(root);void plot();
+ else feature(root);
+ if(window.CrownlightPrototypeTeaching)void window.CrownlightPrototypeTeaching.mount(root,state.id,state.mode);
+ void plot();
 }
 function select(id,focus=false){if(!workspace.has(id))return;state.id=id;const x=workspace.get(id);$('pt-title').textContent=x.name;$('pt-group').textContent=x.g;$('pt-desc').textContent=descriptions[id];nav($('pt-search').value);draw();if(focus)$('pt-title').focus();}
-function candles(){let v=100;const result=[];for(let i=0;i<24;i++){const open=v;v=Math.max(12,v+2.4*Math.sin(i*.71)+1.2*Math.cos(i*.39));result.push({t:'T'+String(i+1).padStart(2,'0'),open:+open.toFixed(2),close:+v.toFixed(2),high:+(Math.max(open,v)+1.6).toFixed(2),low:+(Math.min(open,v)-1.4).toFixed(2),volume:500+((i*97)%700)});}return state.id==='replay'?result.slice(0,state.revealed):result;}
+function candles(){const secured=window.CrownlightPrototypeTeaching?.getChartCandles?.();if(Array.isArray(secured)&&secured.length)return secured;let v=100;const result=[];for(let i=0;i<24;i++){const open=v;v=Math.max(12,v+2.4*Math.sin(i*.71)+1.2*Math.cos(i*.39));result.push({t:'T'+String(i+1).padStart(2,'0'),open:+open.toFixed(2),close:+v.toFixed(2),high:+(Math.max(open,v)+1.6).toFixed(2),low:+(Math.min(open,v)-1.4).toFixed(2),volume:500+((i*97)%700)});}return state.id==='replay'?result.slice(0,state.revealed):result;}
 async function plot(){
  try{
   const E=await window.CrownlightECharts.load();if($('pt-app').hidden)return;
@@ -134,7 +136,8 @@ function controls(){
  $('pt-save').addEventListener('click',save);
  $('pt-reset').addEventListener('click',()=>{state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
- window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;});
+ window.addEventListener('crownlight:prototype-case-change',()=>{void plot()});
+ window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();});
 }
 async function start(){try{
  const sb=await window.getSupabaseClient?.();if(!sb)throw Error('Authentication service unavailable.');
@@ -147,7 +150,7 @@ async function start(){try{
  state.user=session.user.id;restore();$('pt-role').textContent=roles.includes('OWNER')?'Owner':roles.includes('ADMIN')?'Administrator':'Technical Administrator';
  $('pt-gate').hidden=true;$('pt-app').hidden=false;controls();$('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
  if(state.saved)note('Restored local draft saved '+state.saved+'. Drafts are not synchronized across devices.');
- sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
+ sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
  }catch(e){$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent=e?.message||'Access denied.';}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else void start();
 })();
