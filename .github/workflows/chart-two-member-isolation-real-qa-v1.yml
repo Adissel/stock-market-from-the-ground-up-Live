@@ -1,0 +1,56 @@
+name: Chart Studio Two Real-Member Isolation QA (manual, no billing)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: chart-two-real-member-isolation
+  cancel-in-progress: false
+jobs:
+  authenticated-two-member-isolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate independent second-account test source
+        run: node --check tests/live-chart-two-member-isolation-readonly-v1.mjs
+      - name: Verify actual second Supabase member token and read-only workspace isolation
+        id: member_isolation
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-chart-two-member-isolation-readonly-v1.mjs
+      - name: Record precisely scoped genuine two-member result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TEST_RESULT: ${{ steps.member_isolation.outcome }}
+        run: |
+          {
+            echo "## Chart Studio — two real member isolation (2026-10-31)"
+            echo
+            echo "Exact source SHA: \`$GITHUB_SHA\`"
+            echo
+            echo "Run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "Real two-member sign-in and cross-account isolation: **$TEST_RESULT**"
+            echo
+            echo "Uses separate preexisting LAB_QA and LAB_QA_SECOND encrypted credential pairs; no fake member, entitlement or service impersonation."
+            echo
+            echo "GET only: chart tiers and private workspaces, both directions forged account selectors, direct database table read denial and guest denial. No account, wallet, billing, role, database or workspace writes."
+            echo
+            echo "Not included: interactive CAPTCHA form, UI rendering, successful CAS PUT, full Standard/Professional/Owner/revoked matrix. Failures or absent second-account credentials do not pass acceptance."
+          } >/tmp/chart-two-account-status.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-two-account-status.md
+      - name: Fail if genuine second-user isolation was not established
+        if: steps.member_isolation.outcome != 'success'
+        run: exit 1
