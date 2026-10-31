@@ -75,8 +75,17 @@ try{
  });
  assertCheck(denied.status()===401,'Unauthenticated endpoint remains inaccessible');
  // Logout after QA; no mutation of member entitlements, payment or records.
- await page.evaluate(async()=>{const client=await window.getSupabaseClient();await client.auth.signOut()});
- assertCheck(true,'QA session signed out');
+ // Sign-out may synchronously navigate away; start it without keeping the
+ // original page's evaluate promise alive across that navigation.
+ await page.evaluate(()=>{
+  void window.getSupabaseClient().then(client=>client.auth.signOut());
+ });
+ await page.goto(site+'/signin.html',{waitUntil:'domcontentloaded',timeout:30000});
+ const afterLogout=await page.evaluate(async()=>{
+  const client=await window.getSupabaseClient();
+  return (await client.auth.getSession()).data?.session||null;
+ });
+ assertCheck(afterLogout===null,'Real QA session terminated and signed-out state verified');
  console.log('PASS Talia REAL Free member authenticated read-only acceptance: '+passed.length+
   ' checks. Founder/member role acceptance remains a separate credential-dependent gate.');
  await context.close();
