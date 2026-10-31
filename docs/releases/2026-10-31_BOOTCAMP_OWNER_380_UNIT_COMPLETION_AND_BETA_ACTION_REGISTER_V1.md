@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.2  
+**Version:** 1.3  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -45,6 +45,16 @@ This denominator remains constant for the current ten-camp V1 advanced teaching 
 
 **v1.2 source-only update:** Risk60 Days 41–60 and Practicum90 Days 1–5 now have distinct original cases. Authoring is 162 of 247 (65.6%), 85 remain. The fixed, strictly accepted advanced-depth count is still 73 of 380 (19.2%). Neither source authoring nor CI creates independent editorial approval.
 
+## 2A. Current controlling implementation delta — v1.3
+
+**Preserve the fixed denominator and distinguishing evidence:** The previously accepted total is **73/380 = 19.2%**; three-new-camp baseline remains **73/133 = 54.9%**. The expanded 274-day source/build/mobile-browser CI [41236543559](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236543559) completed SUCCESS. The first two individually upgraded Risk60 days passed dedicated CI [41237262356](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237262356). Five Risk60 days now have fully original 12-question and advanced-case packages in source (**60 formative prompts, five worked cases**); full five-day CI and post-correction Cloudflare production verification are separate release gates. **Conditional source-complete total = 78/380 = 20.5%; do not promote this to final accepted status before the five-day checks pass.**
+
+**Protected assessment private postflight:** 10 of 54 inactive candidates now have complete *draft* fields: **40/216 rubrics (18.5%) and 120/648 corrective explanations (18.5%)**. Remaining **176 rubrics and 528 option explanations**. All **216/216** private correct-option references resolve. **0/54** are approved for official grading; independent approval is not manufactured by Owner delegation. Six actual two-account Beta journeys remain **0/6**. These improvements change neither the fixed 380-unit acceptance numerator nor public sale status.
+
+**Deployment defect and correction:** An unrelated twenty-day Risk60 independent-transfer module used a uniform 35-character minimum for short topic titles; all substantive content fields met their minimum. A checked, source-specific fix validates titles at 12 and substantive fields at 35 characters (commit `d02013d6e049217a45c608399600874fe0953d2b`). The earlier five-day CI [41237571436](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237571436) failed specifically on this pre-fix assertion. CI [41237868004](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237868004) is the corrected workflow revision and was queued at this review checkpoint. Source code and private content have not been conflated with verified production deployment.
+
+**Detailed non-sensitive case registry, original-day evidence, dependencies and rollback:** `docs/releases/2026-10-31_BOOTCAMP_RISK60_FIVE_DAYS_AND_TEN_CASES_EXECUTION_V1.md` (SMFGU-ACADEMY-OWNER-EXECUTION-009). This v1.3 status supersedes older v1.0–v1.2 point-in-time private rubric counts without changing their historical audit records.
+
 ## 3. Actual assessment remediation progress (inside the 54 outstanding units)
 
 The live Supabase inventory contains exactly **54** protected candidates with **216** question rubrics and **648** option-specific explanations required in total. The technical read-only triage reviewed all 54 records, confirmed 216/216 private key references structurally resolve, and flagged 53 generic definition prompts and 27 generic transfer prompts for possible non-exclusive correct answers.
@@ -81,4 +91,5 @@ For the next implementation wave prioritize **45 of the 54 protected draft cases
 
 **Revision history:** v1.0 — October 31, 2026 — established fixed 380-unit denominator, 73/380 and 73/133 signed-off progress, 54-case editorial risk triage, four privately remediated drafts, six real Beta paths and original seven-course depth work.  
 **v1.1 — October 31, 2026 — 20 additional Risk60 guided cases authored; source coverage 137/247; 110 remain; fixed accepted count 73/380 unchanged.**
+**v1.3 — October 31, 2026 — Five original Risk60 study days fully advanced-source-authored (pending final CI/deploy), ten private protected cases with complete draft rubric/feedback fields, 176/528 detailed remaining fields, old transfer-guard failure fixed, accepted baseline still 73/380 until exact acceptance.**
 **Footer:** Crown & Lantern Press — Owner-directed noncommercial Beta report; not an attestation of independent professional review, official market competency, historical-data licensing, or real subscriber acceptance.
