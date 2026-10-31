@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
   issues: write
+concurrency:
+  group: chart-two-distinct-real-${{ github.run_id }}
+  cancel-in-progress: false
 jobs:
   real-cross-account:
     runs-on: ubuntu-latest
