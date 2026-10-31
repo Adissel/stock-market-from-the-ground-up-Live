@@ -104,4 +104,23 @@ assert.match(sourceCatalogSql,/learning_rewards_enabled/);
 assert.match(sources[1],/gu_lumen_mixed_intents_v1/);
 assert.match(sources[1],/Mixed-checkout Lumens restored/);
 
+const gradingLink=readFileSync('supabase/migrations/20261031_lumen_v135_immutable_grading_bridge_v1.sql','utf8');
+for(const guard of [
+ /gu_lumen_assessment_case_release_v1/,
+ /status='approved'/,
+ /case_version=NEW\.case_version/,
+ /NEW\.critical_errors<>0/,
+ /NEW\.final_score<80/,
+ /v_threshold/,
+ /m\.human_reviewed_by=NEW\.user_id/,
+ /review_record/,
+ /auth\.role\(\) IS DISTINCT FROM 'service_role'/,
+ /'system_assessment'/,
+ /'immutable_server_scored_competency_attempt'/,
+ /DROP TRIGGER IF EXISTS gu_lumen_link_v135_scored_attempt_v1/,
+ /REVOKE ALL ON public\.gu_lumen_assessment_case_release_v1 FROM PUBLIC,anon,authenticated/
+])assert.match(gradingLink,guard,'Approved immutable v135 grading reward link safeguard missing');
+assert.doesNotMatch(gradingLink,/gu_lumen_learning_issue_v1\(/,
+ 'Scoring trigger must not directly mint credits or bypass queue acceptance');
+
 console.log('PASS: read-only wallet/activity/progress, single-currency draft rewards, gifts gated; anonymous/foreign-origin requests rejected.');
