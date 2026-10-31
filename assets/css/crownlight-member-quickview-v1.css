@@ -1,0 +1,16 @@
+.gu-nav-quick-progress{max-width:min(100%,370px);display:grid;gap:9px;padding:10px 0;border-bottom:1px solid currentColor}
+.gu-nav-quick-progress h3{font-size:.95rem;margin:0}
+.gu-quick-study-item{display:grid;gap:3px;grid-template-columns:3.3rem minmax(0,1fr);align-items:center;padding:4px 0}
+.gu-quick-study-item .gu-quick-study-percent{grid-column:1;grid-row:1;font-variant-numeric:tabular-nums}
+.gu-quick-study-item progress{grid-column:2;grid-row:1;width:100%;height:11px;accent-color:#288d88}
+.gu-quick-study-item a{grid-column:1/-1;font-size:.91rem;overflow-wrap:anywhere}
+.gu-quick-study-item small{grid-column:1/-1;font-size:.77rem;opacity:.82}
+[data-academy-study-progress] .gu-quick-study-item{max-width:680px;margin:12px 0}
+[data-academy-study-progress] .gu-quick-study-item progress{height:14px}
+.gu-wallet-activity-items{list-style:none;margin:0;padding:0;max-width:780px}
+.gu-wallet-activity-items li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;border-bottom:1px solid rgba(128,128,128,.25);padding:12px 0}
+.gu-wallet-activity-items li span{overflow-wrap:anywhere}
+.gu-wallet-activity-items li strong{font-variant-numeric:tabular-nums;text-align:end}
+.gu-wallet-activity-items li small{grid-column:1/-1;opacity:.78}
+.gu-nav-sparks-popup .gu-nav-quick-progress{max-height:370px;overflow-y:auto}
+@media(max-width:650px){.gu-nav-sparks-popup .gu-nav-quick-progress{max-height:260px}}
