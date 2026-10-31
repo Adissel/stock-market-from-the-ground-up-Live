@@ -65,6 +65,7 @@ try{
  assert.match(await menu.innerText(),/Closest study progress/);
  const details=menu.getByRole('link',{name:/How to use.*wallet details/i});
  assert.equal(await details.getAttribute('href'),'/dashboard.html?tab=wallet');
+ assert.equal(await page.locator('script[data-gu-member-gifting-script]').count(),1,'Dashboard must load versioned gifting controls directly');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-gifting]'),null,{timeout:22000});
  const gifting=page.locator('[data-member-lumen-gifting]');
  assert(await gifting.isVisible(),'Gifting widget must be visible after Dashboard DOM ready');
