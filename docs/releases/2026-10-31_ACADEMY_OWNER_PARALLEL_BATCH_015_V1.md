@@ -3,11 +3,21 @@
 **Document ID:** SMFGU-ACADEMY-OWNER-BATCH-015  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
 **Filename:** `2026-10-31_ACADEMY_OWNER_PARALLEL_BATCH_015_V1.md`  
-**Type:** Markdown (.md) · **Version:** 1.1 · **Date:** October 31, 2026  
+**Type:** Markdown (.md) · **Version:** 1.2 · **Date:** October 31, 2026  
 **Location:** `cybernexuspublishing/stock-market-from-the-ground-up/docs/releases/` on `main`  
 **Google Drive location:** Not created. **Google Drive document ID:** Not assigned.  
 **Status:** Source authoring and private guarded database revisions verified; CI/deployment acceptance for original D11–D15 pending.  
 **Purpose:** One controlling cross-workstream audit that separates verified instructional content and protected assessment authoring from authentic learner acceptance.
+
+## Owner parallel assessment extension — Version 1.2
+
+**Protected candidate draft completion: 24/54 = 44.44%.** In addition to the six previous drafts, two distinct order-book assessment variants `BC3_TAPE10_D05_V1` and `BC3_TAPE10_D05_V2` now have four substantively authored private rubrics and twelve option-specific explanations apiece, with distinct quantities and quote-depth assumptions.
+
+Live Supabase per-program audit: `filings7`: 36 rubrics and 108 explanations; `indicators10`: 28 rubrics and 84 explanations; `tape10`: 32 rubrics and 96 explanations. **Aggregate 96/216 rubric fields, 288/648 option explanations**, leaving **30 incomplete case drafts / 120 rubrics / 360 explanations**. Official case-level approvals are not earned by authoring or mathematical validation.
+
+**Accepted overall: 87/380 = 22.89%.** **Source-ready with original Risk60 Day 15: 88/380 = 23.16%**, conditional on exact-revision [41244413953](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41244413953) completing successfully and a confirmed production descendant. Genuine signed-in QA tester journeys remain unverified and must not be simulated into completion.
+
+This section supersedes earlier authoring counts; the rest of the document records prior point-in-time evidence.
 
 ## Owner acceptance update — Version 1.1
 
@@ -45,4 +55,5 @@ Next: close the focused five-day CI and production gate, perform individual fair
 **Dependencies:** Existing source-of-truth course IDs, `AGENTS.md`, Academy engine, Supabase private assessment and member RLS, GitHub CI, Cloudflare Pages.  
 **Revision history:** v1.0 — October 31, 2026 — parallel 5-day content, 6 protected draft cases, CI assertion fix, guarded evidence and fixed denominator.
 **v1.1 — October 31, 2026 — CI/deployment accepted original Risk60 D11–D14; accepted ledger 87/380; Day 15 remains conditional; 22 private candidates drafted.**  
+**v1.2 — October 31, 2026 — two more private Tape depth assessments drafted, 24/54 cases complete; fixed 87/380 accepted, 88/380 source-ready pending Day 15 CI.**
 **Footer:** Crown & Lantern Press — internal noncommercial Beta/Owner evidence; no claims of independent professional, regulatory or brokerage review.
