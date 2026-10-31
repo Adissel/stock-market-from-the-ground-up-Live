@@ -1,0 +1,54 @@
+name: Chart Studio Real Standard Professional Browser and Two-Tab Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-chart-studio-real-standard-professional-chromium-v2.mjs'
+      - 'supabase/functions/smfgu-chart-browser-oidc-qa-v2/index.ts'
+      - '.github/workflows/chart-studio-browser-oidc-qa-v2.yml'
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+concurrency:
+  group: smfgu-chart-browser-oidc-qa-v2
+  cancel-in-progress: false
+jobs:
+  signed-disposable-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check script syntax
+        run: node --check tests/live-chart-studio-real-standard-professional-chromium-v2.mjs
+      - name: Install free browser
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Signed real Standard / Professional browser, multi-tab conflict, and mandatory QA account cleanup
+        id: member_browser
+        continue-on-error: true
+        run: node tests/live-chart-studio-real-standard-professional-chromium-v2.mjs
+      - name: Record exact-SHA acceptance classification
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ steps.member_browser.outcome }}
+        run: |
+          {
+            echo "## Real Standard & Professional Chromium and CAS — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "Commit: $GITHUB_SHA"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Actual GoTrue Standard and scoped noncommercial Professional Chromium, two-tab CAS and mandatory disposable-account cleanup: **$RESULT**"
+            echo "Not a Founder purchase, human CAPTCHA challenge, licensed data feed or LIVE charge."
+          } > /tmp/chart-browser-qa.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-browser-qa.md
+      - name: Deny acceptance if real Chromium or cleanup failed
+        if: steps.member_browser.outcome != 'success'
+        run: exit 1
