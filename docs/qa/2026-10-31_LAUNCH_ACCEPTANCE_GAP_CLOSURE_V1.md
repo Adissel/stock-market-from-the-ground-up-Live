@@ -7,8 +7,8 @@
 **File type:** Markdown  
 **Google Drive location:** Not assigned; no Google Drive duplicate created.  
 **Google Drive document ID:** Not assigned.  
-**Version:** 1.0  
-**Status:** PARTIAL EXECUTION; noncharging provider/configuration checks completed, exact-commit browser and external provider/human/legal acceptance OPEN  
+**Version:** 1.1  
+**Status:** PARTIAL EXECUTION; production public-policy and anonymous tool gate CI PASS; Day Trading working-edition sale hold applied; paid/provider/human/legal acceptance and sitewide exact-commit browser OPEN  
 **Prepared / last verified:** 2026-10-31 (America/Chicago and UTC; evidence is timestamped by providers)  
 **Purpose:** Do not repeat accepted tests. Preserve controlling approvals and list precisely what still prevents unrestricted paid-product acceptance.  
 **Dependencies:** Existing Stripe TEST/LIVE, Supabase Primary `oxihglyfgzywsupnyicb`, Cloudflare production Pages, GitHub Actions, legal publication register, approved book edition inventory, named independent professional review.  
@@ -20,7 +20,7 @@
 
 **Execution during this batch:**
 - Added `tests/test_launch_public_security_policy_v1.mjs` and `.github/workflows/launch-public-security-policy-v1.yml` directly to `main`. Anonymous, production HTTPS GETs to each of `INTERACTIVE_LEARNING`, `JOURNAL_ANALYTICS`, `MARKET_SIMULATOR`, `MARKET_TUTOR` returned HTTP **401** (confirmed in [run 41216565797](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216565797)). No account, entitlement, money or Stripe event was altered.
-- This first standalone CI run failed because public policy `*.html` URLs consistently returned HTTP **308** canonical redirects rather than direct HTTP 200. Updated test to follow redirects only when the final origin remains the official production origin and require final HTML 200 with the appropriate route. The corrected run [41216669897](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216669897) was queued at evidence collection; do not mark it PASS before its terminal result.
+- This first standalone CI run failed because public policy `*.html` URLs consistently returned HTTP **308** canonical redirects rather than direct HTTP 200. Updated test to follow redirects only when the final origin remains the official production origin and require final HTML 200 with the appropriate route. The corrected run [41216669897](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216669897) subsequently **PASSED** at commit `c7a6daa20b51ece47d0609fdbaf8c4efd720029a`: four HTTP 401 tool gates and six legal pages, each resolving same-origin HTTP 308 to canonical HTTP 200.
 - Triggered GitHub rerun of prior cancelled `Sitewide Playwright` browser job [124582214146](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216565779) with existing GitHub Actions safeguards. It was QUEUED on last read. This rerun tests its fixed source SHA, **not necessarily the latest fast-moving main production commit**. Final exact-deployed-commit acceptance is still OPEN.
 - Other workflows repeatedly show `cancelled` due rapid main branch commits. A canceled job is neither an application PASS nor application FAIL. Do not claim a full-green release gate based on incomplete runs.
 
@@ -82,10 +82,36 @@
 
 **Next operation:** Receive terminal new public-smoke and isolated browser CI results; reconcile three book metadata/edition hashes; use supported Stripe TEST clock advancement if available without cost; perform authenticated paid-tool beta entitlement tests in approved noncommercial credentials; obtain human and licensed professional legal/tax review.
 
+## V1.1 verification and safety hold
+
+### Confirmed production smoke — PASS
+
+- [GitHub Actions run 41216669897](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216669897) completed `success`, job `124582520793`.
+- `INTERACTIVE_LEARNING`, `JOURNAL_ANALYTICS`, `MARKET_SIMULATOR` and `MARKET_TUTOR` returned HTTP **401** for unsigned anonymous requests.
+- `/terms.html`, `/refund-policy.html`, `/subscription-terms.html`, `/privacy.html`, `/digital-books-terms.html` and `/founding-600-terms.html` canonicalized to corresponding extensionless same-origin routes and returned HTML **200**. A legal page loading does not establish effective legal consent.
+- No payment, subscription, member impersonation, privacy data or real entitlement change was made.
+
+### Additional book-edition evidence — HOLD APPLIED
+
+- Source `catalog_products` identified `DAY_TRADING_BOOK_1` as **v3.11 working edition**, `publication_status=in_development`, while previously `website_checkout_enabled=true` and `sales_status=published`. No published/approved Day Trading edition appeared in `book_editions_v135` and no active LIVE book intents existed for the title.
+- **New source-controlled migration:** `supabase/migrations/20261031_day_trading_working_edition_sale_hold.sql` committed to `main` at `47cd335c71b6129f5e8be0782f2049727d401a68` and applied in one guarded Supabase transaction.
+- **Post-update database readback:** `website_checkout_enabled=false`, `gu_digital_books_v01430.sales_enabled=false`, `gu_storefront_items_v014174.sale_ready=false` and `status=coming_soon`. Product remains visible as Coming Soon. **`downloads_enabled=true` preserved** for any existing authorized reader; no existing access was revoked.
+- All other book products and all Founding Membership and tool catalog entries were unchanged. The separate owner-approved Foundations II–III version 1.14 publication evidence still requires a specific downloaded EPUB/edition hash crosswalk; `publication_candidate` statuses were NOT silently overridden.
+- Releasing the Day Trading hold requires verified final customer EPUB identity, editorial approval and fresh paid-delivery/rights acceptance. Do not flip a flag merely to make the storefront look complete.
+
+### Auth, payments, and legal updates
+
+- Four sale-ready Tool Prices directly checked against LIVE Stripe are active monthly USD 2999 cents each, matching DB `individual_price_cents=2999`; storefront separately labels `duration_label=Per month`. No price or billing interval changed.
+- Cloudflare production currently reports `ENFORCE_AUTH_TURNSTILE_V135=true`, plus site key and encrypted secret binding present. Supabase Auth provider CAPTCHA activation and end-user completed challenge **not independently observed**; keep human login/recovery acceptance open.
+- Supabase has **19 published policies**, including current Terms 2.7, Subscription 2.3, Refunds 2.2, Privacy 2.0.3, Founding 600 2.2, Lumens 2.6. Seven key policies were screened for recurring/cancellation/refund terminology; no attorney or tax suitability sign-off is inferred.
+- Existing GitHub Actions [sitewide rerun 41216565779](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216565779), attempt 2, was explicitly rerun as an isolated noncharging browser job. Status on latest inspection **in_progress** against historical SHA `bfab04e5abda2e328ec27846178b063d7da3cfab`; no final PASS can yet be recorded.
+- Stripe TEST account operations expose test-clock creation, not advance-time. No duplicate 14/30/60 initial paid subscriptions created because genuine later renewal requires the unavailable advance or an independently controlled provider workflow.
+
 ## Revision history
 
 | Version | Date | Status | Change |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Partial execution / evidence controlled | Consolidated five workstreams, linked preexisting acceptance, performed no-charge live access checks and price verification, started isolated browser rerun, retained explicit provider/human/legal blockers. |
+| 1.1 | 2026-10-31 | Read-only CI accepted; one unsafe sale held | Production tool/legal smoke PASS, guarded Day Trading working-edition sale hold, updated policy/Turnstile evidence; browser, provider-renewal and professional approvals remain open. |
 
-**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.0 • Controlled technical acceptance evidence • Not attorney or tax advice.
+**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.1 • Controlled technical acceptance evidence • Not attorney or tax advice.
