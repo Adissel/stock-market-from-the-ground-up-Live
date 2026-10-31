@@ -225,7 +225,7 @@ try{
  const chooser=await browser.newPage();let called=false;
  await chooser.route('**/api/lab-content*',route=>{called=true;return route.abort()});
  await chooser.goto(base+'/lab-player.html',{waitUntil:'domcontentloaded'});
- await chooser.getByRole('link',{name:'419-Lab Registry'}).waitFor({timeout:12000});
+ await chooser.locator('#lab-player-gate').getByRole('link',{name:'Open Lab Registry'}).waitFor({timeout:12000});
  assert.equal(called,false,'A missing ID must not call the private API');
  await chooser.close();
  console.log('PASS missing Lab ID links to the canonical Registry without an API request');
