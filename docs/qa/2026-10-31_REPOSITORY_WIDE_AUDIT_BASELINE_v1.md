@@ -5,7 +5,7 @@
 **Owner:** Crown & Lantern Press / Cyber Nexus  
 **Filename:** `docs/qa/2026-10-31_REPOSITORY_WIDE_AUDIT_BASELINE_v1.md`  
 **File type:** Markdown  
-**Version:** 1.1  
+**Version:** 1.2  
 **Review date:** October 31, 2026 (America/Chicago)  
 **Status:** **EXACT-COMMIT AUTOMATED SCAN PASSED; P0 FIXTURE DISPOSITION DOCUMENTED; SQL/DOM SECURITY REVIEW, BINARY AND HUMAN SEMANTIC ACCEPTANCE OPEN**  
 **Repository location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, main  
@@ -78,10 +78,10 @@ The initial `1bfc9f7` audit of 3,222 files and 319,705 lines is preserved as his
 
 ## 3. Verified live-data facts — independent of static scan
 
-- **Mixed TEST purchase/refund:** three real-wallet mixed TEST orders ultimately refunded; three private paid and three refunded event records; twelve Lumens debited and all twelve returned. Genuine provider-backed Professional purchase/refund accepted, but actual mixed cancellation/expiration, actual dispute and genuine fully-Lumen-funded browser acceptance remain outstanding. No LIVE payment toggles are authorized.
+- **Mixed TEST purchase/refund:** four real-wallet mixed TEST paid/refunded orders and one mixed unpaid/expired session; four private paid, four refunded and one genuine signed expired event; 14 Lumens debited and all 14 returned. Genuine provider-backed Professional purchase/refund accepted, and a genuine provider-confirmed mixed unpaid expiration/one-Lumen restoration, but member-facing cancellation-button invocation, actual dispute and genuine fully-Lumen-funded browser acceptance remain outstanding. No LIVE payment toggles are authorized.
 - **Chart Studio:** one live member workspace record; tier middleware and stored-layout paths implemented. Authenticated tier downgrade, cross-account workspace isolation and post-refund reopening are not yet formally accepted.
 - **Grading:** 419 canonical Lab assessment sets remain draft/unreviewed in Supabase. Twenty B01 review-frozen sets have reviewer timestamps but source-status text says individual review pending; reconcile the actual sign-off evidence. Never assign official mastery from formative progress.
-- **Training:** frozen original 671 positions = 419 canonical Labs + 247 original Boot Camp days + five Free Foundations days. Original seven programs now have **52 day-specific authored instructional modules, 195 remaining to author, zero independently accepted days** in controlled register v0.2; an additional 27 drafted days (`tape10`, `indicators10`, `filings7`) are independently gated, creating ten authored program definitions/274 potential Boot Camp days. No automatic expansion of the original freeze or customer release.
+- **Training:** frozen original 671 positions = 419 canonical Labs + 247 original Boot Camp days + five Free Foundations days. Original seven programs now have **97 day-specific authored instructional modules, 150 remaining to author, zero independently accepted days** in controlled register v0.2; an additional 27 drafted days (`tape10`, `indicators10`, `filings7`) are independently gated, creating ten authored program definitions/274 potential Boot Camp days. No automatic expansion of the original freeze or customer release.
 - **Historical data:** 419 published original fictional datasets, **two published QA-only** historical datasets, 87 historical drafts NOT LICENSED FOR MEMBER DISPLAY; 10,116 private replay bars. A published database status is not independent license clearance.
 - **Database security advisors:** 204 informational RLS-no-policy notices, 8 anon-executable and 91 authenticated-executable `SECURITY DEFINER` notices, one Auth leaked-password warning. Review context; counts do not prove direct exploit and blind grants/revokes are prohibited.
 
@@ -96,7 +96,7 @@ The initial `1bfc9f7` audit of 3,222 files and 319,705 lines is preserved as his
 | E | `tests/`, `.github/workflows/`, `scripts/`, dependency manifests | Test truthfulness, skipped/dummy browser tests, unpinned packages, exact-head build and CI results, audit artifacts | Exact-main CI run list, job logs and Cloudflare matching SHA |
 | F | Documentation, public policies, media and binary assets | Product claims, commerce/membership text, media copyright and accessibility, licensing, binary provenance | Document-control register and media/legal review dispositions |
 
-**Priority order:** Chart Studio authenticated QA; outstanding genuine Stripe TEST lifecycle scenarios; B01 five-day educational/grading quality reference; remaining original 195 authoring and 419 Lab editorial work; separately gated three new programs; historical/legal/security final release.
+**Priority order:** Chart Studio authenticated QA; outstanding Stripe TEST member-facing cancellation UI/dispute/zero-cash scenarios; B01 five-day educational/grading quality reference; remaining original 195 authoring and 419 Lab editorial work; separately gated three new programs; historical/legal/security final release.
 
 ## 5. Remaining acceptance and governance
 
@@ -115,7 +115,7 @@ A successful Cloudflare deployment is not a GitHub Actions or user-journey accep
 - No secrets, raw private answer keys, member identifiers or service-role credentials may be placed in public issues or audit exports.
 - No LIVE Stripe charge/refund, membership entitlement modification, Lumen credit adjustment, access-rule weakening, historical dataset release or unreviewed certificate issuance during source audit.
 - Do not close a P0 based on source scan alone. False-positive disposition, manual semantic scrutiny, user acceptance and release approval are separate gates.
-- **Version 1.1 — October 31, 2026:** Added successful exact-SHA rerun, file/line artifact, initial P0 fixture disposition, SQL privilege/DOM risk triage, and identified member-facing terminology conflicts. Final audit remains OPEN.
+- **Version 1.2 — October 31, 2026:** Updated the final live ledger to four refunds and one genuine provider-expired mixed session with all 14 Lumens restored; authoring ledger now records 97 authored/150 remaining Boot Camp days. Existing audit SHA and human-review limitations unchanged.\n- **Version 1.1 — October 31, 2026:** Added successful exact-SHA rerun, file/line artifact, initial P0 fixture disposition, SQL privilege/DOM risk triage, and identified member-facing terminology conflicts. Final audit remains OPEN.
 - **Version 1.0 — October 31, 2026:** First exact-commit Git-tracked inventory, every readable line static scan, explicit binary/semantic limits, workstream disposition and grounded production status. No production configuration or data changed.
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Controlled engineering audit record. Source inventory and automated line scan are not independent security certification or educational accreditation.
