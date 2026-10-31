@@ -4,7 +4,7 @@
 **Project:** The Stock Market: From the Ground Up  
 **File:** `docs/qa/2026-10-31_BOOTCAMP_247_INSTRUCTIONAL_STRENGTHENING_REGISTER.md`  
 **File type:** Markdown  
-**Version:** 0.6 · October 31, 2026  
+**Version:** 0.7 · October 31, 2026  
 **Status:** **ACTIVE DRAFT; NO INDIVIDUAL FORMAL ACCEPTANCES RECORDED**  
 **GitHub:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main` only  
 **Google Drive:** Not created; no designated Drive path has been supplied.  
@@ -21,8 +21,8 @@
 | `foundations30` | 30 | 30 distinct additional cases on existing canonical days | 0 | 0 |
 | `charts45` | 45 | 45 day-specific fictional cases across fifteen subjects and three phases | 0 | 0 |
 | `risk60` | 60 | 20 Learn, 20 guided Practice and 20 unfamiliar Transfer cases, all original and ungraded | 0 | 0 |
-| `practicum90` | 90 | 5 original Learn-phase worked/transfer studies on original Days 1–5; remaining 85 parent objectives only | 85 | 0 |
-| **TOTAL** | **247** | **162 authored study-day modules** | **85** | **0 independently evidenced** |
+| `practicum90` | 90 | 25 original Learn-phase worked/transfer studies on Days 1–25; remaining 65 parent objectives only | 65 | 0 |
+| **TOTAL** | **247** | **182 authored study-day modules** | **65** | **0 independently evidenced** |
 
 **Inventory note:** The three separately drafted 10-, 10- and 7-day courses add 27 further positions and are excluded from the original 247-day freeze. The five Free Foundations lessons are also excluded from this Boot Camp inventory.
 
@@ -60,7 +60,7 @@ Run `node scripts/bootcamp-247-editorial-preflight-v1.mjs` from repository root.
 
 The reproducible GitHub Actions workflows upload these artifacts as QA evidence. The artifact queue is not a replacement for independent human/editorial decisions; `docs/curriculum-acceptance-decisions-v014150.json` remains authoritative until properly supported new decisions are entered.
 
-**Next blocking authoring batches:** 85 remaining `practicum90` original days; Risk60's three source-authoring cycles are now complete. **Next verification across all 162 authored days:** claim-specific primary-source evidence, individual numerical and misconception review, truly independent protected assessments, rights-cleared historical replay where required, and authenticated member testing. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
+**Next blocking authoring batches:** 65 remaining `practicum90` original days; Risk60's three source-authoring cycles are now complete. **Next verification across all 182 authored days:** claim-specific primary-source evidence, individual numerical and misconception review, truly independent protected assessments, rights-cleared historical replay where required, and authenticated member testing. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
 
 ## 4A. Risk60 first-cycle original learning batch — 2026-10-31
 
@@ -94,6 +94,14 @@ The reproducible GitHub Actions workflows upload these artifacts as QA evidence.
 
 **New authoring denominator:** **162/247 (65.59%) individually authored source-day cases, with 85/247 (34.41%) still lacking an original case**—all 85 are Practicum90. This is **not** equivalent to the Owner's stronger 12-original-question + advanced-case curriculum acceptance requirement or independent editorial acceptance; those remain explicitly separate. **Formal independent educational acceptances remain 0/247.** Verify the newly triggered exact-commit CI and terminal Cloudflare deployment independently before claiming final technical acceptance.
 
+## 4D. Advanced Practicum twenty more original lessons — October 31, 2026
+
+**Original new content:** `functions/_lib/academy-practicum90-learning-batch02-v1.js` adds canonical D06–D25 to the five previously authored Practicum90 lessons. Each new day retains the original thirty-source identity, full worked fictional arithmetic/chronology or evidence case, specific misconception, learner transfer, teaching procedure and primary-source *category* reference with historical-data-rights disclaimer. One original 90-day product and one shared learning engine remain controlling; no duplicates.
+
+**Verification:** `tests/test_academy_practicum90_batch02_v1.mjs` verifies every D06–D25 exact day mapping, unique fictional examples and transfer tasks, key numeric case arithmetic, source-scope metadata, unchanged 90 canonical IDs, zero private keys/official grading and updated 247-day preflight manifest. The `Boot Camp 247 Editorial Preflight` workflow includes the module and test; exact run and deployment result remain separate from source implementation until observed.
+
+**New narrow source authoring denominator:** **182/247 = 73.68%** and **65/247 = 26.32% still lack individually authored original cases**; all remaining are Practicum90 Days 26–90. All first-phase Risk60 60 are individually authored, but this baseline does **not** imply the stronger 12-prompt advanced educational package, separate human editor approval, official grade or real-member browser accreditation. The independent 247-day formal signoff remains **0/247**.
+
 ## 5. Security, commerce, release and operational boundaries
 
 - `main` only; no feature branches or paid external services.
@@ -112,5 +120,6 @@ The reproducible GitHub Actions workflows upload these artifacts as QA evidence.
 | 0.4 | 2026-10-31 | Risk60 first 20 distinct fictional source-day lessons; 117 authored total; 130 remaining; CI and separate reviewer gates retained | Source integrated; CI exact-run and independent editorial acceptance separately pending |
 | 0.5 | 2026-10-31 | Risk60 guided Practice Days 21–40 original fictional authored case/transfer integration; 137 of 247 authored, 110 remaining; separate 20 existing case AI preflight | SOURCE AUTHORED; CI and independent human acceptance distinct |
 | 0.6 | 2026-10-31 | Risk60 Transfer D41–D60 and Practicum90 original D1–D5; 162/247 source-authored, 85 remaining, 0/247 independent approvals | SOURCE INTEGRATED; separate exact CI and human acceptance gates |
+| 0.7 | 2026-10-31 | Original Practicum90 D06–D25 twenty new fictional lessons and CI source validation; 182/247 source authored, 65 remaining | SOURCE INTEGRATED; exact CI and independent review distinct |
 
 **Footer:** Crown & Lantern Press · The Stock Market: From the Ground Up · Controlled QA record · Not a statement of legal compliance, trading profitability or formal educational accreditation.
