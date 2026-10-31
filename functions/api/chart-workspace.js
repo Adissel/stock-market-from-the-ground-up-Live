@@ -17,11 +17,11 @@ export function normalizeWorkspace(input,entitlement){
  // in the highest currently allowed Studio rather than forcing Advanced
  // members back to Standard. This is a read-only projection: the stored
  // Professional document is never downgraded or overwritten by GET.
- const known=Object.hasOwn(ranks,requested);
- const eligible=known&&ranks[requested]<=ranks[entitlement.tier]&&
+ const knownTier=Object.hasOwn(ranks,requested);
+ const eligible=knownTier&&ranks[requested]<=ranks[entitlement.tier]&&
   entitlement.allowed?.includes(requested);
  const selected=eligible?requested:
-  known&&ranks[requested]>ranks[entitlement.tier]&&
+  knownTier&&ranks[requested]>ranks[entitlement.tier]&&
   entitlement.allowed?.includes(entitlement.tier)?entitlement.tier:'STANDARD';
  const studies=[...new Set((Array.isArray(raw.studies)?raw.studies:[])
   .map(x=>String(x)).filter(x=>VALID_STUDIES.has(x)))].slice(0,8);
