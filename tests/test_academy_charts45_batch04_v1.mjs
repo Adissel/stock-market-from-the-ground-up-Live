@@ -23,8 +23,8 @@ for(const [i,d] of p.curriculum.entries()){
 assert.equal(parents.size,15);
 execFileSync(process.execPath,['scripts/bootcamp-247-editorial-preflight-v1.mjs'],{stdio:'inherit'});
 const m=JSON.parse(readFileSync('artifacts/bootcamp-247-batch-manifest.json','utf8'));
-assert.equal(m.authoredTotal,157);
-assert.equal(m.parentDaysNewlyAuthored,135);
-assert.equal(m.parentDaysStillNeedingLesson,90);
+assert.equal(m.authoredTotal,162);
+assert.equal(m.parentDaysNewlyAuthored,140);
+assert.equal(m.parentDaysStillNeedingLesson,85);
 assert.equal(m.approvedByThisScript,0);
-console.log('PASS Charts45 — 45 distinct fictional subject/phase lessons; no independent grading; 90 Practicum90 days still require original authoring.');
+console.log('PASS Charts45 — 45 distinct fictional subject/phase lessons; no independent grading; 85 Practicum90 days still require original authoring.');
