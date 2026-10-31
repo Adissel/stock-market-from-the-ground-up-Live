@@ -8,6 +8,7 @@ on:
       - '.github/workflows/repository-line-audit-v1.yml'
 permissions:
   contents: read
+  issues: write
 jobs:
   audit-all-tracked-files:
     name: Noncharging all-file inventory and static line inspection
@@ -34,6 +35,31 @@ jobs:
           path: artifacts/repository-line-audit/
           if-no-files-found: error
           retention-days: 30
+      - name: Publish sanitized audit inventory to tracking issue 158
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if test -f artifacts/repository-line-audit/summary.json; then
+            node - <<'NODE'
+          const fs=require('fs');
+          const s=JSON.parse(fs.readFileSync('artifacts/repository-line-audit/summary.json','utf8'));
+          const t=s.totals;
+          const message=[
+            '## Automated repository line-audit run — '+s.createdUtc,
+            '**Exact SHA:** `'+s.auditedCommit+'`',
+            '**Tracked files:** '+t.tracked+'; **UTF-8 text files:** '+t.textFiles+'; **text lines scanned:** '+t.textLines,
+            '**Binary/non-UTF8 inventory-only:** '+t.binaryFiles+'; **symlinks:** '+t.symlinks+'; **unreadable:** '+t.unreadable,
+            '**Node syntax checks:** '+t.syntaxChecked+'; **deferred oversized JS:** '+t.syntaxSkipped,
+            '**JSON parsed:** '+t.jsonParsed+'; **JSON parse failures:** '+t.jsonFailed,
+            '**Pattern findings:** '+s.findings+' (P0 '+s.bySeverity.P0+', P1 '+s.bySeverity.P1+', P2 '+s.bySeverity.P2+', P3 '+s.bySeverity.P3+')',
+            '**Full file manifest, finding lines and summary:** Actions artifact `repository-line-audit-v1` for this commit.',
+            'Scope: automated rules on every readable tracked text line; not independent semantic review, secrets review, binary inspection, browser authentication or release certification.'
+          ].join('\n\n');
+          fs.writeFileSync('artifacts/repository-line-audit/ISSUE_SUMMARY.md',message+'\n');
+          NODE
+            gh issue comment 158 --repo cybernexuspublishing/stock-market-from-the-ground-up --body-file artifacts/repository-line-audit/ISSUE_SUMMARY.md
+          fi
       - name: Fail on scan integrity errors
         if: steps.scan.outcome != 'success'
         run: exit 1
