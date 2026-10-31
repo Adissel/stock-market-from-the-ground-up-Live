@@ -10,6 +10,7 @@ on:
       - 'simulator.html'
       - 'tests/test_crownlight_workspace_sources_v7.mjs'
       - 'tests/test_crownlight_workspace_sources_v7_browser.mjs'
+      - 'tests/test_crownlight_advanced_downgrade_browser_v1.mjs'
       - '.github/workflows/crownlight-chart-studio-v7.yml'
 permissions:
   contents: read
@@ -57,6 +58,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Test independent symbol collections, save/restore, and sign-out scrub
         run: node tests/test_crownlight_workspace_sources_v7_browser.mjs
+      - name: Verify Advanced restores safely from expired Professional workspace (fixture-only Chromium)
+        run: node tests/test_crownlight_advanced_downgrade_browser_v1.mjs
       - name: Preserve original Professional synchronization and provider integration
         run: |
           node tests/test_crownlight_workspace_sync_v6_browser.mjs
