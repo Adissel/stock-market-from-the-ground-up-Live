@@ -15,7 +15,7 @@ const identities={
  founder30:{id:'33333333-3333-4333-8333-333333333333',kind:'member',status:'active',eligible:true},
  founder60:{id:'44444444-4444-4444-8444-444444444444',kind:'member',status:'active',eligible:true},
  hiddenLegacy:{id:'55555555-5555-4555-8555-555555555555',kind:'member',status:'active',eligible:true},
- freeNoGrant:{id:'66666666-6666-4666-8666-666666666666',kind:'member',status:'active',eligible:false},
+ freeBaselineNoPlan:{id:'66666666-6666-4666-8666-666666666666',kind:'member',status:'active',eligible:true,freeOnly:true},
  suspended:{id:'77777777-7777-4777-8777-777777777777',kind:'member',status:'suspended',eligible:false},
  showcase:{id:'88888888-8888-4888-8888-888888888888',kind:'member',status:'active',showcase:true,eligible:false},
  staffNotMember:{id:'99999999-9999-4999-8999-999999999999',kind:'staff',status:'active',eligible:false}
@@ -72,9 +72,9 @@ let checks=0;
 const verify=(condition,msg)=>{assert(condition,msg);checks++};
 try{
  let reference=null;
- for(const label of ['free','founder14','founder30','founder60','hiddenLegacy']){
+ for(const label of ['free','freeBaselineNoPlan','founder14','founder30','founder60','hiddenLegacy']){
   const result=await ask(label,{priorTurns:label==='founder14'});
-  verify(result.status===200,label+' should pass with verified MARKET_TUTOR grant');
+  verify(result.status===200,label+' should pass via explicit paid grant or owner-approved Free Tutor entitlement');
   verify(result.generation==='original-competency-guide',label+' must use source-only original Tutor');
   verify(result.aiReason==='source_only',label+' must not invoke paid model');
   verify(result.sources.length===2&&result.sources[1].referenceUrls[0]===target.sourceUrl,
@@ -92,7 +92,7 @@ try{
  verify(!JSON.stringify(assess).includes(target.worked),'Assess worked case excluded from entire API');
  verify(!JSON.stringify(assess).includes(target.transfer),'Assess transfer excluded from entire API');
  verify(assess.sources[1].referenceUrls[0]===target.sourceUrl,'Assess still supplies source');
- for(const label of ['freeNoGrant','suspended','showcase','staffNotMember']){
+ for(const label of ['suspended','showcase','staffNotMember']){
   const denied=await ask(label);
   verify(denied.status===403,'Denial required for '+label);
   verify(!('sources' in denied)&&!('labContext' in denied),'Denied '+label+' receives no course payload');
@@ -100,8 +100,8 @@ try{
  const guest=await ask('free',{token:false});
  verify(guest.status===401,'Guest must receive 401');
  verify(externalCalls===0,'No external AI or public third-party fetch');
- verify(grants.length===7,'Only authenticated active eligible-shaped accounts reach entitlement RPC');
- verify(rateMeter.length===6,'Only six permitted source-only requests pass the general rate meter');
+ verify(grants.length===8,'Only active member-shaped accounts reach exact Tutor entitlement RPC');
+ verify(rateMeter.length===7,'Only seven permitted source-only requests pass the general rate meter');
  verify(accessedUrls.every(url=>url.startsWith(env.SUPABASE_URL)),'No third-party, cross-account or model API calls');
- console.log('PASS Talia synthetic membership matrix: '+checks+' assertions; 5 entitled Free/Founding/hidden-tier paths, restricted/showcase/unentitled/guest denied, no grade/history/provider. NOT real-user authenticated production.');
+ console.log('PASS Talia synthetic membership matrix: '+checks+' assertions; 6 eligible Free/Founding/hidden-tier paths, restricted/showcase/nonmember/guest denied, no grade/history/provider. NOT real-user authenticated production.');
 }finally{globalThis.fetch=original}
