@@ -42,7 +42,7 @@ try{
   const response=await onRequest({request:req(),env:{SUPABASE_URL:'https://db.fixture.example',
    SUPABASE_PUBLISHABLE_KEY:'fake-public',SUPABASE_SECRET_KEY:'fake-private'}});
   const result=await response.json();
-  assert.equal(response.status,409,source+' must not have an Owner bypass');
+  assert.equal(response.status,409,source+' must not have an Owner bypass: '+JSON.stringify(result));
   assert.match(result.error,/independent editorial acceptance/i);
   assert.equal(state.patches,0,'Protected rubric must never be updated');
  }
