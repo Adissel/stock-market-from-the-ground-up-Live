@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-THREE-001
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy
-**Version:** 1.3
+**Version:** 1.4
 **Created:** October 31, 2026
 **Last reviewed:** October 31, 2026
 **File type:** Markdown (.md)
@@ -10,7 +10,7 @@
 **Repository location:** `docs/releases/` on GitHub `main`
 **Google Drive location:** Not created; repository is current source of record
 **Google Drive document ID:** Not assigned
-**Status:** INVITE-ONLY INSTRUCTIONAL BETA ACCESS ENABLED FOR TWO VERIFIED QA MEMBERS; protected grading, individual editorial approval and public release BLOCKED
+**Status:** INVITE-ONLY INSTRUCTIONAL BETA DEPLOYED; dedicated reference CI PASSED; three formative reference days authored; 24 instructional days, 54 assessment reviews and authenticated tester journeys OPEN
 **Purpose:** Reconcile every new Academy day, protected case, access boundary and release evidence without inventing successful assessments.
 **Dependencies:** `AGENTS.md`; `functions/_lib/academy-three-camps-v1.js`; `functions/_lib/bootcamp-academy-v014168.js`; `functions/api/bootcamp-academy.js`; `functions/api/academy-protected-assessment-v1.js`; `functions/api/assessment-v0135.js`; `public.competency_cases_v135`; `public.gu_academy_protected_cases_v1`; `ACADEMY_THREE_CAMPS_ENABLED`; existing single grading RPC.
 
@@ -135,6 +135,22 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 
 **Outstanding:** Truly authenticated tester browser sessions and per-user private progress verification; per-day editorial depth (at least twelve individually authored formative questions and 30–45 minutes planned active work); 54 individually reviewed protected assessment cases; supported accessibility review; and exact production deployment acceptance. Beta availability is **not** Beta acceptance or public-sale authorization.
 
+## Independent acceptance audit and authored reference-batch progress — October 31, 2026
+
+**CI evidence:** GitHub Actions dedicated Beta acceptance run `41229152950`, commit `858aa70f577f66c9ccf19ff72b5a33b7f93b7633`, finished **success**; source checks, static build, all six original Academy browser routes across four viewports, all three new courses and original 30-day course in Playwright fixtures. This is source-level and synthetic-browser evidence only.
+
+**Production evidence:** Cloudflare production deployment ID `9f59ebbe-0e5d-4951-bdfa-fec35108dc30` successfully deployed the identical `858aa70f` commit. General release remains disabled; invite-only Beta is enabled. Later unrelated rapid main commits require separate deployment checks before claiming the then-current HEAD is released.
+
+**Actual QA identity read:** `Adissel` and `James_Test` are verified active profiles eligible for the Beta allowlist. As of this audit, neither account has any enrollment in `tape10`, `indicators10`, or `filings7`: **0 of 6 account-course enrollments**, **0 recorded Beta day progress**, **0 private Beta reflections**. No genuine authenticated browser-session or cross-user isolation run was completed. Do not manufacture positive acceptance evidence.
+
+**Instructional standard:** The live ten-stage guidance currently provides five generic checkpoints per new day, not twelve individually authored formative items. A new source-owned benchmark, `functions/_lib/academy-three-camps-formative-reference-v1.js`, now contains **12 individually written, day-specific practice prompts and corrective explanations for Day 1 of each of three courses = 36**. It is integrated into the original Academy day model and available in an accessible on-page, optional, ungraded response/review interface. The same guided interface now displays a 35–45-minute planned active-learning itinerary; it does not require idle seat time or change member records. **The other 24 new days still need 288 individually authored formative questions and independently checked teaching depth.** The three reference days are *authored benchmarks, not signed-off editorial approvals*.
+
+**Protected assessment evidence:** 54 draft cases / 216 questions / 648 candidate options; **zero** routed approvals, **zero** reviewer-attributed cases, **zero** active cases, **zero** actual assessment submissions. Answer-letter choices are balanced in aggregate, but many answer labels recur across variants and courses. Most importantly, **all 216 questions lack scoped rubric/feedback fields and all 648 options lack option-specific corrective feedback** in live JSON records. The server's existing official grading function scores four dimensions and records evidence but returns only score/critical-error count, not per-option corrective feedback. Therefore **648 individually relevant option-feedback decisions and 54 case-level source, math, fairness, reviewer and retake checks are open**. No keys, secure answers, private cases, attempts or approved statuses were modified by this audit. Reproducible private read-only audit: `supabase/admin/20261031_three_bootcamps_editorial_depth_audit_read_only.sql`.
+
+**Gates before declaring full Beta acceptance / allowing official grading:** (1) 24 remaining days satisfy the 12-question floor and worked evidence requirements; (2) complete 54 case-level technical/source/content/independent review decisions and 648 option-specific explanations, with genuine distinct review attribution; (3) real sign-in and enrollment/save/reopen isolation checks for two authorized QA identities across all three courses, including keyboard/mobile; (4) separate protected-assessment grading acceptance only after review; (5) exact-deployed-commit CI, QA observations and regression release evidence. All gates remain BLOCKED or IN PROGRESS, not waived by owner authorization for instructional Beta.
+
+**Rollback:** Keep `ACADEMY_THREE_CAMPS_ENABLED=false`; set `ACADEMY_THREE_CAMPS_BETA_ENABLED=false` if a Beta authorization defect appears. Preserve all previous member progress and frozen curriculum baseline.
+
 ## Revision history
 
 | Version | Date | Author | Change |
@@ -143,5 +159,6 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 | 1.1 | October 31, 2026 | Project engineering | Incorporated later controlling 30–45-minute and 12-formative-question daily depth requirement; revised unfinished release classification. |
 | 1.2 | October 31, 2026 | Security and release audit | Verified live case completeness, answer references, option-reuse risk and RLS; recorded source security hardening and read-only audit without promoting review status. |
 | 1.3 | October 31, 2026 | Owner-directed Beta implementation | Introduced separate invitation-only Beta access for two verified existing QA identities while withholding grades, Lumens, certificates, public catalog visibility and general release. |
+| 1.4 | October 31, 2026 | Editorial and Beta QA execution | Recorded successful full-width CI, exact production Beta deployment, zero actual QA enrollments, 36 new hand-authored formative benchmark questions, and a 54-case/648-option read-only gap audit. |
 
 **Status classification:** All three courses: **INVITE-ONLY INSTRUCTIONAL BETA ACCESS** for explicitly authorized QA members only; instructional depth and official assessment remain in development. **Not Beta Accepted, not General Availability, not authorized for public sale or graded certification.**
