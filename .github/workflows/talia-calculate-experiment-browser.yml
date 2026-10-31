@@ -1,0 +1,42 @@
+name: Talia Calculate to Experiment Isolated Browser Regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/test_v33_talia_question_flow_browser.mjs'
+      - '.github/workflows/talia-calculate-experiment-browser.yml'
+      - 'assets/js/lab-engine-v32-universal.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-no-payment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build local static Pages fixture and validate no private assets
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/index.html
+          test ! -e public/data/interactive-labs.json
+          test ! -d public/supabase
+          test ! -d public/functions
+      - name: Install pinned Playwright Chromium from existing free CI setup
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve localhost fixture
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory public >/tmp/talia-browser.log 2>&1 &
+          for attempt in $(seq 1 20); do curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null && break; sleep 1; done
+          curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null
+      - name: Browser-confirm Calculate to Experiment at 390px and 1280px, no payment
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_v33_talia_question_flow_browser.mjs
