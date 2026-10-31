@@ -5,7 +5,7 @@ const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const evidence=read('data/tutor-lab-claim-evidence-v1.json'),registry=read('data/competency-lab-paths-v01499.json');
 assert.equal(evidence.kind,'public_tutor_lab_claim_bridges_v1');
 assert.equal(evidence.registeredLabsUnaffected,419);
-assert.equal(evidence.records.length,8);
+assert.equal(evidence.records.length,14);
 assert.equal(registry.totalCanonicalLabs,419);
 assert.equal(new Set(evidence.records.map(r=>r.id)).size,8);
 const sourceAllowed=/^https:\/\/(?:www\.)?(?:investor\.gov|sec\.gov|syndication\.finra\.org|chartschool\.stockcharts\.com)\//;
