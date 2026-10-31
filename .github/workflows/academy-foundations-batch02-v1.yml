@@ -10,6 +10,7 @@ on:
       - 'functions/_lib/bootcamp-academy-v014168.js'
       - 'assets/js/academy-guided-v1.js'
       - 'tests/test_academy_foundations_batch02_v1.mjs'
+      - 'tests/test_academy_foundations_day20_finra_scope_v1.mjs'
       - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
 permissions: {contents: read}
 jobs:
@@ -22,6 +23,7 @@ jobs:
         with: {node-version: '22'}
       - run: |
           node tests/test_academy_foundations_batch02_v1.mjs
+          node tests/test_academy_foundations_day20_finra_scope_v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_bootcamp_first22_editorial_preflight_v1.mjs
       - uses: actions/upload-artifact@v4
