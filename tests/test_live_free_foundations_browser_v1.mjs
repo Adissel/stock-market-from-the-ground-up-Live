@@ -224,6 +224,59 @@ if(!email||!password){
   }catch(e){
    note('failures','Real signed-in Free Watchlist workflow: '+String(e.message||e).slice(0,300));
   }
+  // Free fictional replay production lifecycle — QA account only, noncommercial.
+  // No historical dataset, paid entitlement, real order, Journal write or grade.
+  try{
+   const base=origin+'/api/learning-replay-v01492?scope=fictional&action=';
+   const preflight=await page.request.get(base+'resume',{headers:bearer,timeout:30000});
+   assert.equal(preflight.status(),200);
+   const resumed=await preflight.json();
+   assert.equal(resumed.ok,true);
+   if(resumed.session){
+    note('blocked','Existing private fictional replay must not be modified by automated QA; authorized new session acceptance skipped.');
+   }else{
+    const catalogRes=await page.request.get(base+'catalog',{headers:bearer,timeout:30000});
+    assert.equal(catalogRes.status(),200);
+    const catalog=await catalogRes.json();
+    assert.equal(catalog.ok,true);
+    assert.equal(catalog.classification,'FICTIONAL');
+    assert(catalog.datasets?.length>0&&catalog.datasets.every(x=>x.synthetic===true),
+     'Free catalog contains unverified historical or non-fictional source');
+    assert(!Object.hasOwn(catalog.datasets[0],'bars'),'Catalog exposed future candles');
+    const dataset=catalog.datasets.find(x=>/^GUSIM_/.test(x.code));
+    assert(dataset,'Missing approved original fictional GUSIM teaching dataset');
+    await page.goto(origin+'/verified-replay.html?scope=fictional',
+     {waitUntil:'domcontentloaded',timeout:30000});
+    await page.locator('#vr-dataset option[value="'+dataset.code+'"]').waitFor({state:'attached',timeout:30000});
+    assert.match(await page.locator('h1').innerText(),/Free Server-Controlled Fictional Replay/i);
+    await page.locator('#vr-dataset').selectOption(dataset.code);
+    await page.locator('#vr-start').click();
+    await page.locator('#vr-session').waitFor({state:'visible',timeout:30000});
+    assert.equal(await page.locator('#vr-bars tr').count(),1,'Start must reveal exactly one fictional bar');
+    note('checks','Genuine Free member started one original fictional server-controlled replay, first bar only.');
+    await page.locator('#vr-decision').selectOption('NO_TRADE');
+    await page.locator('#vr-reason').fill('FICTIONAL QA: No real issuer or executable liquidity has been verified. Withhold a trade and reveal only the next synthetic candle after a documented no-trade decision.');
+    await page.locator('#vr-lock').click();
+    await page.locator('#vr-advance').waitFor({state:'visible',timeout:12000});
+    await page.waitForFunction(()=>document.getElementById('vr-advance')?.disabled===false,{timeout:12000});
+    await page.locator('#vr-advance').click();
+    await page.waitForFunction(()=>document.querySelectorAll('#vr-bars tr').length===2,{timeout:22000});
+    note('checks','Locked NO TRADE decision permitted one forward-only reveal; no estimated execution asserted.');
+    assert.equal(await page.locator('#vr-execution').isVisible(),false,'Fictional NO TRADE must not imply a fill');
+    await page.locator('#vr-finish').click();
+    await page.locator('#vr-session').waitFor({state:'hidden',timeout:22000});
+    assert.equal(await page.locator('#vr-journal-link').isVisible(),false,
+     'Finishing fictional replay must not create a linked Journal or mastery result');
+    const after=await page.request.get(base+'resume',{headers:bearer,timeout:30000});
+    assert.equal(after.status(),200);
+    const afterBody=await after.json();
+    assert.equal(afterBody.ok,true);
+    assert.equal(afterBody.session,null,'Finished QA replay must not remain active');
+    note('checks','QA-only fictional replay finished and server has no active session; no Journal linked.');
+   }
+  }catch(e){
+   note('failures','Real signed-in Free fictional replay lifecycle: '+String(e.message||e).slice(0,350));
+  }
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
