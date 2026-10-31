@@ -12,6 +12,7 @@ permissions:
 jobs:
   real-cross-account:
     runs-on: ubuntu-latest
+    environment: production-qa-noncharging
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +33,8 @@ jobs:
           LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
           CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
           CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
+          CROWN_QA_FOUNDING_60_EMAIL: ${{ secrets.CROWN_QA_FOUNDING_60_EMAIL }}
+          CROWN_QA_FOUNDING_60_PASSWORD: ${{ secrets.CROWN_QA_FOUNDING_60_PASSWORD }}
         run: node tests/live-chart-studio-two-member-isolation-v1.mjs
       - name: Record genuine acceptance or credential blocker without secrets
         if: always()
@@ -44,7 +47,7 @@ jobs:
             echo "Commit: $GITHUB_SHA"
             echo "Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo "Production real-account result: **$QA_RESULT**"
-            echo "Genuine distinct GoTrue accounts; signed-in private workspace scoping; client-controlled user_id/member_id ignored; Standard vs Advanced server tier; zero workspace/payment writes."
+            echo "Genuine distinct GoTrue accounts; signed-in private workspace scoping; client-controlled user_id/member_id ignored; Standard/Advanced/Professional server tier checked according to independently verified credentials; zero workspace/payment writes."
             echo "A missing second credential remains BLOCKED, not a mocked or accepted real-member test."
           } > /tmp/chart-two-member-qa.md
           gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-two-member-qa.md
