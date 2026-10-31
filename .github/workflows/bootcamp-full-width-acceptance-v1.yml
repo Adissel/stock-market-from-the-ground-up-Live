@@ -28,6 +28,9 @@ on:
       - 'functions/_lib/academy-filings-advanced-practicums-v1.js'
       - 'functions/_lib/academy-risk60-depth-initial-v1.js'
       - 'functions/_lib/academy-risk60-depth-followup-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day10-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day08-09-v1.js'
+      - 'functions/_lib/academy-risk60-depth-day06-07-v1.js'
       - 'functions/_lib/academy-risk60-transfer-batch03-v1.js'
       - 'assets/js/academy-guided-v1.js'
       - 'supabase/admin/20261031_three_bootcamps_release_readiness_read_only.sql'
@@ -88,6 +91,9 @@ jobs:
           node --check functions/_lib/academy-filings-advanced-practicums-v1.js
           node --check functions/_lib/academy-risk60-depth-initial-v1.js
           node --check functions/_lib/academy-risk60-depth-followup-v1.js
+          node --check functions/_lib/academy-risk60-depth-day10-v1.js
+          node --check functions/_lib/academy-risk60-depth-day08-09-v1.js
+          node --check functions/_lib/academy-risk60-depth-day06-07-v1.js
           node --check functions/_lib/academy-risk60-transfer-batch03-v1.js
           node --check assets/js/academy-guided-v1.js
           node --check assets/js/bootcamp-academy-v014168.js
