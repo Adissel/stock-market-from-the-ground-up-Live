@@ -15,9 +15,8 @@ assert.match(src,/validEmail\(email\)/);
 assert.match(src,/fetch\('\/api\/account\?action=signup'/);
 assert.match(src,/captchaToken}/);
 assert.match(src,/bookClaimToken:claimToken/);
-assert.match(src,/prepareBookKeyClaim\(bookKey\)/,
- 'Keep existing optional Book Key flow unchanged until its independently tested protected replacement is deployed');
-assert.match(html,/signup\.js\?v=20261031-privacy1/,'Registration page needs cache-busted privacy-safe client');
+assert(!src.includes('prepareBookKeyClaim('),'No anonymous Book Key preclaim RPC in signup');
+assert.match(html,/signup\.js\?v=20261031-bookkey-sec2/,'Registration page needs cache-busted privacy-safe client');
 assert.match(endpoint,/rpc\/username_is_available/,'Trusted signup handler retains unique-username enforcement');
 assert.match(endpoint,/auth\/v1\/signup/,'Supabase Auth remains authoritative');
 execFileSync(process.execPath,['--check','assets/js/signup.js'],{stdio:'inherit'});
