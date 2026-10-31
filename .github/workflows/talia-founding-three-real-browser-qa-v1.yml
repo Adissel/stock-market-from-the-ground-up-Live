@@ -1,0 +1,56 @@
+name: Talia Genuine Founding 14-30-60 Browser Acceptance — Noncharging
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: talia-founding-3-real-qa-${{ github.ref }}-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  real-founding-tutor:
+    name: Three real member logins with current plan evidence, no payments or AI
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require three distinct encrypted QA identities (no fabricated login)
+        env:
+          FOUNDING_14_QA_EMAIL: ${{ secrets.FOUNDING_14_QA_EMAIL }}
+          FOUNDING_14_QA_PASSWORD: ${{ secrets.FOUNDING_14_QA_PASSWORD }}
+          FOUNDING_14_QA_USER_ID: ${{ secrets.FOUNDING_14_QA_USER_ID }}
+          FOUNDING_30_QA_EMAIL: ${{ secrets.FOUNDING_30_QA_EMAIL }}
+          FOUNDING_30_QA_PASSWORD: ${{ secrets.FOUNDING_30_QA_PASSWORD }}
+          FOUNDING_30_QA_USER_ID: ${{ secrets.FOUNDING_30_QA_USER_ID }}
+          FOUNDING_60_QA_EMAIL: ${{ secrets.FOUNDING_60_QA_EMAIL }}
+          FOUNDING_60_QA_PASSWORD: ${{ secrets.FOUNDING_60_QA_PASSWORD }}
+          FOUNDING_60_QA_USER_ID: ${{ secrets.FOUNDING_60_QA_USER_ID }}
+        run: |
+          node --check tests/test_talia_founding_real_browser_v1.mjs
+          for tier in FOUNDING_14 FOUNDING_30 FOUNDING_60; do
+            email="${tier}_QA_EMAIL"; pass="${tier}_QA_PASSWORD"; uid="${tier}_QA_USER_ID"
+            if test -z "${!email}" || test -z "${!pass}" || test -z "${!uid}"; then
+              echo "BLOCKED: missing independently provisioned ${tier} QA identity; no paid subscription or Founder seat is fabricated."
+              exit 2
+            fi
+          done
+      - name: Install free pinned Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test signed-in 14, 30, 60 Tutor with real RLS-owned plans
+        env:
+          FOUNDING_14_QA_EMAIL: ${{ secrets.FOUNDING_14_QA_EMAIL }}
+          FOUNDING_14_QA_PASSWORD: ${{ secrets.FOUNDING_14_QA_PASSWORD }}
+          FOUNDING_14_QA_USER_ID: ${{ secrets.FOUNDING_14_QA_USER_ID }}
+          FOUNDING_30_QA_EMAIL: ${{ secrets.FOUNDING_30_QA_EMAIL }}
+          FOUNDING_30_QA_PASSWORD: ${{ secrets.FOUNDING_30_QA_PASSWORD }}
+          FOUNDING_30_QA_USER_ID: ${{ secrets.FOUNDING_30_QA_USER_ID }}
+          FOUNDING_60_QA_EMAIL: ${{ secrets.FOUNDING_60_QA_EMAIL }}
+          FOUNDING_60_QA_PASSWORD: ${{ secrets.FOUNDING_60_QA_PASSWORD }}
+          FOUNDING_60_QA_USER_ID: ${{ secrets.FOUNDING_60_QA_USER_ID }}
+        run: node tests/test_talia_founding_real_browser_v1.mjs
