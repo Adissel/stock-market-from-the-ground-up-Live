@@ -246,3 +246,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const script=document.createElement('script');script.src='/assets/js/crownlight-learning-reward-badges-v1.js?v=1';
  script.defer=true;script.dataset.guRewardBadges='1';document.head.append(script);
 })();
+
+/* Gated member-to-member Crownlight Lumens controls; no transfer when disabled. */
+(()=>{if(location.pathname.split('/').pop()!=='dashboard.html'||document.querySelector('[data-gu-member-gifting-script]'))return;
+ const script=document.createElement('script');script.src='/assets/js/crownlight-member-gifting-v1.js?v=1';
+ script.defer=true;script.dataset.guMemberGiftingScript='1';document.head.append(script);
+})();
