@@ -23,13 +23,8 @@ function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
  * Availability is authoritative on the protected signup service, never a
  * public candidate-by-candidate browser RPC.
  */
-async function prepareBookKeyClaim(bookKey){
-  const sb=await window.getSupabaseClient();
-  if(!sb) throw new Error('Account service is unavailable.');
-  const {data,error}=await sb.rpc('prepare_book_key_claim',{candidate:bookKey});
-  if(error) throw error;
-  return data||null;
-}
+// Book Keys are redeemed only after email verification on authenticated Settings.
+// An anonymous code validity probe is not required for account creation.
 function showAccountCreated(email,bookTrial){
   const formCard=document.getElementById('create-account-card');
   const panel=document.getElementById('account-created-panel');
@@ -64,7 +59,6 @@ async function createAccount(e){
   const email=normalizeEmail(emailInput?.value);
   const password=document.getElementById('signup-password')?.value||'';
   const confirm=document.getElementById('signup-password-confirm')?.value||'';
-  const bookKey=document.getElementById('signup-book-key')?.value.trim()||'';
   const terms=document.getElementById('signup-terms')?.checked===true;
   const gender=document.getElementById('signup-gender')?.value||'rather_not_say';
   const firstName=document.getElementById('signup-first-name')?.value.trim()||'';
@@ -105,18 +99,8 @@ async function createAccount(e){
     setFieldStatus('username-availability','Username format is valid. Availability is verified when you submit.');
     setFieldStatus('email-availability','Email format is valid. Check your inbox to verify ownership after registration.');
 
-    let claimToken=null;
-    if(bookKey){
-      setFieldStatus('book-key-status','Checking Book Key…');
-      claimToken=await prepareBookKeyClaim(bookKey);
-      if(!claimToken){
-        setFieldStatus('book-key-status','Book Key not recognized, expired, or no longer available.','unavailable');
-        return signupMessage('Remove the Book Key or enter a valid Book Key to continue.', 'error');
-      }
-      setFieldStatus('book-key-status','Book Key accepted. Thirty days of Full Learning Access will activate after email verification. Each book uses a different key, and the same book can be redeemed only once per account.','available');
-    }else{
-      setFieldStatus('book-key-status','Book Key redemption is optional. For purchased-book Free access, submit your receipt in an account Support ticket after signing in.');
-    }
+    const claimToken=null; // No anonymous Book Key preparation on registration.
+    setFieldStatus('book-key-status','Redeem an existing Book Key in Settings after verifying your email and signing in. Registration itself does not use or validate the key.');
 
     // The server enforces date-of-birth eligibility before Supabase creates an account.
     // Forward the existing one-time CAPTCHA token to Supabase for native verification.
@@ -142,7 +126,7 @@ async function createAccount(e){
       }
     } catch { /* Disabled storage means no analytics. */ }
     form?.reset();
-    showAccountCreated(email,Boolean(claimToken));
+    showAccountCreated(email,false);
   }catch(err){
     signupMessage(err.message||'Unable to create account.', 'error');
   }finally{
