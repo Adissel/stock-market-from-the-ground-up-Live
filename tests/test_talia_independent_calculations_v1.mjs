@@ -11,7 +11,7 @@ const required={
  'DT-C04-L01':'https://syndication.finra.org/content/understanding-new-intraday-margin-requirements',
  'DT-C22-L02':'https://www.sec.gov/about/webmaster-frequently-asked-questions',
  'DT-C23-L01':'https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments',
- 'DT-C10-L03':'https://www.investor.gov/glossary-term-categories/stocks?page=3',
+ 'DT-C10-L03':'https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price',
  'TAPE-C04-L01':'https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order'
 };
 let assertions=0;
