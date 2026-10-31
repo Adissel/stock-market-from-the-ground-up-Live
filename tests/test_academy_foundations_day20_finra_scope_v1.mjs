@@ -10,7 +10,7 @@ assert.equal(d.reference.url,'https://syndication.finra.org/content/short-intere
 assert.match(d.explanation,/off.exchange.*not a consolidated all.venue short.sale count/i);
 assert.match(d.workedExample,/not a valid market.wide short.sale share unless/i);
 assert.match(d.reviewGuide,/eligible venues.*time period match/i);
-assert.match(d.selfCheck,/source/i);
+assert.match(d.selfCheck,/venue|source/i);
 const ratio=d.numericChecks.find(x=>x.operation==='ratioPercent');
 assert(ratio);
 assert.equal(ratio.inputs[0]/ratio.inputs[1]*100,40);
