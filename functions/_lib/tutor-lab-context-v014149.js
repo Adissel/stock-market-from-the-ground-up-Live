@@ -19,7 +19,9 @@ async function checkedPublicClaim(env,request,labId,title){
   for(const x of body.records){
    if(!/^(?:F[123]|DT|TAPE)-C\d{2}-L\d{2}$/.test(x?.id||'')||index.has(x.id)||
       !trusted.test(x.sourceUrl)||x.reviewStatus!=='source_specific_general_claim_checked_ungraded_not_independently_approved'||
-      ['title','claim','worked','counterexample','transfer','sourceId'].some(k=>typeof x[k]!=='string'||x[k].trim().length<5))
+      ['title','claim','worked','counterexample','transfer','sourceId'].some(k=>typeof x[k]!=='string'||x[k].trim().length<5)||
+      (['learningObjective','evidenceProcedure','freshTransfer'].some(k=>Object.hasOwn(x,k))&&
+       ['learningObjective','evidenceProcedure','freshTransfer'].some(k=>typeof x[k]!=='string'||x[k].trim().length<45)))
      return null;
    index.set(x.id,x);
   }
@@ -86,9 +88,11 @@ export function labGuidance(context,mode,reflection=''){
  const sourceTeaching=researched?'\n\nSource-checked supplementary teaching (ungraded; NOT whole-Lab approval): '+
   researched.claim+(assessmentBoundary?
    '\nAssessment boundary: consult the Lab and reason independently. Worked examples, counterexample scaffolds and transfer solutions are withheld at this stage.':
-   '\n\nOriginal fictional worked case: '+researched.worked+
+   (researched.learningObjective?'\n\nLearning objective: '+researched.learningObjective:'')+
+    (researched.evidenceProcedure?'\n\nHow to verify or calculate: '+researched.evidenceProcedure:'')+
+    '\n\nOriginal fictional worked case: '+researched.worked+
     '\n\nWhat could go wrong: '+researched.counterexample+
-    '\n\nIndependent transfer task: '+researched.transfer)+
+    '\n\nIndependent transfer task (ungraded): '+(researched.freshTransfer||researched.transfer))+
   '\n\nTechnical/primary reference: '+researched.sourceId+' — '+researched.sourceUrl+
   '\nThese specific general references do not certify historical price data, protected assessment answers, or unit editorial approval.':'';
  if(mode==='question')return a+sourceTeaching+'\n\nUngraded self-check: Which visible observation supports your interpretation and which would change your decision?';
