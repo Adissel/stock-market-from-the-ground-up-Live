@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.2
+**Version:** 1.3
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -88,7 +88,30 @@ The reference statements were checked against those accessible sources on Octobe
 
 A source-driven enumerator, `scripts/academy-first42-claim-inventory-v1.mjs` (commit `05cef4702636219eda9f99ba95b206d9fb7d6fe1`), and [Academy First-42 Sentence-Level Evidence Inventory workflow](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216936931) (workflow commit `0bc52a4dbca3d435cc66f633d5bfa36b81ac849f`) were added. The program iterates all 42 day bodies, collects explanation, fictional worked examples, common errors, correction guides, independent transfer instructions, source-reported caveats, and instructional procedure steps into an evidence review CSV.
 
-The generated CSV is explicitly a **review queue**: each item is marked `PENDING_SENTENCE_LEVEL_AUTHORITY_AND_ARITHMETIC_CHECK`. It does not assign research verification, editorial approval, score, grade, market-data authenticity or rights permission. Its workflow was **queued**, not successful, at this report update. The exact workflow run and artifact must be checked before claiming the full inventory was generated.
+The [sentence-level workflow](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216936931) **passed**, with the artifact `academy-first42-complete-sentence-claim-queue`. Its build log reported **940 sentence-level review items across 42 days**. The generated CSV is explicitly a **review queue**: each item is marked `PENDING_SENTENCE_LEVEL_AUTHORITY_AND_ARITHMETIC_CHECK`. It does not assign research verification, editorial approval, score, grade, market-data authenticity or rights permission. Its execution and artifact creation are now verified by the cited completed workflow, but **940/940 have not been independently source-verified**.
+
+## Preliminary substantive private B01 v97 assessment audit and severity findings
+
+**Scope of direct read-only review:** `public.lab_training_sets_v014`, 20 frozen version-97 B01 Lab sets. The reviewer inspected all 20 numerical prompts, their private expected values and explanatory feedback, and all 100 multiple-choice stems, answer options, and leading feedback rationale. No raw confidential answer options, private expected values, personal details or full rubrics are copied into the repository.
+
+| Check | Observation | Disposition |
+|---|---|---|
+| Case identity and completeness | 20 sets × 6 = 120 unique prompts: 100 three-option choice questions and 20 numeric questions | Structural PASS |
+| Numeric substantive check | Independently recomputed the 20 fictional arithmetic cases from the stated numbers, units and requested rounding | Preliminary arithmetic PASS, **not signed editorial approval** |
+| Numeric tolerance | All 20 numeric questions have explicit zero-tolerance values, including a case explicitly requesting a two-decimal result | Check intended input-format handling separately; exact equality must not be confused with universally suitable tolerances |
+| Choice key linkage | Every choice key matched exactly one authored option | Structural PASS |
+| Private raw choice order | All 100 stored correct choices were at index 1 (first position) | **Important validity risk**. Source order alone must never reveal a protected answer |
+| Choice content and feedback | Initial reading found direct and generally coherent first-principles responses but several near-paraphrases within the same six-question set | Requires separately attributable pedagogical review, stronger discrimination and independent new case evidence |
+| Review metadata | All 20 sets marked reviewed/frozen, one common review timestamp, while source-status still says individual review pending | **Unreconciled**; do not infer independent editorial acceptance |
+| Live member records | Read-only count found no B01 v97 training attempts in the queried snapshot | No live attempt modified; still requires authenticated member acceptance |
+
+**Server-grade access-control correction.** The shared training route previously checked `review_state=reviewed` and did not independently prevent a B01 `source_status` still explicitly pending individual acceptance from entering assessment mode. Commit `982b94a1a07f3fd469fd08c8627f47a481d82883` added fail-closed 409 denial for *assessment* start, resume and answer on the pending B01 source status. Authorized guided, practice and blind learning are preserved. Existing training RPC functions were independently verified as restricted to the service role, not directly executable by the anonymous/authenticated database roles. No private answer key or member record was modified.
+
+**Answer-order correction.** The prior client-visible question/attempt identifiers made the former deterministic source-order shuffle reconstructible by anyone who knew the source algorithm; this was especially material because all 100 private source keys were stored first. Commit `51333c6ebd08150a9f4305972a6ddc93fedf23ec` replaced that reversible algorithm with a server-only, domain-separated HMAC permutation. A dedicated option shuffle secret can be configured, while the existing server-only Supabase secret is the fallback. Client JSON does not disclose the key. An attempt's options remain stable across refreshes; frozen source material is not reordered. HMAC key rotation can change option order on a future resume and should be operationally coordinated, but grade answers are compared by stored text, not display position.
+
+**CI verification:** [B01 Pending Editorial Grade Guard — run 41217875021](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41217875021) **PASSED** on `0dca56b260522afae27c1062aeabcd95d8cde1df`. The workflow executed the private HMAC choice-order test, pending-review assessment start/resume/answer denial test, withdrawn-review test, and safe user-facing feedback/error test. It demonstrates synthetic-route behavior only, not a deployed customer member session.
+
+**Publication decision remains CLOSED.** The code mitigation protects the existing beta contract; it does not establish individual human editorial reviews or approve the 20 B01 sets for official grading. No other original Boot Camp day gained protected assessment access.
 
 ## Next bounded acceptance work
 
@@ -105,5 +128,6 @@ The generated CSV is explicitly a **review queue**: each item is marked `PENDING
 | 1.0 | 2026-10-31 | Selected source-claim crosswalk for 42 days; 22 non-secret protected assessment design requirements; read-only database metadata reconciliation | Research evidence only; no final editorial, independent case or production release approval |
 | 1.1 | 2026-10-31 | Recorded passing source CI and B01 120-question private structural audit; flagged outstanding reviewer independence and per-claim gaps | Targeted technical evidence verified; full release and editorial acceptance open |
 | 1.2 | 2026-10-31 | Added source-driven sentence-level audit generation protocol; CI run queued | Review queue code committed; generated artifact unverified |
+| 1.3 | 2026-10-31 | Verified 940-claim inventory, performed preliminary private B01 content/math checks, corrected pending-grade and reversible answer-order defects with passing CI | Technical safeguards verified; 42-day claims and independent editorial/assessment acceptance OPEN |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
