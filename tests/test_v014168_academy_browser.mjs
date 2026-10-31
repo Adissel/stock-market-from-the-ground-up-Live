@@ -105,6 +105,23 @@ try{
     'Study-day selector must scroll horizontally for longer courses: '+code);
    assert(size.docWidth<=width+4,'Boot Camp must not overflow viewport: '+code+' '+JSON.stringify(size));
 
+   if(code==='risk60'){
+    const firstLesson=academyByCode.risk60.curriculum[0].lesson;
+    assert.equal(firstLesson.formativeQuestions.length,12,'Risk60 original day one must have all twelve new formative prompts');
+    assert.equal(firstLesson.advancedPracticums.length,1,'Risk60 original day one must have advanced work');
+    assert.equal(await page.locator('#academy-guided-host .academy-guided-ten').count(),1,
+     'Risk60 deep package must mount the shared ten-stage workstation');
+    const firstItinerary=await page.locator('#academy-guided-host .academy-active-itinerary').textContent();
+    assert.match(firstItinerary,/45-minute suggested practice plan/,'Full-depth original Risk60 lessons must show the expanded self-paced itinerary');
+    await page.locator('#academy-days .gu-bc-day').nth(9).click();
+    await page.locator('#academy-guided-host .academy-guided-ten').waitFor({state:'visible'});
+    const lastLesson=academyByCode.risk60.curriculum[9].lesson;
+    assert.equal(lastLesson.formativeQuestions.length,12,'Risk60 day ten must supply twelve distinct formative questions');
+    assert.equal(lastLesson.advancedPracticums.length,1,'Risk60 day ten needs the confirmed-pivot advanced case');
+    assert.match(await page.locator('#academy-guided-host .academy-active-itinerary').textContent(),/45-minute suggested practice plan/);
+    await page.locator('#academy-days .gu-bc-day').first().click();
+    await page.locator('#academy-guided-host .academy-guided-ten').waitFor({state:'visible'});
+   }
    if(code==='truth5'){
     const section=page.locator('#academy-original-instruction');
     await section.waitFor({state:'visible'});
