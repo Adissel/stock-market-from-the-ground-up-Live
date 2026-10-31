@@ -1,0 +1,33 @@
+name: Crownlight Prototype Center V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'prototype.html'
+      - 'assets/css/prototype-center-v1.css'
+      - 'assets/js/prototype-center-v1.js'
+      - 'assets/js/prototype-admin-link-v1.js'
+      - 'assets/js/route-policy.js'
+      - 'admin.html'
+      - '_headers'
+      - 'tests/prototype-center-v1-contract.test.mjs'
+      - '.github/workflows/prototype-center-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prototype-source-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check assets/js/prototype-center-v1.js
+          node --check assets/js/prototype-admin-link-v1.js
+          node --check assets/js/route-policy.js
+      - name: Verify Prototype Center source contracts
+        run: node tests/prototype-center-v1-contract.test.mjs
