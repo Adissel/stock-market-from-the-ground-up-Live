@@ -155,7 +155,7 @@ if(!email||!password){
   assert.equal(prefBefore.ok,true);
   if(!prefBefore.preferences.saved){
    await page.goto(origin+'/dashboard',{waitUntil:'domcontentloaded',timeout:30000});
-   await page.locator('#free-start-choose').waitFor({state:'attached',timeout:25000});
+   await page.locator('#free-start-choose').waitFor({state:'attached',timeout:10000}).catch(()=>{throw Error('Free Dashboard teaching controls unavailable at '+new URL(page.url()).pathname);});
    await page.locator('details.free-learning-starting-point summary').click();
    await page.locator('#free-start-level').selectOption('1');
    await page.locator('#free-coach-focus').selectOption('WATCHLIST');
