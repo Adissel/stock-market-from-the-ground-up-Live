@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.6
+**Version:** 1.7
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -173,6 +173,47 @@ The server `functions/api/interactive-training.js` now rejects any official B01 
 
 **Risks / dependencies:** production Cloudflare exact-source parity, read-only authenticated browser QA and separately authorized member write/save QA, second-member RLS isolation, accessibility, private grade version acceptance, regulatory/source effective-date checks, historically licensed data, and no-hindsight replay authenticity. New monetary/entitlement purchases are expressly out of scope.
 
+## Subsequent beta gate execution — factual source correction, member browser and remaining approval workload
+
+**Status on October 31, 2026:** **CONTROLLED UNGRADED BETA TECHNICAL ACCEPTANCE SUPPORTED; FORMAL INDEPENDENT FACTUAL AND ASSESSMENT ACCEPTANCE NOT GRANTED.** No new editorial approval has been issued; the 252-row and 671-row registers retain their previous decisions.
+
+### Authenticated member-browser defect and acceptance boundary
+
+[GitHub Actions run 41231054861](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41231054861) **PASSED**, opening all **22 of 22** original Truth5 / Watchlist7 / Scanners10 study-day screens in actual Playwright Chromium with a genuine Supabase-issued noncommercial QA member token and the standard ten-stage instructor (5 + 7 + 10 screens). The browser tests performed no reflection save, course grade, purchase or member progress mutation.
+
+**Cause of initial runner failure:** The QA-only `tests/live-academy-first22-auth-browser-v1.mjs` bearer-token matcher had a doubled escaped character class, so the diagnostic proxy never handled the genuine cross-origin GoTrue identity fetch. This was repaired on `main`. The test also initially checked a deliberately collapsed objective paragraph for *visible* text before opening its `<details>` briefing; the accessibility-aware test now opens the briefing first. The test's approved network bridge sends the real browser-issued bearer to the real Supabase `/auth/v1/user` endpoint using Node networking and relays the authentic response; it **does not fake the identity, create an entitlement or replace server permission checks**.
+
+**Still not established:** Native browser-to-Supabase cross-origin fetch without the test bridge, visual CAPTCHA login, a second distinct member's actual RLS isolation, and mobile/screen reader flows. Do not claim the production sign-in stack itself was fixed: the root issue was demonstrably in the test harness / runner's cross-origin path, and a separate native browser acceptance test remains necessary.
+
+A second audited, short-lived noncommercial `James_Test` QA training pass was issued for this diagnostic and **explicitly revoked** after passing the 22-day test. Supabase postcheck: `entitled_after_revocation=false`, `active_qa_grants=0`.
+
+### Primary-source substantive curriculum correction: Foundations Day 20
+
+The 940-line review led to a specific material issue in `functions/_lib/academy-foundations-batch02-v1.js` for **Trading Foundations Day 20**. A vendor-reported short-sale volume numerator and an all-venue consolidated daily volume denominator are **not necessarily comparable**. FINRA's daily short-sale volume file covers reported off-exchange activity, whereas consolidated volume includes other execution venues; the crude quotient is arithmetically defined but must not be presented as an inferred full-market short-sale activity percentage or live short interest.
+
+**Action implemented:** Strengthened the original day explanation, worked numerical example, interpretative review guidance, independent challenge and relevant source link. The example retains `1.2m / 3m = 40%` as an *explicitly fictional raw ratio only*, pending original data coverage, venue/time alignment and meaningful comparable denominator. FINRA primary reference: https://syndication.finra.org/content/short-interest-what-it-what-it-not. This also avoids interpreting short-sale volume as outstanding short interest or proof of forced covering.
+
+[Foundations batch CI 41231181781](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41231181781) **PASSED**. The new specific Day20 test checks the FINRA source, venue-comparable denominator, fictional arithmetic and pending editorial status. The related canonical curriculum/learning engine tests still pass. This correction addresses **one substantive flagged source issue**, **not** 940 completed independent source attestations.
+
+### Private v98 actual-content preliminary review
+
+Private Supabase assessment data was inspected **read-only** after v98 Draft generation. The 20 numeric questions specify 19 integer/unit outcomes and one after-hours price percentage explicitly requested **to two decimals**; all have exact zero numeric tolerance and no partial-credit tolerance. Their sample arithmetic had already passed preliminary checking, but final tolerance policy, alternative numeric formatting, partial credit expectations and independently graded corrective feedback remain subject to separate-case review. These exact-answer thresholds should not be treated as a signed grading rubric solely because the values compute.
+
+All **100** choice questions in v98 have exactly two corresponding wrong-option correction entries (200 total), none maps to the correct option, and no private answer key was exported. The entries were generated as assisted **Drafts** with a repeated explanation pattern that quotes the chosen option and a domain correction. Thus distinct record text does not by itself demonstrate genuinely **misconception-specific, independent pedagogical** review. A separate reviewer must examine every option to ensure its feedback actually diagnoses *that* error; the v98 content remains `review_state=draft` with **no reviewer identity, review timestamp or sign-off**. Frozen v97 question content remains unchanged.
+
+### Remaining quantitative gates before official graded or generally accepted beta
+
+| Control | Verified completion | Remaining independently approved work |
+|---|---|---|
+| 940 individual factual and instructional review items | 940 indexed/materiality-triaged; independent topical source corrections begun | Independent, attributable source/meaning/disclosure decision for every applicable item; verify historical vendor provenance and individual fictional transfers |
+| Original 42 study-day packages | Authored and queued for acceptance | 42 independently attributable editorial acceptance/rejection decisions, recorded **only in the existing 252/671 registers** |
+| B01 private assessment questions | 20 private v98 Draft sets, 100 choice + 20 numeric questions | Inspect, correct and individually sign each question/answer/rubric, with reviewer evidence; **0 v98 sets approved** |
+| Wrong-choice diagnostic responses | 200 private Draft corrections with structural integrity | 200 option-level misconception checks and resulting revised responses/approval |
+| Authenticated member QA | 42-day production API PASS; 22-day real-token Chromium PASS via QA-only bridge | Native browser user fetch/login/CAPTCHA, multi-member privacy and approved final release verification |
+| Production / commerce | Cloudflare production deploy source included corrected day; no paid QA transactions | Verify final promoted commit and public beta UX; payment testing not required to prove ungraded curriculum quality |
+
+**Availability distinction:** Eligible beta testers can use the existing controlled **ungraded** B01 teaching access. The current 22-day classroom browser evidence supports this restricted scope, not release of official protected examinations, competence/mastery awards or certified curriculum. A calendar completion date is not reliable without actual independent reviewers and remaining source receipts.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -184,5 +225,6 @@ The server `functions/api/interactive-training.js` now rejects any official B01 
 | 1.4 | 2026-10-31 | Recorded missing structured per-option remediation in frozen B01 private set, with appropriate next-version instructions | Editorial correction-and-retry gate OPEN; private set unchanged |
 | 1.5 | 2026-10-31 | 940 individual triage records, separate numeric checks, 20 private v98 Draft remediation sets with 200 corrections, protected grader regression and real-member API acceptance | Technical evidence verified; 0 human editorial approvals, browser release OPEN |
 | 1.6 | 2026-10-31 | Recorded Cloudflare deploy, passed real member API, failed browser identity transport, controlled QA pass issuance/revocation and zero protected editorial acceptance | API gate PASSED; authentic browser and independent editorial gates BLOCKED |
+| 1.7 | 2026-10-31 | Verified genuine-token 22/22 browser classroom with QA transport boundary, corrected FINRA venue-scope Day20 lesson, checked private v98 option/numeric structure and revoked QA grant | Ungraded beta classroom technical PASS; 940 factual decisions, independent rubric approvals and native login OPEN |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
