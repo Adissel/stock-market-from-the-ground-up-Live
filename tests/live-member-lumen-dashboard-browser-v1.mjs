@@ -52,8 +52,21 @@ try{
  assert(diagnostic.isVisible,'Wallet populated but hidden; diagnose dashboard CSS/auth layout');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-history] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-member-lumen-history]').innerText(),/Recent Lumen wallet activity/);
+ const integrityProbe=await page.evaluate(async()=>{
+  const client=await window.getSupabaseClient();
+  const session=(await client.auth.getSession()).data?.session;
+  const r=await fetch('/api/member-lumen-integrity',{headers:{authorization:'Bearer '+session.access_token},cache:'no-store'});
+  const j=await r.json().catch(()=>({}));
+  return{status:r.status,ok:j.ok===true,balanced:j.balanced===true,
+   errorCode:typeof j.error==='string'?j.error:null,
+   widgetNode:!!document.querySelector('[data-member-lumen-integrity]'),
+   widgetStatus:document.querySelector('[data-member-lumen-integrity]')?.dataset.ledgerVerified||null};
+ });
+ console.log('Private wallet integrity diagnostic (no balances): '+JSON.stringify(integrityProbe));
+ assert.equal(integrityProbe.status,200,'Authoritative Lumen integrity API must be available in production');
+ assert.equal(integrityProbe.balanced,true,'Authenticated wallet has to reconcile on the server');
  await page.waitForFunction(()=>document.querySelector('[data-member-lumen-integrity]')?.dataset.ledgerVerified==='true',
-  null,{timeout:35000});
+  null,{timeout:15000});
  assert.match(await page.locator('[data-member-lumen-integrity]').innerText(),/balance reconciled/i);
  await page.waitForFunction(()=>!!document.querySelector('[data-academy-study-progress] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-academy-study-progress]').innerText(),/Labs and Boot Camps/);
