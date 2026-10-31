@@ -101,7 +101,7 @@ try{
  assert.deepEqual(second.body.workspace,first.body.workspace,
   'Workspace changed across authenticated token refresh');
  assert.equal(second.body.updatedAt,first.body.updatedAt,'Workspace revision changed without authorized save');
- console.log('PASS PRODUCTION signed-in Chart Studio Advanced tier, guest denial, staff exclusion, workspace projection and reload');
+ console.log('PASS PRODUCTION signed-in Chart Studio Advanced tier, guest denial, staff exclusion, Advanced downgrade projection and reload');
  console.log('PASS forged user selector ignored, foreign Origin 403, missing revision 409, refreshed user continuity');
  console.log('RESULT '+JSON.stringify({
   status:'AUTHENTICATED_CHART_API_READ_ONLY_PASS',
