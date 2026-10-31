@@ -4,6 +4,7 @@
  * Labs are original canonical IDs only; associations editorial, ungraded.
  */
 import {foundationsBatch02} from './academy-foundations-batch02-v1.js';
+import {foundationsBatch03} from './academy-foundations-batch03-v1.js';
 export const bootcampCurriculumV014144=Object.freeze({
  version:'0.14.0.144',kind:'original_groundup_30_day_study_path',
  status:'source_published_instruction_quality_owner_review_pending',
@@ -922,5 +923,5 @@ export const bootcampCurriculumV014144=Object.freeze({
   ],
   "toolPath": "skills.html"
  }
-].map(day=>Object.freeze({...day,...(foundationsBatch02[day.day-1]?{lesson:foundationsBatch02[day.day-1]}:{})})))
+].map(day=>Object.freeze({...day,...((foundationsBatch02[day.day-1]||foundationsBatch03[day.day-21])?{lesson:foundationsBatch02[day.day-1]||foundationsBatch03[day.day-21]}:{})})))
 });
