@@ -4,81 +4,229 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="robots" content="noindex,nofollow">
- <meta name="description" content="Review your purchase and the next step in your learning journey.">
- <title>Your Next Step | The Stock Market: From the Ground Up</title>
+ <meta name="description" content="Your personal purchase confirmation and next step in the learning platform.">
+ <meta name="theme-color" content="#071827">
+ <title>Thank You | The Stock Market: From the Ground Up</title>
  <link rel="stylesheet" href="/assets/css/styles.css">
+ <link rel="stylesheet" href="/assets/css/platform.css">
  <style>
-  .thankyou-shell{max-width:930px;margin:clamp(2rem,6vw,5.5rem) auto;padding:0 22px 5rem}
-  .thankyou-hero{position:relative;overflow:hidden;padding:clamp(2rem,5vw,3.6rem);border:1px solid #45617a;border-radius:23px 23px 0 0;background:radial-gradient(ellipse at 90% 10%,rgba(227,182,75,.14),transparent 42%),linear-gradient(135deg,#0f2c46,#081b2e)}
-  .thankyou-hero:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#e3b64b,transparent)}
-  .thankyou-mark{display:grid;place-items:center;width:58px;height:58px;border:1px solid #8b713c;border-radius:18px;background:rgba(227,182,75,.11);font-family:Georgia,serif;font-size:2.1rem;color:#f4d67d;margin-bottom:1.4rem}
-  .thankyou-eyebrow{margin:0 0 8px;color:#f4d67d;text-transform:uppercase;letter-spacing:.17em;font-size:.77rem;font-weight:800}
-  .thankyou-hero h1{font-family:Georgia,serif;color:#fff;line-height:1.17;font-size:clamp(2rem,5vw,3.4rem);margin:.25rem 0 1rem;max-width:740px}
-  .thankyou-hero p:last-child{font-size:1.08rem;color:#ccdae6;max-width:680px;margin:0;line-height:1.7}
-  .thankyou-main{border:1px solid #31506c;border-top:0;border-radius:0 0 23px 23px;background:#0a2136;padding:clamp(1.5rem,4vw,2.7rem)}
-  .thankyou-status{display:flex;gap:14px;align-items:flex-start}
-  .thankyou-indicator{flex:0 0 14px;width:14px;height:14px;margin-top:8px;border-radius:50%;background:#e3b64b;box-shadow:0 0 0 6px rgba(227,182,75,.12)}
-  .thankyou-main[data-state="confirmed"] .thankyou-indicator{background:#83c59b;box-shadow:0 0 0 6px rgba(131,197,155,.12)}
-  .thankyou-main[data-state="refunded"] .thankyou-indicator,.thankyou-main[data-state="expired"] .thankyou-indicator{background:#98a9b9;box-shadow:0 0 0 6px rgba(152,169,185,.12)}
-  .thankyou-status h2{font-size:clamp(1.2rem,3vw,1.65rem);margin:0 0 .3rem;font-family:Georgia,serif;color:#fff}
-  .thankyou-detail{color:#b9cad8;margin:.8rem 0 1.4rem;line-height:1.7}
-  .thankyou-summary{padding:1.25rem;margin-top:1.4rem;border:1px solid #33516b;border-radius:14px;background:rgba(5,17,30,.42)}
-  .thankyou-summary h3{font-size:1rem;letter-spacing:.04em;margin:0 0 1rem;color:#f4d67d}
-  .thankyou-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem 1.5rem;margin:0}
-  .thankyou-facts>div{border-bottom:1px solid #264760;padding-bottom:.8rem;min-width:0}
-  .thankyou-facts dt{font-size:.78rem;color:#a8bbcc;letter-spacing:.04em}
-  .thankyou-facts dd{margin:.24rem 0 0;overflow-wrap:anywhere;color:#f2f6fb;font-weight:650}
-  .thankyou-next{margin-top:1.7rem;padding-top:1.6rem;border-top:1px solid #264760}
-  .thankyou-next h2{font-size:1.35rem;color:#fff;font-family:Georgia,serif;margin:0 0 .5rem}
-  .thankyou-next p{color:#c3d2df;margin:0;line-height:1.7}
-  .thankyou-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.35rem}
-  .thankyou-actions a{padding:.85rem 1.1rem;border:1px solid #e3b64b;border-radius:10px;color:#101c2a;background:#e3b64b;text-decoration:none;font-weight:750}
-  .thankyou-actions a.secondary{color:#f4d67d;background:transparent}
-  .thankyou-disclaimer{font-size:.86rem;color:#aebdcc;margin:1.4rem 0 0}
-  .thankyou-footer{margin:2.3rem auto 0;text-align:center;color:#aebdcc;font-size:.9rem}
-  .thankyou-footer a{color:#f4d67d}
-  [hidden]{display:none!important}
-  @media(max-width:590px){.thankyou-shell{padding:0 14px}.thankyou-facts{grid-template-columns:1fr}.thankyou-actions a{flex:1 1 100%;text-align:center}}
+  /* Purchase confirmation V2: centered, scoped Crownlight member UI.
+   * No universal selectors that alter other marketplace pages. */
+  html,body.gu-confirm-body{min-width:320px;width:100%;min-height:100%}
+  body.gu-confirm-body{
+   margin:0;min-height:100vh;display:flex;flex-direction:column;
+   color:#ebf3fa;background:
+    radial-gradient(ellipse 58% 40% at 52% 12%,rgba(35,112,141,.16),transparent 77%),
+    radial-gradient(ellipse 35% 35% at 90% 95%,rgba(194,147,54,.09),transparent 83%),
+    linear-gradient(160deg,#061522 0%,#071b29 53%,#04111b 100%);
+   overflow-x:hidden;
+  }
+  body.gu-confirm-body .gu-confirm-header{
+   width:100%;flex:0 0 auto;border-bottom:1px solid #213c51;
+   background:rgba(5,18,29,.91);backdrop-filter:blur(12px);position:relative;z-index:2;
+  }
+  .gu-confirm-header-inner{
+   max-width:1240px;min-height:76px;margin:0 auto;padding:14px 28px;
+   display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .gu-confirm-brand{
+   display:block;flex:0 0 auto;max-width:350px;text-decoration:none;
+   font-family:Georgia,serif;font-size:clamp(.95rem,1.4vw,1.1rem);
+   font-weight:800;letter-spacing:.025em;line-height:1.3;color:#f5f8fb;
+  }
+  .gu-confirm-brand span{display:block;color:#e5bd65}
+  .gu-confirm-nav{display:flex;align-items:center;gap:clamp(10px,1.4vw,24px);flex-wrap:wrap}
+  .gu-confirm-nav a{font-size:.91rem;font-weight:600;color:#c7d8e5;text-decoration:none}
+  .gu-confirm-nav a:hover,.gu-confirm-nav a:focus-visible{color:#f3d287}
+  .gu-confirm-nav .gu-confirm-dashboard{
+   border:1px solid #77643f;border-radius:8px;padding:9px 13px;color:#f0d18d;
+  }
+  body.gu-confirm-body > main.gu-confirm-main{
+   /* Explicit full-width flex centering resists legacy main/container styles. */
+   display:flex!important;align-items:center!important;justify-content:center!important;
+   flex:1 0 auto!important;align-self:stretch!important;min-width:0!important;
+   box-sizing:border-box!important;width:100%!important;max-width:none!important;
+   margin:0 auto!important;padding:clamp(28px,5vw,78px) clamp(16px,4vw,40px)!important;
+   position:relative;isolation:isolate;
+  }
+  .gu-confirm-main::before{
+   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+   background-image:linear-gradient(rgba(113,158,179,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(113,158,179,.035) 1px,transparent 1px);
+   background-size:52px 52px;mask-image:linear-gradient(180deg,#000,transparent 86%);
+  }
+  body.gu-confirm-body .gu-confirm-card{
+   width:min(100%,980px)!important;max-width:980px!important;min-width:0;
+   margin:0 auto!important;border:1px solid #35566a;border-radius:20px;
+   background:linear-gradient(155deg,rgba(14,38,56,.97),rgba(7,25,40,.99));
+   box-shadow:0 24px 80px rgba(0,0,0,.35),0 0 0 1px rgba(156,203,224,.025);
+   overflow:hidden;
+  }
+  .gu-confirm-hero{position:relative;padding:clamp(28px,5.5vw,54px) clamp(22px,5.5vw,60px) 30px;text-align:center}
+  .gu-confirm-hero::before{
+   content:"";position:absolute;left:0;right:0;top:0;height:3px;
+   background:linear-gradient(90deg,transparent 6%,#70b8c7 38%,#e3bd71 65%,transparent 94%);
+  }
+  .gu-confirm-emblem{
+   width:48px;height:48px;border:1px solid #8b774d;border-radius:13px;
+   background:linear-gradient(135deg,#203749,#142b3b);margin:0 auto 20px;
+   display:flex;align-items:center;justify-content:center;color:#f0ca77;
+   font-weight:800;font-size:1.45rem;
+  }
+  .gu-confirm-eyebrow{
+   margin:0 0 12px;color:#e3bd71;letter-spacing:.16em;
+   text-transform:uppercase;font-size:.76rem;font-weight:800;
+  }
+  .gu-confirm-hero h1{
+   font-family:Georgia,serif;color:#fff;font-size:clamp(2rem,4vw,3.05rem);
+   font-weight:700;line-height:1.17;letter-spacing:-.018em;
+   max-width:790px;margin:0 auto 16px;overflow-wrap:break-word;
+  }
+  .gu-confirm-hero .gu-confirm-intro{
+   color:#bbcedc;font-size:clamp(.99rem,1.4vw,1.085rem);
+   line-height:1.75;max-width:690px;margin:0 auto;
+  }
+  .gu-confirm-content{
+   padding:0 clamp(22px,5.5vw,60px) clamp(28px,5vw,48px);
+  }
+  .gu-confirm-result{
+   display:flex;gap:16px;align-items:flex-start;
+   padding:22px 24px;border:1px solid #32546a;border-radius:14px;
+   background:linear-gradient(120deg,rgba(5,23,34,.85),rgba(14,45,55,.6));
+  }
+  .gu-confirm-result-indicator{
+   width:12px;height:12px;flex:0 0 12px;margin-top:7px;border-radius:50%;
+   background:#e1b75d;box-shadow:0 0 0 5px rgba(225,183,93,.12);
+  }
+  .gu-confirm-result[data-state="confirmed"] .gu-confirm-result-indicator{
+   background:#79d0ae;box-shadow:0 0 0 5px rgba(121,208,174,.13);
+  }
+  .gu-confirm-result[data-state="refunded"] .gu-confirm-result-indicator,
+  .gu-confirm-result[data-state="expired"] .gu-confirm-result-indicator,
+  .gu-confirm-result[data-state="revoked"] .gu-confirm-result-indicator{
+   background:#91aabb;box-shadow:0 0 0 5px rgba(145,170,187,.1);
+  }
+  .gu-confirm-result h2{
+   margin:0 0 7px;color:#f6f9fc;font-size:clamp(1.2rem,2vw,1.5rem);
+   font-weight:720;line-height:1.35;
+  }
+  .gu-confirm-detail{margin:0;color:#b9ccda;line-height:1.65;font-size:.97rem}
+  .gu-confirm-summary{
+   margin-top:24px;padding:24px;border:1px solid #294a60;border-radius:14px;
+   background:rgba(3,16,27,.46);
+  }
+  .gu-confirm-summary h3{
+   color:#e6c17b;letter-spacing:.11em;text-transform:uppercase;
+   font-weight:800;font-size:.77rem;margin:0 0 18px;
+  }
+  .gu-confirm-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 28px;margin:0}
+  .gu-confirm-facts>div{min-width:0;border-bottom:1px solid #29495d;padding-bottom:13px}
+  .gu-confirm-facts dt{color:#99b2c4;font-size:.78rem;letter-spacing:.03em;margin-bottom:6px}
+  .gu-confirm-facts dd{margin:0;font-size:.99rem;font-weight:650;color:#f3f7fb;overflow-wrap:anywhere}
+  .gu-confirm-next{border-top:1px solid #294a60;margin-top:27px;padding-top:26px}
+  .gu-confirm-next h2{font-family:Georgia,serif;color:#f2f7fa;font-size:1.55rem;margin:0 0 9px}
+  .gu-confirm-next p{color:#bbcfdb;font-size:.97rem;line-height:1.7;max-width:690px;margin:0}
+  .gu-confirm-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}
+  .gu-confirm-actions a{
+   display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+   padding:10px 17px;text-align:center;border:1px solid #ddb96e;border-radius:8px;
+   font-weight:750;font-size:.9rem;text-decoration:none;color:#102435;
+   background:#e6c276;transition:background .15s ease,border-color .15s ease;
+  }
+  .gu-confirm-actions a:hover{background:#f5d997;border-color:#f5d997}
+  .gu-confirm-actions a.secondary{
+   background:transparent;border-color:#456276;color:#dce9f3;
+  }
+  .gu-confirm-actions a.secondary:hover{background:#16364a;border-color:#7d9aab}
+  .gu-confirm-disclaimer{font-size:.8rem;color:#91adbc;margin:22px 0 0}
+  .gu-confirm-footer{
+   width:100%;text-align:center;border-top:1px solid #1c394b;
+   background:rgba(4,17,27,.64);padding:22px 18px 27px;color:#a3bac9;
+   font-size:.84rem;
+  }
+  .gu-confirm-footer p{margin:3px 0}
+  .gu-confirm-footer strong{color:#e5c581;letter-spacing:.025em}
+  .gu-confirm-footer a{color:#c4dce7}
+  body.gu-confirm-body :is(a,button):focus-visible{
+   outline:3px solid #eac777;outline-offset:3px;
+  }
+  body.gu-confirm-body [hidden]{display:none!important}
+  @media(max-width:800px){
+   .gu-confirm-header-inner{min-height:66px;padding:13px 18px}
+   .gu-confirm-nav{gap:12px}
+   .gu-confirm-nav a:not(.gu-confirm-dashboard){display:none}
+  }
+  @media(max-width:600px){
+   body.gu-confirm-body > main.gu-confirm-main{padding:20px 12px!important}
+   .gu-confirm-card{border-radius:14px}
+   .gu-confirm-hero{padding:28px 19px 24px}
+   .gu-confirm-content{padding:0 19px 27px}
+   .gu-confirm-result{padding:18px 15px}
+   .gu-confirm-summary{padding:18px 15px}
+   .gu-confirm-facts{grid-template-columns:1fr;gap:13px}
+   .gu-confirm-actions a{flex:1 1 100%}
+  }
+  @media(prefers-reduced-motion:reduce){.gu-confirm-actions a{transition:none}}
  </style>
 </head>
-<body>
- <main class="thankyou-shell">
-  <section class="thankyou-hero" aria-labelledby="purchase-greeting">
-   <div class="thankyou-mark" aria-hidden="true">✦</div>
-   <p class="thankyou-eyebrow" id="purchase-eyebrow">A place to learn, practice and grow</p>
-   <h1 id="purchase-greeting">We're glad you're here.</h1>
-   <p id="purchase-intro">Thank you for being part of The Stock Market: From the Ground Up. Your time, curiosity and commitment to learning matter to us.</p>
-  </section>
-  <section class="thankyou-main" id="purchase-panel" data-state="pending" aria-labelledby="purchase-status">
-   <div class="thankyou-status">
-    <span class="thankyou-indicator" aria-hidden="true"></span>
-    <div><h2 id="purchase-status" role="status" aria-live="polite">Checking your checkout status…</h2></div>
+<body class="gu-confirm-body">
+ <header class="gu-confirm-header">
+  <div class="gu-confirm-header-inner">
+   <a class="gu-confirm-brand" href="/index.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a>
+   <nav class="gu-confirm-nav" aria-label="Site navigation">
+    <a href="/index.html">Home</a>
+    <a href="/learn.html">Learn</a>
+    <a href="/labs.html">Labs</a>
+    <a href="/bootcamp-academy.html">Boot Camps</a>
+    <a href="/store.html">Store</a>
+    <a class="gu-confirm-dashboard" href="/dashboard.html">My Dashboard</a>
+   </nav>
+  </div>
+ </header>
+ <main class="gu-confirm-main" id="main-content">
+  <article class="gu-confirm-card" aria-labelledby="purchase-greeting">
+   <section class="gu-confirm-hero">
+    <div class="gu-confirm-emblem" aria-hidden="true">✓</div>
+    <p id="purchase-eyebrow" class="gu-confirm-eyebrow">Your learning journey continues</p>
+    <h1 id="purchase-greeting">We're glad you're here.</h1>
+    <p id="purchase-intro" class="gu-confirm-intro">Thank you for being part of The Stock Market: From the Ground Up. Your commitment to learning matters to us.</p>
+   </section>
+   <div class="gu-confirm-content">
+    <section class="gu-confirm-result" id="purchase-panel" data-state="pending" aria-labelledby="purchase-status">
+     <span class="gu-confirm-result-indicator" aria-hidden="true"></span>
+     <div>
+      <h2 id="purchase-status" role="status" aria-live="polite">Checking your purchase and access status…</h2>
+      <p id="purchase-detail" class="gu-confirm-detail">Access is confirmed only after your order is verified. A checkout return alone is not proof of payment.</p>
+     </div>
+    </section>
+    <section id="purchase-summary" class="gu-confirm-summary" aria-label="Verified order details" hidden>
+     <h3>Your order at a glance</h3>
+     <dl class="gu-confirm-facts">
+      <div><dt>Learning tool</dt><dd id="purchase-product">—</dd></div>
+      <div><dt>Access through</dt><dd id="purchase-access">—</dd></div>
+      <div><dt>Crownlight Lumens used</dt><dd id="purchase-lumens">—</dd></div>
+      <div><dt>TEST card payment</dt><dd id="purchase-card">—</dd></div>
+     </dl>
+    </section>
+    <section class="gu-confirm-next" aria-labelledby="purchase-next-title">
+     <h2 id="purchase-next-title">Your next step</h2>
+     <p id="purchase-next-copy">Your dashboard is the best place to review your current access and continue your learning.</p>
+     <nav class="gu-confirm-actions" aria-label="After-purchase options">
+      <a id="purchase-primary" href="/dashboard.html">Go to My Dashboard</a>
+      <a id="purchase-secondary" class="secondary" href="/my-purchases.html">Review My Purchases</a>
+      <a class="secondary" href="/store.html">Continue Browsing</a>
+     </nav>
+    </section>
+    <p id="purchase-test-note" class="gu-confirm-disclaimer" hidden>TEST transaction only. No LIVE payment is processed through this Chart Studio testing flow.</p>
    </div>
-   <p id="purchase-detail" class="thankyou-detail">We verify the actual order before confirming payment or activating access. Returning from checkout does not itself complete a purchase.</p>
-   <section id="purchase-summary" class="thankyou-summary" aria-label="Verified order details" hidden>
-    <h3>YOUR ORDER AT A GLANCE</h3>
-    <dl class="thankyou-facts">
-     <div><dt>Learning tool</dt><dd id="purchase-product">—</dd></div>
-     <div><dt>Access through</dt><dd id="purchase-access">—</dd></div>
-     <div><dt>Crownlight Lumens used</dt><dd id="purchase-lumens">—</dd></div>
-     <div><dt>TEST card payment</dt><dd id="purchase-card">—</dd></div>
-    </dl>
-   </section>
-   <section class="thankyou-next" aria-labelledby="purchase-next-title">
-    <h2 id="purchase-next-title">Your next step</h2>
-    <p id="purchase-next-copy">Your dashboard is the best place to review your current access and choose what to explore next. Your saved work stays connected to your account.</p>
-    <div class="thankyou-actions">
-     <a id="purchase-primary" href="/dashboard.html">Go to My Dashboard</a>
-     <a id="purchase-secondary" class="secondary" href="/my-purchases.html">Review My Purchases</a>
-     <a class="secondary" href="/store.html">Continue Browsing</a>
-    </div>
-   </section>
-   <p id="purchase-test-note" class="thankyou-disclaimer" hidden>TEST transaction only. No LIVE payment is processed through this Chart Studio testing flow.</p>
-  </section>
-  <footer class="thankyou-footer"><p><strong>Learn It. Understand It. Practice It. Trade It.</strong></p>
-  <p>The Stock Market: From the Ground Up — <a href="/index.html">Return to Home</a></p></footer>
+  </article>
  </main>
+ <footer class="gu-confirm-footer">
+  <p><strong>Learn It. Understand It. Practice It. Trade It.</strong></p>
+  <p>The Stock Market: From the Ground Up · <a href="/index.html">Home</a> · <a href="/my-purchases.html">My Purchases</a></p>
+ </footer>
  <script src="/config.js"></script>
  <script src="/assets/js/supabase-client.js" defer></script>
- <script defer src="/assets/js/chart-purchase-confirmation-v1.js?v=4"></script>
-</body></html>
+ <script src="/assets/js/chart-purchase-confirmation-v1.js?v=4" defer></script>
+</body>
+</html>
