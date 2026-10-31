@@ -4,7 +4,7 @@
 **Project:** The Stock Market: From the Ground Up  
 **File:** `docs/qa/2026-10-31_BOOTCAMP_247_INSTRUCTIONAL_STRENGTHENING_REGISTER.md`  
 **File type:** Markdown  
-**Version:** 0.3 · October 31, 2026  
+**Version:** 0.4 · October 31, 2026  
 **Status:** **ACTIVE DRAFT; NO INDIVIDUAL FORMAL ACCEPTANCES RECORDED**  
 **GitHub:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main` only  
 **Google Drive:** Not created; no designated Drive path has been supplied.  
@@ -20,9 +20,9 @@
 | `scanners10` | 10 | 10 distinct new scan/risk cases | 0 | 0 |
 | `foundations30` | 30 | 30 distinct additional cases on existing canonical days | 0 | 0 |
 | `charts45` | 45 | 45 day-specific fictional cases across fifteen subjects and three phases | 0 | 0 |
-| `risk60` | 60 | Parent-derived day objectives currently only | 60 | 0 |
+| `risk60` | 60 | 20 individually authored original fictional cases in the Learn cycle; 40 remaining in practice/transfer | 40 | 0 |
 | `practicum90` | 90 | Parent-derived day objectives currently only | 90 | 0 |
-| **TOTAL** | **247** | **97 authored study-day modules** | **150** | **0 independently evidenced** |
+| **TOTAL** | **247** | **117 authored study-day modules** | **130** | **0 independently evidenced** |
 
 **Inventory note:** The three separately drafted 10-, 10- and 7-day courses add 27 further positions and are excluded from the original 247-day freeze. The five Free Foundations lessons are also excluded from this Boot Camp inventory.
 
@@ -60,7 +60,19 @@ Run `node scripts/bootcamp-247-editorial-preflight-v1.mjs` from repository root.
 
 The reproducible GitHub Actions workflows upload these artifacts as QA evidence. The artifact queue is not a replacement for independent human/editorial decisions; `docs/curriculum-acceptance-decisions-v014150.json` remains authoritative until properly supported new decisions are entered.
 
-**Next blocking authoring batches:** 60 `risk60` days and 90 `practicum90` days. **Next verification across all 97 authored days:** claim-specific primary-source evidence, individual numerical and misconception review, truly independent protected assessments, rights-cleared historical replay where required, and authenticated member testing. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
+**Next blocking authoring batches:** 40 remaining `risk60` days and all 90 `practicum90` days. **Next verification across all 97 authored days:** claim-specific primary-source evidence, individual numerical and misconception review, truly independent protected assessments, rights-cleared historical replay where required, and authenticated member testing. Research exact primary sources, fresh cases and mathematical assertions per lesson before enabling a protected assessment.
+
+## 4A. Risk60 first-cycle original learning batch — 2026-10-31
+
+**Source:** `functions/_lib/academy-risk60-learning-batch01-v1.js`. Twenty individually authored original fictional learning cases were added for canonical `risk60` Days 1–20, mapped one-for-one to existing parent source days `1,2,3,4,6,8,10,11,12,13,16,17,19,20,23,24,25,26,27,30`. No canonical day ID, Boot Camp count, registry reference, progress storage or existing grade was replaced.
+
+**Instructional scope:** Each case now has a subject-specific explanation, a worked fictional case, a stepwise method, a precise common error, a different transfer scenario, a corrective review, evidence and time boundaries, and explicitly limited SEC Investor.gov reference scope. The existing guided ten-stage course interface renders the new material through the same shared authored-lesson contract. It remains **ungraded and not independent-editorially approved**.
+
+**Numerical examples:** The source includes reviewable fictional arithmetic for quoted spreads, return versus spread denominators, process sample rates, turnover, maximum theoretical share quantity, partial exit, static-book VWAP-like fill approximation, price decline, short-side loss and learning-audit rates. New `tests/test_academy_risk60_batch01_v1.mjs` independently recomputes these selected numerical cases, enforces twenty distinct explanations/transfers and checks ungraded flags and the 247-day source manifest. The existing Charts45 manifest expectations were updated without weakening their unchanged 45-case checks.
+
+**CI:** `.github/workflows/bootcamp-247-editorial-preflight-v1.yml` now includes this source and test; its result must be read from the exact GitHub Actions run and is **not assumed to have passed** merely because source was committed. The workflow is configured to post successful run/commit evidence to issue #157.
+
+**Updated authoring baseline:** Original 247 study days = **117 source-authored / 130 still missing a distinct original day case**. Of these 130, forty are Risk60 second/third-phase days and ninety are Practicum90. All 247 still require independent source, content, fresh protected assessment and authenticated member acceptance. No student mastery, certificate, reward, security entitlement, Lumen or payment changes were made by this batch.
 
 ## 5. Security, commerce, release and operational boundaries
 
@@ -77,5 +89,6 @@ The reproducible GitHub Actions workflows upload these artifacts as QA evidence.
 | 0.1 | 2026-10-31 | Created owner-directed 247-day acceptance program and frozen B01 boundary | Draft |
 | 0.2 | 2026-10-31 | 17 Watchlist/Scanner and 30 Foundations study-day teaching modules, new source/math tests and reproducible 247-day QA queue | Implementation draft; approval pending |
 | 0.3 | 2026-10-31 | Charts45 supplemental 45 individual day/phase scenarios; 97 authored total; 150 remaining authoring days | Draft; independent editorial approval pending |
+| 0.4 | 2026-10-31 | Risk60 first 20 distinct fictional source-day lessons; 117 authored total; 130 remaining; CI and separate reviewer gates retained | Source integrated; CI exact-run and independent editorial acceptance separately pending |
 
 **Footer:** Crown & Lantern Press · The Stock Market: From the Ground Up · Controlled QA record · Not a statement of legal compliance, trading profitability or formal educational accreditation.
