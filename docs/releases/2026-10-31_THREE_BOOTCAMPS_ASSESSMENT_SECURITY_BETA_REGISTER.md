@@ -78,7 +78,7 @@ The newer `docs/product/ACADEMY_LUMENS_WALLET_BILLING_V1_20261031.md`
 
 **Gap on this release:** The newly drafted 27 lessons and ten-stage formative controller do not yet meet the independently verified 30–45 minute / 12-question-per-day editorial depth standard. This is material unfinished implementation, not merely a browser test. All three programs remain IN DEVELOPMENT despite working routes and private protected-case infrastructure.
 
-## Release gates — do not bypass
+## Separate protected-grade and public-sale release gates (not a gate for owner-approved instructional Beta)
 
 1. **Editorial:** independently verify each of 54 case scenarios, correct answers, distractors, numeric units, primary references, evidence cutoff and separate retake originality; reject generic or memorized-answer cases. Record reviewer identity/date. Check complete 27 lesson bodies for zero-knowledge sequencing, correction and accessible experience.
 2. **Database:** ensure mapping `source_status='approved'` only AFTER case review, then record `competency_cases_v135.reviewed_by`, `reviewed_at` and `active=true` transactionally for the approved cases. Never assign reviewer evidence without an actual reviewer.
@@ -91,7 +91,7 @@ The newer `docs/product/ACADEMY_LUMENS_WALLET_BILLING_V1_20261031.md`
 
 The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.yml`. It executes source contract, simulated authenticated assessment lifecycle, seven-program regression, responsive Chromium and original 30-day program tests. Record final workflow IDs, conclusions and Cloudflare SHA in a later evidence-only revision. A test that is queued, cancelled or not run cannot be recorded as passed.
 
-## Unresolved acceptance blockers
+## Unresolved official-grade and general-release acceptance blockers (do not prevent invite-only ungraded study)
 
 - No independently signed-off private question/answer pair among 54 staged candidates.
 - The case authoring method includes program-related guidance but requires meaningful alternative distractors and non-memorization checks for every new day.
@@ -133,7 +133,7 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 
 **Rollback:** Set `ACADEMY_THREE_CAMPS_BETA_ENABLED=false` (or clear the restricted list), redeploy the latest verified source, and confirm anonymous plus invited requests are denied. Preserve stored member progress and existing first attempts. Do not force-push or delete tables.
 
-**Outstanding:** Truly authenticated tester browser sessions and per-user private progress verification; per-day editorial depth (at least twelve individually authored formative questions and 30–45 minutes planned active work); 54 individually reviewed protected assessment cases; supported accessibility review; and exact production deployment acceptance. Beta availability is **not** Beta acceptance or public-sale authorization.
+**Current status (supersedes this historical milestone snapshot):** The Owner has approved all 27 instructional days for invite-only Beta, with 324/324 individually authored formative questions. Real authenticated tester sessions, private progress checks and accessibility feedback are **Beta operational activities and exit criteria**, not a pre-Beta invitation blocker. The 54 independently scored cases remain a separate official-assessment release gate. Exact production deployment and CI evidence remain necessary for every claimed source release.
 
 ## Independent acceptance audit and authored reference-batch progress — October 31, 2026
 
@@ -165,4 +165,4 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 | 1.7 | October 31, 2026 | Authored all draft formative study-day sets | Reached 324 original study questions with individual corrective explanations mapped to all 27 new Academy days; maintained editorial and private assessment HOLD. CI and exact production verification separate. |
 | 1.8 | October 31, 2026 | Owner delegated editorial decision | Approved all 27 study days for invited instructional Beta; moved real-member acceptance into Beta operations; kept 54 protected graded cases and public commerce release separate. See SMFGU-ACADEMY-OWNER-BETA-005. |
 
-**Status classification:** All three courses: **INVITE-ONLY INSTRUCTIONAL BETA ACCESS** for explicitly authorized QA members only; instructional depth and official assessment remain in development. **Owner-approved instructional Beta, member acceptance in progress; not General Availability and not authorized for public sale or graded certification.**
+**Status classification:** All three courses: **OWNER-APPROVED INVITE-ONLY INSTRUCTIONAL BETA** for explicitly authorized QA members only; protected official assessments remain inactive. **Owner-approved instructional Beta, member acceptance in progress; not General Availability and not authorized for public sale or graded certification.**
