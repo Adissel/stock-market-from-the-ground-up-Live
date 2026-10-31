@@ -5,6 +5,7 @@ import {risk60DepthDay11V1} from './academy-risk60-depth-day11-v1.js';
 import {risk60DepthDay12V1} from './academy-risk60-depth-day12-v1.js';
 import {risk60DepthDay13V1} from './academy-risk60-depth-day13-v1.js';
 import {risk60DepthDay14V1} from './academy-risk60-depth-day14-v1.js';
+import {risk60DepthDay15V1} from './academy-risk60-depth-day15-v1.js';
 /* The original academy importer retains its stable named export. Extra
  * independently-authored day keys are added here without changing canonical
  * study IDs or the already shipped bootcamp-academy import contract.
@@ -12,6 +13,7 @@ import {risk60DepthDay14V1} from './academy-risk60-depth-day14-v1.js';
 export const risk60DepthDay10V1=Object.freeze({
  ...risk60DepthDay11V1,...risk60DepthDay12V1,
  ...risk60DepthDay13V1,...risk60DepthDay14V1,
+ ...risk60DepthDay15V1,
  "10": {
   "sourceDay": 13,
   "formativeQuestions": [
