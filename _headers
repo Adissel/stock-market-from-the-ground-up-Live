@@ -66,3 +66,7 @@
 
 /assets/js/lab-v33-instructor.js
   Cache-Control: no-cache, max-age=0, must-revalidate
+
+/prototype.html
+  Cache-Control: private, no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
