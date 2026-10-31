@@ -94,6 +94,25 @@ async function shuffledChoiceOptions(options,attemptId,questionId,env){
  }
  return arr;
 }
+// Post-submission remediation uses the private, version-pinned question record.
+// Draft feedback is deliberately hidden until a separately attributed review.
+function approvedSelectedWrongFeedback(q,selected){
+ if(q?.kind!=='choice'||!Array.isArray(q?.distractorFeedback))return null;
+ const item=q.distractorFeedback.find(x=>x?.option===selected &&
+   x?.reviewStatus==='INDEPENDENT_EDITORIAL_APPROVED');
+ const value=typeof item?.feedback==='string'?item.feedback.trim():'';
+ return value.length>=30&&value.length<=1600?value:null;
+}
+async function safePrivateFeedbackQuestions(env,labId,version){
+ // After a completed scoring RPC only. Never return an unsubmitted private case.
+ if(!Number.isSafeInteger(Number(version))||Number(version)<1)return null;
+ try{
+  const records=await db(env,'lab_training_sets_v014?select=questions&lab_id=eq.'+
+   esc(labId)+'&version=eq.'+Number(version)+'&review_state=eq.reviewed&limit=1');
+  return Array.isArray(records?.[0]?.questions)?records[0].questions:null;
+ }catch{return null} // A committed answer must not become an HTTP failure on remediation read.
+}
+
 // Completion feedback is teaching output, not an answer-key export. The
 // protected RPC persists the full audit report, but only these reviewed
 // member-facing fields cross the server boundary. Never spread RPC JSON into
@@ -209,14 +228,33 @@ export async function onRequest({request,env}){try{
     rec?.reason==='critical_error_unresolved'?'critical_error_requires_retest':'mapping_not_yet_approved';
   }catch{knowledgeSync='optional_mapping_unavailable'}
  }
- // A completed grade is immutable; filter every returned field, including
- // historical reports resumed from the database. Graded feedback is safe for
- // the member, whereas the answer key remains server-only.
- if(r.complete===true)return reply({ok:true,complete:true,report:memberReport(r.report),
-  knowledgeSync,masteryAwarded:false});
+ // The private post-answer option-specific correction is never projected
+ // before submission. Draft/unreviewed correction maps remain invisible.
+ // The grading RPC owns the outcome; this read can only improve feedback.
+ let approvedQuestions=null;
+ if(Number(attempts[0].set_version)>=98&&
+   (r.complete===true||r.correct===false)){
+  approvedQuestions=await safePrivateFeedbackQuestions(env,
+   attempts[0].lab_id,attempts[0].set_version);
+ }
+ if(r.complete===true){
+  const publicReport=memberReport(r.report);
+  if(publicReport&&Array.isArray(approvedQuestions)){
+   publicReport.details.forEach((detail,i)=>{
+    if(detail.correct===false){
+     const specific=approvedSelectedWrongFeedback(approvedQuestions[i],detail.submitted);
+     if(specific)detail.explanation=specific;
+    }
+   });
+  }
+  return reply({ok:true,complete:true,report:publicReport,
+   knowledgeSync,masteryAwarded:false});
+ }
+ const specific=r.correct===false?
+  approvedSelectedWrongFeedback(approvedQuestions?.[Number(b.expectedStep)],answer):null;
  return reply({ok:true,complete:false,
   correct:r.correct===true?true:r.correct===false?false:null,
-  explanation:typeof r.explanation==='string'?r.explanation.slice(0,1600):null,
+  explanation:specific||(typeof r.explanation==='string'?r.explanation.slice(0,1600):null),
   stepIndex:Number.isSafeInteger(r.stepIndex)?r.stepIndex:null,
   knowledgeSync,masteryAwarded:false})}
  return reply({ok:false,error:'Unknown training action.'},405);
