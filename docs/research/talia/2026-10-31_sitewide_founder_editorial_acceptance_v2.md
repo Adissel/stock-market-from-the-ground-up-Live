@@ -4,7 +4,7 @@
 |---|---|
 | Project | The Stock Market: From the Ground Up |
 | Document ID | SMFGU-TALIA-REVIEW-027 |
-| Version / date | 2.0 / October 31, 2026 |
+| Version / date | 2.1 / October 31, 2026 |
 | Status | PARTIALLY IMPLEMENTED — FULL ACCEPTANCE BLOCKED |
 | Filename / type | `2026-10-31_sitewide_founder_editorial_acceptance_v2.md` / Markdown |
 | Controlling location | GitHub `main` → `docs/research/talia/` |
@@ -69,3 +69,22 @@ All new code changes are to GitHub `main`, using current contents/blob SHA to av
 | v2.0 | 2026-10-31 | Archived handoff and editorial packet to GitHub, integrated four protected source lesson enrichments, added exact QA access gate, source/Assess tests and verified zero Founder grants |
 
 **Footer:** This document reports evidence and unresolved gates, not investment advice, customer subscription status, licensed trade outcomes or independent editorial approval.
+
+## Version 2.1 — independent citation-scope correction and additional verified sources
+
+The four original owner-provided editorial decisions remain `PENDING`. Technical source review found that single-source claims needed complementary references to support their *execution uncertainty* or *quote-definition* components. The exact original references remain unchanged, while all four records now have a bounded `supplementarySourceUrls` field:
+- `F2-C04-L01`: SEC Bid Price/Ask Price glossary is appropriate for quote and spread definitions; SEC [Executing an Order](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order) separately supports the limitation that an observed quote or last trade is not a guaranteed later execution.
+- `F2-C04-L02`: SEC [Liquidity](https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability) supports liquidity/price-impact limitations; SEC [Bid Price/Ask Price](https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price) separately supports the arithmetic definition of the spread.
+- `DT-C41-L01`: SEC Types of Orders describes market-order price uncertainty; SEC Executing an Order addresses displayed order quantity and execution latency.
+- `DT-C41-L02`: SEC Types of Orders supports the ceiling on a buy-limit execution price, while SEC Executing an Order describes why a displayed quote is not proof of eventual complete fill.
+
+The original fictional transfer cases remain non-historical and unsolved. The existing Tutor loader validates secondary URLs against its exact regulator-domain allowlist, rejects malformed/duplicate/unbounded references, and fails closed to original approved guidance when the optional research asset is invalid. The existing Tutor API and member interface display the primary and supplementary SEC links without allowing arbitrary URLs or introducing additional scraping/provider requests.
+
+**Related changes (main):** `105bb69a` (source set v1.4); `48024319` (source schema and rendering); `fa149d48` (structured citations); `169e342a` (citation test); `d49e563a` (poisoned source/link regression). Content remains outside Assess, with the SEC link permitted as educational reference.
+
+**Review caveat:** The SEC ask-price page did not reliably load through one direct fetch, but its official search result with exact definition and the official glossary listing were available. Do not assert a fresh direct-page fetch occurred. No historical exchange data, proprietary chart, execution record, independent editorial decision or consumer investment advice follows from the source correction.
+
+**Editorial disposition remains:** four technical evidence reviews ready for a separately named independent reviewer; no assessment publication, mastery, protected answer key or whole-Lab acceptance permitted until that reviewer signs each decision.
+
+### Revision history supplement
+- **v2.1 — October 31, 2026:** added four narrowly validated SEC secondary sources and corresponding API/Tutor source-link protections; full editorial and production acceptance remain pending.
