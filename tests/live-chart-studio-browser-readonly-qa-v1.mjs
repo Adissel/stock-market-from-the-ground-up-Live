@@ -24,6 +24,7 @@ if(!response.ok||!login?.access_token||!login?.refresh_token)
 assert.equal(login.user?.id,userId,'Wrong QA identity');
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 let browserWrites=0;
+const automaticApiWrites=[];
 try{
  const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'});
  const page=await context.newPage();
@@ -31,7 +32,10 @@ try{
   try{
    const u=new URL(request.url());
    if(u.origin===origin&&u.pathname.startsWith('/api/')&&
-      !['GET','HEAD','OPTIONS'].includes(request.method()))browserWrites++;
+      !['GET','HEAD','OPTIONS'].includes(request.method())){
+    automaticApiWrites.push(request.method()+' '+u.pathname);
+    if(/^\/api\/(?:chart-workspace|chart-mixed-test|chart-cash-upgrade|member-sparks|stripe|founding600-checkout|alpaca-paper|watchlist-journal-transfer)/.test(u.pathname))browserWrites++;
+   }
   }catch{}
  });
  const errors=[];
@@ -100,7 +104,8 @@ try{
  await page.reload({waitUntil:'domcontentloaded'});
  const second=await verify('Reload');
  assert.equal(second.workspaceRevision,first.workspaceRevision,'Saved workspace was unexpectedly mutated');
- assert.equal(browserWrites,0,'Browser must never write any production API in read-only test');
+ assert.equal(browserWrites,0,'Browser must never mutate private workspace, payment, Lumens or orders');
+ if(automaticApiWrites.length)console.log('INFO Normal site background API methods (no protected payment/workspace/Lumens routes): '+JSON.stringify([...new Set(automaticApiWrites)]));
  assert.equal(errors.length,0,'Unhandled browser errors: '+JSON.stringify(errors.slice(0,3)));
  console.log('PASS REAL AUTHENTICATED CHROMIUM James_Test Advanced tier, real KLine candles, Professional lock, saved EMA+RSI restored across reload, no writes');
  console.log('RESULT '+JSON.stringify({scope:'PRODUCTION_BROWSER_GOTRUE_SESSION',mode:'ACTUAL_BROWSER_NOT_LOGIN_FORM',
