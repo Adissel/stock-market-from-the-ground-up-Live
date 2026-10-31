@@ -72,7 +72,7 @@ async function requireMatchingBook(env,request,labId,verifiedActorId,forOfficial
 // Guided/Practice/Blind instruction remains eligible under existing access.
 function protectedB01AssessmentPending(set,mode){
  return mode==='assessment' &&
-  String(set?.source_status||'').startsWith('original_hypothetical_b01_individual_review_pending');
+  /^(?:original_hypothetical_b01_individual_review_pending|b01_private_feedback_draft_awaiting_independent_review)/.test(String(set?.source_status||''));
 }
 // Never make a source-ordered answer (including frozen B01 v97's originally
 // first-position choices) recoverable by reversing a public deterministic seed.
