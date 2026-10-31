@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 /* Canonical member learning quick-view and private Lumens activity. */
 (()=>{if(typeof document==='undefined'||document.querySelector('script[data-gu-member-quickview]'))return;
- const script=document.createElement('script');script.src='/assets/js/crownlight-member-quickview-v1.js?v=1';
+ const script=document.createElement('script');script.src='/assets/js/crownlight-member-quickview-v1.js?v=2';
  script.defer=true;script.dataset.guMemberQuickview='1';document.head.append(script);
 })();
 
