@@ -14,7 +14,7 @@ async function checkedPublicClaim(env,request,labId,title){
   if(!response.ok)return null;
   const body=await response.json();
   if(body?.kind!=='public_tutor_lab_claim_bridges_v1'||body.registeredLabsUnaffected!==419||
-    !Array.isArray(body.records)||body.records.length!==14)return null;
+    !Array.isArray(body.records)||body.records.length!==17)return null;
   const index=new Map();
   for(const x of body.records){
    if(!/^(?:F[123]|DT|TAPE)-C\d{2}-L\d{2}$/.test(x?.id||'')||index.has(x.id)||
