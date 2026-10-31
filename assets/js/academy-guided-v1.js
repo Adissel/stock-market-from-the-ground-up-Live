@@ -127,11 +127,13 @@ function mount(host,{day,programCode}={}){
  meter.max=10;meter.value=0;meter.setAttribute('aria-label','Completed formative steps');
  status.setAttribute('role','status');
  head.append(el('h3','Talia · Ten-stage Boot Camp journey'));
- if(isNewCourse){
+ {
   const itinerary=el('details');itinerary.className='academy-active-itinerary';
   itinerary.append(el('summary','Suggested active-learning itinerary — '+plannedMinutes.reduce((a,b)=>a+b,0)+' minutes (self-paced)'));
   const schedule=el('ol');STEPS.forEach((name,i)=>schedule.append(el('li',name+' — '+plannedMinutes[i]+' min of active work')));
-  itinerary.append(schedule,el('p','Suggested practice time, not required seat time or a completion timer. Each of the 27 new study days has twelve source-specific formative questions and advanced case practice. The schedule is an estimate, not a seat-time requirement or a guarantee of completion in 45 minutes.'));
+  itinerary.append(schedule,el('p',isNewCourse?
+   '45-minute suggested practice plan. This day has 12 individual formative questions and advanced reasoning cases; there is no time gate, and thorough work may take longer.':
+   '35-minute suggested ten-stage practice plan for this existing Boot Camp day. The deeper 12-question and advanced-case editorial standard is still being strengthened across the original courses. This is a plan, not verified seat time.'));
   head.append(itinerary);
  }
  head.append(meter,play,status,nav);
@@ -177,7 +179,7 @@ function mount(host,{day,programCode}={}){
   content.append(el('h4',(stage+1)+'. '+cfg.stages[stage][0]));
   for(const text of cfg.stages[stage][1])content.append(el('p',clean(text)));
   const check=cfg.checks[stage];selectedOptions=[];numericInputs=[];
-  if(isNewCourse)content.append(el('p','Suggested active work at this step: '+plannedMinutes[stage]+' minutes. Pause as needed; there is no time gate.'));
+  content.append(el('p','Suggested active work at this step: '+plannedMinutes[stage]+' minutes. Pause as needed; there is no time gate.'));
   if(isNewCourse&&advancedCases.length&&(stage===2||stage===8)){
    const advanced=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
    const transferOnly=stage===8&&advancedCases.length===1;
