@@ -8,6 +8,13 @@ for(const code of ['tape10','indicators10','filings7']){
  assert(program);
  assert.equal(new Set(program.curriculum.map(d=>d.title)).size,program.days);
  for(const day of program.curriculum)assert(day.lesson?.worked&&day.lesson?.source?.url&&day.lesson?.transfer);
+ const benchmark=program.curriculum[0].lesson.formativeQuestions;
+ assert.equal(benchmark.length,12,'Twelve individual formative questions for reference day '+code);
+ assert.equal(new Set(benchmark.map(q=>q.prompt)).size,12,'No repeated formative prompts for '+code);
+ for(const question of benchmark)assert(question.prompt.length>=30&&question.review.length>=30,
+  'Question and corrective explanation independently written for '+code);
+ for(const day of program.curriculum.slice(1))assert.equal(day.lesson.formativeQuestions,undefined,
+  'Other draft days must not be falsely certified to the twelve-question requirement');
 }
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
 const catalogRequest=new Request('https://example.test/api/bootcamp-academy?action=catalog');
@@ -22,5 +29,12 @@ assert(read('assets/js/bootcamp-academy-v014168.js').includes("GroundUpAcademyGu
 assert(read('bootcamp.html').includes('gu-bc-guided'));
 assert(read('bootcamp-academy.html').includes('academy-guided-v1.js'));
 assert(read('assets/css/academy-guided-v1.css').includes('grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)'));
+assert(js.includes('Suggested active-learning itinerary — '));
+assert(js.includes('REFERENCE_MINUTES'));
+assert(js.includes("isNewCourse"));
+assert(js.includes("Talia’s 12 authored formative practice questions"));
+assert(js.includes("Full 12-question individual authorship and editorial review remain pending"));
+assert(js.includes("response.value.trim().length<20"));
+assert(js.includes('No grade or Lumens'));
 assert.doesNotThrow(()=>new Script(js));
 console.log('PASS shared guided experience mapped to ten Boot Camps and 274 day records without protected grading');
