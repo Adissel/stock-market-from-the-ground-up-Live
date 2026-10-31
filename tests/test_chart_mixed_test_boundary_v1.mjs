@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {previewLumenDiscount,lumenDiscountPolicy} from '../functions/_lib/lumen-discount-policy-v1.js';
 const src=readFileSync(new URL('../functions/api/chart-mixed-test-quote.js',import.meta.url),'utf8');
+const cancellation=readFileSync(new URL('../functions/api/chart-mixed-test-checkout.js',import.meta.url),'utf8');
 const cash=readFileSync(new URL('../functions/api/chart-cash-upgrade.js',import.meta.url),'utf8');
 const webhook=readFileSync(new URL('../functions/_lib/chart-cash-test-webhook-v1.js',import.meta.url),'utf8');
 const test=(lumens,total=1999,balance=286)=>previewLumenDiscount({eligibleNetCents:total,availableLumens:balance,requestedLumens:lumens,productKind:'addon'});
@@ -23,4 +24,6 @@ assert.match(src,/const checkoutActive=qaEligible&&!pending;/,'TEST checkout mus
 assert.match(src,/settlementEnabled:checkoutActive,qaEligible/,'TEST readiness must match verified QA authorization');
 assert.match(cash,/CHART_STUDIO_TEST_CHECKOUT_ENABLED/);
 assert.match(webhook,/amount_subtotal!==offer\.amountCents/,'Undiscounted webhook must not accept discounted payment');
+assert.match(cancellation,/expired\.id!==session\.id\|\|expired\.livemode!==false\|\|expired\.status!=='expired'/,'Mixed Stripe TEST expiration must verify returned provider session identity and state');
+assert.match(cancellation,/expired\.payment_status==='paid'\|\|expired\.payment_intent/,'Mixed Stripe TEST expiration must reject any provider-reported payment');
 console.log('Chart mixed TEST: 15 quote and financial boundary assertions passed. Payment settlement NOT yet accepted.');
