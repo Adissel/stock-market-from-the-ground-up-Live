@@ -25,3 +25,22 @@ export function rewardPreview(row){
   ?{published:true,lumens:row.amount,scopeId:row.scopeId}
   :{published:false,lumens:null,reason:'Reward amount is not yet approved and active.'};
 }
+
+/* Proposed V1 face-value schedule: display as a planned, unavailable reward
+ * until independently reviewed assessment completion and ledger settlement are live.
+ * No grant follows from this constant or a client-computed progress percentage.
+ */
+export const PLANNED_LUMEN_AMOUNT_V1=Object.freeze({
+ canonicalLab:2,
+ bootcamp:Object.freeze({
+  truth5:15,watchlist7:25,scanners10:35,foundations30:70,
+  charts45:95,risk60:130,practicum90:180,
+  tape10:35,indicators10:35,filings7:25
+ })
+});
+export function plannedCompletionAmount(type,code){
+ if(type==='lab')return PLANNED_LUMEN_AMOUNT_V1.canonicalLab;
+ if(type==='bootcamp'&&Object.hasOwn(PLANNED_LUMEN_AMOUNT_V1.bootcamp,code))
+  return PLANNED_LUMEN_AMOUNT_V1.bootcamp[code];
+ return null;
+}
