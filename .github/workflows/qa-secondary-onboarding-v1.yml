@@ -1,0 +1,26 @@
+name: Provision Verified Secondary Noncommercial QA Member V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qa-secondary-onboarding-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  signup-secondary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate controlled Auth signup
+        run: node --check tests/setup-secondary-noncommercial-qa-v1.mjs
+      - name: Register email-verification-required QA member
+        env:
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/setup-secondary-noncommercial-qa-v1.mjs
