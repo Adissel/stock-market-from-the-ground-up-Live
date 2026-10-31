@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
+import {risk60LearnBatch01,risk60SourceDays} from '../functions/_lib/academy-risk60-learning-batch01-v1.js';
+const program=academyPrograms.find(x=>x.code==='risk60');
+assert(program&&program.curriculum.length===60);
+assert.equal(risk60LearnBatch01.length,20);
+assert.equal(risk60SourceDays.length,20);
+const seen=new Set(),transfers=new Set();
+for(const [i,source] of risk60LearnBatch01.entries()){
+ const d=program.curriculum[i];
+ assert.equal(d.day,i+1);
+ assert.equal(d.sourceDay,risk60SourceDays[i]);
+ assert.equal(d.programCode,'risk60');
+ assert.strictEqual(d.lesson,source,'The original guided engine must render the authored source');
+ assert.equal(d.sourceStatus,'original_risk60_day_specific_ungraded_editorial_review_pending');
+ assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
+ assert.equal(source.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
+ assert(source.explanation.length>=60&&source.workedExample.length>=80&&/FICTIONAL/.test(source.workedExample));
+ assert(source.sourceProcedure.length>=3&&source.reviewGuide.length>80);
+ assert(source.transfer.startsWith('FRESH UNGRADED TRANSFER'));
+ assert(source.reference.url.startsWith('https://www.investor.gov/'));
+ assert(!seen.has(source.workedExample),'Duplicate fictional worked case');seen.add(source.workedExample);
+ assert(!transfers.has(source.transfer),'Duplicate transfer case');transfers.add(source.transfer);
+}
+assert.equal(seen.size,20);assert.equal(transfers.size,20);
+// Independently recalculate specifically authored first-cycle fictional numeric examples.
+const near=(a,b)=>assert(Math.abs(a-b)<0.000001,`Expected ${b}; found ${a}`);
+near((8.4-8)/8*100,5);near((8.40-8.32)/((8.40+8.32)/2)*100,0.9569377990430622);
+near(9/12*100,75);near(1200000/300000,4);
+near((4.99-4.90)/((4.99+4.90)/2)*100,1.8200202224469179);
+near(80/(24-23.60),200);near((10.5-10)*50,25);
+near((80*4.10+120*4.15)/200,4.13);
+near((9.2-8.95)/9.2*100,2.717391304347826);
+near((12-10)*120,240);near((60-50)/50*100,20);
+near(16/20*100,80);near(12/20*100,60);
+execFileSync(process.execPath,['scripts/bootcamp-247-editorial-preflight-v1.mjs'],{stdio:'inherit'});
+const m=JSON.parse(readFileSync('artifacts/bootcamp-247-batch-manifest.json','utf8'));
+assert.equal(m.registeredDays,247);
+assert(m.authoredTotal>=117&&m.parentDaysStillNeedingLesson<=130);
+assert.equal(m.approvedByThisScript,0);
+assert.equal(m.protectedAssessmentsApprovedByThisScript,0);
+console.log('PASS Risk60 first 20 original fictional case and transfer lessons, canonical 247-day continuity and safe ungraded learning boundaries.');
