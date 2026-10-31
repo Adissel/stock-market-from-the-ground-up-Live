@@ -225,6 +225,26 @@ async function initDashboard() {
   const sb = await window.getSupabaseClient();
   const gate = document.getElementById('dashboard-gate');
   const content = document.getElementById('dashboard-content');
+  // The established legacy Dashboard overview owns the visible member shell.
+  // Its Free section is preserved as the SAME DOM node by dashboard-ui-legacy;
+  // initialize the original account-bound Free controllers without restoring
+  // a duplicate dashboard or weakening the entitlement checks.
+  if (!content) {
+    const freePanel=document.getElementById('free-learning-launchpad');
+    if(!freePanel||!sb)return;
+    const identity=await sb.auth.getUser();
+    const user=identity.data?.user;
+    if(identity.error||!user)return;
+    const ent=await sb.from('entitlements')
+      .select('status,starts_at,ends_at').eq('user_id',user.id);
+    if(ent.error||activeEntitlements(ent.data||[]).length)return;
+    freePanel.hidden=false;
+    void renderFreeLearningDashboard(sb);
+    void renderFreeFoundationEvidence(sb,user.id);
+    void setupFreeStartingPoint(sb,user.id);
+    void renderRecentFreeJournal(sb,user.id);
+    return;
+  }
   if (!sb) {
     gate.innerHTML = '<div class="notice">Account backend is not connected.</div>';
     return;
