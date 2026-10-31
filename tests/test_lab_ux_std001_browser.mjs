@@ -52,8 +52,20 @@ try{
   await target.getByRole('button',{name:'Show body-to-range calculation'}).click();
   assert.equal(await target.getByRole('button',{name:'Body percentage',exact:true}).getAttribute('aria-pressed'),'true','Talia’s explanation must highlight matching chart evidence');
   await target.getByRole('button',{name:'Next learning stage'}).click();
-  assert.equal(await target.locator('.gu-l33-graphic').count(),1,'Experiment retains the same OHLC graphic as Learn');
-   assert.equal(await target.locator('.gu-v36-candle-experiment input[type="range"]').count(),1,'Experiment must include its interactive closing-price slider');
+  // The ten-step presentation deliberately inserts an ungraded Calculate gate
+  // between Learn and Experiment; never bypass this method checkpoint.
+  assert.equal(await target.locator('.gu-v44-calculate-gate').count(),1,
+   'Candle Learn must advance to the Calculate method checkpoint first');
+  assert.equal(await target.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'Experiment cannot be reached before completing Calculate');
+  await target.locator('.gu-v44-calc-check input[value="0"]').check();
+  await target.getByRole('button',{name:'Check my answer'}).click();
+  assert.match(await target.innerText(),/Correct\. You have completed the ungraded method check/);
+  await target.getByRole('button',{name:/Continue to Experiment/}).click();
+  assert.equal(await target.locator('.gu-l33-graphic').count(),1,
+   'Experiment retains the same illustrated OHLC chart after Calculate');
+  assert.equal(await target.locator('.gu-v36-candle-experiment input[type="range"]').count(),1,
+   'Experiment must include the responsive interactive closing-price slider');
   await target.getByRole('button',{name:'Next learning stage'}).click();
   assert.equal(await target.locator('.gu-l33-graphic').count(),1,'Predict must show relevant candle');
   await target.locator('textarea').first().fill('I will not assume the next completed candle is higher; I need fresh evidence.');
@@ -80,7 +92,15 @@ try{
   assert.equal(await target.getByRole('button',{name:'Price',exact:true}).getAttribute('aria-pressed'),'true');
   assert.match(await target.locator('.gu-l33-graphic').innerText(),/SIMULATED/);
   await target.getByRole('button',{name:'Next learning stage'}).click();
-  assert.equal(await target.locator('.gu-l33-graphic svg').count(),1,'VWAP Experiment retains visual');
+  assert.equal(await target.locator('.gu-v44-calculate-gate').count(),1,
+   'VWAP Learn must advance through its independent, ungraded Calculate checkpoint');
+  assert.equal(await target.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'The VWAP method cannot be bypassed by pressing Next');
+  await target.locator('.gu-v44-calc-check input[value="0"]').check();
+  await target.getByRole('button',{name:'Check my answer'}).click();
+  await target.getByRole('button',{name:/Continue to Experiment/}).click();
+  assert.equal(await target.locator('.gu-l33-graphic svg').count(),1,
+   'VWAP Experiment retains its interactive historical-looking but fictional illustration');
   await load('TAPE-C01-L01','What Tape Reading Is - and What It Is Not — Start with evidence, not a story');
   await target.getByRole('button',{name:/Start Guided Learning/}).click();
   assert.equal(await target.locator('.gu-l33-tape').count(),1,'Time & Sales has an actual table');
