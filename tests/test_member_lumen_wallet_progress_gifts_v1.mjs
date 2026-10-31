@@ -74,4 +74,34 @@ assert.match(outboxSql,/FOR UPDATE SKIP LOCKED/);
 assert.match(outboxSql,/gu_lumen_issue_from_protected_assessment_v1/);
 assert.match(outboxSql,/GRANT EXECUTE ON FUNCTION public.gu_lumen_process_reviewed_grade_outbox_v1\(integer\) TO service_role/);
 assert.match(outboxSql,/REVOKE ALL ON public.gu_lumen_reviewed_grade_outbox_v1 FROM PUBLIC,anon,authenticated/);
+
+const reviewerBridgeSql=readFileSync('supabase/migrations/20261031_lumen_protected_assessment_bridge_v1.sql','utf8');
+const awardIssuerSql=readFileSync('supabase/migrations/20261031_lumen_reward_issuer_and_gift_atomic_v1.sql','utf8');
+const giftReversalSql=readFileSync('supabase/migrations/20261031_lumen_gifting_dispute_reversal_v1.sql','utf8');
+const sourceCatalogSql=readFileSync('supabase/migrations/20261031_lumen_draft_catalog_429_v1.sql','utf8');
+for(const guard of [
+  /official_grade_ref/, /editorial_approval_ref/, /INDEPENDENT_REVIEWER_REQUIRED/,
+  /e\.score<80/, /PROTECTED_ASSESSMENT_NOT_VERIFIED/, /UNPUBLISHED_REWARD/
+]) assert.match(reviewerBridgeSql,guard,'Independent human/editorial grading guard missing');
+for(const guard of [
+  /LEARNING_REWARDS_DISABLED/, /INDEPENDENT_COMPLETION_NOT_VERIFIED/,
+  /UNIQUE\(user_id,scope_type,scope_id,approved_revision\)/,
+  /pg_advisory_xact_lock/
+]){
+ const corpus=guard.source.includes('UNIQUE')?readFileSync('supabase/migrations/20261031_lumen_learning_rewards_and_gifts_v1.sql','utf8'):awardIssuerSql;
+ assert.match(corpus,guard,'Atomic once-only award guard missing');
+}
+for(const guard of [
+  /GIFTING_NOT_RELEASED/, /legal_gifting_clearance=true/,
+  /security_gifting_clearance=true/, /RECIPIENT_UNAVAILABLE/,
+  /INSUFFICIENT_TRANSFERABLE_REWARDS/, /DAILY_GIFT_LIMIT/,
+  /MONTHLY_GIFT_LIMIT/, /IDEMPOTENCY_REQUEST_MISMATCH/
+]) assert.match(awardIssuerSql,guard,'Member gifting consumer-risk safeguard missing');
+for(const guard of [/CONFLICTED_REVIEWER/,/manual_review_required/,/remaining_credits<>v_tx.amount/,/status='reversed'/])
+ assert.match(giftReversalSql,guard,'Gift dispute and reversal safeguard missing');
+assert.match(sourceCatalogSql,/published,false,null,null/i);
+assert.match(sourceCatalogSql,/learning_rewards_enabled/);
+assert.match(sources[1],/gu_lumen_mixed_intents_v1/);
+assert.match(sources[1],/Mixed-checkout Lumens restored/);
+
 console.log('PASS: read-only wallet/activity/progress, single-currency draft rewards, gifts gated; anonymous/foreign-origin requests rejected.');
