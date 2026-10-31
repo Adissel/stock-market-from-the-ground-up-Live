@@ -39,7 +39,7 @@ function plan(d){
    ['Assess',[l.transfer,'Use a new case and keep the first response in your private reflection. This is formative, not an official grade.']],
    ['Review & Retry',[l.review,'Revise the method after checking the source and the unknowns.']],
    ['Transfer Challenge',[l.transfer,'A different case requires fresh evidence and a no-trade option.']],
-   ['Results',['Save the private reflection using the course controls.','Official protected assessment: Not Yet Assessed. Whole-lesson editorial review remains pending.']]
+   ['Results',['Save the private reflection using the course controls.','Owner editorial approval: released for invited instructional Beta. Protected graded assessments remain under separate technical/editorial review.']]
   ],checks:{2:{question:'Which method applies to this lesson?',correct:clean(l.method)},
    4:{question:'What should you examine before seeing the later evidence?',correct:clean(l.predict)},
    5:{question:'What is the replay procedure?',correct:clean(l.replay)},
