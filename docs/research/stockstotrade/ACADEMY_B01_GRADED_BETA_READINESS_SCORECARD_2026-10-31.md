@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 1.5  
+**Version:** 1.6  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -14,22 +14,22 @@
 
 ## Executive disposition
 
-**Estimated work performed toward B01 officially graded beta: 53% of the defined, weighted work packages, with 47% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 53% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
+**Estimated work performed toward B01 officially graded beta: 54% of the defined, weighted work packages, with 46% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 54% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
 
 ## Weighted methodology and evidence
 
 | Scope for this estimate | Weight | Earned | Evidence / remaining condition |
 |---|---:|---:|---|
 | Canonical first-42 curriculum and current statement inventory | 20 | 20 | 42 original study-day packages; 945 statements/instructions individually indexed and risk-triaged; not certified |
-| Draft private B01 assessments and misconception teaching | 20 | 17 | All 20 private v98 Draft sets received targeted option-quality revision; 100 choice + 20 numeric, 200 distinct wrong-option corrections retained. Substantial independent-case redesign and final editorial acceptance remain |
+| Draft private B01 assessments and misconception teaching | 20 | 18 | All 20 private v98 Draft sets have targeted distractor/feedback remediation; 19 additional original numerical-example repeats were replaced with fresh fictional B01_APPLICATION cases and matching private keys. Reviewer acceptance and broader case validity remain open |
 | Technical protection and genuine member classroom QA | 20 | 15 | Genuine-member read-only API acceptance, 22/22 Chromium lesson screens via genuine GoTrue QA bridge, protected grading closed, Owner rubric shortcut blocked. Native CAPTCHA sign-in and second-identity privacy remain |
 | Independently supportable source verification for individual statements | 20 | 1 | Four narrowly supported first-42 regulatory/exchange/FINRA claims verified against primary sources; 36 other arithmetic fixtures computed; most 945 entries still need individual source/method review and evidence |
 | 42 independently attributable day-package acceptances | 10 | 0 | 42 AI preliminary rework dispositions exist; **0** separately accountable human approvals in the 252-day register |
 | 20 private-set independent assessment approvals | 5 | 0 | **0/20** complete independent 120-question/200-feedback signoffs, including answer keys, distractor discrimination and tolerances |
 | Final graded beta member, entitlement, RLS and release acceptance | 5 | 0 | Full native-login, isolated second account, reviewed-case genuine grading + ledger/awards and exact-deploy acceptance not yet passed |
-| **TOTAL** | **100** | **53** | **About 53% work complete; official graded release still not authorized** |
+| **TOTAL** | **100** | **54** | **About 54% work complete; official graded release still not authorized** |
 
-**Calculation:** 20+17+15+1+0+0+0 = **53/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
+**Calculation:** 20+18+15+1+0+0+0 = **54/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
 
 ## Next actions, in controlling order
 
@@ -90,6 +90,16 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 
 **Technical limitation:** GitHub's existing B01 grading gate CI last passed on an earlier SHA; a new regression was committed to ensure AI-only Draft metadata cannot unlock official feedback. New workflow conclusion and exact-production revision must be independently confirmed before counting final acceptance. Official protected grading remains **HOLD**.
 
+## Additional live private editorial and QA acceptance evidence — original case transfer
+
+**GPT-6 private v98 revision:** The original 19 B01_APPLICATION questions in the remaining Draft sets were reviewed against the original worked numerical case. Where they duplicated it, the protected question, correct-answer entry, alternatives, feedback and explanatory rationale were replaced with a new fictional case requiring independent calculation or a different decision. **Exactly 19 new application items** were written as Drafts; source data is private in Supabase. Details are recorded without answer keys in `ACADEMY_B01_V98_FRESH_TRANSFER_REVIEW_2026-10-31.md`; admin audit **#373**.
+
+**Independent-of-authoring database postflight:** 20 private Draft sets; 100 choice questions; 20 numeric; 200 distinct wrong-option explanations; 19 new application records and 19 earlier focus-question revisions; zero broken answer/feedback mappings, zero reviewer signatures, zero learner attempts. The 20 frozen version-97 sets remain in their prior state. New case authorship was explicitly GPT-6/AI, not a human reviewer.
+
+**Technical safeguard CI:** [B01 Pending Editorial Grade Guard run 41237453917](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237453917) **PASSED** on the test-code revision. It verified HMAC choice-order privacy, withholding of Draft corrections, prevention of status-only review shortcuts, and rejection of unapproved official assessment start/resume/answer while allowing authorized ungraded teaching paths. That synthetic regression is **not** a genuine scored member acceptance of the new private Drafts.
+
+**Weighted revision:** Assessment authoring/remediation is now **18/20**, an increase of one preparation point since v1.5, for **54/100 overall**. Four remaining broad issues constrain the other weights: 945 individually evidenced instructional/source decisions, final interpretation/quality review of every protected case, actual beta-user grading/accessibility/security, and exact-commit final release. The entire revised corpus is not accepted or publishable as an official exam merely because all 20 sets received corrections.
+
 ## Revision history
 
 | Version | Date | Change | Decision |
@@ -100,6 +110,7 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 
 | 1.3 | October 31, 2026 | Owner designated GPT-6 as accountable AI publisher editor; recorded narrow FINRA/mathematics review | 52% estimate unchanged; no graded release |
 | 1.4 | October 31, 2026 | Inspected first private v98 question set; corrected two distractor pairs, validated all 100 question feedback mappings, logged AI editorial mutation as audit #368 | No official private grading approval or human tester acceptance; 52% estimate unchanged |
-| 1.5 | October 31, 2026 | Revised selected focus-question distractors and feedback in all 19 remaining v98 sets; verified 20/20 Draft, 200 distinct feedback and no learner attempts (Supabase audit #372) | Assessment drafting +1 weighted point; 53% preparation, 47% remaining; grading on HOLD | 
+| 1.5 | October 31, 2026 | Revised selected focus-question distractors and feedback in all 19 remaining v98 sets; verified 20/20 Draft, 200 distinct feedback and no learner attempts (Supabase audit #372) | Assessment drafting +1 weighted point; 53% preparation, 47% remaining; grading on HOLD |
+| 1.6 | October 31, 2026 | Reauthored 19 nonduplicate fictional private application questions (audit #373); verified all 100 choice maps and recorded passing B01 grading safeguard CI | 54% estimated work complete, 46% remaining; official graded beta HOLD | 
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
