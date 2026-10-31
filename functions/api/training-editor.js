@@ -182,12 +182,13 @@ export async function onRequest({request,env}){try{const actor=await owner(env,r
    notice:'Draft stored privately. It cannot grade members until reviewed.'});
  }
  if(action==='review'){const version=Number(b.version),expected=str(b.expectedUpdatedAt);if(!Number.isSafeInteger(version)||b.confirmPhrase!=='REVIEW BOOK RUBRIC')throw problem('Explicit Owner rubric review required.');if(!expected)throw problem('Reload the exact rubric revision before approving it.',409);const rows=await db(env,'lab_training_sets_v014?select=*&lab_id=eq.'+enc(id)+'&version=eq.'+version+'&limit=1'),set=rows[0];if(!set)return out({ok:false,error:'Rubric not found.'},404);if(set.review_state!=='draft')throw problem('Only draft versions can be approved.');
+ if(!set.updated_at||String(set.updated_at)!==expected)throw problem('Rubric changed after it was loaded for review. Reload the exact revision and inspect it again.',409);
  // Never mistake Owner-only single-click rubric review for independent
  // B01 assessment-source/editorial approval; v97 frozen, v98 unreviewed.
  if(version===98 ||
    /^(?:original_hypothetical_b01_|b01_private_feedback_draft_awaiting_independent_review)/.test(str(set.source_status)))
   throw problem('B01 independent editorial acceptance is still pending; use the separate attributable review process.',409);
- if(!set.updated_at||String(set.updated_at)!==expected)throw problem('Rubric changed after it was loaded for review. Reload the exact revision and inspect it again.',409);
+
  validate(set.questions,set.answer_key);
  // B01 legacy generator sometimes embedded an exact keyed choice in a
  // pedagogical explanation. The Owner review path must reject the entire
