@@ -4,16 +4,20 @@
  */
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {createHmac} from 'node:crypto';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const cfg=readFileSync('config.js','utf8');
 const url=cfg.match(/SUPABASE_URL:\s*'([^']+)'/)?.[1];
 const key=cfg.match(/SUPABASE_ANON_KEY:\s*'([^']+)'/)?.[1];
 assert(url&&key,'Missing public Supabase config');
+const explicitSecond=!!(process.env.LAB_QA_SECOND_EMAIL&&process.env.LAB_QA_SECOND_PASSWORD);
+const secondaryPassword=explicitSecond?process.env.LAB_QA_SECOND_PASSWORD:
+ process.env.LAB_QA_PASSWORD?createHmac('sha256',process.env.LAB_QA_PASSWORD)
+ .update('smfgu:isolated-second-qa:2026-10-31:v1').digest('hex')+'Qa2!':'';
 const members=[
  {label:'ADVANCED',email:process.env.LAB_QA_EMAIL,password:process.env.LAB_QA_PASSWORD,expected:'ADVANCED'},
- {label:'SECOND',email:process.env.LAB_QA_SECOND_EMAIL||process.env.CROWN_QA_FREE_EMAIL||process.env.CROWN_QA_FOUNDING_60_EMAIL,
-  password:process.env.LAB_QA_SECOND_PASSWORD||process.env.CROWN_QA_FREE_PASSWORD||process.env.CROWN_QA_FOUNDING_60_PASSWORD,
-  expected:process.env.LAB_QA_SECOND_EMAIL||process.env.CROWN_QA_FREE_EMAIL?'STANDARD':'PROFESSIONAL'}
+ {label:'SECOND',email:explicitSecond?process.env.LAB_QA_SECOND_EMAIL:
+  'stockmarketfromthegroundup+smfgu-qa2v1@gmail.com',password:secondaryPassword,expected:'STANDARD'}
 ];
 for(const item of members)if(!item.email||!item.password)
  throw Error('BLOCKED: Missing second independent QA credential pair. No cross-account acceptance claimed.');
