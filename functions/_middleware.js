@@ -198,6 +198,41 @@ async function staffMfaBoundary(context,url){
 }
 export async function onRequest(context){
   const url=new URL(context.request.url),path=POLICY.canonicalPath(url.pathname),kind=POLICY.classify(path);
+  // PT3: never return the real /prototype.html application document as a
+  // public static response. A minimal bootstrap may be fetched anonymously,
+  // but only /api/prototype-document can deliver the complete HTML and it
+  // rechecks authoritative OWNER/ADMIN permissions on every request.
+  if(path==='/prototype.html'||path==='/prototype'){
+    const headers={
+      'content-type':'text/html; charset=utf-8',
+      'cache-control':'private, no-store, max-age=0',
+      'pragma':'no-cache',
+      'x-robots-tag':'noindex, nofollow, noarchive',
+      'x-content-type-options':'nosniff',
+      'referrer-policy':'no-referrer',
+      'x-frame-options':'DENY',
+      'content-security-policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; font-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+    };
+    if(context.request.method==='HEAD')return new Response(null,{status:200,headers});
+    if(context.request.method!=='GET')return new Response('Method not allowed',{status:405,headers:{...headers,allow:'GET, HEAD'}});
+    const launcher=`<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Private Prototype Access | Crownlight</title>
+<script defer src="/config.js"></script>
+<script defer src="/assets/js/supabase-client.js"></script>
+<script defer src="/assets/js/prototype-bootstrap-v3.js"></script>
+<style>body{margin:0;background:#0b1826;color:#f4f7fa;font:16px system-ui,sans-serif}
+main{max-width:42rem;margin:12vh auto;padding:2rem;background:#142b3e;border:1px solid #49687b;border-radius:1rem}
+a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
+<main><p>THE STOCK MARKET: FROM THE GROUND UP</p>
+<h1>Private Prototype Center</h1>
+<p id="prototype-access-status" role="status" aria-live="polite">Checking your Owner or Administrator authorization…</p>
+<p><a href="/admin.html">Return to Admin Control Center</a></p>
+</main></body></html>`;
+    return new Response(launcher,{status:200,headers});
+  }
+
   if(['/corrections.html','/corrections','/verification.html','/verification'].includes(path))
     return Response.redirect(new URL('/',url),302);
   if(['/forum.html','/forum'].includes(path))
