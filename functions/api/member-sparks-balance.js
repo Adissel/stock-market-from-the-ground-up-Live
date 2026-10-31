@@ -1,5 +1,5 @@
-/* Fast, read-only Crownlight Sparks balance, suitable for a five-second
- * navigation heartbeat. Never creates a grant or spends any Sparks.
+/* Fast, read-only Crownlight Lumens balance, suitable for a five-second
+ * navigation heartbeat. Never creates a grant or spends any Lumens.
  */
 import {memberIdentity} from './member-tool-access.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
@@ -33,6 +33,6 @@ export async function onRequest({request,env}){
    available:w.available,included:w.included,purchased:w.purchased,manual:w.manual,
    nextExpiry:w.nextExpiry||null
   }});
- }catch(e){return reply({ok:false,error:e?.status===401?'Sign in to view your Sparks':'Wallet temporarily unavailable'},
+ }catch(e){return reply({ok:false,error:e?.status===401?'Sign in to view your Lumens':'Wallet temporarily unavailable'},
   e?.status===401?401:503)}
 }
