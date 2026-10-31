@@ -82,6 +82,48 @@ export async function onRequest({request,env}){
    events.push({id:'tool:'+item.id,kind:'spend',lumens:-item.cost_lumens,
     description:'Tool Lumen pass · '+String(item.offer_code||'').slice(0,60),occurredAt:item.created_at});
   }
+  // Mixed cash/Lumen CHECKOUT RESERVATIONS, not cash receipts. Only the
+  // signed-in user's intents are used to select debit rows; returning credits
+  // are separate positive wallet events rather than silently netted away.
+  const mixedIntents=await rows(config,
+   'gu_lumen_mixed_intents_v1?select=id,sku,status,created_at,lumens_reserved&user_id=eq.'+uid+
+   '&order=created_at.desc&limit=50');
+  if(!Array.isArray(mixedIntents))throw Error('Missing mixed payment history');
+  const idPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8a-f][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
+  const ids=mixedIntents.map(x=>x.id);
+  if(ids.some(x=>typeof x!=='string'||!idPattern.test(x)))throw Error('Unverified checkout identity');
+  if(ids.length){
+   const debitRows=await rows(config,
+    'gu_lumen_mixed_debits_v1?select=intent_id,amount,returned_at&intent_id=in.('+
+    ids.join(',')+')&limit=500');
+   if(!Array.isArray(debitRows))throw Error('Missing mixed checkout debits');
+   const debitGroups=new Map();
+   for(const debit of debitRows){
+    if(!ids.includes(debit.intent_id)||!safeNumber(debit.amount)||debit.amount<=0)
+     throw Error('Unverified mixed checkout debit');
+    const a=debitGroups.get(debit.intent_id)||[];
+    a.push(debit);debitGroups.set(debit.intent_id,a);
+   }
+   for(const intent of mixedIntents){
+    const debits=debitGroups.get(intent.id)||[];
+    if(!debits.length)continue;
+    const amount=debits.reduce((sum,x)=>sum+x.amount,0);
+    if(!safeNumber(amount)||amount!==intent.lumens_reserved)
+     throw Error('Checkout reserved Lumens mismatch');
+    const sku=String(intent.sku||'checkout').slice(0,64);
+    events.push({id:'mixed-reserve:'+intent.id,kind:'spend',lumens:-amount,
+     description:'Lumens reserved for mixed checkout · '+sku,
+     occurredAt:intent.created_at});
+    const returned=debits.filter(x=>x.returned_at!=null);
+    if(returned.length){
+     const total=returned.reduce((sum,x)=>sum+x.amount,0);
+     if(!safeNumber(total))throw Error('Invalid returned Lumens');
+     const latest=returned.map(x=>String(x.returned_at)).sort().at(-1);
+     events.push({id:'mixed-return:'+intent.id,kind:'refund',lumens:total,
+      description:'Mixed-checkout Lumens restored · '+sku,occurredAt:latest});
+    }
+   }
+  }
   events.sort((a,b)=>String(b.occurredAt||'').localeCompare(String(a.occurredAt||'')));
   return reply({ok:true,currency:'Crownlight Lumens',
    note:'These are existing wallet events, not a cash transaction or account statement.',
