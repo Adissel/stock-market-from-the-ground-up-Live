@@ -38,9 +38,9 @@ for(let i=20;i<30;i++){
 execFileSync(process.execPath,['scripts/bootcamp-247-editorial-preflight-v1.mjs'],{stdio:'inherit'});
 const m=JSON.parse(readFileSync('artifacts/bootcamp-247-batch-manifest.json','utf8'));
 assert.equal(m.registeredDays,247);
-assert.equal(m.authoredTotal,52);
-assert.equal(m.parentDaysNewlyAuthored,30);
-assert.equal(m.parentDaysStillNeedingLesson,195);
+assert(m.authoredTotal>=52,'Existing 52 authored days must not regress');
+assert.equal(m.parentDaysNewlyAuthored,m.authoredTotal-22,'22 frozen baseline and authored parent units must reconcile');
+assert.equal(m.parentDaysStillNeedingLesson,247-m.authoredTotal,'247-day register must reconcile remaining authoring');
 assert.equal(m.approvedByThisScript,0);
 assert.equal(m.protectedAssessmentsApprovedByThisScript,0);
 console.log('PASS original Foundations Days 21–30: ten unique fictional cases; '+math+' arithmetic fixtures; original fields, permissions and review gates preserved.');
