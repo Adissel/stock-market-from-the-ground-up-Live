@@ -40,7 +40,7 @@ export async function onRequest({request,env}){
    if(!ready)return reply({ok:false,enabled:false,error:'Member gifting is not yet released'},409);
    if(!HANDLE.test(handle))return reply({ok:false,error:'Enter an exact @username'},400);
    const username=encodeURIComponent(handle.slice(1));
-   const people=await rest(config,'profiles?select=id,username,account_kind,deleted_at&username=ilike.'+username+'&limit=2');
+   const people=await rest(config,'profiles?select=id,username,account_kind,deleted_at&username=eq.'+username+'&limit=2');
    const candidate=people.length===1?people[0]:null;
    if(!candidate||candidate.id===userId||candidate.account_kind!=='member'||candidate.deleted_at!=null)
     return reply({ok:true,found:false});
