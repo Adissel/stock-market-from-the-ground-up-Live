@@ -53,3 +53,15 @@ jobs:
             echo "Does NOT constitute 247-day editorial approval, protected grading, human independent assessment, authentic member browser acceptance or proof of historical market-data rights."
           } > /tmp/risk60-ci.md
           gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci.md
+      - name: Record failed 247-day authoring regression without masking failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### Risk60 20-day source CI — FAILED; no new authoring acceptance"
+            echo "Tested SHA: \`$GITHUB_SHA\`"
+            echo "Inspect failing job logs: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "The source/deployment and curriculum acceptance must remain separate. No official grades, 247-day editorial approval or historical replay licensing is implied."
+          } > /tmp/risk60-ci-failed.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci-failed.md
