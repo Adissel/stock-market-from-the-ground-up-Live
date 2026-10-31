@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const raw=JSON.parse(readFileSync('data/tutor-lab-claim-evidence-v1.json','utf8'));
 const by=Object.fromEntries(raw.records.map(row=>[row.id,row]));
-assert.equal(raw.records.length,14);
+assert.equal(raw.records.length,17);
 const required={
  'F1-C08-L02':'https://www.investor.gov/introduction-investing/investing-basics/glossary/market-capitalization',
  'DT-C04-L01':'https://syndication.finra.org/content/understanding-new-intraday-margin-requirements',
@@ -55,10 +55,23 @@ check(Math.abs(transfer.percent-2.9556650246)<0.00001,'Transfer spread percent')
 const quoteMs=9*3600*1000+31*60*1000+100;
 const printMs=9*3600*1000+30*60*1000+59900;
 check(quoteMs-printMs===200,'Quote and tape timestamps distinguish past trade');
+// Newly investigated claims: distinguish historical volume from current depth,
+// align filing periods and count actual issued rather than merely authorized shares.
+check(by['F2-C05-L03'].sourceUrl==='https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability',
+ 'Exact SEC liquidity definition');
+check(2000>300&&5000>500,'Past tape volume cannot guarantee current ask depth');
+check((28-25)===3,'Quarterly comparable revenue dollars');
+check(Math.abs((28-25)/25*100-12)<1e-9,'Period-aligned 10-Q rate');
+check(by['DT-C23-L02'].sourceUrl.includes('using-edgar-research-investments'),
+ '10-K vs 10-Q must cite primary SEC form guide');
+check(10000000/(10000000+2500000)===0.8,'Only genuinely issued equal shares in hypothetical ownership denominator');
+check(20000000/(20000000+5000000)===0.8,'Independent dilution transfer arithmetic');
+check(by['DT-C24-L01'].sourceUrl.includes('how-read-8'),
+ 'Original current-report rule source must be tied to narrow claim');
 // No external instructor text or member-specific data may become sources.
 for(const e of raw.records){
  check(!('privateAnswer' in e||'grade' in e||'userId' in e||'futureBars' in e),
   'Public evidence must never ship private assessment or future data');
 }
 console.log('PASS Talia independent calculations and chronology: '+assertions+
- ' independent guards; 14 public Lab entries, 6 new claim-specific sources, no historical/grade promotion.');
+ ' independent guards; 17 public Lab entries, 9 new claim-specific sources, no historical/grade promotion.');
