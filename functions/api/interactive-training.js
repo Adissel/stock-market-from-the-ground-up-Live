@@ -101,7 +101,14 @@ function approvedSelectedWrongFeedback(q,selected){
  const item=q.distractorFeedback.find(x=>x?.option===selected &&
    x?.reviewStatus==='INDEPENDENT_EDITORIAL_APPROVED');
  const value=typeof item?.feedback==='string'?item.feedback.trim():'';
- return value.length>=30&&value.length<=1600?value:null;
+ if(value.length<30||value.length>1600)return null;
+ // A reviewer flag cannot promote the mechanical B01 v98 template into
+ // item-specific coaching. These draft strings repeat one domain correction
+ // across unrelated distractors. Require genuinely rewritten feedback.
+ if(value.startsWith('Why this choice is incorrect: ')&&
+    value.includes(' / Correction: ')&&
+    value.includes(' Review the case evidence: '))return null;
+ return value;
 }
 async function safePrivateFeedbackQuestions(env,labId,version){
  // After a completed scoring RPC only. Never return an unsubmitted private case.
