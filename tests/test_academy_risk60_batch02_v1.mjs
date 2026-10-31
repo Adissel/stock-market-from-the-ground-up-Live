@@ -1,0 +1,54 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
+import {risk60LearnBatch01} from '../functions/_lib/academy-risk60-learning-batch01-v1.js';
+import {risk60PracticeBatch02,risk60PracticeSourceDays} from '../functions/_lib/academy-risk60-practice-batch02-v1.js';
+const p=academyPrograms.find(x=>x.code==='risk60');
+assert.equal(p.curriculum.length,60);
+assert.equal(risk60LearnBatch01.length,20);
+assert.equal(risk60PracticeBatch02.length,20);
+const examples=new Set(),transfers=new Set();
+for(let i=0;i<20;i++){
+ const d=p.curriculum[i+20],l=risk60PracticeBatch02[i];
+ assert.equal(d.programCode,'risk60');assert.equal(d.day,i+21);
+ assert.equal(d.sourceDay,risk60PracticeSourceDays[i]);
+ assert.strictEqual(d.lesson,l,'Correct canonical source-day practice material required');
+ assert.equal(d.phase,'practice');
+ assert.equal(l.phase,'Guided rehearsal');assert.equal(l.day,i+21);
+ assert.equal(l.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
+ assert.equal(d.sourceStatus,'original_risk60_practice_day_specific_ungraded_editorial_review_pending');
+ assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
+ for(const k of ['explanation','workedExample','error','transfer','selfCheck','whenNot'])
+  assert(typeof l[k]==='string'&&l[k].length>=65,'Missing distinct educational field '+k+' D'+d.day);
+ assert(l.sourceProcedure.length>=3 && l.reviewGuide.length>=65);
+ assert(l.transfer.startsWith('FRESH FICTIONAL TRANSFER'));
+ assert(!examples.has(l.workedExample),'Duplicated practice worked case');examples.add(l.workedExample);
+ assert(!transfers.has(l.transfer),'Duplicated practice transfer');transfers.add(l.transfer);
+ assert.notEqual(l.workedExample,risk60LearnBatch01[i].workedExample,'New phase must not copy first scenario');
+}
+assert.equal(examples.size,20);assert.equal(transfers.size,20);
+const near=(a,b)=>assert(Math.abs(a-b)<1e-6,'Math mismatch '+a+' vs '+b);
+// Recalculate independently the newly authored phase's illustrative mathematics.
+near((12.72-12)/12*100,6);
+near((12.72-12.60)/((12.72+12.60)/2)*100,0.9478672985781991);
+near(18/24*100,75);near(900000/600000,1.5);
+near((75*9.10+125*9.14)/200,9.125);near(260-200,60);
+near((4.05-3.95)/4*100,2.5);
+near(75/(32-31.50),150);near(3200/32,100);
+near(180-60,120);near(60*(6.30-6),18);
+near((45*7.20+55*7.24)/100,7.222);
+near((15-14.55)/15*100,3);
+near(80*(28.25-25),260);
+near(14/16*100,87.5);
+near((48.8-40)/40*100,22);
+near(20/25*100,80);near(15/25*100,60);
+execFileSync(process.execPath,['scripts/bootcamp-247-editorial-preflight-v1.mjs'],{stdio:'inherit'});
+const m=JSON.parse(readFileSync('artifacts/bootcamp-247-batch-manifest.json','utf8'));
+assert.equal(m.registeredDays,247);
+assert.equal(m.authoredTotal,137);
+assert.equal(m.parentDaysNewlyAuthored,115);
+assert.equal(m.parentDaysStillNeedingLesson,110);
+assert.equal(m.approvedByThisScript,0);
+assert.equal(m.protectedAssessmentsApprovedByThisScript,0);
+console.log('PASS Risk60 20 original guided practice days 21–40; 137/247 authoring; 110 remaining; 0 independent approvals or protected grades.');
