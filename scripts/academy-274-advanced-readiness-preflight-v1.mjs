@@ -35,15 +35,19 @@ for(const p of academyPrograms){
    q.prompt?.length>=30&&q.review?.length>=30);
   const newReady=formativeReady&&sourceSpecificAdvanced&&lesson.worked?.length>=35&&
    typeof lesson.source?.url==='string'&&/^https:\/\//.test(lesson.source.url);
+  const originalAdvancedReady=!newCodes.has(p.code)&&originalFieldAuthoring&&formativeReady&&
+   sourceSpecificAdvanced&&typeof lesson.reference?.url==='string'&&
+   /^https:\/\//.test(lesson.reference.url);
+  const dayAdvancedReady=newReady||originalAdvancedReady;
   const sourceAuthored=newCodes.has(p.code)?newReady:originalFieldAuthoring;
   if(newCodes.has(p.code))assert(newReady,'Incomplete approved Beta deep-teaching source '+id);
   if(sourceAuthored)grouped[p.code].sourceAuthored++;
-  if(newReady)grouped[p.code].deepTeachingSourceComplete++;
+  if(dayAdvancedReady)grouped[p.code].deepTeachingSourceComplete++;
   grouped[p.code].formativeQuestions+=formative.length;
   grouped[p.code].advancedCases+=advanced.length;
   docs.push({id,program:p.code,day:i+1,title:d.title,originalFieldAuthoring,
     formativeCount:formative.length,advancedCaseCount:advanced.length,
-    advancedSourceReady:newReady,individualEditorialAcceptance:newCodes.has(p.code)?
+    advancedSourceReady:dayAdvancedReady,individualEditorialAcceptance:newCodes.has(p.code)?
      'OWNER_APPROVED_INVITED_INSTRUCTIONAL_BETA':'NO_INDEPENDENT_ACCEPTANCE_EVIDENCE',
     officialGrading:'DISABLED_BY_SEPARATE_GATE',
     pedagogicalDuration:'SUGGESTED_35_OR_45_MINUTES_NOT_A_TIMED_RESULT',
@@ -56,15 +60,18 @@ assert.equal(docs.length,274,'274 study days required');
 assert.equal(docs.filter(x=>!newCodes.has(x.program)).length,247);
 assert.equal(docs.filter(x=>newCodes.has(x.program)&&x.advancedSourceReady).length,27);
 const sourceTotal=docs.filter(x=>x.advancedSourceReady).length;
+const originalUpgraded=docs.filter(x=>!newCodes.has(x.program)&&x.advancedSourceReady).length;
+assert(originalUpgraded>=2,'Risk60 first two days must have a complete advanced package');
 const originalAuthored=docs.filter(x=>!newCodes.has(x.program)&&x.originalFieldAuthoring).length;
 const summary={
  schema:'smfgu-academy-274-deep-source-v1',project:'The Stock Market: From the Ground Up',
  status:'SOURCE_PREFLIGHT_ONLY_NOT_INDEPENDENT_EDITORIAL_ACCEPTANCE',
  canonicalDays:274,originalDays:247,newDays:27,
- newDaysWithTwelveFormativeAndAdvanced:sourceTotal,
+ newDaysWithTwelveFormativeAndAdvanced:sourceTotal-originalUpgraded,
+ originalDaysWithAdvancedPackage:originalUpgraded,
  originalDaysWithExistingOriginalCaseFields:originalAuthored,
  originalDaysStillMissingOriginalCaseFields:247-originalAuthored,
- allOriginalDaysStillNeedingNewTwelveQuestionAdvancedPackage:247,
+ allOriginalDaysStillNeedingNewTwelveQuestionAdvancedPackage:247-originalUpgraded,
  authoredNewFormative:docs.filter(x=>newCodes.has(x.program)).reduce((n,x)=>n+x.formativeCount,0),
  authoredNewAdvanced:docs.filter(x=>newCodes.has(x.program)).reduce((n,x)=>n+x.advancedCaseCount,0),
  gradedPrivateCasesApprovedByAudit:0,realMemberJourneysProvenByAudit:0,
@@ -77,5 +84,5 @@ assert.equal(summary.authoredNewAdvanced,45);
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/academy-274-advanced-source-readiness-v1.json',JSON.stringify(summary,null,2)+'\n');
 console.log('PASS 274 canonical Academy days; strict advanced-source package '+sourceTotal+'/274; '+
- '27 new days 324 formative questions 45 advanced cases; original individually authored fields '+
+ '27 new days 324 formative questions 45 advanced cases; '+originalUpgraded+' original advanced packages; original individually authored fields '+
  originalAuthored+'/247, original full advanced package not yet signed off; ZERO official grades.');
