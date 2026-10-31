@@ -2,13 +2,13 @@
 
 **Document ID:** SMFGU-ACADEMY-DEPTH-006  
 **Project:** The Stock Market: From the Ground Up — All Ten Boot Camps  
-**Version:** 1.0  
+**Version:** 1.1  
 **Report date:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** 2026-10-31_BOOTCAMPS_ADVANCED_45_IMPLEMENTATION_AND_COMPLETION_REGISTER_V1.md  
 **Location:** `cybernexuspublishing/stock-market-from-the-ground-up/docs/releases/` on `main`  
 **Google Drive location/document ID:** Not created / not assigned  
-**Status:** 45/45 separate advanced exercises authored and connected in shared Academy source; CI/runtime outcome must be attributed to the exact later successful run  
+**Status:** 45/45 advanced exercises authored and integrated; Cloudflare successful descendant deployment confirmed; dedicated browser CI still queued at final check; real tester acceptance pending  
 **Purpose:** Record exactly what changed, separate source completeness from editorial and tester acceptance, and quantify remaining work.
 
 ## Controlling timing and educational policy
@@ -96,4 +96,5 @@ Each row is one separately written and wired advanced case with source evidence 
 **Dependencies:** `AGENTS.md`; shared Academy ten-stage engine; three advanced practicum source files; `functions/api/bootcamp-academy.js`; protected private cases and owner Beta signoff SMFGU-ACADEMY-OWNER-BETA-005; Supabase RLS and Cloudflare production environment; existing 419 Lab identifiers and frozen B01.
 
 **Revision history:** v1.0 — October 31, 2026 — created a source-evidenced 45-case register, two-scope completion percentages and explicit release/testing boundaries.  
+**v1.1 — October 31, 2026:** Verified Cloudflare production deployment `413903a1618427932f13f6d4f7daab163a037cfe` succeeded and is a descendant of the advanced-source integration/test commit `99d2c7596378fb9a6e8c6f037cb5ea5b5085f4f3` (GitHub comparison: ahead by 4, no divergence). The earlier Risk60 deployment failure originated in a separate immutable source-day mapping and was corrected by commit `6577971de204ea9352446f59de664f0eef404455`. Dedicated browser run `41234366218` had not completed at this check; success is not claimed. Live private DB verified 54 cases, zero active approvals, four authored rubrics, 12 option feedback entries and zero QA enrollments.  
 **Footer:** Crown & Lantern Press — internal delivery and QA record, not independent certification or a promise of timed learning.
