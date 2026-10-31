@@ -314,7 +314,7 @@ if(!email||!password){
      await page.locator('#new-setup-custom').fill(marker);
      await page.locator('#new-timeframe').fill('5-minute fictional');
      await page.locator('#new-journal-form button[type="submit"]').click();
-     await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html'&&
+     await page.waitForURL(url=>new URL(url).pathname.replace(/\.html$/,'')==='/journal-entry'&&
       Number(new URL(url).searchParams.get('id'))>0,{timeout:30000});
      note('checks','One original fictional observation Journal draft created via actual authenticated UI.');
     }
@@ -341,12 +341,12 @@ if(!email||!password){
     await page.waitForFunction(()=>Array.from(document.querySelectorAll('#journal-rows tr'))
       .some(x=>x.textContent?.includes('GUSIM')),{timeout:15000});
     await page.locator('#journal-rows tr[data-id="'+jAfter.rows[0].id+'"] a[href*="journal-entry.html"]').click();
-    await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html' &&
+    await page.waitForURL(url=>new URL(url).pathname.replace(/\.html$/,'')==='/journal-entry' &&
      Number(new URL(url).searchParams.get('id'))>0,{timeout:20000});
     assert.equal(Number(new URL(page.url()).searchParams.get('id')),Number(jAfter.rows[0].id));
     note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
    }
-  }catch(e){note('failures','Real Free QA Journal create/reopen: '+String(e.message||e).slice(0,450))}
+  }catch(e){note('failures','Real Free QA Journal create/reopen: '+String(e.message||e).slice(0,330)+'; landing='+new URL(page.url()).pathname+'; status='+String(await page.locator('#new-journal-message').textContent().catch(()=>'' )).slice(0,100))}
   // Automated WCAG 2.0/2.1/2.2 A/AA audit of real authenticated Free surfaces.
   // Checks actual accessibility tree rules, not just CSS selector presence.
   // Human screen-reader review remains an independent required gate.
