@@ -4,6 +4,27 @@
  * Other 17 entries are newly authored fictional research/calculation exercises;
  * they do not constitute independent protected exams, historical data or approval.
  */
+// Canonical day-specific formative questions; these are ungraded teaching checks,
+// never a private answer key or evidence of independent competency mastery.
+const formativeCheckpoints=Object.freeze({
+ 'What Is a Watchlist?':'FICTIONAL: A watchlist row has a ticker and an alert price but no issuer identity, checked-at time or removal rule. Which three missing fields must be resolved before this becomes an auditable research entry?',
+ 'Finding Stocks Worth Researching':'FICTIONAL: A current five-minute volume is 72,000 shares and the comparable five-minute baseline is 48,000. Calculate relative volume with units, then name a separate liquidity observation needed before considering execution.',
+ 'Finding the Real Catalyst':'FICTIONAL: The issuer labels a release a nonbinding proposal at 08:11 ET, but a repost calls it a completed purchase order. What exact original document or condition could substantiate the completed-order claim?',
+ 'Reading the Chart':'FICTIONAL: A completed five-minute candle has O=$8.40, H=$8.70, L=$8.00 and C=$8.10. Compute body and full range, state direction and explain why OHLC does not reveal whether high preceded low.',
+ 'Eliminating Weak Candidates':'FICTIONAL: Bid $2.10 and ask $2.16 imply what midpoint spread percentage? Should the candidate pass a 2.00% maximum-spread rule, and does that percentage establish execution depth?',
+ 'Building and Updating the Watchlist':'FICTIONAL: A candidate was ranked at 09:00 ET. At 13:00 ET a source amendment contradicts the catalyst. Which versioned fields must be preserved, and when should the revised ranking take effect?',
+ 'Independent Watchlist Challenge':'FICTIONAL: A has a confirmed issuer announcement but a 2.4% spread; B has a 0.3% spread but unverified news. With a 1.0% spread limit and a primary-source requirement, which is presently trade-eligible, and what would permit reconsideration?',
+ 'Define the scanner universe':'FICTIONAL: A scan includes 320 listed common shares, excludes 40 ETFs and 15 OTC issues. State the evaluated and excluded counts and explain why the excluded 55 cannot be described as failures of the price filter.',
+ 'Choose price and dollar-change filters':'FICTIONAL: Stock A moves $2.50 to $2.75 and Stock B moves $25.00 to $25.25 over the same defined window. Find each absolute and percentage change, and decide which passes an 8% change rule.',
+ 'Volume and relative volume':'FICTIONAL: Current five-minute volume is 30,000 against comparable baseline 50,000. Compute the ratio; what result should the scanner show if the reference volume were missing or zero?',
+ 'Float and share structure':'FICTIONAL: Following a one-for-five reverse split, a holding of 500 old shares becomes how many new shares before fractional-share adjustments? Does the corporate action alone establish higher shareholder value or executable liquidity?',
+ 'Premarket versus regular session':'FICTIONAL: 50,000 shares trade premarket and 20,000 trade from 09:30 to 09:35 ET. Which amount belongs in a regular-session-only five-minute scanner, and what additional calendar exception might alter the interval?',
+ 'Read the spread and liquidity':'FICTIONAL: Best bid is $2.49, ask $2.54, with 35 shares displayed at the ask. Compute the spread and explain why a 400-share buy cannot assume the entire fill at the displayed ask.',
+ 'Validate catalyst claims':'FICTIONAL: An original issuer release at 07:40 ET announces exploratory talks. At 08:00 a repost asserts a guaranteed signed agreement. What does the original release actually substantiate and what remains unverified?',
+ 'Spot false positives':'FICTIONAL: At 09:44 a scan uses a 09:31 last price after a halt began at 09:38. Which freshness or status rule must reject the hit, and what evidence is needed before re-running it?',
+ 'Compare watchlist ranking':'FICTIONAL: A has three positive flags but unverified news; B has two flags and verified news; C has three flags but breaches a mandatory spread limit. What is the proper order of eligibility checks before optional ranking?',
+ 'Build and audit a scanner':'FICTIONAL: A rule accepts quotes no older than two minutes; the 10:00 ET scan contains a 09:48 quote that passes price and volume. Record the failing predicate and specify what data are required before the candidate may be reconsidered.'
+});
 const topicReferences=Object.freeze({
  dueDiligence:{label:'SEC Investor.gov — Researching Investments',url:'https://www.investor.gov/introduction-investing/getting-started/researching-investments',scope:'General company and disclosure research, not verification of a fictional issuer.'},
  edgar:{label:'SEC — Search Filings',url:'https://www.sec.gov/search-filings',scope:'Official disclosure discovery; individual release timing requires further proof.'},
@@ -19,7 +40,7 @@ function mk(x){
   sourceProcedure:Object.freeze(sourceProcedure),
   error,reviewGuide,transfer,
   investigation:'FRESH FICTIONAL TRANSFER CASE — '+investigation,
-  selfCheck:'From the current case, which exact evidence supports your classification, what contradicts it, and what action would be premature?',
+  selfCheck:formativeCheckpoints[title]||'Stop: a topic-specific formative checkpoint has not been authored for this lesson.',
   reviewPrompts:Object.freeze(['Name the source, as-of date and applicable market session.','Compute and label any quantity rather than inferring a result from a scanner badge.','Name a specific observation that would invalidate the conclusion.']),
   whenNot, reference:Object.freeze(topicReferences[refKey]||topicReferences.dueDiligence),
   numericChecks:Object.freeze((numeric||[]).map(c=>Object.freeze({operation:c[0],inputs:Object.freeze(c[1]),expected:c[2],unit:c[3],tolerance:c[4]??0.000001}))),

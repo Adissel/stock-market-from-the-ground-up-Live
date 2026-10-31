@@ -1,0 +1,26 @@
+name: Academy First-22 Educational Evidence
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-first22-educational-evidence-v1.yml'
+      - 'functions/_lib/academy-first22-teaching-v1.js'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'docs/research/stockstotrade/252_instruction_source_field_QA_v2.csv'
+      - 'tests/test_academy_first22_educational_evidence_v1.mjs'
+permissions: {contents: read}
+jobs:
+  independent-arithmetic-and-formative-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Syntax check and first-22 curriculum evidence audit
+        run: |
+          node --check functions/_lib/academy-first22-teaching-v1.js
+          node --check functions/_lib/bootcamp-academy-v014168.js
+          node --check tests/test_academy_first22_educational_evidence_v1.mjs
+          node tests/test_academy_first22_educational_evidence_v1.mjs
