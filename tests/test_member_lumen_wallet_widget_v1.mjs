@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 const js=fs.readFileSync('assets/js/member-lumen-wallet-widget-v1.js','utf8');
 const html=fs.readFileSync('dashboard.html','utf8');
 const nav=fs.readFileSync('assets/js/nav-search-and-sparks-v1.js','utf8');
-assert.match(js,/groundup_question_pass_summary/);
+assert.match(js,/member-sparks-balance/);
 assert.match(js,/getSupabaseClient/);
 assert.match(js,/getUser/);
 assert.match(js,/Number\.isSafeInteger/);
