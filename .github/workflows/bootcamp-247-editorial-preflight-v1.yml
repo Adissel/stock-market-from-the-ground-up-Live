@@ -1,0 +1,35 @@
+name: Boot Camp 247 Editorial Preflight
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bootcamp-247-editorial-preflight-v1.yml'
+      - 'functions/_lib/academy-first22-teaching-v1.js'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'assets/js/bootcamp-academy-v014168.js'
+      - 'assets/js/academy-guided-v1.js'
+      - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
+      - 'tests/test_bootcamp_first22_editorial_preflight_v1.mjs'
+permissions: {contents: read}
+jobs:
+  original-seven-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verified source structural and authored curriculum regressions
+        run: |
+          node --check assets/js/academy-guided-v1.js
+          node --check assets/js/bootcamp-academy-v014168.js
+          node tests/test_bootcamp_first22_editorial_preflight_v1.mjs
+          node tests/test_academy_guided_v1.mjs
+      - name: Save 247 unit-by-unit nonapproving review register
+        uses: actions/upload-artifact@v4
+        with:
+          name: bootcamp-247-editorial-queue
+          path: |
+            artifacts/bootcamp-247-editorial-queue.csv
+            artifacts/bootcamp-247-batch-manifest.json
