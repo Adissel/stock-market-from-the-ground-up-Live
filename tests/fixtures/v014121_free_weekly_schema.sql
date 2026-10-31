@@ -12,9 +12,9 @@ ALTER TABLE public.decision_journal ADD COLUMN simulator_source text;
 CREATE OR REPLACE FUNCTION public.user_has_tool_access(p_user uuid,p_tool text)
 RETURNS boolean LANGUAGE sql STABLE AS $$
  SELECT CASE WHEN p_tool='JOURNAL_ANALYTICS'
- THEN current_setting('app.paid_journal',true)='yes'
+ THEN COALESCE(current_setting('app.paid_journal',true)='yes',false)
  WHEN p_tool='MARKET_SIMULATOR'
- THEN current_setting('app.paid_simulator',true)='yes'
+ THEN COALESCE(current_setting('app.paid_simulator',true)='yes',false)
  ELSE false END;
 $$;
 CREATE OR REPLACE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql STABLE AS $$
