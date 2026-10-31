@@ -43,18 +43,18 @@ export async function verifyPrototypeStaff(request,env){
  return {status:200};
 }
 const cases=Object.freeze([
- {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP reclaim at a decision boundary',type:'FICTIONAL',objective:'Calculate a cumulative session VWAP and explain why the close alone is insufficient evidence of a successful reclaim.',note:'OHLC candles and volumes are invented for instruction, not sourced from any market or security.',candles:[
+ {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP reclaim at a decision boundary',type:'FICTIONAL',objective:'Calculate a four-bar OHLCV typical-price weighted VWAP proxy and explain why it is not equivalent to trade-print VWAP or sufficient evidence of a successful reclaim.',note:'OHLC candles and volumes are invented for instruction, not sourced from any market or security.',candles:[
   {time:'09:30',open:10.00,high:10.40,low:9.80,close:10.20,volume:1000},
   {time:'09:31',open:10.20,high:10.50,low:10.10,close:10.40,volume:1500},
   {time:'09:32',open:10.40,high:10.40,low:10.00,close:10.10,volume:2000},
   {time:'09:33',open:10.10,high:10.60,low:10.10,close:10.50,volume:2500}
- ],instructor:'A close above VWAP is one observation. Compare relative position, volume, subsequent confirmation and invalidation before interpreting the setup.',question:'What is the typical price of the first candle?',expectedNumerator:10.4+9.8+10.2,expectedDenominator:3},
+ ],instructor:'A close above an OHLCV VWAP proxy is one observation, not the exact transaction-weighted session VWAP. Compare relative position, volume, subsequent confirmation and invalidation before interpreting the setup.',question:'What is the typical price of the first candle?',expectedNumerator:10.4+9.8+10.2,expectedDenominator:3},
  {id:'CL-PROTO-BREAKOUT-02',topic:'Breakout',name:'Fictional breakout and rejection',type:'FICTIONAL',objective:'Distinguish an intrabar breakout from a close that holds above resistance.',note:'Invented 1-minute candles. A price touch is not proof of acceptance.',candles:[
   {time:'09:30',open:20.00,high:20.30,low:19.90,close:20.20,volume:1200},
   {time:'09:31',open:20.20,high:20.35,low:20.05,close:20.25,volume:900},
   {time:'09:32',open:20.25,high:20.60,low:20.10,close:20.15,volume:2200},
   {time:'09:33',open:20.15,high:20.25,low:19.80,close:19.90,volume:1800}
- ],instructor:'A wick beyond a level followed by a close back below it can signal rejection; do not infer a reliable outcome without context.',question:'What is the typical price of the third candle?',expectedNumerator:20.6+20.1+20.15,expectedDenominator:3},
+ ],instructor:'A wick beyond a level followed by a close back below it can signal rejection; do not infer a reliable outcome without context.',question:'How many dollars per share did the third candle reject from its $20.60 high to its $20.15 close?',expectedNumerator:20.6-20.15,expectedDenominator:1},
  {id:'CL-PROTO-RISK-03',topic:'Risk planning',name:'Fictional stop and target planning',type:'FICTIONAL',objective:'Separate a planned hypothetical risk calculation from actual executable prices and slippage.',note:'Illustrative price series; not a trade recommendation.',candles:[
   {time:'09:30',open:15.00,high:15.15,low:14.85,close:15.05,volume:800},
   {time:'09:31',open:15.05,high:15.30,low:15.00,close:15.25,volume:1200},
