@@ -1,7 +1,7 @@
 /* Crownlight member gifting form. No balance writes unless the verified
  * legal/security release switch is active on the server.
  */
-(()=>{'use strict';let root=document.querySelector('[data-member-lumen-gifting]');
+(()=>{'use strict';const mount=()=>{let root=document.querySelector('[data-member-lumen-gifting]');
 if(!root){const history=document.querySelector('[data-member-lumen-history]');
  if(!history)return;root=document.createElement('section');root.dataset.memberLumenGifting='1';
  root.className='wrap';root.setAttribute('aria-label','Member-to-member Lumen gifts');
@@ -80,6 +80,8 @@ form.addEventListener('submit',async e=>{
   outcome.textContent='Confirmed transfer '+j.transactionId;verified='';window.dispatchEvent(new Event('focus'));
  }catch(e){outcome.textContent=e.message}finally{send.disabled=true}
 });
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{void init()},{once:true});
-else void init();
+void init();
+};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});
+else mount();
 })();
