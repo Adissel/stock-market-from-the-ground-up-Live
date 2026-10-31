@@ -19,20 +19,10 @@ function normalizeEmail(v){return String(v||'').trim().toLowerCase()}
 function validUsername(v){return /^[A-Z][A-Za-z0-9_]{2,23}$/.test(v)}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
 
-async function usernameAvailable(username){
-  const sb=await window.getSupabaseClient();
-  if(!sb) throw new Error('Account service is unavailable.');
-  const {data,error}=await sb.rpc('username_is_available',{candidate:username});
-  if(error) throw error;
-  return data===true;
-}
-async function emailAvailable(email){
-  const sb=await window.getSupabaseClient();
-  if(!sb) throw new Error('Account service is unavailable.');
-  const {data,error}=await sb.rpc('email_is_available',{candidate:email});
-  if(error) throw error;
-  return data===true;
-}
+/* Registration privacy: only local format is inspected before submission.
+ * Availability is authoritative on the protected signup service, never a
+ * public candidate-by-candidate browser RPC.
+ */
 async function prepareBookKeyClaim(bookKey){
   const sb=await window.getSupabaseClient();
   if(!sb) throw new Error('Account service is unavailable.');
@@ -110,20 +100,10 @@ async function createAccount(e){
 
   if(submit){submit.disabled=true;submit.textContent='Checking account details…'}
   try{
-    const [usernameFree,emailFree]=await Promise.all([
-      usernameAvailable(username),
-      emailAvailable(email)
-    ]);
-    if(!usernameFree){
-      setFieldStatus('username-availability','Username already in use. Choose another username.','unavailable');
-      return signupMessage('Choose a different username.', 'error');
-    }
-    setFieldStatus('username-availability','Username available.','available');
-    if(!emailFree){
-      setFieldStatus('email-availability','Email already in use. Sign in or reset your password.','unavailable');
-      return signupMessage('That email address already belongs to an account.', 'error');
-    }
-    setFieldStatus('email-availability','Email available. You will verify ownership by email.','available');
+    // No anonymous username/email existence probes. The protected signup
+    // endpoint performs authoritative uniqueness enforcement and email proof.
+    setFieldStatus('username-availability','Username format is valid. Availability is verified when you submit.');
+    setFieldStatus('email-availability','Email format is valid. Check your inbox to verify ownership after registration.');
 
     let claimToken=null;
     if(bookKey){
@@ -174,8 +154,6 @@ async function createAccount(e){
   }
 }
 
-let usernameAvailabilityTimer;
-let emailAvailabilityTimer;
 function updatePasswordMatch(){
   const password=document.getElementById('signup-password')?.value||'';
   const confirm=document.getElementById('signup-password-confirm')?.value||'';
@@ -195,40 +173,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   const confirmInput=document.getElementById('signup-password-confirm');
 
   usernameInput?.addEventListener('input',()=>{
-    clearTimeout(usernameAvailabilityTimer);
     const username=normalizeUsername(usernameInput.value);
     usernameInput.value=username;
-    if(!validUsername(username)){
-      setFieldStatus('username-availability','3–24 characters. Start with a letter; the first letter is capitalized automatically.');
-      return;
-    }
-    setFieldStatus('username-availability','Checking username…');
-    usernameAvailabilityTimer=setTimeout(async()=>{
-      try{
-        const free=await usernameAvailable(username);
-        setFieldStatus('username-availability',free?'Username available.':'Username already in use.',free?'available':'unavailable');
-      }catch{
-        setFieldStatus('username-availability','Unable to check username right now.');
-      }
-    },450);
+    setFieldStatus('username-availability',validUsername(username)
+      ?'Username format is valid. Availability will be verified when you submit.'
+      :'3–24 characters, beginning with a letter; letters, numbers, and underscores only.');
   });
-
   emailInput?.addEventListener('input',()=>{
-    clearTimeout(emailAvailabilityTimer);
     const email=normalizeEmail(emailInput.value);
-    if(!validEmail(email)){
-      setFieldStatus('email-availability',email?'Enter a valid email address.':'Enter the email address you want to use for this account.');
-      return;
-    }
-    setFieldStatus('email-availability','Checking email…');
-    emailAvailabilityTimer=setTimeout(async()=>{
-      try{
-        const free=await emailAvailable(email);
-        setFieldStatus('email-availability',free?'Email available. You will verify ownership by email.':'Email already in use. Sign in or reset your password.',free?'available':'unavailable');
-      }catch{
-        setFieldStatus('email-availability','Unable to check email right now.');
-      }
-    },550);
+    setFieldStatus('email-availability',validEmail(email)
+      ?'Email format is valid. Ownership is verified by email after registration.'
+      :'Enter a valid email address.');
   });
 
   passwordInput?.addEventListener('input',updatePasswordMatch);
