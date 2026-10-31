@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.7
+**Version:** 1.8
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -214,6 +214,26 @@ All **100** choice questions in v98 have exactly two corresponding wrong-option 
 
 **Availability distinction:** Eligible beta testers can use the existing controlled **ungraded** B01 teaching access. The current 22-day classroom browser evidence supports this restricted scope, not release of official protected examinations, competence/mastery awards or certified curriculum. A calendar completion date is not reliable without actual independent reviewers and remaining source receipts.
 
+## Owner-delegated second review — current 945 claims, 42 preliminary decisions and 200 revised private corrections
+
+**Date:** 2026-10-31  
+**Reviewer identity:** GPT-6, owner-delegated AI-assisted editorial preflight. **This reviewer is not a separately authenticated, independently contracted human editor**.  
+**Independent human editorial signatures:** ZERO.
+
+**Source-current arithmetic and risk control:** Revision to the Foundations Day 20 short-volume denominator instruction increased the first-42 generator from **940** to **945** sentence/step locations. [CI 41232420934](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41232420934) **PASS** generated 945 record-level risk controls, rechecked 36 embedded lesson math fixtures, categorized the exact source-current text, and produced 42 day-level control reports. The risks may overlap; classification is neither legal source certification nor 945 independent editorial approvals. Independent date-specific and securities-data-source verification is still required. The 42 primary/secondary selected narrow-claim crosswalk supplies only **14 distinct reference URLs**; all URLs were opened and examined at page-family level (SEC Investor.gov, SEC, NYSE, FINRA and a technical education provider). A topical source URL is not evidence for every individual assertion.
+
+**Individual AI-preliminary editorial dispositions:** New companion `docs/research/stockstotrade/ACADEMY_FIRST42_ATTRIBUTABLE_PRELIMINARY_EDITORIAL_DISPOSITIONS_2026-10-31.csv` records **42 separate, case-specific REWORK_OR_VERIFY_BEFORE_APPROVAL findings** and the transparent AI authoring identity. Each links a particular day to a distinct falsifiability, numerical, teaching or source risk. The file does **not** assign human signoff; 42/42 final independent editorial decisions remain unissued, and **the 252-day and 671-row controlling files remain unchanged**.
+
+**Private assessment reauthoring:** Directly in the connected service-role-only Supabase project, the 200 version-98 incorrect-choice explanations were rewritten as **200 distinct, wrong-alternative-specific drafts**, rather than the earlier repeated "Why this choice is incorrect / Correction" template. They remain explicitly marked `AI_REVISED_DRAFT_PENDING_INDEPENDENT_EDITORIAL_APPROVAL`, with authored-by AI attribution. Postflight SQL: 200 entries, 200 distinct nonblank texts (56–115 characters); **0** separately approved explanations; **20** of 20 version-98 sets still Draft, with null reviewer fields; **0** version-98 learner attempts. Two admin audit records document these private drafts and the numeric/replay changes, without storing confidential answers publicly. The frozen version-97 assessment content and previous grades were not changed.
+
+**Accuracy and numerical input fixes in private version-98 drafts:** A time-bound replay evidence question was revised to explicitly require a finalized, provider-delivered last completed bar before a 09:45:02 ET decision. The 20 numerical questions now clarify numeric-only input (no units or symbols). The one fictional after-hours change question explicitly requesting two-decimal precision has a proposed tolerance of **0.0049 percentage points** to permit a mathematically consistent higher-precision answer rather than only the display-rounded value. All remaining 19 numeric cases retain zero tolerance. These corrections and numeric policies remain **unapproved Drafts** and require a separate reviewer to verify correct keys, units, question wording and grading effects.
+
+**Independent-review security gate:** `functions/api/interactive-training.js` now requires recorded reviewed-set attribution and, for any additional selected wrong-option coaching, `independentReview` metadata naming an actual human editor role, unique reviewer user UUID, decision date, evidence reference, and affirmative individual review of the question and feedback. The status string alone is insufficient. Drafts and mechanical templated corrections continue to fall back to existing safe generic feedback. Related `tests/test_b01_private_option_feedback_v98_v1.mjs` now verifies that unreviewed or status-only edits are insufficient. **Targeted regression CI newly queued** as of this revision; do not call it passed without its completed status.
+
+**Confidential handoff:** `docs/research/stockstotrade/ACADEMY_B01_PRIVATE_INDEPENDENT_EDITORIAL_REVIEW_HANDOFF_2026-10-31.md` lists all **20** case identities and distinct review risks without printing any of the private 120 question prompts or answer keys. Required actual independent review: 100 choice prompts, 20 numeric prompts, 200 answer-specific feedback entries, 42 day-level decisions, and 945 individual source-current audit entries. The submitted exercise is **NOT complete as an independently accepted curriculum**, and no official protected grading, certification or mastery is enabled by these preflights.
+
+**Beta decision:** Controlled **ungraded** B01 instruction for entitled testers may continue on previously accepted scope, with the [22-day genuine member token Chromium test](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41231054861) and [production read-only API test](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229053907) as evidence. Native user-facing sign-in/CAPTCHA and full independent private grading acceptance are still separate and open. A definite completion date or an approved-grade release would be unjustified without distinct reviewer action.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -226,5 +246,6 @@ All **100** choice questions in v98 have exactly two corresponding wrong-option 
 | 1.5 | 2026-10-31 | 940 individual triage records, separate numeric checks, 20 private v98 Draft remediation sets with 200 corrections, protected grader regression and real-member API acceptance | Technical evidence verified; 0 human editorial approvals, browser release OPEN |
 | 1.6 | 2026-10-31 | Recorded Cloudflare deploy, passed real member API, failed browser identity transport, controlled QA pass issuance/revocation and zero protected editorial acceptance | API gate PASSED; authentic browser and independent editorial gates BLOCKED |
 | 1.7 | 2026-10-31 | Verified genuine-token 22/22 browser classroom with QA transport boundary, corrected FINRA venue-scope Day20 lesson, checked private v98 option/numeric structure and revoked QA grant | Ungraded beta classroom technical PASS; 940 factual decisions, independent rubric approvals and native login OPEN |
+| 1.8 | 2026-10-31 | Generated source-current 945-item risk/arithmetics CI; 42 AI-attributed day rework dispositions; privately rewrote all 200 misconception feedback Drafts, corrected numeric/time detail and imposed attributed reviewer gate | No human editorial signoffs; controlled ungraded beta continues, protected grading held |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
