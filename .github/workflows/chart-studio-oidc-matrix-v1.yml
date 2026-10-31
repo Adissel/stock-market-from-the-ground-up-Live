@@ -1,0 +1,51 @@
+name: Chart Studio OIDC Noncommercial Real-Member Matrix
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-chart-studio-oidc-matrix-v1.mjs'
+      - 'supabase/functions/smfgu-chart-matrix-github-oidc-v1/index.ts'
+      - '.github/workflows/chart-studio-oidc-matrix-v1.yml'
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+concurrency:
+  group: chart-studio-oidc-matrix-once
+  cancel-in-progress: false
+jobs:
+  real-disposable-chart-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check exact OIDC acceptance script syntax
+        run: node --check tests/live-chart-studio-oidc-matrix-v1.mjs
+      - name: Verify two independent GoTrue QA users and protected workspace boundaries (then delete QA users)
+        id: real_qa
+        continue-on-error: true
+        run: node tests/live-chart-studio-oidc-matrix-v1.mjs
+      - name: Record actual noncommercial member acceptance result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.real_qa.outcome }}
+        run: |
+          {
+            echo "## Noncommercial disposable Chart Studio real-member matrix — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "Source commit: $GITHUB_SHA"
+            echo "Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Genuine Supabase GoTrue Standard + Professional member API matrix and cross-account isolation: **$QA_RESULT**"
+            echo "Proof requires distinct real Auth sessions, real server tier validation, different private saved QA workspaces, both-directions account selector denial, direct table access denial, and confirmed deletion of both temporary QA identities."
+            echo "No LIVE sale, Lumen debit, Founder seat, commercial access, or existing customer modification. Not a human CAPTCHA login or genuinely paid subscription."
+          } > /tmp/chart-oidc-matrix-qa.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-oidc-matrix-qa.md
+      - name: Fail closed on actual QA or cleanup failure
+        if: steps.real_qa.outcome != 'success'
+        run: exit 1
