@@ -7,6 +7,13 @@ for(const code of ['tape10','indicators10','filings7']){
  const program=academyPrograms.find(p=>p.code===code);
  assert(program);
  assert.equal(new Set(program.curriculum.map(d=>d.title)).size,program.days);
+ assert.equal(program.status,'owner_approved_27_day_invite_beta_instruction_20261031',
+  'Owner must affirm editorial Beta instruction separately from graded case review: '+code);
+ for(const day of program.curriculum){
+  assert.equal(day.sourceStatus,'owner_approved_invite_beta_instruction_20261031');
+  assert.equal(day.officiallyGraded,false,'Owner instruction signoff cannot award grades');
+  assert.equal(day.masteryAwarded,false,'Owner instruction signoff cannot award mastery');
+ }
  for(const day of program.curriculum)assert(day.lesson?.worked&&day.lesson?.source?.url&&day.lesson?.transfer);
  const benchmark=program.curriculum[0].lesson.formativeQuestions;
  assert.equal(benchmark.length,12,'Twelve individual formative questions for reference day '+code);
@@ -42,6 +49,7 @@ assert(read('assets/js/bootcamp-academy-v014168.js').includes("GroundUpAcademyGu
 assert(read('bootcamp.html').includes('gu-bc-guided'));
 assert(read('bootcamp-academy.html').includes('academy-guided-v1.js'));
 assert(read('assets/css/academy-guided-v1.css').includes('grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)'));
+assert(js.includes('Owner editorial approval: released for invited instructional Beta.'));
 assert(js.includes('Suggested active-learning itinerary — '));
 assert(js.includes('REFERENCE_MINUTES'));
 assert(js.includes("isNewCourse"));
