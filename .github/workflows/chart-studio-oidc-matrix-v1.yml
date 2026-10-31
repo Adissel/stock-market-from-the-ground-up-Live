@@ -1,12 +1,7 @@
 name: Chart Studio OIDC Noncommercial Real-Member Matrix
+# Retired after single-use QA run 41233580742. Not triggered on push.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'tests/live-chart-studio-oidc-matrix-v1.mjs'
-      - 'supabase/functions/smfgu-chart-matrix-github-oidc-v1/index.ts'
-      - '.github/workflows/chart-studio-oidc-matrix-v1.yml'
 permissions:
   contents: read
   id-token: write
