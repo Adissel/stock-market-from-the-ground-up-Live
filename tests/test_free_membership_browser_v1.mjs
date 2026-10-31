@@ -84,7 +84,13 @@ try{
   const {context,page,problems}=await makePage(width,'bootcamp-academy.html?program=free5&day=1');
   await page.locator('#academy-course-title').waitFor({timeout:14000});
   assert.match(await page.locator('#academy-course-title').innerText(),/Free Foundations/);
-  const library=page.locator('#academy-free-knowledge');
+  // The twelve reference topics moved to the standalone Knowledge Database.
+  // Verify the live member navigation AND the real, interactive destination
+  // instead of expecting the former embedded library in the Academy page.
+  assert(await page.locator('a[href="knowledge-database.html"]').count()>=1,
+   'Free Foundations must link to the separated Knowledge Database');
+  const knowledge=await makePage(width,'knowledge-database.html');
+  const library=knowledge.page.locator('#academy-free-knowledge');
   await library.locator('details').first().waitFor({timeout:14000});
   assert.equal(await library.locator('details').count(),12,'Every Free member receives all 12 core knowledge topics');
   assert.equal(await library.locator('a[href^="https://"]').count(),12,'Every topic links to its first-party regulatory source');
@@ -97,6 +103,8 @@ try{
   assert.equal(await independent.locator('.gu-free-reference-review').isVisible(),true);
   assert.match(await independent.innerText(),/Nothing was scored or saved/);
   await independent.locator('summary').click();
+  assert.equal(knowledge.problems.length,0,'Knowledge Database must not throw browser runtime errors');
+  await knowledge.context.close();
   assert.equal(await page.locator('#academy-days .gu-bc-day').count(),5);
   assert.match(await page.locator('#academy-index-title').innerText(),/lessons/i);
   assert.match(await page.locator('#academy-stage-label').innerText(),/Lesson 1 of 5/i);
