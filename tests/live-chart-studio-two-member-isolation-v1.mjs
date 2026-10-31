@@ -11,8 +11,9 @@ const key=cfg.match(/SUPABASE_ANON_KEY:\s*'([^']+)'/)?.[1];
 assert(url&&key,'Missing public Supabase config');
 const members=[
  {label:'ADVANCED',email:process.env.LAB_QA_EMAIL,password:process.env.LAB_QA_PASSWORD,expected:'ADVANCED'},
- {label:'STANDARD',email:process.env.LAB_QA_SECOND_EMAIL||process.env.CROWN_QA_FREE_EMAIL,
-  password:process.env.LAB_QA_SECOND_PASSWORD||process.env.CROWN_QA_FREE_PASSWORD,expected:'STANDARD'}
+ {label:'SECOND',email:process.env.LAB_QA_SECOND_EMAIL||process.env.CROWN_QA_FREE_EMAIL||process.env.CROWN_QA_FOUNDING_60_EMAIL,
+  password:process.env.LAB_QA_SECOND_PASSWORD||process.env.CROWN_QA_FREE_PASSWORD||process.env.CROWN_QA_FOUNDING_60_PASSWORD,
+  expected:process.env.LAB_QA_SECOND_EMAIL||process.env.CROWN_QA_FREE_EMAIL?'STANDARD':'PROFESSIONAL'}
 ];
 for(const item of members)if(!item.email||!item.password)
  throw Error('BLOCKED: Missing second independent QA credential pair. No cross-account acceptance claimed.');
@@ -43,7 +44,8 @@ for(const actor of [a,b]){
  const tier=await get(actor,'/api/chart-tier-access');
  assert.equal(tier.status,200);
  assert.equal(tier.body.tier,actor.expected,'Unexpected live member entitlement');
- assert.deepEqual(tier.body.allowed,actor.expected==='ADVANCED'?['STANDARD','ADVANCED']:['STANDARD']);
+ assert.deepEqual(tier.body.allowed,actor.expected==='ADVANCED'?['STANDARD','ADVANCED']:
+  actor.expected==='PROFESSIONAL'?['STANDARD','ADVANCED','PROFESSIONAL']:['STANDARD']);
  const workspace=await get(actor,'/api/chart-workspace');
  assert.equal(workspace.status,200);
  assert.equal(workspace.body.ok,true);
@@ -66,5 +68,5 @@ const guest=await req(origin+'/api/chart-workspace');
 assert([401,403].includes(guest.status));
 console.log('PASS real two-member cross-account Chart Studio API isolation and exact Standard/Advanced entitlements');
 console.log('RESULT '+JSON.stringify({scope:'REAL_DISTINCT_GOTRUE_TOKENS',actors:2,
- tiers:['STANDARD','ADVANCED'],foreignAccountSelectorDenied:true,
+ tiers:[members[1].expected,'ADVANCED'],foreignAccountSelectorDenied:true,
  crossUserPrivateWorkspaceLeak:false,productionWrites:0,at:new Date().toISOString()}));
