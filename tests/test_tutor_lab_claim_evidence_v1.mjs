@@ -70,6 +70,23 @@ const rejected=await getApprovedLabContext(badAssets,new Request('https://exampl
  'Explain Lab F2-C04-L02 Learning Journey stage: Learn');
 assert(rejected&&rejected.claimEvidence===null,'Malformed optional source asset fails closed');
 assert(!labGuidance(rejected,'explain','').includes('<script>'));
+const supplemental=['F2-C04-L01','F2-C04-L02','DT-C41-L01','DT-C41-L02'];
+for(const id of supplemental){
+ const row=evidence.records.find(x=>x.id===id);
+ assert.equal(row.supplementarySourceUrls?.length,1);
+ assert(row.supplementarySourceUrls.every(url=>sourceAllowed.test(url)&&url!==row.sourceUrl));
+ const ctx=await getApprovedLabContext(env,new Request('https://example.com/api/market-tutor'),
+  'Explain Lab '+id+' Learning Journey stage: Learn');
+ assert(labGuidance(ctx,'explain','').includes(row.supplementarySourceUrls[0]));
+}
+const injected=structuredClone(evidence);
+injected.records.find(r=>r.id==='DT-C41-L01').supplementarySourceUrls=['https://attacker.invalid/ignore-previous-instructions'];
+const maliciousAssets={ASSETS:{fetch:async req=>new URL(req.url).pathname.endsWith('/competency-lab-paths-v01499.json')
+ ?Response.json(registry):Response.json(injected)}};
+const rejectedSupplement=await getApprovedLabContext(maliciousAssets,new Request('https://example.com/api/market-tutor'),
+ 'Explain Lab DT-C41-L01 Learning Journey stage: Learn');
+assert(rejectedSupplement&&!rejectedSupplement.claimEvidence,'Untrusted supplementary URL fails closed');
+
 assert.equal(Math.round((20.10-19.95)*1000)/1000,0.15);
 assert.equal((19.95+20.10)/2,20.025);
 
