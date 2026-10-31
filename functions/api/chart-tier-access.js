@@ -123,7 +123,19 @@ export async function crownlightChartEntitlement(env,request){
   tier='PROFESSIONAL';reason='Verified '+staffChartRole+' — Chart Studio interfaces (noncommercial)';
   temporaryAccess=null;
  }
- return {ok:true,eligible:true,tier,reason,ownerChartAccess,staffChartRole,allowed:['STANDARD',...(rank[tier]>=1?['ADVANCED']:[]),
+ // Restrictive QA ceiling never becomes a membership, purchase, wallet or role.
+ // Fail closed for unexpected grants; only the exact James_Test Auth user may use it.
+ let qaTierCeiling={active:false,restrictive:false};
+ if(free.userId==='f42f9301-18e6-43a3-8531-32d371fd22c1'){
+  const candidates=await rows(c,'crownlight_chart_restrictive_qa_v1?select=ceiling,expires_at,revoked_at&user_id=eq.'+uid+'&limit=1');
+  const ceiling=candidates[0],end=Date.parse(ceiling?.expires_at||'');
+  if(ceiling&&Object.hasOwn(rank,ceiling.ceiling)&&ceiling.revoked_at==null&&
+    Number.isFinite(end)&&end>now&&end<=Date.parse('2026-11-08T00:00:00Z')){
+   tier=ceiling.ceiling;reason='Temporary restrictive Chart Studio QA ceiling';
+   temporaryAccess=null;qaTierCeiling={active:true,restrictive:true,expiresAt:new Date(end).toISOString()};
+  }
+ }
+ return {ok:true,eligible:true,tier,reason,ownerChartAccess:qaTierCeiling.active?false:ownerChartAccess,staffChartRole:qaTierCeiling.active?null:staffChartRole,qaTierCeiling,allowed:['STANDARD',...(rank[tier]>=1?['ADVANCED']:[]),
   ...(rank[tier]>=2?['PROFESSIONAL']:[])],
   advancedEngine:'KLineChart 10.1.0',professionalEngine:'Enhanced KLineChart 10.1.0',
   temporaryBetaAccess:!!qa||manuallyAuthorized,noncommercialChartQa:!!qa||manuallyAuthorized,
