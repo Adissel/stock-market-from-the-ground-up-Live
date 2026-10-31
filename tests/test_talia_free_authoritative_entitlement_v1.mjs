@@ -49,4 +49,16 @@ assert(workflow.includes("secrets.LAB_QA_EMAIL")&&workflow.includes("secrets.LAB
  'Use encrypted pre-existing QA credentials, not stored passwords');
 assert(workflow.includes('workflow_dispatch')&&workflow.includes('pull_request')===false,
  'Real QA must be controlled by configured workflow trigger');
+const client=read('assets/js/market-tutor.js');
+const tutorPage=read('market-tutor.html');
+const storePage=read('store-tool-market-tutor.html');
+assert(client.includes("if(!TUTOR.ready){status(")&&
+ client.includes('TUTOR.ready=true;')&&
+ client.includes("$('tutor-ask').disabled=false"),
+ 'Visible Tutor cannot submit until identity and teaching sources are ready');
+assert(tutorPage.includes('id="tutor-ask" type="button" disabled'),
+ 'Static Tutor HTML must prevent premature submission before JavaScript starts');
+assert(storePage.includes('Free source-based access:')&&
+ storePage.includes('Free access does not activate optional paid AI inference'),
+ 'Store must disclose the genuine Free benefit without promising paid AI');
 console.log('PASS Free Tutor exact authoritative entitlement migration, member restrictions, AI and privacy gates, encrypted real-browser QA source.');
