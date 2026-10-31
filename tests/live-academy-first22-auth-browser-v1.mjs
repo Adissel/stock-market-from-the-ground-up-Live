@@ -54,13 +54,14 @@ try{
    storedSessionMatches:stored?.data?.session?.user?.id===args.expected,
    code:result?.error?.code||actual?.error?.code||null,
    http:result?.error?.status||actual?.error?.status||0,
+   authError: String(result?.error?.message||actual?.error?.message||'').replace(/Bearer\\s+[^\\s]+/ig,'[redacted]').slice(0,180),
    hasUser:!!actual?.data?.user,hasSession:!!stored?.data?.session};
  },{session:{access_token:signin.data.access_token,refresh_token:signin.data.refresh_token},expected:QA});
  assert.equal(identity.code,null,'Browser Supabase session rejected: '+identity.code+' HTTP '+identity.http);
  assert(identity.validatedUserMatches&&identity.storedSessionMatches,
   'Browser genuine session mismatch: user='+identity.validatedUserMatches+
   ' storage='+identity.storedSessionMatches+' hasUser='+identity.hasUser+
-  ' hasSession='+identity.hasSession+' initial='+identity.initialUserMatches);
+  ' hasSession='+identity.hasSession+' initial='+identity.initialUserMatches+' authError='+identity.authError);
  const counts={truth5:5,watchlist7:7,scanners10:10};
  let examined=0;
  for(const [program,n] of Object.entries(counts)){
