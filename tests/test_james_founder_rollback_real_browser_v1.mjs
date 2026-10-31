@@ -53,7 +53,7 @@ try{
  pass(!/Verified active FOUNDING_(14|30|60) paid term/.test(chartResult.reason||''),
   'chart tier is not falsely attributed to a paid Founding term');
  console.log('ROLLBACK_CHART_SOURCE '+JSON.stringify({tier:chartResult.tier,reason:chartResult.reason}));
- await page.evaluate(async()=>{const c=await window.getSupabaseClient();await c.auth.signOut()});
+ await page.evaluate(()=>{void window.getSupabaseClient().then(c=>c.auth.signOut())});
  await page.goto(site+'/signin.html',{waitUntil:'domcontentloaded'});
  pass(await page.evaluate(async()=>!(await (await window.getSupabaseClient()).auth.getSession()).data?.session),
   'James_Test signed out with no residual auth session');
