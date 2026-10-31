@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.5
+**Version:** 1.6
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -153,6 +153,20 @@ The server `functions/api/interactive-training.js` now rejects any official B01 
 
 [Real signed-in browser testing](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229091636) is distinct and was still under diagnostic retest at this revision; earlier runs obtained real credentials but did not retain a browser Supabase session before day navigation. Do not treat a scripted mock browser as real-member acceptance or conclude all 22 day interfaces passed.
 
+### Final verification and closure of temporary QA access
+
+**GitHub source vs production:** The connected Cloudflare production Pages project `stock-market-from-the-ground-up` was inspected directly on October 31; production deployments included commit `a310684485f9ba2a7f9a93653b4ab37b0326ea64` (successful), followed by later active commits including the Academy browser diagnostic update. This establishes that the live production endpoint served a deployment containing the `foundations30` read-route correction; it does **not** retroactively establish exact latest-head equality for every site workflow.
+
+**Read-only signed-member API:** [Run 41229053907](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229053907) PASSED with authentic James_Test Supabase credentials. It verified the live source read of original truth5, watchlist7, scanners10, foundations30, fail-closed guest checks, spoofed member selector rejection, cross-origin write rejection, genuine token refresh and no unwanted progress changes.
+
+**Full browser did not pass:** [Run 41229248443](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229248443) FAILED before 22-day navigation. The legitimate QA password grant succeeded and the member token was genuine, but browser `supabase.auth.setSession/getUser` failed to maintain a retrievable browser identity (`Failed to fetch`). The diagnostic attempted forwarding the actual browser token to the real GoTrue identity endpoint via a QA-only transport bridge; it still did not pass. **0/22 completed live authenticated Chromium day-level acceptance screens.** No CAPTCHA UI, real member view, mobile/screen reader, independent private examination or second-member isolation was certified. This is an operational blocker, not a source acceptance denial.
+
+**QA grant revocation:** The one-time 30-minute noncommercial `ONDEMAND_TRAINING` tool pass was granted to the existing James_Test QA identity, used only for the read-only acceptance calls, and **explicitly canceled** after the final browser diagnostic. Separate administrative audit entries document issuance and revocation; database post-check returned `post_revocation_entitled=false` and `qa_passes_left_active=0`. The QA member's earlier canceled grants and all production customer purchase/grade records were unchanged.
+
+**Additional permanent regression:** `tests/test_v014168_academy_family.mjs` now rejects a future return of `code!=='foundations30'` in the Academy code eligibility function, while preserving the canonical original 30-day progress controller.
+
+**Final gate:** Current approvals **0/42** day-level editorial, **0/20** newly drafted v98 private sets, **0/200** new feedback entries. The initial 940 items were assigned audit tasks but not cleared by source-validating independent reviewers. Do not enable protected grading, certificates or public curriculum completion on this evidence.
+
 ### Individually attributable approval decisions
 
 **0 decisions issued**. None of the 940 preliminary triage rows or 200 private Draft corrections has an independent editor's signed day/case decision. Required reviewer: distinct attributable human or suitably independent editorial process with reviewed source record, field-level mathematical answer audit, actual counterexamples, materiality severity, source effective dates, private grading rubric and answer-option feedback, and final acceptance/rejection *in the existing controlling registers*. Existing B01 product beta approval of **ungraded instruction only** stays frozen; never conflate draft creation with published assessment.
@@ -169,5 +183,6 @@ The server `functions/api/interactive-training.js` now rejects any official B01 
 | 1.3 | 2026-10-31 | Verified 940-claim inventory, performed preliminary private B01 content/math checks, corrected pending-grade and reversible answer-order defects with passing CI | Technical safeguards verified; 42-day claims and independent editorial/assessment acceptance OPEN |
 | 1.4 | 2026-10-31 | Recorded missing structured per-option remediation in frozen B01 private set, with appropriate next-version instructions | Editorial correction-and-retry gate OPEN; private set unchanged |
 | 1.5 | 2026-10-31 | 940 individual triage records, separate numeric checks, 20 private v98 Draft remediation sets with 200 corrections, protected grader regression and real-member API acceptance | Technical evidence verified; 0 human editorial approvals, browser release OPEN |
+| 1.6 | 2026-10-31 | Recorded Cloudflare deploy, passed real member API, failed browser identity transport, controlled QA pass issuance/revocation and zero protected editorial acceptance | API gate PASSED; authentic browser and independent editorial gates BLOCKED |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
