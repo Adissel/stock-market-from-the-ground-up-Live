@@ -158,6 +158,37 @@ try{
   assert.equal(protectedWrites.length,0);
   assert.deepEqual(browserErrors,[]);
  });
+ // Additional *real member browser* CSV/replay acceptance (not counted in QA25).
+ // Entire file is fictional, generated inside the test, never an external feed.
+ await p.locator('#sim-mode-csv').click();
+ await p.locator('#sim-content').waitFor({state:'visible',timeout:25000});
+ await p.locator('#sim-source').selectOption('csv');
+ await p.locator('#sim-start-context').selectOption('0');
+ const teachingCSV=[
+  'timestamp,open,high,low,close,volume',
+  '2040-01-02T14:30:00Z,10,11,9,10.5,1000',
+  '2040-01-02T14:31:00Z,10.5,12,10,11.5,1500',
+  '2040-01-02T14:32:00Z,11.5,13,11,12,2000'
+ ].join('\\n').replace(/\\n/g,'\n');
+ await p.locator('#sim-csv').setInputFiles({name:'qa-original-fictional-candles.csv',
+  mimeType:'text/csv',buffer:Buffer.from(teachingCSV)});
+ await p.locator('#load-csv').click();
+ await p.waitForFunction(()=>document.getElementById('sim-load-msg')?.textContent
+  ?.includes('Loaded 3 candles'),null,{timeout:15000});
+ const start=await p.evaluate(()=>({
+  candles:SIM.candles.length,index:SIM.index,maxSeen:SIM.maxIndexSeen,
+  provider:SIM.sourceProvider,sourceName:SIM.sourceName,
+  certified:SIM.originalFictional,notice:document.getElementById('sim-load-msg')?.textContent
+ }));
+ assert.equal(start.candles,3);assert.equal(start.index,0);
+ assert.equal(start.maxSeen,0);
+ assert.equal(start.provider,'csv_upload');assert.equal(start.certified,false);
+ assert.equal(start.sourceName,'qa-original-fictional-candles.csv');
+ await p.locator('#sim-next').click();
+ const stepped=await p.evaluate(()=>({index:SIM.index,maxSeen:SIM.maxIndexSeen}));
+ assert.equal(stepped.index,1);assert.equal(stepped.maxSeen,1);
+ assert.deepEqual(protectedWrites,[],'Browser CSV replay must never create member, wallet or payment mutations');
+ console.log('PASS REAL AUTHENTICATED CSV: local fictional upload, unverified source label, pause at first bar and controlled next-bar reveal; zero member writes');
  await c.close();
 }finally{await browser.close()}
 assert.equal(seen.length,25,'All twenty-five real QA scenarios must finish');
