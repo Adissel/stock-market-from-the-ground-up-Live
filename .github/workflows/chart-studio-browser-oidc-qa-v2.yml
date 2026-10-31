@@ -1,12 +1,8 @@
 name: Chart Studio Real Standard Professional Browser and Two-Tab Acceptance
+# One-time acceptance passed 41236465069. Push triggering permanently retired;
+# the temporary account-provisioning function has been replaced with HTTP 410.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'tests/live-chart-studio-real-standard-professional-chromium-v2.mjs'
-      - 'supabase/functions/smfgu-chart-browser-oidc-qa-v2/index.ts'
-      - '.github/workflows/chart-studio-browser-oidc-qa-v2.yml'
 permissions:
   contents: read
   id-token: write
