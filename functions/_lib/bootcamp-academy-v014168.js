@@ -18,6 +18,9 @@ import {formativeDay07V1} from './academy-three-camps-formative-day07-v1.js';
 import {formativeDay08V1} from './academy-three-camps-formative-day08-v1.js';
 import {formativeDay09V1} from './academy-three-camps-formative-day09-v1.js';
 import {formativeDay10V1} from './academy-three-camps-formative-day10-v1.js';
+import {tapeAdvancedV1} from './academy-tape-advanced-practicums-v1.js';
+import {indicatorsAdvancedV1} from './academy-indicators-advanced-practicums-v1.js';
+import {filingsAdvancedV1} from './academy-filings-advanced-practicums-v1.js';
 import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
 import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
@@ -259,7 +262,12 @@ function dayFor(d,i){
    day===5?formativeDay05V1[d.code]:day===6?formativeDay06V1[d.code]:
    day===7?formativeDay07V1[d.code]:day===8?formativeDay08V1[d.code]||null:
    day===9?formativeDay09V1[d.code]||null:day===10?formativeDay10V1[d.code]||null:null;
-  const lesson=questions?Object.freeze({...originalLesson,formativeQuestions:questions}):originalLesson;
+  const sourceBank=d.code==='tape10'?tapeAdvancedV1:d.code==='indicators10'?indicatorsAdvancedV1:filingsAdvancedV1;
+  const advanced=sourceBank?.[day];
+  if(!questions||questions.length!==12||!Array.isArray(advanced)||advanced.length<1||advanced.length>2)
+   throw Error('Incomplete day-specific Boot Camp deep teaching contract: '+d.code+' day '+day);
+  const lesson=Object.freeze({...originalLesson,formativeQuestions:questions,
+   advancedPracticums:Object.freeze(advanced.map(item=>Object.freeze({...item})))});
   return Object.freeze({day,programDay:day,programCode:d.code,title:lesson.title,
    objective:lesson.teach,observe:lesson.terms,practice:lesson.transfer,
    phase:'learn',phaseLabel:'Original ten-stage instructional day',
