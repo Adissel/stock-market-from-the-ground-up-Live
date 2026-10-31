@@ -8,12 +8,12 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.1 |
+| Version | 1.2 |
 | Date | 2026-10-31 |
-| Status | **TECHNICAL EVIDENCE UPDATED; GENUINE REWARD, LUMEN SETTLEMENT AND GIFTING LEGAL GATES OPEN** |
+| Status | **IMMUTABLE GRADING BRIDGE DEPLOYED; SECURITY POSTFLIGHT VERIFIED; REAL REWARDS, SETTLEMENT AND GIFTING RELEASE REMAIN ON HOLD** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
 | Purpose | Consolidate owner-delegated execution on the four V1 acceptance milestones and preserve reproducible evidence |
-| Owner authority | Routine technical QA, draft product/economics decisions and editorial review delegated. Legal licensure, independent human beta and real commercial-payment authorization are **not** assumed. |
+| Owner authority | Owner reaffirmed delegated routine engineering, editorial and QA decisions on 2026-10-31 and accepted retention of the gifting release hold. This is **not** legal clearance, human-review impersonation or LIVE-charge authorization. |
 
 ## Milestone 3 — Protected reward technical integration
 
@@ -79,8 +79,18 @@ The owner-approved denominator remains twelve equal milestones. Previously accep
 On inspection of the deployed `submit_competency_case_v135` source contract (`supabase/migrations/v0.13.5_FINAL_COMMERCE_ASSESSMENTS.sql`), the real grader writes an immutable `competency_attempts_v135` record and per-dimension `competency_evidence` entries of `source_type='quiz'`. The existing reward outbox requires `source_type='system_assessment'` plus independently reviewed metadata. **Without an explicit verified bridge, genuine grade submissions could never automatically meet the new outbox criteria.**
 
 - **Source committed:** `supabase/migrations/20261031_lumen_v135_immutable_grading_bridge_v1.sql`. Adds a *new*, private, service-only `gu_lumen_assessment_case_release_v1` mapping. No approved mappings are inserted. A passing immutable attempt is recognized only if its case, case version, applicable Lab/Boot Camp scope, active staff reviewer, approval record and rubric threshold match an individually approved release map. Only then does the trigger construct verified `system_assessment` evidence and enqueue; it does **not** directly issue credits.
-- **Migration application:** Connected Supabase migration action was rejected by platform safety checks. **Not deployed; no live acceptance claimed.** A separate source regression test was committed to verify the mapping and no-direct-award guards. Its CI result must pass before source contract acceptance.
+- **Migration application — COMPLETED 2026-10-31:** The previously blocked migration was successfully applied with the authorized Supabase `apply_migration` action as version `20261031231939` / `lumen_v135_immutable_grading_bridge_v1_20261031`. Postflight verified new mapping table, function and enabled `AFTER INSERT` trigger, RLS enabled, denied anonymous and ordinary member table SELECT, denied anonymous and member function EXECUTE, and service-role-only table access. Approved mappings remain **zero**. Deployed infrastructure does not mean real grading or member earning has been accepted.
 - **Future independent acceptance:** An actual reviewed official case must be mapped and a genuine graded submission must enter the queue; then the release-controlled award, retry and wallet history can be tested. A synthetic transaction or metadata flag alone is not evidence of an independent completed course.
+
+### Production case readiness and automated draft QA — 2026-10-31
+
+A read-only full-registry structural audit returned **54 competency cases, 54 with permitted 4–40 question counts, 54 without the basic missing-ID/missing-key/invalid-dimension/missing-options defects checked, and 0 flagged basic structural faults**. Separately, **all 54 cases are inactive, have no reviewer, and have no review timestamp**. Structural integrity is **not** substantive editorial accuracy or independent assessment acceptance. None can be mapped and activated for genuine earning without a separate authorized, evidenced case-by-case review; no human reviewer identity will be fabricated.
+
+After bridge application, Supabase returned **429 catalog reward definitions, 0 published, 0 actual learning awards, 0 review-grade outbox items, 0 gifts, 0 mixed checkout intents, 0 mixed wallet debits, and 0 member gift opt-ins**. The singleton release flags `learning_rewards_enabled`, `member_gifts_enabled`, `legal_gifting_clearance`, and `security_gifting_clearance` were all `false`. No LIVE charge, real credit, gift, or staff approval was produced.
+
+### Founding 600 CI repair affecting exact-commit release
+
+The deployed `e4c3f26643a4b944dd448a8888ab2daedcfe17cf` baseline had 24 successful and 1 failed GitHub Actions runs. The failed `Founding 600 Source & Security Gate` job exhibited a JavaScript syntax error from an over-escaped regular-expression slash in `tests/test_f600_signed_sandbox_webhook_v014217.mjs`. One redundant escape was removed directly on `main` at commit `4c4ebba2c13be23a26e48e7aa0253d53f894abdd`. The replacement `Founding 600 Source & Security Gate` run [41252172602](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41252172602) **PASSED**. The entire replacement matrix and an exact matching new Pages deployment must still be confirmed before final release acceptance.
 
 ### Reconciled legal-technical gate
 
@@ -90,6 +100,7 @@ A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion can
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-10-31 | 1.2 | Applied immutable grading bridge to Supabase; verified permissions, zero awards and disabled release flags; audited all 54 draft competency cases; corrected Founding 600 signed TEST webhook CI regex | Database engineering deployment PASS; independent grades, wallet settlement, gifting release and final CI OPEN |
 | 2026-10-31 | 1.1 | Identified immutable real-grade evidence mismatch and staged reviewer-gated migration; application blocked by platform safety controls | Source committed; deploy and true-grading acceptance open |
 | 2026-10-31 | 1.0 | Synthetic grade-to-award rollback, full four-case Stripe TEST refund parity, genuine two-account gifting-denial QA, federal/Missouri legal risk register | Owner-delegated ENGINEERING QA accepted; release/legal/independent grading acceptance explicitly OPEN |
 
