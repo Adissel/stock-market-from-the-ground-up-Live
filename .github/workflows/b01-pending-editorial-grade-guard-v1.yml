@@ -15,7 +15,9 @@ on:
       - 'supabase/migrations/20261031_b01_private_feedback_v98_draft_only.sql'
       - 'tests/test_b01_review_withdrawal_and_private_grading.mjs'
       - 'tests/test_b01_invalid_choice_and_remediation.mjs'
-permissions: {contents: read}
+permissions:
+  contents: read
+  issues: write
 jobs:
   b01-protected-reviewed-vs-approved:
     runs-on: ubuntu-latest
@@ -34,3 +36,18 @@ jobs:
           node tests/test_b01_pending_private_review_grading_gate_v1.mjs
           node tests/test_b01_review_withdrawal_and_private_grading.mjs
           node tests/test_b01_invalid_choice_and_remediation.mjs
+      - name: Record exact B01 guard CI status, not independent editorial approval
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          {
+            echo "### B01 protected grading CI — exact revision"
+            echo "Commit: \`$GITHUB_SHA\`"
+            echo "GitHub Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Job status: **$JOB_STATUS**"
+            echo "Coverage: frozen/draft B01 Owner review guard, stale-revision CAS, specific wrong-option feedback and private grading denial."
+            echo "Technical CI success is NOT a separately authenticated human reviewer sign-off. Private v98 remains unapproved; grading remains held."
+          } >/tmp/b01-guard-ci.txt
+          gh issue comment 153 --repo "$GITHUB_REPOSITORY" --body-file /tmp/b01-guard-ci.txt
