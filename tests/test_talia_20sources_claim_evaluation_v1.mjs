@@ -94,5 +94,5 @@ try{
  r=await request('Explain Lab F1-C02-L01 and cite any verified tape');
  assert.equal(r.status,200);assert(!r.result.sources.some(s=>Array.isArray(s.referenceUrls)));passed++;
  assert.equal(unexpectedExternalCalls,0,'No provider, third-party or member-private call');
- console.log('PASS Talia evidence evaluation: '+passed+' synthetic cases; 14 claim citations, no model charges, poison/title/no-evidence fallback and reflection boundaries.');
+ console.log('PASS Talia evidence evaluation: '+passed+' synthetic cases; 17 claim citations, no model charges, poison/title/no-evidence fallback and reflection boundaries.');
 }finally{globalThis.fetch=originalFetch}
