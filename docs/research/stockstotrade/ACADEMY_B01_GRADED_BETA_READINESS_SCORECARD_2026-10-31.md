@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 1.2  
+**Version:** 1.3  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -64,6 +64,14 @@ The Owner has designated actual beta members as the source of human editorial re
 
 No official B01 protected grading, mastery awards, certificates dependent on those grades, financial charge, new entitlement, assumed historical data licence or fictitious staff signoff. No replacement or auto-acceptance of the authoritative 252-day and 671-row registers. Store confidential answers in private Supabase only.
 
+## Current owner-delegated AI review classification
+
+The Owner delegates publisher editorial judgment, QA coordination and administrative planning to GPT-6. Document actual item-level findings as `GPT-6 / OWNER_DELEGATED_AI_EDITOR`. This role is not a separate human reviewer or an authentic beta member.
+
+On October 31, 2026 GPT-6 checked original Trading Foundations Day 20 against FINRA's April 12, 2021 article *Short Interest—What It Is, What It Is Not* (https://syndication.finra.org/content/short-interest-what-it-what-it-not). The narrow educational distinction between daily off-exchange short-sale volume and dated short-interest positions is supported. The fictional calculations 1,200,000/3,000,000=40% and 500,000/2,000,000=25% are correct raw ratios but cannot establish comparable market-wide short-sale percentages with mismatched trading venues. Disposition: **AI editorial source/math check supported for ungraded teaching**, not a complete day approval, separate human review, protected assessment approval, or grading authorization.
+
+This finding was already counted within the original narrow-source review allocation. Authorizing the AI role therefore does not increase the weighted readiness beyond **52%**. The controlling 252-day and 671-row acceptance records are unchanged, and official protected grading remains on hold.
+
 ## Revision history
 
 | Version | Date | Change | Decision |
@@ -71,5 +79,7 @@ No official B01 protected grading, mastery awards, certificates dependent on tho
 | 1.0 | October 31, 2026 | Measured source-current gate, closed Owner approval shortcut, confirmed 20/20 arithmetic, specified remaining work and transparent 52% methodology | HOLD — independent review and graded beta acceptance not completed |
 | 1.1 | October 31, 2026 | Owner selected independent reviewers from qualified beta testers; formalized reviewer tracks, confidential answer-key separation and 62 unassigned slots | 52% estimate unchanged; independent acceptance pending |
 | 1.2 | October 31, 2026 | GPT-6 assigned working AI editorial role; beta testers reserved for independent human validation; eight additional narrow SEC source findings linked | 52% unchanged; no human content acceptance or graded release |
+
+| 1.3 | October 31, 2026 | Owner designated GPT-6 as accountable AI publisher editor; recorded narrow FINRA/mathematics review | 52% estimate unchanged; no graded release | 
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
