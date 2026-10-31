@@ -241,7 +241,7 @@ export async function onRequest({request,env}){
    if(evidence)publicCitations.push({id:evidence.sourceId,
     title:'Reviewed educational source: '+evidence.sourceId,
     summary:evidence.claim,sourceLabel:'Independent public reference; limited claim scope',
-    sourceId:'[2]',referenceUrls:[evidence.sourceUrl]});
+    sourceId:'[2]',referenceUrls:[evidence.sourceUrl,...(evidence.supplementarySourceUrls||[])]});
    return finish({
    ok:true,generation:'original-competency-guide',mode,aiReason:'source_only',
    answer:labGuidance(labContext,mode,answer),graded:false,masteryAwarded:false,
