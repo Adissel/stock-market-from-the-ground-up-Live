@@ -1,0 +1,44 @@
+name: Talia Genuine Free Source Tutor Browser Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tests/test_talia_free_genuine_browser_qa_v1.mjs
+      - .github/workflows/talia-free-genuine-browser-qa-v1.yml
+permissions:
+  contents: read
+concurrency:
+  group: talia-genuine-free-browser-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  authenticated-free-tutor:
+    name: Real James_Test Free Market Tutor, no payments or AI
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check QA source and encrypted account availability
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: |
+          node --check tests/test_talia_free_genuine_browser_qa_v1.mjs
+          if test -z "$LAB_QA_EMAIL" || test -z "$LAB_QA_PASSWORD"; then
+            echo "BLOCKED: existing encrypted QA credentials not configured. Cannot claim authenticated access."
+            exit 2
+          fi
+      - name: Install free pinned Chromium browser
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify real Free member Tutor entitlement, citations and Assess boundaries
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/test_talia_free_genuine_browser_qa_v1.mjs
