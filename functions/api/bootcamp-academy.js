@@ -72,12 +72,13 @@ export async function onRequest({request,env}){
    return respond({ok:true,version:ACADEMY_VERSION,programs:academyCatalog.filter(p=>!newCourses.has(p.code)||released(env)),
     notice:'Study-only curriculum listings; course completion never awards an official competency or trade result.'});
   }
+  // Reject all cross-origin writes before any privileged identity/provider lookup.
+  if(request.method==='POST')sameOrigin(request);
   // Reuse the existing Auth/profiles/suspension checks for every Academy
   // program. The Free course is ungraded; other programs keep paid checks.
   const auth=await toolAccess(env,request,'ONDEMAND_TRAINING');
   let form=null;
   if(request.method==='POST'){
-   sameOrigin(request);
    form=await readInput(request,env,auth.userId);
   }
   const requestedCode=request.method==='GET'?url.searchParams.get('program'):form.program;
