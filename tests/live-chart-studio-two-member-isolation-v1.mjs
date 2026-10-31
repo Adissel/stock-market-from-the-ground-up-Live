@@ -66,6 +66,20 @@ assert.notEqual(data.get(b.uid).updatedAt,data.get(a.uid).updatedAt,
  'Different member must not receive original workspace revision');
 const guest=await req(origin+'/api/chart-workspace');
 assert([401,403].includes(guest.status));
+
+for(const endpoint of ['/api/member-learning-quick-view','/api/member-lumen-activity']){
+ const ownA=await get(a,endpoint),ownB=await get(b,endpoint);
+ assert.equal(ownA.status,200,'Member A private endpoint unavailable');
+ assert.equal(ownB.status,200,'Member B private endpoint unavailable');
+ assert.equal(ownA.body?.ok,true);assert.equal(ownB.body?.ok,true);
+ const fakeA=await get(a,endpoint+'?user_id='+encodeURIComponent(b.uid));
+ const fakeB=await get(b,endpoint+'?user_id='+encodeURIComponent(a.uid));
+ assert.equal(fakeA.status,200);assert.equal(fakeB.status,200);
+ assert.deepEqual(fakeA.body,ownA.body,'Member A read another member\'s learning/wallet records');
+ assert.deepEqual(fakeB.body,ownB.body,'Member B read another member\'s learning/wallet records');
+ const guest=await req(origin+endpoint);assert([401,403].includes(guest.status));
+}
+console.log('PASS two real users: private learning progress and Lumen activity scoped to authenticated actor, forged selectors ignored.');
 console.log('PASS real two-member cross-account Chart Studio API isolation and exact Standard/Advanced entitlements');
 console.log('RESULT '+JSON.stringify({scope:'REAL_DISTINCT_GOTRUE_TOKENS',actors:2,
  tiers:[members[1].expected,'ADVANCED'],foreignAccountSelectorDenied:true,
