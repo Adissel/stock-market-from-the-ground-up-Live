@@ -189,15 +189,15 @@
     },
     {
       "id": "DT-C24-L01",
-      "claim": "SEC current-report disclosures can describe unregistered equity sales and possible dilution. If an issuer actually issues additional equivalent common shares, all else equal an existing holder's percentage ownership falls; authorization, registration, warrants, and actual issued shares are different facts.",
+      "claim": "Public securities offerings may involve registration statements and prospectuses. A proposed or registered offering is not proof that every share is already issued. If new equivalent common shares are actually issued, the ownership percentage of existing holders can decline; the filed terms and outstanding share count must be separately checked.",
       "worked": "FICTIONAL fully-issued simplified case: 10,000,000 common shares outstanding and 2,500,000 genuinely new equivalent shares issued produce 12,500,000 total shares. Existing holders together then hold 10,000,000/12,500,000=80% of the new total, before considering voting classes, convertibles or buybacks. This is not a verified issuer event.",
       "counterexample": "Announcing a shelf registration, ATM facility, warrant authorization or proposed offering does not establish that every share has already been sold or issued. Counting merely authorized shares as outstanding would manufacture dilution.",
       "transfer": "FICTIONAL: assume precisely 20 million identical common shares were outstanding and 5 million additional identical shares have actually been issued. Calculate 25 million new outstanding shares and a pre-issuance holder group's 80% proportion, then list what would be required to verify a real company's filing terms.",
-      "sourceId": "SEC_8K_GUIDE",
-      "sourceUrl": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+      "sourceId": "SEC_REGISTERED_OFFERING",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/investing-basics/glossary/registration-under-securities-act-1933",
       "title": "Offerings, ATM Programs, Warrants, Convertibles, and Dilution Risk — Public and Registered Direct Offerings",
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
-      "evidenceScope": "Original fictional arithmetic with SEC general educational references only; not actual corporate actions or individual full-Lab editorial approval."
+      "evidenceScope": "SEC primary registration-disclosure generalities plus original fictional issued-share ownership arithmetic; not a claim that any real registered direct offering was completed."
     }
   ],
   "sourceReviewDate": "2026-10-31"
