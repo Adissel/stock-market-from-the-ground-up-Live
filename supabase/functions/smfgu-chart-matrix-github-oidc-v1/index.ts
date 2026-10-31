@@ -12,7 +12,7 @@ const OUT={'content-type':'application/json','cache-control':'no-store, private'
 const reply=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:OUT});
 const dec=x=>JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(x.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0))));
 async function githubClaims(req){
- const jwt=/^Bearer\\s+([^\\s]+)$/i.exec(req.headers.get('authorization')||'')?.[1];
+ const jwt=/^Bearer\s+([^\s]+)$/i.exec(req.headers.get('authorization')||'')?.[1];
  if(!jwt)throw Error('Missing GitHub OIDC');
  const parts=jwt.split('.');if(parts.length!==3)throw Error('Invalid OIDC');
  const header=dec(parts[0]),payload=dec(parts[1]);
@@ -23,7 +23,7 @@ async function githubClaims(req){
   payload.workflow_ref!==WORKFLOW||
   payload.sub!=='repo:'+PROJECT+':ref:refs/heads/main'||
   !['push','workflow_dispatch'].includes(payload.event_name)||
-  !/^\\d{5,16}$/.test(String(payload.run_id||''))||
+  !/^\d{5,16}$/.test(String(payload.run_id||''))||
   !Number.isInteger(payload.exp)||payload.exp<=now||payload.exp>now+900||
   !Number.isInteger(payload.iat)||payload.iat>now+60||now-payload.iat>600)
   throw Error('GitHub OIDC claims denied');
