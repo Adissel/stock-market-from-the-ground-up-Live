@@ -339,7 +339,7 @@ if(!email||!password){
     await page.waitForFunction(()=>Array.from(document.querySelectorAll('#journal-rows tr'))
       .some(x=>x.textContent?.includes('GUSIM')),{timeout:15000});
     await page.locator('#journal-rows tr a[href*="journal-entry.html"]').first().click();
-    await page.waitForURL(/\\/journal-entry\\.html\\?id=/,{timeout:20000});
+    await page.waitForURL(url=>new URL(url).pathname==='/journal-entry.html' &&\n     Number(new URL(url).searchParams.get('id'))>0,{timeout:20000});
     assert.equal(Number(new URL(page.url()).searchParams.get('id')),Number(jAfter.rows[0].id));
     note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
    }
