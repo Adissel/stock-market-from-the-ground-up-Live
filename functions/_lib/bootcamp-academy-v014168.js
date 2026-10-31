@@ -26,6 +26,7 @@ import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
 import {risk60PracticeBatch02,risk60PracticeSourceDays} from './academy-risk60-practice-batch02-v1.js';
+import {risk60TransferBatch03,risk60TransferSourceDays} from './academy-risk60-transfer-batch03-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -321,6 +322,10 @@ function dayFor(d,i){
   ...(d.code==='charts45'&&chartCaseBySourcePhase[sourceDay]?.[Math.floor(i/d.source.length)]?{
    lesson:chartCaseBySourcePhase[sourceDay][Math.floor(i/d.source.length)],
    sourceStatus:'original_chart_day_specific_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='risk60'&&i>=40&&risk60TransferBatch03[i-40]&&risk60TransferSourceDays[i-40]===sourceDay?{
+   lesson:risk60TransferBatch03[i-40],
+   sourceStatus:'original_risk60_transfer_day_specific_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='risk60'&&i>=20&&risk60PracticeBatch02[i-20]&&risk60PracticeSourceDays[i-20]===sourceDay?{
    lesson:risk60PracticeBatch02[i-20],
