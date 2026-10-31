@@ -5,9 +5,9 @@
 **Owner:** Crown & Lantern Press / Cyber Nexus  
 **Filename:** `docs/qa/2026-10-31_REPOSITORY_WIDE_AUDIT_BASELINE_v1.md`  
 **File type:** Markdown  
-**Version:** 1.0  
+**Version:** 1.1  
 **Review date:** October 31, 2026 (America/Chicago)  
-**Status:** **AUTOMATED TRACKED-FILE LINE SCAN COMPLETED; HIGH-RISK TRIAGE, MANUAL SEMANTIC REVIEW, LIVE E2E AND RELEASE ACCEPTANCE OPEN**  
+**Status:** **EXACT-COMMIT AUTOMATED SCAN PASSED; P0 FIXTURE DISPOSITION DOCUMENTED; SQL/DOM SECURITY REVIEW, BINARY AND HUMAN SEMANTIC ACCEPTANCE OPEN**  
 **Repository location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, main  
 **Google Drive location / document ID:** Not established; no new Drive file created. GitHub is the document of record.  
 **Purpose:** Establish an auditable source-file inventory, findings baseline and distinct follow-up acceptance evidence across all six P0 release gates.  
@@ -40,6 +40,34 @@
 **Critical interpretation:** A line-pattern match is not a proven exploit or a confirmed defect; these are triage candidates. The workflow scans every valid UTF-8 line with a defined rule set and inventories all tracked files, but does **not** human-read and semantically certify 319,705 lines, deeply inspect binary contents, execute a penetration test, grant rights to market data, or verify member/Stripe behavior. Binary types must be reviewed by appropriate native tools as warranted. A later SHA must be separately audited.
 
 **Generated evidence:** GitHub Actions artifact `repository-line-audit-v1`, with `tracked-file-manifest.csv` (every tracked filename, size, lines, hash and scan status), `line-findings.csv` (line-numbered triage candidates, no source/secret values), `summary.json` and `SCOPE.md`. Preserve the artifact link and exact run ID when available; do not invent a run ID.
+
+## 1A. Successful audited rerun and first findings disposition — v1.1
+
+**Controlling updated scan:** [GitHub Actions run 41216163811](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41216163811), job status **success**, exact scanned `main` commit `137705dace7c4b14d9f6f64c61e521419f99abed`, with artifact ID **13048825517** and Issue #158 [published summary](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/issues/158#issuecomment-6545566426).
+
+| Updated metric | Rerun value |
+|---|---:|
+| Git-tracked files | 3,224 |
+| Readable UTF-8 files | 3,132 |
+| UTF-8 lines scanned | 319,888 |
+| Binary/non-UTF-8 inventory entries | 92 |
+| JavaScript syntax checks passing | 1,261 |
+| JSON parses passing | 86 |
+| Unreadable files / JSON failures / JavaScript syntax errors reported | 0 |
+| Pattern candidate matches | 1,292 (10 P0, 327 P1, 534 P2, 421 P3) |
+
+The initial `1bfc9f7` audit of 3,222 files and 319,705 lines is preserved as historical evidence; the updated `137705d` audit supersedes it for the **particular** later SHA. Further commits require a new exact-SHA run.
+
+### Manual triage of severity classes — initial pass
+- **P0, ten matches:** all ten literal-pattern matches occur in `tests/` Stripe LIVE mock, Founder provider, webhook and signed-reconciliation fixtures. Source-line inspection found obvious fabricated/mock/QA values rather than production provider credentials, including the one non-obvious `whsec_` QA-only fixture. **Disposition: test-fixture-pattern false positives for these ten lines**, not confirmed live credential leakage. Do not reveal complete fixture strings in public reports. This does not certify every possible secret-exposure vector.
+- **P1, 14 dynamic-code matches:** all 14 are in `tests/`, mostly VM/evaluation harnesses. **Disposition: test-only candidates; inspect execution context for unintended use or untrusted injection before final closure**, not evidence of site runtime `eval`.
+- **P1, 313 SQL EXECUTE-grant matches:** historical migration and admin scripts, not 313 active vulnerabilities. **Disposition: LIVE permission analysis required for each relevant target function rather than changing historical migrations blindly.** Production read-only catalog confirms eight currently anonymous-executable privileged `SECURITY DEFINER` functions and 91 authenticated-executable advisor warnings. High-priority review: public `email_is_available` may reveal email-account existence (privacy/rate limiting); `prepare_book_key_claim` creates a pending claim token when a valid secret code is provided (abuse, guessing, privilege and throttling); trigger-only `gu_site_card_layout_audit_trigger_v1` has unnecessary direct grant to review. Public quote/catalog/username availability functions appear designed for public reads, but require authorization and payload checks.
+- **P2, 497 innerHTML/outerHTML assignment matches:** **source-to-sink manual XSS review pending**; some code already escapes or uses trusted templates, so count does not mean 497 exploitable XSS defects. Prioritize auth, admin, Store, Tutor, Forum, member wallet, chart, and payment pages.
+- **P2, 17 legacy `Founding 600` label matches:** inspected customer-facing `assets/js/store.js`, `assets/js/store-inventory-ui-v014174.js` and `assets/js/store-product-detail-v01484.js` use obsolete visible labels. **Confirmed member-facing copy defect**; approved name is `Founding Members`. Internal/admin labels are permissible; published legal documents and URLs need controlled legal/version review, not blind replacement.
+- **P2, 14 external-link `target=_blank` matches; six huge single lines:** check actual `rel=noopener noreferrer`, accessible link text and minified-source provenance. A match alone is not a defect.
+- **P3, 420 SQL function declarations plus one TODO:** expected inventory for permissions/security analysis, not 421 independently discovered vulnerabilities.
+
+**Open follow-up:** no full semantic human sign-off of 3,132 text files, no type-specific inspection of 92 binary assets, no authenticated production/browser acceptance, and no universal validation of all historic migrations or media licenses.
 
 ## 2. Required P0/P1 issue triage
 
@@ -87,6 +115,7 @@ A successful Cloudflare deployment is not a GitHub Actions or user-journey accep
 - No secrets, raw private answer keys, member identifiers or service-role credentials may be placed in public issues or audit exports.
 - No LIVE Stripe charge/refund, membership entitlement modification, Lumen credit adjustment, access-rule weakening, historical dataset release or unreviewed certificate issuance during source audit.
 - Do not close a P0 based on source scan alone. False-positive disposition, manual semantic scrutiny, user acceptance and release approval are separate gates.
+- **Version 1.1 — October 31, 2026:** Added successful exact-SHA rerun, file/line artifact, initial P0 fixture disposition, SQL privilege/DOM risk triage, and identified member-facing terminology conflicts. Final audit remains OPEN.
 - **Version 1.0 — October 31, 2026:** First exact-commit Git-tracked inventory, every readable line static scan, explicit binary/semantic limits, workstream disposition and grounded production status. No production configuration or data changed.
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Controlled engineering audit record. Source inventory and automated line scan are not independent security certification or educational accreditation.
