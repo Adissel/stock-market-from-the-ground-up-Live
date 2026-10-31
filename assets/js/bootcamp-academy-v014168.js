@@ -57,6 +57,53 @@
    for(const [day,row] of checked)freeEvidence.set(day,row);
   }catch{freeEvidence.clear()}
  }
+ const academyDayClaims=new Map();
+ async function loadAcademyDayClaims(){
+  if(academyDayClaims.size===3)return;
+  try{
+   const response=await fetch('/data/academy-specific-source-instruction-v1.json',
+    {credentials:'same-origin',cache:'no-store'});
+   if(!response.ok)throw Error('Day source unavailable');
+   const payload=await response.json();
+   if(payload?.kind!=='smfgu_academy_specific_source_instruction_v1'||
+      payload.canonicalUnitCount!==3||payload.records?.length!==3)
+    throw Error('Invalid day source register');
+   const allowed=new Map([['watchlist7:1','What Is a Watchlist?'],
+    ['watchlist7:3','Finding the Real Catalyst'],['scanners10:3','Volume and relative volume']]);
+   const fresh=new Map();
+   for(const row of payload.records){
+    const key=row?.programCode+':'+row?.day;
+    if(!allowed.has(key)||allowed.get(key)!==row.title||fresh.has(key)||
+       !evidenceUrlAllowed.test(row.sourceUrl)||row.fictional!==true||
+       row.reviewStatus!=='narrow_primary_or_publisher_claim_checked_formative_pending_independent_editorial'||
+       ['objective','claim','worked','calculation','counterexample','transfer','limit',
+        'sourceClaim','sourceId'].some(k=>typeof row[k]!=='string'||row[k].trim().length<14))
+     throw Error('Unsupported day evidence');
+    fresh.set(key,row);
+   }
+   if(fresh.size!==3)throw Error('Incomplete day evidence');
+   for(const [key,row] of fresh)academyDayClaims.set(key,row);
+  }catch{academyDayClaims.clear()}
+ }
+ function showAcademyDayClaim(d,mount){
+  const x=academyDayClaims.get(d.programCode+':'+d.day);
+  if(!x||x.title!==d.title)return;
+  const section=node('section');section.className='academy-beta-daily-coach';
+  section.setAttribute('aria-label','Source-checked original lesson for '+d.title);
+  section.append(node('p','SOURCE CLAIM CHECKED · ORIGINAL FICTIONAL TEACHING · EDITORIAL APPROVAL PENDING'),
+   node('h4','Learning objective'),node('p',x.objective),
+   node('h4','Narrow factual claim'),node('p',x.claim),
+   node('h4','Original fictional worked case'),node('p',x.worked),
+   node('h4','Evidence or calculation method'),node('p',x.calculation),
+   node('h4','Misconception and failure case'),node('p',x.counterexample),
+   node('h4','Independent transfer exercise'),node('p',x.transfer),
+   node('h4','Limitations'),node('p',x.limit));
+  const a=node('a',x.sourceId+' — checked public reference');
+  a.href=x.sourceUrl;a.rel='noopener noreferrer';a.target='_blank';
+  section.append(node('h4','Exact supporting source'),a,
+   node('p','This link supports the narrow concept only, not the fictional numbers, real market outcome, individual lesson approval or protected assessments.'));
+  mount.append(section);
+ }
  function showFreeEvidence(d,mount){
   if(d.programCode!=='free5')return;
   const x=freeEvidence.get(d.day),section=node('section');
@@ -323,6 +370,7 @@
   showTruth5SourceAudit(d,mount);
   showProgramResearchProtocol(d,mount);
   showFreeEvidence(d,mount);
+  showAcademyDayClaim(d,mount);
   // Research augmentation is formative and never changes assessment, member
   // progress or saved reflections. It uses original source-informed teaching.
   if(d.researchEnrichment){
@@ -804,6 +852,7 @@
    // Public educational research is optional. If unavailable, never infer or
    // display a verified source and never block authorized member instruction.
    if(code==='free5')await loadFreeEvidence();
+   if(code==='watchlist7'||code==='scanners10')await loadAcademyDayClaims();
    if(epoch!==sessionSerial)return;
    const loaded=data.curriculum;
    if(data.version!==VERSION||!Array.isArray(loaded)||loaded.length!==expected.get(code)||
