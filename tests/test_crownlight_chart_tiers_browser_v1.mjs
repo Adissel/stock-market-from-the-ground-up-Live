@@ -224,6 +224,45 @@ if(tier==='PROFESSIONAL'){
  assert(onSameRow(sideAgain),'Side by side must restore after changing window size');
  console.log('PASS Professional layout geometry: equal columns, stacked rows, 2:1 Price focus, responsive narrow viewport, restore.');
 }
+// WCAG-targeted keyboard and phone viewport acceptance uses the actual Chart
+// Studio UI and pinned KLineCharts, but a fixture identity (NOT production).
+const tierSelector=page.locator('.cl-chart-tier-bar select');
+assert.match(await tierSelector.getAttribute('aria-label'),/Choose a Chart Studio/);
+await tierSelector.focus();
+assert.equal(await tierSelector.evaluate(el=>document.activeElement===el),true,
+ 'Studio selection must be keyboard-focusable');
+const tierOptions=await tierSelector.locator('option').evaluateAll(options=>options.map(o=>({
+ tier:o.value,disabled:o.disabled
+})));
+assert.equal(tierOptions.length,3,'Every experience must be discoverable');
+for(const option of tierOptions){
+ assert.equal(option.disabled,!(['STANDARD','ADVANCED','PROFESSIONAL']
+ .slice(0,['STANDARD','ADVANCED','PROFESSIONAL'].indexOf(tier)+1).includes(option.tier)),
+ 'Non-entitled Studio option must be disabled for '+tier);
+}
+await page.setViewportSize({width:390,height:844});
+await page.waitForTimeout(150);
+const phone=await page.evaluate(()=>{
+ const selector=document.querySelector('.cl-chart-tier-bar select');
+ const shell=document.querySelector('#cl-chart-tier-switcher');
+ const active=selector?.getBoundingClientRect();
+ const r=shell?.getBoundingClientRect();
+ const canvases=[...document.querySelectorAll('.cl-tier-chart-frame')]
+  .map(x=>{const z=x.getBoundingClientRect();return {top:z.top,bottom:z.bottom,width:z.width}});
+ return {viewport:innerWidth,selectorWidth:active?.width||0,
+  selectorLeft:active?.left||0,selectorRight:active?.right||0,
+  shellWidth:r?.width||0,shellLeft:r?.left||0,shellRight:r?.right||0,
+  canvases};
+});
+assert(phone.selectorWidth>=160&&phone.selectorLeft>=-2&&phone.selectorRight<=phone.viewport+3,
+ 'Mobile Chart Studio selector must stay operable within viewport: '+JSON.stringify(phone));
+assert(phone.shellWidth>0&&phone.shellRight<=phone.viewport+3,
+ 'Mobile Studio section must remain within viewport: '+JSON.stringify(phone));
+if(tier==='PROFESSIONAL'&&phone.canvases.length===2)
+ assert(phone.canvases[1].top>=phone.canvases[0].bottom-2,
+ 'Professional multi-charts must stack vertically on phone width');
+await page.setViewportSize({width:1280,height:900});
+console.log('PASS '+tier+' keyboard focus, locked options and 390px responsive Studio controls (fixture Chromium).');
 await page.locator('[data-cl-save]').click();
 await page.waitForFunction(()=>/Workspace saved privately/.test(document.querySelector('.cl-workspace-status')?.textContent||''));
 if(tier==='PROFESSIONAL'){
