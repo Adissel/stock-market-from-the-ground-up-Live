@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-QA-CHART-B01-20261031-001  
 **Project:** The Stock Market: From the Ground Up — Website / Crownlight Chart Studio / Boot Camp Academy  
 **Filename / file type:** `docs/qa/2026-10-31_CHART_B01_SECURITY_ACCEPTANCE_EXECUTION_v1.md` / Markdown  
-**Version:** 1.1  
+**Version:** 1.2  
 **Date:** 2026-10-31 (America/Chicago)  
 **Status:** **Genuine authenticated ADVANCED Chart API, workspace restoration AND user-visible fictional starter acceptance PASSED on tested SHA; cross-account, CAPTCHA-form, full role matrix, editorial and security acceptance remain OPEN**  
 **Google Drive location/document ID:** Not created / not assigned. The GitHub `main` record is authoritative.  
@@ -91,3 +91,19 @@ No LIVE payment, credit, role, membership, private case, historical data or prod
 **Residual #154 gates:** genuine second authenticated QA member and source-private record isolation; Standard/Professional/Owner/Admin/revoked matrix and downgrade; member-initiated eligible PUT/CAS preservation/reopen; interactive CAPTCHA sign-in and keyboard/mobile accessibility. Three proposed dedicated QA identities from the former chart program are not presently provisioned in production Auth (0 records matching the specific batch marker/email pattern at the read-only check); do not manufacture plan rights or label an untested second actor as accepted. Existing first-party QA identity remains intact.
 
 **Revision history addition:** v1.1 — 2026-10-31: accepted genuine user-visible Advanced fictional starter path and chart restoration on exact SHA. No production feature change or data migration; only a noncharging test script was modified. For rollback, revert commit `8b0bb65ad483ed448198d8724410ff1c0aab4181` if test behavior needs change; no data rollback applies.
+
+## 2026-10-31 addendum — v1.2: second-identity security/acceptance automation
+
+**Requirement:** P0 #154 second genuinely authenticated QA identity and member-owned Chart Studio workspace isolation.
+
+**Implementation:**
+- `tests/live-chart-two-member-isolation-readonly-v1.mjs`, commit `0fee6e4fd1360d892032a7a840114de7a971e23a`, adds a separate live Supabase GoTrue token for each independently authenticated QA identity, verifies two distinct actual user IDs and eligibility, reads their individual Chart tier and workspace, tests `user_id`/`member_id` forgery in **both directions**, verifies direct `crownlight_chart_workspaces_v1` authenticated Data API access is denied, and confirms guest denial. The script logs no email, password or bearer token and performs no account, entitlement, wallet, workspace, grade or Stripe write.
+- `.github/workflows/chart-two-member-isolation-real-qa-v1.yml`, commit `80a24962d73564b088079008b53f5a3257da2346`, is **manually dispatched only**. It reuses the existing `LAB_QA_EMAIL/PASSWORD` and `LAB_QA_SECOND_EMAIL/PASSWORD` encrypted secret names already documented for Free Foundations browser QA; it fails closed and posts a P0 comment if no genuine second identity is available.
+
+**Current disposition:** **IMPLEMENTED TEST HARNESS; REAL SECOND-MEMBER ACCEPTANCE BLOCKED / NOT EXECUTED.** Read-only Supabase Auth inventory found zero currently provisioned accounts matching the specific previously proposed `+test-` batch or QA app metadata. An arbitrary second account, fabricated session, service-role impersonation or new paid membership is not an acceptable substitute. The user must not be asked to paste a password into ChatGPT; when legitimate preexisting second-user credentials become available, execute this manual free GitHub Actions workflow. No protected data or test account was created in this increment.
+
+**Risk and role impact:** This additions-only workflow does not affect the production Chart handler, existing member entitlements, restored Professional workspace or normal main-branch required CI. Existing source and privacy protections are untouched.
+
+**Test/rollback distinction:** The committed script and workflow are source-only until a genuine two-member run is recorded; they are not authority to close #154. Revert the two named additive commits if the test infrastructure itself must be withdrawn. No database rollback applies.
+
+**Revision history addition:** v1.2 — 2026-10-31: second-real-identity isolation automation available as on-demand, fail-closed noncharging QA; no second-account acceptance was inferred.
