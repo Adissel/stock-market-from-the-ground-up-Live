@@ -100,7 +100,7 @@ try{
  const guest=await ask('free',{token:false});
  verify(guest.status===401,'Guest must receive 401');
  verify(externalCalls===0,'No external AI or public third-party fetch');
- verify(grants.length===8,'Only active member-shaped accounts reach exact Tutor entitlement RPC');
+ verify(grants.length===7,'Only seven eligible authenticated source-only requests reach the entitlement RPC');
  verify(rateMeter.length===7,'Only seven permitted source-only requests pass the general rate meter');
  verify(accessedUrls.every(url=>url.startsWith(env.SUPABASE_URL)),'No third-party, cross-account or model API calls');
  console.log('PASS Talia synthetic membership matrix: '+checks+' assertions; 6 eligible Free/Founding/hidden-tier paths, restricted/showcase/nonmember/guest denied, no grade/history/provider. NOT real-user authenticated production.');
