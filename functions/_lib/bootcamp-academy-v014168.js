@@ -29,6 +29,7 @@ import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
 import {risk60PracticeBatch02,risk60PracticeSourceDays} from './academy-risk60-practice-batch02-v1.js';
 import {risk60TransferBatch03,risk60TransferSourceDays} from './academy-risk60-transfer-batch03-v1.js';
 import {practicum90LearnBatch01} from './academy-practicum90-learning-batch01-v1.js';
+import {practicum90LearnBatch02} from './academy-practicum90-learning-batch02-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -324,6 +325,10 @@ function dayFor(d,i){
   ...(d.code==='charts45'&&chartCaseBySourcePhase[sourceDay]?.[Math.floor(i/d.source.length)]?{
    lesson:chartCaseBySourcePhase[sourceDay][Math.floor(i/d.source.length)],
    sourceStatus:'original_chart_day_specific_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='practicum90'&&i>=5&&i<25&&practicum90LearnBatch02[i-5]?.topicSourceDay===sourceDay?{
+   lesson:practicum90LearnBatch02[i-5],
+   sourceStatus:'original_practicum90_learning_batch02_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='practicum90'&&i<5&&practicum90LearnBatch01[i]?.topicSourceDay===sourceDay?{
    lesson:practicum90LearnBatch01[i],
