@@ -9,6 +9,7 @@ import {freeFoundationsV1} from './free-foundations-v1.js';
 import {phaseAFreeFoundations} from './free-foundations-phase-a-v1.js';
 import {threeCampDefinitions} from './academy-three-camps-v1.js';
 import {formativeReferenceV1} from './academy-three-camps-formative-reference-v1.js';
+import {formativeDay02V1} from './academy-three-camps-formative-day02-v1.js';
 import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
 import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
@@ -244,7 +245,8 @@ function dayFor(d,i){
  const day=i+1;
  if(d.lessons){
   const originalLesson=d.lessons[i];
-  const lesson=day===1?Object.freeze({...originalLesson,formativeQuestions:formativeReferenceV1[d.code]}):originalLesson;
+  const questions=day===1?formativeReferenceV1[d.code]:day===2?formativeDay02V1[d.code]:null;
+  const lesson=questions?Object.freeze({...originalLesson,formativeQuestions:questions}):originalLesson;
   return Object.freeze({day,programDay:day,programCode:d.code,title:lesson.title,
    objective:lesson.teach,observe:lesson.terms,practice:lesson.transfer,
    phase:'learn',phaseLabel:'Original ten-stage instructional day',
