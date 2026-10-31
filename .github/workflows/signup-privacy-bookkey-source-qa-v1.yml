@@ -1,0 +1,58 @@
+name: Signup Privacy and Authenticated Book Key Source QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/signup-privacy-bookkey-source-qa-v1.yml'
+      - 'assets/js/signup.js'
+      - 'assets/js/settings.js'
+      - 'create-account.html'
+      - 'settings.html'
+      - 'functions/api/account.js'
+      - 'supabase/migrations/20261031_signup_availability_anti_enumeration_stage_v1.sql'
+      - 'supabase/migrations/20261031_book_key_member_only_throttle_v1.sql'
+      - 'tests/test_signup_no_browser_enumeration_v1.mjs'
+      - 'tests/test_book_key_authenticated_throttle_stage_v1.mjs'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: signup-bookkey-privacy-source-qa
+  cancel-in-progress: false
+jobs:
+  source-privacy-and-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser-side privacy and existing server signup compatibility
+        id: privacy
+        continue-on-error: true
+        run: |
+          node tests/test_signup_no_browser_enumeration_v1.mjs
+          node tests/test_book_key_authenticated_throttle_stage_v1.mjs
+          node tests/test_signup_registration_contract_v01461.cjs
+      - name: Record truthful source QA status
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ steps.privacy.outcome }}
+        run: |
+          {
+            echo "### Signup privacy and Book Key authenticated redemption source contract"
+            echo "Tested SHA: `$GITHUB_SHA`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Source compatibility outcome: **$RESULT**."
+            echo "Checks: no public per-keystroke email/username/Book Key probes; retained server age/CAPTCHA/email verification; signed-in Settings Book Key redemption; staged per-user throttle SQL."
+            echo "The staged SQL is NOT production-applied or authenticated runtime-verified by this source workflow. Public DB RPC exposure remains open until a separate migration acceptance."
+          } >/tmp/signup-bookkey-source.md
+          gh issue comment 158 --repo "$GITHUB_REPOSITORY" --body-file /tmp/signup-bookkey-source.md
+      - name: Fail closed if source contract incomplete
+        if: steps.privacy.outcome != 'success'
+        run: exit 1
