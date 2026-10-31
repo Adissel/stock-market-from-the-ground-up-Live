@@ -1,0 +1,55 @@
+name: Academy Three Camps Genuine Six Member Journeys
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-three-beta-six-genuine-member-journeys-v1.yml'
+      - 'tests/live-academy-three-beta-six-real-member-journeys-v1.mjs'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: academy-three-camps-real-six-journeys
+  cancel-in-progress: false
+jobs:
+  six-distinct-qa-journeys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse genuine-account QA script
+        run: node --check tests/live-academy-three-beta-six-real-member-journeys-v1.mjs
+      - name: Actual two GoTrue QA users x three invitation-only courses, save/CAS
+        id: journeys
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-academy-three-beta-six-real-member-journeys-v1.mjs
+      - name: Record exact SHA and genuine six-path disposition
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.journeys.outcome }}
+        run: |
+          {
+            echo "### Real two-member x three-camp private enrollment/save/CAS browserless API QA"
+            echo "Tested SHA: `$GITHUB_SHA`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Genuine two-account QA disposition: **$QA_RESULT**."
+            echo "A success means actual existing preapproved noncommercial GoTrue QA identities each passed three private enrollment, save/reload, stale CAS, guest denial and foreign-selector isolation checks."
+            echo "A failure means missing identity/invitation, stale fixture, actual API/DB failure or permissions; it MUST NOT be treated as genuine acceptance."
+            echo "No LIVE money, rewards, grades, reviewer claims or production member impersonation authorized."
+          } >/tmp/academy-three-six-qa.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/academy-three-six-qa.md
+      - name: Fail closed when six authentic journeys are incomplete
+        if: steps.journeys.outcome != 'success'
+        run: exit 1
