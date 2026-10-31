@@ -18,15 +18,18 @@ async function githubClaims(req){
  const header=dec(parts[0]),payload=dec(parts[1]);
  if(header.alg!=='RS256'||typeof header.kid!=='string')throw Error('OIDC algorithm not approved');
  const now=Math.floor(Date.now()/1000);
- if(payload.iss!=='https://token.actions.githubusercontent.com'||payload.aud!==AUD||
-  payload.repository!==PROJECT||payload.ref!=='refs/heads/main'||
-  payload.workflow_ref!==WORKFLOW||
-  payload.sub!=='repo:'+PROJECT+':ref:refs/heads/main'||
-  !['push','workflow_dispatch'].includes(payload.event_name)||
-  !/^\d{5,16}$/.test(String(payload.run_id||''))||
-  !Number.isInteger(payload.exp)||payload.exp<=now||payload.exp>now+900||
-  !Number.isInteger(payload.iat)||payload.iat>now+60||now-payload.iat>600)
-  throw Error('GitHub OIDC claims denied');
+ const bad=[];
+ if(payload.iss!=='https://token.actions.githubusercontent.com')bad.push('issuer');
+ if(payload.aud!==AUD)bad.push('audience');
+ if(payload.repository!==PROJECT)bad.push('repository');
+ if(payload.ref!=='refs/heads/main')bad.push('branch');
+ if(payload.workflow_ref!==WORKFLOW)bad.push('workflow');
+ if(payload.sub!=='repo:'+PROJECT+':ref:refs/heads/main')bad.push('subject');
+ if(!['push','workflow_dispatch'].includes(payload.event_name))bad.push('event');
+ if(!/^\d{5,16}$/.test(String(payload.run_id||'')))bad.push('run_id');
+ if(!Number.isInteger(payload.exp)||payload.exp<=now||payload.exp>now+900)bad.push('expiration');
+ if(!Number.isInteger(payload.iat)||payload.iat>now+60||now-payload.iat>600)bad.push('issuance');
+ if(bad.length)throw Error('GitHub OIDC claims denied: '+bad.join(','));
  const jwks=await fetch('https://token.actions.githubusercontent.com/.well-known/jwks',
   {signal:AbortSignal.timeout(9000)}).then(x=>{if(!x.ok)throw Error('OIDC JWKS unavailable');return x.json()});
  const pub=jwks.keys?.find(x=>x.kid===header.kid&&x.kty==='RSA'&&x.use==='sig');
