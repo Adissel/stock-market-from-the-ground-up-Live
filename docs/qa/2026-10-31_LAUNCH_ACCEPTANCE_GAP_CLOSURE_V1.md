@@ -7,8 +7,8 @@
 **File type:** Markdown  
 **Google Drive location:** Not assigned; no Google Drive duplicate created.  
 **Google Drive document ID:** Not assigned.  
-**Version:** 1.2  
-**Status:** PARTIAL EXECUTION; production policy/tool CI PASS; live Supabase four-tool noncommercial authorization decision PASS; working-edition sale hold applied; sitewide browser run diagnosed FAILURE, isolated recheck running; paid/provider/human/legal gates OPEN  
+**Version:** 1.3  
+**Status:** PARTIAL EXECUTION; production policy/tool CI PASS; live Supabase four-tool noncommercial authorization PASS; working-edition sale hold applied; isolated Talia browser PASS, full sitewide exact-production-commit still OPEN; paid/provider/human/legal gates OPEN  
 **Prepared / last verified:** 2026-10-31 (America/Chicago and UTC; evidence is timestamped by providers)  
 **Purpose:** Do not repeat accepted tests. Preserve controlling approvals and list precisely what still prevents unrestricted paid-product acceptance.  
 **Dependencies:** Existing Stripe TEST/LIVE, Supabase Primary `oxihglyfgzywsupnyicb`, Cloudflare production Pages, GitHub Actions, legal publication register, approved book edition inventory, named independent professional review.  
@@ -137,6 +137,15 @@ Direct read-only executions of the actual service-only Supabase `public.user_has
 
 The five key policies `TERMS`, `SUBSCRIPTION`, `REFUNDS`, `FOUNDING_600`, and `CROWNLIGHT_SPARKS` contain **no explicit citation** to the vacated 2024 expanded FTC negative-option rule or its `Click-to-Cancel` label based on case-insensitive text search. No legal rewrite was necessary solely to remove such a reference. This limited string check is not legal review; Missouri business-name qualification, consumer recurring-billing requirements and all transaction-tax determinations remain open.
 
+## V1.3 targeted browser result — PASS
+
+[Isolated Talia Calculate-to-Experiment Playwright run 41217569351](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41217569351) completed **SUCCESS** for source commit `a889a9e0d6f7997e122de95da557d96f47a4a070`, job `124585200915`.
+
+- At **390px** and **1280px**, submitting the ungraded method answer and selecting `Continue to Experiment` removed `.gu-v44-calculate-gate`, displayed `Experiment — Construct your own candlestick` with `hidden=false`, and recorded **no browser page errors**.
+- The full practice, question-by-question feedback, protected Predict and Assess progression also passed at both viewports. Actual payment, real member credentials, grading, and provider market data were not involved.
+- The older sitewide browser attempt on `bfab04e5...` had timed out at the same heading. This is a **historical CI failure not reproduced by the current isolated test**, not proof that the old suite's entire source SHA passed.
+- Do not remove or weaken the approved Calculate gate. Final full sitewide browser and exact deployed-commit release acceptance remains OPEN amid ongoing `main` updates.
+
 ## Revision history
 
 | Version | Date | Status | Change |
@@ -144,5 +153,6 @@ The five key policies `TERMS`, `SUBSCRIPTION`, `REFUNDS`, `FOUNDING_600`, and `C
 | 1.0 | 2026-10-31 | Partial execution / evidence controlled | Consolidated five workstreams, linked preexisting acceptance, performed no-charge live access checks and price verification, started isolated browser rerun, retained explicit provider/human/legal blockers. |
 | 1.1 | 2026-10-31 | Read-only CI accepted; one unsafe sale held | Production tool/legal smoke PASS, guarded Day Trading working-edition sale hold, updated policy/Turnstile evidence; browser, provider-renewal and professional approvals remain open. |
 | 1.2 | 2026-10-31 | Database entitlements verified; sitewide failure isolated | Four live tool entitlement grants/denials verified via actual Supabase RPC; Talia browser Calculate-to-Experiment timeout recorded and standalone reproduction started; legal copy search completed. |
+| 1.3 | 2026-10-31 | Targeted browser PASS | Isolated current-source Talia Calculate→Experiment scenario passed both widths with no JS errors; broad sitewide exact-production-commit still open. |
 
-**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.2 • Controlled technical acceptance evidence • Not attorney or tax advice.
+**Footer:** SMFGU-QA-LAUNCH-GAPS-20261031-001 • v1.3 • Controlled technical acceptance evidence • Not attorney or tax advice.
