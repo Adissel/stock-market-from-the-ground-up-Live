@@ -8,9 +8,9 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.3 |
+| Version | 1.4 |
 | Date | 2026-10-31 |
-| Status | **GRADING BRIDGE AND V135 RUNTIME DEFECT REPAIR DEPLOYED; REAL EARNING, SETTLEMENT AND GIFTING RELEASE REMAIN ON HOLD** |
+| Status | **GATE B STRIPE TEST AND ACTUAL QA WALLET RECONCILIATION ACCEPTED; GATES A, C, D REMAIN OPEN** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
 | Purpose | Consolidate owner-delegated execution on the four V1 acceptance milestones and preserve reproducible evidence |
 | Owner authority | Owner reaffirmed delegated routine engineering, editorial and QA decisions on 2026-10-31 and accepted retention of the gifting release hold. This is **not** legal clearance, human-review impersonation or LIVE-charge authorization. |
@@ -38,7 +38,11 @@ Read-only Stripe plugin selected `stock-market-from-the-ground-up-Test Mode` (no
 | `pi_3UWYpbJY9FI7byHB02uoft83` | 1992 | 1992 | PASS |
 | `pi_3UWXxLJY9FI7byHB06FIrFOv` | 1929 | 1929 | PASS |
 
-**PASS — provider-side TEST refund parity.** No new payment or refund was created. This provider evidence must **not** be misrepresented as actual Lumen debit restoration or member account history parity. The earlier SQL snapshot had no persisted mixed-intent/debit rows to pair with these provider TEST refunds; complete cross-system reconciliation remains OPEN.
+**PASS — provider-side Stripe TEST refund parity AND actual QA wallet ledger reconciliation.** Four Stripe TEST refund amounts total $79.05 (7,905 cents). A deeper query of the historical `crownlight_chart_mixed_test_v1` and `crownlight_chart_mixed_test_debits_v1` records matched all four provider PaymentIntent IDs, each TEST checkout in `refunded` status, the linked Chart entitlement revoked/refunded, and all four nonexpiring wallet debit records returned (1 + 1 + 1 + 10 = **13 Lumens**). A fifth expired reserved-only transaction also restored 1 Lumen. Across five cases, **14/14 TEST Lumens returned**, **0 unreturned debit buckets**, **0 refund arithmetic discrepancies**, with four `paid`, four `refunded`, and one `expired` ledger events.
+
+The authoritative `groundup_question_pass_summary` showed **29 available Lumens** for the QA member, matching the sum of the current `groundup_question_pass_buckets` (manual 29, included 0). The original manual bucket had 60 issued and 29 remaining; other account activity explains why current available credits cannot be inferred by simply subtracting these five historical test orders from 60. A controlled repeat of an already-recorded `refunded` TEST event passed the idempotency assertions within an explicit `ROLLBACK`; production postflight remained 9 event records, one copy of the refund event, and 29 available credits. No new Stripe charge or refund was created.
+
+**Milestone 4 TEST settlement and member wallet reconciliation: ACCEPTED within demonstrated scope** under delegated QA authority. **Not** LIVE settlement, not a real commercial customer refund acceptance, and not proof that genuinely earned Learning awards have been issued (Milestone 3). The newer `gu_lumen_mixed_intents_v1` and `gu_lumen_mixed_debits_v1` tables continue to have zero rows; they are distinct from the historical persisted Chart TEST ledger, which supplies the accepted evidence.
 
 ### Product-owner amount approval
 
@@ -72,7 +76,7 @@ Continue requiring full pass from all required GitHub workflows and a successful
 
 ## Overall completion methodology
 
-The owner-approved denominator remains twelve equal milestones. Previously accepted eight remain intact: **8/12 = 66.7%**, reported **67% complete**, **33% remaining**. This batch establishes strong technical and noncharging TEST evidence across all four open gates, but does not inflate complete milestones without genuine independent grading, authoritative real-account earning, legally approved gifting, or final exact-commit release.
+The owner-approved denominator remains twelve equal milestones. Prior eight accepted milestones remain intact. **Milestone 4 (Gate B: Stripe TEST and actual QA wallet reconciliation) is now accepted, bringing completion to 9/12 = 75% and 3/12 = 25% remaining.** Gate A genuine independent assessment and credit issuance, Gate C legally cleared and authorized real-member gifting, and Gate D final exact-commit CI/deployment remain **OPEN**. This is the Lumens V1 work-package acceptance percentage, not a measured percentage of the entire website. This acceptance does not enable LIVE charges, transfers, or published earning.
 
 ## Follow-on integration discovery — actual graded attempt source
 
@@ -100,6 +104,12 @@ A guarded forward migration was committed on `main` at `supabase/migrations/2026
 
 **Postflight PASS:** Production stored function contains the qualified `member_profile.id=p_user`; `anon` and `authenticated` EXECUTE remain denied and `service_role` remains allowed. Repeating the same QA call returned `{"ok":false,"reason":"case_not_published"}` as required. There were **0 persistent immutable grading attempts, 0 queue entries, 0 Lumen learning awards and 0 gifts**. This proves the draft-rejection path now functions; it does **not** claim tested approval or actual grade-to-wallet issuance because all 54 cases remain draft and inactive.
 
+### Editorial desk-check and current gifting security invariants — 2026-10-31
+
+An owner-delegated **AI-assisted editorial desk-check** reviewed the complete four-question draft `BC3_FILINGS7_D01_V1` against the SEC's authoritative [CIK and accession description](https://www.sec.gov/about/webmaster-frequently-asked-questions) and [EDGAR data reference](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data). The candidate correctly distinguishes issuer identity, unique submission, reporting period, acceptance and retrieval time, and prevents retrospective use of the hypothetical August 8 filing at a July 10 pause. All four answer keys and corrective feedback were internally coherent. A key caveat for final editorial review: the numeric prefix in an accession number can identify a filing agent rather than the issuer; the learner should verify the actual issuer CIK, not infer it from the accession prefix. **Desk-check recommendation: PASS with that metadata caveat; formal human-review attribution, active/publication status and independent proctored grade remain UNVERIFIED.** No reviewer UUID, acceptance signature or grade was fabricated.
+
+Gifting runtime inspection confirmed both `gu_lumen_peer_send_v1` and `gu_lumen_peer_reverse_v1` are denied to `anon` and `authenticated` and granted only to `service_role`. Production has **zero** discoverable/receiving opt-ins, zero transfers and zero disputes; `member_gifts_enabled`, `legal_gifting_clearance`, and `security_gifting_clearance` remain **false**. The server API and the transaction function each require the release flags, recipient opt-in, eligible earned-only credits, limited transfer sizes, and abuse caps. This is **engineering security evidence, not licensed legal clearance or an authorized persistent member-to-member transfer**. Preserve owner-approved release hold.
+
 ### Reconciled legal-technical gate
 
 A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion cannot be assumed to apply to transferable Crownlight Lumens without reviewing the entire scheme, particularly the separation of earned, purchased and gifted balances and any dollar-value equivalence. Marketing must not claim cash redemption or legal exemption. The operator may approve UX and internal engineering tests, but cannot assert licensed legal clearance without such professional review.
@@ -108,6 +118,7 @@ A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion can
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-10-31 | 1.4 | Matched four Stripe TEST refunds with Chart TEST ledger, member credit buckets and balance; verified 14/14 TEST Lumens restored and refund replay idempotency; retained approval/legal/CI gates | Milestone 4 TEST wallet accounting ACCEPTED; 9/12 = 75%; remaining gates A/C/D OPEN |
 | 2026-10-31 | 1.3 | Repaired production v135 grader SQLSTATE 42702 ambiguous member id lookup with forward-only migration; confirmed draft rejection, service-only grants, zero attempts and no credits | Grader draft fail-closed path PASS; genuine approved scoring and final release OPEN |
 | 2026-10-31 | 1.2 | Applied immutable grading bridge to Supabase; verified permissions, zero awards and disabled release flags; audited all 54 draft competency cases; corrected Founding 600 signed TEST webhook CI regex | Database engineering deployment PASS; independent grades, wallet settlement, gifting release and final CI OPEN |
 | 2026-10-31 | 1.1 | Identified immutable real-grade evidence mismatch and staged reviewer-gated migration; application blocked by platform safety controls | Source committed; deploy and true-grading acceptance open |
