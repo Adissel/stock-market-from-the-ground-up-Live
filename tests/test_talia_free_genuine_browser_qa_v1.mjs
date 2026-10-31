@@ -74,6 +74,22 @@ try{
   timeout:30000
  });
  assertCheck(denied.status()===401,'Unauthenticated endpoint remains inaccessible');
+ // Test the actual member-facing Tutor controls, not only authenticated APIs.
+ // AI stays unchecked; private history is explicitly disabled for this QA.
+ await page.goto(site+'/market-tutor.html',{waitUntil:'domcontentloaded',timeout:30000});
+ await page.locator('#tutor-question').fill(
+  'For Lab DT-C10-L03 Learning Journey stage: Learn, explain the fictional bid, ask and spread calculation.');
+ await page.locator('#tutor-mode').selectOption('explain');
+ await page.locator('#tutor-save-history').uncheck();
+ assertCheck(!(await page.locator('#tutor-ai-consent').isChecked()),
+  'Live Tutor composer keeps optional AI off by default');
+ await page.locator('#tutor-ask').click();
+ await page.locator('#tutor-thread li').first().waitFor({state:'attached',timeout:30000});
+ const rendered=await page.locator('#tutor-thread').innerText();
+ assertCheck(/bid|ask|spread/i.test(rendered),
+  'Free member sees the actual rendered source-grounded answer');
+ assertCheck((await page.locator('#tutor-thread a[href^="https://www.investor.gov/"]').count())>=1,
+  'Actual Tutor conversation contains a direct safe primary-source citation');
  // Logout after QA; no mutation of member entitlements, payment or records.
  // Sign-out may synchronously navigate away; start it without keeping the
  // original page's evaluate promise alive across that navigation.
