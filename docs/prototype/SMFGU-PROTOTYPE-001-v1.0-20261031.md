@@ -15,11 +15,11 @@
 ## Deliverables
 1. `prototype.html`: internal application shell, noindex, staff gate, initial hidden application.
 2. `assets/css/prototype-center-v1.css`: responsive workspace and 3 preview widths, keyboard focus and reduced-motion support.
-3. `assets/js/prototype-center-v1.js`: 23 workspaces (18 application capability tabs; Overview, Classroom Builder, Component Library, Test & Acceptance, Release Manager), nine-stage Lab/Boot Camp preview, Admin group comparison, synthetic ECharts experiments, fictional candle replay, design-specific controls, local save/restore and evidence export.
+3. `assets/js/prototype-center-v1.js`: 23 workspaces (18 application capability tabs; Overview, Classroom Builder, Component Library, Test & Acceptance, Release Manager), nine-stage Lab/Boot Camp preview with Balanced / Reading-first / Chart-first layout presets, Comfortable / Compact density and Talia right/bottom placement, Admin group comparison, synthetic ECharts experiments, fictional candle replay, design-specific controls, local save/restore and evidence export.
 4. `assets/js/prototype-admin-link-v1.js`: role-checked shortcut on existing `admin.html`.
 5. `assets/js/route-policy.js`: prototype classified as staff route, shared with Cloudflare middleware and service worker.
 6. `_headers`: private/no-store/noindex for prototype document.
-7. `tests/prototype-center-v1-contract.test.mjs` and `.github/workflows/prototype-center-v1.yml`: source, syntax and nonpayment checks.
+7. `tests/prototype-center-v1-contract.test.mjs`, `tests/prototype-center-v1-auth.test.mjs` and `.github/workflows/prototype-center-v1.yml`: source, syntax, nonpayment and automated role-denial checks.
 
 ## Existing system dependencies
 - Supabase Auth through `/assets/js/supabase-client.js`.
@@ -55,3 +55,9 @@ Revert the repository commits adding the Prototype Center and restore `admin.htm
 | Version | Date | Description | Status |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Initial protected design shell, 23 workspaces, local ECharts experiments, role-gated Admin entry, acceptance contracts | Source implemented; verification pending |
+
+## Execution evidence 2026-10-31
+- GitHub initial Prototype Center CI run 41244315304: **SUCCESS** (syntax and source-contract job).
+- Subsequent role-denial suite and classroom layout update: CI rerun 41244545339 queued at last check; not accepted as passed until completed.
+- Cloudflare LIVE v1.0 project reported active deployment at commit `82016aa96a48444f17e3d4a2ea30be43bf52a551`, verified one descendant commit after the layout-style commit `e4f947608ce53d167c86f21566783cf49abe38d7`.
+- Authenticated browser Owner/Admin and denial-role testing remains **NOT VERIFIED**; no fabricated beta sign-off.
