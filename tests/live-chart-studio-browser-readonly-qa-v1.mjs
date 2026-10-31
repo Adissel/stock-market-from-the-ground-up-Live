@@ -121,8 +121,14 @@ try{
  assert(phone.width>=150&&phone.left>=-3&&phone.right<=phone.screen+4,
   'Member mobile Studio picker must remain operable within viewport: '+JSON.stringify(phone));
  assert.match(phone.label||'',/Choose a Chart Studio/);
- const locked=await picker.locator('option[value="PROFESSIONAL"]').isDisabled();
- assert.equal(locked,true,'Professional must remain locked on mobile Advanced');
+ await page.waitForFunction(()=>{
+  const option=document.querySelector('.cl-chart-tier-bar select option[value="PROFESSIONAL"]');
+  const tiers=window.CrownlightChartTiers?.getStatus?.();
+  return tiers?.verified===true&&tiers?.tier==='ADVANCED'&&option?.disabled===true;
+ },null,{timeout:10000});
+ const locked=await picker.locator('option[value="PROFESSIONAL"]')
+  .evaluate(el=>({disabled:el.disabled,attribute:el.hasAttribute('disabled')}));
+ assert.equal(locked.disabled,true,'Actual HTML option.disabled property must lock Professional on mobile Advanced');
  assert.equal(await page.locator('select[data-cl-layout]').isDisabled(),true);
  assert.equal(await page.locator('input[data-cl-studies]').inputValue(),'EMA, RSI',
   'Phone resize must preserve read-only saved studies');
