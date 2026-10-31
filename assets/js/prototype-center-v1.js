@@ -86,7 +86,7 @@ root.append(area,options,panes);
 function admin(root){root.append(create('h3','Approved eight-group Admin taxonomy'));root.append(buttons(adminGroups,state.adminGroup,v=>{state.adminGroup=v;draw()}));root.append(grid([[state.adminGroup,'Read-only layout experiment; changes must use the established authorized Admin workflow.'],['Authority','No role, entitlement, price, payment, security or membership write is permitted from this page.']]));}
 function feature(root){root.append(grid(features[state.id]||[]));
  if(state.id==='studio'){root.append(create('h3','Chart Studio membership tier'));root.append(buttons(['Standard','Advanced','Professional'],state.tier,v=>{state.tier=v;draw()}));}
- if(state.id==='replay'){const c=create('section',undefined,'pt-card');c.append(create('h3','No-lookahead replay control'),create('p','Showing '+state.revealed+' of 24 fictional candles.'));const row=create('div',undefined,'pt-row');const p=b('Previous candle',()=>{state.revealed--;draw()}),n=b('Reveal next candle',()=>{state.revealed++;draw()});p.disabled=state.revealed<=3;n.disabled=state.revealed>=24;row.append(p,n);c.append(row);root.append(c);}
+ if(state.id==='replay')root.append(create('p','The shared role-protected case component below controls fictional candle-by-candle replay and the visible chart boundary.','pt-note'));
  if(state.id==='3d')root.append(create('p','This experiment remains two-dimensional; no actual 3D functionality is claimed.','pt-note'));
 }
 function checks(){
@@ -107,6 +107,7 @@ function release(root){
  }));root.append(pane);
 }
 function draw(){const root=$('pt-content');root.replaceChildren();root.dataset.device=state.device;
+ window.CrownlightPrototypeTeaching?.setActiveTab?.(state.id);
  if(state.id==='classroom')classroom(root);else if(state.id==='admin')admin(root);else if(state.id==='test')test(root);else if(state.id==='release')release(root);
  else if(state.id==='overview')root.append(grid([['23 workspaces','18 capability tabs and 5 shared workspaces.'],['Synthetic charts','Deterministic fictional examples using local ECharts.'],['Permission boundary','Owner or Administrator context required.'],['Release boundary','No production writes or member records.']]));
  else feature(root);
