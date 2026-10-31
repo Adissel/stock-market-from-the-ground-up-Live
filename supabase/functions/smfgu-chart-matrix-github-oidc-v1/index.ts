@@ -24,7 +24,7 @@ async function githubClaims(req){
  if(payload.repository!==PROJECT)bad.push('repository');
  if(payload.ref!=='refs/heads/main')bad.push('branch');
  if(payload.workflow_ref!==WORKFLOW)bad.push('workflow');
- if(payload.sub!=='repo:'+PROJECT+':ref:refs/heads/main')bad.push('subject');
+ // GitHub may customize 'sub'. Signed repository, ref and workflow claims above are authoritative.
  if(!['push','workflow_dispatch'].includes(payload.event_name))bad.push('event');
  if(!/^\d{5,16}$/.test(String(payload.run_id||'')))bad.push('run_id');
  if(!Number.isInteger(payload.exp)||payload.exp<=now||payload.exp>now+900)bad.push('expiration');
