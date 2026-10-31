@@ -9,7 +9,8 @@ const sources={
  edgar:{label:'SEC EDGAR official filing lookup',url:'https://www.sec.gov/search-filings',scope:'Original filings may be found here; any specific filing, time and interpretation still need independent checking.'},
  orders:{label:'SEC Investor.gov order types',url:'https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders',scope:'General order-type mechanics, not a guarantee of actual fills or broker-specific behavior.'},
  exec:{label:'SEC Investor.gov executing an order',url:'https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order',scope:'General price-improvement and execution uncertainty, not proof of a simulated trade.'},
- fraud:{label:'SEC Investor.gov research and avoid fraud',url:'https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/what-you-can-do-avoid-investment-fraud',scope:'Independent source-check guidance; never a direct historical price feed.'}
+ fraud:{label:'SEC Investor.gov research and avoid fraud',url:'https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/what-you-can-do-avoid-investment-fraud',scope:'Independent source-check guidance; never a direct historical price feed.'},
+ shorts:{label:'FINRA: short interest is not short-sale volume',url:'https://syndication.finra.org/content/short-interest-what-it-what-it-not',scope:'FINRA short-sale volume is off-exchange reported execution flow, not outstanding short interest or automatically a consolidated-market fraction. Fictional ratios require compatible venue and period coverage.'}
 };
 // Specific formative prompts supplement the twenty original authored scenarios.
 // They are visible, ungraded questions, not protected independent examinations.
@@ -174,12 +175,12 @@ const days=[
   'Interpreting a paid endorsement or isolated winning screenshot as independently verified performance.',
   'A promotional claim can be documented as having been published, not thereby accepted as a true profit record or reliable forecast.',
   'Review a new hypothetical celebrity-sponsored stock recommendation with no compensation statement; enumerate the independent checks required.','fraud'],
- ['Short-sale volume and short interest are different measures, and neither on its own proves a short squeeze. Forced-covering narratives require additional evidence unavailable from OHLC alone.',
-  'A fictional stock trades 3 million shares in a session. A vendor chart labels 1.2 million "short sale volume." That number is trading flow, not outstanding short positions or proof of forced covering.',
+ ['Short-sale volume and short interest are different measures. FINRA daily Short Sale Volume files aggregate reported off-exchange short-sale executions and are not a consolidated all-venue short-sale count. Neither number alone proves covering or a short squeeze; verify venue and session coverage before computing a market-wide fraction.',
+  'FICTIONAL: A vendor labels 1.2 million shares "short-sale volume" while a separate chart lists 3 million shares of session volume. Their arithmetic quotient is 40%, but it is NOT a valid market-wide short-sale share unless those figures use the same venue universe, session window and reporting rules. FINRA off-exchange files cannot simply be divided by consolidated market volume to infer a comprehensive short-sale share.',
   ['Distinguish a dated short-interest report from volume attributed to short-sale executions.','Check denominator, timing, venue scope, adjustments and original source.','Document alternative causes for a sudden price rise.'],
   'Treating daily reported short volume as a live measure of all outstanding shorts.',
-  'Reported short-sale transaction volume does not directly establish outstanding short-interest shares or a guaranteed squeeze.',
-  'A new fictional ticker has 500,000 short-sale volume in a 2 million-share day; explain what the ratio means and what it cannot reveal.','fraud',
+  'The illustrative 1.2/3 calculation is 40% only as a ratio of two declared fictional figures. The percentage is analytically comparable only if source, eligible venues, trade types and time period match; it does not establish outstanding positions, covering or a squeeze.',
+  'A new fictional ticker has 500,000 vendor-labeled short-sale volume against 2 million consolidated daily shares. Compute the raw quotient, identify the venue-universe mismatch risk, and state why neither this fraction nor outstanding short interest can be inferred without the correct original data.','shorts',
   [['ratioPercent',[1200000,3000000],40,'%']]]
 ];
 export const foundationsBatch02=Object.freeze(days.map((x,i)=>make(x,i)));
