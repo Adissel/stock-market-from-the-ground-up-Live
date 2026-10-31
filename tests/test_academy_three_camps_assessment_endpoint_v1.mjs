@@ -8,9 +8,9 @@ let allowed=true,enrolled=true,reviewed=true,approved=true;
 const json=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'content-type':'application/json'}});
 const q=d=>({id:d,dimension:({Q1:'knowledge',Q2:'recognition',Q3:'decision',Q4:'process'})[d],
  prompt:'Which evidence and conditions are justified by this unfamiliar fictional case? '+d,
- options:[{code:'A',label:'Compare source, time, values and uncertainty.',graderNote:'PRIVATE'},
-          {code:'B',label:'Assume the future outcome is certain.'}],
- critical:d==='Q3',rubric:'PRIVATE'});
+ options:[{code:'A',label:'Compare source, time, values and uncertainty.',graderNote:'PRIVATE',corrective_feedback:'Check the source timestamp and the measured inputs before drawing a supported conclusion.'},
+          {code:'B',label:'Assume the future outcome is certain.',corrective_feedback:'Future outcomes cannot be guaranteed or inferred from a single fictional snapshot.'}],
+ critical:d==='Q3',rubric:'Evaluate contemporaneous source evidence and explicit uncertainty without relying on later market bars.'});
 globalThis.fetch=async(url,options={})=>{
  const u=String(url);calls.push({url:u,options});
  if(u.endsWith('/auth/v1/user'))return json({id:uid});
@@ -65,6 +65,10 @@ try{
  res=await onRequest({request:request('POST',{caseCode:'BC3_TAPE10_D01_V1',answers:attempt},{origin:'https://academy.example'}),env});
  assert.equal(res.status,200,'First case must grade server-side');
  assert.equal(answers.size,1);
+ const graded=await res.json();
+ assert.equal(graded.feedback.length,4,'Private corrective explanations become visible only after grading');
+ assert.equal(graded.feedback[0].selectedCode,'A');
+ assert(!JSON.stringify(graded).includes('PRIVATE'));
  res=await onRequest({request:request(),env});data=await res.json();
  assert.equal(res.status,200);
  assert.equal(data.assessment.caseCode,'BC3_TAPE10_D01_V2','Retake must receive a different unseen case');
