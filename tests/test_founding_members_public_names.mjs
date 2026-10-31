@@ -16,6 +16,11 @@ for(const path of pages){
 }
 const store=read('store.html');
 const inventory=read('assets/js/store-inventory-v014174.js');
+for(const path of ['assets/js/store.js','assets/js/store-inventory-ui-v014174.js',
+ 'assets/js/store-product-detail-v01484.js']){
+ assert.doesNotMatch(read(path),/Founding 600 member (?:evaluation|testing)/,
+  'Store member-facing beta copy must use the approved Founding Members name: '+path);
+}
 const checkoutPage=read('founding600.html');
 const commons=read('founders-commons.html');
 const dashboard=read('dashboard.html');

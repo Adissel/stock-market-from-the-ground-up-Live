@@ -43,7 +43,7 @@ function detail(x){
 }
 function label(x){
  return x.betaTestingReady===true&&x.saleReady===true&&String(x.sku).startsWith('tool:')?
- 'Beta Testing Ready · Founding 600 member testing pending; checkout independently verified':
+ 'Beta Testing Ready · Founding Members testing pending; checkout independently verified':
  x.saleReady?'Purchase subject to secure checkout verification':
  x.status==='coming_soon'?'Coming Soon · Beta / development':
  x.status==='listed'?(x.category==='Books'?'Book listed · See retailer availability':'Listed · Purchasing not yet enabled'):'Not available to purchase';

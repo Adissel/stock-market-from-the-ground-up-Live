@@ -91,7 +91,7 @@ function toolCard(t){
  <span class="store-beta-ribbon">${t.betaTestingReady===true&&released?'Beta Testing Ready':t.status==='beta'?'Beta in development':released?'Released tool':'Individual checkout unavailable'}</span><h3><a href="${esc(page)}">${esc(t.name)}</a></h3>
  <p class="gu-tool-description">${toolSummary(t,page)}</p>
  <p class="store-sell-price"><span class="store-price-label">Price</span> ${esc(price)}</p>
- <p class="store-sell-status">${t.betaTestingReady===true&&released?'Ready for Founding 600 member evaluation · Not yet beta-accepted':released?'Released learning tool':t.status==='beta'?'Beta learning tool':'Not currently released'}${released&&!enroll?' · Individual sales pending':''}</p>
+ <p class="store-sell-status">${t.betaTestingReady===true&&released?'Ready for Founding Members evaluation · Not yet beta-accepted':released?'Released learning tool':t.status==='beta'?'Beta learning tool':'Not currently released'}${released&&!enroll?' · Individual sales pending':''}</p>
  ${t.freePreview?'<span class="v11-badge">Limited free preview</span>':''}
  <div class="store-sales-actions">${action}<a class="btn secondary" href="${esc(page)}">See What You Get</a></div></article>`;
 }
