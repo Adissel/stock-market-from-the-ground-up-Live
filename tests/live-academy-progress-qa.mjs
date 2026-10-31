@@ -68,6 +68,15 @@ try{
  assert([401,403].includes(guestWallet.status),
   'anonymous requests must not return a private wallet');
  console.log('PASS genuine signed-in Crownlight Lumens wallet read and anonymous wallet denial (no balance logged).');
+ const access=await run(origin+'/api/member-tool-access?tool=ONDEMAND_TRAINING',{
+  headers:{authorization:'Bearer '+signed.access_token}
+ });
+ assert.equal(access.status,200,'Live entitlement read must be available');
+ assert.equal(access.body.ok,true,'Live entitlement must resolve');
+ if(access.body.authorized!==true)
+  throw Error('BLOCKED: authenticated QA member has no ONDEMAND_TRAINING entitlement. '+ 
+   'Use an approved noncommercial QA entitlement; never bypass the normal access check.');
+ console.log('PASS genuine member training entitlement (no role or account ID logged).');
  const first=assertProgress(await academy(signed.access_token,'truth5'));
  let enrolled=first.enrolled===true;
  // Never overwrite existing private notes or attempt to reset an existing course.
