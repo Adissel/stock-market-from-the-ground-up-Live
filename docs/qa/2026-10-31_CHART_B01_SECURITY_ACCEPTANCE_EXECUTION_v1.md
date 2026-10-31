@@ -3,9 +3,9 @@
 **Document ID:** SMFGU-QA-CHART-B01-20261031-001  
 **Project:** The Stock Market: From the Ground Up — Website / Crownlight Chart Studio / Boot Camp Academy  
 **Filename / file type:** `docs/qa/2026-10-31_CHART_B01_SECURITY_ACCEPTANCE_EXECUTION_v1.md` / Markdown  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** 2026-10-31 (America/Chicago)  
-**Status:** **REAL AUTHENTICATED ADVANCED CHART API ACCEPTED ON TESTED SHA; B01 API PERSISTENCE AND SOURCE PREFLIGHT PASSED; FULL BROWSER, EDITORIAL AND SECURITY ACCEPTANCE OPEN**  
+**Status:** **Genuine authenticated ADVANCED Chart API, workspace restoration AND user-visible fictional starter acceptance PASSED on tested SHA; cross-account, CAPTCHA-form, full role matrix, editorial and security acceptance remain OPEN**  
 **Google Drive location/document ID:** Not created / not assigned. The GitHub `main` record is authoritative.  
 **Purpose:** Record independently verifiable acceptance evidence, exact limitations and release work without conflating source checks, authentication and true graded-member acceptance.  
 **Dependencies:** `AGENTS.md`; issues #153, #154, #157, #158; 2026-10-30 B01 controlled ungraded Beta approval; 2026-10-31 B001 authenticated QA record; mixed TEST settlement register v1.2; 419 Labs, original 247 days, five Free Foundations days and separately gated 27 additional Academy days.
@@ -76,3 +76,18 @@ No LIVE payment, credit, role, membership, private case, historical data or prod
 - **v1.0 — 2026-10-31:** Genuine QA Advanced-tier API and B001 Auth persistence evidence, initial five-day B01 source/arithmetic review, live privileged-function inventory and remaining acceptance gates.
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Controlled engineering and educational QA record; not full release certification, legal opinion or independently approved protected grading.
+
+## 2026-10-31 addendum — v1.1, genuine visible-member Chart Studio control
+
+**Exact tested source SHA:** `8b0bb65ad483ed448198d8724410ff1c0aab4181` on `main`.
+**Requirement:** #154, Advanced Chart Studio member-facing data-source visibility and authorized chart restoration, without premium workspace modification.
+**Files:** `tests/live-chart-studio-browser-readonly-qa-v1.mjs` (replaced hidden DOM-action fallback with actual user-visible disclosure interaction); existing production `assets/js/crownlight-simulator-layout-v3.js` and `assets/js/simulator.js` left unchanged.
+**Test and evidence:** [GitHub Actions 41231889804](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41231889804): **two jobs completed SUCCESS**, real issued GoTrue session verified through existing QA credentials, actual production Chromium. Production Cloudflare deployment `713f051a-2cea-4409-862f-a5db12bd589b` reported **success** for the same SHA; later main commits/deployments occurred and do not replace that tested evidence.
+
+**Actual GUI sequence:** On an Advanced Chart Studio request the application intentionally closes `#cl-replay-import details.cl-workbench-import` to emphasize the chart. Playwright clicked the real, visible `summary` to open that disclosure, waited for `#sim-load-fictional` to become visible, asserted it was enabled and clicked it through the visible interface. No `HTMLElement.click()` fallback on a hidden button or page script action remained. GitHub job log confirms **PASS user-accessible Advanced data-source disclosure reveals fictional starter**. The subsequent real member Chromium assertion also passed: one Advanced KLine pane with five fictional candles; currently authorized Advanced tier; Professional lock; EMA/RSI restored after refresh/reload; zero protected workspace, payment or Lumen writes; no unhandled browser exceptions.
+
+**Security/data reconciliation:** The test does not modify the existing Professional save; the current read-only scoped backend test verified authenticated tier and bounded projection. No test credential or bearer token appears in this report. This test is **not** a human CAPTCHA form login, alternate-account identity authorization, official market replay, or simulated purchase.
+
+**Residual #154 gates:** genuine second authenticated QA member and source-private record isolation; Standard/Professional/Owner/Admin/revoked matrix and downgrade; member-initiated eligible PUT/CAS preservation/reopen; interactive CAPTCHA sign-in and keyboard/mobile accessibility. Three proposed dedicated QA identities from the former chart program are not presently provisioned in production Auth (0 records matching the specific batch marker/email pattern at the read-only check); do not manufacture plan rights or label an untested second actor as accepted. Existing first-party QA identity remains intact.
+
+**Revision history addition:** v1.1 — 2026-10-31: accepted genuine user-visible Advanced fictional starter path and chart restoration on exact SHA. No production feature change or data migration; only a noncharging test script was modified. For rollback, revert commit `8b0bb65ad483ed448198d8724410ff1c0aab4181` if test behavior needs change; no data rollback applies.
