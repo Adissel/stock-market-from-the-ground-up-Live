@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.6  
+**Version:** 1.7  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -11,6 +11,16 @@
 **Google Drive document ID:** Not assigned  
 **Status:** OWNER APPROVED for ungraded three-camp Beta; official assessed-course and ten-camp advanced-depth acceptance INCOMPLETE  
 **Purpose:** A single denominator-locked progress register for the four owner-directed priorities and all ten Boot Camps, with legitimate role-separated authorization.
+
+## Controlling October 31 source-authoring update — 247/247
+
+The previously recorded 85-unwritten-Practicum-day queue is **CLOSED AT THE SOURCE-CASE AUTHORING LEVEL**. Twenty Practicum cases D26–D45, twenty D46–D65 and twenty-five D66–D90 are individually authored and integrated with the existing 90-day source map. **All original seven programs now have 247/247 (100%) individually authored fictional teaching cases, with 0 initial original-source days missing.** GitHub Actions [41243944184](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41243944184) completed SUCCESS and logs explicitly report 90/90 Practicum and 247/247 seven-program source days, zero independent editorial approvals. [Controlling source register v0.8](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/blob/main/docs/qa/2026-10-31_BOOTCAMP_247_INSTRUCTIONAL_STRENGTHENING_REGISTER.md).
+
+**Different acceptance denominator:** The controlling independent Owner approval addendum [SMFGU-ACADEMY-OWNER-ACCEPTANCE-010](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/blob/main/docs/releases/2026-10-31_BOOTCAMP_OWNER_83_OF_380_VERIFIED_ACCEPTANCE_V1.md) documents **83/380 (21.8%) fixed advanced-depth educational units accepted**, **297 remaining**. The new 65 original lesson source cases do not by themselves include every required 12-item independent formative package, advanced case, human protected-rubric review, verified tester-course save journey or audited release; therefore no acceptance units were added by merely completing initial source case authoring. Human separate approval of original course days remains 0/247 in its register, and official grading remains held.
+
+**Authentic QA update:** A two-real-member x three-camp write test [41244110593](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41244110593) correctly **FAILED CLOSED** before all writes because the second authenticated QA account is not on the protected private Beta allowlist. No six-journey acceptance is claimed. A separate first-invited-QA-only three-course test is pending; it cannot substitute for two-member cross-account isolation.
+
+**B01 protected review:** Read-only production audit confirms 20 Draft sets, 120 questions (100 three-choice, 20 numeric), 200 unique wrong-answer feedback objects, 20/20 consistent AI-recomputed numeric keys, and 0 human reviewer signatures. All feedback remains AI-revised Draft. Graded release remains HOLD; the separate B01 weighed preparation estimate is 57% according to its current scorecard, not 57% human acceptance.
 
 ## 1. Owner approval and professional-role boundaries
 
@@ -134,4 +144,5 @@ For the next implementation wave prioritize **45 of the 54 protected draft cases
 **v1.4 — October 31, 2026 — ACCEPTED five original Risk60 advanced source days after exact-success CI 41237868004 and matching successful Cloudflare deployment. Increased fixed ledger 73→78/380, retained 0/54 graded cases and 0/6 genuine journeys.**
 **v1.5 — October 31, 2026 — Authored next five original Risk60 advanced days (ten source-complete total, five accepted) and three more private assessment candidates (13 full draft cases, 52/216 rubrics, 156/648 feedback); fixed accepted tally 78/380 pending next CI/deploy.**
 **v1.6 — October 31, 2026 — Cloudflare successful deployment of second Risk60 five-day module, exact CI pending; 16/54 complete private draft cases, 64/216 rubrics, 192/648 explanations; fixed accepted total 78/380 until CI passes.**
+**v1.7 — October 31, 2026 — original 247/247 source authorship CI verified; 83/380 accepted remains, human/graded release HOLD.**
 **Footer:** Crown & Lantern Press — Owner-directed noncommercial Beta report; not an attestation of independent professional review, official market competency, historical-data licensing, or real subscriber acceptance.
