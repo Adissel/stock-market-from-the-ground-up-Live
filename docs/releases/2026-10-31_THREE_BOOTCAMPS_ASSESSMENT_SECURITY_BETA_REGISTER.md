@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-THREE-001
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy
-**Version:** 1.1
+**Version:** 1.2
 **Created:** October 31, 2026
 **Last reviewed:** October 31, 2026
 **File type:** Markdown (.md)
@@ -99,11 +99,26 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 - Need full authenticated 27-day browser/accessibility evidence and commercial rights checks for any future real market feed.
 - The separate Windows Codex attachment path is not available from this repository connector; owner-provided execution requirements and in-repository rules were used.
 
+## Evidence-only update — database and source security (October 31, 2026)
+
+**Source commits:** `6899e38dc27f16753ff36428af0a1632b53f149f` (early origin rejection);
+`e4cb3d618a34292c76ca7dc99aafb71852cd7ec5` (adversarial no-provider-call assertions);
+`44f73b8b010d63e06636943f11a4a503d9b3a58c` (read-only readiness audit).
+
+- Live Supabase join verified **20/20** protected cases for `tape10` (10 days), **20/20** for `indicators10` (10 days), **14/14** for `filings7` (7 days), with zero orphaned mappings. All **54 are inactive, not approved and not reviewer-attributed**.
+- All **216** graded prompts across the cases are unique on exact text comparison. All 216 correct-option references resolve to precisely one option; no within-question duplicate option text/code was found. Each case has four dimensions and three response options per question. This does not prove unseen reasoning, numeric validity, or credible distractors.
+- Editorial warning: only **68 distinct answer-option labels** occur across 240 option occurrences in each 10-day program; `filings7` has only **50 distinct labels** across 168 occurrences. Repeated answer language is a material memorization/predictability risk requiring case-by-case rewriting and independent review.
+- RLS is enabled on the five assessed protected-case, attempt, routing, enrollment and progress tables; `anon` and `authenticated` have no direct SELECT, and `authenticated` has no direct INSERT. Existing grading RPC EXECUTE is service-role-only. These are metadata checks, **not** actual cross-member or browser penetration tests.
+- The cross-origin assessment security fix now rejects invalid POST requests **before** member authentication and private database reads; a source regression test asserts that rejected cross-site requests issue no provider calls.
+- Reproducible audit: `supabase/admin/20261031_three_bootcamps_release_readiness_read_only.sql`. Executed against the live project without mutation. The last reported output confirmed protected-table RLS and privilege settings; earlier inventory/structural queries were also executed individually.
+- **Release remains blocked.** No grades or question-review fields were modified; full instructional depth, individual independent editorial sign-off, genuine enrolled-member assessment, accessibility, mobile and exact-commit deployment acceptance remain open.
+
 ## Revision history
 
 | Version | Date | Author | Change |
 |---|---|---|---|
 | 1.0 | October 31, 2026 | Project engineering | Established 27-day private assessment inventory and acceptance register without declaring editorial or member beta approval. |
 | 1.1 | October 31, 2026 | Project engineering | Incorporated later controlling 30–45-minute and 12-formative-question daily depth requirement; revised unfinished release classification. |
+| 1.2 | October 31, 2026 | Security and release audit | Verified live case completeness, answer references, option-reuse risk and RLS; recorded source security hardening and read-only audit without promoting review status. |
 
 **Status classification:** All three courses: IN DEVELOPMENT (technical infrastructure deployed, depth and assessment editorial acceptance unfinished); **not Beta Testing Ready, not Beta Accepted and not Production Release Approved**.
