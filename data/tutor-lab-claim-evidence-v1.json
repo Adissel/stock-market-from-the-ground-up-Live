@@ -1,6 +1,6 @@
 {
   "kind": "public_tutor_lab_claim_bridges_v1",
-  "version": "1.3",
+  "version": "1.4",
   "registeredLabsUnaffected": 419,
   "records": [
     {
@@ -37,7 +37,10 @@
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
       "learningObjective": "Distinguish a quoted bid, ask and last trade; compute spread and midpoint while identifying unavailable execution evidence.",
       "evidenceProcedure": "Subtract bid from ask in dollars per share; divide the sum by two for midpoint. Keep the unrounded midpoint for calculations. Verify quote time, venue and size separately.",
-      "freshTransfer": "FICTIONAL: bid $19.95, ask $20.10 and last $20.00. Calculate the spread and unrounded midpoint with units. Explain whether any of these values proves a 1,000-share execution; name the missing evidence."
+      "freshTransfer": "FICTIONAL: bid $19.95, ask $20.10 and last $20.00. Calculate the spread and unrounded midpoint with units. Explain whether any of these values proves a 1,000-share execution; name the missing evidence.",
+      "supplementarySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
+      ]
     },
     {
       "id": "F2-C04-L02",
@@ -51,7 +54,10 @@
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
       "learningObjective": "Compare absolute quote widths without inferring executable size or guaranteed liquidity.",
       "evidenceProcedure": "Compute ask minus bid for each quote in dollars per share. A comparison of widths leaves size, timestamp, venue and price impact unresolved.",
-      "freshTransfer": "FICTIONAL: compare $8.40/$8.48 with $8.40/$8.56. Calculate each spread; then explain why neither spread establishes a 1,000-share fill and identify what evidence is missing."
+      "freshTransfer": "FICTIONAL: compare $8.40/$8.48 with $8.40/$8.56. Calculate each spread; then explain why neither spread establishes a 1,000-share fill and identify what evidence is missing.",
+      "supplementarySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+      ]
     },
     {
       "id": "DT-C41-L01",
@@ -65,7 +71,10 @@
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
       "learningObjective": "Explain why a market-order execution price can differ from a last trade or displayed ask.",
       "evidenceProcedure": "Separate the last transaction from the current quote, and the displayed quantity from the intended order quantity. Use actual execution reports to establish fills; do not manufacture missing prices.",
-      "freshTransfer": "FICTIONAL: the last trade is $6.00; the ask is $6.08 for 25 shares; a proposed market buy is 200 shares. Identify which prices and quantities are observations and which total execution cost remains unknowable. State when NO TRADE is reasonable."
+      "freshTransfer": "FICTIONAL: the last trade is $6.00; the ask is $6.08 for 25 shares; a proposed market buy is 200 shares. Identify which prices and quantities are observations and which total execution cost remains unknowable. State when NO TRADE is reasonable.",
+      "supplementarySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
+      ]
     },
     {
       "id": "DT-C41-L02",
@@ -79,7 +88,10 @@
       "reviewStatus": "source_specific_general_claim_checked_ungraded_not_independently_approved",
       "learningObjective": "Apply a buy-limit price constraint while distinguishing partial execution from a guaranteed full fill.",
       "evidenceProcedure": "For a buy limit, compare each possible execution price with the limit; total filled quantity still requires execution evidence. A quote touch alone is insufficient.",
-      "freshTransfer": "FICTIONAL: a 100-share buy limit is $6.10, the current ask is $6.08 for 10 shares. State the permitted execution-price boundary and whether the remaining 90 shares are guaranteed. Distinguish marketability now from a later quote change."
+      "freshTransfer": "FICTIONAL: a 100-share buy limit is $6.10, the current ask is $6.08 for 10 shares. State the permitted execution-price boundary and whether the remaining 90 shares are guaranteed. Distinguish marketability now from a later quote change.",
+      "supplementarySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
+      ]
     },
     {
       "id": "DT-C42-L02",
