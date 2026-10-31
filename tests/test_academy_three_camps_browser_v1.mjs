@@ -63,6 +63,29 @@ try{
    await page.locator('#academy-official-assessment:not([hidden])').waitFor({timeout:12000});
    await page.waitForFunction(()=>document.querySelector('.academy-assessment-status')?.textContent.includes('pending editorial'));
    assert.equal(await page.locator('.academy-assessment-question').count(),0,'Unreviewed keys never displayed');
+   assert((await page.locator('.academy-active-itinerary summary').innerText()).includes('45 minutes'),
+    'Reference days must present an honest 45-minute active-work itinerary');
+   if(width===390){
+    // Exercise the real ten-stage formative UI with the individual reference
+    // content, not only static string/source assertions. Fixture login remains fake.
+    const lesson=academyByCode[code].curriculum[0].lesson;
+    for(let st=0;st<6;st++){
+     const expected={2:lesson.method,4:lesson.predict,5:lesson.replay}[st];
+     if(expected){
+      const label=page.locator('.academy-guided-choice').filter({hasText:expected});
+      assert.equal(await label.count(),1,'Authored guided answer available at stage '+st);
+      await label.locator('input').check();
+     }
+     await page.locator('.academy-guided-controls button').nth(1).click();
+    }
+    assert.equal(await page.locator('.academy-formative-question').count(),12,
+     'Twelve original formative questions render at the first reference day: '+code);
+    const first=page.locator('.academy-formative-question').first();
+    await first.locator('summary').click();
+    await first.locator('textarea').fill('The evidence and timestamps need to be verified before drawing a conclusion.');
+    await first.locator('button').click();
+    assert.match(await first.locator('p[role="status"]').innerText(),/Teaching feedback:/);
+   }
    // Keyboard-first checks visit EVERY authored day, not only the first/final route.
    // They remain isolated fixtures; this is not genuine authenticated acceptance.
    for(let index=0;index<academyByCode[code].days;index++){
