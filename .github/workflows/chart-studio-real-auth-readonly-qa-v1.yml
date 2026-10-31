@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'tests/live-chart-studio-api-readonly-qa-v1.mjs'
+      - 'functions/api/chart-workspace.js'
+      - 'assets/js/crownlight-workspace-v2.js'
       - '.github/workflows/chart-studio-real-auth-readonly-qa-v1.yml'
 permissions:
   contents: read
