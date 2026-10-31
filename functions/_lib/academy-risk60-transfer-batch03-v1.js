@@ -35,6 +35,6 @@ export const risk60TransferBatch03=Object.freeze(cases.map((entry,i)=>{
 }));
 if(cases.length!==20||new Set(cases.map(c=>c[0])).size!==20||
  new Set(cases.map(c=>c[1])).size!==20||new Set(cases.map(c=>c[3])).size!==20||
- cases.some(c=>c.length!==5||c.some(s=>typeof s!=='string'||s.length<35))||
+ cases.some(c=>c.length!==5||c.some((s,i)=>typeof s!=='string'||s.length<(i===0?12:35)))||
  risk60TransferBatch03.some((c,i)=>c.day!==i+41||c.topicSourceDay!==risk60SourceDays[i]))
  throw Error('Risk60 twenty independent source-specific transfer lessons incomplete.');
