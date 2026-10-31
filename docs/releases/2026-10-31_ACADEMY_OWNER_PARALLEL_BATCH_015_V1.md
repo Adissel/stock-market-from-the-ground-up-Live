@@ -3,11 +3,21 @@
 **Document ID:** SMFGU-ACADEMY-OWNER-BATCH-015  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
 **Filename:** `2026-10-31_ACADEMY_OWNER_PARALLEL_BATCH_015_V1.md`  
-**Type:** Markdown (.md) · **Version:** 1.0 · **Date:** October 31, 2026  
+**Type:** Markdown (.md) · **Version:** 1.1 · **Date:** October 31, 2026  
 **Location:** `cybernexuspublishing/stock-market-from-the-ground-up/docs/releases/` on `main`  
 **Google Drive location:** Not created. **Google Drive document ID:** Not assigned.  
 **Status:** Source authoring and private guarded database revisions verified; CI/deployment acceptance for original D11–D15 pending.  
 **Purpose:** One controlling cross-workstream audit that separates verified instructional content and protected assessment authoring from authentic learner acceptance.
+
+## Owner acceptance update — Version 1.1
+
+**87/380 = 22.89% accepted, 293 units outstanding.** Focused corrected browser test [41243996280](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41243996280) completed SUCCESS at `461cf244f9767b172738069a372d248d7546ce13`. Cloudflare Pages production successfully deployed descendant `b8d94c1514f7d577e4fa732bd8def8fb4b3d12ec`; GitHub compare returned ahead 19, behind 0 against the tested commit. Under delegated Owner editorial authorization, **original Risk60 Days 11–14 are accepted for ungraded instructional use**.
+
+Original advanced days accepted: **14/247 = 5.67%**; original advanced source-ready days: **15/247 = 6.07%**. Outstanding original advanced acceptance units **233**, source authoring units **232**. Original Risk60 Day 15, including twelve individually authored questions and one worked independent practicum, is integrated and deployed but remains conditional until the expanded browser workflow [41244413953](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41244413953) passes. **Provisional source-ready total = 88/380 = 23.16%.**
+
+Protected case authoring (live Supabase verified): **22/54 complete drafts**, **88/216 rubrics**, **264/648 feedback entries**. Remaining **32 case drafts, 128 rubrics, 384 feedback entries**. Private keys valid 216/216; cases active 0; reviewed 0. Actual QA journeys 0/6. No paid testing or real identity impersonation.
+
+The v1.0 83/380 figures below are historical baseline data, not the controlling accepted total.
 
 ## Fixed-denominator project percent
 
@@ -33,5 +43,6 @@ Authorize educational deployment of the five fictional source packages condition
 Next: close the focused five-day CI and production gate, perform individual fairness/scoring and independent assessment reviews, execute genuine member progress/RLS/accessible journeys, and continue original study-day advanced authoring in batches.
 
 **Dependencies:** Existing source-of-truth course IDs, `AGENTS.md`, Academy engine, Supabase private assessment and member RLS, GitHub CI, Cloudflare Pages.  
-**Revision history:** v1.0 — October 31, 2026 — parallel 5-day content, 6 protected draft cases, CI assertion fix, guarded evidence and fixed denominator.  
+**Revision history:** v1.0 — October 31, 2026 — parallel 5-day content, 6 protected draft cases, CI assertion fix, guarded evidence and fixed denominator.
+**v1.1 — October 31, 2026 — CI/deployment accepted original Risk60 D11–D14; accepted ledger 87/380; Day 15 remains conditional; 22 private candidates drafted.**  
 **Footer:** Crown & Lantern Press — internal noncommercial Beta/Owner evidence; no claims of independent professional, regulatory or brokerage review.
