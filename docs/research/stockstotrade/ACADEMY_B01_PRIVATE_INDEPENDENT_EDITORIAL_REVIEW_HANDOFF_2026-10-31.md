@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-PROTECTED-REVIEW-002  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — B01 Protected Assessment  
-**Version:** 1.0  
+**Version:** 1.1  
 **Prepared:** October 31, 2026  
 **Status:** DRAFT; AWAITING SEPARATE, ATTRIBUTABLE HUMAN EDITORIAL DECISIONS  
 **Repository:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main` only  
@@ -62,6 +62,16 @@ The authenticated API now requires both an attributed reviewed set and option-le
 
 Do **not** set `review_state='reviewed'`, set `reviewed_at`, promote a feedback status, change answer keys, unlock competency awards or update the controlling registers without independent evidence. Changes in this document alone **never** release grades.
 
+## Owner-assigned AI reviewer and beta-test human validation
+
+**Owner directive:** GPT-6 is assigned the working **AI content reviewer** for all currently incomplete source, instructional, numerical, and confidential assessment checks. This is a legitimate delegated authoring/editing and evidence-gathering role; it is **not** an independently qualified human signature. Earlier AI-authored source triage, 42-day rework decisions, numeric checks and 200 correction drafts remain credited to the AI; do not relabel them as human decisions.
+
+**Human editorial cohort:** The Owner separately designated actual eligible beta testers to perform attributable human reading and review. They can submit independent feedback; qualified reviewers chosen for restricted confidential review are distinct from answer-blind test participants. Track B needs a newly tested least-privilege permission route; no unrestricted private key release is authorized.
+
+The AI reviewer must review the **actual** source, answer and option material, document clear individual findings and revisions, and identify uncertainty. A reviewer signoff requires a genuinely separate authenticated human review event, scope, evidence, case/version hash and explicitly recorded decision, not a fictitious name or scripted approval. No v97 frozen rubric, v98 Draft status, private answer key or official member grade may be promoted solely because the Owner assigned GPT-6 as reviewer.
+
+**Current record:** no participating beta editor has signed a question or day; the 42 study-day and 20 private set editorial acceptance gates remain open.
+
 ## Review receipt / sign-off fields
 
 **Assigned independent editor:** UNASSIGNED  
@@ -78,5 +88,6 @@ Do **not** set `review_state='reviewed'`, set `reviewed_at`, promote a feedback 
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Case-specific secure reviewer handoff, required evidence, numerical precision and distinct answer-feedback checks | DRAFT — independent review open |
+| 1.1 | 2026-10-31 | Owner assigned GPT-6 as accountable working AI reviewer; beta testers remain separate human validation cohort | AI findings authorized; no human signoff, protected grade release remains HOLD |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Confidential grading content resides in protected Supabase only. Nothing in this handoff is a trading signal, financial advice, independent audit certification or protected grade approval.
