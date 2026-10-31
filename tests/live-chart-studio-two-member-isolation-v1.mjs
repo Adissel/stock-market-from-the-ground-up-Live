@@ -71,11 +71,17 @@ assert.notEqual(data.get(b.uid).updatedAt,data.get(a.uid).updatedAt,
 const guest=await req(origin+'/api/chart-workspace');
 assert([401,403].includes(guest.status));
 
-for(const endpoint of ['/api/member-learning-quick-view','/api/member-lumen-activity']){
+for(const endpoint of ['/api/member-learning-quick-view','/api/member-lumen-activity','/api/member-lumen-integrity']){
  const ownA=await get(a,endpoint),ownB=await get(b,endpoint);
  assert.equal(ownA.status,200,'Member A private endpoint unavailable');
  assert.equal(ownB.status,200,'Member B private endpoint unavailable');
  assert.equal(ownA.body?.ok,true);assert.equal(ownB.body?.ok,true);
+ if(endpoint.endsWith('integrity')){
+  assert.equal(ownA.body.balanced,true,'Member A wallet must reconcile on server');
+  assert.equal(ownB.body.balanced,true,'Member B wallet must reconcile on server');
+  assert.equal(ownA.body.discrepancyCount,0);
+  assert.equal(ownB.body.discrepancyCount,0);
+ }
  const fakeA=await get(a,endpoint+'?user_id='+encodeURIComponent(b.uid));
  const fakeB=await get(b,endpoint+'?user_id='+encodeURIComponent(a.uid));
  assert.equal(fakeA.status,200);assert.equal(fakeB.status,200);
