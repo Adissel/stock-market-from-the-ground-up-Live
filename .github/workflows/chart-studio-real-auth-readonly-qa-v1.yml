@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'tests/live-chart-studio-api-readonly-qa-v1.mjs'
+      - 'tests/live-chart-studio-browser-readonly-qa-v1.mjs'
       - 'functions/api/chart-workspace.js'
       - 'assets/js/crownlight-workspace-v2.js'
       - '.github/workflows/chart-studio-real-auth-readonly-qa-v1.yml'
@@ -56,4 +57,46 @@ jobs:
           gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-real-auth-qa-status.md
       - name: Fail acceptance when real member API check does not pass
         if: steps.member_api.outcome != 'success'
+        run: exit 1
+  production-browser-chart-ui:
+    needs: production-signed-in-chart-api
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify real member browser script parses
+        run: node --check tests/live-chart-studio-browser-readonly-qa-v1.mjs
+      - name: Install no-cost Chromium browser
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run actual production authenticated Advanced Chart Studio browser (no writes)
+        id: browser
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-chart-studio-browser-readonly-qa-v1.mjs
+      - name: Record verified member browser result without disclosing credentials
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.browser.outcome }}
+        run: |
+          {
+            echo "## Production signed-in Chart Studio Chromium — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "Commit: \`$GITHUB_SHA\`"
+            echo "Actions: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Real Supabase password-grant session bootstrapped in Chromium: **$QA_RESULT**"
+            echo "Scope: Advanced Studio, real fictional KLine pane, Pro lock, saved EMA/RSI and reload; read-only, no charges or Lumen usage."
+            echo "This does not test the interactive CAPTCHA sign-in page or the full three-tier role matrix."
+          } > /tmp/chart-auth-chromium-qa.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-auth-chromium-qa.md
+      - name: Fail acceptance when real Chromium browser did not pass
+        if: steps.browser.outcome != 'success'
         run: exit 1
