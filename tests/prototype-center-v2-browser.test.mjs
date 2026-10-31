@@ -7,14 +7,14 @@ import {readFileSync} from 'node:fs';
 const protectedHtml=readFileSync('prototype.html','utf8');
 const BASE=process.env.PT_BROWSER_BASE||'http://127.0.0.1:8768';
 const fakeCases=[
- {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP calculation',type:'FICTIONAL',objective:'Calculate volume-weighted average price.',note:'Synthetic example only.',candles:[
+ {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP calculation',type:'FICTIONAL',objective:'Calculate the OHLCV typical-price weighted proxy, not trade-print VWAP.',note:'Synthetic example only.',candles:[
  {time:'09:30',open:10,high:10.4,low:9.8,close:10.2,volume:1000},{time:'09:31',open:10.2,high:10.5,low:10.1,close:10.4,volume:1500},
  {time:'09:32',open:10.4,high:10.4,low:10,close:10.1,volume:2000},{time:'09:33',open:10.1,high:10.6,low:10.1,close:10.5,volume:2500}
  ],question:'What is the typical price of the first candle?',instructor:'Compare the candle close to VWAP and check later confirmation.'},
  {id:'CL-PROTO-BREAKOUT-02',topic:'Breakout',name:'Fictional breakout rejection',type:'FICTIONAL',objective:'Compare breakout and failed breakout.',note:'Synthetic only.',candles:[
  {time:'09:30',open:20,high:20.3,low:19.9,close:20.2,volume:1200},{time:'09:31',open:20.2,high:20.35,low:20.05,close:20.25,volume:900},
  {time:'09:32',open:20.25,high:20.6,low:20.1,close:20.15,volume:2200},{time:'09:33',open:20.15,high:20.25,low:19.8,close:19.9,volume:1800}
- ],question:'What is the typical price of the third candle?',instructor:'Observe the wick rejection.'},
+ ],question:'How many dollars per share did the third candle reject from its $20.60 high to its $20.15 close?',instructor:'Observe the wick rejection.'},
  {id:'CL-PROTO-RISK-03',topic:'Risk planning',name:'Fictional risk/reward',type:'FICTIONAL',objective:'Compute dollar risk per share.',note:'Synthetic only.',candles:[
  {time:'09:30',open:15,high:15.15,low:14.85,close:15.05,volume:800},{time:'09:31',open:15.05,high:15.3,low:15,close:15.25,volume:1200},
  {time:'09:32',open:15.25,high:15.45,low:15.1,close:15.3,volume:1400},{time:'09:33',open:15.3,high:15.55,low:15.15,close:15.5,volume:1700}
@@ -67,6 +67,17 @@ try{
   await page.locator('#pt-nav button:has-text("Interactive Labs")').click();
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Ungraded guided check/);
+  await page.locator('[data-prototype-case] select[aria-label="Choose fictional instructional case"]').selectOption('1');
+  assert.match(await page.locator('[data-prototype-case]').textContent(),/Rejection distance/);
+  await page.locator('[data-prototype-case] input[aria-label="Your guided calculation"]').fill('0.45');
+  await page.locator('[data-prototype-case] button:has-text("Check calculation")').click();
+  assert.match(await page.locator('[data-prototype-case]').textContent(),/Correct to the nearest cent/);
+  await page.locator('[data-prototype-case] select[aria-label="Choose fictional instructional case"]').selectOption('2');
+  assert.match(await page.locator('[data-prototype-case]').textContent(),/planned long-trade risk\/reward/);
+  assert.doesNotMatch(await page.locator('[data-prototype-case]').textContent(),/VWAP to bar/);
+  await page.locator('[data-prototype-case] input[aria-label="Your guided calculation"]').fill('0.25');
+  await page.locator('[data-prototype-case] button:has-text("Check calculation")').click();
+  assert.match(await page.locator('[data-prototype-case]').textContent(),/Correct to the nearest cent/);
   await page.locator('#pt-nav button:has-text("Chart Studio")').click();
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   await page.locator('#pt-content button:has-text("Professional")').click();
