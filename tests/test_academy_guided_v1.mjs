@@ -35,6 +35,18 @@ for(const code of ['tape10','indicators10','filings7']){
   'The authored days must not recycle prompts');
  assert.equal(program.curriculum.flatMap(day=>day.lesson.formativeQuestions).length,program.days*12,
   'Every day has exactly twelve individually authored formative question/feedback pairs');
+ const advanced=program.curriculum.flatMap(day=>day.lesson.advancedPracticums);
+ assert.equal(advanced.length,code==='filings7'?13:16,'All individually authored advanced case items mapped into '+code);
+ assert.equal(new Set(advanced.map(item=>item.id)).size,advanced.length,'No advanced case ID may repeat');
+ for(const [i,day] of program.curriculum.entries()){
+  const exercises=day.lesson.advancedPracticums;
+  assert.equal(exercises.length,i<6?2:1,'Day-specific advanced lesson allocation: '+code+' day '+(i+1));
+  assert.equal(exercises.every(item=>item.id.startsWith(code+'-D'+String(i+1).padStart(2,'0'))),true);
+  for(const ex of exercises){
+   for(const key of ['scenario','task','worked','pitfall','transfer'])
+    assert(typeof ex[key]==='string'&&ex[key].length>=70,'Advanced exercise requires specific '+key+': '+ex.id);
+  }
+ }
 }
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
 const catalogRequest=new Request('https://example.test/api/bootcamp-academy?action=catalog');
@@ -57,5 +69,10 @@ assert(js.includes("Talia’s 12 authored formative practice questions"));
 assert(js.includes("Full 12-question individual authorship and editorial review remain pending"));
 assert(js.includes("response.value.trim().length<20"));
 assert(js.includes('No grade or Lumens'));
+for(const phrase of ['academy-advanced-practicum','Advanced application','Review advanced reasoning',
+ 'Complete and review all twelve day-specific formative questions','reviewedFormative.size!==12',
+ 'reviewedAdvanced.has(id)','advancedDrafts.set','Teach in more depth:']){
+ assert(js.includes(phrase),'Real guided practice and review UI requirement: '+phrase);
+}
 assert.doesNotThrow(()=>new Script(js));
 console.log('PASS shared guided experience mapped to ten Boot Camps and 274 day records without protected grading');
