@@ -54,6 +54,20 @@ const assertProgress=(answer)=>{assert.equal(answer.status,200);assert.equal(ans
 };
 try{
  const signed=await authenticate();
+ const balance=await run(origin+'/api/member-sparks-balance',{
+  headers:{authorization:'Bearer '+signed.access_token}
+ });
+ assert.equal(balance.status,200,'QA wallet must be readable with a real member token');
+ assert.equal(balance.body.ok,true,'QA wallet balance must be reconciled');
+ const wallet=balance.body.wallet||{};
+ for(const key of ['available','included','purchased','manual'])
+  assert(Number.isSafeInteger(wallet[key])&&wallet[key]>=0,'invalid wallet component '+key);
+ assert.equal(wallet.included+wallet.purchased+wallet.manual,wallet.available,
+  'available Lumens must equal verified wallet components');
+ const guestWallet=await run(origin+'/api/member-sparks-balance');
+ assert([401,403].includes(guestWallet.status),
+  'anonymous requests must not return a private wallet');
+ console.log('PASS genuine signed-in Crownlight Lumens wallet read and anonymous wallet denial (no balance logged).');
  const first=assertProgress(await academy(signed.access_token,'truth5'));
  let enrolled=first.enrolled===true;
  // Never overwrite existing private notes or attempt to reset an existing course.
