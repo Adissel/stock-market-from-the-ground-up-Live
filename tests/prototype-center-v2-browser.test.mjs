@@ -88,6 +88,17 @@ try{
   assert.equal(await page.locator('#pt-content').getAttribute('data-device'),'mobile');
   const bounds=await page.evaluate(()=>({body:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
   assert.ok(bounds.body<=bounds.width+12,'no significant horizontal overflow at '+viewport.width+': '+JSON.stringify(bounds));
+  await page.locator('#pt-search').focus();
+  await page.keyboard.type('Talia');
+  assert.equal(await page.locator('#pt-nav button').count(),1,'navigation search must filter list');
+  await page.keyboard.press('Tab');
+  assert.equal(await page.evaluate(()=>document.activeElement?.tagName),'BUTTON','keyboard must reach the filtered navigation button');
+  await page.keyboard.press('Enter');
+  assert.match(await page.locator('#pt-title').textContent(),/Talia Tutor/,'keyboard Enter activates workspace');
+  await page.locator('#pt-search').fill('');
+  assert.equal(await page.locator('#pt-nav button').count(),23);
+  await page.locator('#pt-nav button:has-text("Classroom Builder")').click();
+  await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   const axeReport=await new AxeBuilder({page}).include('#pt-root').withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
   assert.deepEqual(axeReport.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})),[],
    'automated accessibility violations at '+viewport.width+'px');
