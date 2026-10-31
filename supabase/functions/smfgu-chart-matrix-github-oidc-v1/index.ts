@@ -51,7 +51,7 @@ Deno.serve(async req=>{
  if(req.method!=='POST')return reply({ok:false,error:'Method not allowed'},405);
  let claims;
  try{claims=await githubClaims(req)}
- catch(e){return reply({ok:false,error:'OIDC authorization denied'},403)}
+ catch(e){return reply({ok:false,error:'OIDC authorization denied: '+String(e?.message||'unknown').slice(0,100)},403)}
  const url=Deno.env.get('SUPABASE_URL')||'',
   service=Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')||'',
   pub=Deno.env.get('SUPABASE_ANON_KEY')||'';
