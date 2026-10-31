@@ -1,0 +1,53 @@
+name: Book Key Live Authenticated Throttle and Anonymous Denial QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/book-key-live-qa-authenticated-rate-v1.yml'
+      - 'tests/live-book-key-authenticated-throttle-qa-v1.mjs'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: book-key-authenticated-throttle-real-qa
+  cancel-in-progress: false
+jobs:
+  noncommercial-authenticated-abuse-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate test syntax
+        run: node --check tests/live-book-key-authenticated-throttle-qa-v1.mjs
+      - name: Actual noncommercial QA six invalid Book Key attempts and guest ACL negatives
+        id: throttle
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-book-key-authenticated-throttle-qa-v1.mjs
+      - name: Record separate real runtime security disposition
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ steps.throttle.outcome }}
+        run: |
+          {
+            echo "### Genuine authenticated Book Key rate-limit and RPC privilege QA"
+            echo "Tested SHA: `$GITHUB_SHA`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Real signed-in QA test outcome: **$RESULT**."
+            echo "Success requires one existing designated QA GoTrue session, five invalid synthetic code attempts followed by rate_limited, anonymous claim/email/username RPC negatives and member private table denial."
+            echo "No customer code, legitimate redemption, paid charge, Lumen, official mastery or user-entitlement change."
+            echo "An unsuccessful run remains BLOCKED/FAILED; full signed-in browser/registration accessibility still separate."
+          } >/tmp/book-key-authenticated-live.md
+          gh issue comment 158 --repo "$GITHUB_REPOSITORY" --body-file /tmp/book-key-authenticated-live.md
+      - name: Fail unless live runtime test passes
+        if: steps.throttle.outcome != 'success'
+        run: exit 1
