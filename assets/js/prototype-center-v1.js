@@ -49,7 +49,7 @@ const features={
  '3d':[['3D evaluation','ECharts GL feasibility is future engineering work.'],['Avatars','Evaluate a dedicated 3D engine instead of ECharts.']]
 };
 const $=id=>document.getElementById(id),create=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e;};
-const state={id:'classroom',mode:'Lab',device:'desktop',kind:'candlestick',stage:0,tier:'Standard',adminGroup:adminGroups[0],revealed:8,chart:null,resize:null,user:null,checks:[],saved:null};
+const state={id:'classroom',mode:'Lab',device:'desktop',kind:'candlestick',stage:0,tier:'Standard',layout:'Balanced',density:'Comfortable',tutor:'Right',adminGroup:adminGroups[0],revealed:8,chart:null,resize:null,user:null,checks:[],saved:null};
 const b=(name,fn,pressed)=>{const e=create('button',name);e.type='button';if(pressed!==undefined)e.setAttribute('aria-pressed',String(pressed));e.addEventListener('click',fn);return e;};
 const note=v=>{$('pt-feedback').textContent=v;};
 function buttons(values,selected,change){const row=create('div',undefined,'pt-options');for(const v of values)row.append(b(v,()=>change(v),selected===v));return row;}
@@ -59,7 +59,13 @@ function nav(query=''){const host=$('pt-nav');host.replaceChildren();for(const [
 function classroom(root){
  const area=create('section',undefined,'pt-card');area.append(create('h3','Classroom mode'));
  area.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;draw()}));
- root.append(area,grid([['Teaching pane','First-principles lesson content and source-aware examples.'],['Talia Mercer','Visual explanations, contextual guidance and free retries.']]));
+ const options=create('section',undefined,'pt-card');options.append(create('h3','Classroom layout designer'));
+options.append(create('p','Layout preset'));options.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{state.layout=v;draw()}));
+options.append(create('p','Content density'));options.append(buttons(['Comfortable','Compact'],state.density,v=>{state.density=v;draw()}));
+options.append(create('p','Instructor placement'));options.append(buttons(['Right','Bottom'],state.tutor,v=>{state.tutor=v;draw()}));
+const panes=grid([['Teaching pane','First-principles lesson content, numerical worked examples and guided practice.'],['Talia Mercer','Free explanations, contextual guidance, diagnostic feedback and instructional retries.'],['Chart laboratory','Fictional candlesticks, indicators and instructor annotations.']]);
+panes.classList.add('pt-classroom');panes.dataset.layout=state.layout;panes.dataset.density=state.density;panes.dataset.tutor=state.tutor;
+root.append(area,options,panes);
  const stage=create('section',undefined,'pt-card');stage.append(create('h3','Shared nine-stage learning sequence'));
  const box=create('div',undefined,'pt-stage');box.append(create('strong','Stage '+(state.stage+1)+' / 9 — '+stages[state.stage]));
  const explain=[
@@ -119,14 +125,14 @@ async function plot(){
   state.chart.setOption(base,{notMerge:true});$('pt-chart-status').textContent='Interactive '+state.kind+' — deterministic fictional data; not financial or member records.';
  }catch(e){$('pt-chart-status').textContent='ECharts unavailable: '+(e?.message||'Renderer error');}
 }
-function save(){try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
-function restore(){try{const data=JSON.parse(localStorage.getItem('crownlight:prototype:v1:'+state.user)||'null');if(!data)return;for(const k of ['mode','device','kind','stage','tier','adminGroup','revealed','saved'])if(Object.hasOwn(data,k))state[k]=data[k];if(workspace.has(data.id))state.id=data.id;if(!['desktop','tablet','mobile'].includes(state.device))state.device='desktop';if(!['candlestick','bar','line','heatmap'].includes(state.kind))state.kind='candlestick';state.stage=Math.max(0,Math.min(8,Number(state.stage)||0));}catch{}}
+function save(){try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,layout:state.layout,density:state.density,tutor:state.tutor,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
+function restore(){try{const data=JSON.parse(localStorage.getItem('crownlight:prototype:v1:'+state.user)||'null');if(!data)return;for(const k of ['mode','device','kind','stage','tier','layout','density','tutor','adminGroup','revealed','saved'])if(Object.hasOwn(data,k))state[k]=data[k];if(workspace.has(data.id))state.id=data.id;if(!['desktop','tablet','mobile'].includes(state.device))state.device='desktop';if(!['candlestick','bar','line','heatmap'].includes(state.kind))state.kind='candlestick';state.stage=Math.max(0,Math.min(8,Number(state.stage)||0));if(!['Balanced','Reading-first','Chart-first'].includes(state.layout))state.layout='Balanced';if(!['Comfortable','Compact'].includes(state.density))state.density='Comfortable';if(!['Right','Bottom'].includes(state.tutor))state.tutor='Right';}catch{}}
 function controls(){
  $('pt-search').addEventListener('input',e=>nav(e.target.value.trim()));
  $('pt-device').addEventListener('change',e=>{state.device=e.target.value;draw()});
  $('pt-kind').addEventListener('change',e=>{state.kind=e.target.value;void plot()});
  $('pt-save').addEventListener('click',save);
- $('pt-reset').addEventListener('click',()=>{state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
+ $('pt-reset').addEventListener('click',()=>{state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
  window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;});
 }
