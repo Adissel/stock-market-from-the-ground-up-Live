@@ -25,6 +25,7 @@ import {first22DayLessons,approvedB01Supplements} from './academy-first22-teachi
 import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
+import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
 import {risk60PracticeBatch02,risk60PracticeSourceDays} from './academy-risk60-practice-batch02-v1.js';
 import {risk60TransferBatch03,risk60TransferSourceDays} from './academy-risk60-transfer-batch03-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
@@ -332,8 +333,8 @@ function dayFor(d,i){
    sourceStatus:'original_risk60_practice_day_specific_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='risk60'&&risk60LearnBatch01[i]&&risk60SourceDays[i]===sourceDay?{
-   lesson:risk60DepthInitialV1[day]?Object.freeze({...risk60LearnBatch01[i],...risk60DepthInitialV1[day]}):risk60LearnBatch01[i],
-   sourceStatus:risk60DepthInitialV1[day]?'original_risk60_advanced_package_owner_beta_review_20261031':'original_risk60_day_specific_ungraded_editorial_review_pending'
+   lesson:(risk60DepthInitialV1[day]||risk60DepthFollowupV1[day])?Object.freeze({...risk60LearnBatch01[i],...(risk60DepthInitialV1[day]||risk60DepthFollowupV1[day])}):risk60LearnBatch01[i],
+   sourceStatus:(risk60DepthInitialV1[day]||risk60DepthFollowupV1[day])?'original_risk60_advanced_package_owner_beta_review_20261031':'original_risk60_day_specific_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='truth5'?{
    lesson:truth5Lessons[i],
