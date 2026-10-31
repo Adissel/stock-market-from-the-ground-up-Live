@@ -7,6 +7,9 @@ on:
       - '.github/workflows/crownlight-member-lumens-v1.yml'
       - 'tests/test_member_lumen_wallet_progress_gifts_v1.mjs'
       - 'functions/api/member-lumen-gifts.js'
+      - 'functions/api/learning-reward-preview.js'
+      - 'assets/js/crownlight-learning-reward-badges-v1.js'
+      - 'assets/css/crownlight-member-quickview-v1.css'
       - 'functions/api/member-lumen-activity.js'
       - 'functions/api/member-learning-quick-view.js'
       - 'functions/_lib/lumen-learning-award-policy-v1.js'
@@ -32,6 +35,8 @@ jobs:
         run: |
           node --check assets/js/crownlight-member-quickview-v1.js
           node --check functions/api/member-lumen-gifts.js
+          node --check functions/api/learning-reward-preview.js
+          node --check assets/js/crownlight-learning-reward-badges-v1.js
           node --check functions/api/member-lumen-activity.js
           node --check functions/api/member-learning-quick-view.js
           node tests/test_member_lumen_wallet_progress_gifts_v1.mjs
