@@ -35,7 +35,7 @@ assert(catalog.body.programs.every(p=>!codes.includes(p.code)),'Invite-only cour
 const days=new Set();let formative=0;
 for(let i=0;i<codes.length;i++){
  const code=codes[i],unauthorized=await get('/api/bootcamp-academy?program='+code);
- assert([403,404].includes(unauthorized.status),'Guest must not read invited training material '+code);
+ assert([401,403,404].includes(unauthorized.status),'Guest course request unexpected HTTP '+unauthorized.status+' for '+code+'; response fields: '+Object.keys(unauthorized.body||{}).join(','));
  const res=await get('/api/bootcamp-academy?program='+code,true),body=res.body;
  assert.equal(res.status,200,'Invited member denied course '+code);
  assert.equal(body.ok,true);
