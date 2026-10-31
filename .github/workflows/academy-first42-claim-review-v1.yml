@@ -1,0 +1,30 @@
+name: Academy First-42 Claim Review Boundaries
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-first42-claim-review-v1.yml'
+      - 'docs/research/stockstotrade/ACADEMY_FIRST42_NARROW_CLAIM_EVIDENCE_2026-10-31.csv'
+      - 'docs/research/stockstotrade/ACADEMY_FIRST22_PROTECTED_ASSESSMENT_REVIEW_SPEC_2026-10-31.csv'
+      - 'docs/research/stockstotrade/252_instruction_source_field_QA_v2.csv'
+      - 'docs/research/stockstotrade/MASTER_671_ROW_EVIDENCE_AND_ACCEPTANCE_v1.csv'
+      - 'functions/_lib/academy-foundations-batch02-v1.js'
+      - 'tests/test_academy_first42_claim_review_v1.mjs'
+      - 'tests/test_academy_foundations_batch02_v1.mjs'
+permissions: {contents: read}
+jobs:
+  canonical-source-review-no-premature-approval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Check canonical evidence and protected assessment status
+        run: |
+          node --check tests/test_academy_first42_claim_review_v1.mjs
+          node --check functions/_lib/academy-foundations-batch02-v1.js
+          node tests/test_academy_first42_claim_review_v1.mjs
+          node tests/test_academy_first22_educational_evidence_v1.mjs
+          node tests/test_academy_foundations_batch02_v1.mjs
