@@ -113,7 +113,7 @@ export const risk60DepthDay08to09V1=Object.freeze({
    {
     "id": "risk60-D09-Q07",
     "prompt": "A new fictional offer book has 30 shares at $7.00 and 70 at $7.10. Compute total notional.",
-    "review": "30×$7.00+$70×$7.10=$210+$497=$707, using the same snapshot assumptions."
+    "review": "30×$7.00+70×$7.10=$210+$497=$707, using the same snapshot assumptions."
    },
    {
     "id": "risk60-D09-Q08",
