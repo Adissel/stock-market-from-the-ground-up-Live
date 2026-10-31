@@ -13,6 +13,7 @@ on:
       - 'tests/prototype-center-v1-contract.test.mjs'
       - 'tests/prototype-center-v1-auth.test.mjs'
       - 'tests/prototype-teaching-v2.test.mjs'
+      - 'tests/prototype-center-v2-browser.test.mjs'
       - 'assets/js/prototype-teaching-v2.js'
       - 'functions/api/prototype-training-cases.js'
       - '.github/workflows/prototype-center-v1.yml'
@@ -40,3 +41,16 @@ jobs:
           node tests/prototype-center-v1-contract.test.mjs
           node tests/prototype-center-v1-auth.test.mjs
           node tests/prototype-teaching-v2.test.mjs
+      - name: Install pinned free Chromium test runner
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser-check Owner/Admin and denied roles at desktop, tablet and mobile widths
+        run: |
+          python3 -m http.server 8768 --bind 127.0.0.1 --directory . >/tmp/prototype-v2-browser.log 2>&1 &
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:8768/prototype.html >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8768/prototype.html >/dev/null
+          node tests/prototype-center-v2-browser.test.mjs
