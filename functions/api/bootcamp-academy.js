@@ -81,6 +81,10 @@ export async function onRequest({request,env}){
    form=await readInput(request,env,auth.userId);
   }
   const requestedCode=request.method==='GET'?url.searchParams.get('program'):form.program;
+  // Keep unpublished course codes undiscoverable to non-testers, including
+  // otherwise valid paid members, until the general-release switch is on.
+  if(newCourses.has(requestedCode)&&!allowed(requestedCode,env,auth.userId))
+   throw fault('Unknown Academy program.',404);
   const eligibleFree=requestedCode==='free5'&&
    auth.freeEligible===true;
   const eligibleBeta=academyBetaCourse(env,requestedCode,auth.userId)&&auth.freeEligible===true;
