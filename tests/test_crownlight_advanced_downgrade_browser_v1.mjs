@@ -69,9 +69,9 @@ try{
   },null,{timeout:10000});
   assert.equal(await page.locator('[data-cl-studies]').inputValue(),'EMA, RSI');
   assert.equal(await page.locator('[data-cl-sync]').isChecked(),false);
-  assert.equal(await page.locator('[data-cl-layout]').isDisabled(),true,
+  assert.equal(await page.locator('select[data-cl-layout]').isDisabled(),true,
    'Professional-only layout control must remain locked under Advanced');
-  assert.equal(await page.locator('[data-cl-layout]').inputValue(),'SIDE_BY_SIDE');
+  assert.equal(await page.locator('select[data-cl-layout]').inputValue(),'SIDE_BY_SIDE');
   assert.equal(await page.evaluate(()=>window.CrownlightChartTiers.choose('PROFESSIONAL')),false);
   assert.equal(await page.evaluate(()=>window.CrownlightChartTiers.getStatus().selected),'ADVANCED');
   assert.equal(await page.locator('.cl-workspace-status').textContent(),'Private workspace loaded.');
