@@ -100,6 +100,9 @@ try{
   assert.match(await page.locator('#player-mode-description').innerText(),/Guided Mode/);
   await page.getByRole('button',{name:'Start Guided Learning →'}).click();
   await page.getByRole('button',{name:'Next learning stage'}).click();
+  assert.equal(await page.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'Calculate / Analyze must block advancement until its ungraded method step is completed');
+  await page.getByRole('button',{name:'Continue to Experiment →'}).click();
   await page.getByRole('button',{name:'Next learning stage'}).click();
   const stageLock=await page.evaluate(()=>({
    stage:document.querySelector('#player-workspace')?.dataset.learningStage,
