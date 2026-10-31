@@ -235,7 +235,7 @@ async function persist(){
    storeAvailable=false;
    msg('Another tab saved newer workspace settings. Select Restore to review them; your changes were not overwritten.');
   }else if(e.code==='PREMIUM_WORKSPACE_PRESERVED'){
-   msg('Your saved higher-tier workspace is protected. Continue with Standard, or restore higher-tier access before changing its layout.');
+   msg('Your saved higher-tier workspace is protected. Continue with your current Studio tier, or restore higher-tier access before changing its layout.');
   }else msg('Workspace not saved: '+e.message);
  }finally{savingWorkspace=false}
 }
