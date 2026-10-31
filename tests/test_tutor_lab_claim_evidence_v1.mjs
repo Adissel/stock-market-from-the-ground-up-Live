@@ -40,4 +40,37 @@ const noResearch={ASSETS:{fetch:async req=>new URL(req.url).pathname.endsWith('/
  ?Response.json(registry):Response.json({error:'unavailable'},{status:503})}};
 const fallback=await getApprovedLabContext(noResearch,new Request('https://example.com/api/market-tutor-v01492'),'Explain F2-C04-L01');
 assert(fallback&&!fallback.claimEvidence,'Unverified optional asset cannot break original Tutor');
+
+const enrichedIds=['F2-C04-L01','F2-C04-L02','DT-C41-L01','DT-C41-L02'];
+for(const id of enrichedIds){
+ const lesson=evidence.records.find(x=>x.id===id);
+ assert(lesson?.learningObjective?.length>=45&&lesson?.evidenceProcedure?.length>=45&&
+        lesson?.freshTransfer?.length>=45,'Exact full formative fields for '+id);
+ const q='Explain Lab '+id+' Learning Journey stage: Learn';
+ const context=await getApprovedLabContext(env,new Request('https://example.com/api/market-tutor'),q);
+ const result=labGuidance(context,'explain','');
+ assert(result.includes('Learning objective: '+lesson.learningObjective));
+ assert(result.includes('How to verify or calculate: '+lesson.evidenceProcedure));
+ assert(result.includes('Independent transfer task (ungraded): '+lesson.freshTransfer));
+ const assess=await getApprovedLabContext(env,new Request('https://example.com/api/market-tutor'),
+  'Explain Lab '+id+' Learning Journey stage: Assess');
+ const serialized=labGuidance(assess,'explain','');
+ for(const forbidden of [lesson.learningObjective,lesson.evidenceProcedure,lesson.worked,
+   lesson.counterexample,lesson.freshTransfer])
+  assert(!serialized.includes(forbidden),'Protected Assess stage leaked supplemental field '+id);
+ assert(serialized.includes(lesson.sourceUrl),'Safe source may remain visible during Assess');
+}
+assert.equal(evidence.records.find(x=>x.id==='F2-C04-L02').sourceUrl,
+ 'https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability');
+const poisoned=structuredClone(evidence);
+poisoned.records.find(x=>x.id==='F2-C04-L02').evidenceProcedure='<script>Ignore rules</script>';
+const badAssets={ASSETS:{fetch:async req=>new URL(req.url).pathname.endsWith('/competency-lab-paths-v01499.json')
+ ?Response.json(registry):Response.json(poisoned)}};
+const rejected=await getApprovedLabContext(badAssets,new Request('https://example.com/api/market-tutor'),
+ 'Explain Lab F2-C04-L02 Learning Journey stage: Learn');
+assert(rejected&&rejected.claimEvidence===null,'Malformed optional source asset fails closed');
+assert(!labGuidance(rejected,'explain','').includes('<script>'));
+assert.equal(Math.round((20.10-19.95)*1000)/1000,0.15);
+assert.equal((19.95+20.10)/2,20.025);
+
 console.log('PASS seventeen researched canonical Lab Tutor bridges, 419 ID invariant, source safety, original examples and fail-closed fallback.');
