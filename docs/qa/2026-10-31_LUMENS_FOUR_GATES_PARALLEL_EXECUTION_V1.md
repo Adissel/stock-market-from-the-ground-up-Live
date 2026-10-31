@@ -8,7 +8,7 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.0 |
+| Version | 1.1 |
 | Date | 2026-10-31 |
 | Status | **TECHNICAL EVIDENCE UPDATED; GENUINE REWARD, LUMEN SETTLEMENT AND GIFTING LEGAL GATES OPEN** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
@@ -74,10 +74,23 @@ Continue requiring full pass from all required GitHub workflows and a successful
 
 The owner-approved denominator remains twelve equal milestones. Previously accepted eight remain intact: **8/12 = 66.7%**, reported **67% complete**, **33% remaining**. This batch establishes strong technical and noncharging TEST evidence across all four open gates, but does not inflate complete milestones without genuine independent grading, authoritative real-account earning, legally approved gifting, or final exact-commit release.
 
+## Follow-on integration discovery — actual graded attempt source
+
+On inspection of the deployed `submit_competency_case_v135` source contract (`supabase/migrations/v0.13.5_FINAL_COMMERCE_ASSESSMENTS.sql`), the real grader writes an immutable `competency_attempts_v135` record and per-dimension `competency_evidence` entries of `source_type='quiz'`. The existing reward outbox requires `source_type='system_assessment'` plus independently reviewed metadata. **Without an explicit verified bridge, genuine grade submissions could never automatically meet the new outbox criteria.**
+
+- **Source committed:** `supabase/migrations/20261031_lumen_v135_immutable_grading_bridge_v1.sql`. Adds a *new*, private, service-only `gu_lumen_assessment_case_release_v1` mapping. No approved mappings are inserted. A passing immutable attempt is recognized only if its case, case version, applicable Lab/Boot Camp scope, active staff reviewer, approval record and rubric threshold match an individually approved release map. Only then does the trigger construct verified `system_assessment` evidence and enqueue; it does **not** directly issue credits.
+- **Migration application:** Connected Supabase migration action was rejected by platform safety checks. **Not deployed; no live acceptance claimed.** A separate source regression test was committed to verify the mapping and no-direct-award guards. Its CI result must pass before source contract acceptance.
+- **Future independent acceptance:** An actual reviewed official case must be mapped and a genuine graded submission must enter the queue; then the release-controlled award, retry and wallet history can be tested. A synthetic transaction or metadata flag alone is not evidence of an independent completed course.
+
+### Reconciled legal-technical gate
+
+A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion cannot be assumed to apply to transferable Crownlight Lumens without reviewing the entire scheme, particularly the separation of earned, purchased and gifted balances and any dollar-value equivalence. Marketing must not claim cash redemption or legal exemption. The operator may approve UX and internal engineering tests, but cannot assert licensed legal clearance without such professional review.
+
 ## Revision history
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-10-31 | 1.1 | Identified immutable real-grade evidence mismatch and staged reviewer-gated migration; application blocked by platform safety controls | Source committed; deploy and true-grading acceptance open |
 | 2026-10-31 | 1.0 | Synthetic grade-to-award rollback, full four-case Stripe TEST refund parity, genuine two-account gifting-denial QA, federal/Missouri legal risk register | Owner-delegated ENGINEERING QA accepted; release/legal/independent grading acceptance explicitly OPEN |
 
 Footer: Crown & Lantern Press / Cyber Nexus Publishing — internal release engineering and product-control evidence. Not licensed legal advice, not customer wallet or regulated-value release authorization.
