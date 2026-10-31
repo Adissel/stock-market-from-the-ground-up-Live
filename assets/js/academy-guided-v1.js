@@ -110,9 +110,11 @@ function mount(host,{day,programCode}={}){
  active.get(host)?.dispose();
  const cfg=plan(day);const isNewCourse=day.lesson?.evidenceType==='FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE';
  const authoredFormative=Array.isArray(day.lesson?.formativeQuestions)&&day.lesson.formativeQuestions.length===12;
+ const advancedCases=Array.isArray(day.lesson?.advancedPracticums)?day.lesson.advancedPracticums:[];
  const plannedMinutes=authoredFormative?REFERENCE_MINUTES:STANDARD_MINUTES;
  let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
    answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
+ const formativeDrafts=new Map(),reviewedFormative=new Set(),advancedDrafts=new Map(),reviewedAdvanced=new Set();
  const shell=el('section',undefined,'academy-guided-ten'),head=el('div',undefined,'academy-guided-head'),
    nav=el('ol',undefined,'academy-guided-nav'),meter=el('progress'),play=el('button','Play guided teaching','btn secondary'),
    status=el('p','Optional automatic narration pauses when a question appears.'),
@@ -129,7 +131,7 @@ function mount(host,{day,programCode}={}){
   const itinerary=el('details');itinerary.className='academy-active-itinerary';
   itinerary.append(el('summary','Suggested active-learning itinerary — '+plannedMinutes.reduce((a,b)=>a+b,0)+' minutes (self-paced)'));
   const schedule=el('ol');STEPS.forEach((name,i)=>schedule.append(el('li',name+' — '+plannedMinutes[i]+' min of active work')));
-  itinerary.append(schedule,el('p','Suggested practice time, not required seat time or a completion timer. The 12-question minimum is editorially evidenced only for separately authored reference days.'));
+  itinerary.append(schedule,el('p','Suggested practice time, not required seat time or a completion timer. Each of the 27 new study days has twelve source-specific formative questions and advanced case practice. The schedule is an estimate, not a seat-time requirement or a guarantee of completion in 45 minutes.'));
   head.append(itinerary);
  }
  head.append(meter,play,status,nav);
@@ -176,21 +178,64 @@ function mount(host,{day,programCode}={}){
   for(const text of cfg.stages[stage][1])content.append(el('p',clean(text)));
   const check=cfg.checks[stage];selectedOptions=[];numericInputs=[];
   if(isNewCourse)content.append(el('p','Suggested active work at this step: '+plannedMinutes[stage]+' minutes. Pause as needed; there is no time gate.'));
+  if(isNewCourse&&advancedCases.length&&(stage===2||stage===8)){
+   const advanced=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
+   const transferOnly=stage===8&&advancedCases.length===1;
+   const exerciseId=advanced.id+(transferOnly?'-transfer':'');
+   const practicum=el('section');practicum.className='academy-advanced-practicum';
+   practicum.append(el('h5','Advanced application · '+advanced.id+(transferOnly?' · independent transfer':'')));
+   practicum.append(el('p','Fictional evidence: '+clean(advanced.scenario)));
+   practicum.append(el('p','Your task: '+clean(transferOnly?advanced.transfer:advanced.task)));
+   const response=el('textarea');response.rows=4;
+   response.setAttribute('aria-label','Reason through '+advanced.id+(transferOnly?' independent transfer':''));
+   response.placeholder='Show calculations, evidence scope, limitations and the NO TRADE alternative';
+   response.value=advancedDrafts.get(exerciseId)||'';
+   const reveal=el('button','Review advanced reasoning','btn secondary');
+   reveal.type='button';reveal.disabled=response.value.trim().length<20;
+   const teaching=el('p');teaching.setAttribute('role','status');teaching.setAttribute('aria-live','polite');
+   if(reviewedAdvanced.has(exerciseId)){
+    teaching.textContent='Worked analysis: '+clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
+     ' Independent transfer: '+clean(advanced.transfer);
+   }
+   response.addEventListener('input',()=>{
+    advancedDrafts.set(exerciseId,response.value);
+    reveal.disabled=response.value.trim().length<20;
+    if(reviewedAdvanced.has(exerciseId)){reviewedAdvanced.delete(exerciseId);teaching.textContent='Review your revised reasoning again before continuing.';}
+   });
+   reveal.addEventListener('click',()=>{
+    reviewedAdvanced.add(exerciseId);
+    teaching.textContent='Worked analysis: '+clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
+     ' Independent transfer: '+clean(advanced.transfer);
+   });
+   practicum.append(response,reveal,teaching);
+   content.append(practicum);
+  }
   if(stage===6&&isNewCourse){
    const quiz=el('section');quiz.className='academy-formative-reference';
    if(authoredFormative){
     quiz.append(el('h5','Talia’s 12 authored formative practice questions'));
     quiz.append(el('p','Write your own reasoning before revealing each corrective explanation. Responses are local to this screen only. Copy anything worth preserving into Save Reflection. No grade or Lumens.'));
+    const progress=el('p',reviewedFormative.size+' of 12 formative explanations reviewed');
+    progress.setAttribute('role','status');progress.className='academy-formative-progress';quiz.append(progress);
     day.lesson.formativeQuestions.forEach((item,index)=>{
      const block=el('details');block.className='academy-formative-question';
      block.append(el('summary',(index+1)+'. '+clean(item.prompt)));
      const response=el('textarea');response.rows=3;
      response.setAttribute('aria-label','Practice answer '+(index+1)+': '+clean(item.prompt));
      response.placeholder='Type your observation, computation, or no-conclusion rule before review';
-     const reveal=el('button','Review my reasoning','btn secondary');reveal.type='button';reveal.disabled=true;
+     response.value=formativeDrafts.get(item.id)||'';
+     const reveal=el('button','Review my reasoning','btn secondary');reveal.type='button';reveal.disabled=response.value.trim().length<20;
      const correction=el('p');correction.setAttribute('role','status');correction.hidden=true;
-     response.addEventListener('input',()=>{reveal.disabled=response.value.trim().length<20});
-     reveal.addEventListener('click',()=>{correction.textContent='Teaching feedback: '+clean(item.review);correction.hidden=false});
+     if(reviewedFormative.has(item.id)){correction.textContent='Teaching feedback: '+clean(item.review);correction.hidden=false}
+     response.addEventListener('input',()=>{
+      formativeDrafts.set(item.id,response.value);reveal.disabled=response.value.trim().length<20;
+      if(reviewedFormative.has(item.id)){reviewedFormative.delete(item.id);correction.hidden=true;progress.textContent=reviewedFormative.size+' of 12 formative explanations reviewed';}
+     });
+     reveal.addEventListener('click',()=>{
+      if(response.value.trim().length<20)return;
+      reviewedFormative.add(item.id);correction.textContent='Teaching feedback: '+clean(item.review);
+      correction.hidden=false;progress.textContent=reviewedFormative.size+' of 12 formative explanations reviewed';
+     });
      block.append(response,reveal,correction);quiz.append(block);
     });
    }else{
@@ -231,6 +276,19 @@ function mount(host,{day,programCode}={}){
  }
  function advance(){completed.add(stage);furthest=Math.max(furthest,stage+1);stage=Math.min(9,stage+1);answer=-1;misses=0;feedback.textContent='';render();narration()}
  next.onclick=()=>{
+  if(isNewCourse&&(stage===2||stage===8)&&advancedCases.length){
+   const practice=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
+   const id=practice.id+(stage===8&&advancedCases.length===1?'-transfer':'');
+   if(!reviewedAdvanced.has(id)){
+    feedback.textContent='Complete the advanced case reasoning and reveal the worked explanation before continuing.';
+    return;
+   }
+  }
+  if(isNewCourse&&stage===6&&authoredFormative&&reviewedFormative.size!==12){
+   feedback.textContent='Complete and review all twelve day-specific formative questions before proceeding ('+
+    reviewedFormative.size+' of 12 reviewed). Your answers are local; save a reflection separately.';
+   return;
+  }
   const q=cfg.checks[stage];
   if(q&&!completed.has(stage)){
    if(q.numeric){
@@ -251,8 +309,13 @@ function mount(host,{day,programCode}={}){
  };
  previous.onclick=()=>{if(stage>0){stop();stage--;answer=-1;misses=0;render();narration()}};
  explain.onclick=()=>{feedback.textContent='Talia explains: '+cfg.stages[stage][1].join(' ')+' A worked answer alone does not establish mastery.'};
- depth.onclick=()=>{feedback.textContent='Teach in more depth: '+guidance(day,cfg.kind).join(' ')+' Review the limitation: '+cfg.limitation};
- play.onclick=()=>{if(stage===9){stage=0;furthest=0;completed.clear();render()}
+ depth.onclick=()=>{
+  const advanced=advancedCases[stage===8&&advancedCases.length>1?1:0];
+  feedback.textContent=advanced&&(stage===2||stage===8)?
+   'Advanced teaching: '+clean(advanced.worked)+' Misconception: '+clean(advanced.pitfall):
+   'Teach in more depth: '+guidance(day,cfg.kind).join(' ')+' Review the limitation: '+cfg.limitation;
+ };
+ play.onclick=()=>{if(stage===9){stage=0;furthest=0;completed.clear();reviewedFormative.clear();reviewedAdvanced.clear();formativeDrafts.clear();advancedDrafts.clear();render()}
   autoplay=!autoplay;play.textContent=autoplay?'Pause guided teaching':'Play guided teaching';
   if(autoplay)narration();else{stop();status.textContent='Automatic teaching paused.'}};
  render();const session={dispose(){disposed=true;stop();chart?.dispose?.();if(active.get(host)===session)active.delete(host);host.replaceChildren()}};active.set(host,session);return session;
