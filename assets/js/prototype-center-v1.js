@@ -130,7 +130,36 @@ async function plot(){
 }
 function save(){try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,layout:state.layout,density:state.density,tutor:state.tutor,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
 function restore(){try{const data=JSON.parse(localStorage.getItem('crownlight:prototype:v1:'+state.user)||'null');if(!data)return;for(const k of ['mode','device','kind','stage','tier','layout','density','tutor','adminGroup','revealed','saved'])if(Object.hasOwn(data,k))state[k]=data[k];if(workspace.has(data.id))state.id=data.id;if(!['desktop','tablet','mobile'].includes(state.device))state.device='desktop';if(!['candlestick','bar','line','heatmap'].includes(state.kind))state.kind='candlestick';state.stage=Math.max(0,Math.min(8,Number(state.stage)||0));if(!['Balanced','Reading-first','Chart-first'].includes(state.layout))state.layout='Balanced';if(!['Comfortable','Compact'].includes(state.density))state.density='Comfortable';if(!['Right','Bottom'].includes(state.tutor))state.tutor='Right';}catch{}}
+/* Refresh staff authority when a previously open private workbench regains focus.
+ * Missing permissions or provider failures fail closed; no stale UI remains visible. */
+let checkingStaff=false;
+async function recheckStaffAccess(){
+ if(!state.user||checkingStaff)return;
+ checkingStaff=true;$('pt-app').hidden=true;$('pt-gate').hidden=false;
+ $('pt-gate').textContent='Revalidating administrative permissions…';
+ try{
+  const sb=await window.getSupabaseClient?.();
+  const {data:{session}}=await sb.auth.getSession();
+  const identity=await sb.auth.getUser();
+  if(!session?.access_token||identity.error||identity.data?.user?.id!==state.user)throw Error('Staff session is no longer valid.');
+  const response=await fetch('/api/admin?action=context',{headers:{authorization:'Bearer '+session.access_token,accept:'application/json'},cache:'no-store',credentials:'same-origin'});
+  if(!response.ok)throw Error('Administrative authorization could not be verified.');
+  const ctx=await response.json();
+  const roles=Array.isArray(ctx.roles)?ctx.roles:[],permissions=Array.isArray(ctx.permissions)?ctx.permissions:[];
+  if(ctx.ok!==true||roles.includes('SHOWCASE_VIEWER')||!roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))||!permissions.includes('control_panel.access'))
+   throw Error('Your account no longer has Prototype Center permissions.');
+  $('pt-role').textContent=roles.includes('OWNER')?'Owner':roles.includes('ADMIN')?'Administrator':'Technical Administrator';
+  $('pt-gate').hidden=true;$('pt-app').hidden=false;state.chart?.resize();
+ }catch(error){
+  state.resize?.disconnect();state.chart?.dispose();state.chart=null;
+  window.CrownlightPrototypeTeaching?.reset?.();state.user=null;
+  $('pt-app').hidden=true;$('pt-gate').hidden=false;
+  $('pt-gate').textContent=error?.message||'Staff authorization unavailable.';
+ }finally{checkingStaff=false;}
+}
 function controls(){
+ window.addEventListener('focus',()=>void recheckStaffAccess());
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)void recheckStaffAccess();});
  $('pt-search').addEventListener('input',e=>nav(e.target.value.trim()));
  $('pt-device').addEventListener('change',e=>{state.device=e.target.value;draw()});
  $('pt-kind').addEventListener('change',e=>{state.kind=e.target.value;void plot()});
