@@ -3,6 +3,7 @@
  * No new classes, rates, marks or client-side answer keys are introduced.
  */
 import {toolAccess} from './member-tool-access.js';
+import {academyBetaEnabled,academyBetaCourse,generalAcademyReleased} from '../_lib/academy-three-camps-beta-access-v1.js';
 const codes=Object.freeze({tape10:10,indicators10:10,filings7:7});
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const reply=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:H});
@@ -26,7 +27,7 @@ async function read(env,path,body){
  return response.json().catch(()=>{throw reject('Invalid protected assessment response.',503)});
 }
 function gate(request,env){
- if(env?.ACADEMY_THREE_CAMPS_ENABLED!=='true')throw reject('This course is not released.',404);
+ if(env?.ACADEMY_THREE_CAMPS_ENABLED!=='true'&&!academyBetaEnabled(env))throw reject('This course is not released.',404);
  const url=new URL(request.url),program=url.searchParams.get('program');
  const day=Number(url.searchParams.get('day'));
  if(!Object.hasOwn(codes,program)||!Number.isSafeInteger(day)||day<1||day>codes[program])
@@ -91,11 +92,20 @@ export async function onRequest({request,env}){
   if(request.method==='POST')originCheck(request);
   // Same server-side paid-training entitlement and account restrictions as Academy.
   const a=await toolAccess(env,request,'ONDEMAND_TRAINING');
-  if(!a.userId||!a.authorized)throw reject(a.reason||'Eligible training access required.',403);
+  const beta=academyBetaCourse(env,program,a.userId)&&a.freeEligible===true;
+  if(!generalAcademyReleased(env)&&!beta)throw reject('This course is not released.',404);
+  if(!a.userId||(!a.authorized&&!beta))throw reject(a.reason||'Eligible training access required.',403);
   // An eligible user must also have enrolled in this specific Boot Camp.
   const enrollment=await read(env,'gu_bootcamp_academy_enrollments_v014168?select=status&user_id=eq.'+
    enc(a.userId)+'&program_code=eq.'+enc(program)+'&status=eq.active&limit=1');
   if(!Array.isArray(enrollment)||enrollment.length!==1)throw reject('Active Boot Camp enrollment required.',403);
+  // During invite-only instructional Beta, even subsequently approved cases
+  // cannot be graded or expose official questions until a separate release.
+  // The same authentic member identity and enrollment requirements apply.
+  if(beta){
+   if(request.method==='POST')throw reject('Official grading is unavailable during instructional Beta.',409);
+   return reply({ok:true,program,day,officialAssessment:false,reason:'beta_instruction_only',priorSubmissions:0});
+  }
   const state=await nextCase(env,a.userId,program,day);
   if(request.method==='GET'){
    return reply({ok:true,program,day,officialAssessment:!!state.case,
