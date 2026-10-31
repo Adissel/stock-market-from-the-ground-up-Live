@@ -1,0 +1,57 @@
+name: Chart Studio Real Auth Read-Only QA V1
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-chart-studio-api-readonly-qa-v1.mjs'
+      - '.github/workflows/chart-studio-real-auth-readonly-qa-v1.yml'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: chart-studio-real-auth-readonly-qa-v1
+  cancel-in-progress: false
+jobs:
+  production-signed-in-chart-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify read-only authenticated QA script syntax
+        run: node --check tests/live-chart-studio-api-readonly-qa-v1.mjs
+      - name: Test actual signed-in Chart Studio Advanced API and saved workspace
+        id: member_api
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-chart-studio-api-readonly-qa-v1.mjs
+      - name: Record real QA result on open Chart Studio issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.member_api.outcome }}
+        run: |
+          {
+            echo "## Real authenticated Chart Studio API acceptance — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "Commit: \`$GITHUB_SHA\`"
+            echo
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "Production James_Test genuine Supabase Auth QA result: **$QA_RESULT**"
+            echo
+            echo "Scope: read-only Advanced tier, revoked Professional cash downgrade projection, guest denial, no-role override, same-account workspace reload, anti-forgery negative paths and token refresh."
+            echo
+            echo "NOT tested: visual CAPTCHA login, actual Studio rendering, second distinct member account, successful workspace mutation/CAS and full Standard/Professional role matrix. No LIVE payment, Lumen, member or workspace changes."
+          } > /tmp/chart-real-auth-qa-status.md
+          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-real-auth-qa-status.md
+      - name: Fail acceptance when real member API check does not pass
+        if: steps.member_api.outcome != 'success'
+        run: exit 1
