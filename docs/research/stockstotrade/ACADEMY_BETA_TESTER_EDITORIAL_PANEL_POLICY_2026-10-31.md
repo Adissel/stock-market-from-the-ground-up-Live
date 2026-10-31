@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-BETA-EDITORIAL-001  
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — Academy B01 / First 42  
-**Version:** 1.1  
+**Version:** 1.2  
 **Owner decision date:** October 31, 2026  
 **Document status:** OWNER-DIRECTED POLICY; implementation and individual reviewer acceptance PENDING  
 **GitHub location:** `main/docs/research/stockstotrade/ACADEMY_BETA_TESTER_EDITORIAL_PANEL_POLICY_2026-10-31.md`  
@@ -92,11 +92,24 @@ The next implementation batch must complete the following in this order:
 
 **V1 noncommercial control:** no outside paid service, no automatic Lumens grant, no member price change, no live Stripe transaction, and no administrative default visibility of private answer keys. Treat V1 review software as unreleased until authorization/RLS, privacy, accessibility and genuine-member browser checks pass.
 
-## 10. Document control and revision history
+## 10. Subsequent Owner delegation — AI editorial authority and truthful signatures
+
+**Owner direction:** On October 31, 2026 the Owner delegated routine publisher, administrator, project-manager, technical QA and educational-editor functions and editorial decision-making to GPT-6, including permission to sign publisher-side findings and release recommendations. This supersedes any assumption that a separately hired external editor must perform *publisher-side* editorial work. It does **not** establish GPT-6 as another human, a real beta-tester account, an independent second reviewer, a legal professional, or a customer who completed an authenticated exam.
+
+**Reviewer identity and audit format:** `reviewer_type=AI`; `reviewer_name=GPT-6`; `authority=OWNER_DELEGATED_PUBLISHER_EDITOR`; `independence=NOT_HUMAN_INDEPENDENT`. Use these fields in evidence or revision history; never insert a fabricated Supabase Auth UUID, human timestamp/attestation, or second-signature claim. The GitHub committer or Owner token that executes a change is the technical actor, not proof that the Owner or an independent human personally inspected the case.
+
+**Permitted decisions:** GPT-6 may check source facts, historical evidence restrictions, numerical calculations, instructional structure, private case logic, answer-key coherence, wrong-option feedback and accessible workflows, then sign an **individually reasoned AI/publisher editorial decision** such as `AI_EDITORIAL_SUPPORTED`, `AI_EDITORIAL_REVISION_REQUIRED` or `AI_EDITORIAL_INSUFFICIENT_EVIDENCE`, with linked exact code revision, source authority, test evidence, limitations and UTC date. A decision is never automatic from the permission grant. The Owner's existing frozen v97 and original register decisions remain unchanged without an individual finding and controlled reconciliation.
+
+**Important control distinction:** The Owner may choose AI-assisted publisher editing as the publication workflow, but an AI-only review is not a *human-independent* review. Prior human-beta editorial acceptance gates must therefore either be genuinely met by separate consenting reviewers or explicitly reclassified as **not met / waived by the publisher** in a versioned, plainly disclosed policy decision; their missing results may not be recorded as passes. No such blanket waiver or official protected-grading release is executed by this policy update. Real logged-in beta-member usability, entitlement, confidentiality, segregation, RLS, grading and screen-reader acceptance cannot be simulated as human activity.
+
+**Release rules remain conservative:** B01 version-98 Draft grading and mastery remain HOLD. No promotion of a private question set to reviewed; no answer key disclosure; no confidential Track B access based only on paid membership; no fabricated reviewer UUID or status. AI source-review evidence can advance the **publisher editorial** workstream. Genuine member acceptance and protected scoring tests must still complete before enabling official grading. Human feedback remains welcome for teaching quality even if publisher editorial work is AI-led.
+
+## 11. Document control and revision history
 
 | Version | Date | Decision / change | Status |
 |---|---|---|---|
 | 1.0 | 2026-10-31 | Owner selected real beta testers as human editorial cohort; established Tracks A/B, source evidence, independent-blind segregation, privacy and controlling-register approval procedure | Policy adopted; assignments, secure tooling and individual approvals open |
 | 1.1 | 2026-10-31 | Examined existing roles and feedback tables; clarified not-yet-implemented intake, qualifications, private Track B access, authorization and canonical-register reconciliation | Owner-directed controls retained; zero actual reviewer approvals; engineering and volunteer onboarding pending |
+| 1.2 | 2026-10-31 | Subsequent Owner delegation to GPT-6 as accountable AI/publisher editor; defined truthful decision identity and signoff scope; distinguished missing human-independent and genuine beta evidence from authorized publisher decisions | AI review authorized; no fabricated independent human approval, no private grading release |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Controlled Academy beta editorial policy. Not a legal opinion, accreditation, official skill certification or assurance that external sources have all been independently verified.
