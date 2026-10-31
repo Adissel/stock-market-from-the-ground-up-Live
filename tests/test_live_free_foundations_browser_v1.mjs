@@ -1,4 +1,4 @@
-/* Production Day 1 acceptance using a REAL password-authenticated QA identity.
+/* Production Days 1–5 acceptance using a REAL password-authenticated QA identity.
  * No service-role credentials, password logging, CAPTCHA bypass, checkout,
  * payment, protected answer keys, or writes to non-QA member records.
  * A new synthetic reflection is only saved when Day 1 has no existing record.
@@ -12,7 +12,7 @@ const password=process.env.LAB_QA_PASSWORD||'';
 const secondEmail=process.env.LAB_QA_SECOND_EMAIL||'';
 const secondPassword=process.env.LAB_QA_SECOND_PASSWORD||'';
 const expectedQaId=process.env.LAB_QA_EXPECTED_USER_ID||'f42f9301-18e6-43a3-8531-32d371fd22c1';
-const report={scope:'Real production Chromium, signed-in Free Foundations Day 1',
+const report={scope:'Real production Chromium, signed-in Free Foundations Days 1–5',
  checkedAt:new Date().toISOString(),checks:[],blocked:[],failures:[],completed:false,
  constraints:['Never overwrite a pre-existing Day 1 record',
   'Second QA account is required for genuine cross-member isolation proof',
@@ -99,6 +99,52 @@ if(!email||!password){
   assert(row&&row.status==='reflection_saved'&&row.reflection===reflection,
    'Private server record does not match saved browser note');
   note('checks','Day 1 note survived full signed-in browser reload and independent API GET.');
+  // Genuine existing QA identity; never overwrite another private note.
+  // Test each remaining day in sequence, save only original fictional QA text.
+  for(const [day,topic] of [[2,'candlestick OHLC and undefined zero range'],
+    [3,'issuer chronology and no lookahead'],[4,'research watchlist and NO TRADE'],
+    [5,'planned position risk and uncertain execution']]){
+   const reflection='FICTIONAL QA DAY '+day+' REFLECTION: I studied '+topic+
+    '. This account-bound educational note describes only hypothetical evidence, not a real trade, independently graded assessment or financial recommendation.';
+   const current=await progress(page.request,signed.access);
+   assert.equal(current.status,200);
+   const existing=current.body.progress?.find(x=>x.day===day);
+   assert(!existing||(existing.status==='reflection_saved'&&existing.reflection===reflection),
+    'Day '+day+' has a different existing note. Refusing to overwrite member work.');
+   await page.goto(origin+'/bootcamp-academy.html?program=free5&day='+day,
+    {waitUntil:'domcontentloaded',timeout:30000});
+   await page.waitForFunction(()=>document.getElementById('academy-workspace')?.hidden===false,
+    {timeout:30000});
+   assert.match(await page.locator('#academy-stage-label').innerText(),
+    new RegExp('Lesson '+day+' of 5','i'));
+   if(!existing){
+    if(await page.locator('#academy-enroll').isVisible()){
+     await page.locator('#academy-enroll').click();
+     await page.waitForFunction(()=>document.getElementById('academy-enroll')?.hidden===true,
+      {timeout:15000});
+    }
+    await page.locator('#academy-start').click();
+    await page.waitForFunction(()=>/Lesson started|previously saved reflection/i.test(
+     document.getElementById('academy-save-status')?.textContent||''),{timeout:15000});
+    await page.locator('#academy-reflection').fill(reflection);
+    await page.locator('#academy-save').click();
+    await page.waitForFunction(()=>/Your learning notes are saved/i.test(
+     document.getElementById('academy-save-status')?.textContent||''),{timeout:18000});
+    note('checks','Day '+day+' original fictional QA reflection saved through production browser.');
+   }
+   await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+   await page.waitForFunction(()=>document.getElementById('academy-workspace')?.hidden===false,
+    {timeout:30000});
+   assert.equal(await page.locator('#academy-reflection').inputValue(),reflection);
+   const verified=await progress(page.request,signed.access);
+   assert.equal(verified.status,200);
+   const row=verified.body.progress?.find(x=>x.day===day);
+   assert(row&&row.status==='reflection_saved'&&row.reflection===reflection,
+    'Day '+day+' not persisted in account-bound private API');
+   note('checks','Day '+day+' reload and authenticated API readback passed.');
+  }
+  const finalProgress=await progress(page.request,signed.access);
+  assert.equal(finalProgress.status,200);
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
@@ -113,7 +159,7 @@ if(!email||!password){
   const probeBody=await probe.json();
   assert.equal(probeBody.ok,true);
   assert.equal(probeBody.progressAvailable,true);
-  assert.deepEqual(probeBody.progress,reread.body.progress,
+  assert.deepEqual(probeBody.progress,finalProgress.body.progress,
    'A caller-supplied user_id/member_id altered the authenticated progress response');
   note('checks','Caller-controlled account selectors could not change the returned QA member records.');
   // The client must also be unable to query the private table directly,
