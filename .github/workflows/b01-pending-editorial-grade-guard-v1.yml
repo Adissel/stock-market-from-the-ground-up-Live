@@ -6,6 +6,9 @@ on:
     paths:
       - '.github/workflows/b01-pending-editorial-grade-guard-v1.yml'
       - 'functions/api/interactive-training.js'
+      - 'functions/api/training-editor.js'
+      - 'tests/test_b01_owner_rubric_independent_gate_v1.mjs'
+      - 'tests/test_b01_owner_review_revision_cas.mjs'
       - 'tests/test_b01_pending_private_review_grading_gate_v1.mjs'
       - 'tests/test_v014100_choice_option_order.mjs'
       - 'tests/test_b01_private_option_feedback_v98_v1.mjs'
@@ -26,6 +29,8 @@ jobs:
           node --check functions/api/interactive-training.js
           node tests/test_v014100_choice_option_order.mjs
           node tests/test_b01_private_option_feedback_v98_v1.mjs
+          node tests/test_b01_owner_rubric_independent_gate_v1.mjs
+          node tests/test_b01_owner_review_revision_cas.mjs
           node tests/test_b01_pending_private_review_grading_gate_v1.mjs
           node tests/test_b01_review_withdrawal_and_private_grading.mjs
           node tests/test_b01_invalid_choice_and_remediation.mjs
