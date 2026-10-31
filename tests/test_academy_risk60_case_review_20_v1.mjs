@@ -12,7 +12,10 @@ for(let i=0;i<20;i++){
  const row=cases[i],day=program.curriculum[i];
  assert.equal(day.sourceDay,sourceDays[i]);
  assert.equal(day.day,i+1);
- assert.strictEqual(day.lesson,row);
+ assert(day.lesson&&day.lesson.explanation===row.explanation&&day.lesson.workedExample===row.workedExample&&day.lesson.transfer===row.transfer,
+  'Retain authored Risk60 case after additive advanced-stage fields');
+ if(i>=2)assert.strictEqual(day.lesson,row);
+ if(i<2)assert.equal(day.lesson.formativeQuestions.length,12);
  assert.equal(day.officiallyGraded,false);
  assert.equal(day.masteryAwarded,false);
  assert.equal(row.topicSourceDay,sourceDays[i]);
