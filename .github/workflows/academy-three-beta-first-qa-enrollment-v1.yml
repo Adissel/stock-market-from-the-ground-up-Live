@@ -1,0 +1,52 @@
+name: Academy Three Beta Camps First Genuine QA Enrollment
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-three-beta-first-qa-enrollment-v1.yml'
+      - 'tests/live-academy-three-beta-first-qa-enrollment-v1.mjs'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: academy-first-three-camp-enrollment
+  cancel-in-progress: false
+jobs:
+  one-qa-three-enrollment-cas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse test
+        run: node --check tests/live-academy-three-beta-first-qa-enrollment-v1.mjs
+      - name: Real invited QA three-course study progression
+        id: qa
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-academy-three-beta-first-qa-enrollment-v1.mjs
+      - name: Record actual first member QA outcome
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_RESULT: ${{ steps.qa.outcome }}
+        run: |
+          {
+            echo "### Noncommercial first authentic QA member: three Beta Camp enrollment/save/CAS"
+            echo "Tested SHA: `$GITHUB_SHA`"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Actual three-program QA outcome: **$QA_RESULT**."
+            echo "Success requires genuine approved existing GoTrue QA identity, three actual course enrollments, private Day 1 reflection saves and reloads, stale-revision rejection, guest denial and no official grading or financial effects."
+            echo "Does NOT count as two-member cross-account isolation; the separately uninvited second QA remains an explicit blocker."
+          } >/tmp/academy-first-three-qa.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/academy-first-three-qa.md
+      - name: Fail unless authentic member QA passed
+        if: steps.qa.outcome != 'success'
+        run: exit 1
