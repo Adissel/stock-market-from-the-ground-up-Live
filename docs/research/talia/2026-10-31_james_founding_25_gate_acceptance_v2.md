@@ -6,7 +6,7 @@
 | Document ID | SMFGU-F600-JAMES-QA-029 |
 | Filename | 2026-10-31_james_founding_25_gate_acceptance_v2.md |
 | File type | Markdown (.md) |
-| Version / date | 2.0 / October 31, 2026 |
+| Version / date | 2.1 / October 31, 2026 |
 | Status | CONDITIONAL, PARTIALLY ACCEPTED — NOT FULL RELEASE APPROVAL |
 | Owner | Owner-delegated product administration and QA |
 | GitHub location | `docs/research/talia/`, `main` |
@@ -22,7 +22,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 
 ## Current denominator and completion percentage
 
-**15 of 25 gates are verified complete = 60%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
+**17 of 25 gates are verified complete = 68%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
 
 ## Twenty-five acceptance gates
 
@@ -43,8 +43,8 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 | 13 | Restore original James_Test plan-grant baseline | PASS | Production Supabase audit shows exactly three canceled QA grants and zero effective ones |
 | 14 | Confirm all rounds had no paid subscription, charge or Founding seat | PASS | All 48 test assertions include no paid subscription/seat; none staged |
 | 15 | Confirm source-only Tutor, SEC citations, protected Assess boundary and signout in all three rounds | PASS | 3 production Chromium runs, 48/48 total assertions; no paid AI or mastery |
-| 16 | Run genuine post-revocation reauthentication and logout acceptance | PENDING | Rollback test first nine checks passed; sign-out navigation race corrected; rerun pending |
-| 17 | Prove paid Founders Commons stays inaccessible after noncommercial QA | PENDING | Read-only production RPC negative confirmed in first rollback run; full rerun signoff pending |
+| 16 | Run genuine post-revocation reauthentication and logout acceptance | PASS | Real production Chromium [41236744222](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236744222) success, 10/10 including re-login and logout |
+| 17 | Prove paid Founders Commons stays inaccessible after noncommercial QA | PASS | Real production member RPC returns shared-access denial with all QA grants cancelled, confirmed in 10/10 rollback run |
 | 18 | Isolate 14-Day Standard Chart Studio from unrelated Advanced pass | PENDING | 14-Day observed Advanced due independently active Crownlight Chart Studio pass; not attributable |
 | 19 | Prove 30-Day Advanced Studio from eligible paid cycle or authorized chart QA source | PENDING | 30-Day observed Advanced, but reason was independent pass; no paid cycle exists |
 | 20 | Prove 60-Day Professional Studio and premium-only features under correct entitlement | PENDING | 60-Day observed Advanced via independent pass; not Professional; do not mark passed |
@@ -61,7 +61,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 - Founding 60-Day: [run 41236464299](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236464299), **16/16 passed**, grant ID 15 revoked.
 - Verified post-test Supabase aggregate: all three grants canceled, **zero active Founding QA plan grants**. The original free/member baseline is retained. Existing Chart Studio pass remains separate and must not be removed as part of this Founder QA cleanup.
 - **Studio attribution issue:** 14-Day reported ADVANCED, 30-Day ADVANCED, 60-Day ADVANCED; all three attributed to `Active Crownlight Sparks Chart Studio pass`. This is **not** a paid-member tier verification, and Professional was not demonstrated.
-- Rollback real-browser [run 41236636067](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236636067) completed **FAILURE** only because Playwright lost the page execution context during automatic sign-out navigation. Nine substantive preceding read-only checks passed (including paid Commons denial). Test harness corrected in commit `4ca3abec7f50eb4ffd4d98a3393896bd403d53aa`; final rerun must pass before Gates 16–17 are accepted.
+- Rollback real-browser [run 41236636067](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236636067) completed **FAILURE** only because Playwright lost the page execution context during automatic sign-out navigation. Nine substantive preceding read-only checks passed (including paid Commons denial). Test harness corrected in commit `4ca3abec7f50eb4ffd4d98a3393896bd403d53aa`; the corrected real-browser [run 41236744222](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236744222) **SUCCEEDED, 10/10 checks**, closing Gates 16–17. Original failure was a browser redirect execution-context race, not an authorization bypass.
 - All three successful QA sessions tested Tutor access and protected-instruction boundaries, not Founders Commons commercial privileges, Chart Professional membership, payment refund/renewal, grade publication or historical market data.
 
 ## Owner acceptance decisions
@@ -73,7 +73,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 
 ## Next execution workstream
 
-Complete Gates 16–17 rollback rerun, then negative-access and two-account isolation (Gates 21–22), attribute Chart tier correctly (Gates 18–20), test paid-only privileges and TEST payment lifecycle (Gate 23), obtain final exact-SHA GitHub/Cloudflare acceptance (Gate 24), and close independently reviewed instructional records (Gate 25).
+Complete negative-access and two-account isolation (Gates 21–22), attribute Chart tier correctly (Gates 18–20), test paid-only privileges and TEST payment lifecycle (Gate 23), obtain final exact-SHA GitHub/Cloudflare acceptance (Gate 24), and close independently reviewed instructional records (Gate 25).
 
 ## Document history
 
@@ -81,5 +81,6 @@ Complete Gates 16–17 rollback rerun, then negative-access and two-account isol
 |---|---|---|
 | 1.0 predecessor | October 31, 2026 | `SMFGU-F600-JAMES-QA-028` original 16-step tracker, 14-Day pass, 30-Day staged |
 | 2.0 | October 31, 2026 | 25 verified-evidence gates; all three Founding plans 16/16; grants revoked; separated Chart attribution, rollback, paid-only benefits and independent editorial work |
+| 2.1 | October 31, 2026 | Real post-revocation production Chromium run 41236744222 passed 10/10 including paid Commons denial, restoring baseline and closing Gates 16–17; 17/25 (68%) |
 
 **Footer — Controlled internal QA evidence:** This document is a product-owner acceptance register, not legal, tax or investment advice; it does not certify a commercial paying Founder or an independent editorial review.
