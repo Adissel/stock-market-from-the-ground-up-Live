@@ -61,4 +61,14 @@ assert.match(giftUi,/toggle\(false\)/);
 assert.match(giftUi,/Verify recipient/);
 assert.match(giftUi,/Review and send Lumens/);
 assert.match(giftUi,/window\.confirm/);
+
+const outboxSql=readFileSync('supabase/migrations/20261031_lumen_protected_grade_outbox_v1.sql','utf8');
+assert.match(outboxSql,/source_type IS DISTINCT FROM 'system_assessment'/);
+assert.match(outboxSql,/grading_mode' IS DISTINCT FROM 'protected_independent'/);
+assert.match(outboxSql,/human_beta_accepted' IS DISTINCT FROM 'true'/);
+assert.match(outboxSql,/learning_rewards_enabled=true/);
+assert.match(outboxSql,/FOR UPDATE SKIP LOCKED/);
+assert.match(outboxSql,/gu_lumen_issue_from_protected_assessment_v1/);
+assert.match(outboxSql,/GRANT EXECUTE ON FUNCTION public.gu_lumen_process_reviewed_grade_outbox_v1\(integer\) TO service_role/);
+assert.match(outboxSql,/REVOKE ALL ON public.gu_lumen_reviewed_grade_outbox_v1 FROM PUBLIC,anon,authenticated/);
 console.log('PASS: read-only wallet/activity/progress, single-currency draft rewards, gifts gated; anonymous/foreign-origin requests rejected.');
