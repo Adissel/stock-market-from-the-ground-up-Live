@@ -36,7 +36,11 @@ if psql -X -v ON_ERROR_STOP=1 -c "
   wait "$first_pid" || true
   exit 1
 fi
-wait "$first_pid"
+if ! wait "$first_pid"; then
+  echo "FAIL: first concurrent Journal transaction did not commit" >&2
+  cat "$first_log" "$second_log" >&2
+  exit 1
+fi
 if ! grep -Fq 'FREE_WEEKLY_JOURNAL_LIMIT_REACHED' "$second_log"; then
   echo "FAIL: concurrent rejection was not the expected weekly quota boundary" >&2
   cat "$second_log" >&2
