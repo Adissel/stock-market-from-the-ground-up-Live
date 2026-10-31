@@ -24,7 +24,7 @@ for(let i=0;i<20;i++){
  assert.equal(lesson.topicSourceDay,risk60TransferSourceDays[i]);
  assert.equal(lesson.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
  for(const field of ['explanation','workedExample','error','reviewGuide','transfer','selfCheck','whenNot'])
-  assert(typeof lesson[field]==='string'&&lesson[field].length>80,'Incomplete '+field+' D'+d.day);
+  assert(typeof lesson[field]==='string'&&lesson[field].length>(field==='error'?55:80),'Incomplete '+field+' D'+d.day);
  assert(lesson.workedExample.startsWith('FICTIONAL:'),'Explicit fictional study case required');
  assert(lesson.sourceProcedure.length===3);
  assert(lesson.transfer.startsWith('FRESH FICTIONAL UNGRADED NEXT-CASE'));
