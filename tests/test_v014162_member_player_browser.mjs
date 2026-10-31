@@ -201,6 +201,9 @@ try{
   'Guided Start must conceal the independent decision workbench');
  await draftPage.getByRole('button',{name:'Start Guided Learning →'}).click();
  await draftPage.getByRole('button',{name:'Next learning stage'}).click();
+ assert.equal(await draftPage.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+  'Private draft must complete Calculate / Analyze before independent Predict');
+ await draftPage.getByRole('button',{name:'Continue to Experiment →'}).click();
  await draftPage.getByRole('button',{name:'Next learning stage'}).click();
  await draftPage.locator('#gu-ws-member-workbench > summary').waitFor({state:'visible'});
  await draftPage.locator('#gu-ws-member-workbench > summary').click();
