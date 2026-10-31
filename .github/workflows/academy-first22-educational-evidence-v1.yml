@@ -9,6 +9,8 @@ on:
       - 'functions/_lib/bootcamp-academy-v014168.js'
       - 'docs/research/stockstotrade/252_instruction_source_field_QA_v2.csv'
       - 'tests/test_academy_first22_educational_evidence_v1.mjs'
+      - 'tests/test_academy_classroom_semantics_v1.mjs'
+      - 'bootcamp-academy.html'
 permissions: {contents: read}
 jobs:
   independent-arithmetic-and-formative-contract:
@@ -24,3 +26,5 @@ jobs:
           node --check functions/_lib/bootcamp-academy-v014168.js
           node --check tests/test_academy_first22_educational_evidence_v1.mjs
           node tests/test_academy_first22_educational_evidence_v1.mjs
+          node --check tests/test_academy_classroom_semantics_v1.mjs
+          node tests/test_academy_classroom_semantics_v1.mjs
