@@ -46,12 +46,15 @@ function safeCase(c){
   if(!/^[A-Za-z0-9_-]{1,40}$/.test(String(q?.id||''))||seen.has(q.id)||
    !['knowledge','recognition','decision','process'].includes(q.dimension)||
    typeof q.prompt!=='string'||q.prompt.length<8||q.prompt.length>1800||
-   !Array.isArray(q.options)||q.options.length<2||q.options.length>8)return null;
+   !Array.isArray(q.options)||q.options.length<2||q.options.length>8||
+   typeof q.rubric!=='string'||q.rubric.trim().length<25||q.rubric.length>1600)return null;
   seen.add(q.id);dims.add(q.dimension);
   const used=new Set(),options=[];
   for(const o of q.options){
    if(!/^[A-Za-z0-9_-]{1,30}$/.test(String(o?.code||''))||used.has(o.code)||
-    typeof o.label!=='string'||o.label.length<1||o.label.length>700)return null;
+    typeof o.label!=='string'||o.label.length<1||o.label.length>700||
+    typeof o.corrective_feedback!=='string'||o.corrective_feedback.trim().length<25||
+    o.corrective_feedback.length>1000)return null;
    used.add(o.code);options.push({code:o.code,label:o.label});
   }
   questions.push({id:q.id,dimension:q.dimension,prompt:q.prompt,options});
@@ -79,7 +82,11 @@ async function nextCase(env,userId,program,day){
   if(c.active!==true||!c.reviewed_by||!c.reviewed_at)return{reason:'assessment_not_reviewed',attempts:attempts.length};
   const projected=safeCase(c);
   if(!projected)return{reason:'assessment_invalid',attempts:attempts.length};
-  return{case:projected,attempts:attempts.length};
+  // Corrective explanations remain server-private until AFTER the existing
+  // grading RPC confirms the immutable first submission. Never add to safeCase.
+  const privateFeedback=Object.fromEntries(c.questions.map(q=>[
+   q.id,Object.fromEntries(q.options.map(o=>[o.code,o.corrective_feedback]))]));
+  return{case:projected,privateFeedback,attempts:attempts.length};
  }
  return{reason:mapped.length?'no_fresh_reviewed_case':'assessment_not_authored',attempts:attempts.length};
 }
@@ -127,7 +134,10 @@ export async function onRequest({request,env}){
   const result=await read(env,'rpc/submit_competency_case_v135',{
    p_user:a.userId,p_case:state.case.caseCode,p_answers:input.answers});
   if(result?.ok!==true)return reply({ok:false,reason:result?.reason||'assessment_rejected'},result?.reason==='already_submitted'?409:400);
-  return reply({ok:true,program,day,result});
+  const feedback=state.case.questions.map(q=>({questionId:q.id,
+   selectedCode:input.answers[q.id],
+   correctiveExplanation:state.privateFeedback?.[q.id]?.[input.answers[q.id]]||''}));
+  return reply({ok:true,program,day,result,feedback});
  }catch(e){
   const status=[400,401,403,404,405,409,413].includes(e.status)?e.status:503;
   return reply({ok:false,error:status===503?'Protected assessment service unavailable.':e.message},status);
