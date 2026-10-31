@@ -36,7 +36,7 @@ try{
   assert.equal(await siteHeader.locator('.navlinks a[href="market-commons.html"]').count(),1,'Market Commons remains in site navigation');
   assert.equal(await siteHeader.locator('.navlinks a[href="store.html"]').count(),1,'Store remains in site navigation');
   assert.equal(await page.locator('nav.gu-lab-breadcrumb a[href="labs.html"]').count(),1,'Learner can return to the Lab Registry');
-  assert.equal(await page.locator('#app .stage-item').count(),9,'Main website header must not replace learning stages');
+  assert.equal(await page.locator('#app .stage-item').count(),10,'Main website header must not replace the approved ten learning stages');
   const headerBox=await siteHeader.boundingBox(),workstationBox=await page.locator('#app .shell').boundingBox();
   assert(headerBox&&workstationBox&&workstationBox.y>=headerBox.y+headerBox.height-2,'Lab workstation must remain below the site header');
   if(width>=901)assert.equal(await siteHeader.locator('.navlinks').isVisible(),true,'Desktop site navigation is always visible in a Lab');
