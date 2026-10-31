@@ -15,7 +15,7 @@ const identityScript=`window.getSupabaseClient=async()=>({auth:{
 new Function(identityScript); // Fail immediately if the synthetic identity fixture is malformed.
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
- for(const width of [390,1440]){
+ for(const width of [390,768,1440]){
   for(const code of codes){
    const context=await browser.newContext({viewport:{width,height:950},serviceWorkers:'block',reducedMotion:'reduce'});
    const page=await context.newPage();
@@ -63,9 +63,21 @@ try{
    await page.locator('#academy-official-assessment:not([hidden])').waitFor({timeout:12000});
    await page.waitForFunction(()=>document.querySelector('.academy-assessment-status')?.textContent.includes('pending editorial'));
    assert.equal(await page.locator('.academy-assessment-question').count(),0,'Unreviewed keys never displayed');
-   await page.locator('#academy-days .gu-bc-day').last().click();
-   await page.waitForFunction(n=>document.getElementById('academy-day-title')?.textContent===n,
-    academyByCode[code].curriculum.at(-1).title,{timeout:10000});
+   // Keyboard-first checks visit EVERY authored day, not only the first/final route.
+   // They remain isolated fixtures; this is not genuine authenticated acceptance.
+   for(let index=0;index<academyByCode[code].days;index++){
+    const dayButton=page.locator('#academy-days .gu-bc-day').nth(index);
+    await dayButton.focus();
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(n=>document.getElementById('academy-day-title')?.textContent===n,
+     academyByCode[code].curriculum[index].title,{timeout:10000});
+    assert.equal(await page.locator('#academy-days .gu-bc-day').nth(index).getAttribute('aria-current'),
+     'step','Focused study day exposes its current state: '+code+' '+(index+1));
+    assert((await page.locator('.academy-evidence-head').innerText()).includes(expectHead),
+     'Each day must keep its subject-specific evidence: '+code+' '+(index+1));
+   }
+   assert.equal(await page.locator('.academy-assessment-status').getAttribute('role'),'status',
+    'Protected assessment status must be announced accessibly');
    const geometry=await page.evaluate(()=>{
     const el=document.querySelector('.academy-guided-ten'),b=el.getBoundingClientRect();
     return {x:b.x,right:b.right,screen:window.innerWidth,overflow:document.documentElement.scrollWidth};
@@ -73,7 +85,7 @@ try{
    assert(geometry.x>=-2&&geometry.right<=width+3&&geometry.overflow<=width+5,
     'Full-width learning must not overflow at '+width+': '+JSON.stringify(geometry));
    assert.deepEqual(errors,[],'New course should have no browser script errors '+code);
-   console.log('PASS new Academy '+code+' '+width+'px, subject-evidence, 10-stage guide, 1st/last day, reviewed assessment gate');
+   console.log('PASS new Academy '+code+' '+width+'px, every day keyboard-navigation, aria-current, subject-evidence, assessment editorial gate');
    await context.close();
   }
  }
