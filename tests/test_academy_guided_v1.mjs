@@ -17,8 +17,16 @@ for(const code of ['tape10','indicators10','filings7']){
  assert.equal(dayTwo.length,12,'Twelve original formative questions on day two for '+code);
  assert.equal(new Set(dayTwo.map(q=>q.prompt)).size,12,'Unique formative prompts on day two for '+code);
  for(const question of dayTwo)assert(question.prompt.length>=30&&question.review.length>=30);
- for(const day of program.curriculum.slice(2))assert.equal(day.lesson.formativeQuestions,undefined,
-  'Other draft days must not be falsely certified to the twelve-question requirement');
+ for(const [index,day] of program.curriculum.slice(0,4).entries()){
+  assert.equal(day.lesson.formativeQuestions.length,12,'12 independent lesson prompts: '+code+'/'+(index+1));
+  assert.equal(new Set(day.lesson.formativeQuestions.map(q=>q.prompt)).size,12,'Within-day duplicate prompt');
+  for(const q of day.lesson.formativeQuestions)
+   assert(q.prompt.length>=30&&q.review.length>=30&&q.id.startsWith(code+'-D'+String(index+1).padStart(2,'0')));
+ }
+ assert.equal(new Set(program.curriculum.slice(0,4).flatMap(day=>day.lesson.formativeQuestions.map(q=>q.prompt))).size,48,
+  'The first four days must not recycle prompts');
+ for(const day of program.curriculum.slice(4))assert.equal(day.lesson.formativeQuestions,undefined,
+  'Other unreviewed days must not falsely claim the twelve-question requirement');
 }
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
 const catalogRequest=new Request('https://example.test/api/bootcamp-academy?action=catalog');
