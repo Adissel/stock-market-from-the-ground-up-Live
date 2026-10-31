@@ -20,6 +20,7 @@ import {formativeDay09V1} from './academy-three-camps-formative-day09-v1.js';
 import {formativeDay10V1} from './academy-three-camps-formative-day10-v1.js';
 import {first22DayLessons,approvedB01Supplements} from './academy-first22-teaching-v1.js';
 import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
+import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 export const ACADEMY_VERSION='0.14.0.168';
 const current=new Map(original.days.map(day=>[day.day,day]));
 if(current.size!==30)throw Error('Thirty-day original curriculum changed unexpectedly.');
@@ -310,6 +311,10 @@ function dayFor(d,i){
   ...(d.code==='charts45'&&chartCaseBySourcePhase[sourceDay]?.[Math.floor(i/d.source.length)]?{
    lesson:chartCaseBySourcePhase[sourceDay][Math.floor(i/d.source.length)],
    sourceStatus:'original_chart_day_specific_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='risk60'&&risk60LearnBatch01[i]&&risk60SourceDays[i]===sourceDay?{
+   lesson:risk60LearnBatch01[i],
+   sourceStatus:'original_risk60_day_specific_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='truth5'?{
    lesson:truth5Lessons[i],
