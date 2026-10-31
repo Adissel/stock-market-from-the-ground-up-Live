@@ -234,11 +234,13 @@ assert.equal(await tierSelector.evaluate(el=>document.activeElement===el),true,
 const tierOptions=await tierSelector.locator('option').evaluateAll(options=>options.map(o=>({
  tier:o.value,disabled:o.disabled
 })));
-assert.equal(tierOptions.length,3,'Every experience must be discoverable');
+assert.deepEqual(tierOptions.map(o=>o.tier),['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],
+ 'All three membership tiers plus the separate Standard-entitled ECharts analytics experience must be discoverable');
 for(const option of tierOptions){
- assert.equal(option.disabled,!(['STANDARD','ADVANCED','PROFESSIONAL']
- .slice(0,['STANDARD','ADVANCED','PROFESSIONAL'].indexOf(tier)+1).includes(option.tier)),
- 'Non-entitled Studio option must be disabled for '+tier);
+ const permitted=['STANDARD','ADVANCED','PROFESSIONAL']
+ .slice(0,['STANDARD','ADVANCED','PROFESSIONAL'].indexOf(tier)+1);
+assert.equal(option.disabled,!((option.tier==='ECHARTS')||permitted.includes(option.tier)),
+ 'Member-locked Studio option must be disabled; ECharts analytics uses Standard access for '+tier);
 }
 await page.setViewportSize({width:390,height:844});
 await page.waitForTimeout(150);
