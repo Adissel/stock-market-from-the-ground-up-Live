@@ -1,0 +1,519 @@
+{
+  "version": "2026-10-31",
+  "status": "STAGED_UNGRADED_DAY_ONE_WORKED_DRAFTS",
+  "minutesPerDayTarget": 30,
+  "minimumFormativeQuestions": 12,
+  "notes": "Distinct original fictional cases and twelve ungraded teaching prompts for the first day of each of six existing non-B001 programs. Not a substitute for 247 complete day manuscripts or grading authorization.",
+  "items": [
+    {
+      "program": "watchlist7",
+      "draftDay": 1,
+      "topic": "Issuer identity and catalyst integrity",
+      "fictionalCase": "An issuer changes ticker after a corporate action. A promotion uses the old symbol and claims a signed $5 million order.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "Which legal issuer and share class does the security represent?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "Is the cited order binding or conditional?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "Does the press release include a filing or recognized revenue?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "When was the original source published?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "Does a repost add any evidence?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "Is float directly sourced?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "Does volume equal available liquidity?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "How would a wide spread change execution?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What relative-volume denominator was used?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "Are price series split-adjusted?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "Which unknown justifies waiting?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "What would invalidate watchlist inclusion?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    },
+    {
+      "program": "scanners10",
+      "draftDay": 1,
+      "topic": "Filter reproducibility and false positives",
+      "fictionalCase": "A scanner flags a 4x volume spike after a session change, using a five-minute count versus a mismatched daily average.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "What trading session is configured?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "What interval is the numerator?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "What interval is the denominator?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "Are premarket bars included?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "Are extended-hours volumes comparable?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "Can late prints change the result?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "Are adjusted shares accounted for?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "Does high RVOL imply good fills?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What is the spread at the cutoff?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "Is the catalyst verified?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "How can you reproduce the scan?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "When should this hit be rejected?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    },
+    {
+      "program": "foundations30",
+      "draftDay": 1,
+      "topic": "Market data units and evidence",
+      "fictionalCase": "A stock closes at $20 after a 2-for-1 split while an unadjusted chart had previously closed at $40.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "What does a common share represent?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "What changes after a split?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "What happens to share count?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "What is the adjusted historical comparison?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "Does a split create business profit?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "What does market capitalization require?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "How does spread differ from last price?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "Can volume prove a motive?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What is an OHLC bar?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "Does one bar reveal order of high and low?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "What is the verified effective date?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "When is evidence insufficient?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    },
+    {
+      "program": "charts45",
+      "draftDay": 1,
+      "topic": "VWAP and structure without hindsight",
+      "fictionalCase": "A fictional three-bar series tests above VWAP, then pulls back on declining volume; the final outcome has not occurred.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "What session is VWAP anchored to?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "What prices and volumes are included?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "Is the last bar complete?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "What is a higher low?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "What invalidates a reclaim?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "Can VWAP reveal all traders' profits?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "How does EMA lag differ?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "Is the breakout level confirmed?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What does declining volume establish?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "What does it not establish?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "Which future bar must be hidden?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "When is no-trade defensible?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    },
+    {
+      "program": "risk60",
+      "draftDay": 1,
+      "topic": "Stop orders, sizing and slippage",
+      "fictionalCase": "A fictional entry at $10, stop trigger $9.80, intended risk $40 and observed wide overnight gap.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "What is planned risk per share?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "What size fits a $40 planned loss before costs?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "Does a stop ensure $9.80 fill?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "What does a gap change?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "How do spreads affect execution?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "What does a halt prevent?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "Does a stop-limit guarantee execution?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "Are borrowing costs relevant to shorts?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What is the maximum uncertain loss?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "Why compare actual to planned risk?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "What is a justified no-trade response?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "What should the journal record?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    },
+    {
+      "program": "practicum90",
+      "draftDay": 1,
+      "topic": "Research-to-execution audit",
+      "fictionalCase": "A fictional issuer issues a conditional announcement before market open; a later correction and final bar are intentionally hidden.",
+      "teachingQuestions": [
+        {
+          "number": 1,
+          "prompt": "What is the decision cutoff?",
+          "graded": false
+        },
+        {
+          "number": 2,
+          "prompt": "What was publicly available then?",
+          "graded": false
+        },
+        {
+          "number": 3,
+          "prompt": "Which source is primary?",
+          "graded": false
+        },
+        {
+          "number": 4,
+          "prompt": "What terms remain conditional?",
+          "graded": false
+        },
+        {
+          "number": 5,
+          "prompt": "What chart bars were completed?",
+          "graded": false
+        },
+        {
+          "number": 6,
+          "prompt": "What is the thesis?",
+          "graded": false
+        },
+        {
+          "number": 7,
+          "prompt": "What alternative explanation exists?",
+          "graded": false
+        },
+        {
+          "number": 8,
+          "prompt": "Where is invalidation?",
+          "graded": false
+        },
+        {
+          "number": 9,
+          "prompt": "What risk cap is planned?",
+          "graded": false
+        },
+        {
+          "number": 10,
+          "prompt": "What fill assumption is justified?",
+          "graded": false
+        },
+        {
+          "number": 11,
+          "prompt": "When would you abstain?",
+          "graded": false
+        },
+        {
+          "number": 12,
+          "prompt": "What evidence belongs only in post-trade review?",
+          "graded": false
+        }
+      ],
+      "suggestedActivityMinutes": [
+        6,
+        8,
+        8,
+        8
+      ],
+      "stages": [
+        "concept",
+        "worked_case",
+        "interactive_experiment",
+        "predict",
+        "guided_practice",
+        "independent_case",
+        "remediation",
+        "transfer",
+        "results"
+      ]
+    }
+  ]
+}
