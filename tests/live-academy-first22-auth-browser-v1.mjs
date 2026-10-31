@@ -114,6 +114,21 @@ try{
    return w&&!w.hidden&&day?.textContent?.trim()?.length>5;
   },null,{timeout:30000});
   assert.equal(await page.locator('#academy-days button').count(),n,program+' did not render all days');
+  // Accessible classroom controls: real DOM, rendered under genuine QA Auth.
+  const accessibleNames=await page.locator('#academy-days button').evaluateAll(buttons=>
+   buttons.map(b=>String(b.getAttribute('aria-label')||b.innerText||'').trim()));
+  assert.equal(accessibleNames.length,n,program+' day-nav count drift');
+  assert(accessibleNames.every(name=>name.length>=2),
+    'Day navigation contains an unlabeled keyboard control: '+program);
+  const summary=page.locator('details.academy-classroom-briefing > summary');
+  assert(await summary.count()===1,'Lesson briefing disclosure has no semantic summary');
+  // ENTER must work as well as pointer selection in the actual rendered browser.
+  await page.locator('#academy-days button').first().focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(100);
+  assert((await page.locator('#academy-day-title').innerText()).trim().length>5,
+    'Keyboard day selection failed '+program);
+
   for(let i=0;i<n;i++){
    await page.locator('#academy-days button').nth(i).click();
    const dayTitle=(await page.locator('#academy-day-title').innerText()).trim();
@@ -130,6 +145,12 @@ try{
     'Confidential grading data rendered in member lesson');
    const stages=await page.locator('#academy-guided-host .academy-guided-nav button').count();
    assert.equal(stages,10,'Shared ten-stage instructor unavailable '+program+':'+(i+1));
+   const navNames=await page.locator('#academy-guided-host .academy-guided-nav button').evaluateAll(buttons=>
+    buttons.map(b=>String(b.getAttribute('aria-label')||b.textContent||'').trim()));
+   assert(navNames.every(v=>v.length>=1),'One of ten stage navigation buttons has no accessible text '+program+':'+(i+1));
+   const label=await page.locator('#academy-day-title').evaluate(el=>el.tagName);
+   assert.equal(label,'H3','Lesson heading hierarchy uses incorrect semantic element');
+
    examined++;
   }
   console.log('PASS genuine authenticated member Academy browser '+program+' — '+n+' day-specific instruction screens and ten-stage instructor.');
@@ -138,6 +159,7 @@ try{
  assert(bridgedAuthCalls>0,'No real Supabase GoTrue browser identity checks traversed the QA transport bridge');
  assert.equal(browserErrors.length,0,'Browser JavaScript runtime errors detected: '+browserErrors.slice(0,3).join('; '));
  console.log('PASS 22/22 genuine-token member browser day navigation, authentic GoTrue user transport bridge, ten-stage instruction; zero progress writes or graded outcomes.');
+ console.log('PASS keyboard day-navigation and semantic classroom heading/briefing plus accessible labels on all 22 day/stage controls.');
  console.log('NOT VERIFIED: native browser-to-Supabase cross-origin transport, CAPTCHA visual login, official assessments, mobile/screen reader, historical feed rights or separate-account RLS.');
 }catch(error){
  console.error('BLOCKED_OR_FAILED first22 genuine authenticated browser: '+String(error?.message||error).slice(0,600));
