@@ -1,9 +1,9 @@
 # Academy First 22 — Instructional Evidence Review Batch 002
 **Document ID:** SMFGU-ACADEMY-EDU-22-QA-002
 **Project:** The Stock Market: From the Ground Up
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-10-31
-**Status:** IMPLEMENTED SOURCE IMPROVEMENTS / AUTOMATED VERIFICATION PENDING CI; INDEPENDENT EDITORIAL ACCEPTANCE OPEN
+**Status:** TARGETED SOURCE QA PASSED; BROADER REGRESSION AND MEMBER ACCEPTANCE OPEN; INDEPENDENT EDITORIAL ACCEPTANCE OPEN
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up, main only
 **Filename/type:** docs/research/stockstotrade/ACADEMY_FIRST22_EDUCATIONAL_REVIEW_2026-10-31.md (Markdown)
 **Google Drive:** No copy created; folder and Drive document ID not assigned
@@ -32,6 +32,14 @@ The references below support narrow factual teaching points, not full day-level 
 
 **Evidence date:** URLs reviewed on 2026-10-31. Exact article version/effective-date and every day-level factual claim require separate reviewer signoff. Fictional figures are not historical observations.
 
+## Verified implementation and test record (2026-10-31)
+- `bd80026ec1de6f80cbd3a8030117096ff6a29f01` implemented 17 distinct checks, the numeric test and this register. The first source CI attempt correctly exposed an overwritten source-status field.
+- `e2600c9b72f27bec75b48dd702834ebd79807890` corrected that status. **PASS**, targeted [Academy First-22 Educational Evidence](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41215137219). This establishes source-level structural and calculation checks only.
+- `1d0dd576bd2b1060309efa20dae90db8149e7ca2` updated the existing book-access fixture for the separate authoritative plan-definition query and added a fail-closed missing-plan case; its prior suite run was failing.
+- `99766394478577750c8e38f318eeeabaca0f9e4f` corrected a floating-point exact-equality assertion in Free Foundations fictional gap-loss QA; the expected illustrated loss and production code were not changed.
+- Broader [Free Foundations and Research Watchlist Security CI](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41215374024) was queued at this record update. Its final result and other sitewide workflow conclusions must be checked separately; no full-green CI or deployment claim is made.
+- All 22 lesson editorial decisions remain **NOT_ACCEPTED**. Nothing here grants protected mastery, certificates, paid access, or production release.
+
 ## Day-level disposition
 | Program | Day(s) | Source case | This batch | Independent assessment | Editorial decision |
 |---|---|---|---|---|---|
@@ -50,6 +58,7 @@ The references below support narrow factual teaching points, not full day-level 
 ## Revision history
 | Version | Date | Change | Decision |
 |---|---|---|---|
-| 1.0 | 2026-10-31 | First-22 formative differentiation, arithmetic regression and restricted evidence record | Source improvements committed only if GitHub write succeeds; no editorial approval |
+| 1.0 | 2026-10-31 | First-22 formative differentiation, arithmetic regression and restricted evidence record | Source improvement; no editorial approval |
+| 1.1 | 2026-10-31 | Linked targeted successful CI, recorded source-status correction and separate regression blockers | Targeted source QA passed; editorial/release gates open |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus — Educational quality-control evidence; not a certification or trading recommendation.
