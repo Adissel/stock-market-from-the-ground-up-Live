@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-THREE-001
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy
-**Version:** 1.8
+**Version:** 1.9
 **Created:** October 31, 2026
 **Last reviewed:** October 31, 2026
 **File type:** Markdown (.md)
@@ -151,6 +151,14 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 
 **Rollback:** Keep `ACADEMY_THREE_CAMPS_ENABLED=false`; set `ACADEMY_THREE_CAMPS_BETA_ENABLED=false` if a Beta authorization defect appears. Preserve all previous member progress and frozen curriculum baseline.
 
+## Advanced teaching depth implementation — 45 item batch
+
+**Owner's latest requirement:** 30–45 minutes of meaningful active learning *per study day*, plus deeper independent teaching analogous to approved Lab experience, rather than a timer or simply 12 questions. The Academy now carries ten-stage **35-minute scheduled practice on 247 original days** and **45-minute scheduled practice on the 27 new days**. Neither schedule establishes actual study duration. All 27 new days have 12 original question/explanation pairs and a total of **45 distinct advanced learning cases** (16 tape, 16 indicator, 13 filings), each with fictional evidence, its own question, worked response, identified misconception and independent transfer. Stage 2 and Stage 8 in the original guided engine present the appropriate case and require a reasoned response before revealing worked teaching. Stage 6 now requires review of all twelve ungraded formative questions before advancing; users may take longer and retries remain free.
+
+**All-Boot-Camp curriculum scope:** 247 original plus 27 new = **274 days**. The new explicit twelve-prompt-plus-advanced-case authoring standard is evidenced on **27/274 (9.9%)** of all Academy days; the 247 original remain subject to strengthening and fact/numerical QA. This is not a statement that their existing curriculum is empty.
+
+**Three-new-course task ledger:** 27 Owner-approved instructional study days + 45 newly authored advanced cases + 54 still-private scored assessment candidates + 6 genuine invited tester-course journeys + 1 exact CI/deployment acceptance = 133 separately counted tasks. **72/133 = 54.1% authored/integrated**, before exact-run acceptance, not a percentage of estimated labor time or safe public availability. Graded cases remain 0/54 independently approved, real Beta paths 0/6 observed at last identity audit, and none is silently waived. The full 45-item evidence table is in `docs/releases/2026-10-31_BOOTCAMPS_ADVANCED_45_IMPLEMENTATION_AND_COMPLETION_REGISTER_V1.md`. The new dedicated CI run and deployed SHA must still be checked; earlier failed Cloudflare builds on unrelated Risk60 source-day mapping were corrected by `6577971de`, and Cloudflare reported success for subsequent `beff2e653`, which descended from source commit `99d2c7596`.
+
 ## Revision history
 
 | Version | Date | Author | Change |
@@ -164,5 +172,6 @@ The companion CI gate is `.github/workflows/bootcamp-full-width-acceptance-v1.ym
 | 1.6 | October 31, 2026 | Protected corrective feedback | Added fail-closed private rubric/option-feedback contract for future approved cases, post-grading selected-option explanations and missing-feedback regression. No live protected cases changed. |
 | 1.7 | October 31, 2026 | Authored all draft formative study-day sets | Reached 324 original study questions with individual corrective explanations mapped to all 27 new Academy days; maintained editorial and private assessment HOLD. CI and exact production verification separate. |
 | 1.8 | October 31, 2026 | Owner delegated editorial decision | Approved all 27 study days for invited instructional Beta; moved real-member acceptance into Beta operations; kept 54 protected graded cases and public commerce release separate. See SMFGU-ACADEMY-OWNER-BETA-005. |
+| 1.9 | October 31, 2026 | Advanced instructional depth V1 | Added 45 individually authored advanced case workshops mapped across all 27 new days, interactive independent reasoning, misconception explanations, transfer, 12-prompt completion guard; displayed 35/45-minute daily plans across ten Academy courses. Distinguish source coverage from the 247 original days' advanced-depth work, real tester acceptance, CI and 54 separate graded cases. See SMFGU-ACADEMY-DEPTH-006. |
 
 **Status classification:** All three courses: **OWNER-APPROVED INVITE-ONLY INSTRUCTIONAL BETA** for explicitly authorized QA members only; protected official assessments remain inactive. **Owner-approved instructional Beta, genuine member test execution PENDING for invited Beta testers; not General Availability and not authorized for public sale or graded certification.**
