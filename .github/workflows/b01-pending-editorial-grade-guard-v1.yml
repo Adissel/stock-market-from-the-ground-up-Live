@@ -1,0 +1,26 @@
+name: B01 Pending Editorial Grade Guard
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/b01-pending-editorial-grade-guard-v1.yml'
+      - 'functions/api/interactive-training.js'
+      - 'tests/test_b01_pending_private_review_grading_gate_v1.mjs'
+      - 'tests/test_b01_review_withdrawal_and_private_grading.mjs'
+      - 'tests/test_b01_invalid_choice_and_remediation.mjs'
+permissions: {contents: read}
+jobs:
+  b01-protected-reviewed-vs-approved:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verify B01 private grading remains closed without individual content acceptance
+        run: |
+          node --check functions/api/interactive-training.js
+          node tests/test_b01_pending_private_review_grading_gate_v1.mjs
+          node tests/test_b01_review_withdrawal_and_private_grading.mjs
+          node tests/test_b01_invalid_choice_and_remediation.mjs
