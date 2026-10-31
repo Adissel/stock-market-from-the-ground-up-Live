@@ -5,6 +5,8 @@
  */
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
+import {createRequire} from 'node:module';
+const axePath=createRequire(import.meta.url).resolve('axe-core/axe.min.js');
 import {mkdirSync,writeFileSync} from 'node:fs';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const email=process.env.LAB_QA_EMAIL||'';
@@ -344,6 +346,37 @@ if(!email||!password){
     note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
    }
   }catch(e){note('failures','Real Free QA Journal create/reopen: '+String(e.message||e).slice(0,450))}
+  // Automated WCAG 2.0/2.1/2.2 A/AA audit of real authenticated Free surfaces.
+  // Checks actual accessibility tree rules, not just CSS selector presence.
+  // Human screen-reader review remains an independent required gate.
+  try{
+   const scans=[
+    ['/dashboard.html','#free-learning-launchpad','#free-start-choose'],
+    ['/free-watchlist.html','#free-watchlist-content','#free-watchlist-symbol'],
+    ['/journal.html','#journal-content','#new-journal-toggle']
+   ];
+   for(const [route,region,ready] of scans){
+    await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:30000});
+    await page.locator(ready).waitFor({state:'visible',timeout:30000});
+    if(route==='/dashboard.html'){
+     const accordion=page.locator('details.free-learning-starting-point');
+     if(!await accordion.evaluate(el=>el.open))await accordion.locator('summary').click();
+    }
+    if(route==='/journal.html')await page.locator('#new-journal-toggle').click();
+    await page.addScriptTag({path:axePath});
+    const a=await page.evaluate(async(region)=>await window.axe.run(region,{
+     runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']},
+     resultTypes:['violations','incomplete']
+    }),region);
+    const problems=a.violations.map(v=>({
+     id:v.id,impact:v.impact,count:v.nodes.length,
+     sample:v.nodes.slice(0,2).map(n=>n.target.join(' '))
+    }));
+    note('checks','Axe WCAG audit executed for '+route+': '+a.passes.length+
+     ' rules passed, '+a.violations.length+' violations, '+a.incomplete.length+' manual-review findings.');
+    if(problems.length)note('failures','Axe '+route+' violations: '+JSON.stringify(problems).slice(0,450));
+   }
+  }catch(e){note('failures','Authenticated axe-core Free accessibility audit: '+String(e.message||e).slice(0,450))}
   const anonymous=await page.request.get(origin+'/api/bootcamp-academy?program=free5',
    {timeout:20000});
   assert([401,403].includes(anonymous.status()),
