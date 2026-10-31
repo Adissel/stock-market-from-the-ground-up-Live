@@ -39,4 +39,11 @@ assert.match(sources[3],/member-learning-quick-view/);
 assert.match(sources[5],/Crownlight Lumens/);
 assert.match(sources[6],/data-member-lumen-history/);
 assert.doesNotMatch(sources[3],/awardLumens\(|grantCredits\(|transferLumens\(/);
+
+const cards=readFileSync('assets/js/crownlight-learning-reward-badges-v1.js','utf8');
+const preview=readFileSync('functions/api/learning-reward-preview.js','utf8');
+assert.match(cards,/lab-card-heading/);
+assert.match(cards,/academy-program-compact-link/);
+assert.match(cards,/not yet earnable/);
+assert.match(preview,/planned_not_yet_earnable/);
 console.log('PASS: read-only wallet/activity/progress, single-currency draft rewards, gifts gated; anonymous/foreign-origin requests rejected.');
