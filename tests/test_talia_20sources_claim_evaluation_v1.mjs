@@ -45,7 +45,7 @@ try{
   assert.deepEqual(result.sources[1].referenceUrls,[row.sourceUrl,...(row.supplementarySourceUrls||[])]);
   assert(result.answer.includes(row.worked));
   assert(result.answer.includes(row.counterexample));
-  assert(result.answer.includes(row.transfer));
+  assert(result.answer.includes(row.freshTransfer||row.transfer), 'Tutor should use unsolved fresh transfer when source reviewed');
   assert.equal(result.graded,false);
   assert.equal(result.masteryAwarded,false);
   assert.equal(result.aiReason,'source_only');
