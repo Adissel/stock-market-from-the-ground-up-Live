@@ -47,9 +47,9 @@ try{
  const identity=await page.evaluate(async creds=>{
   const sb=await window.getSupabaseClient();
   const result=await sb.auth.setSession(creds);
-  return {id:result?.data?.user?.id,error:result?.error?.message||null};
+  return {id:result?.data?.user?.id,errorCode:result?.error?.code||null,errorStatus:result?.error?.status||0};
  },{access_token:signin.data.access_token,refresh_token:signin.data.refresh_token});
- assert.equal(identity.error,null,'Browser Supabase failed to accept genuine session');
+ assert.equal(identity.errorCode,null,'Browser Supabase session rejected: '+identity.errorCode+' HTTP '+identity.errorStatus);
  assert.equal(identity.id,QA,'Browser bound wrong QA identity');
  const counts={truth5:5,watchlist7:7,scanners10:10};
  let examined=0;
