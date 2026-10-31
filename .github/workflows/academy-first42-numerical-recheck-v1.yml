@@ -1,0 +1,23 @@
+name: Academy First-42 Independent Fictional Numeric Recheck
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-first42-numerical-recheck-v1.yml'
+      - 'tests/test_academy_first42_independent_numeric_cases_v1.mjs'
+      - 'functions/_lib/academy-first22-teaching-v1.js'
+      - 'functions/_lib/academy-foundations-batch02-v1.js'
+      - 'functions/_lib/bootcamp-curriculum-v014144.js'
+permissions: {contents: read}
+jobs:
+  math-not-mastery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: |
+          node --check tests/test_academy_first42_independent_numeric_cases_v1.mjs
+          node tests/test_academy_first42_independent_numeric_cases_v1.mjs
