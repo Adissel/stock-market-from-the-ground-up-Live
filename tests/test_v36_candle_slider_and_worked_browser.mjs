@@ -80,6 +80,12 @@ try {
   assert.equal(await slider.getAttribute('min'),'30.50');
   assert.equal(await slider.getAttribute('max'),'32.50');
   await host.getByRole('button',{name:'Next learning stage'}).click();
+  await host.locator('.gu-v44-calculate-gate').waitFor();
+  assert.equal(await host.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
+   'Member must complete the ungraded Calculate checkpoint before moving the Experiment slider');
+  await host.locator('.gu-v44-calc-check input[value="0"]').check();
+  await host.getByRole('button',{name:'Check my answer'}).click();
+  await host.getByRole('button',{name:/Continue to Experiment/}).click();
   await host.getByRole('heading',{name:/^Experiment —/}).waitFor();
   const exp=host.locator('.gu-v34-unified-lesson .gu-l33-graphic');
   const experimentSlider=exp.locator('.gu-v36-candle-experiment input[type=range]');
