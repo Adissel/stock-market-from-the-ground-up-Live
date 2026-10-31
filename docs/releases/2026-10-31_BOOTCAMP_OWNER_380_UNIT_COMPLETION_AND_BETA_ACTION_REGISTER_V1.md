@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.7  
+**Version:** 1.8  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -11,6 +11,12 @@
 **Google Drive document ID:** Not assigned  
 **Status:** OWNER APPROVED for ungraded three-camp Beta; official assessed-course and ten-camp advanced-depth acceptance INCOMPLETE  
 **Purpose:** A single denominator-locked progress register for the four owner-directed priorities and all ten Boot Camps, with legitimate role-separated authorization.
+
+## October 31 final reconciliation — multi-workstream accepted baseline
+
+The controlling updated Owner addendum `SMFGU-ACADEMY-OWNER-PARALLEL-015` (`docs/releases/2026-10-31_ACADEMY_OWNER_PARALLEL_BATCH_015_V1.md`) documents **87/380 = 22.89% accepted (293 remaining)** after genuine separate CI, corrected responsive-browser and deployed source acceptance for Risk60 D11–D14. The **earlier 83/380** figure below is historical and must not be used for the current accepted denominator. Risk60 D15 is source-ready and its GitHub run 41244413953 has independently completed SUCCESS; until exact-source production/Owner reconciliation is recorded for that particular unit, **88/380 is conditional only**. This acceptance ledger is distinct from source authoring, which now is **247/247 = 100%**.
+
+**Parallel execution evidence:** Original Practicum90 65-missing case source backlog closed, [Actions 41243944184](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41243944184) PASS. Genuine one real invited Beta account completed 3/3 course enrollment, first saved reflection, private reload, 409 stale CAS, guest-denial [Actions 41244639841](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41244639841) PASS; second independently authenticated account lacked Beta invitation, so required six journeys are **3/6=50%**, not 6/6. B01 private v98 has 20 Draft sets, 120 questions, 200 AI-revised feedback entries, 20 numeric math preflight passes, and 0 genuine human independent signatures. Signup and Book Key anonymous lookup permissions restricted, member throttle SQL applied: [Actions 41245509418](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41245509418) real signed-in QA five invalid synthetic Book Key attempts followed by sixth `rate_limited` PASS. No valid commercial redemption, payments, official grades or Lumen transactions performed. Final unrestricted release remains HOLD.
 
 ## Controlling October 31 source-authoring update — 247/247
 
