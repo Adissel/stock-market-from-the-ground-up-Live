@@ -4,7 +4,9 @@ const entitlement={tier:'ADVANCED',allowed:['STANDARD','ADVANCED']};
 const normalized=normalizeWorkspace({selected:'PROFESSIONAL',sync:false,studies:['EMA','RSI','RSI','INJECT'],
  drawings:[{name:'segment',points:[{timestamp:1790000000000,value:21},{timestamp:1790000060000,value:22}]},
  {name:'unsafeHTML',points:[{timestamp:1790000000000,value:0}]}],secret:'never-store'},entitlement);
-assert.equal(normalized.selected,'STANDARD');assert.equal(normalized.sync,false);
+assert.equal(normalized.selected,'ADVANCED','Lapsed Professional workspace must open in the active Advanced viewer');assert.equal(normalized.sync,false);
+assert.equal(normalizeWorkspace({selected:'PROFESSIONAL'}, {tier:'STANDARD',allowed:['STANDARD']}).selected,'STANDARD');
+assert.equal(normalizeWorkspace({selected:'STANDARD'}, entitlement).selected,'STANDARD','Explicit Standard preferences remain Standard');
 assert.equal(normalized.layout,'SIDE_BY_SIDE','Advanced member cannot persist a Professional layout');
 const pro={tier:'PROFESSIONAL',allowed:['STANDARD','ADVANCED','PROFESSIONAL']};
 assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'STACKED'},pro).layout,'STACKED');
