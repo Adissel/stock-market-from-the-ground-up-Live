@@ -111,6 +111,7 @@ function mount(host,{day,programCode}={}){
  const cfg=plan(day);const isNewCourse=day.lesson?.evidenceType==='FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE';
  const authoredFormative=Array.isArray(day.lesson?.formativeQuestions)&&day.lesson.formativeQuestions.length===12;
  const advancedCases=Array.isArray(day.lesson?.advancedPracticums)?day.lesson.advancedPracticums:[];
+ const hasAdvancedPackage=isNewCourse||(authoredFormative&&advancedCases.length>0);
  const plannedMinutes=authoredFormative?REFERENCE_MINUTES:STANDARD_MINUTES;
  let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
    answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
@@ -131,7 +132,7 @@ function mount(host,{day,programCode}={}){
   const itinerary=el('details');itinerary.className='academy-active-itinerary';
   itinerary.append(el('summary','Suggested active-learning itinerary — '+plannedMinutes.reduce((a,b)=>a+b,0)+' minutes (self-paced)'));
   const schedule=el('ol');STEPS.forEach((name,i)=>schedule.append(el('li',name+' — '+plannedMinutes[i]+' min of active work')));
-  itinerary.append(schedule,el('p',isNewCourse?
+  itinerary.append(schedule,el('p',hasAdvancedPackage?
    '45-minute suggested practice plan. This day has 12 individual formative questions and advanced reasoning cases; there is no time gate, and thorough work may take longer.':
    '35-minute suggested ten-stage practice plan for this existing Boot Camp day. The deeper 12-question and advanced-case editorial standard is still being strengthened across the original courses. This is a plan, not verified seat time.'));
   head.append(itinerary);
@@ -180,7 +181,7 @@ function mount(host,{day,programCode}={}){
   for(const text of cfg.stages[stage][1])content.append(el('p',clean(text)));
   const check=cfg.checks[stage];selectedOptions=[];numericInputs=[];
   content.append(el('p','Suggested active work at this step: '+plannedMinutes[stage]+' minutes. Pause as needed; there is no time gate.'));
-  if(isNewCourse&&advancedCases.length&&(stage===2||stage===8)){
+  if(hasAdvancedPackage&&advancedCases.length&&(stage===2||stage===8)){
    const advanced=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
    const transferOnly=stage===8&&advancedCases.length===1;
    const exerciseId=advanced.id+(transferOnly?'-transfer':'');
@@ -212,7 +213,7 @@ function mount(host,{day,programCode}={}){
    practicum.append(response,reveal,teaching);
    content.append(practicum);
   }
-  if(stage===6&&isNewCourse){
+  if(stage===6&&hasAdvancedPackage){
    const quiz=el('section');quiz.className='academy-formative-reference';
    if(authoredFormative){
     quiz.append(el('h5','Talia’s 12 authored formative practice questions'));
@@ -278,7 +279,7 @@ function mount(host,{day,programCode}={}){
  }
  function advance(){completed.add(stage);furthest=Math.max(furthest,stage+1);stage=Math.min(9,stage+1);answer=-1;misses=0;feedback.textContent='';render();narration()}
  next.onclick=()=>{
-  if(isNewCourse&&(stage===2||stage===8)&&advancedCases.length){
+  if(hasAdvancedPackage&&(stage===2||stage===8)&&advancedCases.length){
    const practice=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
    const id=practice.id+(stage===8&&advancedCases.length===1?'-transfer':'');
    if(!reviewedAdvanced.has(id)){
@@ -286,7 +287,7 @@ function mount(host,{day,programCode}={}){
     return;
    }
   }
-  if(isNewCourse&&stage===6&&authoredFormative&&reviewedFormative.size!==12){
+  if(hasAdvancedPackage&&stage===6&&authoredFormative&&reviewedFormative.size!==12){
    feedback.textContent='Complete and review all twelve day-specific formative questions before proceeding ('+
     reviewedFormative.size+' of 12 reviewed). Your answers are local; save a reflection separately.';
    return;
