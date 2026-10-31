@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.3
+**Version:** 1.4
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -113,6 +113,12 @@ The [sentence-level workflow](https://github.com/cybernexuspublishing/stock-mark
 
 **Publication decision remains CLOSED.** The code mitigation protects the existing beta contract; it does not establish individual human editorial reviews or approve the 20 B01 sets for official grading. No other original Boot Camp day gained protected assessment access.
 
+### Corrective feedback depth — private B01 v97 review finding
+
+A separate read-only field-level query found **120/120** questions have an `explanation` field and all 120 are distinct, but **0/100** multiple-choice questions store an explicitly structured per-distractor explanation field under the inspected option-feedback field names. The actual review sampled every multiple-choice stem and its choices, and considered the general explanations, but a single generalized rationale is **not demonstrated evidence that each incorrect selection receives an individually diagnostic explanation**. This is a material deficiency relative to the approved correction-and-retry standard.
+
+**Recommended remediation for the next privately reviewed question version:** maintain a confidential wrong-answer misconception mapping keyed by case/question/selected option, require a reviewer to check each distractor's rationale, and project only the selected answer's appropriate correction after an authorized submitted attempt. Keep the key and unrevealed alternatives server-side and prevent answer reconstruction through pre-submission feedback. Treat preexisting frozen version 97 as historical/controlled ungraded practice until a distinct reviewed revision is approved. This is a design/acceptance recommendation; no private question data or database schema was changed.
+
 ## Next bounded acceptance work
 
 1. Expand from the 42 selected claims to an **exhaustive claim inventory** for the 22 reference days, including exact source version, publication and effective dates and each calculation.
@@ -129,5 +135,6 @@ The [sentence-level workflow](https://github.com/cybernexuspublishing/stock-mark
 | 1.1 | 2026-10-31 | Recorded passing source CI and B01 120-question private structural audit; flagged outstanding reviewer independence and per-claim gaps | Targeted technical evidence verified; full release and editorial acceptance open |
 | 1.2 | 2026-10-31 | Added source-driven sentence-level audit generation protocol; CI run queued | Review queue code committed; generated artifact unverified |
 | 1.3 | 2026-10-31 | Verified 940-claim inventory, performed preliminary private B01 content/math checks, corrected pending-grade and reversible answer-order defects with passing CI | Technical safeguards verified; 42-day claims and independent editorial/assessment acceptance OPEN |
+| 1.4 | 2026-10-31 | Recorded missing structured per-option remediation in frozen B01 private set, with appropriate next-version instructions | Editorial correction-and-retry gate OPEN; private set unchanged |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
