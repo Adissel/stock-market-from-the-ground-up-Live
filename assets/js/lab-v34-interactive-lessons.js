@@ -256,7 +256,10 @@ function get({type='',feature='',concept='',guide={},labId='',bridge=null,teachi
    script:[bridge.title+'.',...bridge.tabs[key].filter(x=>typeof x==='string'),
     ...(key==='apply'?(bridge.relatedCompetencies||[])
      .filter(code=>Array.isArray(quantitativeWork[code]))
-     .slice(0,3).flatMap(code=>quantitativeWork[code]):[])].join('\n\n'),
+     .slice(0,3).flatMap(code=>quantitativeWork[code]):[]),
+    ...(key==='apply'&&bridge.transfer?.graded===false&&bridge.transfer?.requiresNewEvidence===true
+     ?['Independent ungraded transfer exercise: '+String(bridge.transfer.prompt||'').slice(0,1100)]
+     :[])].join('\n\n'),
    concept:subject,type,feature:key,verifiedHistory:false,
    sourceStatus:bridge.sourceStatus,editorialFallback:false};
  }
