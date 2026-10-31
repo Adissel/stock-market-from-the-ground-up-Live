@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-ACADEMY-RESEARCH-42-003
 **Company / Imprint:** Cyber Nexus / Crown & Lantern Press
 **Project:** The Stock Market: From the Ground Up — Boot Camp Curriculum
-**Version:** 1.8
+**Version:** 1.9
 **Review date:** 2026-10-31
 **Status:** SELECTED NARROW FACTUAL REVIEW RECORDED; INDEPENDENT PROTECTED ASSESSMENT REVIEW AND EDITORIAL ACCEPTANCE INCOMPLETE
 **Repository:** cybernexuspublishing/stock-market-from-the-ground-up
@@ -234,6 +234,14 @@ All **100** choice questions in v98 have exactly two corresponding wrong-option 
 
 **Beta decision:** Controlled **ungraded** B01 instruction for entitled testers may continue on previously accepted scope, with the [22-day genuine member token Chromium test](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41231054861) and [production read-only API test](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41229053907) as evidence. Native user-facing sign-in/CAPTCHA and full independent private grading acceptance are still separate and open. A definite completion date or an approved-grade release would be unjustified without distinct reviewer action.
 
+## Verified targeted CI and final private Draft integrity
+
+**CI verified:** [B01 pending editorial grade guard run 41232584350](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41232584350) **COMPLETED SUCCESSFULLY**: private option shuffle, denial of pending/unattributed corrective feedback, human-editor evidence prerequisites, suppression of mechanical copied explanations, official B01 assessment start/resume/answer denial, and defensive RPC/error behavior all passed synthetic regression. This is a technical test, not proof of any human reviewer signature.
+
+**Database postflight:** All 100 private version-98 choice items now explicitly carry per-distractor review-required metadata; all 200 selected-wrong-option explanations are individual GPT-6-authored Draft rewrites. There are 20 version-98 private sets comprising 120 questions, exactly 20 numerical, all 20 still `review_state=draft`, 0 recorded reviewer fields, 0 protected learner attempts. No v97 private question or existing grade was mutated. One percentage-result tolerance is 0.0049, the other 19 are 0; all changes remain reviewer-pending.
+
+**Official release classification:** **Controlled Instructional Beta (ungraded) may continue** for authorized QA members. **HOLD** protected examinations, official mastery, certificates dependent on that grading, and formal editorial sign-off. Forty-two **AI-attributed preliminary negative/rework decisions** are not forty-two independent human editorial acceptances. All 945 source-current statements need an individually verified as-of evidence or documented pedagogy decision. The existing 252-day and 671-row master registers remain the sole controlling acceptance records.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -247,5 +255,6 @@ All **100** choice questions in v98 have exactly two corresponding wrong-option 
 | 1.6 | 2026-10-31 | Recorded Cloudflare deploy, passed real member API, failed browser identity transport, controlled QA pass issuance/revocation and zero protected editorial acceptance | API gate PASSED; authentic browser and independent editorial gates BLOCKED |
 | 1.7 | 2026-10-31 | Verified genuine-token 22/22 browser classroom with QA transport boundary, corrected FINRA venue-scope Day20 lesson, checked private v98 option/numeric structure and revoked QA grant | Ungraded beta classroom technical PASS; 940 factual decisions, independent rubric approvals and native login OPEN |
 | 1.8 | 2026-10-31 | Generated source-current 945-item risk/arithmetics CI; 42 AI-attributed day rework dispositions; privately rewrote all 200 misconception feedback Drafts, corrected numeric/time detail and imposed attributed reviewer gate | No human editorial signoffs; controlled ungraded beta continues, protected grading held |
+| 1.9 | 2026-10-31 | Verified human-attributed feedback and grading CI PASS; repaired one remaining private choice-review marker; confirmed 20 Draft sets / 120 questions / 200 Draft explanations / 0 signoffs or attempts | Controlled ungraded beta PASS, protected grading HOLD |
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Controlled quality-assurance evidence, not individualized investment advice, an official qualification or a statement of regulatory compliance.
