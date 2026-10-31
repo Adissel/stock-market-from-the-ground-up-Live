@@ -10,6 +10,9 @@ on:
       - 'simulator.html'
       - 'tests/test_crownlight_workspace_sources_v7.mjs'
       - 'tests/test_crownlight_workspace_sources_v7_browser.mjs'
+      - 'tests/test_crownlight_chart_workspace_v2.mjs'
+      - 'tests/test_crownlight_chart_tiers_v1.mjs'
+      - 'tests/test_crownlight_chart_tiers_browser_v1.mjs'
       - 'tests/test_crownlight_advanced_downgrade_browser_v1.mjs'
       - '.github/workflows/crownlight-chart-studio-v7.yml'
 permissions:
@@ -32,6 +35,7 @@ jobs:
           node --check assets/js/crownlight-workspace-v2.js
           node tests/test_crownlight_workspace_sources_v7.mjs
           node tests/test_crownlight_chart_workspace_v2.mjs
+          node tests/test_crownlight_chart_tiers_v1.mjs
           node tests/test_crownlight_chart_studio_v3_integrity.mjs
           node tests/test_crownlight_chart_entitlement_continuity_v4.mjs
           node tests/test_crownlight_chart_provider_inventory_v6.mjs
@@ -61,6 +65,8 @@ jobs:
         run: node tests/test_crownlight_workspace_sources_v7_browser.mjs
       - name: Verify Advanced restores safely from expired Professional workspace (fixture-only Chromium)
         run: node tests/test_crownlight_advanced_downgrade_browser_v1.mjs
+      - name: Verify full Standard Advanced Professional browser fixture matrix
+        run: node tests/test_crownlight_chart_tiers_browser_v1.mjs
       - name: Preserve original Professional synchronization and provider integration
         run: |
           node tests/test_crownlight_workspace_sync_v6_browser.mjs
