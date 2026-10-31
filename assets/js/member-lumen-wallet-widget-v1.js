@@ -23,11 +23,15 @@ async function render(){
   const title=p('h3','Crownlight Lumens');
   const balance=p('p',r.wallet.available.toLocaleString()+' Lumens available');
   balance.className='gu-lumen-wallet-balance';
-  const details=p('p','Lumens have no cash-out value. The wallet uses your existing member balance.');
+  const details=p('p','Lumens have no cash-out value. Your wallet uses a single existing balance.');
+  const breakdown=p('p','Included: '+r.wallet.included+' · Purchased: '+r.wallet.purchased+
+    ' · Other issued: '+r.wallet.manual+' Lumens');
+  breakdown.className='small';
   const links=p('p','');
-  const wallet=document.createElement('a');wallet.href='lumen-store.html';wallet.textContent='Lumen Store';
-  links.append(wallet);
-  mount.append(title,balance,details,links);
+  const wallet=document.createElement('a');wallet.href='/dashboard.html?tab=wallet';wallet.textContent='How to use & wallet details';
+  const shop=document.createElement('a');shop.href='/store-sparks.html';shop.textContent='Lumen Store';
+  links.append(wallet,document.createTextNode(' · '),shop);
+  mount.append(title,balance,breakdown,details,links);
  }catch{mount.replaceChildren(p('p','Lumen wallet data is unavailable. No balance is assumed.'))}
 }
 render();
