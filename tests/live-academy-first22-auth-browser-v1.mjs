@@ -44,13 +44,23 @@ try{
  page.on('pageerror',error=>browserErrors.push(String(error.message||error).slice(0,180)));
  await page.goto(origin+'/bootcamp-academy.html',{waitUntil:'domcontentloaded',timeout:45000});
  await page.waitForFunction(()=>typeof window.getSupabaseClient==='function',{timeout:30000});
- const identity=await page.evaluate(async creds=>{
+ const identity=await page.evaluate(async args=>{
   const sb=await window.getSupabaseClient();
-  const result=await sb.auth.setSession(creds);
-  return {id:result?.data?.user?.id,errorCode:result?.error?.code||null,errorStatus:result?.error?.status||0};
- },{access_token:signin.data.access_token,refresh_token:signin.data.refresh_token});
- assert.equal(identity.errorCode,null,'Browser Supabase session rejected: '+identity.errorCode+' HTTP '+identity.errorStatus);
- assert.equal(identity.id,QA,'Browser bound wrong QA identity');
+  const result=await sb.auth.setSession(args.session);
+  const actual=await sb.auth.getUser();
+  const stored=await sb.auth.getSession();
+  return {initialUserMatches:result?.data?.user?.id===args.expected,
+   validatedUserMatches:actual?.data?.user?.id===args.expected,
+   storedSessionMatches:stored?.data?.session?.user?.id===args.expected,
+   code:result?.error?.code||actual?.error?.code||null,
+   http:result?.error?.status||actual?.error?.status||0,
+   hasUser:!!actual?.data?.user,hasSession:!!stored?.data?.session};
+ },{session:{access_token:signin.data.access_token,refresh_token:signin.data.refresh_token},expected:QA});
+ assert.equal(identity.code,null,'Browser Supabase session rejected: '+identity.code+' HTTP '+identity.http);
+ assert(identity.validatedUserMatches&&identity.storedSessionMatches,
+  'Browser genuine session mismatch: user='+identity.validatedUserMatches+
+  ' storage='+identity.storedSessionMatches+' hasUser='+identity.hasUser+
+  ' hasSession='+identity.hasSession+' initial='+identity.initialUserMatches);
  const counts={truth5:5,watchlist7:7,scanners10:10};
  let examined=0;
  for(const [program,n] of Object.entries(counts)){
