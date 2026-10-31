@@ -64,9 +64,15 @@ assert(read('bootcamp-academy.html').includes('academy-guided-v1.js'));
 assert(read('assets/css/academy-guided-v1.css').includes('grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)'));
 assert(js.includes('Owner editorial approval: released for invited instructional Beta.'));
 for(const [varName,expected] of [['STANDARD_MINUTES',35],['REFERENCE_MINUTES',45]]){
- const m=js.match(new RegExp('const '+varName+'=Object\\\\.freeze\\\\((\\\\[[^\\\\]]+\\\\])\\\\)'));
- assert(m,'Every study day must carry a source-defined active learning schedule: '+varName);
- assert.equal(JSON.parse(m[1]).reduce((a,b)=>a+b,0),expected,'Honest suggested study minutes: '+varName);
+ const prefix='const '+varName+'=Object.freeze([';
+ const start=js.indexOf(prefix);
+ assert(start>=0,'Every study day must carry a source-defined active learning schedule: '+varName);
+ const end=js.indexOf('])',start+prefix.length);
+ assert(end>start,'Time schedule syntax must be complete: '+varName);
+ const minutes=js.slice(start+prefix.length,end).split(',').map(Number);
+ assert.equal(minutes.length,10,'Ten ten-stage study-time allocations required');
+ assert(minutes.every(n=>Number.isInteger(n)&&n>0),'Every stage must have active work');
+ assert.equal(minutes.reduce((a,b)=>a+b,0),expected,'Honest suggested study minutes: '+varName);
 }
 assert(js.includes('35-minute suggested ten-stage practice plan for this existing Boot Camp day.'));
 assert(js.includes('45-minute suggested practice plan.'));
