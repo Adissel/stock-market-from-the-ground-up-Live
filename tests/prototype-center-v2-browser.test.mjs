@@ -1,6 +1,7 @@
 /* Synthetic Prototype Center Chromium browser acceptance; no LIVE sign-ins or payment calls. */
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
+import AxeBuilder from '@axe-core/playwright';
 import {onRequest as accessLauncher} from '../functions/_middleware.js';
 import {readFileSync} from 'node:fs';
 const protectedHtml=readFileSync('prototype.html','utf8');
@@ -87,6 +88,12 @@ try{
   assert.equal(await page.locator('#pt-content').getAttribute('data-device'),'mobile');
   const bounds=await page.evaluate(()=>({body:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
   assert.ok(bounds.body<=bounds.width+12,'no significant horizontal overflow at '+viewport.width+': '+JSON.stringify(bounds));
+  const axeReport=await new AxeBuilder({page}).include('#pt-root').withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+  assert.deepEqual(axeReport.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})),[],
+   'automated accessibility violations at '+viewport.width+'px');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const preference=await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+  assert.equal(preference,true,'reduced-motion user preference available');
   assert.deepEqual(exceptions,[],'browser JavaScript exceptions');
   if(role==='OWNER'&&viewport.width===1280){
    revoke();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
