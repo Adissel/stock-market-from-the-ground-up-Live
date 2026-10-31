@@ -96,6 +96,16 @@ test('14-day signed TEST invoice uses exact $22.99 billing and separate sandbox 
   assert.equal(n.calls.some(x=>/rpc\/gu_founder_record_paid_cycle|site_subscriptions|gu_founder_members_v/.test(x.path)),false);
  }finally{n.restore()}
 });
+test('60-day signed TEST invoice uses exact $59.99 billing and isolated ledger',async()=>{
+ const n=network({plan:'FOUNDING_60'});
+ try{
+  const response=await onRequestPost({request:await request(makeEvent()),env});
+  assert.equal(response.status,200);
+  assert.equal(await response.text(),'F600_TEST_INVOICE_PAID');
+  assert.equal(n.calls.filter(x=>x.path.includes('/rpc/gu_f600_sandbox_apply_v014215')).length,1);
+  assert.equal(n.calls.some(x=>/rpc\\/gu_founder_record_paid_cycle|site_subscriptions|gu_founder_members_v/.test(x.path)),false);
+ }finally{n.restore()}
+});
 test('14-day wrong invoice amount never reaches sandbox ledger',async()=>{
  const n=network({plan:'FOUNDING_14',invoiceAmount:4999});
  try{const response=await onRequestPost({request:await request(makeEvent()),env});
