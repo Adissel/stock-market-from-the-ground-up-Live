@@ -55,7 +55,13 @@ try{
  await page.waitForFunction(()=>!!document.querySelector('[data-academy-study-progress] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-academy-study-progress]').innerText(),/Labs and Boot Camps/);
  await page.waitForFunction(()=>!!document.querySelector('.gu-nav-sparks-popup [data-crownlight-quick-progress]'),null,{timeout:30000});
+ const walletDisclosure=page.locator('details.gu-nav-sparks');
+ const walletSummary=walletDisclosure.locator('summary');
+ assert(await walletSummary.isVisible(),'Wallet summary trigger must be visible and keyboard-accessible');
+ if(!await walletDisclosure.evaluate(el=>el.open))await walletSummary.click();
+ await page.waitForFunction(()=>document.querySelector('details.gu-nav-sparks')?.open===true,null,{timeout:10000});
  const menu=page.locator('.gu-nav-sparks-popup');
+ assert(await menu.isVisible(),'Wallet popup must be displayed after member opens summary');
  assert.match(await menu.innerText(),/Closest study progress/);
  const details=menu.getByRole('link',{name:/How to use.*wallet details/i});
  assert.equal(await details.getAttribute('href'),'/dashboard.html?tab=wallet');
