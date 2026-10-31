@@ -7,7 +7,7 @@ assert.equal(evidence.kind,'public_tutor_lab_claim_bridges_v1');
 assert.equal(evidence.registeredLabsUnaffected,419);
 assert.equal(evidence.records.length,14);
 assert.equal(registry.totalCanonicalLabs,419);
-assert.equal(new Set(evidence.records.map(r=>r.id)).size,8);
+assert.equal(new Set(evidence.records.map(r=>r.id)).size,14);
 const sourceAllowed=/^https:\/\/(?:www\.)?(?:investor\.gov|sec\.gov|syndication\.finra\.org|chartschool\.stockcharts\.com)\//;
 for(const item of evidence.records){
  assert.equal(item.title,registry.byLab[item.id].title,'Canonical Lab title must match '+item.id);
