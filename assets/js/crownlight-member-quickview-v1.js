@@ -14,6 +14,8 @@ function wipe(){
  if(target)target.replaceChildren(h('p','Sign in to review saved Lab and Boot Camp progress.'));
  const history=document.querySelector('[data-member-lumen-history]');
  if(history)history.replaceChildren(h('p','Sign in to view private Lumen transactions.'));
+ const integrity=document.querySelector('[data-member-lumen-integrity]');
+ if(integrity)integrity.replaceChildren(h('p','Sign in to verify your Lumen wallet.'));
 }
 function renderRows(root,items,label){
  root.replaceChildren();
@@ -93,6 +95,32 @@ async function refreshHistory(){
   showHistory(root,j.events,j.hasMore);
  }catch{root.replaceChildren(h('p','Wallet activity unavailable; no transaction totals are assumed.'))}
 }
+async function refreshIntegrity(){
+ const history=document.querySelector('[data-member-lumen-history]');
+ if(!history||!client)return;
+ let section=document.querySelector('[data-member-lumen-integrity]');
+ if(!section){section=h('section',undefined,'gu-wallet-integrity');section.dataset.memberLumenIntegrity='1';
+   section.setAttribute('aria-live','polite');history.before(section)}
+ const {data:{session}}=await client.auth.getSession();
+ if(!session?.access_token){section.replaceChildren(h('p','Sign in to verify wallet integrity.'));return}
+ const uid=session.user.id;
+ try{
+  const j=await fetchSecured('/api/member-lumen-integrity',session.access_token);
+  const now=await client.auth.getSession();
+  if(now.data?.session?.user?.id!==uid){wipe();return}
+  if(j.ok!==true||!Number.isSafeInteger(j.available)||typeof j.balanced!=='boolean')
+   throw Error('Unverified wallet status');
+  const note=j.balanced?
+   'Lumen balance reconciled to your current authoritative wallet ledger.':
+   'Wallet reconciliation needs review; no balance is assumed settled.';
+  const detail=j.openDisputes>0?' Open gift disputes: '+j.openDisputes+'.':'';
+  section.replaceChildren(h('p',note+detail));
+  section.dataset.ledgerVerified=j.balanced?'true':'false';
+ }catch{
+  section.replaceChildren(h('p','Wallet reconciliation is temporarily unavailable.'));
+  section.dataset.ledgerVerified='unavailable';
+ }
+}
 async function init(){
  if(started)return;started=true;
  for(let i=0;i<32&&!client;i++){
@@ -102,7 +130,7 @@ async function init(){
  if(!client)return;
  client.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_OUT'||(actor&&session?.user?.id!==actor))wipe();
-  if(event==='SIGNED_IN'||event==='TOKEN_REFRESHED')setTimeout(()=>{void refreshProgress();void refreshHistory()},150);
+  if(event==='SIGNED_IN'||event==='TOKEN_REFRESHED')setTimeout(()=>{void refreshProgress();void refreshHistory();void refreshIntegrity()},150);
  });
  void refreshProgress();void refreshHistory();
  setInterval(()=>{if(!document.hidden)void refreshProgress()},45000);
