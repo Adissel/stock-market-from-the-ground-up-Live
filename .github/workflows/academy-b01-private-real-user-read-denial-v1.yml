@@ -1,0 +1,27 @@
+name: B01 Genuine QA Member Private Data Denial
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/academy-b01-private-real-user-read-denial-v1.yml'
+      - 'tests/live-b01-private-rest-isolation-v1.mjs'
+permissions: {contents: read}
+concurrency:
+  group: b01-real-qa-private-read-denial-v1
+  cancel-in-progress: false
+jobs:
+  genuine-member-noncommercial-private-api-denial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node --check tests/live-b01-private-rest-isolation-v1.mjs
+      - name: Verify private answer keys and attempt records denied to real member and guest
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-b01-private-rest-isolation-v1.mjs
