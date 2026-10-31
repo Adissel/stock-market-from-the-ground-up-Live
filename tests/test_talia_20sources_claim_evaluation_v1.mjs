@@ -42,7 +42,7 @@ try{
   assert.equal(result.sources.length,2,'Both canonical and externally verified sources must be cited');
   assert.equal(result.sources[0].id,row.id);
   assert.equal(result.sources[1].id,row.sourceId);
-  assert.deepEqual(result.sources[1].referenceUrls,[row.sourceUrl]);
+  assert.deepEqual(result.sources[1].referenceUrls,[row.sourceUrl,...(row.supplementarySourceUrls||[])]);
   assert(result.answer.includes(row.worked));
   assert(result.answer.includes(row.counterexample));
   assert(result.answer.includes(row.transfer));
