@@ -19,6 +19,9 @@ assert(sql.includes('create table if not exists public.book_key_member_attempts_
 assert(sql.includes('alter table public.book_key_member_attempts_v1 enable row level security'));
 assert(sql.includes('actor uuid := auth.uid()'));
 assert(sql.includes('on conflict(user_id)'),'Concurrent submissions must serialize per real authenticated user');
+assert(sql.includes("encode(extensions.digest(normalized,'sha256'),'hex')"),
+ 'Hash function must be schema qualified because SECURITY DEFINER uses an empty search_path');
+
 assert(sql.includes('attempts < 5'),'Per-member five-attempt window must be present');
 assert(sql.includes("interval '60 minutes'"));
 assert(sql.includes('return jsonb_build_object(\'status\',\'rate_limited\''),'Throttled client response missing');
