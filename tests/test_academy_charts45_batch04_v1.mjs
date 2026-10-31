@@ -1,6 +1,30 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
+import {chartCaseBySourcePhase} from '../functions/_lib/academy-charts45-batch04-v1.js';
 const p=academyPrograms.find(x=>x.code==='charts45');
-assert.equal(p.curriculum.length,45);
-assert(p.curriculum.every(d=>d.lesson?.status==='ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING'));
-console.log('PASS 45 original course-day draft cases; acceptance pending');
+assert(p&&p.curriculum.length===45);
+assert.equal(Object.keys(chartCaseBySourcePhase).length,15);
+const examples=new Set(),transfer=new Set(),parents=new Set();
+for(const [i,d] of p.curriculum.entries()){
+ assert.equal(d.day,i+1);assert.equal(d.programCode,'charts45');
+ const l=d.lesson;assert(l,'Missing lesson '+d.day);parents.add(d.sourceDay);
+ assert.equal(l,chartCaseBySourcePhase[d.sourceDay][Math.floor(i/15)]);
+ assert(l.explanation.length>120&&l.workedExample.length>100);
+ assert(/FICTIONAL/.test(l.workedExample));
+ assert(l.sourceProcedure.length>=3&&l.reviewGuide.length>90);
+ assert(l.investigation.startsWith('FRESH FICTIONAL TRANSFER'));
+ assert(!examples.has(l.workedExample),'Repeated worked case at day '+d.day);examples.add(l.workedExample);
+ assert(!transfer.has(l.transfer),'Repeated transfer at day '+d.day);transfer.add(l.transfer);
+ assert.equal(l.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
+ assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
+}
+assert.equal(parents.size,15);
+execFileSync(process.execPath,['scripts/bootcamp-247-editorial-preflight-v1.mjs'],{stdio:'inherit'});
+const m=JSON.parse(readFileSync('artifacts/bootcamp-247-batch-manifest.json','utf8'));
+assert.equal(m.authoredTotal,97);
+assert.equal(m.parentDaysNewlyAuthored,75);
+assert.equal(m.parentDaysStillNeedingLesson,150);
+assert.equal(m.approvedByThisScript,0);
+console.log('PASS Charts45 — 45 distinct fictional subject/phase lessons; no independent grading; 150 parent days still require original authoring.');
