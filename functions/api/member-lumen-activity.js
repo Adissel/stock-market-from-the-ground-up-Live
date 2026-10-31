@@ -18,13 +18,14 @@ export async function onRequest({request,env}){
  try{
   const {userId,config}=await memberIdentity(env,request);
   const uid=encodeURIComponent(userId);
-  const [profile,flags,buckets,spends,adjustments,sentGifts,chart,adfree,tools]=await Promise.all([
+  const [profile,flags,buckets,spends,adjustments,sentGifts,receivedReversals,chart,adfree,tools]=await Promise.all([
    rows(config,'profiles?select=account_kind,deleted_at&id=eq.'+uid+'&limit=1'),
    rows(config,'admin_user_flags?select=status&user_id=eq.'+uid+'&limit=20'),
    rows(config,'groundup_question_pass_buckets?select=id,source,origin_key,initial_credits,remaining_credits,issued_at&user_id=eq.'+uid+'&order=issued_at.desc&limit=60'),
    rows(config,'groundup_question_pass_spends?select=id,action,lab_id,credits_spent,spent_at&user_id=eq.'+uid+'&order=spent_at.desc&limit=60'),
    rows(config,'groundup_question_pass_adjustments?select=id,operation,delta,reason,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
-   rows(config,'gu_lumen_peer_gift_transfers_v1?select=id,amount,status,completed_at&sender_id=eq.'+uid+'&status=eq.completed&order=completed_at.desc&limit=60'),
+   rows(config,'gu_lumen_peer_gift_transfers_v1?select=id,amount,status,completed_at,reversed_at&sender_id=eq.'+uid+'&status=in.(completed,reversed)&order=completed_at.desc&limit=60'),
+   rows(config,'gu_lumen_peer_gift_transfers_v1?select=id,amount,reversed_at&recipient_id=eq.'+uid+'&status=eq.reversed&order=reversed_at.desc&limit=60'),
    rows(config,'gu_sparks_chart_redemptions_v1?select=id,sku,sparks_spent,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
    rows(config,'gu_sparks_adfree_redemptions_v1?select=id,sku,sparks_spent,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60'),
    rows(config,'gu_lumen_tool_redemptions_v1?select=id,offer_code,cost_lumens,created_at&user_id=eq.'+uid+'&order=created_at.desc&limit=60')
@@ -56,7 +57,15 @@ export async function onRequest({request,env}){
   for(const g of sentGifts){
    if(!safeNumber(g.amount)||g.amount<10||g.amount>200)throw Error('Invalid gift data');
    events.push({id:'gift:'+g.id,kind:'gift',lumens:-g.amount,
-    description:'Member-to-member Lumens sent',occurredAt:g.completed_at});
+    description:'Member-to-member Lumens sent',occurredAt:g.completed_at||g.reversed_at});
+   if(g.status==='reversed')
+    events.push({id:'gift-reversal:'+g.id,kind:'refund',lumens:g.amount,
+     description:'Member gift reversal · earned Lumens restored',occurredAt:g.reversed_at});
+  }
+  for(const g of receivedReversals){
+   if(!safeNumber(g.amount)||g.amount<10||g.amount>200)throw Error('Invalid reversed gift');
+   events.push({id:'gift-received-reversal:'+g.id,kind:'reversal',lumens:-g.amount,
+    description:'Received Lumen gift reversed · previously issued credit voided',occurredAt:g.reversed_at});
   }
   for(const item of chart){
    if(!safeNumber(item.sparks_spent)||item.sparks_spent<1)throw Error('Invalid chart Lumen debit');
