@@ -40,6 +40,7 @@
 
 
   let legacySnapshot={text:'',bars:[]};
+  let freeMemberLaunchpad=null;
   function captureLegacyProgress(root){
     const snap={text:String(root?.innerText||''),bars:[]};
     if(!root)return snap;
@@ -123,6 +124,7 @@
       return card('Strongest',strong[0])+card('Needs Attention',attention[0])+(rec?`<article class="recommended"><span>Recommended Next</span><strong>${esc(rec.name||rec.label||'Practice')}</strong><small>${esc(rec.reason||'Build evidence for this skill.')}</small></article>`:`<article class="recommended"><span>Recommended Next</span><strong>Start a graded Lab</strong><small>Your first scored evidence will build this snapshot.</small></article>`);
     })()}</div></section>
     <section class="v1324-overview-block"><div class="v1324-block-head"><div><div class="eyebrow">Learning Progress</div><h2>Progress by Book</h2></div><button type="button" class="v1321-link-button" data-open-books>View My Books</button></div><div class="v1324-progress-grid">${progressCards}</div></section><section class="v1324-overview-split"><div><div class="v1324-block-head"><div><div class="eyebrow">Continue</div><h2>Quick Access</h2></div></div><div class="v1321-quick-grid"><a href="labs.html"><strong>Historical Labs</strong><span>Continue structured practice</span></a><a href="simulator.html"><strong>Simulator</strong><span>Replay and simulated decisions</span></a><a href="journal.html"><strong>Journal</strong><span>Review trades and process</span></a><a href="market-commons.html"><strong>Market Commons</strong><span>Forum and trade discussion</span></a></div></div><div><div class="v1324-block-head"><div><div class="eyebrow">Recent</div><h2>Recent Activity</h2></div><button type="button" class="v1321-link-button" data-open-activity>View all</button></div><div class="v1324-recent-list">${recent.length?recent.map(r=>`<a href="${esc(safeLocalHref(r.href))}" ${r.href?'':'aria-disabled="true"'}><strong>${esc(r.title||r.activity_type||'Activity')}</strong><small>${new Date(r.created_at||r.at).toLocaleString()}</small></a>`).join(''):'<div class="fe-state">Recent activity will appear as you use the platform.</div>'}</div></div></section></section>`;
+    if(freeMemberLaunchpad)host.appendChild(freeMemberLaunchpad);
     q('[data-open-skills]',host)?.addEventListener('click',()=>activate('skills'));
     q('[data-open-books]',host)?.addEventListener('click',()=>activate('books'));
     q('[data-open-activity]',host)?.addEventListener('click',()=>activate('activity'));
@@ -419,6 +421,9 @@
   async function init(){
     const main=q('main .wrap')||q('main');
     if(!main)return;
+    // Preserve the approved Free learning form while the legacy overview shell is rebuilt.
+    // All existing private services and member authorization remain authoritative.
+    freeMemberLaunchpad=q('#free-learning-launchpad',main);
     // This release owns the dashboard DOM outright. Legacy dashboard controllers are disabled.
     legacySnapshot=captureLegacyProgress(main);
     main.innerHTML='';
@@ -429,6 +434,9 @@
     // Attach the authoritative dashboard shell before any asynchronous renderer runs.
     // v0.13.2.2 cleared <main> but never appended this hub, which left the live Dashboard blank.
     main.appendChild(hub);
+    // Keep the original Free form attached through startup so its existing controller
+    // can bind after DOMContentLoaded. Overview then adopts the same node, not a copy.
+    if(freeMemberLaunchpad)hub.appendChild(freeMemberLaunchpad);
     document.body.dataset.build=BUILD;
     const defs=[['overview','Overview'],['access','Membership & Access'],['skills','Skill Development'],['books','My Books'],['settings','Settings'],['help','Help & Documentation'],['support','Support'],['billing','Purchases & Billing'],['activity','Activity']];
     const nav=document.createElement('nav');
