@@ -4,6 +4,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/talia-classroom-source-v1.test.mjs
 node tests/talia-membership-only-v1.test.mjs
+node tests/talia-foundation-batch13-gates-v1.test.mjs
 node tests/talia-upload5-reconciliation-v1.test.mjs
 node tests/talia-upload5-and-claims-v1.test.mjs
 node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
@@ -60,7 +61,6 @@ node tests/talia-indicators61-73-review-v1.test.mjs
 node tests/talia-foundation-batches08-09-gates-v1.test.mjs
 node tests/talia-foundation-batches10-11-gates-v1.test.mjs
 node tests/talia-foundation-batch12-gates-v1.test.mjs
-node tests/talia-foundation-batch13-gates-v1.test.mjs
 node tests/talia-tier-research-contracts-v1.test.mjs
 node tests/talia-claim-triage-and-math-v1.test.mjs
 node tests/talia-rule605-options-primary-evidence-v1.test.mjs
