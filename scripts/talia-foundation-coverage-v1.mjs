@@ -8,6 +8,7 @@ import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
 import {FOUNDATION_WORKED_MATH_CODES} from '../functions/_lib/tutor-foundation-worked-math-v1.js';
 import {FOUNDATION_QUANT_TOPICS} from '../functions/_lib/talia-foundation-quant-v1.js';
 import {FOUNDATION_RISK_MATH_TOPICS} from '../functions/_lib/talia-foundation-risk-quant-v1.js';
+import {TALIA_RESEARCH_MATH_CODES} from '../functions/_lib/talia-research-math-v1.js';
 import {TALIA_STUDY_CALCULATED} from '../functions/_lib/talia-indicator-worked-v1.js';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const labs=read('data/competency-lab-paths-v01499.json');
@@ -35,7 +36,7 @@ assert.equal(FOUNDATION_QUANT_TOPICS.length,9);
 const topics=[...first,...second,...third,...fourth,...fifth];
 assert.equal(new Set(topics.map(g=>g.code)).size,100);
 assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,100);
-assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);
+assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);assert.equal(TALIA_RESEARCH_MATH_CODES.length,14);
 assert.equal(TALIA_STUDY_CALCULATED.length,8);
 const grades=new Set(core.map(x=>x.code));
 assert.equal(grades.size,30);
@@ -82,7 +83,7 @@ const metrics={
  extraGuidedModules:guidedMore.length,
  guidedModulesTotal:guided.length+guidedMore.length,
  coreWorkedMathTopics:FOUNDATION_WORKED_MATH_CODES.length,
- extraQuantTeachingTopics:FOUNDATION_QUANT_TOPICS.length,extraRiskMathTeachingTopics:FOUNDATION_RISK_MATH_TOPICS.length,sourceOnlyNumericalIndicatorExamples:TALIA_STUDY_CALCULATED.length,
+ extraQuantTeachingTopics:FOUNDATION_QUANT_TOPICS.length,extraRiskMathTeachingTopics:FOUNDATION_RISK_MATH_TOPICS.length,extraResearchMathTopics:TALIA_RESEARCH_MATH_CODES.length,sourceOnlyNumericalIndicatorExamples:TALIA_STUDY_CALCULATED.length,
  explanationDrafts:topics.length,explanationGoal:600,explanationDraftPercent:Number((topics.length/600*100).toFixed(2)),
  newlySignedOffExplanations:0,
  candidateLabMatches:crosswalk.reduce((n,x)=>n+x.candidateLabs.length,0),
