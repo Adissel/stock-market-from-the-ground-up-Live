@@ -1,3 +1,4 @@
+import {TALIA_MEMBER_PROVIDER,memberTutorByokCredentialsAllowed} from '../_lib/talia-member-byok-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'no-store'};const out=(x,s=200)=>new Response(JSON.stringify(x),{status:s,headers:H});const clean=v=>String(v??'').trim();
 function cfg(env){const url=clean(env.SUPABASE_URL).replace(/\/$/,'');const pub=clean(env.SUPABASE_PUBLISHABLE_KEY),secret=clean(env.SUPABASE_SECRET_KEY);if(!url||!pub||!secret)throw new Error('Supabase environment incomplete.');return{url,pub,secret}}
 async function jf(url,opt={}){const r=await fetch(url,opt),t=await r.text();let d={};try{d=t?JSON.parse(t):{}}catch{d={raw:t}}if(!r.ok)throw Object.assign(new Error(d.message||d.error||t||`HTTP ${r.status}`),{status:r.status});return d}
@@ -40,21 +41,48 @@ export async function onRequest({request,env}){const u=new URL(request.url),acti
   if((origin&&origin!==u.origin)||(site&&!['same-origin','none'].includes(site)))return out({error:'Cross-site credential mutation refused.'},403);
  }
  const usr=await caller(env,request);
- if(!await productionMember(env,usr.id))return out({ok:false,error:'Only eligible production members can manage live market-data connections.'},403);
- if(Number(request.headers.get('content-length')||0)>16000)return out({ok:false,error:'Request too large.'},413);if(action==='list'&&request.method==='GET'){const rows=await rest(env,`user_secure_credentials?select=service_code,display_label,masked_hint,status,last_tested_at,last_error,updated_at,metadata&user_id=eq.${encodeURIComponent(usr.id)}`);return out({ok:true,connections:rows||[]})}if(action==='save'&&request.method==='POST'){const b=await request.json(),service=clean(b.serviceCode).toUpperCase();if(!['TIINGO_BYO','ALPACA_BYO'].includes(service))return out({error:'Unsupported connection type.'},400);const values=b.values&&typeof b.values==='object'&&!Array.isArray(b.values)?b.values:{};const accountType=service==='ALPACA_BYO'?clean(b.accountType||'unspecified').toLowerCase():null;if(service==='ALPACA_BYO'&&!['paper','live','unspecified'].includes(accountType))return out({error:'Choose a supported Alpaca account type.'},400);
+ if(!await productionMember(env,usr.id))return out({ok:false,error:'Only eligible production members can manage private provider connections.'},403);
+ if(Number(request.headers.get('content-length')||0)>16000)return out({ok:false,error:'Request too large.'},413);if(action==='list'&&request.method==='GET'){const rows=await rest(env,`user_secure_credentials?select=service_code,display_label,masked_hint,status,last_tested_at,last_error,updated_at,metadata&user_id=eq.${encodeURIComponent(usr.id)}`);return out({ok:true,connections:rows||[],tutorByokAvailable:memberTutorByokCredentialsAllowed(env)})}if(action==='save'&&request.method==='POST'){const b=await request.json(),service=clean(b.serviceCode).toUpperCase();if(!['TIINGO_BYO','ALPACA_BYO',TALIA_MEMBER_PROVIDER].includes(service))return out({error:'Unsupported connection type.'},400);if(service===TALIA_MEMBER_PROVIDER&&!memberTutorByokCredentialsAllowed(env))return out({error:'Tutor AI personal credentials are not approved for connection yet.'},403);const values=b.values&&typeof b.values==='object'&&!Array.isArray(b.values)?b.values:{};const accountType=service==='ALPACA_BYO'?clean(b.accountType||'unspecified').toLowerCase():null;if(service==='ALPACA_BYO'&&!['paper','live','unspecified'].includes(accountType))return out({error:'Choose a supported Alpaca account type.'},400);
  if(Object.keys(values).length>5||Object.keys(values).some(k=>!/^[A-Za-z0-9_]{1,35}$/.test(k))||Object.values(values).some(v=>typeof v!=='string'||v.length>4096))return out({ok:false,error:'Invalid credential fields.'},400);
  if(!Object.values(values).some(v=>clean(v)))return out({error:'Credential value required.'},400);
  let verified=null;
  if(service==='TIINGO_BYO'){
   if(Object.keys(values).join(',')!=='token')return out({error:'Tiingo token required.'},400);
   await tiingoTest(clean(values.token));
+ }else if(service===TALIA_MEMBER_PROVIDER){
+  if(Object.keys(values).join(',')!=='apiKey'||!/^sk-[A-Za-z0-9_-]{16,240}$/.test(clean(values.apiKey)))
+   return out({error:'A valid personal Tutor API credential is required.'},400);
+  if(b.confirmProviderCharges!==true)return out({error:'Acknowledge personal provider billing before saving a Tutor key.'},400);
  }else{
   if(Object.keys(values).sort().join(',')!=='apiKey,apiSecret')return out({error:'Alpaca Key ID and Secret required.'},400);
   verified=await alpacaMarketDataTest(values);
  }
- const enc=await encrypt(env,JSON.stringify(values));const label=service==='TIINGO_BYO'?'Tiingo':'Alpaca Market Data',tested=verified?.verifiedAt||new Date().toISOString();await rest(env,'user_secure_credentials?on_conflict=user_id,service_code',{method:'POST',prefer:'resolution=merge-duplicates,return=minimal',body:{user_id:usr.id,service_code:service,display_label:label,credential_ciphertext:enc.cipher,credential_iv:enc.iv,masked_hint:mask(values),status:'connected',last_tested_at:tested,last_error:null,updated_at:new Date().toISOString(),metadata:{version:2,providerVerification:service==='ALPACA_BYO'?'alpaca_iex_historical_bar':'tiingo_auth',marketDataOnly:true,feed:verified?.feed||null,...(service==='ALPACA_BYO'?{accountType,accountTypeSource:accountType==='unspecified'?'unspecified':'member_selected'}:{})}}});if(service==='TIINGO_BYO'){const legacy=await encrypt(env,clean(values.token));await rest(env,'user_market_data_connections?on_conflict=user_id,provider_code',{method:'POST',prefer:'resolution=merge-duplicates,return=minimal',body:{user_id:usr.id,provider_code:'TIINGO_BYO',display_label:'Tiingo',credential_ciphertext:legacy.cipher,credential_iv:legacy.iv,status:'connected',last_tested_at:tested,last_error:null,updated_at:new Date().toISOString()}})}return out({ok:true,verified:true,serviceCode:service,feed:verified?.feed||null})}
+ const enc=await encrypt(env,JSON.stringify(values));const label=service==='TIINGO_BYO'?'Tiingo':service===TALIA_MEMBER_PROVIDER?'Talia optional member AI':'Alpaca Market Data',tested=verified?.verifiedAt||new Date().toISOString();await rest(env,'user_secure_credentials?on_conflict=user_id,service_code',{method:'POST',prefer:'resolution=merge-duplicates,return=minimal',body:{user_id:usr.id,service_code:service,display_label:label,credential_ciphertext:enc.cipher,credential_iv:enc.iv,masked_hint:mask(values),status:service===TALIA_MEMBER_PROVIDER?'saved_unverified':'connected',last_tested_at:service===TALIA_MEMBER_PROVIDER?null:tested,last_error:null,updated_at:new Date().toISOString(),metadata:service===TALIA_MEMBER_PROVIDER?{version:1,kind:'member_tutor_ai',providerVerification:'pending',providerTermsVersion:null,memberChargeAcknowledged:true}: {version:2,providerVerification:service==='ALPACA_BYO'?'alpaca_iex_historical_bar':'tiingo_auth',marketDataOnly:true,feed:verified?.feed||null,...(service==='ALPACA_BYO'?{accountType,accountTypeSource:accountType==='unspecified'?'unspecified':'member_selected'}:{})}}});if(service==='TIINGO_BYO'){const legacy=await encrypt(env,clean(values.token));await rest(env,'user_market_data_connections?on_conflict=user_id,provider_code',{method:'POST',prefer:'resolution=merge-duplicates,return=minimal',body:{user_id:usr.id,provider_code:'TIINGO_BYO',display_label:'Tiingo',credential_ciphertext:legacy.cipher,credential_iv:legacy.iv,status:'connected',last_tested_at:tested,last_error:null,updated_at:new Date().toISOString()}})}return out({ok:true,verified:service===TALIA_MEMBER_PROVIDER?false:true,savedPendingVerification:service===TALIA_MEMBER_PROVIDER,serviceCode:service,feed:verified?.feed||null})}
  if(action==='verify'&&request.method==='POST'){
   const body=await request.json(),service=clean(body?.serviceCode).toUpperCase();
+  if(service===TALIA_MEMBER_PROVIDER){
+   if(!memberTutorByokCredentialsAllowed(env)||env.TALIA_BYOK_ZERO_CHARGE_VERIFICATION_APPROVED!=='true'||
+      !/^v[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(String(env.TALIA_BYOK_PROVIDER_TERMS_VERSION||'')))
+    return out({error:'Tutor provider verification has not been approved.'},403);
+   const target='user_secure_credentials?user_id=eq.'+encodeURIComponent(usr.id)+'&service_code=eq.'+TALIA_MEMBER_PROVIDER;
+   const rows=await rest(env,target+'&select=credential_ciphertext,credential_iv,status,metadata&limit=1');
+   if(!rows?.[0])return out({error:'Connect a Tutor provider account first.'},404);
+   if(rows[0].status==='connected'&&rows[0].metadata?.providerTermsVersion===env.TALIA_BYOK_PROVIDER_TERMS_VERSION)
+    return out({ok:true,verified:true,serviceCode:TALIA_MEMBER_PROVIDER});
+   const values=JSON.parse(await decrypt(env,rows[0].credential_ciphertext,rows[0].credential_iv));
+   if(!/^sk-[A-Za-z0-9_-]{16,240}$/.test(String(values?.apiKey||'')))return out({error:'Saved Tutor provider credential is invalid.'},400);
+   const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),8000);let response;
+   try{response=await fetch('https://api.openai.com/v1/models',{method:'GET',
+    headers:{authorization:'Bearer '+values.apiKey,accept:'application/json'},signal:ctl.signal,cache:'no-store'});}
+   catch{return out({error:'Provider verification is temporarily unavailable. No credential was changed.'},503)}
+   finally{clearTimeout(timer)}
+   if(!response.ok)return out({error:'Tutor provider rejected this credential or verification is unavailable.'},403);
+   await rest(env,target,{method:'PATCH',prefer:'return=minimal',
+    body:{status:'connected',last_tested_at:new Date().toISOString(),last_error:null,
+     metadata:{version:1,kind:'member_tutor_ai',providerVerification:'verified',
+      providerTermsVersion:env.TALIA_BYOK_PROVIDER_TERMS_VERSION,memberChargeAcknowledged:true}}});
+   return out({ok:true,verified:true,serviceCode:TALIA_MEMBER_PROVIDER});
+  }
   if(service!=='ALPACA_BYO')return out({error:'Unsupported verification provider.'},400);
   const rows=await rest(env,`user_secure_credentials?select=credential_ciphertext,credential_iv,metadata&user_id=eq.${encodeURIComponent(usr.id)}&service_code=eq.ALPACA_BYO&limit=1`);
   if(!rows?.[0])return out({error:'Save an Alpaca connection first.'},404);
@@ -105,4 +133,4 @@ export async function onRequest({request,env}){const u=new URL(request.url),acti
   return out({ok:true,verified:true,paperVerified:true,accountStatus:account.status,
    serviceCode:'ALPACA_BYO',message:'Saved Alpaca keys verified against the actual Paper Trading account. No orders were placed.'});
  }
- if(action==='delete'&&request.method==='POST'){const b=await request.json(),service=clean(b.serviceCode).toUpperCase();if(!['TIINGO_BYO','ALPACA_BYO'].includes(service))return out({error:'Unsupported connection type.'},400);await rest(env,`user_secure_credentials?user_id=eq.${encodeURIComponent(usr.id)}&service_code=eq.${encodeURIComponent(service)}`,{method:'DELETE',prefer:'return=minimal'});if(service==='TIINGO_BYO')await rest(env,`user_market_data_connections?user_id=eq.${encodeURIComponent(usr.id)}&provider_code=eq.TIINGO_BYO`,{method:'DELETE',prefer:'return=minimal'});return out({ok:true})}return out({error:'Unknown action.'},404)}catch(e){return out({error:e.message||'Credential operation failed.'},e.status||500)}}
+ if(action==='delete'&&request.method==='POST'){const b=await request.json(),service=clean(b.serviceCode).toUpperCase();if(!['TIINGO_BYO','ALPACA_BYO',TALIA_MEMBER_PROVIDER].includes(service))return out({error:'Unsupported connection type.'},400);await rest(env,`user_secure_credentials?user_id=eq.${encodeURIComponent(usr.id)}&service_code=eq.${encodeURIComponent(service)}`,{method:'DELETE',prefer:'return=minimal'});if(service==='TIINGO_BYO')await rest(env,`user_market_data_connections?user_id=eq.${encodeURIComponent(usr.id)}&provider_code=eq.TIINGO_BYO`,{method:'DELETE',prefer:'return=minimal'});return out({ok:true})}return out({error:'Unknown action.'},404)}catch(e){return out({error:e.message||'Credential operation failed.'},e.status||500)}}
