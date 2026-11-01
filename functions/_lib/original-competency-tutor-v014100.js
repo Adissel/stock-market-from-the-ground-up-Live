@@ -227,14 +227,14 @@ const FOUNDATION_TOPIC_SOURCE=url=>{
  try{
   const parsed=new URL(url);
   return parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.port&&
-   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org'].includes(parsed.hostname);
+   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org','pages.stern.nyu.edu','www.optionseducation.org','optionseducation.org','www.bls.gov','bls.gov','fred.stlouisfed.org'].includes(parsed.hostname);
  }catch{return false}
 };
 async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
  if(cached&&cached.expires>Date.now())return cached.guides;
- const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json'];
+ const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json','talia-foundation-explanations-batch05-v1.json'];
  const batches=await Promise.all(files.map(async file=>{
   try{
    const response=await env.ASSETS.fetch(new Request(new URL('/data/'+file,request.url),{method:'GET'}));
@@ -272,7 +272,11 @@ async function loadFoundationTopicExplanations(env,request){
  const priorCodes=new Set(previous.map(g=>g.code));
  const priorTitles=new Set(previous.map(g=>g.title.toLowerCase()));
  const fourth=batches[3].length===20&&batches[3].every(g=>!priorCodes.has(g.code)&&!priorTitles.has(g.title.toLowerCase()))?batches[3]:[];
- const guides=[...previous,...fourth];
+ const priorFourth=[...previous,...fourth];
+ const seenFifthIds=new Set(priorFourth.map(g=>g.code));
+ const seenFifthTitles=new Set(priorFourth.map(g=>g.title.toLowerCase()));
+ const fifth=batches[4].length===20&&batches[4].every(g=>!seenFifthIds.has(g.code)&&!seenFifthTitles.has(g.title.toLowerCase()))?batches[4]:[];
+ const guides=[...priorFourth,...fifth];
  foundationTopicCache.set(env.ASSETS,{guides,expires:Date.now()+300000});
  return guides;
 }
