@@ -7,8 +7,8 @@
 | Document ID | SMFGU-TALIA-RESEARCH-SOURCE-GATE-001 |
 | Filename | `docs/learning/SMFGU-TALIA-RESEARCH-SOURCE-GATE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.0 / 2026-11-01 |
-| Status | Owner-adopted source validation and publication framework; 100 supplemental Tutor explanation drafts not yet individually accepted |
+| Version / date | 1.1 / 2026-11-01 |
+| Status | Owner source directory (5) reconciled; 240/600 Foundation drafts and 73/73 upgraded guides inventoried; individual publication and authenticated acceptance still open |
 | Google Drive location | Not created; GitHub `main` is controlling |
 | Google Drive document ID | Unassigned |
 | Dependencies | `AGENTS.md`; `SMFGU-TALIA-FOUNDATION-600-COVERAGE-001`; five `data/talia-foundation-explanations-batch0*-v1.json` assets; `scripts/talia-indicator-editorial-review-v1.mjs` |
@@ -16,7 +16,7 @@
 
 ## Controlling source supplied by Owner
 
-`Master Research Source Directory(3).odt` (20-page user-provided document, 2026-11-01) is the source-selection framework. The Owner states that its listed references are approved. **Interpret that as authorization to consult those references, not independent confirmation of every individual formula, current legal status, license, market-data right or published teaching record.**
+`Master Research Source Directory(5).odt` (20-page current user upload, 2026-11-01) is the latest provided source-selection reference; prior `(3).odt` is superseded for intake reconciliation, not for overriding separately approved curriculum, membership or security controls. The Owner states that its listed references are approved. **Interpret that as authorization to consult those references, not independent confirmation of every individual formula, current legal status, license, market-data right or published teaching record.**
 
 The directory's nine priority levels are retained:
 
@@ -72,8 +72,62 @@ The directory's nine priority levels are retained:
 - **QA:** Exact-source build and matching production SHA, push-triggered GitHub Actions, signed-in member behavior, WCAG/screen-reader and account permissions require separate evidence.
 - **Costs:** No new database, subscription, live paid AI request, order-routing infrastructure, licensed exchange data, or cloud Python server is authorized by this source framework.
 
+## Version 1.1 — Current Owner Upload (5), Tutor-Only Intake Reconciliation
+
+**Source:** `Master Research Source Directory(5).odt`, 20 pages, current owner upload reviewed on 2026-11-01.
+
+**Actual link inventory from ODT package:** 98 embedded HTTP hyperlinks, 92 distinct URL paths after removing URL query tracking parameters, from 60 hostname labels. Every embedded URL contains `utm_source` tracking; strip tracking parameters when storing canonical source identity while retaining precise substantive path, source version and access date. These are *links discovered*, not 92 independently verified current claims or publication grants.
+
+**Existing source infrastructure — preserve:** `docs/research/master/master-source-registry-v1.json` already holds 73 explicitly labeled research-source candidates in nine levels; individual source candidates are not necessarily one-for-one with exact embedded pages. Do not infer that 25 links are missing, add duplicates automatically, or replace the accepted master ID structure. Reconcile by canonical source domain + exact source page + subject/claim + use rather than raw link count.
+
+### Tutor-specific research intake priorities
+
+| Tutor edition | Primary directory levels | Distinct deliverable and acceptance |
+|---|---|---|
+| Basic / Foundation | 1, 2, selective 3, 9 | First-principles original definitions; 600 Foundation explanation authoring target; 73 indicator teaching guides; independently computed fictional numerical examples; 30 canonical competencies; no-lookahead and source-grounded charts |
+| Advanced | 2, 3, 4, 5 (introductory prerequisites only), 6, 7 | Entitled adaptive prerequisites, misconceptions, market structure, statements and statistical interpretation; never expose detailed options payoffs to unprepared beginners merely because an unpublished source draft is tagged Foundation |
+| Professional | 2, 3, 7, 8, 9 | Server-bounded completed-candle replay explanations, accurate trade vs quote and observed vs simulated data labels, multi-indicator ECharts teaching and statistical transfer cases |
+| Enterprise | 4, 5, 6, 7, 8, 9 | Governed multi-source evidence synthesis and original quantitative research workflows; no implied rights to ingest a provider's protected data |
+
+### Critical mathematical instructional controls from latest uploaded directory
+
+1. Distinguish **exact individual trade-print VWAP** from explicitly approximate bar-based HLC3-volume VWAP, which depends on bar sampling and reset conventions.
+2. Declare EMA period, smoothing factor, **initial seed method**, prior completed-bar warmup and first valid index; do not claim SMA-seeded examples exactly match a vendor's first-close seed.
+3. Use the exact unit and data frequency for Sharpe, expectancy, risks, returns and position sizing. A fictional calculation does not validate trading profitability.
+4. For Tape/microstructure tutoring, keep **trades**, **displayed quotes**, **depth**, **NBBO** and **order execution quality** as distinct observable streams. SEC Rule 605 is not a universal reference for Time & Sales color conventions, short borrowing or inferred buyer intent.
+5. Reveal only completed bars at a real exercise decision boundary; no future candle, opening-time-only timestamp, historical correction or previously undisclosed value may be injected into Talia's evidence.
+6. Use original fictional ECharts/React/TypeScript charts with accessible tabular text. Python is appropriate for **offline independent numerical verification**, not a new Cloudflare Python server. Preserve existing JavaScript Workers, Supabase authorization and protected learning records.
+7. The **Level 8 member data BYO** suggestion applies to separately authorized personal *market-data* connections. It does **not** overturn the latest controlling owner decision in `SMFGU-TALIA-MEMBER-ACCESS-001`: Talia is **membership-only and needs no member-provided AI API key**.
+
+### Current Tutor-specific evidence, not full-website progress
+
+| Item | Verified existing source position | Acceptance boundary |
+|---|---|---|
+| Foundation supplemental explanation drafts | 240 / 600 = **40.0%** authored in source | 0/600 independently publication-accepted |
+| Indicator teaching guides upgraded | 73 / 73 = **100.0%** authoring/upgrading | 0/73 fully independently publication-accepted; not 73 coded Chart Studio overlays |
+| Claim-scope triage for 101–240 | 140/140 individually registered = **100% triage inventory** | Precise primary/secondary claim corroboration and final editorial release still open |
+| Python/JS first-15 indicator study crosschecks | 15 study implementations inventoried in Batch 016 | Fictional-fixture agreement does not imply all periods/conventions accepted; exact current pipeline needed |
+| Source registry | 73 research candidate entries | 98 uploaded reference links are not separately verified or formally cleared for every use |
+| Premium Tutor editions | Basic baseline present; Advanced/Professional/Enterprise source prototypes present | No premium edition independently released; no defensible per-edition engineering percentage yet |
+
+### Immediate Tutor execution order
+
+1. Reconcile every uploaded reference page to the **existing** master source candidates; prioritize 92 distinct paths by Tutor subject and real claim support rather than creating a second database.
+2. Verify exact current main-branch Tutor CI, membership-only privacy regressions and matching Cloudflare SHA; correct actual failures before claiming accepted deployment.
+3. Finish independent first-15 indicator math and first-valid-warmup checks; increase coverage in bounded 15-study batches while preserving all 73 authored guides.
+4. Complete item-level exact-primary-source claims, misconception/error corrections and scope decisions for 101–240, especially the 34 remaining directly unexamined primary claim URLs called out in Batch 016.
+5. Confirm source-grounded responses and ECharts/candle evidence with real authenticated Basic members; require denial for anonymous, suspended and showcase accounts; no external AI key requirement.
+6. Continue authoring the next 20 original Foundation explanations only after preserving existing review results and appropriate Beginner-vs-Advanced topic placement.
+7. Move Advanced, Professional and Enterprise source prototypes toward authenticated feature acceptance in that order; keep unreleased entitlements disabled.
+8. Record item-specific mathematical, editorial, provenance and accessibility acceptance rather than treating an entire directory or candidate registry as blanket publication approval.
+
+**Rights scope:** Original facts, financial principles, original paraphrases, standard formulas and fictional examples are not subject to a blanket commercial licensing requirement. Apply precise third-party permissions only to reproducing protected text/artwork, proprietary code, provider data or services where relevant. This is not a claim of attorney approval.
+
+**Revision control:** This v1.1 addendum updates only Talia Tutor source intake and validation scope. It must not change any Shared Learning/Shared Lab Engine, website commerce, member entitlements, market-data BYO architecture or paid inference flags.
+
 ## Revision history
 
 | Version | Date | Author / decision maker | Change | Status |
 |---|---|---|---|---|
 | 1.0 | 2026-11-01 | Acting project-owner/editorial architecture | Adopt uploaded nine-level research directory with independent fact, math and rights gates for Talia Tutor | Framework approved for development; individual publication acceptance pending |
+| 1.1 | 2026-11-01 | Tutor research-intake reconciliation | Reviewed current `(5).odt`: 98 hyperlinks / 92 distinct URL paths, mapped to existing 73-candidate registry; preserved membership-only policy and 240/600, 73/73 source baselines | Source intake approved; individual claims and real-member release remain open |
