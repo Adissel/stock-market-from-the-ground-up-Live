@@ -103,7 +103,9 @@ try{
  near(panelBy('MACD signal 9')[200],panelExpected.macd.signal[200],'MACD signal pane');
  near(panelBy('MACD histogram')[200],panelExpected.macd.histogram[200],'MACD histogram pane');
  near(panelBy('Wilder ATR 14')[200],panelExpected.atr[200],'ATR pane');
- await page.locator('[data-pane-height="macd"]').fill('230');
+ await page.locator('[data-pane-height="macd"]').evaluate(el=>{
+  el.value='230';el.dispatchEvent(new Event('input',{bubbles:true}));
+ });
  const resized=await page.evaluate(()=>{
   const g=document.querySelector('[data-cl-echarts-chart]'),
    o=window.echarts.getInstanceByDom(g).getOption();
