@@ -9,7 +9,7 @@ const app=document.getElementById('pt-app');
 if(!host||!app)return;
 const out=document.getElementById('pt-parity-body');
 const status=document.getElementById('pt-parity-status');
-let snapshot=null,loading=false,epoch=0,tab='labs',selected='';
+let snapshot=null,loading=false,epoch=0,tab='labs',selected='',visibleLimit=30,familyFilter='ALL';
 const h=(tag,text,className)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=String(text);if(className)x.className=className;return x};
 const appendLine=(root,label,value)=>{const p=h('p');p.append(h('strong',label+' '),document.createTextNode(String(value||'Not published in public metadata')));root.append(p)};
 const allowed=new Set(['labs','academy','guides','computed']);
@@ -122,10 +122,19 @@ function render(){
  out.append(totals);
  const controls=h('div',undefined,'pt-parity-controls');
  const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');
- for(const category of allowed){const b=h('button',tabTitles[category]);b.type='button';b.dataset.parityTab=category;b.setAttribute('aria-pressed',String(tab===category));b.addEventListener('click',()=>{tab=category;selected='';render()});nav.append(b)}
+ for(const category of allowed){const b=h('button',tabTitles[category]);b.type='button';b.dataset.parityTab=category;b.setAttribute('aria-pressed',String(tab===category));b.addEventListener('click',()=>{tab=category;selected='';visibleLimit=30;familyFilter='ALL';host.dataset.query='';render()});nav.append(b)}
  const label=h('label','Filter actual source titles and codes');
  const search=h('input');search.type='search';search.id='pt-parity-search';search.autocomplete='off';search.placeholder='Search within '+tabTitles[tab].toLowerCase();
- const prior=host.dataset.query||'';search.value=prior;label.append(search);controls.append(nav,label);out.append(controls);
+ const prior=host.dataset.query||'';search.value=prior;label.append(search);controls.append(nav,label);
+ if(tab==='guides'){
+  const familyLabel=h('label','Indicator family');const familySelect=h('select');
+  familySelect.id='pt-parity-family';familySelect.setAttribute('aria-label','Filter indicator family');
+  const families=['ALL',...new Set(snapshot.guides.map(item=>item.summary))].sort((a,b)=>a==='ALL'?-1:b==='ALL'?1:a.localeCompare(b));
+  for(const name of families){const option=h('option',name==='ALL'?'All indicator families':name);option.value=name;familySelect.append(option)}
+  familySelect.value=familyFilter;familySelect.addEventListener('change',()=>{familyFilter=familySelect.value;selected='';visibleLimit=30;update()});
+  familyLabel.append(familySelect);controls.append(familyLabel);
+ }
+ out.append(controls);
  const body=h('div',undefined,'pt-parity-layout');
  const list=h('div',undefined,'pt-parity-list');list.setAttribute('role','group');list.setAttribute('aria-label',tabTitles[tab]);
  const inspector=h('section',undefined,'pt-parity-inspector');inspector.setAttribute('aria-label','Verified public source teaching detail');
@@ -196,13 +205,33 @@ function render(){
  };
  const update=()=>{
   const term=search.value.trim().toLocaleLowerCase();host.dataset.query=search.value;
-  const rows=snapshot[tab].filter(x=>(x.key+' '+x.title+' '+x.summary).toLocaleLowerCase().includes(term));
-  list.replaceChildren(h('p',rows.length+' matching '+tabTitles[tab].toLowerCase()+'. Showing first '+Math.min(rows.length,30)+'.','pt-parity-muted'));
-  for(const item of rows.slice(0,30)){const b=h('button',item.title+' · '+item.key);b.type='button';b.dataset.key=item.key;b.setAttribute('aria-pressed',String(selected===item.key));b.addEventListener('click',()=>inspect(item));list.append(b)}
+  const rows=snapshot[tab].filter(x=>(familyFilter==='ALL'||tab!=='guides'||x.summary===familyFilter)&&
+    (x.key+' '+x.title+' '+x.summary).toLocaleLowerCase().includes(term));
+  const showing=Math.min(visibleLimit,rows.length);
+  const count=h('p',rows.length+' matching '+tabTitles[tab].toLowerCase()+'. Showing '+showing+' of '+rows.length+'.','pt-parity-muted');
+  count.setAttribute('role','status');count.setAttribute('aria-live','polite');
+  list.replaceChildren(count);
+  for(const item of rows.slice(0,visibleLimit)){
+   const button=h('button',item.title+' · '+item.key);button.type='button';button.dataset.key=item.key;
+   button.setAttribute('aria-pressed',String(selected===item.key));
+   button.addEventListener('click',()=>inspect(item));list.append(button);
+  }
+  if(showing<rows.length){
+   const nextCount=Math.min(30,rows.length-showing);
+   const more=h('button','Show next '+nextCount+' records','pt-parity-load-more');
+   more.type='button';more.setAttribute('aria-label','Show next '+nextCount+' of '+rows.length+' '+tabTitles[tab].toLowerCase());
+   more.addEventListener('click',()=>{
+    const firstNewIndex=showing;
+    visibleLimit+=30;update();
+    const nextButton=list.querySelectorAll('button[data-key]')[firstNewIndex];
+    if(nextButton)nextButton.focus();
+   });
+   list.append(more);
+  }
   const current=rows.find(x=>x.key===selected)||rows[0];
   if(current)inspect(current);else inspector.replaceChildren(h('p','No public source matches this filter.'));
  };
- search.addEventListener('input',update);
+ search.addEventListener('input',()=>{selected='';visibleLimit=30;update()});
  update();
 }
 async function load(){
