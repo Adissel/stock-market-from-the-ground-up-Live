@@ -1,7 +1,7 @@
 """Independent Python stdlib recomputation; not a web service and not licensed data ingestion."""
 import json,math,pathlib
 d=json.loads((pathlib.Path(__file__).resolve().parents[1]/'docs/research/master/formula-verification-fixtures-v1.json').read_text())
-assert len(d['cases'])==10
+assert len(d['cases'])==11
 def near(actual,target): assert math.isfinite(actual) and math.isclose(actual,target,rel_tol=0,abs_tol=1e-9),(actual,target)
 def seeded_ema(vals,p):
     out=[None]*(p-1)+[sum(vals[:p])/p]
@@ -40,6 +40,14 @@ def evaluate(c):
     elif c['id']=='BOLLINGER':
         v=x['closes'];mid=sum(v)/len(v);var=sum((z-mid)**2 for z in v)/len(v)
         near(mid,e['middle']);near(var,e['populationVariance']);near(mid+x['multiplier']*math.sqrt(var),e['upper']);near(mid-x['multiplier']*math.sqrt(var),e['lower'])
+    elif c['id']=='SHARPE':
+        values=x['returns'];m=sum(values)/len(values)
+        variance=sum((a-m)**2 for a in values)/(len(values)-1)
+        sd=math.sqrt(variance)
+        assert sd>0
+        near(len(values),e['n']);near(m,e['meanReturn']);near(m-x['riskFreePerPeriod'],e['meanExcessReturn'])
+        near(variance,e['sampleVariance']);near(sd,e['sampleStandardDeviation'])
+        near((m-x['riskFreePerPeriod'])/sd,e['unannualizedSharpe'])
     elif c['id']=='EXPECTANCY':
         near(x['winProbability']*x['gain']-(1-x['winProbability'])*x['loss']-x['cost'],e['netPerTrade'])
     elif c['id']=='POSITION_SIZING':
@@ -50,4 +58,4 @@ def evaluate(c):
         near(shares,e['wholeShares']);near(shares*risk,e['plannedStopRisk'])
     else:raise AssertionError('Unknown pilot method '+c['id'])
 for case in d['cases']:evaluate(case)
-print('PASS independent Python stdlib recomputation: 10/10 fictional methods (source QA; no editorial or licensing approval).')
+print('PASS independent Python stdlib recomputation: 11/11 fictional methods (source QA; no editorial or licensing approval).')

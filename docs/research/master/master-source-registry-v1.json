@@ -37,7 +37,7 @@
     {
       "tier": 7,
       "key": "quant",
-      "sourceCandidates": 9
+      "sourceCandidates": 11
     },
     {
       "tier": 8,
@@ -978,6 +978,32 @@
       "publicationRights": "NOT_APPROVED",
       "reviewLevel": "discovered_or_official_page_observed_not_claim_individually_verified",
       "rightsNotes": "No right to republish source text, images, charts, source code or market data is inferred from a public URL."
+    },
+    {
+      "id": "CFA-SHARPE-RESEARCH",
+      "name": "CFA Institute Financial Analysts Journal: The Statistics of Sharpe Ratios (Andrew W. Lo)",
+      "url": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2002/the-statistics-of-sharpe-ratios",
+      "category": "quant",
+      "sourceType": "research_paper",
+      "accessStatus": "official_page_observed_2026-11-01",
+      "researchUse": "fact_check_and_independent_original_teaching_only",
+      "dataIngestionRights": "NOT_APPROVED",
+      "publicationRights": "NOT_APPROVED",
+      "reviewLevel": "discovered_or_official_page_observed_not_claim_individually_verified",
+      "rightsNotes": "Research citation only. No reuse of copyrighted source text, screenshots, charts, market data, or commercial/AI ingestion rights is inferred."
+    },
+    {
+      "id": "CFI-SHARPE",
+      "name": "Corporate Finance Institute: Sharpe ratio formula and interpretation",
+      "url": "https://corporatefinanceinstitute.com/resources/career-map/sell-side/risk-management/sharpe-ratio-definition-formula/",
+      "category": "quant",
+      "sourceType": "education",
+      "accessStatus": "official_page_observed_2026-11-01",
+      "researchUse": "fact_check_and_independent_original_teaching_only",
+      "dataIngestionRights": "NOT_APPROVED",
+      "publicationRights": "NOT_APPROVED",
+      "reviewLevel": "discovered_or_official_page_observed_not_claim_individually_verified",
+      "rightsNotes": "Research citation only. No reuse of copyrighted source text, screenshots, charts, market data, or commercial/AI ingestion rights is inferred."
     }
   ],
   "subjectEvidencePilot": [
@@ -1129,6 +1155,22 @@
       "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING",
       "competencyCode": "POSITION_SIZING",
       "sourceMappingStatus": "RELATED_COMPETENCY_CONTEXT_ONLY_NOT_AN_OFFICIAL_INDICATOR"
+    },
+    {
+      "subject": "SHARPE",
+      "indicatorCode": null,
+      "competencyCode": "RISK_REWARD",
+      "sourceMappingStatus": "RELATED_RISK_ADJUSTED_RETURN_CONTEXT_NOT_OFFICIAL_INDICATOR",
+      "sourceIds": [
+        "CFA-SHARPE-RESEARCH",
+        "CFI-SHARPE"
+      ],
+      "formula": "(arithmetic mean periodic portfolio returns - matching periodic risk-free reference)/sample standard deviation of periodic portfolio returns",
+      "inputWindow": "at least two completed returns and a same-frequency risk-free comparison",
+      "units": "dimensionless, periodic decimal returns",
+      "seed": "sample variance divided by n-1; no automatic annualization; zero variability undefined",
+      "limits": "assumed periodic reference, sample uncertainty, fat tails, serial dependence, trading costs and survivorship selection bias",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
     }
   ]
 }

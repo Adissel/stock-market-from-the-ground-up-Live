@@ -35,7 +35,7 @@ for(const s of catalog.sources){
 const byId=new Map(catalog.sources.map(s=>[s.id,s]));
 const byCode=new Set(guides.map(g=>g.code));
 const competencyCodes=new Set(JSON.parse(rd('data/competency-study-guides-v01499.json')).guides.map(g=>g.code));
-assert.equal(catalog.subjectEvidencePilot.length,10);
+assert.equal(catalog.subjectEvidencePilot.length,11);
 for(const p of catalog.subjectEvidencePilot){
  assert(p.indicatorCode?byCode.has(p.indicatorCode):competencyCodes.has(p.competencyCode),'Pilot must use an existing canonical indicator guide or clearly labeled related competency');
  assert(p.sourceIds.length>=2,'Independent source candidates required');
@@ -57,7 +57,7 @@ const report={
  categoryCounts:Object.fromEntries(catalog.tiers.map(t=>[t.key,t.sourceCandidates])),
  inventory:{canonicalLabs:419,academyPrograms:10,academyDays:274,tutorIndicatorGuides:73},
  pilotSubjectRecords:catalog.subjectEvidencePilot.length,
- pilotIndependentRecomputationCases:10,
+ pilotIndependentRecomputationCases:11,
  pilotSourceFixturesPassOnlyIfBothLanguages:true,
  pilotEditoriallyAccepted:0,
  sourceRightsApprovedForIngestion:0,

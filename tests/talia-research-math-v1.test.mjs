@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {
  grossMargin,liquidityRatios,simplifiedEnterpriseValue,basicWacc,presentValue,
- hypotheticalExpenseDrag,indexPercentChange,samplePearson,sampleSem,matchedSharpe,
+ hypotheticalExpenseDrag,indexPercentChange,samplePearson,sampleSem,matchedSharpe,sampleSharpeFromReturns,
  callDebitSpread,longStraddle,researchMathTeaching,TALIA_RESEARCH_MATH_CODES
 } from '../functions/_lib/talia-research-math-v1.js';
 import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v014100.js';
@@ -37,6 +37,13 @@ test('Sample dispersion, correlation and Sharpe-like ratio reject degenerate sta
  assert.equal(sampleSem([1]),null);
  near(matchedSharpe(.01,.002,.02),.4);
  near(matchedSharpe(.008,.003,.025),.2);
+ const sample=sampleSharpeFromReturns([.01,.03,.02,.04],.005);
+ near(sample.mean,.025);near(sample.ratio,1.5491933384829668);
+ assert.equal(sample.annualized,false);
+ assert.equal(sampleSharpeFromReturns([.01,.01,.01],0),null);
+ assert.equal(sampleSharpeFromReturns([.01],0),null);
+ assert.match(researchMathTeaching('TALIA_TOPIC_SHARPE_SAMPLING_UNITS'),/Sample standard deviation/);
+ assert.match(researchMathTeaching('TALIA_TOPIC_SHARPE_SAMPLING_UNITS'),/Unannualized Sharpe/);
  assert.equal(matchedSharpe(.01,.002,0),null);
 });
 test('Options expiration arithmetic honors net debit, width, standard multiplier and invalid contracts',()=>{

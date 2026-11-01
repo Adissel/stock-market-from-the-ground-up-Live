@@ -55,6 +55,20 @@ export function sampleSem(values){
  const sampleSd=Math.sqrt(variance),standardError=Math.sqrt(variance/values.length);
  return valid(m,variance,sampleSd,standardError)?{mean:m,sampleSd,standardError}:null;
 }
+/** Fictional historical sample Sharpe: matching periodic units, sample n-1 dispersion.
+ * No annualization, external feed, private assessment, or investment recommendation.
+ */
+export function sampleSharpeFromReturns(returns,reference){
+ if(!Array.isArray(returns)||returns.length<2||returns.length>10000||
+  returns.some(v=>!finite(v))||!finite(reference))return null;
+ const n=returns.length,mean=returns.reduce((a,b)=>a+b,0)/n;
+ const sampleVariance=returns.reduce((a,b)=>a+(b-mean)**2,0)/(n-1);
+ const sampleSD=Math.sqrt(sampleVariance);
+ if(!finite(mean)||!finite(sampleVariance)||!finite(sampleSD)||sampleSD<=0)return null;
+ const meanExcess=mean-reference,ratio=matchedSharpe(mean,reference,sampleSD);
+ return ratio===null||!finite(meanExcess)||!finite(ratio)?null:
+  {n,mean,reference,meanExcess,sampleVariance,sampleSD,ratio,annualized:false,sdConvention:'sample_n_minus_1'};
+}
 export function matchedSharpe(mean,reference,sd){
  if(!valid(mean,reference,sd)||sd<=0)return null;
  const ratio=(mean-reference)/sd;
@@ -84,7 +98,7 @@ const cases=Object.freeze({
  TALIA_TOPIC_CPI_TWELVE_MONTH_COMPARE:[{earlier:280,later:294},{earlier:260,later:273}],
  TALIA_TOPIC_CORRELATION_NOT_CAUSATION:[{x:[1,2,3],y:[2,4,6]},{x:[1,2,3],y:[6,4,2]}],
  TALIA_TOPIC_STANDARD_ERROR_SAMPLE:[{values:[1,2,3]},{values:[2,4,6,8]}],
- TALIA_TOPIC_SHARPE_SAMPLING_UNITS:[{mean:.01,reference:.002,sd:.02},{mean:.008,reference:.003,sd:.025}],
+ TALIA_TOPIC_SHARPE_SAMPLING_UNITS:[{mean:.01,reference:.002,sd:.02,returns:[-.01,.01,.03]},{mean:.008,reference:.003,sd:.025,returns:[-.017,.008,.033]}],
  TALIA_TOPIC_BULL_CALL_VERTICAL_DEBIT:[{low:50,high:55,paid:4,received:2},{low:40,high:45,paid:3,received:1.5}],
  TALIA_TOPIC_STRADDLE_EXPIRY_BOUNDS:[{strike:50,call:3,put:2},{strike:100,call:5,put:3}],
  TALIA_TOPIC_OPTION_VERTICAL_DEBIT_BREAKEVEN:[{low:60,high:65,paid:4.25,received:2},{low:70,high:75,paid:3,received:1.2}]
@@ -129,8 +143,13 @@ export function researchMathTeaching(code,question=''){
   steps.push('Independent hypothetical sample ['+x.values+'] with n='+x.values.length+'.',
    'Sample mean='+fixed(v.mean)+'; sample SD='+fixed(v.sampleSd)+'; SEM=SD/sqrt(n)='+fixed(v.standardError)+'.');
  }else if('mean' in x){
-  steps.push('Mean monthly return='+fixed(100*x.mean,2)+'%; monthly comparison='+fixed(100*x.reference,2)+'%; same-frequency SD='+fixed(100*x.sd,2)+'%.',
-   'Unannualized ratio=(mean−reference)/SD='+fixed(matchedSharpe(x.mean,x.reference,x.sd))+'.');
+  const v=sampleSharpeFromReturns(x.returns,x.reference);
+  if(!v||Math.abs(v.mean-x.mean)>1e-10||Math.abs(v.sampleSD-x.sd)>1e-10)return null;
+  steps.push('Completed hypothetical monthly returns ['+x.returns.map(r=>fixed(100*r,2)+'%').join(', ')+']; n='+v.n+'.',
+   'Mean = sum(returns)/n = '+fixed(100*v.mean,2)+'% per month; matched risk-free comparison='+fixed(100*x.reference,2)+'% per month.',
+   'Sample standard deviation = sqrt(sum((return−mean)^2)/(n−1)) = '+fixed(100*v.sampleSD,2)+' percentage points.',
+   'Unannualized Sharpe = (mean−risk-free comparison)/sample SD = '+fixed(v.ratio)+' (dimensionless, not percentage return).',
+   'Do not multiply by sqrt(12) without validating dependence, distribution, and period assumptions.');
  }else if('low' in x){
   const v=callDebitSpread(x.low,x.high,x.paid,x.received);
   steps.push('Fictional long call '+x.low+' premium '+fixed(x.paid,2)+'; short call '+x.high+' premium '+fixed(x.received,2)+'; same expiry and 100-share standard deliverable.',
