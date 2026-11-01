@@ -23,9 +23,9 @@
       "limits": "Seed history and trading session must be declared; positive or negative power is not a validated trading signal.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Seed history and trading session must be declared; positive or negative power is not a validated trading signal.",
       "commonError": "Claiming a positive Bull Power automatically justifies a long entry.",
-      "selfCheck": "Identify the source inputs and units for Elder-Ray Bull and Bear Power, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: With fictional High $10.50, Low $9.60, EMA $10.00, calculate both signed powers.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With high $22.00, low $20.50 and an already-warmed EMA13 of $21, compute +$1 and −$0.50 separately. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: Both powers subtract the same prior-history-consistent EMA from high and low. The EMA13 is provided, not calculated from one candle. Divergences cannot be verified from a single bar, and positive bull power does not establish a certain future trade. Worked evidence: FICTIONAL: Given completed high $10.50, low $9.60 and correctly initialized EMA13(close) $10.00, Bull Power = $0.50 and Bear Power = −$0.40. These are signed differences in price units, not buyer or seller volume.",
+      "fictionalPrompt": "FICTIONAL: Given completed high $10.50, low $9.60 and correctly initialized EMA13(close) $10.00, Bull Power = $0.50 and Bear Power = −$0.40. These are signed differences in price units, not buyer or seller volume.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
@@ -35,7 +35,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_EMV",
@@ -51,9 +59,9 @@
       "limits": "Zero range or volume can make the value undefined; vendors use scaling and smoothing conventions.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Zero range or volume can make the value undefined; vendors use scaling and smoothing conventions.",
       "commonError": "Comparing two EMV values without matching volume scales and sessions.",
-      "selfCheck": "Identify the source inputs and units for Ease of Movement (EMV), describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Compare hypothetical midpoint movement and traded share count on two fictional bars.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With midpoint move −$0.50, H−L $1.00, volume 100,000 and identical scale 100,000, calculate BoxRatio 1 and EMV −0.50. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: Ease of Movement requires two valid completed bar midpoints, nonzero high-low range and positive volume with an explicit volume scaling factor. ChartSchool commonly uses its own 100-million divisor; numeric values change with scale, so do not compare settings without normalization. Optional smoothing needs completed history. Worked evidence: FICTIONAL: Previous completed midpoint $10, current midpoint $11, current H−L range $2, volume 200,000 shares and declared volume scale 100,000 give BoxRatio = (200,000/100,000)/2 = 1 and one-period EMV = (11−10)/1 = +1 price-distance-squared per scaled-volume unit.",
+      "fictionalPrompt": "FICTIONAL: Previous completed midpoint $10, current midpoint $11, current H−L range $2, volume 200,000 shares and declared volume scale 100,000 give BoxRatio = (200,000/100,000)/2 = 1 and one-period EMV = (11−10)/1 = +1 price-distance-squared per scaled-volume unit.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ease-of-movement-emv"
       ],
@@ -63,7 +71,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ease-of-movement-emv",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_CHOPPINESS",
@@ -79,9 +95,9 @@
       "limits": "Zero high-low span or insufficient history makes the ratio undefined.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Zero high-low span or insufficient history makes the ratio undefined.",
       "commonError": "Calling a low CHOP reading guaranteed trend continuation.",
-      "selfCheck": "Identify the source inputs and units for Choppiness Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Describe why repeated moves inside a fictional range can accumulate high true range.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: If n=4, sum TR=$8 and HH−LL=$4, calculate 50 again; explain why zero range or n=1 makes the formula invalid. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: CHOP is a normalized summary of accumulated range relative to the full period's high-low span, not a measure of price direction. The 4-bar illustration is pedagogical; platform defaults can be longer. Require n>1, sum TR>0 and HH−LL>0, and use gap-aware true ranges. Worked evidence: FICTIONAL: Over n=4 completed bars, sum of true ranges is $12 and highest-high minus lowest-low is $6. CHOP = 100×log10(12/6)/log10(4)=50.0 index points, with valid prior closes and complete bars.",
+      "fictionalPrompt": "FICTIONAL: Over n=4 completed bars, sum of true ranges is $12 and highest-high minus lowest-low is $6. CHOP = 100×log10(12/6)/log10(4)=50.0 index points, with valid prior closes and complete bars.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
@@ -91,7 +107,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_VORTEX",
@@ -107,9 +131,9 @@
       "limits": "Requires a preceding bar and nonzero true-range denominator; crosses may reverse.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Requires a preceding bar and nonzero true-range denominator; crosses may reverse.",
       "commonError": "Treating a crossover as certain reversal evidence.",
-      "selfCheck": "Identify the source inputs and units for Vortex Indicator, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Given two fictional bars, compute each positive and negative movement term.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: If summed VM+ is 12, summed VM− is 8 and summed TR is 10 for the same window, calculate VI+=1.2 and VI−=0.8. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: Vortex values require correctly aligned prior-bar highs and lows and the same complete n-bar range for movement and true range. Values above one can occur; do not clamp these ratios as percentages. A missing prior bar or zero summed TR prevents a defensible value. Worked evidence: FICTIONAL: One completed bar has high $12 and low $10; prior bar had high $11 and low $9. VM+ = |12−9|=$3; VM−=|10−11|=$1; with valid declared period sum TR=$4, one-period VI+=0.75 and VI−=0.25.",
+      "fictionalPrompt": "FICTIONAL: One completed bar has high $12 and low $10; prior bar had high $11 and low $9. VM+ = |12−9|=$3; VM−=|10−11|=$1; with valid declared period sum TR=$4, one-period VI+=0.75 and VI−=0.25.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/vortex-indicator"
       ],
@@ -119,7 +143,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/vortex-indicator",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_ULTIMATE_OSCILLATOR",
@@ -135,9 +167,9 @@
       "limits": "Needs prior closes, completed windows and positive TR sums; divergence is not a reliable forecast.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Needs prior closes, completed windows and positive TR sums; divergence is not a reliable forecast.",
       "commonError": "Calling three overlapping windows three independent observations.",
-      "selfCheck": "Identify the source inputs and units for Ultimate Oscillator, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Compare hypothetical 7-, 14- and 28-period pressure ratios before weighting.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With ratios 0.50,0.50,0.50 compute 50.0 and state why any zero TR sum makes that ratio unavailable. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: The default three windows are 7/14/28 with 4:2:1 weights. Buying pressure is close minus min(low, previous close), and true range is max(high, previous close) minus min(low, previous close). Only confirmed completed bars count. The oscillator alone does not prove a future reversal. Worked evidence: FICTIONAL: Declare already-computed completed-window ratios BP7/TR7=0.60, BP14/TR14=0.50 and BP28/TR28=0.40. Ultimate Oscillator = 100×(4×0.60+2×0.50+0.40)/7≈54.2857 points; no 28-bar history is being reconstructed.",
+      "fictionalPrompt": "FICTIONAL: Declare already-computed completed-window ratios BP7/TR7=0.60, BP14/TR14=0.50 and BP28/TR28=0.40. Ultimate Oscillator = 100×(4×0.60+2×0.50+0.40)/7≈54.2857 points; no 28-bar history is being reconstructed.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ultimate-oscillator"
       ],
@@ -147,7 +179,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ultimate-oscillator",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_TSI",
@@ -163,9 +203,9 @@
       "limits": "EMA warmup and seed convention affect the result; denominator can be zero.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. EMA warmup and seed convention affect the result; denominator can be zero.",
       "commonError": "Assuming doubled smoothing creates a precise next-price forecast.",
-      "selfCheck": "Identify the source inputs and units for True Strength Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Show why positive and negative fictional changes can cancel in the numerator.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Given signed double EMA −0.15 and absolute double EMA +0.30, calculate −50; identify the denominator-zero case. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: TSI applies the same chained smoothing rule to price change and absolute price change; the smoothings require adequate prior bars and declared seeding. The sign is momentum context, not observed buy-side orders. When the denominator is zero the ratio is undefined. Worked evidence: FICTIONAL: Given correctly warmed double-smoothed signed close change +$0.20 and double-smoothed absolute close change $0.50 for matching 25/13 EMA settings, TSI=100×0.20/0.50=+40 points. Neither EMA is inferred from this single snapshot.",
+      "fictionalPrompt": "FICTIONAL: Given correctly warmed double-smoothed signed close change +$0.20 and double-smoothed absolute close change $0.50 for matching 25/13 EMA settings, TSI=100×0.20/0.50=+40 points. Neither EMA is inferred from this single snapshot.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-strength-index"
       ],
@@ -175,7 +215,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-strength-index",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_ULCER_INDEX",
@@ -191,9 +239,9 @@
       "limits": "Changing window or adjusted close source changes the result; not a probability forecast.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Changing window or adjusted close source changes the result; not a probability forecast.",
       "commonError": "Interpreting Ulcer Index as a symmetric volatility measure or a guaranteed loss.",
-      "selfCheck": "Identify the source inputs and units for Ulcer Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Calculate the mean of the squared fictional drawdowns -10%, -5% and 0%.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: For drawdowns −6%, −3%, 0%, compute sqrt((36+9)/3)≈3.873 percentage points. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: Ulcer Index uses negative percentage drawdown relative to the qualifying running or rolling maximum and the root mean square across the declared window. It measures duration/depth of downside, not symmetric up/down realized volatility. Missing observations, differing maxima and n windows change the score. Worked evidence: FICTIONAL: Three fully defined prior-peak-relative drawdowns are −10%, −5% and 0%. UI=sqrt((100+25+0)/3)≈6.455 percentage points. Drawdowns come from a specified rolling completed-close reference, not from an arbitrary future peak.",
+      "fictionalPrompt": "FICTIONAL: Three fully defined prior-peak-relative drawdowns are −10%, −5% and 0%. UI=sqrt((100+25+0)/3)≈6.455 percentage points. Drawdowns come from a specified rolling completed-close reference, not from an arbitrary future peak.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index"
       ],
@@ -203,7 +251,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_MASS_INDEX",
@@ -219,9 +275,9 @@
       "limits": "Requires adequate completed history and positive denominator; an elevated index does not give reversal direction.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Requires adequate completed history and positive denominator; an elevated index does not give reversal direction.",
       "commonError": "Using a large Mass Index as a specific buy-or-sell trigger.",
-      "selfCheck": "Identify the source inputs and units for Mass Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Compare a stable fictional high-low spread with an expanding spread and list unknown outcomes.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: If three consecutive fully warmed EMA(range)/EMA(EMA(range)) ratios equal 1.0, 1.2, 0.9, what is their 3-term sum and why is it not the 25-period index? State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: Mass Index accumulates ratios of 9-period EMA of daily ranges to a second 9-period EMA of the same first EMA; the conventional summation uses 25 periods. Do not invent those EMAs or use the two-term demonstration as a published 25-period value. Range expansion by itself does not establish the direction of a breakout. Worked evidence: FICTIONAL: For a two-period toy sum, prewarmed single/double EMA high-low range ratios 1.10 and 1.20 yield a mass-index-style sum 2.30. This is not the ordinary 25-period market indicator and does not establish a reversal.",
+      "fictionalPrompt": "FICTIONAL: For a two-period toy sum, prewarmed single/double EMA high-low range ratios 1.10 and 1.20 yield a mass-index-style sum 2.30. This is not the ordinary 25-period market indicator and does not establish a reversal.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
@@ -231,7 +287,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_NVI",
@@ -247,10 +311,11 @@
       "limits": "Requires nonzero prior close; neither lower volume nor the index identifies institutional traders.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Requires nonzero prior close; neither lower volume nor the index identifies institutional traders.",
       "commonError": "Equating shrinking share volume with informed accumulation.",
-      "selfCheck": "Identify the source inputs and units for Negative Volume Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Use three fictional prices and volumes to label bars that update the NVI.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With prior NVI=1,000, close $20 then $18, and lower volume on the second bar, compute NVI=900; describe what happens on equal volume. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: The Fosback price-relative version updates only on lower-volume completed bars, using consistent adjusted closes and a strictly positive prior close. NVI seed values and long signal EMA settings are conventions; the old breadth-based original variant differs, so do not claim a unique universal historical value. Worked evidence: FICTIONAL: Starting a declared NVI at 1,000, previous completed close $10 and current close $11, while current volume 800 is below prior volume 1,000, produces NVI=1000×(11/10)=1100 index points. Without a volume decrease, NVI would remain 1000.",
+      "fictionalPrompt": "FICTIONAL: Starting a declared NVI at 1,000, previous completed close $10 and current close $11, while current volume 800 is below prior volume 1,000, produces NVI=1000×(11/10)=1100 index points. Without a volume decrease, NVI would remain 1000.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/negative-volume-index-nvi",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
       "archiveBasis": "Original teaching notes derived from public ChartSchool technical indicator source references, not copied text or private STT material.",
@@ -259,7 +324,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/negative-volume-index-nvi",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_PVI",
@@ -275,9 +348,9 @@
       "limits": "Requires nonzero prior close; a volume increase cannot prove buying or selling intent.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Requires nonzero prior close; a volume increase cannot prove buying or selling intent.",
       "commonError": "Calling PVI and NVI independent sources of price information.",
-      "selfCheck": "Identify the source inputs and units for Positive Volume Index, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Use three fictional price and volume intervals to locate the PVI update.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Given previous PVI 1000, a completed $10 to $9 close decline, and volume increasing from 300 to 400, compute PVI=900 index points. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: The price-relative Positive Volume Index updates on higher-volume completed bars only. Different initialization and signal conventions matter, and missing or zero prior price prevents a valid ratio. The index does not identify the identity or motive of participants. Worked evidence: FICTIONAL: Starting a declared PVI at 1,000, previous close $20 and current close $21 with increased volume 600 versus 500 shares gives PVI=1000×21/20=1050 index points. On equal or lower volume PVI would remain unchanged.",
+      "fictionalPrompt": "FICTIONAL: Starting a declared PVI at 1,000, previous close $20 and current close $21 with increased volume 600 versus 500 shares gives PVI=1000×21/20=1050 index points. On equal or lower volume PVI would remain unchanged.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
@@ -287,7 +360,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_DPO",
@@ -303,10 +384,11 @@
       "limits": "A centered displayed DPO can be hindsight-dependent and may not be available at the apparent past decision point.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. A centered displayed DPO can be hindsight-dependent and may not be available at the apparent past decision point.",
       "commonError": "Reading a centered hindsight DPO as a real-time predictive signal.",
-      "selfCheck": "Identify the source inputs and units for Detrended Price Oscillator, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Use a fictional twenty-bar window and mark which close and SMA belong to the calculation.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With DPO period 20, displaced close at t−11=$46 and fully known SMA20 at t=$48, calculate −$2 and state which bar can use that information. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: StockCharts defines DPO(n) using price floor(n/2)+1 periods ago minus the n-period SMA calculated at the current time, plotted at its historical displacement. The plotted past point uses later bars: do not expose it at its old timestamp in replay before the underlying SMA is complete. DPO is for cycle study, not a present-bar trigger. Worked evidence: FICTIONAL: At calculation time t, a completed 20-period SMA is $50 and the completed close from t−11 is $52. DPO20=$52−$50=+$2. The value belongs to a displaced historical plot position, not the price visible at time t as a live momentum reading.",
+      "fictionalPrompt": "FICTIONAL: At calculation time t, a completed 20-period SMA is $50 and the completed close from t−11 is $52. DPO20=$52−$50=+$2. The value belongs to a displaced historical plot position, not the price visible at time t as a live momentum reading.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/detrended-price-oscillator-dpo",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
       "archiveBasis": "Original teaching notes derived from public ChartSchool technical indicator source references, not copied text or private STT material.",
@@ -315,7 +397,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/detrended-price-oscillator-dpo",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     },
     {
       "code": "STUDY_FISHER_TRANSFORM",
@@ -331,9 +421,9 @@
       "limits": "Without normalization details and strict clipping the formula is undefined near the boundaries.",
       "invalidation": "Suspend interpretation when declared inputs, warmup, publication rights or denominators are not verified. Without normalization details and strict clipping the formula is undefined near the boundaries.",
       "commonError": "Calling large transformed readings proof of a future reversal.",
-      "selfCheck": "Identify the source inputs and units for Fisher Transform, describe the calculation, a common error and an uncertainty boundary.",
-      "reviewExplanation": "Describe the observable computation and constraints, then transfer to a distinct fictional case. This is ungraded source-only teaching, not independent assessment certification.",
-      "fictionalPrompt": "FICTIONAL: Evaluate hypothetical normalized inputs x=0, x=0.5 and x=-0.5, without using future bars.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Compute Fisher(0.25)≈0.255413 and name why x=1 would be undefined without an explicit clamp. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: The Fisher transform maps a strictly inside-(−1,+1) normalized input to an unbounded transformed value. A full platform study may smooth, recursively normalize high-low median prices and clamp near endpoints; copying the transform alone does not recreate a complete vendor indicator. It does not prove the next market turn. Worked evidence: FICTIONAL: For a declared, pre-normalized bounded x=0.5, Fisher(x)=0.5×ln((1+0.5)/(1−0.5))≈+0.549306. With x=−0.5, the result is −0.549306, and x=0 yields zero; the underlying price-normalization scheme is not inferred.",
+      "fictionalPrompt": "FICTIONAL: For a declared, pre-normalized bounded x=0.5, Fisher(x)=0.5×ln((1+0.5)/(1−0.5))≈+0.549306. With x=−0.5, the result is −0.549306, and x=0 yields zero; the underlying price-normalization scheme is not inferred.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
       ],
@@ -343,7 +433,15 @@
       "masterStudy": true,
       "supplemental": true,
       "researchGuide": true,
-      "officialCompetency": false
+      "officialCompetency": false,
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     }
   ]
 }
