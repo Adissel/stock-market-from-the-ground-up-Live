@@ -31,8 +31,9 @@ test('80 structurally unique Foundation topics have single usable source and ind
   assert.doesNotMatch(deep,/guaranteed profit|mastery awarded|buy now/i,g.code);
  }
 });
-test('eight source-specific replacements retain runtime single-reference invariant',()=>{
+test('eleven source-specific replacements retain runtime single-reference invariant',()=>{
  const updated=[
+  'TALIA_TOPIC_CORRECTED_TRADE_REPORT','TALIA_TOPIC_HIDDEN_LIQUIDITY_INVISIBLE','TALIA_TOPIC_DEPTH_SNAPSHOT_VS_HISTORY',
   'TALIA_TOPIC_OFF_EXCHANGE_PRINT_LOCATION','TALIA_TOPIC_OPENING_AUCTION_PRICE',
   'TALIA_TOPIC_INDICATIVE_AUCTION_NOT_EXECUTED','TALIA_TOPIC_HALT_QUOTE_TRUST',
   'TALIA_TOPIC_LULD_BAND_NOT_STOP','TALIA_TOPIC_SSR_NOT_BLANKET_SHORT_BAN',
@@ -46,7 +47,7 @@ test('eight source-specific replacements retain runtime single-reference invaria
   assert.ok(g.editorSourceReview.previousBroadReference||code==='TALIA_TOPIC_SHORT_LOCATE_NOT_FILL',code);
  }
  const rule605=topics.filter(g=>g.sourceUrls[0].includes('rule-605-regulation-nms'));
- assert.equal(rule605.length,17,'Issue register must track the still-reused SEC FAQ source');
+ assert.equal(rule605.length,14,'Issue register must track the still-reused SEC FAQ source');
 });
 test('author/editor improves six specific weak prompts without inventing an independent reviewer',()=>{
  const repaired=[
