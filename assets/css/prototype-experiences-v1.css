@@ -396,3 +396,17 @@
 .cx-workgrid-replay .cx-market-terminal .cx-terminal-bar{background:linear-gradient(90deg,#332622,#0a1925)}
 .cx-workgrid-replay .cx-market-terminal .cx-terminal-status{border-color:#b17f56;color:#f0c18d;background:#2a211c}
 @media(max-width:750px){.cx-pro-charthead{flex-direction:column;align-items:flex-start}}
+
+
+/* V3 tokens have higher specificity than the base .cx-app theme neutral, ensuring
+   every selected concept alters the actual ECharts candles / series palette. */
+.cx-app.cx-theme-quantum{--cx-bg:#060e17;--cx-elev:#0e1c2b;--cx-card:#122235;--cx-card2:#172b3d;--cx-grid:#294455;--cx-text:#eaf5fc;--cx-muted:#96adc0;--cx-accent:#58e3d5;--cx-accent2:#8ba9ff;--cx-good:#49dbae;--cx-bad:#ed7690;--cx-warm:#edc47c}
+.cx-app.cx-theme-neon{--cx-bg:#0c0a1f;--cx-elev:#17132f;--cx-card:#25204d;--cx-card2:#332b65;--cx-grid:#454071;--cx-text:#f4f1fe;--cx-muted:#bcb3e5;--cx-accent:#b59aff;--cx-accent2:#55dedc;--cx-good:#5de6d5;--cx-bad:#ff83ad;--cx-warm:#e2c786}
+.cx-app.cx-theme-green{--cx-bg:#030b06;--cx-elev:#07180c;--cx-card:#102415;--cx-card2:#17341e;--cx-grid:#235b36;--cx-text:#e7fff0;--cx-muted:#93bea0;--cx-accent:#4cf68d;--cx-accent2:#a0ffc4;--cx-good:#47efa0;--cx-bad:#f18c87;--cx-warm:#d3c77c}
+.cx-app.cx-theme-ember{--cx-bg:#100d13;--cx-elev:#1d1720;--cx-card:#29212b;--cx-card2:#342a36;--cx-grid:#59434a;--cx-text:#faf0ea;--cx-muted:#c3aaa8;--cx-accent:#efbd71;--cx-accent2:#e98575;--cx-good:#67d9ac;--cx-bad:#f28d86;--cx-warm:#e9a55d}
+.cx-app.cx-theme-aurora{--cx-bg:#061621;--cx-elev:#0b2533;--cx-card:#103244;--cx-card2:#164256;--cx-grid:#295569;--cx-text:#eafaff;--cx-muted:#a1c3d3;--cx-accent:#67d9fc;--cx-accent2:#6be8b8;--cx-good:#5ee6bb;--cx-bad:#ec7e91;--cx-warm:#e9bb73}
+.cx-app.cx-theme-onyx{--cx-bg:#080a0e;--cx-elev:#131820;--cx-card:#1b222d;--cx-card2:#283341;--cx-grid:#3c4857;--cx-text:#eef3fa;--cx-muted:#9eafbd;--cx-accent:#d5e0ee;--cx-accent2:#879cfa;--cx-good:#5fe2b0;--cx-bad:#f28794;--cx-warm:#dfbd80}
+.cx-app.cx-theme-neon .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#0e1026,#0b101c)!important}
+.cx-app.cx-theme-ember .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#1b171e,#0d1018)!important}
+.cx-app.cx-theme-aurora .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#091f2e,#071721)!important}
+.cx-app.cx-theme-onyx .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#151c24,#0a0f16)!important}
