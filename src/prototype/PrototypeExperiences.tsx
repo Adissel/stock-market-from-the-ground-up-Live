@@ -229,6 +229,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
 
  const prefs=React.useContext(IndicatorContext);
  const barLook=React.useContext(BarLookContext);
+ const appearance=React.useContext(ChartAppearanceContext)?.style||defaultChartAppearance;
  const onSelectRef=useRef(onSelect);onSelectRef.current=onSelect;
  const settings=prefs?.settings,enabled=prefs?.enabled;
  const currentEnabled=Object.fromEntries(Object.entries({...enabled,EMA_FAST:showEma&&!!enabled?.EMA_FAST,EMA_SLOW:showEma&&!!enabled?.EMA_SLOW,VWAP:showProxy&&!!enabled?.VWAP,VOLUME:showVolume&&!!enabled?.VOLUME}).map(([k,v])=>[k,Boolean(v)&&studyAllowed(prefs?.studio||'Standard',k)]));
@@ -246,10 +247,18 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    if(!alive||!ref.current||!echarts)return;
    const style=getComputedStyle(ref.current.closest('.cx-theme-green,.cx-theme-aurora,.cx-theme-quantum,.cx-theme-neon,.cx-theme-ember,.cx-theme-onyx')||ref.current);
    const cv=(k:string,fallback:string)=>style.getPropertyValue(k).trim()||fallback;
-   const accent=cv('--cx-accent','#72e0d1'),good=cv('--cx-good','#46d5ad'),bad=cv('--cx-bad','#f27d98'),muted=cv('--cx-muted','#99aebe'),grid=cv('--cx-grid','#294452');
+   const accent=cv('--cx-accent','#72e0d1'),good=appearance.bullish,bad=appearance.bearish,muted=cv('--cx-muted','#99aebe'),grid=appearance.grid;
     const luminous=(base:string,light:string)=>({type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:light},{offset:.32,color:base},{offset:1,color:base}]});
    const paintBar=(up:boolean)=>barVisual(barLook,up,good,bad);
-   const bars=dataFor(reveal),names=bars.map(b=>b.time);
+   const bars=dataFor(reveal),names=bars.map(b=>b.time).concat(Array.from({length:appearance.rightBuffer},(_,i)=>'PADDING '+(i+1)));
+   const isDoji=(bar:Bar)=>Math.abs(bar.c-bar.o)<0.005;
+   const paintCandle=(bar:Bar)=>isDoji(bar)?{color:appearance.doji,color0:appearance.doji,borderColor:appearance.doji,borderColor0:appearance.doji,borderWidth:2}
+     :{color:barVisual(barLook,true,good,bad).color,color0:barVisual(barLook,false,good,bad).color,borderColor:good,borderColor0:bad,borderWidth:2};
+   const indicatorKey=(label:string)=>label.includes('EMA '+settings?.ema200)?'EMA_200':label.includes('EMA '+settings?.emaFast)?'EMA_FAST':label.startsWith('EMA ')?'EMA_SLOW':
+      label.includes('volume-weighted')?'VWAP':label.startsWith('Bollinger')?'BB':label.startsWith('Wilder RSI')?'RSI':label.startsWith('Wilder ATR')?'ATR':
+      label.startsWith('MACD')?'MACD':label.startsWith('Volume SMA')?'VOLMA':label.startsWith('Volume')?'VOLUME':label.startsWith('SMA ') ?'SMA':label;
+   const ink=(label:string,fallback:string)=>appearance.colors[indicatorKey(label)]||fallback;
+   const stroke=(label:string):'solid'|'dotted'|'dashed'=>appearance.types[indicatorKey(label)]||'solid';
    const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
    let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
    if(kind==='price'){
@@ -278,22 +287,22 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     option.graphic=[{type:'text',right:100,top:45,silent:true,z:-2,style:{text:'CROWNLIGHT  ·  SIMULATION',fill:'rgba(126,167,182,.10)',font:'700 22px Inter,system-ui',textAlign:'right'}}];
     const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:18,label:{color:'#06131e',fontWeight:700,fontSize:9}}))];
     if(focusBar>=0&&focusBar<bars.length)markerData.push({name:'Talia inspected bar',coord:[focusBar,bars[focusBar].h],symbol:'pin',symbolSize:25,value:bars[focusBar].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});
-    option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>[b.o,b.c,b.l,b.h]),
+    option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>({value:[b.o,b.c,b.l,b.h],itemStyle:paintCandle(b)})),barCategoryGap:appearance.gap+'%',
       itemStyle:{color:paintBar(true).color,color0:paintBar(false).color,borderColor:paintBar(true).borderColor,borderColor0:paintBar(false).borderColor,borderWidth:barLook==='classic'?1:2,shadowBlur:barLook==='classic'?0:5,shadowColor:'#102f3c'},barMaxWidth:22,barMinWidth:4,
       markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c},...(focusBar>=0&&focusBar<bars.length?[{xAxis:names[focusBar],lineStyle:{color:'#f6cb7a',type:'dotted',width:2,opacity:.75},label:{show:false}}]:[])]},
       markPoint:{silent:true,data:markerData}}];
     for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:x.data,showSymbol:false,connectNulls:false,animation:false,
-       lineStyle:{color:x.color,width:x.width,type:x.label.includes('proxy')?'dashed':'solid'},itemStyle:{color:x.color},symbol:'none'});
+       lineStyle:{color:ink(x.label,x.color),width:x.width,type:stroke(x.label)},itemStyle:{color:ink(x.label,x.color)},symbol:'none'});
     for(const x of calculated.volume){
       const index=gridRows.findIndex(x=>x.id==='volume');if(index<0)continue;
       option.series.push({id:'volume-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
        data:x.kind==='bar'?x.data.map((v:number,i:number)=>({value:v,itemStyle:paintBar(bars[i].c>=bars[i].o)})):x.data,
-       showSymbol:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2},barMaxWidth:17,animation:false});
+       showSymbol:false,itemStyle:{color:x.color},lineStyle:{color:ink(x.label,x.color),width:2,type:stroke(x.label)},barMaxWidth:17,animation:false});
     }
     for(const x of calculated.pane){
      const index=gridRows.findIndex(g=>g.id===x.axis);if(index<0)continue;
      const series:any={id:'pane-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
-       data:x.kind==='bar'?x.data.map((v:number)=>({value:v,itemStyle:barVisual(barLook,v>=0,x.color,'#e9678d')})):x.data,showSymbol:false,animation:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2.5},connectNulls:false};
+       data:x.kind==='bar'?x.data.map((v:number)=>({value:v,itemStyle:barVisual(barLook,v>=0,x.color,'#e9678d')})):x.data,showSymbol:false,animation:false,itemStyle:{color:x.color},lineStyle:{color:ink(x.label,x.color),width:2.5,type:stroke(x.label)},connectNulls:false};
      if(x.axis==='rsi'&&x.label.startsWith('Wilder'))series.markLine={silent:true,symbol:'none',lineStyle:{type:'dashed',color:grid},data:[{yAxis:30},{yAxis:70}]};
      option.series.push(series);
     }
@@ -329,7 +338,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
   }catch(error){if(ref.current)ref.current.textContent='Chart unavailable: check the locally hosted ECharts and shared indicator math bundles.';console.error('Crownlight synthetic chart',error)}
   })();
   return()=>{alive=false;resize?.disconnect();inst.current?.dispose();inst.current=null};
- },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook]);
+ },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook,appearance]);
  return <div className="cx-interactive-chart">
  {kind==='price'&&<div className="cx-pan-controls" role="toolbar" aria-label="Chart navigation and panning">
     <span>DRAG CHART TO PAN · SCROLL WHEEL TO ZOOM · RANGE SLIDER TO NAVIGATE</span>
