@@ -13,9 +13,15 @@ const cases=Object.freeze({
  RISK_PER_SHARE:{a:['$0.20','10 illustrative shares','$2.00'],b:['$0.25','$25.00']},
  POSITION_SIZING:{a:['$0.20','100 shares','$20.00'],b:['$0.25','200 shares','$50.00']},
  VOLUME_ANALYSIS:{a:['1,500 shares/bar','1.00×'],b:['3,000 shares','2.00×']},
- RISK_REWARD:{a:['$0.20','$0.40','2.00:1'],b:['$0.30','1.50:1']}
+ RISK_REWARD:{a:['$0.20','$0.40','2.00:1'],b:['$0.30','1.50:1']},
+ SLIPPAGE_SPREAD:{a:['$0.04','$0.05','$5.00'],b:['$0.06','$0.02','$1.00']},
+ FLOAT_SUPPLY:{a:['6,000,000 shares','60.00%','40.00%'],b:['4,000,000 shares','80.00%','25.00%']},
+ MFE_MAE_REVIEW:{a:['$0.70','$70.00','$0.15','$15.00'],b:['$0.25','$12.50','$0.40','$20.00']},
+ HOD_PM_LEVELS:{a:['$10.50','$10.80','2.86%'],b:['$25.40','$25.10','-1.18%']},
+ LEVEL2_READING:{a:['$0.04','0.40%','2.00:1'],b:['$0.10','0.50%','0.25:1']},
+ MULTI_TIMEFRAME:{a:['45-minute','9 bars','3 bars'],b:['60-minute','20 bars','6 bars']}
 });
-test('Seven official competencies have independently computed original fictional worked cases',()=>{
+test('Thirteen official competencies have independently computed original fictional worked cases',()=>{
  assert.deepEqual([...FOUNDATION_WORKED_MATH_CODES].sort(),Object.keys(cases).sort());
  for(const [code,checks] of Object.entries(cases)){
   const a=foundationWorkedMath(code,'Explain the concept');
