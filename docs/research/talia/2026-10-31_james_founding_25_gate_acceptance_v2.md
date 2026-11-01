@@ -6,7 +6,7 @@
 | Document ID | SMFGU-F600-JAMES-QA-029 |
 | Filename | 2026-10-31_james_founding_25_gate_acceptance_v2.md |
 | File type | Markdown (.md) |
-| Version / date | 2.3 / October 31, 2026 |
+| Version / date | 2.4 / October 31, 2026 |
 | Status | CONDITIONAL, PARTIALLY ACCEPTED — NOT FULL RELEASE APPROVAL |
 | Owner | Owner-delegated product administration and QA |
 | GitHub location | `docs/research/talia/`, `main` |
@@ -22,7 +22,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 
 ## Current denominator and completion percentage
 
-**19 of 25 gates are verified complete = 76%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
+**20 of 25 gates are verified complete = 80%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
 
 ## Twenty-five acceptance gates
 
@@ -49,7 +49,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 | 19 | Prove 30-Day Advanced Studio from eligible paid cycle or authorized chart QA source | PENDING | 30-Day observed Advanced, but reason was independent pass; no paid cycle exists |
 | 20 | Prove 60-Day Professional Studio and premium-only features under correct entitlement | PENDING | 60-Day observed Advanced via independent pass; not Professional; do not mark passed |
 | 21 | Verify genuine second-member RLS and private workspace isolation | PASS | Real two-distinct-GoTrue-account source and production read-only API acceptance, [Actions 41237915385](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237915385): STANDARD/ADVANCED, forged selectors denied, no foreign workspace leak, private learning and Lumen scope, zero production writes. RLS policy codebase-wide remains separate Gate 22/security audit. |
-| 22 | Verify revoked and expired grant denial, staff-role boundaries and member negative cases | PENDING | Add authenticated negative checks and preserve audit evidence |
+| 22 | Verify revoked and expired grant denial, staff-role boundaries and member negative cases | PASS — scoped nonstaff/invalid-auth boundaries | [Real production Chromium rollback run 41237841739](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237841739), job 124645258325, **13/13 PASS**: canceled/expired 14/30/60 QA grants yield no paid Founder membership; paid Commons denied; James_Test not treated as staff; anonymous and invalid-bearer Chart access denied; signed out cleanly. Two genuine member private isolation separately passed G21. Full authentic Owner/Admin/Moderator role matrix and registration/Book Key remain distinct LIVE release security requirements. |
 | 23 | Verify genuine Founder-exclusive Commons/Design Council and signed Stripe TEST lifecycle | PENDING | Requires noncommercial approved entitlement simulation and signed TEST scenarios; no LIVE charges |
 | 24 | Pass entire sitewide main-commit CI and exact production Cloudflare release match | PASS — verified baseline | At `03750b3f0b95260032b03b1560410163793cad1a`, all 27/27 GitHub Actions workflows completed successfully and Cloudflare Pages production deployed the **identical** SHA successfully. This accepts the bounded CI/deployment snapshot only, not a final release freeze or any remaining Release Gate 24 conditions. Documentation changes after this SHA require fresh postcommit CI/deployment verification. |
 | 25 | Finish all required independent curriculum editorial and final release controls | PENDING | Four formal reviews remain PENDING, 419 Labs/Academy editorial population broader; single author cannot certify independent review |
@@ -77,7 +77,7 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 
 ## October 31 continuation: security, chart source, curriculum and CI
 
-**Progress is now 19 of 25 gates = 76%.** The previous 17/25 baseline increased by genuine two-account Gate 21 and exact-SHA CI/deployment Gate 24. Six gates remain (18, 19, 20, 22, 23 and 25); full LIVE Release Gates 20, 22–25 remain separate and open.
+**Progress is now 20 of 25 gates = 80%.** The previous 17/25 baseline increased by genuine two-account Gate 21, scoped real negative-auth/revocation Gate 22, and bounded exact-SHA CI/deployment Gate 24. Five Beta gates remain (18, 19, 20, 23 and 25). Broader LIVE Release Gates 20 and 22–25 remain separate and open.
 
 ### Source and audit changes
 - Chart source regression `tests/test_founder_chart_tier_paid_source_boundaries_v1.mjs`, connected to `.github/workflows/founding600-source-gate-v014172.yml`. Checks Founder 14/30/60 tiers, nonrevoked real paid cycles, refund reversal, bounded QA-only grants, James_Test restrictive ceiling and no paid Founder impersonation. It is a code/source guard, **not** a signed-in Professional paid-plan test.
@@ -111,6 +111,12 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 
 **Internal Owner/technical QA acceptance:** sign off only G21 and the bounded G24 exact-source deployment checkpoint based on reproducible primary system evidence. Do not sign off G18–G20, G22–G23, G25 or full LIVE Release Gates 20/22–25. No charges, account grant changes, assessment publication, source secrets, or database writes were made by this acceptance.
 
+## October 31 additional real-browser authorization closure — v2.4
+
+**G22 genuine signed-in negative authorization (PASS, scoped to the Beta program):** [GitHub Actions run 41237841739](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237841739), job 124645258325, executed updated `tests/test_james_founder_rollback_real_browser_v1.mjs` on source SHA `c97c6ccdb5b8d35e57c2a560d92c5accafae6f15` and completed **13/13 real Chromium PASS**. The log verifies the authentic James_Test account reauthentication, three previously granted 14/30/60 terms canceled/expired with no effective Founder membership, private paid Commons denied, refusal to inherit staff Chart privileges, anonymous and invalid-bearer Chart endpoint denial, independent existing Studio-pass attribution and signed-out clean session. Combined with [independent two-user GoTrue isolation run 41237915385](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237915385), this meets the narrower Beta Gate 22's revoked/expired, nonstaff and member-negative evidence requirement.
+
+**Scope held:** This check does *not* establish legitimate password recovery/registration/CAPTCHA, live positive Book Key purchase redemption, actual OWNER/ADMIN/MODERATOR/Founder-paid role matrix, regulatory review, a comprehensive authenticated privileged-RPC audit, or FULL LIVE Security Release Gate 22. The entire release remains held for G18/G19/G20/G23/G25 (Beta), LIVE Gates 20 and 22–25, and all unrelated commercial/independent editorial acceptance.
+
 ## Document history
 
 | Version | Date | Change |
@@ -120,5 +126,6 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 | 2.1 | October 31, 2026 | Real post-revocation production Chromium run 41236744222 passed 10/10 including paid Commons denial, restoring baseline and closing Gates 16–17; 17/25 (68%) |
 | 2.2 | October 31, 2026 | Logged expanded negative-auth tests, isolated two-member and TEST payment workflows, RLS audit, Chart paid-vs-QA source regression, CI corrections and four first-party technical editorial dispositions; no false gate promotion |
 | 2.3 | October 31, 2026 | Evidence-accepted real two-user isolation Gate 21 and verified 27/27 exact-main/Cloudflare deployment Gate 24; 19/25 (76%); retained financial, editorial, security and final LIVE holds |
+| 2.4 | October 31, 2026 | Added genuine 13/13 revoked/expired/staff-denial/browser negative evidence for narrower Beta Gate 22; 20/25 (80%); broad LIVE security held |
 
 **Footer — Controlled internal QA evidence:** This document is a product-owner acceptance register, not legal, tax or investment advice; it does not certify a commercial paying Founder or an independent editorial review.
