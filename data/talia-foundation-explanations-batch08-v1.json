@@ -245,7 +245,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Initial print ID 1 reports 200 shares and a correction replaces it with 150. Adjusted eligible volume from that ID is 150, not 350, if the feed semantics specify a replacement.",
       "transferQuestion": "FICTIONAL TRANSFER: A 300-share fictional print is canceled without replacement. Explain its contribution to corrected eligible volume.",
       "sourceUrls": [
-        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+        "https://www.finra.org/sites/default/files/AppSupportDoc/p455406.pdf"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -255,9 +255,10 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
-        "independentPublicationAccepted": false
+        "independentPublicationAccepted": false,
+        "previousBroadReference": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       }
     },
     {
@@ -357,7 +358,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: The ask displays 100 shares, but a later independently confirmed 180-share execution occurs at that price. The extra 80 cannot by itself identify an iceberg, hidden midpoint interest or a specific counterparty.",
       "transferQuestion": "FICTIONAL TRANSFER: Displayed 50 shares precede a 120-share print. List at least two explanations besides a hidden-order claim.",
       "sourceUrls": [
-        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+        "https://www.sec.gov/featured-topics/market-structure-analytics/market-activity-report-methodology"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -367,9 +368,10 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
-        "independentPublicationAccepted": false
+        "independentPublicationAccepted": false,
+        "previousBroadReference": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       }
     },
     {
@@ -385,7 +387,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A $10.00 bid size changes from 500 to 100 between two screenshots. The 400-share difference may include cancels, executions, order updates and source changes, not automatically 400 shares sold.",
       "transferQuestion": "FICTIONAL TRANSFER: A bid grows from 50 to 250 shares between snapshots. What missing event history prevents a firm attribution?",
       "sourceUrls": [
-        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+        "https://www.sec.gov/data-research/statistics-data-visualizations/order-book-reporting-methods-their-impact-some-market-activity-measures"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -395,9 +397,10 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
-        "independentPublicationAccepted": false
+        "independentPublicationAccepted": false,
+        "previousBroadReference": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       }
     },
     {
