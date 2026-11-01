@@ -744,3 +744,84 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 @media(max-width:560px){.cx-app .cx-curriculum-atlas>header{flex-direction:column}.cx-app .cx-atlas-dashboard,.cx-app .cx-atlas-columns{padding:10px}.cx-app .cx-atlas-stages{padding-inline:10px}.cx-app .cx-atlas-controls{padding:10px}.cx-app .cx-atlas-controls nav{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-atlas-stat strong{font-size:22px}}
 @media(forced-colors:active){.cx-app .cx-atlas-controls button[aria-pressed=true],.cx-app .cx-atlas-list button[aria-pressed=true]{outline:2px solid Highlight}}
 @media(prefers-reduced-motion:reduce){.cx-app .cx-curriculum-atlas *{transition:none!important;animation:none!important}}
+
+
+/* Eight source-mapped teaching layouts V22. The visual hierarchy changes per mode. */
+.cx-app .cx-eight-layouts{margin:20px clamp(14px,2.5vw,35px);color:#e9f8ff}
+.cx-app .cx-eight-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:18px 3px}
+.cx-app .cx-eight-head h2{font-size:clamp(22px,2.5vw,34px);color:#effaff;letter-spacing:-.04em;margin:7px 0}
+.cx-app .cx-eight-head p{font-size:12px;color:#bad2e0;max-width:760px;line-height:1.65;margin:3px 0}
+.cx-app .cx-eight-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:18px}
+.cx-app .cx-eight-picker>button{min-width:0;display:flex;flex-direction:column;text-align:left;gap:6px;padding:12px;background:linear-gradient(145deg,#133147,#091b2b);border:1px solid #46677c;border-radius:11px;color:#e5f5ff;cursor:pointer;transition:border-color .16s,transform .16s}
+.cx-app .cx-eight-picker>button:hover{border-color:#8aeedb;transform:translateY(-2px)}
+.cx-app .cx-eight-picker>button[aria-pressed=true]{border-color:#8af8dc;background:linear-gradient(145deg,#20516a,#102b40);box-shadow:0 0 0 1px #6fdfd242,0 12px 30px #0005}
+.cx-app .cx-eight-picker strong{font-size:12px;line-height:1.25;letter-spacing:.01em}
+.cx-app .cx-eight-picker small{font-size:10px;color:#b2cddc}
+.cx-app .cx-eight-id{font-size:9px;letter-spacing:.08em;color:#a8e9db;font-weight:750}
+.cx-app .cx-eight-mini{display:grid;height:65px;width:100%;gap:4px;padding:7px;border:1px solid #37596a;border-radius:6px;background:linear-gradient(125deg,#061521,#133347);grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));}
+.cx-app .cx-eight-mini i{display:block;border-radius:3px;background:linear-gradient(125deg,#57c5c3,#31688c);opacity:.95}
+.cx-app .cx-eight-mini i:first-child{grid-column:span 4;background:#406d81}
+.cx-app .cx-eight-mini-foundations i:nth-child(2){grid-column:span 3;grid-row:span 2}.cx-app .cx-eight-mini-foundations i:nth-child(3){grid-row:span 2}
+.cx-app .cx-eight-mini-indicator i:nth-child(2){grid-column:span 4}.cx-app .cx-eight-mini-indicator i:nth-child(3){grid-column:span 2}.cx-app .cx-eight-mini-indicator i:nth-child(4){grid-column:span 2}
+.cx-app .cx-eight-mini-replay i:nth-child(2){grid-column:span 4}.cx-app .cx-eight-mini-replay i:nth-child(3){grid-column:span 3}
+.cx-app .cx-eight-mini-tape i:nth-child(2){grid-column:span 2;grid-row:span 2}.cx-app .cx-eight-mini-tape i:nth-child(3){grid-column:span 2}
+.cx-app .cx-eight-mini-scanner i:nth-child(2){grid-row:span 2}.cx-app .cx-eight-mini-scanner i:nth-child(3){grid-column:span 2;grid-row:span 2}
+.cx-app .cx-eight-mini-risk i:nth-child(2){grid-column:span 2}.cx-app .cx-eight-mini-risk i:nth-child(3){grid-column:span 2}.cx-app .cx-eight-mini-risk i:nth-child(4){grid-column:span 4}
+.cx-app .cx-eight-mini-filings i:nth-child(2){grid-column:span 2;grid-row:span 2}.cx-app .cx-eight-mini-filings i:nth-child(3){grid-column:span 2;grid-row:span 2}
+.cx-app .cx-eight-mini-academy i:nth-child(2),.cx-app .cx-eight-mini-academy i:nth-child(3),.cx-app .cx-eight-mini-academy i:nth-child(4),.cx-app .cx-eight-mini-academy i:nth-child(5){grid-column:span 1;grid-row:span 2}
+.cx-app .cx-lab-layout{--cx-lp-accent:#67dfcf;scroll-margin-top:70px;border:1px solid var(--cx-lp-accent);border-radius:14px;background:radial-gradient(ellipse at 70% -15%,color-mix(in srgb,var(--cx-lp-accent) 15%,transparent),transparent 70%),#081929;box-shadow:0 24px 62px #0009;overflow:hidden}
+.cx-app .cx-lp-header{display:flex;justify-content:space-between;gap:22px;align-items:center;padding:24px 25px 21px;border-bottom:1px solid #355c70}
+.cx-app .cx-lp-header h2{font-size:clamp(22px,2.4vw,33px);letter-spacing:-.045em;color:#f4fcff;margin:6px 0}
+.cx-app .cx-lp-header p{max-width:810px;font-size:12px;color:#b5d0dd;line-height:1.6;margin:5px 0}
+.cx-app .cx-lp-header>span{font-size:11px;font-weight:850;color:var(--cx-lp-accent);white-space:nowrap}
+.cx-app .cx-lp-scene{display:grid;gap:12px;padding:16px;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-areas:"mission mission mission mission tools tools tools tools visual visual visual visual" "mission mission mission mission tools tools tools tools visual visual visual visual" "coach coach coach coach visual visual visual visual visual visual visual visual" "steps steps steps steps evidence evidence evidence evidence evidence evidence evidence evidence"}
+.cx-app .cx-lp-region{min-width:0}
+.cx-app .cx-lp-region-visual{grid-area:visual}.cx-app .cx-lp-region-mission{grid-area:mission}.cx-app .cx-lp-region-tools{grid-area:tools}.cx-app .cx-lp-region-coach{grid-area:coach}.cx-app .cx-lp-region-steps{grid-area:steps}.cx-app .cx-lp-region-evidence{grid-area:evidence}
+.cx-app .cx-lp-card{height:100%;min-width:0;padding:16px;border:1px solid #315d72;border-radius:9px;background:linear-gradient(145deg,#103147,#091c2d);overflow-wrap:anywhere}
+.cx-app .cx-lp-cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid #31566c;margin-bottom:14px;font-size:12px;color:#eaf7fc;font-weight:850}
+.cx-app .cx-lp-status{font-size:9px;font-weight:750;color:var(--cx-lp-accent);text-align:right}
+.cx-app .cx-lp-card h3{font-size:18px;margin:7px 0}
+.cx-app .cx-lp-card p,.cx-app .cx-lp-card dl{color:#bed7e1;font-size:11px;line-height:1.65}
+.cx-app .cx-lp-card label{display:grid;gap:7px;font-size:11px;margin-top:12px;color:#cbe3ec}
+.cx-app .cx-lp-card input:not([type=checkbox]),.cx-app .cx-lp-card select,.cx-app .cx-lp-card textarea{box-sizing:border-box;width:100%;padding:9px;border-radius:6px;background:#082436;border:1px solid #507b90;color:#fff;min-width:0;font-size:12px}
+.cx-app .cx-lp-card input[type=range]{accent-color:var(--cx-lp-accent);padding:2px}
+.cx-app .cx-lp-card textarea{min-height:77px;resize:vertical}
+.cx-app .cx-lp-card button{cursor:pointer;border-radius:6px;border:1px solid #57879b;background:#17445c;color:#e9f8ff;padding:9px 11px;font-size:11px;font-weight:730}
+.cx-app .cx-lp-card button[aria-pressed=true]{background:#286780;border-color:var(--cx-lp-accent)}
+.cx-app .cx-lp-card button:disabled{opacity:.45;cursor:not-allowed}
+.cx-app .cx-lp-card a{color:#9beedc}
+.cx-app .cx-lp-caveat{border-left:3px solid #d9bd84;padding:9px 11px;background:#312d29;color:#ffe4ad!important}
+.cx-app .cx-lp-numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-block:10px}
+.cx-app .cx-lp-numbers>div{padding:10px;background:#0a283a;border:1px solid #34647a;border-radius:6px;min-width:0}
+.cx-app .cx-lp-numbers span{display:block;font-size:10px;color:#a8c5d5}
+.cx-app .cx-lp-numbers strong{display:block;font-size:19px;color:#effaff;font-variant-numeric:tabular-nums}
+.cx-app .cx-lp-inline{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.cx-app .cx-lp-tape{display:grid;gap:6px;margin:12px 0}
+.cx-app .cx-lp-tape span{display:flex;justify-content:space-between;background:#09283b;border-left:3px solid var(--cx-lp-accent);padding:11px;color:#c0daea;font-size:11px;font-variant-numeric:tabular-nums}
+.cx-app .cx-lp-riskgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cx-app .cx-lp-check{display:flex!important;align-items:center;gap:10px}
+.cx-app .cx-lp-stepsgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.cx-app .cx-lp-stepsgrid button{display:grid;gap:8px;justify-items:start;padding:10px 6px;font-size:10px;line-height:1.3}
+.cx-app .cx-lp-stepsgrid button b{color:var(--cx-lp-accent);font-size:13px}
+.cx-app .cx-lp-evidence dl{margin:0}
+.cx-app .cx-lp-evidence dl div{display:grid;grid-template-columns:1fr 1.6fr;border-bottom:1px solid #274a60;gap:7px;padding:9px 0}
+.cx-app .cx-lp-evidence dt{color:#a6cddd}.cx-app .cx-lp-evidence dd{margin:0;color:#d8edf4}
+.cx-app .cx-lp-topic{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.cx-app .cx-lp-coach .cx-talia{max-height:390px;overflow:auto}
+.cx-app .cx-lp-chartnote{font-size:10px;color:#a7c9d8;margin:7px 0}
+.cx-app .cx-lp-pathlist{max-height:285px;overflow:auto;display:grid;gap:4px}
+.cx-app .cx-lp-pathlist button{display:flex;align-items:center;gap:8px;text-align:left}.cx-app .cx-lp-pathlist b{color:var(--cx-lp-accent)}
+.cx-app .cx-eight-footnote{font-size:10px;color:#b4cddb;line-height:1.6;margin:11px 2px 0}
+.cx-app .cx-lab-layout-foundations .cx-lp-scene{grid-template-areas:"mission mission mission mission coach coach coach coach visual visual visual visual" "steps steps steps steps coach coach coach coach visual visual visual visual" "tools tools tools tools evidence evidence evidence evidence visual visual visual visual"}
+.cx-app .cx-lab-layout-indicator .cx-lp-scene{grid-template-areas:"visual visual visual visual visual visual visual visual tools tools tools tools" "visual visual visual visual visual visual visual visual coach coach coach coach" "mission mission mission mission steps steps steps steps evidence evidence evidence evidence"}
+.cx-app .cx-lab-layout-replay .cx-lp-scene{grid-template-areas:"visual visual visual visual visual visual visual visual visual visual visual visual" "tools tools tools tools tools tools mission mission mission mission mission mission" "coach coach coach coach steps steps steps steps evidence evidence evidence evidence"}
+.cx-app .cx-lab-layout-tape .cx-lp-scene{grid-template-areas:"tools tools tools tools visual visual visual visual visual visual visual visual" "tools tools tools tools visual visual visual visual visual visual visual visual" "coach coach coach coach mission mission mission mission evidence evidence evidence evidence" "steps steps steps steps steps steps steps steps steps steps steps steps"}
+.cx-app .cx-lab-layout-scanner .cx-lp-scene{grid-template-areas:"mission mission mission tools tools tools tools visual visual visual visual visual" "steps steps steps tools tools tools tools visual visual visual visual visual" "coach coach coach coach evidence evidence evidence evidence evidence evidence evidence evidence"}
+.cx-app .cx-lab-layout-risk .cx-lp-scene{grid-template-areas:"tools tools tools tools tools visual visual visual visual visual visual visual" "tools tools tools tools tools visual visual visual visual visual visual visual" "mission mission mission mission coach coach coach coach steps steps steps steps" "evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence"}
+.cx-app .cx-lab-layout-filings .cx-lp-scene{grid-template-areas:"mission mission mission mission mission tools tools tools tools tools tools tools" "evidence evidence evidence evidence evidence visual visual visual visual visual visual visual" "coach coach coach coach coach steps steps steps steps steps steps steps"}
+.cx-app .cx-lab-layout-academy .cx-lp-scene{grid-template-areas:"mission mission mission mission mission mission steps steps steps steps steps steps" "tools tools tools tools tools tools visual visual visual visual visual visual" "tools tools tools tools tools tools coach coach coach coach coach coach" "evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence"}
+@media(max-width:1130px){.cx-app .cx-eight-picker{grid-template-columns:repeat(4,minmax(0,1fr))}.cx-app .cx-lp-scene,.cx-app .cx-lab-layout-foundations .cx-lp-scene,.cx-app .cx-lab-layout-indicator .cx-lp-scene,.cx-app .cx-lab-layout-replay .cx-lp-scene,.cx-app .cx-lab-layout-tape .cx-lp-scene,.cx-app .cx-lab-layout-scanner .cx-lp-scene,.cx-app .cx-lab-layout-risk .cx-lp-scene,.cx-app .cx-lab-layout-filings .cx-lp-scene,.cx-app .cx-lab-layout-academy .cx-lp-scene{grid-template-areas:"mission mission mission mission mission mission tools tools tools tools tools tools" "visual visual visual visual visual visual visual visual visual visual visual visual" "coach coach coach coach coach coach steps steps steps steps steps steps" "evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence evidence"}}
+@media(max-width:750px){.cx-app .cx-eight-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-eight-head{flex-direction:column}.cx-app .cx-lp-scene,.cx-app .cx-lab-layout-foundations .cx-lp-scene,.cx-app .cx-lab-layout-indicator .cx-lp-scene,.cx-app .cx-lab-layout-replay .cx-lp-scene,.cx-app .cx-lab-layout-tape .cx-lp-scene,.cx-app .cx-lab-layout-scanner .cx-lp-scene,.cx-app .cx-lab-layout-risk .cx-lp-scene,.cx-app .cx-lab-layout-filings .cx-lp-scene,.cx-app .cx-lab-layout-academy .cx-lp-scene{grid-template-columns:1fr;grid-template-areas:"mission" "visual" "tools" "coach" "steps" "evidence"}.cx-app .cx-lp-header{align-items:flex-start;flex-direction:column;padding:15px}.cx-app .cx-lp-stepsgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-lp-riskgrid{grid-template-columns:1fr}.cx-app .cx-lp-evidence dl div{grid-template-columns:1fr}.cx-app .cx-lp-card{padding:12px}}
+@media(max-width:440px){.cx-app .cx-eight-picker{gap:7px}.cx-app .cx-eight-picker>button{padding:8px}.cx-app .cx-eight-mini{height:48px}.cx-app .cx-eight-picker strong{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.cx-app .cx-eight-picker>button{transition:none!important}.cx-app .cx-eight-picker>button:hover{transform:none}}
+@media(forced-colors:active){.cx-app .cx-eight-picker button[aria-pressed=true],.cx-app .cx-lp-card button[aria-pressed=true]{outline:2px solid Highlight}}

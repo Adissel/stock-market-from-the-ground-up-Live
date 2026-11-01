@@ -78,4 +78,15 @@ assert.doesNotMatch(atlas,/method\s*:\s*['"](POST|PUT|PATCH|DELETE)|\/api\/(?:st
 assert.match(src,/independent editorial approval pending/i);
 assert.match(css,/cx-curriculum-atlas/);
 assert.match(src,/function AtlasCoverage\(/);
+assert.match(src,/function ClassroomLayoutGallery\(/);
+assert.match(src,/<ClassroomLayoutGallery design=\{theme\}/);
+const choices=src.split('const classroomLayouts:ClassroomLayout[]=[')[1]?.split('];')[0]||'';
+assert.ok(choices,'Eight distinct source-mapped layouts are required');
+for(const code of ['foundations','indicator','replay','tape','scanner','risk','filings','academy'])assert.ok(choices.includes("id:'"+code+"'"),'Missing learning layout '+code);
+assert.equal((choices.match(/id:'(?:foundations|indicator|replay|tape|scanner|risk|filings|academy)'/g)||[]).length,8,'Exactly eight learning experiences');
+assert.match(src,/data-layout-choice=\{v.id\}/);
+assert.match(src,/Math.floor\(riskBudget\/distance\)/);
+assert.match(src,/aria-label="Fictional replay hypothesis"/);
+assert.match(css,/cx-lab-layout-risk \.cx-lp-scene/);
+assert.match(css,/cx-lab-layout-filings \.cx-lp-scene/);
 console.log('PASS: three protected pages, nine plan identities, six themes, teaching and replay boundaries, TypeScript build and local-only interactions');

@@ -37,6 +37,27 @@ try{
  assert.equal(await home.page.locator('.cx-desk-links a').count(),4);
  const firstChart=await home.page.locator('.cx-market-terminal').first().boundingBox();
  assert.ok(firstChart&&firstChart.y<850,'Primary trading chart must be visible in first viewport');
+ assert.equal(await home.page.locator('.cx-eight-picker button').count(),8,'Eight functional Lab and Boot Camp layouts must be visible');
+ const layoutCodes=['foundations','indicator','replay','tape','scanner','risk','filings','academy'];
+ for(const code of layoutCodes){
+  await home.page.locator('[data-layout-choice="'+code+'"]').click();
+  await home.page.locator('.cx-lab-layout[data-layout="'+code+'"]').waitFor({state:'visible',timeout:15000});
+  assert.equal(await home.page.locator('.cx-lp-scene .cx-lp-region').count(),6,'Layout must contain all six curriculum regions');
+  assert.ok(await home.page.locator('.cx-lp-card select[aria-label="Classroom source course"] option').count()>=1,'Current Academy source mapping required');
+ }
+ await home.page.locator('[data-layout-choice="risk"]').click();
+ await home.page.getByLabel('Illustrative risk budget ($)').fill('75');
+ await home.page.getByLabel('Entry ($)').fill('10');
+ await home.page.getByLabel('Invalidation ($)').fill('9.7');
+ assert.match(await home.page.locator('.cx-lp-tools .cx-lp-numbers').textContent(),/250/,'Risk calculator uses whole-share floor');
+ await home.page.locator('[data-layout-choice="tape"]').click();
+ assert.match(await home.page.locator('.cx-lp-tape').textContent(),/BID|ASK|PRINT/);
+ await home.page.locator('[data-layout-choice="filings"]').click();
+ assert.equal(await home.page.locator('.cx-lp-check input').count(),4);
+ await home.page.locator('[data-layout-choice="replay"]').click();
+ await home.page.getByLabel('Fictional replay hypothesis').fill('This observation requires a stop and later confirmation.');
+ await home.page.getByRole('button',{name:'Lock local practice decision'}).click();
+ assert.match(await home.page.locator('.cx-lp-tools').textContent(),/Local decision recorded for this preview only/);
  await home.context.close();
  const a=await make('OWNER');
  await a.page.goto(BASE+'/prototype.html?experience=a');
