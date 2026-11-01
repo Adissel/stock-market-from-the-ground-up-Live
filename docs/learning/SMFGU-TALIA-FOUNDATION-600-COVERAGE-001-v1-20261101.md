@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.7 / 2026-11-01 |
+| Version / date | 1.8 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -75,6 +75,43 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - 600 original Tutor explanations: **20/600 = 3.3% new source-authored supplemental drafts**; **0/600 = 0% individually editorial-approved under this new register**, because no signed-off 600-item register exists. These are different metrics. Do not count 30 official competencies, 419 Lab IDs, 274 Boot Camp days or 73 indicator topics as newly accepted without individual editorial evidence.
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
+
+
+## Foundation execution batch 05 — original research-source curriculum (2026-11-01)
+
+**Scope / acceptance:** Talia Tutor Foundation only. The source register is not a license or endorsement. No Lab or Boot Camp instruction, protected assessment, Supabase RLS/ledger, membership product, paid AI, exchange data distribution or actual trading operation was changed.
+
+| Evidence item | Controlling observation |
+|---|---|
+| Owner-supplied research file | `Master Research Source Directory(3).odt`, 20 pages, 2026-11-01, categorizes nine levels of beginner-to-quantitative research and publication/data rights |
+| Source-topic batch | `data/talia-foundation-explanations-batch05-v1.json`, twenty original source-informed fictional explanations; no third-party lesson text or charts reproduced |
+| 600-topic source drafting | **100/600 = 16.67%** original source-authored, without inflating 30 canonical official competency IDs |
+| Individual editorial review | **0/600 independently accepted in the new register**, despite Owner authorization to proceed with authoring |
+| Research math expansion | `functions/_lib/talia-research-math-v1.js`, **14** supplemental pure-math subjects with two distinguishable fictional cases each |
+| Additional indicator calculation examples | `functions/_lib/talia-indicator-worked-v1.js` now has **8** source-only numeric teaching subjects (5 original + 3 added): EMV, Choppiness and core normalized Fisher. **No** new operational Chart Studio overlay is claimed |
+| Source reference and rights policy | `docs/learning/SMFGU-TALIA-RESEARCH-SOURCE-GATE-001-v1-20261101.md` differentiates research, mathematical independent verification and rights to publish/distribute data |
+| Existing public crosswalk | `scripts/talia-foundation-coverage-v1.mjs` now inventories 100 candidate topic matches against the preexisting 419 Labs and 274 Academy days. These are **keyword candidate matches, not verified equivalences** |
+| Build controls | `tests/talia-foundation-explanations-batch05-v1.test.mjs`, `tests/talia-research-math-v1.test.mjs`, and expanded eight-indicator regression in `tests/talia-indicator-worked-v1.test.mjs`; run from existing Pages builder and Tutor GitHub workflow |
+| Privacy and payment | Only synthetic teaching inputs; no member progress schema, private grading, AI provider billing, licensed market feed, paid service or transactions added |
+
+**Source facts and independently verified scope:** SEC Investor.gov documents 10-K financial sections; Damodaran explains DCF equity/enterprise cash flows and WACC consistency; SEC describes investment fund expenses; BLS documents matching-period CPI index changes; FRED describes vintage/revision timing; Options Industry Council documents option spread and straddle expiration payoff structures; ChartSchool documents EMV's scale conventions; QuantConnect describes CHOP and Fisher indicator frameworks. All source URLs are in Batch 05 and the new research gate. Their existence, reliability and use for independent research do not license commercial copying or prove every item has independently signed editorial acceptance.
+
+### Acceptance order continuing after Batch 05
+1. Draft the next twenty nonduplicate Tutor explanations (100→120), using the uploaded source taxonomy and independent original illustrations.
+2. Independently verify the fourteen new numerical methods against the specified reference conventions, warm-up/invalid denominator conditions and alternative calculation suites.
+3. Examine all 73 indicator guide formulas, source contracts and user-facing lessons individually. Automated structural review is necessary but insufficient.
+4. Expand valid interpretation-only indicator math where sufficient fictional input data and independently confirmed conventions exist; do not label source-only lessons live overlays.
+5. Review the crosswalk for actual pedagogical prerequisites and transfer, without altering the 419 Lab or 274 Boot Camp study-day systems.
+6. Extend contextual Tutor correction, independent attempts, and explanations while preserving the zero-paid-inference route.
+7. Run real browser ECharts teaching acceptance (responsive, keyboard, touch and screen reader) including EMA9/20/200 visual and failure fallback.
+8. Review every 100 drafted explanation's unique source, example, units, misconception and transfer record individually before acceptance.
+9. Verify authenticated Free, Founder and independently entitled member sessions, permissions, private history, AI consent and no-charge controls.
+10. Confirm exact main-commit GitHub Actions push conclusions, identical Cloudflare production deployment, member acceptance and an approved consolidated Tutor release.
+
+**Release status:** Fully accepted Tutor release gates remain **0/10**, not an assertion about current engineering functionality. Completion percentages must retain their precise denominators, and cannot be inflated through source file counts or hypothetical QA identities.
+
+### Revision history addition
+| 1.8 | 2026-11-01 | Integrate uploaded nine-level source directory as controlling research selection, add fifth twenty-topic batch to reach 100/600 draft explanations, fourteen original quantitative teaching exercises, three more indicator teaching calculations, build regressions and separate source-rights gate | Active source implementation; individual editorial, real-user and complete GitHub Actions acceptance pending |
 
 
 ## Foundation execution batch 04 — 2026-11-01 (source-implemented, independently scoped)
