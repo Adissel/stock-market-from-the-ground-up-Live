@@ -127,7 +127,18 @@ try{
     assert.equal(await page.locator('[data-cl="candle-reader"]').getAttribute('aria-live'),'polite');
    }
    await page.locator('[data-cl="source"]').click();
-   assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*25/);
+   assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\\s*65/:/Revealed bars\\s*25/);
+   const facts=await page.locator('.crownlight-source').innerText();
+   assert.match(facts,/Not certified by this chart/,'Provider and licensing must not be asserted by client flags');
+   assert.doesNotMatch(facts,/Published historical dataset, server-enforced authorization/);
+   if(width===390){
+    await page.evaluate(()=>{window.simTest.isServerReplay=true;window.CrownlightStudio.render(window.simTest)});
+    const serverFlagFacts=await page.locator('.crownlight-source').innerText();
+    assert.match(serverFlagFacts,/Chart-accessible bars\\s*25 completed bars shown/,'Future-buffer count must not leak from a client replay flag');
+    assert.match(serverFlagFacts,/absence of buffered future data/,'Client replay flag is never proof of server protections');
+    assert.doesNotMatch(serverFlagFacts,/65 revealed observations only/);
+    await page.evaluate(()=>{window.simTest.isServerReplay=false;window.CrownlightStudio.render(window.simTest)});
+   }
    await page.locator('[data-cl="coach"]').click();
    assert.match(await page.locator('.crownlight-coach').innerText(),/Real body/);
    await page.locator('[data-cl="studies"]').click();

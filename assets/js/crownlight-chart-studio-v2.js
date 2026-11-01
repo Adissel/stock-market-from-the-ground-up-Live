@@ -339,20 +339,20 @@
  }
  function showSource(){
   const body=state.shell?.querySelector('[data-cl="source-body"]');if(!body||!state.sim)return;
-  const sim=state.sim;body.replaceChildren();const visible=sim.candles.slice(0,sim.index+1);
+  const sim=state.sim;body.replaceChildren();const visible=sim.candles.slice(0,Math.max(0,state.count));
   const outside=visible.filter(bar=>MathLib().session(bar).kind==='overnight').length;
   const rows=[
    ['Source',sim.sourceName||'Member-provided file'],['Provider',sim.sourceProvider||'User import'],
-   ['Loaded bar count',sim.isServerReplay?sim.candles.length+' revealed observations only':sim.candles.length+' (client-inspectable for this practice mode)'],
-   ['Revealed bars',sim.index+1],
+   ['Chart-accessible bars',sim.isServerReplay?visible.length+' completed bars shown; full licensed source not verified here':sim.candles.length+' local practice bars (only '+visible.length+' currently revealed)'],
+   ['Revealed bars',visible.length],
    ['Time zone','America/New_York'],
-   ['Current session',sim.candles[sim.index]?MathLib().session(sim.candles[sim.index]).kind:'No candles loaded'],
+   ['Current session',visible.length?MathLib().session(visible[visible.length-1]).kind:'No candles loaded'],
    ['Trade counts',visible.some(b=>Number.isFinite(b.tradeCount))?'Available on revealed bars':'Not supplied on revealed bars'],
    ['Per-bar provider VWAP',visible.some(b=>Number.isFinite(b.providerVwap))?'Available on revealed bars':'Not supplied on revealed bars'],
    ['Outside 04:00–20:00 ET',outside+' revealed bars (provider timestamp retained; verify coverage)'],
    ['Session VWAP overlay','HLC3 × volume approximation, not exact trade VWAP'],
-   ['Feed integrity',sim.isServerReplay?'Published historical dataset, server-enforced authorization and licensing gate':'Not independently certified; data completeness and redistribution rights not established'],
-   ['Assessment',sim.isServerReplay?'First decision server locked; browser receives revealed bars only':'Ungraded personal practice only; browser contains full source array']
+   ['Feed integrity','Not certified by this chart. Verify provider provenance, redistribution rights, data completeness and server authorization independently.'],
+   ['Assessment',sim.isServerReplay?'Server-replay mode reported. This display does not prove protected grading, first-decision locking or absence of buffered future data.':'Ungraded personal practice; local exercise data may contain future fixture bars.']
   ];
   const dl=h('dl','crownlight-facts');rows.forEach(([k,v])=>{dl.append(h('dt','',k),h('dd','',String(v)))});
   body.append(dl);

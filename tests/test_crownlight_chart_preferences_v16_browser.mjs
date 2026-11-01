@@ -87,6 +87,15 @@ try{
   return {context,page,failures};
  }
  const a=await openMember(members[0]);
+ // This fixture deliberately sets isServerReplay=true while holding 225 local bars.
+ // A browser flag must not falsely certify a paid/authorized historical feed.
+ await a.page.locator('[data-cl="source"]').click();
+ const provenance=await a.page.locator('.crownlight-source').innerText();
+ assert.match(provenance,/Chart-accessible bars\\s*25 completed bars shown/);
+ assert.match(provenance,/Not certified by this chart/);
+ assert.match(provenance,/does not prove protected grading/);
+ assert.doesNotMatch(provenance,/225 revealed observations only/);
+ await a.page.locator('[data-cl="source"]').click();
  assert.deepEqual(await a.page.evaluate(()=>window.revealed.at(-1).bars.length),25,
   'No-lookahead: only first 25 completed fictional candles can enter the chart adapter');
  await a.page.locator('[data-cl="appearance"]').click();
