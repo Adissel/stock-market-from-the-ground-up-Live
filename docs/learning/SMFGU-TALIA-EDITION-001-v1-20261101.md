@@ -17,7 +17,7 @@
 | Plan | Shared Learning Engine | Shared Lab Engine | Talia Market Tutor |
 | --- | --- | --- | --- |
 | FREE | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Foundation (Basic) |
-| FOUNDING_14 | Basic | Basic | Foundation (Basic) |
+| FOUNDING_14 | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Foundation (Basic) |
 | PICK_WHAT_YOU_WANT | Basic plus independently entitled add-ons | Basic plus independently entitled add-ons | Foundation (Basic) plus independently entitled add-ons |
 | ONDEMAND_MONTHLY | Based on verified purchased training product | Based on verified purchased training product | Based on verified purchased product |
 | FOUNDING_30 | Next-best published edition when released | Next-best published edition when released | Advanced (target) |

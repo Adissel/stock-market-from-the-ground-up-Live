@@ -3,7 +3,7 @@ const h={'content-type':'application/json; charset=utf-8','cache-control':'priva
 const out=(x,s=200)=>new Response(JSON.stringify(x),{status:s,headers:h});
 const bad=(m,s)=>Object.assign(new Error(m),{status:s});
 const versions={learning:['LEARNING_V33_FREEZE_20261101','LEARNING_V33_CURRENT'],lab:['LAB_V32_FREEZE_20261101','LAB_V32_CURRENT'],tutor:['TALIA_FREEZE_20261101','TALIA_CURRENT']};
-const fallback=code=>Object.fromEntries(Object.entries(versions).map(([k,v])=>[k,['FREE','PICK_WHAT_YOU_WANT'].includes(code)?v[0]:v[1]]));
+const fallback=code=>Object.fromEntries(Object.entries(versions).map(([k,v])=>[k,['FREE','PICK_WHAT_YOU_WANT','FOUNDING_14'].includes(code)?v[0]:v[1]]));
 const tutorDefault=code=>({
  FREE:'FOUNDATION',PICK_WHAT_YOU_WANT:'FOUNDATION',FOUNDING_14:'FOUNDATION',
  FOUNDING_30:'ADVANCED',FOUNDING_60:'PROFESSIONAL',FULL_MONTHLY:'PROFESSIONAL',

@@ -14,7 +14,7 @@ const tutorDefault=code=>({
  FOUNDING_30:'ADVANCED',FOUNDING_60:'PROFESSIONAL',FULL_MONTHLY:'PROFESSIONAL',
  LIFETIME:'ENTERPRISE',ONDEMAND_MONTHLY:'PRODUCT_DEPENDENT'
 })[code]||'UNASSIGNED';
-const defaults=code=>['FREE','PICK_WHAT_YOU_WANT'].includes(code)
+const defaults=code=>['FREE','PICK_WHAT_YOU_WANT','FOUNDING_14'].includes(code)
  ?{learning:allowed.learning[0],lab:allowed.lab[0],tutor:allowed.tutor[0]}
  :{learning:allowed.learning[1],lab:allowed.lab[1],tutor:allowed.tutor[1]};
 function config(env){const base=String(env.SUPABASE_URL||'').replace(/\/$/,''),secret=String(env.SUPABASE_SECRET_KEY||'');if(!/^https:\/\//.test(base)||!secret)throw err('Administrative database unavailable',503);return{base,secret}}

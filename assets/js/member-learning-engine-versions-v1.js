@@ -21,7 +21,7 @@ async function configure(session,stillCurrent){
  }
  last={...data.versions};
  const badge=document.getElementById('player-shell-badge');
- if(badge)badge.textContent='LEARNING v3.3 · '+(data.source==='unverified_free_fallback'?'Free fallback':['FREE','PICK_WHAT_YOU_WANT'].includes(data.planCode)?'Foundational':'Member');
+ if(badge)badge.textContent='LEARNING v3.3 · '+(data.source==='unverified_free_fallback'?'Free fallback':['FREE','PICK_WHAT_YOU_WANT','FOUNDING_14'].includes(data.planCode)?'Foundational':'Member');
  return data;
 }
 window.GroundUpMemberEngineVersions=Object.freeze({configure});

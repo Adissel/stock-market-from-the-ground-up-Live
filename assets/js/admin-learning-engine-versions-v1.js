@@ -59,7 +59,7 @@ async function load(){
  try{
   const data=await call();
   node.querySelector('[data-engine-table]').innerHTML='<div class="product-catalog-table-wrap"><table class="product-catalog-table"><thead><tr><th>Membership</th><th>Learning Engine</th><th>Shared Lab Engine</th><th>Talia source</th><th>Talia membership edition</th><th>Engine source action</th></tr></thead><tbody>'+rows(data)+'</tbody></table></div>';
-  status('Verified '+data.assignments.length+' membership records. FREE and PICK_WHAT_YOU_WANT default to the frozen baseline. Edition labels do not activate unreleased tools or paid AI. Each membership has its own Tutor edition selector.');
+  status('Verified '+data.assignments.length+' membership records. FREE, FOUNDING_14 and PICK_WHAT_YOU_WANT default to the frozen baseline. Edition labels do not activate unreleased tools or paid AI. Each membership has its own Tutor edition selector.');
  }catch(e){status(e.message,true)}
  finally{working=false}
 }
