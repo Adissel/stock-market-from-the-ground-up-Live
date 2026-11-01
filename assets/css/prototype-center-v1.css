@@ -24,3 +24,24 @@
 #pt-root .pt-table-scroll .pt-table{min-width:650px;width:max-content}
 #pt-root .pt-table-scroll:focus-visible{outline:3px solid #f6d37d;outline-offset:2px}
 #pt-root .pt-card{overflow-wrap:anywhere}
+
+/* Advanced Classroom membership design laboratory; preview only, not entitlement enforcement. */
+#pt-root .pt-membership-panel{border-color:var(--pt-preview-accent,#d9ba7b);box-shadow:inset 3px 0 var(--pt-preview-accent,#d9ba7b)}
+#pt-root .pt-membership-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:.75rem;margin:.8rem 0}
+#pt-root .pt-membership-controls label{min-width:0}
+#pt-root .pt-membership-controls input[type="range"]{width:100%;min-height:34px;accent-color:var(--pt-preview-accent,#d9ba7b)}
+#pt-root .pt-membership-controls select{min-height:44px}
+#pt-root .pt-membership-flags{display:flex;gap:.55rem 1rem;flex-wrap:wrap;padding:.65rem 0}
+#pt-root .pt-membership-toggle{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;color:#eff8fc;cursor:pointer}
+#pt-root .pt-membership-toggle input[type=checkbox]{width:20px;height:20px;min-width:20px;accent-color:#81cfc2}
+#pt-root .pt-membership-toggle span{font-size:.83rem}
+#pt-root .pt-bar-inspector{margin-top:1rem;min-width:0;border-top:1px solid #426075;padding-top:1rem}
+#pt-root .pt-bar-title{display:flex;justify-content:space-between;align-items:start;gap:.75rem;flex-wrap:wrap}
+#pt-root .pt-bar-title h3{border-left:3px solid var(--pt-preview-accent,#d9ba7b);padding-left:.65rem}
+#pt-root .pt-bar-title span{font-size:.75rem;color:#c9dce9}
+#pt-root .pt-bar-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:.5rem;margin:.7rem 0}
+#pt-root .pt-bar-facts>div{border:1px solid #38576c;background:#13293a;border-radius:7px;padding:.55rem .7rem;min-width:0}
+#pt-root .pt-bar-facts dt{font-size:.75rem;color:#c1d5e2}
+#pt-root .pt-bar-facts dd{font-variant-numeric:tabular-nums;color:#fff;font-weight:650;margin:.3rem 0 0;overflow-wrap:anywhere}
+#pt-root #pt-membership{min-width:215px}
+@media(max-width:560px){#pt-root .pt-membership-controls{grid-template-columns:1fr}#pt-root .pt-bar-facts{grid-template-columns:repeat(2,minmax(0,1fr))}#pt-root #pt-membership{min-width:0}}
