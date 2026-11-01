@@ -590,7 +590,7 @@
       "code": "TALIA_TOPIC_INTEREST_COVERAGE_EBIT",
       "title": "EBIT interest coverage compares same-period earnings and interest expense",
       "category": "accounting",
-      "source": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+      "source": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html",
       "secondResearchCandidate": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
       "originalWorkedCase": "FICTIONAL: EBIT $12m and annual interest expense $3m imply a simple coverage ratio 12/3=4.0×; it is not four years of cash on hand.",
       "originalReviewCaveat": "Debt covenants, refinancing, noncash income and changing rates make the coverage multiple insufficient to predict future payment.",
@@ -600,7 +600,10 @@
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "previousResearchSource": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+      "reconciledOn": "2026-11-01",
+      "sourceReconciliationNote": "Damodaran directly defines interest coverage as EBIT/interest expense; example 12/3=4x, no liquidity guarantee."
     },
     {
       "number": 136,
@@ -658,7 +661,7 @@
       "code": "TALIA_TOPIC_DEBT_EQUITY_DEFINITION",
       "title": "Debt-to-equity ratios change when the numerator defines debt differently",
       "category": "accounting",
-      "source": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+      "source": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
       "secondResearchCandidate": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
       "originalWorkedCase": "FICTIONAL: Interest-bearing debt is $90m and book equity $60m on one date: 90/60=1.5×. Total-liabilities-to-equity could be different if it includes trade payables.",
       "originalReviewCaveat": "Negative book equity, off-balance commitments and financial-sector accounting can make conventional ratios misleading.",
@@ -668,14 +671,17 @@
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "previousResearchSource": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+      "reconciledOn": "2026-11-01",
+      "sourceReconciliationNote": "SEC financial guide defines total liabilities/equity, a DIFFERENT numerator from interest-bearing debt/equity in this guide."
     },
     {
       "number": 140,
       "code": "TALIA_TOPIC_EARNINGS_YIELD_VS_DIVIDEND",
       "title": "Earnings yield is an EPS-to-price ratio, not cash paid to shareholders",
       "category": "valuation",
-      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio",
+      "source": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
       "secondResearchCandidate": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
       "originalWorkedCase": "FICTIONAL: Price $50, trailing EPS $5. P/E=10×; accounting earnings yield=5/50=10%. That does not entitle the owner to $5 cash or a 10% future return.",
       "originalReviewCaveat": "Loss-making or zero-EPS issuers, earnings restatements and special items make ordinary P/E comparison unreliable.",
@@ -685,7 +691,10 @@
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "previousResearchSource": "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio",
+      "reconciledOn": "2026-11-01",
+      "sourceReconciliationNote": "SEC P/E ratio equals price/EPS; when EPS is positive, EPS/price equals reciprocal earnings yield; not paid cash."
     }
   ],
   "claimSourceScopeReviewed": 19,
