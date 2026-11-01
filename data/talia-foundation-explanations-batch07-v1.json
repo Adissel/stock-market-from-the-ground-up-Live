@@ -136,6 +136,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://www.bls.gov/cpi/factsheets/calculating-percent-changes.htm",
+        "disposition": "BLS validates matched-price-index inflation-rate input; exact real investment return uses original independent multiplicative mathematics.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     },
     {
@@ -471,7 +479,7 @@
       "reviewExplanation": "Compute 12/3=4.0×, then identify cash-flow timing, future rates and why zero interest cannot yield an ordinary infinite ratio. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: EBIT $8m, annual interest expense $4m. Calculate basic ratio and one omitted liquidity consideration.",
       "sourceUrls": [
-        "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -488,6 +496,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html",
+        "disposition": "Specific formula EBIT/interest supported by NYU Stern Damodaran financial ratios; SEC generic statement guide alone did not support formula.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     },
     {
@@ -552,6 +568,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+        "disposition": "SEC generic statement overview does NOT validate 365-day receivables-collection formula. Original lesson must disclose average, credit sales, period day-count, and industry/provider alternatives; no broad-source signoff.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     },
     {
@@ -584,6 +608,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+        "disposition": "SEC generic financial-statement guide supports income/equity definitions but NOT the average-common-equity ROE convention; keep original arithmetic with explicit denominator convention and editorial hold.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     },
     {
@@ -599,7 +631,7 @@
       "reviewExplanation": "Check $90m interest-bearing debt/$60m equity=1.5×. Total liabilities could give a different value, so state the definition. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Short debt $10m, long debt $30m and book equity $20m. Calculate interest-bearing debt/equity.",
       "sourceUrls": [
-        "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -616,6 +648,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+        "disposition": "SEC illustrates TOTAL LIABILITIES / SHAREHOLDERS EQUITY. Interest-bearing borrowing/equity in this lesson is an explicitly narrower independent variant.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     },
     {
@@ -631,7 +671,7 @@
       "reviewExplanation": "A $50 quote and $5 EPS give P/E=10× and earnings yield=10%; the cash dividend is an independent declaration. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Price $36, EPS $3. Calculate P/E and earnings yield and name why neither guarantees a distribution.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -648,6 +688,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewType": "exact_claim_scope_internal_research_preflight",
+        "date": "2026-11-01",
+        "sourceUrl": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+        "disposition": "SEC primary investor guide supports P/E price/EPS; earnings yield is the independently derived reciprocal with positive price/EPS, not an amount actually distributed.",
+        "independentPublicationAccepted": false,
+        "reviewer": "internal_source_review"
       }
     }
   ]
