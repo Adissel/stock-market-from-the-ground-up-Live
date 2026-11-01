@@ -84,13 +84,13 @@ try{
     designer:document.getElementById('pt-designer').getBoundingClientRect().top}));
   assert.ok(screenOrder.preview<screenOrder.designer,'Chart and live lesson must precede the long editor');
 
-  // Actual staff-only source inspector: public 419 Labs / 61 research briefs /
-  // 15 calculated studies, plus a deterministic local Academy catalog fixture.
+  // Actual staff-only source inspector: public 419 Labs / 73 research briefs /
+  // 16 calculated studies, plus a deterministic local Academy catalog fixture.
   if(role==='OWNER'){
    await page.locator('#pt-curriculum-parity > summary').click();
    await page.locator('#pt-parity-body .pt-parity-totals').waitFor({state:'visible',timeout:18000});
    assert.match(await page.locator('.pt-parity-totals').innerText(),/419 canonical Lab pathways/);
-   assert.match(await page.locator('.pt-parity-totals').innerText(),/61 original indicator briefs/);
+   assert.match(await page.locator('.pt-parity-totals').innerText(),/73 indicator teaching guides/);
    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),30,'First page of canonical Labs');
    await page.locator('.pt-parity-load-more').click();
    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),60,'Second page of canonical Labs is visible');
@@ -104,11 +104,14 @@ try{
    await page.locator('.pt-parity-load-more').click();
    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),60,'All but one indicator');
    await page.locator('.pt-parity-load-more').click();
-   assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),61,'Every authored indicator is inspectable');
+   assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),73,'All 73 authored indicator guides are inspectable');
    await page.locator('#pt-parity-family').selectOption('Trend');
-   assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),15,'All 15 Trend studies can be individually inspected');
+   assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),17,'All 17 Trend studies can be individually inspected');
    await page.locator('#pt-parity-family').selectOption('ALL');
-   await page.locator('#pt-parity-search').fill('STUDY_EMA');
+   await page.locator('#pt-parity-search').fill('STUDY_ELDER_RAY');
+    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Elder-Ray Bull and Bear Power/);
+    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Interpretation-only scenario/);
+    await page.locator('#pt-parity-search').fill('STUDY_EMA');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Exponential Moving Average/i);
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Limitations/i);
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Ungraded self-check/i);
