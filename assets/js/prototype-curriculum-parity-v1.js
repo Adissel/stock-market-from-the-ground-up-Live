@@ -1,0 +1,126 @@
+/* Crownlight Prototype curriculum parity V1.
+ * Authenticated staff-only UI mounted inside the protected Prototype Center.
+ * Public catalog metadata only: no private grade keys, member records, real
+ * orders, entitlement writes, historical bar predictions or chart feed.
+ */
+(()=>{'use strict';
+const host=document.getElementById('pt-curriculum-parity');
+const app=document.getElementById('pt-app');
+if(!host||!app)return;
+const out=document.getElementById('pt-parity-body');
+const status=document.getElementById('pt-parity-status');
+let snapshot=null,loading=false,epoch=0,tab='labs',selected='';
+const h=(tag,text,className)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=String(text);if(className)x.className=className;return x};
+const appendLine=(root,label,value)=>{const p=h('p');p.append(h('strong',label+' '),document.createTextNode(String(value||'Not published in public metadata')));root.append(p)};
+const allowed=new Set(['labs','academy','guides','computed']);
+const tabTitles={labs:'Canonical Labs',academy:'Boot Camps',guides:'Indicator study guides',computed:'Calculated chart studies'};
+const stages='Start · Learn · Calculate · Experiment · Predict · Replay / Practice · Assess · Review & Retry · Transfer Challenge · Results';
+const abortMessage='Reference catalog unavailable. No member or protected grading data was loaded.';
+const fetchJson=async url=>{
+ const response=await fetch(url,{method:'GET',cache:'no-store',credentials:'omit',headers:{accept:'application/json'}});
+ if(!response.ok)throw Error('Reference source returned HTTP '+response.status);
+ return response.json();
+};
+async function catalog(){
+ const [labs,skills,indicators,academy]=await Promise.all([
+  fetchJson('/data/competency-lab-paths-v01499.json'),
+  fetchJson('/data/competency-study-guides-v01499.json'),
+  fetchJson('/data/tutor-indicator-study-v1.json'),
+  fetchJson('/api/bootcamp-academy?action=catalog')
+ ]);
+ const computed=window.CrownlightPrototypeIndicators?.specs;
+ if(labs?.totalCanonicalLabs!==419||Object.keys(labs.byLab||{}).length!==419||
+   skills?.guides?.length!==30||indicators?.guides?.length!==61||
+   indicators.count!==61||academy?.ok!==true||!Array.isArray(academy.programs)||
+   academy.programs.length<7||academy.programs.length>11||
+   !Array.isArray(computed)||computed.length!==15){
+   throw Error('Canonical learning registry or calculated-study count mismatch');
+ }
+ if(new Set(Object.keys(labs.byLab)).size!==419||
+    new Set(indicators.guides.map(g=>g.code)).size!==61||
+    new Set(academy.programs.map(p=>p.code)).size!==academy.programs.length){
+   throw Error('Duplicate learning catalogue identifiers');
+ }
+ const guideByCode=new Map(skills.guides.map(g=>[g.code,g]));
+ return {
+  labs:Object.entries(labs.byLab).map(([id,row])=>({
+   key:id,title:row.title||id,summary:row.bookCode||'Ungraded teaching bridge',
+   body:[['Source ID',id],['Collection',row.bookCode],['Mapped competencies',(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)?.title||code).join(', ')||'Not mapped'],
+    ['Evidence level',row.method||'Provisional ungraded mapping']],
+   guide:(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)).filter(Boolean).slice(0,2)
+  })),
+  academy:academy.programs.map(p=>({
+   key:p.code,title:p.name||p.title||p.code,summary:String(p.days)+' study days',
+   body:[['Program code',p.code],['Learning days',p.days],['Description',p.description||p.summary||'Program catalog metadata only'],['Published route',p.route||'/bootcamp-academy.html?program='+encodeURIComponent(p.code)]]
+  })),
+  guides:indicators.guides.map(g=>({
+   key:g.code,title:g.title||g.code,summary:g.family||'Authored research brief',
+   body:[['Concept',g.concept],['Formula',g.formula],['Learning procedure',g.procedure],
+    ['Common mistake',g.commonError],['Limitations',g.limit||g.limits],
+    ['Status','Original source-informed, ungraded guidance; calculation not implied']]
+  })),
+  computed:computed.map(x=>({
+   key:x.id,title:x.label||x.id,summary:x.family||'Calculated OHLCV study',
+   body:[['Chart placement',x.placement||'Calculated study'],['Source','Shared CrownlightIndicatorMath and fictional completed bars'],['Limitation',x.id==='VWAP'?'OHLCV HLC3 volume-weighted proxy — NOT transaction VWAP':'Study is illustrative, not a trading signal or verified forecast']]
+  }))
+ };
+}
+function render(){
+ if(!snapshot||app.hidden||!host.open)return;
+ out.replaceChildren();
+ const intro=h('p','Read-only inspection of CURRENT public learning metadata. This is not a member login, teaching transcript, grade or entitlement.','pt-parity-note');
+ out.append(intro);
+ const totals=h('p','419 canonical Lab pathways · '+snapshot.academy.length+' currently listed Academy paths · 30 competency guides · 61 original indicator briefs · 15 computed studies','pt-parity-totals');
+ out.append(totals);
+ const controls=h('div',undefined,'pt-parity-controls');
+ const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');
+ for(const category of allowed){const b=h('button',tabTitles[category]);b.type='button';b.dataset.parityTab=category;b.setAttribute('aria-pressed',String(tab===category));b.addEventListener('click',()=>{tab=category;selected='';render()});nav.append(b)}
+ const label=h('label','Filter actual source titles and codes');
+ const search=h('input');search.type='search';search.id='pt-parity-search';search.autocomplete='off';search.placeholder='Search within '+tabTitles[tab].toLowerCase();
+ const prior=host.dataset.query||'';search.value=prior;label.append(search);controls.append(nav,label);out.append(controls);
+ const body=h('div',undefined,'pt-parity-layout');
+ const list=h('div',undefined,'pt-parity-list');list.setAttribute('role','group');list.setAttribute('aria-label',tabTitles[tab]);
+ const inspector=h('section',undefined,'pt-parity-inspector');inspector.setAttribute('aria-label','Verified public source teaching detail');
+ body.append(list,inspector);out.append(body);
+ const inspect=item=>{
+  selected=item.key;inspector.replaceChildren(h('h3',item.title),h('p',item.summary,'pt-parity-muted'));
+  for(const [name,value] of item.body)appendLine(inspector,name+':',value);
+  if(tab==='labs'){
+   inspector.append(h('h4','How the shared Lab engine teaches this subject'));
+   inspector.append(h('p',stages));
+   for(const guide of item.guide||[]){
+    const section=h('section');section.append(h('h4',guide.title),h('p',guide.concept));
+    appendLine(section,'Worked procedure:',guide.procedure);
+    appendLine(section,'Common mistake:',guide.commonError);
+    appendLine(section,'Limitation:',guide.limit);
+    inspector.append(section);
+   }
+   inspector.append(h('p','These public competency summaries are provisional. Independent official assessment, historical data provenance and protected answer keys are NOT loaded.','pt-parity-note'));
+  }
+  if(tab==='academy')inspector.append(h('p','Actual enrollment, stage progress, access and protected course assessments remain owned by the live Academy service.','pt-parity-note'));
+  if(tab==='guides')inspector.append(h('p','A research brief does not imply a supported computed overlay, a graded Lab, or independently verified trade-print data.','pt-parity-note'));
+  for(const button of list.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.key===item.key));
+ };
+ const update=()=>{
+  const term=search.value.trim().toLocaleLowerCase();host.dataset.query=search.value;
+  const rows=snapshot[tab].filter(x=>(x.key+' '+x.title+' '+x.summary).toLocaleLowerCase().includes(term));
+  list.replaceChildren(h('p',rows.length+' matching '+tabTitles[tab].toLowerCase()+'. Showing first '+Math.min(rows.length,30)+'.','pt-parity-muted'));
+  for(const item of rows.slice(0,30)){const b=h('button',item.title+' · '+item.key);b.type='button';b.dataset.key=item.key;b.setAttribute('aria-pressed',String(selected===item.key));b.addEventListener('click',()=>inspect(item));list.append(b)}
+  const current=rows.find(x=>x.key===selected)||rows[0];
+  if(current)inspect(current);else inspector.replaceChildren(h('p','No public source matches this filter.'));
+ };
+ search.addEventListener('input',update);
+ update();
+}
+async function load(){
+ if(!host.open||app.hidden||loading)return;
+ if(snapshot){render();return}
+ loading=true;const attempt=++epoch;status.textContent='Loading public Lab, Academy and indicator registries…';
+ try{const data=await catalog();if(attempt!==epoch||app.hidden||!host.open)return;snapshot=data;status.textContent='Source catalogs verified; no private member or grade data accessed.';render()}
+ catch(e){if(attempt!==epoch||app.hidden)return;status.textContent=abortMessage+' '+String(e?.message||'');out.replaceChildren()}
+ finally{loading=false}
+}
+host.addEventListener('toggle',()=>{if(host.open)void load();else{epoch++;loading=false;}});
+const guard=new MutationObserver(()=>{if(app.hidden){epoch++;loading=false;snapshot=null;selected='';out.replaceChildren();status.textContent='Sign in as authorized staff to inspect current public learning sources.';}else if(host.open)void load()});
+guard.observe(app,{attributes:true,attributeFilter:['hidden']});
+})();
