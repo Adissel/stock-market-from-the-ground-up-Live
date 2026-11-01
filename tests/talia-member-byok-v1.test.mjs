@@ -105,7 +105,7 @@ try{
  });
  await test('original vault: encrypted personal key stored pending verification, no plaintext response',async()=>{
   const r=await credentialApi({request:request('save','POST',{serviceCode:'TALIA_OPENAI_BYO',values:{apiKey:fakeKey},confirmProviderCharges:true}),env});
-  assert.equal(r.status,200);
+  assert.equal(r.status,200,'credential-save diagnostic: '+JSON.stringify(await r.clone().json()));
   const v=await r.json();assert.equal(v.savedPendingVerification,true);assert.equal(v.verified,false);
   assert.ok(!JSON.stringify(v).includes(fakeKey));
   assert.equal(store.get(keyFor(A,'TALIA_OPENAI_BYO')).status,'saved_unverified');
