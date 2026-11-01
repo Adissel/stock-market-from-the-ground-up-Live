@@ -14,7 +14,7 @@ const studies=[...base,...extra],guides=new Set(studies.map(g=>g.code));
 assert.equal(guides.size,73);
 const mathSet=new Set(TALIA_STUDY_CALCULATED);
 assert.equal(mathSet.size,8);
-const urlHost=new Set(['chartschool.stockcharts.com','toslc.thinkorswim.com','www.sec.gov','sec.gov','www.investor.gov','investor.gov','www.finra.org','finra.org']);
+const urlHost=new Set(['chartschool.stockcharts.com','toslc.thinkorswim.com','www.sec.gov','sec.gov','www.investor.gov','investor.gov','www.finra.org','finra.org','www.cboe.com']);
 const records=studies.map((g,i)=>{
  const candidate=programs.filter(p=>p.kind==='indicator'&&p.guideCode===g.code);
  assert.equal(candidate.length,1,'Missing or duplicate guided module: '+g.code);
