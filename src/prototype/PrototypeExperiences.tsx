@@ -136,6 +136,7 @@ const IndicatorContext=React.createContext<IndicatorPrefs|null>(null);
 const specs:IndicatorSpec[]=([
  ['EMA_FAST','EMA · Fast','Trend','emaFast','Price overlay'],
  ['EMA_SLOW','EMA · Slow','Trend','emaSlow','Price overlay'],
+ ['EMA_200','EMA · 200','Trend','ema200','Price overlay — contextual warmup'],
  ['SMA','Simple moving average','Trend','sma','Price overlay'],
  ['VWAP','Session VWAP estimate','Volume/Price',null,'HLC3 bar proxy only'],
  ['BB','Bollinger Bands','Volatility','bbPeriod','Price overlay'],
@@ -150,8 +151,34 @@ const specs:IndicatorSpec[]=([
  ['ATR','Wilder ATR','Volatility','atr','Oscillator pane'],
  ['OBV','On-balance volume','Participation',null,'Oscillator pane']
 ] as Array<[string,string,string,string|null,string]>).map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
-const defaults:Record<string,number>={emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2};
-const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:false};
+const defaults:Record<string,number>={emaFast:9,emaSlow:20,ema200:200,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2};
+const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,EMA_200:false,VWAP:true,VOLUME:true,RSI:false};
+
+type ChartTimeframe=1|3|5;
+type ChartAppearance={bullish:string;bearish:string;doji:string;grid:string;rightBuffer:number;gap:number;timeframe:ChartTimeframe;showStructure:boolean;colors:Record<string,string>;types:Record<string,'solid'|'dashed'|'dotted'>};
+const defaultChartAppearance:ChartAppearance={bullish:'#24e2b4',bearish:'#ff6395',doji:'#eed68d',grid:'#355b72',rightBuffer:12,gap:8,timeframe:1,showStructure:false,
+ colors:{EMA_FAST:'#70e9f7',EMA_SLOW:'#f0d17b',EMA_200:'#bb9bff',VWAP:'#7f9cff',VOLUME:'#52e5ba',RSI:'#d0a9ed',MACD:'#7ec8f5',ATR:'#d89dca',SMA:'#c4a7ff',BB:'#ca9be7',STRUCTURE:'#ffdd8c'},types:{}};
+const ChartAppearanceContext=React.createContext<{style:ChartAppearance;setStyle:React.Dispatch<React.SetStateAction<ChartAppearance>>}|null>(null);
+function ChartCustomizer(){
+ const a=React.useContext(ChartAppearanceContext);
+ if(!a)return null;
+ const {style}=a;
+ const patch=(v:Partial<ChartAppearance>)=>a.setStyle(old=>({...old,...v}));
+ const color=(id:string,c:string)=>a.setStyle(old=>({...old,colors:{...old.colors,[id]:c}}));
+ const line=(id:string,t:'solid'|'dashed'|'dotted')=>a.setStyle(old=>({...old,types:{...old.types,[id]:t}}));
+ return <section className="cx-chart-customizer" aria-label="Chart appearance personalization">
+  <div className="cx-overline">CROWNLIGHT / CHART PERSONALIZATION</div><h3>Colors, indicators and replay display</h3>
+  <div className="cx-chart-style-grid">
+  {([['bullish','Bullish candle'],['bearish','Bearish candle'],['doji','Doji candle'],['grid','Grid lines']] as const).map(([key,label])=><label key={key}>{label}<input aria-label={label+' color'} type="color" value={style[key]} onChange={e=>patch({[key]:e.target.value})}/></label>)}
+  <label>Timeframe<select aria-label="Chart timeframe" value={style.timeframe} onChange={e=>patch({timeframe:Number(e.target.value) as ChartTimeframe})}><option value={1}>1 minute</option><option value={3}>3 minutes</option><option value={5}>5 minutes</option></select></label>
+  <label>Right-side buffer<input aria-label="Right chart buffer" type="number" min="0" max="40" value={style.rightBuffer} onChange={e=>patch({rightBuffer:Math.max(0,Math.min(40,Number(e.target.value)||0))})}/></label>
+  <label>Candle spacing<input aria-label="Candle spacing" type="range" min="0" max="50" step="2" value={style.gap} onChange={e=>patch({gap:Number(e.target.value)})}/><span>{style.gap}%</span></label>
+  <label className="cx-structure-toggle"><input aria-label="Show confirmed HH HL LH LL" type="checkbox" checked={style.showStructure} onChange={e=>patch({showStructure:e.target.checked})}/> Confirmed HH / HL / LH / LL</label>
+  </div>
+  <details><summary>Indicator colors and line styles</summary><div className="cx-chart-line-grid">{specs.map(ind=><div className="cx-chart-line-row" key={ind.id}><span>{ind.label}</span><input aria-label={ind.label+' line color'} type="color" value={style.colors[ind.id]||'#7f9cff'} onChange={e=>color(ind.id,e.target.value)}/><select aria-label={ind.label+' line type'} value={style.types[ind.id]||'solid'} onChange={e=>line(ind.id,e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>)}</div></details>
+  <p className="cx-small">Visual settings are saved locally in this browser preview. Underlying prices and indicator calculations remain unchanged.</p>
+ </section>;
+}
 function IndicatorDock(){
  const prefs=React.useContext(IndicatorContext);
  const barLook=React.useContext(BarLookContext);
@@ -162,10 +189,10 @@ function IndicatorDock(){
  const guide=guides.find(g=>g.code===chosen);
  const matches=specs.filter(x=>(x.label+' '+x.family).toLowerCase().includes(search.toLowerCase()));
  const settingRow=(k:string,title:string,min:number,max:number,step=1)=><label key={k} className="cx-indicator-number">{title}<input type="number" aria-label={title} min={min} max={max} step={step} value={prefs.settings[k]} onChange={e=>prefs.setSettings(k,Math.max(min,Math.min(max,Number(e.target.value)||min)))}/></label>;
- return <section className="cx-indicator-workbench" aria-label="Configurable trading indicator library">
+ return <section className="cx-indicator-workbench" aria-label="Configurable trading indicator library"><ChartCustomizer/>
   <div className="cx-indicator-heading"><div><div className="cx-overline">STUDY COMMAND CENTER / INTERACTIVE INDICATORS</div><h2>Indicators & settings <small>15 calculated studies · 61 authored research guides</small></h2><div className="cx-study-live-badges"><span>STUDIES ACTIVE · {Object.entries(prefs.enabled).filter(([id,enabled])=>enabled&&studyAllowed(prefs.studio,id)).length}</span><span>OHLCV ENGINE / NO LOOKAHEAD</span><span>HOVER TO INSPECT · CLICK TO CONFIGURE</span></div></div><div className="cx-tool-row"><button onClick={()=>setOpen(v=>!v)} aria-expanded={open}>{open?'Collapse indicators':'Expand indicators'}</button><button onClick={prefs.enableAll}>Show all calculated</button><button onClick={prefs.reset}>Restore defaults</button></div></div>
   {open&&<><div className="cx-indicator-layout"><div><label className="cx-study-search">Filter chart studies<input aria-label="Filter indicator list" value={search} onChange={e=>setSearch(e.target.value)} placeholder="EMA, RSI, volume, range…"/></label><div className="cx-study-list" role="group" aria-label="Toggle chart indicators">{matches.map(item=><label className={'cx-study-choice '+(!studyAllowed(prefs.studio,item.id)?'cx-study-locked':'')} key={item.id}><input type="checkbox" aria-label={'Show '+item.label} disabled={!studyAllowed(prefs.studio,item.id)} checked={studyAllowed(prefs.studio,item.id)&&!!prefs.enabled[item.id]} onChange={e=>prefs.setEnabled(item.id,e.target.checked)}/><span><strong>{item.label}</strong><small>{item.family} · {item.placement}</small></span><b>{!studyAllowed(prefs.studio,item.id)?'ADVANCED PREVIEW':prefs.enabled[item.id]?'ON':'OFF'}</b></label>)}{matches.length===0&&<p>No supported chart study matches your search.</p>}</div></div>
-  <div><div className="cx-overline">ADJUSTABLE CALCULATION PARAMETERS · {prefs.studio.toUpperCase()} TOOL PREVIEW</div><div className="cx-indicator-params">{settingRow('emaFast','Fast EMA period',2,100)}{settingRow('emaSlow','Slow EMA period',3,100)}{settingRow('sma','SMA period',2,100)}{settingRow('rsi','RSI period',2,100)}{settingRow('bbPeriod','Bollinger period',2,100)}{settingRow('bbDeviation','Bollinger standard deviation',.5,4,.1)}{settingRow('macdFast','MACD fast',2,50)}{settingRow('macdSlow','MACD slow',3,100)}{settingRow('macdSignal','MACD signal',2,50)}{settingRow('atr','ATR period',2,100)}{settingRow('volPeriod','Volume SMA period',2,100)}{settingRow('orb','Opening range minutes',1,30)}{settingRow('pivot','Structure confirmation bars',1,5)}</div><p className="cx-small">Values update only after each fictional bar completes. Warm-up gaps remain empty, not zero. Signal studies do not predict or authorize trades.</p></div></div>
+  <div><div className="cx-overline">ADJUSTABLE CALCULATION PARAMETERS · {prefs.studio.toUpperCase()} TOOL PREVIEW</div><div className="cx-indicator-params">{settingRow('emaFast','Fast EMA period',2,100)}{settingRow('emaSlow','Slow EMA period',3,100)}{settingRow('ema200','EMA 200 period',100,400)}{settingRow('sma','SMA period',2,100)}{settingRow('rsi','RSI period',2,100)}{settingRow('bbPeriod','Bollinger period',2,100)}{settingRow('bbDeviation','Bollinger standard deviation',.5,4,.1)}{settingRow('macdFast','MACD fast',2,50)}{settingRow('macdSlow','MACD slow',3,100)}{settingRow('macdSignal','MACD signal',2,50)}{settingRow('atr','ATR period',2,100)}{settingRow('volPeriod','Volume SMA period',2,100)}{settingRow('orb','Opening range minutes',1,30)}{settingRow('pivot','Structure confirmation bars',1,5)}</div><p className="cx-small">Values update only after each fictional bar completes. Warm-up gaps remain empty, not zero. Signal studies do not predict or authorize trades.</p></div></div>
   <div className="cx-indicator-catalog"><div><div className="cx-overline">TALIA / FULL AUTHORED STUDY LIBRARY</div><label>Explore all {guides.length||61} indicator topics <select aria-label="Indicator teaching guide" value={chosen} onChange={e=>setChosen(e.target.value)}><option value="STUDY_EMA">Exponential Moving Average</option>{guides.filter(g=>g.code!=='STUDY_EMA').map(g=><option key={g.code} value={g.code}>{g.title} · {g.family}</option>)}</select></label></div><div className="cx-guide-copy"><strong>{guide?.title||'Exponential Moving Average'}</strong><p>{guide?.concept||'A recent-price-weighted moving average. View the calculation settings, bar history and limitations.'}</p><p><b>Formula:</b> {guide?.formula||'EMA(t) = α × price(t) + (1−α) × EMA(t−1), α=2/(N+1)'}</p><p><b>Where it fails:</b> {guide?.limit||guide?.limits||'Indicators derived from historical bars are not future price guarantees.'}</p><p><b>Common live-trading error:</b> {guide?.commonError||'Treating a crossover alone as a trade signal.'}</p><span className="cx-chip">61 topics are teaching references; 15 studies are calculated on this synthetic OHLCV fixture</span></div></div></>}
  </section>;
 }
@@ -726,6 +753,8 @@ function Suite({page}:{page:Page}){
  const [learningMode,setLearningMode]=useState<LearningMode>('guided'),[blindChoice,setBlindChoice]=useState(''),[blindReason,setBlindReason]=useState(''),[blindLocked,setBlindLocked]=useState(false);
  const changeMode=(next:LearningMode)=>{setLearningMode(next);setBlindChoice('');setBlindReason('');setBlindLocked(false);setStage(next==='practice'?8:0)};
  const [barLook,setBarLook]=useState<BarLook>('quantum');
+ const [chartAppearance,setChartAppearance]=useState<ChartAppearance>(()=>{try{const saved=JSON.parse(window.localStorage.getItem('smfgu-chart-appearance-v1')||'{}');return {...defaultChartAppearance,...saved,colors:{...defaultChartAppearance.colors,...saved.colors},types:{...saved.types}}}catch{return defaultChartAppearance}});
+ useEffect(()=>{try{window.localStorage.setItem('smfgu-chart-appearance-v1',JSON.stringify(chartAppearance))}catch{}},[chartAppearance]);
  const [planCode,setPlanCode]=useState('FREE'),[studio,setStudio]=useState<Studio>('Standard'),[design,setDesign]=useState<Design>('quantum');
  const [selectedEditions,setSelectedEditions]=useState<{learning:EngineEdition;lab:EngineEdition;tutor:EngineEdition}>(editionPolicy.FREE);
  const [topic,setTopic]=useState<Topic>('vwap'),[stage,setStage]=useState(2),[reveal,setReveal]=useState(54),[volume,setVolume]=useState(true),[ema,setEma]=useState(true),[proxy,setProxy]=useState(true),[focus,setFocus]=useState(30);
@@ -740,7 +769,7 @@ function Suite({page}:{page:Page}){
  const theme=page==='b'?'quantum':design;
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
- return <BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
+ return <ChartAppearanceContext.Provider value={{style:chartAppearance,setStyle:setChartAppearance}}><BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 15 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
@@ -767,7 +796,7 @@ function Suite({page}:{page:Page}){
   <div id="cx-platform"><PlatformExplorer design={theme} reveal={reveal} volume={volume} ema={ema} proxy={proxy} focus={Math.min(focus,reveal-1)}/></div>
   <div id="cx-members"><MemberExperience plan={plan} reveal={reveal} setReveal={safeSetReveal} stage={stage} setStage={setStage} setTopic={setTopic}/></div>
   <footer className="cx-footer"><span>CROWN & LANTERN PRESS / INTERNAL DESIGN STUDY</span><span>REACT · TYPESCRIPT · JAVASCRIPT · HTML5 · CSS3 · ECHARTS 6.1 · PYTHON PROPOSED</span><span>Demo only. Server membership rules unchanged.</span></footer>
- </div></IndicatorContext.Provider></BarLookContext.Provider>;
+ </div></IndicatorContext.Provider></BarLookContext.Provider></ChartAppearanceContext.Provider>;
 }
 export function mountExperienceSuite(element:HTMLElement,page:Page):()=>void{
  const root:Root=createRoot(element);root.render(<Suite page={page}/>);return()=>root.unmount();
