@@ -1,0 +1,36 @@
+name: Master Research Source and Rights Audit V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/research/master/**'
+      - 'scripts/master-research-source-audit-v1.mjs'
+      - 'data/tutor-indicator-study-v1.json'
+      - 'data/tutor-indicator-expansion-v1.json'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - '.github/workflows/master-research-source-audit-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  research-source-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate provenance source code
+        run: |
+          node --check scripts/master-research-source-audit-v1.mjs
+          node scripts/master-research-source-audit-v1.mjs
+      - name: Retain source intake and rights findings (not commercial approval)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-source-rights-audit-${{ github.run_number }}
+          path: artifacts/master-research-source-audit-v1.json
+          if-no-files-found: warn
+          retention-days: 30
