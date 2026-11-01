@@ -235,7 +235,7 @@ async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
  if(cached&&cached.expires>Date.now())return cached.guides;
- const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json','talia-foundation-explanations-batch05-v1.json'];
+ const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json','talia-foundation-explanations-batch05-v1.json','talia-foundation-explanations-batch06-v1.json','talia-foundation-explanations-batch07-v1.json'];
  const batches=await Promise.all(files.map(async file=>{
   try{
    const response=await env.ASSETS.fetch(new Request(new URL('/data/'+file,request.url),{method:'GET'}));
@@ -277,7 +277,16 @@ async function loadFoundationTopicExplanations(env,request){
  const seenFifthIds=new Set(priorFourth.map(g=>g.code));
  const seenFifthTitles=new Set(priorFourth.map(g=>g.title.toLowerCase()));
  const fifth=batches[4].length===20&&batches[4].every(g=>!seenFifthIds.has(g.code)&&!seenFifthTitles.has(g.title.toLowerCase()))?batches[4]:[];
+ // Optional source-only sixth/seventh batches never suppress earlier approved
+ // curriculum if a new asset is absent, malformed, or duplicates a prior topic.
  const guides=[...priorFourth,...fifth];
+ for(const extra of batches.slice(5)){
+  if(extra.length!==20)continue;
+  const takenIds=new Set(guides.map(g=>g.code));
+  const takenTitles=new Set(guides.map(g=>g.title.toLowerCase()));
+  if(extra.some(g=>takenIds.has(g.code)||takenTitles.has(g.title.toLowerCase())))continue;
+  guides.push(...extra);
+ }
  foundationTopicCache.set(env.ASSETS,{guides,expires:Date.now()+300000});
  return guides;
 }
