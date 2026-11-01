@@ -14,6 +14,17 @@
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
 
+## LATEST EXECUTION STATUS — Batch 08/09 and six-gate review, 2026-11-01
+- **180/600 = 30.00% source-authored** in nine separate 20-topic original files. The owner cap of 40 explanations per execution cycle is honored; Batches 08–09 add exactly 40.
+- **Internal review:** 40/40 new fictional cases and ungraded teaching records checked for distinct subject, concept, procedure, original example, error, invalidation and transfer. **Independent publication acceptance: 0/600.** Internal reviewer decisions do not constitute a different person's independent review.
+- **Prior 101–140 source-review gate:** all 17 broad research URLs replaced with more relevant reference destinations; item-level author/editor decision fields now exist for each of the 40. Claim-by-claim external verification and commercial rights remain open.
+- **Research math:** all 14 original topics have independently coded synthetic arithmetic tests including seven additional 8–14 boundary checks, pending exact-head build/test confirmation.
+- **Indicators:** the first 24/73 source guides have individualized fictional numerical/conditional teaching and regression checks; remaining 49 require item-level review.
+- **Conversation:** 40 newest lessons added to original source-only Tutor with deeper teaching, ungraded review/mistake route and independent practice, preserving 30 official competencies, 419 Lab IDs and protected answers.
+- **Full acceptance blocked:** independent release validation, genuine signed-in Free/Founder sessions, screen-reader/mobile browser, all current main GitHub Actions and production SHA confirmation are separate. No API paid model or real feed enabled.
+- **Controlling QA register:** `docs/qa/2026-11-01_TALIA_FOUNDATION_SIX_GATE_EXECUTION_002.md`.
+- **Next editorial target:** individual claim and mathematical proof across 101–180, math/indicator upgrades beyond 24 and genuine authenticated acceptance before premium edition release.
+
 ## CURRENT EXECUTION STATUS — Batch 06/07 addendum, 2026-11-01
 - **140/600 = 23.33% source-authored**: seven 20-topic independent Foundation source files; this updates earlier 20/40/60/80/100 drafting snapshots preserved lower in this document as historical checkpoints. The user-authorized production batch ceiling is **40 topics at a time**; Batch 06 and 07 together represent exactly 40.
 - **40/40 = 100% internal draft structural reviews** for the two newest source assets; review register: `docs/qa/2026-11-01_TALIA_FOUNDATION_BATCH06_07_EDITORIAL_REVIEW_v1.md`. These are *author/editor development reviews* and **not independent release or publication approvals**.
