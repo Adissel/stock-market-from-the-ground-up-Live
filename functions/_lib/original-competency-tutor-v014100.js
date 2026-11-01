@@ -218,7 +218,7 @@ const FOUNDATION_TOPIC_SOURCE=url=>{
  try{
   const parsed=new URL(url);
   return parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.port&&
-   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com'].includes(parsed.hostname);
+   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org'].includes(parsed.hostname);
  }catch{return false}
 };
 async function loadFoundationTopicExplanations(env,request){
