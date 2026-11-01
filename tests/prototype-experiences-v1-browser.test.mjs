@@ -118,6 +118,17 @@ try{
  await a.page.locator('.cx-layout-toolbar').waitFor({state:'visible'});
  await a.page.getByRole('button',{name:'Show prototype-only UI'}).click();
  await a.page.getByRole('button',{name:'Close Layout Designer'}).click();
+ await a.page.getByRole('button',{name:'Edit page layout'}).click();
+ await a.page.getByLabel('Layout element type').selectOption('buttons');
+ await a.page.getByLabel('Find page element').fill('Exit prototype');
+ const exitId=await a.page.getByLabel('Select page element').locator('option[value]:not([value=""])').filter({hasText:'Exit prototype'}).first().getAttribute('value');
+ assert.ok(exitId,'Staff editor must expose Exit prototype as an editable link');
+ await a.page.getByLabel('Select page element').selectOption(exitId);
+ await a.page.getByLabel('Selected text color').fill('#f2c877');
+ assert.equal(await a.page.locator('.cx-exit-link').getAttribute('data-cx-text-colored'),'true','Exit link text should accept custom color');
+ await a.page.getByRole('button',{name:'Exit Editor'}).click();
+ assert.equal(await a.page.locator('.cx-layout-toolbar').count(),0);
+
 
  await a.page.getByLabel('Bar appearance preset').selectOption('glass');
  await a.page.getByLabel('Bar appearance preset').selectOption('holographic');
