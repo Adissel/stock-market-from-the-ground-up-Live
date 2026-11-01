@@ -7,10 +7,10 @@
 | Document ID | SMFGU-TALIA-BYOK-001 |
 | Filename / type | `docs/learning/SMFGU-TALIA-MEMBER-OWNED-API-KEYS-001-v1-20261101.md` / Markdown |
 | Google Drive location / document ID | Not created / unassigned; GitHub `main` is controlling |
-| Version / date | 1.0 / 2026-11-01 |
-| Status | Owner-directed policy recorded; optional Tutor BYOK implementation and provider-specific acceptance NOT released |
+| Version / date | 1.1 / 2026-11-01 |
+| Status | Owner policy reconciled with already implemented BYO credential infrastructure; only the optional Tutor provider adapter and acceptance remain open |
 | Dependencies | `SMFGU-TALIA-FOUR-EDITION-MATRIX-001`; `SMFGU-TALIA-EDITION-001`; `functions/_lib/tutor-provider-v014107.js`; `functions/api/market-tutor-v01492.js`; member auth and privacy controls; provider-specific terms |
-| Purpose | Define the zero-platform-provider-cost interim model for optional third-party Tutor API access without undermining first-party Foundation teaching, member privacy, or provider agreements |
+| Purpose | Extend the **existing** member BYO credential architecture to optional third-party Tutor API access; no duplicated general vault or account-connection page |
 
 ## Owner decision — controlling interim approach
 
@@ -36,22 +36,31 @@ This is a **target product policy**, not evidence that every outside provider pe
 7. Deleting/disconnecting a key stops future requests and removes the stored credential; make clear that provider-side retained records and billing are governed by the provider's account settings.
 8. Do not cache, publicly redistribute, resell or pool third-party restricted market data or copyrighted source content merely because a member provided an access credential.
 
-## Current-code reconciliation as of 2026-11-01
+## Verified existing BYO architecture — REUSE, do not rebuild
 
-- The existing `tutor-provider-v014107.js` obtains an OpenAI key from the site environment `AI_TUTOR_API_KEY` when owner-approved; it does **not** implement a per-member Tutor AI-key retrieval/rotation pathway.
-- `market-tutor-v01492.js` enforces member access, confirmed saved AI opt-in, source grounding and quotas for optional inference. These existing controls must be preserved, not bypassed.
-- Cloudflare Tutor AI flags were documented OFF on 2026-11-01. This policy makes **no runtime change**, requests **no provider payment**, and grants **no new member access**.
-- Other subsystems' member-owned data credentials, e.g. personal Tiingo/Alpaca integrations, are informative patterns only. They do not demonstrate a completed Tutor BYOK integration or general provider permission.
+GitHub `main` already contains an operational source architecture for personally supplied API keys. The Tutor Engine is one additional consumer of this infrastructure, not a greenfield BYO project.
 
-## Implementation and acceptance order — Tutor only
+| Existing source | Already provided | Tutor-specific treatment |
+|---|---|---|
+| `functions/api/credentials.js` | Verified member-only list/save/delete and provider validation; explicit `TIINGO_BYO` and `ALPACA_BYO` allowlist | Extend safely for an approved Tutor provider; do not duplicate a credential-management API |
+| `user_secure_credentials`, `user_market_data_connections` | Member-owned encrypted records, connection metadata and server-side account scoping | Reuse existing vault and provider-scoping conventions, subject to production schema and access verification |
+| `MARKET_DATA_ENCRYPTION_KEY`, AES-GCM routines | Existing encrypted-at-rest credential mechanism | Reuse reviewed cryptographic patterns, but evaluate Tutor-specific cryptographic domain separation; never put secrets in Tutor chat |
+| `data-connections.html`, existing Dashboard connections | Existing BYO connection-management interface | Add Tutor-specific connection settings to this existing experience, rather than create a competing general-purpose page |
+| `functions/api/marketdata.js` | Authorized fixed-provider data requests for Tiingo/Alpaca | Do not send Tutor model inference through the market-data endpoint; reuse its auth and allowlist patterns only |
+| `functions/_lib/tutor-provider-v014107.js` | Current optional AI routing uses site-controlled `AI_TUTOR_API_KEY` or a Workers AI binding under separate cost flags | New per-member Tutor credential resolution/routing still required |
+| `functions/api/market-tutor-v01492.js` | Authenticated source-only Tutor, saved model opt-in, source validation and usage gates | Preserve current privacy, opt-in, rate, answer-validation and no-cost fallback |
 
-1. Enumerate optional Tutor external providers/features and classify each as **BYOK permitted**, **BYOK prohibited**, or **verification pending**, with versioned endpoint, terms, cost and data-handling evidence.
-2. Reuse existing authenticated credential-protection architecture only after independent security review; add separate Tutor-scoped credential ownership, encryption, consent, revocation and account-deletion coverage if the current schema is insufficient.
-3. Add a protected member provider connection screen with **Connect / Test / Disconnect** controls and clear provider-cost notices. Do not ask for credentials in conversations.
-4. Introduce a separately opt-in, server-controlled per-member provider routing path with fixed provider/model allowlists, no owner-paid fallback, safe outputs and denial on missing/invalid credentials. Preserve first-party source-only teaching.
-5. Test genuine signed-in member/provider consent, cross-account isolation, cancellation, provider refusal, quota/cost controls, secret redaction, multi-turn safety and downgrade.
-6. Require same-main-SHA GitHub CI, matching Cloudflare deployment, production security checks and the affected provider's applicable terms review before release.
-7. A future organization-paid contract is a **separate owner-authorized transition**: negotiate terms, secure centrally funded secrets, set provider budgets and disclosures, and independently test billing/entitlement changes. Never assume the organization obtains a license automatically by funding API calls.
+**Precise boundary:** The existing BYO infrastructure is already implemented for its supported market-data providers. It is not yet an accepted member-key AI provider path for Talia. Source presence does not prove production deployment or third-party permission for every prospective Tutor provider.
+
+## Next execution — Tutor-specific extension of existing architecture
+
+1. Validate the existing live BYO connection-management implementation, relevant credential fields, encryption domain, server-side ownership and account-deletion behavior; preserve existing Tiingo and Alpaca contracts.
+2. Identify an optional Tutor inference provider that explicitly permits individually owned credentials for this hosted member workflow; validate provider limits, billing and privacy notices.
+3. Extend the existing credentials API and connection UI with an allowlisted Tutor provider, reusing authentication, credential encryption, masked status, test/verify, rotation and disconnect flows. Add only schema or cryptographic separation demonstrably needed for this service.
+4. Extend the existing Tutor server provider router to resolve the authenticated member's own credential, never another member's or the website's funded secret; enforce affirmative opt-in, quotas, cost warnings, grounded output and fail-closed behavior.
+5. Run cross-account, role, secret-redaction, invalid-key, disconnect, regression and no-key source-only Tutor tests, followed by exact-SHA GitHub Actions and matching Cloudflare deploy acceptance. Do not activate paid inference by changing global site flags.
+
+**Anti-duplication instruction:** No second member key vault, no replacement BYO architecture, no duplicate generic connection page and no separate ownership store unless an existing security constraint requires a narrow documented extension.
 
 ## Scope and authority
 
@@ -61,6 +70,7 @@ Owner-directed implementation policy; not legal counsel's license opinion or a c
 
 | Version | Date | Change | Approval/status |
 |---|---|---|---|
-| 1.0 | 2026-11-01 | Recorded member-purchased personal-provider API-key interim direction, no-shared-key model, security/terms gates, and site-funded future migration | Owner direction captured; implementation and release pending |
+| 1.0 | 2026-11-01 | Recorded interim member-owned API credential policy and cost boundaries | Owner direction captured; Tutor-specific implementation pending |
+| 1.1 | 2026-11-01 | Reconciled existing BYO vault, credentials route, UI and Tiingo/Alpaca adapters; prohibited duplicate BYO architecture | Existing source verified; Tutor adapter release pending |
 
-**Footer:** SMFGU-TALIA-BYOK-001 · v1.0 · GitHub `main` controlling · Tutor-only policy · No paid provider authorization · No blanket BYOK provider acceptance.
+**Footer:** SMFGU-TALIA-BYOK-001 · v1.1 · GitHub `main` controlling · Tutor-only policy · No paid provider authorization · No blanket BYOK provider acceptance.
