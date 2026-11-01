@@ -66,3 +66,24 @@ test('Real Lab engine integration respects approved skill match and private asse
   assert(!forbidden.test(read('assets/js/learning-quant-studies-v1.js')));
  }
 });
+
+test('Source registry explicitly distinguishes research, independent verification and redistribution',()=>{
+ const doc=JSON.parse(read('data/learning-engine-quant-source-registry-v1.json'));
+ assert.equal(doc.cases.length,3);
+ assert.deepEqual(doc.cases.map(x=>x.id),['ema','risk','sizing']);
+ assert.match(doc.status,/INDEPENDENT_EDITORIAL_ACCEPTANCE/);
+ assert.match(doc.globalMetadata.license,/REFERENCE_ONLY/);
+ for(const entry of doc.cases){
+  for(const key of ['definition','formula','units','inputs','initialization','warmup','workedExample','independent','chart','interpretation','commonMistake','verification']){
+   assert.equal(typeof entry[key],'string');assert(entry[key].length>=12);
+  }
+  assert(entry.references.length>=2);
+  assert(entry.references.every(x=>x.url.startsWith('https://')));
+ }
+ assert.match(doc.sourceUsePolicy.dataIngestion,/None/);
+});
+test('Whole-share sizing uses conservative floor even at sub-cent budget limits',()=>{
+ const a=x.calculate('sizing',{entry:42,stop:40.5,riskBudget:149.99,availableCash:10000});
+ assert.deepEqual(a.values,[99,238,99]);
+ assert(a.nominalRisk<=149.99);
+});

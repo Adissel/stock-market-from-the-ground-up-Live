@@ -107,3 +107,9 @@ This is optional formative teaching for all entitled Guided/Practice lessons. It
 **Dependencies:** Owner-frozen Basic editions and authorized Lab registry; existing Supabase authenticated competency summary, server private rubric, and ECharts vendor asset. Files: `assets/js/learning-quant-studies-v1.js`, `assets/js/learning-quant-studies-ui-v1.js`, `assets/css/learning-quant-studies-v1.css`, `assets/js/lab-engine-v32-universal.js`, `lab-player.html`, `tests/learning-quant-studies-v1.test.mjs`, `.github/workflows/learning-lab-quant-studies-v1.yml`.
 
 **Acceptance remaining:** source math tests, exact-commit full CI, Cloudflare commit, real signed-in Guide/Practice, mobile/keyboard/screen reader, account switching, ECharts fallback, protected Assessment/Blind with no leakage, and actual topic-specific editorial approval of every future case.
+
+## Quantitative source registry and independent validation — 2026-11-01
+
+**New source-validation record:** `data/learning-engine-quant-source-registry-v1.json` (JSON), document ID SMFGU-ENGINE-QUANT-SOURCE-001, version 1.0, status RESEARCH_REFERENCES_CHECKED_CALCULATION_TESTS_PENDING_INDEPENDENT_EDITORIAL_ACCEPTANCE. **Google Drive:** No file created; Google Drive document ID unassigned. **Dependencies:** Uploaded Master Research Source Directory(2).odt, official thinkorswim EMA docs, StockCharts formula conventions, Investor.gov order warnings, Schwab risk planning, original JavaScript arithmetic and Python Decimal QA.
+
+**Change:** Records complete source metadata, fictional examples, separate source-use/rights categories, initialization/warmup and expected errors. Improves position-sizing cap to conservative floor without upward epsilon. Python verification uses no runtime API or additional paid infrastructure. Real browser/editorial/license sign-off remains separate.

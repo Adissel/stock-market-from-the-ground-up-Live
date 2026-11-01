@@ -1,0 +1,102 @@
+{
+  "kind": "SMFGU_ENGINE_QUANT_SOURCE_REGISTRY",
+  "version": "1.0",
+  "documentId": "SMFGU-ENGINE-QUANT-SOURCE-001",
+  "project": "The Stock Market: From the Ground Up",
+  "date": "2026-11-01",
+  "status": "RESEARCH_REFERENCES_CHECKED_CALCULATION_TESTS_PENDING_INDEPENDENT_EDITORIAL_ACCEPTANCE",
+  "governingDocument": "Master Research Source Directory(2).odt",
+  "sourceUsePolicy": {
+    "research": "Allowed for checking formula conventions and limitations",
+    "independentVerification": "Original JavaScript and Python Decimal implementations",
+    "dataIngestion": "None. No third-party chart, quote, image, or source code is republished."
+  },
+  "cases": [
+    {
+      "id": "ema",
+      "competency": "EMA_CONTEXT",
+      "definition": "Exponential moving average",
+      "formula": "alpha=2/(period+1); seed=SMA first period completed closes; EMA_t=alpha*close_t+(1-alpha)*EMA_prev",
+      "units": "USD/share",
+      "inputs": "period, completed close price sequence",
+      "initialization": "Original example period=3; SMA seed at close 3, withheld before seed",
+      "warmup": "Requires at least period completed observations; further history changes early values",
+      "workedExample": "closes 10,12,14,16; seed12, alpha0.5, EMA4=14",
+      "independent": "closes 20,22,24,26; seed22, alpha0.5, EMA4=24",
+      "chart": "Locally hosted Apache ECharts, fictional synthetic closes and EMA",
+      "interpretation": "EMA is a lagging statistic, not a signal with guaranteed outcome",
+      "commonMistake": "Mixing first-price seed with SMA seed or including future closes",
+      "verification": "Independent Python standard-library Decimal calculation and Node source contract",
+      "references": [
+        {
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MovAvgExponential",
+          "role": "First-price/prefetched EMA convention and formula"
+        },
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential",
+          "role": "SMA-seeded EMA convention and warmup explanation"
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "competency": "RISK_PER_SHARE",
+      "definition": "Planned per-share stop distance",
+      "formula": "abs(plannedEntry-plannedStop)",
+      "units": "USD/share",
+      "inputs": "Assumed entry and stop prices",
+      "initialization": "No historical indicator warmup. Entry and stop must differ; example is a plan, not an executed order.",
+      "warmup": "Not applicable to static risk arithmetic",
+      "workedExample": "Entry 42, stop 40.5 -> planned distance 1.5",
+      "independent": "Entry 30, stop 28.75 -> planned distance 1.25",
+      "chart": "Original fictional comparison of entry, stop, distance; no real prices",
+      "interpretation": "Nominal risk arithmetic does not guarantee stop fill",
+      "commonMistake": "Assuming stop is guaranteed execution or that difference equals maximum realized loss",
+      "verification": "Independent Python Decimal; adverse stop/zero-distance cases",
+      "references": [
+        {
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
+          "role": "Stop trigger vs execution price"
+        },
+        {
+          "url": "https://www.schwab.com/learn/story/5-elements-smart-trade-plan",
+          "role": "Risk planning and sizing context"
+        }
+      ]
+    },
+    {
+      "id": "sizing",
+      "competency": "POSITION_SIZING",
+      "definition": "Conservative hypothetical whole-share maximum",
+      "formula": "min(floor(riskBudget/abs(entry-stop)),floor(availableCash/entry))",
+      "units": "whole shares",
+      "inputs": "Entry, stop, dollar risk budget, available cash",
+      "initialization": "Use positive risk distance, risk budget and cash limit, with a whole-share floor",
+      "warmup": "Not applicable to static position arithmetic",
+      "workedExample": "entry42 stop40.5 budget150 cash3000 -> risk ceiling100 cash ceiling71 final71 nominal risk106.5",
+      "independent": "entry27 stop25 budget70 cash1200 -> risk ceiling35 cash ceiling44 final35",
+      "chart": "Original fictional numerical bar comparison, not a financial recommendation",
+      "interpretation": "Simplified share cap subject to liquidity, fees, buying power and real execution slippage",
+      "commonMistake": "Rounding up shares beyond the budget, ignoring cash or assuming a stop caps realized loss",
+      "verification": "Independent Python Decimal; rounding and zero-distance edge cases",
+      "references": [
+        {
+          "url": "https://www.schwab.com/learn/story/5-elements-smart-trade-plan",
+          "role": "Trade risk planning, allocation and stop planning"
+        },
+        {
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
+          "role": "No guaranteed stop execution"
+        }
+      ]
+    }
+  ],
+  "globalMetadata": {
+    "accessDate": "2026-11-01",
+    "license": "REFERENCE_ONLY_NO_MEDIA_OR_MARKET_DATA_REPUBLICATION",
+    "publicAnswerKeys": "Original ungraded illustrative numerical calculations only",
+    "officialAssessment": "Original independently approved server-side grading remains separate",
+    "reviewer": "Automated source and quantitative checks; independent editorial and real member acceptance pending",
+    "rightsGate": "No third-party data, code or media copied; legal review required for future feeds"
+  }
+}

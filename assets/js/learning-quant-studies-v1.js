@@ -44,7 +44,8 @@ function calculate(id,data){
  if(id==='sizing'){
   const r=calculate('risk',data),b=data?.riskBudget,c=data?.availableCash,e=data?.entry;
   if(!r||!Number.isFinite(b)||!Number.isFinite(c)||b<=0||c<=0||e<=0)return null;
-  const byRisk=Math.floor((b+1e-9)/r.distance),byCash=Math.floor((c+1e-9)/e);
+  // Floor conservatively; never round a position up beyond the stated budget.
+  const byRisk=Math.floor(b/r.distance),byCash=Math.floor(c/e);
   const shares=Math.max(0,Math.min(byRisk,byCash));
   return Object.freeze({values:Object.freeze([byRisk,byCash,shares]),riskPerShare:r.distance,
    nominalRisk:shares*r.distance,buyingPowerUsed:shares*e,
@@ -62,7 +63,7 @@ function select({competencies,topic,primaryCode}={}){
  const title=typeof topic==='string'?topic:'';
  const check=[
   ['ema',/\bEMA\b|exponential moving average/i],
-  ['risk',/\brisk per share\b|\bstop distance\b/i],
+  ['risk',/\brisk per share\b|\bstop distance\b|\brisk per trade\b/i],
   ['sizing',/position siz|share.count|risk budget/i]
  ];
  for(const [id,re] of check){
