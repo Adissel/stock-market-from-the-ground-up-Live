@@ -7,7 +7,7 @@
 | Document ID | SMFGU-MASTER-RESEARCH-SOURCE-001 |
 | Filename | `docs/research/master/MASTER-RESEARCH-SOURCE-DIRECTORY-v1.0-20261101.md` |
 | File type | Markdown (.md) |
-| Version | 1.0 |
+| Version | 1.1 (controlled addendum; filename retained) |
 | Created and updated | November 1, 2026 |
 | Status | Candidate source registry and source-only CI integration; NOT licensed market-data feed, editorial signoff, or authenticated learning acceptance |
 | Authoritative location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
@@ -19,7 +19,7 @@
 
 ## Controlled source organization
 
-The adjacent `master-source-registry-v1.json` contains 71 research candidate records in nine subject tiers. These are research pointers, not 71 individually verified claims, data licenses, editorially approved lessons, or approved commercial integrations.
+The adjacent `master-source-registry-v1.json` contains 73 research candidate records in nine subject tiers. These are research pointers, not 71 individually verified claims, data licenses, editorially approved lessons, or approved commercial integrations.
 
 | Tier | Domain | Sources included | Subject use |
 | ---: | --- | ---: | --- |
@@ -29,7 +29,7 @@ The adjacent `master-source-registry-v1.json` contains 71 research candidate rec
 | 4 | fundamentals | 6 | SEC filing/valuation lessons and Fundamentals Academy |
 | 5 | derivatives | 7 | Future authorized options/derivatives concepts |
 | 6 | macro | 8 | Macroeconomic explanations with license-specific data restrictions |
-| 7 | quant | 9 | Python research validation, model risk and backtest controls |
+| 7 | quant | 11 | Python research validation, model risk and backtest controls |
 | 8 | market data | 6 | Historical replay feed/data provenance and redistribution gate |
 | 9 | engineering | 6 | Existing React/TypeScript, ECharts, Cloudflare Pages and Supabase design |
 
@@ -97,3 +97,24 @@ These descriptions are research controls, not licensed legal opinions or an atto
 | 1.0 | 2026-11-01 | Added nine-tier metadata registry, four numerical-method review pilots and a read-only CI rights gate | Owner-approved research architecture; editorial/license/deployment acceptance separate |
 
 **Document footer:** SMFGU-MASTER-RESEARCH-SOURCE-001 · v1.0 · Original learning content and rights controls · No third-party endorsement, educational accreditation or investment recommendation.
+
+
+## Version 1.1 — Uploaded research directory and Batch 04 source-intake reconciliation
+
+**Date:** November 1, 2026. **Source:** Owner-uploaded `Master Research Source Directory(3).odt`, reviewed as the current nine-level research assignment and rights-control reference. **Status:** Source inventory correction and development intake only. No commercial rights, independent editorial acceptance or real-member release granted.
+
+**Count correction:** The current adjacent `master-source-registry-v1.json` has **73 candidate sources**, including **11 quantitative-method sources**, rather than the earlier 71/9 documented before two Sharpe-ratio references were added. The source-record count is a research inventory, not the number of approved published sources.
+
+**Next 20 source mappings recorded:** `docs/learning/SMFGU-LAB-BATCH04-SOURCE-INTAKE-20261101.json` records twenty accurate existing Lab topics, two candidate source identities and individual editorial focus per entry. It excludes three canonical ID-only titles (`F3-C04-L01`–`L03`) pending title recovery. The test `tests/lab-bridge-batch04-research-intake-v1.test.mjs` verifies the exact canonical names, 419 identities, two registered reference candidates each, rights barriers, no future-bar instruction and no false instructional acceptance.
+
+**Source maturity remains:** 60/419 (14.32%) authored specific Lab bridges; 359 still require subject-specific rewrite. Academy accepted 93/380 (24.47%), with 287 remaining. The research-intake batch does **not** change those numbers. Confirm the latest exact-commit CI and deployment SHA before claiming the new source test is accepted.
+
+**Rights precision:** The uploaded directory's blanket statement that all listed sources are approved does not evidence individual author permission, quotation, screenshot, model processing, data caching or commercial redistribution. The per-use rights gate above controls. Candidate references and factual mathematical principles can guide **original** content, but never stand in for individual legal or editorial clearance.
+
+### Addendum revision history
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.1 | 2026-11-01 | Correct current 73-source/11-quant registry counts and link 20-topic rights-gated Batch 04 research intake | Source-only review; production and independent editorial acceptance open |
+
+**Footer:** SMFGU-MASTER-RESEARCH-SOURCE-001 · v1.1 addendum · No third-party rights or premium release implied.
