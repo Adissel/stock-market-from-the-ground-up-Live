@@ -30,7 +30,7 @@ try{
   await page.getByRole('button',{name:'Next lesson step'}).click();
   assert.match(await page.locator('.academy-guided-content h4').innerText(),/3\. Calculate \/ Analyze/);
   await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
-  assert.match(await page.locator('.academy-guided-ten [role=status]').last().innerText(),/Choose an answer/);
+  assert.match(await page.locator('.academy-guided-feedback').innerText(),/Choose an answer/);
   const opts=page.locator('.academy-guided-choice');
   const count=await opts.count();assert.equal(count,3);
   // The correct answer is day/step rotated, not position-dependent.
@@ -38,12 +38,12 @@ try{
   await opts.nth((correctIndex+1)%3).locator('input').check();
   await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
   assert.match(await page.locator('.academy-guided-content h4').innerText(),/3\. Calculate \/ Analyze/);
-  assert.match(await page.locator('.academy-guided-ten [role=status]').last().innerText(),/Not yet/);
+  assert.match(await page.locator('.academy-guided-feedback').innerText(),/Not yet/);
   await opts.nth(correctIndex).locator('input').check();
   await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
   assert.match(await page.locator('.academy-guided-content h4').innerText(),/4\. Experiment/);
   await page.getByRole('button',{name:'Explain This Concept — Free'}).click();
-  assert.match(await page.locator('.academy-guided-ten [role=status]').last().innerText(),/Talia explains/);
+  assert.match(await page.locator('.academy-guided-feedback').innerText(),/Talia explains/);
  }
  await page.setViewportSize({width:540,height:900});
  const cols=await page.locator('.academy-guided-grid').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').filter(Boolean).length);
@@ -62,7 +62,7 @@ try{
  assert.equal(await nums.count(),3,'Three numerical calculation fields');
  await nums.nth(0).fill('2');await nums.nth(1).fill('2');await nums.nth(2).fill('50');
  await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
- assert.match(await page.locator('.academy-guided-ten [role=status]').last().innerText(),/Body =/);
+ assert.match(await page.locator('.academy-guided-feedback').innerText(),/Body =/);
  await nums.nth(0).fill('1');
  await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
  assert.match(await page.locator('.academy-guided-content h4').innerText(),/4\. Experiment/);

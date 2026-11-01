@@ -125,7 +125,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    controls=el('div',undefined,'academy-guided-controls'),previous=el('button','Previous','btn secondary'),
    next=el('button','Next','btn'),explain=el('button','Explain This Concept — Free','btn secondary'),
    depth=el('button','Teach This in More Depth — Free','btn secondary'),
-   feedback=el('p');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+   feedback=el('p');feedback.className='academy-guided-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
  const tutorButton=el('button','Ask Market Tutor — optional','btn secondary'),tutorPanel=el('section',undefined,'academy-guided-tutor-response'),tutorOutput=el('p');
  tutorOutput.setAttribute('role','status');tutorOutput.setAttribute('aria-live','polite');
  tutorPanel.append(el('h4','Market Tutor · general educational explanation'),tutorOutput);tutorPanel.hidden=true;
