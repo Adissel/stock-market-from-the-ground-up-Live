@@ -556,7 +556,7 @@ async function memberExplanation(q,mode,learnerAnswer,conversationId,signal){
  if(!access)throw Object.assign(new Error('Your member session expired. Please sign in again.'),{status:401});
  const response=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',signal,
   headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-  body:JSON.stringify({question:q,mode,learnerAnswer,requestId:TUTOR.activeRequestId,allowModel:$('tutor-ai-consent')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
+  body:JSON.stringify({question:q,mode,learnerAnswer,requestId:TUTOR.activeRequestId,allowModel:$('tutor-ai-consent')?.checked===true||$('tutor-byok-use')?.checked===true,useMemberKey:$('tutor-byok-use')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
  const data=await response.json().catch(()=>null);
  if(!response.ok||data?.ok!==true){
   throw Object.assign(new Error(response.status===403?'Market Tutor access is not included with the current account. Review memberships or individual Tutor access.':
@@ -606,6 +606,7 @@ async function ask(){
   data.aiReason==='service_capacity_reached'?'The platform-wide AI request limit was reached.':
   data.aiReason==='model_temporarily_unavailable'?'Model inference is not configured or its private meter is unavailable.':
   data.aiReason==='provider_failed'?'The model provider could not return a validated cited explanation.':
+  data.aiReason==='member_key_unavailable'?'Your personal provider key is not approved, verified or available; source-only instruction was used.':
   data.aiReason==='duplicate_request'?'This AI request was already processed.':'';
   status('Response displayed. '+(data.generation==='grounded-model-draft'?'First-party AI educational draft; verify its original sources.':'No paid provider result was used. ')+why,'success');
   if(TUTOR.user&&$('tutor-ai-consent')?.checked)void refreshAiServiceStatus();
@@ -623,6 +624,30 @@ async function ask(){
   // Keep the member's Profile preference after each Tutor request.
   TUTOR.abortController=null;TUTOR.busy=false;$('tutor-ask').disabled=false;
   $('tutor-stop').disabled=true;$('tutor-retry').disabled=!TUTOR.lastDraft;
+ }
+}
+async function refreshMemberByok(){
+ const toggle=$('tutor-byok-use'),label=$('tutor-byok-status');
+ if(!toggle||!label)return;
+ toggle.disabled=true;toggle.checked=false;
+ const epoch=TUTOR.identityEpoch,requestedUser=TUTOR.user?.id||null;
+ if(!requestedUser){label.textContent='Sign in to review optional personal AI provider eligibility. Core Tutor teaching needs no key.';return}
+ try{
+  const access=await token();if(!access)throw Error('Sign-in required');
+  const response=await fetch('/api/credentials?action=list',{headers:{authorization:'Bearer '+access},cache:'no-store'});
+  if(!response.ok)throw Error('Provider connection status unavailable');
+  const data=await response.json();
+  if(epoch!==TUTOR.identityEpoch||TUTOR.user?.id!==requestedUser)return;
+  const saved=Array.isArray(data.connections)?data.connections.find(x=>x.service_code==='TALIA_OPENAI_BYO'):null;
+  const verified=data.tutorByokAvailable===true&&saved?.status==='connected'&&
+   saved?.metadata?.providerVerification==='verified';
+  toggle.disabled=!verified;
+  label.textContent=verified?
+   'Your own verified provider key may be selected per question. Provider costs are charged to your own account. The website does not supply a shared key.':
+   'Optional member-owned AI is not connected or not approved. Continue using the source-grounded Tutor without an API key.';
+ }catch{
+  if(epoch===TUTOR.identityEpoch&&TUTOR.user?.id===requestedUser)
+   label.textContent='Personal provider verification could not be confirmed. Source-grounded teaching remains available.';
  }
 }
 async function refreshAiServiceStatus(){
@@ -722,19 +747,19 @@ async function initTutor(){
     TUTOR.abortController?.abort();TUTOR.lastDraft=null;
     TUTOR.identityEpoch++;TUTOR.entries=[];TUTOR.user=null;TUTOR.serverHistory=false;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
-    renderConversation();void refreshAiServiceStatus();historyStatus('Your account changed; private notes were cleared from this page.');
+    renderConversation();void refreshAiServiceStatus();void refreshMemberByok();historyStatus('Your account changed; private notes were cleared from this page.');
     status('Sign in to open your own saved Tutor history.');
    }
-   if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();}
+   if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();void refreshMemberByok();}
    if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){
     TUTOR.identityEpoch++;TUTOR.user=session.user;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
-    void loadHistory();void refreshConversations();void refreshAiServiceStatus();
+    void loadHistory();void refreshConversations();void refreshAiServiceStatus();void refreshMemberByok();
    }
   });
  }catch{TUTOR.user=null}
  renderConversation();
- await Promise.all([loadHistory(),refreshConversations(),refreshAiServiceStatus()]);
+ await Promise.all([loadHistory(),refreshConversations(),refreshAiServiceStatus(),refreshMemberByok()]);
  // A question submitted before the authorized identity/source initialization
  // could be discarded when renderConversation() clears the placeholder state.
  TUTOR.ready=true;
