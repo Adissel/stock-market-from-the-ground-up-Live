@@ -65,7 +65,7 @@ function CandleShape({o,h,l,c}:{o:number;h:number;l:number;c:number}){
 type IndicatorSpec={id:string;label:string;family:string;setting:string|null;placement:string};
 type IndicatorPrefs={settings:Record<string,number>;enabled:Record<string,boolean>;setSettings:(name:string,value:number)=>void;setEnabled:(name:string,value:boolean)=>void;reset:()=>void;enableAll:()=>void};
 const IndicatorContext=React.createContext<IndicatorPrefs|null>(null);
-const specs:IndicatorSpec[]=[
+const specs:IndicatorSpec[]=([
  ['EMA_FAST','EMA · Fast','Trend','emaFast','Price overlay'],
  ['EMA_SLOW','EMA · Slow','Trend','emaSlow','Price overlay'],
  ['SMA','Simple moving average','Trend','sma','Price overlay'],
@@ -81,7 +81,7 @@ const specs:IndicatorSpec[]=[
  ['MACD','MACD (fast / slow / signal)','Momentum','macdFast','Oscillator pane'],
  ['ATR','Wilder ATR','Volatility','atr','Oscillator pane'],
  ['OBV','On-balance volume','Participation',null,'Oscillator pane']
-].map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
+] as Array<[string,string,string,string|null,string]>).map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
 const defaults:Record<string,number>={emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2};
 const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:true};
 function IndicatorDock(){
