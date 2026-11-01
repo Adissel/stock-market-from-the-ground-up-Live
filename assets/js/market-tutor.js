@@ -1,6 +1,6 @@
 /* v0.14.0.149 — Member Tutor response workspace; legacy member-tutor-history-v014102 remains served through the stable alias.
  * One question -> one user-visible answer, independent of whether paid AI is enabled.
- * Unauthenticated teaching is an explicitly labeled PUBLIC glossary fallback.
+ * All interactive Tutor teaching requires authenticated, eligible membership.
  * Persistent history is optional: fail safely to current-page memory until Owner SQL.
  * Never copy user text to localStorage, never award grades, and never render HTML
  * returned by a learner, provider, or database as markup.
@@ -556,7 +556,7 @@ async function memberExplanation(q,mode,learnerAnswer,conversationId,signal){
  if(!access)throw Object.assign(new Error('Your member session expired. Please sign in again.'),{status:401});
  const response=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',signal,
   headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-  body:JSON.stringify({question:q,mode,learnerAnswer,requestId:TUTOR.activeRequestId,allowModel:$('tutor-ai-consent')?.checked===true||$('tutor-byok-use')?.checked===true,useMemberKey:$('tutor-byok-use')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
+  body:JSON.stringify({question:q,mode,learnerAnswer,requestId:TUTOR.activeRequestId,allowModel:$('tutor-ai-consent')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
  const data=await response.json().catch(()=>null);
  if(!response.ok||data?.ok!==true){
   throw Object.assign(new Error(response.status===403?'Market Tutor access is not included with the current account. Review memberships or individual Tutor access.':
@@ -577,7 +577,7 @@ async function ask(){
  if(q.length<4||q.length>450){status('Enter a question between 4 and 450 characters.','error');$('tutor-question').focus();return}
  if(mode==='review'&&!learnerAnswer){status('Type your reasoning before asking the Tutor to review it.','error');$('tutor-reflection').focus();return}
  if(learnerAnswer.length>1800){status('Your reasoning must be 1,800 characters or fewer.','error');return}
- if(!TUTOR.user&&mode!=='explain'&&mode!=='question'){status('Sign in to use private review and practice recommendations.','error');return}
+ if(!TUTOR.user){status('Sign in with an eligible membership to use Talia Market Tutor. No API key is required.','error');return}
  const submittingUser=TUTOR.user?.id||null,submittingEpoch=TUTOR.identityEpoch;
  const submittedConversationId=TUTOR.currentConversationId;
  TUTOR.activeRequestId=crypto.randomUUID();
@@ -587,7 +587,7 @@ async function ask(){
  $('tutor-stop').disabled=false;$('tutor-retry').disabled=true;
  status('Preparing a source-grounded educational response…');
  try{
-  const data=TUTOR.user?await memberExplanation(q,mode,learnerAnswer,submittedConversationId,TUTOR.abortController.signal):localExplanation(q);
+  const data=await memberExplanation(q,mode,learnerAnswer,submittedConversationId,TUTOR.abortController.signal);
   if(TUTOR.abortController?.signal.aborted)throw Error('The browser stopped waiting for this response.');
   if(!data){throw Error('No approved teaching response was returned.')}
   if(TUTOR.user?.id!==submittingUser||TUTOR.identityEpoch!==submittingEpoch)
@@ -606,7 +606,6 @@ async function ask(){
   data.aiReason==='service_capacity_reached'?'The platform-wide AI request limit was reached.':
   data.aiReason==='model_temporarily_unavailable'?'Model inference is not configured or its private meter is unavailable.':
   data.aiReason==='provider_failed'?'The model provider could not return a validated cited explanation.':
-  data.aiReason==='member_key_unavailable'?'Your personal provider key is not approved, verified or available; source-only instruction was used.':
   data.aiReason==='duplicate_request'?'This AI request was already processed.':'';
   status('Response displayed. '+(data.generation==='grounded-model-draft'?'First-party AI educational draft; verify its original sources.':'No paid provider result was used. ')+why,'success');
   if(TUTOR.user&&$('tutor-ai-consent')?.checked)void refreshAiServiceStatus();
@@ -624,30 +623,6 @@ async function ask(){
   // Keep the member's Profile preference after each Tutor request.
   TUTOR.abortController=null;TUTOR.busy=false;$('tutor-ask').disabled=false;
   $('tutor-stop').disabled=true;$('tutor-retry').disabled=!TUTOR.lastDraft;
- }
-}
-async function refreshMemberByok(){
- const toggle=$('tutor-byok-use'),label=$('tutor-byok-status');
- if(!toggle||!label)return;
- toggle.disabled=true;toggle.checked=false;
- const epoch=TUTOR.identityEpoch,requestedUser=TUTOR.user?.id||null;
- if(!requestedUser){label.textContent='Sign in to review optional personal AI provider eligibility. Core Tutor teaching needs no key.';return}
- try{
-  const access=await token();if(!access)throw Error('Sign-in required');
-  const response=await fetch('/api/credentials?action=list',{headers:{authorization:'Bearer '+access},cache:'no-store'});
-  if(!response.ok)throw Error('Provider connection status unavailable');
-  const data=await response.json();
-  if(epoch!==TUTOR.identityEpoch||TUTOR.user?.id!==requestedUser)return;
-  const saved=Array.isArray(data.connections)?data.connections.find(x=>x.service_code==='TALIA_OPENAI_BYO'):null;
-  const verified=data.tutorByokInferenceAvailable===true&&saved?.status==='connected'&&
-   saved?.metadata?.providerVerification==='verified';
-  toggle.disabled=!verified;
-  label.textContent=verified?
-   'Your own verified provider key may be selected per question. Provider costs are charged to your own account. The website does not supply a shared key.':
-   'Optional member-owned AI is not connected or not approved. Continue using the source-grounded Tutor without an API key.';
- }catch{
-  if(epoch===TUTOR.identityEpoch&&TUTOR.user?.id===requestedUser)
-   label.textContent='Personal provider verification could not be confirmed. Source-grounded teaching remains available.';
  }
 }
 async function refreshAiServiceStatus(){
@@ -747,26 +722,26 @@ async function initTutor(){
     TUTOR.abortController?.abort();TUTOR.lastDraft=null;
     TUTOR.identityEpoch++;TUTOR.entries=[];TUTOR.user=null;TUTOR.serverHistory=false;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
-    renderConversation();void refreshAiServiceStatus();void refreshMemberByok();historyStatus('Your account changed; private notes were cleared from this page.');
+    renderConversation();void refreshAiServiceStatus();historyStatus('Your account changed; private notes were cleared from this page.');
     status('Sign in to open your own saved Tutor history.');
    }
-   if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();void refreshMemberByok();}
+   if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();}
    if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){
     TUTOR.identityEpoch++;TUTOR.user=session.user;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
-    void loadHistory();void refreshConversations();void refreshAiServiceStatus();void refreshMemberByok();
+    void loadHistory();void refreshConversations();void refreshAiServiceStatus();
    }
   });
  }catch{TUTOR.user=null}
  renderConversation();
- await Promise.all([loadHistory(),refreshConversations(),refreshAiServiceStatus(),refreshMemberByok()]);
+ await Promise.all([loadHistory(),refreshConversations(),refreshAiServiceStatus()]);
  // A question submitted before the authorized identity/source initialization
  // could be discarded when renderConversation() clears the placeholder state.
  TUTOR.ready=true;
  $('tutor-ask').disabled=false;
- if(query&&TUTOR.user){$('tutor-question').focus();status('The linked question is ready for you to submit.');}
- else if(query){status('The linked public glossary question is ready to submit.');}
- else status(TUTOR.user?'Member Tutor ready. Submit a question to begin.':'Public glossary ready. Sign in to access member teaching.');
+ if(!TUTOR.user){$('tutor-ask').disabled=true;status('A verified membership is required to use this Tutor. Sign in to continue.');}
+ else if(query){$('tutor-question').focus();status('The linked member question is ready to submit.');}
+ else status('Member Tutor ready. Submit a question to begin.');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initTutor,{once:true});
 else void initTutor();
