@@ -65,10 +65,10 @@ for(const [id,row] of Object.entries(bridges.entries)){
   const parts=row.tabs[facet];
   assert(Array.isArray(parts)&&parts.length>=1,'Missing original Lab teaching facet '+id+' '+facet);
   assert(parts.every(text=>typeof text==='string'&&text.trim().length>=15),'Empty Lab teaching facet '+id+' '+facet);
-  // Batch 02's source-specific contract requires two substantive paragraphs
+  // Batch 02's source-specific contract requires at least two substantive paragraphs
   // per facet; the older generic lessons keep the three-part requirement.
   if(/^ORIGINAL_SUBJECT_SPECIFIC_BATCH02_/.test(row.instructionSource||'')){
-   assert.equal(parts.length,2,'Batch 02 two-paragraph teaching contract: '+id+' '+facet);
+   assert(parts.length>=2,'Batch 02 requires at least two substantive paragraphs; expanded source depth is permitted: '+id+' '+facet);
    assert(parts.every(t=>t.length>70),'Batch 02 subject-specific depth: '+id+' '+facet);
    assert.match(row.sourceStatus||'',/PENDING/);
   }else if(row.instructionSource!=='ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101')
