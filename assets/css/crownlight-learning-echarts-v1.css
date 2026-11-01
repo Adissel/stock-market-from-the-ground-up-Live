@@ -48,3 +48,8 @@
  .gu-v35-chart-skills .gu-echarts-plot{min-height:235px}
  .gu-v35-chart-skills .gu-echarts-lesson{max-height:68vh}
 }
+
+.gu-echarts-compare-button{border:1px solid #83b2c1;border-radius:8px;color:#fff;background:#174052;padding:.6rem 1rem;cursor:pointer;font-weight:650}
+.gu-echarts-compare-button[aria-pressed="true"]{border-color:#e5c586;background:#2a5367}
+.gu-echarts-compare-button:focus-visible{outline:3px solid #f5d289;outline-offset:3px}
+@media(max-width:600px){.gu-echarts-compare-button{width:100%}}

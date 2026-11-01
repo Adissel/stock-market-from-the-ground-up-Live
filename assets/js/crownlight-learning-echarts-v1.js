@@ -22,6 +22,19 @@
   return {dollarsA,dollarsB,totalDollars:dollarsA+dollarsB,
    totalShares:aVolume+bVolume,price:(dollarsA+dollarsB)/(aVolume+bVolume)};
  }
+ // Reuse this workbench's own quantitative definitions; synthetic comparison only.
+ function compareMetrics(kind,current,sharesB=100){
+  if(kind==='candle'){
+   const original=candleMetrics(current),newCandle={o:18,h:19.2,l:17.8,c:18.6};
+   return original?Object.freeze({kind,original,independent:candleMetrics(newCandle),
+    originalCandle:{...current},independentCandle:newCandle,source:'fictional_constructed_no_feed'}):null;
+  }
+  if(kind==='vwap'){
+   const original=vwapMetrics(8,200,10,sharesB),independent=vwapMetrics(7,120,10,80);
+   return original&&independent?Object.freeze({kind,original,independent,source:'fictional_constructed_no_feed'}):null;
+  }
+  return null;
+ }
  function checkCalculation(kind,typed,candle,secondVolume){
   const c=candleMetrics(candle),m=vwapMetrics(8,200,10,secondVolume);
   const expected=kind==='vwap'?[m.totalDollars,m.totalShares,m.price]:
@@ -51,7 +64,7 @@
   const kind=options.kind==='vwap'?'vwap':'candle';
   const original=options.candle&&candleMetrics(options.candle)?options.candle:{o:31,h:32.5,l:30.5,c:32};
   const candle={o:original.o,h:original.h,l:original.l,c:original.c};
-  let secondVolume=100,instance=null,observer=null,disposed=false;
+  let secondVolume=100,instance=null,observer=null,disposed=false,comparing=false;
   const section=node('section');section.className='gu-echarts-lesson';
   section.setAttribute('aria-label','Talia interactive fictional chart experiment');
   const eyebrow=node('p','APACHE ECHARTS · FICTIONAL TEACHING DATA');
@@ -131,6 +144,17 @@
     render();
    });
   }
+  if(options.interactive!==false){
+   const compare=node('button','Compare fictional cases');compare.type='button';
+   compare.className='gu-echarts-compare-button';compare.setAttribute('aria-pressed','false');
+   compare.addEventListener('click',()=>{
+    comparing=!comparing;
+    compare.setAttribute('aria-pressed',String(comparing));
+    compare.textContent=comparing?'Return to single fictional case':'Compare fictional cases';
+    fields.forEach(field=>{field.value=''});feedback.replaceChildren();render();
+   });
+   controls.append(compare);
+  }
   function row(...cells){
    const tr=node('tr');for(const cell of cells)tr.append(node('td',cell));tbody.append(tr);
   }
@@ -150,6 +174,32 @@
      axisLabel:{color:'#d1e2ef'}},
     yAxis:{type:'value',scale:true,axisLabel:{color:'#d1e2ef'}},
     dataZoom:[{type:'inside',filterMode:'none'}]};
+   if(comparing){
+    const data=compareMetrics(kind,candle,secondVolume);
+    if(kind==='candle'){
+     const a=data.originalCandle,b=data.independentCandle;
+     common.xAxis.data=['Original fictional','Independent fictional'];
+     common.yAxis={type:'value',scale:true,min:Math.max(0,Math.min(a.l,b.l)-.5),
+      max:Math.max(a.h,b.h)+.5,axisLabel:{color:'#d1e2ef'}};
+     common.series=[{type:'candlestick',name:'Two fictional candles',barMaxWidth:58,
+      data:[[a.o,a.c,a.l,a.h],[b.o,b.c,b.l,b.h]],
+      itemStyle:{color:'#24b79c',color0:'#ee7487',borderColor:'#24b79c',borderColor0:'#ee7487'}}];
+    }else{
+     common.xAxis.data=['Original A','Original B','Independent A','Independent B'];
+     common.yAxis=[
+      {type:'value',min:0,max:12,name:'USD/share',axisLabel:{color:'#d1e2ef'}},
+      {type:'value',min:0,name:'Shares',axisLabel:{color:'#d1e2ef'}}];
+     common.series=[
+      {name:'Trade price',type:'line',data:[8,10,7,10],symbolSize:10},
+      {name:'Trade shares',type:'bar',yAxisIndex:1,data:[200,secondVolume,120,80]},
+      {name:'Original VWAP',type:'line',showSymbol:false,
+       lineStyle:{type:'dashed'},data:[data.original.price,data.original.price,null,null]},
+      {name:'Independent VWAP',type:'line',showSymbol:false,
+       lineStyle:{type:'dashed'},data:[null,null,data.independent.price,data.independent.price]}
+     ];
+    }
+    return common;
+   }
    if(kind==='vwap'){
     const m=vwapMetrics(8,200,10,secondVolume);
     common.yAxis=[{type:'value',min:0,max:12,name:'USD/share',nameTextStyle:{color:'#d1e2ef'},
@@ -199,6 +249,25 @@
      node('p','Upper wick '+money(m.upper)+' · Lower wick '+money(m.lower)+' · '+m.direction+' completed candle. The candle does not reveal the order of High and Low or predict the next interval.'));
     if(output)output.textContent=money(candle.c)+' · '+m.direction+' · body '+money(m.body);
    }
+   if(comparing){
+    const c=compareMetrics(kind,candle,secondVolume);
+    if(c){
+     facts.append(node('p',kind==='candle'?
+      'Original body share '+c.original.percent.toFixed(1)+'%; independent fictional share '+c.independent.percent.toFixed(1)+'%. Different OHLC values, no forward-price inference.':
+      'Original trade-price VWAP '+money(c.original.price)+'; independent fictional VWAP '+money(c.independent.price)+'. Neither is a bar-proxy historical calculation.'));
+     if(kind==='candle'){
+      row('New Open',money(c.independentCandle.o));row('New High',money(c.independentCandle.h));
+      row('New Low',money(c.independentCandle.l));row('New Close',money(c.independentCandle.c));
+     }else{
+      row('New A','$7.00','120','$840.00');row('New B','$10.00','80','$800.00');
+      row('New total','—','200','$1,640.00');
+     }
+    }
+   }
+   chart.setAttribute('aria-label',comparing?
+    'Two original fictional numerical cases; equivalent values appear in the table and textual calculation.':
+    kind==='vwap'?'Fictional trade prices, quantities and volume-weighted average':
+      'Fictional candlestick with Open, High, Low and Close guides');
    instance?.setOption(option(),{notMerge:true});
   }
   const session={
@@ -242,5 +311,5 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',autoMount,{once:true});
   else autoMount();
  }
- root.CrownlightLearningEChartsV1=Object.freeze({mount,candleMetrics,vwapMetrics,checkCalculation,version:'1.1.0'});
+ root.CrownlightLearningEChartsV1=Object.freeze({mount,candleMetrics,vwapMetrics,checkCalculation,compareMetrics,version:'1.2.0'});
 })(typeof window==='undefined'?globalThis:window);
