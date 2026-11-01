@@ -9,7 +9,6 @@ const block=source.slice(a,b);
 for(const required of [
  'GroundUpAdminPasswordConfirm.ensure()',
  "'gu_owner_digital_history_v014304'",
- "'gu_owner_digital_books_save_v01430'",
  "v.format==='epub'",
  'v.current===true',
  'v.fileExists===true',
@@ -17,8 +16,19 @@ for(const required of [
  'p_sales:false',
  'p_downloads:false',
  'p_rights_attested:rights.checked',
- 'p_expected_updated_at:product.version'
+ 'await guardedRightsSave({'
 ]) assert(block.includes(required),'Guard missing '+required);
+// The current Owner editor centralizes optimistic concurrency and audited save.
+const guardStart=source.indexOf('const guardedRightsSave=async proposed=>');
+const guardEnd=source.indexOf('const prepare=el(',guardStart);
+assert(guardStart>=0&&guardEnd>guardStart,'Private EPUB save must use the current guarded helper');
+const helper=source.slice(guardStart,guardEnd);
+assert(helper.includes("'gu_owner_digital_books_save_v01430'"),
+ 'Primary preparation must be backed by the authenticated digital-book RPC');
+assert(helper.includes('p_expected_updated_at:catalogVersion')&&helper.includes('await refreshVersion()'),
+ 'Guarded EPUB save must check the latest persisted catalog revision');
+assert(helper.includes('DIGITAL_SETTINGS_CONFLICT')||source.includes('DIGITAL_SETTINGS_CONFLICT'),
+ 'Protected digital-book rights must fail on concurrent conflict');
 assert(!block.includes('rights.checked=true'),'Never silently attest contract rights');
 assert(!block.includes("await sb.storage.from"),'Never reupload or overwrite book files');
 assert(source.includes('actions.append(upload,prepare,historyButton,previewTools,save,draftSave)'),'Guarded book controls must remain in the compact Book Edit action grid');
