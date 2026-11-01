@@ -22,12 +22,16 @@ for(const rule of required)assert(rule.test(html),'Academy accessible markup con
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate HTML ids break labels and accessibility');
 const css=readFileSync('assets/css/teaching-full-width-v1.css','utf8');
-assert(html.includes('teaching-full-width-v1.css?v=20261031-mobile1'),
+assert(html.includes('teaching-full-width-v1.css?v=20261031-mobile2'),
  'Academy must load current responsive stylesheet on mobile');
 assert(css.includes('Academy mobile containment: preserve readable header'),
  'Mobile classroom containment rules are missing');
 assert(css.includes('flex-wrap:wrap!important')&&css.includes('overflow-wrap:anywhere!important'),
  'Academy mobile header must wrap text and controls, not merely hide overflow');
+assert(css.includes('390px authenticated browser finding: injected search'),
+ 'Site-wide injected search and notification controls must not expand Academy mobile layout');
+assert(css.includes('max-width:96px!important')&&css.includes('width:44px!important'),
+ 'Search and notifications must remain accessible compact mobile controls');
 assert(css.includes('.academy-guided-ten,.academy-guided-grid'),
  'Mobile classroom learning grid lacks intrinsic-size containment');
 console.log('PASS Academy static accessibility: semantic lesson nav, labeled headings, disclosure, reflection, live status and progress bar; protected grading hidden.');
