@@ -46,8 +46,27 @@ test('eleven source-specific replacements retain runtime single-reference invari
   assert.ok(g.sourceUrls[0],code);
   assert.equal(g.sourceUrls.length,1,code);
  }
+ // The 11 more precise replacements leave exactly these 13 *unapproved*
+ // SEC Rule 605 candidate pointers. Protect their identities, not a stale count:
+ // additions/removals must prompt item-level source-scope review.
  const rule605=topics.filter(g=>g.sourceUrls[0].includes('rule-605-regulation-nms'));
- assert.equal(rule605.length,14,'Issue register must track the still-reused SEC FAQ source');
+ const stillUnderReview=[
+   "TALIA_TOPIC_VENUE_QUOTE_DIFFERENCE",
+   "TALIA_TOPIC_TRADE_AT_BID_NOT_INTENT",
+   "TALIA_TOPIC_MIDPOINT_NOT_EXECUTABLE",
+   "TALIA_TOPIC_LOCKED_CROSSED_QUOTE",
+   "TALIA_TOPIC_NBBO_ELIGIBILITY_CONDITIONS",
+   "TALIA_TOPIC_QUOTE_TRADE_CLOCK_ORDER",
+   "TALIA_TOPIC_TRADE_COUNT_VS_SHARE_VOLUME",
+   "TALIA_TOPIC_TAPE_COLOR_CONVENTION",
+   "TALIA_TOPIC_ONE_SIDED_QUOTE_NO_SPREAD",
+   "TALIA_TOPIC_QUOTED_EFFECTIVE_SPREAD",
+   "TALIA_TOPIC_PRICE_IMPROVEMENT_BENCHMARK",
+   "TALIA_TOPIC_SLIPPAGE_REFERENCE_EXPLICIT",
+   "TALIA_TOPIC_REALIZED_SPREAD_HORIZON"
+ ];
+ assert.deepEqual(rule605.map(g=>g.code).sort(),stillUnderReview.sort(),
+  'Track every remaining SEC Rule 605 source candidate for claim-specific editorial review');
 });
 test('author/editor improves six specific weak prompts without inventing an independent reviewer',()=>{
  const repaired=[
