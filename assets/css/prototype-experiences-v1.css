@@ -478,3 +478,38 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 @media(max-width:1050px){.cx-app .cx-desk-banner{gap:12px}.cx-app .cx-designs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.cx-app .cx-desk-banner{align-items:stretch;padding:13px}.cx-app .cx-desk-price{align-items:flex-start}.cx-app .cx-desk-links{width:100%}.cx-app .cx-designs{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-live-workspace .cx-kpis b{font-size:17px}}
 @media(forced-colors:active){.cx-app .cx-desk-banner,.cx-app .cx-desk-links a{border-color:CanvasText}}
+
+/* Talia v13 — educational evidence workspace, no fabricated historical data or grades. */
+.cx-app .cx-tutor-evidence{margin:13px 0 15px;border:1px solid color-mix(in srgb,var(--cx-accent) 55%,#526a7a);border-radius:12px;background:linear-gradient(145deg,#102d42,#0b1b30 63%,#102a3a);box-shadow:0 14px 38px #0006;overflow:hidden}
+.cx-app .cx-tutor-evidence-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:15px 15px 11px;background:radial-gradient(ellipse at 100% 0,color-mix(in srgb,var(--cx-accent) 14%,transparent),transparent 65%)}
+.cx-app .cx-tutor-evidence-head h4{font-size:clamp(15px,1.5vw,21px);margin:5px 0;color:#effcff;letter-spacing:-.025em}
+.cx-app .cx-tutor-evidence-head p{font-size:11px;color:#b7d0df;line-height:1.55;margin:5px 0 0}
+.cx-app .cx-tutor-evidence-tag{flex-shrink:0;font-size:9px;border:1px solid #5b927e;background:#164234;color:#c8ffde;letter-spacing:.09em;padding:5px 8px;border-radius:5px}
+.cx-app .cx-tutor-context{display:grid;gap:3px;padding:11px 14px;border-block:1px solid #426577;background:linear-gradient(100deg,#183b50,#0b2234);font-variant-numeric:tabular-nums}
+.cx-app .cx-tutor-context>span{font-size:9px;color:#a3c3d6;letter-spacing:.12em}
+.cx-app .cx-tutor-context strong{font-size:14px;color:#f3fbff}
+.cx-app .cx-tutor-context small{font-size:10px;color:#b8d8e7}
+.cx-app .cx-tutor-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:12px}
+.cx-app .cx-tutor-tabs button{text-align:center;min-width:0;font-size:11px;font-weight:750;background:#183a50;color:#e6f5ff;border:1px solid #44687a;border-radius:6px;padding:10px 5px}
+.cx-app .cx-tutor-tabs button[aria-pressed=true]{background:#256b77;color:#fff;border-color:#7ae5ce;box-shadow:inset 0 2px #88f5d8}
+.cx-app .cx-tutor-evidence-body{padding:5px 14px 14px}
+.cx-app .cx-tutor-evidence-body>p{font-size:12px;color:#d5e8f0;line-height:1.65;margin:7px 0 13px}
+.cx-app .cx-tutor-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.cx-app .cx-tutor-metrics>div{min-width:0;padding:10px;border:1px solid #41657a;background:#0d2638;border-radius:7px}
+.cx-app .cx-tutor-metrics span{display:block;font-size:9px;letter-spacing:.07em;color:#b7d2df}
+.cx-app .cx-tutor-metrics b{font-size:17px;color:#effdff;font-variant-numeric:tabular-nums}
+.cx-app .cx-tutor-caution{background:#172d3e;border-left:3px solid #f4ce8a;padding:10px}
+.cx-app .cx-tutor-controls{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.cx-app .cx-tutor-evidence button:disabled{opacity:.43;cursor:not-allowed}
+.cx-app .cx-tutor-controls button,.cx-app .cx-tutor-evidence-body>button,.cx-app .cx-tutor-calc button{border:1px solid #63929b;background:#174559;color:#f1fdff;border-radius:6px;padding:9px;font-size:11px;font-weight:750}
+.cx-app .cx-tutor-choices{display:grid;gap:6px;margin-bottom:10px}
+.cx-app .cx-tutor-choices button{text-align:left;background:#102b40;border:1px solid #41667b;color:#e1f1fd;border-radius:6px;padding:9px 11px;white-space:normal;font-size:11px}
+.cx-app .cx-tutor-choices button[aria-pressed=true]{border-color:#8aefd0;background:#1e5056}
+.cx-app .cx-tutor-calc{border-top:1px solid #365366;margin-top:13px;padding-top:12px}
+.cx-app .cx-tutor-calc label{display:block;font-size:11px;font-weight:750;color:#d6edf5}
+.cx-app .cx-tutor-calc input{display:block;width:100%;margin:6px 0 9px;padding:10px;border:1px solid #7193a2;background:#0a1c2c;color:#fff;border-radius:5px;font-size:14px}
+.cx-app .cx-tutor-feedback{border-left:3px solid #87edce;background:#103d42;padding:10px}
+.cx-app .cx-tutor-evidence-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#091c2b;padding:10px 13px;border-top:1px solid #31576a;color:#9cbbc9;font-size:9px;letter-spacing:.06em}
+@media(max-width:540px){.cx-app .cx-tutor-evidence-head{flex-direction:column}.cx-app .cx-tutor-evidence-tag{align-self:flex-start}.cx-app .cx-tutor-metrics b{font-size:15px}}
+@media(forced-colors:active){.cx-app .cx-tutor-tabs button[aria-pressed=true],.cx-app .cx-tutor-choices button[aria-pressed=true]{outline:2px solid Highlight}}
+@media(prefers-reduced-motion:reduce){.cx-app .cx-tutor-evidence *{scroll-behavior:auto;animation:none;transition:none}}

@@ -74,6 +74,24 @@ try{
  assert.ok(await a.page.locator('.cx-reorder-tools>span[draggable]').count()>0,'Explicit drag handles required');
  assert.equal(await a.page.locator('.cx-stepper').first().locator('button').count(),10);
  assert.equal(await a.page.locator('.cx-platform-explorer nav button').count(),8);
+ const desk=a.page.locator('.cx-right .cx-tutor-evidence').first();
+ await desk.waitFor({state:'visible'});
+ assert.match(await desk.locator('.cx-tutor-context').textContent(),/BAR 31 OF 54/);
+ assert.match(await desk.locator('.cx-tutor-evidence-body').textContent(),/09:|10:|Observed evidence/);
+ await desk.getByRole('button',{name:'Inspect previous completed bar'}).click();
+ assert.match(await desk.locator('.cx-tutor-context').textContent(),/BAR 30 OF 54/);
+ await desk.getByRole('button',{name:'Practice reasoning'}).click();
+ await desk.getByRole('button',{name:/selected OHLCV bar is observed/}).click();
+ await desk.getByRole('button',{name:'Check reasoning'}).click();
+ assert.match(await desk.locator('.cx-tutor-feedback').textContent(),/Correct/);
+ await desk.getByLabel('Talia selected candle calculation').fill('999');
+ await desk.getByRole('button',{name:'Check calculation'}).click();
+ assert.match(await desk.locator('.cx-tutor-calc').textContent(),/Not yet/);
+ await desk.getByRole('button',{name:'Sources & limits'}).click();
+ assert.match(await desk.locator('.cx-tutor-evidence-body').textContent(),/No future bar is used/);
+ await desk.getByRole('button',{name:'Inspect candle'}).click();
+ assert.equal(await a.page.locator('.cx-right .cx-coach-actions button').count(),4,'Four permanently free instructional actions are present');
+
  const beforeDrag=await a.page.locator('.cx-viewport-status').first().textContent();
  const y=rect.y+rect.height*.3;
  await a.page.mouse.move(rect.x+rect.width*.76,y);
