@@ -379,6 +379,25 @@ function formatFoundationTopic(g,mode,reflection,question){
   'Limits and uncertainty: '+g.limit,'What would invalidate this interpretation: '+g.invalidation,
   'Common mistake: '+g.commonError,
   'Original educational reference (not a live data or strategy-performance claim): '+g.sourceUrls.join(' ')];
+ // A deeper request must be instructional, not the same response with more labels.
+ // Reuse the same authorized source and fictional teaching case; never infer
+ // a private member misconception, future replay observation, or a grade.
+ if(mode==='explain'&&/\\b(?:more depth|go deeper|step.by.step|walk me through|explain further)\\b/i.test(String(question||''))){
+  return [
+   'Talia Foundation — source-only deeper teaching: '+g.title,
+   '1. Define the principle in plain language: '+g.concept,
+   '2. Identify the observable inputs, timestamps and calculation method: '+g.procedure,
+   '3. Walk through original invented data (not live or licensed prices): '+g.workedCase,
+   ...(computed?['4. Recompute the independently authored mathematics, with its units: '+computed]:[]),
+   '5. Check the most likely reasoning mistake (not a claim about your past responses): '+g.commonError,
+   '6. Decide when the conclusion is invalid: '+g.invalidation,
+   '7. State what the evidence cannot prove: '+g.limit,
+   '8. Try a genuinely different ungraded scenario before looking at this worked case again: '+g.transferQuestion,
+   'Self-review without awarding mastery: '+g.reviewExplanation,
+   'Original research reference, not reproduction authorization: '+g.sourceUrls.join(' '),
+   'No live trading instruction, private answer key, future observation, paid model call or assessment score.'
+  ].join('\\n\\n');
+ }
  if(mode==='question')return [...base,'Independent ungraded self-check: '+g.selfCheck,
   'Do not use a future observation or an official assessment answer.'].join('\n\n');
  if(mode==='review')return [...base,'Ungraded review criterion: '+g.reviewExplanation,
