@@ -4,7 +4,7 @@
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up / Crownlight Prototype Center  
 **File / type:** `docs/prototype/SMFGU-PROTOTYPE-012-v1.0-20261101.md` / Markdown  
-**Version / date:** 1.1 / November 1, 2026  
+**Version / date:** 1.2 / November 1, 2026  
 **Status:** SOURCE IMPLEMENTED, CI AND ACTUAL OWNER ROLE ACCEPTANCE NOT AUTOMATICALLY GRANTED  
 **GitHub authoritative location:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/prototype/`  
 **Google Drive location / document ID:** Unassigned / not created  
@@ -45,6 +45,15 @@
 
 **Release decisions:** Authored/source-implemented is not verified/accepted. Do not treat older successful workflows, synthetic role mocks, public instructional counts, or Cloudflare build success as proof of genuine authenticated Owner access, independent editorial approval, screen-reader compliance, real market data, verified historical chart provenance or protected grading readiness.
 
+
+## V1.2 source-linked instructional day acceptance addition
+
+The staff-only Academy inspector now distinguishes `free5` as a **separate five-day Free Foundations source evidence program**, outside the `academyCatalog` ten-program service response. It reads only already published `data/free-foundations-evidence-v1.json` (five genuine educational source-evidence records) and `data/academy-specific-source-instruction-v1.json` (three individual source-backed examples: Watchlist7 Days 1 and 3; Scanners10 Day 3). Each example presents objective, source claim, fictional worked example, calculation/research procedure, counterexample, independent transfer, limitation and editorial/evidence classification.
+
+All other Boot Camp days display an explicit source-evidence limitation rather than synthetic filler or a claim of individual advanced-depth acceptance. The actual member Academy continues to own enrollment, eligibility, reflections, progress and protected assessments. This prototype requires no database migration and makes no member write. Source and Owner/role-synthetic Chromium tests are new CI gates, not equivalent to genuine authorized staff browser acceptance.
+
+**Quality acceptance requirement:** Exact new-source Chromium test must demonstrate five distinct Free-day case accordions, two Watchlist7 cases, one Scanners10 case and a no-source message for Risk60. Ensure authenticated staff-only prototype access, no answer key extraction and the original source reference limitations remain preserved.
+
 ## Next actions and safeguards
 
 Resolve CI failures in source and browser contracts; test full-width mobile page and keyboard states; obtain exact final `main` SHA and Cloudflare production deployment; complete authorized Owner/Admin visual/accessibility review; reconcile any missing real teaching features with server-authorized member Lab/Boot Camp services rather than duplicating engines. No paid Work mode, third-party paid runtime, live payment, brokerage order, private quiz key, user progress edit, new ledger or database migration was authorized for this parity change.
@@ -55,5 +64,6 @@ Resolve CI failures in source and browser contracts; test full-width mobile page
 |---|---|---|
 | v1.0 | 2026-11-01 | New curriculum parity acceptance register, ten distinct gates; staged source checks, production release withheld |
 | v1.1 | 2026-11-01 | Integrated each Lab's five real subject-specific public teaching facets and extended source and synthetic Owner browser tests; source/CI distinct from member-ready signoff |
+| v1.2 | 2026-11-01 | Add five real Free Foundations source-evidence lessons, three individually documented Academy teaching examples and explicit no-source notices for other program days; zero private progress writes |
 
-**Footer:** SMFGU-PROTOTYPE-012 · v1.1 · main only · Staff-only simulated product design · No grading, payment or historical data authenticity claim.
+**Footer:** SMFGU-PROTOTYPE-012 · v1.2 · main only · Staff-only simulated product design · No grading, payment or historical data authenticity claim.
