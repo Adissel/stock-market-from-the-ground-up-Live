@@ -21,6 +21,7 @@ const stub=[
 try{
  for(const width of [390,900,1280,1440]){
   for(const code of codes){
+   console.log('ACADEMY_BROWSER_ROUTE_START width='+width+' program='+code);
    const context=await browser.newContext({viewport:{width,height:930},
     serviceWorkers:'block',reducedMotion:'reduce'});
    const page=await context.newPage();const progress=new Map();let enrolled=false;
@@ -74,7 +75,7 @@ try{
     'Selected program navigation must open the learning workspace, not the program cards');
    assert.equal(await page.locator('.academy-free-entry').isHidden(),true);
    assert.equal(await page.locator('.academy-return-bar a').getAttribute('href'),'bootcamp-academy.html');
-   await page.waitForFunction(()=>document.activeElement?.id==='academy-course-title');
+   await page.waitForFunction(()=>document.activeElement?.id==='academy-course-title',null,{timeout:12000});
    assert.equal(await page.locator('#academy-workspace').isVisible(),true);
    assert.equal(await page.locator('#academy-days .gu-bc-day').count(),academyByCode[code].days);
    assert.equal(await page.locator('#academy-course-title').innerText(),academyByCode[code].title);
@@ -158,7 +159,7 @@ try{
      'The self-check must be reachable by keyboard focus');
    }
    await page.locator('#academy-enroll').click();
-   await page.waitForFunction(()=>document.querySelector('#academy-enroll')?.hidden===true);
+   await page.waitForFunction(()=>document.querySelector('#academy-enroll')?.hidden===true,null,{timeout:12000});
    assert.match(await page.locator('#academy-save-status').innerText(),/No study reflection has been saved yet/,
     'Enrollment alone cannot claim notes are persisted');
    await page.locator('#academy-save').click();
@@ -189,11 +190,11 @@ try{
     await page.locator('#academy-reflection').fill(reflection);
    }
    await page.locator('#academy-save').click();
-   await page.waitForFunction(()=>document.querySelector('#academy-member-progress')?.textContent.includes('1 of '));
+   await page.waitForFunction(()=>document.querySelector('#academy-member-progress')?.textContent.includes('1 of '),null,{timeout:12000});
    assert.equal(progress.get(1)?.reflection,storedReflection);
    const savedRevision=progress.get(1)?.revision;
    await page.locator('#academy-start').click();
-   await page.waitForFunction(()=>document.querySelector('#academy-save-status')?.textContent.includes('previously saved reflection remains recorded'));
+   await page.waitForFunction(()=>document.querySelector('#academy-save-status')?.textContent.includes('previously saved reflection remains recorded'),null,{timeout:12000});
    assert.equal(progress.get(1)?.revision,savedRevision,'Idempotent Start must not overwrite saved evidence');
    assert.equal(progress.get(1)?.reflection,storedReflection,'Start must not wipe prior saved notes');
    await page.locator('#academy-days .gu-bc-day').last().click();
@@ -222,13 +223,13 @@ try{
    // closed, retain the unsaved current draft, and never claim it was saved.
    progress.set(1,{...progress.get(1),revision:progress.get(1).revision+1});
    await page.locator('#academy-save').click();
-   await page.waitForFunction(()=>document.querySelector('#academy-save-status')?.textContent.includes('stale revision'));
+   await page.waitForFunction(()=>document.querySelector('#academy-save-status')?.textContent.includes('stale revision'),null,{timeout:12000});
    assert.equal(await page.locator('#academy-reflection').inputValue(),newUnsaved,
     'An optimistic-lock conflict must retain the member-written unsaved draft');
    assert.notEqual(progress.get(1)?.reflection,newUnsaved,
     'Rejected save cannot falsify persisted content');
    await page.evaluate(()=>window.__ACADEMY_SWITCH('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'));
-   await page.waitForFunction(()=>document.querySelector('#academy-workspace')?.hidden===true);
+   await page.waitForFunction(()=>document.querySelector('#academy-workspace')?.hidden===true,null,{timeout:12000});
    assert.equal(await page.locator('#academy-reflection').inputValue(),'');
    assert.equal(await page.locator('#academy-days .gu-bc-day').count(),0,
     'Previous member day navigator must be destroyed, even inside hidden workspace');
@@ -292,7 +293,7 @@ try{
 
   assert.equal(await page.locator('#academy-program-list').isHidden(),true);
   assert.equal(await page.locator('.academy-free-entry').isHidden(),true);
-  await page.waitForFunction(()=>document.activeElement?.id==='academy-course-title');
+  await page.waitForFunction(()=>document.activeElement?.id==='academy-course-title',null,{timeout:12000});
   assert.match(await page.locator('main h1').innerText(),/Free Foundations/);
   assert.deepEqual(errors,[]);
   await context.close();
@@ -333,11 +334,11 @@ try{
  await page.goto(base+'/bootcamp-academy.html?program='+code,{waitUntil:'domcontentloaded'});
  await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
  await page.locator('#academy-enroll').click();
- await page.waitForFunction(()=>document.querySelector('#academy-enroll')?.disabled===true);
+ await page.waitForFunction(()=>document.querySelector('#academy-enroll')?.disabled===true,null,{timeout:12000});
  for(let i=0;i<40&&!release;i++)await new Promise(resolve=>setTimeout(resolve,25));
  assert.equal(typeof release,'function','Enrollment POST must be in flight before the account switch');
  await page.evaluate(()=>window.__ACADEMY_SWITCH('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'));
- await page.waitForFunction(()=>document.querySelector('#academy-workspace')?.hidden===true);
+ await page.waitForFunction(()=>document.querySelector('#academy-workspace')?.hidden===true,null,{timeout:12000});
  assert.equal(await page.locator('#academy-reflection').inputValue(),'');
 
  const response=page.waitForResponse(r=>r.url().includes('/api/bootcamp-academy')&&r.request().method()==='POST');
