@@ -1,0 +1,433 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 3,
+  "count": 20,
+  "goal": 600,
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Twenty unique foundational price-observation and indicator mathematics topics with discrete hypothetical cases. These are candidate explanations, not individually signed-off editorials, approved assessments, or new chart algorithms.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_CANDLE_BODY_RANGE_RATIO",
+      "title": "Candlestick body size relative to the complete range",
+      "concept": "A real body spans a completed candle's open and close; body-to-range expresses its magnitude relative to the high-low span, not a probability of continuation.",
+      "procedure": "Validate low ≤ open and close ≤ high. Compute |close−open|/(high−low)×100 only for a nonzero completed range.",
+      "workedCase": "FICTIONAL: Open $20.00, close $20.30, high $20.50 and low $19.50 give $0.30 body/$1.00 range = 30%, despite a bullish close.",
+      "limit": "A zero-range candle leaves the ratio undefined. OHLC cannot identify the order in which intrabar highs and lows occurred.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A zero-range candle leaves the ratio undefined. OHLC cannot identify the order in which intrabar highs and lows occurred.",
+      "commonError": "Calling a 70% body a 70% chance of a profitable next candle.",
+      "selfCheck": "Identify the observable completed-bar inputs for Candlestick body size relative to the complete range, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A fictional candle opens $9.80, closes $9.90, high $10.00, low $9.50. Recompute the percent and one uncertainty.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_WICK_PRICE_REJECTION",
+      "title": "Upper and lower wicks do not prove execution rejection",
+      "concept": "A completed candle's upper wick is high−max(open,close), and lower wick is min(open,close)−low. The sizes describe the observed price envelope.",
+      "procedure": "State all four OHLC inputs, calculate both nonnegative wick sizes, and compare with the source interval's volume and nearby levels.",
+      "workedCase": "FICTIONAL: Open $10, close $10.20, high $10.70 and low $9.90 produce upper wick $0.50 and lower wick $0.10; no trader identity is established.",
+      "limit": "The same candle can arise through differing trade paths; wicks do not independently establish a support order or reversal.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. The same candle can arise through differing trade paths; wicks do not independently establish a support order or reversal.",
+      "commonError": "Calling a long upper wick proof that a particular institution sold and that the next candle must decline.",
+      "selfCheck": "Identify the observable completed-bar inputs for Upper and lower wicks do not prove execution rejection, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "For a fictional doji with open and close $10, high $10.40 and low $9.80, calculate both wicks.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_DOJI_SPREAD_CONDITIONS",
+      "title": "Doji candle definition and tick-size limitation",
+      "concept": "A doji has little or no open-close difference relative to its observed range, but thresholds differ by teaching convention and instrument.",
+      "procedure": "Declare a percentage body threshold, the completed OHLC bar and minimum price increment before labeling the real body as small.",
+      "workedCase": "FICTIONAL: Open $10.00, close $10.01, high $10.30, low $9.70 imply body/range ≈1.67%. Whether it qualifies depends on the declared threshold.",
+      "limit": "A small body does not establish indecision by named traders or guarantee a next-bar reversal; prices on a wide spread can be misleading.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A small body does not establish indecision by named traders or guarantee a next-bar reversal; prices on a wide spread can be misleading.",
+      "commonError": "Treating every one-cent real body as a universal doji regardless of price, range or tick rules.",
+      "selfCheck": "Identify the observable completed-bar inputs for Doji candle definition and tick-size limitation, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "At a declared 5%-of-range threshold, test a fictional $0.02 body and $0.20 range.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_ENGULFING_CONTEXT_LIMITS",
+      "title": "Engulfing body versus full candle range",
+      "concept": "An engulfing interpretation conventionally compares adjacent real bodies; whether wicks must also be encompassed depends on the declared pattern rule.",
+      "procedure": "Compare completed prior open and close with current open and close; specify bullish/bearish ordering and the exact body or wick definition.",
+      "workedCase": "FICTIONAL: Prior bar opens $10.20 and closes $10.00; the next opens $9.95 and closes $10.30. The second real body contains the first.",
+      "limit": "A single two-bar configuration is not a verified reversal or executable entry; volume, gaps and context can change interpretation.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A single two-bar configuration is not a verified reversal or executable entry; volume, gaps and context can change interpretation.",
+      "commonError": "Declaring a bullish engulfing pattern without identifying which body boundaries were actually exceeded.",
+      "selfCheck": "Identify the observable completed-bar inputs for Engulfing body versus full candle range, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Change the fictional second close to $10.10 and check whether its real body still engulfs the first.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_GAP_VS_FAIR_VALUE",
+      "title": "Overnight price gap versus predicted gap closure",
+      "concept": "A completed session gap reflects a difference between a previous observed close and a later opening reference; it does not contain a law that price must revisit the earlier level.",
+      "procedure": "Mark prior session close, next-session opening bar, adjusted-data convention and extended-hours inclusion explicitly.",
+      "workedCase": "FICTIONAL: Previous regular-session close $10, next regular-session open $10.60: gap +$0.60, +6% against the close, before any subsequent trading.",
+      "limit": "Split adjustments, earnings and premarket trading can alter visual gaps; a future gap fill is unknown.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Split adjustments, earnings and premarket trading can alter visual gaps; a future gap fill is unknown.",
+      "commonError": "Treating a chart gap as an obligation that price will return to the previous close.",
+      "selfCheck": "Identify the observable completed-bar inputs for Overnight price gap versus predicted gap closure, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A fictional security opens $9.40 after closing at $10.00. Compute the signed gap and its percentage.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_INSIDE_BAR_COMPLETION",
+      "title": "Inside bar recognition requires two completed candle ranges",
+      "concept": "An inside bar's high is no higher than the previous completed high, and its low is no lower than the previous completed low under an inclusive convention.",
+      "procedure": "Compare current completed high and low against the immediately preceding completed high/low; state whether equality is allowed.",
+      "workedCase": "FICTIONAL: Prior high $10.80 and low $9.80; next high $10.60 and low $10.00 form an inclusive inside bar.",
+      "limit": "An unfinished bar can stop being inside, and an inside pattern does not ensure breakout direction.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. An unfinished bar can stop being inside, and an inside pattern does not ensure breakout direction.",
+      "commonError": "Calling an intrabar high-low snapshot a finalized inside candle before the interval closes.",
+      "selfCheck": "Identify the observable completed-bar inputs for Inside bar recognition requires two completed candle ranges, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Use fictional next high $10.90 and low $10.00; identify why it fails the inclusive inside rule.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_SWING_PIVOT_RIGHT_BARS",
+      "title": "Swing high confirmation requires bars to its right",
+      "concept": "A confirmed local swing with radius r must compare a candidate high to completed neighboring bars on both sides; at the candidate timestamp those later bars were unknown.",
+      "procedure": "Select radius r, candidate index, strict tie policy and the full set of 2r+1 completed bars; record confirmation at index+r.",
+      "workedCase": "FICTIONAL: A five-bar pivot with radius two has its highest high in the middle, but that pivot cannot be confirmed until two subsequent bars close.",
+      "limit": "Plotting a historically confirmed pivot on its earlier candle does not imply it could have been traded with that knowledge at the earlier time.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Plotting a historically confirmed pivot on its earlier candle does not imply it could have been traded with that knowledge at the earlier time.",
+      "commonError": "Using the apparent turning point before its right-side confirmation candles were completed.",
+      "selfCheck": "Identify the observable completed-bar inputs for Swing high confirmation requires bars to its right, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "For a fictional radius-three swing candidate at bar 10, identify the earliest confirmed bar index.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_HH_HL_CONFIRMATION",
+      "title": "Higher-high and higher-low labels depend on confirmed pivots",
+      "concept": "A higher high compares two confirmed swing highs; a higher low compares two confirmed swing lows, with declared pivot rules.",
+      "procedure": "Record each confirmed pivot price and its later confirmation timestamp; separately calculate high-to-high and low-to-low differences.",
+      "workedCase": "FICTIONAL: Confirmed highs $10.20 then $10.60 are HH; confirmed lows $9.40 then $9.55 are HL, subject to identical pivot radius.",
+      "limit": "Pivot detection lags; right-hand confirmation bars must not be shown to a historical replay learner before their time.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Pivot detection lags; right-hand confirmation bars must not be shown to a historical replay learner before their time.",
+      "commonError": "Calling a temporary price tick a confirmed swing higher high with no defined radius.",
+      "selfCheck": "Identify the observable completed-bar inputs for Higher-high and higher-low labels depend on confirmed pivots, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A fictional confirmed low moves from $9.55 to $9.30; update the structure label without inferring the next trade.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_SUPPORT_ZONE_VS_POINT",
+      "title": "Support and resistance zones versus exact touch prices",
+      "concept": "Support or resistance is an analyst-defined region of repeated historical interaction; plotting one exact line is a simplification rather than an execution guarantee.",
+      "procedure": "Choose an objective zone-width convention from observed completed prices and distinguish lows/highs, closes and volume observations.",
+      "workedCase": "FICTIONAL: Prior completed reactions occurred at $10.02, $10.05 and $10.08; a teaching support area of $10.00–$10.10 may be documented, but not guaranteed to hold.",
+      "limit": "Different timeframes, spreads and volatile events can shift levels, and drawing after seeing a reversal creates hindsight bias.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Different timeframes, spreads and volatile events can shift levels, and drawing after seeing a reversal creates hindsight bias.",
+      "commonError": "Calling a previously tested support level an assured filled buy or stop order.",
+      "selfCheck": "Identify the observable completed-bar inputs for Support and resistance zones versus exact touch prices, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A later fictional completed close falls to $9.70; explain how the interpretation changes without assuming a future bounce.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_BREAKOUT_FALSE_START",
+      "title": "Failed breakout requires a defined decision boundary",
+      "concept": "A breakout claim compares completed price evidence with a previously defined level and confirmation rule; an eventual failure is only known after additional observations.",
+      "procedure": "Record a boundary before the attempt, define close/touch/volume tests, then identify which outcomes were visible at each replay cutoff.",
+      "workedCase": "FICTIONAL: A prior resistance boundary is $10.50. A completed close at $10.62 meets a declared close-above rule; a later close at $10.30 can show failure only when that later bar exists.",
+      "limit": "A single breakout can reverse; no hindsight series establishes that the first breakout observation was impossible or profitable.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A single breakout can reverse; no hindsight series establishes that the first breakout observation was impossible or profitable.",
+      "commonError": "Judging the earlier breakout decision using a later failed breakout candle that did not yet exist.",
+      "selfCheck": "Identify the observable completed-bar inputs for Failed breakout requires a defined decision boundary, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Set a fictional cutoff immediately after a close above $10.50. List evidence valid then and observations that are forbidden.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_RSI14_WILDER_SEED",
+      "title": "RSI 14 Wilder initialization needs fourteen price changes",
+      "concept": "A conventional RSI14 calculation seeds average gain and loss from fourteen completed close-to-close differences, which requires fifteen completed closes.",
+      "procedure": "Identify fifteen valid closes and 14 completed changes; compute mean positive/negative changes, then Wilder smooth each subsequent change.",
+      "workedCase": "FICTIONAL: Fourteen nonzero positive hypothetical $0.10 changes and zero losses produce RSI 100 at the seed point; the series is unavailable with only fourteen closes.",
+      "limit": "An RSI value cannot establish future direction; zero gain and loss needs a documented flat-series convention.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. An RSI value cannot establish future direction; zero gain and loss needs a documented flat-series convention.",
+      "commonError": "Initializing RSI14 with fourteen prices instead of fourteen completed price differences.",
+      "selfCheck": "Identify the observable completed-bar inputs for RSI 14 Wilder initialization needs fourteen price changes, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "With fourteen flat price changes, state why the RSI denominator is zero and describe the platform's declared flat-series convention.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_RSI50_NEUTRAL_CONVENTION",
+      "title": "Flat-price RSI and neutral 50 convention",
+      "concept": "When both Wilder average gain and average loss are zero, the ratio 0/0 is indeterminate, so software must use an explicit stable neutral convention.",
+      "procedure": "Identify the exact completed closes and the indicator implementation's no-change convention before showing RSI 50 or unavailable.",
+      "workedCase": "FICTIONAL: Fifteen completed closes all equal $20; one first-party implementation deliberately reports RSI 50 at seed, not a claim of buying or selling strength.",
+      "limit": "Different platforms can return different neutral/undefined values and require the same period and source for comparison.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Different platforms can return different neutral/undefined values and require the same period and source for comparison.",
+      "commonError": "Treating a neutral RSI50 as proof of a price equilibrium or future continuation.",
+      "selfCheck": "Identify the observable completed-bar inputs for Flat-price RSI and neutral 50 convention, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "If the next completed fictional price rises, explain what changes in Wilder average gain and loss.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_ATR14_WILDER_RECURSION",
+      "title": "ATR 14 first seed and Wilder recursive updates",
+      "concept": "Average True Range smooths true range (including gap effects) rather than high-low alone; Wilder updating gives the prior ATR thirteen-fourteenths weight.",
+      "procedure": "Compute true range from completed bars and prior close, seed a fourteen-bar average, then update ATR=(13×previous ATR+new TR)/14.",
+      "workedCase": "FICTIONAL: A seeded ATR14 of $0.40 followed by completed true range $0.68 produces (13×$0.40+$0.68)/14=$0.42.",
+      "limit": "ATR is measured in price units, not a directional or probability signal; vendor seed conventions and session treatment differ.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. ATR is measured in price units, not a directional or probability signal; vendor seed conventions and session treatment differ.",
+      "commonError": "Calling a one-bar $0.68 true range an ATR14 reading with no earlier history.",
+      "selfCheck": "Identify the observable completed-bar inputs for ATR 14 first seed and Wilder recursive updates, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Recompute fictional ATR14 when the new completed true range is $1.10 instead of $0.68.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_BOLLINGER_POP_STD",
+      "title": "Bollinger Bands need an explicit deviation convention",
+      "concept": "Bollinger Bands normally place a chosen multiple of a moving standard deviation around a simple moving average of completed closes.",
+      "procedure": "Declare the window, multiplier, population or sample deviation convention, and the full set of completed closing prices.",
+      "workedCase": "FICTIONAL: Five completed closes [10,10,10,10,12] have SMA $10.40 and population sigma $0.80; illustrative 2σ bands are $8.80 and $12.00.",
+      "limit": "A teaching five-bar example is not a default 20-bar setting; band touch does not necessarily establish reversal.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A teaching five-bar example is not a default 20-bar setting; band touch does not necessarily establish reversal.",
+      "commonError": "Mixing a 20-bar SMA with a five-bar deviation or calling an unfinished close final.",
+      "selfCheck": "Identify the observable completed-bar inputs for Bollinger Bands need an explicit deviation convention, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "With a fictional five-bar window [10,10,10,10,11] and multiplier two, calculate the population-sigma upper band.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MACD_WARMUP_CHAIN",
+      "title": "MACD line and signal line have distinct warm-up requirements",
+      "concept": "A 12/26 MACD line subtracts two EMAs; a typical 9-period signal EMA requires additional valid MACD observations after both EMAs are available.",
+      "procedure": "Seed 12- and 26-period EMAs on completed closes and then seed the signal line only on nine valid MACD line observations.",
+      "workedCase": "FICTIONAL: A 26-close history can first produce the slow EMA and MACD line; a 9-period SMA-seeded signal first becomes available at the 34th completed close.",
+      "limit": "A vendor can choose other EMA seeds or sparse-window policies; a histogram cannot be reliable before both line and signal exist.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A vendor can choose other EMA seeds or sparse-window policies; a histogram cannot be reliable before both line and signal exist.",
+      "commonError": "Showing a full three-line MACD from only 26 completed closes under the declared SMA-seed rule.",
+      "selfCheck": "Identify the observable completed-bar inputs for MACD line and signal line have distinct warm-up requirements, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "With 33 completed closes and then 34, state whether a nine-value MACD signal seed is available.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_OBV_EQUAL_CLOSE",
+      "title": "OBV should not change when a completed closing price is unchanged",
+      "concept": "On-Balance Volume is a cumulative signed volume series whose update depends on the change in close; equal close ordinarily contributes zero volume.",
+      "procedure": "Declare an arbitrary initial seed, compare consecutive completed closes and add, subtract or retain the cumulative total accordingly.",
+      "workedCase": "FICTIONAL: A prior OBV of 1,000 shares with next close unchanged and volume 500 shares remains 1,000; a later higher close and volume 200 makes it 1,200.",
+      "limit": "OBV does not identify who placed an order; source volume, feed corrections and initial seed change the path.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. OBV does not identify who placed an order; source volume, feed corrections and initial seed change the path.",
+      "commonError": "Always adding reported volume to OBV even when the close falls or is unchanged.",
+      "selfCheck": "Identify the observable completed-bar inputs for OBV should not change when a completed closing price is unchanged, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A fictional decline occurs on 300 shares after the OBV reaches 1,200; compute the new index.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_CMF_ZERO_RANGE",
+      "title": "Chaikin Money Flow and zero-range candle handling",
+      "concept": "CMF aggregates a close-location multiplier times reported volume over a declared lookback, normalized by volume over the same window.",
+      "procedure": "For each completed bar with nonzero range compute ((close−low)−(high−close))/(high−low), multiply by volume, and divide window sums.",
+      "workedCase": "FICTIONAL: Completed high $10.50, low $9.50, close $10.25 gives close-location multiplier +0.50; with 1,000 shares its money-flow volume contribution is +500.",
+      "limit": "A zero high-low range requires an explicit convention; CMF is not actual order-book buy-minus-sell delta or identification of large traders.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. A zero high-low range requires an explicit convention; CMF is not actual order-book buy-minus-sell delta or identification of large traders.",
+      "commonError": "Labeling CMF as exact institution-side executed volume or silently dividing by zero.",
+      "selfCheck": "Identify the observable completed-bar inputs for Chaikin Money Flow and zero-range candle handling, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "A fictional candle closes exactly at its midpoint; compute its close-location multiplier and explain what remains unknown.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_STOCHASTIC_RANGE_BOUND",
+      "title": "Stochastic oscillator and the high-low window denominator",
+      "concept": "A fast stochastic %K measures where the latest completed close lies within a declared highest-high to lowest-low price window.",
+      "procedure": "Compute %K=100×(close−lowestLow)/(highestHigh−lowestLow), only with valid completed OHLC bars and positive range.",
+      "workedCase": "FICTIONAL: Over an illustrative complete window, highest high $11, lowest low $9 and completed close $10.50 give %K=75.",
+      "limit": "If highest high equals lowest low, the fraction is undefined until a documented flat-range convention; high values do not guarantee overbought reversal.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. If highest high equals lowest low, the fraction is undefined until a documented flat-range convention; high values do not guarantee overbought reversal.",
+      "commonError": "Calculating stochastic %K from a partial lookback or claiming a fixed 80 reading mandates a sell.",
+      "selfCheck": "Identify the observable completed-bar inputs for Stochastic oscillator and the high-low window denominator, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "For a fictional high $20, low $16 and completed close $17, calculate %K and one limitation.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_VWAP_PROXY_VS_TRADES",
+      "title": "Bar-volume VWAP proxy differs from execution-print VWAP",
+      "concept": "An OHLC3 typical-price weighted average approximates a trade weighted value using bar-level estimates; true executed trade VWAP uses every qualified print's price and size.",
+      "procedure": "Compare sum(typical bar price × bar volume)/sum(bar volume) with sum(actual print price × print shares)/sum(print shares), declaring session and inclusion rules.",
+      "workedCase": "FICTIONAL: One bar with high $11, low $9, close $10 and 100 shares yields HLC3 proxy $10.00, even if the actual qualified prints were 50 shares at $9 and 50 at $11 (also $10) by coincidence.",
+      "limit": "Different within-bar trade distributions can give materially different exact VWAP values at identical OHLCV; the proxy does not reveal tape chronology.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Different within-bar trade distributions can give materially different exact VWAP values at identical OHLCV; the proxy does not reveal tape chronology.",
+      "commonError": "Calling a typical-price approximation tick-exact VWAP without qualifying trades.",
+      "selfCheck": "Identify the observable completed-bar inputs for Bar-volume VWAP proxy differs from execution-print VWAP, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Suppose 90 shares print at $9 and 10 at $11 with the same fictional bar OHLC. Compare print-exact VWAP with the $10 HLC3 proxy.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_OHLCV_VOLUME_NOT_AGGRESSOR",
+      "title": "Total OHLCV volume is not signed order-flow delta",
+      "concept": "A bar's reported volume is total matched executed quantity. Signed aggressor delta requires a verified side-classification convention on individual prints.",
+      "procedure": "Distinguish total shares per bar from classified buyer-initiated and seller-initiated prints, and record feed/reporting limitations.",
+      "workedCase": "FICTIONAL: A bar reports 10,000 shares and closes higher; it does not establish that 10,000 shares were buyer-initiated or that signed delta is positive.",
+      "limit": "Off-exchange reporting, quotes out of sync and ambiguous midpoint prints prevent exact aggression classification from OHLCV alone.",
+      "invalidation": "If the input source, date/session, completed-bar status, declared window, measurement unit, formula variant or other verification requirement is missing, label the proposed interpretation unverified. Off-exchange reporting, quotes out of sync and ambiguous midpoint prints prevent exact aggression classification from OHLCV alone.",
+      "commonError": "Inferring actual bid-ask execution imbalance exclusively from candle color and total traded shares.",
+      "selfCheck": "Identify the observable completed-bar inputs for Total OHLCV volume is not signed order-flow delta, reproduce the calculation or rule, explain what it measures and one distinct limit.",
+      "reviewExplanation": "First check input source, completed observation cutoff and window; independently verify the mathematics or interpretive rule; then explain the alternative outcome. This is an ungraded public learning review.",
+      "transferQuestion": "Given a fictional green candle with 8,000 shares and no prints, identify what can be stated about total volume versus signed delta.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    }
+  ]
+}
