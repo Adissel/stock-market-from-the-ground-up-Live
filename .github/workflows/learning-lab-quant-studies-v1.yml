@@ -6,6 +6,8 @@ on:
       - 'assets/js/learning-quant-studies-v1.js'
       - 'assets/js/learning-indicators-v1.js'
       - 'tests/learning-indicators-v1.test.mjs'
+      - 'tests/lab-bridge-batch03-v1.test.mjs'
+      - 'data/lab-teaching-bridges-v014168.json'
       - 'scripts/qa/learning_indicator_decimal_reference_v1.py'
       - 'data/learning-engine-quant-source-registry-v1.json'
       - 'scripts/qa/learning_quant_decimal_reference_v1.py'
@@ -35,4 +37,4 @@ jobs:
           python3 scripts/qa/learning_quant_decimal_reference_v1.py
           python3 scripts/qa/learning_indicator_decimal_reference_v1.py
       - name: Original quantitative research and safety contracts
-        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs tests/learning-indicators-v1.test.mjs
+        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs tests/learning-indicators-v1.test.mjs tests/lab-bridge-batch03-v1.test.mjs
