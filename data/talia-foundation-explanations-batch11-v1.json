@@ -1,0 +1,573 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 11,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "20 original fictional basic listed-option rights, premium, payoff and risk lessons. Investor.gov reference is a research candidate, not blanket individual-source or license certification.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_OPTION_CALL_RIGHT",
+      "title": "A long call grants a contractual purchase right rather than stock ownership",
+      "concept": "A call holder generally has a right, not an obligation, to purchase a specified underlying at the stated strike under the contract's exercise terms.",
+      "procedure": "Read the strike, deliverable, exercise style and expiration separately before equating a right with an existing stock position.",
+      "workedCase": "FICTIONAL: A fictional call permits buying 100 shares at $50 per share, but owning one such option does not mean 100 underlying shares already sit in the account.",
+      "limit": "Exercise styles, deliverables, expiration and brokerage requirements differ among products and must be read from the contract.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Exercise styles, deliverables, expiration and brokerage requirements differ among products and must be read from the contract.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Exercise styles, deliverables, expiration and brokerage requirements differ among products and must be read from the contract. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If the hypothetical underlying trades at $53, does the unexercised call holder already own 100 shares? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Read the strike, deliverable, exercise style and expiration separately before equating a right with an existing stock position. The original fictional worked case is: A fictional call permits buying 100 shares at $50 per share, but owning one such option does not mean 100 underlying shares already sit in the account. Preserve this qualification: Exercise styles, deliverables, expiration and brokerage requirements differ among products and must be read from the contract.",
+      "transferQuestion": "FICTIONAL TRANSFER: If the hypothetical underlying trades at $53, does the unexercised call holder already own 100 shares? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PUT_RIGHT",
+      "title": "A long put grants a contractual sale right rather than a preexisting short sale",
+      "concept": "A put holder obtains a right to sell the specified deliverable at the strike, conditional on the contract terms and applicable exercise procedure.",
+      "procedure": "Separate option ownership from underlying-position records and compare cash settlement with physical delivery.",
+      "workedCase": "FICTIONAL: A fictional put strike is $40 with a 100-share deliverable; holding it does not itself report a 100-share executed short sale.",
+      "limit": "Deliverable changes and exercise or cash-settlement rules determine what the holder can actually do.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Deliverable changes and exercise or cash-settlement rules determine what the holder can actually do.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Deliverable changes and exercise or cash-settlement rules determine what the holder can actually do. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: Does purchasing a put at a $40 strike create a confirmed short-stock execution? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Separate option ownership from underlying-position records and compare cash settlement with physical delivery. The original fictional worked case is: A fictional put strike is $40 with a 100-share deliverable; holding it does not itself report a 100-share executed short sale. Preserve this qualification: Deliverable changes and exercise or cash-settlement rules determine what the holder can actually do.",
+      "transferQuestion": "FICTIONAL TRANSFER: Does purchasing a put at a $40 strike create a confirmed short-stock execution? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CONTRACT_MULTIPLIER",
+      "title": "An option quote per underlying share must be scaled by its actual contract multiplier",
+      "concept": "A conventional listed U.S. equity option often represents 100 shares, but adjusted contracts can have different deliverables and multipliers.",
+      "procedure": "Compute premium times actual multiplier times contract count; state fees and any nonstandard settlement separately.",
+      "workedCase": "FICTIONAL: A fictional unadjusted option premium of $2.40 per share at multiplier 100 implies $240 gross premium per contract before fees.",
+      "limit": "Assuming a multiplier of 100 for every adjusted or specialized instrument can materially misstate exposure.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Assuming a multiplier of 100 for every adjusted or specialized instrument can materially misstate exposure.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Assuming a multiplier of 100 for every adjusted or specialized instrument can materially misstate exposure. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For two unadjusted contracts quoted at $1.25 with multiplier 100, calculate $250 premium excluding fees. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Compute premium times actual multiplier times contract count; state fees and any nonstandard settlement separately. The original fictional worked case is: A fictional unadjusted option premium of $2.40 per share at multiplier 100 implies $240 gross premium per contract before fees. Preserve this qualification: Assuming a multiplier of 100 for every adjusted or specialized instrument can materially misstate exposure.",
+      "transferQuestion": "FICTIONAL TRANSFER: For two unadjusted contracts quoted at $1.25 with multiplier 100, calculate $250 premium excluding fees. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_STRIKE_SPOT",
+      "title": "The strike is contractual and is not the option premium or current stock quote",
+      "concept": "Strike price fixes the contract's exercise reference while the market price of the underlying and option premium can move independently.",
+      "procedure": "Label the underlying spot, strike, premium, multiplier and valuation timestamp before computing moneyness.",
+      "workedCase": "FICTIONAL: A fictional underlying quote of $62, call strike $60 and option premium $3.50 represent three distinct values, not one execution price.",
+      "limit": "A favorable strike-to-spot relationship does not prove positive net profit after the option premium.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: A favorable strike-to-spot relationship does not prove positive net profit after the option premium.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: A favorable strike-to-spot relationship does not prove positive net profit after the option premium. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If a call strike is $70 and stock is $68, which number determines contractual exercise price? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Label the underlying spot, strike, premium, multiplier and valuation timestamp before computing moneyness. The original fictional worked case is: A fictional underlying quote of $62, call strike $60 and option premium $3.50 represent three distinct values, not one execution price. Preserve this qualification: A favorable strike-to-spot relationship does not prove positive net profit after the option premium.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a call strike is $70 and stock is $68, which number determines contractual exercise price? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PREMIUM_DEBIT",
+      "title": "Long option premium is an initial cash debit distinct from a realized profit",
+      "concept": "Opening a fully paid long option typically incurs premium cost, contract-scaled, plus any separately charged brokerage costs.",
+      "procedure": "Multiply contracts by premium per unit and contract multiplier before computing an eventual net result.",
+      "workedCase": "FICTIONAL: A fictional trader buys three nonadjusted contracts at $1.20 premium and multiplier 100: initial gross debit is 3 × $1.20 × 100 = $360.",
+      "limit": "Fees, contract terms and later sales or exercise may alter actual cash flows; the purchase is not a profit.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Fees, contract terms and later sales or exercise may alter actual cash flows; the purchase is not a profit.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Fees, contract terms and later sales or exercise may alter actual cash flows; the purchase is not a profit. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For four unadjusted contracts quoted $0.85 with 100 multiplier, calculate the gross opening debit. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Multiply contracts by premium per unit and contract multiplier before computing an eventual net result. The original fictional worked case is: A fictional trader buys three nonadjusted contracts at $1.20 premium and multiplier 100: initial gross debit is 3 × $1.20 × 100 = $360. Preserve this qualification: Fees, contract terms and later sales or exercise may alter actual cash flows; the purchase is not a profit.",
+      "transferQuestion": "FICTIONAL TRANSFER: For four unadjusted contracts quoted $0.85 with 100 multiplier, calculate the gross opening debit. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CALL_INTRINSIC",
+      "title": "Call intrinsic value at expiration excludes its opening cost",
+      "concept": "For a simple call, expiration intrinsic value per share is max(underlying expiration price − strike, 0), before the original premium.",
+      "procedure": "State strike, expiration underlying price and contract multiplier, then separate intrinsic value from premium-adjusted P&L.",
+      "workedCase": "FICTIONAL: A fictional call strike $40 expires with stock $46: intrinsic value is max($46−$40,0) = $6 per share, not necessarily $6 net profit.",
+      "limit": "This arithmetic assumes a straightforward contract deliverable and an actual known expiration reference.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: This arithmetic assumes a straightforward contract deliverable and an actual known expiration reference.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: This arithmetic assumes a straightforward contract deliverable and an actual known expiration reference. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For a strike $55 call with stock $53 at expiration, compute its intrinsic value per share. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: State strike, expiration underlying price and contract multiplier, then separate intrinsic value from premium-adjusted P&L. The original fictional worked case is: A fictional call strike $40 expires with stock $46: intrinsic value is max($46−$40,0) = $6 per share, not necessarily $6 net profit. Preserve this qualification: This arithmetic assumes a straightforward contract deliverable and an actual known expiration reference.",
+      "transferQuestion": "FICTIONAL TRANSFER: For a strike $55 call with stock $53 at expiration, compute its intrinsic value per share. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PUT_INTRINSIC",
+      "title": "Put intrinsic value at expiration uses strike minus underlying price",
+      "concept": "For a simple put, expiration intrinsic value per share is max(strike − underlying expiration price, 0).",
+      "procedure": "Write the put-specific payoff direction instead of borrowing the long-call formula.",
+      "workedCase": "FICTIONAL: A fictional put strike $70 with stock at $64 upon expiration has $6 per share intrinsic value, excluding premium originally paid.",
+      "limit": "Cash settlement, early exercise or delivery rules can differ by contract; the formula is for simple expiration intrinsic value.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Cash settlement, early exercise or delivery rules can differ by contract; the formula is for simple expiration intrinsic value.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Cash settlement, early exercise or delivery rules can differ by contract; the formula is for simple expiration intrinsic value. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If a $45 put expires when stock is $49, what is its intrinsic value per share? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Write the put-specific payoff direction instead of borrowing the long-call formula. The original fictional worked case is: A fictional put strike $70 with stock at $64 upon expiration has $6 per share intrinsic value, excluding premium originally paid. Preserve this qualification: Cash settlement, early exercise or delivery rules can differ by contract; the formula is for simple expiration intrinsic value.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a $45 put expires when stock is $49, what is its intrinsic value per share? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PREMIUM_TIME_VALUE",
+      "title": "An option's quoted premium may exceed intrinsic value because of remaining time and uncertainty",
+      "concept": "For a simple nonnegative-premium option, quoted extrinsic value is premium minus intrinsic value measured on consistent terms and timestamps.",
+      "procedure": "Use a contemporaneous underlying reference and executable option quote before treating time value as a real fill property.",
+      "workedCase": "FICTIONAL: A fictional call with premium $4.20 and intrinsic $2.50 has $1.70 extrinsic value per underlying share under the stated assumptions.",
+      "limit": "American-style dividend and market microstructure details can complicate comparisons; a negative result demands careful quote and input review.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: American-style dividend and market microstructure details can complicate comparisons; a negative result demands careful quote and input review.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: American-style dividend and market microstructure details can complicate comparisons; a negative result demands careful quote and input review. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If comparable premium is $3.00 and intrinsic $1.20, calculate illustrative extrinsic value. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Use a contemporaneous underlying reference and executable option quote before treating time value as a real fill property. The original fictional worked case is: A fictional call with premium $4.20 and intrinsic $2.50 has $1.70 extrinsic value per underlying share under the stated assumptions. Preserve this qualification: American-style dividend and market microstructure details can complicate comparisons; a negative result demands careful quote and input review.",
+      "transferQuestion": "FICTIONAL TRANSFER: If comparable premium is $3.00 and intrinsic $1.20, calculate illustrative extrinsic value. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CALL_BREAKEVEN",
+      "title": "A long call's simple expiration breakeven adds premium to strike",
+      "concept": "For a plain long call held through expiration, breakeven underlying price equals strike plus the premium paid per underlying unit, excluding fees.",
+      "procedure": "Combine strike and initial option premium on the same per-share basis, then separately handle commissions.",
+      "workedCase": "FICTIONAL: A fictional call strike $50 bought for $2.50 per share has simple expiration breakeven $52.50, not $50.",
+      "limit": "Exercise mechanics and actual exit before expiration may lead to very different realized prices and outcomes.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Exercise mechanics and actual exit before expiration may lead to very different realized prices and outcomes.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Exercise mechanics and actual exit before expiration may lead to very different realized prices and outcomes. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: A call has strike $25 and initial premium $1.40 per share: compute simple expiration breakeven. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Combine strike and initial option premium on the same per-share basis, then separately handle commissions. The original fictional worked case is: A fictional call strike $50 bought for $2.50 per share has simple expiration breakeven $52.50, not $50. Preserve this qualification: Exercise mechanics and actual exit before expiration may lead to very different realized prices and outcomes.",
+      "transferQuestion": "FICTIONAL TRANSFER: A call has strike $25 and initial premium $1.40 per share: compute simple expiration breakeven. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PUT_BREAKEVEN",
+      "title": "A long put's simple expiration breakeven subtracts premium from strike",
+      "concept": "For a plain long put held to expiration, simple breakeven underlying price equals strike less initial premium per underlying unit before fees.",
+      "procedure": "Use strike minus premium only for the described long-put expiration scenario; do not apply call arithmetic.",
+      "workedCase": "FICTIONAL: A fictional $60 put acquired for $3.00 per underlying share has simple expiration breakeven of $57.00.",
+      "limit": "Short-sale, cash-settlement and exercise instructions require separate checking, not inference from a single payoff number.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Short-sale, cash-settlement and exercise instructions require separate checking, not inference from a single payoff number.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Short-sale, cash-settlement and exercise instructions require separate checking, not inference from a single payoff number. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If the strike is $45 and paid premium $1.25 per share, calculate simple expiration breakeven. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Use strike minus premium only for the described long-put expiration scenario; do not apply call arithmetic. The original fictional worked case is: A fictional $60 put acquired for $3.00 per underlying share has simple expiration breakeven of $57.00. Preserve this qualification: Short-sale, cash-settlement and exercise instructions require separate checking, not inference from a single payoff number.",
+      "transferQuestion": "FICTIONAL TRANSFER: If the strike is $45 and paid premium $1.25 per share, calculate simple expiration breakeven. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CALL_NET_EXPIRY",
+      "title": "A long call's expiration net outcome deducts the initial premium",
+      "concept": "The simple expiration profit per underlying share for a long call equals max(stock-at-expiry − strike,0) − opening premium, excluding fees.",
+      "procedure": "Compute intrinsic, premium and contract multiplier separately, and never confuse gross value with net outcome.",
+      "workedCase": "FICTIONAL: A fictional call strike $50, expiry stock $58 and initial premium $3 produces $8 intrinsic minus $3 cost = $5/share or $500 per 100 multiplier.",
+      "limit": "This is a defined at-expiration payoff, not a forecast of option resale value before expiration.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: This is a defined at-expiration payoff, not a forecast of option resale value before expiration.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: This is a defined at-expiration payoff, not a forecast of option resale value before expiration. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: Strike $40, expiry stock $41 and $2 paid premium: find the simple per-share net outcome. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Compute intrinsic, premium and contract multiplier separately, and never confuse gross value with net outcome. The original fictional worked case is: A fictional call strike $50, expiry stock $58 and initial premium $3 produces $8 intrinsic minus $3 cost = $5/share or $500 per 100 multiplier. Preserve this qualification: This is a defined at-expiration payoff, not a forecast of option resale value before expiration.",
+      "transferQuestion": "FICTIONAL TRANSFER: Strike $40, expiry stock $41 and $2 paid premium: find the simple per-share net outcome. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PUT_NET_EXPIRY",
+      "title": "A long put's expiration net outcome deducts premium from downside intrinsic",
+      "concept": "For a long put at expiration, profit per underlying share is max(strike − stock-at-expiry,0) − paid premium, before fees.",
+      "procedure": "Apply the put payoff direction and separately account for any actual sale, exercise, fees and settlement.",
+      "workedCase": "FICTIONAL: A fictional put strike $70, stock $60 at expiry, paid premium $4 gives $10 intrinsic minus $4 = $6/share net.",
+      "limit": "The model assumes the stated deliverable and known expiration price; it is not the same as account cash available.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: The model assumes the stated deliverable and known expiration price; it is not the same as account cash available.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: The model assumes the stated deliverable and known expiration price; it is not the same as account cash available. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If a $30 put expires with stock at $29 after paying $2.50, compute net per share. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Apply the put payoff direction and separately account for any actual sale, exercise, fees and settlement. The original fictional worked case is: A fictional put strike $70, stock $60 at expiry, paid premium $4 gives $10 intrinsic minus $4 = $6/share net. Preserve this qualification: The model assumes the stated deliverable and known expiration price; it is not the same as account cash available.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a $30 put expires with stock at $29 after paying $2.50, compute net per share. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_WORTHLESS_EXPIRY",
+      "title": "An out-of-the-money long option can expire without intrinsic value",
+      "concept": "A long call that finishes at or below strike has zero intrinsic value in the simple expiration payoff model, while its paid premium remains a cost.",
+      "procedure": "Calculate both the nonnegative intrinsic floor and separate paid debit when reviewing a losing hypothetical option.",
+      "workedCase": "FICTIONAL: A fictional $80 call bought for $1.50 expires with stock at $77: payoff $0 and net −$1.50 per underlying share before fees.",
+      "limit": "Exercise-by-exception and broker handling are operational matters; never infer a guaranteed workflow from arithmetic alone.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Exercise-by-exception and broker handling are operational matters; never infer a guaranteed workflow from arithmetic alone.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Exercise-by-exception and broker handling are operational matters; never infer a guaranteed workflow from arithmetic alone. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For a $30 call bought at $0.70 and stock $29.90 at expiration, state intrinsic and net per-share result. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Calculate both the nonnegative intrinsic floor and separate paid debit when reviewing a losing hypothetical option. The original fictional worked case is: A fictional $80 call bought for $1.50 expires with stock at $77: payoff $0 and net −$1.50 per underlying share before fees. Preserve this qualification: Exercise-by-exception and broker handling are operational matters; never infer a guaranteed workflow from arithmetic alone.",
+      "transferQuestion": "FICTIONAL TRANSFER: For a $30 call bought at $0.70 and stock $29.90 at expiration, state intrinsic and net per-share result. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_SHORT_CALL_RISK",
+      "title": "A naked short call has a different downside exposure than a long call",
+      "concept": "Selling an uncovered call collects premium upfront but potentially owes rising intrinsic value if underlying prices increase substantially.",
+      "procedure": "Do not transpose the buyer's limited premium loss onto a short call written without underlying coverage.",
+      "workedCase": "FICTIONAL: A fictional naked short $50 call collects $2 per share; if expiry stock is $75, simple gross seller net is $2 − $25 = −$23/share before fees.",
+      "limit": "Uncovered options can involve theoretically unbounded price-linked loss, margin calls, early assignment and broker restrictions.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Uncovered options can involve theoretically unbounded price-linked loss, margin calls, early assignment and broker restrictions.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Uncovered options can involve theoretically unbounded price-linked loss, margin calls, early assignment and broker restrictions. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For a naked short strike $40 collecting $1, what does expiry stock $60 imply before costs? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Do not transpose the buyer's limited premium loss onto a short call written without underlying coverage. The original fictional worked case is: A fictional naked short $50 call collects $2 per share; if expiry stock is $75, simple gross seller net is $2 − $25 = −$23/share before fees. Preserve this qualification: Uncovered options can involve theoretically unbounded price-linked loss, margin calls, early assignment and broker restrictions.",
+      "transferQuestion": "FICTIONAL TRANSFER: For a naked short strike $40 collecting $1, what does expiry stock $60 imply before costs? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CALL_DEBIT_VERTICAL",
+      "title": "A long call debit spread's simple expiration payoff is capped by strike width",
+      "concept": "A basic same-expiration long lower-strike call paired with a short higher-strike call has spread payoff between zero and strike width before debit.",
+      "procedure": "Compute each option's expiration intrinsic difference, net debit, strike width and the scenario's precise settlement.",
+      "workedCase": "FICTIONAL: A fictional long $50 call and short $55 call cost net $1.50 per share; at stock $60, gross spread payoff $5 and net $3.50/share.",
+      "limit": "Assignment and delivery risks exist before expiration even when a theoretical spread payoff is bounded.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Assignment and delivery risks exist before expiration even when a theoretical spread payoff is bounded.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Assignment and delivery risks exist before expiration even when a theoretical spread payoff is bounded. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For strikes $20/$25 and debit $2, calculate maximum simple expiration net spread payoff per share. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Compute each option's expiration intrinsic difference, net debit, strike width and the scenario's precise settlement. The original fictional worked case is: A fictional long $50 call and short $55 call cost net $1.50 per share; at stock $60, gross spread payoff $5 and net $3.50/share. Preserve this qualification: Assignment and delivery risks exist before expiration even when a theoretical spread payoff is bounded.",
+      "transferQuestion": "FICTIONAL TRANSFER: For strikes $20/$25 and debit $2, calculate maximum simple expiration net spread payoff per share. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PUT_DEBIT_VERTICAL",
+      "title": "A long put debit spread's expiration payoff requires the opposite strike ordering",
+      "concept": "A basic same-expiration long higher-strike put and short lower-strike put has bounded gross payoff up to strike width before paying debit.",
+      "procedure": "Subtract actual net debit from the difference in long and short put intrinsic with matched contract terms.",
+      "workedCase": "FICTIONAL: A fictional long $60 put/short $55 put costs $2 per share; at stock $50, difference in intrinsic is $5 and net payoff $3/share.",
+      "limit": "Real exercise, assignment, pin risk and trade execution do not follow automatically from theoretical expiry payoffs.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Real exercise, assignment, pin risk and trade execution do not follow automatically from theoretical expiry payoffs.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Real exercise, assignment, pin risk and trade execution do not follow automatically from theoretical expiry payoffs. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: For long $30 put, short $25 put and debit $1.20, find maximum simple net expiration payoff. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Subtract actual net debit from the difference in long and short put intrinsic with matched contract terms. The original fictional worked case is: A fictional long $60 put/short $55 put costs $2 per share; at stock $50, difference in intrinsic is $5 and net payoff $3/share. Preserve this qualification: Real exercise, assignment, pin risk and trade execution do not follow automatically from theoretical expiry payoffs.",
+      "transferQuestion": "FICTIONAL TRANSFER: For long $30 put, short $25 put and debit $1.20, find maximum simple net expiration payoff. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_STRADDLE_EXPIRY",
+      "title": "A long straddle pays premiums on both a call and put at one strike",
+      "concept": "A simple long straddle buys a call and put with matching strike and expiry; net expiration payoff is absolute stock-strike difference minus combined premiums.",
+      "procedure": "Add both premiums, then determine which simple option is in the money at a stated expiration stock price.",
+      "workedCase": "FICTIONAL: A fictional $100 strike call plus put cost $6 total/share; at expiry stock $112, intrinsic combined $12 and net +$6/share.",
+      "limit": "Actual opening quotes, spreads and early sale affect realized outcomes; theoretical expiration value does not certify a strategy edge.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Actual opening quotes, spreads and early sale affect realized outcomes; theoretical expiration value does not certify a strategy edge.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Actual opening quotes, spreads and early sale affect realized outcomes; theoretical expiration value does not certify a strategy edge. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: If total premium is $5 at $50 strike and expiry stock $47, calculate the simple per-share net. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Add both premiums, then determine which simple option is in the money at a stated expiration stock price. The original fictional worked case is: A fictional $100 strike call plus put cost $6 total/share; at expiry stock $112, intrinsic combined $12 and net +$6/share. Preserve this qualification: Actual opening quotes, spreads and early sale affect realized outcomes; theoretical expiration value does not certify a strategy edge.",
+      "transferQuestion": "FICTIONAL TRANSFER: If total premium is $5 at $50 strike and expiry stock $47, calculate the simple per-share net. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_ITM_NOT_PROFIT",
+      "title": "In-the-money status is not the same as positive net option P&L",
+      "concept": "Moneyness compares strike with stock price; option profit must additionally account for purchase premium and associated costs.",
+      "procedure": "State moneyness, premium paid, and the separate expiration breakeven before evaluating gain or loss.",
+      "workedCase": "FICTIONAL: A fictional $40 strike call paid $4 expires with stock $42: it is $2 in the money yet the simple net result is −$2/share.",
+      "limit": "A positive intrinsic amount cannot be presented as a guaranteed trading gain.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: A positive intrinsic amount cannot be presented as a guaranteed trading gain.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: A positive intrinsic amount cannot be presented as a guaranteed trading gain. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: A $25 strike call bought for $3 expires at $26; classify moneyness and net result. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: State moneyness, premium paid, and the separate expiration breakeven before evaluating gain or loss. The original fictional worked case is: A fictional $40 strike call paid $4 expires with stock $42: it is $2 in the money yet the simple net result is −$2/share. Preserve this qualification: A positive intrinsic amount cannot be presented as a guaranteed trading gain.",
+      "transferQuestion": "FICTIONAL TRANSFER: A $25 strike call bought for $3 expires at $26; classify moneyness and net result. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_ASSIGNMENT_VS_EXERCISE",
+      "title": "Exercise rights and short-option assignment obligations must be distinguished",
+      "concept": "The buyer may exercise subject to contract rules, while a seller may receive assignment and associated delivery or cash-settlement obligations.",
+      "procedure": "Identify holder/writer, exercise style, deliverable and expiration before stating what occurs on assignment.",
+      "workedCase": "FICTIONAL: A fictional trader owns a long put but another investor is short a matching put; both face different rights and obligations even at the same strike.",
+      "limit": "American- versus European-style timing, auto-exercise conventions and nonstandard deliverables require broker and contract verification.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: American- versus European-style timing, auto-exercise conventions and nonstandard deliverables require broker and contract verification.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: American- versus European-style timing, auto-exercise conventions and nonstandard deliverables require broker and contract verification. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: Does buying a call guarantee the holder will be assigned an obligation to deliver stock? Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Identify holder/writer, exercise style, deliverable and expiration before stating what occurs on assignment. The original fictional worked case is: A fictional trader owns a long put but another investor is short a matching put; both face different rights and obligations even at the same strike. Preserve this qualification: American- versus European-style timing, auto-exercise conventions and nonstandard deliverables require broker and contract verification.",
+      "transferQuestion": "FICTIONAL TRANSFER: Does buying a call guarantee the holder will be assigned an obligation to deliver stock? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_BID_ASK_COST",
+      "title": "An option's displayed bid–ask spread is not the paid commission or guaranteed execution cost",
+      "concept": "Quoted option bid and ask describe contemporaneous prices available under changing size and conditions; actual fill and commissions are separate.",
+      "procedure": "Preserve quote timestamps and size and distinguish width from verified price improvement or execution slippage.",
+      "workedCase": "FICTIONAL: A fictional option has $1.00 bid and $1.20 ask: quoted spread $0.20 per underlying share, or $20 for a 100-multiplier contract before any execution.",
+      "limit": "Displayed depth, fees and timing determine practical costs; the midpoint is not a guaranteed executable quote.",
+      "invalidation": "If the instrument deliverable, exercise style, settlement terms, timing, quote evidence or units differ, the worked result is invalid for that different contract. In particular: Displayed depth, fees and timing determine practical costs; the midpoint is not a guaranteed executable quote.",
+      "commonError": "A practical trading mistake is to treat the following option-specific limitation as irrelevant: Displayed depth, fees and timing determine practical costs; the midpoint is not a guaranteed executable quote. Such an assumption can cause incorrect exposure and cash-flow estimates.",
+      "selfCheck": "Before accepting the fictional calculation, address this independently: At $2.40 bid/$2.65 ask with multiplier 100, calculate quoted width in per-share and per-contract terms. Specify contract multiplier, timestamps, premium and where relevant both intrinsic and net value.",
+      "reviewExplanation": "Ungraded corrective explanation: Preserve quote timestamps and size and distinguish width from verified price improvement or execution slippage. The original fictional worked case is: A fictional option has $1.00 bid and $1.20 ask: quoted spread $0.20 per underlying share, or $20 for a 100-multiplier contract before any execution. Preserve this qualification: Displayed depth, fees and timing determine practical costs; the midpoint is not a guaranteed executable quote.",
+      "transferQuestion": "FICTIONAL TRANSFER: At $2.40 bid/$2.65 ask with multiplier 100, calculate quoted width in per-share and per-contract terms. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_option_chain_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    }
+  ],
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419
+}
