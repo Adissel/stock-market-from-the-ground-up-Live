@@ -36,6 +36,7 @@ node tests/talia-foundation-quant-v1.test.mjs
 node tests/talia-foundation-explanations-batch02-v1.test.mjs
 node tests/talia-foundation-misconception-v1.test.mjs
 node scripts/talia-foundation-coverage-v1.mjs
+node tests/talia-foundation-ema-visual-v1.test.mjs
 for asset in assets/js/journal-visual-v3.js assets/js/journal-trade-story-v3.js; do
   node --check "$asset"
 done
