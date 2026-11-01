@@ -71,6 +71,18 @@ try{
  await a.page.getByLabel('Find page element').fill('');
  await a.page.getByLabel('Layout element type').selectOption('labels');
  assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>2,'Labels must also be directly selectable');
+ await a.page.getByLabel('Layout element type').selectOption('text');
+ await a.page.getByLabel('Find page element').fill('Chart Studio.');
+ const headingId=await a.page.getByLabel('Select page element').locator('option[value]:not([value=""])').filter({hasText:'Chart Studio.'}).first().getAttribute('value');
+ assert.ok(headingId,'The heading should be available in the text element dropdown');
+ await a.page.getByLabel('Select page element').selectOption(headingId);
+ await a.page.getByLabel('Selected text content').fill('Crownlight Design Review');
+ await a.page.getByRole('button',{name:'Apply text'}).click();
+ assert.equal((await a.page.locator('.cx-bar h1').textContent())?.trim(),'Crownlight Design Review','Simple heading text must be editable in the staff draft');
+ await a.page.getByLabel('Selected text size').fill('31');
+ await a.page.getByLabel('Selected text size').press('Tab');
+ assert.equal(await a.page.locator('.cx-bar h1').evaluate(x=>x.style.fontSize),'31px','Selected text size must update actual heading typography');
+ await a.page.getByLabel('Find page element').fill('');
  await a.page.getByLabel('Layout element type').selectOption('cards');
  await a.page.getByRole('button',{name:'Refresh element list'}).click();
  await a.page.locator('.cx-talia').first().click({position:{x:14,y:14}});
