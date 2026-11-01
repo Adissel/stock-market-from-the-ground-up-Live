@@ -52,6 +52,7 @@ try{
  assert.match(await home.page.locator('.cx-lp-tools .cx-lp-numbers').textContent(),/250/,'Risk calculator uses whole-share floor');
  await home.page.locator('[data-layout-choice="tape"]').click();
  assert.match(await home.page.locator('.cx-lp-tape').textContent(),/BID|ASK|PRINT/);
+ assert.match(await home.page.locator('.cx-lp-guided-script').textContent(),/quote describes displayed interest/i,'Tape teaching must be about quotes, not generic VWAP');
  await home.page.locator('[data-layout-choice="filings"]').click();
  assert.equal(await home.page.locator('.cx-lp-check input').count(),4);
  await home.page.locator('[data-layout-choice="replay"]').click();

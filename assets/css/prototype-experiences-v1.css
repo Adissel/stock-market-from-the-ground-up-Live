@@ -825,3 +825,10 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 @media(max-width:440px){.cx-app .cx-eight-picker{gap:7px}.cx-app .cx-eight-picker>button{padding:8px}.cx-app .cx-eight-mini{height:48px}.cx-app .cx-eight-picker strong{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.cx-app .cx-eight-picker>button{transition:none!important}.cx-app .cx-eight-picker>button:hover{transform:none}}
 @media(forced-colors:active){.cx-app .cx-eight-picker button[aria-pressed=true],.cx-app .cx-lp-card button[aria-pressed=true]{outline:2px solid Highlight}}
+
+.cx-app .cx-lp-guided-script{display:grid;gap:8px;font-size:12px;line-height:1.6}
+.cx-app .cx-lp-guided-script strong{color:var(--cx-lp-accent);font-size:11px;margin-top:5px}
+.cx-app .cx-lp-guided-script p{margin:0 0 4px}
+.cx-app .cx-lp-guided-script button{justify-self:start}
+.cx-app .cx-lp-course-link{display:inline-block;margin-top:8px;padding:10px 12px;border:1px solid #5e98a5;border-radius:6px;background:#13394d;color:#b7ffef!important;text-decoration:none;font-size:11px;font-weight:800}
+.cx-app .cx-lp-course-link:hover,.cx-app .cx-lp-course-link:focus-visible{border-color:var(--cx-lp-accent);background:#23546a}
