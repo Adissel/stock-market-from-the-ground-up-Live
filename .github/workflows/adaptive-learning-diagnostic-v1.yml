@@ -1,0 +1,26 @@
+name: Learning Engine Adaptive Diagnostic V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/learning-adaptive-diagnostic-v1.js'
+      - 'assets/css/learning-adaptive-diagnostic-v1.css'
+      - 'assets/js/lab-player.js'
+      - 'lab-player.html'
+      - 'tests/adaptive-learning-diagnostic-v1.test.mjs'
+      - '.github/workflows/adaptive-learning-diagnostic-v1.yml'
+  workflow_dispatch:
+jobs:
+  formative-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax
+        run: |
+          node --check assets/js/learning-adaptive-diagnostic-v1.js
+          node --check assets/js/lab-player.js
+      - name: Learning and authorization constraints
+        run: node --test tests/adaptive-learning-diagnostic-v1.test.mjs tests/engine-classroom-contract-v1.test.mjs

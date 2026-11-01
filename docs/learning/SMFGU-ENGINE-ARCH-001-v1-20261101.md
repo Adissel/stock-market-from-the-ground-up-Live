@@ -47,3 +47,17 @@
 **Dependencies:** `AGENTS.md`, `PROJECT_SITEWIDE_RULES.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `functions/_lib/learning-engine-tier-policy-v1.js`, `functions/api/member-learning-engine-versions.js`, existing private Supabase grading/entitlement services.
 
 **Footer:** SMFGU-ENGINE-ARCH-001 · v1.0 · Source implementation ≠ premium release · No paid services or new member-data writes
+
+## Engine-first progress addendum — Learning Engine formative diagnostics
+
+**Feature:** SMFGU-ENGINE-ADAPT-001, November 1, 2026. **Status:** implemented in existing authorized Guided/Practice Lab Player, pending exact-main CI and authenticated browser acceptance.
+
+The new shared-learning aid asks the learner to self-select a prerequisite difficulty and their confidence, then recommends one of four deterministic, lesson-grounded study paths: terminology, calculation, observable evidence, and decision rule. It uses only authorized Lab teaching fields. Missing worked calculations must be declared missing rather than invented.
+
+This is optional formative teaching for all entitled Guided/Practice lessons. It does not create official mastery, separate progress, hidden answer access, user analytics, member writes, paid inference, or feature entitlement. Blind Decision and Assessment do not display this aid. No frozen engine copy was modified, and no premium edition was activated.
+
+**Files:** `assets/js/learning-adaptive-diagnostic-v1.js`, `assets/css/learning-adaptive-diagnostic-v1.css`, `assets/js/lab-player.js`, `lab-player.html`, `tests/adaptive-learning-diagnostic-v1.test.mjs`.
+
+**Next dependency:** quantitative/independent evidence diagnostics, synchronized ECharts Lab tools, then contextual Talia integration with server-authorized feature rights.
+
+**Document control:** Same GitHub main document, no new Google Drive ID, no migration or new system; owner acceptance pending.
