@@ -32,6 +32,15 @@ test('Two original ECharts instances share synchronization and accessible table'
  assert(!/fetch\(/.test(js));assert(!/localStorage/.test(js));
 });
 
+test('Advanced preview never plots share volume and USD close on one numerical axis',()=>{
+ const js=readFileSync('assets/js/lab-advanced-echarts-preview-v1.js','utf8');
+ assert.match(js,/name:'Fictional volume',type:'bar',data:data\.volume/);
+ assert.match(js,/name:'Close \(USD\)',type:'line',data:data\.closes,yAxisIndex:1/);
+ assert.match(js,/\{name:'Shares',type:'value',min:0/);
+ assert.match(js,/\{name:'USD',type:'value',scale:true,position:'right'/);
+ assert.doesNotMatch(js,/data:data\.closes,yAxisIndex:0/);
+});
+
 test('Full 419-Lab/61-indicator registry is preserved; only approved topical Labs receive new numerical aid',()=>{
  const registry=JSON.parse(readFileSync('data/competency-lab-paths-v01499.json','utf8')).byLab;
  const catalog=JSON.parse(readFileSync('data/tutor-indicator-study-v1.json','utf8'));
