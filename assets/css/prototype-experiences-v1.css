@@ -700,3 +700,47 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app .cx-chart-customizer-shell>summary{display:list-item;padding:12px 15px;cursor:pointer;color:#aefff0;font-size:12px;font-weight:750;letter-spacing:.015em}
 .cx-app .cx-chart-customizer-shell[open]>summary{border-bottom:1px solid #315b6e}
 .cx-app .cx-chart-customizer-shell .cx-chart-customizer{margin:0;background:none;border:0;border-radius:0;box-shadow:none}
+
+
+/* Curriculum Intelligence Console V21 — genuine published source inventory. */
+.cx-app .cx-curriculum-atlas{margin:20px clamp(14px,2.5vw,35px);border:1px solid #467a91;border-radius:14px;overflow:hidden;color:#e3f4fb;background:linear-gradient(130deg,#0e2a3d,#071827 78%);box-shadow:0 20px 55px #0007}
+.cx-app .cx-curriculum-atlas>header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:24px 24px 10px}
+.cx-app .cx-curriculum-atlas h2{margin:6px 0;font-size:clamp(22px,2.3vw,30px);letter-spacing:-.035em;color:#effaff}
+.cx-app .cx-curriculum-atlas>header p{margin:5px 0 0;color:#b5cddb;font-size:12px;line-height:1.65;max-width:780px}
+.cx-app .cx-atlas-dashboard{display:grid;grid-template-columns:1fr minmax(310px,.9fr);gap:18px;padding:14px 24px}
+.cx-app .cx-atlas-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.cx-app .cx-atlas-stat{border:1px solid #34627a;background:linear-gradient(130deg,#174458,#102c40);border-top:2px solid #62d6cb;border-radius:9px;padding:13px 16px}
+.cx-app .cx-atlas-stat span{display:block;color:#b0cddc;font-size:10px;letter-spacing:.11em}
+.cx-app .cx-atlas-stat strong{display:block;color:#f0fcff;font-size:28px;margin:6px 0;font-variant-numeric:tabular-nums}
+.cx-app .cx-atlas-coverage{height:184px;min-width:0;background:#081b2c;border:1px solid #294f62;border-radius:8px}
+.cx-app .cx-atlas-stages{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;padding:0 24px 18px}
+.cx-app .cx-atlas-stages span{border-top:2px solid #58c9c6;background:#0f3246;display:flex;flex-direction:column;gap:7px;padding:8px 5px;min-width:0;font-size:9px;line-height:1.4;color:#c7e5ed}
+.cx-app .cx-atlas-stages b{font-size:14px;color:#75e8d3}
+.cx-app .cx-atlas-controls{display:grid;grid-template-columns:1.4fr 1fr;gap:15px;align-items:end;padding:16px 24px;border-block:1px solid #385d70;background:#0b2131}
+.cx-app .cx-atlas-controls nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.cx-app .cx-atlas-controls button{border:1px solid #3c6981;background:#143b52;color:#d6effa;padding:11px 7px;font-size:11px;border-radius:6px;font-weight:750}
+.cx-app .cx-atlas-controls button[aria-pressed=true]{border-color:#75ebd6;background:#246078;color:#fff;box-shadow:inset 0 2px #83ead7}
+.cx-app .cx-atlas-controls label{display:grid;gap:5px;color:#c7dce8;font-size:11px}
+.cx-app .cx-atlas-controls input{background:#0a263a;color:#f2faff;border:1px solid #497b91;padding:11px;border-radius:6px;min-width:0}
+.cx-app .cx-atlas-columns{display:grid;grid-template-columns:minmax(230px,.85fr) minmax(0,1.5fr);gap:12px;padding:18px 24px 23px}
+.cx-app .cx-atlas-list{max-height:380px;overflow-y:auto;border:1px solid #345a72;border-radius:8px;padding:7px;background:#071827}
+.cx-app .cx-atlas-list>p{color:#bbd3e1;font-size:10px;padding:4px 8px}
+.cx-app .cx-atlas-list button{display:grid;width:100%;text-align:left;gap:5px;margin-bottom:5px;border:1px solid #284d64;background:#102e42;color:#e6faff;border-radius:6px;padding:10px 12px}
+.cx-app .cx-atlas-list button[aria-pressed=true]{border-color:#6ce9d2;background:#1b5163}
+.cx-app .cx-atlas-list button span{color:#9cbbc9;font-size:9px;letter-spacing:.07em;text-transform:uppercase}
+.cx-app .cx-atlas-list button strong{font-size:12px}
+.cx-app .cx-atlas-list button small{font-family:ui-monospace,monospace;color:#a9cddb}
+.cx-app .cx-atlas-inspector{min-height:380px;max-height:540px;overflow:auto;border:1px solid #41677b;background:linear-gradient(160deg,#103247,#0a1e30);border-radius:8px;padding:21px}
+.cx-app .cx-atlas-inspector h3{font-size:clamp(18px,2vw,25px);color:#effbff;margin:11px 0}
+.cx-app .cx-atlas-inspector p{font-size:12px;color:#c5dce8;line-height:1.65}
+.cx-app .cx-atlas-explainer{background:#0a2739;border-left:3px solid #6bd9c3;padding:12px 14px;margin:10px 0}
+.cx-app .cx-atlas-explainer b{font-size:10px;letter-spacing:.1em;color:#a2f8e0}
+.cx-app .cx-atlas-explainer p{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.cx-app .cx-atlas-evidence,.cx-app .cx-atlas-warning{border-left:3px solid #e3c37b;background:#3a3223;color:#ffe9be!important;padding:12px;font-size:11px}
+.cx-app .cx-atlas-warning{margin:10px 24px}
+.cx-app .cx-atlas-inspector a{overflow-wrap:anywhere;color:#a7e6ff}
+.cx-app .cx-curriculum-atlas>footer{padding:12px 24px;border-top:1px solid #325e71;color:#a7c8d6;background:#071827;font-size:10px;line-height:1.6}
+@media(max-width:850px){.cx-app .cx-atlas-dashboard,.cx-app .cx-atlas-controls,.cx-app .cx-atlas-columns{grid-template-columns:1fr}.cx-app .cx-atlas-stages{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:560px){.cx-app .cx-curriculum-atlas>header{flex-direction:column}.cx-app .cx-atlas-dashboard,.cx-app .cx-atlas-columns{padding:10px}.cx-app .cx-atlas-stages{padding-inline:10px}.cx-app .cx-atlas-controls{padding:10px}.cx-app .cx-atlas-controls nav{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-atlas-stat strong{font-size:22px}}
+@media(forced-colors:active){.cx-app .cx-atlas-controls button[aria-pressed=true],.cx-app .cx-atlas-list button[aria-pressed=true]{outline:2px solid Highlight}}
+@media(prefers-reduced-motion:reduce){.cx-app .cx-curriculum-atlas *{transition:none!important;animation:none!important}}

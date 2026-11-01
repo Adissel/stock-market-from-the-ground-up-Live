@@ -185,6 +185,13 @@ try{
  assert.ok(await a.page.locator('.cx-reorder-tools>span[draggable]').count()>0,'Explicit drag handles required');
  assert.equal(await a.page.locator('.cx-stepper').first().locator('button').count(),10);
  assert.equal(await a.page.locator('.cx-platform-explorer nav button').count(),8);
+ await a.page.locator('.cx-curriculum-atlas').waitFor({state:'visible'});
+ assert.equal(await a.page.locator('.cx-atlas-stages span').count(),10,'Ten canonical visible instructional steps');
+ assert.equal(await a.page.locator('.cx-atlas-controls nav button').count(),4,'All curriculum registries browsable');
+ await a.page.locator('.cx-atlas-controls nav button:has-text("73 indicator guides")').click();
+ await a.page.locator('.cx-atlas-controls input').fill('elder');
+ await a.page.locator('.cx-atlas-inspector').getByText('Elder-Ray Bull and Bear Power').waitFor({state:'visible',timeout:15000});
+ assert.match(await a.page.locator('.cx-atlas-inspector').textContent(),/independent editorial approval pending/i);
  const desk=a.page.locator('.cx-right .cx-tutor-evidence').first();
  await desk.waitFor({state:'visible'});
  assert.match(await desk.locator('.cx-tutor-context').textContent(),/BAR 31 OF 54/);
