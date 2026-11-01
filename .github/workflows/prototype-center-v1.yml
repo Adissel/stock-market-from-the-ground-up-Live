@@ -14,6 +14,8 @@ on:
       - 'tests/prototype-center-v1-auth.test.mjs'
       - 'tests/prototype-teaching-v2.test.mjs'
       - 'tests/prototype-center-v2-browser.test.mjs'
+      - 'tests/prototype-membership-builder-v1.test.mjs'
+      - 'assets/js/prototype-membership-builder-v1.js'
       - 'assets/js/prototype-teaching-v2.js'
       - 'functions/api/prototype-training-cases.js'
       - 'functions/api/prototype-document.js'
@@ -38,6 +40,7 @@ jobs:
           node --check assets/js/prototype-center-v1.js
           node --check assets/js/prototype-admin-link-v1.js
           node --check assets/js/prototype-teaching-v2.js
+          node --check assets/js/prototype-membership-builder-v1.js
           node --check functions/api/prototype-training-cases.js
           node --check functions/api/prototype-document.js
           node --check functions/_middleware.js
@@ -49,6 +52,7 @@ jobs:
           node tests/prototype-center-v1-auth.test.mjs
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
+          node tests/prototype-membership-builder-v1.test.mjs
       - name: Build exact public Cloudflare Pages output and verify private-source exclusions
         run: |
           bash scripts/build-pages.sh
