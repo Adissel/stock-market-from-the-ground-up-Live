@@ -13,7 +13,7 @@ assert.equal(base.length,61);assert.equal(extra.length,12);assert.equal(programs
 const studies=[...base,...extra],guides=new Set(studies.map(g=>g.code));
 assert.equal(guides.size,73);
 const mathSet=new Set(TALIA_STUDY_CALCULATED);
-assert.equal(mathSet.size,5);
+assert.equal(mathSet.size,8);
 const urlHost=new Set(['chartschool.stockcharts.com','toslc.thinkorswim.com','www.sec.gov','sec.gov','www.investor.gov','investor.gov','www.finra.org','finra.org']);
 const records=studies.map((g,i)=>{
  const candidate=programs.filter(p=>p.kind==='indicator'&&p.guideCode===g.code);
