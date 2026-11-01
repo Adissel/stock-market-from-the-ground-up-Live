@@ -58,8 +58,38 @@ try{
    assert(Number.isFinite(before)&&Number.isFinite(after)&&after>before,'Real chart zoom changes candle spacing (before='+before+', after='+after+')');
    await page.locator('.crownlight-plot').hover({position:{x:100,y:150}});
    await page.mouse.wheel(0,-210);
+   // Reproduce the original complaint against the actual chart canvas:
+   // a held-button pan must move the logical range, but motion after release
+   // (including a moving mouse) must never continue scrolling the chart.
+   if(width===1440){
+    await page.evaluate(()=>{window.simTest.index=64;window.CrownlightStudio.render(window.simTest)});
+    for(let i=0;i<7;i++)await page.locator('[data-cl="zoom-in"]').click();
+    await page.waitForTimeout(450);
+    const getRange=()=>page.evaluate(()=>window.CrownlightStudio.getStatus().visibleLogicalRange);
+    const ready=await getRange();
+    assert(ready&&Number.isFinite(ready.from)&&Number.isFinite(ready.to),'Real chart must expose finite viewport positions');
+    assert(ready.to-ready.from<65,'Desktop test must display fewer than the 65 completed candles to permit real panning');
+    const plot=await page.locator('.crownlight-plot').boundingBox();
+    assert(plot&&plot.width>500&&plot.height>200,'Drag target must be the visible rendered chart');
+    await page.mouse.move(plot.x+plot.width*.35,plot.y+plot.height*.44);
+    await page.mouse.down();
+    await page.mouse.move(plot.x+plot.width*.76,plot.y+plot.height*.44,{steps:20});
+    await page.mouse.up();
+    await page.mouse.move(8,8);
+    await page.waitForTimeout(150);
+    const released=await getRange();
+    assert(Math.abs(released.from-ready.from)>1,'Held left-button drag must actually pan the chart');
+    // Returning to the chart without holding a button cannot keep dragging.
+    await page.mouse.move(plot.x+plot.width*.40,plot.y+plot.height*.44,{steps:15});
+    await page.waitForTimeout(480);
+    const stationary=await getRange();
+    assert(Math.abs(stationary.from-released.from)<.05&&Math.abs(stationary.to-released.to)<.05,
+      'After mouseup, horizontal movement and settling must not move the chart or require a second click');
+    assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),65);
+    console.log('PASS actual held-button chart pan and immediate release-to-stop in pinned Chromium');
+   }
    await page.locator('[data-cl="source"]').click();
-   assert.match(await page.locator('.crownlight-source').innerText(),/Revealed bars\s*25/);
+   assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*25/);
    await page.locator('[data-cl="coach"]').click();
    assert.match(await page.locator('.crownlight-coach').innerText(),/Real body/);
    await page.locator('[data-cl="studies"]').click();
@@ -69,10 +99,10 @@ try{
    await dialog.locator('[data-add]').click();
    assert.equal(await dialog.locator('.crownlight-study-row').count(),4);
    await dialog.locator('[data-close]').click();
-   await page.evaluate(()=>{window.simTest.index=25;window.CrownlightStudio.render(window.simTest)});
-   assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),26);
+   await page.evaluate(()=>{window.simTest.index=width===1440?64:25;window.CrownlightStudio.render(window.simTest)},width);
+   assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),width===1440?65:26);
    await page.locator('[data-cl="source"]').click();await page.locator('[data-cl="source"]').click();
-   assert.match(await page.locator('.crownlight-source').innerText(),/Revealed bars\s*26/);
+   assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*26/);
    await page.locator('[data-cl="fullscreen"]').click();assert.equal(await page.locator('.crownlight-expanded').count(),1);
    await page.locator('[data-cl="fullscreen"]').click();assert.equal(await page.locator('.crownlight-expanded').count(),0);
 

@@ -527,5 +527,5 @@
   state.tempPlan=null;
   if(state.mounted&&state.sim)redraw(state.sim);
  }
- root.CrownlightStudio={render:redraw,clearMemberState,setTemporaryPlanLevels,clearTemporaryPlanLevels,getWorkspacePreferences,restoreWorkspacePreferences,getStatus:()=>({mounted:state.mounted,library:!!root.LightweightCharts,studies:prefs.studies.map(s=>s.type),revealed:state.count,spacing:state.chart?.timeScale().options().barSpacing??null})};
+ root.CrownlightStudio={render:redraw,clearMemberState,setTemporaryPlanLevels,clearTemporaryPlanLevels,getWorkspacePreferences,restoreWorkspacePreferences,getStatus:()=>({mounted:state.mounted,library:!!root.LightweightCharts,studies:prefs.studies.map(s=>s.type),revealed:state.count,spacing:state.chart?.timeScale().options().barSpacing??null,visibleLogicalRange:state.chart?.timeScale().getVisibleLogicalRange()??null})};
 })(window);
