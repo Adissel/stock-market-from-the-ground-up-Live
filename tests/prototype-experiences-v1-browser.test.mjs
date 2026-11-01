@@ -39,6 +39,9 @@ try{
  await a.page.locator('.cx-indicator-catalog select[aria-label="Indicator teaching guide"] option').first().waitFor({state:'attached'});
  await a.page.waitForFunction(()=>document.querySelectorAll('.cx-indicator-catalog select option').length===61,null,{timeout:13000});
  assert.equal(await a.page.locator('.cx-study-choice input[type="checkbox"]').count(),15);
+ assert.equal(await a.page.getByLabel('Show Bollinger Bands').isDisabled(),true,'Standard Studio must not present Advanced studies as enabled');
+ await a.page.getByLabel('Independent Chart Studio preview').selectOption('Advanced');
+ assert.equal(await a.page.getByLabel('Show Bollinger Bands').isDisabled(),false);
  await a.page.getByLabel('Show Bollinger Bands').check();
  assert.equal(await a.page.getByLabel('Show Bollinger Bands').isChecked(),true);
  await a.page.getByLabel('Bollinger period').fill('12');
@@ -90,7 +93,19 @@ try{
  assert.match(await a.page.locator('.cx-transfer').textContent(),/Correct/);
  await a.page.locator('.cx-replay button:has-text("Next +")').click();
  assert.match(await a.page.locator('.cx-statusline').textContent(),/55 completed candles/);
- assert.ok(a.errors.length===0,'No uncaught React errors: '+a.errors.join(' | '));
+ const planProfiles=[['FREE','Your first clear view'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
+ for(const [code,headline] of planProfiles){
+  await a.page.getByLabel('Membership design preview').selectOption(code);
+  assert.match(await a.page.locator('.cx-member-hero h2').textContent(),new RegExp(headline,'i'),'Wrong proposed membership experience for '+code);
+  assert.equal(await a.page.locator('.cx-member-workspaces button').count(),3);
+ }
+ await a.page.getByLabel('Membership design preview').selectOption('FOUNDING_60');
+ assert.equal(await a.page.getByLabel('Independent Chart Studio preview').inputValue(),'Professional');
+ await a.page.locator('.cx-pro-sync .cx-chart-grabbable canvas').first().waitFor({state:'visible',timeout:20000});
+ assert.equal(await a.page.locator('.cx-workgrid .cx-maincolumn .cx-chart-grabbable').count(),2,'Professional preview must have two linked price charts');
+ const chartBounds=await a.page.locator('.cx-market-terminal').boundingBox(),tutorBounds=await a.page.locator('.cx-workgrid .cx-right .cx-learning').boundingBox();
+ assert.ok(chartBounds&&tutorBounds&&chartBounds.x<tutorBounds.x,'Talia must teach beside the trading chart on desktop');
+  assert.ok(a.errors.length===0,'No uncaught React errors: '+a.errors.join(' | '));
  await a.context.close();
  const b=await make('OWNER',960);
  await b.page.goto(BASE+'/prototype.html?experience=b');
