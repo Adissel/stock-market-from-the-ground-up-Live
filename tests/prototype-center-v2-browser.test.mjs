@@ -66,7 +66,7 @@ window.getSupabaseClient=async()=>({auth:{
 try{
  for(const role of ['MODERATOR','SHOWCASE_VIEWER','FREE']){
   const {context,page}=await session(role,{width:1100,height:750});
-  await page.goto(BASE+'/prototype.html',{waitUntil:'domcontentloaded'});
+  await page.goto(BASE+'/prototype.html?view=classic',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.getElementById('prototype-access-status')?.textContent?.includes('access denied'),null,{timeout:12000});
   assert.equal(await page.locator('#pt-app').count(),0,role+' must not receive protected application HTML');
   await context.close();
@@ -74,7 +74,7 @@ try{
  for(const [role,viewport] of [['OWNER',{width:1280,height:900}],['ADMIN',{width:768,height:900}],['OWNER',{width:390,height:844}]]){
   const {context,page,revoke}=await session(role,viewport);
   const exceptions=[];page.on('pageerror',error=>exceptions.push(error.message));
-  await page.goto(BASE+'/prototype.html',{waitUntil:'domcontentloaded'});
+  await page.goto(BASE+'/prototype.html?view=classic',{waitUntil:'domcontentloaded'});
   await page.locator('#pt-app').waitFor({state:'visible',timeout:16000});
   await page.locator('#pt-command-deck .pt-command-link').first().waitFor({state:'visible',timeout:20000});
   assert.equal(await page.locator('#pt-command-deck .pt-command-link').count(),6,'React command deck must appear at authorized entry');

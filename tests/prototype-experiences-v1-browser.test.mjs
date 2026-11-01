@@ -28,6 +28,16 @@ try{
  await denied.page.waitForFunction(()=>document.body.textContent?.includes('access denied')||document.body.textContent?.includes('Access denied'),null,{timeout:14000});
  assert.equal(await denied.page.locator('.cx-app').count(),0,'Non-staff user must not receive React experience source');
  await denied.context.close();
+ const home=await make('OWNER');
+ await home.page.goto(BASE+'/prototype.html');
+ await home.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});
+ assert.equal(await home.page.locator('.pt-layout').isVisible(),false,'Default root must show the new chart-first workstation, not legacy');
+ assert.equal(await home.page.locator('#pt-curriculum-parity').isVisible(),false,'Classic inspector hidden within new React experience');
+ assert.equal(await home.page.locator('.cx-desk-banner').isVisible(),true,'Opening banner shows actual simulated price');
+ assert.equal(await home.page.locator('.cx-desk-links a').count(),4);
+ const firstChart=await home.page.locator('.cx-market-terminal').first().boundingBox();
+ assert.ok(firstChart&&firstChart.y<850,'Primary trading chart must be visible in first viewport');
+ await home.context.close();
  const a=await make('OWNER');
  await a.page.goto(BASE+'/prototype.html?experience=a');
  await a.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});

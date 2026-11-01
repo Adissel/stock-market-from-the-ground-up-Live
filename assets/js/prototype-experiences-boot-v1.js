@@ -4,8 +4,11 @@
  * not new public routes.
  */
 (()=>{'use strict';
- const page=new URLSearchParams(location.search).get('experience');
- if(!['a','b','c'].includes(page))return;
+ const params=new URLSearchParams(location.search);
+ const requested=params.get('experience');
+ // Default to the production-style chart prototype; keep explicit classic access.
+ const page=params.get('view')==='classic'?null:['a','b','c'].includes(requested)?requested:'a';
+ if(!page)return;
  const protectedApp=document.getElementById('pt-app');
  const host=document.getElementById('pt-experiences-root');
  const parent=document.getElementById('pt-root');
