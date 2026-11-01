@@ -14,6 +14,7 @@ const ics=[...read('data/tutor-indicator-study-v1.json').guides,
  ...read('data/tutor-indicator-expansion-v1.json').guides];
 const indicatorReview=read('data/talia-claim-triage-181-240-and-indicators-v1.json');
 const forty=read('data/talia-claims-101-140-evidence-batch-v1.json');
+const remaining21=read('data/talia-claims-remaining21-source-review-v1.json');
 const claims181=indicatorReview.topics;
 const stages={explanations:[],indicators:[],labs:[],academy:[]};
 const knownTopics=[];
@@ -28,6 +29,17 @@ assert.equal(forty.rows.length,40);
 const check40=new Map(forty.rows.map(x=>[x.code,x]));
 const check181=new Map(claims181.map(x=>[x.code,x]));
 assert.equal(check40.size,40);assert.equal(check181.size,60);
+assert.equal(remaining21.items.length,21);
+const prior19=forty.rows.filter(x=>x.sourceStatus==='SELECTED_PRIMARY_PAGE_CONTENT_EXAMINED');
+assert.equal(prior19.length,19);
+const covered40=[...prior19.map(x=>x.number),...remaining21.items.map(x=>x.number)];
+assert.equal(new Set(covered40).size,40,'duplicate source review identity');
+assert.deepEqual(covered40.sort((a,b)=>a-b),Array.from({length:40},(_,i)=>i+101));
+for(const item of remaining21.items){
+ assert.equal(forty.rows[item.number-101]?.code,item.code);
+ assert.equal(item.independentPublicationAccepted,false);
+}
+const remainingIndex=new Map(remaining21.items.map(x=>[x.number,x]));
 for(let n=1;n<=600;n++){
  const g=knownTopics[n-1];
  const identified=g?check40.get(g.code)||check181.get(g.code):null;
@@ -44,6 +56,7 @@ for(let n=1;n<=600;n++){
     'data/talia-claim-triage-181-240-and-indicators-v1.json':
     n>=141&&n<=180?'docs/qa/2026-11-01_TALIA_FOUNDATION_EXECUTION_010_v1.md':null,
   independentPublicationAccepted:false,dataRightsAccepted:false,
+  itemSourceDisposition:n>=101&&n<=140?(remainingIndex.get(n)?.review||'PRIOR_PRIMARY_PAGE_SCOPE_REVIEW'):null,
   fictionalUngraded:g?.supplemental===true&&g?.officialCompetency===false
  });
 }
@@ -53,7 +66,8 @@ stages.indicators=ics.map((g,i)=>{
  const r=indicatorReview.indicators[i];assert.equal(r.code,g.code);
  return {id:g.code,ordinal:i+1,title:g.title,formula:g.formula,
   sourceUrls:g.sourceUrls,review:'SOURCE_GUIDE_AUTHORED_FORMULA_RIGHTS_HOLD',
-  crosscheck15:i<15?'JS_PYTHON_REFERENCE_TEST_CONFIGURED':'NOT_IN_15_CROSSCHECK_BATCH',
+  crosscheck15:i<15?'JS_PYTHON_REFERENCE_TEST_CONFIGURED':
+    i<30?'SECOND_15_COMPONENT_TEST_CONFIGURED':'NOT_IN_FIRST_30_CROSSCHECK_BATCH',
   independentlyReleased:false,formulaRightsAccepted:false};
 });
 const ids=Object.keys(official.byLab||{});
@@ -88,7 +102,7 @@ const summary={version:'1.0',documentId:'SMFGU-CURRICULUM-EVIDENCE-REGISTER-001'
  date:'2026-11-01',status:'DEVELOPMENT_EVIDENCE_NOT_MEMBER_RELEASE_ACCEPTANCE',
  totals:{all:1366,explanationTargets:600,explanationsAuthored:240,explanationsNotAuthored:360,
   indicators:73,indicatorGuidesAuthored:73,labIds:419,academyDayIds:274,
-  fortyClaimScopeRows:40,claimScope141to180:40,claimScope181to240:60,
+  fortyClaimScopeRows:40,fortySourceScopeDispositions:40,sourceScopeCorrections:[104,133],claimScope141to180:40,claimScope181to240:60,
   verifiedPublications:0,matchedPremiumReleaseClaims:0},
  references:{researchDirectory:'docs/research/master/master-source-registry-v1.json',
   labs:'data/competency-lab-paths-v01499.json',
