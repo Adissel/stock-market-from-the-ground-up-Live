@@ -45,27 +45,33 @@ export function samplePearson(x,y){
  const mx=x.reduce((a,b)=>a+b,0)/x.length,my=y.reduce((a,b)=>a+b,0)/y.length;
  let cov=0,vx=0,vy=0;
  for(let i=0;i<x.length;i++){const dx=x[i]-mx,dy=y[i]-my;cov+=dx*dy;vx+=dx*dx;vy+=dy*dy;}
- return vx>0&&vy>0?cov/Math.sqrt(vx*vy):null;
+ const denom=Math.sqrt(vx)*Math.sqrt(vy); const result=denom>0?cov/denom:null;
+ return finite(result)&&Math.abs(result)<=1+1e-10?Math.max(-1,Math.min(1,result)):null;
 }
 export function sampleSem(values){
  if(!Array.isArray(values)||values.length<2||values.some(v=>!finite(v)))return null;
  const m=values.reduce((a,b)=>a+b,0)/values.length;
  const variance=values.reduce((n,x)=>n+(x-m)**2,0)/(values.length-1);
- return {mean:m,sampleSd:Math.sqrt(variance),standardError:Math.sqrt(variance/values.length)};
+ const sampleSd=Math.sqrt(variance),standardError=Math.sqrt(variance/values.length);
+ return valid(m,variance,sampleSd,standardError)?{mean:m,sampleSd,standardError}:null;
 }
 export function matchedSharpe(mean,reference,sd){
- return valid(mean,reference,sd)&&sd>0?(mean-reference)/sd:null;
+ if(!valid(mean,reference,sd)||sd<=0)return null;
+ const ratio=(mean-reference)/sd;
+ return finite(ratio)?ratio:null;
 }
 export function callDebitSpread(lowStrike,highStrike,premiumPaid,premiumReceived,multiplier=100){
  if(!valid(lowStrike,highStrike,premiumPaid,premiumReceived,multiplier)||lowStrike<0||highStrike<=lowStrike||premiumPaid<0||premiumReceived<0||multiplier<=0)return null;
  const debit=premiumPaid-premiumReceived,width=highStrike-lowStrike;
  if(debit<=0||debit>=width)return null;
- return {debit,width,maximumLoss:debit*multiplier,maximumGain:(width-debit)*multiplier,breakeven:lowStrike+debit};
+ const maximumLoss=debit*multiplier,maximumGain=(width-debit)*multiplier,breakeven=lowStrike+debit;
+ return valid(maximumLoss,maximumGain,breakeven)?{debit,width,maximumLoss,maximumGain,breakeven}:null;
 }
 export function longStraddle(strike,callPremium,putPremium,multiplier=100){
  if(!valid(strike,callPremium,putPremium,multiplier)||strike<0||callPremium<0||putPremium<0||multiplier<=0)return null;
  const debit=callPremium+putPremium;
- return {debit,lowerBreakeven:strike-debit>=0?strike-debit:null,upperBreakeven:strike+debit,maximumLoss:debit*multiplier};
+ const lowerBreakeven=strike-debit>=0?strike-debit:null,upperBreakeven=strike+debit,maximumLoss=debit*multiplier;
+ return valid(upperBreakeven,maximumLoss)?{debit,lowerBreakeven,upperBreakeven,maximumLoss}:null;
 }
 const cases=Object.freeze({
  TALIA_TOPIC_GROSS_MARGIN_COGS:[{revenue:100,cogs:65},{revenue:80,cogs:52}],
