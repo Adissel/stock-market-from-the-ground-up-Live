@@ -707,7 +707,7 @@
       "kind": "indicator",
       "family": "Trend",
       "concept": "Trailing acceleration-point sequence that changes sides with a trend reversal rule. This is a trend study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Recursive SAR updates with extreme point and acceleration factor",
+      "formula": "Rising SAR candidate = prior SAR + prior AF × (prior extreme high − prior SAR); clamp to the smaller of the two preceding lows, with trend-reversal handling and AF update defined by implementation.",
       "whyUse": "This can help a learner describe trend conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Examine proposed trailing reference versus actual price structure",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Examine proposed trailing reference versus actual price structure. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -715,9 +715,10 @@
       "limit": "Can whipsaw and is not an executable guaranteed stop. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Can whipsaw and is not an executable guaranteed stop.",
       "commonError": "Treating Parabolic Stop and Reverse as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Parabolic Stop and Reverse measures, the formula/settings in Recursive SAR updates with extreme point and acceleration factor, one application to a hypothetical chart and why can whipsaw and is not an executable guaranteed stop.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Parabolic Stop and Reverse and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Change preceding lows to $9.51 and $9.80. Recalculate the rising SAR after the low clamp; identify why the $9.52 candidate cannot remain the plotted value.",
+      "reviewExplanation": "First compute $9.52 from the recurrence. In the transfer, the lower preceding low $9.51 clamps SAR to $9.51. A new extreme point may alter AF and reversal rules. A prior SAR and EP cannot be invented from one bar; use only completed chronological observations, and do not construe the plotted value as a guaranteed stop fill.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/parabolic-sar",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -728,7 +729,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Parabolic Stop and Reverse settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A rising-trend SAR has prior SAR $9.50, prior extreme high $10.50, acceleration factor 0.02, and preceding two lows $9.70 and $9.80. Unclamped SAR is $9.50 + 0.02 × ($10.50 − $9.50) = $9.52, below both lows, so this example has no clamp. This is one recurrence, not a fully initialized trend state.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/parabolic-sar",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_ICHIMOKU",
@@ -736,7 +745,7 @@
       "kind": "indicator",
       "family": "Trend",
       "concept": "Multiple rolling high-low midpoints and shifted cloud reference values. This is a trend study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Conversion midpoint 9; Base midpoint 26; span definitions depend on configured periods",
+      "formula": "Tenkan=(highest high of 9 completed bars + lowest low of 9)/2; Kijun uses 26; Senkou A=(Tenkan+Kijun)/2 plotted 26 bars forward; Senkou B uses 52-bar midpoint plotted 26 bars forward.",
       "whyUse": "This can help a learner describe trend conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Study longer-versus-shorter trend alignment and cloud context",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Study longer-versus-shorter trend alignment and cloud context. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -744,9 +753,10 @@
       "limit": "Forward-plotted visual components must not become future knowledge in replay. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Forward-plotted visual components must not become future knowledge in replay.",
       "commonError": "Treating Ichimoku Cloud as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Ichimoku Cloud measures, the formula/settings in Conversion midpoint 9; Base midpoint 26; span definitions depend on configured periods, one application to a hypothetical chart and why forward-plotted visual components must not become future knowledge in replay.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Ichimoku Cloud and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: With nine-bar high $16/low $10 and 26-bar high $18/low $8, calculate Tenkan, Kijun and Span A; state where it is drawn versus when it becomes known.",
+      "reviewExplanation": "Tenkan=13, Kijun=13, Span A=13 price units in the transfer. A valid 26-bar forward coordinate is a displacement of a value derived now, not a forecast or permission to show future OHLC. Span B requires 52 completed bars; current close displaced backward for Chikou must also respect information timestamps.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/ichimoku-cloud",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -757,7 +767,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Ichimoku Cloud settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Assume separately verified rolling windows end at the same completed bar: nine-bar high $12/low $8 and 26-bar high $14/low $6. Tenkan = ($12+$8)/2=$10, Kijun=($14+$6)/2=$10 and current-data Senkou A=$10. Plotting this observed value forward 26 slots does not give access to any future price.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/ichimoku-cloud",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_SUPERTREND",
@@ -765,7 +783,7 @@
       "kind": "indicator",
       "family": "Trend",
       "concept": "ATR-offset trend-following band with state-switching rules. This is a trend study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "ATR band around selected reference; exact carry-forward algorithm varies",
+      "formula": "Illustrative raw basic bands = (completed high+low)/2 ± multiplier×seeded ATR; final carried bands, reversals and initial direction require an explicitly selected platform algorithm.",
       "whyUse": "This can help a learner describe trend conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare trend-state changes with the underlying swing structure",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare trend-state changes with the underlying swing structure. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -773,11 +791,11 @@
       "limit": "Different platform implementations can disagree; no universal setting. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Different platform implementations can disagree; no universal setting.",
       "commonError": "Treating Supertrend as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Supertrend measures, the formula/settings in ATR band around selected reference; exact carry-forward algorithm varies, one application to a hypothetical chart and why different platform implementations can disagree; no universal setting.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Supertrend and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Suppose completed high $21, low $19, seeded ATR $1.50 and multiplier 2. Calculate both raw bands; explain why you cannot choose the final plotted line.",
+      "reviewExplanation": "New HL2=$20; raw upper=$23 and lower=$17. It would be incorrect to call either a completed Supertrend signal without previous final bands, previous close and the defined reversal/carry-forward variant. Seeded ATR warm-up and completed-bar chronology are mandatory; vendor formulations may differ.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
-        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays"
       ],
       "archiveBasis": "STT.zip; StocksToTrade-Browser-Research (8).zip indicator calculation research; ChartSchool and thinkorswim official study references.",
       "teachingStatus": "original_source_informed_brief_not_real_trade_or_complete_interactive_lab",
@@ -786,7 +804,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Supertrend settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A completed high $11 and low $9 give HL2=$10. With already-seeded ATR=$1.00 and multiplier 2, preliminary upper band=$12 and lower band=$8. These are raw bands only, not a valid final Supertrend line, because prior bands, prior close and direction state were intentionally not supplied.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_BOLLINGER_BANDS",
@@ -794,7 +820,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Moving average plus or minus a declared multiple of price standard deviation. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Middle=SMA; upper/lower=middle +/- k*SD",
+      "formula": "Middle = SMA(N) of completed closes; population SD = sqrt(sum((close−SMA)^2)/N) for the explicitly chosen variant; upper/lower = SMA ± k×SD (platform SD convention must be declared).",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Study volatility expansion, contraction and location without assigning probabilities",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Study volatility expansion, contraction and location without assigning probabilities. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -802,9 +828,10 @@
       "limit": "Touching a band does not indicate a 95 percent certain reversal. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Touching a band does not indicate a 95 percent certain reversal.",
       "commonError": "Treating Bollinger Bands as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Bollinger Bands measures, the formula/settings in Middle=SMA; upper/lower=middle +/- k*SD, one application to a hypothetical chart and why touching a band does not indicate a 95 percent certain reversal.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Bollinger Bands and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Three completed closes are $9, $10 and $11. With the same population convention and k=2, compute both bands and explain why a band touch does not imply a guaranteed reversal.",
+      "reviewExplanation": "New SMA=$10, population SD=sqrt(2/3)≈$0.8165, upper≈$11.6330 and lower≈$8.3670. Sample SD would differ; declare the convention and verify the platform's implementation. A price crossing an outer band does not supply a 95% reversal probability or a protected trade signal.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -815,7 +842,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Bollinger Bands settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: For three completed closes $8, $10 and $12, SMA(3)=$10. Population variance=(4+0+4)/3=8/3 dollars squared; SD=sqrt(8/3)≈$1.6330. With multiplier 2, bands are approximately $13.2660 and $6.7340. This small N illustrates arithmetic, not a vendor default.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_BOLLINGER_PERCENT_B",
@@ -823,7 +858,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Normalized position of price between Bollinger upper and lower bands. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "%B=(price-lower)/(upper-lower)",
+      "formula": "%B = (completed price − lower Bollinger Band)/(upper Bollinger Band − lower Bollinger Band), undefined for coincident bands.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare relative band position across sessions",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare relative band position across sessions. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -831,9 +866,10 @@
       "limit": "Can exceed zero-to-one range; undefined when band width is zero. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Can exceed zero-to-one range; undefined when band width is zero.",
       "commonError": "Treating Bollinger Percent B as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Bollinger Percent B measures, the formula/settings in %B=(price-lower)/(upper-lower), one application to a hypothetical chart and why can exceed zero-to-one range; undefined when band width is zero.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Bollinger Percent B and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: At close $13 with the same bands, calculate %B and explain why a result above 1 is possible; then set both bands to $10 and identify the invalid denominator.",
+      "reviewExplanation": "%B for $13 is 5/4=1.25, which is valid as a relative location above the upper band. Equal $10 bands imply zero width and an undefined ratio, not 0 or infinity. Position within bands does not guarantee a price reversal; band source, period and completed timestamp must match.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/b-indicator",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -844,7 +880,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Bollinger Percent B settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: At a completed close of $11 with lower band $8 and upper band $12 (from a separately specified window), Bollinger %B = ($11−$8)/($12−$8)=3/4=0.75, dimensionless. The example does not calculate the underlying bands or use an incomplete bar.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/b-indicator",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_BOLLINGER_BANDWIDTH",
@@ -852,7 +896,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Relative width between upper and lower Bollinger bands. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Bandwidth=100*(upper-lower)/middle; convention varies",
+      "formula": "BandWidth_percent = 100×(upper Bollinger Band−lower Bollinger Band)/middle SMA, provided middle is nonzero; distinguish raw ratio from percent display.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Identify compression and expansion before investigating a price break",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Identify compression and expansion before investigating a price break. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -860,9 +904,10 @@
       "limit": "Compression indicates low historical volatility, not guaranteed breakout direction. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Compression indicates low historical volatility, not guaranteed breakout direction.",
       "commonError": "Treating Bollinger BandWidth as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Bollinger BandWidth measures, the formula/settings in Bandwidth=100*(upper-lower)/middle; convention varies, one application to a hypothetical chart and why compression indicates low historical volatility, not guaranteed breakout direction.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Bollinger BandWidth and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: If middle=$20, upper=$22, lower=$18, compute the new BandWidth; then consider a zero middle denominator and a narrow band with no breakout.",
+      "reviewExplanation": "The new BandWidth is 100×4/20=20%. A zero middle is undefined under this convention. A narrower band indicates lower dispersion relative to the selected history, not the direction, likelihood or timing of a breakout. Some displays report 0.20 rather than 20%; specify units.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/bollinger-bandwidth",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -873,7 +918,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Bollinger BandWidth settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With contemporaneous completed-window middle SMA=$10, upper band=$12 and lower band=$8, BandWidth=100×(12−8)/10=40%. It is a percent of the middle level, not a prediction that the next candle will move 40%.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/bollinger-bandwidth",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_KELTNER_CHANNELS",
@@ -881,7 +934,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Moving average envelopes with ATR-based distance. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Upper/lower=center_average +/- k*ATR",
+      "formula": "Modern illustrative Keltner upper/lower = seeded EMA(N) of completed price ± k×seeded ATR(M), with EMA/ATR lengths and alternative historic channel definitions explicit.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Contrast ATR-based volatility boundaries with standard-deviation bands",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Contrast ATR-based volatility boundaries with standard-deviation bands. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -889,9 +942,10 @@
       "limit": "Parameters and average type vary; channel crossing is not a complete trade rule. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Parameters and average type vary; channel crossing is not a complete trade rule.",
       "commonError": "Treating Keltner Channels as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Keltner Channels measures, the formula/settings in Upper/lower=center_average +/- k*ATR, one application to a hypothetical chart and why parameters and average type vary; channel crossing is not a complete trade rule.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Keltner Channels and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Given seeded EMA=$20, ATR=$0.75, k=2 and no future bars, calculate both channels; explain why their crossing cannot guarantee a live execution price.",
+      "reviewExplanation": "Upper=$21.50 and lower=$18.50. The seeded ATR establishes historical dispersion only. An EMA must have a known warm-up and period; different channel centerline definitions and period choices change the result. A crossover is not an order, a fill or an independently validated edge.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/keltner-channels",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -902,7 +956,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Keltner Channels settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A previously seeded completed-bar EMA is $10 and ATR=$1.50 per share; with k=2, the upper Keltner channel is $10+2×$1.50=$13 and lower is $10−2×$1.50=$7. Prior prices and TR history are required to obtain those seeds honestly.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/keltner-channels",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_DONCHIAN_CHANNELS",
@@ -910,7 +972,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Rolling highest high and lowest low for the chosen lookback. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Upper=max(high,N); lower=min(low,N)",
+      "formula": "Upper channel = maximum of N eligible completed highs; lower = minimum of N eligible completed lows. Explicitly distinguish current-bar-inclusive displays from prior-N-bar breakout comparisons.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Identify a completed range boundary for breakout or pullback context",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Identify a completed range boundary for breakout or pullback context. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -918,9 +980,10 @@
       "limit": "Current incomplete bar may change the boundary; levels do not guarantee acceptance. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Current incomplete bar may change the boundary; levels do not guarantee acceptance.",
       "commonError": "Treating Donchian Price Channels as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Donchian Price Channels measures, the formula/settings in Upper=max(high,N); lower=min(low,N), one application to a hypothetical chart and why current incomplete bar may change the boundary; levels do not guarantee acceptance.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Donchian Price Channels and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: The next completed high is $13 and low $10.50; drop the oldest $10 high/$9 low from the rolling three-bar window and compute new channel bounds.",
+      "reviewExplanation": "The new three highs $11,$12,$13 produce $13 upper; lows $9.50,$10,$10.50 produce $9.50 lower. During an incomplete fourth bar, these final bounds cannot be declared. Breakout comparisons often use prior N completed bars specifically to avoid self-referential highs.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/price-channels",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -931,7 +994,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Donchian Price Channels settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three completed high values $10, $11 and $12 and corresponding lows $9, $9.50 and $10 yield Donchian(3) upper=$12 and lower=$9. The midpoint is $10.50. All three bars are completed; a developing fourth bar is excluded.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/price-channels",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_ATR",
@@ -939,7 +1010,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Smoothed true range including prior-close gap components. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "TR=max(high-low,abs(high-prior_close),abs(low-prior_close))",
+      "formula": "TR(t)=max(high−low, abs(high−prior close), abs(low−prior close)); example seed ATR(N)=mean of first N valid TR values; Wilder update ATR_t=((N−1)×ATR_(t−1)+TR_t)/N.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare dollar movement magnitude and chart invalidation distance",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare dollar movement magnitude and chart invalidation distance. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -947,9 +1018,10 @@
       "limit": "ATR does not predict direction or bound the next session's loss. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. ATR does not predict direction or bound the next session's loss.",
       "commonError": "Treating Average True Range as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Average True Range measures, the formula/settings in TR=max(high-low,abs(high-prior_close),abs(low-prior_close)), one application to a hypothetical chart and why atr does not predict direction or bound the next session's loss.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Average True Range and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Given valid prior Wilder ATR(3)=$3 and the next completed TR=$6, calculate the updated ATR(3); state whether it predicts the next price direction.",
+      "reviewExplanation": "Seed ATR(3)=$3; the Wilder update is ((3−1)×3+6)/3=$4 per share. This is smoothed realized range, not a forecast or maximum loss. TR requires the previous completed close; missing close, invalid OHLC or insufficient history should not silently become zero.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -960,7 +1032,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Average True Range settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A completed bar with high=$11, low=$9 and prior completed close=$8 has TR=max(2,3,1)=$3 per share. If three valid preceding TR inputs are $2,$3,$4, a three-period arithmetic seed is ATR(3)=$3. This is not a calculation from an unconfirmed developing candle.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_ATRP",
@@ -968,7 +1048,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "ATR expressed as a proportion of underlying price. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "ATRP(N,t) = 100 * ATR(N,t) / completed Close[t], in percent, requiring a seeded true-range ATR and nonzero close.",
+      "formula": "ATRP_percent=100×seeded ATR(N) in price units / eligible completed close in price units; undefined at a zero or invalid close.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare volatility of differently priced securities on a consistent bar basis",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare volatility of differently priced securities on a consistent bar basis. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -976,9 +1056,10 @@
       "limit": "Percent normalization is not equivalent to spread or executable liquidity. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Percent normalization is not equivalent to spread or executable liquidity.",
       "commonError": "Treating Average True Range Percent as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Average True Range Percent measures, the formula/settings in ATRP=100*ATR/close, one application to a hypothetical chart and why percent normalization is not equivalent to spread or executable liquidity.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Average True Range Percent and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: If seeded ATR=$0.60 and completed close=$20, compute ATRP; identify what happens when close=0 or the ATR warm-up is unavailable.",
+      "reviewExplanation": "ATRP is 100×0.60/20=3%, even though the dollar ATR is smaller. A zero close makes the quotient undefined and missing seed history is not a zero ATR. A volatility percent does not specify execution costs, risk of gap loss or any assured stop-fill level.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-true-range-atr",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -989,7 +1070,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Average True Range Percent settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: An independently seeded ATR=$1.50 per share and a completed, positive close of $50 give ATRP=100×1.50/50=3%. This normalization enables comparisons of relative past volatility, not spread, trading volume or order-book liquidity.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-true-range-atr",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_HISTORICAL_VOLATILITY",
@@ -997,7 +1086,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Statistical dispersion of prior returns over a period. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Annualized sample SD of logged returns * sqrt(periods_per_year) with declared assumptions",
+      "formula": "For N completed logarithmic returns r_i=ln(C_i/C_(i−1)), sample SD=sqrt(sum((r_i−mean r)^2)/(N−1)); annualized historical volatility=sample SD×sqrt(defined return intervals per year), valid N≥2.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare past realized movement with option-implied volatility cautiously",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare past realized movement with option-implied volatility cautiously. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -1005,11 +1094,11 @@
       "limit": "Annualization and return conventions vary; future volatility may change abruptly. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Annualization and return conventions vary; future volatility may change abruptly.",
       "commonError": "Treating Historical Volatility as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Historical Volatility measures, the formula/settings in Annualized sample SD of logged returns * sqrt(periods_per_year) with declared assumptions, one application to a hypothetical chart and why annualization and return conventions vary; future volatility may change abruptly.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Historical Volatility and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Consider daily log returns +0.01, +0.01 and +0.01; compute sample SD and annualized volatility under the same convention. Explain why this cannot forecast future realized volatility.",
+      "reviewExplanation": "All three returns equal their mean, so sample SD and annualized volatility are zero for this small illustration, not proof of a risk-free asset. Require at least two valid completed returns, positive closes to form logs, explicit annualization frequency, and distinguish population versus sample variance. No future returns may enter a replay value.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
-        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
       ],
       "archiveBasis": "STT.zip; StocksToTrade-Browser-Research (8).zip indicator calculation research; ChartSchool and thinkorswim official study references.",
       "teachingStatus": "original_source_informed_brief_not_real_trade_or_complete_interactive_lab",
@@ -1018,7 +1107,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Historical Volatility settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three already-calculated completed daily log returns are +0.01, −0.01 and +0.02. Mean=0.0066667; sample variance≈0.0002333333, sample SD≈0.0152753. With 252 assumed trading days, annualized historical volatility≈24.25%. These are logs, not simple percent changes.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_CHANDELIER_EXIT",
@@ -1026,7 +1123,7 @@
       "kind": "indicator",
       "family": "Volatility",
       "concept": "Trailing stop-reference derived from an extreme high or low minus or plus an ATR multiple. This is a volatility study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Long reference=highest_high(N)-k*ATR; short analog",
+      "formula": "Chandelier long reference = highest eligible high(N) − k×seeded ATR(N); short reference = lowest eligible low(N) + k×seeded ATR(N); settings, lookback and execution assumption declared.",
       "whyUse": "This can help a learner describe volatility conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Explore trailing reference distances under changing volatility",
       "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Explore trailing reference distances under changing volatility. Compare with the underlying price/volume and define what would falsify the interpretation.",
@@ -1034,9 +1131,10 @@
       "limit": "A plotted exit reference is not a guaranteed fill or suitable for every security. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A plotted exit reference is not a guaranteed fill or suitable for every security.",
       "commonError": "Treating Chandelier Exit as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Chandelier Exit measures, the formula/settings in Long reference=highest_high(N)-k*ATR; short analog, one application to a hypothetical chart and why a plotted exit reference is not a guaranteed fill or suitable for every security.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Chandelier Exit and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Given a 22-bar lowest low $10 and seeded ATR(22)=$0.80 with multiplier 3, compute the short reference; explain why crossing it cannot guarantee a stop fill.",
+      "reviewExplanation": "The short reference is $10+3×$0.80=$12.40. A plotted Chandelier level is a study reference, not proof of submitted orders or achieved execution prices. Warm-up, eligible session, high/low window and ATR convention must be known; gaps and slippage can change actual fills.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/chandelier-exit",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1047,7 +1145,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Chandelier Exit settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With a separately validated 22-completed-bar highest high of $20, seeded ATR(22)=$1 and multiplier 3, the Chandelier long reference is $20−3×$1=$17 per share. The underlying 22 bars and ATR seed are assumed, not reconstructed from one candle.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "original fictional demonstration and arithmetic checked internally; external independent publication acceptance open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/chandelier-exit",
+        "sourceRights": "public_reference_only_no_republication_or_market_feed_rights",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_PIVOT_POINTS",
