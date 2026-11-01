@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'docs/research/master/**'
+      - 'docs/learning/SMFGU-LAB-BATCH04-SOURCE-INTAKE-20261101.json'
+      - 'tests/lab-bridge-batch04-research-intake-v1.test.mjs'
       - 'scripts/master-research-source-audit-v1.mjs'
       - 'docs/research/master/formula-verification-fixtures-v1.json'
       - 'tests/test_master_formula_cases_v1.mjs'
@@ -31,6 +33,7 @@ jobs:
         run: |
           node --check scripts/master-research-source-audit-v1.mjs
           node scripts/master-research-source-audit-v1.mjs
+          node --test tests/lab-bridge-batch04-research-intake-v1.test.mjs
           node tests/test_master_formula_cases_v1.mjs
           python3 tests/test_master_formula_cases_v1.py
           node --test tests/talia-research-math-v1.test.mjs
