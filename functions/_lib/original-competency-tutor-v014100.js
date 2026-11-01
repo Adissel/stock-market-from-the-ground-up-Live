@@ -1,4 +1,5 @@
 import {ungradedResponseReview} from './tutor-response-scaffold-v014102.js';
+import {foundationWorkedMath} from './tutor-foundation-worked-math-v1.js';
 /* v0.14.0.100 — zero-cost source-grounded tutor upgrade.
  * Reuses the 30 original public competency study guides already published
  * for the member Skills page. NO private book manuscript, rubric, market bar,
@@ -266,6 +267,8 @@ function formatMasterStudyGuide(g,mode,reflection){
  return out.join('\n\n');
 }
 function answerFromGuide(g,mode,answer,question=''){
+ // Reuse published canonical guide IDs; practice/review remain independently answered.
+ const worked=mode==='explain'&&g?.officialCompetency!==false?foundationWorkedMath(g.code,question):null;
  // Requested source-only deeper teaching cannot introduce an AI charge.
  const deep=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further)\b/i.test(String(question||''));
  if(deep&&!g.masterStudy&&!g.decisionPlaybook){
@@ -281,6 +284,7 @@ function answerFromGuide(g,mode,answer,question=''){
    'Research status: original source-informed instruction, not independently validated trade performance or historical price data.'
   ];
   if(mode==='review')sections.push('Your reflection remains ungraded: '+ungradedResponseReview(answer));
+  if(worked)sections.push(worked);
   return sections.join('\n\n');
  }
 
@@ -293,6 +297,6 @@ function answerFromGuide(g,mode,answer,question=''){
  const main=(g.supplemental===true?'Supplementary ungraded topic (not an official competency) — ':'')+g.title+': '+g.concept+'\n\nWhat to do: '+g.procedure+'\n\nWhat this does not establish: '+g.limit+'\n\nInvalidation: '+g.invalidation+evidence;
  if(mode==='question')return main+'\n\nUngraded self-check: '+g.selfCheck;
  if(mode==='review')return main+'\n\nUse this review criterion: '+g.reviewExplanation+' no rubric was graded or scored.\n\n'+ungradedResponseReview(answer);
- return main+'\n\nCommon error to avoid: '+g.commonError+'\n\nPractice: '+g.selfCheck;
+ return main+'\n\nCommon error to avoid: '+g.commonError+(worked?'\n\n'+worked:'')+'\n\nPractice: '+g.selfCheck;
 }
 export {chooseGuides,originalGuides,answerFromGuide};
