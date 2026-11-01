@@ -236,8 +236,9 @@ async function loadFoundationTopicExplanations(env,request){
     g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
     !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
     !FOUNDATION_TOPIC_SOURCE(g.sourceUrls[0])||
-    ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
-      .some(k=>typeof g[k]!=='string'||g[k].length<40))
+    (typeof g.title!=='string'||g.title.length<12)||
+    ['concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
+      .some(k=>typeof g[k]!=='string'||g[k].length<28))
    return [];
   seen.add(g.code);
  }
