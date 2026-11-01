@@ -216,6 +216,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A 500-share print reports at $12.00 while the screen shows a $11.99/$12.01 exchange quote. Neither the midpoint location nor a tape color establishes the execution venue.",
       "transferQuestion": "FICTIONAL TRANSFER: A trade prints at the quote midpoint. What execution and reporting fields are missing before labeling it an exchange fill?",
       "sourceUrls": [
+        "https://syndication.finra.org/content/look-over-counter-equities-trading",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -226,7 +227,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
@@ -412,6 +413,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An adjusted prior close is $30.00 and confirmed opening auction print is $30.90. The illustrative opening gap is +$0.90 or +3%, not a prediction of later direction.",
       "transferQuestion": "FICTIONAL TRANSFER: Prior comparable close $50 and official opening print $49.50. Calculate signed opening gap and percent.",
       "sourceUrls": [
+        "https://www.nyse.com/trade/auctions",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -422,7 +424,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
@@ -440,6 +442,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An indicative opening price is $25.20 at 09:28 while the confirmed auction later opens at $25.05. A simulated strategy cannot claim execution at the earlier estimate without an actual eligible fill.",
       "transferQuestion": "FICTIONAL TRANSFER: An auction imbalance shrinks while indicative price moves. What execution field is still missing?",
       "sourceUrls": [
+        "https://www.nyse.com/trade/auctions",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -450,7 +453,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
@@ -468,6 +471,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A fictional listing is halted at 10:15, but a cached quote at 10:14 is still on a chart at 10:17. The old number is not executable proof at 10:17.",
       "transferQuestion": "FICTIONAL TRANSFER: A quote timestamp precedes an active halt by two minutes. Can it establish current liquidity?",
       "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -478,7 +482,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
@@ -496,6 +500,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A training chart displays a $10.00 lower price band, while a hypothetical sell stop is at $10.05. It cannot claim an execution at $10.05 merely because the price reaches the band.",
       "transferQuestion": "FICTIONAL TRANSFER: A stock enters a volatility pause before a stop order fills. Which two records are needed to assess the outcome?",
       "sourceUrls": [
+        "https://www.sec.gov/about/divisions-offices/division-economic-risk-analysis/staff-papers-analyses/10mar17_moise_flaherty_luld",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -506,7 +511,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
@@ -524,6 +529,7 @@
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A stock drops 9% from a chosen prior close in an illustrative session. That number alone does not establish that a 10% trigger fired or that all short sales are forbidden.",
       "transferQuestion": "FICTIONAL TRANSFER: A prior close is $20; a hypothetical 10% trigger threshold is $18. Describe whether a $18.50 low meets that arithmetic criterion.",
       "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions-7",
         "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
@@ -534,7 +540,7 @@
       "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
       "editorSourceReview": {
         "reviewer": "owner-delegated internal",
-        "result": "draft_only_claim_specific_review_pending",
+        "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
       }
