@@ -48,7 +48,11 @@ try{
  const headers=urls.find(x=>x.url.includes('/decision_journal?'))?.opts.headers;
  assert.equal(headers.apikey,env.SUPABASE_SECRET_KEY);
  assert.equal(headers.authorization,undefined,'Modern sb_secret cannot be Bearer');
- allow=false;r=await onRequest({request:request({question:'What should I practice?',mode:'practice'}),env});assert.equal(r.status,403);
+ allow=false;r=await onRequest({request:request({question:'What should I practice?',mode:'practice'}),env});
+ assert.equal(r.status,200,'Eligible Free/Basic members retain original self-history practice coaching');
+ const freePractice=await r.json();
+ assert.equal(freePractice.graded,false);assert.equal(freePractice.masteryAwarded,false);
+ assert.equal(marketCalls,0,'Basic Tutor practice cannot trigger paid inference');
  allow=true;kind='showcase';r=await onRequest({request:request({question:'What should I practice?',mode:'practice'}),env});assert.equal(r.status,403);
  kind='member';failPrivate=true;r=await onRequest({request:request({question:'What should I practice?',mode:'practice'}),env});assert.equal(r.status,503);
  r=await onRequest({request:request({question:'What should I practice?',mode:'practice'},false),env});assert.equal(r.status,401);
