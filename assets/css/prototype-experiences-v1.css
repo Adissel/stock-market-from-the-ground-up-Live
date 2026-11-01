@@ -136,3 +136,43 @@
 .cx-page-a.cx-theme-onyx .cx-kpis>div{border-top:3px solid #899dab}
 @media(max-width:950px){.cx-page-a.cx-theme-neon .cx-workgrid,.cx-page-a.cx-theme-green .cx-workgrid,.cx-page-a.cx-theme-ember .cx-workgrid,.cx-page-a.cx-theme-aurora .cx-workgrid{grid-template-columns:1fr}.cx-page-a.cx-theme-aurora .cx-right,.cx-page-a.cx-theme-aurora .cx-maincolumn{order:initial}}
 @media(max-width:650px){.cx-page-a.cx-theme-green .cx-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Crownlight Experience Suite V2 — functional chart studies, navigation and deep teaching. */
+.cx-indicator-workbench{margin:0 clamp(14px,2.5vw,35px) 14px;padding:17px 19px;background:linear-gradient(145deg,var(--cx-card),var(--cx-elev));border:1px solid var(--cx-grid);border-radius:12px}
+.cx-indicator-heading{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.cx-indicator-heading h2{font-size:17px;color:var(--cx-text);margin:4px 0 0}
+.cx-indicator-heading h2 small{display:inline;color:var(--cx-muted);font-size:11px;font-weight:500;margin-left:7px}
+.cx-indicator-heading .cx-tool-row{margin:0}
+.cx-indicator-layout{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.4fr);gap:17px;margin:12px 0}
+.cx-study-search,.cx-indicator-catalog label{display:block;color:var(--cx-muted);font-size:11px;letter-spacing:.03em}
+.cx-study-search input{display:block;width:100%;padding:9px 11px;margin:7px 0 9px;background:var(--cx-bg);color:var(--cx-text);border:1px solid var(--cx-grid);border-radius:7px}
+.cx-study-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;max-height:330px;overflow:auto;scrollbar-color:var(--cx-grid) transparent}
+.cx-study-choice{display:flex;align-items:center;gap:7px;background:var(--cx-bg);border:1px solid var(--cx-grid);border-radius:7px;padding:8px 9px;min-width:0;cursor:pointer}
+.cx-study-choice input{accent-color:var(--cx-accent);flex-shrink:0}
+.cx-study-choice span{min-width:0;flex:1}.cx-study-choice strong{display:block;color:var(--cx-text);font-size:11px;line-height:1.35}
+.cx-study-choice small{display:block;color:var(--cx-muted);font-size:9px;line-height:1.35}
+.cx-study-choice b{font-size:9px;color:var(--cx-accent)}
+.cx-indicator-params{margin:11px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.cx-indicator-number{display:block;font-size:10px;color:var(--cx-muted);line-height:1.45}
+.cx-indicator-number input{display:block;margin-top:5px!important;padding:6px!important;min-height:32px!important;font-variant-numeric:tabular-nums}
+.cx-indicator-catalog{display:grid;grid-template-columns:minmax(260px,.55fr) minmax(0,1fr);gap:15px;padding:13px 0 0;border-top:1px solid var(--cx-grid)}
+.cx-indicator-catalog select{margin-top:7px}
+.cx-guide-copy{min-width:0}
+.cx-guide-copy strong{font-size:14px;color:var(--cx-accent)}.cx-guide-copy p{font-size:11px;color:var(--cx-muted);margin:6px 0;line-height:1.6}
+.cx-guide-copy b{color:var(--cx-text)}.cx-guide-copy .cx-chip{display:inline-block;white-space:normal;margin-top:6px}
+.cx-pan-controls{display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:6px 0}
+.cx-pan-controls span{font-size:9px;letter-spacing:.08em;color:var(--cx-muted);flex:1;min-width:160px}
+.cx-pan-controls button{padding:5px 9px;font-size:10px;white-space:nowrap}
+.cx-chart-grabbable{cursor:grab;touch-action:pan-y}
+.cx-chart-grabbable:active{cursor:grabbing}
+.cx-interactive-chart{min-width:0;position:relative}
+.cx-coach-content{min-width:0;flex:1}
+.cx-coach-content>strong{display:block;margin-top:4px;font-size:12px;color:var(--cx-text)}
+.cx-coach-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin:12px 0}
+.cx-coach-actions button{font-size:10px;text-align:left;padding:7px 8px;border-color:color-mix(in srgb,var(--cx-accent) 21%,var(--cx-grid));line-height:1.3}
+.cx-coach-evidence{background:color-mix(in srgb,var(--cx-accent) 5%,var(--cx-bg));border-left:2px solid var(--cx-accent);padding:10px;margin-top:12px!important}
+.cx-coach-evidence b{color:var(--cx-text)}
+@media(max-width:1180px){.cx-indicator-params{grid-template-columns:repeat(3,minmax(0,1fr))}.cx-study-list{grid-template-columns:1fr}}
+@media(max-width:850px){.cx-indicator-layout,.cx-indicator-catalog{grid-template-columns:1fr}.cx-study-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:260px}}
+@media(max-width:600px){.cx-indicator-heading{flex-direction:column;align-items:stretch}.cx-indicator-params{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-study-list{grid-template-columns:1fr}.cx-pan-controls span{flex-basis:100%}.cx-coach-actions{grid-template-columns:1fr}}
