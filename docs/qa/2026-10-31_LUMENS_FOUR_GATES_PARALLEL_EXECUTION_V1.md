@@ -8,9 +8,9 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.4 |
+| Version | 1.5 |
 | Date | 2026-10-31 |
-| Status | **GATE B STRIPE TEST AND ACTUAL QA WALLET RECONCILIATION ACCEPTED; GATES A, C, D REMAIN OPEN** |
+| Status | **9 OF 12 ACCEPTED; GATE A SCORER AND QUEUE ROLLBACK TEST PASS; GATE B ACCEPTED; C LEGAL HOLD; D EXACT-SHA CI OPEN** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
 | Purpose | Consolidate owner-delegated execution on the four V1 acceptance milestones and preserve reproducible evidence |
 | Owner authority | Owner reaffirmed delegated routine engineering, editorial and QA decisions on 2026-10-31 and accepted retention of the gifting release hold. This is **not** legal clearance, human-review impersonation or LIVE-charge authorization. |
@@ -26,6 +26,16 @@
 - `ROLLBACK` reverted the grade, approval, flag, award and credit. No customer record was issued.
 
 This is an **engineering** signoff for queue-to-ledger integrity. It is **not** an independently accepted real grade, no real awarded Lumens are authorized, and no switch may be activated merely because synthetic data passed.
+
+### Enhanced protected grader-to-outbox test — 2026-10-31 (rollback-only)
+
+An actual `submit_competency_case_v135` call against the existing `James_Test` member and four-question draft `BC3_FILINGS7_D01_V1` uncovered **SQLSTATE 42702**, caused by a local PL/pgSQL `q` variable colliding with three SQL query aliases. The forward-only source migration `supabase/migrations/20261031_v135_competency_scoring_sql_alias_fix_v1.sql` was committed to `main`, corrected after a fail-closed migration assertion rejected its first attempt, then successfully applied in Supabase as `20261101015122` / `v135_competency_scoring_sql_alias_fix_v1_20261031` (UTC migration version, October 31 local acceptance).
+
+A second isolated DO-block test then **PASSED** all conditions using actual stored grader, bridge, evidence trigger, and release-controlled award processor: answer-key response scored **100%**; exactly **one** `system_assessment` evidence and **one** pending reviewed-grade outbox entry; second submission rejected with `already_submitted`; processor returned `enabled:false`, `issued:0`; no customer Lumen award or wallet change. The entire temporary case activation, owner UUID stub, mapping, attempt and queue was intentionally rolled back via a caught sentinel exception, followed by non-persistence assertions. **The temporary reviewer identity is a synthetic QA fixture, not a human editorial certification.** No formal review, real accepted learner completion or member earning was claimed.
+
+The existing `tests/test_member_lumen_wallet_progress_gifts_v1.mjs` now includes source regression assertions for both the earlier profile-id and latest grading-alias fixes; this test belongs to the existing `crownlight-member-lumens-v1.yml` workflow. Its latest exact commit CI result must be checked separately.
+
+**Gate A: TECHNICAL GRADER/QUEUE/IDEMPOTENCY/FALSE-EARNING ACCEPTED in rollback-only scope. Full milestone OPEN pending independently reviewed, authentic grading and an authorized once-only credit settlement.**
 
 ## Milestone 4 — Stripe TEST provider refunds and member ledger
 
@@ -53,6 +63,10 @@ The 419-Lab/10-Boot-Camp earning schedule is retained as a **draft economic/UX s
 **PASS — noncharging genuine two-identity denial and account isolation.** GitHub [Actions run 41243627925](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41243627925) authenticated James_Test (Advanced) and QA_Secondary (Standard) through separate Supabase Auth tokens. For both users, the genuine deployed production endpoints rejected member gifting lookup, transfer submission and consent activation while unpublished. A before/after authenticated authoritative ledger-integrity read showed **identical balances**, and anonymous access was denied. Zero payment/wallet/entitlement writes occurred.
 
 Existing prior controlled transaction-level tests demonstrated atomic gift+retry+reversal and spent-credit dispute, but **a complete authorized, actual, persistent two-member transfer is NOT accepted** and gifting remains off.
+
+### Current genuine-identity release-denial reacceptance — 2026-10-31
+
+A separate two-member Supabase transaction test selected distinct existing noncommercial QA members, read both authoritative wallet summaries, invoked the real `gu_lumen_peer_send_v1` database function under service-role request context, and asserted it failed specifically with `GIFTING_NOT_RELEASED`. The completed test asserted **no change to either wallet**, and **no new transfer row**. This is defense-in-depth verification using actual member records while all gifting clearance switches remain false. There was **no persistent gift** and no legal clearance; Owner-approved gifting hold remains binding.
 
 ### Legal and consumer protection review — open
 
@@ -118,6 +132,7 @@ A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion can
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-10-31 | 1.5 | Applied v135 scorer alias collision repair; passed real grader→evidence→outbox rollback-only 100% QA and deduplication; repeated two-member gifting disabled-rejection; added CI source regression | Engineering PASS; Gate B accepted; Gates A, C, D still OPEN, 9/12 = 75% |
 | 2026-10-31 | 1.4 | Matched four Stripe TEST refunds with Chart TEST ledger, member credit buckets and balance; verified 14/14 TEST Lumens restored and refund replay idempotency; retained approval/legal/CI gates | Milestone 4 TEST wallet accounting ACCEPTED; 9/12 = 75%; remaining gates A/C/D OPEN |
 | 2026-10-31 | 1.3 | Repaired production v135 grader SQLSTATE 42702 ambiguous member id lookup with forward-only migration; confirmed draft rejection, service-only grants, zero attempts and no credits | Grader draft fail-closed path PASS; genuine approved scoring and final release OPEN |
 | 2026-10-31 | 1.2 | Applied immutable grading bridge to Supabase; verified permissions, zero awards and disabled release flags; audited all 54 draft competency cases; corrected Founding 600 signed TEST webhook CI regex | Database engineering deployment PASS; independent grades, wallet settlement, gifting release and final CI OPEN |
