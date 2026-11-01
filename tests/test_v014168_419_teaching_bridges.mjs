@@ -43,7 +43,9 @@ for(const [id,m] of Object.entries(labs.byLab)){
  const row=bridge.entries[id];
  assert(row&&row.labId===id&&row.title===m.title);
  assert.equal(row.collection,m.bookCode);
- assert.equal(row.sourceStatus,'CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA');
+ assert(['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
+  'BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING'].includes(row.sourceStatus),
+  id+' must remain source-only and editorial-pending; no verified market data or grade claimed');
  assert(guides.has(row.mappedGuideCode));
  assert.deepEqual(Array.from(row.relatedCompetencies),Array.from(m.relatedCompetencies));
  const concepts=[];
