@@ -653,6 +653,8 @@ function LayoutStudio({page}:{page:Page}){
    else if(!v.fontSize)el.style.fontSize='';
    el.style.textAlign=v.textAlign||'';
    el.style.color=v.textColor||'';
+   el.dataset.cxTextColored=v.textColor?'true':'false';
+   el.style.setProperty('--cx-editor-text-color',v.textColor||'');
    if(v.textOverride!==undefined){
     const text=Array.from(el.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent?.trim());
     if(text&&text.textContent!==v.textOverride)text.textContent=v.textOverride;
@@ -801,6 +803,7 @@ function LayoutStudio({page}:{page:Page}){
     <button disabled={!selected} onClick={()=>modify({x:0,y:0,width:undefined,height:undefined})}>Reset selected</button>
    </div>
    <div className="cx-layout-actions">
+   <button type="button" onClick={()=>{setEditing(false);setClean(false);setNote('Layout editor closed; changes remain in this browser.')}}>Exit Editor</button>
    <button disabled={!selected} onClick={detach}>{current.detached?'Return to page flow':'Free position (detach)'}</button>
    <button disabled={!selected} aria-pressed={!!current.frameLess} onClick={()=>modify({frameLess:!current.frameLess})}>{current.frameLess?'Restore card frame':'Remove card frame'}</button>
    <button disabled={!selected} onClick={()=>modify({hidden:true})}>Hide selected</button>
@@ -835,7 +838,7 @@ function Suite({page}:{page:Page}){
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
  return <ChartAppearanceContext.Provider value={{style:chartAppearance,setStyle:setChartAppearance}}><BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
-  <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a></div></header>
+  <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a><a className="cx-exit-link" href="/admin.html">Exit prototype</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 15 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
   <div className="cx-controlstrip">
