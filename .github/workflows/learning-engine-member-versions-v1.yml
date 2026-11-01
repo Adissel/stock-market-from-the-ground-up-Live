@@ -11,6 +11,7 @@ on:
       - 'functions/api/member-learning-engine-versions.js'
       - 'supabase/migrations/20261101_membership_learning_engine_versions_v1.sql'
       - 'tests/learning-engine-member-versions-v1.test.mjs'
+      - 'tests/learning-engine-member-versions-api-v1.test.mjs'
       - 'lab-player.html'
       - 'market-tutor.html'
       - 'admin.html'
@@ -31,4 +32,4 @@ jobs:
           node --check assets/js/member-learning-engine-versions-v1.js
           node --check assets/js/member-tutor-version-loader-v1.js
       - name: Contracts
-        run: node --test tests/learning-engine-member-versions-v1.test.mjs
+        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs
