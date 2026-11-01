@@ -42,6 +42,19 @@ window.getSupabaseClient=async()=>({auth:{
 `}));
  await context.route('**/api/admin?action=context',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,roles:[currentRole],permissions:currentRole==='OWNER'||currentRole==='ADMIN'?['control_panel.access']:[]})}));
  await context.route('**/api/prototype-training-cases',route=>route.fulfill({status:currentRole==='OWNER'||currentRole==='ADMIN'?200:403,contentType:'application/json',body:JSON.stringify({ok:currentRole==='OWNER'||currentRole==='ADMIN',source:'FICTIONAL_PROTOTYPE',gradingEnabled:false,privateAnswerKeysIncluded:false,cases:fakeCases})}));
+ const versions=Object.fromEntries(['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME','ONDEMAND_MONTHLY'].map(x=>[x,1]));
+ await context.route('**/api/prototype-classroom-presets',async route=>{
+  if(currentRole!=='OWNER'&&currentRole!=='ADMIN')return route.fulfill({status:403,contentType:'application/json',body:'{"ok":false}'});
+  if(route.request().method()==='GET')return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
+   ok:true,isDraftOnly:true,memberFacingEnabled:false,presets:Array.from({length:20},(_,i)=>({preset_code:'preset-'+i})),
+   memberships:Object.keys(versions).map(plan_code=>({plan_code})),layouts:[],history:[]
+  })});
+  const input=route.request().postDataJSON(),version=versions[input.planCode];
+  if(input.expectedVersion!==version)return route.fulfill({status:409,contentType:'application/json',body:'{"ok":false,"error":"Version conflict"}'});
+  versions[input.planCode]++;
+  return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,saved:{plan_code:input.planCode,version:versions[input.planCode]},revisionCaptured:true,published:false})});
+ });
+
  const page=await context.newPage();return{context,page,revoke:()=>{currentRole='MODERATOR'}};
 }
 try{
@@ -76,6 +89,10 @@ try{
   await page.locator('#pt-membership').selectOption('ONDEMAND_MONTHLY');
   assert.match(await page.locator('#pt-content').textContent(),/Replay Classroom/);
   await page.locator('#pt-membership').selectOption('FREE');
+  await page.locator('#pt-remote-controls').waitFor({state:'visible'});
+  await page.locator('#pt-remote-controls button:has-text("Save server draft")').click();
+  await page.waitForFunction(()=>document.querySelector('#pt-remote-controls')?.textContent?.includes('Draft v2 saved'),null,{timeout:12000});
+
 
   await page.waitForFunction(()=>document.querySelector('#pt-chart-status')?.textContent?.startsWith('Interactive'),null,{timeout:20000});
   await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
