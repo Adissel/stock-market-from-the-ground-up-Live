@@ -109,7 +109,42 @@
    smfguSourceLabel:input.sourceLabel.trim(),
    smfguVisibleThroughBar:input.visibleThroughBar};
  }
+
+ // A *visible-stage marker*, not a completion count, grade, competency, or award.
+ function stageJourneyOptions(input){
+  if(!input||!safeLabel(input.sourceLabel,160)||
+   !Array.isArray(input.labels)||input.labels.length!==10||
+   !Number.isInteger(input.index)||input.index<0||input.index>9)return null;
+  const used=new Set();
+  for(const label of input.labels){
+   if(!safeLabel(label)||used.has(label.trim()))return null;
+   used.add(label.trim());
+  }
+  const names=input.labels.map(x=>x.trim()),i=input.index;
+  return {
+   animation:input.reducedMotion!==true,
+   animationDuration:220,backgroundColor:'transparent',
+   aria:{show:true,description:'Current visible learning stage '+(i+1)+
+    ' of 10: '+names[i]+'. Instructional navigation only; not a grade, completed assessment or mastery. Source: '+input.sourceLabel.trim()},
+   grid:{left:16,right:16,top:5,bottom:5},
+   xAxis:{type:'category',boundaryGap:false,data:names,show:false},
+   yAxis:{type:'value',min:-1,max:1,show:false},
+   tooltip:{show:false},
+   series:[
+    {type:'line',name:'Ten visible stages',data:names.map(()=>0),
+     silent:true,symbol:'circle',symbolSize:5,
+     lineStyle:{width:3,color:'#466e88'},itemStyle:{color:'#6893a9'}},
+    {type:'line',name:'Current navigation extent',
+     data:names.map((_,idx)=>idx<=i?0:null),silent:true,
+     symbol:'circle',symbolSize:7,
+     lineStyle:{width:4,color:'#4fe0c2'},itemStyle:{color:'#4fe0c2'}},
+    {type:'scatter',name:'Current visible stage',data:[[i,0]],
+     silent:true,symbol:'circle',symbolSize:14,
+     itemStyle:{color:'#f7ca7b',borderWidth:2,borderColor:'#092132'}}
+   ]
+  };
+ }
  root.CrownlightVisualKitV1=Object.freeze({
-  version:'1.0.0',barOptions,indicatorSeries
+  version:'1.1.0',barOptions,indicatorSeries,stageJourneyOptions
  });
 })(typeof window!=='undefined'?window:globalThis);
