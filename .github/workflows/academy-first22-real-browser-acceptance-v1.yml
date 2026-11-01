@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/academy-first22-real-browser-acceptance-v1.yml'
       - 'tests/live-academy-first22-auth-browser-v1.mjs'
+      - 'bootcamp-academy.html'
+      - 'assets/css/teaching-full-width-v1.css'
 permissions: {contents: read}
 concurrency:
   group: academy-first22-real-browser-acceptance-v1
