@@ -449,6 +449,7 @@
       "reviewExplanation": "Ungraded formative correction: Net hypothetical trade result equals gross price gain minus defined paid commissions and other stated execution costs. The stated synthetic worked evidence is: A fictional price-only gain is $60, commission and fees total $8, so the stated net before taxes is $52. The result is conditional: Slippage, spread, financing, taxes and unobserved charges may create additional costs.",
       "transferQuestion": "FICTIONAL TRANSFER: For gross $42 and explicit fees $7, compute $35 net before taxes; identify omitted costs. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
       ],
       "supplemental": true,
@@ -462,6 +463,12 @@
         "result": "distinct_source_draft_claim_specific_review_pending",
         "rights": "original_fictional_no_feed_or_vendor_republication",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
+        "publicationApproved": false,
+        "sourceContentCopied": false
       }
     },
     {
@@ -564,6 +571,7 @@
       "reviewExplanation": "Ungraded formative correction: Selecting the best historical result among repeated parameter sweeps uses information from the supposedly independent evaluation sample. The stated synthetic worked evidence is: A fictional analyst checks 80 parameter sets on one 100-session dataset, picks the highest result, and reports it as a single unbiased test; that conclusion is invalid. The result is conditional: Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty.",
       "transferQuestion": "FICTIONAL TRANSFER: If 100 candidate rules were tried on the same 50 sessions, why does the winner not represent a single prespecified trial? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/backtesting/research-guide",
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
@@ -577,6 +585,12 @@
         "result": "distinct_source_draft_claim_specific_review_pending",
         "rights": "original_fictional_no_feed_or_vendor_republication",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
+        "publicationApproved": false,
+        "sourceContentCopied": false
       }
     }
   ],
