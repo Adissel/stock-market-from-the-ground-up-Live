@@ -43,7 +43,7 @@ assert.match(html,/prototype-indicator-workbench-v2\.js/);
 assert.ok(html.indexOf('crownlight-indicator-math-v2.js')<html.indexOf('prototype-indicator-workbench-v2.js'));
 assert.ok(html.indexOf('prototype-indicator-workbench-v2.js')<html.indexOf('prototype-experiences-boot-v1.js'));
 assert.match(tsx,/moveOnMouseMove:true/);
-assert.match(tsx,/zoomOnMouseWheel:'ctrl'/);
+assert.match(tsx,/zoomOnMouseWheel:true/);
 assert.match(tsx,/dispatchAction\(\{type:'dataZoom'/);
 assert.match(tsx,/Full session or revealed chart window/);
 assert.match(tsx,/role="toolbar" aria-label="Chart navigation and panning"/);
