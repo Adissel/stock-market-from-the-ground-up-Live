@@ -101,6 +101,10 @@ on:
       - 'data/talia-foundation-explanations-batch02-v1.json'
       - 'data/talia-foundation-explanations-batch03-v1.json'
       - 'data/talia-foundation-explanations-batch04-v1.json'
+      - 'data/talia-foundation-explanations-batch05-v1.json'
+      - 'functions/_lib/talia-research-math-v1.js'
+      - 'tests/talia-research-math-v1.test.mjs'
+      - 'tests/talia-foundation-explanations-batch05-v1.test.mjs'
       - 'functions/_lib/talia-foundation-risk-quant-v1.js'
       - 'tests/talia-foundation-risk-quant-v1.test.mjs'
       - 'tests/talia-foundation-explanations-batch04-v1.test.mjs'
@@ -264,6 +268,10 @@ on:
       - 'data/talia-foundation-explanations-batch02-v1.json'
       - 'data/talia-foundation-explanations-batch03-v1.json'
       - 'data/talia-foundation-explanations-batch04-v1.json'
+      - 'data/talia-foundation-explanations-batch05-v1.json'
+      - 'functions/_lib/talia-research-math-v1.js'
+      - 'tests/talia-research-math-v1.test.mjs'
+      - 'tests/talia-foundation-explanations-batch05-v1.test.mjs'
       - 'functions/_lib/talia-foundation-risk-quant-v1.js'
       - 'tests/talia-foundation-risk-quant-v1.test.mjs'
       - 'tests/talia-foundation-explanations-batch04-v1.test.mjs'
@@ -418,6 +426,9 @@ jobs:
           node --check functions/_lib/talia-foundation-risk-quant-v1.js
           node tests/talia-foundation-risk-quant-v1.test.mjs
           node tests/talia-foundation-explanations-batch04-v1.test.mjs
+          node --check functions/_lib/talia-research-math-v1.js
+          node tests/talia-research-math-v1.test.mjs
+          node tests/talia-foundation-explanations-batch05-v1.test.mjs
           node --check functions/_lib/talia-indicator-worked-v1.js
           node tests/talia-indicator-worked-v1.test.mjs
           node scripts/talia-indicator-editorial-review-v1.mjs
