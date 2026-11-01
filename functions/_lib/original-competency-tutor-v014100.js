@@ -17,6 +17,15 @@ function chooseGuides(index,q){
  const genericDecision=new Set(['why','enter','entry','exit','exiting','hold','holding','wait','decision','trade','trading','setup','setups','when','what','look','for','stop','loss','pattern']);
  const distinctive=query.filter(w=>!genericDecision.has(w));
  const decisionIntent=/\b(?:enter|entry|exit|exiting|hold|holding|when to|would you|why|setup|setups|trade or skip|no trade|what to look for|stand aside|take profit|stop loss|invalidation|earnings|guidance|balance sheet|cash flow|long.term|portfolio|rebalanc|sector|regime|breadth|confluenc|conflicting|signals|order flow|tape|level ii|order book|options|option premium|theta|vega|assignment|implied volatility|diversif|fundamentals)\b/i.test(String(q||''));
+ // An exact, complete Foundation lesson name must outrank broad risk
+ // keywords. Limit this precedence to authored ungraded public topics.
+ const named=String(q||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()
+   .replace(/^(?:explain|teach|describe|review|define)\s+/,'');
+ const exact=Array.isArray(index.foundationExplanations)
+   ?index.foundationExplanations.find(g=>g.foundationTopic===true
+      &&String(g.title||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()===named)
+   :null;
+ if(exact)return [exact];
  const candidates=[...index.guides,...(Array.isArray(index.supplementalGuides)?index.supplementalGuides:[]),
   ...(Array.isArray(index.researchGuides)?index.researchGuides:[]),
   ...(Array.isArray(index.foundationExplanations)?index.foundationExplanations:[]),
