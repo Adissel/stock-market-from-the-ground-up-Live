@@ -98,7 +98,11 @@
      academyLesson:{programCode:'foundations30',day:d.day,title:d.title,objective:d.objective,
       competencies:d.competencies,transfer:lesson.transfer||d.practice},
      memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
-     tutorRequest,lab:study
+     tutorRequest,lab:study,
+     progressStore:progressAvailable?globalThis.GroundUpAcademyStageCheckpointV1?.create?.({
+      client:sb,userId:renderUser,programCode:'foundations30',day:d.day,
+      alive:()=>activeUser===renderUser&&loadSerial===renderLoad&&selected===d.day&&progressAvailable
+     }):null
     })).then(ok=>{if(ok!==true&&selected===d.day)extra.open=true;})
       .catch(()=>{if(selected===d.day){
        extra.open=true;guideSlot.textContent='Shared instructor unavailable. Use additional practice; no grade was recorded.';
