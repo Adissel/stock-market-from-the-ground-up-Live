@@ -1,0 +1,336 @@
+{
+  "schema": "SMFGU-LAB-BATCH05-RESEARCH-INTAKE-001",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "RESEARCH_CANDIDATES_ONLY_NO_ADDITIONAL_LAB_REWRITES",
+  "sourceDocument": "Master Research Source Directory(3).odt; registered candidate catalog",
+  "canonicalLabs": 419,
+  "alreadyAuthored": 80,
+  "additionalAuthored": 0,
+  "plannedAuthored": 20,
+  "academyOwnerAccepted": 93,
+  "academyAcceptanceTotal": 380,
+  "sourceRights": "NOT_APPROVED_FOR_INGESTION_OR_PUBLIC_REPUBLICATION",
+  "entries": [
+    {
+      "labId": "F3-C07-L04",
+      "title": "Momentum whipsaw in a narrow price window",
+      "collection": "FOUNDATION_BOOK_3",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "QC-IND"
+      ],
+      "reviewFocus": "Constrain momentum-whipsaw interpretation to completed bars and explicitly defined observation windows.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C01-L01",
+      "title": "Day Trading: What It Is and What It Is Not — The defining boundary",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SEC-INV"
+      ],
+      "reviewFocus": "Explain day-trading session and open-close boundaries without confusing risk exposure with investment holding periods.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C01-L02",
+      "title": "Day Trading: What It Is and What It Is Not — What day trading demands",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Connect capital, discipline, time constraints, order management and risk to the realistic burdens of day trading.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C01-L03",
+      "title": "Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Distinguish controllable order inputs and maximum planned risk from uncontrollable prices, liquidity and fills.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C02-L01",
+      "title": "How a Day Trade Actually Works — From idea to qualified opportunity",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "SCHWAB-EDU",
+        "FINRA-EDU"
+      ],
+      "reviewFocus": "Separate a researched candidate and a qualified conditional setup from an automatic trade signal.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C02-L02",
+      "title": "How a Day Trade Actually Works — Management begins at entry",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Connect entries to explicit exit, invalidation and order-state evaluation rather than unverified fills.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C02-L03",
+      "title": "How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "SCHWAB-EDU",
+        "FINRA-EDU"
+      ],
+      "reviewFocus": "Create conditional if/then trade hypotheses without suggesting future information was available in advance.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C03-L01",
+      "title": "The Trading Day — Premarket",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NASDAQ-TRADER",
+        "NYSE"
+      ],
+      "reviewFocus": "Teach premarket session, quote/volume coverage, liquidity limitations and official trading-hours context.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C03-L02",
+      "title": "The Trading Day — Midday",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NYSE",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Describe reduced midday participation as an observed variable, not a universal or guaranteed market regime.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C03-L03",
+      "title": "The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NYSE",
+        "NASDAQ-TRADER"
+      ],
+      "reviewFocus": "Distinguish 9:30–10:00 a.m. ET price discovery, opening auctions and evidence-based decision constraints.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C04-L01",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SEC-INV"
+      ],
+      "reviewFocus": "REQUIRES CURRENT REGULATORY REVIEW: verify effective dates and controlling day-trading margin/settlement provisions before publishing any 2026 transition statement.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C04-L02",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "REQUIRES CURRENT BROKER/RULE REVIEW: separate available buying power, borrowing, broker house margin and possible liquidation risk.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C04-L03",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SEC-INV"
+      ],
+      "reviewFocus": "REQUIRES CURRENT REGULATORY REVIEW: credit versus cash, collateral, interest, maintenance rules and liquidation risk.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C05-L01",
+      "title": "Risk Comes Before Profit — Risk per trade",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Define risk per share using entry/invalidation distance and distinguish planned risk from actual slip-adjusted loss.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C05-L02",
+      "title": "Risk Comes Before Profit — Reward does not erase risk",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "QC-LEAN"
+      ],
+      "reviewFocus": "Calculate expectancy with consistent win/loss units and acknowledge loss tails, commissions and model uncertainty.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C05-L03",
+      "title": "Risk Comes Before Profit — Add Execution Risk to the Model",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "FINRA-EDU",
+        "NASDAQ-TRADER"
+      ],
+      "reviewFocus": "Distinguish spread, depth, fill uncertainty, slippage and venue conditions in realistic execution risk.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C06-L01",
+      "title": "Building Your Day-Trading Laboratory — Freeze the workspace",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-LRN",
+        "ECHARTS"
+      ],
+      "reviewFocus": "Freeze a reproducible replay workspace, timestamp, symbol, visible completed bars and setup inputs.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C06-L02",
+      "title": "Building Your Day-Trading Laboratory — Use progressive reveal",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-LRN",
+        "ECHARTS"
+      ],
+      "reviewFocus": "Use strictly progressive completed-bar reveal with hidden future history and no outcome-informed hints.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C06-L03",
+      "title": "Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-LRN",
+        "FINRA-EDU"
+      ],
+      "reviewFocus": "Record market/session timezone and replay pause time before chart display or lesson decision.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    },
+    {
+      "labId": "DT-C07-L01",
+      "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "reviewFocus": "Mark confirmed higher swing highs and lows using completed pivot evidence without future-bar pivot labeling.",
+      "approvedRights": false,
+      "independentClaimReview": false,
+      "independentMathReview": false,
+      "teachingSourceAuthored": false,
+      "memberAcceptance": false,
+      "protectedGradeNeverPublic": true
+    }
+  ]
+}
