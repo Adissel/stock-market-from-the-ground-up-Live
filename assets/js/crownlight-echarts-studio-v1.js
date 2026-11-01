@@ -4,10 +4,12 @@
  */
 (function(root){'use strict';
  let view=null,chart=null,resize=null,serial=0,last=[],symbol='REPLAY',period='1-minute';
- const enabled={ema9:true,ema20:true,ema200:false,sma20:false,vwap:true,bb20:false,hod:false,lod:false,volma20:true,structure:false};
+ const enabled={ema9:true,ema20:true,ema200:false,sma20:false,vwap:true,bb20:false,hod:false,lod:false,volma20:true,structure:false,rsi14:false,macd:false,atr14:false};
  const colors={ema9:'#69e4e0',ema20:'#f4d17c',ema200:'#ad9af3',sma20:'#e8a4e0',
-  vwap:'#88a9ff',bb20:'#cfb0f7',hod:'#fabd93',lod:'#ed99a4',volma20:'#edcc80'};
+  vwap:'#88a9ff',bb20:'#cfb0f7',hod:'#fabd93',lod:'#ed99a4',volma20:'#edcc80',
+  rsi14:'#cba7f6',macd:'#71d5f4',macdSignal:'#f0b980',macdHistogram:'#61d7b2',atr14:'#e2a3d3'};
  let stroke='solid';
+ const paneSizes={rsi14:155,macd:185,atr14:155};
  const NUM=(v)=>typeof v==='number'&&Number.isFinite(v);
  function clean(input){
   const out=[];let prev=-Infinity;
@@ -40,7 +42,8 @@
    const i=last.length-Math.min(30,last.length)+j;
    const tr=document.createElement('tr');
    const values=[new Date(b.t).toISOString(),b.c,b.v,snapshot?.ema9[i],snapshot?.ema20[i],
-    snapshot?.ema200[i],snapshot?.vwap[i],snapshot?.rsi14[i],snapshot?.atr14[i]];
+    snapshot?.ema200[i],snapshot?.vwap[i],snapshot?.rsi14[i],snapshot?.atr14[i],
+    snapshot?.macd.line[i],snapshot?.macd.signal[i],snapshot?.macd.histogram[i]];
    for(let k=0;k<values.length;k++){
     const cell=document.createElement(k===0?'th':'td');
     if(k===0)cell.scope='row';
@@ -84,7 +87,40 @@
   const marks=snapshot&&enabled.structure?snapshot.structure.filter(x=>x.confirmedAt<last.length)
    .map(x=>({name:x.label,coord:[x.index,x.price],value:x.label,
     label:{show:true,formatter:x.label,color:'#ffffff'}})):[];
-  const shown=overlays.filter(x=>x.data.some(NUM));
+
+  // All lower panels use the same completed-bar labels and coupled ECharts
+  // axis pointer. They do not fetch independently or expose future candles.
+  const lower=[];
+  const lowerIds=['rsi14','macd','atr14'].filter(id=>enabled[id]&&!!snapshot);
+  const height=lowerIds.reduce((sum,id)=>sum+paneSizes[id]+35,0)+55+340+30+90+55;
+  const graph=view.querySelector('[data-cl-echarts-chart]');
+  if(graph)graph.style.height=height+'px';
+  const grids=[{left:65,right:35,top:55,height:340},{left:65,right:35,top:425,height:90}];
+  let top=550;
+  for(const id of lowerIds){
+   const axis=grids.length;
+   grids.push({left:65,right:35,top,height:paneSizes[id],containLabel:false});
+   const line=(name,data,color,opts={})=>({
+    name,type:'line',xAxisIndex:axis,yAxisIndex:axis,showSymbol:false,
+    connectNulls:false,smooth:false,data:data.map(v=>NUM(v)?v:null),
+    lineStyle:{color,width:2,type:stroke},itemStyle:{color},...opts
+   });
+   if(id==='rsi14')lower.push(line('Wilder RSI 14',snapshot.rsi14,colors.rsi14,{
+    markLine:{symbol:'none',silent:true,label:{show:false},
+     lineStyle:{color:'#8ca6bf',type:'dashed',opacity:.6},
+     data:[{yAxis:30},{yAxis:70}]}
+   }));
+   if(id==='macd'){
+    lower.push(line('MACD 12/26',snapshot.macd.line,colors.macd));
+    lower.push(line('MACD signal 9',snapshot.macd.signal,colors.macdSignal));
+    lower.push({name:'MACD histogram',type:'bar',xAxisIndex:axis,yAxisIndex:axis,
+     data:snapshot.macd.histogram.map(v=>NUM(v)?v:null),
+     itemStyle:{color:colors.macdHistogram}});
+   }
+   if(id==='atr14')lower.push(line('Wilder ATR 14',snapshot.atr14,colors.atr14));
+   top+=paneSizes[id]+35;
+  }
+  const shown=overlays.concat(lower).filter(x=>x.data.some(NUM));
   const available=view.querySelector('[data-cl-echarts-math]');
   if(available)available.textContent=snapshot
    ?'All studies use completed revealed candles; EMA 200 requires 200 completed closes. HLC3 bar VWAP is not trade-print VWAP.'
@@ -93,26 +129,30 @@
    animation:false,backgroundColor:'transparent',textStyle:{color:'#cfe2f0'},
    legend:{top:4,type:'scroll',data:['Revealed OHLC','Observed volume',...shown.map(x=>x.name)],textStyle:{color:'#c6dfef'}},
    tooltip:{trigger:'axis',axisPointer:{type:'cross'}},
-   grid:[{left:65,right:35,top:44,height:'55%'},{left:65,right:35,top:'78%',height:'11%'}],
-   xAxis:[
-    {type:'category',data:labels,gridIndex:0,boundaryGap:true,axisLabel:{color:'#bbd3e0',hideOverlap:true}},
-    {type:'category',data:labels,gridIndex:1,boundaryGap:true,axisLabel:{color:'#bbd3e0',hideOverlap:true}}
-   ],
-   yAxis:[
-    {type:'value',gridIndex:0,scale:true,axisLabel:{color:'#bbd3e0'}},
-    {type:'value',gridIndex:1,min:0,scale:true,axisLabel:{color:'#bbd3e0'}}
-   ],
+   axisPointer:{link:[{xAxisIndex:'all'}]},
+   grid:grids,
+   xAxis:grids.map((_,i)=>({type:'category',data:labels,gridIndex:i,boundaryGap:true,
+    axisLabel:{color:'#bbd3e0',hideOverlap:true,show:i===grids.length-1},
+    axisPointer:{show:true}})),
+   yAxis:grids.map((_,i)=>({
+    type:'value',gridIndex:i,scale:i===0,
+    ...(i===1?{min:0}:{}),
+    ...(lowerIds[i-2]==='rsi14'?{min:0,max:100}:{}),
+    ...(lowerIds[i-2]==='atr14'?{min:0}:{}),
+    axisLabel:{color:'#bbd3e0'}
+   })),
    series:[
     {name:'Revealed OHLC',type:'candlestick',data:last.map(b=>[b.o,b.c,b.l,b.h]),
      itemStyle:{color:'#36d5ae',color0:'#ff648b',borderColor:'#36d5ae',borderColor0:'#ff648b'},xAxisIndex:0,yAxisIndex:0,markPoint:{symbol:'pin',symbolSize:36,data:marks}},
-    {name:'Observed volume',type:'bar',data:last.map(b=>b.v),itemStyle:{color:'#74abd5'},xAxisIndex:1,yAxisIndex:1},...overlays
+    {name:'Observed volume',type:'bar',data:last.map(b=>b.v),itemStyle:{color:'#74abd5'},xAxisIndex:1,yAxisIndex:1},...overlays,...lower
    ],
    dataZoom:[
-    {type:'inside',xAxisIndex:[0,1],filterMode:'none'},
-    {type:'slider',xAxisIndex:[0,1],filterMode:'none',bottom:7,height:17,
+    {type:'inside',xAxisIndex:grids.map((_,i)=>i),filterMode:'none'},
+    {type:'slider',xAxisIndex:grids.map((_,i)=>i),filterMode:'none',bottom:7,height:17,
      borderColor:'#415b77',textStyle:{color:'#a6c4d7'}}
    ]
   },{notMerge:true});
+  chart.resize();
  }
  function update(bars,name,timeframe){
   last=clean(bars);symbol=String(name||'REPLAY').replace(/[^a-zA-Z0-9_. :-]/g,'').slice(0,40);
@@ -141,12 +181,24 @@
   const caption=document.createElement('legend');caption.textContent='Indicator overlays · completed bars only';controls.append(caption);
   const choices=[['ema9','EMA 9'],['ema20','EMA 20'],['ema200','EMA 200'],['sma20','SMA 20'],
    ['vwap','Session HLC3 VWAP proxy'],['bb20','Bollinger Bands 20,2'],
-   ['hod','Observed HOD'],['lod','Observed LOD'],['volma20','Volume SMA 20'],['structure','Confirmed market structure']];
+   ['hod','Observed HOD'],['lod','Observed LOD'],['volma20','Volume SMA 20'],['structure','Confirmed market structure'],
+   ['rsi14','RSI 14 lower panel'],['macd','MACD 12/26/9 lower panel'],['atr14','ATR 14 lower panel']];
   for(const [key,title] of choices){
    const label=document.createElement('label'),input=document.createElement('input');
    input.type='checkbox';input.checked=!!enabled[key];input.dataset.study=key;
    input.addEventListener('change',()=>{enabled[key]=input.checked;render()});
    label.append(input,document.createTextNode(title));controls.append(label);
+  }
+  const paneControls=document.createElement('div');paneControls.className='cl-echarts-pane-controls';
+  paneControls.setAttribute('role','group');
+  paneControls.setAttribute('aria-label','Resize independent indicator panels');
+  for(const [key,name] of [['rsi14','RSI panel'],['macd','MACD panel'],['atr14','ATR panel']]){
+   const label=document.createElement('label');label.textContent=name+' height ';
+   const size=document.createElement('input');size.type='range';size.min='110';size.max='285';size.step='5';
+   size.value=String(paneSizes[key]);size.dataset.paneHeight=key;
+   size.setAttribute('aria-label',name+' height in pixels');
+   size.addEventListener('input',()=>{paneSizes[key]=Math.max(110,Math.min(285,Number(size.value)));render()});
+   label.append(size);paneControls.append(label);
   }
   const colorLabel=document.createElement('label');colorLabel.textContent='EMA 9 color ';
   const tint=document.createElement('input');tint.type='color';tint.value=colors.ema9;
@@ -165,13 +217,13 @@
   const table=document.createElement('table');const tableCaption=document.createElement('caption');
   tableCaption.textContent='Revealed candles and completed-bar calculations; warmup values remain unavailable';
   table.append(tableCaption);const header=document.createElement('thead'),hr=document.createElement('tr');
-  for(const field of ['UTC time','Close','Volume','EMA 9','EMA 20','EMA 200','VWAP HLC3 proxy','RSI 14','ATR 14']){
+  for(const field of ['UTC time','Close','Volume','EMA 9','EMA 20','EMA 200','VWAP HLC3 proxy','RSI 14','ATR 14','MACD','MACD signal','MACD histogram']){
    const th=document.createElement('th');th.scope='col';th.textContent=field;hr.append(th)
   }
   header.append(hr);table.append(header);
   const tbody=document.createElement('tbody');tbody.dataset.clEchartsRows='';table.append(tbody);
   scroll.append(table);details.append(summary,scroll);
-  frame.append(h,p,evidence,controls,disclosure,graph,details);parent.append(frame);view=frame;
+  frame.append(h,p,evidence,controls,paneControls,disclosure,graph,details);parent.append(frame);view=frame;
   update(bars,name,timeframe);
   try{
    const e=await root.CrownlightECharts.load();
