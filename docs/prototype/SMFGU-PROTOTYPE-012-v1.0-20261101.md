@@ -4,7 +4,7 @@
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up / Crownlight Prototype Center  
 **File / type:** `docs/prototype/SMFGU-PROTOTYPE-012-v1.0-20261101.md` / Markdown  
-**Version / date:** 1.0 / November 1, 2026  
+**Version / date:** 1.1 / November 1, 2026  
 **Status:** SOURCE IMPLEMENTED, CI AND ACTUAL OWNER ROLE ACCEPTANCE NOT AUTOMATICALLY GRANTED  
 **GitHub authoritative location:** `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/prototype/`  
 **Google Drive location / document ID:** Unassigned / not created  
@@ -22,7 +22,7 @@
 
 ## Implementation — existing staff-only prototype
 
-1. `assets/js/prototype-curriculum-parity-v1.js`: read-only, staff-app lifecycle-controlled real source-catalog validation, searchable title/ID list, source-level per-Lab procedure and common mistake, Academy metadata, all indicator briefs, 15 calculation sources.
+1. `assets/js/prototype-curriculum-parity-v1.js`: read-only, staff-app lifecycle-controlled actual source-catalog validation, 419 source-linked Lab titles and five individually authored teaching facets (Understand, Recognize, Apply, Common Mistake, Limitations), Academy program metadata, 61 indicator briefs and 15 calculation entries. The original private grading service remains separate.
 2. `assets/css/prototype-curriculum-parity-v1.css`: compact, collapsed-by-default premium teaching reference, responsive two-column inspector, keyboard-focusable controls.
 3. `prototype.html`: adds parity inspector to the existing protected document, including the A/B/C three advanced prototype page context, without publishing a separate public standalone page.
 4. `tests/prototype-curriculum-parity-v1.test.mjs`, `tests/prototype-center-v2-browser.test.mjs`, and `.github/workflows/prototype-center-v1.yml`: exact-source count, security, build and synthetic role/interaction checks.
@@ -54,5 +54,6 @@ Resolve CI failures in source and browser contracts; test full-width mobile page
 | Version | Date | Decision |
 |---|---|---|
 | v1.0 | 2026-11-01 | New curriculum parity acceptance register, ten distinct gates; staged source checks, production release withheld |
+| v1.1 | 2026-11-01 | Integrated each Lab's five real subject-specific public teaching facets and extended source and synthetic Owner browser tests; source/CI distinct from member-ready signoff |
 
-**Footer:** SMFGU-PROTOTYPE-012 · v1.0 · main only · Staff-only simulated product design · No grading, payment or historical data authenticity claim.
+**Footer:** SMFGU-PROTOTYPE-012 · v1.1 · main only · Staff-only simulated product design · No grading, payment or historical data authenticity claim.
