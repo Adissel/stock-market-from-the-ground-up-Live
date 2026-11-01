@@ -6,7 +6,7 @@ const seed=source.match(/const definitions=\[([\s\S]*?)\];/)?.[1]||'';
 const ids=Array.from(seed.matchAll(/\['([a-z0-9-]+)'/g),m=>m[1]);
 assert.equal(ids.length,20);
 const preset=ids.map(id=>({preset_code:id,label:id,config:{id},active:true}));
-const plans=['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME','ONDEMAND_MONTHLY'];
+const plans=['FREE','PICK_WHAT_YOU_WANT','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME','ONDEMAND_MONTHLY'];
 let layouts=plans.map(code=>({plan_code:code,channel:'draft',version:1,preset_code:ids[0],config:{id:ids[0]}}));
 const config={id:'analysis-desk',label:'Analysis Desk',layout:'Chart-first',density:'Comfortable',tutor:'Right',detail:'Technical',barWidth:16,wickWidth:2,chartHeight:450,grid:true,labels:true,highContrast:false,showVolume:true,teachingNotes:true};
 assert.equal(validateClassroomDraft(config),true);
@@ -53,8 +53,15 @@ try{
  assert.equal((await call('GET',null,false)).status,401);
  role='MODERATOR';assert.equal((await call()).status,403);
  role='OWNER';let result=await call();assert.equal(result.status,200);
- assert.equal(result.data.presets.length,20);assert.equal(result.data.memberships.length,8);
- assert.equal(result.data.isDraftOnly,true);assert.equal(result.data.memberFacingEnabled,false);
+ assert.equal(result.data.presets.length,20);assert.equal(result.data.memberships.length,9);
+ assert.equal(result.data.isDraftOnly,true);
+ assert.ok(result.data.memberships.some(p=>p.plan_code==='PICK_WHAT_YOU_WANT'));
+ const pickMigration=fs.readFileSync('supabase/migrations/20261101_cl_classroom_pick_what_you_want_v1.sql','utf8');
+ assert.match(pickMigration,/INSERT INTO public\.cl_classroom_membership_codes/);
+ assert.match(pickMigration,/INSERT INTO public\.cl_classroom_layouts/);
+ assert.match(pickMigration,/ON CONFLICT \(plan_code,channel\) DO NOTHING/);
+ assert.doesNotMatch(pickMigration,/UPDATE public\.(?:site_subscriptions|platform_plans)|stripe|checkout_enabled|price_cents|wallet/i);
+assert.equal(result.data.memberFacingEnabled,false);
  result=await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:1,config});assert.equal(result.status,200);assert.equal(result.data.saved.version,2);
  assert.equal(result.data.published,false);
  result=await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:1,config});assert.equal(result.status,409);
@@ -74,5 +81,5 @@ try{
  assert.match(ui,/Compare with earlier draft/);
  assert.match(ui,/Restore selected revision/);
  assert.match(ui,/A NEW audited draft revision/);
- console.log('PASS 20 presets, 8 plan drafts, guarded save and rollback, immutable revisions, conflicts, no publish and denied roles.');
+ console.log('PASS 20 presets, 9 plan drafts, guarded save and rollback, immutable revisions, conflicts, no publish and denied roles.');
 }finally{globalThis.fetch=oldFetch}
