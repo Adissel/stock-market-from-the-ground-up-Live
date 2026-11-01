@@ -21,8 +21,11 @@ const foundationalCases={
 };
 for(const [id,terms] of Object.entries(foundationalCases)){
  const row=bridge.entries[id];
- assert.equal(row.instructionSource,'ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING',
-  id+' must use an original subject-specific instruction, not an unrelated official competency description');
+ assert(['ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING',
+  'ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101'].includes(row.instructionSource),
+  id+' must use independently subject-specific instructions, not an unrelated competency description');
+ assert.equal(row.sourceStatus,'CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
+  'A source text revision must not imply independent editorial or historical replay acceptance');
  const all=Object.values(row.tabs).flat().join(' ').toLowerCase();
  for(const term of terms)assert(all.includes(term.toLowerCase()),id+' is missing its essential subject explanation '+term);
 }
