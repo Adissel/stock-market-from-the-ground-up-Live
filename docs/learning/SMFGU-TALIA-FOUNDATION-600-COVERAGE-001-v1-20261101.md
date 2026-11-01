@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.2 / 2026-11-01 |
+| Version / date | 1.3 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -75,6 +75,37 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - 600 original Tutor explanations: **20/600 = 3.3% new source-authored supplemental drafts**; **0/600 = 0% individually editorial-approved under this new register**, because no signed-off 600-item register exists. These are different metrics. Do not count 30 official competencies, 419 Lab IDs, 274 Boot Camp days or 73 indicator topics as newly accepted without individual editorial evidence.
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
+
+
+## Foundation execution batch 02 — 2026-11-01 (noncommercial source implementation)
+- **Owner 600 explanation goal:** `data/talia-foundation-explanations-batch01-v1.json` and `data/talia-foundation-explanations-batch02-v1.json` now contain exactly 40 individually authored supplementary explanation candidates. Drafting progress **40/600 = 6.67%**. Individual independent editorial acceptance remains **0/600 under this new register**; do not confuse draft identity with editorial signoff.
+- **Source mathematics:** `functions/_lib/talia-foundation-quant-v1.js` implements nine additional original deterministic mathematical teaching topics, each with two distinct fictional cases, anchored by pure validated computations: SMA-seeded EMA9/EMA200, true range, population/sample standard deviation, two-outcome expectancy, fixed-payoff break-even, option premium notional, and call/put intrinsic versus extrinsic. Combined with the earlier thirteen core-competency worked topics, **22 distinct source-level mathematical topic IDs** are available; this does not represent 22 independently accepted lessons or computed Chart Studio overlays.
+- **Tutorial conversation:** `functions/_lib/original-competency-tutor-v014100.js` now supports source-only misconception coaching across canonical, public indicator and supplementary Foundation guides; `assets/js/market-tutor.js` adds an actual member-facing misconception follow-up button. `functions/api/market-tutor-v01492.js` routes these requests around optional paid inference. No model, price, entitlement or grade changes.
+- **Source-oriented Lab and Boot Camp audit:** `scripts/talia-foundation-coverage-v1.mjs` inventories 419 canonical Lab identifiers and 274 Boot Camp day positions, cross-referencing only public titles/objectives with the 40 supplementary Tutor drafts. Keyword candidates are labeled unverified, not approved bridge equivalences. The existing Learning and Lab engines and protected keys remain untouched.
+- **Tutor ECharts visual instruction:** `assets/js/talia-foundation-ema-visual-v1.js` and `market-tutor.html` now define a local ECharts 6.1, no-payment, fictional completed-close lesson for EMA9, EMA20 and EMA200 with an accessible numerical table and an explicit first-valid-bar boundary. It reuses `CrownlightIndicatorMath.ema`, rather than shipping a second indicator formula or falsely exposing real replay data. **Separate exact-head deployment and signed-in browser visual acceptance are required before signing off the visual gate.**
+- **Testing:** Node tests `tests/talia-foundation-quant-v1.test.mjs`, `tests/talia-foundation-explanations-batch02-v1.test.mjs`, `tests/talia-foundation-misconception-v1.test.mjs`, `tests/talia-foundation-ema-visual-v1.test.mjs` are wired to both `scripts/build-pages.sh` and the Tutor GitHub Actions workflow. Cloudflare deployment build results and push-triggered GitHub Actions conclusions are independent evidence sources.
+- **Indicator ownership:** 73 public source-informed indicator guides and 73 guided indicator modules, of which twelve new modules are interpretation-only; **sixteen operational Chart Studio indicators** remain distinct, and this Tutor implementation does not claim twelve additional rendered studies.
+- **Technology:** Cloudflare Pages/Workers and Supabase retain control of authorized member context. JavaScript executes in existing Cloudflare runtime and HTML5/CSS3 serves the keyboard-accessible Tutor, while same-origin Apache ECharts 6.1 provides the specialized visualization. Python/React/TypeScript remain reserved for technically justified offline calculation validation and existing typed/chart workspaces; no new unnecessary SPA, Python server, database, provider or 3D system.
+
+### What is next — Tutor-only gate order
+| Gate | Scope | Next acceptance requirement |
+|---|---|---|
+| 1 | 600 unique explanations | Continue domain-specific authored batches; editorial review of all 40 current drafts and each further addition |
+| 2 | Foundation mathematical instruction | Independently validate source cases and extend risk, volatility, option and valuation mathematics for unserved concepts |
+| 3 | Indicator guides and teaching | Verify source rights, numerical claims, explanations and interpretation-only boundaries of 73 guides |
+| 4 | New indicator computations | Add only mathematically and provenance-verifiable calculations; preserve 16 approved chart calculations |
+| 5 | Labs and Boot Camp Tutor crosswalk | Human-check public matching suggestions and proven lesson prerequisites; do not modify shared engines |
+| 6 | Conversation intelligence | Authenticated follow-up behavior, clean topic continuity, misconception corrections and non-graded retries |
+| 7 | Tutor visualization | ECharts/EMA9/20/200 completed-bar, slider, accessibility, responsive display, no fake future values |
+| 8 | Independent Tutor evaluation | Question/answer golden tests, math independently checked, duplicate and citation QA |
+| 9 | Signed-in member acceptance | Genuine Free/Founder/entitled role tests, private history, no paid requests and permissions |
+| 10 | Final release gate | Exact GitHub Actions push-workflow acceptance, successful matching Cloudflare production SHA, accessibility and item-level editorial sign-off |
+
+### Separate non-negotiable release claims
+**Not yet completed:** 600 authored explanations, individual editorial approval, full authenticated member browser acceptance, GitHub Actions push-workflow conclusions, a verified 600-explanation publication release, any premium Tutor edition or production AI activation. Source tests and successful Cloudflare asset builds are not replacements for these gates.
+
+### Revision history update
+| 1.3 | 2026-11-01 | Second 20-topic Foundation source batch, nine deterministic numeric topics, independent 419/274 metadata audit, source-only misconception coaching and Tutor EMA9/20/200 ECharts visualization; no data schema, price or permission changes | Implementation and regression work in progress; exact-head CI/member/editorial acceptance separate |
 
 ## Revision history
 | Version | Date | Change | Status |
