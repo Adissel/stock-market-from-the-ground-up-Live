@@ -52,9 +52,9 @@ try{
  await b.page.goto(BASE+'/prototype.html?experience=b');
  await b.page.locator('.cx-app.cx-page-b').waitFor({state:'visible',timeout:30000});
  await b.page.locator('.cx-flagship-tabs button:has-text("Aurora Learning")').click();
- assert.equal(await b.page.locator('.cx-flagship-aurora').isVisible(),true);
+ assert.equal(await b.page.locator('.cx-flagship > .cx-flagship-aurora').isVisible(),true);
  await b.page.locator('.cx-flagship-tabs button:has-text("Green / Black Terminal")').click();
- assert.equal(await b.page.locator('.cx-flagship-green').isVisible(),true);
+ assert.equal(await b.page.locator('.cx-flagship > .cx-flagship-green').isVisible(),true);
  assert.ok(b.errors.length===0,'No uncaught flagship errors: '+b.errors.join(' | '));
  await b.context.close();
  const c=await make('OWNER',780);
