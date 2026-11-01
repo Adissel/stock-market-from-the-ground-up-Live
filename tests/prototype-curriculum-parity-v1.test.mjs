@@ -73,7 +73,7 @@ assert.match(js,/tutor-guided-practice-v1\.json/);
 assert.match(js,/guided\?\.numericIndicatorCount!==53/);
 assert.match(js,/53 Talia synthetic calculations/);
 assert.match(js,/indicatorByCode\.get\(g\.code\)\.metric/);
-assert.match(js,/computed\.length!==15/);
+assert.match(js,/computed\.length!==16/);
 assert.match(js,/visibleLimit=30/);
 assert.match(js,/visibleLimit\+=30/);
 assert.match(js,/pt-parity-load-more/);

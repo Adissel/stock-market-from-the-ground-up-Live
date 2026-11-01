@@ -41,6 +41,9 @@ try{
  const a=await make('OWNER');
  await a.page.goto(BASE+'/prototype.html?experience=a');
  await a.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});
+ assert.match(await a.page.locator('.cx-statusline').textContent(),/8 completed candles/,'Training opens with a few observed bars, not the full session');
+ await a.page.getByLabel('Reveal fictional candles').fill('54');
+ await a.page.getByLabel('Reveal fictional candles').press('Tab');
  assert.equal(await a.page.locator('.cx-designs button').count(),6);
  assert.equal(await a.page.locator('.cx-controlstrip select:has(option[value="FULL_ANNUAL"]) option').count(),9);
  await a.page.getByLabel('Prototype learning mode').selectOption('assessment');
