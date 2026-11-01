@@ -41,6 +41,12 @@ window.getSupabaseClient=async()=>({auth:{
 }});
 `}));
  await context.route('**/api/admin?action=context',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,roles:[currentRole],permissions:currentRole==='OWNER'||currentRole==='ADMIN'?['control_panel.access']:[]})}));
+ await context.route('**/api/bootcamp-academy?action=catalog',route=>route.fulfill({
+  status:200,contentType:'application/json',body:JSON.stringify({ok:true,version:'synthetic-browser-contract',
+   programs:[['free5',5],['truth5',5],['watchlist7',7],['scanners10',10],['foundations30',30],
+    ['charts45',45],['risk60',60],['practicum90',90],['tape10',10],['indicators10',10],['filings7',7]]
+    .map(([code,days])=>({code,name:code+' synthetic QA catalog reference',days,route:'bootcamp-academy.html?program='+code}))})
+ }));
  await context.route('**/api/prototype-training-cases',route=>route.fulfill({status:currentRole==='OWNER'||currentRole==='ADMIN'?200:403,contentType:'application/json',body:JSON.stringify({ok:currentRole==='OWNER'||currentRole==='ADMIN',source:'FICTIONAL_PROTOTYPE',gradingEnabled:false,privateAnswerKeysIncluded:false,cases:fakeCases})}));
  const versions=Object.fromEntries(['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME','ONDEMAND_MONTHLY'].map(x=>[x,1]));
  await context.route('**/api/prototype-classroom-presets',async route=>{
@@ -77,6 +83,31 @@ try{
   const screenOrder=await page.evaluate(()=>({preview:document.getElementById('pt-experience').getBoundingClientRect().top,
     designer:document.getElementById('pt-designer').getBoundingClientRect().top}));
   assert.ok(screenOrder.preview<screenOrder.designer,'Chart and live lesson must precede the long editor');
+
+  // Actual staff-only source inspector: public 419 Labs / 61 research briefs /
+  // 15 calculated studies, plus a deterministic local Academy catalog fixture.
+  if(role==='OWNER'){
+   await page.locator('#pt-curriculum-parity > summary').click();
+   await page.locator('#pt-parity-body .pt-parity-totals').waitFor({state:'visible',timeout:18000});
+   assert.match(await page.locator('.pt-parity-totals').innerText(),/419 canonical Lab pathways/);
+   assert.match(await page.locator('.pt-parity-totals').innerText(),/61 original indicator briefs/);
+   await page.locator('#pt-parity-search').fill('F1-C02-L01');
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Basic Historical Replay Setup/);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/ungra(ded|ded)/i);
+   await page.locator('[data-parity-tab="guides"]').click();
+   await page.locator('#pt-parity-search').fill('STUDY_EMA');
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Exponential Moving Average/i);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Limitations/i);
+   await page.locator('[data-parity-tab="computed"]').click();
+   await page.locator('#pt-parity-search').fill('VWAP');
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/NOT transaction VWAP/i);
+   await page.locator('[data-parity-tab="academy"]').click();
+   await page.locator('#pt-parity-search').fill('risk60');
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/60 study days/);
+   await page.locator('#pt-curriculum-parity > summary').click();
+   assert.equal(await page.locator('#pt-curriculum-parity').evaluate(el=>el.open),false);
+  }
+
 
   await page.locator('[data-prototype-case]').waitFor({state:'visible',timeout:14000});
   assert.equal(await page.locator('#pt-nav button').count(),23);
