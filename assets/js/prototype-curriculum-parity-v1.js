@@ -148,10 +148,16 @@ function render(){
    const facets=[['understand','Understand this Lab'],['recognize','Recognize the evidence'],['apply','Apply the concept'],['mistake','Common live-trading mistake'],['limits','Limitations and uncertainty']];
    for(const [key,label] of facets){
     const parts=item.bridge?.tabs?.[key];
-    if(!Array.isArray(parts)||parts.length<3)continue;
+    // Editorial batches may have one concise original paragraph instead of
+    // the older three-paragraph generic template. Never hide source material,
+    // invent missing paragraphs, or call the shorter draft fully approved.
+    const actual=Array.isArray(parts)?parts.filter(p=>typeof p==='string'&&p.trim()):[];
     const section=h('details');section.open=key==='understand';
     section.append(h('summary',label));
-    for(const paragraph of parts)section.append(h('p',paragraph));
+    for(const paragraph of actual)section.append(h('p',paragraph));
+    if(actual.length<3)section.append(h('p',
+      'Editorial depth review pending: '+actual.length+' of 3 prior structure paragraphs. Source subject-specificity and independent examples require individual acceptance.',
+      'pt-parity-note'));
     inspector.append(section);
    }
    for(const guide of item.guide||[]){
