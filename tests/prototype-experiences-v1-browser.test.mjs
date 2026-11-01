@@ -49,7 +49,17 @@ try{
  const viewportBefore=await a.page.locator('.cx-viewport-status').first().textContent();
  await a.page.getByLabel('Zoom chart in').first().click();
  await a.page.waitForFunction((before)=>document.querySelector('.cx-viewport-status')?.textContent!==before,viewportBefore,{timeout:12000});
- await a.page.getByLabel('Membership design preview').selectOption('FULL_ANNUAL');
+ const gestureChart=a.page.locator('.cx-chart-grabbable canvas').first(),rect=await gestureChart.boundingBox();
+ assert.ok(rect&&rect.width>200,'The ECharts canvas must be rendered before mouse drag');
+ const beforeDrag=await a.page.locator('.cx-viewport-status').first().textContent();
+ const y=rect.y+rect.height*.3;
+ await a.page.mouse.move(rect.x+rect.width*.76,y);
+ await a.page.mouse.down();
+ await a.page.mouse.move(rect.x+rect.width*.34,y,{steps:14});
+ await a.page.mouse.up();
+ await a.page.waitForFunction((before)=>document.querySelector('.cx-viewport-status')?.textContent!==before,beforeDrag,{timeout:10000});
+ assert.notEqual(await a.page.locator('.cx-viewport-status').first().textContent(),beforeDrag,'Actual mouse drag must move the chart viewport');
+  await a.page.getByLabel('Membership design preview').selectOption('FULL_ANNUAL');
  assert.match(await a.page.locator('.cx-statusline').textContent(),/Full Platform/);
  await a.page.getByLabel('Teaching topic').selectOption('candle');
  await a.page.locator('.cx-candle-svg').waitFor({state:'visible'});
