@@ -832,3 +832,15 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app .cx-lp-guided-script button{justify-self:start}
 .cx-app .cx-lp-course-link{display:inline-block;margin-top:8px;padding:10px 12px;border:1px solid #5e98a5;border-radius:6px;background:#13394d;color:#b7ffef!important;text-decoration:none;font-size:11px;font-weight:800}
 .cx-app .cx-lp-course-link:hover,.cx-app .cx-lp-course-link:focus-visible{border-color:var(--cx-lp-accent);background:#23546a}
+
+/* Prototype visual page editor: editable plain text, soft deletion, snap checkbox. */
+.cx-app .cx-layout-toolbar textarea{width:100%;min-height:82px;resize:vertical;box-sizing:border-box;pointer-events:auto;user-select:text;border:1px solid #6791a2;border-radius:6px;background:#0c3045;color:#fff;padding:9px;font:inherit}
+.cx-app .cx-layout-toolbar .cx-layout-check{display:flex;flex-direction:row;align-items:center;gap:10px;padding:8px 10px;margin:6px 0;background:#123e50;border:1px solid #4d7889;border-radius:7px;font-size:12px}
+.cx-app .cx-layout-check input[type="checkbox"]{width:19px;min-width:19px;height:19px;accent-color:#59e1c4}
+.cx-app.cx-layout-text-mode [data-cx-layout-key]{user-select:text!important;-webkit-user-select:text!important;cursor:text!important}
+.cx-app.cx-layout-text-mode [data-cx-inline-editable="true"]{caret-color:#aeffee;outline:2px solid #79f4dc!important;outline-offset:3px;white-space:pre-wrap}
+.cx-app .cx-layout-actions .cx-layout-delete{border-color:#ef9da9;background:#64323d;color:#fff}
+.cx-app .cx-layout-deleted{display:grid;gap:7px;border-top:1px solid #be7483;padding-top:12px;margin-top:12px}
+.cx-app .cx-layout-deleted strong{font-size:11px;color:#ffcbd0}
+.cx-app .cx-layout-deleted button{font-size:11px;border-radius:6px;padding:9px;text-align:left;background:#54313c;color:#fff;border:1px solid #bf8d9e}
+@media(forced-colors:active){.cx-app .cx-layout-check,.cx-app .cx-layout-deleted button{border-color:CanvasText}}
