@@ -562,6 +562,8 @@ async function initPlayer(){let loadEpoch=null;try{const params=new URLSearchPar
   });
  }
  const memberUnchanged=()=>loadEpoch===labPlayerSessionEpoch&&memberId===labPlayerAccountId;
+  await window.GroundUpMemberEngineVersions?.configure(session,memberUnchanged);
+  if(!memberUnchanged())return;
  const firstNameRequest=session?loadMemberFirstName(session):Promise.resolve('');
  const fetchOptions={cache:'no-store',headers:session?{authorization:'Bearer '+session.access_token}:{}};let response=await fetchLabWithDeadline('/api/lab-content?id='+encodeURIComponent(id),fetchOptions);
  let payload=await response.json().catch(()=>({}));

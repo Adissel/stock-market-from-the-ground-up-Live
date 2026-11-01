@@ -343,6 +343,7 @@ async function load(){
    oldFounders.length+' legacy founding records and '+tools.length+' tool SKUs. Books and Sparks are in separate tabs.',!!errors.length);
   const selected=location.hash.slice(1).match(/^products-(books|tools|memberships|founding|sparks)$/)?.[1];
   show(selected||current);
+  if(owner())await window.GroundUpAdminLearningEngines?.load();
  }catch(ex){msg('Product categories unavailable: '+(ex?.message||'Unknown error'),true)}
  finally{pending=false}
 }
