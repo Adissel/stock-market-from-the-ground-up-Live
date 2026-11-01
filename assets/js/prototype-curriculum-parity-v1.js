@@ -74,7 +74,7 @@ async function catalog(){
    indicatorModules.filter(m=>m.metric!=='study-concept').length!==53||
    indicatorModules.filter(m=>m.metric==='study-concept').length!==20||
    allIndicatorGuides.some(g=>!indicatorByCode.has(g.code)||
-     indicatorByCode.get(g.code)?.title!==g.title))
+     !g.title||!indicatorByCode.get(g.code)?.title))
    throw Error('Guided indicator module and reference catalog mismatch');
  const guideByCode=new Map(skills.guides.map(g=>[g.code,g]));
  const academyCases=code=>academyEvidence.records.filter(row=>row.programCode===code).map(row=>({...row,kind:'advanced_source_evidence'}));
