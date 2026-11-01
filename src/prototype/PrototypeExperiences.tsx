@@ -857,7 +857,7 @@ function Suite({page}:{page:Page}){
    <label>Teaching topic<select value={topic} onChange={e=>setTopic(e.target.value as Topic)}><option value="vwap">Understand VWAP</option><option value="candle">Build & Understand a Candlestick</option></select></label>
   </div>
   {page==='a'&&<nav className="cx-designs" aria-label="Choose one of six advanced designs">{designs.map((d,i)=><button key={d.key} aria-pressed={design===d.key} onClick={()=>setDesign(d.key)}><i className={'cx-swatch cx-swatch-'+d.key}/><span><small>0{i+1} / DESIGN SYSTEM</small><b>{d.label}</b><small>{d.caption}</small></span></button>)}</nav>}
-  <ChartCustomizer/>
+  <details className="cx-chart-customizer-shell"><summary>Customize chart · candles, indicator colors, timeframes, structure, grid and buffer</summary><ChartCustomizer/></details>
   <section className="cx-desk-banner" aria-label="Fictional market workstation">
    <div className="cx-desk-identity"><span className="cx-desk-mark">CL</span><div><span className="cx-overline">SIM-01 / INTRADAY EQUITY / 1 MIN</span><strong>Crownlight market terminal</strong><small>Fictional completed bars · no live feed or real orders</small></div></div>
    <div className="cx-desk-price"><span>LAST OBSERVED PRICE</span><strong>{dollars(series[reveal-1].c)}</strong><small className={series[reveal-1].c>=series[0].o?'positive':'negative'}>{series[reveal-1].c>=series[0].o?'+':''}{(series[reveal-1].c-series[0].o).toFixed(2)} / SESSION</small></div>
