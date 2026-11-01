@@ -65,6 +65,8 @@ try{
  const chosenId=await a.page.getByLabel('Select page element').locator('option').first().getAttribute('value');
  assert.ok(chosenId);
  await a.page.getByLabel('Select page element').selectOption(chosenId);
+ assert.equal(await a.page.getByLabel('Select page element').getAttribute('size'),null,'Page elements should be a dropdown, not a tall list');
+
  assert.equal(await a.page.getByLabel('Selected element width').isEnabled(),true,'Manual list selection must enable precise element sizing');
  await a.page.getByLabel('Find page element').fill('');
  await a.page.getByLabel('Layout element type').selectOption('labels');
@@ -75,6 +77,18 @@ try{
  await a.page.getByLabel('Selected element width').fill('620');
  await a.page.getByLabel('Selected element width').press('Tab');
  assert.equal(await a.page.locator('.cx-talia').first().evaluate(x=>x.style.width),'620px');
+
+ await a.page.getByLabel('Selected text size').fill('19');
+ await a.page.getByLabel('Selected text size').press('Tab');
+ await a.page.getByLabel('Selected text alignment').selectOption('center');
+ await a.page.getByLabel('Selected text color').fill('#7de6d4');
+ assert.equal(await a.page.locator('.cx-talia').first().evaluate(el=>el.style.textAlign),'center');
+ await a.page.getByRole('button',{name:'Remove card frame'}).click();
+ assert.equal(await a.page.locator('.cx-talia').first().getAttribute('data-cx-frame-less'),'true');
+ await a.page.getByRole('button',{name:'Restore card frame'}).click();
+ await a.page.getByRole('button',{name:'Free position (detach)'}).click();
+ assert.equal(await a.page.locator('.cx-talia').first().evaluate(el=>el.style.position),'fixed');
+ await a.page.getByRole('button',{name:'Return to page flow'}).click();
  await a.page.getByRole('button',{name:'Nudge right'}).click();
  assert.match(await a.page.locator('.cx-talia').first().evaluate(x=>x.style.transform),/10px/);
  await a.page.getByRole('button',{name:'Hide selected'}).click();
@@ -89,6 +103,11 @@ try{
  await a.page.locator('.cx-layout-toolbar').waitFor({state:'visible'});
  await a.page.getByRole('button',{name:'Show prototype-only UI'}).click();
  await a.page.getByRole('button',{name:'Close Layout Designer'}).click();
+
+ await a.page.getByLabel('Bar appearance preset').selectOption('glass');
+ await a.page.getByLabel('Bar appearance preset').selectOption('holographic');
+ await a.page.getByLabel('Bar appearance preset').selectOption('classic');
+ await a.page.getByLabel('Bar appearance preset').selectOption('quantum');
  await a.page.locator('.cx-designs button:has-text("Green / Black")').click();
  assert.equal(await a.page.locator('.cx-app').evaluate(x=>x.classList.contains('cx-theme-green')),true);
  await a.page.getByRole('button',{name:'Expand indicators'}).click();

@@ -47,6 +47,17 @@ assert.match(src,/Select page element/);
 assert.match(src,/Find page element/);
 assert.match(src,/Refresh element list/);
 assert.match(src,/selectById/);
+assert.match(src,/type BarLook=/);
+assert.match(src,/function barVisual\(/);
+assert.match(src,/Bar appearance preset/);
+assert.match(src,/Free position \(detach\)/);
+assert.match(src,/Remove card frame/);
+assert.match(src,/Selected text content/);
+assert.match(src,/Selected text alignment/);
+assert.match(src,/Selected text color/);
+assert.match(src,/Selected text size/);
+assert.match(css,/cx-frame-less/);
+
 assert.match(css,/cx-layout-customized/);
 assert.match(css,/@container \(min-width: 660px\)/);
 // The protected synthetic prototype may load its public, static first-party tutor

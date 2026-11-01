@@ -615,3 +615,17 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app .cx-layout-toolbar .cx-layout-refresh{padding:8px 12px;margin:4px 0 10px;border:1px solid #62d9ca;border-radius:6px;background:#174b61;color:#f2fffe}
 .cx-app.cx-layout-editing [data-cx-layout-key]:hover{outline:2px dashed #7de7d5;outline-offset:2px}
 .cx-app.cx-layout-editing [data-cx-layout-key][data-cx-selected="true"]{outline:3px solid #ffe1a2!important;outline-offset:3px;box-shadow:0 0 0 5px #0a2737!important}
+
+/* V14: quantitative values stay unchanged; appearance is ECharts option-only. */
+.cx-app .cx-chart{background:radial-gradient(ellipse at 52% 9%,rgba(16,67,95,.22),transparent 67%),#071621}
+.cx-app .cx-interactive-chart{filter:drop-shadow(0 8px 23px rgba(0,0,0,.23))}
+.cx-app .cx-layout-toolbar select[aria-label="Select page element"]{min-height:0!important;height:41px!important;max-height:41px!important;overflow:visible;white-space:nowrap}
+.cx-app .cx-layout-format{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:11px 0;border-block:1px solid #346078}
+.cx-app .cx-layout-format label{margin:0}
+.cx-app .cx-layout-format label.cx-layout-text-editor{grid-column:1/-1}
+.cx-app .cx-layout-format>button{background:#174b61;color:#fff;border:1px solid #628f9d;border-radius:5px;padding:8px;font-size:11px}
+.cx-app .cx-layout-toolbar input[type="color"]{height:36px;padding:3px;cursor:pointer}
+.cx-app [data-cx-frame-less="true"]{background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important}
+.cx-app.cx-layout-customized .cx-live-workspace,.cx-app.cx-layout-customized .cx-workgrid,.cx-app.cx-layout-customized .cx-learning,.cx-app.cx-layout-customized .cx-right,.cx-app.cx-layout-customized .cx-left{overflow:visible!important}
+@media(max-width:740px){.cx-app .cx-layout-format{grid-template-columns:minmax(0,1fr)}}
+@media(forced-colors:active){.cx-app [data-cx-frame-less="true"]{outline:1px solid CanvasText}}
