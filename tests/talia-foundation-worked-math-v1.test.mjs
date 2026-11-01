@@ -7,7 +7,7 @@ import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v0141
 const guides=JSON.parse(readFileSync(new URL('../data/competency-study-guides-v01499.json',import.meta.url),'utf8')).guides;
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const cases=Object.freeze({
- CANDLE_READING:{a:['$0.40','$0.80','upper wick','lower wick'],b:['$20.40','$20.70','bearish']},
+ CANDLE_READING:{a:['$0.40','$0.80','Upper wick','lower wick'],b:['$20.40','$20.70','bearish']},
  VWAP_CONTEXT:{a:['$10.34','1,000 shares','bar-volume proxy'],b:['$20.10','$20.30']},
  EMA_CONTEXT:{a:['$11.00','$12.00','0.50'],b:['$19.00','$20.00']},
  RISK_PER_SHARE:{a:['$0.20','10 illustrative shares','$2.00'],b:['$0.25','$25.00']},
