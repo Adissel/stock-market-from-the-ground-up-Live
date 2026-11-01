@@ -8,7 +8,7 @@ const membershipBase=[
  ['FOUNDING_14','Founding 14-Day Starter','Guided Workshop','#deb677','Balanced','Comfortable','Right','guided-workshop'],
  ['FOUNDING_30','Founding 30-Day','Analysis Desk','#69c8c0','Chart-first','Comfortable','Right','analysis-desk'],
  ['FOUNDING_60','Founding 60-Day','Flagship Classroom','#c4b2e8','Chart-first','Compact','Bottom','flagship-classroom'],
- ['FULL_MONTHLY','Full Platform — Monthly','Professional Studies','#83bcdf','Chart-first','Comfortable','Right','technical-analysis'],
+ ['FULL_MONTHLY','Full Platform — Monthly','Professional Studies','#83bcdf','Chart-first','Comfortable','Right','analysis-desk'],
  ['FULL_ANNUAL','Full Platform — Annual','Study Academy','#92cdb2','Balanced','Comfortable','Right','knowledge-transfer'],
  ['LIFETIME','Lifetime Platform Access','Lifetime Study Suite','#edcd8a','Chart-first','Compact','Bottom','full-detail-bars'],
  ['ONDEMAND_MONTHLY','Historical Replay / OnDemand — Monthly','Replay Classroom','#9db8dd','Chart-first','Comfortable','Bottom','replay-control']
