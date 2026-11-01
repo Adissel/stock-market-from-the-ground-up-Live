@@ -37,7 +37,22 @@ const fixture=(state={})=>async (input,options={})=>{
  else if(p.endsWith('/gu_founder_paid_cycles_v014173'))data=state.cycles||[];
  else if(p.endsWith('/user_plan_grants'))data=[];
  else if(p.endsWith('/crownlight_chart_qa_grants_v1'))data=state.chartQA||[];
- else if(p.endsWith('/gu_sparks_chart_passes_v1'))data=state.passes||[];
+ else if(p.endsWith('/gu_sparks_chart_passes_v1')){
+  const cutoff=u.searchParams.get('expires_at')||'';
+  assert(cutoff.startsWith('gt.'),'Chart pass query must filter expired rows before limiting');
+  assert.equal(u.searchParams.get('tier'),'in.(ADVANCED,PROFESSIONAL)',
+   'Chart pass query must filter to supported elevated tiers');
+  assert.equal(u.searchParams.get('order'),'tier.desc,expires_at.desc',
+   'Chart pass query must retrieve highest-ranked valid tier first');
+  assert.equal(u.searchParams.get('limit'),'2',
+   'Chart pass lookup must remain bounded');
+  const stamp=Date.parse(cutoff.slice(3));
+  assert(Number.isFinite(stamp),'Chart pass cutoff must be a valid server timestamp');
+  data=(state.passes||[]).filter(x=>['ADVANCED','PROFESSIONAL'].includes(x.tier)
+   &&Number.isFinite(Date.parse(x.expires_at))&&Date.parse(x.expires_at)>stamp)
+   .sort((a,b)=>b.tier.localeCompare(a.tier)||Date.parse(b.expires_at)-Date.parse(a.expires_at))
+   .slice(0,2);
+ }
  else if(p.endsWith('/crownlight_chart_cash_upgrades_v1'))data=[];
  else throw Error('Unexpected chart permission dependency '+p);
  return new Response(JSON.stringify(data),{status:200,headers:{'content-type':'application/json'}});
@@ -79,4 +94,20 @@ await check('noncommercial scoped Professional access does not confer 60-day pai
  {chartQA:[{tier:'PROFESSIONAL',scope:'CHART_STUDIO_ONLY',
   starts_at:date(-1),ends_at:date(3),revoked_at:null}]},
  'PROFESSIONAL','Temporary noncommercial Chart Studio testing');
-console.log('PASS 10/10 source-level provider-fixture Chart Studio paid-plan, expiry, reversal, 14/30/60, forged-label and chart-only attribution checks; NO provider/production activity.');
+await check('Professional pass wins among more than two eligible rows',
+ {passes:[
+  {tier:'ADVANCED',expires_at:date(8)},
+  {tier:'ADVANCED',expires_at:date(7)},
+  {tier:'PROFESSIONAL',expires_at:date(4)},
+  {tier:'ADVANCED',expires_at:date(6)}
+ ]},'PROFESSIONAL','Active Crownlight Sparks Chart Studio pass');
+await check('expired Professional cannot shadow an active Advanced pass',
+ {passes:[
+  {tier:'PROFESSIONAL',expires_at:date(-1)},
+  {tier:'ADVANCED',expires_at:date(3)},
+  {tier:'ADVANCED',expires_at:date(2)}
+ ]},'ADVANCED','Active Crownlight Sparks Chart Studio pass');
+await check('all expired elevated passes fail closed to Standard',
+ {passes:[{tier:'PROFESSIONAL',expires_at:date(-1)},
+ {tier:'ADVANCED',expires_at:date(-4)}]},'STANDARD','Free Membership');
+console.log('PASS 13/13 source-level provider-fixture Chart Studio paid-plan, expiry, reversal, 14/30/60, forged-label, chart-only attribution and deterministic multi-pass lookup; NO provider/production activity.');
