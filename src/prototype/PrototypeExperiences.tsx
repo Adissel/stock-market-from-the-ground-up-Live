@@ -5,7 +5,7 @@
  * ?experience=c (side-by-side membership studio).
  * No server write, pricing change, authorization grant, grade or live data.
  */
-import React,{useEffect,useMemo,useRef,useState} from 'react';
+import React,{useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot,type Root} from 'react-dom/client';
 
 type Page='a'|'b'|'c';
@@ -534,7 +534,7 @@ function LayoutStudio({page}:{page:Page}){
  const change=useCallback((key:string,update:Partial<LayoutChange>)=>{
   if(!key)return;
   history.current.push(JSON.parse(JSON.stringify(items.current)));if(history.current.length>30)history.current.shift();
-  items.current={...items.current,[key]:{x:0,y:0,...items.current[key],...update}};
+  items.current={...items.current,[key]:{...(items.current[key]||{x:0,y:0}),...update}};
   save();applyRef.current();setVersion(v=>v+1);
   window.dispatchEvent(new Event('resize'));
  },[save]);
@@ -591,7 +591,7 @@ function LayoutStudio({page}:{page:Page}){
   root.addEventListener('pointerdown',down,true);root.addEventListener('click',suppress,true);
   return()=>{root.removeEventListener('pointerdown',down,true);root.removeEventListener('click',suppress,true)};
  },[editing,clean,kind,keyFor,change]);
- const current=items.current[selected]||{x:0,y:0};
+ const current:LayoutChange=items.current[selected]||{x:0,y:0};
  const modify=(update:Partial<LayoutChange>)=>{if(!selected)return;change(selected,{...update,name:current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.querySelector('h3,h4')?.textContent?.slice(0,55)||kind})};
  const hidden=Object.entries(items.current).filter(([,value])=>value.hidden);
  return <div className="cx-layout-studio" data-cx-editor="true" aria-label="Prototype layout designer">
