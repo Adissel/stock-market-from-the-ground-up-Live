@@ -34,6 +34,8 @@ on:
       - 'functions/_lib/academy-risk60-depth-day16-18-v1.js'
       - 'functions/_lib/academy-risk60-depth-day19-v1.js'
       - 'functions/_lib/academy-risk60-depth-day20-v1.js'
+      - 'functions/_lib/academy-risk60-practice-batch02-v1.js'
+      - 'functions/_lib/academy-risk60-practice-depth-day21-22-v1.js'
       - 'functions/_lib/academy-risk60-depth-day13-v1.js'
       - 'functions/_lib/academy-risk60-depth-day12-v1.js'
       - 'functions/_lib/academy-risk60-depth-day11-v1.js'
@@ -106,6 +108,8 @@ jobs:
           node --check functions/_lib/academy-risk60-depth-day16-18-v1.js
           node --check functions/_lib/academy-risk60-depth-day19-v1.js
           node --check functions/_lib/academy-risk60-depth-day20-v1.js
+          node --check functions/_lib/academy-risk60-practice-depth-day21-22-v1.js
+          node --check functions/_lib/academy-risk60-practice-batch02-v1.js
           node --check functions/_lib/academy-risk60-depth-day13-v1.js
           node --check functions/_lib/academy-risk60-depth-day12-v1.js
           node --check functions/_lib/academy-risk60-depth-day11-v1.js
