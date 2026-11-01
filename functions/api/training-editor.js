@@ -32,7 +32,7 @@ const validLab=x=>/^[A-Za-z0-9_-]{3,90}$/.test(str(x));
 const V96_SEED_QUESTION_IDS=new Set(['EVIDENCE','FOCUS','ORIGINAL_MATH','BOUNDARY']);
 function isUnamendedV96Rubric(set){
  const source=str(set.source_status);
- if(source.startsWith('original_hypothetical_b01_')){
+ if(source.startsWith('original_hypothetical_b01_') || (Number(set.version)===97 && /b01/i.test(source))){
   // All six concepts must be genuinely individualized before an Owner can
   // review this rubric. Do not let old v96 evidence/focus/boundary templates
   // pass because just two application questions were appended.

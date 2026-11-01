@@ -114,6 +114,11 @@ try{
   prompt:'Which claim exceeds what a simplified market index level can establish about ETF execution?',
   explanation:'The index is a calculated benchmark, so it cannot guarantee that a separate ETF trade is executable at an identical numerical value or without a spread.',
   options:['One','Two','Three']};
+ // Technical review does not override the unapproved B01 source.
+ r=await run();assert.equal(r.status,409);
+ assert.match((await r.json()).error,/independent editorial acceptance is still pending/i);
+ assert.equal(approved,1);
+ sourceStatus='b01_independently_accepted_fixture_v1'; // Synthetic test, not production acceptance.
  const originalCase=questions[4];
  questions[4]={...originalCase,explanation:originalCase.explanation+
   ' This improperly repeats the private keyed selection: A correct distinction.'};
