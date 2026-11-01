@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.0 / November 1, 2026 |
+| Version / date | 1.1 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -54,6 +54,15 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 | Advanced/Professional/Enterprise learning and lab editions | 0/3 each independently released | Engineering percentages not assigned from source drafts alone |
 | Consolidated website overall | Not reliably measurable | No owner-approved weighted full-website release register and evidence denominator |
 
+## Second accelerated source and numerical batch, added November 1, 2026
+
+- **Claim source-scope progress:** 19/40 (47.50%) individual claim/source correspondences reviewed (six previously, thirteen additional), with specific limits retained in `data/talia-claims-101-140-evidence-batch-v1.json`. Remaining **21/40** need direct claim/source review; **0/40** independently publication-approved. These are partial research correspondences, not approved paragraphs.
+- **Indicators 16–30:** `data/talia-indicator-16-30-review-v1.json` maps all fifteen existing canonical study IDs to source candidates; eleven have individual reviewed ChartSchool pages, four retain candidate-only URLs.
+- **Independent Python numerical cases:** `data/talia-indicator-16-30-python-reference-v1.json` stores 15 individually computed original fictional arithmetic results. `tests/talia-indicators16-30-independent-math-v1.test.mjs` performs separately implemented JS comparisons and verifies canonical identities, nonpublication and rights holds. Connected to Pages build and Tutor workflow. **Cloudflare / GitHub exact-commit CI acceptance remains independently required.**
+- **Important correctness boundary:** The ADX case validates one previously initialized Wilder smoothing recurrence, not an entire DMI series. The Parabolic SAR case verifies an accelerating candidate and two-bar low clamp, not all reversal behavior. Supertrend checks a basic upper-band formula, not full stateful direction changes. Ichimoku checks Senkou Span A numerical midpoint, not use of future market candles. Thus all 15 have **component cases configured**, but **0/15 complete formula-variant and platform integration publication acceptances**.
+- **Source verification:** SEC Investor.gov IPO, bonds/current yield, ETF/mutual-fund pricing, preferred-vs-common, capital gain, bankruptcy, distribution reinvestment and asset allocation/rebalancing were inspected. Actual precise rights to redistribute third-party charts or market data are not implied.
+- **No product changes:** Shared Learning v3.3 and Lab v3.2, member entitlements, 419 Lab IDs, 274 Academy day IDs, ECharts replay, protected grading, and all paid-AI switches were preserved.
+
 ## Next — In Execution Order
 
 1. Finish exact-head Pages build and targeted GitHub Actions; fix any actual failed test without weakening source, auth, licensing or grade restrictions.
@@ -72,5 +81,6 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.0 | 2026-11-01 | 1,366 identity generator; 40 claim-level scope records; 35 original arithmetic checks; 15 Python/JS studies; prior STT provenance boundary | Internal development QA only; publication, licensing, financial, security and production signoff not granted |
+| 1.1 | 2026-11-01 | 19/40 claim scopes, 15 additional individual study source records and independent Python/JS component arithmetic QA | Internal source-only acceptance; full indicator, member and release approvals pending |
 
 **Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.0 · Source record `main` · No unauthorized premium release or paid API calls.
