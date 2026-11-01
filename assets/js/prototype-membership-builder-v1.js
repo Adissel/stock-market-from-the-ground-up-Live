@@ -142,13 +142,16 @@ function inspector(host,data,index){
  if(!b){host.append(node('p','Select a fictional OHLC bar for detailed analysis.'));return}
  const m=membership(),d=selected();host.style.setProperty('--pt-preview-accent',m.accent);
  const top=node('div',undefined,'pt-bar-title');top.append(node('h3','Precision Bar Inspector — '+b.time),node('span',b.direction+' · '+m.label));host.append(top);
- const values=[
+ let values=[
   ['Open',money(b.open)],['High',money(b.high)],['Low',money(b.low)],['Close',money(b.close)],
   ['Full range',money(b.range)],['Body',money(b.body)],['Upper wick',money(b.upper)],['Lower wick',money(b.lower)],
   ['Body / range',percent(b.bodyPct)],['Upper wick / range',percent(b.upperPct)],['Lower wick / range',percent(b.lowerPct)],
   ['Move from open',money(b.change)+' ('+percent(b.pctOpen)+')'],['Close versus prior',b.vsPrevious===null?'N/A':money(b.vsPrevious)+' ('+percent(b.pctPrevious)+')'],
   ['Close location in range',percent(b.closePosition)],['Range midpoint',money(b.midpoint)],['Typical price (H+L+C)/3',money(b.typicalPrice)]
  ];
+ if(d.detail==='Clean')values=values.slice(0,4);
+ else if(d.detail==='Analytical')values=values.slice(0,8);
+ else if(d.detail==='Technical')values=values.filter(([k])=>!['Upper wick / range','Lower wick / range','Range midpoint','Typical price (H+L+C)/3'].includes(k));
  if(d.showVolume)values.splice(4,0,['Bar volume',b.volume===null?'N/A':b.volume.toLocaleString()+' shares']);
  const grid=node('dl',undefined,'pt-bar-facts');
  for(const [name,value] of values){const p=node('div');p.append(node('dt',name),node('dd',value));grid.append(p)}
@@ -167,6 +170,7 @@ function chartOptions(data){
    const item=Array.isArray(params)?params[0]:params;
    const b=analyze(data,item?.dataIndex??0);
    if(!b)return 'Fictional analysis unavailable';
+   if(!d.labels)return [b.time,'Open '+money(b.open),'High '+money(b.high),'Low '+money(b.low),'Close '+money(b.close)].join('\\n');
    return [b.time,m.label,'O '+money(b.open)+'  H '+money(b.high)+'  L '+money(b.low)+'  C '+money(b.close),
      'Range '+money(b.range)+' · Body '+money(b.body),
      'Upper wick '+money(b.upper)+' · Lower wick '+money(b.lower),
