@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/academy-guided-v1.yml'
       - 'assets/js/academy-guided-v1.js'
+      - 'assets/js/academy-tutor-bridge-v1.js'
+      - 'tests/test_academy_tutor_bridge_v1.mjs'
       - 'assets/js/member-learning-layouts-v1.js'
       - 'assets/css/member-learning-layouts-v1.css'
       - 'tests/member-learning-layouts-v1.test.mjs'
@@ -35,6 +37,8 @@ jobs:
       - name: Check Boot Camp curriculum and guided browser interaction
         run: |
           node --check assets/js/academy-guided-v1.js
+          node --check assets/js/academy-tutor-bridge-v1.js
+          node tests/test_academy_tutor_bridge_v1.mjs
           node --check assets/js/bootcamp.js
           node --check assets/js/bootcamp-academy-v014168.js
           node tests/member-learning-layouts-v1.test.mjs

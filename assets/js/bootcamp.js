@@ -4,7 +4,7 @@
 (()=>{'use strict';
  const q=id=>document.getElementById(id),root=q('gu-bc-shell');
  if(!root)return;
- let sb=null,activeUser='',days=[],selected=1,progress=new Map(),checkpoints=new Map(),sourceCases=new Map(),progressAvailable=false,busy=false,loadSerial=0,guidedSession=null;
+ let sb=null,activeUser='',memberFirstName='',days=[],selected=1,progress=new Map(),checkpoints=new Map(),sourceCases=new Map(),progressAvailable=false,busy=false,loadSerial=0,guidedSession=null;
  const status=text=>{q('gu-bc-status').textContent=text};
  async function betaEnrollment(enroll=false){
   const note=q('gu-bc-enrollment-status'),button=q('gu-bc-enroll');
@@ -30,7 +30,7 @@
  };
  function clear(){
   guidedSession?.dispose?.();guidedSession=null;
-  progress.clear();checkpoints.clear();sourceCases.clear();progressAvailable=false;days=[];root.hidden=true;
+  progress.clear();checkpoints.clear();sourceCases.clear();progressAvailable=false;days=[];memberFirstName='';root.hidden=true;
   q('gu-bc-note').value='';q('gu-bc-days').replaceChildren();q('gu-bc-labs').replaceChildren();
  }
  async function api(method='GET',payload){
@@ -65,13 +65,18 @@
   const d=days.find(x=>x.day===selected);
   guidedSession?.dispose?.();guidedSession=null;
   if(!d)return;
-  guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(q('gu-bc-guided'),{day:d,programCode:'foundations30'})||null;
+  const renderUser=activeUser,renderLoad=loadSerial;
+  const tutorRequest=globalThis.GroundUpAcademyTutorBridgeV1?.create?.({client:sb,userId:renderUser,day:d,
+   isCurrent:()=>activeUser===renderUser&&loadSerial===renderLoad&&selected===d.day})||null;
+  guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(q('gu-bc-guided'),{day:d,programCode:'foundations30',
+   tutorRequest,memberFirstName})||null;
   const checkpoint=checkpoints.get(selected);
   const guideSlot=q('gu-bc-v32-stage')?.querySelector('#gu-v32-teaching-slot')||q('gu-bc-v32-stage');
   if(guideSlot){
    const first=d.relatedLabs?.[0]?.id;
    if(first)void globalThis.GroundUpLabEngineV32Universal?.mount?.({
     labId:first,mode:'guided',target:guideSlot,focusId:'gu-bc-note',
+    memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),tutorRequest,
     lab:{
      id:first,concept:d.title,goal:d.objective,
      teaching:{
@@ -158,6 +163,7 @@
    const u=(await sb.auth.getUser()).data?.user;
    if(!u)throw Error('Sign in to use your existing member training access.');
    activeUser=u.id;
+   memberFirstName=String(u.user_metadata?.first_name||u.user_metadata?.given_name||'').slice(0,32);
    const data=await api();
    if(id!==loadSerial)return;
    if(!Array.isArray(data.curriculum?.days)||data.curriculum.days.length!==30)

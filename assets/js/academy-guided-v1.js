@@ -105,7 +105,7 @@ function plan(d){
  if(kind==='risk')checks[2]={numeric:true,question:'Calculate fictional risk per share and share quantity.',labels:['Risk per share ($)','Whole shares for $40 planned risk'],expected:[.4,100],hints:['Use $20 entry − $19.60 planned stop.','Divide $40 by $0.40/share. Actual loss can exceed planned loss.']};
  return {kind,stages,checks,limitation};
 }
-function mount(host,{day,programCode}={}){
+function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
  if(!host||!day||!Number.isSafeInteger(day.day))return null;
  active.get(host)?.dispose();
  const cfg=plan(day);const isNewCourse=day.lesson?.evidenceType==='FICTIONAL_EDUCATIONAL_DATA_NO_HISTORICAL_LICENSE';
@@ -116,6 +116,7 @@ function mount(host,{day,programCode}={}){
  let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
    answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
  const formativeDrafts=new Map(),reviewedFormative=new Set(),advancedDrafts=new Map(),reviewedAdvanced=new Set();
+ const firstName=String(memberFirstName||'').trim().replace(/[^\p{L}\p{M}\s'\-]/gu,'').slice(0,32);
  const shell=el('section',undefined,'academy-guided-ten'),head=el('div',undefined,'academy-guided-head'),
    nav=el('ol',undefined,'academy-guided-nav'),meter=el('progress'),play=el('button','Play guided teaching','btn secondary'),
    status=el('p','Optional automatic narration pauses when a question appears.'),
@@ -125,9 +126,14 @@ function mount(host,{day,programCode}={}){
    next=el('button','Next','btn'),explain=el('button','Explain This Concept — Free','btn secondary'),
    depth=el('button','Teach This in More Depth — Free','btn secondary'),
    feedback=el('p');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+ const tutorButton=el('button','Ask Market Tutor — optional','btn secondary'),tutorPanel=el('section',undefined,'academy-guided-tutor-response'),tutorOutput=el('p');
+ tutorOutput.setAttribute('role','status');tutorOutput.setAttribute('aria-live','polite');
+ tutorPanel.append(el('h4','Market Tutor · general educational explanation'),tutorOutput);tutorPanel.hidden=true;
+ let tutorAbort=null,tutorSerial=0;
+ function cancelTutor(){tutorSerial++;tutorAbort?.abort();tutorAbort=null;tutorButton.disabled=false;tutorPanel.hidden=true;tutorOutput.textContent=''}
  meter.max=10;meter.value=0;meter.setAttribute('aria-label','Completed formative steps');
  status.setAttribute('role','status');
- head.append(el('h3','Talia · Ten-stage Boot Camp journey'));
+ head.append(el('h3',firstName?'Talia · '+firstName+'\'s ten-stage Boot Camp journey':'Talia · Ten-stage Boot Camp journey'));
  {
   const itinerary=el('details');itinerary.className='academy-active-itinerary';
   itinerary.append(el('summary','Suggested active-learning itinerary — '+plannedMinutes.reduce((a,b)=>a+b,0)+' minutes (self-paced)'));
@@ -140,8 +146,10 @@ function mount(host,{day,programCode}={}){
  head.append(meter,play,status,nav);
  evidence.append(el('h4','Illustrative ECharts & evidence'),visual);
  instructor.append(el('h4','Talia Mercer — Guided instructor'));
- controls.append(previous,next,explain,depth);grid.append(evidence,instructor);
- shell.append(head,grid,controls,feedback,el('p','Free explanations and retries. No Lumens charged. Fictional teaching evidence only; protected replay, grading and access remain unchanged.'));
+ controls.append(previous,next,explain,depth);
+ if(typeof tutorRequest==='function')controls.append(tutorButton);
+ grid.append(evidence,instructor);
+ shell.append(head,grid,controls,feedback,tutorPanel,el('p','Free explanations and retries. No Lumens charged. Fictional teaching evidence only; protected replay, grading and access remain unchanged.'));
  host.replaceChildren(shell);
  function stop(){if(timer){clearTimeout(timer);timer=0}}
  function narration(){
@@ -153,6 +161,8 @@ function mount(host,{day,programCode}={}){
  }
  function render(){
   if(disposed)return;
+  cancelTutor();
+  tutorButton.disabled=![0,1,2,7,8,9].includes(stage);
   nav.replaceChildren();STEPS.forEach((s,i)=>{
    const li=el('li',undefined,i===stage?'current':completed.has(i)?'complete':'future'),
     b=el('button',(i+1)+'. '+s);b.type='button';b.disabled=i>furthest;
@@ -318,10 +328,20 @@ function mount(host,{day,programCode}={}){
    'Advanced teaching: '+clean(advanced.worked)+' Misconception: '+clean(advanced.pitfall):
    'Teach in more depth: '+guidance(day,cfg.kind).join(' ')+' Review the limitation: '+cfg.limitation;
  };
+ tutorButton.onclick=async()=>{
+  if(disposed||tutorButton.disabled||typeof tutorRequest!=='function')return;
+  const serial=++tutorSerial,controller=new AbortController();tutorAbort=controller;tutorButton.disabled=true;
+  tutorPanel.hidden=false;tutorOutput.textContent='Requesting a source-grounded educational explanation…';
+  try{const result=await tutorRequest({signal:controller.signal});
+   if(!disposed&&!controller.signal.aborted&&serial===tutorSerial)tutorOutput.textContent=String(result?.answer||'No explanation returned.');
+  }catch(error){if(!disposed&&!controller.signal.aborted&&serial===tutorSerial)
+    tutorOutput.textContent=String(error?.message||'Tutor unavailable. Use the free lesson explanations.');}
+  finally{if(!disposed&&serial===tutorSerial){tutorAbort=null;tutorButton.disabled=false}}
+ };
  play.onclick=()=>{if(stage===9){stage=0;furthest=0;completed.clear();reviewedFormative.clear();reviewedAdvanced.clear();formativeDrafts.clear();advancedDrafts.clear();render()}
   autoplay=!autoplay;play.textContent=autoplay?'Pause guided teaching':'Play guided teaching';
   if(autoplay)narration();else{stop();status.textContent='Automatic teaching paused.'}};
- render();const session={dispose(){disposed=true;stop();chart?.dispose?.();if(active.get(host)===session)active.delete(host);host.replaceChildren()}};active.set(host,session);return session;
+ render();const session={dispose(){disposed=true;stop();cancelTutor();chart?.dispose?.();if(active.get(host)===session)active.delete(host);host.replaceChildren()}};active.set(host,session);return session;
 }
 root.GroundUpAcademyGuidedV1=Object.freeze({mount,plan,STEPS});
 })(typeof window!=='undefined'?window:globalThis);

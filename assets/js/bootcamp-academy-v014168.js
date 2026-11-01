@@ -134,7 +134,7 @@
   mount.append(section);
  }
  let client=null,userId='',activeCode='',program=null,days=[],dayIndex=1,enrolled=false,
-  progress=new Map(),drafts=new Map(),selfCheckDrafts=new Map(),progressAvailable=false,busy=false,sessionSerial=0,renderSerial=0,authListenerAttached=false;
+  progress=new Map(),drafts=new Map(),selfCheckDrafts=new Map(),progressAvailable=false,busy=false,sessionSerial=0,renderSerial=0,authListenerAttached=false,memberFirstName='';
  const status=message=>{get('academy-status').textContent=message};
  function node(tag,value){
   const element=document.createElement(tag);
@@ -147,7 +147,7 @@
   const assessmentNode=get('academy-official-assessment');if(assessmentNode){assessmentNode.replaceChildren();assessmentNode.hidden=true;}
   guidedSession?.dispose?.();guidedSession=null;
   get('academy-guided-host')?.remove();
-  program=null;days=[];enrolled=false;progress.clear();drafts.clear();selfCheckDrafts.clear();progressAvailable=false;dayIndex=1;
+  program=null;days=[];enrolled=false;progress.clear();drafts.clear();selfCheckDrafts.clear();progressAvailable=false;dayIndex=1;memberFirstName='';
   ++renderSerial;busy=false;get('academy-workspace').hidden=true;
   globalThis.CrownlightLearningProgress?.unmount?.('academy-learning-progress');
   get('academy-lab-slot').replaceChildren();get('academy-reflection').value='';
@@ -728,10 +728,15 @@
   showOriginalInstruction(d);
   guidedSession?.dispose?.();guidedSession=null;
   get('academy-guided-host')?.remove();
+  const dayMember=userId,daySession=sessionSerial,dayProgram=activeCode;
+  const tutorRequest=globalThis.GroundUpAcademyTutorBridgeV1?.create?.({client,userId:dayMember,day:d,
+   isCurrent:()=>dayMember===userId&&daySession===sessionSerial&&dayProgram===activeCode&&
+    dayIndex===d.day&&renderEpoch===renderSerial})||null;
   if(d.programCode!=='free5'){
    const h=node('div');h.id='academy-guided-host';
    get('academy-original-instruction')?.before(h);
-   guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(h,{day:d,programCode:d.programCode})||null;
+   guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(h,{day:d,programCode:d.programCode,
+    memberFirstName,tutorRequest})||null;
   }
   // Every Academy lesson offers the same OPTIONAL ECharts chart-literacy
   // workstation, including days without an independently authorized book Lab.
@@ -781,7 +786,9 @@
   };
   const engine=globalThis.GroundUpLabEngineV32Universal;
   if(typeof engine?.mount!=='function'){target.textContent='Guided instructor is unavailable. Your original study directions remain above.';return;}
-  void Promise.resolve(engine.mount({labId,mode:'guided',target,lab:study,focusId:'academy-reflection'}))
+  void Promise.resolve(engine.mount({labId,mode:'guided',target,lab:study,focusId:'academy-reflection',
+    memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
+    tutorRequest}))
    .then(()=>{if(renderEpoch!==renderSerial)target.remove()})
    .catch(()=>{if(renderEpoch===renderSerial)target.textContent='The guided instructor is unavailable; no grade or completion was recorded.'});
  }
@@ -849,6 +856,7 @@
    const member=response.data?.user;
    if(!member)throw Error('Sign in to open your Boot Camp.');
    userId=member.id;
+   memberFirstName=String(member.user_metadata?.first_name||member.user_metadata?.given_name||'').slice(0,32);
    const data=await request('program',code);
    // Public educational research is optional. If unavailable, never infer or
    // display a verified source and never block authorized member instruction.

@@ -26,3 +26,7 @@
 .academy-guided-numeric label{display:flex;flex-direction:column;gap:5px;font-size:.84rem;font-weight:650}
 .academy-guided-numeric input{display:block;width:100%;box-sizing:border-box;padding:10px;background:#071b29;color:#fff;border:1px solid #7997ab;border-radius:7px;min-height:44px}
 .academy-guided-numeric input:focus-visible{outline:3px solid #f2d58a;outline-offset:1px}
+
+.academy-guided-tutor-response{padding:12px;margin:12px 0;background:#0a2638;border:1px solid #547c90;border-radius:9px;overflow-wrap:anywhere}
+.academy-guided-tutor-response h4{margin:0 0 8px;color:#f0dbad}
+.academy-guided-tutor-response p{margin:0;white-space:pre-wrap;line-height:1.65;color:#eef4f8}
