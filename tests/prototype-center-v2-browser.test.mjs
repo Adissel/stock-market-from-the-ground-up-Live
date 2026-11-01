@@ -106,6 +106,15 @@ try{
    await page.locator('[data-parity-tab="academy"]').click();
    await page.locator('#pt-parity-search').fill('risk60');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/60 study days/);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/No individually source-documented instructional-day example/);
+   await page.locator('#pt-parity-search').fill('free5');
+   assert.equal(await page.locator('.pt-parity-inspector .pt-parity-lesson').count(),5,'Five authentic Free evidence lessons available');
+   await page.locator('.pt-parity-inspector .pt-parity-lesson').first().locator('summary').click();
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/100 \/ 1,000,000|100 shares out of 1,000,000/);
+   await page.locator('#pt-parity-search').fill('watchlist7');
+   assert.equal(await page.locator('.pt-parity-inspector .pt-parity-lesson').count(),2,'Two supported Watchlist day examples; no invented remaining days');
+   await page.locator('#pt-parity-search').fill('scanners10');
+   assert.equal(await page.locator('.pt-parity-inspector .pt-parity-lesson').count(),1,'One supported Scanner source-backed case');
    await page.locator('#pt-curriculum-parity > summary').click();
    assert.equal(await page.locator('#pt-curriculum-parity').evaluate(el=>el.open),false);
   }
