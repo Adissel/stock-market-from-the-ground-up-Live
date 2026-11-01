@@ -332,7 +332,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   if(disposed||tutorButton.disabled||typeof tutorRequest!=='function')return;
   const serial=++tutorSerial,controller=new AbortController();tutorAbort=controller;tutorButton.disabled=true;
   tutorPanel.hidden=false;tutorOutput.textContent='Requesting a source-grounded educational explanation…';
-  try{const result=await tutorRequest({signal:controller.signal});
+  try{const result=await tutorRequest({signal:controller.signal,stage:STEPS[stage],reason:'new-example'});
    if(!disposed&&!controller.signal.aborted&&serial===tutorSerial)tutorOutput.textContent=String(result?.answer||'No explanation returned.');
   }catch(error){if(!disposed&&!controller.signal.aborted&&serial===tutorSerial)
     tutorOutput.textContent=String(error?.message||'Tutor unavailable. Use the free lesson explanations.');}
