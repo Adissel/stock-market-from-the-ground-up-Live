@@ -7,7 +7,7 @@ assert.doesNotMatch(source,/\bfetch\s*\(|\blocalStorage\b|\bsessionStorage\b|\bX
 const window={};
 vm.runInNewContext(source,{window,globalThis:window},{timeout:1000});
 const kit=window.CrownlightVisualKitV1;
-assert.equal(kit.version,'1.0.0');
+assert.equal(kit.version,'1.1.0');
 assert(Object.isFrozen(kit));
 const js=v=>JSON.parse(JSON.stringify(v));
 const progress=kit.barOptions({kind:'progress',sourceLabel:'Already authorized five-day evidence',
@@ -55,4 +55,17 @@ for(const input of [
  {label:'A',sourceLabel:'',visibleThroughBar:1,points:[{bar:0,value:1}]},
  {label:'A',sourceLabel:'example',visibleThroughBar:0,points:[]}
 ])assert.equal(kit.indicatorSeries(input),null,'Reject invalid indicator inputs');
-console.log('PASS visualization kit: counts, zero values, progress bounds, accessible descriptions, reduced motion, missing warm-ups, no-lookahead');
+const stages=['Start','Learn','Calculate','Experiment','Predict','Replay / Practice','Assess','Review & Retry','Transfer Challenge','Results'];
+const stage=kit.stageJourneyOptions({labels:stages,index:5,
+ sourceLabel:'Existing verified learning-stage event',reducedMotion:true});
+assert(stage);
+assert.equal(stage.animation,false);
+assert.equal(stage.series.length,3);
+assert.deepEqual(js(stage.series[1].data),[0,0,0,0,0,0,null,null,null,null]);
+assert.deepEqual(js(stage.series[2].data),[[5,0]]);
+assert.match(stage.aria.description,/not a grade, completed assessment or mastery/);
+assert.equal(kit.stageJourneyOptions({labels:stages,index:10,sourceLabel:'source'}),null);
+assert.equal(kit.stageJourneyOptions({labels:stages.slice(0,9),index:5,sourceLabel:'source'}),null);
+assert.equal(kit.stageJourneyOptions({labels:[...stages.slice(0,9),'Start'],index:1,sourceLabel:'source'}),null);
+assert.equal(kit.stageJourneyOptions({labels:stages,index:0,sourceLabel:''}),null);
+console.log('PASS visualization kit: counts, progress, 10-stage ungraded learning navigation, reduced motion, no-lookahead and null warm-ups');
