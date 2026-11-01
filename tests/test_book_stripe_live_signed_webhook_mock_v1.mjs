@@ -33,7 +33,7 @@ const session=()=>({id:SESSION,livemode:true,mode:'payment',status:'complete',
  payment_status:paid?'paid':'unpaid',amount_subtotal:currentAmount,currency:'usd',
  payment_intent:PI,client_reference_id:INTENT,metadata:currentMeta()});
 const intent=()=>({id:PI,livemode:true,status:'succeeded',currency:'usd',
- amount_received:currentAmount,metadata:currentMeta()});
+ amount_received:currentAmount,latest_charge:CHARGE,metadata:currentMeta()});
 const requestHost='https://example.org/api/stripe-live-webhook-v01458';
 const oldFetch=globalThis.fetch;
 globalThis.crypto??=webcrypto;
