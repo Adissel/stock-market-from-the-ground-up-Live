@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.4 / 2026-11-01 |
+| Version / date | 1.5 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -76,6 +76,16 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
 
+
+## Foundation indicator revision and build acceptance — 2026-11-01
+- **Source review and correction:** The first full 73-guide automated editorial triage identified nine concise formula entries in the *original* 61-guide teaching asset that merited elaboration. These were rewritten with explicit input units, completed-bar timing, period/seed conventions and, where applicable, invalid denominator boundaries: SMA; Triple EMA; MACD Histogram; ROC; Price Momentum; ATR%; Average Volume; Chaikin Money Flow; and Put/Call Volume Ratio. All original guide IDs and guided practice mappings remain unchanged.
+- **Post-correction source analysis:** 73/73 guide records have formula/procedure/misconception fields above the automated quality thresholds, compared with 9 initially flagged. This confirms only **structured content hygiene**, not that all 73 guides or their external references have been fact-checked and accepted by an independent reviewer.
+- **Verified Cloudflare evidence:** Commit `42ea37944d2b34e662d4fc661e54cf174c6e928b` passed all **25 Foundation source regression subtests (0 failures)**, generated the 73-item indicator QA inventory and 60-item public-topic Lab/Boot Camp crosswalk, and deployed successfully. The audit before the nine formula revisions reported nine follow-up flags and no structural blockers. The newer revision commit `3309d0214afb1f10d26bb2b0542ff36794bd95ac` requires its own successful build/deploy verification; until then, do **not** treat the nine corrections as independently deployed.
+- **Crosswalk figures from the verified build:** 60 drafted Tutor explanation IDs; 74 provisional title/term matching suggestions against 419 canonical public Lab identifiers, and 65 against 274 Boot Camp study-day identifiers. These are **not** editorially verified equivalences, and do not change the original curriculum.
+- **Final release is not signed off:** 0/600 newly recorded independent editorial acceptances, 0/10 final Tutor release gates fully accepted, GitHub push-triggered full CI and real authenticated member browser/accessibility acceptance unverified.
+
+### Revision history addition
+| 1.5 | 2026-11-01 | Verify 25/25 Tutor build regression tests on exact Cloudflare source SHA; expand nine terse original indicator formulas; record 73-guide automated triage and still-open editor/member/release gates | Technical source correction complete; exact correction deployment and independent approvals pending |
 
 ## Foundation execution batch 03 — 2026-11-01 (Tutor-only implementation)
 **Controlling decisions:** The 30 public official competency identifiers, 419 registered Labs, 274 Boot Camp days, 61 original + 12 supplementary indicator guides, 146 guided modules, and 16 actual computed Chart Studio studies remain unchanged. These records provide educational cross-reference only; no protected grading engine, Supabase schema, money, live market feed, licensed research or separate AI service was modified.
