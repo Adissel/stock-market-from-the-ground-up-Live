@@ -87,7 +87,7 @@ export async function crownlightChartEntitlement(env,request){
  for(const pass of chartPasses){
   const until=Date.parse(pass.expires_at);
   if(['ADVANCED','PROFESSIONAL'].includes(pass.tier)&&Number.isFinite(until)&&until>now&&rank[pass.tier]>rank[tier]){
-   tier=pass.tier;reason='Active Crownlight Sparks Chart Studio pass';
+   tier=pass.tier;reason='Active Crownlight Lumens Chart Studio pass';
    temporaryAccess={kind:'SPARKS',tier:pass.tier,expiresAt:new Date(until).toISOString()};
   }
  }
