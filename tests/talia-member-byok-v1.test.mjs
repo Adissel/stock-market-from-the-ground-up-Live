@@ -34,7 +34,9 @@ globalThis.fetch=async(url,opt={})=>{
  if(u.includes('/admin_user_flags?'))return response([{status:'active'}]);
  if(u.includes('/rest/v1/user_secure_credentials')){
   const user=/user_id=eq\.([^&]+)/.exec(u)?.[1];
-  assert.ok(user===A||user===B,'credential row must be account-scoped');
+  // Writes use the existing Supabase on_conflict UPSERT; ownership is in the
+  // server-verified JSON body, while reads/deletes must include user_id=eq.
+  if(opt.method!=='POST')assert.ok(user===A||user===B,'credential row must be account-scoped');
   if(opt.method==='POST'){
    const v=JSON.parse(opt.body);
    assert.equal(v.user_id,active);
