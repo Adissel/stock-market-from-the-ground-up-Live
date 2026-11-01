@@ -57,7 +57,12 @@ export async function crownlightChartEntitlement(env,request){
   foundingOfferState(env),
   // Independent, time-limited chart access; never treated as a paid plan.
   rows(c,'crownlight_chart_qa_grants_v1?select=tier,scope,starts_at,ends_at,revoked_at&user_id=eq.'+uid+'&limit=2'),
-  rows(c,'gu_sparks_chart_passes_v1?select=tier,expires_at&user_id=eq.'+uid+'&limit=2'),
+  // Filter expired/invalid pass tiers in PostgREST BEFORE limiting. An unordered
+  // two-row sample can otherwise omit a valid newer Professional entitlement.
+  // Professional sorts before Advanced; a second row is kept for diagnostics.
+  rows(c,'gu_sparks_chart_passes_v1?select=tier,expires_at&user_id=eq.'+uid+
+   '&tier=in.(ADVANCED,PROFESSIONAL)&expires_at=gt.'+encodeURIComponent(new Date(now).toISOString())+
+   '&order=tier.desc,expires_at.desc&limit=2'),
   rows(c,'crownlight_chart_cash_upgrades_v1?select=tier,state,expires_at,revoked_at&user_id=eq.'+uid+'&state=eq.active&limit=30')
  ]);
  let tier='STANDARD',reason='Free Membership',temporaryAccess=null;
