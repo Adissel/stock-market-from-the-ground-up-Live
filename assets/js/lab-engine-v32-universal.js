@@ -239,6 +239,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
  autoBar.append(autoButton,autoStatus);
  shell.append(heading,disclosure,progress,meter,journey,autoBar,body,status,nav,checkpointNote);
  target.replaceChildren(shell);
+ let lastEvidenceDiagnosis=null;
  let stage=0,observations='',prediction='',predictionLocked=false,practice='',practiceCount=0,
      practiceResolved=false,practiceAssisted=false,transfer='',transferCount=0,transferResolved=false,
      selfReview=false,experimentValue=kind==='candle'?32:100,reflection='';
@@ -376,6 +377,8 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    if(question){
     if(!validNumber(answer,question.answer)){
      practiceCount++;practiceAssisted=true;
+     analyzePracticeEvidence(answer,question.answer,'authored_subquestion');
+     body.querySelector('.gu-v33-evidence-card')?.remove();renderEvidenceDiagnosis(body);
      return{accepted:false,message:'Let’s correct '+question.id+'. '+question.help+
       ' New guided example: '+question.newExample+' Retry the original question.'};
     }
@@ -384,6 +387,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     if(special){
      practice=answer;
      if(!validNumber(practice,special.answer)){
+      analyzePracticeEvidence(practice,special.answer,kind==='candle'?'canonical_candle_body_pct':'canonical_vwap_trade_groups');
       practiceCount++;
       return{accepted:false,message:'Review the calculation and try again. '+mathDiagnostic(kind,practice)};
      }
@@ -409,6 +413,48 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   scheduleCheckpoint();
   return{accepted:true};
  }
+
+ // Structured Learning -> Lab evidence contract: display only fictional
+ // authored practice, never private grading or unrevealed historical bars.
+ function analyzePracticeEvidence(submitted,expected,caseCode='authored_subquestion'){
+  const api=root.GroundUpLearningEvidenceV1;
+  if(!api?.evaluate||!special||!['candle','vwap'].includes(kind))return null;
+  const result=api.evaluate({labId,mode,stage:'practice',kind,caseCode,
+    provenance:'fictional_authored',submitted,expected,units:special.units,
+    sourceSteps:special.steps,topic});
+  if(result?.status&&result.status!=='insufficient_evidence')lastEvidenceDiagnosis=result;
+  return result;
+ }
+ function renderEvidenceDiagnosis(parent){
+  const r=lastEvidenceDiagnosis,api=root.GroundUpLearningEvidenceV1;
+  if(!r||!api?.checkFollowUp||!['guided','practice'].includes(mode))return;
+  const panel=el('section');panel.className='gu-v33-evidence-card';
+  panel.setAttribute('aria-label','Evidence-based correction and independent practice');
+  panel.append(el('h3','Learning diagnosis · fictional numerical practice'));
+  const items=[
+   ['Observed finding',r.verifiedCause?'Verified calculation pattern: '+r.code.replaceAll('_',' '):
+      r.status==='method_correct'?'The submitted numerical result matched the authored fictional calculation.':
+       'The submitted result differs, but the cause is not established.'],
+   ['Prerequisite',r.prerequisite],['Correction',r.correction],
+   ['Approved fictional method',r.sourceExcerpt],['Next study step',r.nextAction]
+  ];
+  for(const [label,value] of items){
+   const p=el('p'),strong=el('strong',label+': ');p.append(strong,document.createTextNode(value));panel.append(p);
+  }
+  if(r.followUp?.source==='fictional_constructed_no_feed'){
+   panel.append(el('h4','Try a new independent fictional case'));
+   panel.append(el('p',r.followUp.prompt));
+   const entry=field(panel,'My independent calculation ('+r.followUp.units+')','','input');
+   const status=el('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+   panel.append(button('Check independent practice',()=>{
+    const result=api.checkFollowUp({id:r.followUp.id,submitted:entry.value});
+    status.textContent=result.reason+(result.accepted?' This check does not alter official mastery or saved learning progress.':'');
+   }),status);
+  }
+  appendParagraph(panel,r.claim);
+  parent.append(panel);
+ }
+
  async function handleQuestionPass({action,index,expectedCost}={}){
   if(typeof creditRequest!=='function')throw Error('Crownlight Lumens has not been connected.');
   if(action==='balance')return creditRequest({action:'balance'});
@@ -877,7 +923,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
      const options=kind==='candle'?[25,50,75,100]:[9,8.67,10,8];
      for(const x of options){const op=el('option',String(x));op.value=String(x);pick.append(op)}
      body.append(pick,button('Check my assisted choice',()=>{
-      if(validNumber(pick.value,special.answer)){practiceResolved=true;practiceAssisted=true;practice=pick.value;render()}
+      if(validNumber(pick.value,special.answer)){analyzePracticeEvidence(pick.value,special.answer,kind==='candle'?'canonical_candle_body_pct':'canonical_vwap_trade_groups');practiceResolved=true;practiceAssisted=true;practice=pick.value;render()}
       else{practiceCount++;mark(mathDiagnostic(kind,pick.value))}
      }));
     }
@@ -885,8 +931,13 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
      body.append(button('Check calculation',()=>{
       if(!input.value.trim()){mark('Enter a numerical answer.');return}
       practice=input.value.trim();
-      if(validNumber(practice,special.answer)){practiceResolved=true;render()}
-      else{practiceCount++;render();mark(mathDiagnostic(kind,practice))}
+      if(validNumber(practice,special.answer)){
+       analyzePracticeEvidence(practice,special.answer,kind==='candle'?'canonical_candle_body_pct':'canonical_vwap_trade_groups');
+       practiceResolved=true;render()
+      }else{
+       analyzePracticeEvidence(practice,special.answer,kind==='candle'?'canonical_candle_body_pct':'canonical_vwap_trade_groups');
+       practiceCount++;render();mark(mathDiagnostic(kind,practice))
+      }
      }));
      if(practiceCount>0){answerStatus('Incorrect attempts: '+practiceCount+'. '+mathDiagnostic(kind,practice),false);mistakeHelp()}
     }else{
@@ -895,6 +946,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     }
     const guided=detail(body,'Teach This in More Depth',special.steps.concat(['Frequent misconception: '+(subject?.error||guide.commonError),'The answer describes the illustrative example; it does not predict the next bar.']));
     guided.addEventListener('toggle',()=>{if(guided.open)practiceAssisted=true});
+    renderEvidenceDiagnosis(body);
    }else{
     const t=field(body,'Your independent observation and reasoning',practice);
     t.disabled=practiceResolved;

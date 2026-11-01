@@ -8,3 +8,13 @@
 .gu-adaptive-result p{line-height:1.5}
 .gu-adaptive-check :focus-visible{outline:3px solid var(--accent,#84ded6);outline-offset:3px}
 @media(max-width:850px){.gu-adaptive-inputs{grid-template-columns:1fr}.gu-adaptive-inputs button{width:100%}}
+
+/* Gate 3 evidence-based Learning/Lab remediation; native semantics and keyboard controls. */
+.gu-v33-evidence-card{padding:1rem 1.1rem;margin:1.2rem 0;border:1px solid var(--line,#4a596a);border-radius:14px;background:var(--card,#182535)}
+.gu-v33-evidence-card h3{font-size:1.12rem;margin:.15rem 0 .75rem}
+.gu-v33-evidence-card h4{margin:1rem 0 .4rem;font-size:1rem}
+.gu-v33-evidence-card p{line-height:1.55;margin:.5rem 0}
+.gu-v33-evidence-card label{display:grid;gap:.35rem;margin-top:.7rem}
+.gu-v33-evidence-card input{max-width:18rem}
+.gu-v33-evidence-card button{margin:.65rem 0}
+.gu-v33-evidence-card :focus-visible{outline:3px solid var(--accent,#8ee2da);outline-offset:3px}

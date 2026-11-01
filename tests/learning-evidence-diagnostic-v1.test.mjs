@@ -61,3 +61,17 @@ test('original 419 Lab IDs remain unaffected and no persistence or AI paths were
   assert(!re.test(raw),'No grading, paid, storage, raw source fetch or private rubric: '+re);
  }
 });
+
+test('Learning/Lab integration receives only already-authored fictional practice evidence',()=>{
+ const engine=read('assets/js/lab-engine-v32-universal.js');
+ const html=read('lab-player.html');
+ assert.match(html,/learning-evidence-diagnostic-v1\.js/);
+ assert(html.indexOf('learning-evidence-diagnostic-v1.js')<html.indexOf('lab-engine-v32-universal.js'));
+ assert.match(engine,/GroundUpLearningEvidenceV1/);
+ assert.match(engine,/sourceSteps:special\.steps/);
+ assert.match(engine,/provenance:'fictional_authored'/);
+ assert.match(engine,/stage:'practice'/);
+ assert.match(engine,/renderEvidenceDiagnosis\(body\)/);
+ assert.match(engine,/caseCode='authored_subquestion'/);
+ assert.match(engine,/api\.checkFollowUp/);
+});

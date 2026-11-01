@@ -61,3 +61,17 @@ This is optional formative teaching for all entitled Guided/Practice lessons. It
 **Next dependency:** quantitative/independent evidence diagnostics, synchronized ECharts Lab tools, then contextual Talia integration with server-authorized feature rights.
 
 **Document control:** Same GitHub main document, no new Google Drive ID, no migration or new system; owner acceptance pending.
+
+## Gate 3 — Evidence-backed calculation diagnosis (November 1, 2026)
+
+**Document control:** SMFGU-ENGINE-ARCH-001 / v1.1 source addendum. GitHub main is the controlling record; Google Drive file and document IDs remain unassigned. **Status:** Source implemented, automated acceptance pending, actual Owner/member browser acceptance not signed off.
+
+**Requirement:** SMFGU-ENGINE-ADAPT-003. The existing Shared Lab Engine sends accepted fictional practice inputs through `smfgu.learning.lab.practice-evidence.v1` to the Learning Engine; responses contain actual numeric comparison, a verified misconception label only for evidence-supported error patterns, a prerequisite, source-grounded correction, independently changed fictional practice, and explicit ungraded/no-mastery flags. Unclassified errors remain unclassified, rather than generating speculative learner diagnoses.
+
+**Source:** `assets/js/learning-evidence-diagnostic-v1.js`; existing Lab journey integration `assets/js/lab-engine-v32-universal.js`, `lab-player.html`; styles appended to `assets/css/learning-adaptive-diagnostic-v1.css`. Unit coverage: `tests/learning-evidence-diagnostic-v1.test.mjs` and `.github/workflows/learning-lab-evidence-v1.yml`.
+
+**Initial verified subjects:** Original authored fictional candle-body percentage and volume-weighted average practice. A different fictional independent calculation is generated, with a fresh numerical check; it has no financial feed, future historical bars, official grade or stored mastery. Expanding to all 419 Labs requires appropriate individually authored numeric or objectively verifiable evidence, not automated inference of misconceptions from arbitrary prose.
+
+**Compatibility:** Both Basic snapshots untouched; original nine saved stage IDs, authorization, RLS, protected assessment, member checkpoint schema, rewards, purchasing and previous progress unchanged. The current combined experience uses JavaScript/HTML5/CSS3, retaining existing ECharts. React/TypeScript and Python are not required for this deterministic edge-compatible case.
+
+**Remaining acceptance:** genuine signed-in member browser scenarios, accessible mobile rendering, independent grading guard check, and exact-main CI/deployment. Advanced/Professional edition release remains disabled.
