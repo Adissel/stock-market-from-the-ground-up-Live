@@ -102,52 +102,116 @@ function IndicatorDock(){
 }
 
 function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number}){
- const ref=useRef<HTMLDivElement>(null);
- const inst=useRef<any>(null);
+ const ref=useRef<HTMLDivElement>(null),inst=useRef<any>(null),viewport=useRef({start:Math.max(0,100-40/Math.max(1,reveal)*100),end:100});
+ const prefs=React.useContext(IndicatorContext);
  const onSelectRef=useRef(onSelect);onSelectRef.current=onSelect;
+ const settings=prefs?.settings,enabled=prefs?.enabled;
+ const currentEnabled={...enabled,EMA_FAST:showEma&&!!enabled?.EMA_FAST,EMA_SLOW:showEma&&!!enabled?.EMA_SLOW,VWAP:showProxy&&!!enabled?.VWAP,VOLUME:showVolume&&!!enabled?.VOLUME};
+ const subpaneCount=kind==='price'?Object.entries(currentEnabled).filter(([k,v])=>v&&['RSI','MACD','ATR','OBV'].includes(k)).length:0;
+ const actualHeight=kind==='price'?Math.max(height,360+subpaneCount*122):height;
+ const resetViewport=()=>{viewport.current={start:0,end:100};inst.current?.dispatchAction({type:'dataZoom',start:0,end:100})};
+ const moveWindow=(direction:number)=>{const {start,end}=viewport.current,windowSize=end-start,delta=direction*windowSize*.33;const left=Math.max(0,Math.min(100-windowSize,start+delta));inst.current?.dispatchAction({type:'dataZoom',start:left,end:left+windowSize})};
+ const zoomWindow=(direction:number)=>{const {start,end}=viewport.current,mid=(start+end)/2;const width=Math.max(8,Math.min(100,(end-start)*(direction>0?.7:1.4)));const left=Math.max(0,Math.min(100-width,mid-width/2));inst.current?.dispatchAction({type:'dataZoom',start:left,end:left+width})};
  useEffect(()=>{
-  let alive=true;let resize:ResizeObserver|undefined;
-  (async()=>{
-   try{
-    const echarts=await (window as ChartWindow).CrownlightECharts?.load();
-    if(!alive||!ref.current||!echarts)return;
-    const style=getComputedStyle(ref.current.closest('.cx-theme-green,.cx-theme-aurora,.cx-theme-quantum,.cx-theme-neon,.cx-theme-ember,.cx-theme-onyx')||ref.current);
-    const cv=(k:string,fallback:string)=>style.getPropertyValue(k).trim()||fallback;
-    const accent=cv('--cx-accent','#72e0d1'),good=cv('--cx-good','#46d5ad'),bad=cv('--cx-bad','#f27d98'),muted=cv('--cx-muted','#99aebe'),grid=cv('--cx-grid','#294452');
-    const bars=dataFor(reveal),names=bars.map(b=>b.time);
-    const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
-    let option:any={animationDuration:280,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#102131',borderColor:grid,textStyle:{color:'#edf7ff'},axisPointer:{type:'cross'}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
-    if(kind==='price'){
-      option.grid=showVolume?[{left:48,right:16,top:16,height:'65%'},{left:48,right:16,top:'82%',height:'12%'}]:{left:48,right:16,top:16,bottom:36};
-      option.xAxis=showVolume?[{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:10,interval:Math.max(0,Math.floor(reveal/8))}},{type:'category',data:names,gridIndex:1,axisLabel:{show:false},axisLine:{show:false},axisTick:{show:false}}]:option.xAxis;
-      option.yAxis=showVolume?[{type:'value',scale:true,...axis},{type:'value',gridIndex:1,splitLine:{show:false},axisLabel:{show:false},axisLine:{show:false}}]:{type:'value',scale:true,...axis};
-      option.dataZoom=[{type:'inside',xAxisIndex:showVolume?[0,1]:[0],start:0,end:100}];
-      option.series=[{type:'candlestick',name:'Fictional candles',data:bars.map(b=>[b.o,b.c,b.l,b.h]),itemStyle:{color:good,color0:bad,borderColor:good,borderColor0:bad},barWidth:'64%',markPoint:focusBar>=0&&focusBar<bars.length?{symbol:'circle',symbolSize:7,itemStyle:{color:accent},data:[{coord:[focusBar,bars[focusBar].h],value:''}]}:undefined}];
-      if(showEma)option.series.push({type:'line',name:'EMA 9',data:bars.map(b=>b.ema9),showSymbol:false,smooth:true,lineStyle:{color:accent,width:2}},{type:'line',name:'EMA 20',data:bars.map(b=>b.ema20),showSymbol:false,smooth:true,lineStyle:{color:'#e4b76b',width:1.6}});
-      if(showProxy)option.series.push({type:'line',name:'OHLCV VWAP proxy',data:bars.map(b=>b.proxy),showSymbol:false,lineStyle:{color:'#879cff',type:'dashed',width:2}});
-      if(showVolume)option.series.push({name:'Volume',type:'bar',xAxisIndex:1,yAxisIndex:1,barWidth:'70%',data:bars.map(b=>({value:b.v,itemStyle:{color:b.c>=b.o?good:bad,opacity:.55}}))});
-    }else if(kind==='heat'){
-      const rows=['Price response','Volume','VWAP proxy','Trend','Momentum','Recognition'];
-      const blocks=Array.from({length:12*6},(_,k)=>[k%12,Math.floor(k/12),Math.round(40+55*Math.abs(Math.sin(k*.37+reveal*.04)))]);
-      option={...option,tooltip:{position:'top'},visualMap:{show:false,min:0,max:100,inRange:{color:['#203141',accent,'#eedb88']}},grid:{left:90,right:12,top:12,bottom:33},xAxis:{type:'category',data:Array.from({length:12},(_,i)=>'T'+(i+1)),...axis,splitArea:{show:false}},yAxis:{type:'category',data:rows,...axis},series:[{type:'heatmap',data:blocks,label:{show:false},itemStyle:{borderColor:'#0c1723',borderWidth:3}}]};
-    }else if(kind==='radar'){
-      option={...option,tooltip:{show:true},radar:{indicator:[{name:'Knowledge',max:100},{name:'Recognition',max:100},{name:'Decision',max:100},{name:'Process',max:100},{name:'Review',max:100}],splitLine:{lineStyle:{color:grid}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:grid}},axisName:{color:muted}},series:[{type:'radar',data:[{value:[84,71,67,88,76],name:'Fictional learning record',areaStyle:{color:accent,opacity:.17},lineStyle:{color:accent,width:2},symbol:'circle'}]}]};
-    }else if(kind==='equity'){
-      const values=Array.from({length:30},(_,i)=>n(10000+i*17+Math.sin(i*.65)*120+Math.cos(i*.2)*170));
-      option={...option,xAxis:{type:'category',data:values.map((_,i)=>String(i+1)),...axis},series:[{type:'line',name:'Fictional practice equity',data:values,smooth:.24,showSymbol:false,lineStyle:{color:accent,width:3},areaStyle:{opacity:.16,color:accent}}]};
-    }else if(kind==='volume'){
-      option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative bar volume',data:bars.map(b=>({value:b.v,itemStyle:{color:b.c>=b.o?good:bad,opacity:.8}}))}]};
+  let alive=true,resize:ResizeObserver|undefined;
+  (async()=>{try{
+   const echarts=await (window as ChartWindow).CrownlightECharts?.load();
+   if(!alive||!ref.current||!echarts)return;
+   const style=getComputedStyle(ref.current.closest('.cx-theme-green,.cx-theme-aurora,.cx-theme-quantum,.cx-theme-neon,.cx-theme-ember,.cx-theme-onyx')||ref.current);
+   const cv=(k:string,fallback:string)=>style.getPropertyValue(k).trim()||fallback;
+   const accent=cv('--cx-accent','#72e0d1'),good=cv('--cx-good','#46d5ad'),bad=cv('--cx-bad','#f27d98'),muted=cv('--cx-muted','#99aebe'),grid=cv('--cx-grid','#294452');
+   const bars=dataFor(reveal),names=bars.map(b=>b.time);
+   const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
+   let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#102131',borderColor:grid,textStyle:{color:'#edf7ff'},axisPointer:{type:'cross'}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
+   if(kind==='price'){
+    const math=(window as any).CrownlightPrototypeIndicators;
+    const calculated=math?.compute?.(bars,settings||defaults,currentEnabled);
+    if(!calculated)throw Error('Shared math library unavailable');
+    const volumePane=calculated.volume.length>0;
+    const panes:string[]=calculated.panes;
+    const gridRows=[{id:'price',height:Math.max(185,actualHeight-65-(volumePane?95:0)-panes.length*120)}];
+    if(volumePane)gridRows.push({id:'volume',height:81});
+    for(const id of panes)gridRows.push({id,height:105});
+    let top=18;
+    option.grid=gridRows.map((x)=>{const out={left:55,right:22,top,height:x.height};top+=x.height+19;return out});
+    option.xAxis=gridRows.map((x,i)=>({type:'category',gridIndex:i,data:names,boundaryGap:true,...axis,
+      axisLabel:{show:i===gridRows.length-1,color:muted,fontSize:10,interval:Math.max(0,Math.floor(reveal/10))}}));
+    option.yAxis=gridRows.map((x,i)=>({type:'value',gridIndex:i,scale:x.id!=='rsi',min:x.id==='rsi'?0:undefined,max:x.id==='rsi'?100:undefined,...axis,
+      axisLabel:{color:muted,fontSize:10,formatter:(v:number)=>Number(v).toFixed(x.id==='rsi'?0:2)},splitNumber:3}));
+    const xIndexes=gridRows.map((_,i)=>i);
+    const {start,end}=viewport.current;
+    option.dataZoom=[
+      {id:'drag-pan',type:'inside',xAxisIndex:xIndexes,start,end,moveOnMouseMove:true,zoomOnMouseWheel:'ctrl',moveOnMouseWheel:false,preventDefaultMouseMove:true,filterMode:'none'},
+      {id:'range',type:'slider',xAxisIndex:xIndexes,start,end,bottom:0,height:13,brushSelect:false,
+       fillerColor:'rgba(95,204,190,.23)',borderColor:grid,backgroundColor:'#0a1c2a',handleStyle:{color:accent},textStyle:{color:muted},filterMode:'none'}
+    ];
+    option.axisPointer={link:[{xAxisIndex:'all'}],label:{backgroundColor:'#183242'}};
+    const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:27,label:{color:'#06131e',fontWeight:700,fontSize:10}}))];
+    if(focusBar>=0&&focusBar<bars.length)markerData.push({name:'Selected bar',coord:[focusBar,bars[focusBar].h],symbol:'circle',symbolSize:7,value:'',label:{show:false}});
+    option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>[b.o,b.c,b.l,b.h]),
+      itemStyle:{color:good,color0:bad,borderColor:good,borderColor0:bad},barMaxWidth:18,
+      markPoint:{silent:true,data:markerData}}];
+    for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:x.data,showSymbol:false,connectNulls:false,animation:false,
+       lineStyle:{color:x.color,width:x.width,type:x.label.includes('proxy')?'dashed':'solid'},itemStyle:{color:x.color},symbol:'none'});
+    for(const x of calculated.volume){
+      const index=gridRows.findIndex(x=>x.id==='volume');if(index<0)continue;
+      option.series.push({id:'volume-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
+       data:x.kind==='bar'?x.data.map((v:number,i:number)=>({value:v,itemStyle:{color:bars[i].c>=bars[i].o?good:bad,opacity:.65}})):x.data,
+       showSymbol:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2},barMaxWidth:17,animation:false});
     }
-    inst.current=echarts.init(ref.current);
-    inst.current.setOption(option,true);
-    if(kind==='price')inst.current.on('click',(p:any)=>{if(typeof p.dataIndex==='number')onSelectRef.current?.(p.dataIndex)});
-    resize=new ResizeObserver(()=>inst.current?.resize());resize.observe(ref.current);
-   }catch(e){if(ref.current)ref.current.textContent='Chart unavailable: local ECharts bundle could not initialize.'}
+    for(const x of calculated.pane){
+     const index=gridRows.findIndex(g=>g.id===x.axis);if(index<0)continue;
+     const series:any={id:'pane-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
+       data:x.data,showSymbol:false,animation:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2},connectNulls:false};
+     if(x.axis==='rsi'&&x.label.startsWith('Wilder'))series.markLine={silent:true,symbol:'none',lineStyle:{type:'dashed',color:grid},data:[{yAxis:30},{yAxis:70}]};
+     option.series.push(series);
+    }
+   }else if(kind==='heat'){
+    const rows=['Price response','Volume','VWAP proxy','Trend','Momentum','Recognition'];
+    const blocks=Array.from({length:12*6},(_,k)=>[k%12,Math.floor(k/12),Math.round(40+55*Math.abs(Math.sin(k*.37+reveal*.04)))]);
+    option={...option,tooltip:{position:'top'},visualMap:{show:false,min:0,max:100,inRange:{color:['#203141',accent,'#eedb88']}},grid:{left:90,right:12,top:12,bottom:33},
+      xAxis:{type:'category',data:Array.from({length:12},(_,i)=>'T'+(i+1)),...axis,splitArea:{show:false}},yAxis:{type:'category',data:rows,...axis},
+      series:[{type:'heatmap',data:blocks,label:{show:false},itemStyle:{borderColor:'#0c1723',borderWidth:3}}]};
+   }else if(kind==='radar'){
+    option={...option,tooltip:{show:true},radar:{indicator:[{name:'Knowledge',max:100},{name:'Recognition',max:100},{name:'Decision',max:100},{name:'Process',max:100},{name:'Review',max:100}],
+      splitLine:{lineStyle:{color:grid}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:grid}},axisName:{color:muted}},
+      series:[{type:'radar',data:[{value:[84,71,67,88,76],name:'Fictional learning record',areaStyle:{color:accent,opacity:.17},lineStyle:{color:accent,width:2},symbol:'circle'}]}]};
+   }else if(kind==='equity'){
+    const values=Array.from({length:30},(_,i)=>n(10000+i*17+Math.sin(i*.65)*120+Math.cos(i*.2)*170));
+    option={...option,xAxis:{type:'category',data:values.map((_,i)=>String(i+1)),...axis},
+      series:[{type:'line',name:'Fictional practice equity',data:values,smooth:.24,showSymbol:false,lineStyle:{color:accent,width:3},areaStyle:{opacity:.16,color:accent}}]};
+   }else if(kind==='volume'){
+    option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative volume',data:bars.map(b=>({value:b.v,itemStyle:{color:b.c>=b.o?good:bad,opacity:.8}}))}]};
+   }
+   inst.current=echarts.init(ref.current);
+   inst.current.setOption(option,true);
+   if(kind==='price'){
+    inst.current.on('datazoom',()=>{
+      if(!inst.current)return;
+      const state=inst.current.getOption()?.dataZoom?.[0];
+      if(state&&Number.isFinite(state.start)&&Number.isFinite(state.end))viewport.current={start:state.start,end:state.end};
+    });
+    inst.current.on('click',(p:any)=>{if(typeof p.dataIndex==='number')onSelectRef.current?.(p.dataIndex)});
+   }
+   resize=new ResizeObserver(()=>inst.current?.resize());resize.observe(ref.current);
+  }catch(error){if(ref.current)ref.current.textContent='Chart unavailable: check the locally hosted ECharts and shared indicator math bundles.';console.error('Crownlight synthetic chart',error)}
   })();
   return()=>{alive=false;resize?.disconnect();inst.current?.dispose();inst.current=null};
- },[kind,reveal,showVolume,showEma,showProxy,focusBar,design]);
- return <div ref={ref} className="cx-chart" style={{height}} role="img" aria-label={kind==='price'?'Interactive synthetic OHLC candlesticks, optional moving averages, OHLCV proxy and bar volume':kind+' fictional visualization'}/>;
+ },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight]);
+ return <div className="cx-interactive-chart">
+ {kind==='price'&&<div className="cx-pan-controls" role="toolbar" aria-label="Chart navigation and panning">
+    <span>DRAG INSIDE CHART TO PAN · CTRL + WHEEL TO ZOOM · RANGE SLIDER TO NAVIGATE</span>
+    <button aria-label="Pan chart left" onClick={()=>moveWindow(-1)}>← Pan</button>
+    <button aria-label="Pan chart right" onClick={()=>moveWindow(1)}>Pan →</button>
+    <button aria-label="Zoom chart in" onClick={()=>zoomWindow(1)}>Zoom +</button>
+    <button aria-label="Zoom chart out" onClick={()=>zoomWindow(-1)}>Zoom −</button>
+    <button aria-label="Fit all revealed candles" onClick={resetViewport}>Fit</button>
+   </div>}
+ <div ref={ref} className={'cx-chart '+(kind==='price'?'cx-chart-grabbable':'')} style={{height:actualHeight}}
+   role="img" aria-label={kind==='price'?'Draggable synthetic OHLCV candlestick chart. Mouse drag pans the completed bars, Control plus wheel zooms; keyboard-accessible pan and zoom buttons appear above.':kind+' fictional visualization'}/>
+ </div>;
 }
+
 const Icon=({type}:{type:string})=><span aria-hidden="true" className="cx-glyph">{type}</span>;
 function Talia({topic,step}:{topic:Topic;step:number}){
  const vwap=['Volume Weighted Average Price weights each traded price by its associated share volume.','For 100 shares at $10 and 300 at $11: ($1,000 + $3,300) / 400 = $10.75.','A bar-level typical-price × volume line is only a proxy, not trade-print VWAP.','Above or below VWAP is context—not a prediction or trading signal.'];
