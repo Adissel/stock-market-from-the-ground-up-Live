@@ -50,7 +50,12 @@ for(const [id,m] of Object.entries(labs.byLab)){
  assert.deepEqual(Array.from(row.relatedCompetencies),Array.from(m.relatedCompetencies));
  const concepts=[];
  for(const key of tags){
-  assert(Array.isArray(row.tabs[key])&&row.tabs[key].length>=3);
+  assert(Array.isArray(row.tabs[key])&&row.tabs[key].length>=1,id+' '+key+' must retain an original instructional facet');
+  assert(row.tabs[key].every(text=>typeof text==='string'&&text.trim().length>=15),
+   id+' '+key+' must contain substantive source-grounded instruction');
+  if(row.instructionSource!=='ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101')
+   assert(row.tabs[key].length>=3,id+' '+key+' older source contract requires three explanatory paragraphs');
+  // New concise editorial-batch source requires individual acceptance, not automatic approval.
   const detail=api.get({type:'general',feature:key,concept:row.title,
    labId:id,bridge:row,guide:guides.get(row.mappedGuideCode)});
   assert(detail.script.includes(row.title),id+' '+key);
