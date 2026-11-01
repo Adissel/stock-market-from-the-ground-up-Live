@@ -22,12 +22,14 @@ const fetchJson=async url=>{
  return response.json();
 };
 async function catalog(){
- const [labs,skills,indicators,academy,bridges]=await Promise.all([
+ const [labs,skills,indicators,academy,bridges,academyEvidence,freeEvidence]=await Promise.all([
   fetchJson('/data/competency-lab-paths-v01499.json'),
   fetchJson('/data/competency-study-guides-v01499.json'),
   fetchJson('/data/tutor-indicator-study-v1.json'),
   fetchJson('/api/bootcamp-academy?action=catalog'),
-  fetchJson('/data/lab-teaching-bridges-v014168.json')
+  fetchJson('/data/lab-teaching-bridges-v014168.json'),
+  fetchJson('/data/academy-specific-source-instruction-v1.json'),
+  fetchJson('/data/free-foundations-evidence-v1.json')
  ]);
  const computed=window.CrownlightPrototypeIndicators?.specs;
  if(labs?.totalCanonicalLabs!==419||Object.keys(labs.byLab||{}).length!==419||
@@ -37,6 +39,12 @@ async function catalog(){
    bridges.independentGradesIncluded!==false||bridges.historicalBarDataIncluded!==false||
    Object.keys(bridges.entries||{}).length!==419||
    Object.keys(labs.byLab).some(id=>bridges.entries[id]?.labId!==id)||
+   academyEvidence?.canonicalUnitCount!==3||academyEvidence.records?.length!==3||
+   freeEvidence?.records?.length!==5||academyEvidence.records.some(row=>
+     !['watchlist7','scanners10'].includes(row.programCode)||row.fictional!==true||
+     !Number.isInteger(row.day)||!row.objective||!row.worked||!row.transfer)||
+   freeEvidence.records.some(row=>!Number.isInteger(row.day)||row.day<1||row.day>5||
+     !row.objective||!row.worked||!row.transfer)||
    academy?.ok!==true||!Array.isArray(academy.programs)||
    academy.programs.length<7||academy.programs.length>11||
    !Array.isArray(computed)||computed.length!==15){
@@ -48,6 +56,25 @@ async function catalog(){
    throw Error('Duplicate learning catalogue identifiers');
  }
  const guideByCode=new Map(skills.guides.map(g=>[g.code,g]));
+ const academyCases=code=>academyEvidence.records.filter(row=>row.programCode===code).map(row=>({...row,kind:'advanced_source_evidence'}));
+ const freeCases=freeEvidence.records.map(row=>({...row,kind:'free_foundations_evidence'}));
+ const academyRows=academy.programs.map(p=>({
+   key:p.code,title:p.name||p.title||p.code,summary:String(p.days)+' study days',
+   body:[['Program code',p.code],['Learning days',p.days],
+     ['Description',p.description||p.summary||'Program catalog metadata only'],
+     ['Published route',p.route||'/bootcamp-academy.html?program='+encodeURIComponent(p.code)]],
+   examples:academyCases(p.code)
+ }));
+ // Free Foundations has a separate verified public evidence register and its
+ // own server entitlement. Do not fabricate it inside the Academy catalog API.
+ academyRows.unshift({
+   key:'free5',title:'Free Foundations — five introductory lessons',
+   summary:'5 source-documented ungraded lessons · actual Free enrollment remains protected',
+   body:[['Program code','free5'],['Learning days',5],
+     ['Evidence status',freeEvidence.status||'Public source register; official grading not inferred'],
+     ['Member route','/bootcamp-academy.html?program=free5']],
+   examples:freeCases
+ });
  return {
   labs:Object.entries(labs.byLab).map(([id,row])=>({
    key:id,title:row.title||id,summary:row.bookCode||'Ungraded teaching bridge',
@@ -56,10 +83,7 @@ async function catalog(){
    guide:(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)).filter(Boolean).slice(0,2),
    bridge:bridges.entries[id]
   })),
-  academy:academy.programs.map(p=>({
-   key:p.code,title:p.name||p.title||p.code,summary:String(p.days)+' study days',
-   body:[['Program code',p.code],['Learning days',p.days],['Description',p.description||p.summary||'Program catalog metadata only'],['Published route',p.route||'/bootcamp-academy.html?program='+encodeURIComponent(p.code)]]
-  })),
+  academy:academyRows,
   guides:indicators.guides.map(g=>({
    key:g.code,title:g.title||g.code,summary:g.family||'Authored research brief',
    body:[['Concept',g.concept],['Formula',g.formula],['Learning procedure',g.procedure],
@@ -77,7 +101,7 @@ function render(){
  out.replaceChildren();
  const intro=h('p','Read-only inspection of CURRENT public learning metadata. This is not a member login, teaching transcript, grade or entitlement.','pt-parity-note');
  out.append(intro);
- const totals=h('p','419 canonical Lab pathways · '+snapshot.academy.length+' currently listed Academy paths · 30 competency guides · 61 original indicator briefs · 15 computed studies','pt-parity-totals');
+ const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 15 computed studies','pt-parity-totals');
  out.append(totals);
  const controls=h('div',undefined,'pt-parity-controls');
  const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');
@@ -113,7 +137,30 @@ function render(){
    }
    inspector.append(h('p','These public competency summaries are provisional. Independent official assessment, historical data provenance and protected answer keys are NOT loaded.','pt-parity-note'));
   }
-  if(tab==='academy')inspector.append(h('p','Actual enrollment, stage progress, access and protected course assessments remain owned by the live Academy service.','pt-parity-note'));
+  if(tab==='academy'){
+   inspector.append(h('h4','Actual documented instructional-day examples'));
+   const cases=item.examples||[];
+   if(cases.length===0){
+    inspector.append(h('p','No individually source-documented instructional-day example is available in these two published evidence registers. Course presence and day count do not establish independent advanced-depth review.','pt-parity-note'));
+   }
+   for(const lesson of cases){
+    const section=h('details');section.className='pt-parity-lesson';
+    const summary=h('summary','Day '+lesson.day+' · '+lesson.title);section.append(summary);
+    for(const [label,value] of [
+      ['Learning objective',lesson.objective],
+      ['Source-supported claim',lesson.claim],
+      ['Worked fictional example',lesson.worked],
+      ['Calculation or research procedure',lesson.calculation],
+      ['Common misconception / counterexample',lesson.counterexample],
+      ['Independent transfer task',lesson.transfer],
+      ['Limitation',lesson.limit]
+    ])appendLine(section,label+':',value);
+    appendLine(section,'Editorial/evidence classification:',lesson.reviewStatus||lesson.claimStatus||'Published source-evidence record; no official grade');
+    section.append(h('p','FICTIONAL / UNGRADED · no completion, reward or member progress is recorded.','pt-parity-note'));
+    inspector.append(section);
+   }
+   inspector.append(h('p','Actual enrollment, study progress, entitlement and protected course assessments remain owned by the live Academy service. Source-linked examples are not individual official editorial approvals.','pt-parity-note'));
+  }
   if(tab==='guides')inspector.append(h('p','A research brief does not imply a supported computed overlay, a graded Lab, or independently verified trade-print data.','pt-parity-note'));
   for(const button of list.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.key===item.key));
  };
