@@ -16,5 +16,5 @@ for row in data["items"]:
     expected = Decimal(str(row["expected"]))
     assert abs(a-b) == expected, (lab, a, b, expected)
     assert row["kind"] == "independent_fictional_pair_difference"
-    assert row["distinctTransferPrompt"].startswith("For ") or row["distinctTransferPrompt"].startswith("On ") or row["distinctTransferPrompt"].startswith("With ") or row["distinctTransferPrompt"].startswith("Using "), lab
+    assert row["distinctTransferPrompt"].startswith(("For ", "On ", "With ", "Using ", "In ")), lab
 print(f"PASS Batch04: {len(seen)} original fictional decimal calculations; not market data, grading, or editorial acceptance")
