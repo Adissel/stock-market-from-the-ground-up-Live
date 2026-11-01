@@ -68,3 +68,21 @@ test('Authorized member Lab integration and no premature independent-case answer
  assert.match(lab,/GroundUpLearningIndicatorsV1\?\.select/);
  assert(html.indexOf('learning-indicators-v1.js')<html.indexOf('lab-engine-v32-universal.js'));
 });
+
+test('Reject non-finite derived indicator results even from finite inputs',()=>{
+ // Every input passes the existing finite-input checks; arithmetic must
+ // nevertheless fail closed rather than exposing Infinity/NaN to a learner.
+ assert.equal(m.ema([1e308,1e308,1e308],2),null);
+ assert.equal(m.rsi([1,1e308,1,1e308,1,1e308,1],5),null);
+ assert.equal(m.macd(Array(8).fill(1e308),3,5,3),null);
+ const hugeBars=Array.from({length:3},()=>({h:1e308,l:1,c:1e308}));
+ assert.equal(m.atr(hugeBars,2),null);
+ assert.equal(m.bollinger([1e308,1e308,1e308],2,2),null);
+ assert.equal(m.bollinger([1e155,2e155,3e155],2,2),null);
+ // Supported realistic fictional cases must retain finite, independently
+ // checkable output and never cause a hidden grade or member-data write.
+ for(const [id,def] of Object.entries(m.definitions)){
+  const r=m.calculate(id,def.initial);
+  assert(r&&r.values.every(Number.isFinite),id+' still produces finite worked evidence');
+ }
+});
