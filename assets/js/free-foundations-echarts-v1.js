@@ -95,7 +95,7 @@
      silent:true,barWidth:22,barGap:'-100%',
      itemStyle:{color:'rgba(141,180,197,.25)',borderRadius:5}},
     {type:'bar',name:'Saved',data:values.map(x=>x.saved),
-     barWidth:22,itemStyle:{color:'#66d8bd',borderRadius:5},
+     barWidth:22,barGap:'-100%',itemStyle:{color:'#66d8bd',borderRadius:5},
      label:{show:true,position:'right',color:'#eff9fb',fontWeight:700,
       formatter:p=>p.value?String(p.value):''}}
    ]
