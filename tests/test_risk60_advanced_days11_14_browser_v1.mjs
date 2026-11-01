@@ -8,7 +8,7 @@ const origin=(process.env.SITEWIDE_TEST_BASE||'http://127.0.0.1:8765').replace(/
 assert(/^http:\/\/127\.0\.0\.1:\d+$/.test(origin),'Local fixture only');
 const course=academyByCode.risk60;
 assert.equal(course.curriculum.length,60);
-for(const index of [10,13,14,17]){
+for(const index of [10,13,14,17,18,19]){
  const d=course.curriculum[index];
  assert.equal(d.lesson.formativeQuestions.length,12);
  assert.equal(d.lesson.advancedPracticums.length,1);
@@ -40,7 +40,7 @@ try{
   });
   await page.goto(origin+'/bootcamp-academy.html?program=risk60',{waitUntil:'domcontentloaded'});
   await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
-  for(const index of [10,13,14,17]){
+  for(const index of [10,13,14,17,18,19]){
    await page.locator('#academy-days .gu-bc-day').nth(index).click();
    const host=page.locator('#academy-guided-host .academy-guided-ten');
    await host.waitFor({state:'visible'});
@@ -49,8 +49,8 @@ try{
    const sizing=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
    assert(sizing<=4,'No horizontal body overflow at '+width+'px, Risk60 D'+(index+1));
   }
-  assert.deepEqual(errors,[],'No browser JS error for Risk60 D11/D14/D15/D18');
+  assert.deepEqual(errors,[],'No browser JS error for Risk60 D11/D14/D15/D18/D19/D20');
   await ctx.close();
  }
- console.log('PASS SYNTHETIC Risk60 D11/D14/D15/D18 advanced guided day routes and responsive mobile/tablet/desktop. Not real Beta member acceptance.');
+ console.log('PASS SYNTHETIC Risk60 D11/D14/D15/D18/D19/D20 advanced guided day routes and responsive mobile/tablet/desktop. Not real Beta member acceptance.');
 }finally{await browser.close()}
