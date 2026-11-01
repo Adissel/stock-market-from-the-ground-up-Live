@@ -4,6 +4,12 @@ const out=(x,s=200)=>new Response(JSON.stringify(x),{status:s,headers:h});
 const bad=(m,s)=>Object.assign(new Error(m),{status:s});
 const versions={learning:['LEARNING_V33_FREEZE_20261101','LEARNING_V33_CURRENT'],lab:['LAB_V32_FREEZE_20261101','LAB_V32_CURRENT'],tutor:['TALIA_FREEZE_20261101','TALIA_CURRENT']};
 const fallback=code=>Object.fromEntries(Object.entries(versions).map(([k,v])=>[k,['FREE','PICK_WHAT_YOU_WANT'].includes(code)?v[0]:v[1]]));
+const tutorDefault=code=>({
+ FREE:'FOUNDATION',PICK_WHAT_YOU_WANT:'FOUNDATION',FOUNDING_14:'FOUNDATION',
+ FOUNDING_30:'ADVANCED',FOUNDING_60:'PROFESSIONAL',FULL_MONTHLY:'PROFESSIONAL',
+ LIFETIME:'ENTERPRISE',ONDEMAND_MONTHLY:'PRODUCT_DEPENDENT'
+})[code]||'UNASSIGNED';
+const editions=['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE','PRODUCT_DEPENDENT'];
 async function read(url,headers){const r=await fetch(url,{headers,cache:'no-store'}),j=await r.json().catch(()=>null);if(!r.ok)throw bad('Membership version service unavailable',503);return j}
 export async function onRequest({request,env}){try{
  if(request.method!=='GET')return out({ok:false,error:'Method not allowed'},405);
@@ -33,6 +39,18 @@ export async function onRequest({request,env}){try{
  const plans=await read(base+'/rest/v1/platform_plans?select=plan_code,metadata&plan_code=eq.'+encodeURIComponent(planCode)+'&limit=1',dbHeaders);
  const stored=plans[0]?.metadata?.learning_engines_v1,selected=fallback(planCode);
  for(const key of Object.keys(versions))if(versions[key].includes(stored?.[key]))selected[key]=stored[key];
- return out({ok:true,planCode,versions:selected,source:stored?'owner_assignment':'safe_default',
+ const savedEdition=plans[0]?.metadata?.talia_market_tutor_v1?.tier;
+ const configuredEdition=editions.includes(savedEdition)?savedEdition:tutorDefault(planCode);
+ // Higher-tier Talia functionality has not cleared production acceptance. Do
+ // not interpret the plan's target edition as operational access or an AI grant.
+ const effectiveEdition='FOUNDATION';
+ return out({ok:true,planCode,versions:selected,
+  tutorEdition:{configured:configuredEdition,effective:effectiveEdition,
+   releaseStatus:configuredEdition==='FOUNDATION'?'foundation_source_only':
+    configuredEdition==='UNASSIGNED'?'not_assigned':
+    configuredEdition==='PRODUCT_DEPENDENT'?'verified_product_required':'premium_edition_not_released',
+   featuresReleased:['source_grounded_teaching','ungraded_practice','existing_member_lesson_context'],
+   premiumFeaturesAvailable:false},
+  source:stored?'owner_assignment':'safe_default',
   notice:'Version choice does not grant any Lab, Boot Camp, Tutor AI, grade, historical replay or other entitlement.'});
  }catch(e){return out({ok:false,error:e.message||'Version selection failed'},e.status||503)}}

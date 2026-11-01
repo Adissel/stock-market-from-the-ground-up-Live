@@ -164,7 +164,11 @@ export async function onRequest({request,env}){
   // request reservation. Invalid/cross-site attempts cannot burn member quota.
   const body=await parseTutorRequest(request);
   const auth=await toolAccess(env,request,'MARKET_TUTOR');
-  if(!auth.authorized)return reply({ok:false,error:'Active Market Tutor / Full Platform access required.'},403);
+  // A verified eligible Free/Pick/Founder14 member receives the shared
+  // source-grounded Foundation Tutor. Premium tool access remains independently
+  // required for provider inference, beyond the universal free teaching actions.
+  if(!auth.authorized&&!auth.freeEligible)
+   return reply({ok:false,error:'An eligible member account is required.'},403);
   if(body.conversationId&&!await ownedConversation(env,auth.userId,body.conversationId))
    return reply({ok:false,error:'This Tutor conversation is unavailable to the signed-in member.'},404);
   const throttle=await tutorRequestLimit(env,auth.userId);
@@ -265,7 +269,7 @@ export async function onRequest({request,env}){
    const model=deepSourceOnly?{text:null,reason:'source_only_deep_teaching'}:
     guide.masterStudy===true?{text:null,reason:'original_market_study_source_only'}:
     guide.decisionPlaybook===true?{text:null,reason:'decision_playbook_source_only'}:
-    await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,reference,answer,auth.aiOptedIn);
+    auth.authorized===true?await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,reference,answer,auth.aiOptedIn):{text:null,reason:'foundation_source_only'};
    return finish({ok:true,generation:model.text?'grounded-model-draft':'original-competency-guide',
     answer:model.text||answerFromGuide(guide,mode,answer,q),aiReason:model.reason,
     remainingAiToday:model.remainingMemberToday??null,
@@ -283,7 +287,7 @@ export async function onRequest({request,env}){
     links:{labs:'/labs.html',journal:'/journal.html',skills:'/skills.html',simulator:'/simulator.html'}});
   }
   const baseline=deterministic(q,mode,sources,answer);
-  const model=await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,source,answer,auth.aiOptedIn);
+  const model=auth.authorized===true?await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,source,answer,auth.aiOptedIn):{text:null,reason:'foundation_source_only'};
   const generation=model.text?'grounded-model-draft':'reviewed-glossary-logic';
   return finish({ok:true,generation,answer:model.text||baseline,sources,
    aiReason:model.reason,remainingAiToday:model.remainingMemberToday??null,
@@ -291,5 +295,5 @@ export async function onRequest({request,env}){
    sourceLimit:'Public companion-glossary context only. Historical datasets and Lab grading are independent.',
    notice:generation==='grounded-model-draft'?'AI-generated educational draft. Check source references before relying on an explanation.':'Source-grounded companion teaching; not generative AI and not a verified assessment.',
    links:{labs:'/labs.html',journal:'/journal.html',skills:'/skills.html',simulator:'/simulator.html'}});
- }catch(e){return reply({ok:false,error:e.status===413?'Request too large.':e.status===401?'Sign in to use the premium Tutor.':e.status===403?'Market Tutor entitlement required.':e.status===415?'Tutor requests require JSON content.':e.status===400?'Invalid Tutor request.':'Tutor is temporarily unavailable.'},[400,401,403,405,413,415,429].includes(e.status)?e.status:503)}
+ }catch(e){return reply({ok:false,error:e.status===413?'Request too large.':e.status===401?'Sign in to use the Market Tutor.':e.status===403?'Market Tutor entitlement required.':e.status===415?'Tutor requests require JSON content.':e.status===400?'Invalid Tutor request.':'Tutor is temporarily unavailable.'},[400,401,403,405,413,415,429].includes(e.status)?e.status:503)}
 }

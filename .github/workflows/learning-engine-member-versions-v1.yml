@@ -9,6 +9,10 @@ on:
       - 'assets/js/admin-learning-engine-versions-v1.js'
       - 'functions/api/admin-learning-engine-versions.js'
       - 'functions/api/member-learning-engine-versions.js'
+      - 'functions/api/market-tutor-v01492.js'
+      - 'tests/talia-membership-editions-v1.test.mjs'
+      - 'tests/talia-member-foundation-server-v1.test.mjs'
+      - 'supabase/migrations/20261101_talia_membership_editions_v1.sql'
       - 'supabase/migrations/20261101_membership_learning_engine_versions_v1.sql'
       - 'tests/learning-engine-member-versions-v1.test.mjs'
       - 'tests/learning-engine-member-versions-api-v1.test.mjs'
@@ -28,8 +32,9 @@ jobs:
         run: |
           node --check functions/api/admin-learning-engine-versions.js
           node --check functions/api/member-learning-engine-versions.js
+          node --check functions/api/market-tutor-v01492.js
           node --check assets/js/admin-learning-engine-versions-v1.js
           node --check assets/js/member-learning-engine-versions-v1.js
           node --check assets/js/member-tutor-version-loader-v1.js
       - name: Contracts
-        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs
+        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs tests/talia-membership-editions-v1.test.mjs

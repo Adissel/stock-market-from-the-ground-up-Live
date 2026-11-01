@@ -64,6 +64,24 @@ async function load(){
  finally{working=false}
 }
 document.addEventListener('click',async ev=>{
+ const tutorButton=ev.target.closest?.('[data-talia-save]');
+ const node=root();
+ if(tutorButton&&node&&node.contains(tutorButton)){
+  if(active)return;
+  const row=tutorButton.closest('[data-engine-plan]');
+  const planCode=tutorButton.dataset.taliaSave;
+  const edition=row?.querySelector('[data-talia-edition]')?.value;
+  if(!edition||edition==='UNASSIGNED'){status('Select a released or planned edition before saving.',true);return}
+  if(!confirm('Assign Talia Market Tutor '+edition+' to '+planCode+'? This stores the membership edition but does not activate unfinished capabilities, charge anyone, or change existing member rights.'))return;
+  active=true;tutorButton.disabled=true;status('Saving Tutor membership edition…');
+  try{
+   const result=await call({action:'setTutorEdition',planCode,tutorEdition:edition,
+    tutorEditionRevision:Number(tutorButton.dataset.revision)});
+   await load();status(result.notice||'Talia edition saved.');
+  }catch(e){status(e.message,true)}
+  finally{active=false;tutorButton.disabled=false}
+  return;
+ }
  const button=ev.target.closest?.('[data-engine-save]'),node=root();
  if(!button||!node||!node.contains(button)||active)return;
  const row=button.closest('[data-engine-plan]'),planCode=button.dataset.engineSave;
