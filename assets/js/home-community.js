@@ -34,7 +34,7 @@
     animation:!quiet,animationDuration:650,backgroundColor:'transparent',
     aria:{enabled:true,description:host.getAttribute('aria-label')},
     tooltip:{show:false},
-    title:{text:share+'%',subtext:'LAST 60 MIN',left:'center',top:'34%',
+    title:{text:share+'%',subtext:example?'EXAMPLE DATA':'LAST 60 MIN',left:'center',top:'34%',
      textStyle:{fontSize:32,fontWeight:800,color:'#f6fbff',textShadowBlur:12,textShadowColor:'#4cd9c866'},
      subtextStyle:{fontSize:9,fontWeight:700,color:'#9ec7da'}},
     series:[
@@ -121,12 +121,14 @@
      Number(d.online)>=0&&Number(d.online)<=Number(d.registered);
    const badge=panel.querySelector('[data-mode]');
    const example=d.mode==='custom'||d.mode==='range';
-   badge.textContent=valid?'LIVE DATA':'UNAVAILABLE';
-   badge.setAttribute('aria-label',valid?(example?'LIVE DATA display; illustrative Owner-configured counts':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
+   badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE';
+   badge.setAttribute('aria-label',valid?(example?'EXAMPLE DATA; illustrative Owner-configured counts, not real members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
    panel.querySelector('[data-online]').textContent=valid?Number(d.online).toLocaleString():'—';
    panel.querySelector('[data-registered]').textContent=valid?Number(d.registered).toLocaleString():'—';
-   const caption=panel.querySelector('[data-caption]');caption.textContent='';
-   caption.hidden=true;
+   panel.querySelector('[data-online-label]').textContent=example?'Example online members':'Active members';
+   panel.querySelector('[data-registered-label]').textContent=example?'Example registered members':'Member accounts';
+   const caption=panel.querySelector('[data-caption]');caption.textContent=example?'Illustrative Owner-configured values only. These are not actual membership counts.':'';
+   caption.hidden=!example;
    renderFuture(panel,d.extras);
    if(valid)drawActivity(panel,d);
    else {const host=panel.querySelector('[data-stats-chart]');if(host)host.textContent='Live member statistics temporarily unavailable.'}
