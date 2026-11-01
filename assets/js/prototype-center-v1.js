@@ -225,12 +225,12 @@ async function plot(){
      areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'#4fcabb3b'},{offset:1,color:'#4fcabb00'}]}},
      xAxisIndex:0,yAxisIndex:0});
   }else if(state.kind==='bar'){
-   base.series.push({name:'Fictional volume',type:'bar',data:data.map(x=>x.volume),itemStyle:{color:'#5fb4ca',borderRadius:[2,2,0,0]},barMaxWidth:23});
+   base.series.push({name:'Fictional volume',type:'bar',data:data.map(x=>({value:x.volume,itemStyle:{color:x.close>=x.open?'#61f1cb':'#ff8a9d',borderRadius:[3,3,0,0]}})),barMaxWidth:23});
   }else if(isHeatmap){
    base.grid={left:85,right:38,top:24,bottom:95};
    base.xAxis={type:'category',data:labels,axisLabel:{color:'#9bb9c8'}};
    base.yAxis={type:'category',data:['Knowledge','Recognition','Decision','Process'],axisLabel:{color:'#b9ccd7'}};
-   base.visualMap={min:0,max:100,calculable:true,orient:'horizontal',bottom:28,textStyle:{color:'#e0eef7'},inRange:{color:['#173a57','#358c96','#7bcdb6']}};
+   base.visualMap={min:0,max:100,calculable:true,orient:'horizontal',bottom:28,textStyle:{color:'#e0eef7'},inRange:{color:['#17344b','#2a7699','#66dbcc','#f3d491']}};
    base.series=[{type:'heatmap',name:'Fictional competency',data:data.flatMap((x,i)=>[0,1,2,3].map(j=>[i,j,30+(i*13+j*11)%69]))}];
   }
   if(chartView.proxy&&(state.kind==='candlestick'||state.kind==='line')){
@@ -240,7 +240,7 @@ async function plot(){
   }
   if(hasVolume){
    base.series.push({name:'Fictional bar volume',type:'bar',data:data.map(c=>({
-     value:c.volume,itemStyle:{color:c.close>=c.open?'#3b8f84':'#99545e',opacity:.85}
+     value:c.volume,itemStyle:{color:c.close>=c.open?'#50dcb3':'#e77b91',borderRadius:[3,3,0,0]}
    })),xAxisIndex:1,yAxisIndex:1,barMaxWidth:25});
    base.axisPointer={link:[{xAxisIndex:[0,1]}]};
   }

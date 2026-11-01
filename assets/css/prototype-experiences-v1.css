@@ -410,3 +410,27 @@
 .cx-app.cx-theme-ember .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#1b171e,#0d1018)!important}
 .cx-app.cx-theme-aurora .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#091f2e,#071721)!important}
 .cx-app.cx-theme-onyx .cx-market-terminal .cx-chart{background:linear-gradient(180deg,#151c24,#0a0f16)!important}
+
+/* V11 — explicit drag handle, polished chart panels and product explorer. */
+.cx-app .cx-chart-grabbable{cursor:grab;user-select:none;touch-action:pan-y}
+.cx-app .cx-chart-grabbable:active{cursor:grabbing}
+.cx-app .cx-reorder-tools>span[draggable]{cursor:grab;background:#173449;color:#e4f9ff;border:1px solid #44647b;border-radius:5px;padding:6px 12px;font-weight:800}
+.cx-app .cx-reorder-tools>span[draggable]:active{cursor:grabbing}
+.cx-app .cx-market-terminal{box-shadow:0 14px 44px #0006,inset 0 1px #ffffff12;border-color:var(--cx-accent)}
+.cx-app .cx-market-terminal .cx-chart{background:radial-gradient(ellipse at 22% 5%,color-mix(in srgb,var(--cx-accent) 11%,transparent),transparent 62%),linear-gradient(180deg,#0b2434,#071421)!important}
+.cx-app .cx-kpis>div{border-top:2px solid var(--cx-accent);box-shadow:0 9px 24px #0003}
+.cx-app .cx-platform-explorer{margin:22px clamp(14px,2.5vw,35px);background:linear-gradient(145deg,#112d43,#091827 70%);border:1px solid #3b6176;border-radius:14px;overflow:hidden;box-shadow:0 20px 55px #0006}
+.cx-app .cx-platform-explorer>header{padding:22px 23px 8px}
+.cx-app .cx-platform-explorer h2{font-size:clamp(20px,2.4vw,30px);color:#effaff;margin:8px 0}
+.cx-app .cx-platform-explorer p{color:#b8cddd;font-size:12px;line-height:1.65}
+.cx-app .cx-platform-explorer nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:15px 23px}
+.cx-app .cx-platform-explorer nav button{text-align:left;border:1px solid #385971;background:#16344a;color:#e6faff;border-radius:7px;padding:13px;font-size:12px;font-weight:700}
+.cx-app .cx-platform-explorer nav button[aria-pressed=true]{border-color:var(--cx-accent);background:#245369;box-shadow:inset 0 2px var(--cx-accent)}
+.cx-app .cx-platform-preview{display:grid;grid-template-columns:1fr 1.2fr;gap:15px;border-top:1px solid #38566b;padding:20px 23px}
+.cx-app .cx-platform-preview>div{border:1px solid #355468;background:#102638;border-radius:10px;padding:18px;min-width:0}
+.cx-app .cx-platform-preview h3{font-size:21px;color:#f1fbff;margin:12px 0}
+.cx-app .cx-platform-preview strong{display:block;color:#a7f3e1;font-size:12px;margin-top:14px}
+.cx-app .cx-stepper{grid-template-columns:repeat(10,minmax(0,1fr))}
+@media(max-width:820px){.cx-app .cx-platform-explorer nav{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-app .cx-platform-preview{grid-template-columns:1fr}}
+@media(max-width:550px){.cx-app .cx-platform-explorer nav{padding:10px;gap:5px}.cx-app .cx-platform-preview{padding:10px}}
+@media(forced-colors:active){.cx-app .cx-platform-explorer nav button[aria-pressed=true]{outline:2px solid Highlight}}

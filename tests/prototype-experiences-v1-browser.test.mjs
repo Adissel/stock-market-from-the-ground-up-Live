@@ -60,7 +60,11 @@ try{
  await a.page.mouse.wheel(0,-340);
  await a.page.waitForFunction((before)=>document.querySelector('.cx-viewport-status')?.textContent!==before,wheelBefore,{timeout:10000});
  assert.notEqual(await a.page.locator('.cx-viewport-status').first().textContent(),wheelBefore,'Normal mouse wheel should zoom chart without modifier keys');
-  const beforeDrag=await a.page.locator('.cx-viewport-status').first().textContent();
+  assert.equal(await a.page.locator('.cx-reorderable[draggable]').count(),0,'Native panel drag must not capture chart gestures');
+ assert.ok(await a.page.locator('.cx-reorder-tools>span[draggable]').count()>0,'Explicit drag handles required');
+ assert.equal(await a.page.locator('.cx-stepper').first().locator('button').count(),10);
+ assert.equal(await a.page.locator('.cx-platform-explorer nav button').count(),8);
+ const beforeDrag=await a.page.locator('.cx-viewport-status').first().textContent();
  const y=rect.y+rect.height*.3;
  await a.page.mouse.move(rect.x+rect.width*.76,y);
  await a.page.mouse.down();
@@ -68,6 +72,10 @@ try{
  await a.page.mouse.up();
  await a.page.waitForFunction((before)=>document.querySelector('.cx-viewport-status')?.textContent!==before,beforeDrag,{timeout:10000});
  assert.notEqual(await a.page.locator('.cx-viewport-status').first().textContent(),beforeDrag,'Actual mouse drag must move the chart viewport');
+ const stopped=await a.page.locator('.cx-viewport-status').first().textContent();
+ await a.page.mouse.move(rect.x+rect.width*.61,y,{steps:12});
+ await a.page.waitForTimeout(200);
+ assert.equal(await a.page.locator('.cx-viewport-status').first().textContent(),stopped,'Mouse-up must stop chart pan without a second click');
   await a.page.getByLabel('Membership design preview').selectOption('FULL_ANNUAL');
  await a.page.locator('.cx-member-academy').waitFor({state:'visible'});
  assert.match(await a.page.locator('.cx-member-experience').textContent(),/Study deliberately|Long-Horizon Academy/);
