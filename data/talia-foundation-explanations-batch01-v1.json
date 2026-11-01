@@ -1,0 +1,431 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "count": 20,
+  "goal": 600,
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419,
+  "notes": "Twenty individually authored supplementary Foundation teaching topics. Not new official competencies or independently approved completed lessons. No private answers, historical trade results, purchased provider, or member records.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_NBBO_LAST_PRICE",
+      "title": "Consolidated best quotes versus last trade",
+      "concept": "The best displayed national bid and offer represent quoted interests under relevant market-data rules. A completed last-sale print records a trade, not the price guaranteed for the next order.",
+      "procedure": "Record the quote timestamp, venue/feed scope, bid and ask, trade timestamp and size separately. Do not substitute a last-sale print for a current executable quote.",
+      "workedCase": "FICTIONAL: The displayed bid is $10.00, the ask $10.06 and the last transaction was $10.02 thirty seconds earlier. The last price is not a standing offer to buy 100 shares at $10.02.",
+      "limit": "Consolidated feeds, odd lots, latency, auctions, hidden orders and market conditions can affect displayed and executable prices.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Consolidated feeds, odd lots, latency, auctions, hidden orders and market conditions can affect displayed and executable prices.",
+      "commonError": "Confusing a last traded price with a guaranteed fill price.",
+      "selfCheck": "Explain Consolidated best quotes versus last trade in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "At a later fictional timestamp the ask becomes $10.20 while the last print remains $10.02. Which number is appropriate for a new quote review?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_SPREAD_BASIS_POINTS",
+      "title": "Quoted spread in cents versus basis points",
+      "concept": "An absolute bid-ask spread is denominated in currency per share; a relative spread expresses that distance as a fraction of an explicitly named reference price.",
+      "procedure": "Compute ask minus bid for cents and divide by a stated bid or midpoint; multiply by 10,000 for basis points. Do not compare tick differences between differently priced shares as if equivalent.",
+      "workedCase": "FICTIONAL: Bid $9.98 and ask $10.02 produce a $0.04 spread. Relative to the $10.00 midpoint, the quoted spread is 40 basis points, before execution effects.",
+      "limit": "Quoted spread changes with time and feed; effective realized spread and actual transaction costs require execution data.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Quoted spread changes with time and feed; effective realized spread and actual transaction costs require execution data.",
+      "commonError": "Claiming a four-cent quote spread always costs exactly four cents per filled share.",
+      "selfCheck": "Explain Quoted spread in cents versus basis points in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Repeat with bid $49.95 and ask $50.05, then compare cent and midpoint-basis-point measures.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_ORDER_PRICE_UNCERTAINTY",
+      "title": "Market order price uncertainty",
+      "concept": "A market order requests execution subject to market and broker conditions, but the price observed when the member clicks is not the execution price promise.",
+      "procedure": "Identify the relevant bid/ask snapshot, requested side and size, and the difference between an observed quote and an actual fill report.",
+      "workedCase": "FICTIONAL: A buy order is submitted while the displayed ask is $8.00. The order can receive hypothetical fills at $8.00 and $8.05 if displayed liquidity changes; neither an earlier last trade nor an initial quote guarantees final execution price.",
+      "limit": "Trading halts, broker conditions, fast markets and insufficient liquidity can affect execution timing and price.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Trading halts, broker conditions, fast markets and insufficient liquidity can affect execution timing and price.",
+      "commonError": "Using the last quote as a guaranteed market-order fill in a practice calculation.",
+      "selfCheck": "Explain Market order price uncertainty in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Explain how a fast-moving ask and insufficient displayed size could change a fictional 300-share buy.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_LIMIT_ORDER_NONEXECUTION",
+      "title": "Limit orders and nonexecution risk",
+      "concept": "A buy limit expresses the most the trader is willing to pay, and a sell limit the least acceptable sale price; a limit alone does not compel a counterparty.",
+      "procedure": "Compare the submitted price with current executable offers, queue conditions, partial fills and whether the order remains pending.",
+      "workedCase": "FICTIONAL: A buy limit at $10.00 meets displayed offers of $10.10. The order may remain unfilled until a willing seller is available at $10.00 or better.",
+      "limit": "Price improvement, routing, queue priority, broker rules and changing offers determine whether a marketable-looking order fills.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Price improvement, routing, queue priority, broker rules and changing offers determine whether a marketable-looking order fills.",
+      "commonError": "Treating a limit order as a guaranteed trade merely because price touched the limit on a chart.",
+      "selfCheck": "Explain Limit orders and nonexecution risk in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A hypothetical limit price is touched for one print but the order did not fill. State three possible explanations.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_MARKET_TRIGGER",
+      "title": "Stop-market trigger versus fill",
+      "concept": "A conventional stop order changes into a market order when its defined trigger condition occurs; the stop price is a trigger reference, not a guaranteed execution floor.",
+      "procedure": "Name the broker's trigger convention, trade side, stop reference, observation timestamp and subsequent fill price separately.",
+      "workedCase": "FICTIONAL: A long position has a $10.00 sell stop, but the next executable bid after a gap is $9.75. A hypothetical marketable fill at $9.75 would be $0.25 below the trigger.",
+      "limit": "Stop handling varies by order type, broker, market hours and venue, and gaps can exceed planned losses.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Stop handling varies by order type, broker, market hours and venue, and gaps can exceed planned losses.",
+      "commonError": "Treating the stop price as a maximum guaranteed loss per share.",
+      "selfCheck": "Explain Stop-market trigger versus fill in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A fictional stock resumes after a halt below a stop reference. What can be stated and what remains unknown?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_LIMIT_FILL_RISK",
+      "title": "Stop-limit order activation and fill risk",
+      "concept": "A stop-limit uses a separate stop activation reference and limit price; after activation the limit constrains price but may prevent any execution.",
+      "procedure": "Distinguish the stop from the buy/sell limit and identify a current executable counterparty that meets the price condition.",
+      "workedCase": "FICTIONAL: A sell stop at $10.00 activates a sell limit of $9.90. If the only displayed bid is $9.60, a hypothetical sale at $9.60 would violate the $9.90 limit; the order may remain unfilled.",
+      "limit": "Activation rules vary by broker, and a nonexecuted stop-limit does not prevent further adverse prices.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Activation rules vary by broker, and a nonexecuted stop-limit does not prevent further adverse prices.",
+      "commonError": "Calling stop-market and stop-limit interchangeable protective exits.",
+      "selfCheck": "Explain Stop-limit order activation and fill risk in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Compare a stop-market and a stop-limit under the same fictional $0.40 gap and identify different uncertainties.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PARTIAL_FILL_AVERAGE",
+      "title": "Weighted average price across partial fills",
+      "concept": "A partially filled order's average execution price is the share-count-weighted mean of its confirmed fills, not the arithmetic mean of fill prices.",
+      "procedure": "Sum execution-price times shares for each reported fill; divide total notional by filled shares, and track unfilled shares and fees separately.",
+      "workedCase": "FICTIONAL: 100 shares fill at $10.00 and 50 shares at $10.10. Weighted average = ($1,000 + $505)/150 = $10.0333 per share, before fees; 50 unfilled shares do not enter the average.",
+      "limit": "A broker statement may use execution allocation conventions, and the remaining quantity may never execute.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. A broker statement may use execution allocation conventions, and the remaining quantity may never execute.",
+      "commonError": "Averaging $10.00 and $10.10 equally despite unequal fill sizes.",
+      "selfCheck": "Explain Weighted average price across partial fills in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Recalculate for 100 shares at $10.00 and 100 at $10.10, then discuss any unfilled balance.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_DISPLAYED_DEPTH_LIMIT",
+      "title": "Displayed Level II depth versus available liquidity",
+      "concept": "A Level II display shows selected advertised order interests at particular venues and moments. It cannot show all hidden interest, canceled orders or future queue availability.",
+      "procedure": "Record venue, price, size, quote time and depth level, then distinguish observed shares from hypothetical executable shares.",
+      "workedCase": "FICTIONAL: A displayed ask offers 500 shares at $10.00, but it may cancel before a 400-share buy arrives. The snapshot does not guarantee a 400-share execution at $10.00.",
+      "limit": "Feed scope, odd lots, hidden orders and participant routing prevent universal inference from a single display.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Feed scope, odd lots, hidden orders and participant routing prevent universal inference from a single display.",
+      "commonError": "Treating cumulative Level II ask size as a guaranteed supply commitment.",
+      "selfCheck": "Explain Displayed Level II depth versus available liquidity in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A fictional ask book changes between two timestamps. Which observations remain valid and which fill claims are unsupported?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_ODD_LOT_SCOPE",
+      "title": "Odd-lot quotes and order-size context",
+      "concept": "An odd-lot order traditionally refers to fewer than a standard round-lot number of shares. Quote inclusion and protection rules depend on contemporaneous regulation, security price and feed.",
+      "procedure": "Identify the actual order size and applicable data/reporting specification instead of assuming every visible quote has identical treatment.",
+      "workedCase": "FICTIONAL: A 25-share displayed offer and a separate 100-share displayed offer are both possible market observations; their regulatory treatment cannot be inferred solely from this arithmetic.",
+      "limit": "Round-lot definitions and NBBO data conventions may change with regulation; verify current market-data rules and effective dates before an operational assertion.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Round-lot definitions and NBBO data conventions may change with regulation; verify current market-data rules and effective dates before an operational assertion.",
+      "commonError": "Assuming every quote displayed by a broker is identical to the protected national best offer.",
+      "selfCheck": "Explain Odd-lot quotes and order-size context in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Given fictional 25- and 100-share offers at different prices, list the additional facts needed before claiming a protected NBBO price.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_TAPE_PRINT_QUOTES",
+      "title": "Time and Sales prints versus current quotes",
+      "concept": "Time and Sales reports executed transactions, whereas bid and ask quotations are changing intentions to transact. Print colors are vendor conventions, not direct verified trader identity.",
+      "procedure": "Record print time, size and price and compare it only with appropriately synchronized quotes, including feed and timestamp precision.",
+      "workedCase": "FICTIONAL: A $10.03 print occurs next to a $10.00 bid and $10.05 ask snapshot. If quotes are stale, the print's relation to the displayed midpoint cannot prove who initiated it.",
+      "limit": "Trade conditions, off-exchange reports, delayed prints and clock mismatch limit aggressor-side inference.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Trade conditions, off-exchange reports, delayed prints and clock mismatch limit aggressor-side inference.",
+      "commonError": "Claiming every green time-and-sales print definitively means informed buying.",
+      "selfCheck": "Explain Time and Sales prints versus current quotes in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A fictional print falls between the bid and ask. State what can be read and what requires trade-condition or quote verification.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_VWAP_SESSION_RESET",
+      "title": "VWAP sessions, bar proxies and reset boundaries",
+      "concept": "A volume-weighted average depends on the declared observation window; a session reset changes which trades contribute. OHLCV proxy calculations cannot reproduce exact trade-print VWAP.",
+      "procedure": "Document market session start, volume inclusion, price source and whether the proxy uses typical price HLC3 multiplied by bar volume.",
+      "workedCase": "FICTIONAL: Two bars at typical prices $10 and $12 each trade 100 shares, yielding a bar proxy $11.00. Excluding the first bar at a new session boundary yields $12.00 for the second-bar-only proxy.",
+      "limit": "Partial bars, missing prints, corporate actions and extended-hours inclusion alter calculated values.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Partial bars, missing prints, corporate actions and extended-hours inclusion alter calculated values.",
+      "commonError": "Comparing premarket-inclusive VWAP with regular-session VWAP as though they were the same study.",
+      "selfCheck": "Explain VWAP sessions, bar proxies and reset boundaries in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Compute a fictional three-bar proxy twice, once including and once excluding premarket volume.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_EMA_SEED_WARMUP",
+      "title": "EMA initialization and period warm-up",
+      "concept": "An EMA is a recursive weighted average; the same nominal period can yield different early values if the seed and historical data differ.",
+      "procedure": "Declare period N, alpha = 2/(N+1), initial seed convention and count of completed closes needed before reporting a study.",
+      "workedCase": "FICTIONAL: For N=3, prices $10, $11 and $12 seed an SMA of $11. The next completed $13 close gives EMA = 0.5×$13 + 0.5×$11 = $12.",
+      "limit": "An illustrative N=3 EMA must not be called EMA9, EMA20 or EMA200; sufficiently long warmup and identical source histories are mandatory.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. An illustrative N=3 EMA must not be called EMA9, EMA20 or EMA200; sufficiently long warmup and identical source histories are mandatory.",
+      "commonError": "Comparing a freshly initialized EMA200 with an established EMA200 without acknowledging different warmup histories.",
+      "selfCheck": "Explain EMA initialization and period warm-up in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Explain why two fictional EMA20 curves can disagree at their earliest overlapping observation.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_RVOL_CLOCK_ALIGNMENT",
+      "title": "Matched-time relative volume versus average-bar volume",
+      "concept": "A volume ratio is meaningful only when both numerator and denominator describe comparable intervals. Same-clock historical baseline differs from a simple moving average of bar volumes.",
+      "procedure": "Name the current session elapsed time and the set of comparison sessions. Compare cumulative current volume with their cumulative same-clock mean.",
+      "workedCase": "FICTIONAL: Current shares traded by 10:00 equal 300,000; five comparable prior sessions averaged 200,000 by 10:00. Matched-time RVOL = 1.50×, without implying buy-side initiation.",
+      "limit": "Data holidays, short sessions, venue exclusions and atypical news days can invalidate comparisons.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Data holidays, short sessions, venue exclusions and atypical news days can invalidate comparisons.",
+      "commonError": "Dividing a cumulative first-hour volume by a previous single one-minute bar and calling it RVOL.",
+      "selfCheck": "Explain Matched-time relative volume versus average-bar volume in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Build a fictional 10:30 baseline from matched elapsed-minute totals rather than unmatched full-day volumes.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_SPLITS_PRICE_ADJUSTMENT",
+      "title": "Share splits and adjusted price history",
+      "concept": "A conventional forward stock split changes share count and per-share reference value proportionally, before independent market changes; it does not mechanically create owner wealth.",
+      "procedure": "State split ratio, pre-event shares and price, calculate proportional post-event references, then distinguish adjusted historical charts from raw quotes.",
+      "workedCase": "FICTIONAL: At a 2-for-1 split, 100 shares at a $20 reference become 200 shares at a theoretical $10 reference, with the same illustrative $2,000 value before market movement.",
+      "limit": "Real prices change independently and historical vendors may use split-adjusted OHLCV; do not combine adjusted and unadjusted data.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Real prices change independently and historical vendors may use split-adjusted OHLCV; do not combine adjusted and unadjusted data.",
+      "commonError": "Calling a chart price drop from a split an actual overnight market loss without checking adjustment.",
+      "selfCheck": "Explain Share splits and adjusted price history in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Repeat the arithmetic for a fictional reverse 1-for-5 split and explain what must be verified.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_FLOAT_TURNOVER_UNIQUE",
+      "title": "Float turnover does not equal unique owners",
+      "concept": "Volume divided by a float estimate gives an activity fraction, not a headcount or the fraction of unique shares sold. The same share can trade multiple times.",
+      "procedure": "Declare estimated tradable shares and counted volume in a specified period, then compute the turnover ratio with its source limits.",
+      "workedCase": "FICTIONAL: 2 million reported shares trade against estimated float of 5 million, or 40% of estimated float. It does NOT mean 40% of unique shareholders sold.",
+      "limit": "Float estimates lag and can differ across vendors; volume may count repeated round-trips and report corrections.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Float estimates lag and can differ across vendors; volume may count repeated round-trips and report corrections.",
+      "commonError": "Assuming a 100% volume-to-float ratio proves all shares changed beneficial owners.",
+      "selfCheck": "Explain Float turnover does not equal unique owners in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Two fictional sessions both trade one million shares. Explain how different float estimates change turnover.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PE_EPS_ARITHMETIC",
+      "title": "P/E ratio and earnings-per-share arithmetic",
+      "concept": "Price-to-earnings divides an equity price per share by earnings per share for a declared reporting window. It is undefined or not meaningful for zero/negative EPS under ordinary positive-P/E interpretation.",
+      "procedure": "Identify trailing versus forward EPS, reporting currency, dilution basis and adjustments before dividing.",
+      "workedCase": "FICTIONAL: Price $30 and trailing diluted EPS $2 imply P/E 15, a ratio of dollars-per-share to dollars-per-share. It does not value the company without context.",
+      "limit": "Accounting policies, one-time earnings, forecasts, dilution and sector differences affect interpretation; negative EPS does not yield a conventional positive P/E.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Accounting policies, one-time earnings, forecasts, dilution and sector differences affect interpretation; negative EPS does not yield a conventional positive P/E.",
+      "commonError": "Comparing a reported annual P/E with a forecast quarterly EPS ratio as though identical.",
+      "selfCheck": "Explain P/E ratio and earnings-per-share arithmetic in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Calculate P/E for fictional price $40 and trailing EPS $4, then describe why that is not automatically cheap.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_CAP_NOT_REVENUE",
+      "title": "Market capitalization versus company revenue",
+      "concept": "Equity market capitalization is share price times outstanding shares, not annual revenue, free cash flow or enterprise value.",
+      "procedure": "Use an explicitly stated share-count date and trade or valuation price to calculate market cap, and separately identify financial-statement revenue.",
+      "workedCase": "FICTIONAL: 10 million shares outstanding at a $5 reference imply $50 million equity market cap; annual revenue could be $20 million or $200 million without altering that multiplication.",
+      "limit": "Dilution, share classes, changing prices, debt and cash make market cap an incomplete valuation measure.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Dilution, share classes, changing prices, debt and cash make market cap an incomplete valuation measure.",
+      "commonError": "Stating a $50 million market cap means the company earned $50 million.",
+      "selfCheck": "Explain Market capitalization versus company revenue in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A fictional issuer doubles its share count with the reference price unchanged; calculate the changed equity market cap and distinguish issuance mechanics.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_T_PLUS_ONE_SETTLEMENT",
+      "title": "Trade date versus T+1 settlement",
+      "concept": "For most U.S. covered securities transactions, standard settlement became one business day after trade date on May 28, 2024, subject to exceptions.",
+      "procedure": "Identify actual trade date, applicable U.S. business-day calendar, security type and whether the transaction is subject to the standard cycle.",
+      "workedCase": "FICTIONAL: A qualifying U.S. security trade on a Monday normally targets Tuesday settlement if neither day is an applicable market holiday. A Friday trade normally settles the next Monday absent a holiday.",
+      "limit": "Broker processes, security exceptions and holidays matter; availability of withdrawable funds and cash-account rules must be verified separately.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Broker processes, security exceptions and holidays matter; availability of withdrawable funds and cash-account rules must be verified separately.",
+      "commonError": "Adding exactly 24 clock hours to trade time and calling that statutory settlement.",
+      "selfCheck": "Explain Trade date versus T+1 settlement in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "A qualifying fictional trade occurs before a Monday market holiday. Identify why the expected settlement calculation requires a business calendar.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_INFORMATION_BOUNDARY",
+      "title": "Historical replay information cutoff and lookahead bias",
+      "concept": "A learning decision made at a simulated past timestamp must use only evidence that would have been available then. A historical chart's full series is not the same as its original information set.",
+      "procedure": "Mark cutoff time, completed versus forming candles, indicator warmup, data publication time and any future values hidden at that pause.",
+      "workedCase": "FICTIONAL: A replay stops at 10:05 with only bars ending at or before 10:05 confirmed. A later 10:10 breakout cannot justify the earlier decision, even when the retrospective chart makes it visible.",
+      "limit": "Price data accuracy, publication delays and uncertain intrabar chronology prevent guaranteed claims about actual decisions.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. Price data accuracy, publication delays and uncertain intrabar chronology prevent guaranteed claims about actual decisions.",
+      "commonError": "Using a later candle's close to support an entry purportedly evaluated five minutes earlier.",
+      "selfCheck": "Explain Historical replay information cutoff and lookahead bias in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "Move a fictional replay cutoff back by one completed candle and revise only the observations available at that earlier instant.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MFE_MAE_TIME_BOUNDARY",
+      "title": "MFE/MAE measurement interval and order chronology",
+      "concept": "Maximum favorable and adverse excursion depends on a defined position side, entry reference and post-entry observation interval; extremes before entry cannot count.",
+      "procedure": "Choose an actual or fictional entry timestamp, position side, quantity and eligible post-entry observations, then compute favorable/adverse distances.",
+      "workedCase": "FICTIONAL: Long entry $10 at 10:00. A later eligible high $10.50 and low $9.80 give hypothetical MFE $0.50/share and MAE $0.20/share. A $11 high at 09:55 is excluded.",
+      "limit": "OHLC bars do not establish intrabar sequence or executable fills and may straddle entry time; actual trade records must be distinguished.",
+      "invalidation": "The proposed interpretation must be rejected or labeled unknown whenever its source, observation cutoff, inputs, execution mechanism or independent confirming evidence is missing. OHLC bars do not establish intrabar sequence or executable fills and may straddle entry time; actual trade records must be distinguished.",
+      "commonError": "Taking the whole day's high when the position was entered after that high already occurred.",
+      "selfCheck": "Explain MFE/MAE measurement interval and order chronology in your own words using declared inputs, one verified observation, one uncertainty boundary and an alternative outcome.",
+      "reviewExplanation": "This is a formative, non-scored explanation check. Verify the declared original reference and calculation where relevant; do not claim an actual fill or independent mastery.",
+      "transferQuestion": "In a new fictional setup, move entry after the session high and recompute excursion using only subsequent evidence.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    }
+  ]
+}
