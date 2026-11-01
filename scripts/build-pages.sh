@@ -35,6 +35,7 @@ node --check functions/_lib/talia-foundation-quant-v1.js
 node tests/talia-foundation-quant-v1.test.mjs
 node tests/talia-foundation-explanations-batch02-v1.test.mjs
 node tests/talia-foundation-misconception-v1.test.mjs
+node scripts/talia-foundation-coverage-v1.mjs
 for asset in assets/js/journal-visual-v3.js assets/js/journal-trade-story-v3.js; do
   node --check "$asset"
 done
