@@ -14,9 +14,11 @@ const original=Object.freeze([
 function prepare(bars,cursor,source=MODE){
  if(source!==MODE||!Array.isArray(bars)||bars.length<3||bars.length>240||
    !Number.isInteger(cursor)||cursor<0||cursor>=bars.length)return null;
- if(!bars.every(b=>Array.isArray(b)&&b.length===5&&b.every(Number.isFinite)&&
-    b[2]>0&&b[2]<=Math.min(b[0],b[1])&&b[3]>=Math.max(b[0],b[1])&&b[4]>=0))return null;
+ // Validate and calculate only completed observations at the replay cursor.
+ // Unseen future values must not affect a previously rendered learning frame.
  const slice=bars.slice(0,cursor+1);
+ if(!slice.every(b=>Array.isArray(b)&&b.length===5&&b.every(Number.isFinite)&&
+    b[2]>0&&b[2]<=Math.min(b[0],b[1])&&b[3]>=Math.max(b[0],b[1])&&b[4]>=0))return null;
  const labels=slice.map((_,i)=>'F'+String(i+1).padStart(2,'0'));
  const closes=slice.map(b=>b[1]),volume=slice.map(b=>b[4]);
  const candle=slice.map(b=>[b[0],b[1],b[2],b[3]]);
