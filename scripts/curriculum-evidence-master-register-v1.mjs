@@ -29,7 +29,7 @@ for(const n of batchNumbers){
  knownTopics.push(...b.guides);
 }
 assert.equal(knownTopics.length,batchNumbers.length*20);
-assert.equal(new Set(knownTopics.map(x=>x.code)).size,240);
+assert.equal(new Set(knownTopics.map(x=>x.code)).size,knownTopics.length);
 assert.equal(forty.rows.length,40);
 const check40=new Map(forty.rows.map(x=>[x.code,x]));
 const check181=new Map(claims181.map(x=>[x.code,x]));
