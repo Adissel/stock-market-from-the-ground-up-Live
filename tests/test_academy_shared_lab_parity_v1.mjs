@@ -43,6 +43,17 @@ test('The Academy preserves deep authored practice as an optional supplement and
  assert.match(thirty,/gu-bc-additional-guide/);
  assert.match(thirty,/Use additional practice; no grade was recorded/);
 });
+test('Academy and the separate 30-day page each retain one existing optional ECharts owner, without duplicate shared-engine charts',()=>{
+ const thirtyPage=read('bootcamp.html');
+ assert.ok(engine.includes("if(!academyScope&&[1,2].includes(step)&&root.CrownlightLearningEChartsV1?.mount)"),
+  'Shared instructor must not inject a second generic candle chart on Academy days');
+ assert.match(academy,/academy-echarts-supplement/);
+ assert.match(academy,/originalInstruction\.append\(extra\)/);
+ assert.match(academy,/kind:\/\\bvwap/);
+ assert.match(thirtyPage,/data-crownlight-echarts-tutorial/);
+ assert.match(engine,/if\(!academyScope\)root\.GroundUpLabV33GradeDisplay/);
+});
+
 test('Talia stage prompts accept only allowlisted pedagogical metadata, not user answers or protected rubrics',async()=>{
  const calls=[];
  const env={crypto:{randomUUID:()=> 'test-id'},fetch:async(url,init)=>{
