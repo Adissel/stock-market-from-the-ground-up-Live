@@ -1,5 +1,6 @@
 /* Owner-only audited version assignments. Presentation versions NEVER create entitlements. */
 import {authorizeLearningPlanOwner} from './plan-controls.js';
+import {enginePolicyForPlan} from '../_lib/learning-engine-tier-policy-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const out=(obj,status=200)=>new Response(JSON.stringify(obj),{status,headers:H});
 const err=(msg,status=400)=>Object.assign(new Error(msg),{status});
@@ -29,6 +30,7 @@ export async function onRequest({request,env}){
     const tutorAssignment=p.metadata?.talia_market_tutor_v1;
     const d=defaults(p.plan_code);
     return{planCode:p.plan_code,name:p.name,active:p.active,publicVisible:p.public_visible,
+     engineTierPolicy:enginePolicyForPlan(p.plan_code),
      learning:allowed.learning.includes(stored?.learning)?stored.learning:d.learning,
      lab:allowed.lab.includes(stored?.lab)?stored.lab:d.lab,
      tutor:allowed.tutor.includes(stored?.tutor)?stored.tutor:d.tutor,
