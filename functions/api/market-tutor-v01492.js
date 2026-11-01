@@ -267,6 +267,7 @@ export async function onRequest({request,env}){
      .join(' ').slice(0,900)})),...source.slice(0,3-selectedGuides.length)].slice(0,3);
    const deepSourceOnly=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further|try another|another (?:worked )?example|different (?:worked )?example|worked example)\b/i.test(q);
    const model=deepSourceOnly?{text:null,reason:'source_only_deep_teaching'}:
+    guide.foundationTopic===true?{text:null,reason:'foundation_supplementary_source_only'}:
     guide.masterStudy===true?{text:null,reason:'original_market_study_source_only'}:
     guide.decisionPlaybook===true?{text:null,reason:'decision_playbook_source_only'}:
     auth.authorized===true?await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,reference,answer,auth.aiOptedIn):{text:null,reason:'foundation_source_only'};
@@ -274,13 +275,16 @@ export async function onRequest({request,env}){
     answer:model.text||answerFromGuide(guide,mode,answer,q),aiReason:model.reason,
     remainingAiToday:model.remainingMemberToday??null,
     sources:[...selectedGuides.map((g,i)=>({id:g.code,title:g.title,summary:g.concept,
-     sourceLabel:g.masterStudy===true?'Original stock-market study guide (ungraded)':
+     sourceLabel:g.foundationTopic===true?'Original supplementary Foundation topic (ungraded)':
+      g.masterStudy===true?'Original stock-market study guide (ungraded)':
       g.decisionPlaybook===true?'Original setup decision playbook (ungraded)':
       g.researchGuide===true?'Original research-informed Tutor guide (ungraded)':'Original in-platform competency guide',
-     sourceId:'['+(i+1)+']',bookContext:g.researchGuide===true?'Owner STT research; not a validated trading edge':'Original 30-competency study guide',
-     referenceUrls:g.researchGuide===true?g.sourceUrls||[]:[],
+     sourceId:'['+(i+1)+']',bookContext:g.foundationTopic===true?'Supplementary original Foundation explanation; not an official grading competency':
+      g.researchGuide===true?'Owner STT research; not a validated trading edge':'Original 30-competency study guide',
+     referenceUrls:g.researchGuide===true||g.foundationTopic===true?g.sourceUrls||[]:[],
      practiceUrl:'/labs.html?q='+encodeURIComponent(g.title)})),...publicMatches(source.slice(0,3-selectedGuides.length)).map((t,i)=>({...t,sourceId:'['+(i+1+selectedGuides.length)+']'}))],
-    graded:false,masteryAwarded:false,sourceLimit:guide.masterStudy===true?'Original source-informed indicator/watchlist/strategy study; no validated trading edge, current market quotation, broker endorsement or graded competency.':
+    graded:false,masteryAwarded:false,sourceLimit:guide.foundationTopic===true?'Original source-linked supplementary instruction; editorial sign-off pending, no official grading, live market observation or personalized trading advice.':
+     guide.masterStudy===true?'Original source-informed indicator/watchlist/strategy study; no validated trading edge, current market quotation, broker endorsement or graded competency.':
      guide.decisionPlaybook===true?'Original fictional setup-reasoning framework, not individualized trade advice, a validated edge, a fill guarantee or graded competency':
      guide.researchGuide===true?'Original public research-informed lesson; no strategy performance certification, private rubric or licensed market feed.':'Only the 30 original public competency guides, no unverified tape or private rubric.',
     notice:'Zero-cost original competency instruction. A self-check is not a graded Lab or independently reviewed historical observation.',
