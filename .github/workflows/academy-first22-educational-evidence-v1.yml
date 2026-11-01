@@ -14,6 +14,8 @@ on:
       - 'assets/css/teaching-full-width-v1.css'
       - 'assets/js/lab-v33-instructor.js'
       - 'tests/test_v014167_talia_five_candle_tabs.mjs'
+      - 'signin.html'
+      - 'tests/test_signin_captcha_nested_action_order_v1.mjs'
 permissions: {contents: read}
 jobs:
   independent-arithmetic-and-formative-contract:
@@ -33,3 +35,4 @@ jobs:
           node tests/test_academy_classroom_semantics_v1.mjs
           node --check assets/js/lab-v33-instructor.js
           node tests/test_v014167_talia_five_candle_tabs.mjs
+          node tests/test_signin_captcha_nested_action_order_v1.mjs
