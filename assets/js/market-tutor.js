@@ -639,7 +639,7 @@ async function refreshMemberByok(){
   const data=await response.json();
   if(epoch!==TUTOR.identityEpoch||TUTOR.user?.id!==requestedUser)return;
   const saved=Array.isArray(data.connections)?data.connections.find(x=>x.service_code==='TALIA_OPENAI_BYO'):null;
-  const verified=data.tutorByokAvailable===true&&saved?.status==='connected'&&
+  const verified=data.tutorByokInferenceAvailable===true&&saved?.status==='connected'&&
    saved?.metadata?.providerVerification==='verified';
   toggle.disabled=!verified;
   label.textContent=verified?
