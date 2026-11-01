@@ -33,11 +33,30 @@ function mount(){
  right=document.getElementById('pt-advanced-chart-volume'),status=document.getElementById('pt-advanced-chart-status');
  if(!host||!left||!right||!status||host.hidden)return null;
  const api=root.CrownlightECharts;
- if(!api?.load)return null;
  let disposed=false,charts=[],observer=null,cursor=8;
  const sync=()=>{
-  if(!charts.length)return;
   const data=prepare(original,cursor);if(!data)return;
+  // The instructional data table works even if ECharts fails or is blocked.
+  const table=document.getElementById('pt-advanced-series-table');
+  if(table){
+   table.replaceChildren();
+   const caption=document.createElement('caption');caption.textContent='Completed fictional replay observations through the selected bar';
+   const thead=document.createElement('thead'),header=document.createElement('tr');
+   for(const title of ['Fictional bar','Close (USD)','Shares','EMA 9 (USD)']){
+    const th=document.createElement('th');th.scope='col';th.textContent=title;header.append(th);
+   }
+   thead.append(header);const tbody=document.createElement('tbody');
+   data.labels.forEach((label,i)=>{
+    const tr=document.createElement('tr'),th=document.createElement('th');th.scope='row';th.textContent=label;tr.append(th);
+    for(const value of [data.closes[i].toFixed(2),String(data.volume[i]),data.ema9[i]===null?'Warmup':data.ema9[i].toFixed(3)]){
+     const td=document.createElement('td');td.textContent=value;tr.append(td);
+    }
+    tbody.append(tr);
+   });
+   table.append(caption,thead,tbody);
+  }
+  status.textContent='Showing '+data.count+' of '+data.total+' completed fictional bars. EMA9 starts after nine completed closes. No grades, future historical observations or live market data.';
+  if(!charts.length)return;
   const common={animation:false,backgroundColor:'transparent',aria:{enabled:true},
    legend:{textStyle:{color:'#e6f2fb'}},tooltip:{trigger:'axis',axisPointer:{type:'cross'}},
    grid:{left:55,right:25,top:55,bottom:55},
@@ -53,29 +72,20 @@ function mount(){
    yAxis:[
     {name:'Shares',type:'value',min:0,axisLabel:{color:'#ced8e4'}},
     {name:'USD',type:'value',scale:true,position:'right',axisLabel:{color:'#ced8e4'}}]},{notMerge:true});
-  status.textContent='Showing '+data.count+' of '+data.total+' original fictional bars; no historical future bars, account data, grades or live market feed. EMA9 starts only after nine completed closes.';
-  const table=document.getElementById('pt-advanced-series-table');
-  if(table){
-   table.replaceChildren();
-   const header=document.createElement('tr');
-   for(const title of ['Fictional bar','Close (USD)','Shares','EMA 9 (USD)']){const th=document.createElement('th');th.textContent=title;header.append(th)}
-   table.append(header);
-   data.labels.forEach((label,i)=>{
-    const tr=document.createElement('tr');
-    for(const value of [label,data.closes[i].toFixed(2),String(data.volume[i]),data.ema9[i]===null?'Warmup':data.ema9[i].toFixed(3)]){
-     const td=document.createElement('td');td.textContent=value;tr.append(td);
-    }
-    table.append(tr);
-   });
-  }
  };
- api.load().then(e=>{
-  if(disposed||host.closest('[hidden]'))return;
-  charts=[e.init(left,null,{renderer:'svg'}),e.init(right,null,{renderer:'svg'})];
-  e.connect(charts);
-  sync();
-  if(typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(()=>charts.forEach(x=>x.resize()));observer.observe(host)}
- }).catch(()=>{if(!disposed)status.textContent='Charts unavailable. Original fictional data can still be studied through the classroom text.'});
+ // Always populate the accessible original-data table before requesting ECharts.
+ sync();
+ if(api?.load){
+  api.load().then(e=>{
+   if(disposed||host.closest('[hidden]'))return;
+   charts=[e.init(left,null,{renderer:'svg'}),e.init(right,null,{renderer:'svg'})];
+   e.connect(charts);sync();
+   if(typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(()=>charts.forEach(x=>x.resize()));observer.observe(host)}
+  }).catch(()=>{
+   charts.forEach(c=>c.dispose?.());charts=[];
+   if(!disposed)status.textContent='Charts unavailable. Review the completed fictional observations in the data table and use Previous/Next to replay.';
+  });
+ }else status.textContent='Charts unavailable. The completed fictional observations remain available in the data table and Previous/Next replay.';
  const prev=document.getElementById('pt-advanced-prev'),next=document.getElementById('pt-advanced-next');
  const onPrev=()=>{cursor=Math.max(0,cursor-1);sync()},onNext=()=>{cursor=Math.min(original.length-1,cursor+1);sync()};
  prev?.addEventListener('click',onPrev);next?.addEventListener('click',onNext);
