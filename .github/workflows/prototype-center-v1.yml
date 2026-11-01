@@ -8,6 +8,8 @@ on:
       - 'assets/js/prototype-experiences-boot-v1.js'
       - 'assets/css/prototype-experiences-v1.css'
       - 'tests/prototype-experiences-v1.test.mjs'
+      - 'tests/prototype-indicator-workbench-v2.test.mjs'
+      - 'assets/js/prototype-indicator-workbench-v2.js'
       - 'tests/prototype-experiences-v1-browser.test.mjs'
       - 'src/prototype/PrototypeThreeLab.tsx'
       - 'src/prototype/PrototypeWorkbenchDeck.tsx'
@@ -57,6 +59,7 @@ jobs:
         run: |
           node --check assets/js/prototype-center-v1.js
           node --check assets/js/prototype-experiences-boot-v1.js
+          node --check assets/js/prototype-indicator-workbench-v2.js
           node --check assets/js/prototype-admin-link-v1.js
           node --check assets/js/prototype-teaching-v2.js
           node --check assets/js/prototype-membership-builder-v1.js
@@ -75,6 +78,7 @@ jobs:
           node tests/prototype-center-v6-ui.test.mjs
           node tests/prototype-center-v7-terminal.test.mjs
           node tests/prototype-experiences-v1.test.mjs
+          node tests/prototype-indicator-workbench-v2.test.mjs
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
           node tests/prototype-membership-builder-v1.test.mjs
@@ -84,6 +88,7 @@ jobs:
           bash scripts/build-pages.sh
           test -s public/prototype.html
           test -s public/assets/js/prototype-experiences-v1.bundle.js
+          test -s public/assets/js/prototype-indicator-workbench-v2.js
           test -s public/assets/css/prototype-experiences-v1.css
           test -s public/assets/js/prototype-teaching-v2.js
           test -s public/assets/vendor/echarts/6.1.0/echarts.min.js
