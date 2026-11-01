@@ -127,3 +127,25 @@
 @media(prefers-reduced-motion:reduce){
  .cl-tier-echarts-frame *{scroll-behavior:auto}
 }
+
+
+/* Section C lower-pane resize controls; same chart canvas synchronizes pointers. */
+.cl-tier-echarts-frame .cl-echarts-pane-controls{
+ display:flex;flex-wrap:wrap;gap:8px 18px;margin:10px 0 13px;padding:8px 11px;
+ border:1px solid #365c75;border-radius:9px;background:#0c2337;color:#e1eff7
+}
+.cl-tier-echarts-frame .cl-echarts-pane-controls label{
+ display:flex;gap:8px;align-items:center;font-size:.8rem;line-height:1.4;
+ font-variant-numeric:tabular-nums
+}
+.cl-tier-echarts-frame .cl-echarts-pane-controls input[type=range]{
+ width:110px;accent-color:#71dacb;min-height:32px
+}
+.cl-tier-echarts-frame .cl-echarts-pane-controls input:focus-visible{
+ outline:3px solid #ace6ff;outline-offset:3px
+}
+@media(max-width:680px){
+ .cl-tier-echarts-frame .cl-echarts-pane-controls{display:grid;grid-template-columns:1fr 1fr}
+ .cl-tier-echarts-frame .cl-echarts-pane-controls label{flex-wrap:wrap}
+ .cl-tier-echarts-frame .cl-echarts-pane-controls input[type=range]{width:min(100%,170px)}
+}
