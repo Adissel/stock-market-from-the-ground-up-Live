@@ -320,7 +320,7 @@ function formatMasterStudyGuide(g,mode,reflection){
  if(mode==='question')out.push('Answer from evidence visible at the pause, not from later prices.');
  return out.join('\n\n');
 }
-const MISCONCEPTION_INTENT=/\\b(?:common mistakes?|misconceptions?|correct my misunderstanding|what did i misunderstand|why (?:is|was|are) (?:that|this|my answer) wrong|explain the common mistake)\\b/i;
+const MISCONCEPTION_INTENT=/\b(?:common mistakes?|misconceptions?|correct my misunderstanding|what did i misunderstand|why (?:is|was|are) (?:that|this|my answer) wrong|explain the common mistake)\b/i;
 function sourceOnlyMisconception(g){
  const name=String(g.title||'this topic');
  const error=String(g.commonError||'Treating a single observation as a guaranteed outcome.');
@@ -336,7 +336,7 @@ function sourceOnlyMisconception(g){
   'What remains unknown: '+limit,
   'Fresh independent transfer prompt: '+transfer,
   'This explanation is not graded and does not reveal a protected assessment answer.'
- ].join('\\n\\n');
+ ].join('\n\n');
 }
 function formatFoundationTopic(g,mode,reflection,question){
  const computed=mode==='explain'?foundationQuantTeaching(g.code,question):null;
