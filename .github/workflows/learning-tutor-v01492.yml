@@ -116,6 +116,9 @@ on:
       - 'tests/talia-claim-triage-and-math-v1.test.mjs'
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
+      - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'data/talia-indicator-16-30-python-reference-v1.json'
+      - 'data/talia-indicator-16-30-review-v1.json'
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
       - 'tests/talia-40-claim-multiturn-source-v1.test.mjs'
       - 'data/talia-claims-101-140-evidence-batch-v1.json'
@@ -319,6 +322,9 @@ on:
       - 'tests/talia-claim-triage-and-math-v1.test.mjs'
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
+      - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'data/talia-indicator-16-30-python-reference-v1.json'
+      - 'data/talia-indicator-16-30-review-v1.json'
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
       - 'tests/talia-40-claim-multiturn-source-v1.test.mjs'
       - 'data/talia-claims-101-140-evidence-batch-v1.json'
@@ -514,6 +520,7 @@ jobs:
           node tests/talia-claim-triage-and-math-v1.test.mjs
           node tests/talia-rule605-options-primary-evidence-v1.test.mjs
           node tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs
+          node tests/talia-indicators16-30-independent-math-v1.test.mjs
           node tests/talia-40-claim-multiturn-source-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
