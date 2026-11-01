@@ -107,10 +107,15 @@ for(const label of quickLabels){
  assert(instructor.includes("addQuick('"+label+"'"),
   'The shared instructor must expose this owner-approved action: '+label);
 }
-assert(instructor.includes("rootEl.insertBefore?.(quickActions,transcript)"),
- 'Quick actions must appear before the lesson narration in every eligible shared stage');
-assert(instructor.includes("if(stage===1||stage===2||stage===4||stage===6)rootEl.insertBefore?.(quickActions,transcript)"),
- 'Independent Assess, Transfer and grading stages must never receive a shortcut');
+assert(instructor.includes('const placeTeachingControl=control=>')&&
+ instructor.includes('if(transcript.parentNode===rootEl)rootEl.insertBefore(control,transcript)'),
+ 'Teaching actions must insert before an owned narrator child, never a stale reference');
+assert(instructor.includes('else if(rootEl.isConnected)rootEl.prepend(control)'),
+ 'A responsive narrator rerender must not throw when old transcript was detached');
+assert(instructor.includes("if(stage===1||stage===2||stage===4||stage===6)placeTeachingControl(quickActions);"),
+ 'Independent Assess, Transfer and grading stages must never receive quick-action shortcut controls');
+assert(instructor.includes("if(stage===1||stage===2||stage===4||stage===6)placeTeachingControl(topicTools);"),
+ 'Five topic-focus controls must be restricted to intended formative stages');
 assert(instructor.includes("addQuick('Ask Talia',()=>openTutor())"),
  'Ask Talia must open the existing entitlement-aware tutor, not a bypass');
 assert(instructor.includes("addQuick('Common Mistakes',()=>/\\bwatchlist\\b/i.test(concept)")&&
