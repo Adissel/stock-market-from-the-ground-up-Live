@@ -354,3 +354,28 @@
 @media(max-width:1250px){.cx-app .cx-member-experience{grid-template-columns:1fr}.cx-member-hero{border-right:0;border-bottom:1px solid var(--cx-grid)}.cx-member-actions{padding:12px 18px}.cx-app .cx-workgrid{grid-template-columns:minmax(0,1fr) minmax(300px,360px)}}
 @media(max-width:950px){.cx-app .cx-workgrid{grid-template-columns:1fr}.cx-workgrid .cx-right{display:grid;grid-template-columns:1fr 1fr}.cx-workgrid .cx-right>.cx-learning{grid-column:1/-1}.cx-member-monogram{width:85px;height:90px;flex-basis:85px}}
 @media(max-width:650px){.cx-workgrid .cx-right{grid-template-columns:1fr}.cx-app .cx-top{padding:9px 13px}.cx-app .cx-member-experience{margin-left:13px;margin-right:13px}.cx-member-hero{padding:14px;align-items:start}.cx-member-monogram{width:58px;height:62px;flex-basis:58px}.cx-member-monogram span{font-size:23px}.cx-member-monogram small{font-size:6px}.cx-member-hero h2{font-size:20px}.cx-member-actions{padding:12px}.cx-terminal-status{display:none}.cx-terminal-price>b{font-size:20px}.cx-market-terminal .cx-pan-controls span{flex-basis:100%}.cx-market-terminal .cx-chart-foot{font-size:9px}}
+
+
+/* Preserve the character of each of six graphical systems inside the actual chart surface. */
+.cx-theme-neon .cx-market-terminal{border-color:#5b4b9d!important;background:linear-gradient(180deg,#191b35,#0a1022)!important;box-shadow:0 20px 70px #5c3aae1c!important}
+.cx-theme-neon .cx-terminal-bar{background:linear-gradient(90deg,#292352,#102b43);border-color:#4f457b}
+.cx-theme-neon .cx-terminal-marketmark{color:#bea0ff;background:#252248;border-color:#8568e3}
+.cx-theme-neon .cx-terminal-status{color:#9dece3;background:#0e3338;border-color:#307c82}
+.cx-theme-green .cx-market-terminal{border-color:#296947!important;background:#030d08!important;box-shadow:none!important}
+.cx-theme-green .cx-terminal-bar{background:#071b10;border-color:#21593a}
+.cx-theme-green .cx-terminal-marketmark{color:#56ef95;background:#092d18;border-color:#288d51;border-radius:2px}
+.cx-theme-green .cx-market-terminal .cx-chart{background:#030b08!important}
+.cx-theme-green .cx-member-experience{border-radius:3px}
+.cx-theme-green .cx-market-terminal .cx-pan-controls button{border-radius:2px}
+.cx-theme-ember .cx-market-terminal{background:linear-gradient(180deg,#221b20,#0c1219)!important;border-color:#71504b!important}
+.cx-theme-ember .cx-terminal-bar{background:#281d24;border-color:#654a43}
+.cx-theme-ember .cx-terminal-marketmark{color:#efc586;background:#39221c;border-color:#ad7650}
+.cx-theme-aurora .cx-market-terminal{background:linear-gradient(180deg,#0e2635,#081926)!important;border-color:#367a93!important}
+.cx-theme-aurora .cx-terminal-bar{background:linear-gradient(90deg,#144050,#102b36);border-color:#2d7585}
+.cx-theme-aurora .cx-terminal-marketmark{color:#8ce4fa;background:#123c47;border-color:#4ba9b7}
+.cx-theme-aurora .cx-member-experience{background:linear-gradient(110deg,#113243,#09232d)!important}
+.cx-theme-onyx .cx-market-terminal{background:linear-gradient(180deg,#151d28,#0a1017)!important;border-color:#526276!important}
+.cx-theme-onyx .cx-terminal-bar{background:#202c3a;border-color:#455565}
+.cx-theme-onyx .cx-terminal-marketmark{color:#dbe9f2;background:#293746;border-color:#728397}
+.cx-theme-onyx .cx-market-terminal,.cx-theme-onyx .cx-member-experience,.cx-theme-onyx .cx-panel{border-radius:5px}
+.cx-theme-quantum .cx-market-terminal{background:linear-gradient(180deg,#0e2231,#081521)!important}
