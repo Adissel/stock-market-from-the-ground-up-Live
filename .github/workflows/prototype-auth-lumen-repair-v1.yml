@@ -1,0 +1,55 @@
+name: Prototype Auth and Lumen Navigation Repair
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/js/supabase-client.js
+      - scripts/build-pages.sh
+      - dashboard.html
+      - assets/js/navigation.js
+      - assets/js/crownlight-member-gifting-v1.js
+      - assets/css/lumen-dashboard-navigation-fix-v1.css
+      - tests/test_supabase_client_singleton.mjs
+      - tests/test_auth_member_nav_repair_v1.mjs
+      - tests/test_lumen_dashboard_navigation_browser_v1.mjs
+      - .github/workflows/prototype-auth-lumen-repair-v1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and Auth source contracts
+        run: |
+          node --check assets/js/supabase-client.js
+          node --check assets/js/navigation.js
+          node --check assets/js/crownlight-member-gifting-v1.js
+          node tests/test_supabase_client_singleton.mjs
+          node tests/test_auth_member_nav_repair_v1.mjs
+      - name: Cloudflare Pages build and same-origin Auth bundle
+        run: |
+          bash scripts/build-pages.sh
+          test -s public/assets/vendor/supabase-js/2.109.0/supabase.js
+          test -s public/assets/vendor/supabase-js/2.109.0/LICENSE
+          test -s public/assets/css/lumen-dashboard-navigation-fix-v1.css
+          test ! -d public/node_modules
+      - name: Install Chromium at no additional service fee
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify desktop tablet and mobile Lumen interface
+        run: |
+          python3 -m http.server 8769 --bind 127.0.0.1 --directory public >/tmp/lumen-dashboard-qa.log 2>&1 &
+          for attempt in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8769/dashboard.html >/dev/null; then break; fi
+            sleep 1
+          done
+          node tests/test_lumen_dashboard_navigation_browser_v1.mjs
