@@ -1,0 +1,613 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 13,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "20 new distinct fictional beginner market-measurement, stock-share, quote/order and completed-candle cases. All candidate source pages and individual numerical results require release review.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_SHARE_COUNT_VS_NOTIONAL_TRADE_VOLUME",
+      "title": "Share volume and dollar notional trade volume are different measurements",
+      "concept": "Share volume counts shares; dollar notional multiplies each executed quantity by its own matched trade price.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Multiply each executed share quantity by its actual fictional print price, then sum those notionals; report share total separately. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: 600 shares printed at $12.00 and 400 at $12.50 imply 1,000 traded shares but $7,200+$5,000=$12,200 of total print notional.",
+      "limit": "A single OHLC candle and its share volume alone do not reconstruct exact transaction-level notional when individual prices are missing.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. A single OHLC candle and its share volume alone do not reconstruct exact transaction-level notional when individual prices are missing.",
+      "commonError": "Live-trading mistake to avoid: A real trader can confuse 1,000 shares with $1,000 of turnover and compare two securities with incompatible quoted prices. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: 100 shares at $9 and 200 at $10 imply 300 shares and $2,900 notional; identify the separate units. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Share volume counts shares; dollar notional multiplies each executed quantity by its own matched trade price. The calculation uses this original worked example: FICTIONAL: 600 shares printed at $12.00 and 400 at $12.50 imply 1,000 traded shares but $7,200+$5,000=$12,200 of total print notional. Key practical limitation: A single OHLC candle and its share volume alone do not reconstruct exact transaction-level notional when individual prices are missing. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: 100 shares at $9 and 200 at $10 imply 300 shares and $2,900 notional; identify the separate units. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_CAP_MULTIPLICATION_NOT_CASH",
+      "title": "Market capitalization reflects a quote multiplied by shares outstanding, not cash in the company",
+      "concept": "Market capitalization is an equity market-value estimate based on share price and the selected outstanding-share count.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Use a quote at a specified instant multiplied by contemporaneous eligible outstanding common shares; do not substitute average daily volume. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Five million outstanding shares at $20 each imply $100 million equity market capitalization, not $100 million in company cash.",
+      "limit": "Diluted share counts, multiple share classes and changing prices may make alternative published capitalization estimates differ.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Diluted share counts, multiple share classes and changing prices may make alternative published capitalization estimates differ.",
+      "commonError": "Live-trading mistake to avoid: A beginner may treat market capitalization as a treasury account balance rather than a price-dependent estimate of common equity value. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Three million common shares at a $40 quote imply a $120 million market capitalization; identify what is not measured. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Market capitalization is an equity market-value estimate based on share price and the selected outstanding-share count. The calculation uses this original worked example: FICTIONAL: Five million outstanding shares at $20 each imply $100 million equity market capitalization, not $100 million in company cash. Key practical limitation: Diluted share counts, multiple share classes and changing prices may make alternative published capitalization estimates differ. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Three million common shares at a $40 quote imply a $120 million market capitalization; identify what is not measured. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FLOAT_ESTIMATE_VS_OUTSTANDING",
+      "title": "An assumed public float is not identical to a company total outstanding share count",
+      "concept": "Shares outstanding and an estimated publicly tradable float measure different groups of shares and depend on definitions.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Identify the as-of date and provider-specific float exclusions, then subtract only shares explicitly known in the fictional model to be excluded. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Of 10 million outstanding common shares, assume exactly 2 million are excluded by the exercise float definition; modeled float is 8 million.",
+      "limit": "An actual float cannot be inferred solely from one insider holding figure; restricted status and data-provider conventions need verification.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. An actual float cannot be inferred solely from one insider holding figure; restricted status and data-provider conventions need verification.",
+      "commonError": "Live-trading mistake to avoid: Treating every non-institutional share as available float or assuming float equals all shares can misstate a market-liquidity screen. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Of 15 million outstanding shares, 4 million are assumed excluded under a declared rule; estimate modeled float and name one unknown. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Shares outstanding and an estimated publicly tradable float measure different groups of shares and depend on definitions. The calculation uses this original worked example: FICTIONAL: Of 10 million outstanding common shares, assume exactly 2 million are excluded by the exercise float definition; modeled float is 8 million. Key practical limitation: An actual float cannot be inferred solely from one insider holding figure; restricted status and data-provider conventions need verification. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Of 15 million outstanding shares, 4 million are assumed excluded under a declared rule; estimate modeled float and name one unknown. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RELATIVE_SPREAD_TO_MIDPOINT",
+      "title": "A quoted spread percentage depends on the reference price used in its denominator",
+      "concept": "The quoted bid-ask spread in dollars can be divided by the simultaneous midpoint to express a relative spread for teaching.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — At the same valid quote timestamp, compute midpoint=(bid+ask)/2 and spread=ask−bid, then 100×spread/midpoint only when midpoint is positive. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Bid $10.00 and ask $10.10 give midpoint $10.05, width $0.10 and a midpoint-relative width of about 0.995%.",
+      "limit": "A midpoint-relative snapshot is not an effective transaction spread, a guaranteed execution expense, or the full SEC Rule 605 statistic.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. A midpoint-relative snapshot is not an effective transaction spread, a guaranteed execution expense, or the full SEC Rule 605 statistic.",
+      "commonError": "Live-trading mistake to avoid: A trader who mixes quote times or divides by the wrong benchmark can report an apparently precise but meaningless spread percent. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: A $20.00 bid and $20.20 ask imply midpoint $20.10 and relative quoted spread about 0.995%. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: The quoted bid-ask spread in dollars can be divided by the simultaneous midpoint to express a relative spread for teaching. The calculation uses this original worked example: FICTIONAL: Bid $10.00 and ask $10.10 give midpoint $10.05, width $0.10 and a midpoint-relative width of about 0.995%. Key practical limitation: A midpoint-relative snapshot is not an effective transaction spread, a guaranteed execution expense, or the full SEC Rule 605 statistic. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: A $20.00 bid and $20.20 ask imply midpoint $20.10 and relative quoted spread about 0.995%. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ONE_CENT_MOVE_PRICE_CONTEXT",
+      "title": "The same one-cent price change has a different percentage significance at different prices",
+      "concept": "A fixed-dollar movement should be compared with the starting price before interpreting relative magnitude.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Define the original price, subtract the starting quote from the ending quote and divide by the original nonzero price. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A $0.01 increase from $5.00 equals 0.20%, while the same $0.01 increase from $50.00 is 0.02%.",
+      "limit": "These examples assume valid comparative prices and do not assert that every security is subject to an identical tick size.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. These examples assume valid comparative prices and do not assert that every security is subject to an identical tick size.",
+      "commonError": "Live-trading mistake to avoid: Comparing pennies alone across two share-price levels can make a minor percentage change appear as important as a major one. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Compare a $0.02 rise from $10.00 with a $0.02 rise from $100.00 as percentages. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A fixed-dollar movement should be compared with the starting price before interpreting relative magnitude. The calculation uses this original worked example: FICTIONAL: A $0.01 increase from $5.00 equals 0.20%, while the same $0.01 increase from $50.00 is 0.02%. Key practical limitation: These examples assume valid comparative prices and do not assert that every security is subject to an identical tick size. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Compare a $0.02 rise from $10.00 with a $0.02 rise from $100.00 as percentages. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BASIS_POINT_PRICE_CHANGE_CONVERSION",
+      "title": "Basis points convert a defined percentage change into hundredths of one percent",
+      "concept": "One basis point is one hundredth of one percentage point and can express price or rate changes with declared context.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Compute 100×(new−old)/old to obtain percent change, then multiply that percentage by 100 for basis points. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A price rises from $50.00 to $50.25; 0.25/50×100=0.50%, which is 50 basis points.",
+      "limit": "A basis point of price return differs from a one-basis-point change in a quoted yield or interest rate.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. A basis point of price return differs from a one-basis-point change in a quoted yield or interest rate.",
+      "commonError": "Live-trading mistake to avoid: Calling a 50-basis-point price increase 50% or $0.50 can produce a hundredfold position-analysis error. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: A price falls from $80 to $79.60; express the signed percentage change and basis points. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: One basis point is one hundredth of one percentage point and can express price or rate changes with declared context. The calculation uses this original worked example: FICTIONAL: A price rises from $50.00 to $50.25; 0.25/50×100=0.50%, which is 50 basis points. Key practical limitation: A basis point of price return differs from a one-basis-point change in a quoted yield or interest rate. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: A price falls from $80 to $79.60; express the signed percentage change and basis points. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_QUANTITY_WEIGHTED_ENTRY_PRICE",
+      "title": "Average entry price must weight each partial purchase by its share count",
+      "concept": "A simple arithmetic average of different execution prices is wrong when share quantities differ.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Add every fictional executed purchase price times matched share quantity, then divide by total filled shares. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Buying 20 shares at $10 and 30 at $11 produces (200+330)/50=$10.60 per share, not an unweighted $10.50.",
+      "limit": "Transaction fees, fractional shares, execution corrections and account-specific cost-basis rules are outside this raw fill-price calculation.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Transaction fees, fractional shares, execution corrections and account-specific cost-basis rules are outside this raw fill-price calculation.",
+      "commonError": "Live-trading mistake to avoid: A trader may average two execution prices without weighting them and record a false break-even reference for the position. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Buy 10 shares at $8 and 15 at $9; compute the quantity-weighted average without fees. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A simple arithmetic average of different execution prices is wrong when share quantities differ. The calculation uses this original worked example: FICTIONAL: Buying 20 shares at $10 and 30 at $11 produces (200+330)/50=$10.60 per share, not an unweighted $10.50. Key practical limitation: Transaction fees, fractional shares, execution corrections and account-specific cost-basis rules are outside this raw fill-price calculation. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Buy 10 shares at $8 and 15 at $9; compute the quantity-weighted average without fees. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WHOLE_SHARE_CASH_PURCHASE_LIMIT",
+      "title": "Cash available and purchase price place an arithmetic ceiling on whole-share quantity",
+      "concept": "Cash-funded whole-share quantity is limited by affordable purchase cost when fees and trading restrictions are separately addressed.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Divide available fictional cash by assumed per-share execution price, round whole shares down, and recompute residual cash. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: With $500 cash and a hypothetical $12.30 per-share execution price, 40 whole shares cost $492, leaving $8 before any charges.",
+      "limit": "Actual orders can fill at different prices or incur fees; available-to-trade balances may differ from displayed account cash.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Actual orders can fill at different prices or incur fees; available-to-trade balances may differ from displayed account cash.",
+      "commonError": "Live-trading mistake to avoid: Rounding a calculated quantity upward can create an order larger than available funds even before commission or price movement. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: With $125 cash and a $9.40 assumed execution, calculate the maximum whole shares and unused cash. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Cash-funded whole-share quantity is limited by affordable purchase cost when fees and trading restrictions are separately addressed. The calculation uses this original worked example: FICTIONAL: With $500 cash and a hypothetical $12.30 per-share execution price, 40 whole shares cost $492, leaving $8 before any charges. Key practical limitation: Actual orders can fill at different prices or incur fees; available-to-trade balances may differ from displayed account cash. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: With $125 cash and a $9.40 assumed execution, calculate the maximum whole shares and unused cash. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FRACTIONAL_SHARE_NOTIONAL_QUANTITY",
+      "title": "Fractional-share quantity is not automatically rounded to a whole share",
+      "concept": "When a broker supports it, a notional-dollar order can correspond to part of a share rather than a full integer quantity.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Under an explicit fictional exact-price assumption, divide contributed dollars by share price; state the resulting fractional-share units. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A $25 notional purchase at an assumed $40-per-share fill would buy 0.625 shares before any account restrictions or charges.",
+      "limit": "Broker policy determines eligibility, supported symbols, fractional order execution and any rounding; arithmetic is not an order guarantee.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Broker policy determines eligibility, supported symbols, fractional order execution and any rounding; arithmetic is not an order guarantee.",
+      "commonError": "Live-trading mistake to avoid: Students may assume fractions are always permitted or incorrectly round 0.625 to one whole share and overstate purchasing power. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Compute the theoretical shares for a $30 notional purchase at $48 per share and note broker availability. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: When a broker supports it, a notional-dollar order can correspond to part of a share rather than a full integer quantity. The calculation uses this original worked example: FICTIONAL: A $25 notional purchase at an assumed $40-per-share fill would buy 0.625 shares before any account restrictions or charges. Key practical limitation: Broker policy determines eligibility, supported symbols, fractional order execution and any rounding; arithmetic is not an order guarantee. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Compute the theoretical shares for a $30 notional purchase at $48 per share and note broker availability. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TWO_FOR_ONE_SPLIT_POSITION_SCALE",
+      "title": "A two-for-one split changes nominal shares and per-share price without automatically creating wealth",
+      "concept": "In an idealized 2-for-1 stock split, the share count doubles while the comparable per-share price halves at the split adjustment.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Hold pre-event notional value constant in a fictional frictionless model and scale count by two and comparable price by one-half. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Forty shares at $100 represent $4,000; an illustrative 2-for-1 adjustment gives 80 shares at $50, still $4,000.",
+      "limit": "The first actual post-event market price is not guaranteed to equal the mechanical adjusted reference, and corporate-action terms control.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. The first actual post-event market price is not guaranteed to equal the mechanical adjusted reference, and corporate-action terms control.",
+      "commonError": "Live-trading mistake to avoid: A shareholder may mistake twice as many shares for twice the wealth, ignoring the associated mechanical price-scale change. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Convert 25 shares at $80 through a hypothetical 2-for-1 split and compare modeled position values. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: In an idealized 2-for-1 stock split, the share count doubles while the comparable per-share price halves at the split adjustment. The calculation uses this original worked example: FICTIONAL: Forty shares at $100 represent $4,000; an illustrative 2-for-1 adjustment gives 80 shares at $50, still $4,000. Key practical limitation: The first actual post-event market price is not guaranteed to equal the mechanical adjusted reference, and corporate-action terms control. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Convert 25 shares at $80 through a hypothetical 2-for-1 split and compare modeled position values. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REVERSE_SPLIT_POSITION_SCALE",
+      "title": "A reverse split changes share quantity and the comparable price scale",
+      "concept": "In a simplified reverse split, shares decrease by a stated ratio while an adjusted reference price increases correspondingly.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Given an assumed 1-for-10 reverse split, divide the existing share count by ten and multiply comparable price by ten. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A holder of 120 shares at $2.00 has $240 of position value; a 1-for-10 reverse split implies 12 shares at an adjusted $20.00 reference.",
+      "limit": "Cash in lieu, fractions, event terms and subsequent market repricing can produce differences from this purely mechanical model.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Cash in lieu, fractions, event terms and subsequent market repricing can produce differences from this purely mechanical model.",
+      "commonError": "Live-trading mistake to avoid: A trader may infer profit from a tenfold price display increase while overlooking that the share count fell by the same factor. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Convert 80 shares at $3 through a hypothetical 1-for-4 reverse split and compare values. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: In a simplified reverse split, shares decrease by a stated ratio while an adjusted reference price increases correspondingly. The calculation uses this original worked example: FICTIONAL: A holder of 120 shares at $2.00 has $240 of position value; a 1-for-10 reverse split implies 12 shares at an adjusted $20.00 reference. Key practical limitation: Cash in lieu, fractions, event terms and subsequent market repricing can produce differences from this purely mechanical model. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Convert 80 shares at $3 through a hypothetical 1-for-4 reverse split and compare values. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SPLIT_ADJUSTED_PERCENTAGE_COMPARISON",
+      "title": "Split-adjusted and unadjusted prices cannot be mixed in a simple return comparison",
+      "concept": "A split can change the nominal quote scale without a comparable change in the economic value of an existing share position.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Adjust the earlier comparative price for the declared split ratio before computing a price-only percentage; declare dividends excluded. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A prior $80 close is $40 on a 2-for-1 adjusted basis; an adjusted next $42 close represents +5%, not an unadjusted −47.5%.",
+      "limit": "Real vendor adjusted-price histories may also reflect distributions and corrections; always declare adjustment mode and point-in-time availability.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Real vendor adjusted-price histories may also reflect distributions and corrections; always declare adjustment mode and point-in-time availability.",
+      "commonError": "Live-trading mistake to avoid: A student may label a mechanical split price change a crash when a chart combines adjusted and raw price scales. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: After a 4-for-1 split, compare a previous $120 close with a next $31 comparable close as adjusted price return. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A split can change the nominal quote scale without a comparable change in the economic value of an existing share position. The calculation uses this original worked example: FICTIONAL: A prior $80 close is $40 on a 2-for-1 adjusted basis; an adjusted next $42 close represents +5%, not an unadjusted −47.5%. Key practical limitation: Real vendor adjusted-price histories may also reflect distributions and corrections; always declare adjustment mode and point-in-time availability. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: After a 4-for-1 split, compare a previous $120 close with a next $31 comparable close as adjusted price return. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CHANGING_QUOTE_MARKET_ORDER_FILL",
+      "title": "An earlier displayed ask is not a confirmed market-order purchase price",
+      "concept": "An observed quote and a subsequent execution can differ because displayed liquidity and market conditions change.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Use the fictional timestamped quote only as context, then calculate paid notional from the stated execution quantity and actual assumed fill. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A quote showed ask $10.50, but a later 100-share market buy filled at $10.70; paid notional was $1,070, $20 above the earlier ask-based estimate.",
+      "limit": "Last trade, stale quotes and displayed liquidity do not ensure execution; this is an execution arithmetic example, not a broker simulation.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Last trade, stale quotes and displayed liquidity do not ensure execution; this is an execution arithmetic example, not a broker simulation.",
+      "commonError": "Live-trading mistake to avoid: Treating the first quoted ask as a guaranteed buy fill can understate the actual money committed or the trade's cost. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: The earlier ask is $8.00 and 50 shares fill at $8.12; calculate the difference from the earlier quote reference. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: An observed quote and a subsequent execution can differ because displayed liquidity and market conditions change. The calculation uses this original worked example: FICTIONAL: A quote showed ask $10.50, but a later 100-share market buy filled at $10.70; paid notional was $1,070, $20 above the earlier ask-based estimate. Key practical limitation: Last trade, stale quotes and displayed liquidity do not ensure execution; this is an execution arithmetic example, not a broker simulation. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: The earlier ask is $8.00 and 50 shares fill at $8.12; calculate the difference from the earlier quote reference. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BUY_LIMIT_CANNOT_ASSUME_EXECUTION",
+      "title": "A buy limit places a price boundary without guaranteeing an execution",
+      "concept": "An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Compare the declared buy limit with eligible offer prices and available orders at the decision instant; do not treat a limit as a trade print. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; zero execution is confirmed by that quote alone even if a later candle trades $19.90.",
+      "limit": "Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed.",
+      "commonError": "Live-trading mistake to avoid: Marking a paper order as filled merely because a chart's later low touched its limit creates look-ahead and false execution history. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled. The calculation uses this original worked example: FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; zero execution is confirmed by that quote alone even if a later candle trades $19.90. Key practical limitation: Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PARTIAL_EXECUTION_WEIGHTED_PRICE",
+      "title": "Multiple partial executions require a weighted average fill price",
+      "concept": "A single submitted order can receive different partial fills and the average is based on actual executed share quantities.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Sum partial shares times each stated fill price, divide by total executed shares, and do not include unfilled submitted quantity. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Forty shares filled at $10.00 and sixty at $10.20; 100 shares executed at a weighted $10.12 average.",
+      "limit": "An unfinished order can have additional later fills; a partial-fill average is not necessarily the final complete order result.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. An unfinished order can have additional later fills; a partial-fill average is not necessarily the final complete order result.",
+      "commonError": "Live-trading mistake to avoid: A trader who divides the executed dollar total by submitted rather than executed shares reports a misleading average fill. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Thirty shares fill at $5.10 and twenty fill at $5.20; calculate the average price for 50 executed shares. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A single submitted order can receive different partial fills and the average is based on actual executed share quantities. The calculation uses this original worked example: FICTIONAL: Forty shares filled at $10.00 and sixty at $10.20; 100 shares executed at a weighted $10.12 average. Key practical limitation: An unfinished order can have additional later fills; a partial-fill average is not necessarily the final complete order result. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Thirty shares fill at $5.10 and twenty fill at $5.20; calculate the average price for 50 executed shares. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CANDLE_BODY_SIZE_VS_TOTAL_RANGE",
+      "title": "Candlestick body height and high-to-low range measure different amounts",
+      "concept": "A candle body measures the absolute difference between open and close, while its total range includes intrabar extremes.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — From one completed fictional OHLC candle, compute |close−open| and high−low, then divide only by a positive range. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Open $20, close $20.80, high $21, low $19.50 give body $0.80 and full range $1.50; body is 53.33% of range.",
+      "limit": "One completed candle does not disclose the intrabar sequence or who initiated a trade; a zero-range bar has undefined body/range ratio.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. One completed candle does not disclose the intrabar sequence or who initiated a trade; a zero-range bar has undefined body/range ratio.",
+      "commonError": "Live-trading mistake to avoid: A student who treats a wide upper wick as body movement may misread the candle's open-to-close relationship. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Open $30, close $29.40, high $30.40, low $29; calculate body percentage of full range. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A candle body measures the absolute difference between open and close, while its total range includes intrabar extremes. The calculation uses this original worked example: FICTIONAL: Open $20, close $20.80, high $21, low $19.50 give body $0.80 and full range $1.50; body is 53.33% of range. Key practical limitation: One completed candle does not disclose the intrabar sequence or who initiated a trade; a zero-range bar has undefined body/range ratio. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Open $30, close $29.40, high $30.40, low $29; calculate body percentage of full range. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_UPPER_LOWER_WICK_SEPARATION",
+      "title": "Upper and lower candlestick wicks use the body endpoints as boundaries",
+      "concept": "A completed candle's upper wick extends from its higher open/close endpoint to the high; its lower wick extends from the low to the lower endpoint.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Compute upper=high−max(open,close) and lower=min(open,close)−low only after verifying consistent completed-bar OHLC values. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Open $10, close $10.60, high $11.20, low $9.80 give upper wick $0.60 and lower wick $0.20.",
+      "limit": "Wicks alone cannot establish chronological trade sequence, resting liquidity or a confirmed change in trading control.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Wicks alone cannot establish chronological trade sequence, resting liquidity or a confirmed change in trading control.",
+      "commonError": "Live-trading mistake to avoid: A trader who always subtracts the close from the high can miscalculate the upper wick for a bearish candle. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Open $20, close $19.50, high $20.50, low $19.00; compute upper and lower wicks separately. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: A completed candle's upper wick extends from its higher open/close endpoint to the high; its lower wick extends from the low to the lower endpoint. The calculation uses this original worked example: FICTIONAL: Open $10, close $10.60, high $11.20, low $9.80 give upper wick $0.60 and lower wick $0.20. Key practical limitation: Wicks alone cannot establish chronological trade sequence, resting liquidity or a confirmed change in trading control. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Open $20, close $19.50, high $20.50, low $19.00; compute upper and lower wicks separately. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRIOR_CLOSE_TO_OPEN_GAP",
+      "title": "An opening price gap compares two different confirmed observations",
+      "concept": "An open-to-prior-close gap measures the current session opening value relative to a previous eligible completed close.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Identify which prior-session close and current eligible opening print are used, subtract the prior close and divide by the prior nonzero close. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: An earlier completed closing print at $50 and the new session's opening print at $51.20 imply an opening gap of $1.20, or +2.40%.",
+      "limit": "Corporate actions, extended-hours sessions and quote-vs-trade distinctions change what comparison is legitimate.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Corporate actions, extended-hours sessions and quote-vs-trade distinctions change what comparison is legitimate.",
+      "commonError": "Live-trading mistake to avoid: Comparing a new regular open to an unadjusted pre-split close or an unrelated after-hours quote creates a false gap. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Compare a $24.00 prior regular-session close with a $23.40 next regular-session open as dollars and percent. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: An open-to-prior-close gap measures the current session opening value relative to a previous eligible completed close. The calculation uses this original worked example: FICTIONAL: An earlier completed closing print at $50 and the new session's opening print at $51.20 imply an opening gap of $1.20, or +2.40%. Key practical limitation: Corporate actions, extended-hours sessions and quote-vs-trade distinctions change what comparison is legitimate. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Compare a $24.00 prior regular-session close with a $23.40 next regular-session open as dollars and percent. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FIVE_MINUTE_BAR_AVAILABILITY_BOUNDARY",
+      "title": "A five-minute bar's opening timestamp does not reveal its completed candle at that instant",
+      "concept": "Bar timestamps often identify the beginning of an interval; the complete interval's high, low, close and volume become known only after observation.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Declare the fictional bar interval and whether timestamp is opening or closing; disclose only prior completed candles at the simulated decision time. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: A bar labeled 09:30 covers 09:30–before 09:35 in an opening-time convention; its final high at 09:34 cannot be used by a 09:31 decision.",
+      "limit": "A feed may use closing timestamps or deliver revisions; declared data availability and cutoff, not the text label alone, govern lookahead.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. A feed may use closing timestamps or deliver revisions; declared data availability and cutoff, not the text label alone, govern lookahead.",
+      "commonError": "Live-trading mistake to avoid: A chart lesson that shows the eventual 09:30 bar high at 09:31 silently trains decisions using future information. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: At 10:02 during a bar labeled 10:00, identify which five-minute bars are fully completed and which high is unknown. Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Bar timestamps often identify the beginning of an interval; the complete interval's high, low, close and volume become known only after observation. The calculation uses this original worked example: FICTIONAL: A bar labeled 09:30 covers 09:30–before 09:35 in an opening-time convention; its final high at 09:34 cannot be used by a 09:31 decision. Key practical limitation: A feed may use closing timestamps or deliver revisions; declared data availability and cutoff, not the text label alone, govern lookahead. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: At 10:02 during a bar labeled 10:00, identify which five-minute bars are fully completed and which high is unknown. Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MATCHED_INTERVAL_VOLUME_COMPARISON",
+      "title": "Relative volume requires matched time windows rather than mismatched daily totals",
+      "concept": "Volume comparison is meaningful only after defining the same duration, session conditions and population for the baseline and observed period.",
+      "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Compute observed completed-interval share volume divided by a declared historical mean for that matching interval, if denominator positive. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result.",
+      "workedCase": "FICTIONAL: Five thousand shares in the first ten completed minutes versus a 4,000-share mean for comparable ten-minute windows equals 1.25× relative volume.",
+      "limit": "A 10-minute current observation divided by full-session volume is not a valid like-for-like relative-volume ratio.",
+      "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. A 10-minute current observation divided by full-session volume is not a valid like-for-like relative-volume ratio.",
+      "commonError": "Live-trading mistake to avoid: A trader may interpret an apparently high relative-volume number caused only by a shorter or otherwise mismatched comparison window. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
+      "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: Six thousand shares in the first completed fifteen minutes versus a historical 8,000-share matched-window baseline yields what ratio? Declare inputs, units, and why a real result might differ.",
+      "reviewExplanation": "Ungraded correction: Volume comparison is meaningful only after defining the same duration, session conditions and population for the baseline and observed period. The calculation uses this original worked example: FICTIONAL: Five thousand shares in the first ten completed minutes versus a 4,000-share mean for comparable ten-minute windows equals 1.25× relative volume. Key practical limitation: A 10-minute current observation divided by full-session volume is not a valid like-for-like relative-volume ratio. No protected answer key or mastery grade was used.",
+      "transferQuestion": "FICTIONAL TRANSFER: Six thousand shares in the first completed fifteen minutes versus a historical 8,000-share matched-window baseline yields what ratio? Explain the calculation and what a previously unavailable price or document would change.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal draft",
+        "result": "original_distinct_concept_draft_individual_evidence_pending",
+        "rights": "original_fictional_scenario_no_vendor_data_reproduction",
+        "independentPublicationAccepted": false,
+        "sourceScope": "Reference page is a topical research candidate; exact formula and scope need primary-claim editorial review before acceptance.",
+        "referenceCheckedDate": null
+      }
+    }
+  ],
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419
+}
