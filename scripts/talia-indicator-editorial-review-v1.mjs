@@ -51,7 +51,7 @@ const records=studies.map((g,i)=>{
  };
 });
 assert.equal(records.length,73);
-assert.equal(records.filter(x=>x.sourceOnlyComputationAvailable).length,5);
+assert.equal(records.filter(x=>x.sourceOnlyComputationAvailable).length,8);
 assert.equal(records.filter(x=>x.origin==='extension_12').length,12);
 assert.equal(records.filter(x=>x.structuralBlockers.length).length,0,
  'Mandatory source/guide structural defects: '+JSON.stringify(records.filter(x=>x.structuralBlockers.length).map(x=>({id:x.code,errors:x.structuralBlockers}))));
@@ -60,7 +60,7 @@ const out={
  status:'automatic_structure_triage_not_editorial_acceptance',
  inventory:73,originalGuides:61,addedGuides:12,
  publicGuidedIndicatorLessons:73,newSourceOnlyComputedCaseIds:[...mathSet],
- sourceOnlyComputedCaseCount:5,independentlyEditoriallyAccepted:0,
+ sourceOnlyComputedCaseCount:8,independentlyEditoriallyAccepted:0,
  computedChartStudioOverlaysAdded:0,
  pending:records.filter(x=>x.defectFlags.length).length,
  note:'Automated structural triage only. No external URL content was downloaded or verified, and no person verified correctness or accepted 73 guides. Computed arithmetic fixtures are not full interactive chart implementations.',
