@@ -1625,9 +1625,10 @@
       "limit": "Thresholds and zero-flow cases need explicit handling. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Thresholds and zero-flow cases need explicit handling.",
       "commonError": "Treating Money Flow Index as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Money Flow Index measures, the formula/settings in MFI=100-100/(1+positive_money_flow/negative_money_flow), one application to a hypothetical chart and why thresholds and zero-flow cases need explicit handling.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Money Flow Index and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: For 300 positive and 700 negative hypothetical flow, calculate 30.0 and explain what happens when negative flow is zero. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Money Flow Index first compares typical price with the previous complete bar, classifies raw money flow by direction, and then compares window sums. The ratio is undefined at a zero negative-flow denominator; a display convention may assign 100 when positive flow remains, but the handling must be declared. An oscillator value is neither exact buyer intent nor a future reversal. The initial worked example uses these specifically stated values: On completed bars, sum positive typical-price × volume = 800 and negative flow magnitude = 200; 100 − 100/(1 + 800/200) = 80.0 MFI points, for a declared illustration window.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/money-flow-index-mfi",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1638,7 +1639,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Money Flow Index settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: On completed bars, sum positive typical-price × volume = 800 and negative flow magnitude = 200; 100 − 100/(1 + 800/200) = 80.0 MFI points, for a declared illustration window.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/money-flow-index-mfi",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_CHAIKIN_OSCILLATOR",
@@ -1654,9 +1662,10 @@
       "limit": "Built on imperfect close-location assumptions and repeated smoothing. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Built on imperfect close-location assumptions and repeated smoothing.",
       "commonError": "Treating Chaikin Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Chaikin Oscillator measures, the formula/settings in ChaikinOsc=EMA_fast(ADL)-EMA_slow(ADL), one application to a hypothetical chart and why built on imperfect close-location assumptions and repeated smoothing.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Chaikin Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: If the two already-warmed ADL EMAs are 50 and 55, calculate −5 and describe why ADL construction still matters. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Chaikin Oscillator measures fast-minus-slow EMA of the Accumulation Distribution Line, which itself depends on close-location × volume and a prior running total. Do not compute a real 3/10 oscillator from only the two EMA outputs without explicit seeding, prior bars and missing range treatment. It is not direct evidence of transactions at the ask. The initial worked example uses these specifically stated values: A fully warmed fictional ADL has a 3-period EMA of 120 volume-weighted ADL units and a 10-period EMA of 98; the Chaikin oscillator is +22 ADL units (120 − 98). These are provided EMA states, not an inferred 10-bar history.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/chaikin-oscillator",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1667,7 +1676,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Chaikin Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A fully warmed fictional ADL has a 3-period EMA of 120 volume-weighted ADL units and a 10-period EMA of 98; the Chaikin oscillator is +22 ADL units (120 − 98). These are provided EMA states, not an inferred 10-bar history.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/chaikin-oscillator",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_PVO",
@@ -1683,9 +1699,10 @@
       "limit": "Rising activity is not a bullish vote by itself. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Rising activity is not a bullish vote by itself.",
       "commonError": "Treating Percentage Volume Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Percentage Volume Oscillator measures, the formula/settings in PVO=100*(EMA_fast(volume)-EMA_slow(volume))/EMA_slow(volume), one application to a hypothetical chart and why rising activity is not a bullish vote by itself.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Percentage Volume Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Repeat for warmed short EMA 90,000 and long EMA 120,000 shares/bar (−25%), then identify a zero denominator. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Percentage Volume Oscillator is a percentage difference in volume EMA levels, not the signed direction of price. Confirm matching bar duration and EMA warmup; a zero long EMA invalidates the ratio. A positive PVO does not by itself authorize a bullish trade. The initial worked example uses these specifically stated values: Completed fictional volume history has warmed 12-bar EMA volume 125,000 shares/bar and 26-bar EMA volume 100,000 shares/bar; PVO = 100 × (125,000 − 100,000)/100,000 = +25%.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/percentage-volume-oscillator-pvo",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1696,7 +1713,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Percentage Volume Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Completed fictional volume history has warmed 12-bar EMA volume 125,000 shares/bar and 26-bar EMA volume 100,000 shares/bar; PVO = 100 × (125,000 − 100,000)/100,000 = +25%.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/percentage-volume-oscillator-pvo",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_FORCE_INDEX",
@@ -1712,9 +1736,10 @@
       "limit": "A large outlier can dominate; it is not a measurement of actual buyer intent. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A large outlier can dominate; it is not a measurement of actual buyer intent.",
       "commonError": "Treating Force Index as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Force Index measures, the formula/settings in ForceIndex=(close-prior_close)*volume, one application to a hypothetical chart and why a large outlier can dominate; it is not a measurement of actual buyer intent.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Force Index and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With previous close $21, current close $20.50 and volume 200 shares, compute −100 price-times-share units; do not call it a verified sell order. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: The one-period Force Index multiplies completed close-to-close change by volume; some plots smooth this series with a 13-period EMA. Price-volume multiplication does not reveal bid/ask aggressor identity, and smoothed versions require prior valid observations and seeding. The initial worked example uses these specifically stated values: Fictional previous completed close $10.20, latest completed close $10.60 and latest volume 800 shares: one-period Force Index = ($10.60 − $10.20) × 800 = +320 price-times-share units.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/force-index",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1725,7 +1750,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Force Index settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Fictional previous completed close $10.20, latest completed close $10.60 and latest volume 800 shares: one-period Force Index = ($10.60 − $10.20) × 800 = +320 price-times-share units.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/force-index",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_VOLUME_PROFILE",
@@ -1741,9 +1773,10 @@
       "limit": "Bar approximation and vendor binning affect the profile; HVN is not guaranteed support. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Bar approximation and vendor binning affect the profile; HVN is not guaranteed support.",
       "commonError": "Treating Volume by Price or Volume Profile as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Volume by Price or Volume Profile measures, the formula/settings in Sum volume into chosen price intervals; allocation method depends on feed, one application to a hypothetical chart and why bar approximation and vendor binning affect the profile; hvn is not guaranteed support.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Volume by Price or Volume Profile and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: At $20.00×80, $20.08×120 and $20.11×90, recalculate volumes using [$20.00,$20.10) and [$20.10,$20.20) bins. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: A volume profile allocates specified executed volume to chosen price bins. Precise distribution needs authorized trade-level data; OHLCV bars cannot reveal exact within-bar volume placement, and vendor estimation methods disagree. A high-volume node cannot guarantee later support. The initial worked example uses these specifically stated values: Fictional confirmed print prices and sizes are $10.00×100 shares, $10.05×200 shares and $10.20×50 shares. With half-open bins [$10.00,$10.10) and [$10.10,$10.30), volumes are 300 and 50 shares respectively.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1754,7 +1787,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Volume by Price or Volume Profile settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Fictional confirmed print prices and sizes are $10.00×100 shares, $10.05×200 shares and $10.20×50 shares. With half-open bins [$10.00,$10.10) and [$10.10,$10.30), volumes are 300 and 50 shares respectively.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_PRICE_RELATIVE",
@@ -1770,8 +1810,8 @@
       "limit": "Dividends and corporate actions can change comparison; not RSI. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Dividends and corporate actions can change comparison; not RSI.",
       "commonError": "Treating Price Relative Strength versus Benchmark as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Price Relative Strength versus Benchmark measures, the formula/settings in Ratio=adjusted_security_price/adjusted_benchmark_price, one application to a hypothetical chart and why dividends and corporate actions can change comparison; not rsi.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Price Relative Strength versus Benchmark and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With adjusted security $45 and benchmark $50, calculate 0.90, and say why a dividend-adjustment mismatch invalidates the comparison. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Price relative is a ratio of two consistently adjusted, timestamp-aligned price series, not the RSI oscillator or an excess-return proof. Denominator must be positive; different currencies, splits, dividends, dates or symbol sets can make a displayed ratio meaningless. The initial worked example uses these specifically stated values: Fictional same-time adjusted security price $55 and adjusted benchmark price $50 give a price-relative ratio 55/50 = 1.10. If the previous comparable ratio was 1.00, the ratio increased by 10%.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1783,7 +1823,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Price Relative Strength versus Benchmark settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Fictional same-time adjusted security price $55 and adjusted benchmark price $50 give a price-relative ratio 55/50 = 1.10. If the previous comparable ratio was 1.00, the ratio increased by 10%.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_SCTR",
@@ -1799,8 +1846,8 @@
       "limit": "Proprietary score cannot be reproduced or proven profitable from a description. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Proprietary score cannot be reproduced or proven profitable from a description.",
       "commonError": "Treating StockCharts Technical Rank as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what StockCharts Technical Rank measures, the formula/settings in Proprietary vendor-defined scoring system; consult current provider documentation, one application to a hypothetical chart and why proprietary score cannot be reproduced or proven profitable from a description.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of StockCharts Technical Rank and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Compare fictional published ranks 61 and 67 (+6 rank points). Explain why this difference cannot certify a six-percent return or reverse-engineer proprietary weights. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: StockCharts Technical Rank is a provider-defined ranking system. A published numerical rank can be described but the underlying proprietary weightings, security universe, factor details and license cannot be inferred or reproduced from two displays. No exact formula or simulated vendor score is claimed. The initial worked example uses these specifically stated values: A provider-published, hypothetical StockCharts Technical Rank changes from 82 to 74 on its own display: the observable difference is −8 rank points. This is a comparison of supplied ranks, not a reconstruction of the proprietary scoring algorithm.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1812,7 +1859,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different StockCharts Technical Rank settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A provider-published, hypothetical StockCharts Technical Rank changes from 82 to 74 on its own display: the observable difference is −8 rank points. This is a comparison of supplied ranks, not a reconstruction of the proprietary scoring algorithm.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_ADVANCE_DECLINE",
@@ -1828,8 +1882,8 @@
       "limit": "Constituent universe and unchanged issues must be defined. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Constituent universe and unchanged issues must be defined.",
       "commonError": "Treating Advance Decline Line as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Advance Decline Line measures, the formula/settings in ADL(t)=ADL(t-1)+advancers-decliners, one application to a hypothetical chart and why constituent universe and unchanged issues must be defined.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Advance Decline Line and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Start at −30 with 220 advancing and 250 declining issues. Calculate −60 and identify whether unchanged issues enter the net count. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: The advance–decline line accumulates net advancing minus declining eligible issues for a specified exchange/universe and session. Changed membership, missing constituents and differing unchanged-stock conventions alter comparisons; it is breadth, not a trade trigger or a guaranteed index-price forecast. The initial worked example uses these specifically stated values: A fictional universe has yesterday's cumulative advance–decline line at 1,000; today 400 issues advance, 350 decline, 25 remain unchanged. The next value is 1,000 + 400 − 350 = 1,050 breadth units.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1841,7 +1895,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Advance Decline Line settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A fictional universe has yesterday's cumulative advance–decline line at 1,000; today 400 issues advance, 350 decline, 25 remain unchanged. The next value is 1,000 + 400 − 350 = 1,050 breadth units.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_NEW_HIGHS_LOWS",
@@ -1857,8 +1918,8 @@
       "limit": "Universe changes and trading halts can distort counts. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Universe changes and trading halts can distort counts.",
       "commonError": "Treating New 52-Week Highs Minus Lows as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what New 52-Week Highs Minus Lows measures, the formula/settings in NetHighLow=new_high_count-new_low_count, one application to a hypothetical chart and why universe changes and trading halts can distort counts.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of New 52-Week Highs Minus Lows and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: For 28 qualifying highs and 36 lows, calculate −8 issues. Why can a universe change distort a comparison to yesterday? Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Net 52-week highs minus lows is a difference in qualifying counts for a fixed, documented symbol universe and price-adjustment/time-window definition. It is not an exact one-year return metric. Halts, new listings, corporate actions and missing histories change eligibility. The initial worked example uses these specifically stated values: A fictional complete eligible-market scan at a defined close finds 48 issues at new 52-week highs and 31 at new 52-week lows: net new highs = 48 − 31 = +17 issues.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1870,7 +1931,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different New 52-Week Highs Minus Lows settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A fictional complete eligible-market scan at a defined close finds 48 issues at new 52-week highs and 31 at new 52-week lows: net new highs = 48 − 31 = +17 issues.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_MCCLELLAN_OSC",
@@ -1886,9 +1954,10 @@
       "limit": "Ratio-adjusted and raw constructions differ; smoothing lags. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Ratio-adjusted and raw constructions differ; smoothing lags.",
       "commonError": "Treating McClellan Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what McClellan Oscillator measures, the formula/settings in Osc=EMA_fast(net_advances)-EMA_slow(net_advances), one application to a hypothetical chart and why ratio-adjusted and raw constructions differ; smoothing lags.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of McClellan Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: Given already-warmed short and long EMAs −20 and +10, calculate −30 scaled units and name the net-advances normalization assumption. Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: StockCharts commonly uses ratio-adjusted net advances (advances−declines)/(advances+declines), sometimes scaled 1,000, smoothed with 19/39 EMAs; raw net-advance variants are not numerically interchangeable. Do not calculate from uninitialized EMAs, a zero eligible count or mixed universes. Positive breadth momentum does not prove future price action. The initial worked example uses these specifically stated values: For a fictional ratio-adjusted breadth series scaled by 1,000, a fully warmed 19-period EMA equals +60 units and its 39-period EMA is +45 units. McClellan Oscillator = +15 scaled breadth units.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/market-indicators/mcclellan-oscillator",
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1899,7 +1968,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different McClellan Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: For a fictional ratio-adjusted breadth series scaled by 1,000, a fully warmed 19-period EMA equals +60 units and its 39-period EMA is +45 units. McClellan Oscillator = +15 scaled breadth units.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators/mcclellan-oscillator",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_PERCENT_ABOVE_MA",
@@ -1915,8 +1991,8 @@
       "limit": "Index membership, stale data and moving-average definition matter. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Index membership, stale data and moving-average definition matter.",
       "commonError": "Treating Percent Above Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Percent Above Moving Average measures, the formula/settings in Percent=100*count(price>MA)/eligible_universe_size, one application to a hypothetical chart and why index membership, stale data and moving-average definition matter.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Percent Above Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: If 45 of 90 comparable eligible securities are above the selected MA, calculate 50%. Should an issue equal to its average count above? Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Percent above moving average counts eligible securities with current price strictly greater than the selected, sufficiently warmed MA. Define the moving-average kind, lookback, trade session and changing universe; exclude unavailable histories instead of treating them as below. A breadth ratio does not measure future returns. The initial worked example uses these specifically stated values: Of 120 eligible fictional stocks with sufficient completed price history, 72 have the specified completed close strictly above their correctly warmed 50-period SMA. Percent above = 100 × 72/120 = 60%.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1928,7 +2004,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Percent Above Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Of 120 eligible fictional stocks with sufficient completed price history, 72 have the specified completed close strictly above their correctly warmed 50-period SMA. Percent above = 100 × 72/120 = 60%.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_PUT_CALL_RATIO",
@@ -1944,8 +2027,8 @@
       "limit": "Hedging can dominate; equity, index and total ratios are different. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Hedging can dominate; equity, index and total ratios are different.",
       "commonError": "Treating Put Call Volume Ratio as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Put Call Volume Ratio measures, the formula/settings in PCR=puts_traded/calls_traded, one application to a hypothetical chart and why hedging can dominate; equity, index and total ratios are different.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Put Call Volume Ratio and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: For 250 puts and 500 calls compute 0.50. What happens if there are zero call contracts, and why does hedging change sentiment interpretation? Show inputs, formula, calculation, units and a boundary condition before making any interpretation.",
+      "reviewExplanation": "Ungraded correction: Put/call volume ratio divides same-period put contracts by call contracts for a declared equity, index or total options category; contract counts are not price or open interest. A zero call denominator is undefined. Hedging, covered strategies and mixed products prevent a one-to-one directional sentiment claim. The initial worked example uses these specifically stated values: In a fictional, matched-duration equity-options universe, 600 put contracts and 400 call contracts traded. The put/call traded-volume ratio is 600/400 = 1.50, dimensionless.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -1957,7 +2040,14 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Put Call Volume Ratio settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: In a fictional, matched-duration equity-options universe, 600 put contracts and 400 call contracts traded. The put/call traded-volume ratio is 600/400 = 1.50, dimensionless.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "original_subject_specific_worked_lesson_reviewed_source_contract_pending",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
+        "rights": "original_fictional_teaching_no_vendor_code_or_feed"
+      }
     },
     {
       "code": "STUDY_VIX_CONTEXT",
