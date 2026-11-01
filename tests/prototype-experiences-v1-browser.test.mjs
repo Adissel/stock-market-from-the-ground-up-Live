@@ -47,7 +47,7 @@ try{
  assert.match(await a.page.locator('.cx-mode-lock').textContent(),/Assessment unavailable/);
  assert.equal(await a.page.locator('.cx-learning').count(),0,'Protected official assessments must not render fictional answer exercises');
  await a.page.getByLabel('Prototype learning mode').selectOption('blind');
- await a.page.getByLabel('Blind decision').selectOption('NO TRADE');
+ await a.page.getByLabel('Blind decision',{exact:true}).selectOption('NO TRADE');
  await a.page.getByLabel('Blind decision evidence').fill('I need more confirming evidence and a clear invalidation level.');
  assert.equal(await a.page.locator('.cx-learning').count(),0,'Blind decision must withhold Talia teaching until decision');
  await a.page.getByRole('button',{name:'Lock fictional decision and reveal instruction'}).click();
