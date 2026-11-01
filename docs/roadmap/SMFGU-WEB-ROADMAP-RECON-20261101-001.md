@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.0 / 2026-11-01 |
+| Version / prepared | 1.1 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -30,7 +30,7 @@ The old `docs/CURRENT_RELEASE.md` (v0.14.0.12), `RELEASE_MANIFEST.json` (v0.14.0
 | Three invited Beta Boot Camps | 27/27 original instructional days accepted | Ungraded, invitation-only scope; public retail and protected grading remain on hold |
 | Private three-course assessments | 41/54 complete drafts, 0/54 approved for scoring at the dated Oct 31 snapshot | Draft authoring `41/54` ≠ protected release, no server answer-key disclosure |
 | B01 graded Beta preparation | 62% managerial weighted preparation | 0/20 private sets independently signed; grading release blocked |
-| Indicator studies | 61 original written research guides across seven families | Exactly 15 calculated ECharts chart studies, not 61 executable overlays |
+| Indicator studies | 73 source-only original Tutor indicator guides (61 retained + 12 extensions) across nine families | 16 independently inventoried computed first-party prototype chart-study choices; 8 separate fictional source-only teaching computations. None of the three counts equals independently accepted editorial release |
 | Talia | 134 research/tutor modules | Source catalog not universal individual editorial approval |
 | Chart Studio | 3/14 fully accepted strict release gates | Ten partial, one open; historical half-credit estimate 57.1% not equivalent to signoff |
 | Free V1 | Historical planning 88% | Five original ungraded Free days accepted in their narrow scope; two-account privacy, full accessibility and final release distinct |
@@ -52,14 +52,27 @@ There are three separate future product families: Shared Learning Engine (Basic 
 
 A source version, target product edition and real released server capability are different. Equal essential first-principles instruction, free explanations, worked calculations, correction, retries, transfer and grading security are guaranteed for each lesson that a member is already entitled to access. Premium may add independently accepted depth/workflows, not gate basic explanations or official answer keys.
 
+## November 1 v1.1 six-gate read-only execution reconciliation
+
+The current verified indicator source inventory is **73/73** original Tutor study guides, not 73 production overlays. The first-party computed prototype registry has **16** distinct study selections (source: `scripts/guided-platform-quality-audit-v1.mjs` and `scripts/learning-echarts-beta-audit-v1.mjs`). The eight original fictional source-only Tutor computations are a *third* quantity. An indicator guide, a computed prototype study and an independently approved member learning outcome must be counted separately.
+
+1. **Latest production CI:** GitHub Actions is measured by the full set of required checks on a frozen exact SHA; a Cloudflare successful build alone does not certify CI. During this refresh, continuous pushes and failed or cancelled runs prevent final current-head acceptance. The latest CI SHA must be re-established after the last mutation.
+2. **Privileged RPCs:** Supabase live read-only catalog contained 87 authenticated `SECURITY DEFINER` functions, including four also executable to anonymous users. All had an explicit `search_path`; 24 included `public`. Static and targeted function-body examination found role checks in selected Owner/moderator functions, *not* a full negative-authorization certification. Review public-path resolution, function-specific grants and account separation; never blanket revoke.
+3. **73-guide teaching review:** All 73 unique guides have mathematical/reference/fictional teaching fields, with 165 aggregate source-link entries. Independently checked selected examples and source conventions, including NVI, DPO and CHOP; keep per-claim formula, warm-up, historical cutoff, copyright/data-rights and individual publication approvals open.
+4. **Risk60 Days 21–40:** All 20 have distinct fictional guided-rehearsal source rows. Days 21–22 also include a separate 12-question formative package and advanced practicum; **Days 23–40 lack an equivalent individual deep package in the currently inspected module**. Do not increment the fixed original advanced-depth acceptance ledger from source presence. Controlling Academy result remains **93/380 = 24.47%** accepted, 287 open.
+5. **Authenticated acceptance:** Existing private Academy stage checkpoint storage has RLS enabled, with ordinary `anon` and `authenticated` roles lacking direct SELECT. This is security evidence, not an actual signed-in multi-account browser acceptance. Preserve original 419 official Lab IDs, nine non-Free Academy program scope, and protected grading.
+6. **Release documentation:** GitHub P0-06 / P0-05 / Tutor research acceptance issues remain authoritative for findings and blockers. No user payments, new fake member grades, service grants, or premium releases are implied by this read-only roadmap revision.
+
+**Codex budget:** No Codex used for this reconciliation. **Website-wide release percent:** Not assigned without a complete, evidence-supported weighted denominator.
+
 ## Ten controlling next execution gates
 
 1. **CI:** select stable `main` SHA, finish mandatory workflows without counting pending/cancelled checks, verify same successful Cloudflare Pages SHA.
 2. **Genuine staff browser:** Owner/Admin and denied-role auth, three protected A/B/C prototype experiences, sign-out, session expiry and revocation.
 3. **419 Lab parity:** ten visible teaching steps, five original facets, numerical reasoning, adaptive correction, retry, fresh transfer, server-owned scoring.
 4. **Academy 380-unit depth:** separately verify each day, especially remaining 287 advanced-depth units, ungraded 27-day invited Beta, draft/public boundaries, prerequisites and Talia.
-5. **61 indicators:** individual published authority/formula/unit/warm-up/session interpretation/limitation, original research guide vs 15 real calculations.
-6. **15 computed indicators:** independent OHLCV numerical reference, no lookahead, initial/warm-up/reset/missing bar/parameter cases.
+5. **73 indicator teaching guides:** individual published authority/formula/unit/warm-up/session interpretation/limitation, original research guide vs 15 real calculations.
+6. **16 computed prototype chart studies:** independent OHLCV numerical reference, no lookahead, initial/warm-up/reset/missing bar/parameter cases.
 7. **Professional ECharts:** React/TypeScript and locally hosted Apache ECharts 6.1, linked charts, pan/zoom/release, overlays, pane resizing, mobile and keyboard acceptance.
 8. **Two independent genuine accounts:** secure entitlement and mutual denial across Labs, Academy, Tutor, Watchlist, Replay, Journal and Studio.
 9. **Accessibility and educational integrity:** actual screen-reader review, focus/keyboard/reduced motion, source-level trading/regulatory/market-data correctness, actual separate reviewers where required.
@@ -89,5 +102,6 @@ The source change is a **scoped product/engineering implementation** only. CI su
 | Version | Date | Change | Owner disposition |
 |---|---|---|---|
 | 1.0 | 2026-11-01 | Reconcile release records, engine edition targets, 93/380 Academy acceptance, source/graded separations and ten ordered gates in the real authenticated Roadmap UI | Source implementation; final production signoff open |
+| 1.1 | 2026-11-01 | Reconcile 73 Tutor study guides, 16 computed prototype studies, live Supabase/Risk60 audit findings and six prioritized execution gates | Read-only source evidence; independent release acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.0 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.1 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
