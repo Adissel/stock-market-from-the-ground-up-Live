@@ -6,7 +6,7 @@ import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v0141
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,'computed '+a+' expected '+b);
 const guides=JSON.parse(readFileSync(new URL('../data/tutor-indicator-expansion-v1.json',import.meta.url),'utf8')).guides;
 test('Elder-Ray, Vortex, NVI, PVI and Ulcer formula examples compute from completed inputs with zero denominator guards',()=>{
- assert.deepEqual(elderRayExample(10.5,9.6,10),{bull:.5,bear:-.4});
+ const elder=elderRayExample(10.5,9.6,10);near(elder.bull,.5);near(elder.bear,-.4);
  assert.equal(elderRayExample(1,3,2),null);
  const bars=[{high:10.2,low:9.8,close:10},{high:10.5,low:9.9,close:10.3},{high:10.8,low:10.1,close:10.7}];
  const v=vortexExample(bars,2);
