@@ -10,6 +10,7 @@ import {academyPrograms,academyByCode} from '../functions/_lib/bootcamp-academy-
 import '../assets/js/prototype-indicator-workbench-v2.js';
 import {FOUNDATION_WORKED_MATH_CODES} from '../functions/_lib/tutor-foundation-worked-math-v1.js';
 import {FOUNDATION_QUANT_TOPICS} from '../functions/_lib/talia-foundation-quant-v1.js';
+import {FOUNDATION_RISK_MATH_TOPICS} from '../functions/_lib/talia-foundation-risk-quant-v1.js';
 import {TALIA_STUDY_CALCULATED} from '../functions/_lib/talia-indicator-worked-v1.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const map=JSON.parse(read('data/competency-lab-paths-v01499.json'));
@@ -18,7 +19,7 @@ const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
 const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
  freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
- tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0,foundationSupplementalTopicDrafts:0,foundationQuantTopics:0,sourceOnlyIndicatorComputedExamples:0};
+ tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0,foundationSupplementalTopicDrafts:0,foundationQuantTopics:0,foundationRiskQuantTopics:0,sourceOnlyIndicatorComputedExamples:0};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
 // Inspect the authoritative first-party chart registry, not a copied metric.
@@ -73,15 +74,17 @@ const guidedExtension=JSON.parse(read('data/tutor-guided-practice-expansion-v1.j
 const foundationTopics=JSON.parse(read('data/talia-foundation-explanations-batch01-v1.json'));
 const secondTopicBatch=JSON.parse(read('data/talia-foundation-explanations-batch02-v1.json'));
 const thirdTopicBatch=JSON.parse(read('data/talia-foundation-explanations-batch03-v1.json'));
+const fourthTopicBatch=JSON.parse(read('data/talia-foundation-explanations-batch04-v1.json'));
+metrics.foundationRiskQuantTopics=FOUNDATION_RISK_MATH_TOPICS.length;
 metrics.sourceOnlyIndicatorComputedExamples=TALIA_STUDY_CALCULATED.length;
 metrics.foundationQuantTopics=FOUNDATION_QUANT_TOPICS.length;
-metrics.foundationSupplementalTopicDrafts=(foundationTopics.guides?.length||0)+(secondTopicBatch.guides?.length||0)+(thirdTopicBatch.guides?.length||0);
-if(foundationTopics.goal!==600||secondTopicBatch.goal!==600||thirdTopicBatch.goal!==600||foundationTopics.count!==20||
-  secondTopicBatch.count!==20||thirdTopicBatch.count!==20||metrics.foundationSupplementalTopicDrafts!==60||metrics.foundationQuantTopics!==9||
+metrics.foundationSupplementalTopicDrafts=(foundationTopics.guides?.length||0)+(secondTopicBatch.guides?.length||0)+(thirdTopicBatch.guides?.length||0)+(fourthTopicBatch.guides?.length||0);
+if(foundationTopics.goal!==600||secondTopicBatch.goal!==600||thirdTopicBatch.goal!==600||fourthTopicBatch.goal!==600||foundationTopics.count!==20||
+  secondTopicBatch.count!==20||thirdTopicBatch.count!==20||fourthTopicBatch.count!==20||metrics.foundationSupplementalTopicDrafts!==80||metrics.foundationQuantTopics!==9||metrics.foundationRiskQuantTopics!==9||
   metrics.sourceOnlyIndicatorComputedExamples!==5||
-  [...foundationTopics.guides,...secondTopicBatch.guides,...thirdTopicBatch.guides].some(g=>g.officialCompetency!==false||g.independentEditorialApproved!==false)||
-  new Set([...foundationTopics.guides,...secondTopicBatch.guides,...thirdTopicBatch.guides].map(g=>g.code)).size!==60)
- fail('foundation_600_topic_batch','Expected sixty distinct ungraded Foundation explanation drafts and nine quantitative plus five indicator numeric examples');
+  [...foundationTopics.guides,...secondTopicBatch.guides,...thirdTopicBatch.guides,...fourthTopicBatch.guides].some(g=>g.officialCompetency!==false||g.independentEditorialApproved!==false)||
+  new Set([...foundationTopics.guides,...secondTopicBatch.guides,...thirdTopicBatch.guides,...fourthTopicBatch.guides].map(g=>g.code)).size!==80)
+ fail('foundation_600_topic_batch','Expected eighty distinct ungraded Foundation explanation drafts, nine extra risk quant topics, and five indicator numeric examples');
 const indicatorModules=tutorGuided.modules?.filter(m=>m.kind==='indicator')||[];
 const mapped=new Map(indicatorModules.map(m=>[m.guideCode,m]));
 metrics.indicatorBriefs=indicatorBriefs.guides?.length||0;
