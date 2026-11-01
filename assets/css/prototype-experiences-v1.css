@@ -550,3 +550,17 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-edition-grid select{width:100%;padding:9px;border:1px solid #6f9eac;border-radius:6px;background:#0c2635;color:#fff;min-width:0}
 @media(max-width:850px){.cx-edition-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.cx-type-cursor{animation:none}}
+
+/* V13: Flagship outer wrapper is a page stack; only its inner content is the workstation grid.
+   Without this isolation, nested names forced the chart/Talia into half of the available page. */
+.cx-page-b section.cx-flagship.cx-flagship-aurora,
+.cx-page-b section.cx-flagship.cx-flagship-quantum,
+.cx-page-b section.cx-flagship.cx-flagship-green{display:flex;flex-direction:column;width:100%;gap:11px;min-width:0}
+.cx-page-b section.cx-flagship>.cx-flagship-tabs,
+.cx-page-b section.cx-flagship>.cx-flagship-intro,
+.cx-page-b section.cx-flagship>div.cx-flagship-aurora,
+.cx-page-b section.cx-flagship>div.cx-flagship-quantum,
+.cx-page-b section.cx-flagship>div.cx-flagship-green{width:100%;min-width:0}
+.cx-page-b section.cx-flagship>div.cx-flagship-aurora{display:grid;grid-template-columns:minmax(330px,.93fr) minmax(400px,1.07fr);align-items:start}
+.cx-page-b section.cx-flagship>div.cx-flagship-quantum{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.9fr);align-items:start}
+@media(max-width:950px){.cx-page-b section.cx-flagship>div.cx-flagship-aurora,.cx-page-b section.cx-flagship>div.cx-flagship-quantum{grid-template-columns:minmax(0,1fr)}}
