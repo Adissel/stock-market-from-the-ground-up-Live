@@ -35,6 +35,58 @@ for(const a of early.price){const b=find(full.price,a.label);assert.ok(b,'Missin
 }}
 assert.ok(early.marks.every(x=>x.confirmedAt<34),'Structure swing marker cannot precede confirmation');
 assert.ok(api.validSettings({emaFast:0,emaSlow:500,rsi:0,bbDeviation:70}).emaFast>=2);
+// Ten independent technical acceptance cases for the shared calculated studies.
+// These are original deterministic fixtures, not historical or predictive market evidence.
+const math=globalThis.CrownlightIndicatorMath;
+const near=(actual,expected,label)=>assert.ok(Number.isFinite(actual)&&Math.abs(actual-expected)<1e-9,label+': '+actual+' !== '+expected);
+// G1: a missing price invalidates only windows containing that missing observation.
+assert.deepEqual(math.sma([1,2,NaN,4,5,6],2),[null,1.5,null,null,4.5,5.5]);
+// G2: EMA starts from the exact SMA seed and uses alpha=2/(N+1).
+assert.deepEqual(math.ema([1,2,3,4],3),[null,null,2,3]);
+// G3: Bollinger bands use a complete-bar population standard deviation.
+const three=[1,2,3].map(close=>({close,open:close,high:close,low:close,volume:100}));
+const bb=math.bollinger(three,3,2);
+near(bb.middle[2],2,'G3 Bollinger middle');
+near(bb.upper[2],2+2*Math.sqrt(2/3),'G3 Bollinger upper');
+near(bb.lower[2],2-2*Math.sqrt(2/3),'G3 Bollinger lower');
+// G4: RSI is neutral on an unchanged-price sequence, not an implied buy.
+assert.equal(math.rsi([10,10,10].map(close=>({close})),2)[2],50);
+// G5: True Range includes previous close, with a seeded Wilder ATR.
+near(math.atr([{high:11,low:9,close:10},{high:12,low:10,close:11}],2)[1],2,'G5 ATR');
+// G6: the lowest MACD slow setting must not generate an unsupported one-bar EMA.
+const edge=api.validSettings({macdFast:2,macdSlow:2,macdSignal:2});
+assert.deepEqual([edge.macdFast,edge.macdSlow,edge.macdSignal],[2,3,2]);
+assert.ok(api.validSettings({macdFast:100,macdSlow:3}).macdFast<3);
+// G7: the first MACD value waits for slow warmup; signal waits beyond it.
+const mm=math.macd(three.concat(Array.from({length:5},(_,i)=>({close:i+4}))),2,3,2);
+assert.equal(mm.line[0],null);
+assert.equal(mm.line[1],null);
+assert.equal(mm.signal[2],null);
+assert.ok(Number.isFinite(mm.signal[3]));
+// G8: the observed high/low never includes future highs or lows.
+const onlyLevels=api.compute(bars.slice(0,4),cfg,{...Object.fromEntries(api.specs.map(x=>[x.id,false])),HOD:true,LOD:true});
+const firstH=onlyLevels.price.find(x=>x.label==='Observed HOD').data;
+const firstL=onlyLevels.price.find(x=>x.label==='Observed LOD').data;
+near(firstH[0],bars[0].h,'G8 first observed high');
+near(firstL[0],bars[0].l,'G8 first observed low');
+// G9: single-window volume SMA uses source bar volume without fabricated fill.
+const volumeOnly=api.compute(bars.slice(0,3),{...cfg,volPeriod:2},{...Object.fromEntries(api.specs.map(x=>[x.id,false])),VOLMA:true});
+near(volumeOnly.volume.find(x=>x.label==='Volume SMA 2').data[1],1050,'G9 volume SMA');
+// G10: disclosed VWAP proxy is derived only from completed synthetic bars.
+const firstProxy=bars[0].proxy;
+near(firstProxy,(bars[0].h+bars[0].l+bars[0].c)/3,'G10 source HLC3');
+assert.notEqual(firstProxy,0);
+const gapped=math.sma([1,2,NaN,4,5,6],2);
+assert.ok(gapped.every(x=>x===null||Number.isFinite(x)));
+const guideKeys=['concept','formula','procedure','commonError','limit','selfCheck','reviewExplanation'];
+const families=new Set(['Trend','Momentum','Volatility','Levels','Volume','Breadth','Sentiment']);
+for(const guide of catalog.guides){
+ assert.ok(families.has(guide.family),'Unknown indicator family '+guide.code);
+ assert.ok(guideKeys.every(k=>typeof guide[k]==='string'&&guide[k].length>=8),'Missing authored teaching component '+guide.code);
+ assert.ok(Array.isArray(guide.sourceUrls)&&guide.sourceUrls.length>0&&guide.sourceUrls.every(x=>/^https:\/\//.test(x)),'Missing original source provenance '+guide.code);
+ assert.equal(guide.officialCompetency,false,'Do not mislabel indicator brief as protected official competency');
+}
+
 const html=readFileSync('prototype.html','utf8');
 const tsx=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
 const workflow=readFileSync('.github/workflows/prototype-center-v1.yml','utf8');
