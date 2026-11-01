@@ -8,7 +8,7 @@
   const m=root.CrownlightIndicatorMath;
   if(!m||!Array.isArray(history)||!history.length)return null;
   const b=history.at(-1),c=history.map(x=>x.close),n=c.length,i=n-1;
-  const e9=m.ema(c,9)[i],e20=m.ema(c,20)[i],vwap=m.vwapProxy(history)[i];
+  const e9=m.ema(c,9)[i],e20=m.ema(c,20)[i],e200=m.ema(c,200)[i],vwap=m.vwapProxy(history)[i];
   const prev=history.slice(Math.max(0,n-21),-1);
   const avg=prev.length>=5?prev.reduce((z,x)=>z+x.volume,0)/prev.length:null;
   const rel=avg>0?b.volume/avg:null;
@@ -18,6 +18,7 @@
   const facts=[
    {name:'EMA 9',value:Number.isFinite(e9)?e9:null,reading:Number.isFinite(e9)?'Close '+above(b.close,e9)+' EMA 9. The average follows recent closes; it does not prove support.':'Not ready: nine valid closes required.'},
    {name:'EMA 20',value:Number.isFinite(e20)?e20:null,reading:Number.isFinite(e20)?'Close '+above(b.close,e20)+' EMA 20. Compare slope and price acceptance across several candles.':'Not ready: twenty valid closes required.'},
+   {name:'EMA 200',value:Number.isFinite(e200)?e200:null,reading:Number.isFinite(e200)?'Close '+above(b.close,e200)+' EMA 200. This is a long-period reference, not automatic support, resistance or an entry signal.':'Not ready: 200 valid completed closes, including authorized prelesson context, are required; do not invent warmup values.'},
    {name:'Session VWAP estimate',value:Number.isFinite(vwap)?vwap:null,reading:Number.isFinite(vwap)?'Close '+above(b.close,vwap)+' HLC3-volume VWAP estimate. This is not a tick-exact VWAP or consolidated feed.':'Unavailable: no sufficient volume observations.'},
    {name:'Relative volume',value:rel,reading:rel===null?'Unavailable until five prior observed candles with volume.':rel>=1.5?'Volume is at least 1.5× the preceding observed '+prev.length+'-candle mean; verify venue and session.':rel<.8?'Volume is below 0.8× the preceding observed '+prev.length+'-candle mean; weak participation alone is not a trade signal.':'Volume is near its recent observed average; no breakout confirmation follows from this alone.'}
   ];
