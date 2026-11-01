@@ -156,7 +156,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const accent=cv('--cx-accent','#72e0d1'),good=cv('--cx-good','#46d5ad'),bad=cv('--cx-bad','#f27d98'),muted=cv('--cx-muted','#99aebe'),grid=cv('--cx-grid','#294452');
    const bars=dataFor(reveal),names=bars.map(b=>b.time);
    const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
-   let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#102131',borderColor:grid,textStyle:{color:'#edf7ff'},axisPointer:{type:'cross'}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
+   let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
    if(kind==='price'){
     const math=(window as any).CrownlightPrototypeIndicators;
     const calculated=math?.compute?.(bars,settings||defaults,currentEnabled);
@@ -167,11 +167,11 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     if(volumePane)gridRows.push({id:'volume',height:81});
     for(const id of panes)gridRows.push({id,height:105});
     let top=18;
-    option.grid=gridRows.map((x)=>{const out={left:55,right:22,top,height:x.height};top+=x.height+19;return out});
+    option.grid=gridRows.map((x)=>{const out={left:16,right:76,top,height:x.height,containLabel:false,backgroundColor:'#06131c',show:true,borderWidth:0};top+=x.height+19;return out});
     option.xAxis=gridRows.map((x,i)=>({type:'category',gridIndex:i,data:names,boundaryGap:true,...axis,
       axisLabel:{show:i===gridRows.length-1,color:muted,fontSize:10,interval:Math.max(0,Math.floor(reveal/10))}}));
-    option.yAxis=gridRows.map((x,i)=>({type:'value',gridIndex:i,scale:x.id!=='rsi',min:x.id==='rsi'?0:undefined,max:x.id==='rsi'?100:undefined,...axis,
-      axisLabel:{color:muted,fontSize:10,formatter:(v:number)=>Number(v).toFixed(x.id==='rsi'?0:2)},splitNumber:3}));
+    option.yAxis=gridRows.map((x,i)=>({type:'value',gridIndex:i,position:'right',scale:x.id!=='rsi',min:x.id==='rsi'?0:undefined,max:x.id==='rsi'?100:undefined,...axis,
+      axisLabel:{color:muted,margin:12,fontSize:10,formatter:(v:number)=>Number(v).toFixed(x.id==='rsi'?0:2)},splitNumber:4}));
     const xIndexes=gridRows.map((_,i)=>i);
     const {start,end}=viewport.current;
     option.dataZoom=[
@@ -179,11 +179,13 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
       {id:'range',type:'slider',xAxisIndex:xIndexes,start,end,bottom:0,height:13,brushSelect:false,
        fillerColor:'rgba(95,204,190,.23)',borderColor:grid,backgroundColor:'#0a1c2a',handleStyle:{color:accent},textStyle:{color:muted},filterMode:'none'}
     ];
-    option.axisPointer={link:[{xAxisIndex:'all'}],label:{backgroundColor:'#183242'}};
-    const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:27,label:{color:'#06131e',fontWeight:700,fontSize:10}}))];
+    option.axisPointer={link:[{xAxisIndex:'all'}],lineStyle:{color:accent,type:'dashed',width:1,opacity:.5},label:{backgroundColor:'#183242'}};
+    option.graphic=[{type:'text',right:100,top:45,silent:true,z:-2,style:{text:'CROWNLIGHT  ·  SIMULATION',fill:'rgba(126,167,182,.10)',font:'700 22px Inter,system-ui',textAlign:'right'}}];
+    const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:18,label:{color:'#06131e',fontWeight:700,fontSize:9}}))];
     if(focusBar>=0&&focusBar<bars.length)markerData.push({name:'Selected bar',coord:[focusBar,bars[focusBar].h],symbol:'circle',symbolSize:7,value:'',label:{show:false}});
     option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>[b.o,b.c,b.l,b.h]),
-      itemStyle:{color:good,color0:bad,borderColor:good,borderColor0:bad},barMaxWidth:18,
+      itemStyle:{color:good,color0:bad,borderColor:good,borderColor0:bad,borderWidth:1.3},barMaxWidth:20,barMinWidth:4,
+      markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c}]},
       markPoint:{silent:true,data:markerData}}];
     for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:x.data,showSymbol:false,connectNulls:false,animation:false,
        lineStyle:{color:x.color,width:x.width,type:x.label.includes('proxy')?'dashed':'solid'},itemStyle:{color:x.color},symbol:'none'});
