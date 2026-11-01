@@ -7,6 +7,7 @@ const css=read('assets/css/prototype-curriculum-parity-v1.css');
 const labs=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const indicators=JSON.parse(read('data/tutor-indicator-study-v1.json'));
+const bridges=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
 await import('../assets/js/crownlight-indicator-math-v2.js');
 await import('../assets/js/prototype-indicator-workbench-v2.js');
 assert.equal(labs.totalCanonicalLabs,419);
@@ -14,6 +15,15 @@ assert.equal(Object.keys(labs.byLab).length,419);
 assert.equal(guides.guides.length,30);
 assert.equal(indicators.guides.length,61);
 assert.equal(indicators.count,61);
+assert.equal(bridges.canonicalLabCount,419);
+assert.equal(Object.keys(bridges.entries).length,419);
+assert.equal(bridges.independentGradesIncluded,false);
+assert.equal(bridges.historicalBarDataIncluded,false);
+for(const [id,row] of Object.entries(bridges.entries)){
+ assert.equal(row.labId,id);
+ for(const facet of ['understand','recognize','apply','mistake','limits'])
+  assert(row.tabs[facet].length>=3,'Individual five-facet Lab instruction missing for '+id+' '+facet);
+}
 assert.equal(new Set(indicators.guides.map(g=>g.code)).size,61);
 assert.equal(globalThis.CrownlightPrototypeIndicators.specs.length,15);
 assert.match(html,/<section id="pt-app" hidden/);
@@ -24,6 +34,9 @@ assert.ok(html.indexOf('prototype-indicator-workbench-v2.js')<html.indexOf('prot
 assert.match(js,/if\(!host\|\|!app\)return/);
 assert.match(js,/guard\.observe\(app,\{attributes:true,attributeFilter:\['hidden'\]\}\)/);
 assert.match(js,/totalCanonicalLabs!==419/);
+assert.match(js,/lab-teaching-bridges-v014168\.json/);
+assert.match(js,/independentGradesIncluded!==false/);
+assert.match(js,/facets=/);
 assert.match(js,/skills\?\.guides\?\.length!==30/);
 assert.match(js,/indicators\?\.guides\?\.length!==61/);
 assert.match(js,/computed\.length!==15/);
