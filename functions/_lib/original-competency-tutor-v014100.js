@@ -1,6 +1,7 @@
 import {ungradedResponseReview} from './tutor-response-scaffold-v014102.js';
 import {foundationWorkedMath} from './tutor-foundation-worked-math-v1.js';
 import {foundationQuantTeaching} from './talia-foundation-quant-v1.js';
+import {indicatorWorkedTeaching} from './talia-indicator-worked-v1.js';
 /* v0.14.0.100 — zero-cost source-grounded tutor upgrade.
  * Reuses the 30 original public competency study guides already published
  * for the member Skills page. NO private book manuscript, rubric, market bar,
@@ -297,7 +298,7 @@ function formatDecisionGuide(g,mode,reflection){
  if(mode==='question')lines.push('Answer the evidence/invalidation check without consulting a future candle.');
  return lines.join('\n\n');
 }
-function formatMasterStudyGuide(g,mode,reflection){
+function formatMasterStudyGuide(g,mode,reflection,question=''){
  const out=[
   'Original ungraded stock-market study — '+g.title,
   'Learning family: '+g.family+' ('+g.kind+')',
@@ -316,6 +317,8 @@ function formatMasterStudyGuide(g,mode,reflection){
   'Possible EXIT reasoning: '+g.exitEvidence,
   'WAIT / NO TRADE: '+g.noTrade
  );
+ const worked=mode==='explain'?indicatorWorkedTeaching(g.code,question):null;
+ if(worked)out.push('Verified fictional calculation exercise: '+worked);
  out.push('Original fictional teaching prompt: '+g.fictionalPrompt);
  out.push('Reference documentation (does not prove a strategy edge or current broker settings): '+g.sourceUrls.join(' '));
  out.push('Ungraded understanding check: '+g.selfCheck);
@@ -383,7 +386,7 @@ function answerFromGuide(g,mode,answer,question=''){
   return sections.join('\n\n');
  }
 
- if(g.masterStudy===true)return formatMasterStudyGuide(g,mode,answer);
+ if(g.masterStudy===true)return formatMasterStudyGuide(g,mode,answer,question);
  if(g.decisionPlaybook===true)return formatDecisionGuide(g,mode,answer);
  const links=(g.researchGuide===true&&Array.isArray(g.sourceUrls)?g.sourceUrls:[])
   .filter(u=>typeof u==='string'&&/^https:\/\/(www\.investor\.gov|www\.sec\.gov|www\.finra\.org|toslc\.thinkorswim\.com)\//.test(u)).slice(0,2);
