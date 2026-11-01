@@ -42,7 +42,21 @@ try{
  await a.page.goto(BASE+'/prototype.html?experience=a');
  await a.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});
  assert.equal(await a.page.locator('.cx-designs button').count(),6);
- assert.equal(await a.page.locator('.cx-controlstrip select:has(option[value="FULL_ANNUAL"]) option').count(),8);
+ assert.equal(await a.page.locator('.cx-controlstrip select:has(option[value="FULL_ANNUAL"]) option').count(),9);
+ await a.page.getByLabel('Prototype learning mode').selectOption('assessment');
+ assert.match(await a.page.locator('.cx-mode-lock').textContent(),/Assessment unavailable/);
+ assert.equal(await a.page.locator('.cx-learning').count(),0,'Protected official assessments must not render fictional answer exercises');
+ await a.page.getByLabel('Prototype learning mode').selectOption('blind');
+ await a.page.getByLabel('Blind decision').selectOption('NO TRADE');
+ await a.page.getByLabel('Blind decision evidence').fill('I need more confirming evidence and a clear invalidation level.');
+ assert.equal(await a.page.locator('.cx-learning').count(),0,'Blind decision must withhold Talia teaching until decision');
+ await a.page.getByRole('button',{name:'Lock fictional decision and reveal instruction'}).click();
+ await a.page.locator('.cx-learning').first().waitFor({state:'visible'});
+ await a.page.getByLabel('Prototype learning mode').selectOption('guided');
+ await a.page.locator('.cx-talia-playback').first().getByRole('button',{name:'Show all text'}).click();
+ await a.page.locator('.cx-talia-playback').first().getByRole('button',{name:'Auto-play lessons'}).click();
+ assert.equal(await a.page.locator('.cx-talia-playback').first().getByRole('button',{name:'Pause auto-play'}).count(),1);
+ await a.page.locator('.cx-talia-playback').first().getByRole('button',{name:'Pause auto-play'}).click();
  await a.page.locator('.cx-designs button:has-text("Green / Black")').click();
  assert.equal(await a.page.locator('.cx-app').evaluate(x=>x.classList.contains('cx-theme-green')),true);
  await a.page.getByRole('button',{name:'Expand indicators'}).click();
@@ -133,13 +147,20 @@ try{
  assert.match(await a.page.locator('.cx-transfer').textContent(),/Correct/);
  await a.page.locator('.cx-replay button:has-text("Next +")').click();
  assert.match(await a.page.locator('.cx-statusline').textContent(),/55 completed candles/);
- const planProfiles=[['FREE','Your first clear view'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
+ const planProfiles=[['FREE','Your first clear view'],['PICK_WHAT_YOU_WANT','Select the tools you need'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
  for(const [code,headline] of planProfiles){
   await a.page.getByLabel('Membership design preview').selectOption(code);
   assert.match(await a.page.locator('.cx-member-hero h2').textContent(),new RegExp(headline,'i'),'Wrong proposed membership experience for '+code);
   assert.equal(await a.page.locator('.cx-member-workspaces button').count(),3);
  }
+ await a.page.getByLabel('Membership design preview').selectOption('FREE');
+ await a.page.locator('.cx-member-workspaces button').last().click();
+ await a.page.getByLabel('Local learning record note').fill('A long upper wick does not guarantee a reversal.');
+ await a.page.getByRole('button',{name:'Add local learning note'}).click();
+ assert.match(await a.page.locator('.cx-member-record').textContent(),/does not guarantee/);
+ assert.equal(await a.page.getByLabel('Shared Learning Engine edition preview').inputValue(),'Basic');
  await a.page.getByLabel('Membership design preview').selectOption('FOUNDING_60');
+ assert.equal(await a.page.getByLabel('Talia Market Tutor edition preview').inputValue(),'Professional');
  assert.equal(await a.page.getByLabel('Independent Chart Studio preview').inputValue(),'Professional');
  await a.page.locator('.cx-pro-sync .cx-chart-grabbable canvas').first().waitFor({state:'visible',timeout:20000});
  assert.equal(await a.page.locator('.cx-workgrid .cx-maincolumn .cx-chart-grabbable').count(),2,'Professional preview must have two linked price charts');
