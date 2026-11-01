@@ -1,5 +1,6 @@
 import {ungradedResponseReview} from './tutor-response-scaffold-v014102.js';
 import {foundationWorkedMath} from './tutor-foundation-worked-math-v1.js';
+import {foundationQuantTeaching} from './talia-foundation-quant-v1.js';
 /* v0.14.0.100 — zero-cost source-grounded tutor upgrade.
  * Reuses the 30 original public competency study guides already published
  * for the member Skills page. NO private book manuscript, rubric, market bar,
@@ -222,28 +223,40 @@ async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
  if(cached&&cached.expires>Date.now())return cached.guides;
- const response=await env.ASSETS.fetch(new Request(new URL('/data/talia-foundation-explanations-batch01-v1.json',request.url),{method:'GET'}));
- if(!response.ok)return [];
- const data=await response.json(),rows=data?.guides;
- if(data?.kind!=='talia_foundation_supplemental_explanations_v1'||
-    data.count!==20||data.goal!==600||data.existingOfficialCompetenciesPreserved!==30||
-    !Array.isArray(rows)||rows.length!==20)return [];
- const seen=new Set();
- for(const g of rows){
-  if(!/^TALIA_TOPIC_[A-Z0-9_]{5,96}$/.test(g?.code||'')||seen.has(g.code)||
-    g.foundationTopic!==true||g.supplemental!==true||g.officialCompetency!==false||
-    g.independentEditorialApproved!==false||
-    g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
-    !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
-    !FOUNDATION_TOPIC_SOURCE(g.sourceUrls[0])||
-    (typeof g.title!=='string'||g.title.length<12)||
-    ['concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
-      .some(k=>typeof g[k]!=='string'||g[k].length<28))
-   return [];
-  seen.add(g.code);
- }
- foundationTopicCache.set(env.ASSETS,{guides:rows,expires:Date.now()+300000});
- return rows;
+ const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json'];
+ const batches=await Promise.all(files.map(async file=>{
+  try{
+   const response=await env.ASSETS.fetch(new Request(new URL('/data/'+file,request.url),{method:'GET'}));
+   if(!response.ok)return [];
+   const data=await response.json(),rows=data?.guides;
+   if(data?.kind!=='talia_foundation_supplemental_explanations_v1'||
+      data.count!==20||data.goal!==600||data.existingOfficialCompetenciesPreserved!==30||
+      !Array.isArray(rows)||rows.length!==20)return [];
+   const seen=new Set();
+   for(const g of rows){
+    if(!/^TALIA_TOPIC_[A-Z0-9_]{5,96}$/.test(g?.code||'')||seen.has(g.code)||
+       g.foundationTopic!==true||g.supplemental!==true||g.officialCompetency!==false||
+       g.independentEditorialApproved!==false||
+       g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
+       !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
+       !FOUNDATION_TOPIC_SOURCE(g.sourceUrls[0])||
+       (typeof g.title!=='string'||g.title.length<12)||
+       ['concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
+         .some(k=>typeof g[k]!=='string'||g[k].length<28))return [];
+    seen.add(g.code);
+   }
+   return rows;
+  }catch{return []}
+ }));
+ // Batch 01 is the established optional Foundation teaching baseline. A broken
+ // Batch 02 must never disable its 20 subjects or the 30 official competencies.
+ if(!batches[0].length)return [];
+ const codes=new Set(batches[0].map(x=>x.code));
+ const titles=new Set(batches[0].map(x=>x.title.toLowerCase()));
+ const next=batches[1].length===20&&batches[1].every(g=>!codes.has(g.code)&&!titles.has(g.title.toLowerCase()))?batches[1]:[];
+ const guides=[...batches[0],...next];
+ foundationTopicCache.set(env.ASSETS,{guides,expires:Date.now()+300000});
+ return guides;
 }
 async function originalGuides(env,request,question){
  try{
@@ -308,6 +321,7 @@ function formatMasterStudyGuide(g,mode,reflection){
  return out.join('\n\n');
 }
 function formatFoundationTopic(g,mode,reflection,question){
+ const computed=mode==='explain'?foundationQuantTeaching(g.code,question):null;
  const topic='Original ungraded Foundation explanation — '+g.title;
  const base=[topic,'First principle: '+g.concept,'How to verify or calculate: '+g.procedure,
   'Limits and uncertainty: '+g.limit,'What would invalidate this interpretation: '+g.invalidation,
@@ -319,6 +333,7 @@ function formatFoundationTopic(g,mode,reflection,question){
   ungradedResponseReview(reflection),
   'No rubric was scored and no mastery credit was awarded.'].join('\n\n');
  return [...base,'Original fictional worked explanation: '+g.workedCase,
+   ...(computed?['Original independent calculation and units: '+computed]:[]),
    'Independent transfer question: '+g.transferQuestion,
    'Self-check: '+g.selfCheck,
    'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\n\n');
