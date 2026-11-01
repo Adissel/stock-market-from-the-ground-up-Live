@@ -1,0 +1,40 @@
+/* Five-day Free Foundations ECharts, current authenticated member only. */
+#free-foundations-echarts{
+ margin:19px 0 22px;padding:20px;min-width:0;
+ border:1px solid #59899b;border-radius:16px;
+ background:linear-gradient(145deg,#102c3b,#143547 58%,#152c3b);
+ color:#eaf5f8;box-shadow:0 15px 34px rgba(4,19,28,.21);
+}
+#free-foundations-echarts .ffe-head{
+ display:flex;flex-wrap:wrap;justify-content:space-between;
+ align-items:flex-start;gap:12px
+}
+#free-foundations-echarts .ffe-head h3{margin:2px 0 5px;font-size:clamp(1.15rem,2vw,1.4rem)}
+#free-foundations-echarts .ffe-head p{color:#d0e8ed;font-size:.89rem;line-height:1.55;margin:3px 0 7px}
+#free-foundations-echarts .ffe-kicker{
+ color:#7ce0c7!important;letter-spacing:.12em;font-size:.7rem!important;font-weight:800
+}
+#free-foundations-echarts label{display:flex;align-items:center;gap:8px;font-weight:650;font-size:.87rem}
+#free-foundations-echarts select{
+ min-height:42px;border:1px solid #78a7ba;border-radius:9px;
+ background:#102737;color:#f0f9fc;padding:8px 10px;max-width:100%
+}
+#free-foundations-echarts .ffe-chart{height:270px;min-width:0;width:100%;margin:12px 0}
+#free-foundations-echarts .ffe-table{border-collapse:collapse;width:100%;font-size:.86rem}
+#free-foundations-echarts .ffe-table caption{text-align:left;font-size:.81rem;color:#c8e1e9;margin:7px 0}
+#free-foundations-echarts .ffe-table th,
+#free-foundations-echarts .ffe-table td{
+ border-bottom:1px solid rgba(177,214,228,.24);padding:8px;text-align:left
+}
+#free-foundations-echarts .ffe-table td{text-align:right;font-variant-numeric:tabular-nums}
+#free-foundations-echarts .ffe-table th:not(:first-child){text-align:right}
+#free-foundations-echarts .ffe-note{margin:13px 0 0;font-size:.88rem;color:#d2e9ef;line-height:1.6}
+#free-foundations-echarts select:focus-visible{
+ outline:3px solid #bcefee;outline-offset:3px
+}
+@media(max-width:620px){
+ #free-foundations-echarts{padding:14px;border-radius:12px}
+ #free-foundations-echarts .ffe-head{display:block}
+ #free-foundations-echarts label{margin-top:10px}
+ #free-foundations-echarts .ffe-chart{height:250px}
+}
