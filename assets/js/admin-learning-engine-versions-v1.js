@@ -38,6 +38,13 @@ function rows(data){
  const fields=['learning','lab','tutor'];
  return data.assignments.map(a=>'<tr data-engine-plan="'+esc(a.planCode)+'"><th scope="row">'+esc(a.name)+
  '<small><code>'+esc(a.planCode)+'</code> · '+(a.active?'Active':'Archived')+'</small></th>'+
+ '<td><strong>Learning: '+esc(a.engineTierPolicy?.target?.learning||'UNASSIGNED')+'</strong>'+
+ '<small>Lab: '+esc(a.engineTierPolicy?.target?.lab||'UNASSIGNED')+'</small>'+
+ '<small>Talia: '+esc(a.engineTierPolicy?.target?.tutor||'UNASSIGNED')+'</small>'+
+ '<small>'+(a.engineTierPolicy?.premiumFeaturesReleased?'Released':
+  'Policy target only · premium add-ons NOT released or priced')+'</small>'+
+ (a.engineTierPolicy?.target?.tutor!==a.tutorEdition&&a.engineTierPolicy?.recognized?
+  '<small role="note">Owner policy target and stored Tutor assignment differ; review before sale.</small>':'')+'</td>'+
  fields.map(f=>'<td><label class="visually-hidden" for="engine-'+esc(f)+'-'+esc(a.planCode)+'">'+esc(a.name)+' '+f+'</label>'+
  '<select id="engine-'+esc(f)+'-'+esc(a.planCode)+'" data-engine-field="'+f+'">'+options(data.versions[f],a[f])+'</select></td>').join('')+
  '<td><label class="visually-hidden" for="talia-edition-'+esc(a.planCode)+'">'+esc(a.name)+' Talia membership edition</label>'+
@@ -58,7 +65,7 @@ async function load(){
  const node=root();working=true;status('Verifying Owner version assignments…');
  try{
   const data=await call();
-  node.querySelector('[data-engine-table]').innerHTML='<div class="product-catalog-table-wrap"><table class="product-catalog-table"><thead><tr><th>Membership</th><th>Learning Engine</th><th>Shared Lab Engine</th><th>Talia source</th><th>Talia membership edition</th><th>Engine source action</th></tr></thead><tbody>'+rows(data)+'</tbody></table></div>';
+  node.querySelector('[data-engine-table]').innerHTML='<div class="product-catalog-table-wrap"><table class="product-catalog-table"><thead><tr><th>Membership</th><th>Owner policy tier targets (not released)</th><th>Learning Engine</th><th>Shared Lab Engine</th><th>Talia source</th><th>Talia membership edition</th><th>Engine source action</th></tr></thead><tbody>'+rows(data)+'</tbody></table></div>';
   status('Verified '+data.assignments.length+' membership records. FREE, FOUNDING_14 and PICK_WHAT_YOU_WANT default to the frozen baseline. Edition labels do not activate unreleased tools or paid AI. Each membership has its own Tutor edition selector.');
  }catch(e){status(e.message,true)}
  finally{working=false}
