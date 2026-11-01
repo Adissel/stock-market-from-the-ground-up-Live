@@ -26,3 +26,6 @@ export async function onRequest({request,env}){try{const actor=await owner(env,r
  if(!changed?.ok)throw bad('Membership update was not confirmed.',503);
  return out({...changed,notice:'Membership availability updated and audited. Existing subscriptions/entitlements are unaffected.'});
 }catch(e){return out({ok:false,error:e.message||'Plan request failed.'},e.status||500)}}
+
+// Reuse existing audited Owner identity gate for nonpayment engine-version controls.
+export {owner as authorizeLearningPlanOwner};
