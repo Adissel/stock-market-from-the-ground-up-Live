@@ -63,6 +63,17 @@ for(const i of Array.from({length:20},(_,i)=>i)){
 }
 assert.equal(new Set(upgradedRisk60.curriculum.slice(0,20).flatMap(d=>d.lesson.formativeQuestions.map(q=>q.prompt))).size,240,
  'Risk60 twenty-day deep teaching prompts must not repeat');
+for(const index of [20,21]){
+ const d=upgradedRisk60.curriculum[index],lesson=d.lesson;
+ assert.equal(d.sourceDay,[1,2][index-20],'Risk60 practice cycle must retain original source-day mapping');
+ assert.equal(lesson.formativeQuestions.length,12,'New-case rehearsal must have twelve independent formative prompts');
+ assert.equal(lesson.advancedPracticums.length,1,'New-case rehearsal requires one independent advanced practicum');
+ assert(lesson.advancedPracticums[0].worked.length>=70,'Practice worked evidence must be substantial');
+ assert.equal(d.officiallyGraded,false);
+ assert.equal(d.masteryAwarded,false);
+}
+assert.equal(new Set(upgradedRisk60.curriculum.slice(0,22).flatMap(d=>d.lesson.formativeQuestions.map(q=>q.prompt))).size,264,
+ 'Risk60 twenty-two-day deep teaching prompts must be distinct');
 for(const p of academyPrograms)for(const day of p.curriculum)assert(day.objective&&day.observe&&day.practice&&day.officiallyGraded===false);
 const catalogRequest=new Request('https://example.test/api/bootcamp-academy?action=catalog');
 const defaultCatalog=await(await academyRequest({request:catalogRequest,env:{}})).json();
