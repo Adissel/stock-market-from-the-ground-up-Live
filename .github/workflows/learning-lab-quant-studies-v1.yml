@@ -1,0 +1,28 @@
+name: Learning Lab Quantitative Studies V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/learning-quant-studies-v1.js'
+      - 'assets/js/learning-quant-studies-ui-v1.js'
+      - 'assets/css/learning-quant-studies-v1.css'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'lab-player.html'
+      - 'tests/learning-quant-studies-v1.test.mjs'
+      - '.github/workflows/learning-lab-quant-studies-v1.yml'
+  workflow_dispatch:
+jobs:
+  approved-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax
+        run: |
+          node --check assets/js/learning-quant-studies-v1.js
+          node --check assets/js/learning-quant-studies-ui-v1.js
+          node --check assets/js/lab-engine-v32-universal.js
+      - name: Original quantitative research and safety contracts
+        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs

@@ -1,0 +1,72 @@
+/* Existing member Lab Engine only. No new entitlement, storage or backend. */
+(function(root){'use strict';
+const sessions=new WeakMap();
+function mount({target,studyId,mode}={}){
+ const math=root.GroundUpLearningQuantStudiesV1,def=math?.definitions?.[studyId];
+ if(!target||!def||!['guided','practice'].includes(mode)||typeof target.replaceChildren!=='function')return null;
+ sessions.get(target)?.dispose?.();
+ const doc=target.ownerDocument||root.document;
+ const node=(tag,value)=>{const x=doc.createElement(tag);if(value!==undefined)x.textContent=value;return x;};
+ const shell=node('section');shell.className='gu-quant-workbench';
+ shell.setAttribute('aria-label','Original fictional quantitative learning exercise');
+ shell.append(node('h3',def.label),node('p',def.intro));
+ const source=node('p','Fictional teaching inputs only. No historical chart, real quote, advice, official assessment, or paid model.');
+ source.className='gu-quant-provenance';shell.append(source);
+ const base=math.calculate(studyId,def.initial),later=math.calculate(studyId,def.transfer);
+ const intro=node('p',studyId==='ema'
+  ?'Four completed fictional closes: $10, $12, $14, $16. Period 3. SMA seed = (10+12+14)/3 = $12; α=2/(3+1)=0.50; next EMA=0.50×16+0.50×12=$14. A first-close-seeded EMA would differ.'
+  :studyId==='risk'
+  ?'Assume fictional entry $42.00 and a planned stop at $40.50. Planned per-share distance = |42−40.50| = $1.50; actual execution can differ.'
+  :'Assume entry $42.00, planned stop $40.50, risk budget $150 and cash $3,000. Risk ceiling floor(150/1.50)=100 shares; cash ceiling floor(3000/42)=71; choose the smaller: 71 shares. Nominal planned risk=$106.50, not a guaranteed cap.');
+ shell.append(intro);
+ const chart=node('div');chart.className='gu-quant-echarts';chart.setAttribute('role','img');
+ chart.setAttribute('aria-label',studyId==='ema'?'Fictional four-close and SMA-seeded EMA comparison':'Fictional risk and cash share-count comparison');
+ const table=node('table');table.className='gu-quant-table';
+ const caption=node('caption','Numerical values behind this fictional chart');table.append(caption);
+ const header=node('tr');for(const v of ['Step','Original example','New independent example'])header.append(node('th',v));
+ const tbody=node('tbody');
+ for(let i=0;i<3;i++){const tr=node('tr');tr.append(node('th',def.keys[i]),node('td',base.values[i].toFixed(studyId==='sizing'?0:2)),node('td',later.values[i].toFixed(studyId==='sizing'?0:2)));tbody.append(tr)}
+ table.append(header,tbody);
+ shell.append(chart,table);
+ const fields=[],grid=node('div');grid.className='gu-quant-grid';
+ def.keys.forEach(label=>{const l=node('label',label),inp=node('input');inp.type='text';inp.inputMode='decimal';inp.autocomplete='off';inp.maxLength=24;l.append(inp);grid.append(l);fields.push(inp)});
+ shell.append(node('h4','Show all three intermediate calculations'),grid);
+ const feedback=node('div');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+ const check=node('button','Check ungraded method'),btn=node('button','Clear and retry');check.type='button';btn.type='button';btn.className='secondary';
+ check.addEventListener('click',()=>{
+  const r=math.assess({studyId,inputs:fields.map(i=>i.value),mode,stage:'practice',provenance:'fictional_authored'});
+  feedback.replaceChildren();if(r.status==='insufficient_evidence'){feedback.append(node('p',r.reason));return}
+  feedback.append(node('p',r.status==='method_steps_matched'?'All three steps match this fictional example.':'Review the highlighted numerical differences. This is not an official assessment.'));
+  const ol=node('ol');r.observations.forEach(o=>{const li=node('li',o.label+': '+(o.matched?'Matches the authored result.':'Entered '+o.actual+'; worked example result '+o.expected+'.'));ol.append(li)});feedback.append(ol);
+  feedback.append(node('p',r.correction),node('p',r.limitation));
+  const transfer=node('section');transfer.append(node('h4','New independent fictional calculation'));
+  transfer.append(node('p',studyId==='ema'?'New closes $20, $22, $24, $26; period 3 with SMA seed. Compute final EMA (USD/share).':studyId==='risk'?'New entry $30, planned stop $28.75. Compute planned per-share risk (USD/share).':'New entry $27, stop $25, budget $70, available cash $1,200. Compute the smaller whole-share ceiling.'));
+  const label=node('label','My new-case answer ('+def.units+')'),answer=node('input');answer.type='text';answer.inputMode='decimal';label.append(answer);transfer.append(label);
+  const status=node('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+  const checkNew=node('button','Check independent practice');checkNew.type='button';
+  checkNew.addEventListener('click',()=>{status.textContent=math.checkTransfer({studyId,submitted:answer.value,mode}).message});
+  transfer.append(checkNew,status);feedback.append(transfer);
+ });
+ btn.addEventListener('click',()=>{fields.forEach(f=>f.value='');feedback.replaceChildren();fields[0].focus()});
+ shell.append(check,btn,feedback,node('p',def.limitation));target.replaceChildren(shell);
+ let chartInstance=null,observer=null,disposed=false;
+ if(root.CrownlightECharts?.load){
+  Promise.resolve(root.CrownlightECharts.load()).then(e=>{
+   if(disposed||!chart.isConnected)return;
+   chartInstance=e.init(chart,null,{renderer:'svg'});
+   const values=studyId==='ema'
+    ?[{name:'Fictional close',type:'line',data:def.initial.closes},{name:'SMA-seeded EMA',type:'line',data:base.history,connectNulls:false}]
+    :[{name:'Original method steps',type:'bar',data:base.values},{name:'New case steps',type:'bar',data:later.values}];
+   chartInstance.setOption({animation:false,backgroundColor:'transparent',aria:{enabled:true},tooltip:{trigger:'axis'},
+    legend:{top:0,textStyle:{color:'#e2f2fa'}},grid:{left:60,right:25,top:58,bottom:50},
+    textStyle:{color:'#d9e9f4'},xAxis:{type:'category',data:studyId==='ema'?['Close 1','Close 2','Close 3','Close 4']:def.keys,
+    axisLabel:{color:'#d9e9f4'}},yAxis:{type:'value',scale:true,axisLabel:{color:'#d9e9f4'}},series:values});
+   if(typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(chart)}
+  }).catch(()=>{if(!disposed)chart.textContent='The chart is unavailable. All numerical examples and practice remain available in text.'});
+ }else chart.textContent='ECharts unavailable. Full numerical instructions and the table remain available.';
+ const controller={dispose(){if(disposed)return;disposed=true;observer?.disconnect();chartInstance?.dispose();chartInstance=null;shell.remove();if(sessions.get(target)===controller)sessions.delete(target)}};
+ sessions.set(target,controller);return controller;
+}
+const api=Object.freeze({mount});root.GroundUpLearningQuantStudiesUIV1=api;
+if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof window!=='undefined'?window:globalThis);
