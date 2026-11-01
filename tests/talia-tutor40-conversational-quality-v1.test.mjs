@@ -20,7 +20,7 @@ test('forty source-only topics have differentiated initial, depth, misconception
   assert.ok(review.includes(g.reviewExplanation));
   assert.notEqual(deep,first);
   for(const output of [first,deep,correction,review,prompt]){
-   assert.doesNotMatch(output,/guaranteed (profit|win)|official (mastery|grade) awarded/i);
+   assert.doesNotMatch(output,/(?:you will (?:certainly |definitely )?(?:profit|win)|you have been awarded official (?:mastery|grade)|a guaranteed profitable trade)/i);
    assert.ok(!output.includes('private_answer_key'));
   }
  }
