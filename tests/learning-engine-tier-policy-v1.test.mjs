@@ -54,4 +54,9 @@ test('Member API, Owner plan editor and admin UI display policy independently of
  assert.match(ui,/Owner policy target and stored Tutor assignment differ/);
  assert.doesNotMatch(member,/\b(?:INSERT|PATCH|DELETE|stripe|checkout_enabled|payment_intent)\b/);
  assert.doesNotMatch(admin,/\b(?:checkout_enabled|payment_intent|stripe_checkout)\b/);
+ const react=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
+ assert.match(react,/LIFETIME:\{learning:'Enterprise',lab:'Enterprise',tutor:'Enterprise'/);
+ assert.match(react,/FOUNDING_30:\{learning:'Advanced',lab:'Advanced',tutor:'Advanced'/);
+ assert.match(react,/FULL_MONTHLY:\{learning:'Professional',lab:'Professional',tutor:'Professional'/);
+ assert.match(react,/No purchase, grant, AI inference or membership change occurs/);
 });
