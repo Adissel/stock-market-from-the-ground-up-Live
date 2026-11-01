@@ -5,6 +5,7 @@
  const specs=[
  ['EMA_FAST','EMA · Fast','Trend','emaFast','Price overlay'],
  ['EMA_SLOW','EMA · Slow','Trend','emaSlow','Price overlay'],
+ ['EMA_200','EMA · 200','Trend','ema200','Price overlay — long-period historical context required'],
  ['SMA','Simple moving average','Trend','sma','Price overlay'],
  ['VWAP','Session HLC3 VWAP proxy','Volume/Price',null,'Price overlay — not trade-print VWAP'],
  ['BB','Bollinger Bands','Volatility','bbPeriod','Price overlay'],
@@ -19,14 +20,14 @@
  ['ATR','Wilder ATR','Volatility','atr','Lower pane'],
  ['OBV','On-balance volume','Participation',null,'Lower pane']
  ].map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
- const defaults=Object.freeze({emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2});
- const enabledDefault=Object.freeze({EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:true,MACD:false,SMA:false,BB:false,HOD:false,LOD:false,OR:false,STRUCTURE:false,VOLMA:false,ATR:false,OBV:false});
+ const defaults=Object.freeze({emaFast:9,emaSlow:20,ema200:200,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2});
+ const enabledDefault=Object.freeze({EMA_FAST:true,EMA_SLOW:true,EMA_200:false,VWAP:true,VOLUME:true,RSI:true,MACD:false,SMA:false,BB:false,HOD:false,LOD:false,OR:false,STRUCTURE:false,VOLMA:false,ATR:false,OBV:false});
  function validSettings(value){
   const r={...defaults};
   for(const [k,def] of Object.entries(defaults)){
    const v=Number(value?.[k]);
    if(!Number.isFinite(v))continue;
-   r[k]=k==='bbDeviation'?Math.min(4,Math.max(.5,Math.round(v*10)/10)):Math.min(k==='orb'?30:k==='pivot'?5:100,Math.max(k==='pivot'?1:2,Math.round(v)));
+   r[k]=k==='bbDeviation'?Math.min(4,Math.max(.5,Math.round(v*10)/10)):Math.min(k==='ema200'?400:k==='orb'?30:k==='pivot'?5:100,Math.max(k==='pivot'?1:2,Math.round(v)));
   }
   // MACD requires fast >= 2, slow >= 3 and fast < slow.
   // Do not let a user-entered slow=2 silently yield an unsupported fast=1.
@@ -50,6 +51,7 @@
   };
   if(selected.EMA_FAST)line('EMA '+settings.emaFast,math.ema(closes,settings.emaFast),'#72dfdf');
   if(selected.EMA_SLOW)line('EMA '+settings.emaSlow,math.ema(closes,settings.emaSlow),'#efd07c');
+  if(selected.EMA_200)line('EMA '+settings.ema200,math.ema(closes,settings.ema200),'#b899ff',2);
   if(selected.SMA)line('SMA '+settings.sma,math.sma(closes,settings.sma),'#c4a7ff');
   if(selected.VWAP)line('HLC3 volume-weighted bar proxy',bars.map(x=>x.proxy),'#7f9cff',2);
   if(selected.BB){
@@ -84,7 +86,7 @@
    for(const x of found)if(x.confirmedAt<b.length)marks.push({index:x.index,label:x.label,value:x.price,confirmedAt:x.confirmedAt});
   }
   const panes=[...new Set(pane.map(x=>x.axis))];
-  return {price,pane,volume,marks,panes,settings,selected,warmup:Math.max(settings.emaSlow,settings.sma,settings.rsi+1,settings.macdSlow+settings.macdSignal-1)};
+  return {price,pane,volume,marks,panes,settings,selected,warmup:Math.max(settings.ema200*(selected.EMA_200?1:0),settings.emaSlow,settings.sma,settings.rsi+1,settings.macdSlow+settings.macdSignal-1)};
  }
  root.CrownlightPrototypeIndicators=Object.freeze({specs,defaults,enabledDefault,validSettings,compute});
  if(typeof module!=='undefined'&&module.exports)module.exports={specs,defaults,enabledDefault,validSettings,compute};
