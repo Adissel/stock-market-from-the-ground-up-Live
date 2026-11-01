@@ -2,7 +2,7 @@
 -- Noncommercial prototype draft registry only. Preserve existing records.
 -- Apply after 20261101_cl_classroom_design_registry_v1.sql, after SQL preflight.
 -- Do not rerun the prior classroom registry migration to add this plan.
--- No membership grant, catalog sale, live charge, grade, wallet, or published design.
+-- Classroom registration only: no billing or member-account effects and no published design.
 BEGIN;
 INSERT INTO public.cl_classroom_membership_codes
   (plan_code,display_name,default_preset_code,active)
