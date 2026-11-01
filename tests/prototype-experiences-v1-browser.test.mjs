@@ -32,7 +32,7 @@ try{
  await a.page.goto(BASE+'/prototype.html?experience=a');
  await a.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});
  assert.equal(await a.page.locator('.cx-designs button').count(),6);
- assert.equal(await a.page.locator('select:has(option[value="FULL_ANNUAL"]) option').count(),8);
+ assert.equal(await a.page.locator('.cx-controlstrip select:has(option[value="FULL_ANNUAL"]) option').count(),8);
  await a.page.locator('.cx-designs button:has-text("Green / Black")').click();
  assert.equal(await a.page.locator('.cx-app').evaluate(x=>x.classList.contains('cx-theme-green')),true);
  await a.page.getByLabel('Membership design preview').selectOption('FULL_ANNUAL');
