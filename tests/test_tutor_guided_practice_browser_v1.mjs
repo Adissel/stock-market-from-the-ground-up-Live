@@ -22,7 +22,7 @@ try{
   const response=await page.goto(base+'/market-tutor.html',{waitUntil:'domcontentloaded'});
   assert.equal(response.status(),200);
   await page.locator('#tgp-select').waitFor({state:'visible',timeout:15000});
-  assert.equal(await page.locator('#tgp-select option').count(),134);
+  assert.equal(await page.locator('#tgp-select option').count(),146,'Complete 134 original plus 12 extended guided lessons');
   assert.match(await page.locator('#tutor-guided-practice').innerText(),/No market feed|No market feed/i);
   await page.locator('#tgp-select').selectOption('IND-01');
   const next=()=>page.locator('#tutor-guided-practice .tgp-actions button').filter({hasText:/^Continue$/}).click();
@@ -98,6 +98,10 @@ try{
   assert.match(await page.locator('#tutor-guided-practice').innerText(),/Not calculated/);
   assert.match(await page.locator('#tutor-guided-practice').innerText(),/Interpretation-only study:/);
   assert.equal(await page.locator('#tgp-period').count(),0,'No useless slider for unimplemented specialty metric');
+  await page.locator('#tgp-select').selectOption('IND-62'); // Elder-Ray extension is ungraded and interpretation-only
+  await next();await next();
+  assert.match(await page.locator('#tutor-guided-practice').innerText(),/Elder-Ray|Bull Power|Bear Power/);
+  assert.match(await page.locator('#tutor-guided-practice').innerText(),/Not calculated|Interpretation-only/i);
   await page.locator('#tgp-select').selectOption('WATCH-22');
   await next();await next();
   assert.equal(await page.locator('.tgp-scan-table').count(),1);
@@ -154,6 +158,6 @@ try{
   assert.equal(tutorPosts,0,'Added guided demonstrations never post to the billable Tutor API');
   assert(await page.locator('#tutor-guided-practice').isVisible());
   await ctx.close();
-  console.log('PASS Guided Practice browser '+width+'px: 134 lessons (61 indicators,22 watchlists,50 source-only strategies,1 verified event); no invented calculations, one scanner chart, no market orders or paid Tutor requests.');
+  console.log('PASS Guided Practice browser '+width+'px: 146 lessons (73 indicators,22 watchlists,50 source-only strategies,1 verified event); no invented calculations, one scanner chart, no market orders or paid Tutor requests.');
  }
 }finally{await browser.close()}
