@@ -93,16 +93,19 @@ try{
  await desk.getByRole('button',{name:'Inspect candle'}).click();
  assert.equal(await a.page.locator('.cx-right .cx-coach-actions button').count(),4,'Four permanently free instructional actions are present');
 
+ await gestureChart.scrollIntoViewIfNeeded();
+ const dragRect=await gestureChart.boundingBox();
+ assert.ok(dragRect&&dragRect.width>200,'Refresh chart screen coordinates after Talia scrolled the page');
  const beforeDrag=await a.page.locator('.cx-viewport-status').first().textContent();
- const y=rect.y+rect.height*.3;
- await a.page.mouse.move(rect.x+rect.width*.76,y);
+ const y=dragRect.y+dragRect.height*.3;
+ await a.page.mouse.move(dragRect.x+dragRect.width*.76,y);
  await a.page.mouse.down();
- await a.page.mouse.move(rect.x+rect.width*.34,y,{steps:14});
+ await a.page.mouse.move(dragRect.x+dragRect.width*.34,y,{steps:14});
  await a.page.mouse.up();
  await a.page.waitForFunction((before)=>document.querySelector('.cx-viewport-status')?.textContent!==before,beforeDrag,{timeout:10000});
  assert.notEqual(await a.page.locator('.cx-viewport-status').first().textContent(),beforeDrag,'Actual mouse drag must move the chart viewport');
  const stopped=await a.page.locator('.cx-viewport-status').first().textContent();
- await a.page.mouse.move(rect.x+rect.width*.61,y,{steps:12});
+ await a.page.mouse.move(dragRect.x+dragRect.width*.61,y,{steps:12});
  await a.page.waitForTimeout(200);
  assert.equal(await a.page.locator('.cx-viewport-status').first().textContent(),stopped,'Mouse-up must stop chart pan without a second click');
   await a.page.getByLabel('Membership design preview').selectOption('FULL_ANNUAL');
