@@ -114,7 +114,7 @@ try{
   assert.equal(store.get(keyFor(A,'TALIA_OPENAI_BYO')).status,'saved_unverified');
   assert.equal(await getMemberTutorApiKey(env,A),null);
   const list=await credentialApi({request:request('list'),env});
-  const shown=await list.json();assert.equal(shown.tutorByokAvailable,true);
+  const shown=await list.json();assert.equal(shown.tutorByokAvailable,true);assert.equal(shown.tutorByokInferenceAvailable,false);
   assert.ok(!JSON.stringify(shown).includes(fakeKey));
   assert.ok(!JSON.stringify(shown).includes('credential_ciphertext'));
  });
