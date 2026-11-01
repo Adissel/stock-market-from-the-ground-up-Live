@@ -1,4 +1,4 @@
-/* Built Pages, loopback-only browser smoke for Talia Guided Practice v1.
+/* Built Pages, loopback-only isolated ungraded component smoke for Talia Guided Practice v1.
  * This test never uses accounts, private grading, live market data or payments.
  */
 import assert from 'node:assert/strict';
@@ -13,6 +13,24 @@ try{
   await ctx.route('**/*',route=>{
    const u=new URL(route.request().url());
    if(u.origin!==base)return route.abort();
+   // This checks an original public/ungraded component without obtaining or
+   // simulating member privileges. Real market-tutor.html MUST still redirect
+   // unauthenticated users to sign-in; this fixture exists only inside this
+   // loopback-only Playwright route and is never a deployable HTML page.
+   if(u.pathname==='/market-tutor.html'&&route.request().method()==='GET'){
+    const fixture='<!doctype html><html lang="en"><head><meta charset="utf-8">'+
+     '<meta name="viewport" content="width=device-width,initial-scale=1">'+
+     '<link rel="stylesheet" href="/assets/css/tutor-guided-practice-v1.css">'+
+     '<script defer src="/assets/js/crownlight-indicator-math-v2.js"></script>'+
+     '<script defer src="/assets/js/tutor-guided-practice-v1.js"></script>'+
+     '</head><body><main><h1>Loopback-only ungraded Tutor component QA</h1>'+
+     '<label for="tutor-question">Tutor follow-up</label>'+
+     '<textarea id="tutor-question"></textarea>'+
+     '<select id="tutor-mode"><option value="explain">Explain</option></select>'+
+     '<section id="tutor-guided-practice" aria-label="Original fictional guided practice"></section>'+
+     '</main></body></html>';
+    return route.fulfill({status:200,contentType:'text/html',body:fixture});
+   }
    if(u.pathname==='/api/market-tutor-v01492'&&route.request().method()==='POST'){
     tutorPosts++;return route.fulfill({status:405,body:'No paid/provider calls permitted in guided browser smoke'});
    }
