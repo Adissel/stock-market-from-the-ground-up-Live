@@ -82,7 +82,12 @@ try{
  assert.equal(body.enabled,false);assert.equal(body.state,'meter_unavailable');
  kind='showcase';result=await status({request:statusReq(),env});body=await result.json();
  assert.equal(body.authorized,false);
- kind='member';allow=false;result=await tutor({request:request(true),env});assert.equal(result.status,403);
+ kind='member';allow=false;result=await tutor({request:request(true),env});
+  assert.equal(result.status,200,'Eligible Foundation members receive the source-only Tutor');
+  body=await result.json();
+  assert.equal(body.aiReason,'foundation_source_only',
+   'Loss of premium tool entitlement always disables paid model inference');
+  assert.equal(body.generation,'reviewed-glossary-logic');
  assert.equal(providerCalls,1);
  const sql=readFileSync(new URL('../supabase/migrations/v0.14.0.103_FIRST_PARTY_AI_BUDGET_OWNER_REVIEW_REQUIRED.sql',import.meta.url),'utf8');
  for(const token of ['ENABLE ROW LEVEL SECURITY','REVOKE ALL','pg_advisory_xact_lock','duplicate_request',
