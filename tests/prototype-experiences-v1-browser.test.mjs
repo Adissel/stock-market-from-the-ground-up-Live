@@ -124,8 +124,10 @@ try{
  const headingId=await a.page.getByLabel('Select page element').locator('option[value]:not([value=""])').filter({hasText:'Chart Studio.'}).first().getAttribute('value');
  assert.ok(headingId,'The heading should be available in the text element dropdown');
  await a.page.getByLabel('Select page element').selectOption(headingId);
+ console.log('LAYOUT-EDITOR-DEBUG selected=',headingId,JSON.stringify(await a.page.evaluate(id=>({selectedId:id,h1Key:document.querySelector('.cx-bar h1')?.getAttribute('data-cx-layout-key'),selectedTag:document.querySelector('[data-cx-layout-key="'+id+'"]')?.tagName,selectedText:document.querySelector('[data-cx-layout-key="'+id+'"]')?.textContent?.slice(0,90)}),headingId)));
  await a.page.getByLabel('Selected text content').fill('Crownlight Design Review');
  await a.page.getByRole('button',{name:'Apply text'}).click();
+ console.log('LAYOUT-EDITOR-DEBUG after=',JSON.stringify(await a.page.evaluate(id=>({h1:document.querySelector('.cx-bar h1')?.textContent,selectedText:document.querySelector('[data-cx-layout-key="'+id+'"]')?.textContent?.slice(0,90),draft:localStorage.getItem('smfgu:prototype-visual-layout:v2:a:desktop')?.slice(0,500)}),headingId)));
  assert.equal((await a.page.locator('.cx-bar h1').textContent())?.trim(),'Crownlight Design Review','Simple heading text must be editable in the staff draft');
  assert.equal(await a.page.getByLabel('Snap to grid').isChecked(),true,'Snap is checked by default');
  await a.page.getByLabel('Edit text directly').check();
