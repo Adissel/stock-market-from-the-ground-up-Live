@@ -8,7 +8,11 @@ let permissionEpoch=0,loadingWorkspace=false,linked=false,guard=false,syncEnable
 let workspaceRevision=null,savingWorkspace=false,pendingChartRestore=false;
 function restoreChartPreferences(){
  if(!permissionReady||!storeAvailable||!pendingChartRestore)return;
- if(window.CrownlightStudio?.restoreWorkspacePreferences?.({appearance:workspace.appearance,chartStudies:workspace.chartStudies})===true)pendingChartRestore=false;
+ // Clear the deferred flag BEFORE restoring: redraw emits revealed-bars synchronously,
+ // which must not recursively re-enter the restore and leak UI work across events.
+ pendingChartRestore=false;
+ if(window.CrownlightStudio?.restoreWorkspacePreferences?.({appearance:workspace.appearance,chartStudies:workspace.chartStudies})!==true)
+  pendingChartRestore=true;
 }
 // Track saved overlay IDs per live chart instance to avoid duplicate drawings.
 const restoredOverlays=new WeakMap();
