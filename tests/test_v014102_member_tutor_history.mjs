@@ -71,8 +71,10 @@ try{
  assert.equal(r.status,200,'Expired subscriber can annotate their own retained notes');
  r=await onRequest({request:req('POST','',entry),env});
  assert.equal(r.status,405,'An expired account cannot forge a new Tutor reply via history');
- assert(read('functions/api/market-tutor-v01492.js').includes('if(!auth.authorized)'),
-  'Actual Tutor inference and new teaching remain entitlement-gated');
+ assert(read('functions/api/market-tutor-v01492.js').includes('if(!auth.authorized&&!auth.freeEligible)'),
+   'Only eligible members may use Foundation source-grounded Tutor teaching');
+ assert(read('functions/api/market-tutor-v01492.js').includes('auth.authorized===true?await paidLearningDraft'),
+   'Model inference remains independently premium-entitlement gated');
  allow=true;kind='showcase';r=await onRequest({request:req('GET'),env});assert.equal(r.status,403);
  kind='member';failStorage=true;r=await onRequest({request:req('GET'),env});assert.equal(r.status,503);
  assert.equal(calls.filter(c=>c.path.includes('api.openai.com')).length,0);
