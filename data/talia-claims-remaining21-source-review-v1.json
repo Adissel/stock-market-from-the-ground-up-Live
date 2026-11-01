@@ -1,0 +1,177 @@
+{
+  "documentId": "SMFGU-TALIA-CLAIMS-REMAINING21-017",
+  "version": "1.0",
+  "reviewDate": "2026-11-01",
+  "count": 21,
+  "status": "ITEM_SOURCE_SCOPE_REVIEW_RELEASE_HOLD",
+  "items": [
+    {
+      "number": 102,
+      "code": "TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN",
+      "review": "PARTIAL",
+      "scope": "distribution cash and price movement both needed",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 103,
+      "code": "TALIA_TOPIC_INDICATED_YIELD_NOT_GUARANTEE",
+      "review": "PARTIAL",
+      "scope": "indicated annual dividend is not guaranteed",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 104,
+      "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
+      "review": "CORRECTION_REQUIRED",
+      "scope": "SEC 2023 repurchase disclosure rule vacated; citation cannot establish current rule",
+      "source": "https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 106,
+      "code": "TALIA_TOPIC_PRIMARY_VS_SECONDARY_CASH_FLOW",
+      "review": "SUPPORTS",
+      "scope": "primary newly issued shares raise issuer proceeds, secondary resale does not",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/primary-market",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 108,
+      "code": "TALIA_TOPIC_BOND_COUPON_PAR_CASH",
+      "review": "SUPPORTS",
+      "scope": "coupon annual rate multiplied by face amount, check actual pay schedule",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 111,
+      "code": "TALIA_TOPIC_BOND_PREMIUM_DISCOUNT_PAR",
+      "review": "SUPPORTS",
+      "scope": "premium or discount measured against par",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 112,
+      "code": "TALIA_TOPIC_BOND_CREDIT_VS_INTEREST_RATE",
+      "review": "SUPPORTS",
+      "scope": "credit risk not equivalent to interest-rate risk",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 114,
+      "code": "TALIA_TOPIC_INDEX_FUND_TRACKING_DIFFERENCE",
+      "review": "SUPPORTS",
+      "scope": "index and fund total returns can diverge through costs and tracking",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 119,
+      "code": "TALIA_TOPIC_BOND_MATURITY_VS_DURATION",
+      "review": "SUPPORTS",
+      "scope": "maturity is not interest-rate duration",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 122,
+      "code": "TALIA_TOPIC_COMPOUND_RETURNS_PATH",
+      "review": "MATH_INDEPENDENT",
+      "scope": "multiplicative gross holding returns; original reference broad",
+      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2003/geometric-or-arithmetic-mean-a-reconsideration",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 123,
+      "code": "TALIA_TOPIC_ARITHMETIC_GEOMETRIC_GROWTH",
+      "review": "MATH_INDEPENDENT",
+      "scope": "arithmetic mean differs from compounded geometric mean",
+      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2003/geometric-or-arithmetic-mean-a-reconsideration",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 124,
+      "code": "TALIA_TOPIC_EXACT_INFLATION_ADJUSTMENT",
+      "review": "MATH_INDEPENDENT",
+      "scope": "nominal gross return deflated by matched CPI factor",
+      "source": "https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 125,
+      "code": "TALIA_TOPIC_ANNUALIZATION_NOT_REALIZED",
+      "review": "PARTIAL",
+      "scope": "annualized hypothetical result not a realized 12-month return",
+      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2003/geometric-or-arithmetic-mean-a-reconsideration",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 129,
+      "code": "TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION",
+      "review": "SOURCE_MISMATCH",
+      "scope": "portfolio diversification guidance does not prove squared-weight HHI formula",
+      "source": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 131,
+      "code": "TALIA_TOPIC_TENQ_VS_TENK_PERIOD",
+      "review": "SUPPORTS",
+      "scope": "10-Q interim unaudited and 10-K annual audited",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 132,
+      "code": "TALIA_TOPIC_EIGHTK_CONDITIONAL_EVENT",
+      "review": "SUPPORTS",
+      "scope": "8-K Item 1.01 conditional agreement not completion",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 133,
+      "code": "TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE",
+      "review": "CORRECTION_REQUIRED",
+      "scope": "SEC acceptance timestamp differs from first public availability",
+      "source": "https://www.sec.gov/about/webmaster-frequently-asked-questions",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 135,
+      "code": "TALIA_TOPIC_INTEREST_COVERAGE_EBIT",
+      "review": "PARTIAL",
+      "scope": "SEC guide identifies EBIT/interest but not precise interest-coverage convention",
+      "source": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 137,
+      "code": "TALIA_TOPIC_RECEIVABLE_COLLECTION_DAYS",
+      "review": "MATH_INDEPENDENT",
+      "scope": "DSO receivables divided by credit sales times days",
+      "source": "https://corporatefinanceinstitute.com/resources/accounting/days-sales-outstanding/",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 138,
+      "code": "TALIA_TOPIC_ROE_AVERAGE_BOOK_EQUITY",
+      "review": "MATH_INDEPENDENT",
+      "scope": "ROE earnings divided by average comparable book equity",
+      "source": "https://corporatefinanceinstitute.com/resources/accounting/profitability-ratios/",
+      "independentPublicationAccepted": false
+    },
+    {
+      "number": 140,
+      "code": "TALIA_TOPIC_EARNINGS_YIELD_VS_DIVIDEND",
+      "review": "MATH_INDEPENDENT",
+      "scope": "EPS divided by price is reciprocal of P/E for positive EPS",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio",
+      "independentPublicationAccepted": false
+    }
+  ]
+}
