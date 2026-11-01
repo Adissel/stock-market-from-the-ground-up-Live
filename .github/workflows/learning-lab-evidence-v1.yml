@@ -1,0 +1,25 @@
+name: Learning Lab Evidence Diagnostic Gate V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/learning-evidence-diagnostic-v1.js'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'lab-player.html'
+      - 'tests/learning-evidence-diagnostic-v1.test.mjs'
+      - '.github/workflows/learning-lab-evidence-v1.yml'
+  workflow_dispatch:
+jobs:
+  deterministic-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Node syntax
+        run: |
+          node --check assets/js/learning-evidence-diagnostic-v1.js
+          node --check assets/js/lab-engine-v32-universal.js
+      - name: Curriculum and formative learning evidence contracts
+        run: node --test tests/learning-evidence-diagnostic-v1.test.mjs tests/adaptive-learning-diagnostic-v1.test.mjs
