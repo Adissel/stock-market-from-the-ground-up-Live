@@ -7,6 +7,7 @@ import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const engine=read('assets/js/lab-engine-v32-universal.js');
 const academy=read('assets/js/bootcamp-academy-v014168.js');
+const thirty=read('assets/js/bootcamp.js');
 const tutor=read('assets/js/academy-tutor-bridge-v1.js');
 
 test('274 Academy days retain their canonical IDs, while the shared engine treats Academy lessons as ungraded virtual study only',()=>{
@@ -37,6 +38,10 @@ test('The Academy preserves deep authored practice as an optional supplement and
  assert.match(academy,/lesson\.formativeQuestions\.map\(q=>q\.prompt\)/);
  assert.match(academy,/transfer:lesson\.transfer\|\|d\.practice/);
  assert.doesNotMatch(academy,/labId:d\.relatedLabs\?\.\[0\]\?\.id/);
+ assert.match(thirty,/const labId='academy:foundations30:'\+d\.day/);
+ assert.match(thirty,/academyLesson:\{programCode:'foundations30',day:d\.day/);
+ assert.match(thirty,/gu-bc-additional-guide/);
+ assert.match(thirty,/Use additional practice; no grade was recorded/);
 });
 test('Talia stage prompts accept only allowlisted pedagogical metadata, not user answers or protected rubrics',async()=>{
  const calls=[];
