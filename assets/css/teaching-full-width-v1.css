@@ -196,3 +196,37 @@ body.gu-teaching-wide [hidden]{display:none!important}
   max-width:100%!important;overflow-x:auto!important;
  }
 }
+
+/* 390px authenticated browser finding: injected search (230px) and notification
+   (96px) controls expanded the document to 614px despite Academy grid fixes.
+   Keep BOTH controls keyboard reachable and ARIA-labelled at icon width. */
+@media(max-width:640px){
+ body.gu-bc-learning.gu-teaching-wide .site-header .fe-header-tools{
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  flex:0 0 auto!important;min-width:0!important;max-width:96px!important;
+  gap:4px!important;margin:0!important;
+ }
+ body.gu-bc-learning.gu-teaching-wide .site-header
+ :is(.fe-command-button,.fe-command-button.v132-search-wide,.fe-notify-button){
+  flex:0 0 44px!important;box-sizing:border-box!important;
+  width:44px!important;min-width:44px!important;max-width:44px!important;
+  min-height:44px!important;padding:6px!important;
+  justify-content:center!important;font-size:0!important;white-space:normal!important;
+ }
+ body.gu-bc-learning.gu-teaching-wide .site-header
+ .fe-command-button :is(span,kbd){display:none!important}
+ body.gu-bc-learning.gu-teaching-wide .site-header
+ .fe-notify-button>span:not(.fe-notify-count){display:none!important}
+ body.gu-bc-learning.gu-teaching-wide .site-header
+ .fe-command-button::before{
+  content:"";display:block;width:20px;height:20px;background:currentColor;
+  mask:url("/assets/images/ui/search.svg") center/contain no-repeat;
+  -webkit-mask:url("/assets/images/ui/search.svg") center/contain no-repeat;
+ }
+ body.gu-bc-learning.gu-teaching-wide .site-header
+ .fe-notify-button::before{
+  content:"";display:block;width:20px;height:20px;background:currentColor;
+  mask:url("/assets/images/ui/bell.svg") center/contain no-repeat;
+  -webkit-mask:url("/assets/images/ui/bell.svg") center/contain no-repeat;
+ }
+}
