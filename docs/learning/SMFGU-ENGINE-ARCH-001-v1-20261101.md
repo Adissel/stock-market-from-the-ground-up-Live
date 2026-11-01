@@ -75,3 +75,13 @@ This is optional formative teaching for all entitled Guided/Practice lessons. It
 **Compatibility:** Both Basic snapshots untouched; original nine saved stage IDs, authorization, RLS, protected assessment, member checkpoint schema, rewards, purchasing and previous progress unchanged. The current combined experience uses JavaScript/HTML5/CSS3, retaining existing ECharts. React/TypeScript and Python are not required for this deterministic edge-compatible case.
 
 **Remaining acceptance:** genuine signed-in member browser scenarios, accessible mobile rendering, independent grading guard check, and exact-main CI/deployment. Advanced/Professional edition release remains disabled.
+
+## Gate 3/5 — Learning prerequisite recommendations, Version 1.2 source addendum
+
+**Document ID:** SMFGU-ENGINE-ARCH-001. **Project:** The Stock Market: From the Ground Up. **File type:** Markdown. **Google Drive:** Not created; document ID unassigned. **Source:** GitHub main.
+**Date:** 2026-11-01. **Status:** Implemented in source; exact-main CI and authenticated browser review pending.
+
+**Implementation:** SMFGU-ENGINE-ADAPT-004 maps six verified fictional numerical mistakes to existing public competency guides via `GroundUpLearningEvidenceV1.recommendPrerequisites`. It reuses the existing server-authenticated `/api/competencies?action=summary` and the Lab's original study-guide catalog, rather than introducing new storage, scoring, roles, payments or services. No client formative practice attempt becomes an official grade; an unclassified mistake creates no invented failure. A qualified existing independent assessment status may be displayed separately. Account changes invalidate the existing Lab Player session.
+
+**Dependencies:** Existing v3.3/v3.2 Basic engines, entitlement gates, 30 published competency guides, protected server assessment, tests and Cloudflare deployment.
+**Next acceptance:** exact-commit CI, real signed-in member browser, account switching, screen reader and independent grading/quantitative checks.

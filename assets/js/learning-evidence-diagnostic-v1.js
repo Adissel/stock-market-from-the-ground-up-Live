@@ -29,6 +29,43 @@ const PATTERNS=Object.freeze({
   Object.freeze({value:300,code:'volume_not_price',prerequisite:'Distinguish total share volume from a volume-weighted price.',correction:'300 shares is the denominator, not the result in USD/share. $2,600 ÷ 300 = about $8.67/share.'})
  ])
 });
+
+/* Existing 30-guide prerequisite alignment; ordinary practice is NOT an
+ * official assessment. This mapping never creates a new learning record.
+ */
+const SKILL_CODES=Object.freeze({
+ body_amount_not_percentage:Object.freeze(['CANDLE_READING']),
+ decimal_ratio_not_percentage:Object.freeze(['CANDLE_READING']),
+ full_range_not_body_share:Object.freeze(['CANDLE_READING']),
+ unweighted_average:Object.freeze(['VWAP_CONTEXT','VOLUME_ANALYSIS']),
+ dollar_notional_not_vwap:Object.freeze(['VWAP_CONTEXT']),
+ volume_not_price:Object.freeze(['VOLUME_ANALYSIS','VWAP_CONTEXT'])
+});
+function recommendPrerequisites({diagnosis,guides,evidence}={}){
+ const empty=Object.freeze({items:Object.freeze([]),source:'unverified_or_unclassified',
+  officialGrade:false,masteryAwarded:false,memberProgressModified:false});
+ if(diagnosis?.schema!==SCHEMA||diagnosis?.verifiedCause!==true||
+    diagnosis?.status!=='verified_misconception'||!SKILL_CODES[diagnosis.code])return empty;
+ const catalog=guides instanceof Map?guides:
+  new Map((Array.isArray(guides)?guides:[]).filter(g=>g&&typeof g.code==='string').map(g=>[g.code,g]));
+ const verified=evidence?.ok===true&&Array.isArray(evidence.skills);
+ const items=[];
+ for(const code of SKILL_CODES[diagnosis.code]){
+  const guide=catalog.get(code);
+  if(typeof guide?.title!=='string'||!guide.title.trim())continue;
+  const record=verified?evidence.skills.find(s=>s?.code===code):null;
+  const assessed=Number.isSafeInteger(record?.independentAssessments)&&record.independentAssessments>0&&
+   Number.isSafeInteger(record?.completeAssessments)&&record.completeAssessments>0;
+  const status=verified?(assessed&&typeof record.status==='string'&&record.status.trim()?
+   clean(record.status).slice(0,90):'Not Yet Assessed'):'Status unavailable — no verified account evidence';
+  items.push(Object.freeze({code,title:clean(guide.title),url:'skills.html#guide-'+encodeURIComponent(code),
+   status,source:verified?'authenticated_competency_summary':'public_guide_only',
+   note:'Suggested by an ungraded fictional practice error; not an official failed assessment.'}));
+ }
+ return Object.freeze({items:Object.freeze(items),source:'verified_formative_misconception',
+  officialGrade:false,masteryAwarded:false,memberProgressModified:false});
+}
+
 const none=(reason)=>Object.freeze({schema:SCHEMA,status:'insufficient_evidence',reason,
  officialGrade:false,masteryAwarded:false,memberRecordWritten:false,paidInference:false});
 function evaluate({labId,mode,stage,provenance,kind,caseCode,submitted,expected,units,sourceSteps,topic}={}){
@@ -76,7 +113,7 @@ function checkFollowUp({id,submitted}={}){
  return Object.freeze({accepted:true,correct:close(answer,row.answer),officialGrade:false,masteryAwarded:false,
   reason:close(answer,row.answer)?'Correct fictional calculation; no official grade or mastery awarded.':'Not yet correct; revisit the original method, units and independent case inputs.'});
 }
-const api=Object.freeze({schema:SCHEMA,evaluate,checkFollowUp,caseIds:Object.freeze(Object.values(CASES).flat().map(x=>x.id))});
+const api=Object.freeze({schema:SCHEMA,evaluate,checkFollowUp,recommendPrerequisites,caseIds:Object.freeze(Object.values(CASES).flat().map(x=>x.id))});
 root.GroundUpLearningEvidenceV1=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

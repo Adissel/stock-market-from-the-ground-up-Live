@@ -441,6 +441,17 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   for(const [label,value] of items){
    const p=el('p'),strong=el('strong',label+': ');p.append(strong,document.createTextNode(value));panel.append(p);
   }
+  const suggested=api.recommendPrerequisites?.({diagnosis:r,guides:map.guides,evidence:skillEvidence});
+  if(suggested?.items?.length){
+   panel.append(el('h4','Recommended prerequisite review · ungraded'));
+   const list=el('ul');
+   for(const item of suggested.items){
+    const li=el('li'),link=el('a',item.title);
+    link.href=item.url;li.append(link,el('span',' · '+item.status),el('small',item.note));
+    list.append(li);
+   }
+   panel.append(list);
+  }
   if(r.followUp?.source==='fictional_constructed_no_feed'){
    panel.append(el('h4','Try a new independent fictional case'));
    panel.append(el('p',r.followUp.prompt));
@@ -1370,11 +1381,12 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
  render();checkpointReady=true;
  // Ask the existing authenticated competency service, only during non-blind
  // modes. Account changes and rerenders cannot replay stale personalized state.
- if(typeof skillEvidenceRequest==='function'&&neededPrerequisites.length){
+ if(typeof skillEvidenceRequest==='function'&&(neededPrerequisites.length||special)){
   Promise.resolve().then(()=>skillEvidenceRequest()).then(result=>{
    if(sessions.get(target)!==token)return;
    skillEvidence=result?.ok===true?result:null;
    updatePrerequisitePanel?.();
+   if(lastEvidenceDiagnosis&&stage===4){body.querySelector('.gu-v33-evidence-card')?.remove();renderEvidenceDiagnosis(body);}
   }).catch(()=>{if(sessions.get(target)===token){skillEvidence=null;updatePrerequisitePanel?.();}});
  }
  return true;

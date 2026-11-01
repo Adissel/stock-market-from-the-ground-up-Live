@@ -75,3 +75,42 @@ test('Learning/Lab integration receives only already-authored fictional practice
  assert.match(engine,/caseCode='authored_subquestion'/);
  assert.match(engine,/api\.checkFollowUp/);
 });
+
+test('Verified errors suggest only existing 30 canonical guides and never declare an official failure',()=>{
+ const source=JSON.parse(read('data/competency-study-guides-v01499.json'));
+ assert.equal(source.guides.length,30);
+ const guides=new Map(source.guides.map(g=>[g.code,g]));
+ for(const [base,answer] of [[candle,1],[vwap,9]]){
+  const diagnosis=diagnostic.evaluate({...base,submitted:answer});
+  const plan=diagnostic.recommendPrerequisites({diagnosis,guides});
+  assert.equal(plan.source,'verified_formative_misconception');
+  assert(plan.items.length>0);
+  for(const item of plan.items){assert.equal(item.title,guides.get(item.code).title);
+   assert.match(item.status,/unavailable/);assert.match(item.note,/not an official failed assessment/);
+   assert(item.url.startsWith('skills.html#guide-'));}
+  assert.equal(plan.officialGrade,false);assert.equal(plan.memberProgressModified,false);
+ }
+});
+test('Authenticated assessment status is distinct from fictional practice and absent evidence',()=>{
+ const guides=JSON.parse(read('data/competency-study-guides-v01499.json')).guides;
+ const diagnosis=diagnostic.evaluate({...vwap,submitted:9});
+ const evidence={ok:true,skills:[
+  {code:'VWAP_CONTEXT',status:'Proficient',completeAssessments:2,independentAssessments:1},
+  {code:'VOLUME_ANALYSIS',status:'Proficient',completeAssessments:0,independentAssessments:0}
+ ]};
+ const plan=diagnostic.recommendPrerequisites({diagnosis,guides,evidence});
+ assert.equal(plan.items.find(x=>x.code==='VWAP_CONTEXT').status,'Proficient');
+ assert.equal(plan.items.find(x=>x.code==='VOLUME_ANALYSIS').status,'Not Yet Assessed');
+ const untrusted=diagnostic.recommendPrerequisites({diagnosis,guides,evidence:{ok:false,skills:evidence.skills}});
+ assert(untrusted.items.every(x=>x.status.includes('unavailable')));
+ for(const submitted of [2600/300,4.71]){
+  const noDiagnosis=diagnostic.evaluate({...vwap,submitted});
+  assert.equal(diagnostic.recommendPrerequisites({diagnosis:noDiagnosis,guides}).items.length,0);
+ }
+});
+test('Lab Engine routes diagnoses through current competency catalog and protected summary',()=>{
+ const engine=read('assets/js/lab-engine-v32-universal.js');
+ assert.match(engine,/recommendPrerequisites\?\.\(\{diagnosis:r,guides:map\.guides,evidence:skillEvidence\}\)/);
+ assert.match(engine,/neededPrerequisites\.length\|\|special/);
+ assert.match(engine,/lastEvidenceDiagnosis&&stage===4/);
+});
