@@ -1,0 +1,584 @@
+{
+  "documentId": "SMFGU-LAB-BATCH04-INTERNAL-QA-001",
+  "filename": "docs/learning/SMFGU-LAB-BATCH04-INTERNAL-QA-20261101.json",
+  "fileType": "JSON",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "TWENTY_INTERNAL_SOURCE_AND_CALCULATION_REVIEWS_RECORDED_INDEPENDENT_EDITORIAL_AND_RELEASE_PENDING",
+  "googleDriveLocation": null,
+  "googleDriveDocumentId": null,
+  "githubLocation": "main",
+  "newFileRequired": true,
+  "purpose": "Record individual educational and arithmetic source checks without claiming external source clearance, official grade, authenticated browser or release approval",
+  "dependencies": [
+    "assets/js/lab-batch04-echarts-v1.js",
+    "data/lab-teaching-bridges-v014168.json",
+    "data/lab-bridge-batch04-quant-fixtures-v1.json",
+    "docs/learning/SMFGU-LAB-BATCH04-SOURCE-INTAKE-20261101.json",
+    "docs/research/master/master-source-registry-v1.json"
+  ],
+  "canonicalLabs": 419,
+  "authoredRewrites": 80,
+  "academyAcceptedUnits": 93,
+  "academyTotalUnits": 380,
+  "counts": {
+    "entries": 20,
+    "originalFictionalSourceReviewed": 20,
+    "independentFinancialEditorialAccepted": 0,
+    "authenticatedAccepted": 0,
+    "publicationRightsApproved": 0
+  },
+  "publicationAcceptance": false,
+  "entries": [
+    {
+      "labId": "F2-C14-L04",
+      "title": "Why a Zone Can Be Better Than One Exact Line",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.11,
+          10.04
+        ],
+        "expected": 0.07,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Support zone is observational, not an exact guaranteed trade price; claim-level level-selection review outstanding",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L01",
+      "title": "Resistance Breakout and Follow-Through",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.27,
+          10.2
+        ],
+        "expected": 0.07,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Closing breakout and subsequent follow-through are distinct completed-time judgments; no proven continuation",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L02",
+      "title": "Support Breakdown and Follow-Through",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          9.8,
+          9.73
+        ],
+        "expected": 0.07,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Breakdown is close-relative to older support, not evidence of intentional sellers or a fill",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L03",
+      "title": "Upside Probe Versus Close-Based Breakout",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.45,
+          10.4
+        ],
+        "expected": 0.05,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Probe high and close-based confirmation differ; verify the stated boundary before revealing another candle",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L04",
+      "title": "Breakdown, Retest From Below, and Reclaim",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          9.95,
+          9.9
+        ],
+        "expected": 0.05,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Retest/reclaim sequence uses several separately completed bars; early decision must not see the last one",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L05",
+      "title": "Breakout, Brief Follow-Through, Then Re-Entry",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          11,
+          10.95
+        ],
+        "expected": 0.05,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Initial break, follow-through and re-entry must be staged at their respective pauses",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L06",
+      "title": "Failed downside break / rapid reclaim",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10,
+          9.91
+        ],
+        "expected": 0.09,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Downside wick and above-support close are distinct; market microstructure cannot be inferred from OHLC",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C01-L07",
+      "title": "Ambiguous repeated interaction / no clean breakout",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          12.04,
+          12
+        ],
+        "expected": 0.04,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Repeated high probes without close confirmation must retain a neutral/no-trade classification",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C02-L01",
+      "title": "Pullback after an early advance",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.8,
+          10.5
+        ],
+        "expected": 0.3,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Retracement amount does not establish a confirmed pivot or an automatic trend continuation",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C02-L02",
+      "title": "Consolidation that can be bracketed as a range",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          11.2,
+          10.9
+        ],
+        "expected": 0.3,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Range width is an observed historical band; no direction of next breakout is proven",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C02-L03",
+      "title": "Gap up that completely fills",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.4,
+          10
+        ],
+        "expected": 0.4,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Full gap fill is demonstrable only after the low-bearing completed bar becomes visible",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C02-L04",
+      "title": "Gap down that only partially fills in the observation window",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          9.82,
+          9.5
+        ],
+        "expected": 0.32,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Partial gap is measured as recovered and still-open distances; live fill remains unknowable",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C02-L05",
+      "title": "Gap strength versus actual post-open structure",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.3,
+          10.1
+        ],
+        "expected": 0.2,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Opening gap direction differs from post-open close direction; chronology must remain explicit",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C03-L01",
+      "title": "Bearish Engulfing configuration and later outcome",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.35,
+          9.95
+        ],
+        "expected": 0.4,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Engulfing uses real open/close bodies and does not require the entire wick interval to be engulfed",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C03-L02",
+      "title": "Bullish Engulfing configuration and later outcome",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          12.3,
+          11.95
+        ],
+        "expected": 0.35,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Bullish engulfing's real bodies are distinct from a verified reversal; no forward-bar confirmation allowed",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C03-L03",
+      "title": "Exact Doji without a guaranteed reversal",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          15.2,
+          14.9
+        ],
+        "expected": 0.3,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Doji is a zero-sized open-close body; high-low order and reversal remain unknown",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C03-L04",
+      "title": "RCT recognition only — first red 5-minute reference",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.3,
+          10.1
+        ],
+        "expected": 0.2,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "RCT abbreviation and first eligible red five-minute setup need book-protocol review before final editorial signoff",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C07-L01",
+      "title": "RSI overbought is not a reversal command",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-IND",
+        "TALIB-FUNC"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.35,
+          10.2
+        ],
+        "expected": 0.15,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Displayed RSI is fictional, already warmed; two prices cannot reconstruct RSI(14) or authenticate the reading",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C07-L02",
+      "title": "RSI oversold is not an automatic buy",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-IND",
+        "TALIB-FUNC"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          9.8,
+          9.62
+        ],
+        "expected": 0.18,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "Displayed RSI is fictional and oversold; false inference of an automatic entry must be prevented",
+      "independentEditorialSignoff": false
+    },
+    {
+      "labId": "F3-C07-L03",
+      "title": "MACD lag after a fast price impulse",
+      "reviewStatus": "INTERNAL_SOURCE_QA_INSPECTED_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
+      "sourceCandidates": [
+        "CHARTSCHOOL-IND",
+        "TALIB-PY"
+      ],
+      "claimReview": "REFERENCE_CANDIDATES_ONLY_CLAIM_LEVEL_VERIFICATION_PENDING",
+      "arithmetic": {
+        "method": "ABSOLUTE_DIFFERENCE",
+        "values": [
+          10.4,
+          10.32
+        ],
+        "expected": 0.08,
+        "codeFixturePresent": true,
+        "independentExternalFinancialReviewerApproved": false
+      },
+      "originalFictionalTeaching": true,
+      "transferQuestionPresent": true,
+      "privateOfficialAnswerKeyInspected": false,
+      "rights": "THIRD_PARTY_DATA_REPRODUCTION_AND_PUBLICATION_NOT_APPROVED",
+      "memberBrowser": "NOT_ACCEPTED",
+      "finding": "MACD line uses two declared already-seeded EMAs; signal line and histogram are not supplied",
+      "independentEditorialSignoff": false
+    }
+  ],
+  "revisionHistory": [
+    {
+      "version": "1.0",
+      "date": "2026-11-01",
+      "change": "Twenty claim-specific source audit findings and per-case arithmetic fixture references",
+      "status": "Internal development review only"
+    }
+  ],
+  "footer": "Cyber Nexus Publishing / Crown & Lantern Press · SMFGU-LAB-BATCH04-INTERNAL-QA-001 · not externally reviewed"
+}

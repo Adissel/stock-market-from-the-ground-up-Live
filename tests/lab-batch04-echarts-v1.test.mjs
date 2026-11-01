@@ -7,6 +7,8 @@ test('Batch04 uses only existing member Lab / ECharts loader and never grades',(
  assert(ui.includes('CrownlightECharts.load')&&ui.includes("node('table')")&&ui.includes("node('caption'"));
  assert(ui.includes("chartInstance?.dispose()")&&ui.includes('ResizeObserver'));
  assert(ui.includes("Math.abs(Math.abs(pair[0]-pair[1])-item.expected)"));
+ assert(ui.includes("min:0,scale:false"),'Bar chart must use a zero baseline so small price differences are not exaggerated');
+ assert(ui.includes('bars start at zero'),'Learners must receive an explicit explanation of chart scaling');
  assert(ui.includes('fictionalOnly:true')&&!ui.includes('/api/grade')&&!ui.includes('/api/checkout'));
  assert(engine.includes("mode==='guided'")&&engine.includes('GroundUpLabBatch04EChartsV1.mount'));
  assert(engine.includes('batch04Bridge.tabs.apply[0]')&&engine.includes('if(stage===2&&!calculateDone)'));

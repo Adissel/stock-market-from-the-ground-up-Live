@@ -51,7 +51,7 @@ function mount(target,{labId,bridge}={}){
   const head=node('thead'),tr=node('tr');for(const t of ['Completed observation','USD/share'])tr.append(node('th',t));head.append(tr);table.append(head);
   const body=node('tbody');names[labId].forEach((name,i)=>{const tr=node('tr'),th=node('th',name);th.scope='row';tr.append(th,node('td','$'+pair[i].toFixed(2)));body.append(tr)});
   const end=node('tr'),th=node('th','Absolute difference');th.scope='row';end.append(th,node('td','$'+item.expected.toFixed(2)));body.append(end);table.append(body);
-  status.textContent='Description only: a numerical difference is not a future prediction or trade recommendation.';
+  status.textContent='The bars start at zero to avoid exaggerating price differences. Use the precise table figures for small changes; these observations do not predict the next price.';
   if(!root.CrownlightECharts?.load){graphic.textContent='Chart unavailable; exact values remain in the table.';return;}
   return root.CrownlightECharts.load().then(e=>{
    if(disposed)return;
@@ -60,7 +60,17 @@ function mount(target,{labId,bridge}={}){
     aria:{enabled:true,description:'Two fictionally completed prices. Full numerical data is in the adjacent table.'},
     tooltip:{trigger:'axis'},grid:{top:24,bottom:54,left:62,right:20},
     xAxis:{type:'category',data:names[labId],axisLabel:{color:'#e2f0f5',interval:0,overflow:'truncate',width:140}},
-    yAxis:{type:'value',scale:true,axisLabel:{color:'#e2f0f5',formatter:v=>'$'+Number(v).toFixed(2)}},
+    yAxis:{type:'value',min:0,scale:false,axisLabel:{color:'#e2f0f5',formatter:v=>'
+    series:[{type:'bar',name:'Fictional completed values',data:pair,barMaxWidth:68,itemStyle:{color:p=>p.dataIndex===0?'#2bc3cf':'#d5a548',borderRadius:[5,5,0,0]}}]
+   },true);
+   if(typeof ResizeObserver==='function'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(graphic);}
+  });
+ }).catch(()=>{if(!disposed){graphic.textContent='Chart unavailable; use the authored fictional example text.';status.textContent='No verified market data or grade is implied.';}});
+ return {dispose(){disposed=true;observer?.disconnect();chartInstance?.dispose();host.remove();}};
+}
+root.GroundUpLabBatch04EChartsV1=Object.freeze({mount,version:'1.0',fictionalOnly:true});
+})(globalThis);
++Number(v).toFixed(2)}},
     series:[{type:'bar',name:'Fictional completed values',data:pair,barMaxWidth:68,itemStyle:{color:p=>p.dataIndex===0?'#2bc3cf':'#d5a548',borderRadius:[5,5,0,0]}}]
    },true);
    if(typeof ResizeObserver==='function'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(graphic);}
