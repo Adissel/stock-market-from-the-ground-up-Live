@@ -1,0 +1,53 @@
+name: Book Key Real GoTrue Helper RPC Role Denial QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-book-key-helper-role-denial-v1.mjs'
+      - '.github/workflows/book-key-helper-role-denial-real-qa-v1.yml'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: book-key-helper-role-denial-real-qa
+  cancel-in-progress: false
+jobs:
+  real-role-rpc-negatives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check authentic QA negative test source
+        run: node --check tests/live-book-key-helper-role-denial-v1.mjs
+      - name: Execute actual noncommercial GoTrue member and guest negative probes
+        id: denial
+        continue-on-error: true
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-book-key-helper-role-denial-v1.mjs
+      - name: Record attributable actual role-negative execution
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.denial.outcome }}
+        run: |
+          {
+            echo '### Book Key genuine QA role and helper RPC negative tests'
+            echo "Source SHA: $GITHUB_SHA"
+            echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Result: **$OUTCOME**"
+            echo 'Only success means authentic preapproved GoTrue QA member plus anonymous role had 11 denial probes across four service-only RPCs, a private attempt ledger and the anonymous redeem endpoint.'
+            echo 'No valid Book Key, attempted paid checkout, live entitlement, rewards, grading or persistent member state write.'
+            echo 'Full native CAPTCHA and positive Settings redemption remain separate security holds.'
+          } > /tmp/book-key-helper-role-qa-result.md
+          gh issue comment 158 --repo "$GITHUB_REPOSITORY" --body-file /tmp/book-key-helper-role-qa-result.md
+      - name: Fail closed when role-negative test fails
+        if: steps.denial.outcome != 'success'
+        run: exit 1
