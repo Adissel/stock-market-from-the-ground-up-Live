@@ -140,7 +140,7 @@ function paintLabPrerequisites(host,codes,guides,evidence){
  host.append(list);
  host.append(el('p','Your Learning Development report uses only actual verified assessments. Guided explanations and optional practice do not create mastery credit.'));
 }
-async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,creditRequest,skillEvidenceRequest,recallScheduler,memberFirstName='',allowTutorAI=true,progressStore=null}={}){
+async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,creditRequest,skillEvidenceRequest,recallScheduler,memberFirstName='',allowTutorAI=true,progressStore=null,academyLesson=null}={}){
  if(!target||typeof target.replaceChildren!=='function')return false;
  const previousSession=sessions.get(target);
  previousSession?.dispose?.();
@@ -175,6 +175,17 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   return true;
  }
  if(!['guided','practice'].includes(mode)){target.replaceChildren();return false}
+ // The Academy adapter reuses this instructional engine without pretending a
+ // Boot Camp day is one of the 419 authorized book Labs.
+ const academyScope=mode==='guided'&&academyLesson&&
+  /^[a-z][a-z0-9]{1,25}$/.test(String(academyLesson.programCode||''))&&
+  Number.isSafeInteger(academyLesson.day)&&academyLesson.day>=1&&academyLesson.day<=90&&
+  labId==='academy:'+academyLesson.programCode+':'+academyLesson.day&&
+  typeof lab?.teaching?.what==='string'&&lab.teaching.what.trim().length>5;
+ if(academyLesson&&!academyScope){
+  target.replaceChildren(el('p','Invalid Academy teaching context. No lesson or assessment access was granted.'));
+  return false;
+ }
  target.replaceChildren(el('p','Loading subject teaching from the existing curriculum…'));
  let map;
  try{map=await catalog()}catch{
@@ -182,14 +193,24 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   return false;
  }
  if(sessions.get(target)!==token)return false;
- const item=map.byLab[labId];
+ const item=map.byLab[labId]||(academyScope?{
+  title:academyLesson.title,relatedCompetencies:Array.isArray(academyLesson.competencies)?
+   academyLesson.competencies.filter(x=>typeof x==='string').slice(0,8):[]
+ }:null);
  if(!item){target.replaceChildren(el('p','This Lab is not part of the canonical curriculum.'));return false}
  const codes=(item.relatedCompetencies||[]).filter(x=>map.guides.has(x));
  const neededPrerequisites=labPrerequisiteCodes(codes,map.guides);
  let skillEvidence=null,updatePrerequisitePanel=null;
- const guide=map.guides.get(codes[0]);
+ const guide=academyScope?{
+  code:codes[0]||'ACADEMY_STUDY_ONLY',title:String(academyLesson.title||'Boot Camp learning'),
+  concept:String(lab.teaching.what||''),procedure:String(lab.teaching.why||academyLesson.objective||''),
+  commonError:String(lab.teaching.commonError||'Check source and time before interpreting evidence.'),
+  limit:String(lab.teaching.limitation||'A fictional example cannot prove future outcomes.'),
+  invalidation:String(lab.teaching.when||'Record missing evidence and WAIT when needed.'),
+  selfCheck:(lab.teaching.questions||[])[0]||String(academyLesson.objective||'Explain this example.')
+ }:map.guides.get(codes[0]);
  if(!guide){target.replaceChildren(el('p','This Lab lacks an approved competency study bridge.'));return false}
- const kind=root.GroundUpLabEngineV32?.kindFor?.(labId)||'general';
+ const kind=academyScope?'general':root.GroundUpLabEngineV32?.kindFor?.(labId)||'general';
  const special=synthetic[kind]||null;
  const subject=root.GroundUpLabEngineV32?.lessons?.[kind]||null;
  // Some unreviewed curriculum paths use the Lab ID as a placeholder title.
@@ -207,10 +228,10 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   :/construct (?:an? )?(?:down\s*\/\s*)?bearish candle/i.test(rawTopic)?'Bearish Candle'
   :rawTopic;
  const topicSource=meaningfulTitle(lab?.concept)||authorTopic||meaningfulTitle(item.title)?'authored':'competency';
- const quantitativeStudyId=root.GroundUpLearningQuantStudiesV1?.select?.({competencies:codes,topic,primaryCode:guide.code})||
+ const quantitativeStudyId=academyScope?null:root.GroundUpLearningQuantStudiesV1?.select?.({competencies:codes,topic,primaryCode:guide.code})||
   root.GroundUpLearningIndicatorsV1?.select?.({labId,topic})||null;
 
- const visualType=root.GroundUpLabV33Contextual?.select?.({lab,topic,competencies:codes})||'none';
+ const visualType=academyScope?'none':root.GroundUpLabV33Contextual?.select?.({lab,topic,competencies:codes})||'none';
  const authorizedTeaching=lab?.teaching&&typeof lab.teaching==='object'?lab.teaching:{};
  const ownHow=Array.isArray(authorizedTeaching.how)?authorizedTeaching.how.filter(s=>typeof s==='string'&&s.trim()).slice(0,20):[];
  const ownQuestions=Array.isArray(authorizedTeaching.questions)?authorizedTeaching.questions.filter(s=>typeof s==='string'&&s.trim()).slice(0,5):[];
@@ -1094,7 +1115,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    }
   }else{
    const summary=[
-    ['Lab',labId],['Official competencies',codes.join(', ')],['Prediction',predictionLocked?'Locked locally':'Not completed'],
+    [academyScope?'Boot Camp lesson':'Lab',academyScope?academyLesson.title:labId],['Official competencies',codes.join(', ')||'Not Yet Assessed'],['Prediction',predictionLocked?'Locked locally':'Not completed'],
     ['Practice',practiceResolved?practiceAssisted?'Completed with scaffold':practiceCount?'Corrected after retry':'Completed':'Not completed'],
     ['Practice errors',practiceCount],['Review',selfReview?'Completed':'Not completed'],
     ['Transfer',transferResolved?'Completed':'Not completed'],['Transfer retries',transferCount],
@@ -1118,9 +1139,12 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    const recorded=el('section');recorded.className='gu-v33-grade-outlet';
    recorded.setAttribute('aria-label','Your graded assessment history');
    body.append(recorded);
-   root.GroundUpLabV33GradeDisplay?.mount?.({labId,target:recorded});
-   appendParagraph(body,'Resume or save official member progress through the existing authenticated Lab controls; this self-study widget does not write server grades or credit entitlements.');
-   body.append(button('Review related competency guide',()=>{location.href='skills.html#guide-'+encodeURIComponent(codes[0]||'')})); 
+   if(!academyScope)root.GroundUpLabV33GradeDisplay?.mount?.({labId,target:recorded});
+   else appendParagraph(recorded,'Official Boot Camp grading is independent and remains unavailable unless separately approved and authorized.');
+   appendParagraph(body,academyScope?
+    'The Academy retains its existing authenticated reflection service. Lab-style instructional checkpoints are not yet server-persisted for Boot Camps; no completion is inferred.':
+    'Resume or save official member progress through the existing authenticated Lab controls; this self-study widget does not write server grades or credit entitlements.');
+   if(!academyScope&&codes.length)body.append(button('Review related competency guide',()=>{location.href='skills.html#guide-'+encodeURIComponent(codes[0]||'')})); 
   }
   // The approved reference keeps worked demonstrations INSIDE the
   // illustration. The four explanation actions now trigger Talia's voice,
