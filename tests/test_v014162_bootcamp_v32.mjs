@@ -37,10 +37,12 @@ for(const c of sourceCases.cases){
   'Primary-source lesson must not claim broker fills or verified market outcomes');
 }
 
-assert(b.includes('what:d.objective')&&b.includes('why:d.caution||d.observe'),
- 'Every Boot Camp day needs its authored objective and distinct reason instead of a generic overview');
-assert(b.includes('commonError:checkpoint?.commonMistake||d.caution')&&b.includes('limitation:d.caution'),
- 'Day-specific mistakes and limitations must be narrated by Talia');
+assert(b.includes('what:d.objective')&&b.includes('why:lesson.explanation||lesson.teach||d.observe')&&
+ b.includes('when:d.observe')&&b.includes('how:[lesson.workedExample||lesson.worked||\'\',d.practice].filter(Boolean)'),
+ 'Every Boot Camp day must carry its authored objective, observed evidence and practice into the shared instructor; richer lesson explanations take precedence over the day fallback');
+assert(b.includes('commonError:lesson.error||checkpoint?.commonMistake||d.caution')&&
+ b.includes('limitation:lesson.whenNot||d.caution'),
+ 'Authored mistakes and limitations must take precedence while retaining the day-specific fallback');
 assert(instructor.includes('customHow.map((step,index)')&&instructor.includes('custom.when?'),
  'The common teaching engine must actually render the daily observe/practice methodology');
 assert(instructor.includes('custom.commonError?')&&instructor.includes('custom.limitation?'),
