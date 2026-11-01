@@ -22,6 +22,7 @@ export async function parseTutorRequest(request){
     (body.mode!==undefined&&typeof body.mode!=='string')||
     (body.learnerAnswer!==undefined&&typeof body.learnerAnswer!=='string')||
     (body.allowModel!==undefined&&typeof body.allowModel!=='boolean')||
+    (body.useMemberKey!==undefined&&typeof body.useMemberKey!=='boolean')||
     (body.saveHistory!==undefined&&typeof body.saveHistory!=='boolean')||
     (body.conversationId!==undefined&&body.conversationId!==null&&
       (typeof body.conversationId!=='string'||!validId.test(body.conversationId)))||
@@ -35,7 +36,8 @@ export async function parseTutorRequest(request){
   learnerAnswer.length>1800||mode==='review'&&!learnerAnswer)
   throw fail('Tutor question, mode or learner reflection is invalid.');
  return {question,mode,learnerAnswer,
-  allowModel:body.allowModel===true,saveHistory:body.saveHistory===true,
+  allowModel:body.allowModel===true,useMemberKey:body.useMemberKey===true,
+  saveHistory:body.saveHistory===true,
   requestId:body.requestId||crypto.randomUUID(),
   conversationId:body.conversationId||null,
   // Legacy untrusted priorTurns are ignored by the route, NEVER reintroduced
