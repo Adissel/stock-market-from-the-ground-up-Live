@@ -21,6 +21,7 @@ const content={lessonBatch:'2026-10-25-B01',
 const draft={lab_id:LAB,book_number:1,
  source_status:'original_hypothetical_unreviewed_v01496',content};
 // Synthetic active grants must remain active across calendar dates; the live service still checks actual expiry.
+// Current QA policy requires the issuer-authorized pass to last no more than 31 days.
 const oldFetch=globalThis.fetch;
 let member=true,suspended=false,grant=true,premium=true,reviewed=false,independentlyApprovedAssessment=false,qaPass=false,ownerIssuer=true,catalogOverflow=false,seen=[];
 const respond=(value,status=200)=>new Response(JSON.stringify(value),{status,
@@ -51,8 +52,8 @@ globalThis.fetch=async(input,init={})=>{
   plan_code:'FOUNDING_30',active:true,includes_all_books:false,billing_interval:'none'
  }]);
  if(p.endsWith('/user_tool_passes'))return respond(qaPass?[{
-   tool_code:'ONDEMAND_TRAINING',status:'active',starts_at:'2026-10-26T06:00:00Z',
-   ends_at:new Date(Date.now()+60*86400000).toISOString(),provider:null,provider_subscription_id:null,
+   tool_code:'ONDEMAND_TRAINING',status:'active',starts_at:new Date(Date.now()-2*86400000).toISOString(),
+   ends_at:new Date(Date.now()+20*86400000).toISOString(),provider:null,provider_subscription_id:null,
    metadata:{admin_manual:true,source:'owner_manual',adminGrantedBy:'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
      reason:'F600_GUIDED_QA_V1: Owner-authorized 30-day noncommercial learning test.'}
  }]:[]);
