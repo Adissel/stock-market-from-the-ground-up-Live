@@ -5,6 +5,7 @@
 (()=>{'use strict';
 const membershipBase=[
  ['FREE','Free Membership','Foundations Focus','#89bdd2','Reading-first','Comfortable','Right','foundation-focus'],
+ ['PICK_WHAT_YOU_WANT','Pick What You Want','À-la-Carte Classroom','#78c9b3','Balanced','Comfortable','Right','foundation-focus'],
  ['FOUNDING_14','Founding 14-Day Starter','Guided Workshop','#deb677','Balanced','Comfortable','Right','guided-workshop'],
  ['FOUNDING_30','Founding 30-Day','Analysis Desk','#69c8c0','Chart-first','Comfortable','Right','analysis-desk'],
  ['FOUNDING_60','Founding 60-Day','Flagship Classroom','#c4b2e8','Chart-first','Compact','Bottom','flagship-classroom'],
