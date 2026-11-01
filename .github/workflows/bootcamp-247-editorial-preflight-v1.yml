@@ -11,6 +11,9 @@ on:
       - 'functions/_lib/academy-risk60-practice-batch02-v1.js'
       - 'assets/js/bootcamp-academy-v014168.js'
       - 'assets/js/academy-guided-v1.js'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'assets/js/academy-tutor-bridge-v1.js'
+      - 'tests/test_academy_shared_lab_parity_v1.mjs'
       - 'scripts/bootcamp-247-editorial-preflight-v1.mjs'
       - 'tests/test_bootcamp_first22_editorial_preflight_v1.mjs'
       - 'tests/test_academy_risk60_batch01_v1.mjs'
@@ -42,6 +45,9 @@ jobs:
         run: |
           node --check assets/js/academy-guided-v1.js
           node --check assets/js/bootcamp-academy-v014168.js
+          node --check assets/js/lab-engine-v32-universal.js
+          node --check assets/js/academy-tutor-bridge-v1.js
+          node tests/test_academy_shared_lab_parity_v1.mjs
           node tests/test_bootcamp_first22_editorial_preflight_v1.mjs
           node tests/test_academy_charts45_batch04_v1.mjs
           node tests/test_academy_risk60_batch01_v1.mjs
