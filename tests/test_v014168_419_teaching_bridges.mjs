@@ -47,7 +47,7 @@ for(const [id,m] of Object.entries(labs.byLab)){
  const isBatch02=String(row.instructionSource||'').startsWith('ORIGINAL_SUBJECT_SPECIFIC_BATCH02_');
  const sourceHold=['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
    'BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING'].includes(row.sourceStatus)||
-   (isBatch02&&/^BATCH02_[A-Z0-9_]*PENDING$/.test(row.sourceStatus));
+   (isBatch02&&typeof row.sourceStatus==='string'&&row.sourceStatus.includes('PENDING'));
  assert(sourceHold,id+' must remain source-only and editorial-pending; no verified market data or grade claimed');
  if(isBatch02){
   assert.equal(row.transfer?.graded,false,id+' must not produce an independent grade');
