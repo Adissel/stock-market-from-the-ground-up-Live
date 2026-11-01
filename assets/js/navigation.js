@@ -525,8 +525,17 @@
       const set=collapsed=>{document.body.classList.toggle('gu-workspace-collapsed',collapsed);document.body.classList.toggle('gu-learning-panel-open',kind==='learning'&&!collapsed);sidebar.hidden=collapsed;button.setAttribute('aria-expanded',String(!collapsed));button.textContent=collapsed?'Member menu':'Close menu';};
       const preferenceKey='gu.workspace.'+kind+'.collapsed';
       let collapsed=kind==='learning'||matchMedia('(max-width:900px)').matches;try{const saved=localStorage.getItem(preferenceKey);if(saved!==null)collapsed=saved==='true'}catch(_){}
-      set(collapsed);button.addEventListener('click',()=>{const next=!document.body.classList.contains('gu-workspace-collapsed');set(next);try{localStorage.setItem(preferenceKey,String(next))}catch(_){}});
+      // Member dashboard's real sidebar is a persistent desktop region.
+      // A top-header "Close menu" at desktop widths collapses the sidebar
+      // while using precious room intended for primary navigation and search.
+      const desktopMember=()=>kind==='member'&&innerWidth>900;
+      if(desktopMember())collapsed=false;
+      set(collapsed);
+      const fitMemberHeader=()=>{if(kind!=='member')return;button.hidden=desktopMember();if(desktopMember())set(false);};
       header?.querySelector('.nav')?.prepend(button);
+      fitMemberHeader();
+      if(kind==='member')addEventListener('resize',fitMemberHeader,{passive:true});
+      button.addEventListener('click',()=>{if(desktopMember())return;const next=!document.body.classList.contains('gu-workspace-collapsed');set(next);try{localStorage.setItem(preferenceKey,String(next))}catch(_){}});
     }
   }
 
