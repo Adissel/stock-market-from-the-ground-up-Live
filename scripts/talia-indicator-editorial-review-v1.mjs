@@ -68,4 +68,4 @@ const out={
 };
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/talia-indicator-editorial-review-v1.json',JSON.stringify(out,null,2)+'\n');
-console.log(JSON.stringify({documentId:out.documentId,inventory:73,structureValid:73,computedEducationalCases:5,flags:out.pending,editoriallyAccepted:0}));
+console.log(JSON.stringify({documentId:out.documentId,inventory:73,structureValid:73,computedEducationalCases:out.sourceOnlyComputedCaseCount,flags:out.pending,editoriallyAccepted:0}));
