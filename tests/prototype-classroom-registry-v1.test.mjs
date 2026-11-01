@@ -60,7 +60,8 @@ try{
  assert.match(pickMigration,/INSERT INTO public\.cl_classroom_membership_codes/);
  assert.match(pickMigration,/INSERT INTO public\.cl_classroom_layouts/);
  assert.match(pickMigration,/ON CONFLICT \(plan_code,channel\) DO NOTHING/);
- assert.doesNotMatch(pickMigration,/UPDATE public\.(?:site_subscriptions|platform_plans)|stripe|checkout_enabled|price_cents|wallet/i);
+ const executableMigration=pickMigration.split('\n').filter(line=>!/^\s*--/.test(line)).join('\n');
+ assert.doesNotMatch(executableMigration,/UPDATE public\.(?:site_subscriptions|platform_plans)|stripe|checkout_enabled|price_cents|wallet/i);
 assert.equal(result.data.memberFacingEnabled,false);
  result=await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:1,config});assert.equal(result.status,200);assert.equal(result.data.saved.version,2);
  assert.equal(result.data.published,false);
