@@ -262,7 +262,27 @@ function Lesson({topic,setTopic,stage,setStage,bar,setBar}:{topic:Topic;setTopic
  const [o,setO]=useState(31),[h,setH]=useState(32.5),[l,setL]=useState(30.5),[c,setC]=useState(32);
  const sumV=trades.reduce((s,x)=>s+x.volume,0),sumPV=trades.reduce((s,x)=>s+x.price*x.volume,0);
  const trueVWAP=sumV?sumPV/sumV:0;
- const check=()=>{const result=topic==='vwap'?trueVWAP:Math.abs(c-o);const guess=Number(answer);setFeedback(answer.trim()!==''&&Number.isFinite(guess)&&Math.abs(guess-result)<.011?'Correct. Now explain each step and the result’s limitations.':'Try again. Show each intermediate calculation, including units.');};
+ const [transferAnswer,setTransferAnswer]=useState(''),[transferFeedback,setTransferFeedback]=useState('');
+ const check=()=>{
+  const result=topic==='vwap'?trueVWAP:Math.abs(c-o),guess=Number(answer);
+  if(!answer.trim()||!Number.isFinite(guess)){setFeedback('Enter a finite numeric value in dollars per share. Show your units.');return}
+  if(Math.abs(guess-result)<.011){setFeedback('Correct: '+(topic==='vwap'?dollars(sumPV)+' total traded dollars ÷ '+sumV.toLocaleString()+' shares = '+dollars(result)+' per share. A simple mean ignores volume.':'|'+dollars(c)+' − '+dollars(o)+'| = '+dollars(result)+' body. Full range is '+dollars(h-l)+', not the body.')+' Now state what cannot be inferred.');return}
+  if(topic==='vwap'){
+    const mean=trades.reduce((a,t)=>a+t.price,0)/trades.length;
+    setFeedback(Math.abs(guess-mean)<.011?'You calculated the unweighted mean. Each lot has a different number of shares; first multiply each price by shares.':
+      'Your weighted average is not yet correct. Add the dollar values '+trades.map(t=>dollars(t.price*t.volume)).join(' + ')+' = '+dollars(sumPV)+'. Divide by '+sumV.toLocaleString()+' shares; keep units $/share.');
+  }else{
+    setFeedback(Math.abs(guess-(h-l))<.011?'You used the full high–low range, which includes both wicks. Body uses close minus open.':
+      'Compare only OPEN '+dollars(o)+' and CLOSE '+dollars(c)+'. The body is the absolute difference; high and low determine the full range and wicks.');
+  }
+ };
+ const checkTransfer=()=>{
+  const target=topic==='vwap'?12.4:.25,got=Number(transferAnswer);
+  if(!transferAnswer.trim()||!Number.isFinite(got)){setTransferFeedback('Enter a numeric answer with units; this is separate from the guided example.');return}
+  setTransferFeedback(Math.abs(got-target)<.011?
+   'Correct. '+(topic==='vwap'?'$12,400 ÷ 1,000 shares = $12.40/share.':'$0.40 body ÷ $1.60 full range × 100 = 25%.')+' A calculation alone does not justify a trade.':
+   'Not yet. '+(topic==='vwap'?'Use (200×$12 + 800×$12.50) ÷ (200+800) and check the units.':'Use |$40.40−$40.00| ÷ ($41.20−$39.60) × 100. The answer is a percent, not a dollar value.'));
+ };
  const adjust=(name:'o'|'h'|'l'|'c',v:number)=>{
   if(name==='o')setO(v);if(name==='c')setC(v);
   if(name==='h')setH(Math.max(v,o,c));if(name==='l')setL(Math.min(v,o,c));
@@ -275,6 +295,9 @@ function Lesson({topic,setTopic,stage,setStage,bar,setBar}:{topic:Topic;setTopic
   <div className="cx-stage-name">STAGE {stage+1} / 9 · {['Objectives','First principles','Worked calculation','Guided visualization','Knowledge checkpoint','Guided practice','Independent assessment preview','Transfer task','Diagnostic feedback'][stage]}</div>
   <Talia topic={topic} step={stage} bar={bar}/>
   {topic==='candle'?<div className="cx-lesson-body"><CandleShape o={o} h={h} l={l} c={c}/><div className="cx-input-grid">{([['o','Open',o],['h','High',h],['l','Low',l],['c','Close',c]] as ['o'|'h'|'l'|'c',string,number][]).map(([id,label,value])=><label key={id}>{label}<input type="number" min="1" step=".1" value={value} onChange={e=>adjust(id,Number(e.target.value)||1)}/></label>)}</div><div className="cx-numeric"><span>Body <b>{dollars(Math.abs(c-o))}</b></span><span>Range <b>{dollars(h-l)}</b></span><span>Upper wick <b>{dollars(h-Math.max(o,c))}</b></span><span>Lower wick <b>{dollars(Math.min(o,c)-l)}</b></span></div><p className="cx-small">Selected replay candle: {bar.time} · O {dollars(bar.o)} · H {dollars(bar.h)} · L {dollars(bar.l)} · C {dollars(bar.c)}. Builder is an independent fictional example.</p></div>:<div className="cx-lesson-body"><div className="cx-overline">EXACT TRADE-PRINT VWAP · FICTIONAL TRANSACTIONS</div><div className="cx-trade-rows">{trades.map((t,i)=><div key={i} className="cx-trade"><label>Price <input type="number" min=".01" step=".5" value={t.price} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,price:Math.max(.01,Number(e.target.value)||.01)}:x))}/></label><label>Shares <input type="number" min="1" step="50" value={t.volume} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,volume:Math.max(1,Math.round(Number(e.target.value)||1))}:x))}/></label><strong>{dollars(t.price*t.volume)}</strong></div>)}</div><div className="cx-numeric"><span>Total traded value <b>{dollars(sumPV)}</b></span><span>Shares <b>{sumV.toLocaleString()}</b></span><span>VWAP <b>{dollars(trueVWAP)}</b></span></div><p className="cx-small">Formula: Σ(price × shares) ÷ Σ(shares). The chart overlay is a separate OHLCV approximation and is explicitly labeled as such.</p></div>}
+  {stage===7&&<div className="cx-transfer"><div className="cx-overline">TRANSFER TASK / FRESH FICTIONAL CASE</div><p>{topic==='vwap'?'200 shares at $12 and 800 shares at $12.50. Calculate the volume-weighted average price in dollars per share.':'O=$40.00, H=$41.20, L=$39.60, C=$40.40. Calculate the body as a percentage of full range.'}</p>
+ <label>{topic==='vwap'?'New-case VWAP ($/share)':'New-case body / range (%)'}<input aria-label="Transfer answer" type="number" step=".01" value={transferAnswer} onChange={e=>setTransferAnswer(e.target.value)}/></label>
+ <button onClick={checkTransfer} type="button">Check transfer reasoning</button><p role="status">{transferFeedback||'Use the new case, not the worked-example answer. The transfer check is ungraded.'}</p></div>}
   <div className="cx-check"><label>{topic==='vwap'?'Calculate the trade-print VWAP ($/share)':'Calculate the candle body ($/share)'}<input aria-label="Practice answer" type="number" step=".01" value={answer} onChange={e=>setAnswer(e.target.value)}/></label><button onClick={check}>Check ungraded answer</button><p role="status">{feedback||'Try the calculation. Explanations, retries and feedback are free within any accessible lesson.'}</p></div>
  </section>;
 }
