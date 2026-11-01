@@ -9,6 +9,13 @@
   vwap:'#88a9ff',bb20:'#cfb0f7',hod:'#fabd93',lod:'#ed99a4',volma20:'#edcc80',
   rsi14:'#cba7f6',macd:'#71d5f4',macdSignal:'#f0b980',macdHistogram:'#61d7b2',atr14:'#e2a3d3'};
  let stroke='solid';
+ const factoryColors={...colors},lineStyles={};
+ function resetMemberPresentation(){
+  for(const k of Object.keys(factoryColors))colors[k]=factoryColors[k];
+  for(const k of Object.keys(lineStyles))delete lineStyles[k];
+  stroke='solid';
+  for(const k of Object.keys(enabled))enabled[k]=['ema9','ema20','vwap','volma20'].includes(k);
+ }
  const paneSizes={rsi14:155,macd:185,atr14:155};
  const NUM=(v)=>typeof v==='number'&&Number.isFinite(v);
  function clean(input){
@@ -70,7 +77,7 @@
   const add=(id,name,data,axis=0)=>{if(!enabled[id]||!Array.isArray(data))return;
    overlays.push({name,type:'line',data:data.map(v=>NUM(v)?v:null),
     showSymbol:false,connectNulls:false,smooth:false,xAxisIndex:axis,yAxisIndex:axis,
-    lineStyle:{width:2.15,type:stroke,color:colors[id]},itemStyle:{color:colors[id]},
+    lineStyle:{width:2.15,type:lineStyles[id]||stroke,color:colors[id]},itemStyle:{color:colors[id]},
     emphasis:{focus:'series'}})};
   if(snapshot){
    add('ema9','EMA 9',snapshot.ema9);
@@ -106,7 +113,7 @@
    const line=(name,data,color,opts={})=>({
     name,type:'line',xAxisIndex:axis,yAxisIndex:axis,showSymbol:false,
     connectNulls:false,smooth:false,data:data.map(v=>NUM(v)?v:null),
-    lineStyle:{color,width:2,type:stroke},itemStyle:{color},...opts
+    lineStyle:{color,width:2,type:lineStyles[({ 'Wilder RSI 14':'rsi14','MACD 12/26':'macd','MACD signal 9':'macdSignal','Wilder ATR 14':'atr14'})[name]]||stroke},itemStyle:{color},...opts
    });
    if(id==='rsi14')lower.push(line('Wilder RSI 14',snapshot.rsi14,colors.rsi14,{
     markLine:{symbol:'none',silent:true,label:{show:false},
@@ -213,6 +220,36 @@
   for(const name of ['solid','dashed','dotted']){const option=document.createElement('option');option.value=name;option.textContent=name;style.append(option)}
   style.value=stroke;style.addEventListener('change',()=>{stroke=style.value;render()});
   styleLabel.append(style);controls.append(styleLabel);
+  const advanced=document.createElement('details');advanced.className='cl-echarts-colors';
+  const advancedSummary=document.createElement('summary');
+  advancedSummary.textContent='Customize every indicator color and individual line style';
+  const palette=document.createElement('div');palette.className='cl-echarts-palette';
+  for(const [id,label] of [
+    ['ema9','EMA 9'],['ema20','EMA 20'],['ema200','EMA 200'],
+    ['sma20','SMA 20'],['vwap','Session VWAP'],['bb20','Bollinger Bands'],
+    ['hod','Observed HOD'],['lod','Observed LOD'],['volma20','Volume SMA'],
+    ['rsi14','RSI'],['macd','MACD line'],['macdSignal','MACD signal'],
+    ['macdHistogram','MACD histogram'],['atr14','ATR']
+  ]){
+   const field=document.createElement('label');field.textContent=label+' color ';
+   const color=document.createElement('input');color.type='color';color.value=colors[id];
+   color.dataset.indicatorColor=id;color.setAttribute('aria-label',label+' color');
+   color.addEventListener('input',()=>{colors[id]=color.value;render()});
+   field.append(color);
+   if(id!=='macdHistogram'){
+    const line=document.createElement('select');line.dataset.indicatorStroke=id;
+    line.setAttribute('aria-label',label+' line style');
+    for(const optionId of ['default','solid','dashed','dotted']){
+     const option=document.createElement('option');option.value=optionId;option.textContent=optionId;line.append(option);
+    }
+    line.value=lineStyles[id]||'default';
+    line.addEventListener('change',()=>{if(line.value==='default')delete lineStyles[id];
+     else lineStyles[id]=line.value;render()});
+    field.append(line);
+   }
+   palette.append(field);
+  }
+  advanced.append(advancedSummary,palette);
   const disclosure=document.createElement('p');disclosure.dataset.clEchartsMath='';
   const details=document.createElement('details');details.className='cl-echarts-numeric-table';
   const summary=document.createElement('summary');summary.textContent='Accessible numerical values · last 30 revealed candles';
@@ -226,7 +263,7 @@
   header.append(hr);table.append(header);
   const tbody=document.createElement('tbody');tbody.dataset.clEchartsRows='';table.append(tbody);
   scroll.append(table);details.append(summary,scroll);
-  frame.append(h,p,evidence,controls,paneControls,disclosure,graph,details);parent.append(frame);view=frame;
+  frame.append(h,p,evidence,controls,paneControls,advanced,disclosure,graph,details);parent.append(frame);view=frame;
   update(bars,name,timeframe);
   try{
    const e=await root.CrownlightECharts.load();
@@ -236,7 +273,7 @@
    render();return true;
   }catch(e){if(serial===request)unmount();throw e}
  }
- root.addEventListener('crownlight:member-changed',unmount);
+ root.addEventListener('crownlight:member-changed',()=>{unmount();resetMemberPresentation()});
  root.CrownlightEChartsStudio={
   mount,unmount,update,
   getStatus:()=>({ready:!!chart,barCount:last.length,symbol}),
