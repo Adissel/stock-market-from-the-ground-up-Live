@@ -56,6 +56,11 @@ assert.match(src,/Selected text content/);
 assert.match(src,/Selected text alignment/);
 assert.match(src,/Selected text color/);
 assert.match(src,/Selected text size/);
+for(const label of ['Snap to grid','Edit text directly','Delete selected from draft','Restore deleted:'])assert.ok(src.includes(label));
+assert.match(src,/setSnapToGrid/);
+assert.match(src,/contenteditable/);
+assert.match(css,/cx-layout-text-mode/);
+assert.match(css,/cx-layout-deleted/);
 assert.match(css,/cx-frame-less/);
 
 assert.match(css,/cx-layout-customized/);
