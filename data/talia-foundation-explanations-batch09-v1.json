@@ -441,7 +441,7 @@
       "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A $5,000 hypothetical borrow at 36% annualized for 5 days on a declared 360-day simple basis would cost $5,000×0.36×5/360=$25, excluding other fees.",
       "transferQuestion": "FICTIONAL TRANSFER: At a fictional 18% annual borrow rate, $4,000 for 2 days on 360-day simple convention, compute approximate interest.",
       "sourceUrls": [
-        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -454,6 +454,14 @@
         "result": "draft_only_claim_specific_review_pending",
         "rights": "no_market_data_licensed",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms",
+        "morePrecisePrimaryReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
