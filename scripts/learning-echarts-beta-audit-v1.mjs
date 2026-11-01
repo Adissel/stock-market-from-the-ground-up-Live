@@ -1,6 +1,6 @@
 /* Closed-beta instructional readiness audit: local repository sources only.
- * Scope: all 419 canonical lesson IDs, seven Academy programs (247 days),
- * the Free five-day course, and four Chart Studio selections.
+ * Scope: all 419 canonical Lab IDs, ten Academy programs (274 days),
+ * the Free five-day course, 61 Tutor studies and four Chart Studio selections.
  * Structural acceptance is NOT a substitute for individual editorial signoff,
  * authenticated production browser tests, or historical data provenance.
  */
@@ -12,7 +12,9 @@ const map=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const bridge=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
 const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
-const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,freeDays:5,studios:4,competencies:official.size};
+const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
+ freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
+ tutorInterpretationOnlyStudies:0,computedChartStudies:15};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
 const pending=(id,reason)=>editorial.push({id,reason});
@@ -48,13 +50,40 @@ for(const [id,lab] of Object.entries(map.byLab)){
  if(distinct.length&&textOf.length===5&&!distinct.some(w=>textOf.join(' ').includes(w)))
   pending(id,'Reviewer should verify topic-specific wording against exact canonical title');
 }
-const durations={truth5:5,watchlist7:7,scanners10:10,foundations30:30,charts45:45,risk60:60,practicum90:90};
+const durations={truth5:5,watchlist7:7,scanners10:10,foundations30:30,charts45:45,
+ risk60:60,practicum90:90,tape10:10,indicators10:10,filings7:7};
+const betaCodes=new Set(['tape10','indicators10','filings7']);
+const indicatorBriefs=JSON.parse(read('data/tutor-indicator-study-v1.json'));
+const tutorGuided=JSON.parse(read('data/tutor-guided-practice-v1.json'));
+const indicatorModules=tutorGuided.modules?.filter(m=>m.kind==='indicator')||[];
+const mapped=new Map(indicatorModules.map(m=>[m.guideCode,m]));
+metrics.indicatorBriefs=indicatorBriefs.guides?.length||0;
+metrics.tutorCalculatedStudies=indicatorModules.filter(m=>m.metric!=='study-concept').length;
+metrics.tutorInterpretationOnlyStudies=indicatorModules.filter(m=>m.metric==='study-concept').length;
+if(indicatorBriefs.count!==61||metrics.indicatorBriefs!==61||mapped.size!==61||
+  tutorGuided.indicatorCount!==61||tutorGuided.numericIndicatorCount!==53||
+  tutorGuided.interpretationOnlyIndicatorCount!==8||
+  metrics.tutorCalculatedStudies!==53||metrics.tutorInterpretationOnlyStudies!==8)
+ fail('indicators','Authoritative 61-study / 53-calculated / 8-interpretation Tutor registry drift');
+for(const guide of indicatorBriefs.guides||[]){
+ const module=mapped.get(guide.code);
+ if(!module||module.guideCode!==guide.code||!guide.title||!guide.family||!guide.concept)
+  fail(guide.code,'Tutor module lacks a matching authored indicator reference');
+ if(module?.kind!=='indicator'||!Array.isArray(module.options)||!Number.isInteger(module.correct)||
+    module.correct<0||module.correct>=module.options.length||
+    !Array.isArray(module.transferOptions)||!Number.isInteger(module.transferCorrect)||
+    module.transferCorrect<0||module.transferCorrect>=module.transferOptions.length)
+  fail(guide.code,'Missing safe ungraded practice and independent transfer choice');
+}
+if(academyPrograms.length!==10||new Set(academyPrograms.map(p=>p.code)).size!==10)
+ fail('academy','Exactly ten canonical Boot Camps must be recorded');
 for(const [code,length] of Object.entries(durations)){
  const program=academyByCode[code];metrics.academyPrograms++;
  if(!program||program.days!==length||program.curriculum?.length!==length){fail(code,'Wrong Boot Camp duration');continue}
  const labels=new Set();
  for(const [index,day] of program.curriculum.entries()){
   const id=code+':'+(index+1);metrics.academyDays++;
+  if(betaCodes.has(code))metrics.newBetaAcademyDays++;else metrics.originalAcademyDays++;
   if(day.day!==index+1||day.programCode!==code)fail(id,'Day sequence/program identity mismatch');
   for(const field of ['title','objective','observe','practice']){
    if(typeof day[field]!=='string'||day[field].trim().length<12)fail(id,'Missing individual '+field);
@@ -66,7 +95,8 @@ for(const [code,length] of Object.entries(durations)){
   labels.add(day.title);
  }
 }
-if(metrics.academyDays!==247)fail('academy','Wrong total of seven course durations');
+if(metrics.academyDays!==274||metrics.originalAcademyDays!==247||metrics.newBetaAcademyDays!==27)
+ fail('academy','Wrong total of ten course durations or original-versus-beta split');
 const freeSource=read('functions/_lib/free-foundations-v1.js');
 const freeStudio=read('assets/js/free-foundations-teaching-studio-v3.js');
 if(!/five|Five/.test(freeSource)||!freeStudio.includes('GroundUpFreeStudioV3'))fail('free5','Free Foundations teaching bridge unavailable');
@@ -96,7 +126,7 @@ if(!read('tests/test_crownlight_chart_tiers_v1.mjs').includes("FOUNDER")&&
 const result={documentId:'SMFGU-LEARN-BETA-AUDIT-001',version:'1.0',scope:'SOURCE-ONLY / CLOSED BETA',
  metrics:{...metrics,academyAndFreeDays:metrics.academyDays+metrics.freeDays},
  critical,editorialReviewPending:editorial,criticalCount:critical.length,editorialFlags:editorial.length,
- note:'Local structural and instructional content coverage, not a human line-by-line editorial acceptance, source-data license check, or authenticated production QA.'};
+ note:'Ten courses and 61 Tutor studies are INVENTORIED, not editorially approved. 53 ungraded computed demonstrations are not 53 released Chart Studio overlays. No private grade, historical license or authenticated member QA is implied.'};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/learning-echarts-beta-audit-v1.json',JSON.stringify(result,null,2));
 console.log(JSON.stringify({metrics:result.metrics,critical:critical.slice(0,12),criticalCount:critical.length,editorialFlags:editorial.length}));
