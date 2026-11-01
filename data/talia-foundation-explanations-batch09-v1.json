@@ -567,5 +567,7 @@
         "independentPublicationAccepted": false
       }
     }
-  ]
+  ],
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419
 }
