@@ -86,9 +86,14 @@ async function catalog(){
   academy:academyRows,
   guides:indicators.guides.map(g=>({
    key:g.code,title:g.title||g.code,summary:g.family||'Authored research brief',
-   body:[['Concept',g.concept],['Formula',g.formula],['Learning procedure',g.procedure],
-    ['Common mistake',g.commonError],['Limitations',g.limit||g.limits],
-    ['Status','Original source-informed, ungraded guidance; calculation not implied']]
+   body:[['Concept',g.concept],['Formula',g.formula],['Why examine it',g.whyUse],
+    ['How to use the study',g.howToUse],['Learning procedure',g.procedure],
+    ['Common live-trading mistake',g.commonError],['Invalidation / evidence limits',g.invalidation],
+    ['Limitations',g.limit||g.limits],['Ungraded self-check',g.selfCheck],
+    ['Ungraded review explanation',g.reviewExplanation],
+    ['Status','Original source-informed, ungraded guidance; calculation not implied'],
+    ['Calculation acceptance','Settings, inputs, units, warm-up and session rules require independent verification before enabling a computed chart study.']],
+   references:g.sourceUrls
   })),
   computed:computed.map(x=>({
    key:x.id,title:x.label||x.id,summary:x.family||'Calculated OHLCV study',
@@ -161,7 +166,20 @@ function render(){
    }
    inspector.append(h('p','Actual enrollment, study progress, entitlement and protected course assessments remain owned by the live Academy service. Source-linked examples are not individual official editorial approvals.','pt-parity-note'));
   }
-  if(tab==='guides')inspector.append(h('p','A research brief does not imply a supported computed overlay, a graded Lab, or independently verified trade-print data.','pt-parity-note'));
+  if(tab==='guides'){
+   inspector.append(h('p','A research brief does not imply a supported computed overlay, a graded Lab, or independently verified trade-print data. The self-check and review are ungraded.','pt-parity-note'));
+   const safeSources=(item.references||[]).filter(x=>typeof x==='string'&&/^https:\/\//i.test(x));
+   if(safeSources.length){
+    inspector.append(h('h4','Original public study references — verify current definitions'));
+    const sources=h('ul',undefined,'pt-parity-sources');
+    for(const url of safeSources){
+     const row=h('li'),link=h('a',url);
+     link.href=url;link.target='_blank';link.rel='noopener noreferrer';
+     row.append(link);sources.append(row);
+    }
+    inspector.append(sources);
+   }
+  }
   for(const button of list.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.key===item.key));
  };
  const update=()=>{
