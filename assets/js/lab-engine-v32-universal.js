@@ -762,7 +762,12 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   const visual=el('section');visual.className='gu-v44-calc-visual';
   visual.append(el('h3',visualType==='vwap'?'Interactive VWAP calculation':visualType==='candle'?'Candlestick price and body measurements':'Evidence and instructional reference'));
   const visualHost=el('div');visualHost.className='gu-v44-calc-chart';visual.append(visualHost);
-  if(['vwap','candle'].includes(visualType)&&root.CrownlightLearningEChartsV1?.mount){
+  const batch04Bridge=map.bridges.get(labId);
+  const isBatch04Original=mode==='guided'&&batch04Bridge?.instructionSource==='ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101';
+  if(isBatch04Original&&root.GroundUpLabBatch04EChartsV1?.mount){
+   const mounted=root.GroundUpLabBatch04EChartsV1.mount(visualHost,{labId,bridge:batch04Bridge});
+   if(mounted)echartsControllers.push(mounted);
+  }else if(['vwap','candle'].includes(visualType)&&root.CrownlightLearningEChartsV1?.mount){
    const mounted=root.CrownlightLearningEChartsV1.mount(visualHost,{kind:visualType,interactive:true});
    if(mounted)echartsControllers.push(mounted);
   }else{
@@ -776,7 +781,10 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   coach.setAttribute('aria-label','Talia — calculate or analyze this concept');
   const label=el('div','Talia Mercer · Learning Instructor');label.className='gu-v44-talia-label';
   coach.append(label,el('h3','Understand the method before the experiment'));
-  const context=visualType==='vwap'?[
+  const context=isBatch04Original?[
+   batch04Bridge.tabs.understand[0],batch04Bridge.tabs.recognize[0],
+   batch04Bridge.tabs.apply[0],batch04Bridge.tabs.mistake[0],batch04Bridge.tabs.limits[0]
+  ]:visualType==='vwap'?[
    'VWAP is Volume-Weighted Average Price. Price is dollars per share; volume is the number of shares traded. A price receives more weight when more shares trade there.',
    'Multiply each price by its share count. For 200 shares at $8, traded value is $1,600; for 100 shares at $10, traded value is $1,000.',
    'Add the dollar values: $1,600 + $1,000 = $2,600. Add the share counts: 200 + 100 = 300 shares. Divide $2,600 by 300 shares to obtain $8.67 per share (rounded). The symbol Σ simply means add.',
