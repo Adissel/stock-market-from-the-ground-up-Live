@@ -7,6 +7,7 @@ import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
 import {FOUNDATION_WORKED_MATH_CODES} from '../functions/_lib/tutor-foundation-worked-math-v1.js';
 import {FOUNDATION_QUANT_TOPICS} from '../functions/_lib/talia-foundation-quant-v1.js';
+import {FOUNDATION_RISK_MATH_TOPICS} from '../functions/_lib/talia-foundation-risk-quant-v1.js';
 import {TALIA_STUDY_CALCULATED} from '../functions/_lib/talia-indicator-worked-v1.js';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const labs=read('data/competency-lab-paths-v01499.json');
@@ -18,6 +19,7 @@ const guidedMore=read('data/tutor-guided-practice-expansion-v1.json').modules;
 const first=read('data/talia-foundation-explanations-batch01-v1.json').guides;
 const second=read('data/talia-foundation-explanations-batch02-v1.json').guides;
 const third=read('data/talia-foundation-explanations-batch03-v1.json').guides;
+const fourth=read('data/talia-foundation-explanations-batch04-v1.json').guides;
 assert.equal(labs.totalCanonicalLabs,419);
 assert.equal(Object.keys(labs.byLab).length,419);
 assert.equal(labs.mappedLabs,419);
@@ -26,12 +28,13 @@ assert.equal(academyPrograms.length,10);
 assert.equal(academyPrograms.reduce((n,p)=>n+p.curriculum.length,0),274);
 assert.equal(baseline.length,61);assert.equal(extensions.length,12);
 assert.equal(guided.length,134);assert.equal(guidedMore.length,12);
-assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);
+assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);assert.equal(fourth.length,20);
 assert.equal(FOUNDATION_WORKED_MATH_CODES.length,13);
 assert.equal(FOUNDATION_QUANT_TOPICS.length,9);
-const topics=[...first,...second,...third];
-assert.equal(new Set(topics.map(g=>g.code)).size,60);
-assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,60);
+const topics=[...first,...second,...third,...fourth];
+assert.equal(new Set(topics.map(g=>g.code)).size,80);
+assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,80);
+assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);
 assert.equal(TALIA_STUDY_CALCULATED.length,5);
 const grades=new Set(core.map(x=>x.code));
 assert.equal(grades.size,30);
@@ -78,14 +81,14 @@ const metrics={
  extraGuidedModules:guidedMore.length,
  guidedModulesTotal:guided.length+guidedMore.length,
  coreWorkedMathTopics:FOUNDATION_WORKED_MATH_CODES.length,
- extraQuantTeachingTopics:FOUNDATION_QUANT_TOPICS.length,sourceOnlyNumericalIndicatorExamples:TALIA_STUDY_CALCULATED.length,
+ extraQuantTeachingTopics:FOUNDATION_QUANT_TOPICS.length,extraRiskMathTeachingTopics:FOUNDATION_RISK_MATH_TOPICS.length,sourceOnlyNumericalIndicatorExamples:TALIA_STUDY_CALCULATED.length,
  explanationDrafts:topics.length,explanationGoal:600,explanationDraftPercent:Number((topics.length/600*100).toFixed(2)),
  newlySignedOffExplanations:0,
  candidateLabMatches:crosswalk.reduce((n,x)=>n+x.candidateLabs.length,0),
  candidateBootCampMatches:crosswalk.reduce((n,x)=>n+x.candidateBootCampDays.length,0)
 };
 const result={documentId:'SMFGU-TALIA-COVERAGE-001',version:'1.0',status:'ungraded_public_source_only_not_editorially_accepted',metrics,
- note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 60 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
+ note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 80 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/talia-foundation-coverage-v1.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({documentId:result.documentId,metrics,warning:result.note}));
