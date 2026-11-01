@@ -43,7 +43,7 @@ window.getSupabaseClient=async()=>({auth:{
  await context.route('**/api/admin?action=context',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,roles:[currentRole],permissions:currentRole==='OWNER'||currentRole==='ADMIN'?['control_panel.access']:[]})}));
  await context.route('**/api/bootcamp-academy?action=catalog',route=>route.fulfill({
   status:200,contentType:'application/json',body:JSON.stringify({ok:true,version:'synthetic-browser-contract',
-   programs:[['free5',5],['truth5',5],['watchlist7',7],['scanners10',10],['foundations30',30],
+   programs:[['truth5',5],['watchlist7',7],['scanners10',10],['foundations30',30],
     ['charts45',45],['risk60',60],['practicum90',90],['tape10',10],['indicators10',10],['filings7',7]]
     .map(([code,days])=>({code,name:code+' synthetic QA catalog reference',days,route:'bootcamp-academy.html?program='+code}))})
  }));
@@ -91,6 +91,7 @@ try{
    await page.locator('#pt-parity-body .pt-parity-totals').waitFor({state:'visible',timeout:18000});
    assert.match(await page.locator('.pt-parity-totals').innerText(),/419 canonical Lab pathways/);
    assert.match(await page.locator('.pt-parity-totals').innerText(),/73 indicator teaching guides/);
+    assert.match(await page.locator('.pt-parity-totals').innerText(),/10 currently listed Academy paths \+ Free Foundations/);
    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),30,'First page of canonical Labs');
    await page.locator('.pt-parity-load-more').click();
    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),60,'Second page of canonical Labs is visible');
@@ -130,6 +131,7 @@ try{
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/60 study days/);
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/No individually source-documented instructional-day example/);
    await page.locator('#pt-parity-search').fill('free5');
+    assert.equal(await page.locator('.pt-parity-list button[data-key]').count(),1,'Free Foundations must appear once, not as a duplicate Boot Camp');
    assert.equal(await page.locator('.pt-parity-inspector .pt-parity-lesson').count(),5,'Five authentic Free evidence lessons available');
    await page.locator('.pt-parity-inspector .pt-parity-lesson').first().locator('summary').click();
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/100 \/ 1,000,000|100 shares out of 1,000,000/);
