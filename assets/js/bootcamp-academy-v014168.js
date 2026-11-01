@@ -819,7 +819,12 @@
     academyLesson:{programCode:d.programCode,day:d.day,title:d.title,objective:d.objective,competencies:d.competencies,
      transfer:lesson.transfer||d.practice},
     memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
-    tutorRequest}))
+    tutorRequest,
+    progressStore:enrolled&&progressAvailable?globalThis.GroundUpAcademyStageCheckpointV1?.create?.({
+     client,userId:dayMember,programCode:d.programCode,day:d.day,
+     alive:()=>dayMember===userId&&daySession===sessionSerial&&dayProgram===activeCode&&
+      dayIndex===d.day&&renderEpoch===renderSerial&&enrolled&&progressAvailable
+    }):null}))
    .then(ok=>{if(renderEpoch!==renderSerial){target.remove();return;}
     if(ok!==true){if(legacyGuide)legacyGuide.open=true;target.append(node('p','Shared teaching was unavailable. Use the day-specific guided fallback.'))}})
    .catch(()=>{if(renderEpoch===renderSerial){
