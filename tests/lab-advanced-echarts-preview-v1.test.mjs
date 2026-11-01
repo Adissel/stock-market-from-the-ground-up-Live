@@ -41,6 +41,19 @@ test('Advanced preview never plots share volume and USD close on one numerical a
  assert.doesNotMatch(js,/data:data\.closes,yAxisIndex:0/);
 });
 
+test('Fictional replay remains available without ECharts and uses accessible table semantics',()=>{
+ const source=readFileSync('assets/js/lab-advanced-echarts-preview-v1.js','utf8');
+ const mount=source.slice(source.indexOf('function mount(){'));
+ assert.match(mount,/table\.append\(caption,thead,tbody\)/);
+ assert.match(mount,/th\.scope='col'/);
+ assert.match(mount,/th\.scope='row'/);
+ assert.match(mount,/if\(!charts\.length\)return;/);
+ assert.ok(mount.indexOf('table.append(caption,thead,tbody)')<mount.indexOf('if(!charts.length)return;'));
+ assert.ok(mount.indexOf('sync();')<mount.indexOf('if(api?.load)'));
+ assert.match(mount,/Charts unavailable\. The completed fictional observations remain available in the data table/);
+ assert.match(mount,/charts\.forEach\(c=>c\.dispose\?\.\(\)\)/);
+});
+
 test('Full 419-Lab/61-indicator registry is preserved; only approved topical Labs receive new numerical aid',()=>{
  const registry=JSON.parse(readFileSync('data/competency-lab-paths-v01499.json','utf8')).byLab;
  const catalog=JSON.parse(readFileSync('data/tutor-indicator-study-v1.json','utf8'));
