@@ -32,6 +32,7 @@ try{
   await page.goto('https://charts-analytics-fixture.test/dashboard.html');
   await page.addStyleTag({content:read('assets/css/free-foundations-echarts-v1.css')});
   await page.addScriptTag({content:read('assets/js/crownlight-echarts-loader-v1.js')});
+  await page.addScriptTag({content:read('assets/js/crownlight-visual-kit-v1.js')});
   await page.addScriptTag({content:component});
   // Malformed data must never be passed to charts.
   await page.evaluate(()=>document.dispatchEvent(new CustomEvent('smfgu:free-foundations-evidence',{
@@ -47,6 +48,9 @@ try{
   const data=await page.evaluate(()=>window.echarts.getInstanceByDom(
    document.querySelector('.ffe-chart')).getOption().series[1].data);
   assert.deepEqual(data,[1,0,1,0,0]);
+  assert.equal(await page.evaluate(()=>window.echarts.getInstanceByDom(
+   document.querySelector('.ffe-chart')).getOption().tooltip[0].renderMode),'richText',
+   'Dashboard must use the shared render-only ECharts option factory');
   assert.match(await page.locator('.ffe-note').innerText(),/not saved/);
   await page.locator('#free-foundations-echarts select').selectOption('domains');
   const domains=await page.evaluate(()=>window.echarts.getInstanceByDom(
