@@ -32,7 +32,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_COMPOUND_RETURNS_PATH",
@@ -56,7 +64,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_ARITHMETIC_GEOMETRIC_GROWTH",
@@ -71,7 +87,7 @@
       "reviewExplanation": "Recompute 1.2×0.9=1.08 and compare sqrt(1.08)−1 with the 5% arithmetic average; only the former matches terminal wealth. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Calculate both averages for +50% and −20% over two equal years without cash flows.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/key-concepts-return-and-rate-return"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -80,7 +96,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_EXACT_INFLATION_ADJUSTMENT",
@@ -104,7 +128,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_ANNUALIZATION_NOT_REALIZED",
@@ -119,7 +151,7 @@
       "reviewExplanation": "Compute the annualized constant rate (1.05²−1)=10.25% without reporting that as a twelve-month realized gain. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A +2% return over a six-month interval; compute the equal-interval annualized equivalent without forecasting the next six months.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/key-concepts-return-and-rate-return"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -128,7 +160,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_BEGINNING_WEIGHTS_RETURN",
@@ -143,7 +183,7 @@
       "reviewExplanation": "Check that 60%×10% and 40%×−5% sum to +4%; $600→$660 and $400→$380 reconcile to $1,040. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: An account starts 25%/75%; component returns +12%/+4%. Compute no-flow combined return.",
       "sourceUrls": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -152,7 +192,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_ALLOCATION_WEIGHT_DRIFT",
@@ -167,7 +215,7 @@
       "reviewExplanation": "Use $720+$400=$1,120 and $720/1,120=64.29%; using the original denominator is the misconception. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A $500/$500 allocation experiences −20% stocks and unchanged bonds. Calculate the stock weight.",
       "sourceUrls": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -176,7 +224,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_REBALANCING_TARGET_DOLLARS",
@@ -191,7 +247,7 @@
       "reviewExplanation": "At total $1,120, target $672/$448; reallocation $48 is hypothetical before spreads, fees and tax, not execution advice. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Current $1,400 stocks and $600 bonds, target 50/50. Calculate idealized target dollars and transfer size.",
       "sourceUrls": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/rebalancing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -200,7 +256,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION",
@@ -224,7 +288,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_COMMON_SHOCK_DIVERSIFICATION",
@@ -239,7 +311,7 @@
       "reviewExplanation": "The weighted sum is −10%; a fictional common shock is not a measured correlation coefficient or prediction. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A 40/60 portfolio suffers a concurrent −15% move in both holdings; compute its combined change.",
       "sourceUrls": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,7 +320,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_TENQ_VS_TENK_PERIOD",
@@ -272,7 +352,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_EIGHTK_CONDITIONAL_EVENT",
@@ -296,7 +384,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE",
@@ -320,7 +416,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_OPERATING_NOT_GROSS_MARGIN",
@@ -344,7 +448,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_INTEREST_COVERAGE_EBIT",
@@ -368,7 +480,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_AVERAGE_INVENTORY_TURNOVER",
@@ -392,7 +512,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_RECEIVABLE_COLLECTION_DAYS",
@@ -416,7 +544,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_ROE_AVERAGE_BOOK_EQUITY",
@@ -440,7 +576,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_DEBT_EQUITY_DEFINITION",
@@ -464,7 +608,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_EARNINGS_YIELD_VS_DIVIDEND",
@@ -488,7 +640,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     }
   ]
 }
