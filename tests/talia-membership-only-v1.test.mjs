@@ -61,6 +61,15 @@ test('current Tutor cannot provide an anonymous local glossary answer or use per
  assert.doesNotMatch(provider,/memberApiKey/);
  assert.match(route,/if\(!auth\.authorized&&!auth\.freeEligible\)/);
 });
+test('React classroom withholds interactive chart and chat until verified entitlement',()=>{
+ const classroom=file('src/tutor/TaliaClassroom.tsx');
+ assert.match(classroom,/\/api\/member-tool-access\?tool=MARKET_TUTOR/);
+ assert.match(classroom,/data\.authorized!==true&&data\.freeEligible!==true/);
+ assert.match(classroom,/if\(!member\)return <main/);
+ assert.match(classroom,/setMember\(null\)/);
+ assert.match(classroom,/No personal API key is required/);
+ assert.match(classroom,/allowModel:false/);
+});
 test('existing data BYO connections are preserved independently of Talia',()=>{
  const credentials=file('functions/api/credentials.js');
  const prod=file('src/ts/production-completion.ts');
