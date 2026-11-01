@@ -17,7 +17,11 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html')&&!/^google[\
   // Only the existing academic site name in a real site-header brand link.
   if(!/THE STOCK MARKET\s*:/i.test(body)||!/FROM THE GROUND UP/i.test(body))return full;
   detected=true;
-  if(/gu-academy-brand-subtitle/.test(body))return full;
+  if(/gu-academy-brand-subtitle/.test(body)){
+   // Previously branded source HTML may still carry the superseded subtitle.
+   const updated=body.replace(/(gu-academy-brand-subtitle[^>]*>)Learning Academy(<\/span>)/i,'$1Training Academy$2');
+   return updated===body?full:'<a'+attributes+'>'+updated+'</a>';
+  }
   const newAttrs=attributes.replace(/\bclass\s*=\s*(['"])([^'"]*)\1/i,(_m,q,classes)=>
    'class='+q+classes+' gu-academy-brand'+q);
   return '<a'+newAttrs+'><span class="gu-academy-brand-title">'+body.trim()+
