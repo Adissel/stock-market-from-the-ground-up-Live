@@ -513,7 +513,7 @@ function PlatformExplorer({design,reveal,volume,ema,proxy,focus}:{design:Design;
 }
 
 type LayoutKind='cards'|'buttons'|'labels'|'text';
-type LayoutChange={x:number;y:number;width?:number;height?:number;hidden?:boolean;name?:string};
+type LayoutChange={x:number;y:number;width?:number;height?:number;hidden?:boolean;name?:string;detached?:boolean;frameLess?:boolean;fontSize?:number;textAlign?:'left'|'center'|'right';textColor?:string;textOverride?:string};
 const layoutTargets={
  cards:'section,article,aside,.cx-panel,.cx-talia,.cx-tutor-evidence,.cx-lesson-body,.cx-practice-pair,.cx-kpis>div,.cx-desk-banner,.cx-desk-identity,.cx-desk-price,.cx-platform-explorer,.cx-platform-preview>div,.cx-member-experience,.cx-member-hero,.cx-member-actions,.cx-chart-card,.cx-chart,.cx-chart-grabbable,.cx-trade-rows,.cx-trade,.cx-flagship-intro,.cx-flagship-aurora,.cx-flagship-quantum,.cx-edition-preview,.cx-edition-grid>label,.cx-member-workspaces,.cx-controlstrip,.cx-designs>button,.cx-indicator-catalog,.cx-reorderable,.cx-reorder-tools,.cx-learning,.cx-left,.cx-right,.cx-workgrid',
  buttons:'button,a,[role="button"],.cx-chip',
@@ -527,6 +527,7 @@ function LayoutStudio({page}:{page:Page}){
  const [note,setNote]=useState('Choose an element from the list or click a card. Drag to move; change its width and height below.');
  const [inventory,setInventory]=useState<Array<{id:string;label:string}>>([]);
  const [search,setSearch]=useState('');
+ const [textDraft,setTextDraft]=useState('');
  const items=useRef<Record<string,LayoutChange>>({}),history=useRef<Record<string,LayoutChange>[]>([]);
  const selectedNode=useRef<HTMLElement|null>(null);
  const keyFor=useCallback((el:HTMLElement,root:HTMLElement)=>{
@@ -534,24 +535,35 @@ function LayoutStudio({page}:{page:Page}){
   while(node&&node!==root&&node.parentElement){parts.push(String(Array.from(node.parentElement.children).indexOf(node)));node=node.parentElement}
   return parts.reverse().join('.');
  },[]);
- const storageKey=useMemo(()=>('smfgu:prototype-visual-layout:v1:'+page+':'+(window.innerWidth<700?'mobile':window.innerWidth<1100?'tablet':'desktop')),[page]);
+ const storageKey=useMemo(()=>('smfgu:prototype-visual-layout:v2:'+page+':'+(window.innerWidth<700?'mobile':window.innerWidth<1100?'tablet':'desktop')),[page]);
  const save=useCallback(()=>{try{window.localStorage.setItem(storageKey,JSON.stringify(items.current))}catch{}},[storageKey]);
  const apply=useCallback(()=>{
   const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
-  root.classList.toggle('cx-layout-customized',Object.values(items.current).some(v=>Boolean(v.x||v.y||v.width||v.height)));
+  root.classList.toggle('cx-layout-customized',Object.values(items.current).some(v=>Boolean(v.x||v.y||v.width||v.height||v.detached)));
   const targets=root.querySelectorAll<HTMLElement>(Object.values(layoutTargets).join(','));
   targets.forEach(el=>{
    if(el.closest('[data-cx-editor]'))return;
    const key=keyFor(el,root),v=items.current[key];
    el.dataset.cxLayoutKey=key;
    if(!v)return;
-   el.style.transform=(v.x||v.y)?'translate3d('+v.x+'px,'+v.y+'px,0)':'';
-   el.style.position=(v.x||v.y)?'relative':'';
-   el.style.zIndex=(v.x||v.y)?'20':'';
+   el.style.transform=!v.detached&&(v.x||v.y)?'translate3d('+v.x+'px,'+v.y+'px,0)':'';
+   el.style.position=v.detached?'fixed':(v.x||v.y)?'relative':'';
+   el.style.left=v.detached?Math.round(v.x)+'px':'';
+   el.style.top=v.detached?Math.round(v.y)+'px':'';
+   el.style.zIndex=v.detached?'200':(v.x||v.y)?'20':'';
    el.style.width=v.width?Math.round(v.width)+'px':'';
    el.style.maxWidth=v.width?'none':'';
    el.style.height=v.height?Math.round(v.height)+'px':'';
    el.style.display=v.hidden?'none':'';
+   el.dataset.cxFrameLess=v.frameLess?'true':'false';
+   if(v.fontSize&&el.matches('h1,h2,h3,h4,p,small,strong,span,label,button,a'))el.style.fontSize=v.fontSize+'px';
+   else if(!v.fontSize)el.style.fontSize='';
+   el.style.textAlign=v.textAlign||'';
+   el.style.color=v.textColor||'';
+   if(v.textOverride!==undefined){
+    const text=Array.from(el.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent?.trim());
+    if(text&&text.textContent!==v.textOverride)text.textContent=v.textOverride;
+   }
   });
   root.querySelectorAll<HTMLElement>('[data-cx-layout-key]').forEach(el=>{el.dataset.cxSelected=editing&&!clean&&el.dataset.cxLayoutKey===selected?'true':'false'});
  },[keyFor,editing,clean,selected]);
@@ -584,8 +596,8 @@ function LayoutStudio({page}:{page:Page}){
   root.classList.toggle('cx-preview-hide-chrome',hidePreview||clean);
   root.classList.toggle('cx-clean-screenshot',clean);
   applyRef.current();
-  const obs=new MutationObserver(()=>window.requestAnimationFrame(()=>applyRef.current()));
-  obs.observe(root,{childList:true,subtree:true});
+  let pending=false;const obs=new MutationObserver(()=>{if(!pending){pending=true;window.requestAnimationFrame(()=>{pending=false;applyRef.current()})}});
+  obs.observe(root,{childList:true,characterData:true,subtree:true});
   return()=>{obs.disconnect();root.classList.remove('cx-layout-editing','cx-preview-hide-chrome','cx-clean-screenshot')};
  },[editing,clean,hidePreview,page]);
  useEffect(()=>{applyRef.current()},[version,selected,kind,editing]);
@@ -595,7 +607,10 @@ function LayoutStudio({page}:{page:Page}){
   const el=Array.from(root.querySelectorAll<HTMLElement>(layoutTargets[kind]))
     .find(candidate=>!candidate.closest('[data-cx-editor]')&&keyFor(candidate,root)===id);
   if(!el){setNote('This item is no longer visible. Reopen the element list after switching learning views.');return;}
-  selectedNode.current=el;setSelected(id);setNote('Selected '+describe(el)+'. Resize, move, or hide this element.');
+  selectedNode.current=el;setSelected(id);
+  const text=Array.from(el.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent?.trim());
+  setTextDraft(items.current[id]?.textOverride??text?.textContent?.trim()??'');
+  setNote('Selected '+describe(el)+'. Edit text or freely position it.');
   el.scrollIntoView({behavior:'auto',block:'nearest',inline:'nearest'});
  };
  useEffect(()=>{
@@ -624,7 +639,10 @@ function LayoutStudio({page}:{page:Page}){
    if(!el)return;
    ev.preventDefault();ev.stopPropagation();
    const key=keyFor(el,root!);
-   selectedNode.current=el;setSelected(key);setNote('Selected '+describe(el)+'. Drag to reposition, or set width and height below.');
+   selectedNode.current=el;setSelected(key);
+   const text=Array.from(el.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent?.trim());
+   setTextDraft(items.current[key]?.textOverride??text?.textContent?.trim()??'');
+   setNote('Selected '+describe(el)+'. Drag, detach or style it.');
    const original=items.current[key]||{x:0,y:0},startX=ev.clientX,startY=ev.clientY;
    const dragging={x:original.x,y:original.y};
    let moved=false;
@@ -633,14 +651,16 @@ function LayoutStudio({page}:{page:Page}){
     if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>3)moved=true;
     if(!moved)return;
     dragging.x=Math.round(original.x+e.clientX-startX);dragging.y=Math.round(original.y+e.clientY-startY);
-    el.style.transform='translate3d('+dragging.x+'px,'+dragging.y+'px,0)';
-    el.style.position='relative';el.style.zIndex='20';
+    if(original.detached){el.style.left=dragging.x+'px';el.style.top=dragging.y+'px';el.style.position='fixed';}
+    else{el.style.transform='translate3d('+dragging.x+'px,'+dragging.y+'px,0)';el.style.position='relative';}
+    el.style.zIndex=original.detached?'200':'20';
     e.preventDefault();
    };
    const stop=(e:PointerEvent)=>{
     if(e.pointerId!==ev.pointerId)return;
     document.removeEventListener('pointermove',move,true);document.removeEventListener('pointerup',stop,true);document.removeEventListener('pointercancel',stop,true);
     if(moved&&e.type==='pointerup')change(key,{x:dragging.x,y:dragging.y,name:describe(el)});
+    else if(moved&&original.detached){el.style.left=original.x+'px';el.style.top=original.y+'px'}
     else if(moved){el.style.transform='translate3d('+original.x+'px,'+original.y+'px,0)';}
    };
    document.addEventListener('pointermove',move,true);document.addEventListener('pointerup',stop,true);document.addEventListener('pointercancel',stop,true);
@@ -652,6 +672,11 @@ function LayoutStudio({page}:{page:Page}){
   return()=>{root.removeEventListener('pointerdown',down,true);root.removeEventListener('click',suppress,true)};
  },[editing,clean,kind,keyFor,change,describe]);
  const current:LayoutChange=items.current[selected]||{x:0,y:0};
+ const detach=()=>{if(!selected)return;
+  if(current.detached){modify({detached:false,x:0,y:0});return;}
+  const rect=selectedNode.current?.getBoundingClientRect();
+  modify({detached:true,x:Math.round(rect?.left??0),y:Math.round(rect?.top??0),width:current.width||Math.round(rect?.width||300)});
+ };
  const modify=(update:Partial<LayoutChange>)=>{if(!selected)return;change(selected,{...update,name:current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.querySelector('h3,h4')?.textContent?.slice(0,55)||kind})};
  const hidden=Object.entries(items.current).filter(([,value])=>value.hidden);
  return <div className="cx-layout-studio" data-cx-editor="true" aria-label="Prototype layout designer">
@@ -661,7 +686,7 @@ function LayoutStudio({page}:{page:Page}){
    <label>Choose elements to arrange<select aria-label="Layout element type" value={kind} onChange={e=>setKind(e.target.value as LayoutKind)}><option value="cards">Cards / charts</option><option value="buttons">Buttons / links</option><option value="labels">Labels</option><option value="text">Headings / text</option></select></label>
    <p><strong>Choose an element below or click it directly on the page.</strong> This works with cards, charts, buttons, labels and text. Drag to move it, or enter its dimensions. Layout is saved locally for this screen size.</p>
    <label>Find an element<input aria-label="Find page element" type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search: Talia, VWAP, chart, button..."/></label>
-   <label>Page elements ({inventory.length})<select aria-label="Select page element" size={5} value={selected} onChange={e=>selectById(e.target.value)}>
+   <label>Page elements ({inventory.length})<select aria-label="Select page element" value={selected} onChange={e=>selectById(e.target.value)}><option value="">Choose an element…</option>
     {inventory.filter(e=>!search||e.label.toLowerCase().includes(search.toLowerCase())).slice(0,400).map(e=><option key={e.id} value={e.id}>{e.label}</option>)}
    </select></label>
    <button type="button" className="cx-layout-refresh" onClick={refreshInventory}>Refresh element list</button>
@@ -670,11 +695,22 @@ function LayoutStudio({page}:{page:Page}){
     <label>Width (px)<input aria-label="Selected element width" type="number" min="60" max="2200" value={current.width||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({width:e.target.value?Math.min(2200,Math.max(60,Number(e.target.value))):undefined})}/></label>
     <label>Height (px)<input aria-label="Selected element height" type="number" min="30" max="2200" value={current.height||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({height:e.target.value?Math.min(2200,Math.max(30,Number(e.target.value))):undefined})}/></label>
    </div>
+   <div className="cx-layout-format" aria-label="Selected text formatting">
+    <label>Text size (px)<input aria-label="Selected text size" type="number" min="8" max="120" placeholder="Default" disabled={!selected} value={current.fontSize||''} onChange={e=>modify({fontSize:e.target.value?Math.min(120,Math.max(8,Number(e.target.value))):undefined})}/></label>
+    <label>Text color<input aria-label="Selected text color" type="color" disabled={!selected} value={current.textColor&&/^#[0-9a-f]{6}$/i.test(current.textColor)?current.textColor:'#e5f7ff'} onChange={e=>modify({textColor:e.target.value})}/></label>
+    <label>Alignment<select aria-label="Selected text alignment" disabled={!selected} value={current.textAlign||''} onChange={e=>modify({textAlign:(e.target.value||undefined) as LayoutChange['textAlign']})}><option value="">Default</option><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select></label>
+    <label className="cx-layout-text-editor">Replace selected text<input aria-label="Selected text content" disabled={!selected} value={textDraft} onChange={e=>setTextDraft(e.target.value)} placeholder="Choose a heading, label or button"/></label>
+    <button disabled={!selected||!selectedNode.current||!Array.from(selectedNode.current.childNodes).some(n=>n.nodeType===Node.TEXT_NODE&&n.textContent?.trim())} onClick={()=>modify({textOverride:textDraft})}>Apply text</button>
+    <button disabled={!selected} onClick={()=>modify({textOverride:undefined,fontSize:undefined,textAlign:undefined,textColor:undefined})}>Reset text style</button>
+   </div>
    <div className="cx-layout-arrows" role="group" aria-label="Nudge selection">
     {([['←',-10,0],['↑',0,-10],['↓',0,10],['→',10,0]] as const).map(([title,x,y])=><button key={title} aria-label={'Nudge '+({ '←':'left','↑':'up','↓':'down','→':'right'} as Record<string,string>)[title]} disabled={!selected} onClick={()=>modify({x:current.x+x,y:current.y+y})}>{title}</button>)}
     <button disabled={!selected} onClick={()=>modify({x:0,y:0,width:undefined,height:undefined})}>Reset selected</button>
    </div>
-   <div className="cx-layout-actions"><button disabled={!selected} onClick={()=>modify({hidden:true})}>Hide selected</button>
+   <div className="cx-layout-actions">
+   <button disabled={!selected} onClick={detach}>{current.detached?'Return to page flow':'Free position (detach)'}</button>
+   <button disabled={!selected} aria-pressed={!!current.frameLess} onClick={()=>modify({frameLess:!current.frameLess})}>{current.frameLess?'Restore card frame':'Remove card frame'}</button>
+   <button disabled={!selected} onClick={()=>modify({hidden:true})}>Hide selected</button>
    <button onClick={()=>setHidePreview(v=>!v)} aria-pressed={hidePreview}>{hidePreview?'Show prototype-only UI':'Hide prototype-only UI'}</button>
    <button onClick={()=>{setClean(true);setEditing(false)}}>Screenshot mode</button>
    <button disabled={!history.current.length} onClick={()=>{const last=history.current.pop();if(last){items.current=last;save();applyRef.current();setVersion(v=>v+1)}}}>Undo</button>
