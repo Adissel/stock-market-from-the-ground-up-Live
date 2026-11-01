@@ -37,6 +37,7 @@ node tests/talia-foundation-explanations-batch02-v1.test.mjs
 node tests/talia-foundation-explanations-batch03-v1.test.mjs
 node --check functions/_lib/talia-indicator-worked-v1.js
 node tests/talia-indicator-worked-v1.test.mjs
+node scripts/talia-indicator-editorial-review-v1.mjs
 node tests/talia-foundation-misconception-v1.test.mjs
 node scripts/talia-foundation-coverage-v1.mjs
 node tests/talia-foundation-ema-visual-v1.test.mjs
