@@ -24,7 +24,7 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 async function session(role,viewport){
  let currentRole=role;
  const context=await browser.newContext({viewport,serviceWorkers:'block'});
- await context.route('**/prototype.html',async route=>{
+ await context.route(/\/prototype\.html(?:\?.*)?$/,async route=>{
   const response=await accessLauncher({request:new Request(route.request().url()),env:{},next:async()=>{throw Error('Public static prototype must not be returned')}});
   await route.fulfill({status:response.status,contentType:'text/html',headers:Object.fromEntries(response.headers),body:await response.text()});
  });
