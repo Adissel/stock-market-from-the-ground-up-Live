@@ -26,3 +26,8 @@
 .pt-parity-muted{color:#acc4d1}
 @media(max-width:760px){.pt-parity-layout{grid-template-columns:minmax(0,1fr)}.pt-parity-list{max-height:245px}.pt-parity-inspector{max-height:none}#pt-curriculum-parity{margin:10px 8px}#pt-parity-body{padding:0 12px 16px}}
 @media(prefers-reduced-motion:reduce){#pt-curriculum-parity *{scroll-behavior:auto!important}}
+
+.pt-parity-inspector details{margin:9px 0;border:1px solid #36566b;border-radius:8px;background:#0d2637;padding:0 12px 9px}
+.pt-parity-inspector details summary{cursor:pointer;min-height:40px;display:list-item;padding:11px 0;font-weight:760;color:#bfe4ec}
+.pt-parity-inspector details[open] summary{color:#90f0d5;border-bottom:1px solid #294f60;margin-bottom:9px}
+.pt-parity-inspector details p{padding:4px 0;margin:4px 0}
