@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Read the strike, deliverable, exercise style and expiration separately before equating a right with an existing stock position. The original fictional worked case is: A fictional call permits buying 100 shares at $50 per share, but owning one such option does not mean 100 underlying shares already sit in the account. Preserve this qualification: Exercise styles, deliverables, expiration and brokerage requirements differ among products and must be read from the contract.",
       "transferQuestion": "FICTIONAL TRANSFER: If the hypothetical underlying trades at $53, does the unexercised call holder already own 100 shares? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-call"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -33,6 +33,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-call",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -48,7 +56,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Separate option ownership from underlying-position records and compare cash settlement with physical delivery. The original fictional worked case is: A fictional put strike is $40 with a 100-share deliverable; holding it does not itself report a 100-share executed short sale. Preserve this qualification: Deliverable changes and exercise or cash-settlement rules determine what the holder can actually do.",
       "transferQuestion": "FICTIONAL TRANSFER: Does purchasing a put at a $40 strike create a confirmed short-stock execution? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-put"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -61,6 +69,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-put",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -244,7 +260,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Combine strike and initial option premium on the same per-share basis, then separately handle commissions. The original fictional worked case is: A fictional call strike $50 bought for $2.50 per share has simple expiration breakeven $52.50, not $50. Preserve this qualification: Exercise mechanics and actual exit before expiration may lead to very different realized prices and outcomes.",
       "transferQuestion": "FICTIONAL TRANSFER: A call has strike $25 and initial premium $1.40 per share: compute simple expiration breakeven. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-call"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -257,6 +273,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-call",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -272,7 +296,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Use strike minus premium only for the described long-put expiration scenario; do not apply call arithmetic. The original fictional worked case is: A fictional $60 put acquired for $3.00 per underlying share has simple expiration breakeven of $57.00. Preserve this qualification: Short-sale, cash-settlement and exercise instructions require separate checking, not inference from a single payoff number.",
       "transferQuestion": "FICTIONAL TRANSFER: If the strike is $45 and paid premium $1.25 per share, calculate simple expiration breakeven. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-put"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -285,6 +309,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-put",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -300,7 +332,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Compute intrinsic, premium and contract multiplier separately, and never confuse gross value with net outcome. The original fictional worked case is: A fictional call strike $50, expiry stock $58 and initial premium $3 produces $8 intrinsic minus $3 cost = $5/share or $500 per 100 multiplier. Preserve this qualification: This is a defined at-expiration payoff, not a forecast of option resale value before expiration.",
       "transferQuestion": "FICTIONAL TRANSFER: Strike $40, expiry stock $41 and $2 paid premium: find the simple per-share net outcome. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-call"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -313,6 +345,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-call",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -328,7 +368,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Apply the put payoff direction and separately account for any actual sale, exercise, fees and settlement. The original fictional worked case is: A fictional put strike $70, stock $60 at expiry, paid premium $4 gives $10 intrinsic minus $4 = $6/share net. Preserve this qualification: The model assumes the stated deliverable and known expiration price; it is not the same as account cash available.",
       "transferQuestion": "FICTIONAL TRANSFER: If a $30 put expires with stock at $29 after paying $2.50, compute net per share. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-put"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -341,6 +381,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-put",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -384,7 +432,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Do not transpose the buyer's limited premium loss onto a short call written without underlying coverage. The original fictional worked case is: A fictional naked short $50 call collects $2 per share; if expiry stock is $75, simple gross seller net is $2 − $25 = −$23/share before fees. Preserve this qualification: Uncovered options can involve theoretically unbounded price-linked loss, margin calls, early assignment and broker restrictions.",
       "transferQuestion": "FICTIONAL TRANSFER: For a naked short strike $40 collecting $1, what does expiry stock $60 imply before costs? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/naked-call-uncovered-call-short-call"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -397,6 +445,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/naked-call-uncovered-call-short-call",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -412,7 +468,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Compute each option's expiration intrinsic difference, net debit, strike width and the scenario's precise settlement. The original fictional worked case is: A fictional long $50 call and short $55 call cost net $1.50 per share; at stock $60, gross spread payoff $5 and net $3.50/share. Preserve this qualification: Assignment and delivery risks exist before expiration even when a theoretical spread payoff is bounded.",
       "transferQuestion": "FICTIONAL TRANSFER: For strikes $20/$25 and debit $2, calculate maximum simple expiration net spread payoff per share. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/bull-call-spread-debit-call-spread"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -425,6 +481,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/bull-call-spread-debit-call-spread",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -440,7 +504,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Subtract actual net debit from the difference in long and short put intrinsic with matched contract terms. The original fictional worked case is: A fictional long $60 put/short $55 put costs $2 per share; at stock $50, difference in intrinsic is $5 and net payoff $3/share. Preserve this qualification: Real exercise, assignment, pin risk and trade execution do not follow automatically from theoretical expiry payoffs.",
       "transferQuestion": "FICTIONAL TRANSFER: For long $30 put, short $25 put and debit $1.20, find maximum simple net expiration payoff. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/bear-put-spread"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -453,6 +517,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/bear-put-spread",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -468,7 +540,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Add both premiums, then determine which simple option is in the money at a stated expiration stock price. The original fictional worked case is: A fictional $100 strike call plus put cost $6 total/share; at expiry stock $112, intrinsic combined $12 and net +$6/share. Preserve this qualification: Actual opening quotes, spreads and early sale affect realized outcomes; theoretical expiration value does not certify a strategy edge.",
       "transferQuestion": "FICTIONAL TRANSFER: If total premium is $5 at $50 strike and expiry stock $47, calculate the simple per-share net. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-straddle"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -481,6 +553,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-straddle",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -496,7 +576,7 @@
       "reviewExplanation": "Ungraded corrective explanation: State moneyness, premium paid, and the separate expiration breakeven before evaluating gain or loss. The original fictional worked case is: A fictional $40 strike call paid $4 expires with stock $42: it is $2 in the money yet the simple net result is −$2/share. Preserve this qualification: A positive intrinsic amount cannot be presented as a guaranteed trading gain.",
       "transferQuestion": "FICTIONAL TRANSFER: A $25 strike call bought for $3 expires at $26; classify moneyness and net result. Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/strategies/all-strategies/long-call"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -509,6 +589,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/strategies/all-strategies/long-call",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
@@ -524,7 +612,7 @@
       "reviewExplanation": "Ungraded corrective explanation: Identify holder/writer, exercise style, deliverable and expiration before stating what occurs on assignment. The original fictional worked case is: A fictional trader owns a long put but another investor is short a matching put; both face different rights and obligations even at the same strike. Preserve this qualification: American- versus European-style timing, auto-exercise conventions and nonstandard deliverables require broker and contract verification.",
       "transferQuestion": "FICTIONAL TRANSFER: Does buying a call guarantee the holder will be assigned an obligation to deliver stock? Give the arithmetic or rights distinction with a defined product and no personalized investment instruction.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+        "https://www.optionseducation.org/referencelibrary/faq/options-assignment"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -537,6 +625,14 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_option_chain_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "previousCanonicalReference": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "morePrecisePrimaryReference": "https://www.optionseducation.org/referencelibrary/faq/options-assignment",
+        "sourceClaimScope": "Reviewed original public OIC strategy or SEC short-sale education for stated elementary concept; all rights, exercise exceptions, and final editorial release still require independent approval.",
+        "sourceContentCopied": false,
+        "independentlyEditorialApproved": false
       }
     },
     {
