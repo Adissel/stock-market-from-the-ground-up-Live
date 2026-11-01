@@ -23,7 +23,7 @@ const env={
  TALIA_BYOK_MEMBER_DAILY_LIMIT:'3',TALIA_BYOK_GLOBAL_DAILY_LIMIT:'100',
  TALIA_BYOK_GLOBAL_MONTHLY_LIMIT:'1000'
 };
-const store=new Map();let active=A,modelCalls=0,verifyCalls=0,reserved=0;
+const store=new Map();let active=A,modelCalls=0,verifyCalls=0,reserved=0,providerFailure=false;
 const response=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'content-type':'application/json'}});
 const keyFor=(user,service)=>user+'|'+service;
 const original=globalThis.fetch;
@@ -74,6 +74,7 @@ globalThis.fetch=async(url,opt={})=>{
  if(u==='https://api.openai.com/v1/responses'){
   modelCalls++;
   assert.equal(opt.headers.authorization,'Bearer '+fakeKey);
+  if(providerFailure)return response({error:{message:'fictional denial'}},401);
   const v=JSON.parse(opt.body);
   assert.equal(v.model,'gpt-4.1-mini');assert.equal(v.store,false);
   return response({status:'completed',output:[{content:[{type:'output_text',text:'Fictional source-based explanation [1].'}]}]});
@@ -134,17 +135,23 @@ try{
   assert.equal(accepted.accepted,true);
   const draft=await callTutorModel(env,{memberApiKey:fakeKey,instructions:'Only cited fictional cases.',input:'What is EMA?'});
   assert.equal(draft.ok,true);assert.equal(modelCalls,1);
+  providerFailure=true;
+  const rejected=await callTutorModel(env,{memberApiKey:fakeKey,instructions:'source',input:'mock denied'});
+  assert.equal(rejected.ok,false);
+  assert.equal(rejected.reason,'provider_http_rejected');
+  assert.equal(modelCalls,2);
+  providerFailure=false;
   env.TALIA_BYOK_ENABLED='false';
   assert.equal(await getMemberTutorApiKey(env,A),null);
   const blocked=await callTutorModel(env,{memberApiKey:fakeKey,instructions:'instruction',input:'question'});
-  assert.equal(blocked.ok,false);assert.equal(modelCalls,1);
+  assert.equal(blocked.ok,false);assert.equal(modelCalls,2);
  });
  await test('disconnect removes only the authenticated member credential and preserves source-only operation',async()=>{
   const r=await credentialApi({request:request('delete','POST',{serviceCode:'TALIA_OPENAI_BYO'}),env});
   assert.equal(r.status,200);
   assert.ok(!store.has(keyFor(A,'TALIA_OPENAI_BYO')));
   assert.equal(await getMemberTutorApiKey(env,A),null);
-  assert.equal(modelCalls,1);
+  assert.equal(modelCalls,2);
  });
  await test('source integration and original market-data provider regression boundaries',()=>{
   const tutor=readFileSync('functions/api/market-tutor-v01492.js','utf8');
