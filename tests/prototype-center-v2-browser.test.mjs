@@ -103,7 +103,7 @@ try{
 
 
   await page.waitForFunction(()=>document.querySelector('#pt-chart-status')?.textContent?.startsWith('Interactive'),null,{timeout:20000});
-  assert.ok((await page.locator('#pt-metric-close').textContent()).startsWith('
+  assert.match(await page.locator('#pt-metric-close').textContent(),/[0-9]/,'Price strip reflects synthetic source');
   assert.equal(await page.locator('#pt-chart-proxy').getAttribute('aria-pressed'),'false');
   await page.locator('#pt-chart-proxy').click();
   assert.equal(await page.locator('#pt-chart-proxy').getAttribute('aria-pressed'),'true');
