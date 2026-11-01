@@ -61,6 +61,13 @@ This is a staff interpretation, not a binding new SEC rule. Confirmed eligible c
 - User-authenticated Tutor trial, staff/Owner sessions, RLS, screen readers, mobile touch and keyboard tests remain OPEN. Node tests and Pages build are not substitutes.
 - Existing 419 Labs, 274 Boot Camp study days, 30 competencies, active Basic learning/lab engines, premium unreleased entitlements and private assessment data are unchanged.
 
+## Additional security and no-lookahead verification (2026-11-01)
+
+- **Professional replay source guard hardened** in `functions/_lib/talia-tier-research-contracts-v1.js`: a candle timestamp is not treated as proof that the complete candle was available. The source prototype now requires `completed === true`, a finite distinct `closeTime` after `time`, and `closeTime <= observationTime`, with ordered nonoverlapping bars. Rejects a forming candle, a missing close timestamp, and future high/low-derived end-of-bar information hidden under an opening timestamp. `tests/talia-tier-research-contracts-v1.test.mjs` verifies these boundaries.
+- **Supabase read-only catalog check**, project `stock-market-from-the-ground-up`, project ID `oxihglyfgzywsupnyicb`: 33 matching public tables containing learning, lab, tutor, progress, journal or competency in their names; **33/33 have RLS enabled, 0 without RLS**. Of these, 22 have no direct RLS policy. Lack of a direct grant can be proper server-only isolation; **this metadata does not prove RLS correctness, authenticated isolation, protected-answer secrecy or service-role usage**. No SQL mutations were performed.
+- The Professional prototype is not connected to the actual member Chart Studio. Its `completed` marker remains a **caller-supplied claim**, not a server-verified signature. Actual broker/feed chronology, 1m/3m/5m synchronization, eligible datasets, permission denial and screen-reader acceptance remain OPEN.
+- Real Free, Founding and Owner authentication sessions and cross-account access attempts are still needed. Metadata-only checks and source tests are not equivalent to live signed-in acceptance.
+
 ## What is next, in execution order
 
 1. Continue independent paragraph/claim corroboration for the remaining topics 101–240, including 605 exclusions and role-specific interpretations; sign or restrict each only with true evidence and rights review.
