@@ -1,0 +1,52 @@
+{
+  "id": "SMFGU-TALIA-INDICATOR-16-30-PY-MATH-017",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "provenance": "Independently computed with Python 3 standard-library math on explicitly fictional inputs; exact cross-language test to be run in existing build.",
+  "limitations": "ADX illustrates a Wilder update of an already valid previous ADX; PSAR illustrates recurrence and two-low clamp; Supertrend illustrates only basic upper band; Ichimoku illustrates computed Span A not future data. Full-platform implementations NOT signed off.",
+  "inputs": {
+    "prices": "100+i*.4+(i%5)*.2; i=0..69",
+    "trixPeriods": 15,
+    "kstRocPeriods": [
+      10,
+      15,
+      20,
+      30
+    ],
+    "kstSmoothing": [
+      10,
+      10,
+      10,
+      15
+    ],
+    "aroonPeriod": 25,
+    "bbCloses": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "bbMultiplier": 2,
+    "bbStd": "population"
+  },
+  "values": {
+    "STUDY_WILLIAMS_R": -20,
+    "STUDY_ROC": 4.220779220779214,
+    "STUDY_PRICE_MOMENTUM": 5.200000000000003,
+    "STUDY_TRIX": 0.3361589302183887,
+    "STUDY_KST": 75.97935769537663,
+    "STUDY_AROON": 92,
+    "STUDY_AROON_OSCILLATOR": 76,
+    "STUDY_ADX": 17.035714285714285,
+    "STUDY_DIRECTIONAL_MOVEMENT": 35,
+    "STUDY_PARABOLIC_SAR": 47.8,
+    "STUDY_ICHIMOKU": 100,
+    "STUDY_SUPERTREND": 15.5,
+    "STUDY_BOLLINGER_BANDS": 5.82842712474619,
+    "STUDY_BOLLINGER_PERCENT_B": 0.8535533905932738,
+    "STUDY_BOLLINGER_BANDWIDTH": 188.56180831641265
+  },
+  "publicationRights": "NOT_APPROVED",
+  "finalEditorialAcceptance": false
+}
