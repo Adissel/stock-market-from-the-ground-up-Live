@@ -36,8 +36,8 @@ assert.equal(promptIds.size,24);
 const d21=focus[0].lesson,d22=focus[1].lesson;
 assert.match(d21.advancedPracticums[0].worked,/33 minutes/);
 assert.match(d21.advancedPracticums[0].worked,/28 minutes/);
-assert.match(d22.formativeQuestions[10].prompt,/0\\.50%/);
-assert.doesNotMatch(d22.formativeQuestions[10].prompt,/\\$0\\.50%/);
+assert.match(d22.formativeQuestions[10].prompt,/0\.50%/);
+assert.doesNotMatch(d22.formativeQuestions[10].prompt,/\$0\.50%/);
 const close=(actual,expected)=>assert(Math.abs(actual-expected)<1e-6,
  'Wrong source teaching arithmetic: '+actual+' expected '+expected);
 close((12.72-12)/12*100,6);
