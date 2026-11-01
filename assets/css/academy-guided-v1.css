@@ -30,3 +30,21 @@
 .academy-guided-tutor-response{padding:12px;margin:12px 0;background:#0a2638;border:1px solid #547c90;border-radius:9px;overflow-wrap:anywhere}
 .academy-guided-tutor-response h4{margin:0 0 8px;color:#f0dbad}
 .academy-guided-tutor-response p{margin:0;white-space:pre-wrap;line-height:1.65;color:#eef4f8}
+
+/* Shared Lab-first Academy: supplemental source-specific teaching, keyboard accessible. */
+.academy-additional-lesson-practice,#gu-bc-additional-guide{
+ margin:16px 0 20px;border:1px solid #3a5d75;border-radius:12px;
+ background:linear-gradient(135deg,#102638,#142e41);overflow:hidden;
+}
+.academy-additional-lesson-practice>summary,#gu-bc-additional-guide>summary{
+ display:list-item;cursor:pointer;list-style-position:inside;color:#e9f2f8;
+ font-weight:700;line-height:1.5;padding:14px 16px;min-height:48px;
+}
+.academy-additional-lesson-practice>summary:hover,#gu-bc-additional-guide>summary:hover{background:#1d3a4c}
+.academy-additional-lesson-practice>summary:focus-visible,#gu-bc-additional-guide>summary:focus-visible{
+ outline:3px solid #efd58b;outline-offset:-3px;
+}
+.academy-additional-lesson-practice>.academy-guided-ten,
+#gu-bc-additional-guide>.academy-guided-ten{padding:12px}
+.academy-additional-lesson-practice #academy-guided-host,
+#gu-bc-additional-guide #gu-bc-guided{padding:0 12px 12px}
