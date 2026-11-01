@@ -93,6 +93,8 @@ try{
    assert.match(await page.locator('.pt-parity-totals').innerText(),/61 original indicator briefs/);
    await page.locator('#pt-parity-search').fill('F1-C02-L01');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Basic Historical Replay Setup/);
+   assert.equal(await page.locator('.pt-parity-inspector details').count(),5,'Current Lab preview must expose all five original teaching facets');
+   assert.equal(await page.locator('.pt-parity-inspector details').first().evaluate(el=>el.open),true,'Understand facet opens first for a new learner');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/ungra(ded|ded)/i);
    await page.locator('[data-parity-tab="guides"]').click();
    await page.locator('#pt-parity-search').fill('STUDY_EMA');
