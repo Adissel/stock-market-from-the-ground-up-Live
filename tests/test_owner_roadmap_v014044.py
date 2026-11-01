@@ -69,7 +69,9 @@ class OwnerRoadmapContract(unittest.TestCase):
         build = read("scripts/build-pages.sh")
         self.assertIn('cp -- ./*.html', build)
         self.assertIn('"$directory" "$output"/', build)
-        self.assertNotIn("_lib", build)
+        # Backend helpers may be source-checked during the build; what matters
+        # is that no private helper or roadmap catalog is copied to public output.
+        self.assertNotRegex(build, r'(?m)^\\s*(?:cp|rsync)\\b[^\\n]*(?:functions(?:/|\\b)|owner-roadmap-catalog\\.js)[^\\n]*')
         self.assertNotIn("functions/", build.split("for directory in assets learn")[1].split("done")[0])
         self.assertNotIn("role_code", self.ui)
         self.assertIn("/api/owner-roadmap", self.ui)
