@@ -55,3 +55,18 @@ test('Full 419-Lab/61-indicator registry is preserved; only approved topical Lab
  }
  assert.equal(math.select({labId:'F1-C01-L01',topic:'RSI'}),null);
 });
+
+test('Future malformed or changed bars cannot influence an earlier replay frame',()=>{
+ const changed=m.original.map(b=>[...b]);
+ changed[5]=[Number.POSITIVE_INFINITY,19,18,20,600];
+ for(let cursor=0;cursor<=4;cursor++){
+  const before=m.prepare(m.original,cursor);
+  const after=m.prepare(changed,cursor);
+  assert.deepEqual(after,before,'future observation cannot change replay frame '+cursor);
+ }
+ assert.equal(m.prepare(changed,5),null,'invalid bar is rejected once it becomes visible');
+ const different=m.original.map(b=>[...b]);
+ different[11]=[20.5,20.4,19.9,20.7,980];
+ assert.deepEqual(m.prepare(different,8),m.prepare(m.original,8));
+ assert.notDeepEqual(m.prepare(different,11),m.prepare(m.original,11));
+});
