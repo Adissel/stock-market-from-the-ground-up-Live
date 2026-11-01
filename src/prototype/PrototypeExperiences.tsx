@@ -286,7 +286,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const ink=(label:string,fallback:string)=>appearance.colors[indicatorKey(label)]||fallback;
    const stroke=(label:string):'solid'|'dotted'|'dashed'=>appearance.types[indicatorKey(label)]||'solid';
    const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
-   let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
+   let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8)),formatter:(value:string)=>value.startsWith('PADDING ')?'':value}},yAxis:{type:'value',scale:true,...axis},series:[]};
    if(kind==='price'){
     const math=(window as any).CrownlightPrototypeIndicators;
     const calculated=math?.compute?.(bars,settings||defaults,{...currentEnabled,EMA_200:false,STRUCTURE:appearance.showStructure&&studyAllowed(prefs?.studio||'Standard','STRUCTURE')});
@@ -299,7 +299,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     let top=18;
     option.grid=gridRows.map((x)=>{const out={left:16,right:76,top,height:x.height,containLabel:false,backgroundColor:'#06131c',show:true,borderWidth:0};top+=x.height+19;return out});
     option.xAxis=gridRows.map((x,i)=>({type:'category',gridIndex:i,data:names,boundaryGap:true,...axis,
-      axisLabel:{show:i===gridRows.length-1,color:muted,fontSize:10,interval:Math.max(0,Math.floor(reveal/10))}}));
+      axisLabel:{show:i===gridRows.length-1,color:muted,fontSize:10,interval:Math.max(0,Math.floor(reveal/10)),formatter:(value:string)=>value.startsWith('PADDING ')?'':value}}));
     option.yAxis=gridRows.map((x,i)=>({type:'value',gridIndex:i,position:'right',scale:x.id!=='rsi',min:x.id==='rsi'?0:undefined,max:x.id==='rsi'?100:undefined,...axis,
       axisLabel:{color:muted,margin:12,fontSize:10,formatter:(v:number)=>Number(v).toFixed(x.id==='rsi'?0:2)},splitNumber:4}));
     const xIndexes=gridRows.map((_,i)=>i);
@@ -316,23 +316,31 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     option.graphic=[{type:'text',right:100,top:45,silent:true,z:-2,style:{text:'CROWNLIGHT  ·  SIMULATION',fill:'rgba(126,167,182,.10)',font:'700 22px Inter,system-ui',textAlign:'right'}}];
     const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[offset+m.index,m.value],value:m.label,symbol:'pin',symbolSize:22,
  itemStyle:{color:appearance.colors.STRUCTURE||'#f8d18c'},label:{show:true,formatter:m.label,color:'#0b2334',backgroundColor:'#f8d18c',fontWeight:800,fontSize:9}}))];
-    if(focusBar>=0&&focusBar<reveal){const focusIndex=Math.min(bars.length-1,Math.floor(focusBar/appearance.timeframe));markerData.push({name:'Talia inspected bar',coord:[offset+focusIndex,bars[focusIndex].h],symbol:'pin',symbolSize:25,value:bars[focusBar].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});}
+    if(focusBar>=0&&focusBar<reveal){const focusIndex=Math.min(bars.length-1,Math.floor(focusBar/appearance.timeframe));markerData.push({name:'Talia inspected bar',coord:[offset+focusIndex,bars[focusIndex].h],symbol:'pin',symbolSize:25,value:bars[focusIndex].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});}
     option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:plotted.map(b=>({value:[b.o,b.c,b.l,b.h],itemStyle:paintCandle(b)})),barCategoryGap:appearance.gap+'%',
-      itemStyle:{color:paintBar(true).color,color0:paintBar(false).color,borderColor:paintBar(true).borderColor,borderColor0:paintBar(false).borderColor,borderWidth:barLook==='classic'?1:2,shadowBlur:barLook==='classic'?0:5,shadowColor:'#102f3c'},barMaxWidth:22,barMinWidth:4,
+      itemStyle:{color:paintBar(true).color,color0:paintBar(false).color,borderColor:paintBar(true).borderColor,borderColor0:paintBar(false).borderColor,borderWidth:barLook==='classic'?1:2,shadowBlur:barLook==='classic'?0:5,shadowColor:'#102f3c'},barMaxWidth:30,barMinWidth:7,
       markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c},...(focusBar>=0&&focusBar<reveal?[{xAxis:names[offset+Math.floor(focusBar/appearance.timeframe)],lineStyle:{color:'#f6cb7a',type:'dotted',width:2,opacity:.75},label:{show:false}}]:[])]},
       markPoint:{silent:true,data:markerData}}];
     for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:pad(x.data),showSymbol:false,connectNulls:false,animation:false,
        lineStyle:{color:ink(x.label,x.color),width:x.width,type:stroke(x.label)},itemStyle:{color:ink(x.label,x.color)},symbol:'none'});
+    if(currentEnabled.EMA_200){
+      const mathApi=(window as any).CrownlightIndicatorMath;
+      const historyPlusObserved=earlier.concat(bars);
+      const longPeriod=settings?.ema200||200;
+      const longEma=mathApi?.ema?.(historyPlusObserved.map((b:Bar)=>b.c),longPeriod);
+      if(Array.isArray(longEma))option.series.push({id:'ind-ema200',name:'EMA '+longPeriod,type:'line',showSymbol:false,connectNulls:false,animation:false,
+       data:longEma.slice(-offset-bars.length),lineStyle:{color:appearance.colors.EMA_200||'#bb9bff',width:2.5,type:appearance.types.EMA_200||'solid'},symbol:'none'});
+    }
     for(const x of calculated.volume){
       const index=gridRows.findIndex(x=>x.id==='volume');if(index<0)continue;
       option.series.push({id:'volume-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
-       data:x.kind==='bar'?x.data.map((v:number,i:number)=>({value:v,itemStyle:paintBar(bars[i].c>=bars[i].o)})):x.data,
+       data:x.kind==='bar'?pad(x.data.map((v:number,i:number)=>({value:v,itemStyle:Math.abs(bars[i].o-bars[i].c)<.005?{color:appearance.doji}:paintBar(bars[i].c>=bars[i].o)}))):pad(x.data),
        showSymbol:false,itemStyle:{color:x.color},lineStyle:{color:ink(x.label,x.color),width:2,type:stroke(x.label)},barMaxWidth:17,animation:false});
     }
     for(const x of calculated.pane){
      const index=gridRows.findIndex(g=>g.id===x.axis);if(index<0)continue;
      const series:any={id:'pane-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
-       data:x.kind==='bar'?x.data.map((v:number)=>({value:v,itemStyle:barVisual(barLook,v>=0,x.color,'#e9678d')})):x.data,showSymbol:false,animation:false,itemStyle:{color:x.color},lineStyle:{color:ink(x.label,x.color),width:2.5,type:stroke(x.label)},connectNulls:false};
+       data:x.kind==='bar'?pad(x.data.map((v:number)=>({value:v,itemStyle:barVisual(barLook,v>=0,x.color,'#e9678d')}))):pad(x.data),showSymbol:false,animation:false,itemStyle:{color:ink(x.label,x.color)},lineStyle:{color:ink(x.label,x.color),width:2.5,type:stroke(x.label)},connectNulls:false};
      if(x.axis==='rsi'&&x.label.startsWith('Wilder'))series.markLine={silent:true,symbol:'none',lineStyle:{type:'dashed',color:grid},data:[{yAxis:30},{yAxis:70}]};
      option.series.push(series);
     }
@@ -351,7 +359,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     option={...option,xAxis:{type:'category',data:values.map((_,i)=>String(i+1)),...axis},
       series:[{type:'line',name:'Fictional practice equity',data:values,smooth:.24,showSymbol:false,lineStyle:{color:accent,width:3},areaStyle:{opacity:.35,color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:accent},{offset:1,color:'rgba(9,25,40,0)'}]}}}]};
    }else if(kind==='volume'){
-    option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative volume',barMaxWidth:22,data:bars.map(b=>({value:b.v,itemStyle:paintBar(b.c>=b.o)}))}]};
+    option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative volume',barMaxWidth:22,data:bars.map(b=>({value:b.v,itemStyle:Math.abs(b.c-b.o)<.005?{color:appearance.doji}:paintBar(b.c>=b.o)}))}]};
    }
    inst.current=echarts.init(ref.current);
    inst.current.setOption(option,true);
@@ -362,7 +370,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
       const state=inst.current.getOption()?.dataZoom?.[0];
       if(state&&Number.isFinite(state.start)&&Number.isFinite(state.end)){viewport.current={start:state.start,end:state.end};setViewportLabel('Visible window: '+state.start.toFixed(1)+'%–'+state.end.toFixed(1)+'%');}
     });
-    inst.current.on('click',(p:any)=>{if(typeof p.dataIndex==='number')onSelectRef.current?.(p.dataIndex)});
+    inst.current.on('click',(p:any)=>{if(typeof p.dataIndex==='number'&&p.dataIndex>=offset&&p.dataIndex<offset+bars.length)onSelectRef.current?.(Math.min(reveal-1,(p.dataIndex-offset)*appearance.timeframe+appearance.timeframe-1))});
    }
    resize=new ResizeObserver(()=>inst.current?.resize());resize.observe(ref.current);
   }catch(error){if(ref.current)ref.current.textContent='Chart unavailable: check the locally hosted ECharts and shared indicator math bundles.';console.error('Crownlight synthetic chart',error)}
