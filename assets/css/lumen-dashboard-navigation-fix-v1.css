@@ -1,0 +1,71 @@
+/* Member dashboard and Lumen navigation repair — 2026-10-31.
+ * Preserve canonical navigation and actual member wallet/learning APIs.
+ * No entitlement, balance, gifting, checkout or progress mutations.
+ */
+body:has(.gu-member-dashboard-shell) .site-header #gu-workspace-toggle[hidden]{display:none!important}
+@media (min-width:901px){
+  body:has(.gu-member-dashboard-shell) .site-header #gu-workspace-toggle{display:none!important}
+}
+.gu-member-dashboard-shell{min-width:0}
+.gu-member-dashboard-shell>main{min-width:0;width:100%;max-width:100%;box-sizing:border-box}
+.gu-member-dashboard-shell>main>.wrap{min-width:0;max-width:100%;box-sizing:border-box}
+.gu-member-lumen-widgets{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;margin:16px 0 24px;align-items:start;min-width:0;
+}
+.gu-member-lumen-widgets>.gu-member-lumen-widget{
+ min-width:0;max-width:100%;margin:0;padding:clamp(14px,1.5vw,22px);
+ border:1px solid #34566e;border-radius:12px;
+ background:linear-gradient(145deg,rgba(16,42,59,.96),rgba(8,26,40,.96));
+ color:#e8f2f8;overflow-wrap:break-word;box-sizing:border-box;
+}
+.gu-member-lumen-widget h3{font-size:clamp(1.03rem,1.3vw,1.22rem);line-height:1.35;margin:0 0 12px;color:#fff}
+.gu-member-lumen-widget p{line-height:1.55;overflow-wrap:anywhere}
+.gu-member-lumen-widget a{color:#f0d28a;text-decoration:underline;text-underline-offset:3px}
+.gu-member-lumen-widget [role=progressbar],.gu-member-lumen-widget progress{max-width:100%}
+.gu-member-lumen-widgets>[data-member-lumen-history],
+.gu-member-lumen-widgets>.gu-member-lumen-gifting{grid-column:1/-1}
+.gu-member-lumen-widgets .gu-lumen-gifting-form{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px 16px;align-items:end;max-width:100%;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form>label{
+ display:flex;flex-direction:column;gap:7px;margin:0;
+ min-width:0;max-width:100%;line-height:1.35;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form>label:has(input[type=checkbox]){
+ display:flex;flex-direction:row;align-items:center;gap:10px;
+ grid-column:1/-1;min-height:44px;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form input:not([type=checkbox]){
+ display:block;width:100%;min-width:0;max-width:100%;
+ box-sizing:border-box;min-height:44px;font-size:16px;padding:.55rem .7rem;
+ border:1px solid #63849b;border-radius:8px;background:#071b2b;color:#f6fbff;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form input[type=checkbox]{width:20px;height:20px;flex:none}
+.gu-member-lumen-widgets .gu-lumen-gifting-form>button{
+ width:100%;min-width:0;max-width:100%;min-height:44px;white-space:normal;
+ line-height:1.35;padding:.55rem .8rem;box-sizing:border-box;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form>button:disabled{
+ opacity:.58;cursor:not-allowed;
+}
+.gu-member-lumen-widgets .gu-lumen-gifting-form>p{
+ grid-column:1/-1;min-width:0;margin:.1rem 0;
+}
+.gu-member-lumen-widgets :is(button,input,a,summary):focus-visible{
+ outline:3px solid #edc56a;outline-offset:3px;
+}
+@media (max-width:1020px){
+ .gu-member-lumen-widgets{grid-template-columns:minmax(0,1fr)}
+ .gu-member-lumen-widgets>[data-member-lumen-history],
+ .gu-member-lumen-widgets>.gu-member-lumen-gifting{grid-column:auto}
+}
+@media (max-width:600px){
+ .gu-member-lumen-widgets .gu-lumen-gifting-form{grid-template-columns:minmax(0,1fr)}
+ .gu-member-lumen-widgets .gu-lumen-gifting-form>label:has(input[type=checkbox]),
+ .gu-member-lumen-widgets .gu-lumen-gifting-form>p{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ .gu-member-lumen-widgets *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
