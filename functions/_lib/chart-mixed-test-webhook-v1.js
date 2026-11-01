@@ -74,7 +74,10 @@ export async function acceptChartMixedTestEvent(event,env){
   !Object.hasOwn(OFFERS,m.chart_mixed_test_sku)||pi.livemode!==false||charge.livemode!==false)fail();
  const c=config(env),o=await order(c,m.chart_mixed_test_id);
  if(o.user_id!==m.chart_mixed_test_user||o.sku!==m.chart_mixed_test_sku||
-  o.stripe_payment_intent_id!==pi.id||charge.amount!==o.cash_cents)fail();
+  o.stripe_payment_intent_id!==pi.id||charge.payment_intent!==pi.id||
+  pi.metadata?.chart_mixed_test_id!==o.upgrade_id||pi.metadata?.chart_mixed_test_user!==o.user_id||
+  pi.metadata?.chart_mixed_test_sku!==o.sku||charge.currency!=='usd'||
+  pi.currency!=='usd'||charge.amount!==o.cash_cents)fail();
  if(event.type==='charge.refunded'){
   if(charge.amount_refunded<charge.amount)return true;
   return apply(c,o,event,'refunded',null,pi.id);
