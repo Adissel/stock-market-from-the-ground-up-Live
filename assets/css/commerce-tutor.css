@@ -52,3 +52,16 @@
 .tutor-calc-grid label{font-size:.86rem;display:grid;gap:5px}
 .tutor-calc-grid input{min-width:0;width:100%;padding:8px;border-radius:6px;border:1px solid #3b5d76;background:#0a2237;color:#dce9f4}
 .tutor-calc-grid input:focus-visible{outline:3px solid #f0d387;outline-offset:2px}
+
+
+/* SMFGU-TALIA-FOUNDATION-VISUAL-001: responsive accessible hypothetical EMA teaching. */
+.talia-ema-workbench{padding-block:14px}
+.talia-ema-workbench summary{cursor:pointer;color:#f4dfaa;line-height:1.5}
+.talia-ema-workbench summary:focus-visible,.talia-ema-workbench input:focus-visible{outline:3px solid #f0d387;outline-offset:3px}
+.talia-ema-workbench label{display:block;margin-block:14px 5px;font-weight:700}
+.talia-ema-workbench input[type=range]{width:100%;min-height:36px;accent-color:#d5b56f;cursor:pointer}
+.talia-ema-values{width:100%;border-collapse:collapse;margin:8px 0 12px;font-variant-numeric:tabular-nums}
+.talia-ema-values th,.talia-ema-values td{padding:8px;border-bottom:1px solid #49657a;text-align:left}
+.talia-ema-values thead th{color:#c4ddeb}
+.talia-ema-plot{height:245px;min-height:245px;width:100%;background:#0b2336;border:1px solid #39556b;border-radius:9px}
+@media(max-width:540px){.talia-ema-plot{height:210px;min-height:210px}.talia-ema-values th,.talia-ema-values td{padding:7px 4px}}
