@@ -1,5 +1,6 @@
 /* Server-selected UI engine versions: never grants member access, scores, or Tutor AI. */
 import {enginePolicyForPlan} from '../_lib/learning-engine-tier-policy-v1.js';
+import {classroomForMember} from '../_lib/engine-classroom-contract-v1.js';
 const h={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','vary':'Authorization'};
 const out=(x,s=200)=>new Response(JSON.stringify(x),{status:s,headers:h});
 const bad=(m,s)=>Object.assign(new Error(m),{status:s});
@@ -47,6 +48,7 @@ export async function onRequest({request,env}){try{
  const effectiveEdition='FOUNDATION';
  return out({ok:true,planCode,versions:selected,
   engineTierPolicy:enginePolicyForPlan(planCode),
+  classroom:classroomForMember(planCode,selected),
   tutorEdition:{configured:configuredEdition,effective:effectiveEdition,
    releaseStatus:configuredEdition==='FOUNDATION'?'foundation_source_only':
     configuredEdition==='UNASSIGNED'?'not_assigned':

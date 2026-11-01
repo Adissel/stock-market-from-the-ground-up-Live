@@ -13,6 +13,8 @@ on:
       - 'functions/api/admin-learning-engine-versions.js'
       - 'functions/api/member-learning-engine-versions.js'
       - 'functions/_lib/learning-engine-tier-policy-v1.js'
+      - 'functions/_lib/engine-classroom-contract-v1.js'
+      - 'tests/engine-classroom-contract-v1.test.mjs'
       - 'tests/learning-engine-tier-policy-v1.test.mjs'
       - 'functions/api/market-tutor-v01492.js'
       - 'tests/talia-membership-editions-v1.test.mjs'
@@ -39,12 +41,13 @@ jobs:
           node --check functions/api/admin-learning-engine-versions.js
           node --check functions/api/member-learning-engine-versions.js
           node --check functions/_lib/learning-engine-tier-policy-v1.js
+          node --check functions/_lib/engine-classroom-contract-v1.js
           node --check functions/api/market-tutor-v01492.js
           node --check assets/js/admin-learning-engine-versions-v1.js
           node --check assets/js/member-learning-engine-versions-v1.js
           node --check assets/js/member-tutor-version-loader-v1.js
       - name: Contracts
-        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs tests/talia-membership-editions-v1.test.mjs tests/talia-member-foundation-server-v1.test.mjs tests/member-engine-owner-interaction-v1.test.mjs
+        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs tests/talia-membership-editions-v1.test.mjs tests/talia-member-foundation-server-v1.test.mjs tests/member-engine-owner-interaction-v1.test.mjs tests/engine-classroom-contract-v1.test.mjs
       - name: Ten-camp, 419-Lab and 61-indicator source integrity
         run: |
           node scripts/learning-echarts-beta-audit-v1.mjs
