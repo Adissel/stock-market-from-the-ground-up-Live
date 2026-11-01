@@ -95,6 +95,8 @@ on:
       - 'tests/talia-foundation-worked-math-v1.test.mjs'
       - 'tests/talia-foundation-indicator-expansion-v1.test.mjs'
       - 'data/tutor-indicator-expansion-v1.json'
+      - 'data/tutor-guided-practice-expansion-v1.json'
+      - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
@@ -237,6 +239,8 @@ on:
       - 'tests/talia-foundation-worked-math-v1.test.mjs'
       - 'tests/talia-foundation-indicator-expansion-v1.test.mjs'
       - 'data/tutor-indicator-expansion-v1.json'
+      - 'data/tutor-guided-practice-expansion-v1.json'
+      - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
@@ -367,6 +371,7 @@ jobs:
           node --check functions/_lib/tutor-foundation-worked-math-v1.js
           node tests/talia-foundation-worked-math-v1.test.mjs
           node tests/talia-foundation-indicator-expansion-v1.test.mjs
+          node tests/talia-foundation-extended-guided-v1.test.mjs
           node tests/test_v014100_free_competency_tutor.mjs
           node tests/test_v014102_member_tutor_history.mjs
           node tests/test_v014102_tutor_ai_consent.mjs
