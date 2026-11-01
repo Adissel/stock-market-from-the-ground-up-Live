@@ -209,11 +209,16 @@ const BarLookContext=React.createContext<BarLook>('quantum');
 function barVisual(look:BarLook,up:boolean,good:string,bad:string){
  const base=up?good:bad;
  if(look==='classic')return {color:base,borderColor:base,borderWidth:.8,borderRadius:[2,2,0,0]};
- const colors=look==='holographic'?(up?['#dcffff','#68d1f8','#13a8a9','#0a5269']:['#fff4d9','#ffb78b','#df6d92','#6b467e']):
-  look==='glass'?(up?['#eaffff','#9dece5','#40a9af','#134159']:['#fff2f7','#ffb1ce','#d35d89','#602e6c']):
-  (up?['#eafffa','#9affdf','#2be3b8','#087c87']:['#fff0f4','#ffbbd1','#fc5f95','#8a345f']);
+ const tint=(percent:number)=>{
+  const hex=base.slice(1);if(!/^[0-9a-f]{6}$/i.test(hex))return base;
+  const channels=[0,2,4].map(i=>parseInt(hex.slice(i,i+2),16));
+  return '#'+channels.map(x=>Math.max(0,Math.min(255,Math.round(percent>=0?x+(255-x)*percent:x*(1+percent)))).toString(16).padStart(2,'0')).join('');
+ };
+ const colors=look==='holographic'?[tint(.79),tint(.42),base,tint(-.45)]:
+  look==='glass'?[tint(.9),tint(.55),tint(.05),tint(-.6)]:
+  [tint(.84),tint(.42),base,tint(-.52)];
  return {color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:colors.map((color,i)=>({offset:i/3,color}))},
-  borderColor:up?'#8affdc':'#ffc5da',borderWidth:look==='glass'?1.2:.9,
+  borderColor:tint(.53),borderWidth:look==='glass'?1.2:.9,
   borderRadius:look==='glass'?[6,6,1,1]:[5,5,0,0],
   shadowBlur:look==='glass'?7:look==='holographic'?12:14,
   shadowColor:up?'rgba(42,222,185,.32)':'rgba(238,75,141,.32)',shadowOffsetY:2};
