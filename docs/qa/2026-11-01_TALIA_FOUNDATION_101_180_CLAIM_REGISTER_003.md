@@ -24,8 +24,8 @@
 
 - 80/80 original draft lesson structures inventoried; 80/80 remain release HOLD pending completed claim-level evidence.
 - 6 individualized misconception/self-check remediations recorded in source data during this continuation.
-- 8 source-pointer specificity improvements (six in batch 08; two in batch 09) without claiming their link alone confers acceptance.
-- 17 topics continue to cite the same SEC Rule 605 FAQ. That may support some order-execution facts, but specialized tape, Level II, borrowing, clock and market-status claims require narrower primary evidence before publication.
+- 11 source-pointer specificity improvements (nine in batch 08; two in batch 09) without claiming their link alone confers acceptance.
+- 14 topics continue to cite the same SEC Rule 605 FAQ. That may support some order-execution facts, but specialized tape, Level II, borrowing, clock and market-status claims require narrower primary evidence before publication.
 - The tests and reviewer register do not constitute real signed-in member sessions, WCAG screen-reader acceptance, legal advice or live market-feed rights.
 
 ## Topic-by-topic decision register
@@ -80,12 +80,12 @@
 | 146 | `TALIA_TOPIC_LOCKED_CROSSED_QUOTE` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
 | 147 | `TALIA_TOPIC_NBBO_ELIGIBILITY_CONDITIONS` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
 | 148 | `TALIA_TOPIC_OFF_EXCHANGE_PRINT_LOCATION` | [Reference](https://syndication.finra.org/content/look-over-counter-equities-trading) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
-| 149 | `TALIA_TOPIC_CORRECTED_TRADE_REPORT` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
+| 149 | `TALIA_TOPIC_CORRECTED_TRADE_REPORT` | [Reference](https://www.finra.org/sites/default/files/AppSupportDoc/p455406.pdf) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
 | 150 | `TALIA_TOPIC_QUOTE_TRADE_CLOCK_ORDER` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
 | 151 | `TALIA_TOPIC_TRADE_COUNT_VS_SHARE_VOLUME` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
 | 152 | `TALIA_TOPIC_TAPE_COLOR_CONVENTION` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
-| 153 | `TALIA_TOPIC_HIDDEN_LIQUIDITY_INVISIBLE` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
-| 154 | `TALIA_TOPIC_DEPTH_SNAPSHOT_VS_HISTORY` | [Reference](https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms) | HOLD — broad Rule 605 applicability | Exact regulation scope, numerical proof, rights, member QA |
+| 153 | `TALIA_TOPIC_HIDDEN_LIQUIDITY_INVISIBLE` | [Reference](https://www.sec.gov/featured-topics/market-structure-analytics/market-activity-report-methodology) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
+| 154 | `TALIA_TOPIC_DEPTH_SNAPSHOT_VS_HISTORY` | [Reference](https://www.sec.gov/data-research/statistics-data-visualizations/order-book-reporting-methods-their-impact-some-market-activity-measures) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
 | 155 | `TALIA_TOPIC_OPENING_AUCTION_PRICE` | [Reference](https://www.nyse.com/trade/auctions) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
 | 156 | `TALIA_TOPIC_INDICATIVE_AUCTION_NOT_EXECUTED` | [Reference](https://www.nyse.com/trade/auctions) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
 | 157 | `TALIA_TOPIC_HALT_QUOTE_TRUST` | [Reference](https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays) | HOLD — precise claim/rights review | Exact claim support, independent math, rights, member QA |
@@ -117,13 +117,13 @@
 
 **Resolved internally, not independently accepted:** Six source lessons received stronger case-specific misconception, correction or self-check text (`TALIA_TOPIC_STOCK_SHAREHOLDER_RESIDUAL`, `TALIA_TOPIC_COMPOUND_RETURNS_PATH`, `TALIA_TOPIC_REBALANCING_TARGET_DOLLARS`, `TALIA_TOPIC_TENQ_VS_TENK_PERIOD`, `TALIA_TOPIC_AVERAGE_INVENTORY_TURNOVER`, `TALIA_TOPIC_DEBT_EQUITY_DEFINITION`).
 
-**Better-targeted candidate sources, still on HOLD:** `TALIA_TOPIC_OFF_EXCHANGE_PRINT_LOCATION`, `TALIA_TOPIC_OPENING_AUCTION_PRICE`, `TALIA_TOPIC_INDICATIVE_AUCTION_NOT_EXECUTED`, `TALIA_TOPIC_HALT_QUOTE_TRUST`, `TALIA_TOPIC_LULD_BAND_NOT_STOP`, `TALIA_TOPIC_SSR_NOT_BLANKET_SHORT_BAN`, `TALIA_TOPIC_DAY_ORDER_SESSION_END`, `TALIA_TOPIC_SHORT_LOCATE_NOT_FILL`.
+**Better-targeted candidate sources, still on HOLD:** `TALIA_TOPIC_CORRECTED_TRADE_REPORT`, `TALIA_TOPIC_HIDDEN_LIQUIDITY_INVISIBLE`, `TALIA_TOPIC_DEPTH_SNAPSHOT_VS_HISTORY`, `TALIA_TOPIC_OFF_EXCHANGE_PRINT_LOCATION`, `TALIA_TOPIC_OPENING_AUCTION_PRICE`, `TALIA_TOPIC_INDICATIVE_AUCTION_NOT_EXECUTED`, `TALIA_TOPIC_HALT_QUOTE_TRUST`, `TALIA_TOPIC_LULD_BAND_NOT_STOP`, `TALIA_TOPIC_SSR_NOT_BLANKET_SHORT_BAN`, `TALIA_TOPIC_DAY_ORDER_SESSION_END`, `TALIA_TOPIC_SHORT_LOCATE_NOT_FILL`.
 
 **Reconciled runtime invariant:** each Foundation guide has exactly one source URL; otherwise the existing `loadFoundationTopicExplanations` would silently discard an entire 20-topic batch.
 
 ## Next evidence required
 
-1. Independently check the 17 Rule 605-associated claims against their precise applicable primary sources and note supported/unsupported claim text.
+1. Independently check the 14 Rule 605-associated claims against their precise applicable primary sources and note supported/unsupported claim text.
 2. Recalculate each financial/numerical case, including valid unit labels and edge conditions, and record exact expected values.
 3. Check licensing separately from public citation and do not infer historical data/feed redistribution permissions.
 4. Validate Free and entitled authenticated sessions, retrieval and private history ownership, accessibility and chronological replay.
@@ -133,6 +133,6 @@
 
 | Version | Date | Change | Disposition |
 |---|---|---|
-| 1.0 | 2026-11-01 | Created 80-row sourced editorial HOLD register with eight source revisions and six instruction revisions | Internal review evidence only |
+| 1.0 | 2026-11-01 | Created 80-row sourced editorial HOLD register with eleven source revisions and six instruction revisions | Internal review evidence only |
 
 **Footer:** SMFGU-TALIA-CLAIM-101-180-003 · GitHub main · No independently accepted publication lessons; no live financial charges or protected grade changes.
