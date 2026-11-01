@@ -19,8 +19,8 @@
       "limit": "Lags the market; a crossing may be repeated in chop. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Lags the market; a crossing may be repeated in chop.",
       "commonError": "Treating Simple Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Simple Moving Average measures, the formula/settings in SMA=sum(prices)/N, one application to a hypothetical chart and why lags the market; a crossing may be repeated in chop.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Simple Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "With a new completed close of $13, calculate the next three-bar SMA using $11, $12 and $13. Which old price leaves the rolling window?",
+      "reviewExplanation": "Correct new SMA is (11+12+13)/3=$12. The $10 bar has dropped out; an incomplete fourth bar is not part of the prior confirmed average.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -32,7 +32,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Simple Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three completed closing prices are $10, $11, and $12. A three-bar SMA is ($10+$11+$12)/3=$11. Do not include an unfinished fourth bar or label this an SMA 9."
     },
     {
       "code": "STUDY_EMA",
@@ -48,8 +48,8 @@
       "limit": "Quicker response produces more false-looking crosses in sideways movement. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Quicker response produces more false-looking crosses in sideways movement.",
       "commonError": "Treating Exponential Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Exponential Moving Average measures, the formula/settings in EMA(t)=alpha*P(t)+(1-alpha)*EMA(t-1); alpha=2/(N+1), one application to a hypothetical chart and why quicker response produces more false-looking crosses in sideways movement.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Exponential Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "Using the same SMA-seeded three-bar convention, how would the next EMA change if the fourth completed close were $11 rather than $13?",
+      "reviewExplanation": "The updated EMA would be 0.5×11+0.5×11=$11. Different seed conventions can change early EMA values; future closes cannot be used at the decision cutoff.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -61,7 +61,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Exponential Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three completed closes $10,$11,$12 seed a three-bar EMA with their SMA of $11. For the fourth completed close $13, alpha=2/(3+1)=0.5 and EMA=0.5×13+0.5×11=$12. This three-bar teaching EMA is not EMA9/20/200."
     },
     {
       "code": "STUDY_WMA",
@@ -77,8 +77,8 @@
       "limit": "Weight schedules differ; do not call all weighted methods equivalent. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Weight schedules differ; do not call all weighted methods equivalent.",
       "commonError": "Treating Weighted Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Weighted Moving Average measures, the formula/settings in WMA=sum(weight_i*price_i)/sum(weight_i), one application to a hypothetical chart and why weight schedules differ; do not call all weighted methods equivalent.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Weighted Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "Recompute the three-bar WMA for completed closes $11,$13,$15 with the same weights; explain whether more recent values receive greater weight.",
+      "reviewExplanation": "The changed WMA=(11+2×13+3×15)/6=82/6≈$13.6667. Explicit weight orientation is essential; do not confuse it with an SMA.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -90,7 +90,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Weighted Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: For completed closes $10,$12,$14, give oldest-to-newest weights 1,2,3. Three-bar WMA=(1×10+2×12+3×14)/(1+2+3)=76/6=$12.6667; the units are dollars per share."
     },
     {
       "code": "STUDY_HMA",
@@ -106,8 +106,8 @@
       "limit": "A responsive curve is not independent confirmation and can whipsaw. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A responsive curve is not independent confirmation and can whipsaw.",
       "commonError": "Treating Hull Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Hull Moving Average measures, the formula/settings in HMA=WMA(2*WMA(P,N/2)-WMA(P,N),sqrt(N)); rounding varies, one application to a hypothetical chart and why a responsive curve is not independent confirmation and can whipsaw.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Hull Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "Explain why an N=4 HMA needs multiple staged WMAs and enough completed inputs for the final WMA2, rather than just four prices.",
+      "reviewExplanation": "The composite requires WMA2 and WMA4 first, then a second WMA2 of the resulting raw series. Rounding of N/2 and sqrt(N) must be declared for non-square periods.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -119,7 +119,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Hull Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With N=4 and five completed closes $10,$11,$12,$13,$14, the raw HMA components at bars 4 and 5 are 2×WMA2−WMA4 = 13.3333 and 14.3333. The final WMA2 of those raw values is (13.3333+2×14.3333)/3=$14.00 (rounding shown)."
     },
     {
       "code": "STUDY_DEMA",
@@ -135,8 +135,8 @@
       "limit": "Not a simple EMA with twice the lookback; initialization changes outputs. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Not a simple EMA with twice the lookback; initialization changes outputs.",
       "commonError": "Treating Double Exponential Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Double Exponential Moving Average measures, the formula/settings in DEMA=2*EMA(P,N)-EMA(EMA(P,N),N), one application to a hypothetical chart and why not a simple ema with twice the lookback; initialization changes outputs.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Double Exponential Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "Why does a two-level EMA construction take longer to warm up than its single EMA? Which series supplies EMA2's input?",
+      "reviewExplanation": "EMA2 smooths already-computed EMA1 values; the inner series does not exist before its own three-price seed. DEMA=2×EMA1−EMA2 is invalid before both layers have enough completed history.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -148,7 +148,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Double Exponential Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Use SMA-seeded three-bar EMAs on seven completed closes $10,$11,$12,$13,$14,$15,$16. At bar 5 EMA1=$13, while the first EMA2 seed across EMA1 values $11,$12,$13 is $12. Thus DEMA at bar 5=2×13−12=$14. Do not quote DEMA before its nested EMA is valid."
     },
     {
       "code": "STUDY_TEMA",
@@ -164,8 +164,8 @@
       "limit": "Complexity does not establish a profitable trend filter. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Complexity does not establish a profitable trend filter.",
       "commonError": "Treating Triple Exponential Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Triple Exponential Moving Average measures, the formula/settings in TEMA=3*EMA1-3*EMA2+EMA3, one application to a hypothetical chart and why complexity does not establish a profitable trend filter.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Triple Exponential Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "If EMA3 has not finished warmup, can TEMA be reported from the first two EMA outputs alone? Explain the three-layer input chain.",
+      "reviewExplanation": "No. EMA1 comes from the declared price series, EMA2 from EMA1, and EMA3 from EMA2. TEMA needs all three matured series before calculating 3×EMA1−3×EMA2+EMA3.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -177,7 +177,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Triple Exponential Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: In a completed, consistently seeded three-layer EMA demonstration, suppose valid EMA1=$15, EMA2=$14 and EMA3=$13 at the same bar. TEMA=3×15−3×14+13=$16. The three warmed EMA values are given inputs, not invented from five raw closes."
     },
     {
       "code": "STUDY_KAMA",
@@ -193,8 +193,8 @@
       "limit": "Exact speed constants and initialization depend on implementation. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Exact speed constants and initialization depend on implementation.",
       "commonError": "Treating Kaufman Adaptive Moving Average as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Kaufman Adaptive Moving Average measures, the formula/settings in Efficiency ratio compares net change with sum of absolute intermediate changes, one application to a hypothetical chart and why exact speed constants and initialization depend on implementation.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Kaufman Adaptive Moving Average and its limitation; this review is ungraded.",
+      "selfCheck": "What happens to the efficiency ratio if net price change is zero but there was nonzero back-and-forth movement? Can you infer a completed KAMA from ER alone?",
+      "reviewExplanation": "The efficiency ratio is 0 when net movement is zero but summed absolute changes are positive. KAMA also needs fast/slow smoothing constants, a squared smoothing factor, a valid seed and completed prices.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -206,7 +206,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Kaufman Adaptive Moving Average settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: For four completed closes $10,$12,$11,$13, a three-change efficiency ratio has net change |13−10|=$3 and absolute travel |12−10|+|11−12|+|13−11|=$5, so ER=3/5=0.60. This is ER only, not a finished Kaufman adaptive moving average."
     },
     {
       "code": "STUDY_MOVING_AVERAGE_RIBBON",
@@ -222,8 +222,8 @@
       "limit": "Multiple averages share inputs and are not independent votes. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Multiple averages share inputs and are not independent votes.",
       "commonError": "Treating Moving Average Ribbon as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Moving Average Ribbon measures, the formula/settings in Overlay several declared SMA or EMA periods on the same price source, one application to a hypothetical chart and why multiple averages share inputs and are not independent votes.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Moving Average Ribbon and its limitation; this review is ungraded.",
+      "selfCheck": "If both ribbon lines use SMA but one uses a different price field or timeframe, can their separation be interpreted as the same signal?",
+      "reviewExplanation": "No. Compare only consistent completed timeframes, inputs and seed conventions. A ribbon shows relationships among moving averages but does not reveal future direction.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -235,7 +235,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Moving Average Ribbon settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Five completed closes are $8,$9,$10,$11,$12. SMA3 over the latest three is ($10+$11+$12)/3=$11; SMA5=$10. Their $1 separation is a measured snapshot, not proof of an entry opportunity."
     },
     {
       "code": "STUDY_MACD",
@@ -251,8 +251,8 @@
       "limit": "Crosses lag; histogram and MACD are not three independent indicators. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Crosses lag; histogram and MACD are not three independent indicators.",
       "commonError": "Treating Moving Average Convergence Divergence as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Moving Average Convergence Divergence measures, the formula/settings in MACD=EMA_fast-EMA_slow; signal=EMA(MACD), one application to a hypothetical chart and why crosses lag; histogram and macd are not three independent indicators.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Moving Average Convergence Divergence and its limitation; this review is ungraded.",
+      "selfCheck": "If the warmed slow EMA were $10.50 instead of $10.20 while the fast EMA stayed $10.80, recompute the line and explain why no signal-line crossing is yet established.",
+      "reviewExplanation": "MACD becomes $0.30. A signal crossing requires the correctly seeded nine-period EMA of the MACD series and previous completed comparisons; one MACD value does not prove a crossover.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -264,7 +264,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Moving Average Convergence Divergence settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: After valid 12- and 26-period EMA warmups, assume EMA12=$10.80 and EMA26=$10.20 on the same completed close. MACD line=10.80−10.20=$0.60. The signal EMA still needs its own valid history; these numbers are given, not derived from two raw closes."
     },
     {
       "code": "STUDY_MACD_HISTOGRAM",
@@ -280,8 +280,8 @@
       "limit": "Histogram rising while negative does not mean a completed price breakout. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Histogram rising while negative does not mean a completed price breakout.",
       "commonError": "Treating MACD Histogram as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what MACD Histogram measures, the formula/settings in Histogram=MACD-signal, one application to a hypothetical chart and why histogram rising while negative does not mean a completed price breakout.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of MACD Histogram and its limitation; this review is ungraded.",
+      "selfCheck": "Compute the histogram if the valid signal line rises to $0.70 while MACD stays at $0.60. Does a negative histogram prove the next bar will fall?",
+      "reviewExplanation": "The histogram would be −$0.10. Negative means MACD is below its signal line; it is not a forecast or evidence of intrabar sequencing.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -293,7 +293,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different MACD Histogram settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: At one completed bar after both stages are valid, a MACD line of $0.60 and its correctly seeded signal EMA of $0.40 give histogram=$0.60−$0.40=$0.20. This is a spread between indicators, not price change."
     },
     {
       "code": "STUDY_PPO",
@@ -309,8 +309,8 @@
       "limit": "Sensitive to smoothing settings; percentage normalization is not a forecast. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Sensitive to smoothing settings; percentage normalization is not a forecast.",
       "commonError": "Treating Percentage Price Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Percentage Price Oscillator measures, the formula/settings in PPO=100*(EMA_fast-EMA_slow)/EMA_slow, one application to a hypothetical chart and why sensitive to smoothing settings; percentage normalization is not a forecast.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Percentage Price Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "Recompute PPO when fast EMA is $9 and slow EMA is $10. What if slow EMA equals zero?",
+      "reviewExplanation": "PPO=(9−10)/10×100=−10%. A zero slow EMA makes the ratio undefined, so the system must not render a spurious 0% or infinity.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -322,7 +322,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Percentage Price Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With two fully warmed same-session EMAs, fast EMA=$12 and slow EMA=$10. PPO=(12−10)/10×100=20%. The denominator is the slow EMA. These are hypothetical given values, not live market readings."
     },
     {
       "code": "STUDY_RSI",
@@ -338,8 +338,8 @@
       "limit": "A 70 reading does not guarantee reversal and can persist in trends. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A 70 reading does not guarantee reversal and can persist in trends.",
       "commonError": "Treating Relative Strength Index as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Relative Strength Index measures, the formula/settings in RSI=100-100/(1+RS); RS=avg_gain/avg_loss using declared smoothing, one application to a hypothetical chart and why a 70 reading does not guarantee reversal and can persist in trends.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Relative Strength Index and its limitation; this review is ungraded.",
+      "selfCheck": "If the validated average gain and average loss are equal and positive, what is RSI? What special handling is needed when average loss is zero?",
+      "reviewExplanation": "Equal positive averages give RS=1 and RSI=50. With zero average loss the standard relative-strength ratio requires a documented convention; a flat series requires separate handling and warmup.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -351,7 +351,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Relative Strength Index settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: After enough completed price changes for a declared 14-period Wilder RSI, suppose validated average gain=$0.70 and average loss=$0.30. RS=0.70/0.30≈2.3333 and RSI=100−100/(1+RS)=70. These are given seeded averages, not values computed from only two closes."
     },
     {
       "code": "STUDY_STOCHASTIC",
