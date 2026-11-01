@@ -34,6 +34,9 @@ node tests/talia-foundation-explanations-batch01-v1.test.mjs
 node --check functions/_lib/talia-foundation-quant-v1.js
 node tests/talia-foundation-quant-v1.test.mjs
 node tests/talia-foundation-explanations-batch02-v1.test.mjs
+node tests/talia-foundation-explanations-batch03-v1.test.mjs
+node --check functions/_lib/talia-indicator-worked-v1.js
+node tests/talia-indicator-worked-v1.test.mjs
 node tests/talia-foundation-misconception-v1.test.mjs
 node scripts/talia-foundation-coverage-v1.mjs
 node tests/talia-foundation-ema-visual-v1.test.mjs
@@ -187,13 +190,13 @@ test -s "$output/assets/css/prototype-experiences-v1.css"
 test -s "$output/assets/js/prototype-experiences-boot-v1.js"
 
 mkdir -p "$output/data"
-for file in crownlight-sparks-store-v014167.json books.json challenges.json commerce-config.json stripe-product-registry-v01437.json environments.json interactive-lab-index.json journal-taxonomy.json labs.json releases.json simulator_csv_template.csv skills.json store-products.json tutor-index.json competency-study-guides-v01499.json talia-foundation-explanations-batch01-v1.json talia-foundation-explanations-batch02-v1.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-indicator-expansion-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json tutor-guided-practice-expansion-v1.json free-foundations-evidence-v1.json academy-specific-source-instruction-v1.json tutor-lab-claim-evidence-v1.json competency-lab-paths-v01499.json lab-teaching-bridges-v014168.json bootcamp-formative-v014154.json bootcamp-source-cases-v014166.json; do
+for file in crownlight-sparks-store-v014167.json books.json challenges.json commerce-config.json stripe-product-registry-v01437.json environments.json interactive-lab-index.json journal-taxonomy.json labs.json releases.json simulator_csv_template.csv skills.json store-products.json tutor-index.json competency-study-guides-v01499.json talia-foundation-explanations-batch01-v1.json talia-foundation-explanations-batch02-v1.json talia-foundation-explanations-batch03-v1.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-indicator-expansion-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json tutor-guided-practice-expansion-v1.json free-foundations-evidence-v1.json academy-specific-source-instruction-v1.json tutor-lab-claim-evidence-v1.json competency-lab-paths-v01499.json lab-teaching-bridges-v014168.json bootcamp-formative-v014154.json bootcamp-source-cases-v014166.json; do
   test -f "data/$file" || { echo "Missing public data: data/$file" >&2; exit 1; }
   cp -- "data/$file" "$output/data/$file"
 done
 # Tutor curricula are original, public and ungraded. Publish the exact assets
 # retrieved by ASSETS.fetch; absent data silently degrades source-only teaching.
-for tutor_asset in talia-foundation-explanations-batch01-v1.json talia-foundation-explanations-batch02-v1.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-indicator-expansion-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json tutor-guided-practice-expansion-v1.json; do
+for tutor_asset in talia-foundation-explanations-batch01-v1.json talia-foundation-explanations-batch02-v1.json talia-foundation-explanations-batch03-v1.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-indicator-expansion-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json tutor-guided-practice-expansion-v1.json; do
   test -s "$output/data/$tutor_asset" || { echo "Missing public Tutor catalog: $tutor_asset" >&2; exit 6; }
 done
 test -s "$output/assets/js/tutor-guided-practice-v1.js"
