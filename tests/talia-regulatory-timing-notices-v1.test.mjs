@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v014100.js';
-const guides=JSON.parse(readFileSync('data/talia-foundation-explanations-batch06-v1.json','utf8')).guides;
+const guides=[...JSON.parse(readFileSync('data/talia-foundation-explanations-batch06-v1.json','utf8')).guides,...JSON.parse(readFileSync('data/talia-foundation-explanations-batch07-v1.json','utf8')).guides];
 const get=code=>guides.find(g=>g.code===code);
 test('repurchase historical rule and EDGAR acceptance timing never silently imply present disclosure or known future facts',()=>{
  const rep=get('TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK');
