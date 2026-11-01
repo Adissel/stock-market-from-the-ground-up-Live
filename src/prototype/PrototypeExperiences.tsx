@@ -61,6 +61,46 @@ function CandleShape({o,h,l,c}:{o:number;h:number;l:number;c:number}){
  const color=c>=o?'#55e5b6':'#fb829d';
  return <svg className="cx-candle-svg" viewBox="0 0 240 185" role="img" aria-label="Candlestick showing open high low and close"><line x1="118" y1={y(high)} x2="118" y2={y(low)} stroke={color} strokeWidth="4"/><rect x="82" y={Math.min(y(o),y(c))} width="72" height={Math.max(3,Math.abs(y(o)-y(c)))} rx="2" fill={color}/>{([['H',h],['O',o],['C',c],['L',l]] as [string,number][]).map(([k,v],i)=><g key={k}><line x1={i%2?155:15} y1={y(v)} x2={i%2?215:81} y2={y(v)} stroke="#6b8895" strokeDasharray="3 3"/><text x={i%2?169:10} y={y(v)-5} fill="#c8dce7" fontSize="10">{k} {v.toFixed(2)}</text></g>)}</svg>
 }
+
+type IndicatorSpec={id:string;label:string;family:string;setting:string|null;placement:string};
+type IndicatorPrefs={settings:Record<string,number>;enabled:Record<string,boolean>;setSettings:(name:string,value:number)=>void;setEnabled:(name:string,value:boolean)=>void;reset:()=>void;enableAll:()=>void};
+const IndicatorContext=React.createContext<IndicatorPrefs|null>(null);
+const specs:IndicatorSpec[]=[
+ ['EMA_FAST','EMA · Fast','Trend','emaFast','Price overlay'],
+ ['EMA_SLOW','EMA · Slow','Trend','emaSlow','Price overlay'],
+ ['SMA','Simple moving average','Trend','sma','Price overlay'],
+ ['VWAP','Session VWAP estimate','Volume/Price',null,'HLC3 bar proxy only'],
+ ['BB','Bollinger Bands','Volatility','bbPeriod','Price overlay'],
+ ['HOD','Observed HOD','Price levels',null,'Price overlay'],
+ ['LOD','Observed LOD','Price levels',null,'Price overlay'],
+ ['OR','Opening range H/L','Price levels','orb','Price overlay'],
+ ['STRUCTURE','Confirmed market structure','Structure','pivot','Chart pivots'],
+ ['VOLUME','Bar volume','Participation',null,'Volume pane'],
+ ['VOLMA','Volume moving average','Participation','volPeriod','Volume pane'],
+ ['RSI','Wilder RSI','Momentum','rsi','Oscillator pane'],
+ ['MACD','MACD (fast / slow / signal)','Momentum','macdFast','Oscillator pane'],
+ ['ATR','Wilder ATR','Volatility','atr','Oscillator pane'],
+ ['OBV','On-balance volume','Participation',null,'Oscillator pane']
+].map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
+const defaults:Record<string,number>={emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2};
+const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:true};
+function IndicatorDock(){
+ const prefs=React.useContext(IndicatorContext);
+ const [open,setOpen]=useState(true),[search,setSearch]=useState(''),[guides,setGuides]=useState<Array<{code:string;title:string;family:string;concept:string;formula:string;limit?:string;limits?:string;howToUse?:string;commonError?:string}>>([]);
+ const [chosen,setChosen]=useState('STUDY_EMA');
+ useEffect(()=>{let live=true;fetch('/data/tutor-indicator-study-v1.json',{cache:'no-store',credentials:'same-origin'}).then(r=>{if(!r.ok)throw Error('Catalog unavailable');return r.json()}).then(d=>{if(live&&d?.count===61&&Array.isArray(d.guides)&&d.guides.length===61)setGuides(d.guides)}).catch(()=>{});return()=>{live=false}},[]);
+ if(!prefs)return null;
+ const guide=guides.find(g=>g.code===chosen);
+ const matches=specs.filter(x=>(x.label+' '+x.family).toLowerCase().includes(search.toLowerCase()));
+ const settingRow=(k:string,title:string,min:number,max:number,step=1)=><label key={k} className="cx-indicator-number">{title}<input type="number" aria-label={title} min={min} max={max} step={step} value={prefs.settings[k]} onChange={e=>prefs.setSettings(k,Math.max(min,Math.min(max,Number(e.target.value)||min)))}/></label>;
+ return <section className="cx-indicator-workbench" aria-label="Configurable trading indicator library">
+  <div className="cx-indicator-heading"><div><div className="cx-overline">CROWNLIGHT CHART STUDIO / TECHNICAL STUDY DESK</div><h2>Indicators & settings <small>15 calculated studies · 61 authored research guides</small></h2></div><div className="cx-tool-row"><button onClick={()=>setOpen(v=>!v)} aria-expanded={open}>{open?'Collapse indicators':'Expand indicators'}</button><button onClick={prefs.enableAll}>Show all calculated</button><button onClick={prefs.reset}>Restore defaults</button></div></div>
+  {open&&<><div className="cx-indicator-layout"><div><label className="cx-study-search">Filter chart studies<input aria-label="Filter indicator list" value={search} onChange={e=>setSearch(e.target.value)} placeholder="EMA, RSI, volume, range…"/></label><div className="cx-study-list" role="group" aria-label="Toggle chart indicators">{matches.map(item=><label className="cx-study-choice" key={item.id}><input type="checkbox" aria-label={'Show '+item.label} checked={!!prefs.enabled[item.id]} onChange={e=>prefs.setEnabled(item.id,e.target.checked)}/><span><strong>{item.label}</strong><small>{item.family} · {item.placement}</small></span><b>{prefs.enabled[item.id]?'ON':'OFF'}</b></label>)}{matches.length===0&&<p>No supported chart study matches your search.</p>}</div></div>
+  <div><div className="cx-overline">ADJUSTABLE CALCULATION PARAMETERS</div><div className="cx-indicator-params">{settingRow('emaFast','Fast EMA period',2,100)}{settingRow('emaSlow','Slow EMA period',3,100)}{settingRow('sma','SMA period',2,100)}{settingRow('rsi','RSI period',2,100)}{settingRow('bbPeriod','Bollinger period',2,100)}{settingRow('bbDeviation','Bollinger standard deviation',.5,4,.1)}{settingRow('macdFast','MACD fast',2,50)}{settingRow('macdSlow','MACD slow',3,100)}{settingRow('macdSignal','MACD signal',2,50)}{settingRow('atr','ATR period',2,100)}{settingRow('volPeriod','Volume SMA period',2,100)}{settingRow('orb','Opening range minutes',1,30)}{settingRow('pivot','Structure confirmation bars',1,5)}</div><p className="cx-small">Values update only after each fictional bar completes. Warm-up gaps remain empty, not zero. Signal studies do not predict or authorize trades.</p></div></div>
+  <div className="cx-indicator-catalog"><div><div className="cx-overline">TALIA / FULL AUTHORED STUDY LIBRARY</div><label>Explore all {guides.length||61} indicator topics <select aria-label="Indicator teaching guide" value={chosen} onChange={e=>setChosen(e.target.value)}><option value="STUDY_EMA">Exponential Moving Average</option>{guides.filter(g=>g.code!=='STUDY_EMA').map(g=><option key={g.code} value={g.code}>{g.title} · {g.family}</option>)}</select></label></div><div className="cx-guide-copy"><strong>{guide?.title||'Exponential Moving Average'}</strong><p>{guide?.concept||'A recent-price-weighted moving average. View the calculation settings, bar history and limitations.'}</p><p><b>Formula:</b> {guide?.formula||'EMA(t) = α × price(t) + (1−α) × EMA(t−1), α=2/(N+1)'}</p><p><b>Where it fails:</b> {guide?.limit||guide?.limits||'Indicators derived from historical bars are not future price guarantees.'}</p><p><b>Common live-trading error:</b> {guide?.commonError||'Treating a crossover alone as a trade signal.'}</p><span className="cx-chip">61 topics are teaching references; 15 studies are calculated on this synthetic OHLCV fixture</span></div></div></>}
+ </section>;
+}
+
 function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number}){
  const ref=useRef<HTMLDivElement>(null);
  const inst=useRef<any>(null);
