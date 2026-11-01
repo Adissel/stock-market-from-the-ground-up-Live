@@ -12,7 +12,7 @@ const pages=[
 ];
 for(const p of pages){
  const html=read(p);
- assert(html.includes('teaching-full-width-v1.css?v=20261031-1'),'Shared stylesheet missing: '+p);
+ assert(/teaching-full-width-v1\.css\?v=[a-z0-9-]+/i.test(html),'Shared versioned stylesheet missing: '+p);
  assert(html.includes('gu-teaching-wide'),'Teaching-wide scope missing: '+p);
 }
 assert(css.includes('.gu-learning-journey-v3 .gu-public-classroom'),'Public ECharts and Talia workspace layout is shared');
