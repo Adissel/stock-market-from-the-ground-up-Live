@@ -1,0 +1,36 @@
+# Free, no-charge targeted contract checks. Does not certify authenticated release.
+name: Crownlight Shared ECharts Visual Contracts
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/crownlight-visual-kit-v1.js'
+      - 'assets/js/free-foundations-echarts-v1.js'
+      - 'tests/crownlight-visual-kit-v1.test.mjs'
+      - 'tests/test_free_foundations_echarts_v1.mjs'
+      - 'dashboard.html'
+      - 'docs/engineering/SMFGU-VISUALIZATION-DATA-CONTRACT-v1.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crownlight-visual-kit-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  visual-data-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate shared visualization scripts and replay cutoff contract
+        run: |
+          node --check assets/js/crownlight-visual-kit-v1.js
+          node --check assets/js/free-foundations-echarts-v1.js
+          node --check assets/js/crownlight-echarts-admin-v1.js
+          node --check tests/crownlight-visual-kit-v1.test.mjs
+          node tests/crownlight-visual-kit-v1.test.mjs
