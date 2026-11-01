@@ -878,10 +878,10 @@
     {
       "id": "NYSE-MARKETDATA",
       "name": "NYSE exchange data products",
-      "url": "https://www.nyse.com/market-data",
+      "url": "https://www.nyse.com/data-products/",
       "category": "market_data",
       "sourceType": "exchange",
-      "accessStatus": "candidate_not_individually_checked",
+      "accessStatus": "official_page_observed_2026-11-01",
       "researchUse": "fact_check_and_independent_original_teaching_only",
       "dataIngestionRights": "NOT_APPROVED",
       "publicationRights": "NOT_APPROVED",
