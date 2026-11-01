@@ -4,13 +4,13 @@ import {Script} from 'node:vm';
 const get=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const js=get('assets/js/home-community.js'),home=get('index.html'),style=get('assets/css/home-member-stats.css');
 assert.doesNotThrow(()=>new Script(js));
-for(const p of ['/assets/js/home-community.js','/assets/js/crownlight-echarts-loader-v1.js','/assets/css/home-member-stats.css'])assert(home.includes(p),p+' must be included in homepage');
+for(const p of ['/assets/js/home-community.js','/assets/js/crownlight-echarts-loader-v1.js','/assets/css/home-member-stats.css'])assert(!home.includes(p),p+' must remain removed from the public homepage');
 assert(js.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Only existing aggregate endpoint');
 assert(js.includes('window.CrownlightECharts.load()'),'Use first-party local ECharts loader');
-assert(js.includes("badge.textContent=valid?'LIVE DATA':'UNAVAILABLE'"),'Badge says LIVE DATA for validated selected mode');
+assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Archived renderer distinguishes illustrative versus verified data');
 assert(!js.includes('gu-stat-provenance')&&!js.includes('data-source-info'),'No statistics information tooltip or icon');
 assert(!js.includes('Sample statistics'),'No sample-statistics caption');
-assert(!js.includes('Example activity')&&!js.includes('Example members'),'No sample member labels');
+assert(js.includes('Example online members')&&js.includes('Example registered members'),'Illustrative figures must never be labeled as verified members');
 assert(!js.includes("'DEMO DATA'"),'No demo badge on homepage');
 assert(js.includes('>Active members</dt>'),'Public metric label is Active members');
 assert(js.includes('aria-label="Members active within the last 60 minutes"'),'Accessible label preserves the measurement window');
@@ -21,7 +21,7 @@ assert(js.includes('if(!total)'),'No-data denominator must not create a fabricat
 assert(js.includes('if(visual&&visualNode!==host)'),'Remount must release previous chart');
 assert(js.includes('if(window.__SMFGUHomeStatsMounted)return'),'Singleton initializer');
 assert(style.includes('v1353-stats-graph'),'Chart layout exists');
-console.log('PASS member-stat ECharts source, truthful modes, no-data fallback, local assets, responsive panel');
+console.log('PASS archived member-stat ECharts source is disabled on homepage, with truthful example labeling and tested no-data fallback');
 
 assert(js.includes('renderFuture(panel,d.extras)'),'Owner toggles drive optional homepage modules');
 assert(!js.includes('187 of 225 illustrative members'),'Removed unwanted verbose text');
