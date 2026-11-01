@@ -155,6 +155,19 @@ try{
   }
   console.log('PASS genuine authenticated member Academy browser '+program+' — '+n+' day-specific instruction screens and ten-stage instructor.');
  }
+ // Genuine member mobile viewport smoke after the 22 actual classroom visits.
+ await page.setViewportSize({width:390,height:844});
+ await page.waitForTimeout(200);
+ assert(await page.locator('#academy-days button').first().isVisible(),
+  'Academy day navigation disappears at mobile viewport');
+ const mobile=await page.evaluate(()=>({
+  width:innerWidth,documentWidth:document.documentElement.scrollWidth,
+  lessonVisible:(()=>{const r=document.getElementById('academy-day-title')?.getBoundingClientRect();return !!r&&r.width>40;})()
+ }));
+ assert(mobile.lessonVisible,'Mobile layout hides the lesson heading');
+ assert(mobile.documentWidth<=mobile.width+12,
+  'Mobile horizontal overflow: '+JSON.stringify(mobile));
+ console.log('PASS mobile 390px Academy day navigation and horizontal viewport integrity.');
  assert.equal(examined,22);
  assert(bridgedAuthCalls>0,'No real Supabase GoTrue browser identity checks traversed the QA transport bridge');
  assert.equal(browserErrors.length,0,'Browser JavaScript runtime errors detected: '+browserErrors.slice(0,3).join('; '));
