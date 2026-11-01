@@ -63,7 +63,11 @@ try{
  assert.equal(r.status,429);
  rate='allowed';entitled=false;
  r=await ask('Explain VWAP in a safe ungraded way',true);
- assert.equal(r.status,403);assert.equal(saves,1);
+ assert.equal(r.status,200,'Eligible Basic retains source-grounded teaching without premium inference');
+ assert.equal(r.body.aiReason,'foundation_source_only');
+ assert.equal(r.body.historySaved,true);
+ assert.equal(r.body.graded,false);assert.equal(r.body.masteryAwarded,false);
+ assert.equal(saves,2,'Only one additional, user-requested Basic Tutor history record is saved');
  entitled=true;
  const fake=new Request('https://site.test/api/member-tutor-history-v014102',{
   method:'POST',headers:{authorization:'Bearer valid','content-type':'application/json'},
