@@ -71,10 +71,17 @@ try{
    const bearer=request.headers().authorization||'';
    if(request.method()!=='GET'||!bearer.startsWith('Bearer ')||bearer.length<40)
     throw Error('QA identity request invalid method or bearer');
-   const upstream=await fetch(supabase+'/auth/v1/user',{
-    method:'GET',cache:'no-store',signal:AbortSignal.timeout(25000),
-    headers:{apikey:key,authorization:bearer}
-   });
+   let upstream;
+   for(let retry=0;retry<3;retry++){
+    try{
+     upstream=await fetch(supabase+'/auth/v1/user',{
+      method:'GET',cache:'no-store',signal:AbortSignal.timeout(25000),
+      headers:{apikey:key,authorization:bearer}
+     });
+     if(upstream.ok||retry===2)break;
+    }catch(e){if(retry===2)throw e;}
+    await new Promise(resolve=>setTimeout(resolve,450));
+   }
    const content=await upstream.text();
    if(upstream.ok)bridgedAuthCalls++;
    await route.fulfill({status:upstream.status,contentType:'application/json',headers:common,
@@ -88,7 +95,12 @@ try{
  const identity=await page.evaluate(async args=>{
   const sb=await window.getSupabaseClient();
   const result=await sb.auth.setSession(args.session);
-  const actual=await sb.auth.getUser();
+  let actual;
+  for(let retry=0;retry<3;retry++){
+   actual=await sb.auth.getUser();
+   if(actual?.data?.user?.id===args.expected)break;
+   if(retry<2)await new Promise(resolve=>setTimeout(resolve,500));
+  }
   const stored=await sb.auth.getSession();
   return {initialUserMatches:result?.data?.user?.id===args.expected,
    validatedUserMatches:actual?.data?.user?.id===args.expected,
