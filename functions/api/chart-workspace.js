@@ -10,6 +10,30 @@ const VALID_STUDIES=new Set(['RSI','MACD','BOLL','MA','EMA','SMA','ATR','VOL']);
 const VALID_DRAWINGS=new Set(['segment','horizontalStraightLine','fibonacciLine']);
 const VALID_LAYOUTS=new Set(['SIDE_BY_SIDE','STACKED','PRICE_FOCUS']);
 const validNumber=n=>typeof n==='number'&&Number.isFinite(n);
+const APPEARANCE_DEFAULTS={bullish:'#2bf2b1',bearish:'#ff5f86',doji:'#dfc17c',grid:'#53749e',barSpacing:10,rightBuffer:16};
+const SAFE_CHART_STUDIES=new Set(['EMA','SMA','VWAP','RSI','MACD','BB','ATR','VOL_SMA','PMH','PML','HOD','LOD','PDH','PDL','ORH','ORL','STRUCTURE']);
+const SAFE_LINES=new Set(['solid','dashed','dotted']);
+function chartAppearance(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))return null;
+ const a={...APPEARANCE_DEFAULTS};
+ for(const key of ['bullish','bearish','doji','grid'])if(typeof raw[key]==='string'&&/^#[0-9a-f]{6}$/i.test(raw[key]))a[key]=raw[key].toLowerCase();
+ if(Number.isInteger(raw.barSpacing)&&raw.barSpacing>=3&&raw.barSpacing<=28)a.barSpacing=raw.barSpacing;
+ if(Number.isInteger(raw.rightBuffer)&&raw.rightBuffer>=0&&raw.rightBuffer<=40)a.rightBuffer=raw.rightBuffer;
+ return a;
+}
+function chartStudyPrefs(raw){
+ if(!Array.isArray(raw))return null;
+ const result=[];
+ for(const s of raw.slice(0,18)){
+  if(!s||typeof s!=='object'||!SAFE_CHART_STUDIES.has(s.type))continue;
+  result.push({id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+result.length,
+   type:s.type,period:Number.isInteger(s.period)&&s.period>=1&&s.period<=200?s.period:14,
+   color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color.toLowerCase():'#a78bfa',
+   width:Number.isInteger(s.width)&&s.width>=1&&s.width<=4?s.width:2,
+   lineStyle:SAFE_LINES.has(s.lineStyle)?s.lineStyle:'solid'});
+ }
+ return result;
+}
 export function normalizeWorkspace(input,entitlement){
  const raw=input&&typeof input==='object'&&!Array.isArray(input)?input:{};
  const requested=String(raw.selected||'STANDARD');
@@ -57,7 +81,7 @@ export function normalizeWorkspace(input,entitlement){
   known.add(entry.context);
   drawingSets.push({context:entry.context,drawings:subset});
  }
- return {version:2,selected,sync:raw.sync!==false,studies,drawings,layout,drawingContext,drawingSets};
+ return {version:2,selected,sync:raw.sync!==false,studies,drawings,layout,drawingContext,drawingSets,appearance:chartAppearance(raw.appearance),chartStudies:chartStudyPrefs(raw.chartStudies)};
 }
 const cfg=env=>{
  const base=String(env.SUPABASE_URL||'').replace(/\/$/,'');

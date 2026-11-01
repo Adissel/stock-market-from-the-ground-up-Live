@@ -31,6 +31,13 @@ assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'PRICE_FOCUS'},p
 assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',layout:'UNSAFE_CSS'},pro).layout,'SIDE_BY_SIDE');
 assert.deepEqual(normalized.studies,['EMA','RSI']);
 assert.equal(normalized.drawings.length,1);assert.equal('secret' in normalized,false);
+const configured=normalizeWorkspace({appearance:{bullish:'#AABBCC',grid:'#334455',bearish:'javascript:evil',barSpacing:11,rightBuffer:22,script:'bad'},
+ chartStudies:[{id:'ema200',type:'EMA',period:200,color:'#123abc',lineStyle:'dotted',width:3},{type:'HACK',secret:'bad'},{type:'RSI',color:'red',period:999}],credential:'never'},pro);
+assert.deepEqual(configured.appearance,{bullish:'#aabbcc',bearish:'#ff5f86',doji:'#dfc17c',grid:'#334455',barSpacing:11,rightBuffer:22});
+assert.deepEqual(configured.chartStudies[0],{id:'ema200',type:'EMA',period:200,color:'#123abc',width:3,lineStyle:'dotted'});
+assert.equal(configured.chartStudies.length,2);assert.equal(configured.chartStudies[1].lineStyle,'solid');
+assert.equal('credential' in configured,false);assert.equal('script' in configured.appearance,false);
+assert.equal(normalizeWorkspace({appearance:null,chartStudies:null},pro).appearance,null);
 assert.equal((await onRequest({request:new Request('https://site.test/api/chart-workspace',{method:'DELETE'}),env:{}})).status,405);
 assert.equal((await onRequest({request:new Request('https://site.test/api/chart-workspace'),env:{}})).status,401);
 const url='https://mockchart.supabase.co';

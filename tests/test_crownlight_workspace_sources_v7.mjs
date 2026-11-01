@@ -40,3 +40,12 @@ const many=normalizeWorkspace({selected:'PROFESSIONAL',
  drawingSets:Array.from({length:15},(_,i)=>({context:'csv_upload|SYMBOL_'+i,drawings:[level(100+i)]}))},permission);
 assert.equal(many.drawingSets.length,10,'Source count must be bounded');
 console.log('PASS Studio V7: multiple source-scoped drawing sets, normalization, legacy compatibility, downgrade preservation, rejected markup and bounded inputs');
+
+// Existing authenticated workspace settings now also accept bounded appearance
+// and chart study metadata without adding private data tables or new entitlements.
+const appearance=normalizeWorkspace({appearance:{bullish:'#123456',rightBuffer:40},
+ chartStudies:[{id:'ema200',type:'EMA',period:200,color:'#123456',lineStyle:'dashed'}]},
+ {tier:'STANDARD',allowed:['STANDARD']});
+assert.equal(appearance.appearance.rightBuffer,40);
+assert.equal(appearance.chartStudies[0].period,200);
+assert.equal(appearance.chartStudies[0].lineStyle,'dashed');

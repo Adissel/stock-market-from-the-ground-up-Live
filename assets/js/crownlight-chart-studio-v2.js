@@ -17,29 +17,38 @@
  };
  const COLORS=['#a78bfa','#22d3ee','#f5c768','#46edbc','#fb7185','#ffb65b','#90a7ff','#50d4f5'];
  const KEY='crownlight.chartstudio.v2.appearance';
+ const APPEARANCE_DEFAULTS={bullish:'#2bf2b1',bearish:'#ff5f86',doji:'#dfc17c',grid:'#53749e',barSpacing:10,rightBuffer:16};
+ const STYLES=new Set(['solid','dashed','dotted']);
+ function safeAppearance(input){
+  const a={...APPEARANCE_DEFAULTS};if(!input||typeof input!=='object')return a;
+  for(const key of ['bullish','bearish','doji','grid'])if(typeof input[key]==='string'&&/^#[0-9a-f]{6}$/i.test(input[key]))a[key]=input[key].toLowerCase();
+  if(Number.isInteger(input.barSpacing)&&input.barSpacing>=3&&input.barSpacing<=28)a.barSpacing=input.barSpacing;
+  if(Number.isInteger(input.rightBuffer)&&input.rightBuffer>=0&&input.rightBuffer<=40)a.rightBuffer=input.rightBuffer;
+  return a;
+ }
  const defaults=[
   {id:'ema9',type:'EMA',period:9,color:'#b49aff',width:2},
   {id:'ema20',type:'EMA',period:20,color:'#37ddf6',width:2},
   {id:'vwap',type:'VWAP',period:1,color:'#f7c76a',width:2}
  ];
- let prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true};
+ let prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
  const state={mounted:false,chart:null,candles:null,volume:null,series:[],lines:[],source:'',count:-1,
   hover:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null};
  const $=id=>document.getElementById(id);
  const h=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
  const money=n=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'—';
  const num=n=>Number.isFinite(n)?n.toLocaleString('en-US',{maximumFractionDigits:3}):'—';
- const save=()=>{if(!state.userId)return;try{localStorage.setItem(KEY+':'+state.userId,JSON.stringify({studies:prefs.studies,levels:prefs.levels.slice(-15),follow:state.follow}))}catch{}};
+ const save=()=>{if(!state.userId)return;try{localStorage.setItem(KEY+':'+state.userId,JSON.stringify({studies:prefs.studies,levels:prefs.levels.slice(-15),follow:state.follow,appearance:prefs.appearance}))}catch{}};
  function scopeToMember(userId){
   if(typeof userId!=='string'||!userId)return;
   if(state.userId===userId)return;
   state.userId=userId;state.tempPlan=null;let stored=null;
   try{stored=JSON.parse(localStorage.getItem(KEY+':'+userId)||'null')}catch{}
-  prefs=stored&&Array.isArray(stored.studies)?stored:{studies:defaults.map(x=>({...x})),levels:[],follow:true};
+  prefs=stored&&Array.isArray(stored.studies)?stored:{studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};prefs.appearance=safeAppearance(prefs.appearance);
   prefs.studies=prefs.studies.filter(x=>LABELS[x?.type]&&typeof x.color==='string').slice(0,18);
   if(!Array.isArray(prefs.levels))prefs.levels=[];
   state.follow=prefs.follow!==false;state.source='';state.count=-1;state.hover=null;
-  if(state.mounted){updateFollow();renderLegend()}
+  if(state.mounted){updateFollow();renderLegend();applyAppearance()}
  }
  function timeNY(ms){
   return new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(ms));
@@ -58,6 +67,7 @@
    '<button type="button" data-cl="reset" title="Fit revealed history">Fit</button>'+
    '<button type="button" data-cl="follow" title="Follow the latest revealed candle">Follow</button>'+
    '<button type="button" data-cl="studies">Indicators <span class="cl-dot">●</span></button>'+
+   '<button type="button" data-cl="appearance">Colors & spacing</button>'+
    '<button type="button" data-cl="level">＋ Level</button>'+
    '<button type="button" data-cl="source">Source</button>'+ 
    '<button type="button" data-cl="coach">Talia · Chart Lab</button>'+
@@ -88,7 +98,7 @@
    priceLineVisible:true,priceLineColor:'#f7c76a',lastValueVisible:true
   });
   state.volume=chart.addSeries(lib.HistogramSeries,{priceFormat:{type:'volume'},priceLineVisible:false,lastValueVisible:false},1);
-  state.chart=chart;state.shell=shell;state.mounted=true;
+  state.chart=chart;state.shell=shell;state.mounted=true;applyAppearance();
   chart.subscribeCrosshairMove(param=>{
    if(!state.sim||param?.time===undefined||!param.time){return}
    const ms=Number(param.time)*1000;
@@ -117,6 +127,7 @@
    if(cmd==='reset'){state.follow=true;fitVisible();save()}
    if(cmd==='follow'){state.follow=!state.follow;updateFollow();save();if(state.follow)scale.scrollToRealTime()}
    if(cmd==='studies')openStudies();
+   if(cmd==='appearance')openAppearance();
    if(cmd==='level')addLevel();
    if(cmd==='source'){const element=shell.querySelector('.crownlight-source');element.hidden=!element.hidden; if(!element.hidden)showSource()}
    if(cmd==='coach'){const element=shell.querySelector('.crownlight-coach');element.hidden=!element.hidden;if(!element.hidden)showCoach(state.hover||state.sim?.candles[state.sim?.index])}
@@ -129,13 +140,20 @@
   updateFollow();renderLegend();
   return true;
  }
+ function applyAppearance(){
+  if(!state.chart||!state.candles)return;
+  const a=safeAppearance(prefs.appearance);
+  state.candles.applyOptions({upColor:a.bullish,downColor:a.bearish,wickUpColor:a.bullish,wickDownColor:a.bearish,borderUpColor:a.bullish,borderDownColor:a.bearish});
+  state.chart.applyOptions({grid:{vertLines:{color:a.grid+'35'},horzLines:{color:a.grid+'45'}}});
+  state.chart.timeScale().applyOptions({barSpacing:a.barSpacing,rightOffset:a.rightBuffer});
+ }
  function fitVisible(){
   if(!state.chart||!state.count)return;
   const scale=state.chart.timeScale();
   const count=state.count;
   // Maintain an approximately constant candle width while a sparse replay fills.
    // Earlier logic enlarged the first few candles until more bars were revealed.
-   const visibleBars=80,rightPadding=16;
+   const visibleBars=80,rightPadding=safeAppearance(prefs.appearance).rightBuffer;
    const from=Math.max(-1,count-visibleBars);
    scale.setVisibleLogicalRange({from,to:from+visibleBars+rightPadding});
  }
@@ -159,16 +177,16 @@
    if(Number.isFinite(vals[i]))points.push({time:Math.floor(visible[i].time.getTime()/1000),value:vals[i]});
   }return points;
  }
- function createLine(points,color,width,pane,name){
+ function createLine(points,color,width,pane,name,style='solid'){
   if(!points.length)return;
   const series=state.chart.addSeries(root.LightweightCharts.LineSeries,{
-   color,lineWidth:Math.max(1,Math.min(4,Number(width)||2)),title:name,priceLineVisible:false,lastValueVisible:true,
+   color,lineWidth:Math.max(1,Math.min(4,Number(width)||2)),lineStyle:style==='dotted'?(root.LightweightCharts.LineStyle?.Dotted??1):style==='dashed'?(root.LightweightCharts.LineStyle?.Dashed??2):(root.LightweightCharts.LineStyle?.Solid??0),title:name,priceLineVisible:false,lastValueVisible:true,
    crosshairMarkerVisible:true},pane||0);
   series.setData(points);state.series.push(series);
  }
  function makeStudy(study,bars){
   const m=MathLib(),c=bars.map(b=>b.close),p=study.period||9;
-  const add=(vals,col=study.color,pane=0,label=study.type)=>createLine(linesToPoints(vals,bars),col,study.width,pane,label);
+  const add=(vals,col=study.color,pane=0,label=study.type)=>createLine(linesToPoints(vals,bars),col,study.width,pane,label,study.lineStyle);
   if(study.type==='EMA')add(m.ema(c,p));
   else if(study.type==='SMA')add(m.sma(c,p));
   else if(study.type==='VWAP')add(m.vwapProxy(bars),study.color,0,'HLC3 VWAP proxy');
@@ -198,9 +216,11 @@
   const reset=source!==state.source||state.count>data.length;
   const prior=state.chart.timeScale().getVisibleLogicalRange();
   state.sim=sim;state.source=source;state.count=data.length;
-  const candlePoints=data.map(b=>({time:Math.floor(b.time.getTime()/1000),open:b.open,high:b.high,low:b.low,close:b.close}));
+  const a=safeAppearance(prefs.appearance),doji=b=>Math.abs(b.close-b.open)<=Math.max(.00001,Math.abs(b.open)*.00005);
+  const candlePoints=data.map(b=>({time:Math.floor(b.time.getTime()/1000),open:b.open,high:b.high,low:b.low,close:b.close,
+   ...(doji(b)?{color:a.doji,wickColor:a.doji,borderColor:a.doji}:{})}));
   state.candles.setData(candlePoints);
-  state.volume.setData(data.map(b=>({time:Math.floor(b.time.getTime()/1000),value:b.volume,color:b.close>=b.open?'rgba(43,242,177,.58)':'rgba(255,95,134,.60)'})));
+  state.volume.setData(data.map(b=>({time:Math.floor(b.time.getTime()/1000),value:b.volume,color:doji(b)?a.doji:b.close>=b.open?a.bullish:a.bearish})));
   // Never compute a study using bars after sim.index.
   state.series.forEach(series=>{try{state.chart.removeSeries(series)}catch{}});state.series=[];
   prefs.studies.forEach(study=>{try{makeStudy(study,data)}catch(error){console.warn('Chart indicator unavailable',study.type,error?.message)}});
@@ -379,6 +399,10 @@
     for(let n=1;n<=4;n++){const o=h('option','',n+' px');o.value=String(n);if(n===(study.width||2))o.selected=true;width.append(o)}
     width.setAttribute('aria-label',LABELS[study.type]+' line thickness');width.onchange=()=>{study.width=Number(width.value);save();redraw(state.sim)};
     widthLabel.append(width);controls.append(widthLabel);
+    const styleLabel=h('label','','Line style'),styleSelect=h('select');styleSelect.setAttribute('aria-label',LABELS[study.type]+' line style');
+    for(const [value,title] of [['solid','Solid'],['dashed','Dashed'],['dotted','Dotted']]){const o=h('option','',title);o.value=value;o.selected=(study.lineStyle||'solid')===value;styleSelect.append(o)}
+    styleSelect.onchange=()=>{study.lineStyle=STYLES.has(styleSelect.value)?styleSelect.value:'solid';save();redraw(state.sim)};
+    styleLabel.append(styleSelect);controls.append(styleLabel);
     const remove=h('button','crownlight-remove','Remove');remove.type='button';remove.onclick=()=>{prefs.studies.splice(i,1);save();redraw(state.sim);populate()};
     controls.append(remove);row.append(controls);list.append(row);
    });
@@ -393,6 +417,44 @@
   dialog.querySelector('[data-close]').onclick=()=>dialog.close();
   dialog.addEventListener('close',()=>{dialog.remove();state.modal=null},{once:true});
   populate();dialog.showModal();
+ }
+ function openAppearance(){
+  if(!state.shell)return;state.modal?.remove();
+  const dialog=h('dialog','crownlight-dialog'),title=h('h2','','Chart colors & spacing'),info=h('p','','Visual changes do not alter OHLCV. Select Save workspace to synchronize across your devices.'),group=h('div','crownlight-study-list');
+  state.modal=dialog;dialog.append(title,info);
+  const current=safeAppearance(prefs.appearance);
+  for(const [key,label] of [['bullish','Bullish candles'],['bearish','Bearish candles'],['doji','Doji candles'],['grid','Chart grid']]){
+   const row=h('label','crownlight-study-settings',label),input=h('input');input.type='color';input.value=current[key];input.setAttribute('aria-label',label+' color');
+   input.oninput=()=>{prefs.appearance={...safeAppearance(prefs.appearance),[key]:input.value};save();applyAppearance();if(state.sim)redraw(state.sim)};row.append(input);group.append(row);
+  }
+  for(const [key,label,min,max] of [['barSpacing','Candle spacing',3,28],['rightBuffer','Empty right buffer',0,40]]){
+   const row=h('label','crownlight-study-settings',label),input=h('input');input.type='number';input.min=String(min);input.max=String(max);input.step='1';input.value=String(current[key]);input.setAttribute('aria-label',label);
+   input.onchange=()=>{const v=Number(input.value);if(!Number.isInteger(v)||v<min||v>max){input.value=String(safeAppearance(prefs.appearance)[key]);return}prefs.appearance={...safeAppearance(prefs.appearance),[key]:v};save();applyAppearance();if(state.sim)redraw(state.sim)};row.append(input);group.append(row);
+  }
+  const foot=h('footer'),reset=h('button','','Reset colors'),close=h('button','','Done');reset.type='button';reset.onclick=()=>{prefs.appearance={...APPEARANCE_DEFAULTS};save();applyAppearance();if(state.sim)redraw(state.sim);dialog.close()};close.type='button';close.onclick=()=>dialog.close();
+  foot.append(reset,close);dialog.append(group,foot);document.body.append(dialog);
+  dialog.addEventListener('close',()=>{dialog.remove();if(state.modal===dialog)state.modal=null},{once:true});dialog.showModal();
+ }
+ function getWorkspacePreferences(){
+  if(!state.userId)return null;
+  return {appearance:safeAppearance(prefs.appearance),chartStudies:prefs.studies.slice(0,18).map((s,i)=>({
+   id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+i,type:s.type,
+   period:Number.isInteger(s.period)?Math.max(1,Math.min(200,s.period)):14,
+   color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color:'#a78bfa',
+   width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid'}))};
+ }
+ function restoreWorkspacePreferences(doc){
+  if(!state.userId||!doc||typeof doc!=='object')return false;
+  if(doc.appearance)prefs.appearance=safeAppearance(doc.appearance);
+  if(Array.isArray(doc.chartStudies)){
+   const seen=new Set();
+   prefs.studies=doc.chartStudies.filter(s=>s&&LABELS[s.type]&&!seen.has(s.id)&&seen.add(s.id)).slice(0,18).map((s,i)=>({
+    id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+i,
+    type:s.type,period:Number.isInteger(s.period)?Math.max(1,Math.min(200,s.period)):14,
+    color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color:'#a78bfa',
+    width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid'}));
+  }
+  save();applyAppearance();if(state.sim)redraw(state.sim);return true;
  }
  function addLevel(){
   if(!state.sim?.candles.length)return;
@@ -415,7 +477,7 @@
  function clearMemberState(){
   // A user change must not leave provider candles, notes or studies visible in a former session.
   state.sim=null;state.hover=null;state.userId=null;state.tempPlan=null;state.source='';state.count=0;
-  prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true};
+  prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
   state.follow=true;
   if(state.chart){
    try{state.candles?.setData([]);state.volume?.setData([])}catch{}
@@ -465,5 +527,5 @@
   state.tempPlan=null;
   if(state.mounted&&state.sim)redraw(state.sim);
  }
- root.CrownlightStudio={render:redraw,clearMemberState,setTemporaryPlanLevels,clearTemporaryPlanLevels,getStatus:()=>({mounted:state.mounted,library:!!root.LightweightCharts,studies:prefs.studies.map(s=>s.type),revealed:state.count,spacing:state.chart?.timeScale().options().barSpacing??null})};
+ root.CrownlightStudio={render:redraw,clearMemberState,setTemporaryPlanLevels,clearTemporaryPlanLevels,getWorkspacePreferences,restoreWorkspacePreferences,getStatus:()=>({mounted:state.mounted,library:!!root.LightweightCharts,studies:prefs.studies.map(s=>s.type),revealed:state.count,spacing:state.chart?.timeScale().options().barSpacing??null})};
 })(window);
