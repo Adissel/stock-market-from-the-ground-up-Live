@@ -130,8 +130,9 @@ try{
  assert.notEqual(otherPrefs.appearance.bullish,'#17ae67');
  assert.equal(records.has(members[1]),false,'No write is necessary for a different member');
  // CAS: one browser edits newer revision; stale tab cannot overwrite it.
+ const savedRevision=await b.page.evaluate(()=>window.CrownlightWorkspaceV2.getStatus().revision);
  await b.page.locator('[data-cl-save]').click();
- await b.page.waitForFunction(()=>window.CrownlightWorkspaceV2.getStatus().revision==='2026-11-01T16:00:02.000Z');
+ await b.page.waitForFunction(previous=>window.CrownlightWorkspaceV2.getStatus().revision!==previous,savedRevision);
  await a.page.locator('[data-cl-save]').click();
  await a.page.waitForFunction(()=>document.querySelector('.cl-workspace-status')?.textContent.includes('Another tab saved newer'));
  assert.equal(records.get(members[0]).settings.appearance.bullish,'#17ae67');
