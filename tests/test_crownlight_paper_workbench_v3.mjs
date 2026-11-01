@@ -92,7 +92,9 @@ try{
  assert.match(chart,/handleScroll:\{pressedMouseMove:true/);
  assert.match(chart,/kineticScroll:\{touch:true,mouse:false\}/);
  // Replay of only 8 completed bars must not zoom those candles across the full viewport.
- assert.match(chart,/const visibleBars=80,rightPadding=16;/);
+ assert.match(chart,/const visibleBars=80,rightPadding=safeAppearance\(prefs\.appearance\)\.rightBuffer;/);
+ assert.match(chart,/rightBuffer:16/,'Sparse replay must retain a 16-bar default right buffer');
+ assert.match(chart,/barSpacing:10/,'Sparse replay must retain its default bar density');
  assert.match(chart,/scale\.setVisibleLogicalRange\(\{from,to:from\+visibleBars\+rightPadding\}\)/);
  assert.match(chart,/barSpacing:10,minBarSpacing:\.6/);
  assert.match(html,/crownlight-paper-terminal-v1\.js/);
