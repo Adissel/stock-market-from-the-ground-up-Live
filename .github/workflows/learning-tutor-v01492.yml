@@ -122,6 +122,7 @@ on:
       - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
       - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
       - 'tests/talia-tutor40-conversational-quality-v1.test.mjs'
+      - 'tests/talia-regulatory-timing-notices-v1.test.mjs'
       - 'scripts/qa/talia_recursive_indicators_v1.mjs'
       - 'scripts/qa/talia_recursive_indicators_python_v1.py'
       - 'data/talia-claims-remaining21-source-review-v1.json'
@@ -343,6 +344,7 @@ on:
       - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
       - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
       - 'tests/talia-tutor40-conversational-quality-v1.test.mjs'
+      - 'tests/talia-regulatory-timing-notices-v1.test.mjs'
       - 'scripts/qa/talia_recursive_indicators_v1.mjs'
       - 'scripts/qa/talia_recursive_indicators_python_v1.py'
       - 'data/talia-claims-remaining21-source-review-v1.json'
@@ -558,6 +560,7 @@ jobs:
           node tests/talia-recursive-indicators-python-js-v1.test.mjs
           node tests/talia-claim-40-source-disposition-v1.test.mjs
           node tests/talia-tutor40-conversational-quality-v1.test.mjs
+          node tests/talia-regulatory-timing-notices-v1.test.mjs
           node tests/talia-40-claim-multiturn-source-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
