@@ -25,6 +25,10 @@ node --check assets/js/watchlist-talia-workstation-v4.js
 node tests/test_talia_watchlist_v4.mjs
 node --check functions/api/talia-watchlist-reports-v1.js
 node tests/test_talia_watchlist_persistence_v1.mjs
+# Foundation source-only mathematics and expanded indicator retrieval must pass before release.
+node --check functions/_lib/tutor-foundation-worked-math-v1.js
+node tests/talia-foundation-worked-math-v1.test.mjs
+node tests/talia-foundation-indicator-expansion-v1.test.mjs
 for asset in assets/js/journal-visual-v3.js assets/js/journal-trade-story-v3.js; do
   node --check "$asset"
 done
