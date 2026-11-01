@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
+import '../assets/js/prototype-indicator-workbench-v2.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const source=read('data/lab-teaching-bridges-v014168.json');
@@ -40,6 +41,10 @@ assert.equal(moduleCodes.size,73);
 for(const guide of allGuides)assert.ok(moduleCodes.has(guide.code),'Missing Tutor module: '+guide.code);
 assert.equal(academyPrograms.length,10);
 assert.equal(academyPrograms.reduce((n,p)=>n+p.days,0),274);
+const calculated=globalThis.CrownlightPrototypeIndicators?.specs;
+assert.ok(Array.isArray(calculated),'Local first-party computed studies missing');
+assert.equal(calculated.length,16);
+assert.equal(new Set(calculated.map(x=>x.id)).size,16);
 const lineOccurrences=new Map();
 for(const [id,row] of rows){
  assert.equal(row.labId,id,'Lab identity drift');
@@ -83,7 +88,7 @@ const report={
  status:'SOURCE AUDIT ONLY — NO EDITORIAL OR MEMBER ACCEPTANCE',
  method:'Structural source assertions; repeated paragraph threshold 30+ across the five Lab teaching facets',
  inventory:{labs:419,competencies:30,bootCampPrograms:10,bootCampDays:274,freeFoundationsDays:5,
-   tutorIndicatorGuides:73,tutorGuidedModules:146,sourceComputedChartStudies:16},
+   tutorIndicatorGuides:73,tutorGuidedModules:146,sourceComputedChartStudies:calculated.length},
  findings:{
   subjectSpecificSourceTagged:subjectSpecific,
   subjectSpecificSourceTaggedPct:Number((100*subjectSpecific/419).toFixed(2)),
