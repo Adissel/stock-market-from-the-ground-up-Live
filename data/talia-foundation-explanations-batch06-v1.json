@@ -530,7 +530,7 @@
       "workedCase": "FICTIONAL: Liquidation yields $700,000 assets against $800,000 enforceable senior claims. A simple model leaves $0 for common shares, rather than the negative $100,000 becoming an automatic personal bill to fully paid common holders.",
       "limit": "Real liquidation priorities, subordinated debt and preferred terms are more complex than a two-line classroom waterfall.",
       "invalidation": "If creditor seniority, assets or contractual security terms are unknown, do not infer recovery to any holder.",
-      "commonError": "Calling a stock certificate a promise to repay principal at maturity.",
+      "commonError": "Treating a fully paid common share as a promise to repay principal at maturity, or assuming a liquidation shortfall automatically becomes a personal debt of every common shareholder. Corporate law and claim priority must be distinguished from share-price performance.",
       "selfCheck": "Explain why a bondholder and a common stockholder have different contractual claims in an issuer failure.",
       "reviewExplanation": "Correct response compares ownership residual with debt obligation and rejects guaranteed recovery for shareholders.",
       "transferQuestion": "FICTIONAL TRANSFER: $1.2m realizable assets, $1m higher-priority enforceable claims. Identify the maximum simple-model residual before preferred claims and expenses.",
