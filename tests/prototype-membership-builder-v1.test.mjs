@@ -17,6 +17,13 @@ assert.deepEqual(codes,['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_M
 assert.equal(api.presets().length,20,'20 different adjustable presets required');
 assert.equal(new Set(Array.from(api.presets(),x=>x.id)).size,20,'each preset identity must be unique');
 api.init({userId:'test-owner',onChange:()=>{}});
+for(const code of codes){
+ api.changeMembership(code);
+ assert.ok(Array.from(api.presets(),x=>x.id).includes(api.selected().id),'membership '+code+' must reference an actual preset');
+}
+api.changeMembership('FULL_MONTHLY');
+assert.equal(api.selected().id,'analysis-desk','Monthly plan must use a registered preset');
+
 api.changeMembership('FOUNDING_60');api.adjust('barWidth',33);api.adjust('detail','Expert');api.selectPreset('full-detail-bars');
 api.adjust('barWidth',33);
 api.changeMembership('FREE');api.adjust('barWidth',8);api.adjust('detail','Clean');
