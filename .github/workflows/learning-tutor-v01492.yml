@@ -117,6 +117,12 @@ on:
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
+      - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
+      - 'scripts/qa/talia_recursive_indicators_v1.mjs'
+      - 'scripts/qa/talia_recursive_indicators_python_v1.py'
+      - 'data/talia-claims-remaining21-source-review-v1.json'
+      - 'data/talia-claim-regulatory-risk-104-133-v1.json'
       - 'data/talia-indicator-16-30-python-reference-v1.json'
       - 'data/talia-indicator-16-30-review-v1.json'
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
@@ -329,6 +335,12 @@ on:
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
+      - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
+      - 'scripts/qa/talia_recursive_indicators_v1.mjs'
+      - 'scripts/qa/talia_recursive_indicators_python_v1.py'
+      - 'data/talia-claims-remaining21-source-review-v1.json'
+      - 'data/talia-claim-regulatory-risk-104-133-v1.json'
       - 'data/talia-indicator-16-30-python-reference-v1.json'
       - 'data/talia-indicator-16-30-review-v1.json'
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
@@ -536,6 +548,8 @@ jobs:
           node tests/talia-upload5-and-claims-v1.test.mjs
           node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
           node tests/talia-indicators16-30-independent-math-v1.test.mjs
+          node tests/talia-recursive-indicators-python-js-v1.test.mjs
+          node tests/talia-claim-40-source-disposition-v1.test.mjs
           node tests/talia-40-claim-multiturn-source-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
