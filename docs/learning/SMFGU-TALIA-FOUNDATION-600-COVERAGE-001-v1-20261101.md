@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.0 / 2026-11-01 |
+| Version / date | 1.1 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -41,8 +41,8 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - **419** canonical Lab IDs mapped to **30** existing official competencies. This mapping is provisional editorial context, NOT 419 independent verified Tutor lessons.
 - **274** Boot Camp study days across ten programs (247 earlier + 27 newer beta); individual study-day instruction and independent grading approval are separate.
 - **30** original official competency public source guides remain unchanged.
-- **61** original authored indicator study guides, **53** original numeric synthetic guided indicator demonstrations, **8** original interpretation-only guided indicator lessons; the 61 registered guided-practice study modules remain unchanged.
-- **12 new** original source-informed, nonduplicate indicator briefs are now in `data/tutor-indicator-expansion-v1.json`: Elder-Ray, Ease of Movement, Choppiness Index, Vortex, Ultimate Oscillator, TSI, Ulcer Index, Mass Index, NVI, PVI, DPO, Fisher Transform. These are **not yet 12 implemented computed ECharts overlays**, not yet 12 new nine-stage guided-practice modules, and not independently editorial-accepted.
+- **61** original authored indicator study guides, **53** original numeric synthetic guided indicator demonstrations, **8** original interpretation-only guided indicator lessons; the original 61 registered guided-practice indicator modules remain unchanged within their frozen 134-module catalog.
+- **12 new** original source-informed, nonduplicate indicator briefs are now in `data/tutor-indicator-expansion-v1.json`: Elder-Ray, Ease of Movement, Choppiness Index, Vortex, Ultimate Oscillator, TSI, Ulcer Index, Mass Index, NVI, PVI, DPO, Fisher Transform. These are **not 12 computed ECharts overlays** and are not independently editorial-accepted. Each now has a separately authored nine-stage interpretation-only guided practice in `data/tutor-guided-practice-expansion-v1.json`.
 - Source-only Tutor retrieval is extended using the existing public validated guide loader and approved sources, without a separate database, model endpoint or paid provider.
 - **13** of the 30 canonical competencies now have original fictional quantitative teaching cases with alternate calculations, up from seven: the previous seven plus spread/slippage, float/turnover, MFE/MAE, documented session high distance, Level II quote/depth, and multi-timeframe bar-count mathematics.
 - Existing computed Chart Studio selections remain **16**, separately calculated and licensed. Do not report 73 chart overlays.
@@ -54,7 +54,7 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 3. **Build-time regression:** Run the Foundation numeric fixture and source retrieval tests in both the Tutor GitHub Actions workflow and `scripts/build-pages.sh` before Cloudflare publishes.
 4. **600-topic editorial register:** Develop distinct concept keys and editorial evidence per domain, cross-reference canonical Labs and 274 study days, and apply duplicate checks. Only source-written, independently reviewed explanations increase the approved numerator.
 5. **Extended mathematics:** Add concept-specific calculations where valid (VWAP exact-vs-bar source distinction, EMA9/EMA20/EMA200 periods and warm-up, OHLC structure, volatility, position mathematics, slippage, expected value, options arithmetic). No calculation is fabricated where feed or rights cannot support it.
-6. **Indicator guided expansion:** Progress the 12 new source briefs into individual nine-stage ungraded guided lessons and independently verified numeric math or interpretation-only restrictions; do not blindly change the existing 61-guided-program registry.
+6. **Indicator guided expansion:** Twelve new nine-stage, interpretation-only guided lessons are source implemented in the original player (146 total guided modules, 73 indicator modules). Next: independent educational/real-member acceptance and numerical implementations only when formulas, warmup and data rights justify them. Preserve the original 134/61 source files.
 7. **ECharts/visual teaching:** React 19/TypeScript with lifecycle-safe same-origin ECharts 6.1 for rich synchronized chart workspaces when justified; existing accessible HTML5/CSS3 and JavaScript are correct for the original Tutor conversation surface. Chart studies must be explicitly registered and no future bar revealed.
 8. **Personalized tutoring:** Strengthen verified follow-up, misconception explanation, accessible-language corrections and ungraded independent transfer; no protected answers and no paid AI turned on.
 9. **Member access QA:** Free and entitled plan permissions, owner role, 18+, privacy, opt-in history storage, delete, downgrade, no-charge provider gates, actual real-member browser testing.
@@ -70,7 +70,7 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 ## Completion denominator and acceptance notation
 - Four-edition cumulative specification: 4/4 = **100% defined**, separate from actual releases.
 - First Foundation mathematics source *batch*: 13/13 intended supported scenario topics implemented in code; **not** 13/13 independently accepted production lessons.
-- Indicator public source briefs: 73 authored total (61 existing + 12 added). New 12/12 source entries complete; new guided-practice implementations 0/12, new operational chart overlay implementations 0/12.
+- Indicator public source briefs: 73 authored total (61 existing + 12 added). New 12/12 source entries complete; new nine-stage guided-practice source implementations **12/12**, new operational chart overlay implementations **0/12**. The 12 lessons remain interpretation-only and individually unapproved.
 - 600 **individually accepted original Tutor explanations**: numerator **unverified**. Do not call the 30 core or all existing Lab/indicator summaries new accepted explanations without item-level editorial reviews. A completion percentage for 600 requires an individually controlled acceptance register.
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
@@ -79,5 +79,6 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 | Version | Date | Change | Status |
 |---|---|---|---|
 | 1.0 | 2026-11-01 | Establish owner-directed 600 true Tutor explanations; add 12 distinct indicator briefs and six more worked-math topics; maintain 30 official competencies and existing 61 guided-practice modules | Source implemented; editorial and authenticated verification pending |
+| 1.1 | 2026-11-01 | Add 12 distinct interpretation-only nine-stage guided modules; original 134/61 preserved, shared browser player extended to 146/73 | Source implemented, build/CI/member/editorial acceptance still separately gated |
 
 **Footer:** SMFGU-TALIA-FOUNDATION-600-COVERAGE-001 v1.0 · Main-only · Editorial approval must be individual · No cost/protected-grade/provider bypass.
