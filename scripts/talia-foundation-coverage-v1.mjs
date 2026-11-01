@@ -22,6 +22,8 @@ const second=read('data/talia-foundation-explanations-batch02-v1.json').guides;
 const third=read('data/talia-foundation-explanations-batch03-v1.json').guides;
 const fourth=read('data/talia-foundation-explanations-batch04-v1.json').guides;
 const fifth=read('data/talia-foundation-explanations-batch05-v1.json').guides;
+const sixth=read('data/talia-foundation-explanations-batch06-v1.json').guides;
+const seventh=read('data/talia-foundation-explanations-batch07-v1.json').guides;
 assert.equal(labs.totalCanonicalLabs,419);
 assert.equal(Object.keys(labs.byLab).length,419);
 assert.equal(labs.mappedLabs,419);
@@ -30,12 +32,12 @@ assert.equal(academyPrograms.length,10);
 assert.equal(academyPrograms.reduce((n,p)=>n+p.curriculum.length,0),274);
 assert.equal(baseline.length,61);assert.equal(extensions.length,12);
 assert.equal(guided.length,134);assert.equal(guidedMore.length,12);
-assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);assert.equal(fourth.length,20);assert.equal(fifth.length,20);
+assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);assert.equal(fourth.length,20);assert.equal(fifth.length,20);assert.equal(sixth.length,20);assert.equal(seventh.length,20);
 assert.equal(FOUNDATION_WORKED_MATH_CODES.length,13);
 assert.equal(FOUNDATION_QUANT_TOPICS.length,9);
-const topics=[...first,...second,...third,...fourth,...fifth];
-assert.equal(new Set(topics.map(g=>g.code)).size,100);
-assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,100);
+const topics=[...first,...second,...third,...fourth,...fifth,...sixth,...seventh];
+assert.equal(new Set(topics.map(g=>g.code)).size,140);
+assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,140);
 assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);assert.equal(TALIA_RESEARCH_MATH_CODES.length,14);
 assert.equal(TALIA_STUDY_CALCULATED.length,8);
 const grades=new Set(core.map(x=>x.code));
@@ -90,7 +92,7 @@ const metrics={
  candidateBootCampMatches:crosswalk.reduce((n,x)=>n+x.candidateBootCampDays.length,0)
 };
 const result={documentId:'SMFGU-TALIA-COVERAGE-001',version:'1.0',status:'ungraded_public_source_only_not_editorially_accepted',metrics,
- note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 100 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
+ note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 140 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/talia-foundation-coverage-v1.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({documentId:result.documentId,metrics,warning:result.note}));
