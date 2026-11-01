@@ -409,9 +409,15 @@ function formatFoundationTopic(g,mode,reflection,question){
    'Self-check: '+g.selfCheck,
    'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\n\n');
 }
+function researchCurrentnessForTopic(g){
+ if(g?.code==='TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK')return 'Source correction: The SEC 2023 share-repurchase disclosure modernization rule was vacated effective December 19, 2023; the archived speech is not current disclosure law. See https://www.sec.gov/rules-regulations/2024/03/s7-21-21.';
+ if(g?.code==='TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE')return 'Replay timing warning: EDGAR acceptance is not the precise first public availability instant; the SEC notes publication can lag. See https://www.sec.gov/about/webmaster-frequently-asked-questions.';
+ return '';
+}
 function answerFromGuide(g,mode,answer,question=''){
- if(mode==='explain'&&MISCONCEPTION_INTENT.test(String(question||'')))return sourceOnlyMisconception(g);
- if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question);
+ const note=researchCurrentnessForTopic(g);
+ if(mode==='explain'&&MISCONCEPTION_INTENT.test(String(question||'')))return sourceOnlyMisconception(g)+(note?'\n\n'+note:'');
+ if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question)+(note?'\n\n'+note:'');
  // Reuse published canonical guide IDs; practice/review remain independently answered.
  const worked=mode==='explain'&&g?.officialCompetency!==false?foundationWorkedMath(g.code,question):null;
  // Requested source-only deeper teaching cannot introduce an AI charge.
