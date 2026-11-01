@@ -87,7 +87,7 @@ INSERT INTO public.cl_classroom_membership_codes(plan_code,display_name,default_
 ('FOUNDING_14','Founding 14-Day Starter','guided-workshop'),
 ('FOUNDING_30','Founding 30-Day','analysis-desk'),
 ('FOUNDING_60','Founding 60-Day','flagship-classroom'),
-('FULL_MONTHLY','Full Platform — Monthly','technical-analysis'),
+('FULL_MONTHLY','Full Platform — Monthly','analysis-desk'),
 ('FULL_ANNUAL','Full Platform — Annual','knowledge-transfer'),
 ('LIFETIME','Lifetime Platform Access','full-detail-bars'),
 ('ONDEMAND_MONTHLY','Historical Replay / OnDemand — Monthly','replay-control')
