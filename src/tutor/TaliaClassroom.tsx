@@ -67,7 +67,7 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
           xAxis:{type:'category',data:REPLAY.slice(0,visible).map((_,i)=>'Bar '+(i+1)),axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},
           yAxis:{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},
           tooltip:{trigger:'item',formatter:(x:{dataIndex:number})=>{
-            const r=REPLAY[x.dataIndex];return r?'Fictional bar '+(x.dataIndex+1)+' | O '+r[0]+' H '+r[3]+' L '+r[2]+' C '+r[1]:'';
+            const r=REPLAY.slice(0,visible)[x.dataIndex];return r?'Fictional bar '+(x.dataIndex+1)+' | O '+r[0]+' H '+r[3]+' L '+r[2]+' C '+r[1]:'';
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
             data:REPLAY.slice(0,visible),itemStyle:{color:'#38c6a6',color0:'#e37779',borderColor:'#38c6a6',borderColor0:'#e37779'}}]
@@ -87,8 +87,8 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
   },[visible,onQuestion]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
-    <div className="tc-row tc-row-between"><h2>Chart classroom</h2><span className="tc-pill">FICTIONAL / NO LOOKAHEAD</span></div>
-    <p>Inspect only the candles revealed at the current exercise boundary. This is not a market feed or a graded historical replay.</p>
+    <div className="tc-row tc-row-between"><h2>Chart classroom</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
+    <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
     <div className="tc-chart" ref={host} role="img" aria-label={'Fictional price chart showing '+visible+' completed candlesticks'} />
     <p className="tc-muted" role="status">{status}</p>
     <table className="tc-candle-table"><caption>Latest visible completed candle</caption>
