@@ -59,6 +59,24 @@ try{
   await page.locator('#pt-app').waitFor({state:'visible',timeout:16000});
   await page.locator('[data-prototype-case]').waitFor({state:'visible',timeout:14000});
   assert.equal(await page.locator('#pt-nav button').count(),23);
+  assert.equal(await page.locator('#pt-membership option').count(),8,'all approved membership products should be previewable');
+  await page.locator('#pt-membership').selectOption('LIFETIME');
+  await page.locator('#pt-nav button:has-text("Classroom Builder")').click();
+  await page.locator('select[aria-label="Classroom preset — 20 available"]').waitFor({state:'visible'});
+  assert.equal(await page.locator('select[aria-label="Classroom preset — 20 available"] option').count(),20);
+  await page.locator('select[aria-label="Classroom preset — 20 available"]').selectOption('candle-anatomy');
+  await page.locator('select[aria-label="Bar detail"]').selectOption('Expert');
+  assert.match(await page.locator('#pt-bar-inspector').textContent(),/Upper wick/);
+  await page.locator('#pt-save').click();
+  await page.locator('#pt-membership').selectOption('FULL_ANNUAL');
+  assert.match(await page.locator('#pt-content').textContent(),/Study Academy/);
+  await page.locator('select[aria-label="Classroom preset — 20 available"]').selectOption('presentation');
+  await page.locator('#pt-membership').selectOption('LIFETIME');
+  assert.equal(await page.locator('select[aria-label="Classroom preset — 20 available"]').inputValue(),'candle-anatomy','presets must remain separate by membership');
+  await page.locator('#pt-membership').selectOption('ONDEMAND_MONTHLY');
+  assert.match(await page.locator('#pt-content').textContent(),/Replay Classroom/);
+  await page.locator('#pt-membership').selectOption('FREE');
+
   await page.waitForFunction(()=>document.querySelector('#pt-chart-status')?.textContent?.startsWith('Interactive'),null,{timeout:20000});
   await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 3 of 4 candles/);
