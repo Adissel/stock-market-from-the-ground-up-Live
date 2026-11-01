@@ -6,6 +6,9 @@ on:
     paths:
       - '.github/workflows/academy-guided-v1.yml'
       - 'assets/js/academy-guided-v1.js'
+      - 'assets/js/member-learning-layouts-v1.js'
+      - 'assets/css/member-learning-layouts-v1.css'
+      - 'tests/member-learning-layouts-v1.test.mjs'
       - 'assets/css/academy-guided-v1.css'
       - 'assets/js/bootcamp-academy-v014168.js'
       - 'assets/js/bootcamp.js'
@@ -33,6 +36,7 @@ jobs:
           node --check assets/js/academy-guided-v1.js
           node --check assets/js/bootcamp.js
           node --check assets/js/bootcamp-academy-v014168.js
+          node tests/member-learning-layouts-v1.test.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_guided_browser_v1.mjs
           node tests/test_academy_charts45_batch04_v1.mjs

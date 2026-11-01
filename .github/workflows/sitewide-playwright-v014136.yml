@@ -39,6 +39,7 @@ jobs:
         run: node tests/test_pages_functions_route_manifest_v014257.mjs
       - name: Verify all 419 authorized universal Lab study bridges
         run: |
+          node tests/member-learning-layouts-v1.test.mjs
           node tests/test_v014162_419_universal.mjs
           node tests/test_v33_workstation_source_contract.mjs
           node tests/test_v32_prototype_exact_fidelity.mjs

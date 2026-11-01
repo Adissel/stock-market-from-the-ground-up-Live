@@ -35,9 +35,15 @@
   if(/indicator|vwap|ema|rsi|macd|bollinger|fibonacci|moving average|\batr\b/.test(s))return 'indicator';
   return 'foundations';
  }
+ function resetLab(){
+  const el=document.getElementById('lab-player-content');
+  el?.querySelector('[data-cl-live-layout-head]')?.remove();if(el)delete el.dataset.clLiveLayout;
+  delete document.body.dataset.clLiveLayout;
+ }
  function activateLab(meta){
   const el=document.getElementById('lab-player-content');
-  if(!el||el.hidden)return false;
+  if(!el)return false;
+  // This is only invoked after the existing server-authorized mode check.
   const kind=classifyLab(meta||{});layout(kind);el.dataset.clLiveLayout=kind;
   head(kind,el,[['Talia','gu-v32-teaching-slot'],['Source references','gu-ws-study-source'],['Decision and review','gu-ws-member-workbench'],['Results','player-results']]);return true;
  }
@@ -79,6 +85,6 @@
   const legacyShell=document.getElementById('gu-bc-shell');
   if(legacyShell){const update=()=>{if(!legacyShell.hidden)legacy()};new MutationObserver(update).observe(legacyShell,{attributes:true,attributeFilter:['hidden']});update();}
  }
- globalThis.CrownlightMemberLayoutsV1=Object.freeze({version:'1.0',programToLayout:programs,classifyLab,activateLab});
+ globalThis.CrownlightMemberLayoutsV1=Object.freeze({version:'1.0',programToLayout:programs,classifyLab,activateLab,resetLab});
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
