@@ -94,7 +94,7 @@ const chartTutor=globalThis.CrownlightChartTutor;
 assert.ok(typeof chartTutor?.analyze==='function','Talia chart coaching must be available');
 const tutoringBars=Array.from({length:220},(_,i)=>{
  const close=25+i*.07;
- return {open:close-.03,high:close+.18,low:close-.19,close,volume:1100+(i%7)*40};
+ return {time:new Date(Date.UTC(2024,4,7,14,30+i)).toISOString(),open:close-.03,high:close+.18,low:close-.19,close,volume:1100+(i%7)*40};
 });
 const underwarmed=chartTutor.analyze(tutoringBars.slice(0,199));
 const exactlyWarmed=chartTutor.analyze(tutoringBars.slice(0,200));
