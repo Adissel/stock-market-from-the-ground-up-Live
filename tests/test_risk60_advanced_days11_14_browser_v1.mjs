@@ -1,4 +1,4 @@
-/* Synthetic responsive-browser acceptance: original Risk60 D11 and D14.
+/* Synthetic responsive-browser acceptance: original Risk60 D11–D22.
  * No real QA sign-in, fees, scores or Supabase writes.
  */
 import assert from 'node:assert/strict';
@@ -13,6 +13,40 @@ for(const index of [10,13,14,17,18,19,20,21]){
  assert.equal(d.lesson.formativeQuestions.length,12);
  assert.equal(d.lesson.advancedPracticums.length,1);
 }
+// Editorial contract for distinct original Day 21–22 guided instruction.
+// This suite does not approve protected cases or impersonate a human tester.
+const focus=[course.curriculum[20],course.curriculum[21]];
+const promptIds=new Set();
+for(const [index,day] of focus.entries()){
+ const dayNumber=21+index;
+ assert.equal(day.day,dayNumber);
+ assert.equal(day.lesson.formativeQuestions.length,12);
+ assert.equal(day.lesson.advancedPracticums.length,1);
+ assert.equal(day.officiallyGraded,false);
+ for(const q of day.lesson.formativeQuestions){
+  assert(!promptIds.has(q.id),'Duplicate D21–D22 formative question identity');
+  promptIds.add(q.id);
+  assert(q.prompt.length>25&&q.review.length>55,'Question and calculation feedback must be substantive');
+ }
+ const a=day.lesson.advancedPracticums[0];
+ for(const key of ['scenario','task','worked','pitfall','transfer'])
+  assert(a[key].length>65,'Advanced risk practicum incomplete: '+key);
+}
+assert.equal(promptIds.size,24);
+const d21=focus[0].lesson,d22=focus[1].lesson;
+assert.match(d21.advancedPracticums[0].worked,/33 minutes/);
+assert.match(d21.advancedPracticums[0].worked,/28 minutes/);
+assert.match(d22.formativeQuestions[10].prompt,/0\\.50%/);
+assert.doesNotMatch(d22.formativeQuestions[10].prompt,/\\$0\\.50%/);
+const close=(actual,expected)=>assert(Math.abs(actual-expected)<1e-6,
+ 'Wrong source teaching arithmetic: '+actual+' expected '+expected);
+close((12.72-12)/12*100,6);
+close(12.72-12.60,.12);
+close((12.72+12.60)/2,12.66);
+close((12.72-12.60)/12.66*100,.9478672985781991);
+close((18.45-18)/18*100,2.5);
+close((18.46-18.38)/((18.46+18.38)/2)*100,.434310532030402);
+assert.match(d22.advancedPracticums[0].worked,/NO TRADE/);
 const identity=[
  "window.getSupabaseClient=async()=>({auth:{",
  "getUser:async()=>({data:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'}}}),",
@@ -22,7 +56,7 @@ const identity=[
 ].join('\n');
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
- for(const width of [390,768,1440]){
+ for(const width of [390,768,1024,1440]){
   const ctx=await browser.newContext({viewport:{width,height:930},serviceWorkers:'block',reducedMotion:'reduce'});
   const page=await ctx.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
@@ -52,5 +86,5 @@ try{
   assert.deepEqual(errors,[],'No browser JS error for Risk60 D11/D14/D15/D18/D19/D20/D21/D22');
   await ctx.close();
  }
- console.log('PASS SYNTHETIC Risk60 D11/D14/D15/D18/D19/D20/D21/D22 advanced guided day routes and responsive mobile/tablet/desktop. Not real Beta member acceptance.');
+ console.log('PASS SYNTHETIC Risk60 D11–D22 selected advanced day routes at four viewport widths; D21/D22 have 24 distinct original questions, 2 worked transfers and validated quote/return/spread mathematics. Not real Beta member or graded assessment acceptance.');
 }finally{await browser.close()}
