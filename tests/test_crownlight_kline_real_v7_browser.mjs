@@ -19,7 +19,7 @@ try{
  const errors=[];
  page.on('pageerror',e=>errors.push(e.message));
  await page.route('**/*',async route=>{
-  const u=new URL(route.request().url);
+  const u=new URL(route.request().url());
   if(u.origin!==origin)return route.abort();
   if(u.pathname==='/charts')return route.fulfill({contentType:'text/html',body:
    '<!doctype html><html><body><div id="cl-chart-tier-switcher"></div>'+
