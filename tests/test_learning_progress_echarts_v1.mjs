@@ -3,6 +3,11 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {chromium} from 'playwright';
 const script=readFileSync(new URL('../assets/js/learning-progress-echarts-v1.js',import.meta.url),'utf8');
+const kit=readFileSync(new URL('../assets/js/crownlight-visual-kit-v1.js',import.meta.url),'utf8');
+for(const page of ['lab-player.html','bootcamp-academy.html']){
+ const html=readFileSync(new URL('../'+page,import.meta.url),'utf8');
+ assert(html.indexOf('crownlight-visual-kit-v1.js')<html.indexOf('learning-progress-echarts-v1.js'));
+}
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 const fragment=id=>'<div id="'+id+'" class="gu-learning-progress" hidden><span class="gu-learning-progress-stage"></span><span class="gu-learning-progress-percent"></span><div class="gu-learning-progress-chart"></div><div class="gu-learning-progress-fallback" role="progressbar" aria-valuenow="0"><span></span></div></div>';
 const page=await browser.newPage();
@@ -17,6 +22,7 @@ try{
    window.__charts.push(c);return c;
   }})};
  });
+ await page.addScriptTag({content:kit});
  await page.addScriptTag({content:script});
  assert.equal(await page.locator('.gu-learning-progress:not([hidden])').count(),0);
  await page.evaluate(()=>window.CrownlightLearningProgress.mount('gu-learning-progress'));
@@ -29,6 +35,9 @@ try{
  assert.equal(await page.locator('#gu-learning-progress .gu-learning-progress-fallback').getAttribute('aria-valuenow'),'56');
  const series=await page.evaluate(()=>window.__charts[0].last.series);
  assert.equal(series.length,3);
+ const label=await page.evaluate(()=>window.__charts[0].last.aria.description);
+ assert.match(label,/Current visible learning stage 6 of 10: Replay \/ Practice/);
+ assert.match(label,/not a grade/);
  assert.equal(series[1].data.filter(x=>x===0).length,6);
  assert.equal(series[1].data.filter(x=>x===null).length,4);
  await page.evaluate(()=>window.CrownlightLearningProgress.unmount('gu-learning-progress'));
