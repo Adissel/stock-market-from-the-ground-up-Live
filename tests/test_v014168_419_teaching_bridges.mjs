@@ -44,12 +44,14 @@ for(const [id,m] of Object.entries(labs.byLab)){
  const row=bridge.entries[id];
  assert(row&&row.labId===id&&row.title===m.title);
  assert.equal(row.collection,m.bookCode);
- const isBatch02=String(row.instructionSource||'').startsWith('ORIGINAL_SUBJECT_SPECIFIC_BATCH02_');
+ const isAuthoredBatch= /^ORIGINAL_SUBJECT_SPECIFIC_BATCH0[234]_/.test(String(row.instructionSource||''));
+ const hasPendingEditorialHold=typeof row.sourceStatus==='string'&&row.sourceStatus.includes('PENDING')&&
+  !/EDITORIAL_(?:ACCEPTED|APPROVED)|HISTORICAL_(?:ACCEPTED|APPROVED)/.test(row.sourceStatus);
  const sourceHold=['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
    'BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING'].includes(row.sourceStatus)||
-   (isBatch02&&typeof row.sourceStatus==='string'&&row.sourceStatus.includes('PENDING'));
+   (isAuthoredBatch&&hasPendingEditorialHold);
  assert(sourceHold,id+' must remain source-only and editorial-pending; no verified market data or grade claimed');
- if(isBatch02){
+ if(isAuthoredBatch){
   assert.equal(row.transfer?.graded,false,id+' must not produce an independent grade');
   assert.equal(row.transfer?.noLookahead,true,id+' must not reveal future observations');
   assert.equal(row.transfer?.requiresNewEvidence,true,id+' must require new independent transfer evidence');
