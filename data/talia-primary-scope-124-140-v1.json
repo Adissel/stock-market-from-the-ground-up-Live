@@ -1,0 +1,61 @@
+{
+  "schema": "SMFGU-TALIA-PRIMARY-SCOPE-REVIEW-017",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "sourceMethod": "Primary-source page content reviewed publicly for listed claim scope; authored fictional math and publication acceptance remain separate",
+  "reviewedExplanationRange": "101-140",
+  "sourceNotes": [
+    {
+      "n": 124,
+      "code": "TALIA_TOPIC_EXACT_INFLATION_ADJUSTMENT",
+      "url": "https://www.bls.gov/cpi/factsheets/calculating-percent-changes.htm",
+      "verdict": "PARTIAL_SCOPE_ONLY",
+      "note": "BLS directly defines index percent changes and comparable period/base; it does not itself directly establish total real investment return, which also requires nominal return and the exact real-return relation (1+nominal)/(1+inflation)-1. Do not cite BLS for a broader tax or investing outcome.",
+      "fix": "Retain original fictional Fisher-style real-return arithmetic as independent math, attach exact BLS scope to inflation-rate input only."
+    },
+    {
+      "n": 135,
+      "code": "TALIA_TOPIC_INTEREST_COVERAGE_EBIT",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "verdict": "SOURCE_SCOPE_TOO_BROAD",
+      "note": "SEC financial guide explains interest expense and operating income, but its listed ratio formulas do not establish a specifically defined EBIT/interest-coverage ratio.",
+      "fix": "Use the SEC for primary statement line items; require an exact independently documented EBIT coverage definition and treatment of zero/negative interest."
+    },
+    {
+      "n": 137,
+      "code": "TALIA_TOPIC_RECEIVABLE_COLLECTION_DAYS",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "verdict": "SOURCE_SCOPE_TOO_BROAD",
+      "note": "SEC guide supports receivable/financial-statement concepts, not a direct DSO formula or real collections estimate; credit sales, period length, average receivables are additional inputs.",
+      "fix": "Teach DSO as a documented fictional approximation with matched credit revenue and average receivables; find a more exact accounting source."
+    },
+    {
+      "n": 138,
+      "code": "TALIA_TOPIC_ROE_AVERAGE_BOOK_EQUITY",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "verdict": "SOURCE_SCOPE_TOO_BROAD",
+      "note": "SEC guide discusses net income and shareholders' equity; the general guide is not direct evidence for the chosen average-equity ROE convention or preferred/noncontrolling treatment.",
+      "fix": "Require exact attributable income and average comparable equity numerator/denominator; source the specific ROE formula before publication."
+    },
+    {
+      "n": 139,
+      "code": "TALIA_TOPIC_DEBT_EQUITY_DEFINITION",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "verdict": "SUPPORTED_WITH_REQUIRED_VARIANT_LABEL",
+      "note": "SEC's explicit illustration uses TOTAL LIABILITIES divided by shareholders' equity. Interest-bearing debt/equity is a narrower alternative, not the cited formula.",
+      "fix": "State which numerator is used and never label interest-bearing debt/equity as the SEC's illustrated total-liabilities ratio."
+    },
+    {
+      "n": 140,
+      "code": "TALIA_TOPIC_EARNINGS_YIELD_VS_DIVIDEND",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "verdict": "SUPPORTED_BY_MATH_AND_EPS_DISTINCTION_WITH_CAVEAT",
+      "note": "SEC states P/E=share price/EPS, and EPS is earnings, not necessarily distributed cash. Earnings yield EPS/price is reciprocal P/E only for meaningful positive input conventions.",
+      "fix": "Clearly separate noncash earnings yield from actual dividend yield; zero/negative EPS or price makes reciprocal misleading or undefined."
+    }
+  ],
+  "itemsExamined": 6,
+  "independentPublicationAccepted": 0,
+  "status": "CLAIM_SCOPE_TIGHTENING_ONLY_NOT_INDEPENDENT_FINAL_SIGNOFF",
+  "reviewer": "editorial source-scope preflight"
+}
