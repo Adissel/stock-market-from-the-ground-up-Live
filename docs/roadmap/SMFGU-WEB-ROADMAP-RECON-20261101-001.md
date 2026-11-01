@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.2 / 2026-11-01 |
+| Version / prepared | 1.3 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -115,6 +115,25 @@ The nine-level source directory is authoritative for research selection, not bla
 
 **Active next batch:** complete remaining 34 claim-specific primary-source visits, finish and broaden indicator-platform convention testing, execute genuine Free/Founding/Owner and screen-reader acceptance, and freeze a matching full GitHub Actions + Cloudflare production SHA before new releases. The Owner Roadmap's total website percent remains **unassigned**, not retroactively derived from these source counts.
 
+
+## Section C — first coordinated indicator-visualization batch (2026-11-01)
+
+**Execution scope:** First-party ECharts Studio optional analytics, existing member-tier menu and shared indicator mathematics. **Status:** source committed to main; new exact-head CI and signed-in production acceptance pending independent evidence. Does not advance the 73 source-only guides to publication-approved status.
+
+**Files modified:** `assets/js/crownlight-echarts-studio-v1.js`, `assets/css/crownlight-echarts-v1.css`, `tests/test_crownlight_echarts_indicator_section_c_v1.mjs` (new), and `.github/workflows/crownlight-chart-studio-browser-v2.yml`. No DB migration, paid data provider, new API, membership entitlement, grading or saved member data change.
+
+**Existing source math reused:** EMA 9/20/200, SMA 20, session HLC3 VWAP proxy, Bollinger 20/2, observed session HOD/LOD, volume SMA 20, confirmed right-side structure. Accessible revealed-candle inspection also includes Wilder RSI 14, ATR 14 and core OHLCV. MACD remains available from the shared math for later dedicated oscillator panels. No replacement of the live Lightweight Charts renderer.
+
+**Source changes:** Per-study visibility toggles, EMA 9 line color, line style, chronological structure marks, warmup disclosures, precise source labeling, numerical table of the latest 30 already-revealed candles, session-sensitive calculations, account-switch scrub, responsive and keyboard-focus styling.
+
+**QA coverage introduced:** Real offline Chromium ECharts 6.1 rendering on 225 deterministic fictional OHLCV candles; numerical comparison with existing shared calculation outputs; EMA200 first-valid index, honest null warmup, revealed-only rewind, source table, controls, session teardown. Existing independent Python-vs-JavaScript cross-language acceptance tests remain mandatory. An offline fixture test is not independent claim review or real signed-in browser acceptance.
+
+**Denominator control:** 73/73 source guide records; existing 15/73 Python/JS checked instructional computations (20.55% mathematical comparison coverage; different from final item-level verification); 16/16 implemented prototype registry choices (not 16 accepted Tutor lessons); 0/73 independently approved for commercial publication in the inspected registers. Canonical mapping identifiers 419 Labs / 274 Academy days remain unchanged; no new independently evidenced indicator-by-course acceptance is claimed. Higher engine tiers remain unreleased, and final website-wide completion remains unassigned.
+
+**Research and rights:** Uploaded Master Research Source Directory is a source-assignment aid, not a blanket license or editorial approval. No third-party paid code, outside charts, restricted feed or trade execution introduced.
+
+**Acceptance before production sign-off:** exact-SHA required GitHub Actions, same-SHA Cloudflare build, verified signed-in Free/Founding/Owner tiers, mobile/keyboard/screen-reader, zero-lookahead and individual curriculum editorial reviews. Fail/cancel/pending must not be counted as passed.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -122,5 +141,6 @@ The nine-level source directory is authoritative for research selection, not bla
 | 1.0 | 2026-11-01 | Reconcile release records, engine edition targets, 93/380 Academy acceptance, source/graded separations and ten ordered gates in the real authenticated Roadmap UI | Source implementation; final production signoff open |
 | 1.1 | 2026-11-01 | Reconcile 73 Tutor study guides, 16 computed prototype studies, live Supabase/Risk60 audit findings and six prioritized execution gates | Read-only source evidence; independent release acceptance open |
 | 1.2 | 2026-11-01 | Link 1,366 identity projection, 40-claim evidence batch, 15-indicator Python/JS regression and no-release research holds | Source progress accepted as development evidence only |
+| 1.3 | 2026-11-01 | Implement first Section C ECharts overlay/control/table source batch; add offline Chromium CI gate; preserve denominator and release distinctions | Source implementation; exact-head CI, Cloudflare and authenticated acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.2 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.3 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
