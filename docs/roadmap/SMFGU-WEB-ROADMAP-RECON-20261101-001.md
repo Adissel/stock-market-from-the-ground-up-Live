@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.1 / 2026-11-01 |
+| Version / prepared | 1.2 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -97,11 +97,30 @@ The source change is a **scoped product/engineering implementation** only. CI su
 
 **Rollback:** Revert the new source, private API view field, HTML section, browser asset, stylesheet addition, new contract test and workflow references together on `main`. Preserve existing protected checklist, stored Owner progress and audit history; no Supabase migration or Stripe rollback.
 
+## November 1 accelerated source-evidence batch
+
+Latest controlled evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, a separately versioned QA document. The existing protected OWNER completion state, original **2,190 roadmap IDs**, and final approval requirements are **unchanged**.
+
+| Program | Updated non-release metric | Interpretation |
+|---|---:|---|
+| Tutor explanation authoring | 240/600 = 40.00% | Existing original explanatory source drafts; 360 future slots are NOT authored |
+| Multi-curriculum evidence generator | 1,366/1,366 identities accounted for | 600 Tutor targets + 73 indicator guides + 419 Labs + 274 Academy study days; identity catalog only |
+| New Foundation source-review batch | 40/40 recorded; 6/40 selected pages fact checked | Individual content and source scope records 101–140; NO final commercial publication or legal approval |
+| Independent 15-indicator cross-implementation batch | 15/15 test results matched Python/JavaScript in Cloudflare build | Fictional OHLCV fixture and declared EMA/warmup, NOT platform-agnostic or full 73-study final approval |
+| Source-only Tutor follow-up contract | Targeted Node regression passed in Cloudflare build | Verified prior question retrieval, excludes browser-supplied history and answer keys; not real authenticated conversation acceptance |
+| Remaining indicators | 73/73 source guides drafted | Full individual formula variants, warmup and publication-rights acceptance remains OPEN |
+| Learning + Lab versions | Basic shared v3.3 / v3.2 retained; Advanced/Professional/Enterprise not released | No false percent for source prototypes or new paid SKUs |
+
+The nine-level source directory is authoritative for research selection, not blanket rights: a verified fact or a correct independent formula does not grant copyright, exchange data, market-feed, redistribution or external model-training permission. The original `STT.zip` binary was not available to re-open in this execution; the prior preserved GitHub archive-review records remain the documented provenance boundary.
+
+**Active next batch:** complete remaining 34 claim-specific primary-source visits, finish and broaden indicator-platform convention testing, execute genuine Free/Founding/Owner and screen-reader acceptance, and freeze a matching full GitHub Actions + Cloudflare production SHA before new releases. The Owner Roadmap's total website percent remains **unassigned**, not retroactively derived from these source counts.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
 |---|---|---|---|
 | 1.0 | 2026-11-01 | Reconcile release records, engine edition targets, 93/380 Academy acceptance, source/graded separations and ten ordered gates in the real authenticated Roadmap UI | Source implementation; final production signoff open |
 | 1.1 | 2026-11-01 | Reconcile 73 Tutor study guides, 16 computed prototype studies, live Supabase/Risk60 audit findings and six prioritized execution gates | Read-only source evidence; independent release acceptance open |
+| 1.2 | 2026-11-01 | Link 1,366 identity projection, 40-claim evidence batch, 15-indicator Python/JS regression and no-release research holds | Source progress accepted as development evidence only |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.1 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.2 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
