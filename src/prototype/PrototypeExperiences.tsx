@@ -438,39 +438,10 @@ const featureRows=[
  ['Design/governance voting','Exclusive qualifying Founding 60-Day benefit'],
  ['Saved workspace','Requires account permissions and storage policy']
 ];
-const editionOrder=['Basic','Advanced','Professional','Enterprise'] as const;
-type EngineEdition=typeof editionOrder[number];
-const defaultEdition=(code:string):EngineEdition=>({
- FREE:'Basic',PICK_WHAT_YOU_WANT:'Basic',FOUNDING_14:'Basic',
- FOUNDING_30:'Advanced',FOUNDING_60:'Professional',
- FULL_MONTHLY:'Professional',LIFETIME:'Enterprise'
-} as Record<string,EngineEdition>)[code]||'Basic';
-function EngineAddOnPreview({planCode}:{planCode:string}){
- const base=defaultEdition(planCode);
- const [chosen,setChosen]=useState<Record<string,EngineEdition>>({learning:base,lab:base,tutor:base});
- useEffect(()=>setChosen({learning:base,lab:base,tutor:base}),[planCode,base]);
- const controls=[
-  {key:'learning',title:'Shared Learning Engine',basic:'v3.3 (Basic)'},
-  {key:'lab',title:'Shared Lab Engine',basic:'v3.2 (Basic)'},
-  {key:'tutor',title:'Talia Market Tutor',basic:'v0.14.0.149 (Basic)'}
- ];
- return <section className="cx-panel" aria-label="Independent learning engine add-on preview">
-  <div className="cx-panel-head"><h3>Build your engine experience</h3><span className="cx-chip">NONCOMMERCIAL PREVIEW</span></div>
-  <p className="cx-small">Membership default: {engineProfile(planCode)}. Select each engine independently to preview a potential upgrade. These controls do not authorize access, create a paid product, or change member data.</p>
-  {controls.map(c=><div className="cx-data-row" key={c.key}>
-   <label htmlFor={'cx-engine-'+planCode+'-'+c.key}><strong>{c.title}</strong><small style={{display:'block'}}>Basic source: {c.basic}</small></label>
-   <select id={'cx-engine-'+planCode+'-'+c.key} aria-label={c.title+' edition preview'}
-    value={chosen[c.key]||base} onChange={e=>setChosen(v=>({...v,[c.key]:e.target.value as EngineEdition}))}>
-    {editionOrder.map(edition=><option value={edition} key={edition}>{edition}{edition===base?' · default':''}</option>)}
-   </select>
-  </div>)}
-  <p className="cx-small" role="status">Preview combination: {chosen.learning||base} Learning / {chosen.lab||base} Lab / {chosen.tutor||base} Talia. Any paid upgrade requires a published version, verified entitlement, approved price and separate checkout acceptance.</p>
- </section>;
-}
 function Access({plan,studio}:{plan:Plan;studio:Studio}){
  const profile=membershipExperiences[plan.code]||membershipExperiences.FREE;
  const features=[true,true,true,studio!=='Standard',studio==='Professional',plan.founder||plan.code==='ONDEMAND_MONTHLY'||plan.code==='FULL_MONTHLY'||plan.code==='FULL_ANNUAL'||plan.code==='LIFETIME',plan.commons,plan.code==='FOUNDING_60',studio!=='Standard'];
- return <section className="cx-panel"><div className="cx-panel-head"><h3>{profile.name} · Capabilities</h3><span className="cx-chip">PREVIEW ONLY</span></div><div className="cx-profile-brief"><div className="cx-overline">DESIGNED FOR THIS MEMBER · {engineProfile(plan.code)}</div>{profile.tools.map(t=><span key={t}>{t}</span>)}</div><p className="cx-small">Membership design and Chart Studio level are independent selectors. Icons below are illustrative UI scenarios, not verified product entitlements.</p><EngineAddOnPreview planCode={plan.code}/>{featureRows.map(([name,desc],i)=><div className="cx-access-row" key={name}><span className={features[i]?'cx-yes':'cx-maybe'}>{features[i]?'●':'◇'}</span><div><strong>{name}</strong><small>{desc}</small></div><span>{features[i]?'Demo':'Conditional'}</span></div>)}</section>
+ return <section className="cx-panel"><div className="cx-panel-head"><h3>{profile.name} · Capabilities</h3><span className="cx-chip">PREVIEW ONLY</span></div><div className="cx-profile-brief"><div className="cx-overline">DESIGNED FOR THIS MEMBER · {engineProfile(plan.code)}</div>{profile.tools.map(t=><span key={t}>{t}</span>)}</div><p className="cx-small">Membership design and Chart Studio level are independent selectors. Icons below are illustrative UI scenarios, not verified product entitlements.</p>{featureRows.map(([name,desc],i)=><div className="cx-access-row" key={name}><span className={features[i]?'cx-yes':'cx-maybe'}>{features[i]?'●':'◇'}</span><div><strong>{name}</strong><small>{desc}</small></div><span>{features[i]?'Demo':'Conditional'}</span></div>)}</section>
 }
 function Workstation({plan,studio,design,topic,setTopic,stage,setStage,reveal,setReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus,setFocus}:{plan:Plan;studio:Studio;design:Design;topic:Topic;setTopic:(t:Topic)=>void;stage:number;setStage:(v:number)=>void;reveal:number;setReveal:(v:number)=>void;volume:boolean;setVolume:(v:boolean)=>void;ema:boolean;setEma:(v:boolean)=>void;proxy:boolean;setProxy:(v:boolean)=>void;focus:number;setFocus:(v:number)=>void}){
  const bar=series[Math.min(focus,reveal-1)]||series[0];
