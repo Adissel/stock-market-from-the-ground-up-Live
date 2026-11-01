@@ -1,6 +1,6 @@
 /* Closed-beta instructional readiness audit: local repository sources only.
  * Scope: all 419 canonical Lab IDs, ten Academy programs (274 days),
- * the Free five-day course, 61 Tutor studies and four Chart Studio selections.
+ * the Free five-day course, 61 original + 12 extended Tutor indicator briefs and four Chart Studio selections.
  * Structural acceptance is NOT a substitute for individual editorial signoff,
  * authenticated production browser tests, or historical data provenance.
  */
@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {academyPrograms,academyByCode} from '../functions/_lib/bootcamp-academy-v014168.js';
 import '../assets/js/prototype-indicator-workbench-v2.js';
+import {FOUNDATION_WORKED_MATH_CODES} from '../functions/_lib/tutor-foundation-worked-math-v1.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const map=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const bridge=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
@@ -15,7 +16,7 @@ const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
 const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
  freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
- tutorInterpretationOnlyStudies:0,computedChartStudies:0};
+ tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
 // Inspect the authoritative first-party chart registry, not a copied metric.
@@ -64,10 +65,18 @@ const durations={truth5:5,watchlist7:7,scanners10:10,foundations30:30,charts45:4
  risk60:60,practicum90:90,tape10:10,indicators10:10,filings7:7};
 const betaCodes=new Set(['tape10','indicators10','filings7']);
 const indicatorBriefs=JSON.parse(read('data/tutor-indicator-study-v1.json'));
+const extensionBriefs=JSON.parse(read('data/tutor-indicator-expansion-v1.json'));
 const tutorGuided=JSON.parse(read('data/tutor-guided-practice-v1.json'));
 const indicatorModules=tutorGuided.modules?.filter(m=>m.kind==='indicator')||[];
 const mapped=new Map(indicatorModules.map(m=>[m.guideCode,m]));
 metrics.indicatorBriefs=indicatorBriefs.guides?.length||0;
+metrics.extendedIndicatorBriefs=extensionBriefs.guides?.length||0;
+metrics.totalTutorIndicatorBriefs=metrics.indicatorBriefs+metrics.extendedIndicatorBriefs;
+metrics.foundationWorkedMathTopics=FOUNDATION_WORKED_MATH_CODES.length;
+if(extensionBriefs.count!==12||metrics.totalTutorIndicatorBriefs!==73||metrics.foundationWorkedMathTopics!==13||
+  extensionBriefs.guides.some(x=>x.officialCompetency!==false||x.masterStudy!==true)||
+  new Set([...indicatorBriefs.guides,...extensionBriefs.guides].map(x=>x.code)).size!==73)
+ fail('foundation_tutor_expansion','Unexpected 73-guide / 13-worked-math Foundation Tutor source or duplicate indicator ID');
 metrics.tutorCalculatedStudies=indicatorModules.filter(m=>m.metric!=='study-concept').length;
 metrics.tutorInterpretationOnlyStudies=indicatorModules.filter(m=>m.metric==='study-concept').length;
 if(indicatorBriefs.count!==61||metrics.indicatorBriefs!==61||mapped.size!==61||
@@ -137,7 +146,7 @@ const result={documentId:'SMFGU-LEARN-BETA-AUDIT-001',version:'1.0',scope:'SOURC
  metrics:{...metrics,academyAndFreeDays:metrics.academyDays+metrics.freeDays},
   computedChartStudyIds:Array.isArray(computedChartRegistry)?computedChartRegistry.map(x=>x.id):[],
  critical,editorialReviewPending:editorial,criticalCount:critical.length,editorialFlags:editorial.length,
- note:'Ten courses and 61 Tutor studies are INVENTORIED, not editorially approved. 53 ungraded computed demonstrations are not 53 released Chart Studio overlays. No private grade, historical license or authenticated member QA is implied.'};
+ note:'Ten Academy courses and 73 Tutor indicator teaching briefs are inventoried (61 original plus 12 new pending editorial review), not independently accepted. Only the existing 61 indicators have guided practice modules; 53 ungraded computed demonstrations and 16 actual Chart Studio studies remain distinct. The owner target is 600 original Tutor explanations, not 600 new official competencies or 600 already accepted items. No private grade, historical license or real-member QA is implied.'};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/learning-echarts-beta-audit-v1.json',JSON.stringify(result,null,2));
 console.log(JSON.stringify({metrics:result.metrics,critical:critical.slice(0,12),criticalCount:critical.length,editorialFlags:editorial.length}));
