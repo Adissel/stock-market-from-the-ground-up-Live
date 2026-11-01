@@ -22,16 +22,22 @@ const fetchJson=async url=>{
  return response.json();
 };
 async function catalog(){
- const [labs,skills,indicators,academy]=await Promise.all([
+ const [labs,skills,indicators,academy,bridges]=await Promise.all([
   fetchJson('/data/competency-lab-paths-v01499.json'),
   fetchJson('/data/competency-study-guides-v01499.json'),
   fetchJson('/data/tutor-indicator-study-v1.json'),
-  fetchJson('/api/bootcamp-academy?action=catalog')
+  fetchJson('/api/bootcamp-academy?action=catalog'),
+  fetchJson('/data/lab-teaching-bridges-v014168.json')
  ]);
  const computed=window.CrownlightPrototypeIndicators?.specs;
  if(labs?.totalCanonicalLabs!==419||Object.keys(labs.byLab||{}).length!==419||
    skills?.guides?.length!==30||indicators?.guides?.length!==61||
-   indicators.count!==61||academy?.ok!==true||!Array.isArray(academy.programs)||
+   indicators.count!==61||bridges?.version!=='0.14.0.168'||
+   bridges.canonicalLabCount!==419||bridges.officialCompetencyCount!==30||
+   bridges.independentGradesIncluded!==false||bridges.historicalBarDataIncluded!==false||
+   Object.keys(bridges.entries||{}).length!==419||
+   Object.keys(labs.byLab).some(id=>bridges.entries[id]?.labId!==id)||
+   academy?.ok!==true||!Array.isArray(academy.programs)||
    academy.programs.length<7||academy.programs.length>11||
    !Array.isArray(computed)||computed.length!==15){
    throw Error('Canonical learning registry or calculated-study count mismatch');
@@ -47,7 +53,8 @@ async function catalog(){
    key:id,title:row.title||id,summary:row.bookCode||'Ungraded teaching bridge',
    body:[['Source ID',id],['Collection',row.bookCode],['Mapped competencies',(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)?.title||code).join(', ')||'Not mapped'],
     ['Evidence level',row.method||'Provisional ungraded mapping']],
-   guide:(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)).filter(Boolean).slice(0,2)
+   guide:(row.relatedCompetencies||[]).map(code=>guideByCode.get(code)).filter(Boolean).slice(0,2),
+   bridge:bridges.entries[id]
   })),
   academy:academy.programs.map(p=>({
    key:p.code,title:p.name||p.title||p.code,summary:String(p.days)+' study days',
@@ -88,6 +95,15 @@ function render(){
   if(tab==='labs'){
    inspector.append(h('h4','How the shared Lab engine teaches this subject'));
    inspector.append(h('p',stages));
+   const facets=[['understand','Understand this Lab'],['recognize','Recognize the evidence'],['apply','Apply the concept'],['mistake','Common live-trading mistake'],['limits','Limitations and uncertainty']];
+   for(const [key,label] of facets){
+    const parts=item.bridge?.tabs?.[key];
+    if(!Array.isArray(parts)||parts.length<3)continue;
+    const section=h('details');section.open=key==='understand';
+    section.append(h('summary',label));
+    for(const paragraph of parts)section.append(h('p',paragraph));
+    inspector.append(section);
+   }
    for(const guide of item.guide||[]){
     const section=h('section');section.append(h('h4',guide.title),h('p',guide.concept));
     appendLine(section,'Worked procedure:',guide.procedure);
