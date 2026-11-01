@@ -3,7 +3,7 @@
 **Document ID:** SMFGU-B01-BETA-GATE-001  
 **Company:** Cyber Nexus / Crown & Lantern Press  
 **Project:** The Stock Market: From the Ground Up — 42-day editorial reference and B01 private protected grading  
-**Version:** 2.1  
+**Version:** 2.2  
 **Status:** CONDITIONAL HOLD — existing controlled ungraded beta unaffected  
 **Measurement date:** October 31, 2026  
 **Location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/research/stockstotrade/ACADEMY_B01_GRADED_BETA_READINESS_SCORECARD_2026-10-31.md`  
@@ -14,7 +14,7 @@
 
 ## Executive disposition
 
-**Estimated work performed toward B01 officially graded beta: 60% of the defined, weighted work packages, with 40% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 60% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
+**Estimated work performed toward B01 officially graded beta: 62% of the defined, weighted work packages, with 38% remaining.** This is a project-management estimate, not an observed fraction of accredited or regulatory compliance. The human-independent approval gates are not partially waived by having a 62% score. **Actual eligibility for releasing official protected B01 grades remains BLOCKED (zero final authorizations).** Controlled **ungraded** lessons continue under previously authorized access.
 
 ## Weighted methodology and evidence
 
@@ -22,14 +22,14 @@
 |---|---:|---:|---|
 | Canonical first-42 curriculum and current statement inventory | 20 | 20 | 42 original study-day packages; 949 statements/instructions individually indexed and risk-triaged; not certified |
 | Draft private B01 assessments and misconception teaching | 20 | 20 | All 20 Draft sets have authored prompts, keys, distractors and 200 unique wrong-answer corrections; all 20 new numeric cases now have corrected case-specific explanations and 20/20 arithmetic/tolerance rechecks. This is **Draft authoring complete**, not actual question/answer validity or independent set approval |
-| Technical protection and genuine member classroom QA | 20 | 17 | Real two-member and anonymous private REST denials PASSED for 12 attempts; accessible Academy classroom static semantic test PASSED; grade guard blocks AI Draft metadata. Previously accepted 22/22 browser experience was not reconfirmed: current QA identity no longer has training access, so authenticated keyboard test blocked. Native CAPTCHA, valid two-member authorized learning, and graded official acceptance remain |
-| Independently supportable source verification for individual statements | 20 | 3 | Twenty-four of the 42 selected source-to-claim matches individually rechecked across two batches (22 primary and 2 secondary technical), with qualifications preserved in canonical 252-day source fields. Four selected claims still lack direct event/feed evidence; all 949 individual sentence/step statements and whole-day acceptances remain open |
+| Technical protection and genuine member classroom QA | 20 | 18 | Real two-member private REST denials passed (12 checks), and genuine GoTrue QA production Chromium navigated 22/22 lessons with ten-stage instructor, keyboard controls and 390px mobile layout, zero runtime errors (run 41263913716); 30-minute noncommercial QA pass #8 revoked immediately afterward. Native CAPTCHA login, screen-reader and actual blind scored beta remain open |
+| Independently supportable source verification for individual statements | 20 | 4 | Thirty-two of 42 selected narrow source-to-claim checks individually documented and reconciled in the controlling 252-day register (27 primary + 5 technical rechecks), six publisher-only methods separately classified and four selected cases requiring direct event/feed evidence. The 949 underlying sentence/step claims still need independent source-level verification, and 0/42 complete day packages is accepted |
 | 42 independently attributable day-package acceptances | 10 | 0 | 42 AI preliminary rework dispositions exist; **0** separately accountable human approvals in the 252-day register |
 | 20 private-set independent assessment approvals | 5 | 0 | **0/20** complete independent 120-question/200-feedback signoffs, including answer keys, distractor discrimination and tolerances |
 | Final graded beta member, entitlement, RLS and release acceptance | 5 | 0 | Full native-login, isolated second account, reviewed-case genuine grading + ledger/awards and exact-deploy acceptance not yet passed |
-| **TOTAL** | **100** | **60** | **About 60% weighted preparation complete; official graded release still not authorized** |
+| **TOTAL** | **100** | **62** | **About 62% weighted preparation complete; official graded release still not authorized** |
 
-**Calculation:** 20+20+17+3+0+0+0 = **60/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
+**Calculation:** 20+20+18+4+0+0+0 = **62/100**. These weights are an explicit managerial planning assumption, not a time forecast, guaranteed effort estimate, factual correctness percentage, or measure of the 419 Labs / entire website.
 
 ## Next actions, in controlling order
 
@@ -156,6 +156,18 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 
 **Preparation estimate:** This batch moves narrow source preparation from **2/20 to 3/20 weighted points**, and the combined current B01 official graded-beta estimate is **60/100 complete (40% remaining)**. **No** extra graded-exam acceptance, human-independent reviewer signature or final day-level approval is recorded for this source progress. All B01 version-98 sets remain Draft, official grading/mastery/certificates HOLD, and the existing ungraded beta remains limited to entitled users.
 
+## October 31 — completed parallel source acceptance and real mobile classroom QA
+
+**Selected source-review milestone:** A third additional batch of **8** claims (5 SEC/Investor.gov and 3 StockCharts technical) was individually checked with real authority and scope limits, and reconciled into the existing 252-day source column. Total **32/42 narrowly rechecked selected claim-source links**, 6 internally defined publisher methods, and 4 selected cases missing direct historical-event/feed timing evidence. This is **not 32/949 independently fact-approved statements** and does not promote any day. Source Batch 04: `ACADEMY_FIRST42_PRIMARY_AND_TECHNICAL_REVIEW_BATCH04_2026-10-31.md`. The exact 32-claim controlling-register regression **PASSED** in [CI run 41264019422](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41264019422), preserving all 252 `NOT_ACCEPTED` and 671 `NOT_APPROVED` statuses.
+
+**Private assessment case-by-case publisher editorial actions:** GPT-6 inspected the 20 real private `B01_APPLICATION` Draft prompts and correct keys. A scoped, attributed AI decision was recorded separately for each in Supabase administrative audit `academy.b01.v98_ai_content_case_verdict_20261031`, exactly **20 decisions**, with actual conceptual/numerical limits and explicit `completeSetApproved=false`, `independentHuman=false`, `gradeRelease=HOLD`. Live postflight: 20 Draft version-98 sets, 100 choice, 20 numeric, 200 corrective feedback entries, 0 invalid correct-key/feedback mappings, 0 reviewed sets and 0 learner attempts. These are publisher-side partial application-case dispositions, **not** independent human reviews or full protected-set acceptance.
+
+**Real authenticated 22-day classroom and 390px accessibility acceptance:** Existing QA identity was temporarily and narrowly granted the actual released beta tool `ONDEMAND_TRAINING` through a **30-minute noncommercial pass #8**, no payments or grade permissions. Production browser testing revealed and resolved multiple real faults: injected site header Search (230px) and Notifications (96px) caused a 390px page to overflow as far as 614px; corrected to visible 44px accessible controls with responsive containment; shared Talia teaching inserted controls relative to stale DOM parent references; native sign-in's MutationObserver attempted `form.insertBefore` using nested button instead of a direct form child, corrected while preserving CAPTCHA handlers. Source and static regressions passed. The final [genuine GoTrue QA browser run 41263913716](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41263913716) **PASSED** all **22/22 original study lessons**, their 10-stage instructor, keyboard navigation, semantic labels, mobile 390px viewport with zero horizontal overflow and **zero JavaScript runtime errors**. The programmatically established QA session used a genuine GoTrue identity and QA-only verified transport bridge; this was **not a native CAPTCHA-sign-in completion** or screen-reader certification.
+
+**Prompt QA privilege revocation:** Supabase noncommercial `user_tool_passes.id=8` was canceled immediately after the passing browser test, and `user_has_tool_access(...,'ONDEMAND_TRAINING')` was verified **false**. Supabase administrative audit records issuance and revocation. No customer membership, Stripe payment, grade, mastery or live order was changed.
+
+**Weighted preparation:** Technical acceptance 17/20→**18/20**, narrow-source verification 3/20→**4/20**: total **62% complete / 38% remaining**, under a managerial release-readiness weighting, not a fraction of approved course days or 419 Labs. Final protected B01 grading remains **HOLD**: 0/42 complete original-day packages accepted, 0/20 v98 private sets reviewed, 0 actual member graded attempts or independent-human acceptance, 0 full native-CAPTCHA/axe/screen-reader certificates. Controlled ungraded beta remains available only to eligible members. Broad Academy final acceptance **0/252**; whole-site overall completion percentage lacks a defensible common denominator.
+
 ## Revision history
 
 | Version | Date | Change | Decision |
@@ -172,6 +184,7 @@ The previously recorded 52% weighted score now increases by one point to 53% for
 | 1.8 | October 31, 2026 | Corrected all 20 stale private numerical-case explanations (audit #375), verified 20/20 arithmetic and passed actual QA member/guest private table data-denial CI | 57% estimated preparation / 43% remaining; 0/20 private grading approvals and beta grade release HOLD |
 | 1.9 | October 31, 2026 | Rechecked 12 priority official sources; corrected 20 evidence-case fictional labels and four weak feedback/explanations; 20 attributable AI-only private-set dispositions (audit #377–396); negative authorization CI passed | 57% preparation unchanged; 0 final B01/Academy acceptance; official protected grading HOLD |
 | 2.0 | October 31, 2026 | Canonically reconciled 12 narrow verified source fields without approvals; passed two distinct real-user private data denials and semantic classroom a11y CI; confirmed native browser QA blocked by missing training entitlement | 59% weighted prep, 41% remaining; 0 graded v98 and 0 final Academy day approvals |
-| 2.1 | October 31, 2026 | Reconciled 12 more claim-specific source checks (24 total); repaired live Academy mobile overflow candidate and restored a time-limited noncommercial QA entitlement for browser acceptance; source CI PASS | 60% graded-beta preparation, 40% remaining; real mobile browser acceptance pending, grading HOLD | 
+| 2.1 | October 31, 2026 | Reconciled 12 more claim-specific source checks (24 total); repaired live Academy mobile overflow candidate and restored a time-limited noncommercial QA entitlement for browser acceptance; source CI PASS | 60% graded-beta preparation, 40% remaining; real mobile browser acceptance pending, grading HOLD |
+| 2.2 | October 31, 2026 | 8 additional scoped source rechecks (32 total), 20 actual private AI publisher application-case dispositions and real 22/22 authenticated 390px keyboard/mobile acceptance; QA training grant revoked | 62% weighted preparation, 38% remaining; official graded beta HOLD, final day/private set approvals zero | 
 
 **Footer:** Crown & Lantern Press / Cyber Nexus. Editorial control and project planning artifact only; not investment advice, legal certification, release authorization or proof of independent human review.
