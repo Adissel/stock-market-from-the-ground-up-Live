@@ -42,7 +42,7 @@ assert.equal(Number(detail.body.toFixed(2)),0.3);
 assert.equal(Number(detail.upper.toFixed(2)),0.2);
 assert.equal(Number(detail.lower.toFixed(2)),0.2);
 assert.equal(detail.volume,1500);assert.equal(detail.vsPrevious,null);
-assert.equal(api.analyze(bars,1).vsPrevious,0.1+0.00000000000000142);
+assert.ok(Math.abs(api.analyze(bars,1).vsPrevious-0.1)<1e-9);
 assert.equal(api.analyze([{t:'x',open:10,close:12,high:11,low:9}],0),null,'invalid OHLC rejected');
 const chart=api.chartOptions(bars);
 assert.ok(chart.barWidth>=6&&chart.barWidth<=36);
