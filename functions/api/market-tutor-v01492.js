@@ -265,7 +265,7 @@ export async function onRequest({request,env}){
    const reference=[...selectedGuides.map(g=>({title:g.title,
     summary:[g.concept,g.procedure,'Limitation: '+g.limit,'Invalidation: '+g.invalidation]
      .join(' ').slice(0,900)})),...source.slice(0,3-selectedGuides.length)].slice(0,3);
-   const deepSourceOnly=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further)\b/i.test(q);
+   const deepSourceOnly=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further|try another|another (?:worked )?example|different (?:worked )?example|worked example)\b/i.test(q);
    const model=deepSourceOnly?{text:null,reason:'source_only_deep_teaching'}:
     guide.masterStudy===true?{text:null,reason:'original_market_study_source_only'}:
     guide.decisionPlaybook===true?{text:null,reason:'decision_playbook_source_only'}:
