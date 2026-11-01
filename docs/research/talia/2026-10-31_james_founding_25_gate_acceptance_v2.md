@@ -6,7 +6,7 @@
 | Document ID | SMFGU-F600-JAMES-QA-029 |
 | Filename | 2026-10-31_james_founding_25_gate_acceptance_v2.md |
 | File type | Markdown (.md) |
-| Version / date | 2.2 / October 31, 2026 |
+| Version / date | 2.3 / October 31, 2026 |
 | Status | CONDITIONAL, PARTIALLY ACCEPTED — NOT FULL RELEASE APPROVAL |
 | Owner | Owner-delegated product administration and QA |
 | GitHub location | `docs/research/talia/`, `main` |
@@ -22,7 +22,7 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 
 ## Current denominator and completion percentage
 
-**17 of 25 gates are verified complete = 68%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
+**19 of 25 gates are verified complete = 76%** on an equal-gate, audit-evidence basis. This is not a labor-weighted estimate nor a percentage of the entire website, all 419 Labs or 274 Academy day records. All 25 gates are mandatory to mark this specific acceptance program 100%. A single failed mandatory release or security gate can still block launch regardless of numerical completion.
 
 ## Twenty-five acceptance gates
 
@@ -48,10 +48,10 @@ The Owner delegates day-to-day product, administration, authoring and QA decisio
 | 18 | Isolate 14-Day Standard Chart Studio from unrelated Advanced pass | PENDING | 14-Day observed Advanced due independently active Crownlight Chart Studio pass; not attributable |
 | 19 | Prove 30-Day Advanced Studio from eligible paid cycle or authorized chart QA source | PENDING | 30-Day observed Advanced, but reason was independent pass; no paid cycle exists |
 | 20 | Prove 60-Day Professional Studio and premium-only features under correct entitlement | PENDING | 60-Day observed Advanced via independent pass; not Professional; do not mark passed |
-| 21 | Verify genuine second-member RLS and private workspace isolation | PENDING | Separate genuine two-account workflow required; synthetic claims do not qualify |
+| 21 | Verify genuine second-member RLS and private workspace isolation | PASS | Real two-distinct-GoTrue-account source and production read-only API acceptance, [Actions 41237915385](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237915385): STANDARD/ADVANCED, forged selectors denied, no foreign workspace leak, private learning and Lumen scope, zero production writes. RLS policy codebase-wide remains separate Gate 22/security audit. |
 | 22 | Verify revoked and expired grant denial, staff-role boundaries and member negative cases | PENDING | Add authenticated negative checks and preserve audit evidence |
 | 23 | Verify genuine Founder-exclusive Commons/Design Council and signed Stripe TEST lifecycle | PENDING | Requires noncommercial approved entitlement simulation and signed TEST scenarios; no LIVE charges |
-| 24 | Pass entire sitewide main-commit CI and exact production Cloudflare release match | PENDING | Concurrent pushes cancel sitewide runs; no stable final exact-SHA acceptance |
+| 24 | Pass entire sitewide main-commit CI and exact production Cloudflare release match | PASS — verified baseline | At `03750b3f0b95260032b03b1560410163793cad1a`, all 27/27 GitHub Actions workflows completed successfully and Cloudflare Pages production deployed the **identical** SHA successfully. This accepts the bounded CI/deployment snapshot only, not a final release freeze or any remaining Release Gate 24 conditions. Documentation changes after this SHA require fresh postcommit CI/deployment verification. |
 | 25 | Finish all required independent curriculum editorial and final release controls | PENDING | Four formal reviews remain PENDING, 419 Labs/Academy editorial population broader; single author cannot certify independent review |
 
 ## Verified production results and negative observations
@@ -77,7 +77,7 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 
 ## October 31 continuation: security, chart source, curriculum and CI
 
-**Progress remains 17 of 25 gates = 68%.** Work performed below is source-verified or in-queue, but no new mandatory gate is accepted without the corresponding completed evidence.
+**Progress is now 19 of 25 gates = 76%.** The previous 17/25 baseline increased by genuine two-account Gate 21 and exact-SHA CI/deployment Gate 24. Six gates remain (18, 19, 20, 22, 23 and 25); full LIVE Release Gates 20, 22–25 remain separate and open.
 
 ### Source and audit changes
 - Chart source regression `tests/test_founder_chart_tier_paid_source_boundaries_v1.mjs`, connected to `.github/workflows/founding600-source-gate-v014172.yml`. Checks Founder 14/30/60 tiers, nonrevoked real paid cycles, refund reversal, bounded QA-only grants, James_Test restrictive ceiling and no paid Founder impersonation. It is a code/source guard, **not** a signed-in Professional paid-plan test.
@@ -99,6 +99,18 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 5. Finish whole-site CI on a single stable exact SHA; confirm matching Cloudflare production deployment.
 6. Close owner-reviewed editorial quality while recording all independently unreviewed units, real historical evidence and protected assessment holds accurately.
 
+## October 31 verified Owner acceptance addendum — v2.3
+
+**G21 genuine two-account acceptance (PASS):** [workflow run 41237915385](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237915385), job 124645476836, completed SUCCESS. Job log explicitly records two independently authenticated GoTrue actor sessions, STANDARD and ADVANCED server-sourced tiers, ignored forged foreign account selectors, no cross-member private Chart workspace leak, private learning progress and Lumen activity restricted to each actor, and **zero production writes**. The job's optional missing-credential fail-closed diagnostic was skipped because the credentialed positive path executed. The earlier v2.2 pending wording is superseded. This does not certify a 14/30/60 paid Founder cycle, genuine Professional paid entitlement, every RLS function, or Gate 22.
+
+**G24 specific source/deployment acceptance (PASS for the versioned snapshot only):** GitHub `main` at `03750b3f0b95260032b03b1560410163793cad1a` had exactly **27/27 successful completed Actions workflows**, with no failure, cancellation or pending among that SHA's triggered workflows; Cloudflare Pages production returned **successful deployment of exactly the same SHA**. This closes the bounded James_Test CI/deployment milestone. **The broader final LIVE Release Gate 24 remains OPEN:** it additionally requires final frozen version, the authenticated full role/customer matrix, accessibility, guarded payment/grading, and production release signoff. This v2.3 document update is a subsequent new commit, and must itself pass its newly triggered checks before being treated as the current verified production version.
+
+**Commerce distinction (source-only PASS, commercial renewal HOLD):** signed Stripe TEST lifecycle [run 41237946062](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237946062) completed SUCCESS, including simulated signature rejection, paid/refund/cancel guards and fixture assertions. The connected TEST provider still had **9 active subscriptions, 0 with test clocks**, and a read-only invoice comparison found **21 invoices (19 paid), zero subscriptions with two paid invoices**. Therefore neither Gate 23 nor LIVE financial acceptance passes.
+
+**Security disposition (partial):** four anonymous-executable `SECURITY DEFINER` SQL function definitions were inspected; their current bodies implement public digital-book catalog, availability, payment-route and signed-book quote reads and have explicit restricted `search_path`. The review uncovered no direct mutation or secret-return field in those four definitions; it does not clear the remaining authenticated callable privileged functions, password protection, CAPTCHA, Book Key positive redemption or Gate 22.
+
+**Internal Owner/technical QA acceptance:** sign off only G21 and the bounded G24 exact-source deployment checkpoint based on reproducible primary system evidence. Do not sign off G18–G20, G22–G23, G25 or full LIVE Release Gates 20/22–25. No charges, account grant changes, assessment publication, source secrets, or database writes were made by this acceptance.
+
 ## Document history
 
 | Version | Date | Change |
@@ -107,5 +119,6 @@ Complete negative-access and two-account isolation (Gates 21–22), attribute Ch
 | 2.0 | October 31, 2026 | 25 verified-evidence gates; all three Founding plans 16/16; grants revoked; separated Chart attribution, rollback, paid-only benefits and independent editorial work |
 | 2.1 | October 31, 2026 | Real post-revocation production Chromium run 41236744222 passed 10/10 including paid Commons denial, restoring baseline and closing Gates 16–17; 17/25 (68%) |
 | 2.2 | October 31, 2026 | Logged expanded negative-auth tests, isolated two-member and TEST payment workflows, RLS audit, Chart paid-vs-QA source regression, CI corrections and four first-party technical editorial dispositions; no false gate promotion |
+| 2.3 | October 31, 2026 | Evidence-accepted real two-user isolation Gate 21 and verified 27/27 exact-main/Cloudflare deployment Gate 24; 19/25 (76%); retained financial, editorial, security and final LIVE holds |
 
 **Footer — Controlled internal QA evidence:** This document is a product-owner acceptance register, not legal, tax or investment advice; it does not certify a commercial paying Founder or an independent editorial review.
