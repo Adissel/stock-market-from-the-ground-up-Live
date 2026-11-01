@@ -1180,7 +1180,11 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
       :String(subject?.symbols||'Name the observable values, the source and their units.');
     const misconception=String(learn.misconception||review.misconception||guide.commonError||'Separate observations from assumptions.');
     const limitation=String(learn.limitation||guide.limit||'One completed example cannot determine future price.');
-    const alternate=visualType==='candle'?[
+    const alternate=academyScope?[
+     'Unfamiliar independent learning example: '+String(academyLesson.transfer||guide.selfCheck),
+     'Use the day’s evidence procedure rather than memorizing the earlier worked response.',
+     'Name what the new case cannot prove and the conditions that require WAIT or NO TRADE.'
+    ]:visualType==='candle'?[
      'Try a separate illustrative candle: Open $9.00, High $10.00, Low $8.50 and Close $9.50.',
      'Real body = |$9.50 − $9.00| = $0.50. Full range = $10.00 − $8.50 = $1.50.',
      'Body share = ($0.50 ÷ $1.50) × 100 ≈ 33.3%. This does not predict the next candle.'
