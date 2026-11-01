@@ -1,0 +1,571 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 8,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Twenty original fictional U.S. market-microstructure teaching cases; source references are educational starting points, not blanket proof of source rights or broker executions; no grade or lookahead.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_BID_QUANTITY_NOT_PROMISED",
+      "title": "A displayed bid quantity is an offer to buy, not a guaranteed sale fill",
+      "concept": "A bid identifies a stated willing purchase price and displayed quantity under a particular feed; order priority, cancellations and other venues determine what remains executable.",
+      "procedure": "Take a time-stamped bid snapshot, define round-lot and odd-lot units, then compare displayed quantity with subsequent independently recorded executions.",
+      "workedCase": "FICTIONAL: A $10.00 bid shows 300 shares at 09:30:00. A learner wishes to sell 400 shares. The 300 displayed shares cannot establish whether even 300 will still be available when an order reaches the venue.",
+      "limit": "A quote may cancel or be bypassed; size at one venue is not consolidated guaranteed liquidity.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: A quote may cancel or be bypassed; size at one venue is not consolidated guaranteed liquidity.",
+      "commonError": "Assuming a 300-share bid necessarily fills exactly 300 of a later 400-share sale.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Assuming a 300-share bid necessarily fills exactly 300 of a later 400-share sale.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A $10.00 bid shows 300 shares at 09:30:00. A learner wishes to sell 400 shares. The 300 displayed shares cannot establish whether even 300 will still be available when an order reaches the venue.",
+      "transferQuestion": "FICTIONAL TRANSFER: A bid shows 200 shares while a simulated sale intends 500. State the maximum visible snapshot quantity and why no guaranteed fill follows.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ASK_QUANTITY_NOT_PROMISED",
+      "title": "An ask quantity is a time-specific selling interest, not stock already purchased",
+      "concept": "An ask represents offered shares at a named price; it says nothing by itself about a later buyer's fill or aggregate market supply.",
+      "procedure": "Identify best offer, displayed size, time and quote venue before inferring what a marketable buy might encounter.",
+      "workedCase": "FICTIONAL: The ask is $10.05 for 100 shares, but a fictional learner considers 250. The display does not entitle that order to 100 at $10.05; another participant can execute or cancel first.",
+      "limit": "Multiple venues, hidden liquidity and quote updates prevent interpreting one screen as a deterministic execution schedule.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Multiple venues, hidden liquidity and quote updates prevent interpreting one screen as a deterministic execution schedule.",
+      "commonError": "Mistaking the full planned order quantity for a size advertised by the best ask.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Mistaking the full planned order quantity for a size advertised by the best ask.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: The ask is $10.05 for 100 shares, but a fictional learner considers 250. The display does not entitle that order to 100 at $10.05; another participant can execute or cancel first.",
+      "transferQuestion": "FICTIONAL TRANSFER: At a displayed $18.10 ask for 150 shares, describe what a 400-share hypothetical buyer can and cannot conclude.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VENUE_QUOTE_DIFFERENCE",
+      "title": "Different venues can display different prices at the same apparent moment",
+      "concept": "Market centers update independently; the information-feed timestamp and protected quote rules must be reconciled before comparisons.",
+      "procedure": "Record each venue's price, time, security class and feed; distinguish local best bid/offer from applicable consolidated protected NBBO.",
+      "workedCase": "FICTIONAL: Venue A shows bid $20.00, venue B bid $20.02 and the best offer visible is $20.04. The higher displayed bid is not proof that every investor can sell all desired shares there.",
+      "limit": "Feed latency, venue eligibility, order size and displayed conditions can change usable quotes.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Feed latency, venue eligibility, order size and displayed conditions can change usable quotes.",
+      "commonError": "Calling one venue's best bid the consolidated best bid without checking competing eligible venues.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Calling one venue's best bid the consolidated best bid without checking competing eligible venues.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Venue A shows bid $20.00, venue B bid $20.02 and the best offer visible is $20.04. The higher displayed bid is not proof that every investor can sell all desired shares there.",
+      "transferQuestion": "FICTIONAL TRANSFER: Compare bids $11.00/$11.03 from two feeds with different timestamps; explain why timing verification comes before NBBO labeling.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRADE_AT_BID_NOT_INTENT",
+      "title": "A print at a displayed bid does not prove the seller's motive",
+      "concept": "Comparing execution price to contemporaneous bid/offer is a classification heuristic; hidden interest, crossed quotes and asynchrony produce ambiguity.",
+      "procedure": "Align exchange-eligible trade and quote timestamps; label inferred aggressor side as uncertain rather than an observed customer intention.",
+      "workedCase": "FICTIONAL: Trade $10.00 prints while aligned bid/ask are $10.00/$10.03. It may be classified bid-side by a heuristic, but the print alone cannot show whether the participant is exiting, hedging or opening risk.",
+      "limit": "Off-exchange execution, reporting delays and quote changes affect classification.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Off-exchange execution, reporting delays and quote changes affect classification.",
+      "commonError": "Teaching that every red bid-side print means an informed short seller entering a bearish bet.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Teaching that every red bid-side print means an informed short seller entering a bearish bet.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Trade $10.00 prints while aligned bid/ask are $10.00/$10.03. It may be classified bid-side by a heuristic, but the print alone cannot show whether the participant is exiting, hedging or opening risk.",
+      "transferQuestion": "FICTIONAL TRANSFER: At a $9.90 bid and $9.95 ask, a $9.90 print arrives. Classify price location and state what trading intention is unknown.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MIDPOINT_NOT_EXECUTABLE",
+      "title": "The quote midpoint is arithmetic, not necessarily an available order price",
+      "concept": "A quoted midpoint is halfway between eligible best bid and offer; it is a reference price used in analysis, not an assured execution.",
+      "procedure": "Check quote eligibility, calculate (bid+offer)/2, then separately inspect the actual execution evidence.",
+      "workedCase": "FICTIONAL: Bid $10.00 and offer $10.06 give midpoint $10.03. A $10.03 midpoint label does not prove any resting share can actually be bought or sold there.",
+      "limit": "Tick rules, midpoint executions, hidden venues, and time changes make execution separate from displayed midpoint.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Tick rules, midpoint executions, hidden venues, and time changes make execution separate from displayed midpoint.",
+      "commonError": "Marking a simulated trade filled at $10.03 because a chart draws that midpoint.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Marking a simulated trade filled at $10.03 because a chart draws that midpoint.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Bid $10.00 and offer $10.06 give midpoint $10.03. A $10.03 midpoint label does not prove any resting share can actually be bought or sold there.",
+      "transferQuestion": "FICTIONAL TRANSFER: Bid $7.20 and ask $7.30; compute midpoint and explain why the figure is not a fill.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LOCKED_CROSSED_QUOTE",
+      "title": "Locked and crossed quote states require explicit validity handling",
+      "concept": "A locked best market has equal bid and offer; a crossed market has bid above offer, and published reporting rules may treat those states differently.",
+      "procedure": "Validate bid/ask and quote times, flag equality and inversion, and do not force a negative quoted spread to look normal.",
+      "workedCase": "FICTIONAL: Bid $15.01 and offer $15.00 are crossed, producing −$0.01 arithmetic spread. Reporting and order-quality analysis must recognize the abnormal state instead of treating the negative number as cheap liquidity.",
+      "limit": "Specific 2026 Rule 605 reporting exemptions and benchmark treatment apply in defined contexts, not to every trading calculation.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Specific 2026 Rule 605 reporting exemptions and benchmark treatment apply in defined contexts, not to every trading calculation.",
+      "commonError": "Calling a crossed quote a normal one-cent spread or silently taking its absolute value.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Calling a crossed quote a normal one-cent spread or silently taking its absolute value.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Bid $15.01 and offer $15.00 are crossed, producing −$0.01 arithmetic spread. Reporting and order-quality analysis must recognize the abnormal state instead of treating the negative number as cheap liquidity.",
+      "transferQuestion": "FICTIONAL TRANSFER: Quote $8.00/$8.00 is locked. Describe its numerical spread and why its handling differs from an inverted quote.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_NBBO_ELIGIBILITY_CONDITIONS",
+      "title": "Not every visible quote is automatically part of a protected NBBO",
+      "concept": "Consolidated benchmarks depend on eligible market-center quotes, regulatory definitions and dissemination; a screen may mix eligible and non-eligible sizes.",
+      "procedure": "Identify quote source, round-lot protections applicable at the relevant time, quotation conditions and market time before naming an NBBO.",
+      "workedCase": "FICTIONAL: A learning screen displays one local $25.01 bid and another $25.02 indication. Without confirming eligibility and timestamp, the higher indication cannot automatically be labeled protected national best bid.",
+      "limit": "Odd-lot and rule changes make generic all-years assumptions unreliable; this exercise deliberately makes no historical regulatory certification.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Odd-lot and rule changes make generic all-years assumptions unreliable; this exercise deliberately makes no historical regulatory certification.",
+      "commonError": "Treating every displayed tiny quote at any timestamp as protected national best liquidity.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Treating every displayed tiny quote at any timestamp as protected national best liquidity.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A learning screen displays one local $25.01 bid and another $25.02 indication. Without confirming eligibility and timestamp, the higher indication cannot automatically be labeled protected national best bid.",
+      "transferQuestion": "FICTIONAL TRANSFER: Two displays show different bids and one carries an unknown condition code. What must be checked before asserting a protected NBBO?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OFF_EXCHANGE_PRINT_LOCATION",
+      "title": "A reported trade can occur away from a displayed exchange book",
+      "concept": "Execution venue and trade-reporting facility are not the same as quote venue; tape prints may reflect off-exchange transactions reported through authorized pathways.",
+      "procedure": "Identify execution venue indicator and report time separately from the displayed market center and infer no hidden-book intent.",
+      "workedCase": "FICTIONAL: A 500-share print reports at $12.00 while the screen shows a $11.99/$12.01 exchange quote. Neither the midpoint location nor a tape color establishes the execution venue.",
+      "limit": "Reporting regimes, condition codes and timestamps vary across trade reports.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Reporting regimes, condition codes and timestamps vary across trade reports.",
+      "commonError": "Assuming every tape print occurred against the same exchange order book shown alongside it.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Assuming every tape print occurred against the same exchange order book shown alongside it.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A 500-share print reports at $12.00 while the screen shows a $11.99/$12.01 exchange quote. Neither the midpoint location nor a tape color establishes the execution venue.",
+      "transferQuestion": "FICTIONAL TRANSFER: A trade prints at the quote midpoint. What execution and reporting fields are missing before labeling it an exchange fill?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CORRECTED_TRADE_REPORT",
+      "title": "Trade corrections can change an earlier tape observation",
+      "concept": "Some market-data messages amend or cancel previously reported trades; an immutable study must track correction lineage rather than summing every report as new volume.",
+      "procedure": "Link report IDs, original execution time, correction time, condition and corrected quantity before computing adjusted volume.",
+      "workedCase": "FICTIONAL: Initial print ID 1 reports 200 shares and a correction replaces it with 150. Adjusted eligible volume from that ID is 150, not 350, if the feed semantics specify a replacement.",
+      "limit": "Exact cancel/correction handling is feed-specific; copying trade message counts directly into share volume can overstate activity.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Exact cancel/correction handling is feed-specific; copying trade message counts directly into share volume can overstate activity.",
+      "commonError": "Adding both an original and its replacement to cumulative trading volume.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Adding both an original and its replacement to cumulative trading volume.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Initial print ID 1 reports 200 shares and a correction replaces it with 150. Adjusted eligible volume from that ID is 150, not 350, if the feed semantics specify a replacement.",
+      "transferQuestion": "FICTIONAL TRANSFER: A 300-share fictional print is canceled without replacement. Explain its contribution to corrected eligible volume.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_QUOTE_TRADE_CLOCK_ORDER",
+      "title": "A later-arriving quote is not necessarily the quote active at trade execution",
+      "concept": "Market feeds have event timestamps and receipt timestamps; ordering by arrival alone can misclassify prints.",
+      "procedure": "Store and compare event and receipt times with feed metadata, then state what quote was known or applicable at the actual decision moment.",
+      "workedCase": "FICTIONAL: An execution event at 09:30:01.100 arrives after a quote message whose event time is 09:30:01.200. That newer quote cannot automatically be assigned as the execution-time benchmark.",
+      "limit": "Clock synchronization, exchange stamps and out-of-sequence messages may make exact reconstruction impossible with limited data.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Clock synchronization, exchange stamps and out-of-sequence messages may make exact reconstruction impossible with limited data.",
+      "commonError": "Comparing a print to the most recently received quote despite that quote's later event timestamp.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Comparing a print to the most recently received quote despite that quote's later event timestamp.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An execution event at 09:30:01.100 arrives after a quote message whose event time is 09:30:01.200. That newer quote cannot automatically be assigned as the execution-time benchmark.",
+      "transferQuestion": "FICTIONAL TRANSFER: A quote event time is 13:00:00.500 and print event time 13:00:00.300. Which came first by event time?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRADE_COUNT_VS_SHARE_VOLUME",
+      "title": "The number of tape prints is not traded share volume",
+      "concept": "One reported execution message can describe one or many shares; trade count and aggregate eligible share count have different units.",
+      "procedure": "Sum each eligible final execution quantity to compute shares and separately count eligible executions after correction handling.",
+      "workedCase": "FICTIONAL: Three eligible trades of 100, 400 and 25 shares produce trade count=3 but reported volume=525 shares. A histogram labeled 525 trades would be false.",
+      "limit": "Some feeds aggregate or split trades and include condition codes; count of messages is not always count of independent executions.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Some feeds aggregate or split trades and include condition codes; count of messages is not always count of independent executions.",
+      "commonError": "Equating 100 tape rows with 100 shares or 100 independent participants.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Equating 100 tape rows with 100 shares or 100 independent participants.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: Three eligible trades of 100, 400 and 25 shares produce trade count=3 but reported volume=525 shares. A histogram labeled 525 trades would be false.",
+      "transferQuestion": "FICTIONAL TRANSFER: Two final prints show 250 and 75 shares. Report trade count and total volume with units.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TAPE_COLOR_CONVENTION",
+      "title": "Time-and-sales colors are display rules, not verified buyer intentions",
+      "concept": "A platform may color ask-side, bid-side or middle trades green, red or white under its configured quote-based rule.",
+      "procedure": "Inspect the actual platform legend and alignment method; report trade price, quote relationship and unknown participant motive separately.",
+      "workedCase": "FICTIONAL: A red print at $5.00 appears while bid/ask are $5.00/$5.04. It conveys the platform's price-location convention, not a confirmed bearish bet by the person selling.",
+      "limit": "Quote timing, hidden liquidity and midpoint executions can disrupt classification.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Quote timing, hidden liquidity and midpoint executions can disrupt classification.",
+      "commonError": "Teaching that all red prints are short sales or that all green prints prove new long positions.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Teaching that all red prints are short sales or that all green prints prove new long positions.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A red print at $5.00 appears while bid/ask are $5.00/$5.04. It conveys the platform's price-location convention, not a confirmed bearish bet by the person selling.",
+      "transferQuestion": "FICTIONAL TRANSFER: Given a white $8.02 print inside a hypothetical $8.00/$8.04 quote, explain what color identifies and does not identify.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_HIDDEN_LIQUIDITY_INVISIBLE",
+      "title": "Displayed depth excludes liquidity not visible in the chosen feed",
+      "concept": "Some accessible liquidity is hidden, reserve-sized or available through other routing pathways; observable order-book depth is not total market capacity.",
+      "procedure": "Compare known displayed sizes with later fills without asserting that any difference proves a specific hidden-order mechanism.",
+      "workedCase": "FICTIONAL: The ask displays 100 shares, but a later independently confirmed 180-share execution occurs at that price. The extra 80 cannot by itself identify an iceberg, hidden midpoint interest or a specific counterparty.",
+      "limit": "Refresh, multiple venues and timestamp changes can also explain apparent larger fills.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Refresh, multiple venues and timestamp changes can also explain apparent larger fills.",
+      "commonError": "Attributing every execution beyond a snapshot's size to one particular hidden institutional order.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Attributing every execution beyond a snapshot's size to one particular hidden institutional order.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: The ask displays 100 shares, but a later independently confirmed 180-share execution occurs at that price. The extra 80 cannot by itself identify an iceberg, hidden midpoint interest or a specific counterparty.",
+      "transferQuestion": "FICTIONAL TRANSFER: Displayed 50 shares precede a 120-share print. List at least two explanations besides a hidden-order claim.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEPTH_SNAPSHOT_VS_HISTORY",
+      "title": "A Level II snapshot is not the sequence of queue additions and removals",
+      "concept": "Depth tables provide resting interest at observation time; cancellations, replenishment and executions require sequenced event data to reconstruct.",
+      "procedure": "Mark snapshot time, venue coverage and displayed level sizes before drawing a static depth chart or suggesting how depth evolved.",
+      "workedCase": "FICTIONAL: A $10.00 bid size changes from 500 to 100 between two screenshots. The 400-share difference may include cancels, executions, order updates and source changes, not automatically 400 shares sold.",
+      "limit": "Without add/cancel/execute messages one cannot rebuild participant-level book evolution.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Without add/cancel/execute messages one cannot rebuild participant-level book evolution.",
+      "commonError": "Labeling a depth decrease as an executed trade volume without checking actual prints.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Labeling a depth decrease as an executed trade volume without checking actual prints.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A $10.00 bid size changes from 500 to 100 between two screenshots. The 400-share difference may include cancels, executions, order updates and source changes, not automatically 400 shares sold.",
+      "transferQuestion": "FICTIONAL TRANSFER: A bid grows from 50 to 250 shares between snapshots. What missing event history prevents a firm attribution?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPENING_AUCTION_PRICE",
+      "title": "An opening auction clearing price is distinct from yesterday's final trade",
+      "concept": "A primary listing market may determine its open through a scheduled auction; prior-close comparisons measure a price gap but not the auction's individual orders.",
+      "procedure": "Record opening official auction price, prior regular-session reference, corporate-action adjustment and session clock before calculating a gap.",
+      "workedCase": "FICTIONAL: An adjusted prior close is $30.00 and confirmed opening auction print is $30.90. The illustrative opening gap is +$0.90 or +3%, not a prediction of later direction.",
+      "limit": "After-hours trades, exchange variations and opening delays affect which observations are comparable.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: After-hours trades, exchange variations and opening delays affect which observations are comparable.",
+      "commonError": "Calling the first premarket indication the official opening auction execution price.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Calling the first premarket indication the official opening auction execution price.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An adjusted prior close is $30.00 and confirmed opening auction print is $30.90. The illustrative opening gap is +$0.90 or +3%, not a prediction of later direction.",
+      "transferQuestion": "FICTIONAL TRANSFER: Prior comparable close $50 and official opening print $49.50. Calculate signed opening gap and percent.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INDICATIVE_AUCTION_NOT_EXECUTED",
+      "title": "Indicative auction price and imbalance are estimates until the auction matches",
+      "concept": "Auction indications may change as eligible orders arrive or cancel; they do not establish a completed trade at the indicated price.",
+      "procedure": "Label whether a record is a projected clearing indication or confirmed opening/closing auction execution, including exchange and publication time.",
+      "workedCase": "FICTIONAL: An indicative opening price is $25.20 at 09:28 while the confirmed auction later opens at $25.05. A simulated strategy cannot claim execution at the earlier estimate without an actual eligible fill.",
+      "limit": "Auction algorithms, imbalance publications and order cutoff rules differ by venue.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Auction algorithms, imbalance publications and order cutoff rules differ by venue.",
+      "commonError": "Recording profit from an indicative price movement as though an executed stock purchase occurred.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Recording profit from an indicative price movement as though an executed stock purchase occurred.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An indicative opening price is $25.20 at 09:28 while the confirmed auction later opens at $25.05. A simulated strategy cannot claim execution at the earlier estimate without an actual eligible fill.",
+      "transferQuestion": "FICTIONAL TRANSFER: An auction imbalance shrinks while indicative price moves. What execution field is still missing?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_HALT_QUOTE_TRUST",
+      "title": "A regulatory trading halt changes what quote and execution claims are justified",
+      "concept": "During an announced halt, customary continuous execution and Rule 605 benchmarking may be suspended or treated differently under stated conditions.",
+      "procedure": "Check the authoritative halt status, effective start/end, venue and publication timestamps before interpreting apparent old quotes.",
+      "workedCase": "FICTIONAL: A fictional listing is halted at 10:15, but a cached quote at 10:14 is still on a chart at 10:17. The old number is not executable proof at 10:17.",
+      "limit": "Halt/resumption rules, reopening auctions and reporting exemptions depend on instrument and market.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Halt/resumption rules, reopening auctions and reporting exemptions depend on instrument and market.",
+      "commonError": "Using a stale prehalt bid as a current available exit while the listing is halted.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Using a stale prehalt bid as a current available exit while the listing is halted.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A fictional listing is halted at 10:15, but a cached quote at 10:14 is still on a chart at 10:17. The old number is not executable proof at 10:17.",
+      "transferQuestion": "FICTIONAL TRANSFER: A quote timestamp precedes an active halt by two minutes. Can it establish current liquidity?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LULD_BAND_NOT_STOP",
+      "title": "Price bands and volatility interruptions are not guaranteed stop-loss execution prices",
+      "concept": "Limit-up/limit-down and related safeguards can constrain transactions; a pending stop reference is an order condition, not an assured fill.",
+      "procedure": "Separate calculated bands, current trading status, actual order state and post-halt execution reports.",
+      "workedCase": "FICTIONAL: A training chart displays a $10.00 lower price band, while a hypothetical sell stop is at $10.05. It cannot claim an execution at $10.05 merely because the price reaches the band.",
+      "limit": "Band calculations, pauses, regulatory feeds and order handling vary, so an actual outcome needs confirmed execution records.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Band calculations, pauses, regulatory feeds and order handling vary, so an actual outcome needs confirmed execution records.",
+      "commonError": "Teaching students that volatility bands guarantee fills at an intended stop or prevent all losses.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Teaching students that volatility bands guarantee fills at an intended stop or prevent all losses.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A training chart displays a $10.00 lower price band, while a hypothetical sell stop is at $10.05. It cannot claim an execution at $10.05 merely because the price reaches the band.",
+      "transferQuestion": "FICTIONAL TRANSFER: A stock enters a volatility pause before a stop order fills. Which two records are needed to assess the outcome?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SSR_NOT_BLANKET_SHORT_BAN",
+      "title": "Short-sale price-test restrictions are conditional, not a universal short-selling prohibition",
+      "concept": "Some U.S. securities may enter an alternative uptick-rule restriction following a specified decline and exchange rules; restrictions govern certain short-sale executions, not every short position.",
+      "procedure": "Confirm security eligibility, regulatory trigger, period, venue and order-price test before teaching an SSR effect; never label status from one down candle.",
+      "workedCase": "FICTIONAL: A stock drops 9% from a chosen prior close in an illustrative session. That number alone does not establish that a 10% trigger fired or that all short sales are forbidden.",
+      "limit": "Actual Rule 201 and exchange/ATS obligations require contemporaneous verified regulatory data and context.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Actual Rule 201 and exchange/ATS obligations require contemporaneous verified regulatory data and context.",
+      "commonError": "Treating any sharp selloff as a total legal ban on shorting or identifying SSR without official flags.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Treating any sharp selloff as a total legal ban on shorting or identifying SSR without official flags.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: A stock drops 9% from a chosen prior close in an illustrative session. That number alone does not establish that a 10% trigger fired or that all short sales are forbidden.",
+      "transferQuestion": "FICTIONAL TRANSFER: A prior close is $20; a hypothetical 10% trigger threshold is $18. Describe whether a $18.50 low meets that arithmetic criterion.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ONE_SIDED_QUOTE_NO_SPREAD",
+      "title": "A one-sided market cannot supply a conventional two-sided quoted spread",
+      "concept": "Some securities display only a current bid or only an offer. A bid-ask spread and midpoint require both compatible sides at the same observation time.",
+      "procedure": "Validate existence and age of eligible bid and offer before attempting offer-minus-bid or midpoint.",
+      "workedCase": "FICTIONAL: An illiquid instrument shows bid $7.20 but no eligible ask. The screen cannot honestly display a $0.00 spread or midpoint; both are unavailable.",
+      "limit": "Stale or different-time quotes cannot be combined to manufacture a current two-sided market.",
+      "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Stale or different-time quotes cannot be combined to manufacture a current two-sided market.",
+      "commonError": "Using a missing offer as zero and reporting a huge negative spread.",
+      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Using a missing offer as zero and reporting a huge negative spread.",
+      "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An illiquid instrument shows bid $7.20 but no eligible ask. The screen cannot honestly display a $0.00 spread or midpoint; both are unavailable.",
+      "transferQuestion": "FICTIONAL TRANSFER: Ask $3.50 exists but bid is missing. Which quoted metrics must remain undefined?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "public_research_reference_only_no_third_party_feed_ingestion_or_republication",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
