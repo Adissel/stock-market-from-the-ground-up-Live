@@ -367,8 +367,8 @@
       "limit": "A high value need not mean the price is about to fall; smoothing variants matter. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A high value need not mean the price is about to fall; smoothing variants matter.",
       "commonError": "Treating Stochastic Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Stochastic Oscillator measures, the formula/settings in %K=100*(close-lowest_low)/(highest_high-lowest_low), one application to a hypothetical chart and why a high value need not mean the price is about to fall; smoothing variants matter.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Stochastic Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "For an alternate finished window with low $20, high $30 and close $23, find fast %K. What if high equals low?",
+      "reviewExplanation": "Fast %K=30%; if the window range is zero the formula is undefined unless a separately stated platform convention applies. A threshold is not a trade order.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -380,7 +380,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Stochastic Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Across a declared completed-bar window, lowest low=$100, highest high=$110 and latest close=$108. Fast %K=100×(108−100)/(110−100)=80.00. Slow %K and %D require separately declared smoothing, not this single observation."
     },
     {
       "code": "STUDY_STOCH_RSI",
@@ -396,8 +396,8 @@
       "limit": "Fast and noisy; zero denominators and warmup require defined handling. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Fast and noisy; zero denominators and warmup require defined handling.",
       "commonError": "Treating Stochastic RSI as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Stochastic RSI measures, the formula/settings in StochRSI=(RSI-min(RSI,N))/(max(RSI,N)-min(RSI,N)), one application to a hypothetical chart and why fast and noisy; zero denominators and warmup require defined handling.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Stochastic RSI and its limitation; this review is ungraded.",
+      "selfCheck": "If completed RSI min=30, max=70, latest RSI=35, find StochRSI and name why raw RSI closes cannot substitute for an RSI history.",
+      "reviewExplanation": "StochRSI=(35−30)/(70−30)=0.125. A zero RSI range has an undefined denominator; use correctly warmed RSI inputs before applying this second window.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -409,7 +409,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Stochastic RSI settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Assume the RSI series is validly warmed, and its completed-window minimum is 40, maximum 80, latest RSI 60. StochRSI=(60−40)/(80−40)=0.50 on the 0-to-1 scale, not 50 unless explicitly percent-scaled."
     },
     {
       "code": "STUDY_CCI",
@@ -425,8 +425,8 @@
       "limit": "Threshold interpretation is heuristic and price can stay extreme. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Threshold interpretation is heuristic and price can stay extreme.",
       "commonError": "Treating Commodity Channel Index as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Commodity Channel Index measures, the formula/settings in CCI=(typical_price-SMA(typical_price))/(0.015*mean_deviation), one application to a hypothetical chart and why threshold interpretation is heuristic and price can stay extreme.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Commodity Channel Index and its limitation; this review is ungraded.",
+      "selfCheck": "Change the latest typical price while recomputing the full three-bar SMA and deviation: why may keeping the previous denominator be wrong?",
+      "reviewExplanation": "CCI's mean absolute deviation is recalculated over the actual completed TP window. If deviation is zero, CCI is not mathematically defined. This illustrative three-bar example is not the common 20-bar setting.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -438,7 +438,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Commodity Channel Index settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three completed bars have typical prices $10,$11,$12. Average typical price=$11 and mean absolute deviation=(1+0+1)/3=2/3. Latest TP=$12, hence CCI=(12−11)/(0.015×2/3)=100.0."
     },
     {
       "code": "STUDY_WILLIAMS_R",
@@ -454,8 +454,8 @@
       "limit": "A reading near zero need not imply an imminent selloff. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A reading near zero need not imply an imminent selloff.",
       "commonError": "Treating Williams Percent R as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Williams Percent R measures, the formula/settings in %R=-100*(highest_high-close)/(highest_high-lowest_low), one application to a hypothetical chart and why a reading near zero need not imply an imminent selloff.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Williams Percent R and its limitation; this review is ungraded.",
+      "selfCheck": "For a finished window high $50, low $40 and close $42, calculate Williams %R and describe its units.",
+      "reviewExplanation": "Williams %R=−100×(50−42)/10=−80. It is bounded −100 to 0 for valid OHLC and cannot be computed with zero range; being near −80 does not foretell a rebound.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -467,7 +467,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Williams Percent R settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Over a completed lookback, highest high=$110, lowest low=$100, current close=$108. Williams %R=−100×(110−108)/(110−100)=−20, unlike fast stochastic %K=80 on the same window."
     },
     {
       "code": "STUDY_ROC",
@@ -483,8 +483,8 @@
       "limit": "Fails if earlier price is zero; rapid swings do not establish sustained trend. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Fails if earlier price is zero; rapid swings do not establish sustained trend.",
       "commonError": "Treating Rate of Change as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Rate of Change measures, the formula/settings in ROC=100*(P(t)/P(t-N)-1), one application to a hypothetical chart and why fails if earlier price is zero; rapid swings do not establish sustained trend.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Rate of Change and its limitation; this review is ungraded.",
+      "selfCheck": "If the earlier completed close is $20 and latest finished close $18, calculate ROC. Why is earlier close zero invalid?",
+      "reviewExplanation": "ROC=100×(18/20−1)=−10%; earlier price is the denominator, so zero produces an undefined ratio. ROC is percentage movement, not dollar movement.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -496,7 +496,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Rate of Change settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A completed close 5 bars ago was $12 and current completed close is $15. ROC(5)=100×(15/12−1)=25%. Both observations are close prices; using unfinished bars changes the comparison."
     },
     {
       "code": "STUDY_PRICE_MOMENTUM",
@@ -512,8 +512,8 @@
       "limit": "Two stocks at different prices cannot be compared just by raw difference. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Two stocks at different prices cannot be compared just by raw difference.",
       "commonError": "Treating Price Momentum as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Price Momentum measures, the formula/settings in Momentum=P(t)-P(t-N), one application to a hypothetical chart and why two stocks at different prices cannot be compared just by raw difference.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Price Momentum and its limitation; this review is ungraded.",
+      "selfCheck": "A hypothetical security falls from $25 to $22 across the declared window. Compute absolute momentum and compare to proportional ROC.",
+      "reviewExplanation": "Absolute momentum=−$3 while ROC=100×(22/25−1)=−12%; always name the input price scale and completed observations.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -525,7 +525,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Price Momentum settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Latest completed close=$15 and a declared 5-bar-ago completed close=$12. Absolute momentum(5)=$15−$12=+$3 per share; it is not a 3% return. ROC on the same two observations is 25%."
     },
     {
       "code": "STUDY_TRIX",
@@ -541,8 +541,8 @@
       "limit": "Long warmup and multiple smoothing stages delay signals. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Long warmup and multiple smoothing stages delay signals.",
       "commonError": "Treating TRIX as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what TRIX measures, the formula/settings in TRIX=ROC(one-bar, triple EMA of price), one application to a hypothetical chart and why long warmup and multiple smoothing stages delay signals.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of TRIX and its limitation; this review is ungraded.",
+      "selfCheck": "If the previous fully seeded triple EMA is 200 and the next is 198, what is one-bar TRIX? What prevents a result before three layers warm up?",
+      "reviewExplanation": "TRIX=100×(198/200−1)=−1%. A zero previous triple EMA or missing intermediate seeded layers prevents a defensible result; moving-average conventions change early readings.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -554,7 +554,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different TRIX settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: After three declared EMA smoothing layers are seeded, the latest two completed triple-EMA values are 99 and 100. TRIX one-bar rate=100×(100/99−1)≈1.0101%. Both values are supplied warmed composite inputs, not invented from two closes."
     },
     {
       "code": "STUDY_KST",
@@ -570,8 +570,8 @@
       "limit": "Parameters matter and the indicator is not proof of future returns. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Parameters matter and the indicator is not proof of future returns.",
       "commonError": "Treating Know Sure Thing as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Know Sure Thing measures, the formula/settings in Weighted sum of moving averages of four ROC series, one application to a hypothetical chart and why parameters matter and the indicator is not proof of future returns.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Know Sure Thing and its limitation; this review is ungraded.",
+      "selfCheck": "If the four verified smoothed ROC values are each zero, what is weighted KST? Why must all ROC windows and smoothing periods be documented?",
+      "reviewExplanation": "KST=0 for four zero inputs. Missing any underlying lookback or smoothed ROC history invalidates the composite; plot settings and signal-line convention must be recorded.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -583,7 +583,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Know Sure Thing settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Four differently timed ROC series have valid smoothed latest values 1%,2%,3%,4% and a fictional educational weight vector 1,2,3,4. Weighted KST illustration=1×1+2×2+3×3+4×4=30 indicator-points. The example is NOT a canonical KST parameter default."
     },
     {
       "code": "STUDY_AROON",
@@ -599,8 +599,8 @@
       "limit": "It measures time since extrema rather than price-distance strength. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. It measures time since extrema rather than price-distance strength.",
       "commonError": "Treating Aroon Up and Down as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Aroon Up and Down measures, the formula/settings in AroonUp=100*(N-bars_since_high)/N; Down analog, one application to a hypothetical chart and why it measures time since extrema rather than price-distance strength.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Aroon Up and Down and its limitation; this review is ungraded.",
+      "selfCheck": "For N=10 and bars-since-high=0, bars-since-low=8, calculate both values and explain why an incomplete bar cannot reset the count.",
+      "reviewExplanation": "Aroon-Up=100 and Down=20 on this convention. Different platform window conventions and equal-extreme tie policies can change recency, and no trend continuation is guaranteed.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -612,7 +612,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Aroon Up and Down settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: For a declared N=10 completed-bar Aroon window, the most recent high occurred 2 bars ago and low 6 bars ago. Aroon-Up=100×(10−2)/10=80; Aroon-Down=100×(10−6)/10=40. Define how ties and window endpoints are counted."
     },
     {
       "code": "STUDY_AROON_OSCILLATOR",
@@ -628,8 +628,8 @@
       "limit": "Frequent crossover can be misleading in tight ranges. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Frequent crossover can be misleading in tight ranges.",
       "commonError": "Treating Aroon Oscillator as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Aroon Oscillator measures, the formula/settings in Aroon oscillator=AroonUp-AroonDown, one application to a hypothetical chart and why frequent crossover can be misleading in tight ranges.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Aroon Oscillator and its limitation; this review is ungraded.",
+      "selfCheck": "For Aroon-Up=25 and Aroon-Down=75, compute oscillator and name the necessary shared period.",
+      "reviewExplanation": "Oscillator=−50 percentage points; both components must use the same lookback, completed series, tie policy and bar-since-extreme convention.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -641,7 +641,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Aroon Oscillator settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With a fully declared same-window Aroon-Up=80 and Aroon-Down=40, oscillator=80−40=+40 percentage points. Positive sign reflects relative extreme recency, not a guaranteed return."
     },
     {
       "code": "STUDY_ADX",
@@ -657,8 +657,8 @@
       "limit": "High ADX does not say the trend points up. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. High ADX does not say the trend points up.",
       "commonError": "Treating Average Directional Index as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Average Directional Index measures, the formula/settings in Wilder smoothing of DX based on +DI and -DI, one application to a hypothetical chart and why high adx does not say the trend points up.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Average Directional Index and its limitation; this review is ungraded.",
+      "selfCheck": "Using the same seeded five-period convention, prior ADX 20 and new DX 40 produce what updated ADX? Why is five raw candles insufficient for a full ADX?",
+      "reviewExplanation": "New ADX=(4×20+40)/5=24. DX requires true range, both directional movement paths and Wilder smoothing; ADX then needs its own initialization, so the example gives inputs rather than inventing them.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -670,7 +670,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Average Directional Index settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Assume complete DM/TR histories already produced a valid prior Wilder-smoothed ADX=30 and current DX=50, with illustrative period N=5. Updated ADX=((5−1)×30+50)/5=34. ADX is smoothed trend strength, not direction."
     },
     {
       "code": "STUDY_DIRECTIONAL_MOVEMENT",
@@ -686,8 +686,8 @@
       "limit": "DI signals can cross repeatedly; price action remains primary. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. DI signals can cross repeatedly; price action remains primary.",
       "commonError": "Treating Positive and Negative Directional Indicators as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Positive and Negative Directional Indicators measures, the formula/settings in +DI and -DI normalize smoothed directional movement by true range, one application to a hypothetical chart and why di signals can cross repeatedly; price action remains primary.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Positive and Negative Directional Indicators and its limitation; this review is ungraded.",
+      "selfCheck": "If +DI=10 and −DI=30 on a completed valid period, compute DX. Can DX alone show which direction dominates?",
+      "reviewExplanation": "DX=100×|10−30|/40=50. Absolute value removes direction; compare the signs/order of +DI and −DI separately. Zero TR or zero sum of DI values requires defined handling.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
@@ -699,7 +699,7 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Positive and Negative Directional Indicators settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: After properly smoothed directional movement and true-range inputs, assume +DM_smooth=4, −DM_smooth=1, TR_smooth=20 in compatible price-sum units. +DI=100×4/20=20, −DI=100×1/20=5. DX=100×|20−5|/(20+5)=60."
     },
     {
       "code": "STUDY_PARABOLIC_SAR",
