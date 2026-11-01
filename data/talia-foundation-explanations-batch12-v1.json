@@ -1,0 +1,573 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 12,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "20 original, ungraded fictional position-risk, cost, return and methodology lessons; public pointers need claim-level editorial and rights assessment before release.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_BID_ASK_ROUNDTRIP_RISK",
+      "title": "Crossing both sides of a quote creates a hypothetical round-trip spread cost",
+      "concept": "A marketable purchase priced at the offer and immediate sale priced at an unchanged bid can lose the bid–ask width even without a market move.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. A marketable purchase priced at the offer and immediate sale priced at an unchanged bid can lose the bid–ask width even without a market move.",
+      "workedCase": "FICTIONAL: At a fictional $9.90 bid/$10.10 ask, buying 100 shares at $10.10 and selling at $9.90 creates −$20 gross before fees.",
+      "limit": "Quotes are not guaranteed fills, depth can disappear, and costs change as the spread moves.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Quotes are not guaranteed fills, depth can disappear, and costs change as the spread moves.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Quotes are not guaranteed fills, depth can disappear, and costs change as the spread moves. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: At an unchanged $30.00 bid/$30.08 ask, calculate the gross spread cost for 200 shares; distinguish quotes from executions. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: A marketable purchase priced at the offer and immediate sale priced at an unchanged bid can lose the bid–ask width even without a market move. The stated synthetic worked evidence is: At a fictional $9.90 bid/$10.10 ask, buying 100 shares at $10.10 and selling at $9.90 creates −$20 gross before fees. The result is conditional: Quotes are not guaranteed fills, depth can disappear, and costs change as the spread moves.",
+      "transferQuestion": "FICTIONAL TRANSFER: At an unchanged $30.00 bid/$30.08 ask, calculate the gross spread cost for 200 shares; distinguish quotes from executions. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_ORDER_FILL_UNCERTAINTY",
+      "title": "A stop trigger is not a guaranteed stop execution price",
+      "concept": "A triggered stop-market sell may become a market order whose actual fill can differ materially from its stop trigger.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. A triggered stop-market sell may become a market order whose actual fill can differ materially from its stop trigger.",
+      "workedCase": "FICTIONAL: Fictional plan: enter 50 shares at $20, stop trigger $19; a gap causes a fill at $18.60, producing a $70 loss rather than planned $50 before fees.",
+      "limit": "Broker routing, venue hours, market liquidity and order terms determine how a real stop works.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Broker routing, venue hours, market liquidity and order terms determine how a real stop works.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Broker routing, venue hours, market liquidity and order terms determine how a real stop works. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: For 30 shares bought at $25 with stop trigger $24 and fill $23.50, compare planned and realized gross losses. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: A triggered stop-market sell may become a market order whose actual fill can differ materially from its stop trigger. The stated synthetic worked evidence is: Fictional plan: enter 50 shares at $20, stop trigger $19; a gap causes a fill at $18.60, producing a $70 loss rather than planned $50 before fees. The result is conditional: Broker routing, venue hours, market liquidity and order terms determine how a real stop works.",
+      "transferQuestion": "FICTIONAL TRANSFER: For 30 shares bought at $25 with stop trigger $24 and fill $23.50, compare planned and realized gross losses. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_LIMIT_NONFILL",
+      "title": "A stop-limit protects a limit price but may fail to execute",
+      "concept": "A stop-limit order requires both trigger and limit mechanics; a rapid decline may pass a sell limit without any execution.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. A stop-limit order requires both trigger and limit mechanics; a rapid decline may pass a sell limit without any execution.",
+      "workedCase": "FICTIONAL: Fictional long shares have sell stop $19.50 and sell limit $19.40; a move from $19.60 to a $19.20 bid does not ensure a $19.40 sale.",
+      "limit": "Different brokers, order sessions and eligibility conditions affect triggering, routing and partial execution.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Different brokers, order sessions and eligibility conditions affect triggering, routing and partial execution.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Different brokers, order sessions and eligibility conditions affect triggering, routing and partial execution. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If a sell stop activates at $30 with a $29.90 limit while all bids are $29.50, may execution be assumed? Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: A stop-limit order requires both trigger and limit mechanics; a rapid decline may pass a sell limit without any execution. The stated synthetic worked evidence is: Fictional long shares have sell stop $19.50 and sell limit $19.40; a move from $19.60 to a $19.20 bid does not ensure a $19.40 sale. The result is conditional: Different brokers, order sessions and eligibility conditions affect triggering, routing and partial execution.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a sell stop activates at $30 with a $29.90 limit while all bids are $29.50, may execution be assumed? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RISK_PER_SHARE_ENTRY_STOP",
+      "title": "Price-defined per-share risk is a plan rather than a final loss bound",
+      "concept": "For a simplified long-stock setup, planned per-share price risk is entry price minus stop trigger, provided entry exceeds the stop.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. For a simplified long-stock setup, planned per-share price risk is entry price minus stop trigger, provided entry exceeds the stop.",
+      "workedCase": "FICTIONAL: Fictional entry $50, stop $49 and 50 shares yield planned price distance $1/share and $50 price-risk budget before fills, fees and gaps.",
+      "limit": "A protective trigger does not promise that exit fills at the stop price or that the account loss is capped.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. A protective trigger does not promise that exit fills at the stop price or that the account loss is capped.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: A protective trigger does not promise that exit fills at the stop price or that the account loss is capped. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: At $24 entry, $22.75 planned stop and 40 shares, compute $1.25 planned distance and $50 aggregate. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: For a simplified long-stock setup, planned per-share price risk is entry price minus stop trigger, provided entry exceeds the stop. The stated synthetic worked evidence is: Fictional entry $50, stop $49 and 50 shares yield planned price distance $1/share and $50 price-risk budget before fills, fees and gaps. The result is conditional: A protective trigger does not promise that exit fills at the stop price or that the account loss is capped.",
+      "transferQuestion": "FICTIONAL TRANSFER: At $24 entry, $22.75 planned stop and 40 shares, compute $1.25 planned distance and $50 aggregate. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ROUND_DOWN_RISK_SHARES",
+      "title": "Position sizing must round whole-share risk down to the allowed budget",
+      "concept": "Simplified risk-limited whole shares equal floor(price-risk budget ÷ absolute planned per-share loss), subject to notional and account limits.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Simplified risk-limited whole shares equal floor(price-risk budget ÷ absolute planned per-share loss), subject to notional and account limits.",
+      "workedCase": "FICTIONAL: With fictional $75 allowed price risk and $1.40 risk/share, floor(75/1.40)=53 shares, representing $74.20 planned price risk.",
+      "limit": "Fractional shares, minimum order sizes, buying power, gaps and aggregate exposure may require a smaller allocation.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Fractional shares, minimum order sizes, buying power, gaps and aggregate exposure may require a smaller allocation.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Fractional shares, minimum order sizes, buying power, gaps and aggregate exposure may require a smaller allocation. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: At $90 risk budget and $1.60/share risk, calculate the maximum whole shares and consumed price risk. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Simplified risk-limited whole shares equal floor(price-risk budget ÷ absolute planned per-share loss), subject to notional and account limits. The stated synthetic worked evidence is: With fictional $75 allowed price risk and $1.40 risk/share, floor(75/1.40)=53 shares, representing $74.20 planned price risk. The result is conditional: Fractional shares, minimum order sizes, buying power, gaps and aggregate exposure may require a smaller allocation.",
+      "transferQuestion": "FICTIONAL TRANSFER: At $90 risk budget and $1.60/share risk, calculate the maximum whole shares and consumed price risk. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ACCOUNT_RISK_FRACTION",
+      "title": "A trade risk budget is a fraction of available account equity, not borrowing authority",
+      "concept": "Dividing a planned gross loss budget by reference account equity expresses a hypothetical fraction of that equity at risk.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Dividing a planned gross loss budget by reference account equity expresses a hypothetical fraction of that equity at risk.",
+      "workedCase": "FICTIONAL: For hypothetical $8,000 equity and $40 planned price-risk budget, fraction is 40/8,000=0.005 or 0.50%.",
+      "limit": "Account equity, options margin, fees and risk across related holdings can make this an incomplete risk forecast.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Account equity, options margin, fees and risk across related holdings can make this an incomplete risk forecast.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Account equity, options margin, fees and risk across related holdings can make this an incomplete risk forecast. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If price-risk budget is $60 and reference equity $12,000, calculate the planned account percentage. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Dividing a planned gross loss budget by reference account equity expresses a hypothetical fraction of that equity at risk. The stated synthetic worked evidence is: For hypothetical $8,000 equity and $40 planned price-risk budget, fraction is 40/8,000=0.005 or 0.50%. The result is conditional: Account equity, options margin, fees and risk across related holdings can make this an incomplete risk forecast.",
+      "transferQuestion": "FICTIONAL TRANSFER: If price-risk budget is $60 and reference equity $12,000, calculate the planned account percentage. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_NOTIONAL_VS_STOP_RISK",
+      "title": "Position notional and planned stop-distance risk are different quantities",
+      "concept": "Notional long equity exposure is share count times entry price; planned price loss uses the share count times entry–stop distance.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Notional long equity exposure is share count times entry price; planned price loss uses the share count times entry–stop distance.",
+      "workedCase": "FICTIONAL: For fictional 60 shares at $40, notional exposure is $2,400; a $39 stop implies $60 planned distance risk, not $2,400.",
+      "limit": "A gap, halt or execution delay can make actual losses exceed the planned price-risk budget.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. A gap, halt or execution delay can make actual losses exceed the planned price-risk budget.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: A gap, halt or execution delay can make actual losses exceed the planned price-risk budget. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: For 25 shares at $80 with stop $78, state notional exposure and hypothetical $50 stop-distance risk. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Notional long equity exposure is share count times entry price; planned price loss uses the share count times entry–stop distance. The stated synthetic worked evidence is: For fictional 60 shares at $40, notional exposure is $2,400; a $39 stop implies $60 planned distance risk, not $2,400. The result is conditional: A gap, halt or execution delay can make actual losses exceed the planned price-risk budget.",
+      "transferQuestion": "FICTIONAL TRANSFER: For 25 shares at $80 with stop $78, state notional exposure and hypothetical $50 stop-distance risk. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_LEVERAGE_RATIO",
+      "title": "Gross exposure relative to equity is distinct from permission to borrow",
+      "concept": "Summing absolute position notional and dividing by equity gives a simple gross leverage ratio for the stated snapshot.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Summing absolute position notional and dividing by equity gives a simple gross leverage ratio for the stated snapshot.",
+      "workedCase": "FICTIONAL: Fictional long and short position notionals total $15,000 in absolute value with $10,000 equity: gross leverage = 1.50×.",
+      "limit": "Broker margin rules, short sale collateral and risk-weighted exposure are not inferred from the ratio.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Broker margin rules, short sale collateral and risk-weighted exposure are not inferred from the ratio.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Broker margin rules, short sale collateral and risk-weighted exposure are not inferred from the ratio. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If gross absolute exposure is $12,000 and equity $8,000, compute 1.5× and explain why this does not grant margin. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Summing absolute position notional and dividing by equity gives a simple gross leverage ratio for the stated snapshot. The stated synthetic worked evidence is: Fictional long and short position notionals total $15,000 in absolute value with $10,000 equity: gross leverage = 1.50×. The result is conditional: Broker margin rules, short sale collateral and risk-weighted exposure are not inferred from the ratio.",
+      "transferQuestion": "FICTIONAL TRANSFER: If gross absolute exposure is $12,000 and equity $8,000, compute 1.5× and explain why this does not grant margin. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PLANNED_R_MULTIPLE",
+      "title": "R-multiples compare outcomes with a defined initial price-risk unit",
+      "concept": "A simplified trade outcome in R equals net or gross gain divided by initial planned loss, with numerator convention stated.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. A simplified trade outcome in R equals net or gross gain divided by initial planned loss, with numerator convention stated.",
+      "workedCase": "FICTIONAL: Fictional entry-to-target gain $3/share and initial stop distance $2/share yields +1.5R gross before execution costs.",
+      "limit": "An actual result net of fees, a changed stop, partial fills or gaps may differ from planned R.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. An actual result net of fees, a changed stop, partial fills or gaps may differ from planned R.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: An actual result net of fees, a changed stop, partial fills or gaps may differ from planned R. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: With $1.50 gross gain/share and $0.75 original price-risk unit, calculate +2R before fees. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: A simplified trade outcome in R equals net or gross gain divided by initial planned loss, with numerator convention stated. The stated synthetic worked evidence is: Fictional entry-to-target gain $3/share and initial stop distance $2/share yields +1.5R gross before execution costs. The result is conditional: An actual result net of fees, a changed stop, partial fills or gaps may differ from planned R.",
+      "transferQuestion": "FICTIONAL TRANSFER: With $1.50 gross gain/share and $0.75 original price-risk unit, calculate +2R before fees. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PAYOFF_RATIO_NOT_EXPECTANCY",
+      "title": "Average winning and losing outcomes define payoff ratio but not profitability",
+      "concept": "Payoff ratio divides average gain on winning trades by absolute average loss on losing trades; it says nothing alone about loss frequency.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Payoff ratio divides average gain on winning trades by absolute average loss on losing trades; it says nothing alone about loss frequency.",
+      "workedCase": "FICTIONAL: A fictional strategy has average +$12 winners and −$8 losers: payoff ratio = 12/8 = 1.5, regardless of win rate.",
+      "limit": "A ratio based on selective winners and losers excludes trade frequency, costs, and selection bias.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. A ratio based on selective winners and losers excludes trade frequency, costs, and selection bias.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: A ratio based on selective winners and losers excludes trade frequency, costs, and selection bias. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If average winner is $9 and absolute average loser $6, compute 1.5 and explain why it is not expectancy. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Payoff ratio divides average gain on winning trades by absolute average loss on losing trades; it says nothing alone about loss frequency. The stated synthetic worked evidence is: A fictional strategy has average +$12 winners and −$8 losers: payoff ratio = 12/8 = 1.5, regardless of win rate. The result is conditional: A ratio based on selective winners and losers excludes trade frequency, costs, and selection bias.",
+      "transferQuestion": "FICTIONAL TRANSFER: If average winner is $9 and absolute average loser $6, compute 1.5 and explain why it is not expectancy. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WIN_RATE_EXPECTANCY",
+      "title": "Trade expectancy combines outcome magnitude and matching observed frequencies",
+      "concept": "Simplified per-trade expectancy under an assumed stationary frequency model is win probability times average win minus loss probability times average absolute loss.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Simplified per-trade expectancy under an assumed stationary frequency model is win probability times average win minus loss probability times average absolute loss.",
+      "workedCase": "FICTIONAL: For fictional P(win)=0.40, average win $12, P(loss)=0.60, average loss $6, expectancy = $4.80 − $3.60 = +$1.20/trade before fees.",
+      "limit": "Historical sample estimates may not remain stable and must not be sold as a profit guarantee or personalized advice.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Historical sample estimates may not remain stable and must not be sold as a profit guarantee or personalized advice.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Historical sample estimates may not remain stable and must not be sold as a profit guarantee or personalized advice. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: At win rate 30%, average win $15 and average loss $5, compute simplified gross expectancy. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Simplified per-trade expectancy under an assumed stationary frequency model is win probability times average win minus loss probability times average absolute loss. The stated synthetic worked evidence is: For fictional P(win)=0.40, average win $12, P(loss)=0.60, average loss $6, expectancy = $4.80 − $3.60 = +$1.20/trade before fees. The result is conditional: Historical sample estimates may not remain stable and must not be sold as a profit guarantee or personalized advice.",
+      "transferQuestion": "FICTIONAL TRANSFER: At win rate 30%, average win $15 and average loss $5, compute simplified gross expectancy. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAK_EVEN_WIN_RATE",
+      "title": "The break-even win rate depends on the chosen average win and loss sizes",
+      "concept": "With only wins and losses and zero fees, break-even win probability is average absolute loss divided by (average win + average absolute loss).",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. With only wins and losses and zero fees, break-even win probability is average absolute loss divided by (average win + average absolute loss).",
+      "workedCase": "FICTIONAL: For a hypothetical $12 average winner and $8 average loser, break-even win rate is 8/(12+8)=40%.",
+      "limit": "Fees, flat outcomes, uneven sizes and changing market conditions shift the threshold.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Fees, flat outcomes, uneven sizes and changing market conditions shift the threshold.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Fees, flat outcomes, uneven sizes and changing market conditions shift the threshold. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: With $9 winner and $6 loser and no costs, compute a 40% theoretical break-even win rate. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: With only wins and losses and zero fees, break-even win probability is average absolute loss divided by (average win + average absolute loss). The stated synthetic worked evidence is: For a hypothetical $12 average winner and $8 average loser, break-even win rate is 8/(12+8)=40%. The result is conditional: Fees, flat outcomes, uneven sizes and changing market conditions shift the threshold.",
+      "transferQuestion": "FICTIONAL TRANSFER: With $9 winner and $6 loser and no costs, compute a 40% theoretical break-even win rate. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MULTIPLICATIVE_LOSS_RECOVERY",
+      "title": "A percentage decline followed by the same percentage rise does not fully restore capital",
+      "concept": "Compounded returns multiply sequential account-value factors, rather than adding the reported percentages.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Compounded returns multiply sequential account-value factors, rather than adding the reported percentages.",
+      "workedCase": "FICTIONAL: A fictional $100 starting value falls 10% to $90, then rises 10% to $99; total return is −1%, not zero.",
+      "limit": "Cash flows, fees and holding period changes require more complete performance measurement.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Cash flows, fees and holding period changes require more complete performance measurement.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Cash flows, fees and holding period changes require more complete performance measurement. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: After a 20% decline, what percentage gain from the new base returns an account to its original value? Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Compounded returns multiply sequential account-value factors, rather than adding the reported percentages. The stated synthetic worked evidence is: A fictional $100 starting value falls 10% to $90, then rises 10% to $99; total return is −1%, not zero. The result is conditional: Cash flows, fees and holding period changes require more complete performance measurement.",
+      "transferQuestion": "FICTIONAL TRANSFER: After a 20% decline, what percentage gain from the new base returns an account to its original value? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAX_DRAWDOWN_REFERENCE",
+      "title": "Drawdown is measured from an earlier peak to a subsequent trough",
+      "concept": "Simple percentage drawdown equals (trough value − prior peak value)/prior peak value for the specified same-basis account series.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Simple percentage drawdown equals (trough value − prior peak value)/prior peak value for the specified same-basis account series.",
+      "workedCase": "FICTIONAL: Fictional account peak $10,000 and later trough $8,500 produce −15% drawdown; recovering to $10,000 requires +17.65% from $8,500.",
+      "limit": "Cash deposits, net fees and time-weighted accounting change real portfolio drawdown definitions.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Cash deposits, net fees and time-weighted accounting change real portfolio drawdown definitions.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Cash deposits, net fees and time-weighted accounting change real portfolio drawdown definitions. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: From $12,000 peak to $9,000 trough calculate −25% and the +33.33% recovery requirement. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Simple percentage drawdown equals (trough value − prior peak value)/prior peak value for the specified same-basis account series. The stated synthetic worked evidence is: Fictional account peak $10,000 and later trough $8,500 produce −15% drawdown; recovering to $10,000 requires +17.65% from $8,500. The result is conditional: Cash deposits, net fees and time-weighted accounting change real portfolio drawdown definitions.",
+      "transferQuestion": "FICTIONAL TRANSFER: From $12,000 peak to $9,000 trough calculate −25% and the +33.33% recovery requirement. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SAMPLE_WIN_RATE_UNCERTAINTY",
+      "title": "A small sample success rate is an observation, not a validated probability",
+      "concept": "Observed win fraction is wins divided by eligible trades in the chosen sample, but uncertainty and independence assumptions remain untested.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Observed win fraction is wins divided by eligible trades in the chosen sample, but uncertainty and independence assumptions remain untested.",
+      "workedCase": "FICTIONAL: Eight wins in 20 independent fictional outcomes produce observed 40% wins; no exact forward success probability follows from that fraction.",
+      "limit": "Overlapping correlated trades, cherry-picked exclusions and regime changes undermine the assumption of repeated independent trials.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Overlapping correlated trades, cherry-picked exclusions and regime changes undermine the assumption of repeated independent trials.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Overlapping correlated trades, cherry-picked exclusions and regime changes undermine the assumption of repeated independent trials. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: Nine wins out of 30 trades give what observed fraction, and why is it not an assured future probability? Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Observed win fraction is wins divided by eligible trades in the chosen sample, but uncertainty and independence assumptions remain untested. The stated synthetic worked evidence is: Eight wins in 20 independent fictional outcomes produce observed 40% wins; no exact forward success probability follows from that fraction. The result is conditional: Overlapping correlated trades, cherry-picked exclusions and regime changes undermine the assumption of repeated independent trials.",
+      "transferQuestion": "FICTIONAL TRANSFER: Nine wins out of 30 trades give what observed fraction, and why is it not an assured future probability? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_TO_NET_TRADE_RESULT",
+      "title": "Transaction costs must be deducted before calling a hypothetical result net profit",
+      "concept": "Net hypothetical trade result equals gross price gain minus defined paid commissions and other stated execution costs.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Net hypothetical trade result equals gross price gain minus defined paid commissions and other stated execution costs.",
+      "workedCase": "FICTIONAL: A fictional price-only gain is $60, commission and fees total $8, so the stated net before taxes is $52.",
+      "limit": "Slippage, spread, financing, taxes and unobserved charges may create additional costs.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Slippage, spread, financing, taxes and unobserved charges may create additional costs.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Slippage, spread, financing, taxes and unobserved charges may create additional costs. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: For gross $42 and explicit fees $7, compute $35 net before taxes; identify omitted costs. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Net hypothetical trade result equals gross price gain minus defined paid commissions and other stated execution costs. The stated synthetic worked evidence is: A fictional price-only gain is $60, commission and fees total $8, so the stated net before taxes is $52. The result is conditional: Slippage, spread, financing, taxes and unobserved charges may create additional costs.",
+      "transferQuestion": "FICTIONAL TRANSFER: For gross $42 and explicit fees $7, compute $35 net before taxes; identify omitted costs. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GAP_LOSS_ABOVE_PLAN",
+      "title": "A gap can make a planned stop-based loss materially larger than the initial risk estimate",
+      "concept": "Realized simple exit distance may exceed the distance from intended entry to stop trigger, including on adverse price gaps.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Realized simple exit distance may exceed the distance from intended entry to stop trigger, including on adverse price gaps.",
+      "workedCase": "FICTIONAL: Fictional purchase $30, planned stop $29 and final sell at $28.60: realized $1.40/share loss versus planned $1.00/share, a 40% increase.",
+      "limit": "Actual results also depend on share quantity, fills and brokerage fees; no stop eliminates price-gap risk.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Actual results also depend on share quantity, fills and brokerage fees; no stop eliminates price-gap risk.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Actual results also depend on share quantity, fills and brokerage fees; no stop eliminates price-gap risk. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If planned distance is $0.50 and actual loss distance $0.80, by what percent did the loss exceed plan? Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Realized simple exit distance may exceed the distance from intended entry to stop trigger, including on adverse price gaps. The stated synthetic worked evidence is: Fictional purchase $30, planned stop $29 and final sell at $28.60: realized $1.40/share loss versus planned $1.00/share, a 40% increase. The result is conditional: Actual results also depend on share quantity, fills and brokerage fees; no stop eliminates price-gap risk.",
+      "transferQuestion": "FICTIONAL TRANSFER: If planned distance is $0.50 and actual loss distance $0.80, by what percent did the loss exceed plan? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CORRELATED_POSITION_EXPOSURE",
+      "title": "Different stock symbols do not guarantee independent downside risk",
+      "concept": "Summing planned individual risk allowances does not account for correlated market shocks, shared sectors or liquidity stress.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Summing planned individual risk allowances does not account for correlated market shocks, shared sectors or liquidity stress.",
+      "workedCase": "FICTIONAL: Two fictional stocks each could lose $50 and $40 at planned exits; combined nominal price-risk is $90 without claiming independent outcomes.",
+      "limit": "A market-wide event can impact both positions simultaneously; the numbers do not provide a correlation estimate.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. A market-wide event can impact both positions simultaneously; the numbers do not provide a correlation estimate.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: A market-wide event can impact both positions simultaneously; the numbers do not provide a correlation estimate. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If two positions have planned losses of $60 and $25, state combined $85 and name a shared shock risk. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Summing planned individual risk allowances does not account for correlated market shocks, shared sectors or liquidity stress. The stated synthetic worked evidence is: Two fictional stocks each could lose $50 and $40 at planned exits; combined nominal price-risk is $90 without claiming independent outcomes. The result is conditional: A market-wide event can impact both positions simultaneously; the numbers do not provide a correlation estimate.",
+      "transferQuestion": "FICTIONAL TRANSFER: If two positions have planned losses of $60 and $25, state combined $85 and name a shared shock risk. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COMMISSION_BASIS_POINTS",
+      "title": "Fees expressed in basis points need a declared transaction-value denominator",
+      "concept": "One basis point is one ten-thousandth of the specified reference value, so fee basis points = 10,000×fee dollars/reference notional.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. One basis point is one ten-thousandth of the specified reference value, so fee basis points = 10,000×fee dollars/reference notional.",
+      "workedCase": "FICTIONAL: A fictional $4 execution fee against $2,000 trade notional equals (4/2000)×10,000=20 basis points.",
+      "limit": "The convention requires explicit buy, sell or round-trip notional; fees charged per contract may not scale with trade size.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. The convention requires explicit buy, sell or round-trip notional; fees charged per contract may not scale with trade size.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: The convention requires explicit buy, sell or round-trip notional; fees charged per contract may not scale with trade size. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: For $3 costs on $1,500 reference notional, compute 20 basis points; distinguish one side from round trip. Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: One basis point is one ten-thousandth of the specified reference value, so fee basis points = 10,000×fee dollars/reference notional. The stated synthetic worked evidence is: A fictional $4 execution fee against $2,000 trade notional equals (4/2000)×10,000=20 basis points. The result is conditional: The convention requires explicit buy, sell or round-trip notional; fees charged per contract may not scale with trade size.",
+      "transferQuestion": "FICTIONAL TRANSFER: For $3 costs on $1,500 reference notional, compute 20 basis points; distinguish one side from round trip. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BACKTEST_MULTIPLE_TEST_BIAS",
+      "title": "Trying many strategies on the same history can create selection bias",
+      "concept": "Selecting the best historical result among repeated parameter sweeps uses information from the supposedly independent evaluation sample.",
+      "procedure": "Read the authorized fictional inputs, name price/time and risk conventions, calculate each step, and distinguish a stated planning scenario from a confirmed transaction. Selecting the best historical result among repeated parameter sweeps uses information from the supposedly independent evaluation sample.",
+      "workedCase": "FICTIONAL: A fictional analyst checks 80 parameter sets on one 100-session dataset, picks the highest result, and reports it as a single unbiased test; that conclusion is invalid.",
+      "limit": "Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty.",
+      "invalidation": "This illustration cannot be used as verified risk or financial advice when quantity, execution fill, fee schedule, denominator, historical availability or assumptions are missing. Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty.",
+      "commonError": "A realistic trading mistake would be to ignore the explicit limitation of this method: Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty. In practice, do not equate calculated hypothetical values with guaranteed realized outcomes.",
+      "selfCheck": "Use a fresh independent fictional case to demonstrate this distinction: If 100 candidate rules were tried on the same 50 sessions, why does the winner not represent a single prespecified trial? Show the units, numerical method and one assumption that would invalidate a real-world conclusion.",
+      "reviewExplanation": "Ungraded formative correction: Selecting the best historical result among repeated parameter sweeps uses information from the supposedly independent evaluation sample. The stated synthetic worked evidence is: A fictional analyst checks 80 parameter sets on one 100-session dataset, picks the highest result, and reports it as a single unbiased test; that conclusion is invalid. The result is conditional: Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty.",
+      "transferQuestion": "FICTIONAL TRANSFER: If 100 candidate rules were tried on the same 50 sessions, why does the winner not represent a single prespecified trial? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_only_public_reference_not_data_license",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_source_draft_claim_specific_review_pending",
+        "rights": "original_fictional_no_feed_or_vendor_republication",
+        "independentPublicationAccepted": false
+      }
+    }
+  ],
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419
+}
