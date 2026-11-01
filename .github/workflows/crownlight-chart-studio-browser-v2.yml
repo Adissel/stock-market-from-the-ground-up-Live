@@ -123,6 +123,8 @@ on:
       - 'simulator.html'
       - 'assets/js/crownlight-indicator-math-v2.js'
       - 'assets/css/crownlight-chart-studio-v2.css'
+      - 'tests/test_crownlight_chart_studio_v2.mjs'
+      - 'tests/test_crownlight_chart_preferences_v16_browser.mjs'
       - 'tests/test_crownlight_chart_browser_v2.mjs'
       - 'tests/test_chart_quant_crosslanguage_v1.mjs'
       - 'scripts/chart-independent-quant-reference-v1.py'
