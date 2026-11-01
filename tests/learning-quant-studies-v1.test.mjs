@@ -20,6 +20,7 @@ test('Risk and position sizing honor stop-distance, whole-share floor and purcha
 });
 test('Select only canonical study competency and matching topic, never generic Lab rights',()=>{
  assert.equal(x.select({competencies:['EMA_CONTEXT'],primaryCode:'EMA_CONTEXT',topic:'EMA 9 and trend'}),'ema');
+ assert.equal(x.select({competencies:['EMA_CONTEXT'],primaryCode:'EMA_CONTEXT',topic:'SMA9, EMA9, and EMA20'}),'ema');
  assert.equal(x.select({competencies:['RISK_PER_SHARE'],primaryCode:'RISK_PER_SHARE',topic:'Risk per share'}),'risk');
  assert.equal(x.select({competencies:['POSITION_SIZING'],primaryCode:'POSITION_SIZING',topic:'Position sizing'}),'sizing');
  assert.equal(x.select({competencies:['VWAP_CONTEXT'],primaryCode:'VWAP_CONTEXT',topic:'EMA 9'}),null);

@@ -62,7 +62,7 @@ function select({competencies,topic,primaryCode}={}){
  const codes=Array.isArray(competencies)?competencies:[];
  const title=typeof topic==='string'?topic:'';
  const check=[
-  ['ema',/\bEMA\b|exponential moving average/i],
+  ['ema',/\bEMA(?:\s?\d+)?\b|exponential moving average/i],
   ['risk',/\brisk per share\b|\bstop distance\b|\brisk per trade\b/i],
   ['sizing',/position siz|share.count|risk budget/i]
  ];
