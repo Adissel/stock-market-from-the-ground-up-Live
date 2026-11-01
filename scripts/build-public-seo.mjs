@@ -25,8 +25,8 @@ const candidates=[
 // Curated copy mirrors each existing public page; do not invent sales availability.
 const metadata={
  index:{
-  title:'Learn the Stock Market for Free | Guides & Practice — SMFGU',
-  description:'Start learning the stock market from zero with free beginner guides, fictional candlestick practice and five Free Foundations lessons. No purchase needed to begin.'
+  title:'The Stock Market: From the Ground Up | Learning Academy',
+  description:'The Stock Market: From the Ground Up Learning Academy offers free beginner guides, fictional candlestick practice and five guided Foundations lessons. No purchase is required to begin.'
  },
  about:{
   title:'About J. S. Grant | Stock Market Education',
@@ -155,7 +155,7 @@ for(const name of candidates){
   const publisher={'@type':'Organization',name:'Crown & Lantern Press'};
   const schema=name==='index'?{
    '@context':'https://schema.org','@graph':[
-    {'@type':'WebSite',name:'The Stock Market: From the Ground Up',url:origin+'/'},
+    {'@type':'WebSite',name:'The Stock Market: From the Ground Up — Learning Academy',alternateName:'The Stock Market: From the Ground Up',url:origin+'/'},
     {'@type':'Organization',name:'Crown & Lantern Press',url:origin+'/about.html'}
    ]
   }:{
