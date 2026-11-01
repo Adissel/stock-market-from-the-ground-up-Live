@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.3 / 2026-11-01 |
+| Version / prepared | 1.4 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -134,6 +134,21 @@ The nine-level source directory is authoritative for research selection, not bla
 
 **Acceptance before production sign-off:** exact-SHA required GitHub Actions, same-SHA Cloudflare build, verified signed-in Free/Founding/Owner tiers, mobile/keyboard/screen-reader, zero-lookahead and individual curriculum editorial reviews. Fail/cancel/pending must not be counted as passed.
 
+
+## Section C continued — numerical boundaries and linked ECharts panels (2026-11-01)
+
+**Status:** Source committed on `main`. ECharts runtime and cross-language edge regressions added to the Chart Studio Chromium gate. Exact-final-SHA CI, Cloudflare matching deployment, independently verified publications and genuine signed-in acceptance are separately OPEN.
+
+**New committed capabilities:** One multi-grid ECharts display with independently scaled RSI 14, MACD 12/26/9 and ATR 14 subpanels, shared chronological x-axis pointer and zoom, individual height sliders, numerical columns for all MACD components, and responsive semantic controls. Price and volume remain the first two chart series. Canonical shared JS math is reused; do not infer a new compiled React/TypeScript production application or replacement of Lightweight Charts.
+
+**Mathematical edge controls:** Hardened ECharts OHLCV intake against null/missing/blank required properties before numerical coercion. New independent Python Decimal reference and Node cross-check cover SMA gaps, EMA seed/gap conventions, flat RSI, premarket-to-regular VWAP reset, zero-volume carry, ATR true-range price gaps, zero-variance Bollinger bands, and the quantitative distinction between trade-print VWAP and bar HLC3 proxy. Existing independent 1/3/5-minute aggregation and 200-bar EMA checks remain preserved.
+
+**QA source paths:** `scripts/qa/section_c_indicator_edge_reference_v1.py`, `tests/test_section_c_indicator_edge_crosslanguage_v1.mjs`, expanded `tests/test_crownlight_echarts_indicator_section_c_v1.mjs`, and active `.github/workflows/crownlight-chart-studio-browser-v2.yml`. Real authenticated users, full WCAG/assistive technology, multi-account persisted preferences, and exact-main release gates remain unaccepted.
+
+**Research document:** `Master Research Source Directory(6).odt` independently reviewed as assignment source for original math, source selection, provenance and redistribution controls. Its internal claim of general source approval is not legal permission to redistribute exchange feeds, proprietary charts, vendor study code or copyrighted media.
+
+**Denominator protection:** 73/73 source guide records, original 15 existing canonical Python/JS indicator comparisons, 16 prototype choice registrations; no increase in 0/73 independently publication-approved guides or separately verified 419-Lab/274-Academy curriculum integrations based on this source-only batch. Basic engines remain canonical; Advanced/Professional/Enterprise release percentages and overall website completion remain unassigned until individual acceptance evidence exists.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -142,5 +157,6 @@ The nine-level source directory is authoritative for research selection, not bla
 | 1.1 | 2026-11-01 | Reconcile 73 Tutor study guides, 16 computed prototype studies, live Supabase/Risk60 audit findings and six prioritized execution gates | Read-only source evidence; independent release acceptance open |
 | 1.2 | 2026-11-01 | Link 1,366 identity projection, 40-claim evidence batch, 15-indicator Python/JS regression and no-release research holds | Source progress accepted as development evidence only |
 | 1.3 | 2026-11-01 | Implement first Section C ECharts overlay/control/table source batch; add offline Chromium CI gate; preserve denominator and release distinctions | Source implementation; exact-head CI, Cloudflare and authenticated acceptance open |
+| 1.4 | 2026-11-01 | Add synchronized RSI/MACD/ATR panes, editable panel heights, strict OHLCV input control, independent Decimal edge fixtures, and expanded browser CI | Source committed; independent final release acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.3 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.4 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
