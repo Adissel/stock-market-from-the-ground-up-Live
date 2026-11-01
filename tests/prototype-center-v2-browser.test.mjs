@@ -70,6 +70,14 @@ try{
   const exceptions=[];page.on('pageerror',error=>exceptions.push(error.message));
   await page.goto(BASE+'/prototype.html',{waitUntil:'domcontentloaded'});
   await page.locator('#pt-app').waitFor({state:'visible',timeout:16000});
+  await page.locator('#pt-command-deck .pt-command-link').first().waitFor({state:'visible',timeout:20000});
+  assert.equal(await page.locator('#pt-command-deck .pt-command-link').count(),6,'React command deck must appear at authorized entry');
+  assert.equal(await page.locator('#pt-experience').isVisible(),true,'Interactive chart must be visible on the primary page');
+  assert.equal(await page.locator('#pt-experience #pt-chart').count(),1,'The ECharts canvas must be prominent, not buried beneath editing controls');
+  const screenOrder=await page.evaluate(()=>({preview:document.getElementById('pt-experience').getBoundingClientRect().top,
+    designer:document.getElementById('pt-designer').getBoundingClientRect().top}));
+  assert.ok(screenOrder.preview<screenOrder.designer,'Chart and live lesson must precede the long editor');
+
   await page.locator('[data-prototype-case]').waitFor({state:'visible',timeout:14000});
   assert.equal(await page.locator('#pt-nav button').count(),23);
   assert.equal(await page.locator('#pt-membership option').count(),8,'all approved membership products should be previewable');
@@ -98,7 +106,8 @@ try{
   await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 3 of 4 candles/);
   // The staff-only 3D workbench is dynamically mounted and remains fictional/read-only.
-  await page.locator('#pt-nav button:has-text("3D Experiments")').click();
+  await page.locator('#pt-command-deck button:has-text("3D / WebGL")').click();
+  assert.equal(await page.locator('#pt-title').textContent(),'3D Experiments','React quick navigation must drive JavaScript workspace behavior');
   await page.locator('#pt-three-count').waitFor({state:'visible',timeout:20000});
   await page.locator('#pt-three-camera').selectOption('orthographic');
   assert.equal(await page.locator('#pt-three-camera').inputValue(),'orthographic');

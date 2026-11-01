@@ -5,6 +5,9 @@ on:
     paths:
       - 'prototype.html'
       - 'src/prototype/PrototypeThreeLab.tsx'
+      - 'src/prototype/PrototypeWorkbenchDeck.tsx'
+      - 'assets/css/prototype-center-v6.css'
+      - 'tests/prototype-center-v6-ui.test.mjs'
       - 'assets/css/prototype-three-lab-v1.css'
       - 'tests/prototype-three-lab-v1.test.mjs'
       - 'scripts/build-pages.sh'
@@ -61,6 +64,7 @@ jobs:
           node tests/prototype-center-v1-contract.test.mjs
           node tests/prototype-center-v1-auth.test.mjs
           node tests/prototype-three-lab-v1.test.mjs
+          node tests/prototype-center-v6-ui.test.mjs
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
           node tests/prototype-membership-builder-v1.test.mjs
@@ -72,6 +76,8 @@ jobs:
           test -s public/assets/js/prototype-teaching-v2.js
           test -s public/assets/vendor/echarts/6.1.0/echarts.min.js
           test -s public/assets/js/prototype-three-lab-v1.bundle.js
+          test -s public/assets/js/prototype-deck-v6.bundle.js
+          test -s public/assets/css/prototype-center-v6.css
           test -s public/assets/vendor/three/LICENSE
           test -s public/assets/vendor/react/LICENSE
           test ! -d public/functions

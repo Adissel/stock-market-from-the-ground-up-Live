@@ -123,7 +123,8 @@ function start(user){
  statusNode=node('p');statusNode.setAttribute('role','status');statusNode.setAttribute('aria-live','polite');
  versionNode=node('p');versionNode.className='pt-note';
  controls.append(saveButton,refreshButton,revisionLabel,restoreButton,comparisonNode,statusNode,versionNode);
- container.after(controls);
+ const designRemote=document.getElementById('pt-design-remote');
+ if(designRemote)designRemote.append(controls);else container.after(controls);
  const select=document.getElementById('pt-membership');
  select?.addEventListener('change',renderStatus);
  renderStatus();void reload();
