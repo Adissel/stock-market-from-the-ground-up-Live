@@ -213,10 +213,47 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
 }
 
 const Icon=({type}:{type:string})=><span aria-hidden="true" className="cx-glyph">{type}</span>;
-function Talia({topic,step}:{topic:Topic;step:number}){
- const vwap=['Volume Weighted Average Price weights each traded price by its associated share volume.','For 100 shares at $10 and 300 at $11: ($1,000 + $3,300) / 400 = $10.75.','A bar-level typical-price × volume line is only a proxy, not trade-print VWAP.','Above or below VWAP is context—not a prediction or trading signal.'];
- const candle=['Every candle contains open, high, low and close (OHLC).','The real body is |close − open|. Wicks extend from the body to the high and low.','Body / range = |close − open| ÷ (high − low) × 100%.','A long wick is evidence of movement and rejection within the bar, not proof of what comes next.'];
- return <div className="cx-talia"><div className="cx-orb">T</div><div><div className="cx-overline">TALIA MERCER · GUIDED EXPLANATION</div><p>{(topic==='vwap'?vwap:candle)[step%4]}</p><small>Explanations and guided retries are not paywalled when a lesson is accessible.</small></div></div>
+type CoachMode='Explain This Concept'|'Guided Example'|'Try Another Example'|'Teach This in More Depth';
+function Talia({topic,step,bar}:{topic:Topic;step:number;bar?:Bar}){
+ const [mode,setMode]=useState<CoachMode>('Explain This Concept');
+ useEffect(()=>setMode('Explain This Concept'),[topic,step]);
+ const stagesVWAP=[
+ ['Objective','Explain why weighting by trade size matters; compute the weighted mean with units; distinguish trade-print VWAP from a candle-level approximation.'],
+ ['First principles','VWAP asks: At what average price did the observed shares trade? Each transaction contributes price × shares. Larger share lots influence the mean more.'],
+ ['Worked numerical example','100 shares at $10 = $1,000; 300 at $11 = $3,300; $4,300 ÷ 400 shares = $10.75/share. Simple mean $10.50 is wrong for unequal quantities.'],
+ ['Guided chart observation','Compare a completed close with cumulative HLC3 × volume proxy. This uses bar typical prices, not the individual trade-print VWAP.'],
+ ['Knowledge checkpoint','Identify numerator (traded dollars), denominator (shares), units, and whether a VWAP value is trade-print based or an approximation.'],
+ ['Guided practice','Change trade inputs. Recompute each trade value, the total traded dollars and total shares before checking the final answer.'],
+ ['Independent practice preview','Calculate without copying the worked example. This preview is ungraded, and protected official assessment questions are not exposed.'],
+ ['Transfer','Another session: 200 shares at $12 and 800 at $12.50. ($2,400+$10,000)/1,000 = $12.40/share, not the unweighted $12.25.'],
+ ['Review and decision','VWAP is retrospective. Above/below a mean cannot alone establish liquidity, a confirmed entry, or next-bar behavior.']
+ ];
+ const stagesCandle=[
+ ['Objective','Identify OHLC, body, wicks, range and body-to-range percent. Avoid predictions from candle shape alone.'],
+ ['First principles','A candle summarizes one fixed interval. Open is first, close is final, high is maximum and low is minimum; the order inside the bar is not known.'],
+ ['Worked numerical example','O=$31.00, H=$32.50, L=$30.50, C=$32.00. Body=$1.00; range=$2.00; upper wick=$0.50; lower wick=$0.50; body/range=50%.'],
+ ['Guided chart observation','Choose a completed candle and record four prices, close versus open, body size and the upper and lower wicks.'],
+ ['Knowledge checkpoint','Distinguish full high–low range from close–open body; green color alone cannot establish bullish continuation.'],
+ ['Guided practice','Change OHLC in the builder. Confirm high ≥ open/close and low ≤ open/close. Examine body and wick recalculations.'],
+ ['Independent practice preview','Work independently before checking. This preview never accesses or reveals the protected official assessment answer keys.'],
+ ['Transfer','New candle: O=$40, H=$41.20, L=$39.60, C=$40.40. Range=$1.60, body=$0.40, upper wick=$0.80, lower wick=$0.40; body/range=25%.'],
+ ['Review and decision','A long wick shows price excursion, not who traded or what must come next. Check volume, structure, time and invalidation.']
+ ];
+ const stages=topic==='vwap'?stagesVWAP:stagesCandle;
+ const base=stages[Math.min(8,Math.max(0,step))];
+ const evidence=bar?'Current revealed candle '+bar.time+': O '+dollars(bar.o)+', H '+dollars(bar.h)+', L '+dollars(bar.l)+', C '+dollars(bar.c)+', volume '+bar.v.toLocaleString()+' shares, range '+dollars(bar.h-bar.l)+', body '+dollars(Math.abs(bar.c-bar.o))+'.':'The active learning example uses fictional OHLCV.';
+ const alternate=topic==='vwap'?'150 shares at $12 and 50 shares at $16: $1,800 + $800 = $2,600. Divide by 200 shares = $13/share. The simple mean $14 is wrong because quantities differ.':'O=$28.50, H=$29.20, L=$28.00, C=$28.90. Body=$0.40; range=$1.20; upper wick=$0.30; lower wick=$0.50; body/range=33.33%.';
+ const deep=topic==='vwap'?'Price ($/share) × shares = dollars; divided by shares gives $/share. Bar HLC3 proxy uses (high+low+close)/3 × bar volume, not a true trade price. Future bars cannot be used to evaluate a prior replay decision.':'Body=|C−O|; upper wick=H−max(O,C); lower wick=min(O,C)−L; range=H−L. Three parts sum to the range. Body-to-range is undefined at zero range; intrabar price order is unknown.';
+ const diagnostic=topic==='vwap'?'Averaging transaction prices without weighting shares, or treating HLC3 as exact print VWAP. Correct by computing every price×shares subtotal and declaring source limitations.':'Confusing body with high–low range or reading a wick as a guaranteed reversal. Correct by labeling O/H/L/C separately and calculating each component.';
+ const content=mode==='Guided Example'?(topic==='vwap'?stagesVWAP[2][1]:stagesCandle[2][1]):mode==='Try Another Example'?alternate:mode==='Teach This in More Depth'?base[1]+' '+deep+' '+diagnostic:base[1];
+ return <section className="cx-talia" aria-label="Talia Mercer guided teaching"><div className="cx-orb" aria-hidden="true">T</div><div className="cx-coach-content"><div className="cx-overline">TALIA MERCER / INSTRUCTIONAL COACH</div><strong>{base[0]} · {topic==='vwap'?'VWAP':'Candlestick anatomy'}</strong>
+  <div className="cx-coach-actions">{(['Explain This Concept','Guided Example','Try Another Example','Teach This in More Depth'] as CoachMode[]).map(m=><button type="button" key={m} aria-pressed={mode===m} onClick={()=>setMode(m)}>{m}</button>)}</div>
+  <p role="status">{content}</p>
+  {step===3&&<p className="cx-coach-evidence">{evidence}</p>}
+  {step===5&&<p className="cx-coach-evidence"><b>Guided process:</b> identify inputs → formula → substitute values → calculate → label units → explain limitations.</p>}
+  {step===8&&<p className="cx-coach-evidence"><b>Common mistake and correction:</b> {diagnostic}</p>}
+  <small>Complete explanations and retries are not paywalled within an accessible lesson. This is authored deterministic teaching, not a claim of a live AI conversation.</small>
+ </div></section>;
 }
 function Lesson({topic,setTopic,stage,setStage,bar,setBar}:{topic:Topic;setTopic:(v:Topic)=>void;stage:number;setStage:(v:number)=>void;bar:Bar;setBar:(v:Bar)=>void}){
  const [trades,setTrades]=useState(demoTrades);
@@ -236,7 +273,7 @@ function Lesson({topic,setTopic,stage,setStage,bar,setBar}:{topic:Topic;setTopic
   <div className="cx-panel-head"><div><div className="cx-overline">CROWNLIGHT LEARNING ENGINE / NINE STAGES</div><h3>{topic==='vwap'?'Understanding VWAP':'Build & Understand a Candlestick'}</h3></div><div className="cx-switch"><button aria-pressed={topic==='vwap'} onClick={()=>{setTopic('vwap');setAnswer('');setFeedback('')}}>VWAP</button><button aria-pressed={topic==='candle'} onClick={()=>{setTopic('candle');setAnswer('');setFeedback('')}}>Candles</button></div></div>
   <div className="cx-stepper" role="group" aria-label="Teaching stage">{['Objectives','Definition','Math','Chart','Check','Guided','Independent','Transfer','Review'].map((x,i)=><button title={x} key={x} aria-pressed={stage===i} onClick={()=>setStage(i)}>{i+1}</button>)}</div>
   <div className="cx-stage-name">STAGE {stage+1} / 9 · {['Objectives','First principles','Worked calculation','Guided visualization','Knowledge checkpoint','Guided practice','Independent assessment preview','Transfer task','Diagnostic feedback'][stage]}</div>
-  <Talia topic={topic} step={stage}/>
+  <Talia topic={topic} step={stage} bar={bar}/>
   {topic==='candle'?<div className="cx-lesson-body"><CandleShape o={o} h={h} l={l} c={c}/><div className="cx-input-grid">{([['o','Open',o],['h','High',h],['l','Low',l],['c','Close',c]] as ['o'|'h'|'l'|'c',string,number][]).map(([id,label,value])=><label key={id}>{label}<input type="number" min="1" step=".1" value={value} onChange={e=>adjust(id,Number(e.target.value)||1)}/></label>)}</div><div className="cx-numeric"><span>Body <b>{dollars(Math.abs(c-o))}</b></span><span>Range <b>{dollars(h-l)}</b></span><span>Upper wick <b>{dollars(h-Math.max(o,c))}</b></span><span>Lower wick <b>{dollars(Math.min(o,c)-l)}</b></span></div><p className="cx-small">Selected replay candle: {bar.time} · O {dollars(bar.o)} · H {dollars(bar.h)} · L {dollars(bar.l)} · C {dollars(bar.c)}. Builder is an independent fictional example.</p></div>:<div className="cx-lesson-body"><div className="cx-overline">EXACT TRADE-PRINT VWAP · FICTIONAL TRANSACTIONS</div><div className="cx-trade-rows">{trades.map((t,i)=><div key={i} className="cx-trade"><label>Price <input type="number" min=".01" step=".5" value={t.price} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,price:Math.max(.01,Number(e.target.value)||.01)}:x))}/></label><label>Shares <input type="number" min="1" step="50" value={t.volume} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,volume:Math.max(1,Math.round(Number(e.target.value)||1))}:x))}/></label><strong>{dollars(t.price*t.volume)}</strong></div>)}</div><div className="cx-numeric"><span>Total traded value <b>{dollars(sumPV)}</b></span><span>Shares <b>{sumV.toLocaleString()}</b></span><span>VWAP <b>{dollars(trueVWAP)}</b></span></div><p className="cx-small">Formula: Σ(price × shares) ÷ Σ(shares). The chart overlay is a separate OHLCV approximation and is explicitly labeled as such.</p></div>}
   <div className="cx-check"><label>{topic==='vwap'?'Calculate the trade-print VWAP ($/share)':'Calculate the candle body ($/share)'}<input aria-label="Practice answer" type="number" step=".01" value={answer} onChange={e=>setAnswer(e.target.value)}/></label><button onClick={check}>Check ungraded answer</button><p role="status">{feedback||'Try the calculation. Explanations, retries and feedback are free within any accessible lesson.'}</p></div>
  </section>;
