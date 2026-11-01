@@ -36,10 +36,10 @@ globalThis.fetch=async(url,opts={})=>{
  if(u.includes('/rpc/v01492_consume_tutor_quota')||u.includes('api.openai.com')){providerCalls++;throw Error('Paid provider forbidden by default')}
  throw Error('Unexpected outbound request '+u);
 };
-const ask=async(mode='explain')=>{
+const ask=async(mode='explain',question='Explain candlestick wick candle body')=>{
  const response=await onRequest({env,request:new Request('https://school.example/api/market-tutor-v01492',{
   method:'POST',headers:{authorization:'Bearer session','content-type':'application/json'},
-  body:JSON.stringify({question:'Explain candlestick wick candle body',mode})})});
+  body:JSON.stringify({question,mode})})});
  return [response.status,await response.json()];
 };
 try{
@@ -52,6 +52,15 @@ try{
  assert(!JSON.stringify(data).includes('answer_key'));
  const [qStatus,qData]=await ask('question');assert.equal(qStatus,200);
  assert(qData.answer.includes('Ungraded self-check'));
+ const [anotherStatus,anotherData]=await ask('explain','Try another worked example: Candles and price information');
+ assert.equal(anotherStatus,200);
+ assert.equal(anotherData.generation,'original-competency-guide');
+ assert.equal(anotherData.sources[0].id,'CANDLE_READING');
+ assert.match(anotherData.answer,/Original fictional worked example — ungraded/);
+ assert.match(anotherData.answer,/open \\$20\\.40/);
+ assert.match(data.answer,/open \\$10\\.00/);
+ assert.equal(anotherData.graded,false);
+ assert.equal(anotherData.masteryAwarded,false);
  assert.equal(providerCalls,0,'No paid model or quota requests even if unused credentials exist');
  console.log('PASS v100: free public asset-grounded 30-skill Tutor, 419-Lab navigation, non-grading and paid provider disabled by default.');
 }finally{globalThis.fetch=old}
