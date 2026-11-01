@@ -62,7 +62,7 @@ const editionPolicy:Record<string,{learning:EngineEdition;lab:EngineEdition;tuto
  FOUNDING_30:{learning:'Advanced',lab:'Advanced',tutor:'Advanced',note:'Next-best edition preview'},
  FOUNDING_60:{learning:'Professional',lab:'Professional',tutor:'Professional',note:'Best-available edition preview'},
  FULL_MONTHLY:{learning:'Professional',lab:'Professional',tutor:'Professional',note:'Best-available edition preview'},
- LIFETIME:{learning:'Professional',lab:'Professional',tutor:'Enterprise',note:'Enterprise Tutor preview'},
+ LIFETIME:{learning:'Enterprise',lab:'Enterprise',tutor:'Enterprise',note:'Highest approved edition target — all three engines; premium capabilities not released'},
  FULL_ANNUAL:{learning:'Basic',lab:'Basic',tutor:'Basic',note:'Assignment unresolved; safe Basic preview'}
 };
 function EditionPreview({plan,selected,setSelected}:{plan:Plan;selected:{learning:EngineEdition;lab:EngineEdition;tutor:EngineEdition};setSelected:(key:'learning'|'lab'|'tutor',value:EngineEdition)=>void}){
