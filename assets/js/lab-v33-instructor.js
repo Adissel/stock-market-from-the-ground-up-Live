@@ -213,6 +213,13 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
  stepToolbar.append(stepBack,stepState,stepNext);
  controls.append(stepToolbar);
  rootEl.append(accessible,transcript,controls);
+ // The shared classroom may re-render its narrator on a responsive/layout
+ // transition. insertBefore(reference) throws when the previous transcript
+ // has been detached; only position a control relative to an actual child.
+ const placeTeachingControl=control=>{
+  if(transcript.parentNode===rootEl)rootEl.insertBefore(control,transcript);
+  else if(rootEl.isConnected)rootEl.prepend(control);
+ };
  // Talia speaks each question IN her narration box. The member's answer
  // is collected there, not in a disconnected form below the lesson.
  // Every accepted response advances to the next question; a completed
@@ -686,7 +693,7 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
   });
   topicTools.append(control);
  }
- if(stage===1||stage===2||stage===4||stage===6)rootEl.insertBefore?.(topicTools,transcript);
+ if(stage===1||stage===2||stage===4||stage===6)placeTeachingControl(topicTools);
  // Six owner-approved compact instructional actions. Reuse the current
  // ungraded teaching engine; do not fabricate historical market examples,
  // submit assessments, spend credits or bypass Market Tutor entitlements.
@@ -730,7 +737,7 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
    'For a candlestick, record Open, High, Low and Close, then calculate the real body and full range. If the range is positive, calculate body percentage.'),
   'This teaching action does not submit or grade a practice attempt. Use the Lab’s dedicated Practice stage to receive recorded feedback.'
  ]));
- if(stage===1||stage===2||stage===4||stage===6)rootEl.insertBefore?.(quickActions,transcript);
+ if(stage===1||stage===2||stage===4||stage===6)placeTeachingControl(quickActions);
  const objectivesPanel=el('section',undefined,'gu-v33-instructor-objectives');
  objectivesPanel.append(el('h4','Your learning objectives'));
  const objectives=el('ol');
