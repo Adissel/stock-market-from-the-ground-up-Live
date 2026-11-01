@@ -9,6 +9,7 @@ on:
       - 'bootcamp-academy.html'
       - 'assets/css/teaching-full-width-v1.css'
       - 'assets/js/lab-v33-instructor.js'
+      - 'signin.html'
 permissions: {contents: read}
 concurrency:
   group: academy-first22-real-browser-acceptance-v1
