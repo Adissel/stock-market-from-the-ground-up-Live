@@ -12,7 +12,7 @@ for(const code of ['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHL
 for(const theme of ['quantum','neon','green','ember','aurora','onyx'])assert.ok(css.includes('.cx-theme-'+theme),'Missing design theme '+theme);
 for(const label of ['Build & Understand a Candlestick','VWAP','EXACT TRADE-PRINT VWAP','OHLCV VWAP proxy'])assert.ok(src.toLowerCase().includes(label.toLowerCase()),'Missing precision teaching '+label);
 assert.match(src,/no future bars beyond the replay boundary/);
-assert.match(src,/const dataFor\(reveal:number\)/);
+assert.match(src,/function dataFor\(reveal:number\)/);
 assert.match(src,/setReveal\(Math\.max/);
 assert.match(src,/onDragStart/);
 assert.match(src,/type="range"/);
