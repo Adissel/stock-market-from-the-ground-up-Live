@@ -1,0 +1,10 @@
+.gu-adaptive-check{margin:12px 0 18px;border:1px solid var(--line,#536071);border-radius:12px;background:var(--card,#1c2738);overflow:hidden}
+.gu-adaptive-check summary{cursor:pointer;padding:14px 16px;font-weight:650}
+.gu-adaptive-check-body{padding:0 16px 16px}
+.gu-adaptive-inputs{display:grid;grid-template-columns:minmax(11rem,1fr) minmax(11rem,1fr) auto;gap:12px;align-items:end}
+.gu-adaptive-inputs label{display:grid;gap:5px}
+.gu-adaptive-inputs select{width:100%;min-width:0}
+.gu-adaptive-result:not(:empty){border-top:1px solid var(--line,#536071);padding-top:12px;margin-top:12px}
+.gu-adaptive-result p{line-height:1.5}
+.gu-adaptive-check :focus-visible{outline:3px solid var(--accent,#84ded6);outline-offset:3px}
+@media(max-width:850px){.gu-adaptive-inputs{grid-template-columns:1fr}.gu-adaptive-inputs button{width:100%}}
