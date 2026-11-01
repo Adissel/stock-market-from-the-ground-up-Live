@@ -64,19 +64,25 @@ const designs=[
 type Design=typeof designs[number]['key'];
 const n=(v:number)=>Number(v.toFixed(4));
 const dollars=(v:number)=>'$'+v.toFixed(2);
+/* Synthetic one-minute tape: seeded, reproducible, with plausible opening activity,
+ * consolidations and directional moves. Not a reconstructed real market security. */
 const series:Bar[]=(()=>{
- const arr:Bar[]=[];let p=43.2,e9=p,e20=p,pv=0,vol=0;
+ const arr:Bar[]=[];let price=43.65,ema9=price,ema20=price,dollar=0,shares=0,seed=1357911;
+ const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
  for(let i=0;i<96;i++){
-  const o=p;
-  const c=n(Math.max(1,o+Math.sin(i*.36)*.21+Math.cos(i*.13)*.16+Math.sin(i*1.9)*.07+(i>24&&i<34?.14:0)-(i>61&&i<70?.18:0)));
-  const h=n(Math.max(o,c)+.06+Math.abs(Math.sin(i*.61))*.23);
-  const l=n(Math.min(o,c)-.06-Math.abs(Math.cos(i*.71))*.16);
-  const v=Math.round(1250+1250*Math.abs(Math.sin(i*.32))+(i>24&&i<34?1000:0));
-  e9=n(e9+(c-e9)*.2);e20=n(e20+(c-e20)*2/21);
-  pv+=((h+l+c)/3)*v;vol+=v;
-  const mins=570+i;
-  arr.push({time:String(Math.floor(mins/60)).padStart(2,'0')+':'+String(mins%60).padStart(2,'0'),o,h,l,c,v,ema9:e9,ema20:e20,proxy:n(pv/vol)});
-  p=c;
+  const o=price,regime=i<15?.055:i<37?-.031:i<57?.006:i<74?.067:i<86?-.035:.028;
+  const volatility=i<14?.235:i>58&&i<78?.17:.125;
+  const surprise=(rand()+rand()+rand()+rand()-2)*volatility;
+  const c=n(Math.max(2,o+regime+surprise));
+  const upper=.018+rand()*.12*(i<15?1.5:1),lower=.02+rand()*.11*(i<15?1.5:1);
+  const h=n(Math.max(o,c)+upper),l=n(Math.min(o,c)-lower);
+  const activity=i<12?1.6:i>59&&i<76?1.5:1;
+  const v=Math.round((900+rand()*1600+Math.abs(c-o)*3600+(i%17===0?1800:0))*activity);
+  ema9=n(ema9+(c-ema9)*.2);ema20=n(ema20+(c-ema20)*2/21);
+  dollar+=((h+l+c)/3)*v;shares+=v;
+  const minute=570+i;
+  arr.push({time:String(Math.floor(minute/60)).padStart(2,'0')+':'+String(minute%60).padStart(2,'0'),o,h,l,c,v,ema9,ema20,proxy:n(dollar/shares)});
+  price=c;
  }
  return arr;
 })();
@@ -110,7 +116,7 @@ const specs:IndicatorSpec[]=([
  ['OBV','On-balance volume','Participation',null,'Oscillator pane']
 ] as Array<[string,string,string,string|null,string]>).map(([id,label,family,setting,placement])=>({id,label,family,setting,placement}));
 const defaults:Record<string,number>={emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bbDeviation:2,rsi:14,macdFast:12,macdSlow:26,macdSignal:9,atr:14,volPeriod:20,orb:5,pivot:2};
-const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:true};
+const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:false};
 function IndicatorDock(){
  const prefs=React.useContext(IndicatorContext);
  const [open,setOpen]=useState(false),[search,setSearch]=useState(''),[guides,setGuides]=useState<Array<{code:string;title:string;family:string;concept:string;formula:string;limit?:string;limits?:string;howToUse?:string;commonError?:string}>>([]);
