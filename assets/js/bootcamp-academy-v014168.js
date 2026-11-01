@@ -11,7 +11,7 @@
  const expected=new Map([['free5',5],['truth5',5],['watchlist7',7],['scanners10',10],
   ['foundations30',30],['charts45',45],['risk60',60],['practicum90',90],
   ['tape10',10],['indicators10',10],['filings7',7]]);
- let academyBrowsePrograms=[],academyBrowseRights=null,academyBrowseEpoch=0,guidedSession=null,protectedAssessmentSession=null;
+ let academyBrowsePrograms=[],academyBrowseRights=null,academyBrowseEpoch=0,guidedSession=null,protectedAssessmentSession=null,academySupplementChart=null;
  // Enrich course search using ONLY public, already published Lab metadata.
  // Private course material and member entitlements never enter the index.
  async function loadAcademySearchMetadata(){
@@ -142,6 +142,7 @@
   return element;
  }
  function clean(){
+  academySupplementChart?.dispose?.();academySupplementChart=null;
   globalThis.CrownlightMemberLayoutsV1?.resetAcademy?.();
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
   const assessmentNode=get('academy-official-assessment');if(assessmentNode){assessmentNode.replaceChildren();assessmentNode.hidden=true;}
@@ -718,6 +719,8 @@
  }
  function renderDay(){
   const d=days[dayIndex-1];if(!d)return;
+  // Dispose the previous lesson chart before replacing its DOM.
+  academySupplementChart?.dispose?.();academySupplementChart=null;
   globalThis.CrownlightLearningProgress?.reset?.('academy-learning-progress');
   ++renderSerial;const renderEpoch=renderSerial;
   get('academy-stage-label').textContent=(d.programCode==='free5'?'Lesson ':'Day ')+dayIndex+' of '+days.length+' · '+(d.phaseLabel||'Guided learning');
@@ -761,8 +764,9 @@
      if(!view)view=globalThis.CrownlightLearningEChartsV1.mount(host,{
       kind:/\bvwap\b|volume.weighted/i.test(d.title+' '+d.objective)?'vwap':'candle',interactive:true
      });
+     academySupplementChart=view||null;
      view?.resize?.();
-    }else{view?.dispose?.();view=null}
+    }else{view?.dispose?.();if(academySupplementChart===view)academySupplementChart=null;view=null}
    });
    originalInstruction.append(extra);
   }
