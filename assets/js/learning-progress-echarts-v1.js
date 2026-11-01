@@ -21,7 +21,13 @@
  function draw(entry){
   if(!entry.chart||entry.container.hidden)return;
   const i=entry.state.index;
-  entry.chart.setOption({
+  const shared=root.CrownlightVisualKitV1?.stageJourneyOptions({
+   labels:STAGES,index:i,sourceLabel:'Existing verified learning-stage event',
+   reducedMotion:!!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+  });
+  const plot=entry.container.querySelector('.gu-learning-progress-chart');
+  if(shared&&plot)plot.setAttribute('aria-label',shared.aria.description);
+  entry.chart.setOption(shared||{
    animation:false,
    grid:{left:14,right:14,top:4,bottom:4},
    xAxis:{type:'category',boundaryGap:false,data:STAGES,show:false},
