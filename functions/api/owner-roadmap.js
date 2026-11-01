@@ -12,6 +12,7 @@ import {delegatedReviewPolicy,delegatedProgressFor} from '../_lib/owner-roadmap-
 import {roadmapOperationalBrief} from '../_lib/owner-roadmap-private-brief-v014063.js';
 import {ownerProductReadinessV01491} from '../_lib/owner-product-readiness-v01491.js';
 import {ownerReleasePlanV014141} from '../_lib/owner-release-plan-v014141.js';
+import {ownerRoadmapRelease20261101} from '../_lib/owner-roadmap-release-reconciliation-v1.js';
 import {bootcampCurriculumV014144} from '../_lib/bootcamp-curriculum-v014144.js';
 import {marketSourceRegistryV014142} from '../_lib/market-source-registry-v014142.js';
 import {aiServiceConfig} from '../_lib/first-party-ai-service-v014103.js';
@@ -372,7 +373,7 @@ export async function onRequest({request,env}){
         preservedReferenceLines:completeCatalog.filter(x=>x.scope!=='core').length,
         counts,verificationScope:'Authenticated Owner roadmap status; delegated source approvals are not live-production acceptance',
         computedAt:new Date().toISOString()
-      },releasePlan:ownerReleasePlanV014141,bootcampReadiness:{curriculumDays:bootcampCurriculumV014144.days.length,officialCompetencyLinks:30,individualLabLinksProvisional:true,privateProgressSchema:'OWNER_POSTFLIGHT_SCHEMA_AND_GRANTS_PASS_MEMBER_FLOW_UNTESTED',individualLabEditorialApproval:'NOT_COMPLETE',sourceImplementation:'IMPLEMENTED_PENDING_PRIVATE_DB_AND_MEMBER_ACCEPTANCE'},dataSources:marketSourceRegistryV014142});
+      },releasePlan:ownerReleasePlanV014141,releaseReconciliation:{id:ownerRoadmapRelease20261101.id,asOf:ownerRoadmapRelease20261101.asOf,version:ownerRoadmapRelease20261101.version,gateCount:ownerRoadmapRelease20261101.gates.length},bootcampReadiness:{curriculumDays:bootcampCurriculumV014144.days.length,officialCompetencyLinks:30,individualLabLinksProvisional:true,privateProgressSchema:'OWNER_POSTFLIGHT_SCHEMA_AND_GRANTS_PASS_MEMBER_FLOW_UNTESTED',individualLabEditorialApproval:'NOT_COMPLETE',sourceImplementation:'IMPLEMENTED_PENDING_PRIVATE_DB_AND_MEMBER_ACCEPTANCE'},dataSources:marketSourceRegistryV014142});
     }
     const state=await allState(c);
     const productInventory=await ownerProductInventory(c);
@@ -387,7 +388,7 @@ export async function onRequest({request,env}){
         if(typeof id==='string'&&id.startsWith('OWN-')){progress[id]={...value,revision:recordRevision(row)};custom.push({id,scope:'core',area:value.area||'Owner-added tasks',title:value.title||'Untitled',detail:value.detail||'',source:'Owner-added item',evidence:'Owner-authored',kind:'task'});}
       }
     }
-    return reply({ok:true,metadata:{...roadmapMetadata,...roadmapSupplementalMeta,originalCount:roadmapCatalog.length,totalCount:completeCatalog.length},engineeringReview:{...roadmapEngineeringReview.meta,asOf:'2026-10-19',baseline:String(env.CF_PAGES_COMMIT_SHA||'deployment-unverified'),scope:'Prior v0.14.0.45–60 evidence is preserved. v0.14.0.90 commercial source and v0.14.0.91 Owner product planning are assessed as source-only delivery; customer purchases and live acceptance are not certified.',labels:roadmapEngineeringReview.labels,counts:reviewCounts},delegatedReview:{...delegatedReviewPolicy,counts:baselineCounts},delegatedBaseline,operationalBrief:roadmapOperationalBrief,currentAudit:ownerAudit20261028,productInventory,productReadiness:ownerProductReadinessV01491,releasePlan:ownerReleasePlanV014141,items:completeCatalog.map(item=>({...item,engineeringReview:reviewFor(item)})),custom,progress,limitations:'Delegated technical acceptance covers evidenced delivery, not commercial launch or fully tested systems. Supabase-saved Owner progress overrides this read-only baseline.'});
+    return reply({ok:true,metadata:{...roadmapMetadata,...roadmapSupplementalMeta,originalCount:roadmapCatalog.length,totalCount:completeCatalog.length},engineeringReview:{...roadmapEngineeringReview.meta,asOf:'2026-10-19',baseline:String(env.CF_PAGES_COMMIT_SHA||'deployment-unverified'),scope:'Prior v0.14.0.45–60 evidence is preserved. v0.14.0.90 commercial source and v0.14.0.91 Owner product planning are assessed as source-only delivery; customer purchases and live acceptance are not certified.',labels:roadmapEngineeringReview.labels,counts:reviewCounts},delegatedReview:{...delegatedReviewPolicy,counts:baselineCounts},delegatedBaseline,operationalBrief:roadmapOperationalBrief,currentAudit:ownerAudit20261028,productInventory,productReadiness:ownerProductReadinessV01491,releasePlan:ownerReleasePlanV014141,releaseReconciliation:ownerRoadmapRelease20261101,items:completeCatalog.map(item=>({...item,engineeringReview:reviewFor(item)})),custom,progress,limitations:'Delegated technical acceptance covers evidenced delivery, not commercial launch or fully tested systems. Supabase-saved Owner progress overrides this read-only baseline.'});
   }catch(err){
     const status=[400,401,403,404,405,409,413,503].includes(err?.status)?err.status:503;
     return reply({ok:false,error:err?.message||'Roadmap service unavailable.'},status);
