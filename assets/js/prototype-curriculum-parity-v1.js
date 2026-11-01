@@ -22,10 +22,11 @@ const fetchJson=async url=>{
  return response.json();
 };
 async function catalog(){
- const [labs,skills,indicators,academy,bridges,academyEvidence,freeEvidence]=await Promise.all([
+ const [labs,skills,indicators,guided,academy,bridges,academyEvidence,freeEvidence]=await Promise.all([
   fetchJson('/data/competency-lab-paths-v01499.json'),
   fetchJson('/data/competency-study-guides-v01499.json'),
   fetchJson('/data/tutor-indicator-study-v1.json'),
+  fetchJson('/data/tutor-guided-practice-v1.json'),
   fetchJson('/api/bootcamp-academy?action=catalog'),
   fetchJson('/data/lab-teaching-bridges-v014168.json'),
   fetchJson('/data/academy-specific-source-instruction-v1.json'),
@@ -34,7 +35,9 @@ async function catalog(){
  const computed=window.CrownlightPrototypeIndicators?.specs;
  if(labs?.totalCanonicalLabs!==419||Object.keys(labs.byLab||{}).length!==419||
    skills?.guides?.length!==30||indicators?.guides?.length!==61||
-   indicators.count!==61||bridges?.version!=='0.14.0.168'||
+   indicators.count!==61||guided?.indicatorCount!==61||
+   guided?.numericIndicatorCount!==53||guided?.interpretationOnlyIndicatorCount!==8||
+   !Array.isArray(guided.modules)||guided.modules.length!==134||bridges?.version!=='0.14.0.168'||
    bridges.canonicalLabCount!==419||bridges.officialCompetencyCount!==30||
    bridges.independentGradesIncluded!==false||bridges.historicalBarDataIncluded!==false||
    Object.keys(bridges.entries||{}).length!==419||
@@ -55,6 +58,13 @@ async function catalog(){
     new Set(academy.programs.map(p=>p.code)).size!==academy.programs.length){
    throw Error('Duplicate learning catalogue identifiers');
  }
+ const indicatorModules=guided.modules.filter(m=>m.kind==='indicator');
+ const indicatorByCode=new Map(indicatorModules.map(m=>[m.guideCode,m]));
+ if(indicatorModules.length!==61||indicatorByCode.size!==61||
+   indicatorModules.filter(m=>m.metric!=='study-concept').length!==53||
+   indicatorModules.filter(m=>m.metric==='study-concept').length!==8||
+   indicators.guides.some(g=>!indicatorByCode.has(g.code)))
+   throw Error('Guided indicator module and reference catalog mismatch');
  const guideByCode=new Map(skills.guides.map(g=>[g.code,g]));
  const academyCases=code=>academyEvidence.records.filter(row=>row.programCode===code).map(row=>({...row,kind:'advanced_source_evidence'}));
  const freeCases=freeEvidence.records.map(row=>({...row,kind:'free_foundations_evidence'}));
@@ -91,8 +101,10 @@ async function catalog(){
     ['Common live-trading mistake',g.commonError],['Invalidation / evidence limits',g.invalidation],
     ['Limitations',g.limit||g.limits],['Ungraded self-check',g.selfCheck],
     ['Ungraded review explanation',g.reviewExplanation],
-    ['Status','Original source-informed, ungraded guidance; calculation not implied'],
-    ['Calculation acceptance','Settings, inputs, units, warm-up and session rules require independent verification before enabling a computed chart study.']],
+    ['Talia Guided Practice module',indicatorByCode.get(g.code).id],
+    ['Talia Guided Practice status',indicatorByCode.get(g.code).metric==='study-concept'?'Interpretation-only scenario; no numerical indicator output':'Calculated synthetic demonstration ('+indicatorByCode.get(g.code).metric+'); not a live chart study'],
+    ['Status','Original source-informed, ungraded guidance; a Talia numeric demonstration does not imply a Chart Studio overlay'],
+    ['Calculation acceptance','Settings, inputs, units, warm-up and session rules require independent verification before enabling a computed Chart Studio study.']],
    references:g.sourceUrls
   })),
   computed:computed.map(x=>({
@@ -106,7 +118,7 @@ function render(){
  out.replaceChildren();
  const intro=h('p','Read-only inspection of CURRENT public learning metadata. This is not a member login, teaching transcript, grade or entitlement.','pt-parity-note');
  out.append(intro);
- const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 15 computed studies','pt-parity-totals');
+ const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 53 Talia synthetic calculations · 8 interpretation-only Talia studies · 15 computed Chart Studio studies','pt-parity-totals');
  out.append(totals);
  const controls=h('div',undefined,'pt-parity-controls');
  const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');
