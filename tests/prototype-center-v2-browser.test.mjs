@@ -47,7 +47,7 @@ window.getSupabaseClient=async()=>({auth:{
   if(currentRole!=='OWNER'&&currentRole!=='ADMIN')return route.fulfill({status:403,contentType:'application/json',body:'{"ok":false}'});
   if(route.request().method()==='GET')return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
    ok:true,isDraftOnly:true,memberFacingEnabled:false,presets:Array.from({length:20},(_,i)=>({preset_code:'preset-'+i})),
-   memberships:Object.keys(versions).map(plan_code=>({plan_code})),layouts:[],history:[]
+   memberships:Object.keys(versions).map(plan_code=>({plan_code})),layouts:Object.keys(versions).map(plan_code=>({plan_code,channel:'draft',version:versions[plan_code],preset_code:'foundation-focus',config:{id:'foundation-focus'}})),history:[]
   })});
   const input=route.request().postDataJSON(),version=versions[input.planCode];
   if(input.expectedVersion!==version)return route.fulfill({status:409,contentType:'application/json',body:'{"ok":false,"error":"Version conflict"}'});
