@@ -13,6 +13,7 @@ import {ungradedResponseReview} from '../_lib/tutor-response-scaffold-v014102.js
 import {reserveAiRequest} from '../_lib/first-party-ai-service-v014103.js';
 import {expandTutorQuery,seeksPersonalTradeAdvice,validateTutorModelAnswer,safeTutorMetric} from '../_lib/tutor-quality-v014107.js';
 import {callTutorModel} from '../_lib/tutor-provider-v014107.js';
+import {getMemberTutorApiKey,reserveMemberTutorByokRequest} from '../_lib/talia-member-byok-v1.js';
 import {saveVerifiedTutorExchange} from '../_lib/tutor-history-save-v014107.js';
 import {tutorRequestLimit} from '../_lib/tutor-rate-limit-v014107.js';
 import {parseTutorRequest} from '../_lib/tutor-request-boundary-v014147.js';
@@ -107,10 +108,10 @@ async function memberPractice(env,userId){
   .map(([code,attempts])=>({code,attempts}));
  return {examined,recommendations,skillSignals,gradedHistoryAvailable,gradedReview:gradedReview.slice(0,5),recordedAssessmentCount:latest.size};
 }
-async function modelDraft(env,{q,mode,source,answer}){
+async function modelDraft(env,{q,mode,source,answer,memberApiKey=null}){
  // Provider routing and approval are enforced at the existing atomic quota gate.
  // Never assume an OpenAI API key is required for the Workers AI binding.
- if(env.AI_SERVICE_ENABLED!=='true')return null;
+ if(memberApiKey===null&&env.AI_SERVICE_ENABLED!=='true')return null;
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8500);
  try{
   const reference=source.map((t,i)=>'['+(i+1)+'] '+t.title+': '+t.summary).join('\n');
@@ -127,7 +128,7 @@ async function modelDraft(env,{q,mode,source,answer}){
   // cannot impersonate earlier Tutor messages via unverified priorTurns.
   const input='Source excerpts:\n'+reference+'\n\nLearner question: '+q+
     (answer?'\nLearner ungraded reflection: '+answer:'');
-  const result=await callTutorModel(env,{instructions,input,signal:controller.signal});
+  const result=await callTutorModel(env,{instructions,input,signal:controller.signal,memberApiKey});
   if(!result.ok){safeTutorMetric('provider',{reason:result.reason});return null}
   const text=result.text;
   const evaluation=validateTutorModelAnswer(text,source.length);
@@ -145,7 +146,12 @@ async function paidLearningDraft(env,body,userId,q,mode,source,answer,profileAiO
  if(profileAiOptedIn!==true)return {text:null,reason:'profile_ai_opt_in_required'};
  const requestId=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(body.requestId||''))
   ?String(body.requestId):crypto.randomUUID();
- const reservation=await reserveAiRequest(env,userId,requestId);
+ // Member-funded provider routing never falls back to the website's key.
+ const memberApiKey=body.useMemberKey===true?await getMemberTutorApiKey(env,userId):null;
+ if(body.useMemberKey===true&&!memberApiKey)return {text:null,reason:'member_key_unavailable'};
+ const reservation=body.useMemberKey===true?
+  await reserveMemberTutorByokRequest(env,userId,requestId):
+  await reserveAiRequest(env,userId,requestId);
  safeTutorMetric('quota',{reason:reservation.reason||'unavailable'});
  if(!reservation.accepted){
   const category=reservation.reason==='member_daily_limit'?'daily_limit_reached'
@@ -153,7 +159,7 @@ async function paidLearningDraft(env,body,userId,q,mode,source,answer,profileAiO
    :reservation.reason==='duplicate_request'?'duplicate_request':'model_temporarily_unavailable';
   return {text:null,reason:category};
  }
- const draft=await modelDraft(env,{q,mode,source,answer});
+ const draft=await modelDraft(env,{q,mode,source,answer,memberApiKey});
  return {text:draft,reason:draft?'ai_generated':'provider_failed',
   remainingMemberToday:reservation.remainingMemberToday};
 }
