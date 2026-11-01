@@ -100,3 +100,8 @@
 .sim-layout:has(.sim-chart-panel.crownlight-active) .sim-controls .btn:hover{filter:brightness(1.15)}
 .sim-layout:has(.sim-chart-panel.crownlight-active) .sim-talia-guidance{background:linear-gradient(110deg,rgba(31,43,87,.55),rgba(16,61,70,.5));border:1px solid #53638b;border-radius:12px;padding:15px 19px}
 .sim-layout:has(.sim-chart-panel.crownlight-active) .sim-talia-guidance h3{color:#f6d39a;font-size:1rem}
+
+/* V18: keyboard- and touch-accessible explicit chart navigation. */
+.crownlight-toolbar-actions button[data-cl^="pan-"]{min-height:44px;min-width:92px;border-color:#547b96;background:linear-gradient(135deg,#18415a,#152b47);color:#e8f8ff;letter-spacing:.015em}
+.crownlight-toolbar-actions button[data-cl^="pan-"]:focus-visible{outline:3px solid #f7d894;outline-offset:3px}
+@media(max-width:650px){.crownlight-toolbar-actions button[data-cl^="pan-"]{flex:1 1 95px;min-height:44px}}

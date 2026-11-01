@@ -86,7 +86,28 @@ try{
     assert(Math.abs(stationary.from-released.from)<.05&&Math.abs(stationary.to-released.to)<.05,
       'After mouseup, horizontal movement and settling must not move the chart or require a second click');
     assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),65);
-    console.log('PASS actual held-button chart pan and immediate release-to-stop in pinned Chromium');
+    // Dedicated buttons must work from keyboard, remain on the currently
+    // revealed dataset, and permit movement in both directions.
+    const rangeBeforeButtons=await getRange();
+    const earlier=page.getByRole('button',{name:'Pan chart to earlier revealed candles'});
+    const later=page.getByRole('button',{name:'Pan chart toward latest revealed candle'});
+    assert.equal(await earlier.getAttribute('type'),'button');
+    await earlier.focus();await page.keyboard.press('Enter');
+    await page.waitForTimeout(180);
+    const rangeEarlier=await getRange();
+    assert(rangeEarlier.from<=rangeBeforeButtons.from+.05,'Earlier button never moves forward');
+    assert(rangeEarlier.from>=-1.1,'Earlier button cannot pan beyond observed starting candles');
+    await later.focus();await page.keyboard.press('Space');
+    await page.waitForTimeout(180);
+    const rangeLater=await getRange();
+    assert(rangeLater.from>rangeEarlier.from+.05,'Space key moves toward later completed candles');
+    const maxTo=65-1+16;
+    // The viewport may include only a configurable blank right margin;
+    // it must not add any future values to the revealed data source.
+    assert(rangeLater.to<=maxTo+.1,'Explicit pan cannot exceed the configured empty right buffer');
+    assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),65,
+      'Navigation does not change replay progression or grant mastery');
+    console.log('PASS actual held-button chart pan, release-to-stop, and keyboard accessible Earlier/Later in pinned Chromium');
    }
    await page.locator('[data-cl="source"]').click();
    assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*25/);

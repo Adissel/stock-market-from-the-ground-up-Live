@@ -64,6 +64,8 @@
    '<div class="crownlight-toolbar-actions" role="toolbar" aria-label="Chart controls">'+
    '<button type="button" data-cl="zoom-in" title="Zoom in">＋<span class="sr-only">Zoom in</span></button>'+
    '<button type="button" data-cl="zoom-out" title="Zoom out">−<span class="sr-only">Zoom out</span></button>'+
+   '<button type="button" data-cl="pan-earlier" aria-label="Pan chart to earlier revealed candles" title="View earlier completed candles">← Earlier</button>'+
+   '<button type="button" data-cl="pan-later" aria-label="Pan chart toward latest revealed candle" title="View later completed candles">Later →</button>'+
    '<button type="button" data-cl="reset" title="Fit revealed history">Fit</button>'+
    '<button type="button" data-cl="follow" title="Follow the latest revealed candle">Follow</button>'+
    '<button type="button" data-cl="studies">Indicators <span class="cl-dot">●</span></button>'+
@@ -122,6 +124,22 @@
     }else{
      const current=scale.options().barSpacing||16;
      scale.applyOptions({barSpacing:Math.max(.6,Math.min(56,current*(narrower?1.3:1/1.3)))});
+    }
+   }
+   if(cmd==='pan-earlier'||cmd==='pan-later'){
+    const range=scale.getVisibleLogicalRange?.();
+    if(range&&state.count>0&&Number.isFinite(range.from)&&Number.isFinite(range.to)&&range.to>range.from){
+     const span=range.to-range.from;
+     const step=Math.max(1,Math.round(span*.22));
+     // Position bounds reference only the already-revealed bars; at most
+     // the configured empty right-side buffer is visible, never future OHLCV.
+     const latest=state.count-1;
+     const maxFrom=Math.max(-1,latest+safeAppearance(prefs.appearance).rightBuffer-span);
+     const from=cmd==='pan-earlier'?Math.max(-1,range.from-step):Math.min(maxFrom,range.from+step);
+     if(Math.abs(from-range.from)>.01){
+      state.follow=false;updateFollow();save();
+      scale.setVisibleLogicalRange({from,to:from+span});
+     }
     }
    }
    if(cmd==='reset'){state.follow=true;fitVisible();save()}
