@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 1.9  
+**Version:** 2.0  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -12,7 +12,15 @@
 **Status:** OWNER APPROVED for ungraded three-camp Beta; official assessed-course and ten-camp advanced-depth acceptance INCOMPLETE  
 **Purpose:** A single denominator-locked progress register for the four owner-directed priorities and all ten Boot Camps, with legitimate role-separated authorization.
 
-## October 31 Owner D15 disposition — controlling latest acceptance
+## October 31 Owner D16–D18 decision — controlling latest evidence
+
+**Current accepted Academy advanced-depth work: 91/380 = 23.95%** with **289 units open**. Original advanced study days accepted for the *ungraded Beta instructional scope* are **18/247 = 7.29%**, leaving **229** original advanced-depth acceptance units. Initial 247/247 fictional source-case authoring (100%) remains a separate and weaker prerequisite.
+
+A new source-controlled Owner decision, **SMFGU-ACADEMY-OWNER-RISK60-D16-D18-018**, records three separately assessed Risk60 source days (16, 17, 18), each with twelve original ungraded formative prompts and one independent worked transfer, independently checked numeric/source-time logic, and successful exact-source GitHub [run 41253510586](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41253510586) at SHA `4cd100c36e85e492887fdb096228374583885ee9`. Cloudflare successfully deployed its descendant SHA `85ec0c98a3aa1a19c0403e321da9e07751d8bc9f` (GitHub ancestry ahead 13, behind 0). Refer to `docs/releases/2026-10-31_ACADEMY_OWNER_RISK60_D16_D18_ACCEPTANCE_V1.md` for each day and limitations.
+
+**This replaces earlier historical 88/380, 87/380 and 83/380 figures as the current Owner accepted-unit numerator**; the older sections below are retained as evidence snapshots, not controlling progress. The acceptance is for **fictional, ungraded instructional Beta only**, not independent human editorial review, real second-account Beta acceptance, historical source rights, protected grading, a final release or LIVE payment. Keep the 20 private B01 v98 grading sets in Draft and the independent human signoffs open.
+
+## October 31 Owner D15 disposition — historical previous acceptance
 
 **Current accepted educational advanced-depth total: 88/380 = 23.16%; 292 open.** The prior 87/380 and historical 83/380 totals below remain preserved as earlier snapshots and **must not be reported as current**. Original full-depth days accepted for ungraded Beta now total **15/247 (6.07%)**, and 232 advanced-depth acceptance units remain. Initial fictional source authoring remains 247/247 (100%).
 
