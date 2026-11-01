@@ -45,6 +45,26 @@ try{
  await a.page.getByLabel('Reveal fictional candles').fill('54');
  await a.page.getByLabel('Reveal fictional candles').press('Tab');
  assert.equal(await a.page.locator('.cx-designs button').count(),6);
+ await a.page.locator('.cx-chart-customizer-shell summary').first().click();
+ await a.page.getByLabel('Bullish candle color').fill('#2adeb4');
+ await a.page.getByLabel('Bearish candle color').fill('#fa6894');
+ await a.page.getByLabel('Doji candle color').fill('#edce86');
+ await a.page.getByLabel('Grid lines color').fill('#52738f');
+ await a.page.getByLabel('Chart timeframe').selectOption('3');
+ assert.equal(await a.page.getByLabel('Chart timeframe').inputValue(),'3');
+ await a.page.getByLabel('Right chart buffer').fill('18');
+ await a.page.getByLabel('Right chart buffer').press('Tab');
+ assert.equal(await a.page.getByLabel('Right chart buffer').inputValue(),'18');
+ await a.page.getByLabel('Chart timeframe').selectOption('1');
+ await a.page.getByLabel('Right chart buffer').fill('12');
+ await a.page.getByLabel('Right chart buffer').press('Tab');
+ await a.page.locator('.cx-chart-customizer-shell summary').first().click();
+ await a.page.getByLabel('Simulation source status').first().click();
+ assert.match(await a.page.locator('.cx-simulation-detail').textContent(),/Deterministic fictional OHLCV fixture/);
+ await a.page.getByLabel('Play fictional candle formation').first().click();
+ await a.page.waitForFunction(()=>document.querySelector('.cx-chart-foot')?.textContent?.includes('forming fictional bar stage'),null,{timeout:8000});
+ await a.page.getByRole('button',{name:'Stop playback'}).first().click();
+
  assert.equal(await a.page.locator('.cx-controlstrip select:has(option[value="FULL_ANNUAL"]) option').count(),9);
  await a.page.getByLabel('Prototype learning mode').selectOption('assessment');
  assert.match(await a.page.locator('.cx-mode-lock').textContent(),/Assessment unavailable/);
