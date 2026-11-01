@@ -1,0 +1,433 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 4,
+  "count": 20,
+  "goal": 600,
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419,
+  "status": "source_authored_independent_review_pending",
+  "notes": "Source-authored original fictional risk/execution/research controls. Research-only context from the owner-provided STT Phase 7-10 material was not copied as published content, and does not substantiate edge/performance claims.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_LONG_SHORT_RISK_DISTANCE",
+      "title": "Long and short technical invalidation distances use opposite price directions",
+      "concept": "A hypothetical long plan measures stop distance below entry; a hypothetical short plan measures a protective buy-stop reference above entry, using positive price units.",
+      "procedure": "Identify side, entry reference and technical invalidation before absolute-distance arithmetic. Reject a zero or reversed intended stop placement rather than pretending to size a valid plan.",
+      "workedCase": "FICTIONAL: Long entry $10, planned stop $9.70 gives $0.30 technical distance. Short entry $10, planned stop $10.40 gives $0.40. Neither is guaranteed execution loss.",
+      "limit": "Short positions carry borrow, recall and potentially unbounded price exposure. Gaps can make realized losses larger than intended stop distance.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Short positions carry borrow, recall and potentially unbounded price exposure. Gaps can make realized losses larger than intended stop distance.",
+      "commonError": "Using long-side subtraction for a short and reporting a negative per-share risk as a position benefit.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Long and short technical invalidation distances use opposite price directions.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Change the fictional short stop to $10.60; recalculate distance and explain the open-ended real-world short exposure.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_RISK_BUDGET_SHARE_FLOOR",
+      "title": "Risk-budget share counts require integer flooring",
+      "concept": "A hypothetical risk-budget quotient is a theoretical upper bound on position shares, not an execution authorization or guarantee of capped loss.",
+      "procedure": "For a strictly positive planned per-share distance and nonnegative risk budget, compute floor(budget/distance) and separately check cash, buying power, liquidity and concentration.",
+      "workedCase": "FICTIONAL: $75 hypothetical risk budget divided by $0.40 technical distance gives floor(187.5)=187 shares, before liquidity and gap risk.",
+      "limit": "A stop order may fill beyond its trigger, so an arithmetic share cap does not bound worst-case actual loss.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. A stop order may fill beyond its trigger, so an arithmetic share cap does not bound worst-case actual loss.",
+      "commonError": "Rounding a share quotient upward to 188 and calling the resulting $75.20 technical exposure within a $75 assumption.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Risk-budget share counts require integer flooring.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "With $45 hypothetical budget and $0.28 planned distance, floor shares and label execution uncertainty.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_BUYING_POWER_SHARE_BOUND",
+      "title": "Buying power is a separate share-count ceiling",
+      "concept": "Theoretical permitted shares cannot exceed cash or relevant broker buying-power capacity under the defined instrument, fee and margin assumptions.",
+      "procedure": "Calculate floor(available fictional buying power / declared unit purchase price) and apply a second independent risk-budget share cap.",
+      "workedCase": "FICTIONAL: $2,000 buying power at $20 per share permits at most 100 whole shares before fees, even if hypothetical technical risk calculation suggests 150.",
+      "limit": "Actual broker margin permissions, settlement, concentrated holdings and volatility can reduce usable buying power.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Actual broker margin permissions, settlement, concentrated holdings and volatility can reduce usable buying power.",
+      "commonError": "Mistaking shares affordable at the entry price for shares safe under a technical risk distance.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Buying power is a separate share-count ceiling.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Recalculate the buying-power share cap for $2,000 and a fictional price of $25, accounting for unmodeled fees.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_CONCENTRATION_SHARE_BOUND",
+      "title": "A concentration ceiling may be stricter than risk-budget sizing",
+      "concept": "A policy limiting an instrument to a fixed fraction of account value produces a second hypothetical position cap based on notional dollars.",
+      "procedure": "Declare a hypothetical cap, account value, latest verified unit price, and whether other holdings already consume instrument exposure.",
+      "workedCase": "FICTIONAL: $10,000 account with a hypothetical 10% single-name cap allows at most $1,000 notional, or 50 shares at $20 before fees.",
+      "limit": "Concentration limits do not eliminate correlation, volatility or loss; this is arithmetic teaching, not a prescribed risk tolerance.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Concentration limits do not eliminate correlation, volatility or loss; this is arithmetic teaching, not a prescribed risk tolerance.",
+      "commonError": "Using gross account value and ignoring existing exposure when calculating additional permissible shares.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about A concentration ceiling may be stricter than risk-budget sizing.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Given $12,000 account value, hypothetical 8% cap and a $24 price, calculate the theoretical whole-share bound.",
+      "sourceUrls": [
+        "https://www.finra.org/investors/investing/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_LIQUIDITY_PARTICIPATION_CAP",
+      "title": "Volume participation ceilings are illustrative, not fill promises",
+      "concept": "A training participation fraction limits hypothetical shares relative to observed traded volume, but total OHLCV volume is not executable liquidity.",
+      "procedure": "Document observation interval, completed traded volume and an explicitly hypothetical participation percentage; use floor(volume×fraction).",
+      "workedCase": "FICTIONAL: 10,000 completed-bar shares and illustrative 2% participation yield 200 theoretical shares, not 200 available at a particular ask.",
+      "limit": "Quotes, hidden liquidity, cancellations and exit-side supply remain unknown; past volume is not guaranteed future fill capacity.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Quotes, hidden liquidity, cancellations and exit-side supply remain unknown; past volume is not guaranteed future fill capacity.",
+      "commonError": "Assuming 2% of historical volume can always be traded without moving the price.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Volume participation ceilings are illustrative, not fill promises.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "A different fictional completed interval has only 3,500 shares; compute a 2% theoretical participation bound.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MINIMUM_RISK_CAPS",
+      "title": "Conservative share sizing uses the minimum of independently stated caps",
+      "concept": "When multiple policy and capacity ceilings are documented, an elementary training calculation chooses the least nonnegative whole-share cap.",
+      "procedure": "Compute each cap independently from source-declared assumptions, check validity, then take min(risk, buying power, concentration, liquidity).",
+      "workedCase": "FICTIONAL: Risk 187 shares, buying power 100, concentration 50, participation 200 yields min=50 theoretical shares before actual order-specific checks.",
+      "limit": "One missing/invalid cap cannot safely be treated as infinity without explicit policy; a technical cap is not broker permission.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. One missing/invalid cap cannot safely be treated as infinity without explicit policy; a technical cap is not broker permission.",
+      "commonError": "Sizing from the most generous ceiling instead of applying the tightest constraint.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Conservative share sizing uses the minimum of independently stated caps.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Evaluate fictional caps 120, 80, 100 and 60; name the binding constraint and one missing real-world fact.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_POSITION_NOTIONAL_VS_RISK",
+      "title": "Position purchase notional differs from planned technical loss",
+      "concept": "A position's gross entry notional equals shares×entry price. Planned stop-distance loss equals shares×price difference; these are different units and exposures.",
+      "procedure": "State hypothetical quantity, entry, invalidation, broker cost and whether the product can create liabilities beyond paid purchase notional.",
+      "workedCase": "FICTIONAL: 50 shares at $20 cost $1,000 gross notional, while a planned $0.40 technical distance suggests $20 hypothetical planned loss.",
+      "limit": "An execution gap can exceed planned loss; margin and short positions introduce additional liability risks.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. An execution gap can exceed planned loss; margin and short positions introduce additional liability risks.",
+      "commonError": "Describing a $1,000 holding as only $20 of market exposure because its planned stop is close.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Position purchase notional differs from planned technical loss.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Compare 25 and 50 fictional shares with the same price and invalidation, separating notional from planned risk.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_STRESS_GAP_LOSS",
+      "title": "Stress-loss scenarios must not assume a stop fills at its trigger",
+      "concept": "Stress-loss analysis calculates illustrative losses at adverse fill references to expose the difference between planned technical invalidation and execution reality.",
+      "procedure": "For a hypothetical long position, compare quantity×(entry−planned stop) with quantity×(entry−adverse fill), labeling both as conditional examples.",
+      "workedCase": "FICTIONAL: 100 shares purchased at $10 have a planned sell stop trigger $9.80 ($20 technical distance), while a hypothetical post-gap fill at $9.20 loses $80 before fees.",
+      "limit": "Actual fills, halts, liquidity and market gaps can differ greatly, and no finite example establishes a maximum possible loss.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Actual fills, halts, liquidity and market gaps can differ greatly, and no finite example establishes a maximum possible loss.",
+      "commonError": "Telling a beginner a $0.20 stop always limits the 100-share position to $20.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Stress-loss scenarios must not assume a stop fills at its trigger.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "For a fictional $10 entry and hypothetical exit at $8.90, compute the loss on 100 shares and compare with planned distance.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_NET_REWARD_AFTER_COST",
+      "title": "Net target reward subtracts both sides of anticipated friction",
+      "concept": "A hypothetical target reward must account for price movement and explicitly modeled execution costs; favorable prices alone do not establish net gains.",
+      "procedure": "State entry, planned target, per-share expected round-trip friction and quantity; compute (target−entry−cost) for a long illustrative scenario.",
+      "workedCase": "FICTIONAL: $10 long reference and $10.50 target imply $0.50 gross reward; hypothetical $0.06 round-trip friction leaves $0.44 net per share, before other unmodeled costs.",
+      "limit": "The target may never trade or fill and all cost assumptions are uncertain; a positive modeled reward is not positive expectancy.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. The target may never trade or fill and all cost assumptions are uncertain; a positive modeled reward is not positive expectancy.",
+      "commonError": "Subtracting a one-way cost while labeling a result as full round-trip net reward.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Net target reward subtracts both sides of anticipated friction.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Increase a fictional round-trip cost to $0.15; compute revised modeled reward and state fill uncertainty.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_NET_REWARD_TO_STRESS_RISK",
+      "title": "Cost-adjusted reward/risk depends on both cost and adverse exit modeling",
+      "concept": "A cost-adjusted planned reward-to-risk ratio uses consistent per-share net reward and per-share modeled adverse loss, each under stated execution assumptions.",
+      "procedure": "Compute net reward=(target−entry−target-side cost) and modeled loss=(entry−stop reference+stop-side cost); divide only by a positive loss denominator.",
+      "workedCase": "FICTIONAL: Target movement $0.50 with $0.06 round-trip target friction yields $0.44 reward; $0.20 stop distance plus $0.05 modeled exit friction yields $0.25 loss; ratio=1.76.",
+      "limit": "The ratio is conditional planning arithmetic and cannot replace a probability estimate or reflect unmodeled gap losses.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. The ratio is conditional planning arithmetic and cannot replace a probability estimate or reflect unmodeled gap losses.",
+      "commonError": "Calling a 1.76 ratio proof that the actual strategy has a profitable win rate.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Cost-adjusted reward/risk depends on both cost and adverse exit modeling.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Change modeled stop-side friction to $0.15 and recompute the fictional ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_R_MULTIPLE_TARGET_PRICE",
+      "title": "R-multiple labels are price-distance arithmetic, not outcomes",
+      "concept": "For a hypothetical long position with positive initial risk distance R, a +2R reference is entry plus twice that distance. A named level is not a filled result.",
+      "procedure": "Fix entry and initial invalidation before calculating illustrative 1R, 2R or 3R prices, then separate target coordinates from realized performance.",
+      "workedCase": "FICTIONAL: Long entry $10 and stop reference $9.80 define R=$0.20 per share; +1R=$10.20, +2R=$10.40, +3R=$10.60.",
+      "limit": "Trading costs, trailing stops and price gaps complicate realized R; reward coordinates are not probabilities.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Trading costs, trailing stops and price gaps complicate realized R; reward coordinates are not probabilities.",
+      "commonError": "Calling a $10.40 2R target a documented +2R execution merely because the chart touched it.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about R-multiple labels are price-distance arithmetic, not outcomes.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "For fictional entry $25 and invalidation $24.50, calculate hypothetical 1R and 3R levels.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_BREAK_EVEN_ADJUSTED_FEES",
+      "title": "Break-even price includes costs and differs by position direction",
+      "concept": "Break-even trading price under a simple share model includes per-share expenses; a long needs proceeds above entry, while short-side net economics differ.",
+      "procedure": "Declare long or short, fee assumptions and expected execution effects before calculating an arithmetic price reference.",
+      "workedCase": "FICTIONAL: Long entry $10 with $0.08 per share modeled round-trip expenses requires $10.08 sale price to break even before unmodeled taxes and slippage.",
+      "limit": "This simplified model omits dynamic spreads, partial fills, marketability and opportunity costs.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. This simplified model omits dynamic spreads, partial fills, marketability and opportunity costs.",
+      "commonError": "Moving a protective stop to the raw entry price and claiming the completed trade now has zero downside.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Break-even price includes costs and differs by position direction.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "For a fictional long entry $12.50 and modeled $0.12 friction, find the arithmetic net break-even exit.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_DAILY_HALT_RULE_HYPOTHETICAL",
+      "title": "A daily loss-stop policy is an operational guard, not a trade signal",
+      "concept": "A hypothetical daily risk cap can prohibit new training attempts once accumulated realized losses reach a predeclared threshold.",
+      "procedure": "Define a purely fictional limit, record each realized training outcome in consistent currency units, compare cumulative losses with the limit, and separately evaluate open risk.",
+      "workedCase": "FICTIONAL: A fictional classroom daily limit is $100. Training results −$40, −$35, −$30 total −$105; the rule blocks another hypothetical attempt.",
+      "limit": "Threshold selection is a personal/firm policy decision; the Tutor never assigns a member-specific maximum risk or overrides broker controls.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Threshold selection is a personal/firm policy decision; the Tutor never assigns a member-specific maximum risk or overrides broker controls.",
+      "commonError": "Using a fictitious training threshold as personalized investment advice or treating a stop policy as a loss guarantee.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about A daily loss-stop policy is an operational guard, not a trade signal.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "With fictional −$20, +$10, −$50 outcomes, compute running realized net P/L and explain whether a −$60 example threshold is reached.",
+      "sourceUrls": [
+        "https://www.finra.org/investors/investing/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_INVALIDATION_NOT_FILLED",
+      "title": "An analytical invalidation does not prove a broker exit occurred",
+      "concept": "An observation that invalidates the learning hypothesis is distinct from a live stop trigger, an acknowledged order, a partial fill and a final broker trade report.",
+      "procedure": "Record the evidence boundary first, then distinguish market observation, broker order state, executed quantity, price and cancellation status.",
+      "workedCase": "FICTIONAL: A $10 support hypothesis is invalidated when a completed close falls to $9.85. Without a broker execution report, no actual exit price or realized loss can be asserted.",
+      "limit": "Broker order-type differences, extended sessions and trading pauses can block or change actual exit execution.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Broker order-type differences, extended sessions and trading pauses can block or change actual exit execution.",
+      "commonError": "Marking every breached paper stop as a real confirmed fill at the stop price.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about An analytical invalidation does not prove a broker exit occurred.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "A fictional session is halted below a planned invalidation; distinguish known observed prices from unknown executable exit.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_QUOTE_AGE_TUTOR",
+      "title": "Quote freshness is a prerequisite for microstructure interpretation",
+      "concept": "A quote is an observation at a documented timestamp, not indefinitely actionable information; apparent bid/ask levels can be stale during rapid movement.",
+      "procedure": "Calculate hypothetical data age as decision timestamp minus observed quote timestamp and reject negative or cross-zone timestamps until normalized.",
+      "workedCase": "FICTIONAL: A quote displayed at 09:30:00 and evaluated at 09:30:03 is three seconds old; it must not be described as a verified 09:30:03 executable offer.",
+      "limit": "Feed latency, venue coverage, reporting corrections and clock mismatch require additional review; elapsed seconds alone do not prove the quote is current.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Feed latency, venue coverage, reporting corrections and clock mismatch require additional review; elapsed seconds alone do not prove the quote is current.",
+      "commonError": "Treating a three-second-old snapshot as guaranteed available liquidity or taking negative elapsed time as future data.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Quote freshness is a prerequisite for microstructure interpretation.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "If hypothetical quote time is 10:00:05 but simulated decision time is 10:00:00, identify the chronology violation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_VWAP_CONDITIONAL_HOLD",
+      "title": "VWAP reclaim and hold require a declared completed-bar rule",
+      "concept": "A VWAP reclaim lesson compares documented completed closes with a declared session-defined VWAP proxy and precommitted hold test, not subjective real-time optimism.",
+      "procedure": "Document price source, VWAP window/session, reclaim trigger, number of completed hold candles and invalidation rule before evaluation.",
+      "workedCase": "FICTIONAL: A classroom rule requires two completed bars above declared session VWAP. One completed bar above and an unfinished second bar does not meet the two-bar test.",
+      "limit": "OHLC3 VWAP is a proxy rather than exact print-weighted VWAP, and later confirmation bars were unavailable to the earlier observation.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. OHLC3 VWAP is a proxy rather than exact print-weighted VWAP, and later confirmation bars were unavailable to the earlier observation.",
+      "commonError": "Calling a one-tick VWAP crossing confirmed retention and inferring a certain rebound.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about VWAP reclaim and hold require a declared completed-bar rule.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Evaluate a new fictional sequence with only one full completed hold candle and identify why the classroom condition has not been met.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_MULTITIMEFRAME_VETO_EVIDENCE",
+      "title": "Higher-timeframe disagreement is contextual evidence, not a predictive veto score",
+      "concept": "Multiple overlapping timeframe views summarize the same underlying transactions; a declared contradiction can lead to an educational WAIT assessment without an invented success probability.",
+      "procedure": "State the lower timeframe setup, completed higher timeframe candle, session cutoff and exactly which conflict criterion applies.",
+      "workedCase": "FICTIONAL: A one-minute fictional close is above VWAP while the last completed five-minute candle remains below its own prior resistance. This is conflicting context, not two independent experiments.",
+      "limit": "An unfinished five-minute candle or future confirming bar is not valid evidence at an earlier one-minute decision timestamp.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. An unfinished five-minute candle or future confirming bar is not valid evidence at an earlier one-minute decision timestamp.",
+      "commonError": "Treating shorter and longer bars built from the same prints as independent confirmations that double statistical confidence.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Higher-timeframe disagreement is contextual evidence, not a predictive veto score.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "At a hypothetical 10:03 cutoff, identify which 10:00–10:05 five-minute bar facts remain unknown.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_UNVALIDATED_SCANNER_EDGE",
+      "title": "Scanner matches do not establish a validated trading edge",
+      "concept": "A screening rule creates candidate observations; confirming statistical expectancy needs a separately defined outcome population, costs, chronology and out-of-sample evidence.",
+      "procedure": "Separate rules-based candidate discovery from protected hypothesis testing, and never manufacture a hit rate from an unverified research registry.",
+      "workedCase": "FICTIONAL: A rules-based scanner highlights 100 historical candidates. If future outcome verification is incomplete, the Tutor may teach the filter but cannot report a 70% realized winning rate.",
+      "limit": "Source-ledger counts, reused transcript observations and unmatched outcomes do not validate a strategy; out-of-sample confirmation remains required.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Source-ledger counts, reused transcript observations and unmatched outcomes do not validate a strategy; out-of-sample confirmation remains required.",
+      "commonError": "Reporting 100 candidate matches as 100 profitable trades or as a statistically proven strategy.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Scanner matches do not establish a validated trading edge.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "A fictional scanner has 40 flagged securities but only 8 outcome-verified cases; state what claims are supportable.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_SURVIVORSHIP_BIAS_WATCHLIST",
+      "title": "Survivorship bias arises when failed or delisted securities vanish from a study",
+      "concept": "A historical strategy assessment restricted to still-listed symbols can exclude failed and delisted issuers and distort observed returns.",
+      "procedure": "Define the full eligible historical security universe at the original timestamp, retain delisted histories and document exclusions.",
+      "workedCase": "FICTIONAL: A study counts only eight still-listed winners and omits two firms that delisted at losses; the resulting average does not describe the original ten-security opportunity set.",
+      "limit": "Missing securities, mergers, symbol reuse and adjusted price sources complicate reconstruction; no corrected win rate can be inferred without excluded outcomes.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Missing securities, mergers, symbol reuse and adjusted price sources complicate reconstruction; no corrected win rate can be inferred without excluded outcomes.",
+      "commonError": "Using today's popular watchlist as if it were the complete historical opportunity universe.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Survivorship bias arises when failed or delisted securities vanish from a study.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "A fictional ten-name universe loses two observations to delisting; state what additional data are needed before reporting performance.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_HINDSIGHT_PARAMETER_TUNING",
+      "title": "Parameter optimization on the same data risks overfitting",
+      "concept": "When many indicator periods and thresholds are tested on the same historical outcomes, selecting the best hindsight score inflates apparent evidence.",
+      "procedure": "Freeze model rules before evaluating a later period, retain all tested alternatives and separate training, validation and out-of-sample partitions chronologically.",
+      "workedCase": "FICTIONAL: Twenty EMA settings are tested on the same 30-bar dataset; the best score is a selection result, not proof of an edge on a new independent month.",
+      "limit": "Data snooping, regime changes, fees, small samples and correlated trials require honest uncertainty and prospective validation.",
+      "invalidation": "Stop the teaching inference whenever timestamp, input history, broker conditions, denominator, data rights or declared hypothetical assumptions cannot be verified. Data snooping, regime changes, fees, small samples and correlated trials require honest uncertainty and prospective validation.",
+      "commonError": "Calling the highest in-sample score independent evidence because its parameters are reported exactly.",
+      "selfCheck": "Identify declared inputs, units, an independently checkable arithmetic or logical step, and one invalid conclusion about Parameter optimization on the same data risks overfitting.",
+      "reviewExplanation": "Use only the frozen fictional facts in the exercise; distinguish observed source evidence from assumptions, correct the misconception and state a fresh transfer check. Ungraded formative review only.",
+      "transferQuestion": "Divide a fictional twelve-month sample chronologically into training and holdout windows and state what must remain frozen.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    }
+  ]
+}
