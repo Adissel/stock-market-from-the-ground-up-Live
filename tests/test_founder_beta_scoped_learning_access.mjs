@@ -20,6 +20,7 @@ const content={lessonBatch:'2026-10-25-B01',
   'Record the decision and the invalidation condition before revealing subsequent outcomes.']};
 const draft={lab_id:LAB,book_number:1,
  source_status:'original_hypothetical_unreviewed_v01496',content};
+// Synthetic active grants must remain active across calendar dates; the live service still checks actual expiry.
 const oldFetch=globalThis.fetch;
 let member=true,suspended=false,grant=true,premium=true,reviewed=false,qaPass=false,ownerIssuer=true,catalogOverflow=false,seen=[];
 const respond=(value,status=200)=>new Response(JSON.stringify(value),{status,
@@ -44,14 +45,14 @@ globalThis.fetch=async(input,init={})=>{
  if(p.endsWith('/book_key_redemptions'))return respond([]);
  if(p.endsWith('/user_plan_grants'))return respond(grant?[{
   plan_code:'FOUNDING_30',status:'active',starts_at:'2026-10-01T00:00:00Z',
-  ends_at:'2026-11-01T00:00:00Z',platform_plans:{includes_all_books:false}}]:[]);
+  ends_at:new Date(Date.now()+60*86400000).toISOString(),platform_plans:{includes_all_books:false}}]:[]);
  if(p.endsWith('/site_subscriptions'))return respond([]);
  if(p.endsWith('/platform_plans'))return respond([{
   plan_code:'FOUNDING_30',active:true,includes_all_books:false,billing_interval:'none'
  }]);
  if(p.endsWith('/user_tool_passes'))return respond(qaPass?[{
    tool_code:'ONDEMAND_TRAINING',status:'active',starts_at:'2026-10-26T06:00:00Z',
-   ends_at:'2026-11-20T06:00:00Z',provider:null,provider_subscription_id:null,
+   ends_at:new Date(Date.now()+60*86400000).toISOString(),provider:null,provider_subscription_id:null,
    metadata:{admin_manual:true,source:'owner_manual',adminGrantedBy:'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
      reason:'F600_GUIDED_QA_V1: Owner-authorized 30-day noncommercial learning test.'}
  }]:[]);
