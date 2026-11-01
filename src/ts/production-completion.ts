@@ -31,6 +31,7 @@
         {code:'TIINGO_BYO',name:'Tiingo — Personal Market Data',fields:[['token','Personal API Token']],help:'help.html#tokens-tiingo'},
         {code:'ALPACA_BYO',name:'Alpaca — Market Data (IEX)',fields:[['apiKey','Alpaca API Key ID'],['apiSecret','Alpaca API Secret']],help:'help.html#tokens-alpaca'}
       ];
+      if(result.tutorByokAvailable===true)services.push({code:'TALIA_OPENAI_BYO',name:'Talia — Optional Personal AI (provider-billed)',fields:[['apiKey','Personal API key']],help:'market-tutor.html'});
       host.innerHTML=services.map(service=>{
         const saved:any=connectionMap.get(service.code);
         const verified=saved?.status==='connected'&&Boolean(saved.last_tested_at);
@@ -39,12 +40,13 @@
         const accountNote=service.code==='ALPACA_BYO'&&['paper','live'].includes(account)?
           '<p>Selected account: '+(account==='paper'?'Paper Trading':'Live account (market data only)')+'</p>':'';
         return '<article class="v132-connection-card" data-service="'+service.code+'"><div>'+
-          '<div class="eyebrow">Personal Market Data Connection</div><h4>'+service.name+'</h4>'+
+          '<div class="eyebrow">'+(service.code==='TALIA_OPENAI_BYO'?'Optional Tutor AI Connection':'Personal Market Data Connection')+'</div><h4>'+service.name+'</h4>'+
           '<p>'+status+(saved?' · '+esc(saved.masked_hint||'••••'):'')+'</p>'+accountNote+
           (saved?.last_tested_at?'<small>Last verified '+new Date(saved.last_tested_at).toLocaleString()+'</small>':'')+
           (service.code==='ALPACA_BYO'?'<p>Read-only IEX market data; not consolidated SIP. The endpoint is automatic. No brokerage orders are sent.</p>':'')+
           '</div><div class="actions"><button type="button" class="btn secondary" data-add>'+(saved?'Change Account / Replace':'Choose Account & Connect')+'</button>'+
           (service.code==='ALPACA_BYO'&&saved?'<button type="button" class="btn secondary" data-verify>Test Market Data</button>':'')+
+          (service.code==='TALIA_OPENAI_BYO'&&saved?.status==='saved_unverified'?'<button type="button" class="btn secondary" data-verify-tutor>Verify Personal Key</button>':'')+
           (saved?'<button type="button" class="btn secondary" data-remove>Disconnect</button>':'')+
           '<a class="btn secondary" href="'+service.help+'">How to get it</a></div>'+
           '<p data-connection-result role="status" aria-live="polite"></p></article>';
@@ -57,20 +59,21 @@
           document.querySelector('.v1321-provider-dialog')?.remove();
           const modal=document.createElement('dialog');modal.className='v1321-provider-dialog';
           modal.setAttribute('aria-labelledby','v1321-provider-title');
-          const alpaca=service.code==='ALPACA_BYO';
+          const alpaca=service.code==='ALPACA_BYO',tutor=service.code==='TALIA_OPENAI_BYO';
           const previous=saved?.metadata?.accountType==='live'?'live':'paper';
           modal.innerHTML='<h2 id="v1321-provider-title">Connect '+service.name+'</h2>'+
             (alpaca?'<fieldset><legend>Choose which Alpaca account to connect</legend>'+
               '<label class="v1321-provider-choice"><input type="radio" name="alpacaAccount" value="paper" '+(previous==='paper'?'checked':'')+'> Paper Trading account <small>Recommended for initial market-data use</small></label>'+
               '<label class="v1321-provider-choice"><input type="radio" name="alpacaAccount" value="live" '+(previous==='live'?'checked':'')+'> Live account — market data only <small>We do not place orders or access trading endpoints</small></label>'+
               '</fieldset><p class="v1321-provider-hint">The market-data endpoint is automatic. One active Alpaca key pair can be saved per member account.</p>':
+              tutor?'<p class="v1321-provider-hint">Optional provider requests may incur charges on your own provider account. Keys are saved pending verification. Do not use credentials unless provider terms permit this integration.</p><label><input type="checkbox" data-accept-provider-charges> I understand optional provider bills are my responsibility.</label>':
               '<p class="v1321-provider-hint">Use your personal Tiingo token. Provider endpoints are automatic.</p>')+
             service.fields.map(([key,label])=>'<label class="v1321-provider-field">'+label+
               '<span class="v1321-secret-wrap"><input type="password" data-provider-field="'+key+'" aria-label="'+label+'" autocomplete="new-password" data-lpignore="true" data-1p-ignore="true">'+
               '<button class="btn secondary" type="button" data-show-secret>Show</button></span></label>').join('')+
             '<p class="v1321-provider-hint">Credentials remain encrypted server-side and are not returned after saving.</p>'+
             '<p class="v1321-provider-feedback" role="status" aria-live="polite"></p>'+
-            '<div class="actions"><button class="btn" type="button" data-save-provider>Verify Market Data & Save</button>'+
+            '<div class="actions"><button class="btn" type="button" data-save-provider>'+(tutor?'Save Personal Key (unverified)':'Verify Market Data & Save')+'</button>'+
             '<button class="btn secondary" type="button" data-cancel-provider>Cancel</button></div>';
           document.body.appendChild(modal);
           const close=()=>{modal.close();modal.remove()};
@@ -86,17 +89,27 @@
             const inputs=qa<HTMLInputElement>('[data-provider-field]',modal);
             if(inputs.some(input=>!input.value.trim())){feedback.textContent='Enter all required API credentials.';return}
             const values=Object.fromEntries(inputs.map(input=>[input.dataset.providerField!,input.value]));
+            if(tutor&&!q<HTMLInputElement>('[data-accept-provider-charges]',modal)?.checked){feedback.textContent='Acknowledge your personal provider billing responsibility.';return}
             const accountType=alpaca?q<HTMLInputElement>('input[name="alpacaAccount"]:checked',modal)?.value:null;
             button.disabled=true;feedback.textContent='Verifying the market-data connection…';
             try{
               const result=await api('/api/credentials?action=save',{method:'POST',
-                body:JSON.stringify({serviceCode:service.code,values,...(alpaca?{accountType}:{})})});
-              if(result?.verified!==true)throw Error('Provider verification was not confirmed.');
-              close();await renderConnections(host);toast('Market-data connection verified and saved securely.','ok');
+                body:JSON.stringify({serviceCode:service.code,values,...(alpaca?{accountType}:{}),...(tutor?{confirmProviderCharges:true}:{})})});
+              if(tutor?result?.savedPendingVerification!==true:result?.verified!==true)throw Error('Provider connection could not be confirmed.');
+              close();await renderConnections(host);toast(tutor?'Personal Tutor API key saved encrypted; verification pending.':'Market-data connection verified and saved securely.','ok');
             }catch(error:any){feedback.textContent=String(error?.message||'Connection verification failed.')}
             finally{button.disabled=false}
           };
           modal.showModal();
+        };
+        const tutorVerify=q<HTMLButtonElement>('[data-verify-tutor]',card);
+        if(tutorVerify)tutorVerify.onclick=async()=>{
+          tutorVerify.disabled=true;notice.textContent='Verifying key without AI generation…';
+          try{
+            const result=await api('/api/credentials?action=verify',{method:'POST',body:JSON.stringify({serviceCode:'TALIA_OPENAI_BYO'})});
+            if(result?.verified!==true)throw Error('Provider key was not verified.');
+            await renderConnections(host);
+          }catch(error:any){notice.textContent=String(error?.message||'Tutor provider verification unavailable.');tutorVerify.disabled=false}
         };
         const verify=q<HTMLButtonElement>('[data-verify]',card);
         if(verify)verify.onclick=async()=>{
