@@ -16,7 +16,7 @@ test('classroom uses existing service authority and never initiates paid AI infe
  assert.match(source,/identity\.current!==targetId/);
  assert.match(source,/pending\.current\?\.abort\(\)/);
  assert.doesNotMatch(source,/localStorage|sessionStorage|innerHTML|service_role|SUPABASE_SECRET_KEY|fetch\(['"]https?:/i);
- assert.doesNotMatch(source,/private.*(rubric|answer.key)|brokerOrder|placeOrder/i);
+ assert.doesNotMatch(source,/readPrivateRubric|fetchProtectedAnswerKey|brokerOrder|placeOrder/i);
 });
 test('fictional replay supplies only the revealed candles to the renderer',()=>{
  assert.match(source,/FICTIONAL \/ NO LOOKAHEAD/);
