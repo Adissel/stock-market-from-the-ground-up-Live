@@ -89,7 +89,7 @@ await check('claimed Professional in client query/header without paid cycle',
 await check('expired paid 60-day cycle retains only independent Advanced Lumen pass',
  {cycles:[billing('FOUNDING_60',{expired:true})],
   passes:[{tier:'ADVANCED',expires_at:date(3)}]},
- 'ADVANCED','Active Crownlight Sparks Chart Studio pass');
+ 'ADVANCED','Active Crownlight Lumens Chart Studio pass');
 await check('noncommercial scoped Professional access does not confer 60-day paid membership',
  {chartQA:[{tier:'PROFESSIONAL',scope:'CHART_STUDIO_ONLY',
   starts_at:date(-1),ends_at:date(3),revoked_at:null}]},
@@ -100,13 +100,13 @@ await check('Professional pass wins among more than two eligible rows',
   {tier:'ADVANCED',expires_at:date(7)},
   {tier:'PROFESSIONAL',expires_at:date(4)},
   {tier:'ADVANCED',expires_at:date(6)}
- ]},'PROFESSIONAL','Active Crownlight Sparks Chart Studio pass');
+ ]},'PROFESSIONAL','Active Crownlight Lumens Chart Studio pass');
 await check('expired Professional cannot shadow an active Advanced pass',
  {passes:[
   {tier:'PROFESSIONAL',expires_at:date(-1)},
   {tier:'ADVANCED',expires_at:date(3)},
   {tier:'ADVANCED',expires_at:date(2)}
- ]},'ADVANCED','Active Crownlight Sparks Chart Studio pass');
+ ]},'ADVANCED','Active Crownlight Lumens Chart Studio pass');
 await check('all expired elevated passes fail closed to Standard',
  {passes:[{tier:'PROFESSIONAL',expires_at:date(-1)},
  {tier:'ADVANCED',expires_at:date(-4)}]},'STANDARD','Free Membership');
