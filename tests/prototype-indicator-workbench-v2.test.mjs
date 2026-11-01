@@ -1,0 +1,55 @@
+/* Crownlight Experience V2: pure math, authoring coverage, replay isolation, no fabrication. */
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+await import('../assets/js/crownlight-indicator-math-v2.js');
+await import('../assets/js/prototype-indicator-workbench-v2.js');
+const api=globalThis.CrownlightPrototypeIndicators;
+assert.ok(api&&typeof api.compute==='function','Canonical indicator adapter must load');
+assert.equal(api.specs.length,15);
+assert.ok(api.specs.some(x=>x.id==='VWAP'));
+const catalog=JSON.parse(readFileSync('data/tutor-indicator-study-v1.json','utf8'));
+assert.equal(catalog.count,61);
+assert.equal(catalog.guides.length,61);
+assert.equal(new Set(catalog.guides.map(g=>g.code)).size,61);
+const closes=Array.from({length:90},(_,i)=>50+Math.sin(i*.17)*3+i*.09);
+let total=0,value=0;
+const bars=closes.map((c,i)=>{
+ const o=i?closes[i-1]:c,h=Math.max(o,c)+.3,l=Math.min(o,c)-.3,v=1000+(i%5)*100;
+ total+=v;value+=((h+l+c)/3)*v;
+ return {time:String(i),o,h,l,c,v,proxy:value/total};
+});
+const cfg={...api.defaults,sma:8,rsi:9,volPeriod:7,bbPeriod:10,emaFast:6,emaSlow:15};
+const selected=Object.fromEntries(api.specs.map(x=>[x.id,true]));
+const full=api.compute(bars,cfg,selected);
+const early=api.compute(bars.slice(0,34),cfg,selected);
+assert.equal(full.price.length>=8,true,'EMA, SMA, HLC3 proxy, BB, levels and opening range overlays');
+assert.equal(full.panes.includes('rsi'),true);
+assert.equal(full.panes.includes('macd'),true);
+assert.equal(full.panes.includes('atr'),true);
+assert.equal(full.panes.includes('obv'),true);
+const find=(all,name)=>all.find(x=>x.label===name);
+assert.equal(find(early.price,'EMA 6').data.slice(0,5).every(x=>x===null),true,'Do not fabricate EMA warmup values');
+assert.ok(Math.abs(find(full.price,'HLC3 volume-weighted bar proxy').data[5]-bars[5].proxy)<1e-8);
+for(const a of early.price){const b=find(full.price,a.label);assert.ok(b,'Missing long-history pair '+a.label);for(let i=0;i<a.data.length;i++){
+ const left=a.data[i],right=b.data[i];assert.ok(left===null&&right===null||(Number.isFinite(left)&&Number.isFinite(right)&&Math.abs(left-right)<1e-8),'Future candles changed prior '+a.label+' at '+i);
+}}
+assert.ok(early.marks.every(x=>x.confirmedAt<34),'Structure swing marker cannot precede confirmation');
+assert.ok(api.validSettings({emaFast:0,emaSlow:500,rsi:0,bbDeviation:70}).emaFast>=2);
+const html=readFileSync('prototype.html','utf8');
+const tsx=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
+const workflow=readFileSync('.github/workflows/prototype-center-v1.yml','utf8');
+assert.match(html,/crownlight-indicator-math-v2\.js/);
+assert.match(html,/prototype-indicator-workbench-v2\.js/);
+assert.ok(html.indexOf('crownlight-indicator-math-v2.js')<html.indexOf('prototype-indicator-workbench-v2.js'));
+assert.ok(html.indexOf('prototype-indicator-workbench-v2.js')<html.indexOf('prototype-experiences-boot-v1.js'));
+assert.match(tsx,/moveOnMouseMove:true/);
+assert.match(tsx,/zoomOnMouseWheel:'ctrl'/);
+assert.match(tsx,/dispatchAction\(\{type:'dataZoom'/);
+assert.match(tsx,/Full session or revealed chart window/);
+assert.match(tsx,/role="toolbar" aria-label="Chart navigation and panning"/);
+assert.match(tsx,/Teach This in More Depth/);
+assert.match(tsx,/checkTransfer/);
+assert.match(tsx,/Independent practice preview/);
+assert.match(tsx,/61 authored research guides/);
+assert.doesNotMatch(tsx,/setGrade|postPayment|Stripe\.checkout/);
+console.log('PASS: 15 studies, exact 61-guide source coverage, seeded indicators, warmup, no lookahead, pan/zoom, deep tutor and secure asset order');
