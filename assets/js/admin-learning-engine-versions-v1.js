@@ -3,6 +3,15 @@
 const root=()=>document.getElementById('admin-learning-engine-assignments');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let active=false,working=false;
+const editionLabels={
+ FOUNDATION:'Foundation (Basic) — included',
+ ADVANCED:'Advanced — planned entitlement; features not released',
+ PROFESSIONAL:'Professional — planned entitlement; features not released',
+ ENTERPRISE:'Enterprise — planned entitlement; features not released',
+ PRODUCT_DEPENDENT:'Based on verified On-Demand product access',
+ UNASSIGNED:'Legacy / unassigned — no implicit upgrade'
+};
+
 const labels={
  LEARNING_V33_FREEZE_20261101:'Learning v3.3 · Frozen Free baseline (2026-11-01)',
  LEARNING_V33_CURRENT:'Learning v3.3 · Current deployment',
@@ -31,6 +40,15 @@ function rows(data){
  '<small><code>'+esc(a.planCode)+'</code> · '+(a.active?'Active':'Archived')+'</small></th>'+
  fields.map(f=>'<td><label class="visually-hidden" for="engine-'+esc(f)+'-'+esc(a.planCode)+'">'+esc(a.name)+' '+f+'</label>'+
  '<select id="engine-'+esc(f)+'-'+esc(a.planCode)+'" data-engine-field="'+f+'">'+options(data.versions[f],a[f])+'</select></td>').join('')+
+ '<td><label class="visually-hidden" for="talia-edition-'+esc(a.planCode)+'">'+esc(a.name)+' Talia membership edition</label>'+
+ '<select id="talia-edition-'+esc(a.planCode)+'" data-talia-edition>'+
+ (a.tutorEdition==='UNASSIGNED'?'<option value="UNASSIGNED" selected>Unassigned — choose an edition</option>':'')+
+ data.tutorEditions.filter(t=>t!=='PRODUCT_DEPENDENT'||a.planCode==='ONDEMAND_MONTHLY').map(t=>
+ '<option value="'+esc(t)+'"'+(t===a.tutorEdition?' selected':'')+'>'+esc(editionLabels[t])+'</option>').join('')+
+ '</select><small>'+(a.tutorEditionPersisted?'Stored · revision '+a.tutorEditionRevision:
+ 'Owner policy default; save to persist')+'</small>'+
+ '<button class="btn secondary" type="button" data-talia-save="'+esc(a.planCode)+
+ '" data-revision="'+a.tutorEditionRevision+'">Save Tutor Edition</button></td>'+
  '<td><button class="btn secondary" type="button" data-engine-save="'+esc(a.planCode)+'" data-revision="'+a.revision+'">Save assignment</button>'+
  '<small>'+(a.persisted?'Stored revision '+a.revision:'Proposed default; not yet persisted')+'</small></td></tr>').join('');
 }
@@ -40,8 +58,8 @@ async function load(){
  const node=root();working=true;status('Verifying Owner version assignments…');
  try{
   const data=await call();
-  node.querySelector('[data-engine-table]').innerHTML='<div class="product-catalog-table-wrap"><table class="product-catalog-table"><thead><tr><th>Membership</th><th>Learning Engine</th><th>Shared Lab Engine</th><th>Tutor</th><th>Owner action</th></tr></thead><tbody>'+rows(data)+'</tbody></table></div>';
-  status('Verified '+data.assignments.length+' membership records. FREE and PICK_WHAT_YOU_WANT default to the frozen baseline. Changing versions never changes paid rights.');
+  node.querySelector('[data-engine-table]').innerHTML='<div class="product-catalog-table-wrap"><table class="product-catalog-table"><thead><tr><th>Membership</th><th>Learning Engine</th><th>Shared Lab Engine</th><th>Talia source</th><th>Talia membership edition</th><th>Engine source action</th></tr></thead><tbody>'+rows(data)+'</tbody></table></div>';
+  status('Verified '+data.assignments.length+' membership records. FREE and PICK_WHAT_YOU_WANT default to the frozen baseline. Edition labels do not activate unreleased tools or paid AI. Each membership has its own Tutor edition selector.');
  }catch(e){status(e.message,true)}
  finally{working=false}
 }

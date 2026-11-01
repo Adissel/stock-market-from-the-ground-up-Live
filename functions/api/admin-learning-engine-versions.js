@@ -8,6 +8,12 @@ const allowed=Object.freeze({
  lab:['LAB_V32_FREEZE_20261101','LAB_V32_CURRENT'],
  tutor:['TALIA_FREEZE_20261101','TALIA_CURRENT']
 });
+const tutorEditions=Object.freeze(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE','PRODUCT_DEPENDENT']);
+const tutorDefault=code=>({
+ FREE:'FOUNDATION',PICK_WHAT_YOU_WANT:'FOUNDATION',FOUNDING_14:'FOUNDATION',
+ FOUNDING_30:'ADVANCED',FOUNDING_60:'PROFESSIONAL',FULL_MONTHLY:'PROFESSIONAL',
+ LIFETIME:'ENTERPRISE',ONDEMAND_MONTHLY:'PRODUCT_DEPENDENT'
+})[code]||'UNASSIGNED';
 const defaults=code=>['FREE','PICK_WHAT_YOU_WANT'].includes(code)
  ?{learning:allowed.learning[0],lab:allowed.lab[0],tutor:allowed.tutor[0]}
  :{learning:allowed.learning[1],lab:allowed.lab[1],tutor:allowed.tutor[1]};
@@ -18,15 +24,18 @@ export async function onRequest({request,env}){
   const actor=await authorizeLearningPlanOwner(env,request);
   if(request.method==='GET'){
    const plans=await db(env,'platform_plans?select=plan_code,name,active,public_visible,metadata&order=sort_order.asc');
-   return out({ok:true,versions:allowed,assignments:plans.map(p=>{
+   return out({ok:true,versions:allowed,tutorEditions,assignments:plans.map(p=>{
     const stored=p.metadata?.learning_engines_v1;
+    const tutorAssignment=p.metadata?.talia_market_tutor_v1;
     const d=defaults(p.plan_code);
     return{planCode:p.plan_code,name:p.name,active:p.active,publicVisible:p.public_visible,
      learning:allowed.learning.includes(stored?.learning)?stored.learning:d.learning,
      lab:allowed.lab.includes(stored?.lab)?stored.lab:d.lab,
      tutor:allowed.tutor.includes(stored?.tutor)?stored.tutor:d.tutor,
      revision:Number.isSafeInteger(stored?.revision)?stored.revision:0,
-     persisted:!!stored,updatedAt:stored?.updated_at||null};
+     persisted:!!stored,updatedAt:stored?.updated_at||null,
+     tutorEdition:tutorEditions.includes(tutorAssignment?.tier)?tutorAssignment.tier:tutorDefault(p.plan_code),
+     tutorEditionPersisted:!!tutorAssignment,tutorEditionRevision:Number.isSafeInteger(tutorAssignment?.revision)?tutorAssignment.revision:0};
    })});
   }
   if(request.method!=='POST')return out({ok:false,error:'Method not allowed'},405);
@@ -34,6 +43,20 @@ export async function onRequest({request,env}){
   if(!b||JSON.stringify(b).length>1200)throw err('Invalid version assignment');
   const planCode=String(b.planCode||'').trim().toUpperCase();
   if(!/^[A-Z][A-Z0-9_]{1,63}$/.test(planCode))throw err('Invalid membership code');
+  if(b.action==='setTutorEdition'){
+   if(!tutorEditions.includes(b.tutorEdition))throw err('Unsupported Tutor edition',400);
+   if(b.tutorEdition==='PRODUCT_DEPENDENT'&&planCode!=='ONDEMAND_MONTHLY')
+    throw err('Product-dependent Tutor edition is reserved for On-Demand plans',400);
+   if(!Number.isSafeInteger(b.tutorEditionRevision)||b.tutorEditionRevision<0)
+    throw err('Invalid Tutor edition revision',400);
+   const saved=await db(env,'rpc/gu_owner_assign_talia_edition_v1',{
+    p_actor:actor,p_code:planCode,p_tier:b.tutorEdition,p_expected_revision:b.tutorEditionRevision
+   });
+   if(saved?.tier!==b.tutorEdition||saved.revision!==b.tutorEditionRevision+1)
+    throw err('Tutor edition assignment was not confirmed',503);
+   return out({ok:true,planCode,tutorEdition:saved,
+    notice:'Talia membership edition saved and audited. No unreleased features or paid add-on rights were granted.'});
+  }
   for(const key of ['learning','lab','tutor'])
    if(!allowed[key].includes(b[key]))throw err('Unsupported '+key+' version: cannot assign an undeployed engine');
   if(!Number.isSafeInteger(b.revision)||b.revision<0)throw err('Invalid revision');
