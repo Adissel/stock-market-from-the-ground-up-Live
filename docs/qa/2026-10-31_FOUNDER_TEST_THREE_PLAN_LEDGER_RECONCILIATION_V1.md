@@ -5,8 +5,14 @@
 **Author / reviewer:** GPT-6, Owner-delegated financial QA controller  
 **File type / name:** Markdown / 2026-10-31_FOUNDER_TEST_THREE_PLAN_LEDGER_RECONCILIATION_V1.md  
 **Location:** GitHub cybernexuspublishing/stock-market-from-the-ground-up/docs/qa/ (main); Google Drive not created, Drive document ID unassigned  
-**Version / date / status:** v1.0 / 2026-10-31 / TEST-ONLY READ-ONLY LEDGER RECONCILIATION ACCEPTED; WHOLE GATE 23 HOLD  
+**Version / date / status:** v1.1 / 2026-10-31 / TEST-ONLY READ-ONLY LEDGER RECONCILIATION ACCEPTED; WHOLE GATE 23 HOLD  
 **Dependencies:** Founding QA webhook gu39, isolated public.gu_f600_sandbox_*_v014215 tables, Stripe TEST account, approved 14/30/60 plan terms, #154 and #158, final exact-SHA release.
+
+## Additional renewal-proof postflight — 2026-10-31, Version 1.1
+
+A new independent per-subscription grouping of all eleven existing isolated TEST paid-cycle records found the following **distinct** QA Stripe subscriptions: Founding 14-Day **3**, 30-Day **4**, 60-Day **4**. Across all three plans, **zero** subscription IDs had a second paid-cycle record or a second distinct invoice ID. There are still **two unreversed 30-Day QA-only cycles**, none of which establish a subsequent renewal. The event archive has **36/36 unique event IDs**, **0 orphaned event-to-intent links** and **0 orphaned paid cycles**.
+
+**Owner financial QA decision:** Previous counts of eleven paid invoices must **NOT** be reported as eleven renewal cycles, or as proof of any automatic recurring charge. This check identifies a specific unresolved absence of **provider-delivered second-invoice renewal evidence for every one of the three Founder plans**. The official purchase/renewal/recovery/cancel/refund/revocation lifecycle gate stays HOLD. No customer, TEST or LIVE provider write and no wallet adjustment was performed.
 
 ## Method and limits
 
@@ -36,5 +42,6 @@ No actual production Founder paid-cycle or Founder subscription rows were found 
 | Version | Date | Change |
 |---|---|---|
 | v1.0 | 2026-10-31 | Reconciled 16 existing QA intents, 11 cycles, 36 distinct recorded event IDs, three plan-specific states without money or entitlement writes. |
+| v1.1 | 2026-10-31 | Reconciled invoices per subscription and explicitly demonstrated that no second-cycle TEST renewal is in the isolated ledger. |
 
 **Footer:** Crown & Lantern Press — internal accounting QA only; not an audit opinion, payment-compliance certification, or authorization to turn on LIVE checkout.
