@@ -243,7 +243,7 @@ try{
  await a.page.locator('.cx-learning button:has-text("Check transfer reasoning")').click();
  assert.match(await a.page.locator('.cx-transfer').textContent(),/Correct/);
  await a.page.locator('.cx-replay button:has-text("Next +")').click();
- assert.match(await a.page.locator('.cx-statusline').textContent(),/55 completed candles/);
+ assert.match(await a.page.locator('.cx-statusline').textContent(),/9 completed candles/,'Next reveals one completed candle after the eight-bar membership training reset');
  const planProfiles=[['FREE','Your first clear view'],['PICK_WHAT_YOU_WANT','Build the teaching workspace'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
  for(const [code,headline] of planProfiles){
   await a.page.getByLabel('Membership design preview').selectOption(code);
