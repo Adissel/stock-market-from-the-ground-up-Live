@@ -1,0 +1,968 @@
+{
+  "schema": "SMFGU-TALIA-UPLOAD5-SOURCE-RECON-001",
+  "version": "1.0",
+  "sourceUpload": "Master Research Source Directory(5).odt",
+  "date": "2026-11-01",
+  "rawHyperlinks": 98,
+  "canonicalUploadedUrls": 92,
+  "masterCandidateEntries": 73,
+  "status": "RECONCILED_AS_RESEARCH_POINTERS_NOT_CLAIM_APPROVAL",
+  "method": "Exact normalized URL or host/provider candidate; no source claim, licensing or HTTP checked by matching",
+  "counts": {
+    "SAME_PROVIDER_CANDIDATE": 55,
+    "EXACT_CANONICAL_URL": 32,
+    "NO_PROVIDER_CANDIDATE": 5
+  },
+  "records": [
+    {
+      "index": 1,
+      "url": "https://apps.bea.gov/API/docs",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "BEA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/archive/q-fin",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "ARXIV"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 3,
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 4,
+      "url": "https://cmtassociation.org/education/publications/journal-of-technical-analysis",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "CMT-ASSOC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 5,
+      "url": "https://data.lobsterdata.com/info/DataSamples.php",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "LOBSTER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 6,
+      "url": "https://data.lobsterdata.com/info/help_codeHelp.php",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "LOBSTER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 7,
+      "url": "https://developer.finra.org/catalog",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "FINRA-EDU",
+        "FINRA-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 8,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "MDN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 9,
+      "url": "https://developers.cloudflare.com/pages",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "CLOUDFLARE-PAGES"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 10,
+      "url": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "ALPACA-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 11,
+      "url": "https://docs.alpaca.markets/us/docs/historical-api",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "ALPACA-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 12,
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "SCIPY"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 13,
+      "url": "https://echarts.apache.org/en/option.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "ECHARTS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 14,
+      "url": "https://echarts.apache.org/examples/en/index.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "ECHARTS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 15,
+      "url": "https://emma.msrb.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "MSRB-EMMA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 16,
+      "url": "https://fred.stlouisfed.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "FRED-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 17,
+      "url": "https://fred.stlouisfed.org/docs/api/fred",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "FRED-TERMS",
+        "FRED-DATA",
+        "FRED-POLICY"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 18,
+      "url": "https://github.com/polakowo/vectorbt",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TALIB-PY",
+        "PANDAS-TA",
+        "QSTRADER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 19,
+      "url": "https://home.treasury.gov/",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TREASURY"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 20,
+      "url": "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TREASURY"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 21,
+      "url": "https://massive.com/docs/rest/stocks/overview",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "MASSIVE-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 22,
+      "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/spreadsh.htm",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "DAMODARAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 23,
+      "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/tools.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "DAMODARAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 24,
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "DAMODARAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 25,
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/equityUG.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "DAMODARAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 26,
+      "url": "https://pandas.pydata.org/docs/user_guide/timeseries.html",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "PANDAS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 27,
+      "url": "https://prd-web.optionseducation.org/advancedconcepts/understanding-options-greeks",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "OIC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 28,
+      "url": "https://pyportfolioopt.readthedocs.io/en/latest/MeanVariance.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "PYPORT"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 29,
+      "url": "https://react.dev/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "REACT"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 30,
+      "url": "https://supabase.com/docs/guides/database/overview",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SUPABASE-RLS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 31,
+      "url": "https://ta-lib.github.io/ta-lib-python",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TALIB-FUNC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 32,
+      "url": "https://ta-lib.org/functions",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TALIB-FUNC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 33,
+      "url": "https://toslc.thinkorswim.com/center.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TOS-LRN",
+        "TOS-STUDIES",
+        "TOS-EMA",
+        "TOS-VWAP"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 34,
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TOS-STUDIES"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 35,
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MovAvgExponential",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TOS-EMA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 36,
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TOS-VWAP"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 37,
+      "url": "https://tradingview.github.io/lightweight-charts",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TRADINGVIEW-HELP",
+        "PINE-DOCS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 38,
+      "url": "https://www.backtrader.com/docu",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "BACKTRADER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 39,
+      "url": "https://www.bea.gov/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "BEA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 40,
+      "url": "https://www.bis.org/statistics",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "BIS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 41,
+      "url": "https://www.bls.gov/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "BLS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 42,
+      "url": "https://www.bls.gov/audience/developers.htm",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "BLS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 43,
+      "url": "https://www.bls.gov/data",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "BLS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 44,
+      "url": "https://www.cboe.com/education/tools/options-calculator",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "CBOE-OPTIONS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 45,
+      "url": "https://www.cfainstitute.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "CFA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 46,
+      "url": "https://www.cftc.gov/LearnAndProtect/index.htm",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "CFTC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 47,
+      "url": "https://www.cmegroup.com/education/courses",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "CME-EDU"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 48,
+      "url": "https://www.dtcc.com/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "DTCC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 49,
+      "url": "https://www.federalreserve.gov/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "FRB"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 50,
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide",
+      "classification": "NO_PROVIDER_CANDIDATE",
+      "candidateIds": [],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 51,
+      "url": "https://www.finra.org/investors",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "FINRA-EDU"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 52,
+      "url": "https://www.investopedia.com/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "INVESTOPEDIA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 53,
+      "url": "https://www.investor.gov/introduction-investing",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-INV"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 54,
+      "url": "https://www.irs.gov/forms-pubs/about-publication-550",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "IRS-550"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 55,
+      "url": "https://www.nasdaq.com/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "NASDAQ"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 56,
+      "url": "https://www.nasdaqtrader.com/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "NASDAQ-TRADER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 57,
+      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=MDReports",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NASDAQ-TRADER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 58,
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHSpecification_5.0.pdf",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NASDAQ-TRADER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 59,
+      "url": "https://www.nber.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "NBER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 60,
+      "url": "https://www.nber.org/programs-projects/programs-working-groups/asset-pricing",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NBER"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 61,
+      "url": "https://www.nfa.futures.org/investors",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "NFA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 62,
+      "url": "https://www.nyse.com/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "NYSE"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 63,
+      "url": "https://www.nyse.com/data-products/catalog/daily-taq",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NYSE",
+        "NYSE-DATA",
+        "NYSE-MARKETDATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 64,
+      "url": "https://www.nyse.com/market-data/documents",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NYSE",
+        "NYSE-DATA",
+        "NYSE-MARKETDATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 65,
+      "url": "https://www.nyse.com/market-data/historical",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "NYSE",
+        "NYSE-DATA",
+        "NYSE-MARKETDATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 66,
+      "url": "https://www.optionseducation.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "OIC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 67,
+      "url": "https://www.optionseducation.org/strategies/all-strategies-en",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "OIC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 68,
+      "url": "https://www.quantconnect.com/docs/v2",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "QC-IND",
+        "QC-LEAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 69,
+      "url": "https://www.quantconnect.com/docs/v2/cloud-platform/backtesting/research-guide",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "QC-IND",
+        "QC-LEAN"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 70,
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "QC-IND"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 71,
+      "url": "https://www.quantlib.org/",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "QUANTLIB"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 72,
+      "url": "https://www.quantstart.com/",
+      "classification": "NO_PROVIDER_CANDIDATE",
+      "candidateIds": [],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 73,
+      "url": "https://www.quantstart.com/qstrader",
+      "classification": "NO_PROVIDER_CANDIDATE",
+      "candidateIds": [],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 74,
+      "url": "https://www.schwab.com/learn",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "SCHWAB-EDU"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 75,
+      "url": "https://www.sec.gov/data-research/market-structure-data",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-MKT",
+        "SEC-605",
+        "EDGAR-API",
+        "EDGAR-SEARCH",
+        "SEC-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 76,
+      "url": "https://www.sec.gov/data-research/sec-markets-data/financial-statement-notes-data-sets",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-MKT",
+        "SEC-605",
+        "EDGAR-API",
+        "EDGAR-SEARCH",
+        "SEC-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 77,
+      "url": "https://www.sec.gov/featured-topics/market-structure-analytics",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-MKT",
+        "SEC-605",
+        "EDGAR-API",
+        "EDGAR-SEARCH",
+        "SEC-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 78,
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-MKT",
+        "SEC-605",
+        "EDGAR-API",
+        "EDGAR-SEARCH",
+        "SEC-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 79,
+      "url": "https://www.sec.gov/search-filings",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SEC-MKT",
+        "SEC-605",
+        "EDGAR-API",
+        "EDGAR-SEARCH",
+        "SEC-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 80,
+      "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "EDGAR-API"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 81,
+      "url": "https://www.sipc.org/for-investors/what-sipc-protects",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "SIPC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 82,
+      "url": "https://www.ssrn.com/",
+      "classification": "NO_PROVIDER_CANDIDATE",
+      "candidateIds": [],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 83,
+      "url": "https://www.statsmodels.org/stable/tsa.html",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "STATSMODELS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 84,
+      "url": "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "OCC"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 85,
+      "url": "https://www.tiingo.com/documentation",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TIINGO-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 86,
+      "url": "https://www.tiingo.com/documentation/end-of-day",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TIINGO-DATA"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 87,
+      "url": "https://www.tradingview.com/pine-script-docs",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "PINE-DOCS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 88,
+      "url": "https://www.tradingview.com/pine-script-reference/v6",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TRADINGVIEW-HELP",
+        "PINE-DOCS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 89,
+      "url": "https://www.tradingview.com/support",
+      "classification": "EXACT_CANONICAL_URL",
+      "candidateIds": [
+        "TRADINGVIEW-HELP"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 90,
+      "url": "https://www.tradingview.com/support/solutions/43000502018-volume-weighted-average-price-vwap",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TRADINGVIEW-HELP",
+        "PINE-DOCS"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 91,
+      "url": "https://www.typescriptlang.org/docs/handbook",
+      "classification": "SAME_PROVIDER_CANDIDATE",
+      "candidateIds": [
+        "TYPESCRIPT"
+      ],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    },
+    {
+      "index": 92,
+      "url": "https://xgboosted.github.io/pandas-ta-classic/indicators.html",
+      "classification": "NO_PROVIDER_CANDIDATE",
+      "candidateIds": [],
+      "sourceClaimAcceptance": false,
+      "thirdPartyDataIngestionApproved": false
+    }
+  ]
+}
