@@ -77,6 +77,14 @@ function changeMembership(code){if(!allMemberships.some(m=>m.code===code))return
 function selectPreset(id){if(!lookup.has(id))return;const prior=selected(),next=lookup.get(id);drafts[active]={...prior,...next};notify();}
 function adjust(key,value){const current=selected();if(!(key in current))return;drafts[active]=sanitize({...current,[key]:value},active);notify();}
 function reset(){drafts[active]=copy(active);notify();}
+function applyServerDrafts(rows){
+ if(!Array.isArray(rows))return;
+ for(const item of rows){
+  if(item?.channel!=='draft'||!allMemberships.some(m=>m.code===item.plan_code)||!lookup.has(item.preset_code))continue;
+  drafts[item.plan_code]=sanitize(item.config,item.plan_code);
+ }
+ notify();
+}
 function clear(){userId='';active='FREE';drafts=Object.fromEntries(allMemberships.map(m=>[m.code,copy(m.code)]));updateUI=()=>{};}
 function createSelect(title,items,value,onChange){
  const label=node('label',title),sel=node('select');sel.setAttribute('aria-label',title);
@@ -188,7 +196,7 @@ function init(options={}){
  notify();
 }
 window.CrownlightClassroomMemberships=Object.freeze({
- init,render,save,reset,clear,selected,snapshot,membership,changeMembership,selectPreset,adjust,
+ init,render,save,reset,clear,selected,snapshot,membership,changeMembership,selectPreset,adjust,applyServerDrafts,
  presets:()=>presets.map(({id,label})=>({id,label})),
  memberships:()=>allMemberships.map(({code,label})=>({code,label})),
  chartOptions,analyze,inspector
