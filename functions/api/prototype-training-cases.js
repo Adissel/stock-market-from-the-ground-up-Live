@@ -6,7 +6,7 @@ const headers={'content-type':'application/json; charset=utf-8','cache-control':
 const response=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
 const fail=(message,status)=>response({ok:false,error:message},status);
 const clean=value=>String(value||'').trim();
-function serviceKey(raw){
+export function serviceKey(raw){
  const key=clean(raw);
  if(key.startsWith('sb_secret_'))return {apikey:key};
  if(/^eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(key))return {apikey:key,authorization:'Bearer '+key};
@@ -40,7 +40,7 @@ export async function verifyPrototypeStaff(request,env){
  const perms=await fetch(base+'/rest/v1/admin_role_permissions?select=permission_code&role_code=in.'+filter,{headers:h,cache:'no-store'});
  if(!perms.ok)throw Error('Permission verification unavailable');
  if(!(await perms.json()).some(x=>x.permission_code==='control_panel.access'))return {status:403};
- return {status:200};
+ return {status:200,userId:member.id,roles:active};
 }
 const cases=Object.freeze([
  {id:'CL-PROTO-VWAP-01',topic:'VWAP reclaim',name:'Fictional VWAP reclaim at a decision boundary',type:'FICTIONAL',objective:'Calculate a four-bar OHLCV typical-price weighted VWAP proxy and explain why it is not equivalent to trade-print VWAP or sufficient evidence of a successful reclaim.',note:'OHLC candles and volumes are invented for instruction, not sourced from any market or security.',candles:[
