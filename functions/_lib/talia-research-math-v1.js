@@ -7,30 +7,38 @@ const finite=n=>typeof n==='number'&&Number.isFinite(n);
 const valid=(...numbers)=>numbers.every(finite);
 export function grossMargin(revenue,cogs){
  if(!valid(revenue,cogs)||revenue<=0||cogs<0)return null;
- return {grossProfit:revenue-cogs,percent:100*(revenue-cogs)/revenue};
+ const grossProfit=revenue-cogs,percent=100*grossProfit/revenue;
+ return valid(grossProfit,percent)?{grossProfit,percent}:null;
 }
 export function liquidityRatios(currentAssets,currentLiabilities){
  if(!valid(currentAssets,currentLiabilities)||currentAssets<0||currentLiabilities<=0)return null;
- return {ratio:currentAssets/currentLiabilities,workingCapital:currentAssets-currentLiabilities};
+ const ratio=currentAssets/currentLiabilities,workingCapital=currentAssets-currentLiabilities;
+ return valid(ratio,workingCapital)?{ratio,workingCapital}:null;
 }
 export function simplifiedEnterpriseValue(equity,interestDebt,excessCash){
  if(!valid(equity,interestDebt,excessCash)||[equity,interestDebt,excessCash].some(x=>x<0))return null;
- return equity+interestDebt-excessCash;
+ const result=equity+interestDebt-excessCash;
+ return finite(result)?result:null;
 }
 export function basicWacc(equityWeight,costEquity,debtWeight,costDebt,taxRate){
  if(!valid(equityWeight,costEquity,debtWeight,costDebt,taxRate)||equityWeight<0||debtWeight<0||costEquity<0||costDebt<0||taxRate<0||taxRate>1||Math.abs(equityWeight+debtWeight-1)>1e-9)return null;
- return equityWeight*costEquity+debtWeight*costDebt*(1-taxRate);
+ const result=equityWeight*costEquity+debtWeight*costDebt*(1-taxRate);
+ return finite(result)?result:null;
 }
 export function presentValue(cash,rate,periods){
  if(!valid(cash,rate)||rate<=-1||!Number.isInteger(periods)||periods<1||periods>100)return null;
- return cash/(1+rate)**periods;
+ const result=cash/(1+rate)**periods;
+ return finite(result)?result:null;
 }
 export function hypotheticalExpenseDrag(principal,grossRate,annualFee,years){
  if(!valid(principal,grossRate,annualFee)||principal<0||annualFee<0||annualFee>1||!Number.isInteger(years)||years<1||years>80||1+grossRate-annualFee<=0||1+grossRate<=0)return null;
- return {gross:principal*(1+grossRate)**years,simplifiedNet:principal*(1+grossRate-annualFee)**years};
+ const gross=principal*(1+grossRate)**years,simplifiedNet=principal*(1+grossRate-annualFee)**years;
+ return valid(gross,simplifiedNet)?{gross,simplifiedNet}:null;
 }
 export function indexPercentChange(earlier,later){
- return valid(earlier,later)&&earlier>0&&later>=0?100*(later/earlier-1):null;
+ if(!valid(earlier,later)||earlier<=0||later<0)return null;
+ const change=100*(later/earlier-1);
+ return finite(change)?change:null;
 }
 export function samplePearson(x,y){
  if(!Array.isArray(x)||!Array.isArray(y)||x.length!==y.length||x.length<2||x.some(v=>!finite(v))||y.some(v=>!finite(v)))return null;
