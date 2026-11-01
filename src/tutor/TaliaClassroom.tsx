@@ -126,6 +126,25 @@ function Classroom(){
   },[]);
   useEffect(()=>{
     let live=true,unsubscribe:(()=>void)|null=null;
+    const authorize=async(userId:string,access:string)=>{
+      try{
+        const response=await fetch('/api/member-tool-access?tool=MARKET_TUTOR',{
+          cache:'no-store',headers:{authorization:'Bearer '+access}});
+        const data=await response.json().catch(()=>null);
+        if(!live||identity.current!==userId)return;
+        if(!response.ok||data?.ok!==true||(data.authorized!==true&&data.freeEligible!==true)){
+          setMember(null);
+          setStatus('Talia requires an eligible, unrestricted membership. Sign in with an active member account.');
+          return;
+        }
+        setMember({id:userId,access});
+        setStatus('Membership verified. Original source-grounded Tutor ready; no personal API key required.');
+      }catch{
+        if(live&&identity.current===userId){
+          setMember(null);setStatus('Membership could not be verified. Tutor remains locked.');
+        }
+      }
+    };
     const init=async()=>{
       try{
         const sb=await window.getSupabaseClient();if(!live)return;
@@ -134,13 +153,15 @@ function Classroom(){
         if(!live)return;
         const userId=verified.data.user?.id,session=current.data.session;
         if(userId&&session?.user.id===userId&&session.access_token){
-          identity.current=userId;setMember({id:userId,access:session.access_token});setStatus('Authenticated. Source-grounded Tutor ready; AI model calls are off.');}
-        else {setMember(null);setStatus('Sign in to use the interactive member Tutor.');}
+          identity.current=userId;await authorize(userId,session.access_token);
+        }else{
+          setMember(null);setStatus('Sign in with an eligible membership to use Talia.');
+        }
         const change=sb.auth.onAuthStateChange((event,next)=>{
           if(!live)return;
           const id=next?.user?.id||null;
-          if(event==='SIGNED_OUT'||id!==identity.current){reset(id);}
-          if(id&&next?.access_token){setMember({id,access:next.access_token});setStatus('Authenticated. Source-grounded Tutor ready; AI model calls are off.');}
+          if(event==='SIGNED_OUT'||id!==identity.current)reset(id);
+          if(id&&next?.access_token)void authorize(id,next.access_token);
           else setMember(null);
         });
         unsubscribe=()=>change.data.subscription.unsubscribe();
@@ -224,6 +245,13 @@ function Classroom(){
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to load history.')}
   };
   const safeSuggest=useCallback((q:string)=>{setQuestion(q.slice(0,450));setStatus('Review the suggested question, then send it to Talia.');},[]);
+  if(!member)return <main className="tc-main" aria-label="Talia membership access">
+    <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
+      <h1>Talia Interactive Classroom</h1><p>{status}</p>
+      <p>The interactive chart, conversations and private study functions are available only to verified members. No personal API key is required.</p>
+      <p><a href={'/signin.html?next='+encodeURIComponent('/talia-classroom.html')}>Sign in with your membership</a></p>
+    </div></div>
+  </main>;
   return <main className="tc-main">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / TUTOR</p><h1>Talia Interactive Classroom</h1><p>Talk through a concept. Inspect a fictional chart. Practice your reasoning. Learn from reviewed explanations.</p></div><div className="tc-row"><a href="/market-tutor.html">Classic Tutor</a><a href="/labs.html">Labs</a><a href="/bootcamp-academy.html">Boot Camps</a></div></div>
     <div className="tc-grid"><section className="tc-chat" aria-labelledby="tc-chat-title">
