@@ -1,0 +1,433 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 2,
+  "count": 20,
+  "goal": 600,
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419,
+  "status": "individually_authored_source_candidate_not_editorial_approved",
+  "notes": "Original twenty additional source-informed Foundation explanation candidates, explicitly ungraded; no protected grades, billing, historical fills, or entitlement changes.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_EMA9_ALPHA",
+      "title": "EMA 9 initial seed and smoothing weight",
+      "concept": "EMA9 uses alpha=2/(9+1)=0.2 and recursively blends the latest completed close with a previously seeded EMA.",
+      "procedure": "Count nine completed historical closes; seed with their SMA, then apply alpha only at the next completed bar.",
+      "workedCase": "FICTIONAL: Nine closes have arithmetic mean $10.00; the tenth completed close is $10.50. EMA9 becomes 0.2×10.50+0.8×10.00=$10.10.",
+      "limit": "Early calculations depend on seed and prehistory; EMA9 cannot verify the following candle.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Early calculations depend on seed and prehistory; EMA9 cannot verify the following candle.",
+      "commonError": "Calculating an EMA9 on fewer than nine completed closes under an SMA seed convention.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for EMA 9 initial seed and smoothing weight.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Replace the tenth completed close with $9.75, and recompute the next EMA9 with the unchanged seed.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_EMA20_CLOSE_CONFIRMATION",
+      "title": "EMA 20 intrabar crossing versus completed-bar confirmation",
+      "concept": "An intrabar price crossing over an EMA20 is not equivalent to a finished candle closing above a correctly recalculated EMA20.",
+      "procedure": "Identify source, EMA20 seed, twentieth and later completed prices, then distinguish provisional intrabar observations.",
+      "workedCase": "FICTIONAL: A one-minute candle trades above an earlier EMA20 but ends below its EMA20 value at completion; the provisional touch is not a confirmed closing crossover.",
+      "limit": "Different chart aggregations and missing bars change the moving average; no cross proves subsequent continuation.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Different chart aggregations and missing bars change the moving average; no cross proves subsequent continuation.",
+      "commonError": "Using an unfinished higher-timeframe candle as evidence of a completed EMA20 cross.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for EMA 20 intrabar crossing versus completed-bar confirmation.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "A fictional bar moves above EMA20 at midbar but closes below it; state the observable final relationship.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_EMA200_WARMUP",
+      "title": "EMA 200 availability after a full observation window",
+      "concept": "An SMA-seeded EMA200 needs at least 200 valid completed closes for an initialized number, not 199 provisional values.",
+      "procedure": "Count completed observations; construct the first SMA seed from exactly 200 closes, then apply alpha=2/201 to later closes.",
+      "workedCase": "FICTIONAL: 199 completed closes mean EMA200 is unavailable. With 200 completed closes all at $20, seed=$20; a 201st close at $21 creates EMA200≈$20.00995.",
+      "limit": "A flat synthetic price history does not substitute for real price feeds or 200-day evidence; vendor histories can differ.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. A flat synthetic price history does not substitute for real price feeds or 200-day evidence; vendor histories can differ.",
+      "commonError": "Displaying the last observed close as an invented EMA200 when 200 completed closes are missing.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for EMA 200 availability after a full observation window.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Explain when the EMA200 first exists for a fictional 199-bar chart versus a 201-bar chart.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_TRUE_RANGE_GAP",
+      "title": "True range includes the previous close when prices gap",
+      "concept": "True range is max(high−low, |high−previous close|, |low−previous close|) for completed OHLC bars.",
+      "procedure": "Compare three distances using the prior completed close, current completed high and current completed low.",
+      "workedCase": "FICTIONAL: Previous close $10, next high $10.80, low $10.60: distances $0.20, $0.80 and $0.60; true range is $0.80.",
+      "limit": "One true-range observation is not a smoothed Average True Range; no previous close means a missing gap reference.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. One true-range observation is not a smoothed Average True Range; no previous close means a missing gap reference.",
+      "commonError": "Using current bar high minus low alone and silently omitting an overnight gap.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for True range includes the previous close when prices gap.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "A fictional previous close is $10 and the current range is $9.20–$9.50. Calculate true range.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_POPULATION_SAMPLE_SD",
+      "title": "Population versus sample standard deviation denominators",
+      "concept": "A sample standard deviation uses n−1 for n>1; a population standard deviation uses n. The choice affects the answer.",
+      "procedure": "Calculate the average of returns, square each deviation, divide by the explicitly chosen denominator, and take the square root.",
+      "workedCase": "FICTIONAL: Returns +1%, 0%, −1% have mean 0; population SD≈0.8165 percentage points; sample SD=1 percentage point.",
+      "limit": "A historical sample does not establish the distribution of future returns or make volatile assets forecastable.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. A historical sample does not establish the distribution of future returns or make volatile assets forecastable.",
+      "commonError": "Describing a calculation divided by n as if it were a sample estimate divided by n−1.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Population versus sample standard deviation denominators.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Compute sample and population dispersion for hypothetical returns of [2%,2%,5%].",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_DAILY_ANNUAL_VOL",
+      "title": "Square-root-of-time volatility conversion",
+      "concept": "Under an expressly stated scaling convention, annualized volatility approximates daily standard deviation × sqrt(annual sessions).",
+      "procedure": "State whether returns are daily, an illustrative 252-session convention, and which standard deviation was used.",
+      "workedCase": "FICTIONAL: If fictional daily volatility equals 1%, multiplying by sqrt(252) gives approximately 15.87% annualized volatility.",
+      "limit": "Independence and stable-variance assumptions often fail; annualization is not a future loss boundary.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Independence and stable-variance assumptions often fail; annualization is not a future loss boundary.",
+      "commonError": "Multiplying daily standard deviation by 252 instead of the square root of 252.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Square-root-of-time volatility conversion.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Recalculate using a fictional 2% daily standard deviation and state the model's limitations.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_CHANGE_VS_RETURN",
+      "title": "Price change in dollars versus simple percentage return",
+      "concept": "An absolute dollar price move and a simple percentage return answer different questions; the denominator is the initial price.",
+      "procedure": "Compute later price minus earlier price and then divide by earlier price to express the move as a percentage.",
+      "workedCase": "FICTIONAL: $10 to $11 is +$1/share or +10%; $50 to $51 is also +$1/share but only +2%.",
+      "limit": "Dividends and split adjustments may change economic total return relative to a raw price chart.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Dividends and split adjustments may change economic total return relative to a raw price chart.",
+      "commonError": "Calling equal dollar moves equal percentage returns despite different starting prices.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Price change in dollars versus simple percentage return.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Compare fictional $0.50 gains from $5 and from $25 as percentages.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_RUNNING_MAX_DRAWDOWN",
+      "title": "Drawdown measured from the maximum observed so far",
+      "concept": "A drawdown compares current value to the highest prior or current observed value, never a future high that was unknown at the time.",
+      "procedure": "At each past timestamp update only the running maximum; drawdown=current/running peak−1.",
+      "workedCase": "FICTIONAL: Portfolio index peaks at 100, drops to 90, then rises to 96. Drawdowns are −10% and −4% respectively.",
+      "limit": "Drawdown is a historical path measure, not a certainty that the next price will fall or recover.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Drawdown is a historical path measure, not a certainty that the next price will fall or recover.",
+      "commonError": "Computing a past drawdown using a peak that occurred after the purported observation date.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Drawdown measured from the maximum observed so far.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "For hypothetical [100,110,105,120,108], calculate each drawdown without future bars.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_TWO_OUTCOME_EXPECTANCY",
+      "title": "Two-outcome expectancy and assumed win probability",
+      "concept": "A two-outcome expected P/L multiplies each conditional payoff by its assumed probability and sums both terms.",
+      "procedure": "Distinguish invented probabilities from real estimates and include fees before interpreting the result.",
+      "workedCase": "FICTIONAL: Win +$30 with assumed probability 40%, lose −$10 with assumed probability 60%: modeled expectancy +$6 before costs.",
+      "limit": "This model supplies no verified win probability or trading edge; actual results depend on execution, selection and regime.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. This model supplies no verified win probability or trading edge; actual results depend on execution, selection and regime.",
+      "commonError": "Claiming an invented positive expectancy demonstrates a profitable live strategy.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Two-outcome expectancy and assumed win probability.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Keep probabilities fixed but change the hypothetical loss to −$25 and calculate the expectation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_COST_AWARE_BREAK_EVEN",
+      "title": "Break-even win percentage including a fixed transaction cost",
+      "concept": "For hypothetical constant gross win W, loss L and cost C per attempt, break-even p=(L+C)/(W+L).",
+      "procedure": "Solve pW−(1−p)L−C=0 after assigning positive payoff W, positive loss magnitude L and cost units.",
+      "workedCase": "FICTIONAL: Gross win $20, loss $10 and average cost $2 give (10+2)/(20+10)=40% break-even win rate.",
+      "limit": "A fixed win/loss approximation can miss fat tails, variable costs and slippage; it does not estimate the actual p.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. A fixed win/loss approximation can miss fat tails, variable costs and slippage; it does not estimate the actual p.",
+      "commonError": "Using 33.3% as a post-cost break-even probability when costs are not zero.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Break-even win percentage including a fixed transaction cost.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Calculate break-even p for gross win $40, loss $20, and assumed cost $4 per attempt.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_MULTIPLIER_PREMIUM",
+      "title": "Options contract premium and deliverable multiplier",
+      "concept": "A listed equity-option premium is commonly quoted per underlying share, while a standard equity contract generally covers 100 shares.",
+      "procedure": "Verify the real contract deliverable and multiply quoted premium per share by that multiplier and number of contracts.",
+      "workedCase": "FICTIONAL: A standard 100-share option priced at $2.50 per share has gross premium $250 per contract before fees.",
+      "limit": "Corporate actions create adjusted deliverables and option buyers can lose their entire paid premium.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Corporate actions create adjusted deliverables and option buyers can lose their entire paid premium.",
+      "commonError": "Treating a displayed option quote of $2.50 as a total $2.50 contract cost.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Options contract premium and deliverable multiplier.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Two standard fictional options have premium $1.35 each per share; compute the gross purchase cost.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_CALL_PREMIUM_COMPONENTS",
+      "title": "Call option intrinsic value versus extrinsic premium",
+      "concept": "A call's current intrinsic value equals max(stock price−strike,0); positive option premium above intrinsic represents extrinsic value.",
+      "procedure": "Match the underlying and option quote timestamps and subtract nonnegative intrinsic value from the option premium.",
+      "workedCase": "FICTIONAL: A call with strike $50, underlying $55 and per-share premium $7 has $5 intrinsic and $2 extrinsic value.",
+      "limit": "Quoted option values vary with volatility, time and market prices; this does not guarantee a liquid exit.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Quoted option values vary with volatility, time and market prices; this does not guarantee a liquid exit.",
+      "commonError": "Calling the whole call premium intrinsic value and ignoring the remaining extrinsic portion.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Call option intrinsic value versus extrinsic premium.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "With stock $55 and a call strike $60, calculate intrinsic value for a fictional $1 premium.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PUT_PREMIUM_COMPONENTS",
+      "title": "Put option intrinsic value versus extrinsic premium",
+      "concept": "A put's intrinsic value equals max(strike−underlying,0), distinct from the call formula.",
+      "procedure": "State strike, underlying observation time and quoted put premium; compute intrinsic and the residual premium.",
+      "workedCase": "FICTIONAL: A $40 strike put with underlying at $37 and premium $4.25 has $3 intrinsic and $1.25 extrinsic value.",
+      "limit": "Stale or mismatched quotes can make an apparent option-pricing decomposition inconsistent.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Stale or mismatched quotes can make an apparent option-pricing decomposition inconsistent.",
+      "commonError": "Applying the call's stock-minus-strike formula to a put and getting a negative intrinsic value.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Put option intrinsic value versus extrinsic premium.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "With strike $45, underlying $47 and fictional premium $0.80, calculate intrinsic and extrinsic.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_CALL_EXPIRATION_BREAKEVEN",
+      "title": "Long call break-even at expiration is strike plus premium",
+      "concept": "At option expiration, a long call's intrinsic payout must cover its original per-share premium for a break-even before fees.",
+      "procedure": "Calculate expiration intrinsic=max(stock−strike,0); net premium-adjusted payoff=intrinsic−original premium.",
+      "workedCase": "FICTIONAL: Long call strike $50 and original premium $2.20 has expiration break-even $52.20; stock $51 at expiration still implies a loss.",
+      "limit": "This is an expiration payoff, not a required price for positive interim resale or an actionable forecast.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. This is an expiration payoff, not a required price for positive interim resale or an actionable forecast.",
+      "commonError": "Confusing a long call's expiration break-even with a guaranteed early-exit price.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Long call break-even at expiration is strike plus premium.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "For a fictional call struck at $30 bought for $1.50 per share, find expiration break-even.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_PUT_EXPIRATION_BREAKEVEN",
+      "title": "Long put break-even at expiration is strike minus premium",
+      "concept": "At expiration, a long put intrinsic payout must cover original per-share premium; the stock's theoretical lower bound is zero.",
+      "procedure": "Calculate expiration intrinsic=max(strike−stock,0) and subtract the original premium, before contract multiplier and fees.",
+      "workedCase": "FICTIONAL: Long put strike $50 and premium $3 has expiration break-even $47. At $49 expiration stock price, loss is $2/share.",
+      "limit": "This applies to expiration, not necessarily the value of an option sold earlier, which may retain extrinsic value.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. This applies to expiration, not necessarily the value of an option sold earlier, which may retain extrinsic value.",
+      "commonError": "Adding the premium to a put strike when computing a long put's expiration break-even.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Long put break-even at expiration is strike minus premium.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Compute the expiration break-even of a fictional $40-strike put costing $1.25.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_HOLDER_WRITER",
+      "title": "Option exercise rights versus assignment obligations",
+      "concept": "The option holder has a contractual exercise right; a short option writer may receive an assignment requiring performance.",
+      "procedure": "Specify contract style, expiration, multiplier, exercise method, delivery type and applicable broker conditions.",
+      "workedCase": "FICTIONAL: One standard $50-strike equity call represents a right involving 100 shares and $5,000 gross exercise notional, under ordinary deliverable terms.",
+      "limit": "Early exercise, automatic exercise, assignment, adjusted deliverables and broker policies introduce additional conditions.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Early exercise, automatic exercise, assignment, adjusted deliverables and broker policies introduce additional conditions.",
+      "commonError": "Describing the option buyer as receiving the same compulsory assignment obligation as the writer.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Option exercise rights versus assignment obligations.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Explain what happens to the writer if a standard fictional $40 put holder exercises.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_BASIC_DILUTED_EPS",
+      "title": "Basic and diluted weighted-average earnings per share",
+      "concept": "Basic EPS uses attributable earnings and weighted-average common shares; diluted EPS can include eligible potentially dilutive shares.",
+      "procedure": "Identify reporting period and financial statement numerator and denominator, and avoid substituting ending shares for weighted shares.",
+      "workedCase": "FICTIONAL: $10 million earnings attributable to common holders / 5 million basic weighted shares = $2.00 basic EPS. With a hypothetical 6 million diluted denominator, diluted EPS≈$1.67.",
+      "limit": "Not every outstanding instrument is dilutive; issuer accounting and continuing/discontinued operations can change EPS.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Not every outstanding instrument is dilutive; issuer accounting and continuing/discontinued operations can change EPS.",
+      "commonError": "Dividing by end-of-quarter shares and presenting the result as audited diluted EPS.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Basic and diluted weighted-average earnings per share.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Recompute EPS if the fictional diluted weighted average is 5.5 million shares.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_OPERATING_CASH_MARGIN",
+      "title": "Operating cash flow divided by sales is not net margin",
+      "concept": "Operating cash-flow margin compares cash from operations with same-period revenue; it is not net income margin or free cash flow.",
+      "procedure": "Get both operating cash flow and revenue for the same issuer and comparable period, then divide CFO by revenue.",
+      "workedCase": "FICTIONAL: Operating cash flow $15 million and annual revenue $100 million imply CFO margin 15%. Capital expenditure is not subtracted yet.",
+      "limit": "Cash collection timing and working capital shifts matter, so one period's high CFO margin is not a durable forecast.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Cash collection timing and working capital shifts matter, so one period's high CFO margin is not a durable forecast.",
+      "commonError": "Calling cash from operations after interest and working capital a net income figure.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Operating cash flow divided by sales is not net margin.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Calculate fictional cash-from-operations margin for $8 million cash flow and $80 million revenue.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_FCF_AFTER_CAPEX",
+      "title": "Simplified free cash flow after cash capital investment",
+      "concept": "A commonly used simple FCF measure equals operating cash flow minus cash capital expenditure, but reporting definitions vary.",
+      "procedure": "Identify operating cash flow and actual cash purchases of property and equipment, without double counting depreciation.",
+      "workedCase": "FICTIONAL: CFO $20 million minus cash capex $7 million implies simplified FCF $13 million, not $20 million.",
+      "limit": "Acquisitions and alternative adjusted free-cash-flow definitions vary; a positive FCF need not signal cheap equity.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Acquisitions and alternative adjusted free-cash-flow definitions vary; a positive FCF need not signal cheap equity.",
+      "commonError": "Subtracting depreciation a second time from operating cash flow and calling the result free cash flow.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Simplified free cash flow after cash capital investment.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "Compute simplified FCF for fictional CFO $12 million and cash capex $15 million.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    },
+    {
+      "code": "TALIA_TOPIC_EQUITY_DILUTION_FRACTION",
+      "title": "Share issuance without participation dilutes proportional ownership",
+      "concept": "When new same-class shares are issued and a holder buys none, the existing share count represents a smaller fraction of total shares.",
+      "procedure": "Divide unchanged investor shares by preissue shares, then recompute over postissue shares with share-class assumptions noted.",
+      "workedCase": "FICTIONAL: 1,000 of 100,000 common shares is 1%; after 25,000 new shares and no purchase, 1,000 of 125,000 equals 0.8%.",
+      "limit": "Issuer proceeds, share prices, different voting rights and conversion terms mean fractional dilution is not a known stock-price loss.",
+      "invalidation": "Do not calculate or interpret this explanation if required sourced data, timestamps, units or the declared observation window are unavailable. Issuer proceeds, share prices, different voting rights and conversion terms mean fractional dilution is not a known stock-price loss.",
+      "commonError": "Claiming a 20% relative ownership decline automatically equals a 20% loss in investment market value.",
+      "selfCheck": "Identify the input and units, reproduce the calculation or definition, explain one uncertainty and a different possible observation for Share issuance without participation dilutes proportional ownership.",
+      "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
+      "transferQuestion": "A fictional shareholder owns 500/50,000 shares before 10,000 newly issued; calculate the new fraction.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false
+    }
+  ]
+}
