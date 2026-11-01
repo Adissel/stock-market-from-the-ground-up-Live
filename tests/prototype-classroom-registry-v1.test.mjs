@@ -13,6 +13,8 @@ assert.equal(validateClassroomDraft(config),true);
 assert.equal(validateClassroomDraft({...config,isAdmin:true}),false);
 assert.equal(validateClassroomDraft({...config,barWidth:100}),false);
 assert.equal(validateClassroomDraft({...config,grid:'false'}),false);
+for(const layout of layouts)layout.config={...config,id:ids[0],label:ids[0]};
+const history=layouts.map(x=>({...x,config:{...x.config}}));
 let role='OWNER';
 const oldFetch=globalThis.fetch;
 const ok=value=>new Response(JSON.stringify(value),{status:200,headers:{'content-type':'application/json'}});
@@ -25,13 +27,17 @@ globalThis.fetch=async(url,opt={})=>{
  if(path.includes('admin_role_permissions'))return ok([{permission_code:'control_panel.access'}]);
  if(path.includes('cl_classroom_presets?'))return ok(path.includes('preset_code=eq.')?[{preset_code:'analysis-desk',label:'Analysis Desk'}]:preset);
  if(path.includes('cl_classroom_membership_codes?'))return ok(path.includes('plan_code=eq.')?[{plan_code:'FREE'}]:plans.map(plan_code=>({plan_code,active:true})));
- if(path.includes('cl_classroom_layout_history?'))return ok([]);
+ if(path.includes('cl_classroom_layout_history?')){
+  const plan=/plan_code=eq\.([A-Z0-9_]+)/.exec(path)?.[1],v=/version=eq\.(\d+)/.exec(path)?.[1];
+  return ok(history.filter(x=>(!plan||x.plan_code===plan)&&(!v||x.version===Number(v))));
+ }
  if(path.includes('cl_classroom_layouts?')){
   if(opt.method==='PATCH'){
    const expected=Number(/version=eq\.(\d+)/.exec(path)?.[1]);
    const row=layouts.find(x=>x.plan_code==='FREE');
    if(row.version!==expected)return ok([]);
    const update=JSON.parse(opt.body);Object.assign(row,update);
+   history.unshift({...row,config:{...row.config}});
    return ok([row]);
   }
   return ok(layouts);
@@ -52,7 +58,21 @@ try{
  result=await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:1,config});assert.equal(result.status,200);assert.equal(result.data.saved.version,2);
  assert.equal(result.data.published,false);
  result=await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:1,config});assert.equal(result.status,409);
- result=await call('PUT',{action:'publish',planCode:'FREE',expectedVersion:2,config});assert.equal(result.status,400,'no member-facing publish API yet');
- role='FREE';assert.equal((await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:2,config})).status,403);
- console.log('PASS 20 registered presets, 8 membership drafts, identity checks, draft save CAS, conflict, no publish and denied roles.');
+ result=await call('PUT',{action:'restoreDraft',planCode:'FREE',expectedVersion:2,targetVersion:1});
+ assert.equal(result.status,200);assert.equal(result.data.saved.version,3);
+ assert.equal(result.data.restoredFromVersion,1);
+ assert.equal(result.data.published,false);
+ assert.equal(result.data.saved.config.id,ids[0]);
+ assert.equal(history.filter(x=>x.plan_code==='FREE').length,3,'Restoration appends history instead of overwriting it');
+ result=await call('PUT',{action:'restoreDraft',planCode:'FREE',expectedVersion:2,targetVersion:1});assert.equal(result.status,409);
+ result=await call('PUT',{action:'restoreDraft',planCode:'FREE',expectedVersion:3,targetVersion:3});assert.equal(result.status,400);
+ result=await call('PUT',{action:'restoreDraft',planCode:'FREE',expectedVersion:3,targetVersion:0});assert.equal(result.status,400);
+ result=await call('PUT',{action:'publish',planCode:'FREE',expectedVersion:3,config});assert.equal(result.status,400,'no member-facing publish API yet');
+ role='FREE';assert.equal((await call('PUT',{action:'saveDraft',planCode:'FREE',expectedVersion:3,config})).status,403);
+ assert.equal((await call('PUT',{action:'restoreDraft',planCode:'FREE',expectedVersion:3,targetVersion:1})).status,403);
+ const ui=fs.readFileSync('assets/js/prototype-preset-sync-v1.js','utf8');
+ assert.match(ui,/Compare with earlier draft/);
+ assert.match(ui,/Restore selected revision/);
+ assert.match(ui,/A NEW audited draft revision/);
+ console.log('PASS 20 presets, 8 plan drafts, guarded save and rollback, immutable revisions, conflicts, no publish and denied roles.');
 }finally{globalThis.fetch=oldFetch}
