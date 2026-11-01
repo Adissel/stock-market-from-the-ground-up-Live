@@ -625,7 +625,10 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   // curriculum. General-subject examples are explicitly optional, not a
   // substitute for the Lab's independently authored topic-specific evidence.
   let optionalChart=null;
-  if([1,2].includes(step)&&root.CrownlightLearningEChartsV1?.mount){
+  // Boot Camp pages own their single supplemental ECharts disclosure, selected
+  // from the actual Academy day. Do not duplicate a generic candle exercise
+  // inside the shared instructor. Canonical Labs retain their normal charts.
+  if(!academyScope&&[1,2].includes(step)&&root.CrownlightLearningEChartsV1?.mount){
    const host=el('div');
    if(!special){
     // Separate supplemental chart practice follows the actual topic-specific
