@@ -45,7 +45,10 @@ export function samplePearson(x,y){
  const mx=x.reduce((a,b)=>a+b,0)/x.length,my=y.reduce((a,b)=>a+b,0)/y.length;
  let cov=0,vx=0,vy=0;
  for(let i=0;i<x.length;i++){const dx=x[i]-mx,dy=y[i]-my;cov+=dx*dy;vx+=dx*dx;vy+=dy*dy;}
- const denom=Math.sqrt(vx)*Math.sqrt(vy); const result=denom>0?cov/denom:null;
+ if(!valid(mx,my,cov,vx,vy))return null;
+ const denom=Math.sqrt(vx)*Math.sqrt(vy);
+ if(!finite(denom)||denom<=0)return null;
+ const result=cov/denom;
  return finite(result)&&Math.abs(result)<=1+1e-10?Math.max(-1,Math.min(1,result)):null;
 }
 export function sampleSem(values){
