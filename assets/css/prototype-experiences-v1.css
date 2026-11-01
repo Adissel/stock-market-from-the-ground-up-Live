@@ -693,3 +693,10 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 @media(max-width:800px){.cx-app .cx-chart-customizer{padding:12px}.cx-app .cx-chart-style-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:490px){.cx-app .cx-chart-style-grid{grid-template-columns:1fr}.cx-app .cx-chart-line-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.cx-app .cx-tool-row button,.cx-app .cx-replay button,.cx-app .cx-simulation-controls button{transition:none!important;transform:none!important}}
+
+/* Chart remains first-screen content; optional customization folds into a compact design tray. */
+.cx-app .cx-chart-customizer-shell{margin:9px clamp(12px,2.5vw,35px);border:1px solid rgba(83,198,198,.42);border-radius:10px;
+ background:linear-gradient(110deg,rgba(11,50,72,.95),rgba(10,32,55,.9));box-shadow:0 5px 22px rgba(0,0,0,.16)}
+.cx-app .cx-chart-customizer-shell>summary{display:list-item;padding:12px 15px;cursor:pointer;color:#aefff0;font-size:12px;font-weight:750;letter-spacing:.015em}
+.cx-app .cx-chart-customizer-shell[open]>summary{border-bottom:1px solid #315b6e}
+.cx-app .cx-chart-customizer-shell .cx-chart-customizer{margin:0;background:none;border:0;border-radius:0;box-shadow:none}
