@@ -219,6 +219,27 @@ function barVisual(look:BarLook,up:boolean,good:string,bad:string){
   shadowColor:up?'rgba(42,222,185,.32)':'rgba(238,75,141,.32)',shadowOffsetY:2};
 }
 
+
+/** Earlier synthetic session context available BEFORE lesson replay. No future training bars used. */
+const contextBars:Bar[]=(()=>{
+ const result:Bar[]=[];let price=43.38,seed=20261101,ema9=price,ema20=price,weighted=0,total=0;
+ const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
+ for(let i=0;i<1080;i++){
+  const o=price,c=n(Math.max(2,o+.00015+(rand()-.5)*.058)),h=n(Math.max(o,c)+rand()*.055),lo=n(Math.min(o,c)-rand()*.053),v=Math.round(700+rand()*1400);
+  ema9=n(ema9+(c-ema9)*.2);ema20=n(ema20+(c-ema20)*2/21);weighted+=(h+lo+c)/3*v;total+=v;
+  result.push({time:'PRIOR '+String(i+1).padStart(4,'0'),o,h,l:lo,c,v,ema9,ema20,proxy:n(weighted/total)});price=c;
+ }
+ return result;
+})();
+function completedTimeframe(bars:Bar[],minutes:ChartTimeframe):Bar[]{
+ if(minutes===1)return bars;
+ const result:Bar[]=[];
+ for(let i=0;i<bars.length;i+=minutes){const slice=bars.slice(i,i+minutes),first=slice[0],last=slice[slice.length-1];if(!first||!last)continue;
+  result.push({...last,time:first.time+' / '+minutes+'m',o:first.o,h:Math.max(...slice.map(b=>b.h)),l:Math.min(...slice.map(b=>b.l)),c:last.c,v:slice.reduce((sum,b)=>sum+b.v,0)});
+ }
+ return result;
+}
+
 function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320,syncGroup,chartRole}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number;syncGroup?:string;chartRole?:'technical'|'reference'}){
  const ref=useRef<HTMLDivElement>(null),inst=useRef<any>(null),viewport=useRef({start:Math.max(0,100-40/Math.max(1,reveal)*100),end:100});
  const [viewportLabel,setViewportLabel]=useState('Full session or revealed chart window');
@@ -250,7 +271,12 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const accent=cv('--cx-accent','#72e0d1'),good=appearance.bullish,bad=appearance.bearish,muted=cv('--cx-muted','#99aebe'),grid=appearance.grid;
     const luminous=(base:string,light:string)=>({type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:light},{offset:.32,color:base},{offset:1,color:base}]});
    const paintBar=(up:boolean)=>barVisual(barLook,up,good,bad);
-   const bars=dataFor(reveal),names=bars.map(b=>b.time).concat(Array.from({length:appearance.rightBuffer},(_,i)=>'PADDING '+(i+1)));
+   const bars=completedTimeframe(dataFor(reveal),appearance.timeframe);
+   const earlier=completedTimeframe(contextBars,appearance.timeframe);
+   const context=earlier.slice(-12),offset=context.length;
+   const plotted=[...context,...bars];
+   const names=plotted.map(b=>b.time).concat(Array.from({length:appearance.rightBuffer},(_,i)=>'PADDING '+(i+1)));
+   const pad=(items:any[])=>Array(offset).fill(null).concat(items);
    const isDoji=(bar:Bar)=>Math.abs(bar.c-bar.o)<0.005;
    const paintCandle=(bar:Bar)=>isDoji(bar)?{color:appearance.doji,color0:appearance.doji,borderColor:appearance.doji,borderColor0:appearance.doji,borderWidth:2}
      :{color:barVisual(barLook,true,good,bad).color,color0:barVisual(barLook,false,good,bad).color,borderColor:good,borderColor0:bad,borderWidth:2};
@@ -263,7 +289,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
    if(kind==='price'){
     const math=(window as any).CrownlightPrototypeIndicators;
-    const calculated=math?.compute?.(bars,settings||defaults,currentEnabled);
+    const calculated=math?.compute?.(bars,settings||defaults,{...currentEnabled,EMA_200:false,STRUCTURE:appearance.showStructure&&studyAllowed(prefs?.studio||'Standard','STRUCTURE')});
     if(!calculated)throw Error('Shared math library unavailable');
     const volumePane=calculated.volume.length>0;
     const panes:string[]=calculated.panes;
@@ -277,7 +303,10 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     option.yAxis=gridRows.map((x,i)=>({type:'value',gridIndex:i,position:'right',scale:x.id!=='rsi',min:x.id==='rsi'?0:undefined,max:x.id==='rsi'?100:undefined,...axis,
       axisLabel:{color:muted,margin:12,fontSize:10,formatter:(v:number)=>Number(v).toFixed(x.id==='rsi'?0:2)},splitNumber:4}));
     const xIndexes=gridRows.map((_,i)=>i);
-    const {start,end}=viewport.current;
+    const autoFollow=viewport.current.end>=99.5;
+    const followStart=Math.max(0,100*(names.length-Math.max(34,34+appearance.rightBuffer))/names.length);
+    const {start,end}=autoFollow?{start:followStart,end:100}:viewport.current;
+    if(autoFollow)viewport.current={start,end};
     option.dataZoom=[
       {id:'drag-pan',type:'inside',xAxisIndex:xIndexes,start,end,moveOnMouseMove:false,zoomOnMouseWheel:true,moveOnMouseWheel:false,preventDefaultMouseMove:true,filterMode:'none'},
       {id:'range',type:'slider',xAxisIndex:xIndexes,start,end,bottom:0,height:13,brushSelect:false,
@@ -285,13 +314,14 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     ];
     option.axisPointer={link:[{xAxisIndex:'all'}],lineStyle:{color:accent,type:'dashed',width:1,opacity:.5},label:{backgroundColor:'#183242'}};
     option.graphic=[{type:'text',right:100,top:45,silent:true,z:-2,style:{text:'CROWNLIGHT  ·  SIMULATION',fill:'rgba(126,167,182,.10)',font:'700 22px Inter,system-ui',textAlign:'right'}}];
-    const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:18,label:{color:'#06131e',fontWeight:700,fontSize:9}}))];
-    if(focusBar>=0&&focusBar<bars.length)markerData.push({name:'Talia inspected bar',coord:[focusBar,bars[focusBar].h],symbol:'pin',symbolSize:25,value:bars[focusBar].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});
-    option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>({value:[b.o,b.c,b.l,b.h],itemStyle:paintCandle(b)})),barCategoryGap:appearance.gap+'%',
+    const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[offset+m.index,m.value],value:m.label,symbol:'pin',symbolSize:22,
+ itemStyle:{color:appearance.colors.STRUCTURE||'#f8d18c'},label:{show:true,formatter:m.label,color:'#0b2334',backgroundColor:'#f8d18c',fontWeight:800,fontSize:9}}))];
+    if(focusBar>=0&&focusBar<reveal){const focusIndex=Math.min(bars.length-1,Math.floor(focusBar/appearance.timeframe));markerData.push({name:'Talia inspected bar',coord:[offset+focusIndex,bars[focusIndex].h],symbol:'pin',symbolSize:25,value:bars[focusBar].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});}
+    option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:plotted.map(b=>({value:[b.o,b.c,b.l,b.h],itemStyle:paintCandle(b)})),barCategoryGap:appearance.gap+'%',
       itemStyle:{color:paintBar(true).color,color0:paintBar(false).color,borderColor:paintBar(true).borderColor,borderColor0:paintBar(false).borderColor,borderWidth:barLook==='classic'?1:2,shadowBlur:barLook==='classic'?0:5,shadowColor:'#102f3c'},barMaxWidth:22,barMinWidth:4,
-      markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c},...(focusBar>=0&&focusBar<bars.length?[{xAxis:names[focusBar],lineStyle:{color:'#f6cb7a',type:'dotted',width:2,opacity:.75},label:{show:false}}]:[])]},
+      markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c},...(focusBar>=0&&focusBar<reveal?[{xAxis:names[offset+Math.floor(focusBar/appearance.timeframe)],lineStyle:{color:'#f6cb7a',type:'dotted',width:2,opacity:.75},label:{show:false}}]:[])]},
       markPoint:{silent:true,data:markerData}}];
-    for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:x.data,showSymbol:false,connectNulls:false,animation:false,
+    for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:pad(x.data),showSymbol:false,connectNulls:false,animation:false,
        lineStyle:{color:ink(x.label,x.color),width:x.width,type:stroke(x.label)},itemStyle:{color:ink(x.label,x.color)},symbol:'none'});
     for(const x of calculated.volume){
       const index=gridRows.findIndex(x=>x.id==='volume');if(index<0)continue;
