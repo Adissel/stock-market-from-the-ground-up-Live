@@ -114,3 +114,24 @@
 #pt-root .pt-experiences-launcher span{color:#aac8d6;font-size:12px}
 #pt-root[data-experience-view="true"] .pt-experiences-launcher{display:none!important}
 @media(max-width:650px){#pt-root .pt-experiences-launcher{grid-template-columns:1fr}}
+
+
+/* Six A modes use different spatial arrangements, not palette swaps. */
+.cx-page-a.cx-theme-neon .cx-workgrid{grid-template-columns:minmax(0,1fr) 345px}
+.cx-page-a.cx-theme-neon .cx-panel{box-shadow:0 0 40px #7562bc1c,inset 0 1px #b5a3ff1b;border-radius:16px}
+.cx-page-a.cx-theme-neon .cx-talia{background:linear-gradient(100deg,#292159,#122d41)}
+.cx-page-a.cx-theme-green .cx-panel{border-radius:3px;box-shadow:none}
+.cx-page-a.cx-theme-green .cx-kpis{grid-template-columns:1fr 1fr 1fr 1.4fr}
+.cx-page-a.cx-theme-green .cx-reorder-tools{font-family:ui-monospace,monospace}
+.cx-page-a.cx-theme-ember .cx-workgrid{grid-template-columns:minmax(0,1.3fr) minmax(275px,.75fr)}
+.cx-page-a.cx-theme-ember .cx-learning{border-left:3px solid var(--cx-accent)}
+.cx-page-a.cx-theme-aurora .cx-workgrid{grid-template-columns:minmax(290px,.46fr) minmax(0,1fr)}
+.cx-page-a.cx-theme-aurora .cx-right{order:1}
+.cx-page-a.cx-theme-aurora .cx-maincolumn{order:2}
+.cx-page-a.cx-theme-aurora .cx-talia{background:linear-gradient(110deg,#0d4051,#102b35)}
+.cx-page-a.cx-theme-aurora .cx-learning h3{font-family:Georgia,serif;font-size:22px}
+.cx-page-a.cx-theme-onyx .cx-panel{background:#141a23;border-radius:5px;border-color:#455161}
+.cx-page-a.cx-theme-onyx .cx-overline{letter-spacing:.23em}
+.cx-page-a.cx-theme-onyx .cx-kpis>div{border-top:3px solid #899dab}
+@media(max-width:950px){.cx-page-a.cx-theme-neon .cx-workgrid,.cx-page-a.cx-theme-green .cx-workgrid,.cx-page-a.cx-theme-ember .cx-workgrid,.cx-page-a.cx-theme-aurora .cx-workgrid{grid-template-columns:1fr}.cx-page-a.cx-theme-aurora .cx-right,.cx-page-a.cx-theme-aurora .cx-maincolumn{order:initial}}
+@media(max-width:650px){.cx-page-a.cx-theme-green .cx-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
