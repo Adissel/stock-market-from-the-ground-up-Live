@@ -91,6 +91,8 @@ on:
       - 'functions/_lib/original-competency-tutor-v014100.js'
       - 'tests/test_v014100_free_competency_tutor.mjs'
       - 'functions/_lib/tutor-quality-v014107.js'
+      - 'functions/_lib/tutor-foundation-worked-math-v1.js'
+      - 'tests/talia-foundation-worked-math-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
@@ -229,6 +231,8 @@ on:
       - 'functions/_lib/original-competency-tutor-v014100.js'
       - 'tests/test_v014100_free_competency_tutor.mjs'
       - 'functions/_lib/tutor-quality-v014107.js'
+      - 'functions/_lib/tutor-foundation-worked-math-v1.js'
+      - 'tests/talia-foundation-worked-math-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
@@ -356,6 +360,8 @@ jobs:
           node --check assets/js/lab-registry.js
           node --check functions/api/learning-replay-v01492.js
           node --check assets/js/verified-replay-v01492.js
+          node --check functions/_lib/tutor-foundation-worked-math-v1.js
+          node tests/talia-foundation-worked-math-v1.test.mjs
           node tests/test_v014100_free_competency_tutor.mjs
           node tests/test_v014102_member_tutor_history.mjs
           node tests/test_v014102_tutor_ai_consent.mjs
