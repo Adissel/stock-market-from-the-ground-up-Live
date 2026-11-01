@@ -8,6 +8,7 @@ on:
       - 'assets/js/prototype-experiences-boot-v1.js'
       - 'assets/css/prototype-experiences-v1.css'
       - 'tests/prototype-experiences-v1.test.mjs'
+      - 'tests/prototype-experiences-v1-browser.test.mjs'
       - 'src/prototype/PrototypeThreeLab.tsx'
       - 'src/prototype/PrototypeWorkbenchDeck.tsx'
       - 'assets/css/prototype-center-v6.css'
@@ -108,3 +109,4 @@ jobs:
           done
           curl --fail --silent http://127.0.0.1:8768/prototype.html >/dev/null
           node tests/prototype-center-v2-browser.test.mjs
+          node tests/prototype-experiences-v1-browser.test.mjs
