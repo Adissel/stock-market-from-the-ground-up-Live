@@ -93,7 +93,7 @@ done
 # Install in a throwaway directory outside public, never publish node_modules.
 vendor_temp="$(mktemp -d)"
 trap 'rm -rf "$vendor_temp"' EXIT
-npm install --prefix "$vendor_temp" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund --omit=optional echarts@6.1.0 >/dev/null
+npm install --prefix "$vendor_temp" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund --omit=optional echarts@6.1.0 @supabase/supabase-js@2.109.0 >/dev/null
 vendor_source="$vendor_temp/node_modules/echarts"
 test -s "$vendor_source/dist/echarts.min.js" || { echo "ECharts 6.1.0 missing after installation" >&2; exit 7; }
 mkdir -p "$output/assets/vendor/echarts/6.1.0"
@@ -108,6 +108,24 @@ grep -Fq '/assets/vendor/echarts/6.1.0/echarts.min.js' assets/js/crownlight-echa
  echo 'ECharts loader does not match published pinned bundle' >&2; exit 7;
 }
 printf 'Verified same-origin Apache ECharts 6.1.0 static asset (%s bytes)\n' "$(wc -c < "$output/assets/vendor/echarts/6.1.0/echarts.min.js")"
+# Pin the browser Auth/REST runtime locally too. Previously every signed-in
+# journey depended on jsDelivr's dynamically imported +esm URL; if the browser
+# could not access that CDN, even OWNER access to /prototype.html failed.
+# Supabase UMD exposes window.supabase.createClient and runs from our own Pages.
+supabase_source="$vendor_temp/node_modules/@supabase/supabase-js"
+test -s "$supabase_source/dist/umd/supabase.js" || { echo "Supabase 2.109.0 UMD artifact missing" >&2; exit 7; }
+mkdir -p "$output/assets/vendor/supabase-js/2.109.0"
+cp -- "$supabase_source/dist/umd/supabase.js" "$output/assets/vendor/supabase-js/2.109.0/supabase.js"
+if [[ -f "$supabase_source/LICENSE" ]]; then
+ cp -- "$supabase_source/LICENSE" "$output/assets/vendor/supabase-js/2.109.0/LICENSE"
+else
+ echo "Supabase license missing from package" >&2; exit 7
+fi
+grep -Fq '/assets/vendor/supabase-js/2.109.0/supabase.js' assets/js/supabase-client.js || {
+ echo "Shared Supabase client not configured for pinned same-origin bundle" >&2; exit 7;
+}
+printf 'Verified same-origin Supabase 2.109.0 browser bundle (%s bytes)\n' "$(wc -c < "$output/assets/vendor/supabase-js/2.109.0/supabase.js")"
+
 mkdir -p "$output/data"
 for file in crownlight-sparks-store-v014167.json books.json challenges.json commerce-config.json stripe-product-registry-v01437.json environments.json interactive-lab-index.json journal-taxonomy.json labs.json releases.json simulator_csv_template.csv skills.json store-products.json tutor-index.json competency-study-guides-v01499.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json free-foundations-evidence-v1.json academy-specific-source-instruction-v1.json tutor-lab-claim-evidence-v1.json competency-lab-paths-v01499.json lab-teaching-bridges-v014168.json bootcamp-formative-v014154.json bootcamp-source-cases-v014166.json; do
   test -f "data/$file" || { echo "Missing public data: data/$file" >&2; exit 1; }
