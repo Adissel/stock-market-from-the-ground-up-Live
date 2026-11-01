@@ -211,7 +211,13 @@ async function loadMasterStudyGuides(env,request){
  return guides;
 }
 const foundationTopicCache=new WeakMap();
-const FOUNDATION_TOPIC_SOURCE=/^https:\\/\\/(?:www\\.)?(?:investor\\.gov|sec\\.gov|chartschool\\.stockcharts\\.com)\\//i;
+const FOUNDATION_TOPIC_SOURCE=url=>{
+ try{
+  const parsed=new URL(url);
+  return parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.port&&
+   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com'].includes(parsed.hostname);
+ }catch{return false}
+};
 async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
@@ -229,7 +235,7 @@ async function loadFoundationTopicExplanations(env,request){
     g.independentEditorialApproved!==false||
     g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
     !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
-    !FOUNDATION_TOPIC_SOURCE.test(g.sourceUrls[0])||
+    !FOUNDATION_TOPIC_SOURCE(g.sourceUrls[0])||
     ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
       .some(k=>typeof g[k]!=='string'||g[k].length<40))
    return [];
@@ -307,14 +313,14 @@ function formatFoundationTopic(g,mode,reflection,question){
   'Common mistake: '+g.commonError,
   'Original educational reference (not a live data or strategy-performance claim): '+g.sourceUrls.join(' ')];
  if(mode==='question')return [...base,'Independent ungraded self-check: '+g.selfCheck,
-  'Do not use a future observation or an official assessment answer.'].join('\\n\\n');
+  'Do not use a future observation or an official assessment answer.'].join('\n\n');
  if(mode==='review')return [...base,'Ungraded review criterion: '+g.reviewExplanation,
   ungradedResponseReview(reflection),
-  'No rubric was scored and no mastery credit was awarded.'].join('\\n\\n');
+  'No rubric was scored and no mastery credit was awarded.'].join('\n\n');
  return [...base,'Original fictional worked explanation: '+g.workedCase,
    'Independent transfer question: '+g.transferQuestion,
    'Self-check: '+g.selfCheck,
-   'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\\n\\n');
+   'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\n\n');
 }
 function answerFromGuide(g,mode,answer,question=''){
  if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question);
