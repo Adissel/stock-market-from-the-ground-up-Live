@@ -7,6 +7,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {academyPrograms,academyByCode} from '../functions/_lib/bootcamp-academy-v014168.js';
+import '../assets/js/prototype-indicator-workbench-v2.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const map=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const bridge=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
@@ -14,9 +15,18 @@ const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
 const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
  freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
- tutorInterpretationOnlyStudies:0,computedChartStudies:15};
+ tutorInterpretationOnlyStudies:0,computedChartStudies:0};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
+// Inspect the authoritative first-party chart registry, not a copied metric.
+// The 61 Tutor briefs, 53 synthetic Tutor calculations and computed chart
+// overlays are separate inventories and must never be conflated.
+const computedChartRegistry=globalThis.CrownlightPrototypeIndicators?.specs;
+metrics.computedChartStudies=Array.isArray(computedChartRegistry)?computedChartRegistry.length:0;
+if(metrics.computedChartStudies!==16||
+   new Set((computedChartRegistry||[]).map(x=>x.id)).size!==16||
+   !computedChartRegistry?.some(x=>x.id==='EMA_200'))
+ fail('computed_chart_studies','Expected 16 distinct first-party Chart Studio studies, including EMA 200. Audit the actual adapter before publishing counts.');
 const pending=(id,reason)=>editorial.push({id,reason});
 if(map.totalCanonicalLabs!==419||Object.keys(map.byLab).length!==419||
   bridge.canonicalLabCount!==419||Object.keys(bridge.entries).length!==419)fail('curriculum','419-source canonical mismatch');
@@ -125,6 +135,7 @@ if(!read('tests/test_crownlight_chart_tiers_v1.mjs').includes("FOUNDER")&&
  fail('entitlement','Server tier acceptance tests not connected');
 const result={documentId:'SMFGU-LEARN-BETA-AUDIT-001',version:'1.0',scope:'SOURCE-ONLY / CLOSED BETA',
  metrics:{...metrics,academyAndFreeDays:metrics.academyDays+metrics.freeDays},
+  computedChartStudyIds:Array.isArray(computedChartRegistry)?computedChartRegistry.map(x=>x.id):[],
  critical,editorialReviewPending:editorial,criticalCount:critical.length,editorialFlags:editorial.length,
  note:'Ten courses and 61 Tutor studies are INVENTORIED, not editorially approved. 53 ungraded computed demonstrations are not 53 released Chart Studio overlays. No private grade, historical license or authenticated member QA is implied.'};
 mkdirSync('artifacts',{recursive:true});
