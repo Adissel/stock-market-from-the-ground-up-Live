@@ -812,7 +812,8 @@
    if(legacyGuide)legacyGuide.open=true;return;
   }
   void Promise.resolve(engine.mount({labId,mode:'guided',target,lab:study,focusId:'academy-reflection',
-    academyLesson:{programCode:d.programCode,day:d.day,title:d.title,objective:d.objective,competencies:d.competencies},
+    academyLesson:{programCode:d.programCode,day:d.day,title:d.title,objective:d.objective,competencies:d.competencies,
+     transfer:lesson.transfer||d.practice},
     memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
     tutorRequest}))
    .then(ok=>{if(renderEpoch!==renderSerial){target.remove();return;}
