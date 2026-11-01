@@ -162,7 +162,10 @@ try{
   'Academy day navigation disappears at mobile viewport');
  const mobile=await page.evaluate(()=>({
   width:innerWidth,documentWidth:document.documentElement.scrollWidth,
-  lessonVisible:(()=>{const r=document.getElementById('academy-day-title')?.getBoundingClientRect();return !!r&&r.width>40;})()
+  lessonVisible:(()=>{const r=document.getElementById('academy-day-title')?.getBoundingClientRect();return !!r&&r.width>40;})(),
+  overflowCandidates:[...document.querySelectorAll('body *')].map(el=>({el,box:el.getBoundingClientRect()}))
+   .filter(({el,box})=>box.width>0&&box.right>innerWidth+8&&getComputedStyle(el).position!=='fixed')
+   .slice(0,15).map(({el,box})=>({tag:el.tagName.toLowerCase(),id:el.id,cls:String(el.className).slice(0,70),right:Math.round(box.right),width:Math.round(box.width)}))
  }));
  assert(mobile.lessonVisible,'Mobile layout hides the lesson heading');
  assert(mobile.documentWidth<=mobile.width+12,
