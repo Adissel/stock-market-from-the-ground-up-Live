@@ -52,6 +52,9 @@ const batch03Primary=new Set(["truth5:5","watchlist7:1","watchlist7:7","scanners
 const batch03Technical=new Set(["watchlist7:4","foundations30:5"]);
 assert.equal(batch03Primary.size,10);
 assert.equal(batch03Technical.size,2);
+const batch04Primary=new Set(["truth5:1","watchlist7:6","scanners10:9","foundations30:15","foundations30:19"]);
+const batch04Technical=new Set(["foundations30:13","foundations30:16","foundations30:18"]);
+assert.equal(batch04Primary.size,5);assert.equal(batch04Technical.size,3);
 const byQA=new Map(qa.map(d=>[d.program_code+':'+d.program_day,d]));
 const byMaster=new Map(master.filter(d=>d.unit_type==='academy_or_free').map(d=>[d.unit_id,d]));
 const classes={'PUBLIC_REGULATOR_OR_EXCHANGE':29,'INDEPENDENT_TECHNICAL_REFERENCE':7,'AUTHOR_DEFINED_METHOD_OR_ARITHMETIC':6};
@@ -71,13 +74,15 @@ for(const c of claims){
  if(c.authority_class==='PUBLIC_REGULATOR_OR_EXCHANGE'){
   assert.equal(d.verified_external_claims,
    narrowRechecked.has(c.day_key)?'NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031':
-   batch03Primary.has(c.day_key)?'NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03':'SELECTED_PRIMARY_CLAIM_ONLY',
+   batch03Primary.has(c.day_key)?'NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03':
+   batch04Primary.has(c.day_key)?'NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031_B04':'SELECTED_PRIMARY_CLAIM_ONLY',
    'Canonical 252 selected-source reconciliation must not claim day acceptance: '+c.day_key);
   assert(/^https:\/\/(www\.)?(?:sec\.gov|investor\.gov|nyse\.com|syndication\.finra\.org)\//.test(c.authority_url),
     'Non-authoritative source attributed as primary '+c.day_key);
  }else if(c.authority_class==='INDEPENDENT_TECHNICAL_REFERENCE'){
   assert.equal(d.verified_external_claims,batch03Technical.has(c.day_key)?
-   'TECHNICAL_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03':'SELECTED_TECHNICAL_CLAIM_ONLY');
+   'TECHNICAL_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03':
+   batch04Technical.has(c.day_key)?'TECHNICAL_SOURCE_RECHECKED_WITH_LIMITS_20261031_B04':'SELECTED_TECHNICAL_CLAIM_ONLY');
   assert(c.authority_url.includes('chartschool.stockcharts.com'));
  }else{
   assert(d.verified_external_claims==='INTERNAL_METHOD_NOT_EXTERNALLY_SOURCED');
@@ -91,7 +96,9 @@ for(const c of claims){
 assert.equal(qa.filter(x=>x.verified_external_claims==='NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031').length,12);
 assert.equal(qa.filter(x=>x.verified_external_claims==='NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03').length,10);
 assert.equal(qa.filter(x=>x.verified_external_claims==='TECHNICAL_SOURCE_RECHECKED_WITH_LIMITS_20261031_B03').length,2);
-assert.equal(qa.filter(x=>x.verified_external_claims.includes('RECHECKED_WITH_LIMITS')).length,24);
+assert.equal(qa.filter(x=>x.verified_external_claims==='NARROW_SOURCE_RECHECKED_WITH_LIMITS_20261031_B04').length,5);
+assert.equal(qa.filter(x=>x.verified_external_claims==='TECHNICAL_SOURCE_RECHECKED_WITH_LIMITS_20261031_B04').length,3);
+assert.equal(qa.filter(x=>x.verified_external_claims.includes('RECHECKED_WITH_LIMITS')).length,32);
 assert(qa.every(x=>x.editorial_status==='NOT_ACCEPTED'));
 assert(master.every(x=>x.editorial_decision==='NOT_APPROVED'));
 assert.deepEqual(counts,classes);
