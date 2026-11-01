@@ -99,8 +99,8 @@
       "workedCase": "FICTIONAL: A 200-share working order receives a cancel request at 10:00. A 50-share fill occurs at 10:00:00.100 before cancel confirmation at 10:00:00.150. The final exposure may be 50 shares, not zero.",
       "limit": "Exact cancellation timing and acknowledgment semantics depend on broker and venue.",
       "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Exact cancellation timing and acknowledgment semantics depend on broker and venue.",
-      "commonError": "Setting positions to zero the instant a cancel button is pressed.",
-      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Setting positions to zero the instant a cancel button is pressed.",
+      "commonError": "Setting the confirmed position to zero as soon as a cancel button is pressed, even though executions may arrive before acknowledgment.",
+      "selfCheck": "Identify what is actually observed rather than assumed in the case. Correct this misconception: Setting the confirmed position to zero as soon as a cancel button is pressed, even though executions may arrive before acknowledgment.",
       "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A 200-share working order receives a cancel request at 10:00. A 50-share fill occurs at 10:00:00.100 before cancel confirmation at 10:00:00.150. The final exposure may be 50 shares, not zero.",
       "transferQuestion": "FICTIONAL TRANSFER: After submitting cancel, a 25-share execution confirms before cancellation. What evidence determines remaining quantity?",
       "sourceUrls": [
@@ -379,8 +379,8 @@
       "workedCase": "FICTIONAL: A fixed hypothetical $1,000 debit at 12% simple annualized rate for 10 days on a 360-day basis incurs $1,000×0.12×10/360 = $3.33 before compounding.",
       "limit": "Actual brokers may use variable tiered rates, changing daily balances, cutoff times and capitalization.",
       "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Actual brokers may use variable tiered rates, changing daily balances, cutoff times and capitalization.",
-      "commonError": "Assuming an annual 12% financing rate means 12% charged for ten days.",
-      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Assuming an annual 12% financing rate means 12% charged for ten days.",
+      "commonError": "Assuming a 12% annualized financing rate means the full 12% is charged for ten days, rather than prorating the actual eligible borrowing interval.",
+      "selfCheck": "Identify what is actually observed rather than assumed in the case. Correct this misconception: Assuming a 12% annualized financing rate means the full 12% is charged for ten days, rather than prorating the actual eligible borrowing interval.",
       "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A fixed hypothetical $1,000 debit at 12% simple annualized rate for 10 days on a 360-day basis incurs $1,000×0.12×10/360 = $3.33 before compounding.",
       "transferQuestion": "FICTIONAL TRANSFER: On a hypothetical 365-day simple basis, $2,000 at 10% for 5 days gives how much accrued interest?",
       "sourceUrls": [
