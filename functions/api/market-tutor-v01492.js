@@ -265,7 +265,7 @@ export async function onRequest({request,env}){
    const reference=[...selectedGuides.map(g=>({title:g.title,
     summary:[g.concept,g.procedure,'Limitation: '+g.limit,'Invalidation: '+g.invalidation]
      .join(' ').slice(0,900)})),...source.slice(0,3-selectedGuides.length)].slice(0,3);
-   const deepSourceOnly=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further|try another|another (?:worked )?example|different (?:worked )?example|worked example)\b/i.test(q);
+   const deepSourceOnly=/\b(?:more depth|go deeper|step.by.step|walk me through|explain further|try another|another (?:worked )?example|different (?:worked )?example|worked example|common mistakes?|misconceptions?|correct my misunderstanding|explain the common mistake)\b/i.test(q);
    const model=deepSourceOnly?{text:null,reason:'source_only_deep_teaching'}:
     guide.foundationTopic===true?{text:null,reason:'foundation_supplementary_source_only'}:
     guide.masterStudy===true?{text:null,reason:'original_market_study_source_only'}:
