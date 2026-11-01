@@ -146,6 +146,12 @@ on:
       - 'tests/talia-foundation-ema-visual-v1.test.mjs'
       - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
+      - 'functions/_lib/talia-member-byok-v1.js'
+      - 'functions/api/credentials.js'
+      - 'functions/_lib/tutor-request-boundary-v014147.js'
+      - 'tests/talia-member-byok-v1.test.mjs'
+      - 'src/ts/production-completion.ts'
+      - 'assets/js/dashboard-ui-legacy.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
       - 'data/tutor-golden-questions-v014107.json'
@@ -338,6 +344,12 @@ on:
       - 'tests/talia-foundation-ema-visual-v1.test.mjs'
       - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
+      - 'functions/_lib/talia-member-byok-v1.js'
+      - 'functions/api/credentials.js'
+      - 'functions/_lib/tutor-request-boundary-v014147.js'
+      - 'tests/talia-member-byok-v1.test.mjs'
+      - 'src/ts/production-completion.ts'
+      - 'assets/js/dashboard-ui-legacy.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
       - 'functions/_lib/tutor-rate-limit-v014107.js'
       - 'data/tutor-golden-questions-v014107.json'
@@ -503,6 +515,7 @@ jobs:
           node tests/test_v014102_member_tutor_history.mjs
           node tests/test_v014102_tutor_ai_consent.mjs
           node tests/test_v014103_first_party_ai_service.mjs
+          node tests/talia-member-byok-v1.test.mjs
           node tests/test_v014107_tutor_quality.mjs
           node tests/test_v014107_server_history_and_throttle.mjs
           node tests/test_v014108_owner_live_acceptance.mjs
