@@ -89,7 +89,7 @@ try{
  });
  const page=await context.newPage();
  const browserErrors=[];
- page.on('pageerror',error=>browserErrors.push(String(error.message||error).slice(0,180)));
+ page.on('pageerror',error=>browserErrors.push(String(error.stack||error.message||error).slice(0,850)));
  // QA session is established on a public page first. Loading a protected
  // destination before setSession can race the site's real redirect to sign-in.
  // The token is genuinely issued by GoTrue; this does not exercise CAPTCHA login.
