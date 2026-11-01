@@ -73,6 +73,18 @@
    ' activity: '+values.map(x=>x.label+' '+x.saved+' of '+x.available+' saved').join('; ')+
    '. Ungraded reflections only.');
   if(!chart)return;
+  // Shared source-neutral visual option factory. Legacy ECharts renderer stays as
+  // a nonbreaking fallback for deployments that do not yet load the kit.
+  const shared=root.CrownlightVisualKitV1?.barOptions({
+   kind:'progress',sourceLabel:'Authenticated five-day Free Foundations saved reflections',
+   reducedMotion:!!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches,
+   items:values.map(x=>({label:x.label,value:x.saved,capacity:x.available}))
+  });
+  if(shared){
+   shared.aria.description=plot.getAttribute('aria-label');
+   shared.grid={left:domainMode?106:80,right:44,top:18,bottom:30};
+   chart.setOption(shared,{notMerge:true});chart.resize();return;
+  }
   const max=Math.max(...values.map(x=>x.available),1);
   chart.setOption({
    animation:!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches,
