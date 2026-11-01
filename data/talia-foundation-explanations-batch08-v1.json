@@ -547,8 +547,8 @@
       "workedCase": "FICTIONAL: An illiquid instrument shows bid $7.20 but no eligible ask. The screen cannot honestly display a $0.00 spread or midpoint; both are unavailable.",
       "limit": "Stale or different-time quotes cannot be combined to manufacture a current two-sided market.",
       "invalidation": "The teaching interpretation stops if required event time, feed status or eligible input is missing: Stale or different-time quotes cannot be combined to manufacture a current two-sided market.",
-      "commonError": "Using a missing offer as zero and reporting a huge negative spread.",
-      "selfCheck": "Identify the evidence actually observed and the assumption incorrectly added in this scenario: Using a missing offer as zero and reporting a huge negative spread.",
+      "commonError": "Using a missing offer as a zero-dollar quote and reporting a negative spread, rather than marking the two-sided calculation unavailable.",
+      "selfCheck": "Identify what is actually observed rather than assumed in the case. Correct this misconception: Using a missing offer as a zero-dollar quote and reporting a negative spread, rather than marking the two-sided calculation unavailable.",
       "reviewExplanation": "Correct the specific error by restating the dated input and the distinction between observation and execution. Then recompute any cited fictional quantity without claiming a real fill: FICTIONAL: An illiquid instrument shows bid $7.20 but no eligible ask. The screen cannot honestly display a $0.00 spread or midpoint; both are unavailable.",
       "transferQuestion": "FICTIONAL TRANSFER: Ask $3.50 exists but bid is missing. Which quoted metrics must remain undefined?",
       "sourceUrls": [
