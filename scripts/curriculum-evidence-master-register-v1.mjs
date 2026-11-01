@@ -6,7 +6,7 @@
  * exported into public Pages data and not an authenticated endpoint).
  */
 import assert from 'node:assert/strict';
-import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import {readFileSync,readdirSync,mkdirSync,writeFileSync} from 'node:fs';
 import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const official=read('data/competency-lab-paths-v01499.json');
@@ -18,12 +18,17 @@ const remaining21=read('data/talia-claims-remaining21-source-review-v1.json');
 const claims181=indicatorReview.topics;
 const stages={explanations:[],indicators:[],labs:[],academy:[]};
 const knownTopics=[];
-for(let n=1;n<=12;n++){
+const batchNumbers=readdirSync(new URL('../data/',import.meta.url))
+ .map(f=>/^talia-foundation-explanations-batch(\d{2})-v1\.json$/.exec(f))
+ .filter(Boolean).map(x=>Number(x[1])).sort((a,b)=>a-b);
+assert.ok(batchNumbers.length>=12&&batchNumbers.length<=30,'Expected 12-30 authored batches');
+for(let i=0;i<batchNumbers.length;i++)assert.equal(batchNumbers[i],i+1,'Noncontiguous authored batch');
+for(const n of batchNumbers){
  const b=read('data/talia-foundation-explanations-batch'+String(n).padStart(2,'0')+'-v1.json');
  assert.equal(b.guides.length,20,'Source batch drift '+n);
  knownTopics.push(...b.guides);
 }
-assert.equal(knownTopics.length,240);
+assert.equal(knownTopics.length,batchNumbers.length*20);
 assert.equal(new Set(knownTopics.map(x=>x.code)).size,240);
 assert.equal(forty.rows.length,40);
 const check40=new Map(forty.rows.map(x=>[x.code,x]));
@@ -100,7 +105,7 @@ assert.equal(total,1366);
 const summary={version:'1.0',documentId:'SMFGU-CURRICULUM-EVIDENCE-REGISTER-001',
  generatedFrom:'GitHub main canonical files; read-only source-only projection',
  date:'2026-11-01',status:'DEVELOPMENT_EVIDENCE_NOT_MEMBER_RELEASE_ACCEPTANCE',
- totals:{all:1366,explanationTargets:600,explanationsAuthored:240,explanationsNotAuthored:360,
+ totals:{all:1366,explanationTargets:600,explanationsAuthored:knownTopics.length,explanationsNotAuthored:600-knownTopics.length,
   indicators:73,indicatorGuidesAuthored:73,labIds:419,academyDayIds:274,
   fortyClaimScopeRows:40,fortySourceScopeDispositions:40,sourceScopeCorrections:[104,133],claimScope141to180:40,claimScope181to240:60,
   verifiedPublications:0,matchedPremiumReleaseClaims:0},
