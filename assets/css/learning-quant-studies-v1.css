@@ -1,0 +1,18 @@
+/* Shared Learning/Lab original quantitative teaching. No second chart engine. */
+.gu-quant-workbench{margin:1.2rem 0;padding:clamp(12px,2vw,22px);border:1px solid #45637a;border-radius:15px;color:#e5f2fa;background:#102237;max-width:100%;overflow:hidden}
+.gu-quant-workbench h3,.gu-quant-workbench h4{color:#f5faff;margin:.8rem 0}
+.gu-quant-workbench p{line-height:1.55}.gu-quant-provenance{font-size:.875rem;color:#bfcedd}
+.gu-quant-echarts{width:100%;height:290px;min-height:220px}
+.gu-quant-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.gu-quant-table caption{text-align:left;padding:.55rem 0;font-weight:650}
+.gu-quant-table th,.gu-quant-table td{padding:.6rem .5rem;text-align:left;border-bottom:1px solid #375066}
+.gu-quant-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:.8rem 0}
+.gu-quant-grid label{display:grid;gap:.35rem;min-width:0;font-weight:600}
+.gu-quant-workbench input{max-width:100%;min-width:0;border:1px solid #7799ac;border-radius:7px;padding:.55rem;color:#f4fbff;background:#0c1b2d}
+.gu-quant-workbench button{margin:.4rem .55rem .4rem 0;padding:.55rem .85rem;border:1px solid #81b8cd;border-radius:8px;background:#184859;color:#fff;cursor:pointer}
+.gu-quant-workbench button.secondary{background:#26394b}
+.gu-quant-workbench :focus-visible{outline:3px solid #f0cb84;outline-offset:3px}
+.gu-quant-workbench [role=status]{padding:.55rem 0}
+.gu-quant-workbench [role=status] li{margin:.45rem 0}
+@media(max-width:700px){.gu-quant-grid{grid-template-columns:1fr}.gu-quant-echarts{height:250px}.gu-quant-table{font-size:.85rem}.gu-quant-workbench button{width:100%}}
+@media(prefers-reduced-motion:reduce){.gu-quant-workbench *{animation:none!important;transition:none!important}}

@@ -207,6 +207,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   :/construct (?:an? )?(?:down\s*\/\s*)?bearish candle/i.test(rawTopic)?'Bearish Candle'
   :rawTopic;
  const topicSource=meaningfulTitle(lab?.concept)||authorTopic||meaningfulTitle(item.title)?'authored':'competency';
+ const quantitativeStudyId=root.GroundUpLearningQuantStudiesV1?.select?.({competencies:codes,topic,primaryCode:guide.code})||null;
 
  const visualType=root.GroundUpLabV33Contextual?.select?.({lab,topic,competencies:codes})||'none';
  const authorizedTeaching=lab?.teaching&&typeof lab.teaching==='object'?lab.teaching:{};
@@ -426,6 +427,16 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   return result;
  }
 
+ function renderQuantitativeStudy(parent){
+  // The member has already passed the existing Lab entitlement and study
+  // guide gates. This is optional, ungraded and strictly topic-aligned.
+  if(!quantitativeStudyId||!['guided','practice'].includes(mode))return;
+  const ui=root.GroundUpLearningQuantStudiesUIV1;
+  if(!ui?.mount)return;
+  const host=el('section');host.className='gu-v33-quantitative-host';parent.append(host);
+  const controller=ui.mount({target:host,studyId:quantitativeStudyId,mode});
+  if(controller)echartsControllers.push(controller);
+ }
  function renderMethodSteps(parent){
   const api=root.GroundUpLearningEvidenceV1;
   if(!special||!api?.evaluateSteps||!['guided','practice'].includes(mode)||!['candle','vwap'].includes(kind))return;
@@ -1025,6 +1036,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    // replacing the relevant Lab's own assessed question or competency.
    const workshop=root.GroundUpLabV33DecisionWorkshop?.create?.({topic,labId});
    if(workshop)body.append(workshop);
+   renderQuantitativeStudy(body);
   }else if(stage===5){
    appendParagraph(body,'Official assessment uses only the existing authenticated, server-graded question bank after editorial acceptance. Answer keys are never embedded in this study aid.');
    appendParagraph(body,'An unreviewed Lab or missing rubric must remain Not Yet Assessed, regardless of study-step completion.');
