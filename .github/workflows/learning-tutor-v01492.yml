@@ -113,6 +113,8 @@ on:
       - 'tests/talia-foundation-batches10-11-gates-v1.test.mjs'
       - 'tests/talia-foundation-batch12-gates-v1.test.mjs'
       - 'tests/talia-tier-research-contracts-v1.test.mjs'
+      - 'tests/talia-claim-triage-and-math-v1.test.mjs'
+      - 'data/talia-claim-triage-181-240-and-indicators-v1.json'
       - 'functions/_lib/talia-tier-research-contracts-v1.js'
       - 'tests/talia-research-math-second-seven-v1.test.mjs'
       - 'tests/talia-indicators13-24-review-v1.test.mjs'
@@ -301,6 +303,8 @@ on:
       - 'tests/talia-foundation-batches10-11-gates-v1.test.mjs'
       - 'tests/talia-foundation-batch12-gates-v1.test.mjs'
       - 'tests/talia-tier-research-contracts-v1.test.mjs'
+      - 'tests/talia-claim-triage-and-math-v1.test.mjs'
+      - 'data/talia-claim-triage-181-240-and-indicators-v1.json'
       - 'functions/_lib/talia-tier-research-contracts-v1.js'
       - 'tests/talia-research-math-second-seven-v1.test.mjs'
       - 'tests/talia-indicators13-24-review-v1.test.mjs'
@@ -481,6 +485,7 @@ jobs:
           node tests/talia-foundation-batches10-11-gates-v1.test.mjs
           node tests/talia-foundation-batch12-gates-v1.test.mjs
           node tests/talia-tier-research-contracts-v1.test.mjs
+          node tests/talia-claim-triage-and-math-v1.test.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
           node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
           node --check functions/_lib/talia-indicator-worked-v1.js
