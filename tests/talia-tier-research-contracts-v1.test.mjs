@@ -25,14 +25,22 @@ test('Advanced consumes only actual verified summary evidence, never grades or a
  assert.deepEqual(draftAdvancedPrerequisites({evidence:{...evidence,origin:'browser_guess'},skills,observedNeed:'VWAP_CONTEXT'}).items,[]);
 });
 test('Professional replay only returns completed revealed prefix and denies future timestamp contamination',()=>{
- const candles=[{time:1000,close:10},{time:2000,close:11},{time:3000,close:20}];
+ const candles=[{time:1000,closeTime:1500,completed:true,close:10},{time:2000,closeTime:2500,completed:true,close:11},{time:3000,closeTime:3500,completed:true,close:20}];
  const x=draftProfessionalEvidence({bars:candles,revealedThrough:1,observationTime:2500});
  assert.equal(x.status,'source_prototype_not_released');assert.equal(x.observations.length,2);
- assert.equal(x.observations[1].close,11);assert.equal(x.noLookahead,true);
+ assert.equal(x.observations[1].close,11);assert.equal(x.observations[1].closeTime,2500);assert.equal(x.noLookahead,true);
  assert.equal(x.hasFutureBars,false);assert.equal(x.officialGrade,false);
  const corrupt=draftProfessionalEvidence({bars:candles,revealedThrough:2,observationTime:2500});
  assert.equal(corrupt.status,'insufficient_source_replay_evidence');
- assert.equal(draftProfessionalEvidence({bars:[{time:2,close:1},{time:1,close:2}],revealedThrough:1,observationTime:3}).status,'insufficient_source_replay_evidence');
+ assert.equal(draftProfessionalEvidence({bars:[{time:2,closeTime:3,completed:true,close:1},{time:1,closeTime:2,completed:true,close:2}],revealedThrough:1,observationTime:3}).status,'insufficient_source_replay_evidence');
+ // A completed final close in a 10:00–10:05 candle is NOT known at 10:02.
+ assert.equal(draftProfessionalEvidence({bars:[{time:1000,closeTime:1300,completed:true,close:10}],revealedThrough:0,observationTime:1100}).status,'insufficient_source_replay_evidence');
+ // A timestamp without a close timestamp cannot prove a bar has finished.
+ assert.equal(draftProfessionalEvidence({bars:[{time:1000,close:10}],revealedThrough:0,observationTime:2000}).status,'insufficient_source_replay_evidence');
+ // Unfinalized higher-timeframe candle cannot be passed from a shorter frame.
+ assert.equal(draftProfessionalEvidence({bars:[{time:1000,closeTime:1300,completed:false,close:10}],revealedThrough:0,observationTime:1400}).status,'insufficient_source_replay_evidence');
+ // Overlap in completed events also requires explicit backfill/clock audit.
+ assert.equal(draftProfessionalEvidence({bars:[{time:1000,closeTime:1600,completed:true,close:10},{time:1500,closeTime:1900,completed:true,close:11}],revealedThrough:1,observationTime:2200}).status,'insufficient_source_replay_evidence');
 });
 test('Enterprise provenance lists only approved prior citations, not records licensed for AI training',()=>{
  const s=[{id:'public1',title:'Historical Rule',url:'https://www.sec.gov/example',publishedAt:100,rights:'public_reference_only',independentlyRightsChecked:true},
