@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'assets/js/learning-quant-studies-v1.js'
+      - 'assets/js/learning-indicators-v1.js'
+      - 'tests/learning-indicators-v1.test.mjs'
+      - 'scripts/qa/learning_indicator_decimal_reference_v1.py'
       - 'data/learning-engine-quant-source-registry-v1.json'
       - 'scripts/qa/learning_quant_decimal_reference_v1.py'
       - 'assets/js/learning-quant-studies-ui-v1.js'
@@ -24,9 +27,12 @@ jobs:
       - name: Syntax
         run: |
           node --check assets/js/learning-quant-studies-v1.js
+          node --check assets/js/learning-indicators-v1.js
           node --check assets/js/learning-quant-studies-ui-v1.js
           node --check assets/js/lab-engine-v32-universal.js
       - name: Independent Python Decimal formula validation
-        run: python3 scripts/qa/learning_quant_decimal_reference_v1.py
+        run: |
+          python3 scripts/qa/learning_quant_decimal_reference_v1.py
+          python3 scripts/qa/learning_indicator_decimal_reference_v1.py
       - name: Original quantitative research and safety contracts
-        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs
+        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs tests/learning-indicators-v1.test.mjs

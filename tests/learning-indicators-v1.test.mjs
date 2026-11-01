@@ -55,3 +55,16 @@ test('Authored Lab bridges and assessment boundary fail closed',()=>{
   assert.equal(m.assess({studyId:'rsi',inputs,mode:'guided',stage:'practice',provenance:'fictional_authored',...bad}).status,'insufficient_evidence');
  }
 });
+
+test('Authorized member Lab integration and no premature independent-case answer',()=>{
+ const fs=require('node:fs');
+ const ui=fs.readFileSync('assets/js/learning-quant-studies-ui-v1.js','utf8');
+ const lab=fs.readFileSync('assets/js/lab-engine-v32-universal.js','utf8');
+ const html=fs.readFileSync('lab-player.html','utf8');
+ assert.match(ui,/const indicator=root\.GroundUpLearningIndicatorsV1/);
+ assert.match(ui,/const values=Array\.isArray\(base\.chart\)/);
+ assert(!ui.includes('New case steps'));
+ assert(!ui.includes("node('td',later.values"));
+ assert.match(lab,/GroundUpLearningIndicatorsV1\?\.select/);
+ assert(html.indexOf('learning-indicators-v1.js')<html.indexOf('lab-engine-v32-universal.js'));
+});

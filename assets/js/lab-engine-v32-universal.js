@@ -207,7 +207,8 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   :/construct (?:an? )?(?:down\s*\/\s*)?bearish candle/i.test(rawTopic)?'Bearish Candle'
   :rawTopic;
  const topicSource=meaningfulTitle(lab?.concept)||authorTopic||meaningfulTitle(item.title)?'authored':'competency';
- const quantitativeStudyId=root.GroundUpLearningQuantStudiesV1?.select?.({competencies:codes,topic,primaryCode:guide.code})||null;
+ const quantitativeStudyId=root.GroundUpLearningQuantStudiesV1?.select?.({competencies:codes,topic,primaryCode:guide.code})||
+  root.GroundUpLearningIndicatorsV1?.select?.({labId,topic})||null;
 
  const visualType=root.GroundUpLabV33Contextual?.select?.({lab,topic,competencies:codes})||'none';
  const authorizedTeaching=lab?.teaching&&typeof lab.teaching==='object'?lab.teaching:{};
