@@ -90,7 +90,10 @@ try{
  const page=await context.newPage();
  const browserErrors=[];
  page.on('pageerror',error=>browserErrors.push(String(error.message||error).slice(0,180)));
- await page.goto(origin+'/bootcamp-academy.html',{waitUntil:'domcontentloaded',timeout:45000});
+ // QA session is established on a public page first. Loading a protected
+ // destination before setSession can race the site's real redirect to sign-in.
+ // The token is genuinely issued by GoTrue; this does not exercise CAPTCHA login.
+ await page.goto(origin+'/signin.html',{waitUntil:'domcontentloaded',timeout:45000});
  await page.waitForFunction(()=>typeof window.getSupabaseClient==='function',{timeout:30000});
  const identity=await page.evaluate(async args=>{
   const sb=await window.getSupabaseClient();
