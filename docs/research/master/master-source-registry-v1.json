@@ -1037,6 +1037,94 @@
       "seed": "not defined before n bars; no forward fill without policy",
       "limits": "Lag, sessions, missing bars, incomplete candles",
       "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "RSI",
+      "indicatorCode": "STUDY_RSI",
+      "sourceIds": [
+        "CHARTSCHOOL-IND",
+        "TOS-STUDIES",
+        "TALIB-FUNC"
+      ],
+      "formula": "RSI=100-100/(1+averageGain/averageLoss); Wilder gain/loss smoothing",
+      "inputWindow": "n+1 completed closes",
+      "units": "RSI points 0 to 100",
+      "seed": "first n gains/losses averaged; subsequent Wilder updates; neutral 0/0 defined as 50 in our existing math",
+      "limits": "Wilder smoothing differs from SMA/EMA methods; loss=0 boundary and inadequate warmup",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "MACD",
+      "indicatorCode": "STUDY_MACD",
+      "sourceIds": [
+        "CHARTSCHOOL-IND",
+        "TOS-STUDIES",
+        "TALIB-FUNC"
+      ],
+      "formula": "EMA_fast(closes)-EMA_slow(closes); signal=EMA(macdLine,signalPeriod)",
+      "inputWindow": "fast/slow completed close history and trailing macd signal history",
+      "units": "price difference",
+      "seed": "declare each SMA-seeded EMA and delay signal until complete MACD history",
+      "limits": "EMA warmup and chosen periods change first valid MACD and histogram",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "ATR",
+      "indicatorCode": "STUDY_ATR",
+      "sourceIds": [
+        "CHARTSCHOOL-IND",
+        "TOS-STUDIES",
+        "TALIB-FUNC"
+      ],
+      "formula": "TR=max(high-low, abs(high-priorClose), abs(low-priorClose)); ATR=WilderSmoothed(TR,n)",
+      "inputWindow": "completed OHLC with prior close",
+      "units": "price per share",
+      "seed": "initial true range uses first bar high-low; first n TR mean then Wilder smoothing",
+      "limits": "gap-aware TR, warmup and first-bar treatment must be declared",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "BOLLINGER",
+      "indicatorCode": "STUDY_BOLLINGER_BANDS",
+      "sourceIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-STUDIES",
+        "TALIB-FUNC"
+      ],
+      "formula": "middle=SMA(close,n); upper/lower=middle ± k*sqrt(sum((close-middle)^2)/n)",
+      "inputWindow": "n completed closing prices",
+      "units": "price per share",
+      "seed": "population standard deviation n; no band until n bars",
+      "limits": "sample versus population variance and missing bars differ by vendor",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "EXPECTANCY",
+      "indicatorCode": "STUDY_EXPECTANCY",
+      "sourceIds": [
+        "FINRA-EDU",
+        "QC-LEAN"
+      ],
+      "formula": "E=pWin*avgGain-(1-pWin)*avgLoss-cost",
+      "inputWindow": "fictional binary-outcome set and net per-trade costs",
+      "units": "currency per hypothetical trade",
+      "seed": "finite 0≤p≤1, nonnegative gain/loss and cost",
+      "limits": "not a prediction; win frequency estimated from biased/small samples may be misleading",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+    },
+    {
+      "subject": "POSITION_SIZING",
+      "indicatorCode": "STUDY_POSITION_SIZING",
+      "sourceIds": [
+        "FINRA-EDU",
+        "QC-LEAN"
+      ],
+      "formula": "shares=floor(min(riskBudget/abs(entry-stop),capital/entry)) for long cash-only scenario",
+      "inputWindow": "hypothetical buy entry, stop reference, cash budget, risk budget",
+      "units": "whole shares",
+      "seed": "long cash-only cap; entry>stop>0 and both budgets finite; zero risk distance invalid",
+      "limits": "not an executable fill, actual loss cap or substitute for slippage/fees/gaps/margin regulations",
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
     }
   ]
 }

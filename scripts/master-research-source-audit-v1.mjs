@@ -34,7 +34,7 @@ for(const s of catalog.sources){
 }
 const byId=new Map(catalog.sources.map(s=>[s.id,s]));
 const byCode=new Set(guides.map(g=>g.code));
-assert.equal(catalog.subjectEvidencePilot.length,4);
+assert.equal(catalog.subjectEvidencePilot.length,10);
 for(const p of catalog.subjectEvidencePilot){
  assert(byCode.has(p.indicatorCode),'Pilot must use existing canonical guide');
  assert(p.sourceIds.length>=2,'Independent source candidates required');
@@ -56,6 +56,8 @@ const report={
  categoryCounts:Object.fromEntries(catalog.tiers.map(t=>[t.key,t.sourceCandidates])),
  inventory:{canonicalLabs:419,academyPrograms:10,academyDays:274,tutorIndicatorGuides:73},
  pilotSubjectRecords:catalog.subjectEvidencePilot.length,
+ pilotIndependentRecomputationCases:10,
+ pilotSourceFixturesPassOnlyIfBothLanguages:true,
  pilotEditoriallyAccepted:0,
  sourceRightsApprovedForIngestion:0,
  sourceRightsApprovedForRepublication:0,

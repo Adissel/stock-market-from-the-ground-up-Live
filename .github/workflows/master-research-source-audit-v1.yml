@@ -5,6 +5,9 @@ on:
     paths:
       - 'docs/research/master/**'
       - 'scripts/master-research-source-audit-v1.mjs'
+      - 'docs/research/master/formula-verification-fixtures-v1.json'
+      - 'tests/test_master_formula_cases_v1.mjs'
+      - 'tests/test_master_formula_cases_v1.py'
       - 'data/tutor-indicator-study-v1.json'
       - 'data/tutor-indicator-expansion-v1.json'
       - 'data/lab-teaching-bridges-v014168.json'
@@ -26,6 +29,8 @@ jobs:
         run: |
           node --check scripts/master-research-source-audit-v1.mjs
           node scripts/master-research-source-audit-v1.mjs
+          node tests/test_master_formula_cases_v1.mjs
+          python3 tests/test_master_formula_cases_v1.py
       - name: Retain source intake and rights findings (not commercial approval)
         if: always()
         uses: actions/upload-artifact@v4
