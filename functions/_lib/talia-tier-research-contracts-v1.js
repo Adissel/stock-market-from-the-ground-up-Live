@@ -34,10 +34,14 @@ export function draftProfessionalEvidence({bars,revealedThrough,observationTime}
  if(!Array.isArray(bars)||!Number.isSafeInteger(revealedThrough)||revealedThrough<0||
     revealedThrough>=bars.length||bars.length>10000||!Number.isFinite(observationTime))return blocked;
  const view=bars.slice(0,revealedThrough+1);
- if(view.some((b,i)=>!b||!Number.isFinite(b.close)||b.close<=0||
-  !Number.isFinite(b.time)||b.time>observationTime||
-  (i>0&&b.time<=view[i-1].time)))return blocked;
- const observations=view.map(b=>frozen({time:b.time,close:b.close}));
+ // A bar timestamp is often its OPEN. Its eventual close cannot be used at
+ // that opening timestamp. Require an independently verified completion time.
+ // "completed" is expected from the authorized replay server, not a UI toggle.
+ if(view.some((b,i)=>!b||b.completed!==true||!Number.isFinite(b.close)||b.close<=0||
+  !Number.isFinite(b.time)||!Number.isFinite(b.closeTime)||b.closeTime<=b.time||
+  b.closeTime>observationTime||
+  (i>0&&(b.time<=view[i-1].time||b.time<view[i-1].closeTime))))return blocked;
+ const observations=view.map(b=>frozen({time:b.time,closeTime:b.closeTime,close:b.close}));
  return frozen({status:'source_prototype_not_released',observations:frozen(observations),
   revealedCount:view.length,asOf:observationTime,noLookahead:true,
   hasFutureBars:false,officialGrade:false});
