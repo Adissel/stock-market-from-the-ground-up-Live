@@ -86,3 +86,35 @@ test('Reject non-finite derived indicator results even from finite inputs',()=>{
   assert(r&&r.values.every(Number.isFinite),id+' still produces finite worked evidence');
  }
 });
+
+// Independent hand-calculated reference: SMA-seeded EMA(3)/EMA(5),
+// MACD(3,5), then signal EMA(3) seeded by the first three MACD values.
+test('MACD independent numerical reference checks signal and histogram',()=>{
+ const r=m.macd([10,11,12,11,13,14,15,14],3,5,3);
+ near(r.line[4],0.6);near(r.line[5],11/15);near(r.line[6],37/45);
+ near(r.line[7],74/135);
+ near(r.signal[6],97/135);near(r.signal[7],19/30);
+ near(r.histogram[7],-23/270);
+ assert.deepEqual(r.signal.slice(0,6),Array(6).fill(null));
+});
+test('Completed-bar prefix independence for five Learning/Lab indicator calculations',()=>{
+ const prices=[10,11,12,11,13,14,15,14],future=[...prices,100];
+ for(const [name,period] of [['ema',3],['rsi',3]]){
+  const now=m[name](prices,period),later=m[name](future,period);
+  const current=name==='ema'?now:now.history;
+  const extended=name==='ema'?later:later.history;
+  assert.deepEqual(extended.slice(0,prices.length),current,name+' does not revise completed history');
+ }
+ for(const key of ['line','signal','histogram']){
+  const now=m.macd(prices,3,5,3),later=m.macd(future,3,5,3);
+  assert.deepEqual(later[key].slice(0,prices.length),now[key],key+' does not use unseen bars');
+ }
+ const bollNow=m.bollinger(prices,3,2),bollLater=m.bollinger(future,3,2);
+ for(const key of ['center','upper','lower','sd']){
+  assert.deepEqual(bollLater[key].slice(0,prices.length),bollNow[key],key+' no future dependence');
+ }
+ const bars=m.definitions.atr.initial.bars;
+ const later=m.atr([...bars,{h:110,l:99,c:100}],3),now=m.atr(bars,3);
+ assert.deepEqual(later.tr.slice(0,bars.length),now.tr);
+ assert.deepEqual(later.history.slice(0,bars.length),now.history);
+});
