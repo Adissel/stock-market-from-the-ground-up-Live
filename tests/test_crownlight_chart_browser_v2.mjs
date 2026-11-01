@@ -99,7 +99,7 @@ try{
    await dialog.locator('[data-add]').click();
    assert.equal(await dialog.locator('.crownlight-study-row').count(),4);
    await dialog.locator('[data-close]').click();
-   await page.evaluate(()=>{window.simTest.index=width===1440?64:25;window.CrownlightStudio.render(window.simTest)},width);
+   await page.evaluate(w=>{window.simTest.index=w===1440?64:25;window.CrownlightStudio.render(window.simTest)},width);
    assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),width===1440?65:26);
    await page.locator('[data-cl="source"]').click();await page.locator('[data-cl="source"]').click();
    assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*26/);
