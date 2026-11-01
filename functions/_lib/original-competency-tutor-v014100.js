@@ -223,7 +223,7 @@ async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
  if(cached&&cached.expires>Date.now())return cached.guides;
- const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json'];
+ const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json'];
  const batches=await Promise.all(files.map(async file=>{
   try{
    const response=await env.ASSETS.fetch(new Request(new URL('/data/'+file,request.url),{method:'GET'}));
@@ -254,7 +254,10 @@ async function loadFoundationTopicExplanations(env,request){
  const codes=new Set(batches[0].map(x=>x.code));
  const titles=new Set(batches[0].map(x=>x.title.toLowerCase()));
  const next=batches[1].length===20&&batches[1].every(g=>!codes.has(g.code)&&!titles.has(g.title.toLowerCase()))?batches[1]:[];
- const guides=[...batches[0],...next];
+ const usedCodes=new Set([...batches[0],...next].map(g=>g.code));
+ const usedTitles=new Set([...batches[0],...next].map(g=>g.title.toLowerCase()));
+ const third=batches[2].length===20&&batches[2].every(g=>!usedCodes.has(g.code)&&!usedTitles.has(g.title.toLowerCase()))?batches[2]:[];
+ const guides=[...batches[0],...next,...third];
  foundationTopicCache.set(env.ASSETS,{guides,expires:Date.now()+300000});
  return guides;
 }
