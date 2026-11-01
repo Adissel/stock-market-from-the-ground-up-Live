@@ -2,7 +2,7 @@
 
 **Document ID:** SMFGU-ACADEMY-OWNER-PROGRESS-008  
 **Project:** The Stock Market: From the Ground Up — Boot Camp Academy  
-**Version:** 2.0  
+**Version:** 2.1  
 **Prepared / assessed:** October 31, 2026  
 **File type:** Markdown (.md)  
 **Filename:** `2026-10-31_BOOTCAMP_OWNER_380_UNIT_COMPLETION_AND_BETA_ACTION_REGISTER_V1.md`  
@@ -11,6 +11,12 @@
 **Google Drive document ID:** Not assigned  
 **Status:** OWNER APPROVED for ungraded three-camp Beta; official assessed-course and ten-camp advanced-depth acceptance INCOMPLETE  
 **Purpose:** A single denominator-locked progress register for the four owner-directed priorities and all ten Boot Camps, with legitimate role-separated authorization.
+
+## Latest canonical row classification and B01 scorecard — controlling clarification
+
+The primary 252-row instructional source field `docs/research/stockstotrade/252_instruction_source_field_QA_v2.csv` was counted directly: **22 AUTHORED_MODULE_WITH_PARENT + 225 PARENT_DAY_DERIVED + 5 SUBSTANTIVE_FREE_LESSON = 252 rows**. The 247 original Boot Camp day positions have source case material (initial source-case coverage 247/247), but **225 are parent-derived and cannot be described as independently authored advanced teaching modules**. The accepted full-depth *ungraded Beta* packages currently total **18/247**, and independent human editorial release approvals remain **0/252**. Do not treat the 247/247 weaker source-case presence check as full teaching/assessment approval.
+
+The current B01 protected graded-beta **weighted preparation estimate is 59% (v2.0)**, replacing historical 57% estimates; actual protected private v98 approved sets remain **0/20**, and 42 complete independently signed B01 day packages remain **0/42**. Separate genuine two-member private REST read-denial checks passed; the fully entitled native classroom/CAPTCHA and human subject-matter acceptance remain blocked. This clarification is consistent with, and does not change, the controlling **91/380** ungraded instructional readiness numerator.
 
 ## October 31 Owner D16–D18 decision — controlling latest evidence
 
