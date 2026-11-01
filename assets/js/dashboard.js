@@ -172,6 +172,14 @@ async function renderFreeFoundationEvidence(sb,memberId) {
    }
   }
   setText('free-reflection-progress',saved.length+' of 5 private study reflections saved. Practice evidence only; no official mastery awarded.');
+  // Reuse the verified, identity-scoped five-day data for accessible ECharts.
+  // This event carries NO assessment scores, answer keys or member identity.
+  document.dispatchEvent(new CustomEvent('smfgu:free-foundations-evidence',{
+   detail:{verified:true,days:[1,2,3,4,5].map(day=>({
+    day,status:byDay.get(day)?.status==='reflection_saved'?'saved':
+     byDay.has(day)?'started':'not_started'
+   }))}
+  }));
   const domainDays={knowledge:[1,3],recognition:[2],decision:[4],process:[5]};
   for(const [domain,days] of Object.entries(domainDays)){
    const practice=days.filter(day=>byDay.get(day)?.status==='reflection_saved').length;
@@ -179,6 +187,7 @@ async function renderFreeFoundationEvidence(sb,memberId) {
     ' / '+days.length+' guided reflections · Not Yet Assessed');
   }
  }catch{
+  document.dispatchEvent(new Event('smfgu:free-foundations-unavailable'));
   setText('free-next-detail','We could not verify your private Free Foundations progress. You can still read the lessons; no saved work is being assumed.');
   for(const name of ['knowledge','recognition','decision','process'])
    setText('free-skill-'+name,'Not Yet Assessed');
