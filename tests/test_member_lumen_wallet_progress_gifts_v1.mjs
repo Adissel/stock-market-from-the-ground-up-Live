@@ -123,4 +123,20 @@ for(const guard of [
 assert.doesNotMatch(gradingLink,/gu_lumen_learning_issue_v1\(/,
  'Scoring trigger must not directly mint credits or bypass queue acceptance');
 
+
+// Production grading regression: fixed SQLSTATE 42702 collisions cannot be
+// reintroduced without failing the existing wallet/rewards safety gate.
+// These tests inspect migration source; actual protected DB scoring is checked
+// separately using rollback-only authenticated QA.
+const gradeProfileFix=readFileSync('supabase/migrations/20261031_v135_competency_grader_profile_id_ambiguity_fix_v1.sql','utf8');
+const gradeAliasFix=readFileSync('supabase/migrations/20261031_v135_competency_scoring_sql_alias_fix_v1.sql','utf8');
+assert.match(gradeProfileFix,/member_profile\.id=p_user/);
+assert.match(gradeAliasFix,/V135_SCORER_BODY_CHANGED/);
+assert.match(gradeAliasFix,/V135_SCORER_ALIAS_CHANGED/);
+assert.match(gradeAliasFix,/regexp_replace\(v_suffix/);
+assert.match(gradeAliasFix,/question_item/);
+assert.match(gradeAliasFix,/EXECUTE v_prefix\|\|v_suffix/);
+assert.doesNotMatch(gradeAliasFix,/UPDATE public\.gu_lumen_completion_release_v1/);
+assert.doesNotMatch(gradeAliasFix,/UPDATE public\.gu_lumen_learning_rewards_v1/);
+
 console.log('PASS: read-only wallet/activity/progress, single-currency draft rewards, gifts gated; anonymous/foreign-origin requests rejected.');
