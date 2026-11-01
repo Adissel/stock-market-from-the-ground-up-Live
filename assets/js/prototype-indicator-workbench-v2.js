@@ -28,7 +28,7 @@
    if(!Number.isFinite(v))continue;
    r[k]=k==='bbDeviation'?Math.min(4,Math.max(.5,Math.round(v*10)/10)):Math.min(k==='orb'?30:k==='pivot'?5:100,Math.max(k==='pivot'?1:2,Math.round(v)));
   }
-  r.macdFast=Math.min(r.macdFast,r.macdSlow-1);
+  // MACD requires two valid EMA periods and fast < slow. A user-entered\n  // slow=2 previously coerced fast=1 (an unsupported warm-up period).\n  r.macdSlow=Math.max(3,r.macdSlow);\n  r.macdFast=Math.max(2,Math.min(r.macdFast,r.macdSlow-1));
   return r;
  }
  const finite=Number.isFinite;
