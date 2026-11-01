@@ -1161,17 +1161,18 @@
       "kind": "indicator",
       "family": "Levels",
       "concept": "Computed support and resistance references from earlier session OHLC. This is a levels study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Classic pivot=(prior_high+prior_low+prior_close)/3",
+      "formula": "Classic PP=(Hprev+Lprev+Cprev)/3; R1=2*PP-Lprev; S1=2*PP-Hprev; use one completely finished prior session.",
       "whyUse": "This can help a learner describe levels conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Map prior-session reference zones ahead of current trading",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Map prior-session reference zones ahead of current trading. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Choose the classic pivot family, completed prior daily session and its high, low, close. Calculate the PP first, then R1 and S1; plot levels for the next session and compare with price/volume without implying a guaranteed turn.",
       "limits": "Multiple pivot families use different formulas and are not natural hard barriers",
       "limit": "Multiple pivot families use different formulas and are not natural hard barriers. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Multiple pivot families use different formulas and are not natural hard barriers.",
       "commonError": "Treating Pivot Points as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Pivot Points measures, the formula/settings in Classic pivot=(prior_high+prior_low+prior_close)/3, one application to a hypothetical chart and why multiple pivot families use different formulas and are not natural hard barriers.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Pivot Points and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: A different completed session has high $120, low $100 and close $110. Find PP, R1 and S1 before the next session begins; explain why weekly pivots or another pivot family might disagree.",
+      "reviewExplanation": "PP=(120+100+110)/3=$110; R1=2×110−100=$120 and S1=2×110−120=$100. Use only the completed prior period and specify classic vs alternative pivot formulas. A pivot is a derived reference, not evidence that an order can fill or that support will hold.",
       "sourceUrls": [
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/O-Q/PivotPoints",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1182,7 +1183,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Pivot Points settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Yesterday's completed session had high $110, low $90 and close $100. Today's classic pivot is (110+90+100)/3=$100. R1=2×100−90=$110, S1=2×100−110=$90. Mark all three as reference levels only, not price barriers or future-tested predictions.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/O-Q/PivotPoints",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_FIBONACCI_RETRACEMENT",
@@ -1190,17 +1199,18 @@
       "kind": "indicator",
       "family": "Levels",
       "concept": "User-selected percentage subdivisions of a chosen price swing. This is a levels study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Swing_start + fraction*(swing_end-swing_start)",
+      "formula": "Upward swing retracement level=H−r×(H−L), where L and H are fixed, already observed swing endpoints, 0<=r<=1; reverse direction for a down-swing bounce.",
       "whyUse": "This can help a learner describe levels conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Document potential reaction zones with predeclared swing anchors",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Document potential reaction zones with predeclared swing anchors. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "On completed bars identify and record swing direction, high, low, timeframe and chosen ratios. Compute a reference using that fixed swing only; monitor subsequent bars separately and document failures as readily as reactions.",
       "limits": "Arbitrary anchors can retroactively manufacture exact-looking support",
       "limit": "Arbitrary anchors can retroactively manufacture exact-looking support. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Arbitrary anchors can retroactively manufacture exact-looking support.",
       "commonError": "Treating Fibonacci Retracement as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Fibonacci Retracement measures, the formula/settings in Swing_start + fraction*(swing_end-swing_start), one application to a hypothetical chart and why arbitrary anchors can retroactively manufacture exact-looking support.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Fibonacci Retracement and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: For a completed $20-to-$40 upswing, compute the 50% and 61.8% downward retracement references. Explain why moving the swing anchor after a bounce is hindsight bias.",
+      "reviewExplanation": "The completed swing is $20 wide: 50% pullback is $40−0.5×$20=$30; 61.8% is $40−0.618×$20=$27.64. Define direction and endpoints before observing the outcome; the common 50% level is not itself a Fibonacci ratio. Repainting anchors after the event invalidates an out-of-sample claim.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-annotation-tools/fibonacci-retracements",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1211,7 +1221,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Fibonacci Retracement settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A completed advance runs from a confirmed low of $20 to a confirmed high of $30. A 38.2% pullback reference measured downward from the high is $30−0.382×($30−$20)=$26.18. Choose endpoints before checking later price; these lines are candidate zones, not probabilistic guarantees.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-annotation-tools/fibonacci-retracements",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_VWAP",
@@ -1219,17 +1237,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Average transaction price weighted by transacted share quantity. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "VWAP=sum(price*shares)/sum(shares) for declared universe",
+      "formula": "Exact transaction VWAP=Σ(trade_price_i×trade_shares_i)/Σ(trade_shares_i); OHLCV HLC3 proxy=Σ(((H+L+C)/3)×bar_volume)/Σ(bar_volume); reset/feed and denominator must be declared.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Assess price location against a defined intraday/session benchmark",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Assess price location against a defined intraday/session benchmark. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Declare session reset, eligible market feed, trade time bounds and whether trades or HLC3 bar proxies are available. Reject a zero-volume denominator. Compare price to VWAP only as context, with no implied execution or future information.",
       "limits": "Anchor, feed scope and bar approximation can change the result",
       "limit": "Anchor, feed scope and bar approximation can change the result. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Anchor, feed scope and bar approximation can change the result.",
       "commonError": "Treating Volume Weighted Average Price as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Volume Weighted Average Price measures, the formula/settings in VWAP=sum(price*shares)/sum(shares) for declared universe, one application to a hypothetical chart and why anchor, feed scope and bar approximation can change the result.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Volume Weighted Average Price and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Two actual fictional trade prints contain 200 shares at $8 and 200 at $10. Calculate exact print VWAP, then name the trade data required to distinguish this from bar-HLC3 VWAP.",
+      "reviewExplanation": "VWAP=(200×8+200×10)/(200+200)=$9.00 per share for the stated prints. The numerator is traded notional, the denominator is eligible shares, and the time window and feed scope must be explicit. A candle-based HLC3 proxy can differ materially; do not silently describe it as exact trade-price VWAP.",
       "sourceUrls": [
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1240,7 +1259,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Volume Weighted Average Price settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: An authorized, complete set of two prints contains 100 shares at $10 and 300 shares at $12. Their exact trade-print VWAP is ($1,000+$3,600)/(100+300)=$11.50 per share. An HLC3 bar proxy from candles alone is NOT a reconstruction of these prints; always label it separately.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_ANCHORED_VWAP",
@@ -1248,17 +1275,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "VWAP computed from an explicitly selected event or timestamp. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Cumulative sum(price*volume)/sum(volume) beginning at chosen anchor",
+      "formula": "Anchored print VWAP(t;a)=Σ_{i=a..t}(trade_price_i×volume_i)/Σ_{i=a..t}volume_i; if using bar typical prices, explicitly label a bar proxy; anchor a fixed before evaluating later bars.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Study price location after a declared earnings or swing event",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Study price location after a declared earnings or swing event. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Choose and record a catalyst or other event anchor in advance, fix its timestamp and feed, then accumulate price-times-volume and volume through completed eligible observations. Keep later bars unseen in replay and disclose any changed anchor.",
       "limits": "Choosing the anchor after seeing the outcome creates hindsight bias",
       "limit": "Choosing the anchor after seeing the outcome creates hindsight bias. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Choosing the anchor after seeing the outcome creates hindsight bias.",
       "commonError": "Treating Anchored VWAP as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Anchored VWAP measures, the formula/settings in Cumulative sum(price*volume)/sum(volume) beginning at chosen anchor, one application to a hypothetical chart and why choosing the anchor after seeing the outcome creates hindsight bias.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Anchored VWAP and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: At another predeclared anchor, complete fictional prints are 100 shares at $12 and 100 at $18. Compute anchored VWAP, and explain what happens when a new anchor excludes the first print.",
+      "reviewExplanation": "Anchored VWAP=(100×12+100×18)/200=$15. If anchoring at the second print instead, only its $18 price remains eligible; changing the anchor is changing the calculation universe, not correcting history. Report anchor timestamp, reset logic and denominator; an OHLCV bar approximation is different.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/anchored-vwap",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1269,7 +1297,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Anchored VWAP settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: After a predefined event anchor, a completed first price/volume observation is $10 for 100 shares and a second is $14 for 300 shares. Anchored trade-print VWAP at the second observation is ($1,000+$4,200)/400=$13. Choosing the anchor after viewing the future creates a biased comparison.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/anchored-vwap",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_VWAP_BANDS",
@@ -1277,17 +1313,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Distance around VWAP expressed in a stated volume-weighted deviation method. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "VWAP +/- k*declared_SD around anchor",
+      "formula": "Illustrative bands=VWAP±k×σ, where σ is an explicitly defined dispersion of eligible price deviations and k is a declared multiplier; exact vendor deviations/weights may differ.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare unusual deviations against a matched historical basis",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare unusual deviations against a matched historical basis. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "First validate the underlying VWAP and its eligible trade/session universe. Specify whether dispersion is price- or volume-weighted, how it is seeded and how it resets, then calculate only from completed eligible observations.",
       "limits": "Not a guaranteed mean-reversion zone and bands depend on session method",
       "limit": "Not a guaranteed mean-reversion zone and bands depend on session method. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Not a guaranteed mean-reversion zone and bands depend on session method.",
       "commonError": "Treating VWAP Deviation Bands as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what VWAP Deviation Bands measures, the formula/settings in VWAP +/- k*declared_SD around anchor, one application to a hypothetical chart and why not a guaranteed mean-reversion zone and bands depend on session method.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of VWAP Deviation Bands and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Given VWAP=$20, separately validated eligible-price σ=$2 and k=1.5, find upper and lower bands. Why must the standard deviation's weighting and session reset be identified?",
+      "reviewExplanation": "The bands are upper $20+1.5×2=$23 and lower $20−1.5×2=$17. This is the declared illustrative convention, not proof that a named chart vendor will match; σ could use different weighting, session, or price observations. A touch at a band does not ensure mean reversion or a fill.",
       "sourceUrls": [
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1298,7 +1335,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different VWAP Deviation Bands settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Suppose a completed-session VWAP has already been established at $10 and an independently specified eligible-price dispersion is σ=$1.50. For k=2, illustrative bands are $10±$3, or $7 and $13. σ is a GIVEN input here, not a dispersion reconstructed from one price bar.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_VOLUME_SMA",
@@ -1306,17 +1351,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Average traded shares per bar or session. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "Average volume(N,t) = SUM(Volume[k] for k=t-N+1...t) / N shares per bar, using N completed comparable volume bars.",
+      "formula": "Volume SMA(N,t)=Σ_{j=t−N+1..t}V_j/N shares per completed comparable bar; N positive and N history bars required.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Establish a correctly matched baseline before interpreting expansion",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Establish a correctly matched baseline before interpreting expansion. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Choose N and consistent time units. Require N completed bars with the same session and source settings. Sum volumes, divide by N and use only matching time aggregation when comparing observations.",
       "limits": "A daily average cannot directly normalize five minutes of volume",
       "limit": "A daily average cannot directly normalize five minutes of volume. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. A daily average cannot directly normalize five minutes of volume.",
       "commonError": "Treating Average Volume as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Average Volume measures, the formula/settings in AvgVol=sum(volume,N)/N, one application to a hypothetical chart and why a daily average cannot directly normalize five minutes of volume.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Average Volume and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Three other complete five-minute bars have 200, 300 and 400 shares. Calculate their three-bar mean and explain whether it can fairly be compared with full-session volume.",
+      "reviewExplanation": "Average volume is (200+300+400)/3=300 shares per five-minute bar. Never mix daily totals, five-minute bar volume and partial-session volume as if their units matched. Require N completed valid volume observations and clearly state treatment of missing bars, zero volumes and session boundaries.",
       "sourceUrls": [
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VolumeAvg",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1327,7 +1373,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Average Volume settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Three finished five-minute bars recorded 100, 200 and 300 shares. Volume SMA(3)=(100+200+300)/3=200 shares per five-minute bar. This does not represent 200 shares per day and cannot be compared with a partially formed bar without disclosing the incomplete window.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VolumeAvg",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_RVOL",
@@ -1335,17 +1389,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Current trading volume relative to a clearly declared historical baseline. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "RVOL=current_volume/baseline_volume",
+      "formula": "Completed-bar RVOL(t)=current_completed_bar_volume / SMA(prior N comparable completed-bar volumes); exclude current bar from baseline and reject zero baseline.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Screen unusual activity without assigning directional meaning",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Screen unusual activity without assigning directional meaning. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Choose time aggregation and previous N comparable bars; establish a nonzero prior average, then divide the new finished bar volume by that average. Explicitly distinguish this per-bar method from cumulative matched-time RVOL.",
       "limits": "Full-session and partial-session denominators can produce false comparisons",
       "limit": "Full-session and partial-session denominators can produce false comparisons. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Full-session and partial-session denominators can produce false comparisons.",
       "commonError": "Treating Relative Volume as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Relative Volume measures, the formula/settings in RVOL=current_volume/baseline_volume, one application to a hypothetical chart and why full-session and partial-session denominators can produce false comparisons.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Relative Volume and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: With a prior-bar volume baseline of 300 shares, a new fully completed comparable bar prints 150 shares. Calculate RVOL and explain why a partially elapsed day is not a full-session equivalent.",
+      "reviewExplanation": "RVOL=150/300=0.5×. The baseline excludes the observed bar, uses a declared N and matching timeframe, and must be nonzero. A 0.5× value is less volume than the selected historical average, not an automatic bearish recommendation or an order-flow classification.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-volume-rvol",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1356,7 +1411,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Relative Volume settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: The previous three comparable completed bars have volumes 200, 300 and 400 shares, giving prior baseline (200+300+400)/3=300. A new completed bar has 600 shares, so RVOL=600/300=2.0× its historical baseline. It does not state whether the trades were initiated by buyers or sellers.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-volume-rvol",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_MATCHED_TIME_RVOL",
@@ -1364,17 +1427,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Cumulative volume divided by historical cumulative volume at the same clock time. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "RVOL_time=volume_so_far/average(volume_so_far at same time)",
+      "formula": "Cumulative matched-time RVOL at clock t=volume_since_open_today_through_t / mean(volume_since_open_previous_day_through_same_clock_t) over N comparable prior sessions.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Differentiate true unusual morning activity from ordinary intraday seasonality",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Differentiate true unusual morning activity from ordinary intraday seasonality. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Use source-aware market-local timestamps and normalized market sessions; select prior N completed comparable sessions, truncate each at the present cutoff, calculate baseline then ratio. This is an explicit matched-time variant, not the generic per-bar RVOL documented by the primary reference.",
       "limits": "Requires consistent sessions, historical sample and verified data scope",
       "limit": "Requires consistent sessions, historical sample and verified data scope. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Requires consistent sessions, historical sample and verified data scope.",
       "commonError": "Treating Matched-Time Relative Volume as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Matched-Time Relative Volume measures, the formula/settings in RVOL_time=volume_so_far/average(volume_so_far at same time), one application to a hypothetical chart and why requires consistent sessions, historical sample and verified data scope.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Matched-Time Relative Volume and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: At 10:30 a.m. the present completed cumulative volume is 300 shares; the same clock cutoff on two prior sessions was 200 and 400. Compute matched-time RVOL and name two comparability controls.",
+      "reviewExplanation": "Prior matched-time mean=(200+400)/2=300, so RVOL_time=300/300=1.0×. Cutoffs must be comparable market-local timestamps with the same opening session, feed coverage and holiday/shortened-day policy. Do not replace a partial-day matched denominator with a previous full-day total or use later bars.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-volume-rvol",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1385,7 +1449,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Matched-Time Relative Volume settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: At 11:00 a.m. today, 900 shares have traded since the stated open. At that SAME local market time, three prior matched sessions had 300, 600 and 900 shares; baseline=(300+600+900)/3=600. Matched-time RVOL=900/600=1.5×, using only observations available by 11:00.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-volume-rvol",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_DOLLAR_VOLUME",
@@ -1393,17 +1465,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Trading activity expressed in monetary notional rather than raw shares. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "DollarVol=sum(trade_price*trade_size) on declared feed",
+      "formula": "Exact traded notional over declared feed/window=Σ_i(trade_price_i in USD × trade_shares_i) USD; bar close×volume is only a disclosed price proxy.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Screen whether volume is economically meaningful at different stock prices",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Screen whether volume is economically meaningful at different stock prices. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Restrict to eligible completed trade prints, multiply each trade price by shares and total in USD. If only candles are available, describe typical-price×bar-volume explicitly as a notional proxy rather than a verified print reconstruction.",
       "limits": "High past notional does not guarantee available depth at the desired quote",
       "limit": "High past notional does not guarantee available depth at the desired quote. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. High past notional does not guarantee available depth at the desired quote.",
       "commonError": "Treating Dollar Volume as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Dollar Volume measures, the formula/settings in DollarVol=sum(trade_price*trade_size) on declared feed, one application to a hypothetical chart and why high past notional does not guarantee available depth at the desired quote.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Dollar Volume and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: A new completed window contains 40 shares at $20 and 20 shares at $21. Calculate the total traded notional in dollars and distinguish completed turnover from order-book depth.",
+      "reviewExplanation": "Notional=(40×$20)+(20×$21)=$800+$420=$1,220. Match the trade feed, currency, eligible period and lot size; exclude unknown trade prints. Quoted depth may be cancelled and is distinct from past notional turnover, so dollar volume never proves executable liquidity for a given order.",
       "sourceUrls": [
+        "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1414,7 +1487,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Dollar Volume settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Two completed eligible prints show 100 shares at $10 and 50 shares at $12. Dollar volume is $1,000+$600=$1,600 of traded notional within this stated feed/window. This is NOT $1,600 of available liquidity at the best quote, nor a promise that a new order will fill.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_OBV",
@@ -1422,17 +1503,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Cumulative signed volume based on whether price closes up or down. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "OBV(t)=OBV(t-1)+volume if close rises, minus if falls",
+      "formula": "OBV_t=OBV_(t−1)+V_t if C_t>C_(t−1); −V_t if lower; unchanged if equal; initial seed arbitrary and must be declared.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Compare price trends and volume confirmation",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Compare price trends and volume confirmation. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Pick a deterministic seed and session scope, then process one completed bar at a time using consecutive closes. Add, subtract or retain that bar's volume. Never infer actual buyer/seller identity from a computed OBV sign.",
       "limits": "Sign derived from closing direction is not actual signed order flow",
       "limit": "Sign derived from closing direction is not actual signed order flow. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Sign derived from closing direction is not actual signed order flow.",
       "commonError": "Treating On Balance Volume as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what On Balance Volume measures, the formula/settings in OBV(t)=OBV(t-1)+volume if close rises, minus if falls, one application to a hypothetical chart and why sign derived from closing direction is not actual signed order flow.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of On Balance Volume and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: If prior OBV=100 shares, the new completed close is above its previous close and new volume is 60 shares, what is OBV? What if both closes were equal?",
+      "reviewExplanation": "For an increase, OBV=100+60=160 shares; for equal closing prices OBV stays 100. The initial absolute number depends on the chosen seed and window, so comparison should focus on consistent changes. A positive increment does not prove all 60 shares represented buyer-initiated executions.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/on-balance-volume-obv",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1443,7 +1525,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different On Balance Volume settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: With OBV seeded at zero, the first completed new close rises from $10 to $11 on 200 shares, so OBV becomes +200. The next completed close falls to $10.50 on 50 shares, so OBV becomes +150. The change is determined by close direction, not measured aggressor side or a future candle.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/on-balance-volume-obv",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_ACC_DIST_LINE",
@@ -1451,17 +1541,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Cumulative close-location value weighted by trading volume. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "CLV=((close-low)-(high-close))/(high-low); ADL+=CLV*volume",
+      "formula": "CLV=(2C−H−L)/(H−L) for H>L; MoneyFlowVolume=CLV×V; ADL_t=ADL_(t−1)+MoneyFlowVolume; declare H=L handling.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Study whether bars close near high or low under participation",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Study whether bars close near high or low under participation. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "For each completed valid OHLCV bar, enforce L<=C<=H and H>L or a declared zero-range rule. Calculate CLV and volume contribution, then update the cumulative line with a disclosed starting value.",
       "limits": "Bar close location cannot reveal buyer identities; zero range requires defined handling",
       "limit": "Bar close location cannot reveal buyer identities; zero range requires defined handling. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Bar close location cannot reveal buyer identities; zero range requires defined handling.",
       "commonError": "Treating Accumulation Distribution Line as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Accumulation Distribution Line measures, the formula/settings in CLV=((close-low)-(high-close))/(high-low); ADL+=CLV*volume, one application to a hypothetical chart and why bar close location cannot reveal buyer identities; zero range requires defined handling.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Accumulation Distribution Line and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: For a completed bar H=$10, L=$6, C=$7, volume=100 and previous ADL=120, calculate CLV, money-flow volume and resulting ADL; address H=L.",
+      "reviewExplanation": "CLV=(14−10−6)/4=−0.5; money-flow volume=−50; ADL=120−50=70. A zero-range bar makes the raw fraction undefined, so declare a zero-contribution convention (CLV=0) or reject that observation consistently. Closing-location inference is not signed trade flow.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/accumulation-distribution-line",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1472,7 +1563,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Accumulation Distribution Line settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A finished bar has H=$12, L=$8, C=$11 and volume 200 shares. Its close-location value CLV=(22−12−8)/4=0.5. Money-flow volume is 0.5×200=100. If prior ADL=20, new ADL=120. This close-location measure does not identify buyers or recreate order-book events.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/accumulation-distribution-line",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_CMF",
@@ -1480,17 +1579,18 @@
       "kind": "indicator",
       "family": "Volume",
       "concept": "Ratio of summed money-flow volume to total volume over N bars. This is a volume study; it transforms historical source observations instead of independently predicting future trades.",
-      "formula": "CLV=(2*Close-High-Low)/(High-Low); CMF(N)=SUM(CLV*Volume,N)/SUM(Volume,N), with a declared zero-range convention and nonzero volume sum.",
+      "formula": "CMF(N,t)=Σ_{last N completed bars}(CLV_i×V_i)/Σ_{last N completed bars}V_i, CLV=(2C−H−L)/(H−L); declare zero-range convention and nonzero aggregate volume.",
       "whyUse": "This can help a learner describe volume conditions, ask better chart questions and compare a setup with a documented reference, not create an automatic entry.",
       "howToUse": "Examine volume-weighted close location for a declared interval",
-      "procedure": "First choose security, session, price type, timeframe, history length and calculation settings. Examine volume-weighted close location for a declared interval. Compare with the underlying price/volume and define what would falsify the interpretation.",
+      "procedure": "Calculate close-location values from N completed OHLC bars with validated high/low and an explicit flat-bar rule. Weight each by corresponding eligible volume; divide summed contributions by positive aggregate volume and require N complete bars.",
       "limits": "Gap moves may not be captured as expected; not actual cash flowing in",
       "limit": "Gap moves may not be captured as expected; not actual cash flowing in. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Gap moves may not be captured as expected; not actual cash flowing in.",
       "commonError": "Treating Chaikin Money Flow as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Chaikin Money Flow measures, the formula/settings in CMF=sum(CLV*vol,N)/sum(vol,N), one application to a hypothetical chart and why gap moves may not be captured as expected; not actual cash flowing in.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Chaikin Money Flow and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL TRANSFER: Over two completed bars, CLV values are +1.0 for volume 100 and −0.5 for volume 200. Calculate two-bar CMF. Explain why a zero-range candle and total volume of zero require defined handling.",
+      "reviewExplanation": "CMF=(1×100−0.5×200)/(100+200)=0/300=0. The rolling denominator must be strictly positive. If H=L, CLV is undefined until a documented handling convention is applied (e.g. zero contribution); do not hide missing data or infer literal money entering the security from this oscillator.",
       "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/chaikin-money-flow-cmf",
         "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -1501,7 +1601,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Chaikin Money Flow settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: Over two completed eligible bars, bar A has CLV=+0.5 and 100 shares, while bar B has CLV=−1.0 and 100 shares. CMF(2)=(0.5×100−1×100)/(100+100)=−50/200=−0.25. These CLV inputs are separately computed from valid OHLC observations; no later bars appear.",
+      "internalEditorialReview": {
+        "version": "1.0",
+        "date": "2026-11-01",
+        "scope": "12 distinct source-informed fictional worked examples and ungraded transfer reviewed internally; independent publication, rights and authenticated member acceptance still open",
+        "claimSpecificReference": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/chaikin-money-flow-cmf",
+        "sourceRights": "public_reference_only_no_third_party_chart_or_feed_republication",
+        "independentlyAccepted": false
+      }
     },
     {
       "code": "STUDY_MFI",
