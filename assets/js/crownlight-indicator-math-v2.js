@@ -9,10 +9,14 @@
  function sma(vals,period){
   const p=Math.round(Number(period));const out=Array(vals.length).fill(null);
   if(!Number.isInteger(p)||p<2||p>500)return out;
-  let sum=0;for(let i=0;i<vals.length;i++){
-   if(!finite(vals[i]))continue;sum+=vals[i];
-   if(i>=p)sum-=vals[i-p];
-   if(i>=p-1)out[i]=sum/p;
+  // A partial or missing window is NOT a valid moving average. Track the
+  // count of actual observations so gaps never poison later complete windows
+  // with NaN, nor fabricate averages from fewer than p completed prices.
+  let sum=0,count=0;
+  for(let i=0;i<vals.length;i++){
+   if(finite(vals[i])){sum+=vals[i];count++}
+   if(i>=p&&finite(vals[i-p])){sum-=vals[i-p];count--}
+   if(i>=p-1&&count===p)out[i]=sum/p;
   }return out;
  }
  function ema(vals,period){
