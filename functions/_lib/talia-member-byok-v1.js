@@ -44,3 +44,35 @@ export async function getMemberTutorApiKey(env,userId){
   return await decryptMemberTutorApiKey(env,item.credential_ciphertext,item.credential_iv);
  }catch{return null}
 }
+
+/* Reuse existing atomic Tutor request ledger; do NOT depend on a funded
+ * website AI model or bypass metering when the website AI service is OFF.
+ * A member's provider is billed separately by that provider.
+ */
+export async function reserveMemberTutorByokRequest(env,userId,requestId){
+ if(!memberTutorByokInferenceAllowed(env))
+  return {accepted:false,reason:'member_provider_not_approved'};
+ const limits=['TALIA_BYOK_MEMBER_DAILY_LIMIT','TALIA_BYOK_GLOBAL_DAILY_LIMIT','TALIA_BYOK_GLOBAL_MONTHLY_LIMIT']
+  .map((k,i)=>{const s=String(env[k]||'');return /^[1-9][0-9]*$/.test(s)&&Number(s)<=[100,10000,250000][i]?Number(s):null});
+ if(limits.some(x=>!x)||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(userId))||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(requestId)))
+  return {accepted:false,reason:'member_quota_not_configured'};
+ const base=String(env.SUPABASE_URL||'').replace(/\/$/,'');
+ const secret=String(env.SUPABASE_SECRET_KEY||'');
+ if(!/^https:\/\/[^/]+$/.test(base)||!secret)return {accepted:false,reason:'meter_unavailable'};
+ const headers={apikey:secret,accept:'application/json','content-type':'application/json'};
+ if(/^eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(secret))headers.authorization='Bearer '+secret;
+ try{
+  const response=await fetch(base+'/rest/v1/rpc/gu_v014103_reserve_ai_request',{
+   method:'POST',cache:'no-store',headers,
+   body:JSON.stringify({p_user:userId,p_request:requestId,
+    p_member_day_limit:limits[0],p_global_day_limit:limits[1],p_global_month_limit:limits[2]})});
+  if(!response.ok)return {accepted:false,reason:'meter_unavailable'};
+  const data=await response.json();
+  return data&&typeof data.accepted==='boolean'?{
+   accepted:data.accepted===true,reason:String(data.reason||'unknown'),
+   remainingMemberToday:Math.max(0,Number(data.remainingMemberToday)||0)
+  }:{accepted:false,reason:'meter_unavailable'};
+ }catch{return {accepted:false,reason:'meter_unavailable'}
+ }
+}
