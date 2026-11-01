@@ -491,7 +491,7 @@ function PlatformExplorer({design,reveal,volume,ema,proxy,focus}:{design:Design;
 type LayoutKind='cards'|'buttons'|'labels'|'text';
 type LayoutChange={x:number;y:number;width?:number;height?:number;hidden?:boolean;name?:string};
 const layoutTargets={
- cards:'.cx-panel,.cx-talia,.cx-tutor-evidence,.cx-lesson-body,.cx-practice-pair,.cx-kpis>div,.cx-desk-banner,.cx-platform-explorer,.cx-member-experience,.cx-member-hero,.cx-member-actions,.cx-chart-card,.cx-chart,.cx-trade-rows,.cx-trade,.cx-flagship-intro,.cx-platform-preview>div,.cx-edition-preview,.cx-edition-grid>label,.cx-member-workspaces,.cx-controlstrip,.cx-designs>button,.cx-indicator-catalog,.cx-reorderable',
+ cards:'section,article,aside,.cx-panel,.cx-talia,.cx-tutor-evidence,.cx-lesson-body,.cx-practice-pair,.cx-kpis>div,.cx-desk-banner,.cx-desk-identity,.cx-desk-price,.cx-platform-explorer,.cx-platform-preview>div,.cx-member-experience,.cx-member-hero,.cx-member-actions,.cx-chart-card,.cx-chart,.cx-chart-grabbable,.cx-trade-rows,.cx-trade,.cx-flagship-intro,.cx-flagship-aurora,.cx-flagship-quantum,.cx-edition-preview,.cx-edition-grid>label,.cx-member-workspaces,.cx-controlstrip,.cx-designs>button,.cx-indicator-catalog,.cx-reorderable,.cx-reorder-tools,.cx-learning,.cx-left,.cx-right,.cx-workgrid',
  buttons:'button,a,[role="button"],.cx-chip',
  labels:'label,.cx-overline,.cx-stage-name,.cx-statusline span,.cx-tutor-context,.cx-numeric>span',
  text:'h1,h2,h3,h4,p,small,strong,.cx-coach-typed,.cx-overline'
@@ -500,7 +500,9 @@ const layoutTargets={
 function LayoutStudio({page}:{page:Page}){
  const [editing,setEditing]=useState(false),[clean,setClean]=useState(false),[hidePreview,setHidePreview]=useState(false);
  const [kind,setKind]=useState<LayoutKind>('cards'),[selected,setSelected]=useState(''),[version,setVersion]=useState(0);
- const [note,setNote]=useState('Click or drag an item. Use dimensions and arrows for precise placement.');
+ const [note,setNote]=useState('Choose an element from the list or click a card. Drag to move; change its width and height below.');
+ const [inventory,setInventory]=useState<Array<{id:string;label:string}>>([]);
+ const [search,setSearch]=useState('');
  const items=useRef<Record<string,LayoutChange>>({}),history=useRef<Record<string,LayoutChange>[]>([]);
  const selectedNode=useRef<HTMLElement|null>(null);
  const keyFor=useCallback((el:HTMLElement,root:HTMLElement)=>{
@@ -530,8 +532,20 @@ function LayoutStudio({page}:{page:Page}){
   root.querySelectorAll<HTMLElement>('[data-cx-layout-key]').forEach(el=>{el.dataset.cxSelected=editing&&!clean&&el.dataset.cxLayoutKey===selected?'true':'false'});
  },[keyFor,editing,clean,selected]);
  const applyRef=useRef(apply);applyRef.current=apply;
- const selectRef=useRef(selected);selectRef.current=selected;
- const snapshot=()=>{history.current.push(JSON.parse(JSON.stringify(items.current)));if(history.current.length>30)history.current.shift()};
+ const describe=useCallback((el:HTMLElement)=>{
+  const own=el.getAttribute('aria-label')||el.getAttribute('data-layout-label')||'';
+  const heading=el.querySelector('h2,h3,h4')?.textContent||'';
+  const title=own||heading||el.querySelector('strong,b')?.textContent||el.textContent||'';
+  const suffix=(typeof el.className==='string'?el.className.split(/\s+/).filter(x=>x.startsWith('cx-')).slice(0,2).join(' '):el.tagName.toLowerCase());
+  return (title.trim().replace(/\s+/g,' ').slice(0,55)||suffix||el.tagName)+' · '+suffix;
+ },[]);
+ const refreshInventory=useCallback(()=>{
+  const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
+  const candidates=Array.from(root.querySelectorAll<HTMLElement>(layoutTargets[kind]));
+  const rows=candidates.filter(el=>!el.closest('[data-cx-editor]')&&el.getBoundingClientRect().width>=35&&el.getBoundingClientRect().height>=12)
+   .map(el=>({id:keyFor(el,root),label:describe(el)}));
+  setInventory(rows.filter((row,i)=>rows.findIndex(other=>other.id===row.id)===i));
+ },[kind,keyFor,describe]);
  const change=useCallback((key:string,update:Partial<LayoutChange>)=>{
   if(!key)return;
   history.current.push(JSON.parse(JSON.stringify(items.current)));if(history.current.length>30)history.current.shift();
@@ -551,6 +565,15 @@ function LayoutStudio({page}:{page:Page}){
   return()=>{obs.disconnect();root.classList.remove('cx-layout-editing','cx-preview-hide-chrome','cx-clean-screenshot')};
  },[editing,clean,hidePreview,page]);
  useEffect(()=>{applyRef.current()},[version,selected,kind,editing]);
+ useEffect(()=>{if(editing&&!clean)refreshInventory()},[editing,clean,kind,page,refreshInventory]);
+ const selectById=(id:string)=>{
+  const root=document.querySelector<HTMLElement>('.cx-app');if(!root||!id)return;
+  const el=Array.from(root.querySelectorAll<HTMLElement>(layoutTargets[kind]))
+    .find(candidate=>!candidate.closest('[data-cx-editor]')&&keyFor(candidate,root)===id);
+  if(!el){setNote('This item is no longer visible. Reopen the element list after switching learning views.');return;}
+  selectedNode.current=el;setSelected(id);setNote('Selected '+describe(el)+'. Resize, move, or hide this element.');
+  el.scrollIntoView({behavior:'auto',block:'nearest',inline:'nearest'});
+ };
  useEffect(()=>{
   function esc(ev:KeyboardEvent){if(ev.key==='Escape'&&clean){setClean(false);setEditing(true);setNote('Screenshot mode closed. Layout editing restored.');}}
   document.addEventListener('keydown',esc);return()=>document.removeEventListener('keydown',esc);
@@ -559,19 +582,31 @@ function LayoutStudio({page}:{page:Page}){
   if(!editing||clean)return;
   const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
   const selector=layoutTargets[kind];
+  function targetFrom(evTarget:EventTarget|null){
+   const node=evTarget instanceof Element?evTarget:evTarget instanceof Node?evTarget.parentElement:null;
+   if(!node||node.closest('[data-cx-editor]'))return null;
+   let el=node.closest<HTMLElement>(selector);
+   if(!el&&kind==='cards'){
+    // Canvas/SVG content and custom component wrappers may lack a registered class.
+    const candidate=node.closest<HTMLElement>('div,main,header,nav');
+    const fallback=candidate?.closest<HTMLElement>('[class*="cx-"]');
+    if(fallback&&fallback!==root&&!fallback.closest('[data-cx-editor]'))el=fallback;
+   }
+   return el&&root!.contains(el)&&el!==root?el:null;
+  }
   function down(ev:PointerEvent){
-   if(ev.button!==0||!(ev.target instanceof HTMLElement)||ev.target.closest('[data-cx-editor]'))return;
-   const el=ev.target.closest<HTMLElement>(selector);
-   if(!el||!root!.contains(el))return;
+   if(ev.button!==0)return;
+   const el=targetFrom(ev.target);
+   if(!el)return;
    ev.preventDefault();ev.stopPropagation();
    const key=keyFor(el,root!);
-   selectedNode.current=el;setSelected(key);
+   selectedNode.current=el;setSelected(key);setNote('Selected '+describe(el)+'. Drag to reposition, or set width and height below.');
    const original=items.current[key]||{x:0,y:0},startX=ev.clientX,startY=ev.clientY;
    const dragging={x:original.x,y:original.y};
    let moved=false;
    const move=(e:PointerEvent)=>{
     if(e.pointerId!==ev.pointerId)return;
-    if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>2)moved=true;
+    if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>3)moved=true;
     if(!moved)return;
     dragging.x=Math.round(original.x+e.clientX-startX);dragging.y=Math.round(original.y+e.clientY-startY);
     el.style.transform='translate3d('+dragging.x+'px,'+dragging.y+'px,0)';
@@ -581,17 +616,17 @@ function LayoutStudio({page}:{page:Page}){
    const stop=(e:PointerEvent)=>{
     if(e.pointerId!==ev.pointerId)return;
     document.removeEventListener('pointermove',move,true);document.removeEventListener('pointerup',stop,true);document.removeEventListener('pointercancel',stop,true);
-    if(moved)change(key,{x:dragging.x,y:dragging.y,name:el.getAttribute('aria-label')||el.querySelector('h3,h4')?.textContent?.slice(0,55)||el.className.toString().slice(0,55)||el.tagName});
+    if(moved&&e.type==='pointerup')change(key,{x:dragging.x,y:dragging.y,name:describe(el)});
+    else if(moved){el.style.transform='translate3d('+original.x+'px,'+original.y+'px,0)';}
    };
    document.addEventListener('pointermove',move,true);document.addEventListener('pointerup',stop,true);document.addEventListener('pointercancel',stop,true);
   }
   function suppress(ev:MouseEvent){
-   if(!(ev.target instanceof HTMLElement)||ev.target.closest('[data-cx-editor]'))return;
-   if(ev.target.closest(selector)){ev.preventDefault();ev.stopImmediatePropagation();}
+   if(targetFrom(ev.target)){ev.preventDefault();ev.stopImmediatePropagation();}
   }
   root.addEventListener('pointerdown',down,true);root.addEventListener('click',suppress,true);
   return()=>{root.removeEventListener('pointerdown',down,true);root.removeEventListener('click',suppress,true)};
- },[editing,clean,kind,keyFor,change]);
+ },[editing,clean,kind,keyFor,change,describe]);
  const current:LayoutChange=items.current[selected]||{x:0,y:0};
  const modify=(update:Partial<LayoutChange>)=>{if(!selected)return;change(selected,{...update,name:current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.querySelector('h3,h4')?.textContent?.slice(0,55)||kind})};
  const hidden=Object.entries(items.current).filter(([,value])=>value.hidden);
@@ -600,7 +635,12 @@ function LayoutStudio({page}:{page:Page}){
   {editing&&!clean&&<section className="cx-layout-toolbar" aria-label="Visual layout controls">
    <header><strong>Layout Designer · Staff only</strong><small>Rearrange the preview to prepare screenshots. No member changes.</small></header>
    <label>Choose elements to arrange<select aria-label="Layout element type" value={kind} onChange={e=>setKind(e.target.value as LayoutKind)}><option value="cards">Cards / charts</option><option value="buttons">Buttons / links</option><option value="labels">Labels</option><option value="text">Headings / text</option></select></label>
-   <p>Drag any selected element to move it. Click for exact sizing, positioning or hiding. Layout is saved in this browser for the current screen size.</p>
+   <p><strong>Choose an element below or click it directly on the page.</strong> This works with cards, charts, buttons, labels and text. Drag to move it, or enter its dimensions. Layout is saved locally for this screen size.</p>
+   <label>Find an element<input aria-label="Find page element" type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search: Talia, VWAP, chart, button..."/></label>
+   <label>Page elements ({inventory.length})<select aria-label="Select page element" size={5} value={selected} onChange={e=>selectById(e.target.value)}>
+    {inventory.filter(e=>!search||e.label.toLowerCase().includes(search.toLowerCase())).slice(0,400).map(e=><option key={e.id} value={e.id}>{e.label}</option>)}
+   </select></label>
+   <button type="button" className="cx-layout-refresh" onClick={refreshInventory}>Refresh element list</button>
    <output aria-live="polite">Selected: {selected?(current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.tagName||'Element'):'None'}</output>
    <div className="cx-layout-dimensions">
     <label>Width (px)<input aria-label="Selected element width" type="number" min="60" max="2200" value={current.width||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({width:e.target.value?Math.min(2200,Math.max(60,Number(e.target.value))):undefined})}/></label>
