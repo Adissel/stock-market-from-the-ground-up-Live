@@ -1,0 +1,12 @@
+/* Staff authenticated prototype only; original fictional charts. */
+#pt-lab-advanced-preview{margin:1.2rem 0;border:1px solid #52748a;border-radius:14px;padding:1rem;background:#101f32;color:#edf4fc}
+#pt-lab-advanced-preview>summary{cursor:pointer;font-weight:700;padding:.5rem}
+#pt-lab-advanced-preview .pt-advanced-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+#pt-lab-advanced-preview .pt-advanced-pane{height:280px;min-width:0}
+#pt-lab-advanced-preview button{padding:.55rem .9rem;margin:.6rem .7rem .6rem 0;cursor:pointer}
+#pt-lab-advanced-preview button:focus-visible{outline:3px solid #f1cf87;outline-offset:3px}
+#pt-lab-advanced-preview table{width:100%;border-collapse:collapse}
+#pt-lab-advanced-preview td,#pt-lab-advanced-preview th{padding:.5rem;text-align:left;border-bottom:1px solid #355168}
+#pt-lab-advanced-preview [role=status]{min-height:2em}
+@media(max-width:800px){#pt-lab-advanced-preview .pt-advanced-layout{grid-template-columns:1fr}
+#pt-lab-advanced-preview .pt-advanced-pane{height:230px}}
