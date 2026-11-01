@@ -416,10 +416,11 @@ function Lesson({topic,setTopic,stage,setStage,bar,setBar,focus=0,reveal=54,setF
   <div className="cx-stage-name">STAGE {stage+1} / 10 · {['Learning objectives','First principles','I DO · Worked calculation','WE DO · Chart experiment','Predict with uncertainty','Replay and guided practice','Protected assessment preview','Review and corrective retry','Independent transfer task','Results and diagnostic review'][stage]}</div>
   <div className="cx-teaching-badge"><span>I DO / DEMONSTRATE</span><span>WE DO / INVESTIGATE</span><span>YOU DO / TRANSFER</span></div>
   <Talia topic={topic} step={authoritativeStage} bar={bar} stage={stage} onStage={setStage}/>
-   <TutorEvidenceDesk topic={topic} stage={stage} focus={focus} reveal={reveal} onFocus={setFocus} onStage={setStage}/>
   {stage===4&&<section className="cx-predict-gate" aria-label="Prediction and uncertainty checkpoint"><div className="cx-overline">PAUSE · MAKE AN EVIDENCE-BASED DECISION</div><p>At the current fictional candle, what can we responsibly conclude before seeing the next bar?</p><div role="group" aria-label="Prediction evidence choices">{[['forecast','A rising candle guarantees the next candle rises'],['observe','The completed candle is evidence; the next price is unknown'],['certainty','VWAP or a wick proves where price must go']].map(([k,v])=><button key={k} aria-pressed={prediction===k} onClick={()=>{setPrediction(k);setPredictionFeedback('')}}>{v}</button>)}</div><button className="cx-predict-check" onClick={()=>setPredictionFeedback(!prediction?'Choose a conclusion before checking.':prediction==='observe'?'Correct. You distinguished an observed price bar from a future outcome. Identify what context would improve the decision.':'Not supported. Indicators and completed candles summarize past observations. They cannot establish the next bar as a certainty.')}>Check my reasoning</button><p role="status">{predictionFeedback}</p></section>}
   
+  <div className="cx-practice-pair" aria-label="Side-by-side learning evidence and worked calculation"><TutorEvidenceDesk topic={topic} stage={stage} focus={focus} reveal={reveal} onFocus={setFocus} onStage={setStage}/>
   {topic==='candle'?<div className="cx-lesson-body"><CandleShape o={o} h={h} l={l} c={c}/><div className="cx-input-grid">{([['o','Open',o],['h','High',h],['l','Low',l],['c','Close',c]] as ['o'|'h'|'l'|'c',string,number][]).map(([id,label,value])=><label key={id}>{label}<input type="number" min="1" step=".1" value={value} onChange={e=>adjust(id,Number(e.target.value)||1)}/></label>)}</div><div className="cx-numeric"><span>Body <b>{dollars(Math.abs(c-o))}</b></span><span>Range <b>{dollars(h-l)}</b></span><span>Upper wick <b>{dollars(h-Math.max(o,c))}</b></span><span>Lower wick <b>{dollars(Math.min(o,c)-l)}</b></span></div><p className="cx-small">Selected replay candle: {bar.time} · O {dollars(bar.o)} · H {dollars(bar.h)} · L {dollars(bar.l)} · C {dollars(bar.c)}. Builder is an independent fictional example.</p></div>:<div className="cx-lesson-body"><div className="cx-overline">EXACT TRADE-PRINT VWAP · FICTIONAL TRANSACTIONS</div><div className="cx-trade-rows">{trades.map((t,i)=><div key={i} className="cx-trade"><label>Price <input type="number" min=".01" step=".5" value={t.price} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,price:Math.max(.01,Number(e.target.value)||.01)}:x))}/></label><label>Shares <input type="number" min="1" step="50" value={t.volume} onChange={e=>setTrades(v=>v.map((x,j)=>i===j?{...x,volume:Math.max(1,Math.round(Number(e.target.value)||1))}:x))}/></label><strong>{dollars(t.price*t.volume)}</strong></div>)}</div><div className="cx-numeric"><span>Total traded value <b>{dollars(sumPV)}</b></span><span>Shares <b>{sumV.toLocaleString()}</b></span><span>VWAP <b>{dollars(trueVWAP)}</b></span></div><p className="cx-small">Formula: Σ(price × shares) ÷ Σ(shares). The chart overlay is a separate OHLCV approximation and is explicitly labeled as such.</p></div>}
+  </div>
   {stage===8&&<div className="cx-transfer"><div className="cx-overline">TRANSFER TASK / FRESH FICTIONAL CASE</div><p>{topic==='vwap'?'200 shares at $12 and 800 shares at $12.50. Calculate the volume-weighted average price in dollars per share.':'O=$40.00, H=$41.20, L=$39.60, C=$40.40. Calculate the body as a percentage of full range.'}</p>
  <label>{topic==='vwap'?'New-case VWAP ($/share)':'New-case body / range (%)'}<input aria-label="Transfer answer" type="number" step=".01" value={transferAnswer} onChange={e=>setTransferAnswer(e.target.value)}/></label>
  <button onClick={checkTransfer} type="button">Check transfer reasoning</button><p role="status">{transferFeedback||'Use the new case, not the worked-example answer. The transfer check is ungraded.'}</p></div>}
@@ -486,6 +487,139 @@ function PlatformExplorer({design,reveal,volume,ema,proxy,focus}:{design:Design;
  const [selected,setSelected]=useState('studio'),area=platformAreas.find(x=>x.code===selected)||platformAreas[0];
  return <section className="cx-platform-explorer" aria-label="Crownlight integrated product prototypes"><header><span className="cx-overline">CONNECTED WEBSITE / DESIGN EXPERIENCE</span><h2>Explore the complete Crownlight platform</h2><p>Interactive product previews use synthetic figures. They are not member activity, financial records, checkout or production feature acceptance.</p></header><nav aria-label="Platform prototype sections">{platformAreas.map(x=><button key={x.code} aria-pressed={selected===x.code} onClick={()=>setSelected(x.code)}>{x.name}</button>)}</nav><div className="cx-platform-preview"><div><span className="cx-overline">APPLICATION PREVIEW</span><h3>{area.name}</h3><p>{area.description}</p><strong>Source-grounded demonstration · read-only</strong><p>Official access, answer keys, Lumens and member data remain protected server-side. Python analytics is planned, not represented as deployed.</p></div><div><span className="cx-overline">FICTIONAL / CHART ENGINE</span><EChart kind={area.kind} reveal={reveal} showVolume={volume} showEma={ema} showProxy={proxy} focusBar={focus} design={design} height={255}/></div></div></section>
 }
+
+type LayoutKind='cards'|'buttons'|'labels'|'text';
+type LayoutChange={x:number;y:number;width?:number;height?:number;hidden?:boolean;name?:string};
+const layoutTargets={
+ cards:'.cx-panel,.cx-talia,.cx-tutor-evidence,.cx-lesson-body,.cx-practice-pair,.cx-kpis>div,.cx-desk-banner,.cx-platform-explorer,.cx-member-experience,.cx-member-hero,.cx-member-actions,.cx-chart-card,.cx-chart,.cx-trade-rows,.cx-trade,.cx-flagship-intro,.cx-platform-preview>div,.cx-edition-preview,.cx-edition-grid>label,.cx-member-workspaces,.cx-controlstrip,.cx-designs>button,.cx-indicator-catalog,.cx-reorderable',
+ buttons:'button,a,[role="button"],.cx-chip',
+ labels:'label,.cx-overline,.cx-stage-name,.cx-statusline span,.cx-tutor-context,.cx-numeric>span',
+ text:'h1,h2,h3,h4,p,small,strong,.cx-coach-typed,.cx-overline'
+} as const;
+/** Staff-only visual layout draft. Browser storage is for screenshot experiments, not a publishing API. */
+function LayoutStudio({page}:{page:Page}){
+ const [editing,setEditing]=useState(false),[clean,setClean]=useState(false),[hidePreview,setHidePreview]=useState(false);
+ const [kind,setKind]=useState<LayoutKind>('cards'),[selected,setSelected]=useState(''),[version,setVersion]=useState(0);
+ const [note,setNote]=useState('Click or drag an item. Use dimensions and arrows for precise placement.');
+ const items=useRef<Record<string,LayoutChange>>({}),history=useRef<Record<string,LayoutChange>[]>([]);
+ const selectedNode=useRef<HTMLElement|null>(null);
+ const keyFor=useCallback((el:HTMLElement,root:HTMLElement)=>{
+  const parts:string[]=[];let node:HTMLElement|null=el;
+  while(node&&node!==root&&node.parentElement){parts.push(String(Array.from(node.parentElement.children).indexOf(node)));node=node.parentElement}
+  return parts.reverse().join('.');
+ },[]);
+ const storageKey=useMemo(()=>('smfgu:prototype-visual-layout:v1:'+page+':'+(window.innerWidth<700?'mobile':window.innerWidth<1100?'tablet':'desktop')),[page]);
+ const save=useCallback(()=>{try{window.localStorage.setItem(storageKey,JSON.stringify(items.current))}catch{}},[storageKey]);
+ const apply=useCallback(()=>{
+  const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
+  const targets=root.querySelectorAll<HTMLElement>(Object.values(layoutTargets).join(','));
+  targets.forEach(el=>{
+   if(el.closest('[data-cx-editor]'))return;
+   const key=keyFor(el,root),v=items.current[key];
+   el.dataset.cxLayoutKey=key;
+   if(!v)return;
+   el.style.transform=(v.x||v.y)?'translate3d('+v.x+'px,'+v.y+'px,0)':'';
+   el.style.position=(v.x||v.y)?'relative':'';
+   el.style.zIndex=(v.x||v.y)?'20':'';
+   el.style.width=v.width?Math.round(v.width)+'px':'';
+   el.style.maxWidth=v.width?'none':'';
+   el.style.height=v.height?Math.round(v.height)+'px':'';
+   el.style.display=v.hidden?'none':'';
+  });
+  root.querySelectorAll<HTMLElement>('[data-cx-layout-key]').forEach(el=>{el.dataset.cxSelected=editing&&!clean&&el.dataset.cxLayoutKey===selected?'true':'false'});
+ },[keyFor,editing,clean,selected]);
+ const applyRef=useRef(apply);applyRef.current=apply;
+ const selectRef=useRef(selected);selectRef.current=selected;
+ const snapshot=()=>{history.current.push(JSON.parse(JSON.stringify(items.current)));if(history.current.length>30)history.current.shift()};
+ const change=useCallback((key:string,update:Partial<LayoutChange>)=>{
+  if(!key)return;
+  history.current.push(JSON.parse(JSON.stringify(items.current)));if(history.current.length>30)history.current.shift();
+  items.current={...items.current,[key]:{x:0,y:0,...items.current[key],...update}};
+  save();applyRef.current();setVersion(v=>v+1);
+  window.dispatchEvent(new Event('resize'));
+ },[save]);
+ useEffect(()=>{try{const prior=window.localStorage.getItem(storageKey);items.current=prior?JSON.parse(prior):{}}catch{items.current={}}setSelected('');setVersion(v=>v+1);},[storageKey]);
+ useEffect(()=>{
+  const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
+  root.classList.toggle('cx-layout-editing',editing&&!clean);
+  root.classList.toggle('cx-preview-hide-chrome',hidePreview||clean);
+  root.classList.toggle('cx-clean-screenshot',clean);
+  applyRef.current();
+  const obs=new MutationObserver(()=>window.requestAnimationFrame(()=>applyRef.current()));
+  obs.observe(root,{childList:true,subtree:true});
+  return()=>{obs.disconnect();root.classList.remove('cx-layout-editing','cx-preview-hide-chrome','cx-clean-screenshot')};
+ },[editing,clean,hidePreview,page]);
+ useEffect(()=>{applyRef.current()},[version,selected,kind,editing]);
+ useEffect(()=>{
+  function esc(ev:KeyboardEvent){if(ev.key==='Escape'&&clean){setClean(false);setEditing(true);setNote('Screenshot mode closed. Layout editing restored.');}}
+  document.addEventListener('keydown',esc);return()=>document.removeEventListener('keydown',esc);
+ },[clean]);
+ useEffect(()=>{
+  if(!editing||clean)return;
+  const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
+  const selector=layoutTargets[kind];
+  function down(ev:PointerEvent){
+   if(ev.button!==0||!(ev.target instanceof HTMLElement)||ev.target.closest('[data-cx-editor]'))return;
+   const el=ev.target.closest<HTMLElement>(selector);
+   if(!el||!root!.contains(el))return;
+   ev.preventDefault();ev.stopPropagation();
+   const key=keyFor(el,root!);
+   selectedNode.current=el;setSelected(key);
+   const original=items.current[key]||{x:0,y:0},startX=ev.clientX,startY=ev.clientY;
+   const dragging={x:original.x,y:original.y};
+   let moved=false;
+   const move=(e:PointerEvent)=>{
+    if(e.pointerId!==ev.pointerId)return;
+    if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>2)moved=true;
+    if(!moved)return;
+    dragging.x=Math.round(original.x+e.clientX-startX);dragging.y=Math.round(original.y+e.clientY-startY);
+    el.style.transform='translate3d('+dragging.x+'px,'+dragging.y+'px,0)';
+    el.style.position='relative';el.style.zIndex='20';
+    e.preventDefault();
+   };
+   const stop=(e:PointerEvent)=>{
+    if(e.pointerId!==ev.pointerId)return;
+    document.removeEventListener('pointermove',move,true);document.removeEventListener('pointerup',stop,true);document.removeEventListener('pointercancel',stop,true);
+    if(moved)change(key,{x:dragging.x,y:dragging.y,name:el.getAttribute('aria-label')||el.querySelector('h3,h4')?.textContent?.slice(0,55)||el.className.toString().slice(0,55)||el.tagName});
+   };
+   document.addEventListener('pointermove',move,true);document.addEventListener('pointerup',stop,true);document.addEventListener('pointercancel',stop,true);
+  }
+  function suppress(ev:MouseEvent){
+   if(!(ev.target instanceof HTMLElement)||ev.target.closest('[data-cx-editor]'))return;
+   if(ev.target.closest(selector)){ev.preventDefault();ev.stopImmediatePropagation();}
+  }
+  root.addEventListener('pointerdown',down,true);root.addEventListener('click',suppress,true);
+  return()=>{root.removeEventListener('pointerdown',down,true);root.removeEventListener('click',suppress,true)};
+ },[editing,clean,kind,keyFor,change]);
+ const current=items.current[selected]||{x:0,y:0};
+ const modify=(update:Partial<LayoutChange>)=>{if(!selected)return;change(selected,{...update,name:current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.querySelector('h3,h4')?.textContent?.slice(0,55)||kind})};
+ const hidden=Object.entries(items.current).filter(([,value])=>value.hidden);
+ return <div className="cx-layout-studio" data-cx-editor="true" aria-label="Prototype layout designer">
+  {!clean&&<button className="cx-layout-toggle" aria-expanded={editing} onClick={()=>setEditing(v=>!v)}>{editing?'Close Layout Designer':'Edit page layout'}</button>}
+  {editing&&!clean&&<section className="cx-layout-toolbar" aria-label="Visual layout controls">
+   <header><strong>Layout Designer · Staff only</strong><small>Rearrange the preview to prepare screenshots. No member changes.</small></header>
+   <label>Choose elements to arrange<select aria-label="Layout element type" value={kind} onChange={e=>setKind(e.target.value as LayoutKind)}><option value="cards">Cards / charts</option><option value="buttons">Buttons / links</option><option value="labels">Labels</option><option value="text">Headings / text</option></select></label>
+   <p>Drag any selected element to move it. Click for exact sizing, positioning or hiding. Layout is saved in this browser for the current screen size.</p>
+   <output aria-live="polite">Selected: {selected?(current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.tagName||'Element'):'None'}</output>
+   <div className="cx-layout-dimensions">
+    <label>Width (px)<input aria-label="Selected element width" type="number" min="60" max="2200" value={current.width||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({width:e.target.value?Math.min(2200,Math.max(60,Number(e.target.value))):undefined})}/></label>
+    <label>Height (px)<input aria-label="Selected element height" type="number" min="30" max="2200" value={current.height||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({height:e.target.value?Math.min(2200,Math.max(30,Number(e.target.value))):undefined})}/></label>
+   </div>
+   <div className="cx-layout-arrows" role="group" aria-label="Nudge selection">
+    {([['←',-10,0],['↑',0,-10],['↓',0,10],['→',10,0]] as const).map(([title,x,y])=><button key={title} aria-label={'Nudge '+({ '←':'left','↑':'up','↓':'down','→':'right'} as Record<string,string>)[title]} disabled={!selected} onClick={()=>modify({x:current.x+x,y:current.y+y})}>{title}</button>)}
+    <button disabled={!selected} onClick={()=>modify({x:0,y:0,width:undefined,height:undefined})}>Reset selected</button>
+   </div>
+   <div className="cx-layout-actions"><button disabled={!selected} onClick={()=>modify({hidden:true})}>Hide selected</button>
+   <button onClick={()=>setHidePreview(v=>!v)} aria-pressed={hidePreview}>{hidePreview?'Show prototype-only UI':'Hide prototype-only UI'}</button>
+   <button onClick={()=>{setClean(true);setEditing(false)}}>Screenshot mode</button>
+   <button disabled={!history.current.length} onClick={()=>{const last=history.current.pop();if(last){items.current=last;save();applyRef.current();setVersion(v=>v+1)}}}>Undo</button>
+   <button onClick={()=>{items.current={};history.current=[];try{window.localStorage.removeItem(storageKey)}catch{};window.location.reload()}}>Reset page layout</button></div>
+   {hidden.length>0&&<div className="cx-layout-hidden"><strong>Hidden elements ({hidden.length})</strong>{hidden.map(([key,value])=><button key={key} onClick={()=>change(key,{hidden:false})}>Show {value.name||'hidden item'}</button>)}</div>}
+   <small className="cx-layout-status" role="status">{note} Press Escape to leave screenshot mode.</small>
+  </section>}
+ </div>;
+}
+
 function Suite({page}:{page:Page}){
  const [learningMode,setLearningMode]=useState<LearningMode>('guided'),[blindChoice,setBlindChoice]=useState(''),[blindReason,setBlindReason]=useState(''),[blindLocked,setBlindLocked]=useState(false);
  const changeMode=(next:LearningMode)=>{setLearningMode(next);setBlindChoice('');setBlindReason('');setBlindLocked(false);setStage(next==='practice'?8:0)};
@@ -503,7 +637,7 @@ function Suite({page}:{page:Page}){
  const theme=page==='b'?'quantum':design;
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
- return <IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}>
+ return <IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 15 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>

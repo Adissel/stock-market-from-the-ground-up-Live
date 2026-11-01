@@ -35,6 +35,13 @@ assert.match(build,/PrototypeExperiences\.tsx/);
 assert.match(build,/--noEmit --strict/);
 assert.match(build,/prototype-experiences-v1\.bundle\.js/);
 assert.match(css,/prefers-reduced-motion/);
+assert.match(src,/function LayoutStudio\(/);
+assert.match(src,/cx-layout-studio/);
+assert.match(src,/window\.localStorage/);
+assert.match(src,/cx-practice-pair/);
+assert.match(src,/Screenshot mode/);
+assert.match(css,/cx-preview-hide-chrome/);
+assert.match(css,/@container \(min-width: 660px\)/);
 // The protected synthetic prototype may load its public, static first-party tutor
 // guide, but must never issue dynamic entitlement, wallet, brokerage or user APIs.
 const allFetches=(src.match(/\bfetch\s*\(/g)||[]).length;
