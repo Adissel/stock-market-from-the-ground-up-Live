@@ -1,0 +1,210 @@
+{
+  "schema": "SMFGU-LAB-BATCH04-QUANT-V1",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "FICTIONAL_SOURCE_ARITHMETIC_ONLY_EDITORIAL_PENDING",
+  "canonicalLabs": 419,
+  "rewrittenLabs": 80,
+  "items": [
+    {
+      "labId": "F2-C14-L04",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.11,
+        10.04
+      ],
+      "expected": 0.07,
+      "distinctTransferPrompt": "On a different FICTIONAL session, completed reactions occur at $23.18 and $23.26; calculate their separation, draw an observational zone, and explain what a later close below it would mean without revealing future bars."
+    },
+    {
+      "labId": "F3-C01-L01",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.27,
+        10.2
+      ],
+      "expected": 0.07,
+      "distinctTransferPrompt": "In an independent FICTIONAL series, resistance is $24.60 and the latest completed high/close are $24.74/$24.65; calculate the closing excess and specify what later bar would test follow-through."
+    },
+    {
+      "labId": "F3-C01-L02",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        9.8,
+        9.73
+      ],
+      "expected": 0.07,
+      "distinctTransferPrompt": "For FICTIONAL previous support $30.25 with a completed bar low $30.09 and close $30.19, determine the closing difference and describe a future reclaim condition without seeing it."
+    },
+    {
+      "labId": "F3-C01-L03",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.45,
+        10.4
+      ],
+      "expected": 0.05,
+      "distinctTransferPrompt": "In a new FICTIONAL candle, resistance is $16.80, high is $16.92 and close is $16.72; measure both distances and classify the completed evidence."
+    },
+    {
+      "labId": "F3-C01-L04",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        9.95,
+        9.9
+      ],
+      "expected": 0.05,
+      "distinctTransferPrompt": "For FICTIONAL support $18.20, a completed close $18.12, retest high $18.22 and subsequent completed close $18.29, classify each event and measure the final reclaim."
+    },
+    {
+      "labId": "F3-C01-L05",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        11,
+        10.95
+      ],
+      "expected": 0.05,
+      "distinctTransferPrompt": "For a fresh FICTIONAL sequence, reference resistance $32.00 with completed closes $32.09, $32.14 and $31.96, measure the final re-entry and compare classifications at each pause."
+    },
+    {
+      "labId": "F3-C01-L06",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10,
+        9.91
+      ],
+      "expected": 0.09,
+      "distinctTransferPrompt": "With FICTIONAL support $41.50, low $41.38 and completed close $41.57, compute the downside excursion and closing recovery relative to support."
+    },
+    {
+      "labId": "F3-C01-L07",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        12.04,
+        12
+      ],
+      "expected": 0.04,
+      "distinctTransferPrompt": "For FICTIONAL resistance $52.00, two completed highs $52.06/$52.03 and closes $51.94/$51.98, determine whether the chosen close-based breakout rule has fired."
+    },
+    {
+      "labId": "F3-C02-L01",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.8,
+        10.5
+      ],
+      "expected": 0.3,
+      "distinctTransferPrompt": "For a new FICTIONAL advance from $21.00 to $21.90 followed by a completed close at $21.54, calculate the retracement depth and state what would change the structure."
+    },
+    {
+      "labId": "F3-C02-L02",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        11.2,
+        10.9
+      ],
+      "expected": 0.3,
+      "distinctTransferPrompt": "On an independent FICTIONAL series, two completed reaction boundaries are $33.45 and $33.06; compute the observed band width and describe a neutral no-trade rule."
+    },
+    {
+      "labId": "F3-C02-L03",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.4,
+        10
+      ],
+      "expected": 0.4,
+      "distinctTransferPrompt": "With a new FICTIONAL prior close $45.00, opening price $45.55 and a later completed low of $44.98, determine original gap size and whether full filling is recorded."
+    },
+    {
+      "labId": "F3-C02-L04",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        9.82,
+        9.5
+      ],
+      "expected": 0.32,
+      "distinctTransferPrompt": "On a new FICTIONAL gap down from prior close $62.00 to open $61.30, with highest completed value $61.74, compute recovered and remaining gaps without assuming another candle."
+    },
+    {
+      "labId": "F3-C02-L05",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.3,
+        10.1
+      ],
+      "expected": 0.2,
+      "distinctTransferPrompt": "For a new FICTIONAL prior close $28.00, open $28.42 and first completed post-open close $28.16, compute both changes and describe the difference."
+    },
+    {
+      "labId": "F3-C03-L01",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.35,
+        9.95
+      ],
+      "expected": 0.4,
+      "distinctTransferPrompt": "For FICTIONAL first candle O=$70.00 C=$70.40 and second O=$70.46 C=$69.92, calculate both body sizes and decide whether body engulfment occurs."
+    },
+    {
+      "labId": "F3-C03-L02",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        12.3,
+        11.95
+      ],
+      "expected": 0.35,
+      "distinctTransferPrompt": "Using FICTIONAL first bar O=$80.60 C=$80.38 and second bar O=$80.30 C=$80.75, compare the bodies and explain why the classification does not guarantee reversal."
+    },
+    {
+      "labId": "F3-C03-L03",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        15.2,
+        14.9
+      ],
+      "expected": 0.3,
+      "distinctTransferPrompt": "For a fresh FICTIONAL candle O=$42.00 H=$42.28 L=$41.85 C=$42.00, calculate body and range and state what is unobservable intrabar."
+    },
+    {
+      "labId": "F3-C03-L04",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.3,
+        10.1
+      ],
+      "expected": 0.2,
+      "distinctTransferPrompt": "For a FICTIONAL first five-minute bar O=$55.90 H=$56.02 L=$55.55 C=$55.66, compute body direction and magnitude, then describe a neutral conditional next-step review."
+    },
+    {
+      "labId": "F3-C07-L01",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.35,
+        10.2
+      ],
+      "expected": 0.15,
+      "distinctTransferPrompt": "For FICTIONAL validly warmed RSI(14)=76 with two completed prices $25.10 and $25.32, compute price change and explain why the RSI number alone is insufficient to predict reversal."
+    },
+    {
+      "labId": "F3-C07-L02",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        9.8,
+        9.62
+      ],
+      "expected": 0.18,
+      "distinctTransferPrompt": "On a new FICTIONAL warmed RSI(14)=24 with completed prices $38.00 and $37.64, calculate the price decline and state a risk-aware no-trade alternative."
+    },
+    {
+      "labId": "F3-C07-L03",
+      "kind": "independent_fictional_pair_difference",
+      "inputs": [
+        10.4,
+        10.32
+      ],
+      "expected": 0.08,
+      "distinctTransferPrompt": "With independent FICTIONAL seeded EMA(12)=$72.16 and EMA(26)=$72.03 on completed bars, calculate MACD line and explain what cannot be inferred about the signal-line crossover."
+    }
+  ]
+}

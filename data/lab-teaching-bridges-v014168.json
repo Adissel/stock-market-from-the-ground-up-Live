@@ -2861,44 +2861,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Why a Zone Can Be Better Than One Exact Line.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Why a Zone Can Be Better Than One Exact Line. Compare two prior reaction levels with a range; distinguish zone tolerance from certainty. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Completed fictional reactions occurred at $10.04 and $10.11 around a broadly observed support area. Both observations precede the analysis pause. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The recorded reaction prices differ by $0.07, defining an illustrative $10.04–$10.11 observation zone, not a uniquely correct support line. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Why a Zone Can Be Better Than One Exact Line from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Why a Zone Can Be Better Than One Exact Line: identify the older reference and the current completed evidence, then preserve the exact time boundary. Compare two prior reaction levels with a range; distinguish zone tolerance from certainty.",
+          "Check the comparison: The recorded reaction prices differ by $0.07, defining an illustrative $10.04–$10.11 observation zone, not a uniquely correct support line. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: Subsequent closes within or beneath the area would change its interpretation, but they are not available at the present pause. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Why a Zone Can Be Better Than One Exact Line using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Original FICTIONAL worked example: Completed fictional reactions occurred at $10.04 and $10.11 around a broadly observed support area. Both observations precede the analysis pause. The recorded reaction prices differ by $0.07, defining an illustrative $10.04–$10.11 observation zone, not a uniquely correct support line. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.11 and $10.04, equals $0.07. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: Subsequent closes within or beneath the area would change its interpretation, but they are not available at the present pause. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Why a Zone Can Be Better Than One Exact Line: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Why a Zone Can Be Better Than One Exact Line: Treating the first observed touch as a mechanically exact buy limit assumes precision the two completed reactions do not support. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Return to the completed reaction lows and record the range of supported reference prices rather than forecasting an exact next turning point. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Compare two prior reaction levels with a range; distinguish zone tolerance from certainty. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Why a Zone Can Be Better Than One Exact Line cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limit of this case: Subsequent closes within or beneath the area would change its interpretation, but they are not available at the present pause. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and CHARTSCHOOL-IND are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Return to the completed reaction lows and record the range of supported reference prices rather than forecasting an exact next turning point. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Why a Zone Can Be Better Than One Exact Line: Compare two prior reaction levels with a range; distinguish zone tolerance from certainty. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "On a different FICTIONAL session, completed reactions occur at $23.18 and $23.26; calculate their separation, draw an observational zone, and explain what a later close below it would mean without revealing future bars.",
         "topic": "Why a Zone Can Be Better Than One Exact Line",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L01": {
       "labId": "F3-C01-L01",
@@ -2909,44 +2909,44 @@
         "CHART_STRUCTURE",
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Resistance Breakout and Follow-Through.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Resistance Breakout and Follow-Through. Distinguish completed-bar close beyond resistance from earlier intrabar probe; note observed volume. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional resistance was defined from earlier completed highs near $10.20; the current fully completed bar closes at $10.27 with a high of $10.31. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The close is $0.07 above the pre-recorded resistance; this is observed close-based crossing, while continuation still requires later completed evidence. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Resistance Breakout and Follow-Through from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Resistance Breakout and Follow-Through: identify the older reference and the current completed evidence, then preserve the exact time boundary. Distinguish completed-bar close beyond resistance from earlier intrabar probe; note observed volume.",
+          "Check the comparison: The close is $0.07 above the pre-recorded resistance; this is observed close-based crossing, while continuation still requires later completed evidence. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The chart supports a completed crossing, not a proven sustained breakout, an executable fill, or knowledge of the next candle. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Resistance Breakout and Follow-Through using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Original FICTIONAL worked example: Fictional resistance was defined from earlier completed highs near $10.20; the current fully completed bar closes at $10.27 with a high of $10.31. The close is $0.07 above the pre-recorded resistance; this is observed close-based crossing, while continuation still requires later completed evidence. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.27 and $10.20, equals $0.07. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The chart supports a completed crossing, not a proven sustained breakout, an executable fill, or knowledge of the next candle. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Resistance Breakout and Follow-Through: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Resistance Breakout and Follow-Through: Calling the high at $10.31 an established trend before the closing boundary confuses an intrabar touch with completed-bar evidence. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Record the original $10.20 reference and close at $10.27; describe any following confirmation as conditional, not already observed. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Distinguish completed-bar close beyond resistance from earlier intrabar probe; note observed volume. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Resistance Breakout and Follow-Through cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limit of this case: The chart supports a completed crossing, not a proven sustained breakout, an executable fill, or knowledge of the next candle. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Record the original $10.20 reference and close at $10.27; describe any following confirmation as conditional, not already observed. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Resistance Breakout and Follow-Through: Distinguish completed-bar close beyond resistance from earlier intrabar probe; note observed volume. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "In an independent FICTIONAL series, resistance is $24.60 and the latest completed high/close are $24.74/$24.65; calculate the closing excess and specify what later bar would test follow-through.",
         "topic": "Resistance Breakout and Follow-Through",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L02": {
       "labId": "F3-C01-L02",
@@ -2957,44 +2957,44 @@
         "CHART_STRUCTURE",
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Support Breakdown and Follow-Through.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Support Breakdown and Follow-Through. Separate breakdown confirmation from a transient downside wick; record completed support reference. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: A fictional prior support reference is $9.80 and the latest completed bar closes at $9.73 after trading down to $9.69. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The completed close is $0.07 beneath the prior support, providing closing-basis breakdown evidence rather than proof of continuing selling. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Support Breakdown and Follow-Through from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Support Breakdown and Follow-Through: identify the older reference and the current completed evidence, then preserve the exact time boundary. Separate breakdown confirmation from a transient downside wick; record completed support reference.",
+          "Check the comparison: The completed close is $0.07 beneath the prior support, providing closing-basis breakdown evidence rather than proof of continuing selling. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A later reclaim might invalidate the proposed breakdown; it must not be borrowed from an unseen future candle. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Support Breakdown and Follow-Through using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Original FICTIONAL worked example: A fictional prior support reference is $9.80 and the latest completed bar closes at $9.73 after trading down to $9.69. The completed close is $0.07 beneath the prior support, providing closing-basis breakdown evidence rather than proof of continuing selling. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $9.80 and $9.73, equals $0.07. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A later reclaim might invalidate the proposed breakdown; it must not be borrowed from an unseen future candle. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Support Breakdown and Follow-Through: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Support Breakdown and Follow-Through: Equating a brief sub-support wick with a durable breakdown neglects the closing price and the possibility of a reclaim. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Use the recorded $9.80 reference and $9.73 closing observation, distinguishing the measured break from next-bar prediction. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Separate breakdown confirmation from a transient downside wick; record completed support reference. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Support Breakdown and Follow-Through cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limit of this case: A later reclaim might invalidate the proposed breakdown; it must not be borrowed from an unseen future candle. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Use the recorded $9.80 reference and $9.73 closing observation, distinguishing the measured break from next-bar prediction. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Support Breakdown and Follow-Through: Separate breakdown confirmation from a transient downside wick; record completed support reference. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For FICTIONAL previous support $30.25 with a completed bar low $30.09 and close $30.19, determine the closing difference and describe a future reclaim condition without seeing it.",
         "topic": "Support Breakdown and Follow-Through",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L03": {
       "labId": "F3-C01-L03",
@@ -3004,44 +3004,44 @@
       "relatedCompetencies": [
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Upside Probe Versus Close-Based Breakout.",
-          "A breakout is an observed move beyond a previously identified level, not a promise of follow-through.",
-          "Identify the completed resistance/level, crossing price, bar close, volume context and failure condition rather than assuming every crossing is acceptance."
+          "Learning objective — Upside Probe Versus Close-Based Breakout. Contrast an intrabar upside high with completed close back inside historical range. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional resistance is $10.40; a completed candle reaches $10.45 but closes at $10.35, back under that reference. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The high exceeds resistance by $0.05, yet the close is $0.05 below it: the evidence is an upside probe without a completed close-based breakout. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Upside Probe Versus Close-Based Breakout from the source evidence.",
-          "Define the level using older visible bars, then note current price/volume behavior.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Upside Probe Versus Close-Based Breakout: identify the older reference and the current completed evidence, then preserve the exact time boundary. Contrast an intrabar upside high with completed close back inside historical range.",
+          "Check the comparison: The high exceeds resistance by $0.05, yet the close is $0.05 below it: the evidence is an upside probe without a completed close-based breakout. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The candle alone cannot reconstruct the path inside its interval or prove an intentional liquidity sweep. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Upside Probe Versus Close-Based Breakout using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Define the level using older visible bars, then note current price/volume behavior.",
-          "Step 3 — Check the alternative or invalidation: Price returns beneath the level under the predetermined invalidation rule."
+          "Original FICTIONAL worked example: Fictional resistance is $10.40; a completed candle reaches $10.45 but closes at $10.35, back under that reference. The high exceeds resistance by $0.05, yet the close is $0.05 below it: the evidence is an upside probe without a completed close-based breakout. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.45 and $10.40, equals $0.05. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The candle alone cannot reconstruct the path inside its interval or prove an intentional liquidity sweep. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Upside Probe Versus Close-Based Breakout: Moving the breakout level after seeing later candles.",
-          "Correct it by returning to the actual observation. Define the level using older visible bars, then note current price/volume behavior.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Upside Probe Versus Close-Based Breakout: Treating the momentary high as acceptance above resistance ignores where the candle completed and overstates evidence. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Compare both the high and the close with the same unchanged $10.40 level; preserve the opposite conclusions honestly. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Contrast an intrabar upside high with completed close back inside historical range. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Upside Probe Versus Close-Based Breakout cannot establish:",
-          "Crossing the level briefly may be a failed move; a break alone cannot prove demand.",
-          "An interpretation is invalidated or unproven when: Price returns beneath the level under the predetermined invalidation rule."
+          "Limit of this case: The candle alone cannot reconstruct the path inside its interval or prove an intentional liquidity sweep. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Compare both the high and the close with the same unchanged $10.40 level; preserve the opposite conclusions honestly. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support breakout observation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Upside Probe Versus Close-Based Breakout: Contrast an intrabar upside high with completed close back inside historical range. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional highs of $9.90 and $10.00 and a later print at $10.05, state why one print does not establish a durable breakout.",
+        "prompt": "In a new FICTIONAL candle, resistance is $16.80, high is $16.92 and close is $16.72; measure both distances and classify the completed evidence.",
         "topic": "Upside Probe Versus Close-Based Breakout",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L04": {
       "labId": "F3-C01-L04",
@@ -3051,44 +3051,44 @@
       "relatedCompetencies": [
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Breakdown, Retest From Below, and Reclaim.",
-          "A breakout is an observed move beyond a previously identified level, not a promise of follow-through.",
-          "Identify the completed resistance/level, crossing price, bar close, volume context and failure condition rather than assuming every crossing is acceptance."
+          "Learning objective — Breakdown, Retest From Below, and Reclaim. Identify break, retest, and reclaim as sequential facts only after each bar completes. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional support at $9.90 was crossed by a completed close at $9.84; a later already-completed retest had a high of $9.91; the latest completed close is $9.95. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The last completed close is $0.05 above the original $9.90 level, demonstrating a reclaim after a breakdown and observed retest. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Breakdown, Retest From Below, and Reclaim from the source evidence.",
-          "Define the level using older visible bars, then note current price/volume behavior.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Breakdown, Retest From Below, and Reclaim: identify the older reference and the current completed evidence, then preserve the exact time boundary. Identify break, retest, and reclaim as sequential facts only after each bar completes.",
+          "Check the comparison: The last completed close is $0.05 above the original $9.90 level, demonstrating a reclaim after a breakdown and observed retest. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: All three steps must be individually completed before the retrospective sequence can be labeled; none licenses prediction at the first step. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Breakdown, Retest From Below, and Reclaim using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Define the level using older visible bars, then note current price/volume behavior.",
-          "Step 3 — Check the alternative or invalidation: Price returns beneath the level under the predetermined invalidation rule."
+          "Original FICTIONAL worked example: Fictional support at $9.90 was crossed by a completed close at $9.84; a later already-completed retest had a high of $9.91; the latest completed close is $9.95. The last completed close is $0.05 above the original $9.90 level, demonstrating a reclaim after a breakdown and observed retest. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $9.95 and $9.90, equals $0.05. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: All three steps must be individually completed before the retrospective sequence can be labeled; none licenses prediction at the first step. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Breakdown, Retest From Below, and Reclaim: Moving the breakout level after seeing later candles.",
-          "Correct it by returning to the actual observation. Define the level using older visible bars, then note current price/volume behavior.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Breakdown, Retest From Below, and Reclaim: Moving the original support line after observing the reclaim hides the failed hypothesis and creates a hindsight narrative. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Keep the $9.90 reference fixed; label each completed event with its actual time and do not claim the reclaim was inevitable. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Identify break, retest, and reclaim as sequential facts only after each bar completes. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Breakdown, Retest From Below, and Reclaim cannot establish:",
-          "Crossing the level briefly may be a failed move; a break alone cannot prove demand.",
-          "An interpretation is invalidated or unproven when: Price returns beneath the level under the predetermined invalidation rule."
+          "Limit of this case: All three steps must be individually completed before the retrospective sequence can be labeled; none licenses prediction at the first step. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Keep the $9.90 reference fixed; label each completed event with its actual time and do not claim the reclaim was inevitable. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support breakout observation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Breakdown, Retest From Below, and Reclaim: Identify break, retest, and reclaim as sequential facts only after each bar completes. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional highs of $9.90 and $10.00 and a later print at $10.05, state why one print does not establish a durable breakout.",
+        "prompt": "For FICTIONAL support $18.20, a completed close $18.12, retest high $18.22 and subsequent completed close $18.29, classify each event and measure the final reclaim.",
         "topic": "Breakdown, Retest From Below, and Reclaim",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L05": {
       "labId": "F3-C01-L05",
@@ -3098,44 +3098,44 @@
       "relatedCompetencies": [
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Breakout, Brief Follow-Through, Then Re-Entry.",
-          "A breakout is an observed move beyond a previously identified level, not a promise of follow-through.",
-          "Identify the completed resistance/level, crossing price, bar close, volume context and failure condition rather than assuming every crossing is acceptance."
+          "Learning objective — Breakout, Brief Follow-Through, Then Re-Entry. Document follow-through followed by re-entry without hindsight trading claims. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional resistance was $11.00; one completed close was $11.07, a second closed at $11.15, and a third, now completed, closed at $10.95. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The latest close is $0.05 below the original resistance, despite two previously observed closes above it; this is recorded re-entry into the prior area. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Breakout, Brief Follow-Through, Then Re-Entry from the source evidence.",
-          "Define the level using older visible bars, then note current price/volume behavior.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Breakout, Brief Follow-Through, Then Re-Entry: identify the older reference and the current completed evidence, then preserve the exact time boundary. Document follow-through followed by re-entry without hindsight trading claims.",
+          "Check the comparison: The latest close is $0.05 below the original resistance, despite two previously observed closes above it; this is recorded re-entry into the prior area. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The full three-bar description is only available after the third bar closes; do not feed that outcome into a first-bar learner decision. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Breakout, Brief Follow-Through, Then Re-Entry using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Define the level using older visible bars, then note current price/volume behavior.",
-          "Step 3 — Check the alternative or invalidation: Price returns beneath the level under the predetermined invalidation rule."
+          "Original FICTIONAL worked example: Fictional resistance was $11.00; one completed close was $11.07, a second closed at $11.15, and a third, now completed, closed at $10.95. The latest close is $0.05 below the original resistance, despite two previously observed closes above it; this is recorded re-entry into the prior area. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $11.00 and $10.95, equals $0.05. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The full three-bar description is only available after the third bar closes; do not feed that outcome into a first-bar learner decision. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Breakout, Brief Follow-Through, Then Re-Entry: Moving the breakout level after seeing later candles.",
-          "Correct it by returning to the actual observation. Define the level using older visible bars, then note current price/volume behavior.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Breakout, Brief Follow-Through, Then Re-Entry: Explaining a first-bar decision as obviously wrong using the third bar leaks hindsight and exaggerates the predictability of failures. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Evaluate the first close using only the first pause, then advance the clock explicitly to classify follow-through and eventual re-entry. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Document follow-through followed by re-entry without hindsight trading claims. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Breakout, Brief Follow-Through, Then Re-Entry cannot establish:",
-          "Crossing the level briefly may be a failed move; a break alone cannot prove demand.",
-          "An interpretation is invalidated or unproven when: Price returns beneath the level under the predetermined invalidation rule."
+          "Limit of this case: The full three-bar description is only available after the third bar closes; do not feed that outcome into a first-bar learner decision. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Evaluate the first close using only the first pause, then advance the clock explicitly to classify follow-through and eventual re-entry. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support breakout observation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Breakout, Brief Follow-Through, Then Re-Entry: Document follow-through followed by re-entry without hindsight trading claims. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional highs of $9.90 and $10.00 and a later print at $10.05, state why one print does not establish a durable breakout.",
+        "prompt": "For a fresh FICTIONAL sequence, reference resistance $32.00 with completed closes $32.09, $32.14 and $31.96, measure the final re-entry and compare classifications at each pause.",
         "topic": "Breakout, Brief Follow-Through, Then Re-Entry",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L06": {
       "labId": "F3-C01-L06",
@@ -3145,44 +3145,44 @@
       "relatedCompetencies": [
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Failed downside break / rapid reclaim.",
-          "A breakout is an observed move beyond a previously identified level, not a promise of follow-through.",
-          "Identify the completed resistance/level, crossing price, bar close, volume context and failure condition rather than assuming every crossing is acceptance."
+          "Learning objective — Failed downside break / rapid reclaim. Differentiate failed downside probe from a sustained closing-basis breakdown. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional support is $10.00; a completed candle trades to $9.91 but closes at $10.06. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The low probes $0.09 beneath support, but the completed close is $0.06 above the same level; an observed failed downside probe is not a durable breakdown. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Failed downside break / rapid reclaim from the source evidence.",
-          "Define the level using older visible bars, then note current price/volume behavior.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Failed downside break / rapid reclaim: identify the older reference and the current completed evidence, then preserve the exact time boundary. Differentiate failed downside probe from a sustained closing-basis breakdown.",
+          "Check the comparison: The low probes $0.09 beneath support, but the completed close is $0.06 above the same level; an observed failed downside probe is not a durable breakdown. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: One candle cannot determine the intrabar order of all trades, the source of liquidity, or the next direction. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Failed downside break / rapid reclaim using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Define the level using older visible bars, then note current price/volume behavior.",
-          "Step 3 — Check the alternative or invalidation: Price returns beneath the level under the predetermined invalidation rule."
+          "Original FICTIONAL worked example: Fictional support is $10.00; a completed candle trades to $9.91 but closes at $10.06. The low probes $0.09 beneath support, but the completed close is $0.06 above the same level; an observed failed downside probe is not a durable breakdown. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.00 and $9.91, equals $0.09. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: One candle cannot determine the intrabar order of all trades, the source of liquidity, or the next direction. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Failed downside break / rapid reclaim: Moving the breakout level after seeing later candles.",
-          "Correct it by returning to the actual observation. Define the level using older visible bars, then note current price/volume behavior.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Failed downside break / rapid reclaim: Treating any print beneath support as sufficient breakdown confirmation ignores the distinct closing observation. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Read the low and close separately against the unchanged $10.00 reference, and explain why they produce different evidence labels. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Differentiate failed downside probe from a sustained closing-basis breakdown. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Failed downside break / rapid reclaim cannot establish:",
-          "Crossing the level briefly may be a failed move; a break alone cannot prove demand.",
-          "An interpretation is invalidated or unproven when: Price returns beneath the level under the predetermined invalidation rule."
+          "Limit of this case: One candle cannot determine the intrabar order of all trades, the source of liquidity, or the next direction. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Read the low and close separately against the unchanged $10.00 reference, and explain why they produce different evidence labels. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support breakout observation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Failed downside break / rapid reclaim: Differentiate failed downside probe from a sustained closing-basis breakdown. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional highs of $9.90 and $10.00 and a later print at $10.05, state why one print does not establish a durable breakout.",
+        "prompt": "With FICTIONAL support $41.50, low $41.38 and completed close $41.57, compute the downside excursion and closing recovery relative to support.",
         "topic": "Failed downside break / rapid reclaim",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C01-L07": {
       "labId": "F3-C01-L07",
@@ -3192,44 +3192,44 @@
       "relatedCompetencies": [
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Ambiguous repeated interaction / no clean breakout.",
-          "A breakout is an observed move beyond a previously identified level, not a promise of follow-through.",
-          "Identify the completed resistance/level, crossing price, bar close, volume context and failure condition rather than assuming every crossing is acceptance."
+          "Learning objective — Ambiguous repeated interaction / no clean breakout. Recognize repeated boundary interactions without forcing a breakout label. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional resistance is $12.00; two successive completed highs reach $12.04 and $12.02, yet the corresponding closes are $11.98 and $11.99. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The highest probe is $0.04 above resistance, but neither observed bar closes above it; repeated interaction remains ambiguous. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Ambiguous repeated interaction / no clean breakout from the source evidence.",
-          "Define the level using older visible bars, then note current price/volume behavior.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Ambiguous repeated interaction / no clean breakout: identify the older reference and the current completed evidence, then preserve the exact time boundary. Recognize repeated boundary interactions without forcing a breakout label.",
+          "Check the comparison: The highest probe is $0.04 above resistance, but neither observed bar closes above it; repeated interaction remains ambiguous. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: Repeated touches do not prove absorption, hidden demand, institutional intention, or the direction of an unseen breakout. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Ambiguous repeated interaction / no clean breakout using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Define the level using older visible bars, then note current price/volume behavior.",
-          "Step 3 — Check the alternative or invalidation: Price returns beneath the level under the predetermined invalidation rule."
+          "Original FICTIONAL worked example: Fictional resistance is $12.00; two successive completed highs reach $12.04 and $12.02, yet the corresponding closes are $11.98 and $11.99. The highest probe is $0.04 above resistance, but neither observed bar closes above it; repeated interaction remains ambiguous. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $12.04 and $12.00, equals $0.04. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: Repeated touches do not prove absorption, hidden demand, institutional intention, or the direction of an unseen breakout. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Ambiguous repeated interaction / no clean breakout: Moving the breakout level after seeing later candles.",
-          "Correct it by returning to the actual observation. Define the level using older visible bars, then note current price/volume behavior.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Ambiguous repeated interaction / no clean breakout: Calling every high above the level a confirmation makes the breakout definition change to fit the desired result. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Use a fixed close-based criterion and label both completed bars as probes without required closing-basis confirmation. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Recognize repeated boundary interactions without forcing a breakout label. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Ambiguous repeated interaction / no clean breakout cannot establish:",
-          "Crossing the level briefly may be a failed move; a break alone cannot prove demand.",
-          "An interpretation is invalidated or unproven when: Price returns beneath the level under the predetermined invalidation rule."
+          "Limit of this case: Repeated touches do not prove absorption, hidden demand, institutional intention, or the direction of an unseen breakout. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Use a fixed close-based criterion and label both completed bars as probes without required closing-basis confirmation. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support breakout observation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Ambiguous repeated interaction / no clean breakout: Recognize repeated boundary interactions without forcing a breakout label. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional highs of $9.90 and $10.00 and a later print at $10.05, state why one print does not establish a durable breakout.",
+        "prompt": "For FICTIONAL resistance $52.00, two completed highs $52.06/$52.03 and closes $51.94/$51.98, determine whether the chosen close-based breakout rule has fired.",
         "topic": "Ambiguous repeated interaction / no clean breakout",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C02-L01": {
       "labId": "F3-C02-L01",
@@ -3241,44 +3241,44 @@
         "BREAKOUT_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Pullback after an early advance.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — Pullback after an early advance. Contrast retracement after completed advance with confirmed directional reversal. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: A fictional completed advance reaches $10.80 after starting at $10.00; the most recent completed pullback closes at $10.50. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The decline from the observed high to the latest close is $0.30; it is a retracement within the visible interval, not proof of a completed trend reversal. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Pullback after an early advance from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Pullback after an early advance: identify the older reference and the current completed evidence, then preserve the exact time boundary. Contrast retracement after completed advance with confirmed directional reversal.",
+          "Check the comparison: The decline from the observed high to the latest close is $0.30; it is a retracement within the visible interval, not proof of a completed trend reversal. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A higher-low label requires enough completed pivot observations; a future low or rebound cannot be inserted to make the pattern certain. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Pullback after an early advance using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: A fictional completed advance reaches $10.80 after starting at $10.00; the most recent completed pullback closes at $10.50. The decline from the observed high to the latest close is $0.30; it is a retracement within the visible interval, not proof of a completed trend reversal. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.80 and $10.50, equals $0.30. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A higher-low label requires enough completed pivot observations; a future low or rebound cannot be inserted to make the pattern certain. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Pullback after an early advance: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Pullback after an early advance: Treating every retracement as a guaranteed continuation trade ignores how the move could deepen after the pause. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Record the $10.80 completed reference high and $10.50 close; state which future structural observation would challenge the pullback hypothesis. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Contrast retracement after completed advance with confirmed directional reversal. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Pullback after an early advance cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: A higher-low label requires enough completed pivot observations; a future low or rebound cannot be inserted to make the pattern certain. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Record the $10.80 completed reference high and $10.50 close; state which future structural observation would challenge the pullback hypothesis. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Pullback after an early advance: Contrast retracement after completed advance with confirmed directional reversal. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "For a new FICTIONAL advance from $21.00 to $21.90 followed by a completed close at $21.54, calculate the retracement depth and state what would change the structure.",
         "topic": "Pullback after an early advance",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C02-L02": {
       "labId": "F3-C02-L02",
@@ -3290,44 +3290,44 @@
         "BREAKOUT_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Consolidation that can be bracketed as a range.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — Consolidation that can be bracketed as a range. Bracket completed reaction highs and lows; make no prediction of breakout side. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional completed bars form a repeatedly visited high near $11.20 and low near $10.90, with no completed close outside the observed band. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The marked consolidation width is $0.30, calculated from the historical completed high and low references. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Consolidation that can be bracketed as a range from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Consolidation that can be bracketed as a range: identify the older reference and the current completed evidence, then preserve the exact time boundary. Bracket completed reaction highs and lows; make no prediction of breakout side.",
+          "Check the comparison: The marked consolidation width is $0.30, calculated from the historical completed high and low references. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The bounded range describes what happened in the sample; it cannot identify the side or time of a possible future break. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Consolidation that can be bracketed as a range using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: Fictional completed bars form a repeatedly visited high near $11.20 and low near $10.90, with no completed close outside the observed band. The marked consolidation width is $0.30, calculated from the historical completed high and low references. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $11.20 and $10.90, equals $0.30. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The bounded range describes what happened in the sample; it cannot identify the side or time of a possible future break. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Consolidation that can be bracketed as a range: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Consolidation that can be bracketed as a range: Calling range compression an imminent upside move assumes direction that the completed evidence has not determined. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Draw the high and low from the visible bars, identify the interval in minutes, and keep the breakout scenario conditional. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Bracket completed reaction highs and lows; make no prediction of breakout side. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Consolidation that can be bracketed as a range cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: The bounded range describes what happened in the sample; it cannot identify the side or time of a possible future break. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Draw the high and low from the visible bars, identify the interval in minutes, and keep the breakout scenario conditional. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Consolidation that can be bracketed as a range: Bracket completed reaction highs and lows; make no prediction of breakout side. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "On an independent FICTIONAL series, two completed reaction boundaries are $33.45 and $33.06; compute the observed band width and describe a neutral no-trade rule.",
         "topic": "Consolidation that can be bracketed as a range",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C02-L03": {
       "labId": "F3-C02-L03",
@@ -3339,44 +3339,44 @@
         "BREAKOUT_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gap up that completely fills.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — Gap up that completely fills. Calculate previous close versus opening price and label an observed full gap fill only when reached. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional prior-session close is $10.00 and the next session opens at $10.40; an already-completed later bar in the visible window has a low of $9.98. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The opening gap is $0.40 upward; because a completed bar later trades to $9.98, the entire $0.40 gap has been observed filled within the selected window. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Gap up that completely fills from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Gap up that completely fills: identify the older reference and the current completed evidence, then preserve the exact time boundary. Calculate previous close versus opening price and label an observed full gap fill only when reached.",
+          "Check the comparison: The opening gap is $0.40 upward; because a completed bar later trades to $9.98, the entire $0.40 gap has been observed filled within the selected window. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: Before the low-bearing bar completes, the learner may only label an opening gap; the eventual fill cannot be used as an entry-time fact. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Gap up that completely fills using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: Fictional prior-session close is $10.00 and the next session opens at $10.40; an already-completed later bar in the visible window has a low of $9.98. The opening gap is $0.40 upward; because a completed bar later trades to $9.98, the entire $0.40 gap has been observed filled within the selected window. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.40 and $10.00, equals $0.40. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: Before the low-bearing bar completes, the learner may only label an opening gap; the eventual fill cannot be used as an entry-time fact. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Gap up that completely fills: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Gap up that completely fills: Calling a gap filled merely because price approached yesterday's close confuses a target level with an observed touch or crossing. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Compute the gap using yesterday's close and today's open, then check only completed bars for an observed return to the prior close. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Calculate previous close versus opening price and label an observed full gap fill only when reached. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Gap up that completely fills cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: Before the low-bearing bar completes, the learner may only label an opening gap; the eventual fill cannot be used as an entry-time fact. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Compute the gap using yesterday's close and today's open, then check only completed bars for an observed return to the prior close. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Gap up that completely fills: Calculate previous close versus opening price and label an observed full gap fill only when reached. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "With a new FICTIONAL prior close $45.00, opening price $45.55 and a later completed low of $44.98, determine original gap size and whether full filling is recorded.",
         "topic": "Gap up that completely fills",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C02-L04": {
       "labId": "F3-C02-L04",
@@ -3388,44 +3388,44 @@
         "BREAKOUT_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gap down that only partially fills in the observation window.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — Gap down that only partially fills in the observation window. Measure a partial gap fill within the visible window; do not use unseen future bars. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional prior close is $10.00 and the new open is $9.50; the highest completed trade in the currently visible observation window is $9.82. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: Price has recovered $0.32 from the opening level, while $0.18 of the $0.50 downward opening gap remains unfilled on the visible bars. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Gap down that only partially fills in the observation window from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Gap down that only partially fills in the observation window: identify the older reference and the current completed evidence, then preserve the exact time boundary. Measure a partial gap fill within the visible window; do not use unseen future bars.",
+          "Check the comparison: Price has recovered $0.32 from the opening level, while $0.18 of the $0.50 downward opening gap remains unfilled on the visible bars. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A future rise toward $10.00 is unknown, and the currently recorded highest bar price must not be called a full gap fill. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Gap down that only partially fills in the observation window using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: Fictional prior close is $10.00 and the new open is $9.50; the highest completed trade in the currently visible observation window is $9.82. Price has recovered $0.32 from the opening level, while $0.18 of the $0.50 downward opening gap remains unfilled on the visible bars. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $9.82 and $9.50, equals $0.32. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A future rise toward $10.00 is unknown, and the currently recorded highest bar price must not be called a full gap fill. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Gap down that only partially fills in the observation window: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Gap down that only partially fills in the observation window: Mistaking a partial rise inside a gap for a complete fill exaggerates both realized movement and support for a strategy. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Keep separate labels for original gap magnitude, recovered distance, and remaining distance to prior close. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Measure a partial gap fill within the visible window; do not use unseen future bars. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Gap down that only partially fills in the observation window cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: A future rise toward $10.00 is unknown, and the currently recorded highest bar price must not be called a full gap fill. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Keep separate labels for original gap magnitude, recovered distance, and remaining distance to prior close. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Gap down that only partially fills in the observation window: Measure a partial gap fill within the visible window; do not use unseen future bars. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "On a new FICTIONAL gap down from prior close $62.00 to open $61.30, with highest completed value $61.74, compute recovered and remaining gaps without assuming another candle.",
         "topic": "Gap down that only partially fills in the observation window",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C02-L05": {
       "labId": "F3-C02-L05",
@@ -3437,44 +3437,44 @@
         "PULLBACK_RECOGNITION",
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gap strength versus actual post-open structure.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Gap strength versus actual post-open structure. Separate opening gap direction from post-open bars and risk of immediate fade. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: Fictional previous close is $10.00 and the current session opens at $10.30; an already-completed post-open candle closes at $10.10. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The completed post-open close has slipped $0.20 from the opening price while remaining $0.10 above the previous close; opening gap and subsequent direction disagree. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Gap strength versus actual post-open structure from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Gap strength versus actual post-open structure: identify the older reference and the current completed evidence, then preserve the exact time boundary. Separate opening gap direction from post-open bars and risk of immediate fade.",
+          "Check the comparison: The completed post-open close has slipped $0.20 from the opening price while remaining $0.10 above the previous close; opening gap and subsequent direction disagree. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A green overnight gap is not evidence that every intraday candle must also rise; a later full gap fill remains uncertain. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Gap strength versus actual post-open structure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Original FICTIONAL worked example: Fictional previous close is $10.00 and the current session opens at $10.30; an already-completed post-open candle closes at $10.10. The completed post-open close has slipped $0.20 from the opening price while remaining $0.10 above the previous close; opening gap and subsequent direction disagree. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.30 and $10.10, equals $0.20. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A green overnight gap is not evidence that every intraday candle must also rise; a later full gap fill remains uncertain. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Gap strength versus actual post-open structure: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Gap strength versus actual post-open structure: Treating gap direction as a substitute for the completed first post-open candle ignores contradictory observable price behavior. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Measure the gap at the open and the post-open change separately, naming which interval each price belongs to. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Separate opening gap direction from post-open bars and risk of immediate fade. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Gap strength versus actual post-open structure cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limit of this case: A green overnight gap is not evidence that every intraday candle must also rise; a later full gap fill remains uncertain. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and SCHWAB-EDU are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Measure the gap at the open and the post-open change separately, naming which interval each price belongs to. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Gap strength versus actual post-open structure: Separate opening gap direction from post-open bars and risk of immediate fade. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For a new FICTIONAL prior close $28.00, open $28.42 and first completed post-open close $28.16, compute both changes and describe the difference.",
         "topic": "Gap strength versus actual post-open structure",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C03-L01": {
       "labId": "F3-C03-L01",
@@ -3484,44 +3484,44 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Bearish Engulfing configuration and later outcome.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective — Bearish Engulfing configuration and later outcome. Check body engulfment using completed open/close; do not assume the entire high-low range is engulfed. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: In a fictional two-candle completed sample, the first bullish candle opens $10.00 and closes $10.30; the next bearish candle opens $10.35 and closes $9.95. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The bearish real body spans $0.40, versus the prior bullish real body of $0.30; its body engulfs the earlier body without claiming either wick must be engulfed. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Bearish Engulfing configuration and later outcome from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Bearish Engulfing configuration and later outcome: identify the older reference and the current completed evidence, then preserve the exact time boundary. Check body engulfment using completed open/close; do not assume the entire high-low range is engulfed.",
+          "Check the comparison: The bearish real body spans $0.40, versus the prior bullish real body of $0.30; its body engulfs the earlier body without claiming either wick must be engulfed. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The pattern is a completed two-bar configuration, not proof of who sold, an intrabar order path, or a subsequent decline. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Bearish Engulfing configuration and later outcome using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Original FICTIONAL worked example: In a fictional two-candle completed sample, the first bullish candle opens $10.00 and closes $10.30; the next bearish candle opens $10.35 and closes $9.95. The bearish real body spans $0.40, versus the prior bullish real body of $0.30; its body engulfs the earlier body without claiming either wick must be engulfed. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.35 and $9.95, equals $0.40. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The pattern is a completed two-bar configuration, not proof of who sold, an intrabar order path, or a subsequent decline. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Bearish Engulfing configuration and later outcome: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Bearish Engulfing configuration and later outcome: Checking only high-low wicks instead of open-close body bounds creates false engulfing classifications. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Compare the first candle's [open, close] body interval to the second candle's [close, open] body interval on completed bars. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Check body engulfment using completed open/close; do not assume the entire high-low range is engulfed. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Bearish Engulfing configuration and later outcome cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Limit of this case: The pattern is a completed two-bar configuration, not proof of who sold, an intrabar order path, or a subsequent decline. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and TOS-LRN are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Compare the first candle's [open, close] body interval to the second candle's [close, open] body interval on completed bars. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Bearish Engulfing configuration and later outcome: Check body engulfment using completed open/close; do not assume the entire high-low range is engulfed. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "For FICTIONAL first candle O=$70.00 C=$70.40 and second O=$70.46 C=$69.92, calculate both body sizes and decide whether body engulfment occurs.",
         "topic": "Bearish Engulfing configuration and later outcome",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C03-L02": {
       "labId": "F3-C03-L02",
@@ -3531,44 +3531,44 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Bullish Engulfing configuration and later outcome.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective — Bullish Engulfing configuration and later outcome. Check opposite-direction body engulfment; confirmation is separate from pattern identification. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: A fictional first bearish candle opens at $12.20 and closes at $12.00; the following bullish candle opens $11.95 and closes $12.30. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The bullish second real body spans $0.35 and exceeds the earlier bearish body span of $0.20, covering its open-close boundaries. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Bullish Engulfing configuration and later outcome from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Bullish Engulfing configuration and later outcome: identify the older reference and the current completed evidence, then preserve the exact time boundary. Check opposite-direction body engulfment; confirmation is separate from pattern identification.",
+          "Check the comparison: The bullish second real body spans $0.35 and exceeds the earlier bearish body span of $0.20, covering its open-close boundaries. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A pattern name is an observation after two bar closes; it does not establish next-candle direction or negate wider structural evidence. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Bullish Engulfing configuration and later outcome using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Original FICTIONAL worked example: A fictional first bearish candle opens at $12.20 and closes at $12.00; the following bullish candle opens $11.95 and closes $12.30. The bullish second real body spans $0.35 and exceeds the earlier bearish body span of $0.20, covering its open-close boundaries. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $12.30 and $11.95, equals $0.35. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A pattern name is an observation after two bar closes; it does not establish next-candle direction or negate wider structural evidence. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Bullish Engulfing configuration and later outcome: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Bullish Engulfing configuration and later outcome: Equating any large green candle with an engulfing pattern ignores whether its opening and closing body contains the prior body's range. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Test both endpoints of the earlier body against the newer body, then treat any future confirmation as unseen. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Check opposite-direction body engulfment; confirmation is separate from pattern identification. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Bullish Engulfing configuration and later outcome cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Limit of this case: A pattern name is an observation after two bar closes; it does not establish next-candle direction or negate wider structural evidence. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and TOS-LRN are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Test both endpoints of the earlier body against the newer body, then treat any future confirmation as unseen. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Bullish Engulfing configuration and later outcome: Check opposite-direction body engulfment; confirmation is separate from pattern identification. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Using FICTIONAL first bar O=$80.60 C=$80.38 and second bar O=$80.30 C=$80.75, compare the bodies and explain why the classification does not guarantee reversal.",
         "topic": "Bullish Engulfing configuration and later outcome",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C03-L03": {
       "labId": "F3-C03-L03",
@@ -3578,44 +3578,44 @@
       "relatedCompetencies": [
         "PULLBACK_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Exact Doji without a guaranteed reversal.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — Exact Doji without a guaranteed reversal. Distinguish equal open-close from automatic reversal; require completed context. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: A fictional completed candle opens and closes at $15.00, has a high of $15.20 and a low of $14.90. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The exact real body is zero while the full high-low range is $0.30; opening and closing equality is a doji-style fact, not a reversal signal. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize Exact Doji without a guaranteed reversal from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for Exact Doji without a guaranteed reversal: identify the older reference and the current completed evidence, then preserve the exact time boundary. Distinguish equal open-close from automatic reversal; require completed context.",
+          "Check the comparison: The exact real body is zero while the full high-low range is $0.30; opening and closing equality is a doji-style fact, not a reversal signal. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: The OHLC record cannot tell whether the high came before or after the low, nor whether the next completed close rises or falls. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice Exact Doji without a guaranteed reversal using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: A fictional completed candle opens and closes at $15.00, has a high of $15.20 and a low of $14.90. The exact real body is zero while the full high-low range is $0.30; opening and closing equality is a doji-style fact, not a reversal signal. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $15.20 and $14.90, equals $0.30. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: The OHLC record cannot tell whether the high came before or after the low, nor whether the next completed close rises or falls. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with Exact Doji without a guaranteed reversal: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for Exact Doji without a guaranteed reversal: Inferring a profitable reversal from an exact doji supplies directional evidence that the single completed candle does not contain. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Calculate body as absolute close minus open, range as high minus low, then describe the uncertainty about subsequent bars. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Distinguish equal open-close from automatic reversal; require completed context. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What Exact Doji without a guaranteed reversal cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: The OHLC record cannot tell whether the high came before or after the low, nor whether the next completed close rises or falls. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and TOS-LRN are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Calculate body as absolute close minus open, range as high minus low, then describe the uncertainty about subsequent bars. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain Exact Doji without a guaranteed reversal: Distinguish equal open-close from automatic reversal; require completed context. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "For a fresh FICTIONAL candle O=$42.00 H=$42.28 L=$41.85 C=$42.00, calculate body and range and state what is unobservable intrabar.",
         "topic": "Exact Doji without a guaranteed reversal",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C03-L04": {
       "labId": "F3-C03-L04",
@@ -3625,44 +3625,44 @@
       "relatedCompetencies": [
         "RCT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about RCT recognition only — first red 5-minute reference.",
-          "A red candle shows a close below open; a trading theory requires explicit context and invalidation.",
-          "Define the first completed red five-minute reference candle, exact timestamps and whether the candle was final before applying the label."
+          "Learning objective — RCT recognition only — first red 5-minute reference. Identify the first completed red five-minute RCT reference without inferring later outcomes. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: In a fictional first completed five-minute interval of a study session, the opening price is $10.30 and the closing price is $10.10. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The first completed five-minute candle is red by $0.20 because its close is below its open; it can be labeled an RCT reference observation only under the taught protocol. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize RCT recognition only — first red 5-minute reference from the source evidence.",
-          "Separate red candle mechanics from any particular pattern rule and write an observable criterion.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for RCT recognition only — first red 5-minute reference: identify the older reference and the current completed evidence, then preserve the exact time boundary. Identify the first completed red five-minute RCT reference without inferring later outcomes.",
+          "Check the comparison: The first completed five-minute candle is red by $0.20 because its close is below its open; it can be labeled an RCT reference observation only under the taught protocol. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: An RCT training label does not authorize a position, reveal subsequent candles, or prove that a later price movement is caused by the initial red bar. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice RCT recognition only — first red 5-minute reference using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate red candle mechanics from any particular pattern rule and write an observable criterion.",
-          "Step 3 — Check the alternative or invalidation: Subsequent revealed evidence contradicts the pattern's predefined requirements."
+          "Original FICTIONAL worked example: In a fictional first completed five-minute interval of a study session, the opening price is $10.30 and the closing price is $10.10. The first completed five-minute candle is red by $0.20 because its close is below its open; it can be labeled an RCT reference observation only under the taught protocol. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.30 and $10.10, equals $0.20. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: An RCT training label does not authorize a position, reveal subsequent candles, or prove that a later price movement is caused by the initial red bar. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with RCT recognition only — first red 5-minute reference: Treating a named theory as a universally validated market law.",
-          "Correct it by returning to the actual observation. Separate red candle mechanics from any particular pattern rule and write an observable criterion.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for RCT recognition only — first red 5-minute reference: Selecting the first red five-minute candle before the interval ends gives an unconfirmed classification and look-ahead distortion. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Require a complete timestamped five-minute bar, verify close below open, and record the rule before inspecting the next interval. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Identify the first completed red five-minute RCT reference without inferring later outcomes. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What RCT recognition only — first red 5-minute reference cannot establish:",
-          "One red candle does not reveal shorts, stops or next-bar direction.",
-          "An interpretation is invalidated or unproven when: Subsequent revealed evidence contradicts the pattern's predefined requirements."
+          "Limit of this case: An RCT training label does not authorize a position, reveal subsequent candles, or prove that a later price movement is caused by the initial red bar. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-OVER and TOS-LRN are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Require a complete timestamped five-minute bar, verify close below open, and record the rule before inspecting the next interval. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support red candle theory context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain RCT recognition only — first red 5-minute reference: Identify the first completed red five-minute RCT reference without inferring later outcomes. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a fictional opening sequence with two five-minute red candles, identify the earliest completed qualifying reference without seeing later bars.",
+        "prompt": "For a FICTIONAL first five-minute bar O=$55.90 H=$56.02 L=$55.55 C=$55.66, compute body direction and magnitude, then describe a neutral conditional next-step review.",
         "topic": "RCT recognition only — first red 5-minute reference",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C04-L01": {
       "labId": "F3-C04-L01",
@@ -4283,44 +4283,44 @@
       "relatedCompetencies": [
         "PULLBACK_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about RSI overbought is not a reversal command.",
-          "A pullback is a move counter to a defined preceding direction; classification depends on context.",
-          "Define the prior impulse, depth and duration of retracement, declining or expanding volume and an objective invalidation before calling a pullback."
+          "Learning objective — RSI overbought is not a reversal command. Treat high RSI as a momentum condition, not an order or a guaranteed immediate reversal. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: An explicitly fictional fully warmed indicator display reports RSI(14)=74 on completed bars, while two completed prices move from $10.20 to $10.35. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The observed completed-price increase is $0.15 despite a displayed overbought-style RSI reading; the supplied RSI is an illustrative reading, not reconstructed from two prices. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize RSI overbought is not a reversal command from the source evidence.",
-          "Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for RSI overbought is not a reversal command: identify the older reference and the current completed evidence, then preserve the exact time boundary. Treat high RSI as a momentum condition, not an order or a guaranteed immediate reversal.",
+          "Check the comparison: The observed completed-price increase is $0.15 despite a displayed overbought-style RSI reading; the supplied RSI is an illustrative reading, not reconstructed from two prices. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: An overbought threshold describes strength in a chosen smoothing convention; it does not establish that a reversal must immediately occur. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice RSI overbought is not a reversal command using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Step 3 — Check the alternative or invalidation: The reference trend no longer meets the previously written structural criteria."
+          "Original FICTIONAL worked example: An explicitly fictional fully warmed indicator display reports RSI(14)=74 on completed bars, while two completed prices move from $10.20 to $10.35. The observed completed-price increase is $0.15 despite a displayed overbought-style RSI reading; the supplied RSI is an illustrative reading, not reconstructed from two prices. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.35 and $10.20, equals $0.15. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: An overbought threshold describes strength in a chosen smoothing convention; it does not establish that a reversal must immediately occur. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with RSI overbought is not a reversal command: Labelling a sharp decline a buying opportunity without identifying risk.",
-          "Correct it by returning to the actual observation. Mark the existing trend, countertrend segment, and proposed invalidation point.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for RSI overbought is not a reversal command: Selling automatically because RSI is above a fixed threshold mistakes an indicator condition for a complete entry, risk, and confirmation process. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Document period 14, Wilder-style calculation convention, warmup and completed observations, then examine what price has actually done. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Treat high RSI as a momentum condition, not an order or a guaranteed immediate reversal. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What RSI overbought is not a reversal command cannot establish:",
-          "A pullback can deepen into a reversal; the label is provisional.",
-          "An interpretation is invalidated or unproven when: The reference trend no longer meets the previously written structural criteria."
+          "Limit of this case: An overbought threshold describes strength in a chosen smoothing convention; it does not establish that a reversal must immediately occur. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-IND and TALIB-FUNC are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Document period 14, Wilder-style calculation convention, warmup and completed observations, then examine what price has actually done. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support pullbacks versus reversals, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain RSI overbought is not a reversal command: Treat high RSI as a momentum condition, not an order or a guaranteed immediate reversal. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional retracements, one breaking the reference swing and one holding it, without presuming either will resume.",
+        "prompt": "For FICTIONAL validly warmed RSI(14)=76 with two completed prices $25.10 and $25.32, compute price change and explain why the RSI number alone is insufficient to predict reversal.",
         "topic": "RSI overbought is not a reversal command",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C07-L02": {
       "labId": "F3-C07-L02",
@@ -4330,44 +4330,44 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about RSI oversold is not an automatic buy.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "Learning objective — RSI oversold is not an automatic buy. Treat low RSI as a momentum condition, not an automatic purchase signal. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: An explicitly fictional warmed RSI(14)=26 accompanies completed prices of $9.80 and then $9.62 in the selected visible window. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The visible price decrease is $0.18 while an oversold-style RSI threshold is present; this is not a two-price calculation of Wilder RSI. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize RSI oversold is not an automatic buy from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for RSI oversold is not an automatic buy: identify the older reference and the current completed evidence, then preserve the exact time boundary. Treat low RSI as a momentum condition, not an automatic purchase signal.",
+          "Check the comparison: The visible price decrease is $0.18 while an oversold-style RSI threshold is present; this is not a two-price calculation of Wilder RSI. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: An oversold value can persist during declines, and without seeded histories the learner cannot independently reconstruct its exact displayed reading. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice RSI oversold is not an automatic buy using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Original FICTIONAL worked example: An explicitly fictional warmed RSI(14)=26 accompanies completed prices of $9.80 and then $9.62 in the selected visible window. The visible price decrease is $0.18 while an oversold-style RSI threshold is present; this is not a two-price calculation of Wilder RSI. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $9.80 and $9.62, equals $0.18. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: An oversold value can persist during declines, and without seeded histories the learner cannot independently reconstruct its exact displayed reading. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with RSI oversold is not an automatic buy: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for RSI oversold is not an automatic buy: Treating RSI below 30 as a guaranteed long entry ignores the market's ability to continue declining and the absence of an executable risk plan. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Read the completed RSI reading alongside price structure and note how a later rebound would require new observed evidence. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Treat low RSI as a momentum condition, not an automatic purchase signal. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What RSI oversold is not an automatic buy cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Limit of this case: An oversold value can persist during declines, and without seeded histories the learner cannot independently reconstruct its exact displayed reading. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-IND and TALIB-FUNC are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Read the completed RSI reading alongside price structure and note how a later rebound would require new observed evidence. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain RSI oversold is not an automatic buy: Treat low RSI as a momentum condition, not an automatic purchase signal. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
+        "prompt": "On a new FICTIONAL warmed RSI(14)=24 with completed prices $38.00 and $37.64, calculate the price decline and state a risk-aware no-trade alternative.",
         "topic": "RSI oversold is not an automatic buy",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C07-L03": {
       "labId": "F3-C07-L03",
@@ -4377,44 +4377,44 @@
       "relatedCompetencies": [
         "CHASE_FOMO_DISCIPLINE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about MACD lag after a fast price impulse.",
-          "Chasing occurs when decisions bypass a prior plan in response to perceived urgency.",
-          "List the prewritten entry condition, maximum acceptable spread and no-trade rule; entering after the move without the evidence is a process deviation."
+          "Learning objective — MACD lag after a fast price impulse. Document EMA seed, completed bars and lag of price-derived MACD observations. This activity uses only timestamped, completed observations and does not imply a future outcome.",
+          "Original FICTIONAL market evidence: A fictional indicator record provides seeded completed-bar EMA(12)=$10.40 and EMA(26)=$10.32 after an earlier rapid price rise. These invented figures are educational observations rather than historical licensed market data or filled orders.",
+          "First-principles interpretation: The illustrative MACD line is positive $0.08, computed as the short EMA minus the long EMA; signal-line values and histogram are not supplied. Separate the descriptive price relationship from any proposed execution decision."
         ],
         "recognize": [
-          "Here is how to recognize MACD lag after a fast price impulse from the source evidence.",
-          "Record whether the proposed action was allowed by the prewritten plan.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognition procedure for MACD lag after a fast price impulse: identify the older reference and the current completed evidence, then preserve the exact time boundary. Document EMA seed, completed bars and lag of price-derived MACD observations.",
+          "Check the comparison: The illustrative MACD line is positive $0.08, computed as the short EMA minus the long EMA; signal-line values and histogram are not supplied. Repeat it directly from the supplied completed observations before assigning a technical label.",
+          "Alternative or missing evidence: A positive difference is lagged information from price smoothing and does not prove immediate continuation or a valid trade setup. Do not infer a trade fill, hidden order-book intentions, or the direction of an unseen candle."
         ],
         "apply": [
-          "Let us practice MACD lag after a fast price impulse using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record whether the proposed action was allowed by the prewritten plan.",
-          "Step 3 — Check the alternative or invalidation: Entry assumptions or risk bounds differ from the locked plan."
+          "Original FICTIONAL worked example: A fictional indicator record provides seeded completed-bar EMA(12)=$10.40 and EMA(26)=$10.32 after an earlier rapid price rise. The illustrative MACD line is positive $0.08, computed as the short EMA minus the long EMA; signal-line values and histogram are not supplied. Reproduce the difference from the recorded inputs rather than taking the label on trust.",
+          "Calculation check: the absolute difference between the two declared comparison numbers, $10.40 and $10.32, equals $0.08. State explicitly what those numbers measure; a numerical match does not certify predictive power.",
+          "Pause-bound interpretation: A positive difference is lagged information from price smoothing and does not prove immediate continuation or a valid trade setup. If the scenario already describes several completed bars, classify each earlier pause using only evidence available at that earlier instant."
         ],
         "mistake": [
-          "A common error with MACD lag after a fast price impulse: Rewriting the plan after seeing price accelerate.",
-          "Correct it by returning to the actual observation. Record whether the proposed action was allowed by the prewritten plan.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading error for MACD lag after a fast price impulse: Calling this a bullish signal-line crossover without the signal EMA series fabricates an indicator component that was not observed. That error can turn a descriptive learning exercise into an unsupported trading instruction.",
+          "Correction strategy: Subtract the two labeled EMAs using common timeframe and seed conventions, and mark the signal line as unavailable. Write down the evidence, its timeframe, the comparison rule, and a condition that would falsify the interpretation.",
+          "Independent retry: Document EMA seed, completed bars and lag of price-derived MACD observations. The learner must be able to make the comparison again without seeing a model answer or a later candle."
         ],
         "limits": [
-          "What MACD lag after a fast price impulse cannot establish:",
-          "The fear of missing a move is an emotion, not an evidence source.",
-          "An interpretation is invalidated or unproven when: Entry assumptions or risk bounds differ from the locked plan."
+          "Limit of this case: A positive difference is lagged information from price smoothing and does not prove immediate continuation or a valid trade setup. The exercise uses fictional price observations, not authenticated trade tape, a real fill or an independently licensed dataset.",
+          "Research controls: CHARTSCHOOL-IND and TALIB-PY are candidate educational references, not approved rights for copying charts, redistribution or AI ingestion. Individual claims and formula conventions still require editorial checking.",
+          "Risk and chronology: Subtract the two labeled EMAs using common timeframe and seed conventions, and mark the signal line as unavailable. A pattern, gap, indicator threshold or descriptive arithmetic alone cannot establish order execution, profitability, or what happened on an unseen future bar."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support chase and fomo discipline, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without advancing the fictional replay beyond the visible completed observations, explain MACD lag after a fast price impulse: Document EMA seed, completed bars and lag of price-derived MACD observations. Identify the reference, reproduce the stated comparison, name one practical misconception, and state what remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional late chase against a documented NO TRADE, and evaluate process adherence rather than subsequent profit.",
+        "prompt": "With independent FICTIONAL seeded EMA(12)=$72.16 and EMA(26)=$72.03 on completed bars, calculate MACD line and explain what cannot be inferred about the signal-line crossover.",
         "topic": "MACD lag after a fast price impulse",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH04_20261101"
     },
     "F3-C07-L04": {
       "labId": "F3-C07-L04",
