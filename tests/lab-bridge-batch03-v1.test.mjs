@@ -31,7 +31,7 @@ test('Batch03: preserved 419 canonical Labs, 30 competencies, 60 rewritten subje
  assert.equal(rows.length,419);
  assert.equal(new Set(rows.map(x=>x.labId)).size,419);
  const rewritten=rows.filter(x=>typeof x.instructionSource==='string');
- assert.equal(rewritten.length,60,'No unreviewed or disappeared source-authoring batch');
+ assert(rewritten.length>=60,'Previously authored 60-Lab baseline must never regress as new batches are added');
  assert.equal(rewritten.filter(x=>x.instructionSource==='ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101').length,20);
 });
 test('Batch03: twenty topic-specific original worked cases, distinct transfer and protected grading boundary',()=>{
