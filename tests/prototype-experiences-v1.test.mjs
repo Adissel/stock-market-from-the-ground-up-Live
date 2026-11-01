@@ -19,13 +19,13 @@ assert.match(src,/type="range"/);
 assert.match(boot,/typeof module.mountExperienceSuite/);
 assert.match(src,/Founders Commons/);
 for(const edition of ['Basic','Advanced','Professional','Enterprise'])assert.ok(src.includes("'"+edition+"'"),'Missing engine add-on edition '+edition);
-assert.match(src,/function EngineAddOnPreview/);
-assert.match(src,/<EngineAddOnPreview planCode=\{plan.code\}\/>/);
+assert.match(src,/function EditionPreview/);
+assert.match(src,/<EditionPreview plan=\{plan\}/);
 assert.match(src,/Shared Learning Engine/);
 assert.match(src,/Shared Lab Engine/);
 assert.match(src,/Talia Market Tutor/);
-assert.match(src,/NONCOMMERCIAL PREVIEW/);
-assert.match(src,/do not authorize access, create a paid product/);
+assert.match(src,/No purchase, grant, AI inference or membership change occurs/);
+
 for(const code of ['FOUNDING_14','FOUNDING_30','FOUNDING_60'])assert.match(src,new RegExp("code:'"+code+"'.*?founder:true,commons:true"),'All Founders Commons plan flags must be included');
 assert.match(src,/Design\/governance voting/);
 assert.match(src,/plan.code==='FOUNDING_60'/,'Governance voting must remain exclusive');
