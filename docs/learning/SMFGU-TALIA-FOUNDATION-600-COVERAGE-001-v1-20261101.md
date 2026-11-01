@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.1 / 2026-11-01 |
+| Version / date | 1.2 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -46,13 +46,14 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - Source-only Tutor retrieval is extended using the existing public validated guide loader and approved sources, without a separate database, model endpoint or paid provider.
 - **13** of the 30 canonical competencies now have original fictional quantitative teaching cases with alternate calculations, up from seven: the previous seven plus spread/slippage, float/turnover, MFE/MAE, documented session high distance, Level II quote/depth, and multi-timeframe bar-count mathematics.
 - Existing computed Chart Studio selections remain **16**, separately calculated and licensed. Do not report 73 chart overlays.
+- **20 new, individually authored Foundation topic explanation drafts** now exist in `data/talia-foundation-explanations-batch01-v1.json`, preserving all 30 official competencies. Each has an original first-principles concept, source-informed method, fictional worked case, limits, common mistake, self-check and independent transfer prompt. Their existing public Tutor retrieval and source-only response route are implemented, but individual editorial approval is **0/20**. Drafting progress toward the Owner target is **20/600 = 3.3%** for this supplemental series—not 3.3% accepted or published instructional coverage.
 - Formal member QA and exact final commit GitHub CI are separate; no blanket certification of the 600 topics.
 
 ## Execution order: concurrent bounded Foundation workstreams
 1. **Source and counting gates:** Preserve 30 official/419 IDs/274 day programs; validate 61+12=73 distinct indicator guides; reject duplicated title/code; validate 13 canonical math topics.
 2. **Authenticated Tutor teaching:** Source-only lookup of the 12 new indicators through the original Tutor API; all 13 quantitative topics receive ordinary and deeper source-only explanations plus 'Try another' fictional case.
-3. **Build-time regression:** Run the Foundation numeric fixture and source retrieval tests in both the Tutor GitHub Actions workflow and `scripts/build-pages.sh` before Cloudflare publishes.
-4. **600-topic editorial register:** Develop distinct concept keys and editorial evidence per domain, cross-reference canonical Labs and 274 study days, and apply duplicate checks. Only source-written, independently reviewed explanations increase the approved numerator.
+3. **Build-time regression:** Run Foundation numerical, indicator guide, 146-module guided practice, and twenty-topic retrieval tests in the Tutor GitHub Actions workflow and `scripts/build-pages.sh` before Cloudflare publishes. **Cloudflare evidence:** deployment `2a00de16d1411ac6756c927b9a314d5af3290721` succeeded and reported eight passing new tests across four suites. Push-triggered GitHub Actions conclusions are not independently verifiable through the current connector.
+4. **600-topic editorial register:** The initial 20 distinct source-written drafts and unique keys are in place. Continue drafting by domain, with first-principles, worked examples where mathematically meaningful, sources, misconceptions and genuinely independent transfer; cross-reference canonical Labs and 274 study days without equating identifiers to accepted lessons. Only independently reviewed items increase the approved numerator.
 5. **Extended mathematics:** Add concept-specific calculations where valid (VWAP exact-vs-bar source distinction, EMA9/EMA20/EMA200 periods and warm-up, OHLC structure, volatility, position mathematics, slippage, expected value, options arithmetic). No calculation is fabricated where feed or rights cannot support it.
 6. **Indicator guided expansion:** Twelve new nine-stage, interpretation-only guided lessons are source implemented in the original player (146 total guided modules, 73 indicator modules). Next: independent educational/real-member acceptance and numerical implementations only when formulas, warmup and data rights justify them. Preserve the original 134/61 source files.
 7. **ECharts/visual teaching:** React 19/TypeScript with lifecycle-safe same-origin ECharts 6.1 for rich synchronized chart workspaces when justified; existing accessible HTML5/CSS3 and JavaScript are correct for the original Tutor conversation surface. Chart studies must be explicitly registered and no future bar revealed.
@@ -71,7 +72,7 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - Four-edition cumulative specification: 4/4 = **100% defined**, separate from actual releases.
 - First Foundation mathematics source *batch*: 13/13 intended supported scenario topics implemented in code; **not** 13/13 independently accepted production lessons.
 - Indicator public source briefs: 73 authored total (61 existing + 12 added). New 12/12 source entries complete; new nine-stage guided-practice source implementations **12/12**, new operational chart overlay implementations **0/12**. The 12 lessons remain interpretation-only and individually unapproved.
-- 600 **individually accepted original Tutor explanations**: numerator **unverified**. Do not call the 30 core or all existing Lab/indicator summaries new accepted explanations without item-level editorial reviews. A completion percentage for 600 requires an individually controlled acceptance register.
+- 600 original Tutor explanations: **20/600 = 3.3% new source-authored supplemental drafts**; **0/600 = 0% individually editorial-approved under this new register**, because no signed-off 600-item register exists. These are different metrics. Do not count 30 official competencies, 419 Lab IDs, 274 Boot Camp days or 73 indicator topics as newly accepted without individual editorial evidence.
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
 
@@ -80,5 +81,6 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 |---|---|---|---|
 | 1.0 | 2026-11-01 | Establish owner-directed 600 true Tutor explanations; add 12 distinct indicator briefs and six more worked-math topics; maintain 30 official competencies and existing 61 guided-practice modules | Source implemented; editorial and authenticated verification pending |
 | 1.1 | 2026-11-01 | Add 12 distinct interpretation-only nine-stage guided modules; original 134/61 preserved, shared browser player extended to 146/73 | Source implemented, build/CI/member/editorial acceptance still separately gated |
+| 1.2 | 2026-11-01 | Author 20 distinct supplemental Foundation explanations; integrate into existing Tutor retrieval, no paid model or official grade; four new regression suites passed 8/8 on successful Cloudflare deployment | Source and Cloudflare build verified; 600-item editorial/real-member acceptance pending |
 
 **Footer:** SMFGU-TALIA-FOUNDATION-600-COVERAGE-001 v1.0 · Main-only · Editorial approval must be individual · No cost/protected-grade/provider bypass.
