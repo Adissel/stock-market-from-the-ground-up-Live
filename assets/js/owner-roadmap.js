@@ -320,6 +320,7 @@ async function reload(){
   releasePlan=data.releasePlan||null;metadata=data.metadata||{};engineering=data.engineeringReview||{};delegation=data.delegatedReview||{};delegated=data.delegatedBaseline||{};all=[...(data.items||[]),...(data.custom||[])];stored=data.progress||{};loaded=true;
   renderPrivateBrief(data.operationalBrief);
   renderCurrentAudit(data.currentAudit);
+  window.OwnerRoadmapRelease20261101?.render(data.releaseReconciliation);
   renderReleasePlan();
   window.OwnerRoadmapProductsV88?.render(data);
   window.OwnerProductReadinessV91?.render(data);
