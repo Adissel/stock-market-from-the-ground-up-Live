@@ -55,7 +55,8 @@ assert(b.includes('sourceCases.get(selected)')&&b.includes('sourceSection.hidden
  "Do not display a source for the wrong day or a blank additional case");
 
 assert(h.indexOf('lab-engine-v32-universal.js')<h.indexOf('bootcamp.js'));
-assert(b.includes("labId:first,mode:'guided',target:guideSlot"));
+assert(b.includes("labId,mode:'guided',target:guideSlot"),
+ 'Boot Camp must mount its own synthetic Academy study ID rather than impersonating a canonical Lab ID');
 assert(b.includes("focusId:'gu-bc-note'"));
 assert(e.includes("document.getElementById(focusId||'ev-decision')"));
 console.log('PASS all 30 Bootcamp days linked to shared nine-stage Lab v3.2 subject study');
