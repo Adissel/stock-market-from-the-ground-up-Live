@@ -109,8 +109,18 @@ document.addEventListener('DOMContentLoaded',function(){
   const verification=form.querySelector('.gu-manual-human');
   const status=form.querySelector('#v135-auth-captcha-status');
   if(!submit)return;
-  if(verification&&(submit.compareDocumentPosition(verification)&Node.DOCUMENT_POSITION_FOLLOWING))form.insertBefore(verification,submit);
-  if(status&&(submit.compareDocumentPosition(status)&Node.DOCUMENT_POSITION_FOLLOWING))form.insertBefore(status,submit);
+  // The sign-in button is nested in .gu-auth-primary-actions, not a direct
+  // child of form. insertBefore must target a direct child of its parent.
+  // Move late CAPTCHA/verification controls above the action row, preserving
+  // the actual sign-in handler and without detaching or replacing the form.
+  const actions=submit.closest('.gu-auth-primary-actions');
+  const anchor=actions&&actions.parentElement===form?actions:submit;
+  const parent=anchor.parentNode;
+  if(!parent)return;
+  if(verification&&(submit.compareDocumentPosition(verification)&Node.DOCUMENT_POSITION_FOLLOWING))
+   parent.insertBefore(verification,anchor);
+  if(status&&(submit.compareDocumentPosition(status)&Node.DOCUMENT_POSITION_FOLLOWING))
+   parent.insertBefore(status,anchor);
  }
  arrange();
  new MutationObserver(arrange).observe(form,{childList:true,subtree:true});
