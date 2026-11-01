@@ -44,9 +44,16 @@ for(const [id,m] of Object.entries(labs.byLab)){
  const row=bridge.entries[id];
  assert(row&&row.labId===id&&row.title===m.title);
  assert.equal(row.collection,m.bookCode);
- assert(['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
-  'BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING'].includes(row.sourceStatus),
-  id+' must remain source-only and editorial-pending; no verified market data or grade claimed');
+ const isBatch02=String(row.instructionSource||'').startsWith('ORIGINAL_SUBJECT_SPECIFIC_BATCH02_');
+ const sourceHold=['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',
+   'BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING'].includes(row.sourceStatus)||
+   (isBatch02&&/^BATCH02_[A-Z0-9_]*PENDING$/.test(row.sourceStatus));
+ assert(sourceHold,id+' must remain source-only and editorial-pending; no verified market data or grade claimed');
+ if(isBatch02){
+  assert.equal(row.transfer?.graded,false,id+' must not produce an independent grade');
+  assert.equal(row.transfer?.noLookahead,true,id+' must not reveal future observations');
+  assert.equal(row.transfer?.requiresNewEvidence,true,id+' must require new independent transfer evidence');
+ }
  assert(guides.has(row.mappedGuideCode));
  assert.deepEqual(Array.from(row.relatedCompetencies),Array.from(m.relatedCompetencies));
  const concepts=[];
