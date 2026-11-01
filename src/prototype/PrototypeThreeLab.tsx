@@ -106,10 +106,11 @@ function ThreeCanvas({ shown, cameraMode, resetKey }: {shown: number; cameraMode
       const width = Math.max(1, host.clientWidth), height = Math.max(1, host.clientHeight);
       if (camera instanceof THREE.PerspectiveCamera) {
         camera.aspect = width / height;
+        camera.updateProjectionMatrix();
       } else if (camera instanceof THREE.OrthographicCamera) {
         camera.left = -9 * width / height; camera.right = 9 * width / height;
+        camera.updateProjectionMatrix();
       }
-      camera.updateProjectionMatrix();
       renderer.setSize(width, height, false);
       draw();
     }
