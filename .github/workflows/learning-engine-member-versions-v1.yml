@@ -5,6 +5,9 @@ on:
     paths:
       - 'assets/learning-versions/**'
       - 'assets/js/member-learning-engine-versions-v1.js'
+      - 'scripts/learning-echarts-beta-audit-v1.mjs'
+      - 'assets/js/prototype-curriculum-parity-v1.js'
+      - 'tests/prototype-curriculum-parity-v1.test.mjs'
       - 'assets/js/member-tutor-version-loader-v1.js'
       - 'assets/js/admin-learning-engine-versions-v1.js'
       - 'functions/api/admin-learning-engine-versions.js'
@@ -41,4 +44,8 @@ jobs:
           node --check assets/js/member-learning-engine-versions-v1.js
           node --check assets/js/member-tutor-version-loader-v1.js
       - name: Contracts
-        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs tests/talia-membership-editions-v1.test.mjs tests/talia-member-foundation-server-v1.test.mjs tests/member-engine-owner-interaction-v1.test.mjs tests/learning-engine-tier-policy-v1.test.mjs
+        run: node --test tests/learning-engine-member-versions-v1.test.mjs tests/learning-engine-member-versions-api-v1.test.mjs tests/talia-membership-editions-v1.test.mjs tests/talia-member-foundation-server-v1.test.mjs tests/member-engine-owner-interaction-v1.test.mjs
+      - name: Ten-camp, 419-Lab and 61-indicator source integrity
+        run: |
+          node scripts/learning-echarts-beta-audit-v1.mjs
+          node tests/prototype-curriculum-parity-v1.test.mjs tests/learning-engine-tier-policy-v1.test.mjs
