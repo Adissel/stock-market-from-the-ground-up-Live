@@ -1,0 +1,100 @@
+{
+  "document_id": "SMFGU-LEARN-ENGINE-SNAPSHOT-20261101",
+  "project": "The Stock Market: From the Ground Up",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "FROZEN SOURCE SNAPSHOT — no membership runtime switch by copying alone",
+  "baseline_commit": "a254c09ec7a453efc86884d8c4b95e79f064cf55",
+  "learning_engine": "3.3",
+  "lab_engine": "3.2",
+  "tutor": "Talia Mercer / market-tutor current at baseline",
+  "google_drive_location": null,
+  "google_drive_document_id": null,
+  "files": [
+    {
+      "path": "assets/js/lab-engine-v32-universal.js",
+      "sha": "160eccb56e4fad6c20ebd0b3f792abb5f68521d6",
+      "size": 84115
+    },
+    {
+      "path": "assets/js/lab-engine-v32-teaching.js",
+      "sha": "c2a17ff9ef9e0e8738dd182778cb10ba8affe87b",
+      "size": 8572
+    },
+    {
+      "path": "assets/js/lab-v32-synthetic-replay.js",
+      "sha": "4595d18795bb4255bc2fc0f7f03c664baf3b57f4",
+      "size": 12075
+    },
+    {
+      "path": "assets/js/lab-engine-v33-visual.js",
+      "sha": "a48616ff713fc7491db79605df9476be75660ef5",
+      "size": 4575
+    },
+    {
+      "path": "assets/js/lab-v33-contextual-visuals.js",
+      "sha": "5ab9cd2cfb7d417de0f4b716ea929d634eed4429",
+      "size": 24833
+    },
+    {
+      "path": "assets/js/lab-v33-visual-interactions.js",
+      "sha": "376a433721b5921eaa589ede35ed668b0409b684",
+      "size": 13298
+    },
+    {
+      "path": "assets/js/lab-v33-instruction-content.js",
+      "sha": "60e00eeaef9f5c0e733a6741c02cf6c14e8623eb",
+      "size": 42540
+    },
+    {
+      "path": "assets/js/lab-v33-instructor.js",
+      "sha": "688c88471672c9654069b7dd367ad0bc85b9b0ca",
+      "size": 52372
+    },
+    {
+      "path": "assets/js/lab-v33-grade-display.js",
+      "sha": "0e1c6f585190ea27dc165d2df103aa7419c93b8e",
+      "size": 6169
+    },
+    {
+      "path": "assets/js/lab-journey-checkpoint-v33.js",
+      "sha": "ab5522abc087a085386be512e989a0efe9b21066",
+      "size": 4355
+    },
+    {
+      "path": "assets/js/lab-v33-workspace-flow.js",
+      "sha": "febd883b6ae30a470174afdb94f6ba8868e576a4",
+      "size": 9229
+    },
+    {
+      "path": "assets/js/lab-v34-interactive-lessons.js",
+      "sha": "f7e12a9431951d6a6e22f3b184148d03a74b36f3",
+      "size": 41368
+    },
+    {
+      "path": "assets/js/lab-v34-competency-examples.js",
+      "sha": "46c5f85da5112dc735a768b39121af985c4be28a",
+      "size": 17656
+    },
+    {
+      "path": "assets/js/market-tutor.js",
+      "sha": "99699f108f77cfd53484f67ba3f6f731a5a00c6e",
+      "size": 42651
+    },
+    {
+      "path": "assets/js/tutor-guided-practice-v1.js",
+      "sha": "3efcd9a8f82bc6e4892b8d0c8b65464611657035",
+      "size": 57344
+    },
+    {
+      "path": "assets/js/lab-player.js",
+      "sha": "683a5d5a100dd9fcc2001ab4b2d940e8cc1ae3ed",
+      "size": 55699
+    }
+  ],
+  "notes": [
+    "Archived member-facing source files only; existing protected grading, private rubrics, server replay, authentication and entitlement services must remain authoritative.",
+    "Source snapshot does not include external data catalogs and is not a separate standalone application.",
+    "Free and Pick What You Want activation requires audited server-side membership version assignments and actual runtime dispatch; do not claim access is switched based only on this archive."
+  ]
+}
