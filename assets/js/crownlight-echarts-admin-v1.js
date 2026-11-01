@@ -98,7 +98,7 @@
    yAxis:{type:'category',data:items.map(x=>x.label),inverse:true,
     axisLabel:{color:'#e6f1f5',fontSize:12},axisTick:{show:false},axisLine:{show:false}},
    series:[{name:'Current recorded count',type:'bar',data:items.map(x=>x.value),
-    barMaxWidth:27,barMinHeight:2,showBackground:true,
+    barMaxWidth:27,showBackground:true,
     backgroundStyle:{color:'rgba(120,160,181,.11)',borderRadius:5},
     itemStyle:{color:gradient,borderRadius:[0,6,6,0]},
     label:{show:true,position:'right',distance:10,color:'#edf8fa',
