@@ -57,7 +57,8 @@ async function catalog(){
    freeEvidence.records.some(row=>!Number.isInteger(row.day)||row.day<1||row.day>5||
      !row.objective||!row.worked||!row.transfer)||
    academy?.ok!==true||!Array.isArray(academy.programs)||
-   academy.programs.length<7||academy.programs.length>11||
+   academy.programs.length<7||academy.programs.length>10||
+   academy.programs.some(p=>p.code==='free5')||
    !Array.isArray(computed)||computed.length!==16){
    throw Error('Canonical learning registry or calculated-study count mismatch');
  }
