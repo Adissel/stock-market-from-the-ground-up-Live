@@ -770,10 +770,45 @@
      !sourceAllowed.test(m.sourceUrl))throw Error('Invalid educational scenario');
     ids.add(m.id);
    }
-   state.units=units;
+   // The frozen 134-module source is never rewritten. Load optional original
+   // interpretation-only additions into this existing nine-stage Tutor player.
+   // Missing/invalid optional content falls back to the validated original 134.
+   let available=units;
+   try{
+    const response=await fetch('/data/tutor-guided-practice-expansion-v1.json',
+     {credentials:'same-origin',cache:'no-cache'});
+    if(response.ok){
+     const extension=await response.json(),extras=extension?.modules;
+     if(extension?.kind!=='talia_guided_practice_extension_ungraded_v1'||
+        extension.indicatorCount!==12||extension.originalGuidedModuleCountPreserved!==134||
+        extension.originalIndicatorCountPreserved!==61||
+        extension.numericIndicatorCountAdded!==0||
+        extension.interpretationOnlyIndicatorCountAdded!==12||
+        !Array.isArray(extras)||extras.length!==12)
+      throw Error('Invalid optional indicator guided-practice extension');
+     for(const m of extras){
+      if(!/^IND-(?:6[2-9]|7[0-3])$/.test(m?.id||'')||ids.has(m.id)||
+        !/^STUDY_[A-Z0-9_]{3,80}$/.test(m.guideCode||'')||m.kind!=='indicator'||
+        m.metric!=='study-concept'||!sourceAllowed.test(m.sourceUrl||'')||
+        m.sourceStatus!=='original_ungraded_interpretation_only_pending_individual_editorial_acceptance'||
+        typeof m.formulaOrRule!=='string'||m.formulaOrRule.length<12||
+        !Array.isArray(m.options)||m.options.length!==3||
+        !Array.isArray(m.transferOptions)||m.transferOptions.length!==3||
+        !Number.isInteger(m.correct)||m.correct<0||m.correct>2||
+        !Number.isInteger(m.transferCorrect)||m.transferCorrect<0||m.transferCorrect>2)
+       throw Error('Invalid optional indicator guided-practice lesson');
+      ids.add(m.id);
+     }
+     available=[...units,...extras];
+    }
+   }catch(error){
+    // Inaccessible or unaccepted content cannot replace the frozen core.
+    console.warn('Optional public Tutor indicator teaching unavailable; retaining baseline.',error);
+   }
+   state.units=available;
    const requested=new URLSearchParams(root.location?.search||'').get('lesson');
-   const chosen=lessonFor(requested,units);
-   reset(units.find(u=>u.id===chosen?.id)||units[0]);
+   const chosen=lessonFor(requested,available);
+   reset(available.find(u=>u.id===chosen?.id)||available[0]);
    if(typeof root.dispatchEvent==='function'&&typeof Event==='function')
     root.dispatchEvent(new Event('talia-guided-practice-ready'));
   }catch{
