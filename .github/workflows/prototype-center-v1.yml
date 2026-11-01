@@ -16,6 +16,10 @@ on:
       - 'tests/prototype-center-v2-browser.test.mjs'
       - 'tests/prototype-membership-builder-v1.test.mjs'
       - 'assets/js/prototype-membership-builder-v1.js'
+      - 'assets/js/prototype-preset-sync-v1.js'
+      - 'functions/api/prototype-classroom-presets.js'
+      - 'tests/prototype-classroom-registry-v1.test.mjs'
+      - 'supabase/migrations/20261101_cl_classroom_design_registry_v1.sql'
       - 'assets/js/prototype-teaching-v2.js'
       - 'functions/api/prototype-training-cases.js'
       - 'functions/api/prototype-document.js'
@@ -41,6 +45,8 @@ jobs:
           node --check assets/js/prototype-admin-link-v1.js
           node --check assets/js/prototype-teaching-v2.js
           node --check assets/js/prototype-membership-builder-v1.js
+          node --check assets/js/prototype-preset-sync-v1.js
+          node --check functions/api/prototype-classroom-presets.js
           node --check functions/api/prototype-training-cases.js
           node --check functions/api/prototype-document.js
           node --check functions/_middleware.js
@@ -53,6 +59,7 @@ jobs:
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
           node tests/prototype-membership-builder-v1.test.mjs
+          node tests/prototype-classroom-registry-v1.test.mjs
       - name: Build exact public Cloudflare Pages output and verify private-source exclusions
         run: |
           bash scripts/build-pages.sh
