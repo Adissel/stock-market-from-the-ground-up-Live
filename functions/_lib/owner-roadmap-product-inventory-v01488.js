@@ -84,14 +84,14 @@ export const reviewedProductGuidesV01488={
       "terms": "One-time purchase. 'Lifetime' means the operational life of the platform, subject to published Terms and an active account in good standing."
     },
     "ONDEMAND_MONTHLY": {
-      "summary": "Book-aligned historical replay learning for use with a separately authorized third-party OnDemand installation.",
+      "summary": "Training-only beta membership for the seven listed Academy programs, including source verification, watchlists, scanners, foundational trading, chart reading, risk and independent practice. A separate thinkorswim OnDemand installation is not included.",
       "learn": [
         "Practice no-look-ahead chart review and historical trading decisions.",
         "Use guided replay prompts and a decision journal to distinguish observations from hindsight."
       ],
       "included": [
-        "Guided book-aligned historical replay training where released",
-        "Historical practice prompts and structured decision-journal exercises"
+        "Access to currently available seven-program Academy teaching, including guided practice and private reflections",
+        "Current original educational investigations, decisions, structured reflections and resume when the learning service confirms a save"
       ],
       "excluded": [
         "Downloadable eBooks",
