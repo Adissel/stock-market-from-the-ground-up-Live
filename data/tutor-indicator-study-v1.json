@@ -2063,9 +2063,10 @@
       "limit": "Not a guaranteed direction forecast or equal to a future realized daily range. A study value never establishes a profitable trading edge or an executable fill.",
       "invalidation": "The study is not interpretable until its data, session, formula, seed and completed-bar timing are known. Not a guaranteed direction forecast or equal to a future realized daily range.",
       "commonError": "Treating Implied Volatility Index Context as a self-sufficient BUY/SELL signal or combining related price-based studies as though they were independent evidence.",
-      "selfCheck": "Explain in your own words what Implied Volatility Index Context measures, the formula/settings in Index-specific calculation from qualifying option prices and strikes, one application to a hypothetical chart and why not a guaranteed direction forecast or equal to a future realized daily range.",
-      "reviewExplanation": "Explain the calculation and evidence without future bars. A valid answer states both the value of Implied Volatility Index Context and its limitation; this review is ungraded.",
+      "selfCheck": "FICTIONAL INDEPENDENT TRANSFER: With fictional readings 25 and 20, find the −5 index-point difference; explain why it cannot predict the direction of tomorrow's S&P 500 move. State calculation, units, declared settings and one invalid inference.",
+      "reviewExplanation": "Ungraded subject-specific correction: VIX index methodology is exchange-specific, option-based and not reconstructible from an OHLCV bar or two displayed readings. Treat published numbers as hypothetical context rather than output from our own pricing model; compare timestamps, maturities and index methodology. The index does not promise any realized daily range. Worked evidence: FICTIONAL: A displayed VIX-like number changes from 18 to 22 index points. That is +4 index points (approximately +22.22% relative to 18), not a forecast that the S&P 500 will rise 4%. Cboe VIX methodology uses qualifying SPX option quotes and an annualized, 30-day constant-maturity implied volatility calculation.",
       "sourceUrls": [
+        "https://www.cboe.com/insights/posts/what-the-vix-and-vix-1-d-indices-attempt-to-measure-and-how-they-differ",
         "https://chartschool.stockcharts.com/table-of-contents/market-indicators",
         "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
       ],
@@ -2076,7 +2077,15 @@
       "supplemental": true,
       "researchGuide": true,
       "officialCompetency": false,
-      "fictionalPrompt": "FICTIONAL: Two completed chart snapshots use different Implied Volatility Index Context settings. Ask which settings and data windows must be reconciled before interpreting their disagreement."
+      "fictionalPrompt": "FICTIONAL: A displayed VIX-like number changes from 18 to 22 index points. That is +4 index points (approximately +22.22% relative to 18), not a forecast that the S&P 500 will rise 4%. Cboe VIX methodology uses qualifying SPX option quotes and an annualized, 30-day constant-maturity implied volatility calculation.",
+      "internalEditorialReview": {
+        "reviewer": "owner-delegated internal",
+        "date": "2026-11-01",
+        "result": "subject_specific_fictional_teaching_upgrade_source_math_release_hold",
+        "independentlyAccepted": false,
+        "claimSpecificReference": "https://www.cboe.com/insights/posts/what-the-vix-and-vix-1-d-indices-attempt-to-measure-and-how-they-differ",
+        "rights": "original_fictional_arithmetic_only_no_vendor_commercial_rights"
+      }
     }
   ]
 }
