@@ -142,6 +142,7 @@
   return element;
  }
  function clean(){
+  globalThis.CrownlightMemberLayoutsV1?.resetAcademy?.();
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
   const assessmentNode=get('academy-official-assessment');if(assessmentNode){assessmentNode.replaceChildren();assessmentNode.hidden=true;}
   guidedSession?.dispose?.();guidedSession=null;
@@ -874,6 +875,7 @@
    get('academy-course-summary').textContent=program.summary;
    get('academy-workspace').hidden=false;
    document.body.classList.add('academy-classroom-active');
+   globalThis.CrownlightMemberLayoutsV1?.activateAcademy?.(code);
    globalThis.CrownlightLearningProgress?.mount?.('academy-learning-progress');
    updateProgress();renderDay();
    // Deep links should enter the selected lesson, not leave members looking

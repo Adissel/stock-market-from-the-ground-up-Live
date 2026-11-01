@@ -44,5 +44,7 @@ assert(css.includes('[hidden]{display:none!important}'),'Original protected stag
 assert(css.includes('grid-column:span 12!important'),'Narrow viewports must preserve readable full-width panels');
 const academy=read('assets/js/bootcamp-academy-v014168.js');
 assert(academy.includes('get(\'academy-workspace\').hidden=false'),'Existing authenticated Academy path not removed');
-assert(!academy.includes('CrownlightMemberLayoutsV1?.activateAcademy'),'Academy activation is presentation-only when authenticated DOM is revealed');
+assert(academy.includes('activateAcademy?.(code)'),'Authenticated in-page Academy selection must activate its own layout');
+assert(academy.includes('resetAcademy?.()'),'Academy account switch must clear old layout');
+assert(typeof api.activateAcademy==='function'&&typeof api.resetAcademy==='function','In-page program route and cleanup API required');
 console.log('PASS eight live layouts, real course routes, Lab subjects, access boundaries, original engine references and responsive source checks.');

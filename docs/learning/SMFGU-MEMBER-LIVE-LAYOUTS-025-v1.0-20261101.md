@@ -31,3 +31,4 @@ Rollback: revert source commit on main; no SQL rollback.
 ## Revision history
 v1.0 / 2026-11-01 / Eight live member page compositions, source tests / CI pending.
 Footer: SMFGU-MEMBER-LIVE-LAYOUTS-025 / v1.0 / Production pages with protected original learning engines.
+Version 1.1 addendum (2026-11-01): Bind live layout activation to both the authenticated in-page Academy course-open event and deep-link route. Reset presentation on account/program cleanup. Preserve server permission checks.
