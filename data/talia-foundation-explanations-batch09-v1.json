@@ -412,8 +412,7 @@
       "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A simulator reports 500 shares 'available to locate' while no short order has executed. Net executed short quantity remains zero, whatever the borrow availability label says.",
       "transferQuestion": "FICTIONAL TRANSFER: A locate indicates 200 shares available, but a submitted order is rejected. What is the confirmed short position?",
       "sourceUrls": [
-        "https://www.sec.gov/investor/pubs/regsho.htm",
-        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+        "https://www.sec.gov/investor/pubs/regsho.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -425,7 +424,8 @@
         "reviewer": "owner-delegated internal",
         "result": "source_pointer_more_claim_specific_but_full_fact_and_rights_acceptance_pending",
         "rights": "no_market_data_licensed",
-        "independentPublicationAccepted": false
+        "independentPublicationAccepted": false,
+        "previousBroadReference": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       }
     },
     {
