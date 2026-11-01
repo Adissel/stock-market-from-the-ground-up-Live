@@ -194,7 +194,9 @@ function detailsOf(record){
  }
  const actions=make('div',undefined,'tutor-actions');
  actions.append(btn('Teach this in more depth (source-only)',()=>sourceOnlyTeachingPrompt(record)));
- if(record.sourceTitles?.some(t=>FOUNDATION_WORKED_TITLES.has(t)))
+ // The full worked-math route requires an authenticated member. Public
+ // glossary fallback must not advertise a member-only server interaction.
+ if(TUTOR.user&&record.sourceTitles?.some(t=>FOUNDATION_WORKED_TITLES.has(t)))
   actions.append(btn('Try another worked example (source-only)',()=>sourceOnlyAnotherExample(record)));
  actions.append(btn('Continue this topic',()=>{
   TUTOR.lastTopic=record.sourceTitles?.[0]||record.question.slice(0,70);
