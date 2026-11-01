@@ -93,7 +93,7 @@ done
 # Install in a throwaway directory outside public, never publish node_modules.
 vendor_temp="$(mktemp -d)"
 trap 'rm -rf "$vendor_temp"' EXIT
-npm install --prefix "$vendor_temp" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund --omit=optional echarts@6.1.0 @supabase/supabase-js@2.109.0 >/dev/null
+npm install --prefix "$vendor_temp" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund echarts@6.1.0 @supabase/supabase-js@2.109.0 react@19.1.1 react-dom@19.1.1 three@0.179.1 esbuild@0.25.9 typescript@5.9.3 @types/react@19.1.10 @types/react-dom@19.1.7 @types/three@0.179.0 >/dev/null
 vendor_source="$vendor_temp/node_modules/echarts"
 test -s "$vendor_source/dist/echarts.min.js" || { echo "ECharts 6.1.0 missing after installation" >&2; exit 7; }
 mkdir -p "$output/assets/vendor/echarts/6.1.0"
@@ -125,6 +125,26 @@ grep -Fq '/assets/vendor/supabase-js/2.109.0/supabase.js' assets/js/supabase-cli
  echo "Shared Supabase client not configured for pinned same-origin bundle" >&2; exit 7;
 }
 printf 'Verified same-origin Supabase 2.109.0 browser bundle (%s bytes)\n' "$(wc -c < "$output/assets/vendor/supabase-js/2.109.0/supabase.js")"
+
+# Build the optional staff-only React/TypeScript/Three.js experiment to a
+# same-origin ESM bundle. The source is outside the public static tree; only
+# the compiled asset and permissive dependency licenses are published.
+test -s src/prototype/PrototypeThreeLab.tsx
+cp -- src/prototype/PrototypeThreeLab.tsx "$vendor_temp/PrototypeThreeLab.tsx"
+node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
+  --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \
+  "$vendor_temp/PrototypeThreeLab.tsx"
+node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/PrototypeThreeLab.tsx" \
+  --bundle --format=esm --target=es2022 --minify \
+  --define:process.env.NODE_ENV='"production"' \
+  --outfile="$output/assets/js/prototype-three-lab-v1.bundle.js"
+test -s "$output/assets/js/prototype-three-lab-v1.bundle.js" || { echo "3D prototype bundle missing" >&2; exit 7; }
+for package in react react-dom three; do
+  test -s "$vendor_temp/node_modules/$package/LICENSE" || { echo "3D dependency license missing: $package" >&2; exit 7; }
+  mkdir -p "$output/assets/vendor/$package"
+  cp -- "$vendor_temp/node_modules/$package/LICENSE" "$output/assets/vendor/$package/LICENSE"
+done
+printf 'Verified same-origin React/Three.js demo bundle (%s bytes)\\n' "$(wc -c < "$output/assets/js/prototype-three-lab-v1.bundle.js")"
 
 mkdir -p "$output/data"
 for file in crownlight-sparks-store-v014167.json books.json challenges.json commerce-config.json stripe-product-registry-v01437.json environments.json interactive-lab-index.json journal-taxonomy.json labs.json releases.json simulator_csv_template.csv skills.json store-products.json tutor-index.json competency-study-guides-v01499.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json free-foundations-evidence-v1.json academy-specific-source-instruction-v1.json tutor-lab-claim-evidence-v1.json competency-lab-paths-v01499.json lab-teaching-bridges-v014168.json bootcamp-formative-v014154.json bootcamp-source-cases-v014166.json; do

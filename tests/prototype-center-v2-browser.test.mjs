@@ -97,6 +97,17 @@ try{
   await page.waitForFunction(()=>document.querySelector('#pt-chart-status')?.textContent?.startsWith('Interactive'),null,{timeout:20000});
   await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 3 of 4 candles/);
+  // The staff-only 3D workbench is dynamically mounted and remains fictional/read-only.
+  await page.locator('#pt-nav button:has-text("3D Experiments")').click();
+  await page.locator('#pt-three-count').waitFor({state:'visible',timeout:20000});
+  await page.locator('#pt-three-camera').selectOption('orthographic');
+  assert.equal(await page.locator('#pt-three-camera').inputValue(),'orthographic');
+  await page.locator('#pt-three-count').focus();
+  for(let i=0;i<4;i++)await page.keyboard.press('ArrowLeft');
+  assert.match(await page.locator('#pt-three-lab').textContent(),/8 of 16/);
+  await page.locator('#pt-three-lab summary').click();
+  assert.equal(await page.locator('#pt-three-lab tbody tr').count(),8);
+  await page.locator('#pt-three-lab button:has-text("Reset 3D view")').click();
   await page.locator('#pt-nav button:has-text("Boot Camp Classroom")').click();
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   await page.locator('#pt-nav button:has-text("Interactive Labs")').click();

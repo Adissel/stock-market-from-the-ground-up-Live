@@ -4,6 +4,10 @@ on:
     branches: [main]
     paths:
       - 'prototype.html'
+      - 'src/prototype/PrototypeThreeLab.tsx'
+      - 'assets/css/prototype-three-lab-v1.css'
+      - 'tests/prototype-three-lab-v1.test.mjs'
+      - 'scripts/build-pages.sh'
       - 'assets/css/prototype-center-v1.css'
       - 'assets/js/prototype-center-v1.js'
       - 'assets/js/prototype-admin-link-v1.js'
@@ -56,6 +60,7 @@ jobs:
         run: |
           node tests/prototype-center-v1-contract.test.mjs
           node tests/prototype-center-v1-auth.test.mjs
+          node tests/prototype-three-lab-v1.test.mjs
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
           node tests/prototype-membership-builder-v1.test.mjs
@@ -66,6 +71,9 @@ jobs:
           test -s public/prototype.html
           test -s public/assets/js/prototype-teaching-v2.js
           test -s public/assets/vendor/echarts/6.1.0/echarts.min.js
+          test -s public/assets/js/prototype-three-lab-v1.bundle.js
+          test -s public/assets/vendor/three/LICENSE
+          test -s public/assets/vendor/react/LICENSE
           test ! -d public/functions
           test ! -d public/supabase
           test ! -d public/tests

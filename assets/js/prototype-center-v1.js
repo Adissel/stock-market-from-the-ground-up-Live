@@ -24,7 +24,7 @@ const descriptions={
  store:'Demonstrate products and member benefits without changing checkout.',community:'Prototype voting, topic and aggregate activity diagrams.',
  admin:'Review all eight approved Admin Control Center groups without mutation.',research:'Experiment with market-research and fundamentals visualizations.',
  public:'Explore educational and book-companion illustrations.',effects:'Compare chart interaction, rendering and responsive behavior.',
- '3d':'Review 3D requirements; V1 uses 2D only. ECharts GL is not installed.',
+ '3d':'Inspect fictional 3D candlesticks and volume in a WebGL laboratory. This prototype does not use live market data or change member records.',
  test:'Run explicit browser-local interface checks; never equate them to production QA.',
  release:'Export design evidence; production release remains subject to CI and Owner acceptance.'
 };
@@ -46,12 +46,29 @@ const features={
  research:[['Fundamentals','Valuation, earnings and industry comparison.'],['Licensing','Data must be validated before publication.']],
  public:[['Books','Interactive learning pathways and companion illustrations.'],['Marketing','Real tool previews instead of decorative claims.']],
  effects:[['Chart interactions','Tooltips, zoom, pan, selection and transitions.'],['Accessibility','Keyboard, text alternatives and reduced motion.']],
- '3d':[['3D evaluation','ECharts GL feasibility is future engineering work.'],['Avatars','Evaluate a dedicated 3D engine instead of ECharts.']]
+ '3d':[['3D candlesticks','Three.js/WebGL with fictional OHLCV and camera controls.'],['Accessibility','Responsive source-data table and no-WebGL fallback.'],['Future extensions','Avatar customization and advanced analytics remain separate projects.']]
 };
 const $=id=>document.getElementById(id),create=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e;};
 const state={id:'classroom',mode:'Lab',device:'desktop',kind:'candlestick',stage:0,tier:'Standard',layout:'Balanced',density:'Comfortable',tutor:'Right',adminGroup:adminGroups[0],revealed:8,chart:null,resize:null,user:null,checks:[],saved:null};
 const b=(name,fn,pressed)=>{const e=create('button',name);e.type='button';if(pressed!==undefined)e.setAttribute('aria-pressed',String(pressed));e.addEventListener('click',fn);return e;};
 const note=v=>{$('pt-feedback').textContent=v;};
+let threeDisposer=null,threeLoadTicket=0;
+function teardownThree(){
+ threeLoadTicket++;
+ if(threeDisposer){try{threeDisposer();}catch(error){console.warn('3D prototype cleanup failed',error);}threeDisposer=null;}
+}
+async function loadThree(host){
+ const ticket=++threeLoadTicket;
+ try{
+  const module=await import('/assets/js/prototype-three-lab-v1.bundle.js');
+  if(ticket!==threeLoadTicket||!host.isConnected||!state.user||$('pt-app').hidden)return;
+  threeDisposer=module.mountPrototypeThree(host);
+ }catch(error){
+  if(ticket!==threeLoadTicket||!host.isConnected)return;
+  host.replaceChildren(create('p','3D experiment unavailable. The standard ECharts workspaces remain usable.','pt-note'));
+  console.warn('3D experiment failed to load',error);
+ }
+}
 function buttons(values,selected,change){const row=create('div',undefined,'pt-options');for(const v of values)row.append(b(v,()=>change(v),selected===v));return row;}
 function card(name,desc){const div=create('article',undefined,'pt-tile');div.append(create('strong',name),create('p',desc));return div;}
 function grid(items){const div=create('div',undefined,'pt-grid');for(const [title,desc] of items)div.append(card(title,desc));return div;}
@@ -88,7 +105,7 @@ function admin(root){root.append(create('h3','Approved eight-group Admin taxonom
 function feature(root){root.append(grid(features[state.id]||[]));
  if(state.id==='studio'){root.append(create('h3','Chart Studio membership tier'));root.append(buttons(['Standard','Advanced','Professional'],state.tier,v=>{state.tier=v;draw()}));}
  if(state.id==='replay')root.append(create('p','The shared role-protected case component below controls fictional candle-by-candle replay and the visible chart boundary.','pt-note'));
- if(state.id==='3d')root.append(create('p','This experiment remains two-dimensional; no actual 3D functionality is claimed.','pt-note'));
+ if(state.id==='3d'){const host=create('div');host.id='pt-three-lab';host.setAttribute('aria-label','Interactive fictional three-dimensional visualization');root.append(host);void loadThree(host);}
 }
 function checks(){
  const results=[['23 workspaces',workspace.size===23],['18 application tabs',groups.slice(1,5).reduce((n,g)=>n+g[1].length,0)===18],['Nine classroom stages',stages.length===9],['Eight Admin groups',adminGroups.length===8],['ECharts rendering',!!state.chart],['Authenticated owner/admin context',!!state.user]];
@@ -107,7 +124,7 @@ function release(root){
  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=create('a');a.href=url;a.download='crownlight-prototype-evidence.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);note('Local evidence exported; production remains unchanged.');
  }));root.append(pane);
 }
-function draw(){const root=$('pt-content');root.replaceChildren();root.dataset.device=state.device;
+function draw(){teardownThree();const root=$('pt-content');root.replaceChildren();root.dataset.device=state.device;
  window.CrownlightPrototypeTeaching?.setActiveTab?.(state.id);
  if(state.id==='classroom')classroom(root);else if(state.id==='admin')admin(root);else if(state.id==='test')test(root);else if(state.id==='release')release(root);
  else if(state.id==='overview')root.append(grid([['23 workspaces','18 capability tabs and 5 shared workspaces.'],['Synthetic charts','Deterministic fictional examples using local ECharts.'],['Permission boundary','Owner or Administrator context required.'],['Release boundary','No production writes or member records.']]));
@@ -165,7 +182,7 @@ async function recheckStaffAccess(){
   // A successful focus/visibility recheck must not remount or jump the page.
   if($('pt-app').hidden){$('pt-app').hidden=false;state.chart?.resize();}
  }catch(error){
-  state.resize?.disconnect();state.chart?.dispose();state.chart=null;
+  state.resize?.disconnect();state.chart?.dispose();state.chart=null;teardownThree();
   window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();state.user=null;
   $('pt-app').hidden=true;$('pt-gate').hidden=false;
   $('pt-gate').textContent=error?.message||'Staff authorization unavailable.';
@@ -181,7 +198,7 @@ function controls(){
  $('pt-reset').addEventListener('click',()=>{window.CrownlightClassroomMemberships?.reset?.();state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
  window.addEventListener('crownlight:prototype-case-change',()=>{void plot()});
- window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();});
+ window.addEventListener('pagehide',()=>{teardownThree();state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();});
 }
 async function start(){try{
  const sb=await window.getSupabaseClient?.();if(!sb)throw Error('Authentication service unavailable.');
@@ -201,7 +218,7 @@ async function start(){try{
  window.CrownlightClassroomPresetSync?.start?.(state.user);
  $('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
  if(state.saved)note('Restored local draft saved '+state.saved+'. Drafts are not synchronized across devices.');
- sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
+ sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){teardownThree();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
  }catch(e){$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent=e?.message||'Access denied.';}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else void start();
 })();
