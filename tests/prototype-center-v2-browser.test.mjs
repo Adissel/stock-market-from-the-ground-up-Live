@@ -100,6 +100,14 @@ try{
    await page.locator('#pt-parity-search').fill('STUDY_EMA');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Exponential Moving Average/i);
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/Limitations/i);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Ungraded self-check/i);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Ungraded review explanation/i);
+   assert.match(await page.locator('.pt-parity-inspector').innerText(),/Calculation acceptance/i);
+   const studySources=page.locator('.pt-parity-inspector .pt-parity-sources a');
+   assert.ok(await studySources.count()>0,'Every authored study preview must show public source links');
+   const unsafeSources=await studySources.evaluateAll(links=>links.filter(a=>
+     !a.href.startsWith('https://')||a.getAttribute('rel')!=='noopener noreferrer'||a.target!=='_blank').length);
+   assert.equal(unsafeSources,0,'Source references must open safely and never invoke an internal action');
    await page.locator('[data-parity-tab="computed"]').click();
    await page.locator('#pt-parity-search').fill('VWAP');
    assert.match(await page.locator('.pt-parity-inspector').innerText(),/NOT transaction VWAP/i);
