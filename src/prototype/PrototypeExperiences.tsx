@@ -921,6 +921,7 @@ function LayoutStudio({page}:{page:Page}){
   function suppress(ev:MouseEvent){
    if(kind==='text'){
     const target=ev.target instanceof Element?ev.target:null;
+    if(target?.closest('[data-cx-editor]'))return; // The editor's own buttons and inputs must remain interactive.
     if(target?.closest('a,button,[role="button"]')){ev.preventDefault();ev.stopImmediatePropagation();}
     return;
    }
