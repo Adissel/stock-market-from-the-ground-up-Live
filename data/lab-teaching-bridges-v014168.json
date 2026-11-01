@@ -83,7 +83,8 @@
         ],
         "mistake": [
           "Do not move the hypothetical stop after seeing the future low and pretend the original plan anticipated it. The comparison must use the previously recorded stop.",
-          "Do not interpret 100 theoretical shares as an approved order size: buying-power limits, borrowing restrictions, spreads and partial fills may reduce feasible size."
+          "Do not interpret 100 theoretical shares as an approved order size: buying-power limits, borrowing restrictions, spreads and partial fills may reduce feasible size.",
+          "An apparently precise entry plan cannot replace checking whether the observation was complete and visible at the recorded decision timestamp."
         ],
         "limits": [
           "Historical price bars do not reconstruct your exact queue priority, all displayed liquidity or a broker's execution.",
@@ -179,11 +180,13 @@
         ],
         "mistake": [
           "Green ask-side prints are not a verified institutional-buying meter. The aggressor classification and the participant's purpose are separate questions.",
-          "Do not combine delayed quotes and later prints as if they were contemporaneous. An incorrect time alignment can reverse a bid/ask classification."
+          "Do not combine delayed quotes and later prints as if they were contemporaneous. An incorrect time alignment can reverse a bid/ask classification.",
+          "A large print can be a cross or another eligible trade condition; a colorful Time & Sales display does not supply the missing venue or condition codes."
         ],
         "limits": [
           "Trade conditions, consolidated coverage, reporting delays and hidden venues may be absent from a learner's feed.",
-          "Without broker identifiers or lawful account-level evidence, do not infer who participated, whether they were opening or closing positions, or what motivated the trade."
+          "Without broker identifiers or lawful account-level evidence, do not infer who participated, whether they were opening or closing positions, or what motivated the trade.",
+          "Even complete public prints do not expose beneficial-owner information, and any aggressor classification remains a model of the available quote data."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the participant identity and motive cannot be read directly from a chart interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -371,11 +374,13 @@
         ],
         "mistake": [
           "A low share price does not necessarily mean a small company: price must be combined with outstanding shares.",
-          "Avoid treating index membership or a float estimate as a permanent characteristic; offerings, splits and other corporate actions change quantities."
+          "Avoid treating index membership or a float estimate as a permanent characteristic; offerings, splits and other corporate actions change quantities.",
+          "Reusing last year's share count with today's market price without a date label can materially misstate the capitalization estimate."
         ],
         "limits": [
           "Outstanding shares may include classes with different economics; issuer disclosures and calculation methods matter.",
-          "Public float estimates, index size bands and prices can change between reporting dates; the exercise does not provide a live valuation."
+          "Public float estimates, index size bands and prices can change between reporting dates; the exercise does not provide a live valuation.",
+          "A computed equity capitalization is only as reliable as the class selection, share count, corporate-action adjustment and price timestamp."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the market-cap classification — small-cap example interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -416,11 +421,13 @@
         ],
         "mistake": [
           "Do not confuse a stock with a $0.50 price with one offering inexpensive execution. Thin depth and wide relative spreads can be costly.",
-          "Do not turn a displayed 20-share ask into a claim that 100 shares could be filled at that level."
+          "Do not turn a displayed 20-share ask into a claim that 100 shares could be filled at that level.",
+          "A reported day's high-low range describes observed prices and does not measure the order book depth at the instant a learner proposes to trade."
         ],
         "limits": [
           "Displayed size may change or be cancelled; hidden orders may exist and historical screenshots cannot reconstruct full fill quality.",
-          "This fictional snapshot does not establish market-wide depth, short availability or future price impact."
+          "This fictional snapshot does not establish market-wide depth, short availability or future price impact.",
+          "An order's impact may exceed the quoted spread; this example deliberately avoids assigning a guaranteed execution cost or outcome."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the very small capitalization and sparse trading context interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -461,11 +468,13 @@
         ],
         "mistake": [
           "Do not use the entire account balance as the trading loss budget unless it was explicitly chosen and is consistent with a reasonable risk policy.",
-          "Do not assume stock-specific account rules are identical across brokers, account types or jurisdictions."
+          "Do not assume stock-specific account rules are identical across brokers, account types or jurisdictions.",
+          "Risk-based sizing and cash-funded sizing are separate constraints; applying only one can produce a proposed order that the account cannot carry."
         ],
         "limits": [
           "Regulatory and broker restrictions may change over time; verify current official rules and the broker's terms.",
-          "Stops can slip, gaps can exceed budget and commissions or borrowing costs may alter realized exposure."
+          "Stops can slip, gaps can exceed budget and commissions or borrowing costs may alter realized exposure.",
+          "The account exercise does not determine current regulatory day-trading requirements, availability of leverage or tax consequences."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the same stock, different account constraints interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -506,11 +515,13 @@
         ],
         "mistake": [
           "Do not call a short sale a simple negative-number long without considering borrow availability, financing and potentially unbounded stock-price rise.",
-          "Do not confuse a planned stop reference with a realized fill or an assured loss limit."
+          "Do not confuse a planned stop reference with a realized fill or an assured loss limit.",
+          "The direction that made money in a retrospective scenario cannot be selected after observing the close and then presented as an independent decision."
         ],
         "limits": [
           "Short selling may be restricted or unavailable for a specific account or security; check current requirements.",
-          "Trading costs, overnight moves, dividends and borrow fees can change actual returns."
+          "Trading costs, overnight moves, dividends and borrow fees can change actual returns.",
+          "A short's borrow availability, recalls, financing and dividend obligations require broker-specific confirmation beyond a simple price formula."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the long vs. short directional exposure interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -551,11 +562,13 @@
         ],
         "mistake": [
           "Do not assume a limit guarantees a fill or that a stop order guarantees its trigger price.",
-          "Do not infer which side of the market a printed transaction came from without quote timing and trade-condition evidence."
+          "Do not infer which side of the market a printed transaction came from without quote timing and trade-condition evidence.",
+          "A hypothetical market order is not a universal solution to a limit order's nonfill risk; the market order introduces execution-price uncertainty."
         ],
         "limits": [
           "Broker order handling and routing rules vary; exact order behavior depends on current terms.",
-          "A still chart does not verify queue position, partial executions, fees or the ability to borrow stock."
+          "A still chart does not verify queue position, partial executions, fees or the ability to borrow stock.",
+          "The quote may be stale when the order reaches its destination, so the actual eligible liquidity cannot be reconstructed from one screenshot."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the long vs. short directional exposure interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -596,11 +609,13 @@
         ],
         "mistake": [
           "A profitable future chart does not prove an unsupported earlier ENTER was correct. That is hindsight bias.",
-          "Do not equate WATCH with indecision; it is a defined process branch with conditions to reassess."
+          "Do not equate WATCH with indecision; it is a defined process branch with conditions to reassess.",
+          "A chart without the specified liquidity or account evidence cannot be promoted from WATCH to ENTER merely because later prices made the trade attractive."
         ],
         "limits": [
           "This exercise assumes hypothetical fillable prices and excludes fees, market impact and changing account rules.",
-          "Each learner must verify real entitlements and risk rules independently; the engine does not recommend a real trade."
+          "Each learner must verify real entitlements and risk rules independently; the engine does not recommend a real trade.",
+          "The ENTER/WATCH/NO TRADE categories are educational process states, not directions to trade any identified security."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the one stock, three different decision frames interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -641,11 +656,13 @@
         ],
         "mistake": [
           "Do not call a delayed exit a successful scalp merely because the market eventually returned to the target.",
-          "Do not use gross return without recognizing cost and the possibility of non-executable prices."
+          "Do not use gross return without recognizing cost and the possibility of non-executable prices.",
+          "An assumed target measured in cents is not a net return until spread, fees, slippage and possible partial fills are considered."
         ],
         "limits": [
           "Formal day-trading regulations, broker definitions and margin policies require up-to-date jurisdictional review.",
-          "A style label does not establish suitability or profitability, and these fictional prices are not recorded trades."
+          "A style label does not establish suitability or profitability, and these fictional prices are not recorded trades.",
+          "The same holding-period label can cover many different execution styles; evaluate the explicit plan rather than the name."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the holding horizon: day trade vs. scalp vs. swing interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -686,11 +703,13 @@
         ],
         "mistake": [
           "Do not use a strategy title as a replacement for objective triggers, risk limits and a source timestamp.",
-          "Do not backfit a setup after seeing later profitable bars. The entry and invalidation conditions must precede the reveal."
+          "Do not backfit a setup after seeing later profitable bars. The entry and invalidation conditions must precede the reveal.",
+          "A strategy's stated approach cannot substitute for a complete setup trigger. Without the missing observation, the planned NO TRADE branch still applies."
         ],
         "limits": [
           "A close above VWAP alone does not prove buyer identity or executable advantage.",
-          "Benchmark calculation depends on feed and price-input assumptions; session OHLCV proxies must not be described as exact trade-print VWAP."
+          "Benchmark calculation depends on feed and price-input assumptions; session OHLCV proxies must not be described as exact trade-print VWAP.",
+          "Even a technically accurate indicator does not demonstrate an independently evaluated positive-expectancy trading system."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the style vs. approach vs. setup vs. context interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -782,11 +801,13 @@
         ],
         "mistake": [
           "Do not compare unadjusted quantities from different-duration windows and call the difference a market regime.",
-          "Do not interpret a larger opening range as guaranteed opportunity or as proof a reversal will follow."
+          "Do not interpret a larger opening range as guaranteed opportunity or as proof a reversal will follow.",
+          "Higher opening volume can coincide with a smaller range, so interpreting participation and volatility as the same quantity is an error."
         ],
         "limits": [
           "The observed difference may be date- and security-specific; missing venues, halts and timezone errors undermine the comparison.",
-          "A two-window sample does not establish seasonality or forward predictive accuracy."
+          "A two-window sample does not establish seasonality or forward predictive accuracy.",
+          "A volume ratio formed from nonmatching periods or incomplete sessions is not comparable and should not be presented as a validated statistic."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the compare the opening environment with a midday window on the same stock interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -827,11 +848,13 @@
         ],
         "mistake": [
           "Do not silently include closing-auction prints in one period and exclude them from the other.",
-          "Do not infer directional institutional intent from a higher reported share count."
+          "Do not infer directional institutional intent from a higher reported share count.",
+          "It is inappropriate to label afternoon volume a guaranteed closing surge without recording which session window and print types were counted."
         ],
         "limits": [
           "One pair of windows cannot establish a durable trading edge or liquidity available for your exact order.",
-          "Session schedules, half days and feed quality must be checked before replication."
+          "Session schedules, half days and feed quality must be checked before replication.",
+          "An unusual announcement can dominate a single sample; replicated examples need source, date and event flags before they support a generalization."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the compare a midday window with a later-afternoon window interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -872,11 +895,13 @@
         ],
         "mistake": [
           "Do not treat indicative auction information as a guaranteed future closing price.",
-          "Do not assume a closing print is executable at the same price for a late-entering market order."
+          "Do not assume a closing print is executable at the same price for a late-entering market order.",
+          "Confusing the final continuous-trading quote with the later published auction closing price can produce a false executable-price claim."
         ],
         "limits": [
           "Closing-auction mechanics vary by listing venue and current published rules.",
-          "The example does not verify historical auction messages, individual order priority or after-hours availability."
+          "The example does not verify historical auction messages, individual order priority or after-hours availability.",
+          "Early closing days require the official calendar; a generic 4:00 p.m. boundary can otherwise misclassify observations."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the observe the approach to the regular-market close interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
@@ -917,11 +942,13 @@
         ],
         "mistake": [
           "Do not use the last regular-session trade to claim the same price is available after hours.",
-          "Do not confuse a price gap between two sessions with a verified fillable arbitrage opportunity."
+          "Do not confuse a price gap between two sessions with a verified fillable arbitrage opportunity.",
+          "A midpoint equal to the regular close does not mean the after-hours market offers the same liquidity or a guaranteed round-trip cost."
         ],
         "limits": [
           "After-hours execution conditions and eligible order types depend on broker, venue, security and date.",
-          "Historical top-of-book snapshots cannot reconstruct full depth, queue position or all off-exchange prints."
+          "Historical top-of-book snapshots cannot reconstruct full depth, queue position or all off-exchange prints.",
+          "No after-hours market snapshot alone establishes entitlement to trade, the full depth across venues or a guaranteed next execution."
         ]
       },
       "selfCheck": "What specific visible, timestamped inputs support the regular close → after-hours transition interpretation, what calculation or comparison is justified, and what observation would invalidate it?",

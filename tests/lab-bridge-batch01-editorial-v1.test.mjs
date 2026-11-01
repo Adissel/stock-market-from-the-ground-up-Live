@@ -10,7 +10,7 @@ test('First 20 Labs are canonical and source-specific without changing 419 regis
  assert.equal(bridges.historicalBarDataIncluded,false);
  for(const {id} of batch.entries){const row=bridges.entries[id];
   for(const tab of ['understand','recognize','apply','mistake','limits']){
-   assert(Array.isArray(row.tabs[tab])&&row.tabs[tab].length>=2,id+' '+tab);
+   assert(Array.isArray(row.tabs[tab])&&row.tabs[tab].length>=3,id+' '+tab);
    assert(row.tabs[tab].every(s=>s.length>=50),id+' '+tab+' needs substance');
    assert.doesNotMatch(row.tabs[tab].join(' '),/We will learn about|Let us practice|Here is how to recognize|What .* cannot establish:/i,id);
   }
