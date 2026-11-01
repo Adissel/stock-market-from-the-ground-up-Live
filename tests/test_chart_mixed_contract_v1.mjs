@@ -38,6 +38,7 @@ assert.match(handler,/amount_received!==o.cash_cents/);
 assert.match(handler,/amount_total!==o.cash_cents/);
 assert.match(handler,/charge.amount_refunded<charge.amount/);
 assert.match(handler,/chart_mixed_test_apply_v1/);
+assert.match(handler,/s\.status!=='expired'\|\|s\.mode!=='payment'\|\|s\.payment_status==='paid'\|\|s\.payment_intent/,'Expired session cannot release reserved Lumens when a payment intent exists');
 assert.match(unified,/acceptChartMixedTestEvent\(event,env\)/);
 assert.match(store,/Use Crownlight Lumens \+ credit card/);
 assert.match(store,/remainingLumens/);
