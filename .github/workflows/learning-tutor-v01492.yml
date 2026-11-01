@@ -102,6 +102,7 @@ on:
       - 'functions/_lib/talia-foundation-quant-v1.js'
       - 'tests/talia-foundation-quant-v1.test.mjs'
       - 'tests/talia-foundation-explanations-batch02-v1.test.mjs'
+      - 'tests/talia-foundation-misconception-v1.test.mjs'
       - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
@@ -252,6 +253,7 @@ on:
       - 'functions/_lib/talia-foundation-quant-v1.js'
       - 'tests/talia-foundation-quant-v1.test.mjs'
       - 'tests/talia-foundation-explanations-batch02-v1.test.mjs'
+      - 'tests/talia-foundation-misconception-v1.test.mjs'
       - 'tests/talia-foundation-extended-guided-v1.test.mjs'
       - 'functions/_lib/tutor-provider-v014107.js'
       - 'functions/_lib/tutor-history-save-v014107.js'
@@ -388,6 +390,7 @@ jobs:
           node --check functions/_lib/talia-foundation-quant-v1.js
           node tests/talia-foundation-quant-v1.test.mjs
           node tests/talia-foundation-explanations-batch02-v1.test.mjs
+          node tests/talia-foundation-misconception-v1.test.mjs
           node tests/test_v014100_free_competency_tutor.mjs
           node tests/test_v014102_member_tutor_history.mjs
           node tests/test_v014102_tutor_ai_consent.mjs
