@@ -20,7 +20,12 @@ function topicFor(day){
 function create({client,userId,day,isCurrent}={}){
  if(!client?.auth?.getSession||!userId||!day||typeof isCurrent!=='function')return null;
  const topic=topicFor(day);
- return async ({signal}={})=>{
+ return async ({signal,stage='Learn',reason='explanation'}={})=>{
+  const validStages=new Set(['Start','Learn','Calculate / Analyze','Experiment','Predict',
+   'Replay / Practice','Assess','Review & Retry','Transfer Challenge','Results',
+   'Practice','Review','Transfer']);
+  const safeStage=validStages.has(stage)?stage:'Learn';
+  const safeReason=['explanation','misconception','new-example','prerequisite'].includes(reason)?reason:'explanation';
   if(!isCurrent())throw Error('The learning session changed. Open the current lesson again.');
   const session=(await client.auth.getSession())?.data?.session;
   if(!session?.access_token||session.user?.id!==userId||!isCurrent())
@@ -29,8 +34,9 @@ function create({client,userId,day,isCurrent}={}){
   // A click is intentional; the API separately checks entitlements, profile
   // opt-in and AI quota. Source-grounded teaching is the safe default.
   const body={
-   question:'Teach the general topic of '+topic+
-    ' from first principles. Include an original fictional worked example, a common mistake, an evidence limitation, and an ungraded follow-up question.',
+   question:'Teach the general topic of '+topic+' for the '+safeStage+
+    ' learning stage. Educational need: '+safeReason+
+    '. Explain from first principles, show a new original fictional worked example, identify a likely misunderstanding, describe evidence limits, and pose an ungraded transfer question. Never infer the learner\'s actual answer or grade.',
    mode:'explain',allowModel:session.user?.user_metadata?.market_tutor_ai_enabled===true,
    requestId:crypto.randomUUID(),saveHistory:false
   };
