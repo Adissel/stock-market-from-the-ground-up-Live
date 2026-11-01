@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {elderRayExample,vortexExample,volumeIndexExample,ulcerExample,indicatorWorkedTeaching,TALIA_STUDY_CALCULATED} from '../functions/_lib/talia-indicator-worked-v1.js';
+import {elderRayExample,vortexExample,volumeIndexExample,ulcerExample,easeOfMovementExample,choppinessExample,fisherNormalizedExample,indicatorWorkedTeaching,TALIA_STUDY_CALCULATED} from '../functions/_lib/talia-indicator-worked-v1.js';
 import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v014100.js';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,'computed '+a+' expected '+b);
 const guides=JSON.parse(readFileSync(new URL('../data/tutor-indicator-expansion-v1.json',import.meta.url),'utf8')).guides;
@@ -22,8 +22,8 @@ test('Elder-Ray, Vortex, NVI, PVI and Ulcer formula examples compute from comple
  near(ulcerExample([-10,-5,0]),Math.sqrt(125/3));
  assert.equal(ulcerExample([-1,1]),null);
 });
-test('Five indicator source-only examples use distinct fictional cases and never claim Chart Studio overlay or official grading',()=>{
- assert.equal(TALIA_STUDY_CALCULATED.length,5);assert.equal(new Set(TALIA_STUDY_CALCULATED).size,5);
+test('Eight indicator source-only examples use distinct fictional cases and never claim Chart Studio overlay or official grading',()=>{
+ assert.equal(TALIA_STUDY_CALCULATED.length,8);assert.equal(new Set(TALIA_STUDY_CALCULATED).size,8);
  for(const id of TALIA_STUDY_CALCULATED){
   const g=guides.find(x=>x.code===id);assert.ok(g,'New source guide required '+id);
   const first=indicatorWorkedTeaching(id,'Explain source calculation');
@@ -42,4 +42,23 @@ test('Five indicator source-only examples use distinct fictional cases and never
   assert.doesNotMatch(answerFromGuide(g,'question','','Explain '+g.title),/Verified fictional calculation exercise/);
   assert.doesNotMatch(answerFromGuide(g,'review','My reasoning',''),/Verified fictional calculation exercise/);
  }
+});
+
+test('EMV scale/zero-volume, CHOP warmup and normalized Fisher enforce numerical boundaries',()=>{
+ const up=easeOfMovementExample(10.2,9.8,10.7,10.1,1200,10000);
+ near(up.movement,.4);near(up.boxRatio,.2);near(up.value,2);
+ const down=easeOfMovementExample(20.6,20,20.3,19.5,800,10000);
+ near(down.value,-4);
+ assert.equal(easeOfMovementExample(10,9,10,10,1000,10000),null);
+ assert.equal(easeOfMovementExample(10,9,10.5,9.5,0,10000),null);
+ const bars=[{high:10.2,low:9.8,close:10},{high:10.6,low:9.9,close:10.4},{high:10.8,low:10.1,close:10.7}];
+ const v=choppinessExample(bars,2);
+ near(v.sum,1.4);near(v.range,.9);
+ near(v.value,100*Math.log10(1.4/.9)/Math.log10(2));
+ assert.equal(choppinessExample(bars.slice(0,2),2),null);
+ assert.equal(choppinessExample(Array(3).fill({high:1,low:1,close:1}),2),null);
+ near(fisherNormalizedExample(.5),.5*Math.log(3));
+ near(fisherNormalizedExample(-.5),-.5*Math.log(3));
+ assert.equal(fisherNormalizedExample(1),null);
+ assert.equal(fisherNormalizedExample(-1),null);
 });
