@@ -130,7 +130,7 @@ try{
 
   await page.locator('[data-prototype-case]').waitFor({state:'visible',timeout:14000});
   assert.equal(await page.locator('#pt-nav button').count(),23);
-  assert.equal(await page.locator('#pt-membership option').count(),8,'all approved membership products should be previewable');
+  assert.equal(await page.locator('#pt-membership option').count(),9,'all approved membership products including Pick What You Want should be previewable');
   await page.locator('#pt-membership').selectOption('LIFETIME');
   await page.locator('#pt-nav button:has-text("Classroom Builder")').click();
   await page.locator('select[aria-label="Classroom preset — 20 available"]').waitFor({state:'visible'});
