@@ -16,12 +16,16 @@ function chooseGuides(index,q){
  const decisionIntent=/\b(?:enter|entry|exit|exiting|hold|holding|when to|would you|why|setup|setups|trade or skip|no trade|what to look for|stand aside|take profit|stop loss|invalidation|earnings|guidance|balance sheet|cash flow|long.term|portfolio|rebalanc|sector|regime|breadth|confluenc|conflicting|signals|order flow|tape|level ii|order book|options|option premium|theta|vega|assignment|implied volatility|diversif|fundamentals)\b/i.test(String(q||''));
  const candidates=[...index.guides,...(Array.isArray(index.supplementalGuides)?index.supplementalGuides:[]),
   ...(Array.isArray(index.researchGuides)?index.researchGuides:[]),
+  ...(Array.isArray(index.foundationExplanations)?index.foundationExplanations:[]),
   ...(decisionIntent&&Array.isArray(index.decisionGuides)?index.decisionGuides:[]),
   ...(Array.isArray(index.masterStudyGuides)?index.masterStudyGuides:[])];
  return candidates.map(g=>{
   const title=String(g.title||'').toLowerCase(),code=String(g.code||'').toLowerCase().replaceAll('_',' ');
   const concept=String(g.concept||'').toLowerCase();
   let score=query.reduce((v,w)=>v+(title.includes(w)?8:0)+(code.includes(w)?6:0)+(concept.includes(w)?2:0),0);
+  // Prefer a specific authored supplemental topic over a broad parent guide
+  // when the learner explicitly asks by its full exact title.
+  if(g.foundationTopic===true&&String(q||'').toLowerCase().includes(title))score+=100;
   if(g.decisionPlaybook===true){
    // A question about a failed breakout should not be captured by a generic
    // entry/hold/exit guide or by the unrelated breakout continuation playbook.
@@ -206,18 +210,47 @@ async function loadMasterStudyGuides(env,request){
  masterStudyCache.set(env.ASSETS,{expires:Date.now()+300000,guides});
  return guides;
 }
+const foundationTopicCache=new WeakMap();
+const FOUNDATION_TOPIC_SOURCE=/^https:\\/\\/(?:www\\.)?(?:investor\\.gov|sec\\.gov|chartschool\\.stockcharts\\.com)\\//i;
+async function loadFoundationTopicExplanations(env,request){
+ if(typeof env.ASSETS?.fetch!=='function')return [];
+ const cached=foundationTopicCache.get(env.ASSETS);
+ if(cached&&cached.expires>Date.now())return cached.guides;
+ const response=await env.ASSETS.fetch(new Request(new URL('/data/talia-foundation-explanations-batch01-v1.json',request.url),{method:'GET'}));
+ if(!response.ok)return [];
+ const data=await response.json(),rows=data?.guides;
+ if(data?.kind!=='talia_foundation_supplemental_explanations_v1'||
+    data.count!==20||data.goal!==600||data.existingOfficialCompetenciesPreserved!==30||
+    !Array.isArray(rows)||rows.length!==20)return [];
+ const seen=new Set();
+ for(const g of rows){
+  if(!/^TALIA_TOPIC_[A-Z0-9_]{5,96}$/.test(g?.code||'')||seen.has(g.code)||
+    g.foundationTopic!==true||g.supplemental!==true||g.officialCompetency!==false||
+    g.independentEditorialApproved!==false||
+    g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
+    !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
+    !FOUNDATION_TOPIC_SOURCE.test(g.sourceUrls[0])||
+    ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
+      .some(k=>typeof g[k]!=='string'||g[k].length<40))
+   return [];
+  seen.add(g.code);
+ }
+ foundationTopicCache.set(env.ASSETS,{guides:rows,expires:Date.now()+300000});
+ return rows;
+}
 async function originalGuides(env,request,question){
  try{
   const published=await loadPublicGuides(env,request);
-  let researchGuides=[],decisionGuides=[],masterStudyGuides=[];
+  let researchGuides=[],decisionGuides=[],masterStudyGuides=[],foundationExplanations=[];
   try{researchGuides=await loadResearchGuides(env,request)}catch{/* Original approved guides remain available. */}
   try{researchGuides.push(...await loadVideoResearchGuides(env,request))}catch{/* Supplemental video studies are optional; original sources remain available. */}
   try{masterStudyGuides=await loadMasterStudyGuides(env,request)}catch{/* New study is optional and never blocks the 30 core guides. */}
+  try{foundationExplanations=await loadFoundationTopicExplanations(env,request)}catch{/* Supplementary topics never block canonical competencies. */}
   if(/\b(?:enter|entry|exit|exiting|hold|holding|when to|would you|why|setup|setups|trade or skip|no trade|what to look for|stand aside|take profit|stop loss|invalidation|earnings|guidance|balance sheet|cash flow|long.term|portfolio|rebalanc|sector|regime|breadth|confluenc|conflicting|signals|order flow|tape|level ii|order book|options|option premium|theta|vega|assignment|implied volatility|diversif|fundamentals)\b/i.test(String(question||''))){
    try{decisionGuides=await loadDecisionGuides(env,request)}catch{/* Never disable original lessons for an optional curriculum asset. */}
    try{decisionGuides.push(...await loadAdvancedDecisionGuides(env,request))}catch{/* Baseline 18 playbooks and canonical lessons remain available. */}
   }
-  return chooseGuides({...published,researchGuides,decisionGuides,masterStudyGuides},question);
+  return chooseGuides({...published,researchGuides,decisionGuides,masterStudyGuides,foundationExplanations},question);
  }catch{return []}
 }
 function formatDecisionGuide(g,mode,reflection){
@@ -267,7 +300,24 @@ function formatMasterStudyGuide(g,mode,reflection){
  if(mode==='question')out.push('Answer from evidence visible at the pause, not from later prices.');
  return out.join('\n\n');
 }
+function formatFoundationTopic(g,mode,reflection,question){
+ const topic='Original ungraded Foundation explanation — '+g.title;
+ const base=[topic,'First principle: '+g.concept,'How to verify or calculate: '+g.procedure,
+  'Limits and uncertainty: '+g.limit,'What would invalidate this interpretation: '+g.invalidation,
+  'Common mistake: '+g.commonError,
+  'Original educational reference (not a live data or strategy-performance claim): '+g.sourceUrls.join(' ')];
+ if(mode==='question')return [...base,'Independent ungraded self-check: '+g.selfCheck,
+  'Do not use a future observation or an official assessment answer.'].join('\\n\\n');
+ if(mode==='review')return [...base,'Ungraded review criterion: '+g.reviewExplanation,
+  ungradedResponseReview(reflection),
+  'No rubric was scored and no mastery credit was awarded.'].join('\\n\\n');
+ return [...base,'Original fictional worked explanation: '+g.workedCase,
+   'Independent transfer question: '+g.transferQuestion,
+   'Self-check: '+g.selfCheck,
+   'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\\n\\n');
+}
 function answerFromGuide(g,mode,answer,question=''){
+ if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question);
  // Reuse published canonical guide IDs; practice/review remain independently answered.
  const worked=mode==='explain'&&g?.officialCompetency!==false?foundationWorkedMath(g.code,question):null;
  // Requested source-only deeper teaching cannot introduce an AI charge.
