@@ -40,8 +40,8 @@
  const productPage=row=>{
   // A Lab without verified release metadata has no confirmed product-specific
   // entitlement route. Present Store access information; never invent a checkout.
-  if(!release||!release.released.has(row.id))
-   return 'store.html'+'?source=lab&item='+encodeURIComponent(row.id);
+  if(!rights?.freeEligible||!release||!release.released.has(row.id))
+   return 'store.html';
   const training=release.trainingOnly.has(row.id)||Number(row.book)===6;
   const page=training?'store-membership-ondemand-monthly.html':'store-tool-interactive-learning.html';
   return page+'?source=lab&item='+encodeURIComponent(row.id);

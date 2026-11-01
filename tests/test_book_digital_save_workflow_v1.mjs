@@ -19,7 +19,8 @@ assert(!/p_sales:true,p_downloads:true/.test(source),'No automatic LIVE sales ac
 const styles=read('assets/css/admin-book-editor-v1.css');
 const html=read('admin.html');
 assert(parent.includes("d.classList.toggle('admin-book-editor',options.bookEditor===true)"),'Book layout is scoped to its editor');
-assert(parent.includes('if(options.stayOpen===true){status('),'Book Save must keep the editor open after success');
+assert(/if\(options\.stayOpen===true\)\{[\s\S]{0,260}status\(feedback,/.test(parent),
+ 'Book Save must keep the editor open and announce success after protected persistence');
 assert(parent.includes('else d.close()'),'Non-book dialogs must retain normal close-on-save behavior');
 assert(parent.includes('stayOpen:true,bookEditor:true'),'Book editor must opt in to persistent Save');
 assert(source.includes('editionFields.append('),'Rights and upload fields must be in compact layout');
