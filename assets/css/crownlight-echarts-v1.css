@@ -15,3 +15,60 @@
  .crownlight-echarts-analytics [data-ce-chart]{height:300px}
  #crownlight-admin-echarts [data-admin-echarts-chart]{height:360px}
 }
+
+/* ECharts operational analytics V2: original high-contrast visual system.
+   Uses the same authorized snapshot; no new or simulated data series. */
+#crownlight-admin-echarts{
+ position:relative;overflow:hidden;
+ background:linear-gradient(145deg,#0e2537 0%,#102a3e 54%,#172f43 100%);
+ border:1px solid #587f92;border-radius:18px;padding:22px;
+ box-shadow:0 18px 36px rgba(2,14,24,.22),inset 0 1px 0 rgba(180,228,236,.08)
+}
+#crownlight-admin-echarts::before{
+ content:"";position:absolute;inset:0 0 auto;height:3px;
+ background:linear-gradient(90deg,#43b9d1,#6bd8ba 50%,#c7aa75);
+ pointer-events:none
+}
+#crownlight-admin-echarts h2{font-size:clamp(1.16rem,1.1rem + .6vw,1.55rem);letter-spacing:.012em}
+#crownlight-admin-echarts label{display:inline-flex;flex-wrap:wrap;gap:8px;margin:10px 14px 12px 0;color:#e8f4f8;font-weight:600}
+#crownlight-admin-echarts select{
+ background:#0b2435;border:1px solid #6b9aad;border-radius:8px;
+ padding:6px 30px 6px 10px;min-height:42px;max-width:100%;font:inherit;color:#f0f8fa
+}
+#crownlight-admin-echarts select:focus-visible,
+#crownlight-admin-echarts summary:focus-visible{
+ outline:3px solid #bde5f3;outline-offset:3px
+}
+#crownlight-admin-echarts [data-admin-echarts-chart]{
+ height:390px;min-width:0;background:radial-gradient(ellipse at 60% 35%,rgba(80,153,176,.085),transparent 67%)
+}
+#crownlight-admin-echarts [data-admin-echarts-status]{
+ color:#d1e6f0;font-size:.88rem;line-height:1.6;margin:13px 0 0
+}
+#crownlight-admin-echarts .cc-echarts-source-table{
+ margin-top:12px;padding:12px 15px;
+ background:rgba(8,27,41,.65);border:1px solid #466f84;border-radius:10px
+}
+#crownlight-admin-echarts .cc-echarts-source-table summary{
+ cursor:pointer;font-weight:650;color:#e7f7f9;min-height:28px
+}
+#crownlight-admin-echarts .cc-echarts-source-table table{
+ border-collapse:collapse;width:100%;margin-top:12px;color:#e5f1f5;font-size:.9rem
+}
+#crownlight-admin-echarts .cc-echarts-source-table caption{
+ text-align:left;margin-bottom:9px;color:#bdd9e6
+}
+#crownlight-admin-echarts .cc-echarts-source-table th,
+#crownlight-admin-echarts .cc-echarts-source-table td{
+ text-align:left;padding:9px 7px;border-bottom:1px solid rgba(156,201,220,.2)
+}
+#crownlight-admin-echarts .cc-echarts-source-table td{
+ font-variant-numeric:tabular-nums;text-align:right
+}
+#crownlight-admin-echarts .cc-echarts-source-table th:last-child{text-align:right}
+@media(max-width:760px){
+ #crownlight-admin-echarts{padding:15px;border-radius:13px}
+ #crownlight-admin-echarts label{display:flex;margin:7px 0;align-items:flex-start}
+ #crownlight-admin-echarts [data-admin-echarts-chart]{height:360px}
+}
+@media(prefers-reduced-motion:reduce){#crownlight-admin-echarts *{scroll-behavior:auto}}
