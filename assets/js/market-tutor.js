@@ -49,7 +49,9 @@ function guidedLessonFor(record){
 }
 const FOUNDATION_WORKED_TITLES=new Set([
  'Candles and price information','VWAP as context','EMA and trend context',
- 'Risk per share','Share-count mathematics','Volume and participation','Risk/reward planning'
+ 'Risk per share','Share-count mathematics','Volume and participation','Risk/reward planning',
+ 'Spread and slippage','Float and supply estimates','MFE and MAE review',
+ 'Session high and premarket levels','Level II / displayed order book','Multi-timeframe alignment'
 ]);
 function sourceOnlyAnotherExample(record){
  const title=record.sourceTitles?.find(t=>FOUNDATION_WORKED_TITLES.has(t));
