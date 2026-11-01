@@ -757,7 +757,7 @@ const layoutTargets={
  cards:'section,article,aside,.cx-panel,.cx-talia,.cx-tutor-evidence,.cx-lesson-body,.cx-practice-pair,.cx-kpis>div,.cx-desk-banner,.cx-desk-identity,.cx-desk-price,.cx-platform-explorer,.cx-platform-preview>div,.cx-member-experience,.cx-member-hero,.cx-member-actions,.cx-chart-card,.cx-chart,.cx-chart-grabbable,.cx-trade-rows,.cx-trade,.cx-flagship-intro,.cx-flagship-aurora,.cx-flagship-quantum,.cx-edition-preview,.cx-edition-grid>label,.cx-member-workspaces,.cx-controlstrip,.cx-designs>button,.cx-indicator-catalog,.cx-reorderable,.cx-reorder-tools,.cx-learning,.cx-left,.cx-right,.cx-workgrid',
  buttons:'button,a,[role="button"],.cx-chip',
  labels:'label,.cx-overline,.cx-stage-name,.cx-statusline span,.cx-tutor-context,.cx-numeric>span',
- text:'h1,h2,h3,h4,p,small,strong,span,li,dt,dd,td,th,figcaption,.cx-coach-typed,.cx-overline'
+ text:'h1,h2,h3,h4,p,small,strong,.cx-coach-typed,.cx-overline'
 } as const;
 /** Staff-only visual layout draft. Browser storage is for screenshot experiments, not a publishing API. */
 function LayoutStudio({page}:{page:Page}){
