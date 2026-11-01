@@ -88,3 +88,24 @@ test('Whole-share sizing uses conservative floor even at sub-cent budget limits'
  assert.deepEqual(a.values,[99,238,99]);
  assert(a.nominalRisk<=149.99);
 });
+
+test('Real canonical registry labels yield only their entitled topic-specific optional workbench',()=>{
+ const registry=JSON.parse(read('data/competency-lab-paths-v01499.json')).byLab;
+ const known=new Map(JSON.parse(read('data/labs.json')).map(entry=>[entry.id,entry.concept]));
+ const expected=[
+  ['F3-C05-L03','ema','EMA_CONTEXT'],
+  ['DT-C05-L01','risk','RISK_PER_SHARE'],
+  ['DT-C40-L03','sizing','POSITION_SIZING']
+ ];
+ for(const [id,studyId,code] of expected){
+  const entry=registry[id];
+  assert(entry,'Lab must remain canonical: '+id);
+  assert.equal(entry.relatedCompetencies[0],code);
+  const title=known.get(id)||entry.title;
+  const mapped=x.select({competencies:entry.relatedCompetencies,primaryCode:code,topic:title});
+  assert.equal(mapped,studyId,'The real canonical registry labels must render the expected subject: '+id);
+ }
+ const unrelated=registry['F1-C02-L01'];
+ assert.equal(x.select({competencies:unrelated.relatedCompetencies,primaryCode:unrelated.relatedCompetencies[0],
+  topic:known.get('F1-C02-L01')||unrelated.title}),null);
+});
