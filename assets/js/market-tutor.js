@@ -62,6 +62,16 @@ function sourceOnlyAnotherExample(record){
  updateCount();$('tutor-question').focus();
  window.scrollTo({top:0,behavior:'smooth'});
 }
+function sourceOnlyMisconceptionPrompt(record){
+ const topic=String(record.sourceTitles?.[0]||record.question||'').slice(0,320);
+ $('tutor-question').value=('Explain the common mistake: '+topic).slice(0,450);
+ $('tutor-mode').value='explain';
+ const consent=$('tutor-ai-consent');if(consent)consent.checked=false;
+ updateCount();
+ status('Source-only misconception coaching prepared. Review and submit.');
+ $('tutor-question').focus();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
 function sourceOnlyTeachingPrompt(record){
  const topic=String(record.sourceTitles?.[0]||record.question||'').slice(0,350);
  $('tutor-question').value=('Teach this in more depth: '+topic).slice(0,450);
@@ -196,6 +206,8 @@ function detailsOf(record){
  }
  const actions=make('div',undefined,'tutor-actions');
  actions.append(btn('Teach this in more depth (source-only)',()=>sourceOnlyTeachingPrompt(record)));
+ if(TUTOR.user&&record.sourceTitles?.length)
+  actions.append(btn('Explain the common mistake (source-only)',()=>sourceOnlyMisconceptionPrompt(record)));
  // The full worked-math route requires an authenticated member. Public
  // glossary fallback must not advertise a member-only server interaction.
  if(TUTOR.user&&record.sourceTitles?.some(t=>FOUNDATION_WORKED_TITLES.has(t)))
