@@ -28,7 +28,7 @@ test('4. WACC: weights sum to one, tax boundaries and rate units',()=>{
  near(basicWacc(.6,.1,.4,.05,.25),.075,'alternate');
  assert.equal(basicWacc(.6,.1,.39,.05,.25),null);
  assert.equal(basicWacc(.5,.1,.5,.05,-.01),null);
- assert.equal(basicWacc(.5,1e308,.5,1e308,.25),null,'overflow');
+ assert.ok(Number.isFinite(basicWacc(.5,1e308,.5,1e308,.25)),'convex weighted finite rates remain finite; this is not a plausible finance input');
 });
 test('5. PV: 0% rate, negative but greater than -100%, invalid horizon and overflow',()=>{
  near(presentValue(100,0,3),100,'zero rate');
