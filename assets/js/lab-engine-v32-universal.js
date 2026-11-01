@@ -1145,7 +1145,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    if(!academyScope)root.GroundUpLabV33GradeDisplay?.mount?.({labId,target:recorded});
    else appendParagraph(recorded,'Official Boot Camp grading is independent and remains unavailable unless separately approved and authorized.');
    appendParagraph(body,academyScope?
-    'The Academy retains its existing authenticated reflection service. Lab-style instructional checkpoints are not yet server-persisted for Boot Camps; no completion is inferred.':
+    (progressStore?'Your ungraded stage draft is saved privately with its own revision. Daily reflections and assessments remain separate; no mastery or grade is inferred.':'Your stage draft is local until an authorized member session is available. Daily reflections and official assessments remain separate.'):
     'Resume or save official member progress through the existing authenticated Lab controls; this self-study widget does not write server grades or credit entitlements.');
    if(!academyScope&&codes.length)body.append(button('Review related competency guide',()=>{location.href='skills.html#guide-'+encodeURIComponent(codes[0]||'')})); 
   }
