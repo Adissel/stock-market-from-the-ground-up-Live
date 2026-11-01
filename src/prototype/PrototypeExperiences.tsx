@@ -695,7 +695,8 @@ function ClassroomLayoutGallery({design,reveal,setReveal,topic,setTopic,stage,se
  const inspected=series[Math.max(0,Math.min(focus,reveal-1))]||series[0];
  const bid=scenario?10.1:10,ask=scenario?10.14:10.06;
  const distance=riskEntry-riskStop;
- const shares=distance>0&&riskBudget>=0?Math.floor(riskBudget/distance):null;
+ const stopCents=Math.round(riskEntry*100)-Math.round(riskStop*100);
+ const shares=stopCents>0&&riskBudget>=0?Math.floor(Math.round(riskBudget*100)/stopCents):null;
  const rvol=scenario?2.8:1.6;
  const recordDecision=()=>{if(hypothesis.trim().length>=15)setLocked(true)};
  const flip=()=>setScenario(v=>v===0?1:0);
@@ -976,6 +977,7 @@ function Suite({page}:{page:Page}){
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a><a className="cx-exit-link" href="/admin.html">Exit prototype</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 16 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
+  <ClassroomLayoutGallery design={theme} reveal={reveal} setReveal={safeSetReveal} topic={topic} setTopic={setTopic} stage={stage} setStage={setStage} focus={Math.min(focus,reveal-1)} setFocus={setFocus}/>
   <div className="cx-controlstrip">
    <label>Membership design preview<select value={planCode} onChange={e=>{const next=e.target.value;setPlanCode(next);const profile=membershipExperiences[next];if(profile){setSelectedEditions(editionPolicy[next]||editionPolicy.FREE);changeMode('guided');setStudio(profile.defaultStudio);setTopic(profile.defaultTopic);setStage(0);setReveal(8);setFocus(5)}}}>{plans.map(p=><option value={p.code} key={p.code}>{p.label}</option>)}</select></label>
    <label>Independent Chart Studio preview<select value={studio} onChange={e=>setStudio(e.target.value as Studio)}>{(['Standard','Advanced','Professional'] as Studio[]).map(t=><option key={t}>{t}</option>)}</select></label>
@@ -997,7 +999,6 @@ function Suite({page}:{page:Page}){
   </>}
   <EditionPreview plan={plan} selected={selectedEditions} setSelected={(k,v)=>setSelectedEditions(old=>({...old,[k]:v}))}/>
   <div id="cx-studies"><IndicatorDock/></div>
-  <ClassroomLayoutGallery design={theme} reveal={reveal} setReveal={safeSetReveal} topic={topic} setTopic={setTopic} stage={stage} setStage={setStage} focus={Math.min(focus,reveal-1)} setFocus={setFocus}/>
   <CurriculumAtlas/>
   <div id="cx-platform"><PlatformExplorer design={theme} reveal={reveal} volume={volume} ema={ema} proxy={proxy} focus={Math.min(focus,reveal-1)}/></div>
   <div id="cx-members"><MemberExperience plan={plan} reveal={reveal} setReveal={safeSetReveal} stage={stage} setStage={setStage} setTopic={setTopic}/></div>

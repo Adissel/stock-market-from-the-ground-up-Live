@@ -35,8 +35,8 @@ try{
  assert.equal(await home.page.locator('#pt-curriculum-parity').isVisible(),false,'Classic inspector hidden within new React experience');
  assert.equal(await home.page.locator('.cx-desk-banner').isVisible(),true,'Opening banner shows actual simulated price');
  assert.equal(await home.page.locator('.cx-desk-links a').count(),4);
- const firstChart=await home.page.locator('.cx-market-terminal').first().boundingBox();
- assert.ok(firstChart&&firstChart.y<850,'Primary trading chart must be visible in first viewport');
+ const firstChart=await home.page.locator('.cx-lp-visual').first().boundingBox();
+ assert.ok(firstChart&&firstChart.y<850,'Lab and Boot Camp chart layout must be visible in first viewport');
  assert.equal(await home.page.locator('.cx-eight-picker button').count(),8,'Eight functional Lab and Boot Camp layouts must be visible');
  const layoutCodes=['foundations','indicator','replay','tape','scanner','risk','filings','academy'];
  for(const code of layoutCodes){

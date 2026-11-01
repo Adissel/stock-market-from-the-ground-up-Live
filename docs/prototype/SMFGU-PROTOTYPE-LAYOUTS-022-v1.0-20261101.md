@@ -6,7 +6,7 @@
 **Version:** 1.0
 **Date:** 2026-11-01
 **Branch:** main (no feature branch)
-**Status:** Implemented source; CI and Cloudflare verification required
+**Status:** Implemented first-viewport source; CI and Cloudflare verification required
 **Google Drive location and ID:** Not created / unassigned
 **Purpose:** Provide genuinely different layouts tailored to real Labs and Boot Camp teaching activities, rather than eight color presets.
 **Dependencies:** AGENTS.md, React/TypeScript Prototype Experiences, pinned ECharts, existing fictional OHLCV and Talia components, ten Boot Camp Academy program codes, no private grades.
@@ -21,6 +21,8 @@
 6. Risk & Execution Desk — risk60 and practicum90; input-controlled long-side stop distance and whole-share cap, slippage/liquidity boundaries.
 7. SEC Filings Research Room — filings7 and truth5; issuer/CIK, original filing and timestamps, honest checklist without claiming facts verified.
 8. Boot Camp Mission Control — all ten existing program identities; pathways, staged learning and fictional competency overview.
+
+The eight layout thumbnails and active classroom composition appear before the prior Chart Studio, immediately on the default prototype screen. Hypothetical long-side sizing uses integer cents to avoid floating-point truncation errors.
 
 Each option has a different CSS grid topology on desktop, dedicated interactive task, different ECharts visualization, its own mission and content hierarchy, source-safety panel, and a reusable Talia interaction. Responsive screens stack modules in accessible reading order. The selector previews eight mini-layout diagrams, records the selected URL query in-browser, and navigates directly to the chosen scene.
 

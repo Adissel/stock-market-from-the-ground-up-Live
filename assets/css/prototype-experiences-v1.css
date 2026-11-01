@@ -747,7 +747,7 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 
 
 /* Eight source-mapped teaching layouts V22. The visual hierarchy changes per mode. */
-.cx-app .cx-eight-layouts{margin:20px clamp(14px,2.5vw,35px);color:#e9f8ff}
+.cx-app .cx-eight-layouts{margin:9px clamp(14px,2.5vw,35px) 20px;color:#e9f8ff}
 .cx-app .cx-eight-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:18px 3px}
 .cx-app .cx-eight-head h2{font-size:clamp(22px,2.5vw,34px);color:#effaff;letter-spacing:-.04em;margin:7px 0}
 .cx-app .cx-eight-head p{font-size:12px;color:#bad2e0;max-width:760px;line-height:1.65;margin:3px 0}
