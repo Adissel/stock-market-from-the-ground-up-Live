@@ -69,6 +69,48 @@ try{
  assert.equal(initial.series.find(x=>x.name==='EMA 200').data[198],null);
  assert(Number.isFinite(initial.series.find(x=>x.name==='EMA 200').data[199]));
  assert(initial.series.some(x=>x.name==='Bollinger upper'));
+
+ // Gate 3: three independent, chronologically linked mathematical panels.
+ await page.locator('[data-study="rsi14"]').check();
+ await page.locator('[data-study="macd"]').check();
+ await page.locator('[data-study="atr14"]').check();
+ const panels=await page.evaluate(()=>{
+  const el=document.querySelector('[data-cl-echarts-chart]');
+  const o=window.echarts.getInstanceByDom(el).getOption();
+  return {axes:o.xAxis.length,grids:o.grid.length,
+   series:o.series.map(x=>({name:x.name,data:x.data,xAxisIndex:x.xAxisIndex,yAxisIndex:x.yAxisIndex})),
+   zoom:o.dataZoom.map(z=>z.xAxisIndex),link:o.axisPointer?.[0]?.link,
+   height:el.getBoundingClientRect().height};
+ });
+ assert.equal(panels.grids,5,'Price/volume and RSI, MACD, ATR panes must remain independently scaled');
+ assert.equal(panels.axes,5,'All five time axes must be coupled');
+ assert(panels.link.some(x=>x.xAxisIndex==='all'),'Time-axis pointer must link every pane');
+ for(const name of ['Wilder RSI 14','MACD 12/26','MACD signal 9','MACD histogram','Wilder ATR 14']){
+  assert(panels.series.some(x=>x.name===name),name+' pane missing');
+ }
+ assert.equal(panels.series.find(x=>x.name==='Wilder RSI 14').yAxisIndex,2);
+ assert.equal(panels.series.find(x=>x.name==='MACD 12/26').yAxisIndex,3);
+ assert.equal(panels.series.find(x=>x.name==='Wilder ATR 14').yAxisIndex,4);
+ assert(panels.zoom.every(z=>z.length===5),'Synchronized zoom must affect all panes');
+ const panelExpected=await page.evaluate(data=>{
+  const math=window.CrownlightIndicatorMath;
+  const completed=data.map(b=>({...b,time:new Date(b.timestamp)}));
+  return {rsi:math.rsi(completed,14),macd:math.macd(completed,12,26,9),atr:math.atr(completed,14)};
+ },bars);
+ const panelBy=name=>panels.series.find(x=>x.name===name)?.data;
+ near(panelBy('Wilder RSI 14')[200],panelExpected.rsi[200],'RSI 14 pane');
+ near(panelBy('MACD 12/26')[200],panelExpected.macd.line[200],'MACD pane');
+ near(panelBy('MACD signal 9')[200],panelExpected.macd.signal[200],'MACD signal pane');
+ near(panelBy('MACD histogram')[200],panelExpected.macd.histogram[200],'MACD histogram pane');
+ near(panelBy('Wilder ATR 14')[200],panelExpected.atr[200],'ATR pane');
+ await page.locator('[data-pane-height="macd"]').fill('230');
+ const resized=await page.evaluate(()=>{
+  const g=document.querySelector('[data-cl-echarts-chart]'),
+   o=window.echarts.getInstanceByDom(g).getOption();
+  return {height:g.getBoundingClientRect().height,macd:o.grid[3].height};
+ });
+ assert.equal(resized.macd,230,'MACD pane must resize without changing math');
+ assert(resized.height>panels.height);
  const table=page.locator('.cl-echarts-numeric-table');
  await table.locator('summary').click();
  assert(await table.locator('table caption').textContent());
