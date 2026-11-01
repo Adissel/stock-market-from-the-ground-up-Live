@@ -31,7 +31,7 @@ assert.match(js,/\/api\/bootcamp-academy\?action=catalog/);
 assert.match(js,/fetchJson\('\/data\/competency-lab-paths-v01499\.json'\)/);
 assert.match(js,/textContent=String\(text\)/);
 assert.match(js,/No member or protected grading data was loaded/);
-for(const prohibited of [/\/api\/stripe/i,/service.role/i,/\.insert\(/,/\.update\(/,/localStorage\.setItem\(/,/document\.write\(/,/innerHTML\s*=/,//api/bootcamp-academy\?program=/]){
+for(const prohibited of [/\/api\/stripe/i,/service.role/i,/\.insert\(/,/\.update\(/,/localStorage\.setItem\(/,/document\.write\(/,/innerHTML\s*=/,new RegExp('bootcamp-academy\\?program=')]){
  assert.doesNotMatch(js,prohibited,'Private action or unsafe markup is not permitted in read-only parity');
 }
 assert.match(css,/@media\(max-width:760px\)/);
