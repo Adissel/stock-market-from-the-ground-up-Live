@@ -66,6 +66,7 @@ options.append(create('p','Instructor placement'));options.append(buttons(['Righ
 const panes=grid([['Teaching pane','First-principles lesson content, numerical worked examples and guided practice.'],['Talia Mercer','Free explanations, contextual guidance, diagnostic feedback and instructional retries.'],['Chart laboratory','Fictional candlesticks, indicators and instructor annotations.']]);
 panes.classList.add('pt-classroom');panes.dataset.layout=state.layout;panes.dataset.density=state.density;panes.dataset.tutor=state.tutor;
 root.append(area,options,panes);
+ window.CrownlightClassroomMemberships?.render?.(root);
  const stage=create('section',undefined,'pt-card');stage.append(create('h3','Shared nine-stage learning sequence'));
  const box=create('div',undefined,'pt-stage');box.append(create('strong','Stage '+(state.stage+1)+' / 9 — '+stages[state.stage]));
  const explain=[
@@ -120,15 +121,23 @@ async function plot(){
  try{
   const E=await window.CrownlightECharts.load();if($('pt-app').hidden)return;
   if(!state.chart){state.chart=E.init($('pt-chart'),null,{renderer:'canvas'});state.resize=new ResizeObserver(()=>state.chart?.resize());state.resize.observe($('pt-chart'));}
-  const data=candles(),labels=data.map(x=>x.t),base={animation:false,backgroundColor:'transparent',textStyle:{color:'#d7e7ef'},tooltip:{trigger:'axis'},grid:{left:52,right:25,top:35,bottom:57},xAxis:{type:'category',data:labels,axisLabel:{color:'#b8d0dd'}},yAxis:{type:'value',scale:true,axisLabel:{color:'#b8d0dd'},splitLine:{lineStyle:{color:'#274355'}}},dataZoom:[{type:'inside'},{type:'slider',bottom:10,height:18,textStyle:{color:'#ccddea'}}]};
-  if(state.kind==='candlestick')base.series=[{name:'Fictional OHLC',type:'candlestick',data:data.map(x=>[x.open,x.close,x.low,x.high]),itemStyle:{color:'#46c1a4',color0:'#db7474',borderColor:'#46c1a4',borderColor0:'#db7474'}}];
+  const data=candles(),labels=data.map(x=>x.t),member=window.CrownlightClassroomMemberships;
+  const appearance=member?.chartOptions?.(data);
+  const chartHost=$('pt-chart');
+  if(appearance&&chartHost){const height=appearance.height+'px';if(chartHost.style.height!==height){chartHost.style.height=height;state.chart.resize();}}
+  const base={animation:false,backgroundColor:'transparent',textStyle:{color:'#d7e7ef'},tooltip:{trigger:'axis',renderMode:'richText',formatter:appearance?.tooltip},grid:{left:52,right:25,top:35,bottom:57},xAxis:{type:'category',data:labels,axisLabel:{color:'#b8d0dd'}},yAxis:{type:'value',scale:true,axisLabel:{color:'#b8d0dd'},splitLine:appearance?.axisSplit||{lineStyle:{color:'#274355'}}},dataZoom:[{type:'inside'},{type:'slider',bottom:10,height:18,textStyle:{color:'#ccddea'}}]};
+  if(state.kind==='candlestick')base.series=[{name:'Fictional OHLC',type:'candlestick',data:data.map(x=>[x.open,x.close,x.low,x.high]),itemStyle:appearance?.itemStyle||{color:'#46c1a4',color0:'#db7474',borderColor:'#46c1a4',borderColor0:'#db7474'},barWidth:appearance?.barWidth}];
   if(state.kind==='line')base.series=[{name:'Fictional close',type:'line',showSymbol:false,data:data.map(x=>x.close),lineStyle:{color:'#63c2df'}}];
   if(state.kind==='bar')base.series=[{name:'Fictional volume',type:'bar',data:data.map(x=>x.volume),itemStyle:{color:'#5c9cda'}}];
   if(state.kind==='heatmap'){base.xAxis={type:'category',data:labels};base.yAxis={type:'category',data:['Knowledge','Recognition','Decision','Process']};base.grid.bottom=94;base.visualMap={min:0,max:100,calculable:true,orient:'horizontal',bottom:28,textStyle:{color:'#e0eef7'}};base.series=[{type:'heatmap',name:'Fictional competency',data:data.flatMap((x,i)=>[0,1,2,3].map(j=>[i,j,30+(i*13+j*11)%69]))}];}
-  state.chart.setOption(base,{notMerge:true});$('pt-chart-status').textContent='Interactive '+state.kind+' — deterministic fictional data; not financial or member records.';
+  state.chart.setOption(base,{notMerge:true});
+  state.chart.off('click');
+  state.chart.on('click',event=>{if(Number.isInteger(event?.dataIndex))member?.inspector?.($('pt-bar-inspector'),data,event.dataIndex)});
+  member?.inspector?.($('pt-bar-inspector'),data,data.length-1);
+  $('pt-chart-status').textContent='Interactive '+state.kind+' — detailed fictional OHLC, selectable inspection and membership-specific visual design. Not live market data.';
  }catch(e){$('pt-chart-status').textContent='ECharts unavailable: '+(e?.message||'Renderer error');}
 }
-function save(){try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,layout:state.layout,density:state.density,tutor:state.tutor,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
+function save(){window.CrownlightClassroomMemberships?.save?.();try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,layout:state.layout,density:state.density,tutor:state.tutor,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
 function restore(){try{const data=JSON.parse(localStorage.getItem('crownlight:prototype:v1:'+state.user)||'null');if(!data)return;for(const k of ['mode','device','kind','stage','tier','layout','density','tutor','adminGroup','revealed','saved'])if(Object.hasOwn(data,k))state[k]=data[k];if(workspace.has(data.id))state.id=data.id;if(!['desktop','tablet','mobile'].includes(state.device))state.device='desktop';if(!['candlestick','bar','line','heatmap'].includes(state.kind))state.kind='candlestick';state.stage=Math.max(0,Math.min(8,Number(state.stage)||0));if(!['Balanced','Reading-first','Chart-first'].includes(state.layout))state.layout='Balanced';if(!['Comfortable','Compact'].includes(state.density))state.density='Comfortable';if(!['Right','Bottom'].includes(state.tutor))state.tutor='Right';}catch{}}
 /* Refresh staff authority when a previously open private workbench regains focus.
  * Missing permissions or provider failures fail closed; no stale UI remains visible. */
@@ -152,7 +161,7 @@ async function recheckStaffAccess(){
   $('pt-gate').hidden=true;$('pt-app').hidden=false;state.chart?.resize();
  }catch(error){
   state.resize?.disconnect();state.chart?.dispose();state.chart=null;
-  window.CrownlightPrototypeTeaching?.reset?.();state.user=null;
+  window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();state.user=null;
   $('pt-app').hidden=true;$('pt-gate').hidden=false;
   $('pt-gate').textContent=error?.message||'Staff authorization unavailable.';
  }finally{checkingStaff=false;}
@@ -164,10 +173,10 @@ function controls(){
  $('pt-device').addEventListener('change',e=>{state.device=e.target.value;draw()});
  $('pt-kind').addEventListener('change',e=>{state.kind=e.target.value;void plot()});
  $('pt-save').addEventListener('click',save);
- $('pt-reset').addEventListener('click',()=>{state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
+ $('pt-reset').addEventListener('click',()=>{window.CrownlightClassroomMemberships?.reset?.();state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
  window.addEventListener('crownlight:prototype-case-change',()=>{void plot()});
- window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();});
+ window.addEventListener('pagehide',()=>{state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();});
 }
 async function start(){try{
  const sb=await window.getSupabaseClient?.();if(!sb)throw Error('Authentication service unavailable.');
@@ -178,9 +187,15 @@ async function start(){try{
  const ctx=await reply.json(),roles=Array.isArray(ctx.roles)?ctx.roles:[],perms=Array.isArray(ctx.permissions)?ctx.permissions:[];
  if(ctx.ok!==true||roles.includes('SHOWCASE_VIEWER')||!roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))||!perms.includes('control_panel.access'))throw Error('Owner or authorized Administrator access required.');
  state.user=session.user.id;restore();$('pt-role').textContent=roles.includes('OWNER')?'Owner':roles.includes('ADMIN')?'Administrator':'Technical Administrator';
- $('pt-gate').hidden=true;$('pt-app').hidden=false;controls();$('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
+ $('pt-gate').hidden=true;$('pt-app').hidden=false;controls();
+ window.CrownlightClassroomMemberships?.init?.({userId:state.user,onChange:()=>{
+  const design=window.CrownlightClassroomMemberships?.selected?.();
+  if(design){state.layout=design.layout;state.density=design.density;state.tutor=design.tutor;}
+  draw();
+ }});
+ $('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
  if(state.saved)note('Restored local draft saved '+state.saved+'. Drafts are not synchronized across devices.');
- sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
+ sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
  }catch(e){$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent=e?.message||'Access denied.';}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else void start();
 })();
