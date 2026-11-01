@@ -82,7 +82,7 @@ document.addEventListener('click',async ev=>{
   finally{active=false;tutorButton.disabled=false}
   return;
  }
- const button=ev.target.closest?.('[data-engine-save]'),node=root();
+ const button=ev.target.closest?.('[data-engine-save]');
  if(!button||!node||!node.contains(button)||active)return;
  const row=button.closest('[data-engine-plan]'),planCode=button.dataset.engineSave;
  const body={planCode,revision:Number(button.dataset.revision)};

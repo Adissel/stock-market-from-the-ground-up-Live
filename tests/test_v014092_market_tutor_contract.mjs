@@ -36,7 +36,14 @@ try {
  assert.equal(authHeader.apikey,env.SUPABASE_SECRET_KEY);
  assert.equal(authHeader.authorization,undefined,'Modern sb_secret must not be passed as Bearer');
  let r=await onRequest({request:req({question:'What is MAE?'},false),env});assert.equal(r.status,401);
- authorized=false;r=await onRequest({request:req({question:'What is MAE?'}),env});assert.equal(r.status,403);
+ authorized=false;r=await onRequest({request:req({question:'What is MAE?',allowModel:true}),env});
+ assert.equal(r.status,200,'Verified Free members retain source-only Foundation teaching');
+ const foundation=await r.json();
+ assert.equal(foundation.aiReason,'foundation_source_only');
+ assert.equal(foundation.graded,false);
+ assert.equal(foundation.masteryAwarded,false);
+ assert.equal(calls.filter(x=>x.url.includes('api.openai.com')).length,0,
+  'Free Foundation cannot invoke paid AI even when a caller submits allowModel=true');
  authorized=true;accountKind='showcase';r=await onRequest({request:req({question:'What is MAE?'}),env});assert.equal(r.status,403);
  accountKind='member';status='restricted';r=await onRequest({request:req({question:'What is MAE?'}),env});assert.equal(r.status,403);status='active';
  r=await onRequest({request:req({question:'Should I buy AAPL now?'}),env});const investment=await r.json();
