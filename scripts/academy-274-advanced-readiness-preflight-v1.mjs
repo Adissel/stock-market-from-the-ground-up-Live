@@ -61,7 +61,7 @@ assert.equal(docs.filter(x=>!newCodes.has(x.program)).length,247);
 assert.equal(docs.filter(x=>newCodes.has(x.program)&&x.advancedSourceReady).length,27);
 const sourceTotal=docs.filter(x=>x.advancedSourceReady).length;
 const originalUpgraded=docs.filter(x=>!newCodes.has(x.program)&&x.advancedSourceReady).length;
-assert(originalUpgraded>=20,'Risk60 first twenty days must have a complete advanced package');
+assert(originalUpgraded>=22,'Risk60 original learn and first two guided rehearsal days must have full advanced packages');
 const originalAuthored=docs.filter(x=>!newCodes.has(x.program)&&x.originalFieldAuthoring).length;
 const summary={
  schema:'smfgu-academy-274-deep-source-v1',project:'The Stock Market: From the Ground Up',
