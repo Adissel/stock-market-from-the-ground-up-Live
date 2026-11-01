@@ -32,7 +32,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN",
@@ -56,7 +64,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_INDICATED_YIELD_NOT_GUARANTEE",
@@ -71,7 +87,7 @@
       "reviewExplanation": "Correct review multiplies the declared recurring cash frequency explicitly and warns that the denominator and future numerator are uncertain.",
       "transferQuestion": "FICTIONAL TRANSFER: Assume a $0.18 quarterly amount continues at a $12 quote. Compute indicated annual yield and name two things that could invalidate it.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -80,7 +96,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
@@ -95,7 +119,7 @@
       "reviewExplanation": "Correct review identifies the recipients, the confirmed post-transaction share denominator and the limits of mechanical ownership arithmetic.",
       "transferQuestion": "FICTIONAL TRANSFER: With 2,000 shares outstanding, 200 are retired while a holder retains 100. Compute ownership before and after, without predicting price.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -104,7 +128,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_PREFERRED_COMMON_CLAIMS",
@@ -128,7 +160,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_PRIMARY_VS_SECONDARY_CASH_FLOW",
@@ -152,7 +192,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_IPO_OFFER_VS_FIRST_PRINT",
@@ -176,7 +224,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_COUPON_PAR_CASH",
@@ -191,7 +247,7 @@
       "reviewExplanation": "Correct response uses issuer face value and contract rate for the promised payment, not secondary-market price for coupon arithmetic.",
       "transferQuestion": "FICTIONAL TRANSFER: $5,000 face, 4% fixed coupon paid quarterly. Calculate yearly and quarterly promised cash.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -200,7 +256,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_CURRENT_YIELD_SCOPE",
@@ -224,7 +288,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_PRICE_YIELD_DIRECTION",
@@ -239,7 +311,7 @@
       "reviewExplanation": "Correct reasoning uses the discount-denominator effect while warning that real bond yields and credit conditions evolve together.",
       "transferQuestion": "FICTIONAL TRANSFER: Discount a certain hypothetical $1,000 one-year payment at 4% and 8%, compare values and name omitted issuer risk.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,7 +320,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_PREMIUM_DISCOUNT_PAR",
@@ -263,7 +343,7 @@
       "reviewExplanation": "Correct response converts percentage-of-par to dollars and declines to forecast redemption or realized returns.",
       "transferQuestion": "FICTIONAL TRANSFER: $2,000 par bond quoted at 96.5% of par. Compute clean price and discount dollars.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -272,7 +352,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_CREDIT_VS_INTEREST_RATE",
@@ -296,7 +384,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_ETF_NAV_MARKET_QUOTE",
@@ -320,7 +416,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_INDEX_FUND_TRACKING_DIFFERENCE",
@@ -344,7 +448,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_SIPC_CUSTODY_NOT_MARKET_LOSS",
@@ -368,7 +480,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_SIPC_LIMITS_REQUIRE_CONTEXT",
@@ -392,7 +512,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_STOCK_SHAREHOLDER_RESIDUAL",
@@ -407,7 +535,7 @@
       "reviewExplanation": "Correct response compares ownership residual with debt obligation and rejects guaranteed recovery for shareholders.",
       "transferQuestion": "FICTIONAL TRANSFER: $1.2m realizable assets, $1m higher-priority enforceable claims. Identify the maximum simple-model residual before preferred claims and expenses.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/bankruptcy-public-company"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -416,7 +544,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_MUTUAL_FUND_NAV_VS_ETF_EXECUTION",
@@ -440,7 +576,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     },
     {
       "code": "TALIA_TOPIC_BOND_MATURITY_VS_DURATION",
@@ -455,7 +599,7 @@
       "reviewExplanation": "Correct explanation uses maturity as a due date, not as the coefficient in a price-risk model.",
       "transferQuestion": "FICTIONAL TRANSFER: Compare a three-year zero-coupon bond with an otherwise similar annual-coupon bond. Which returns cash earlier?",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,7 +608,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      }
     },
     {
       "code": "TALIA_TOPIC_CAPITAL_GAIN_UNREALIZED_REALIZED",
@@ -488,7 +640,15 @@
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
       "researchReferenceVerifiedOn": "2026-11-01",
-      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication"
+      "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewedAt": "2026-11-01",
+        "reviewer": "owner-delegated internal editorial reviewer",
+        "result": "development_reference_checked_claim_level_crosscheck_pending",
+        "rights": "original_explanations_only_no_third_party_republication",
+        "independentPublicationAccepted": false,
+        "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      }
     }
   ]
 }
