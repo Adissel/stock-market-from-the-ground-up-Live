@@ -105,19 +105,19 @@ export const reviewedProductGuidesV01488={
   "tools": {
     "INTERACTIVE_LEARNING": {
       "outcomes": [
-        "Work through guided, practice, blind-decision and assessment exercises.",
-        "Review historical lab evidence and record the reasoning behind a decision.",
-        "Track competence and revisit missed skills using progress feedback."
+        "Practice through guided learning, independent observation and blind-decision exercises; official assessment is available only where independently reviewed.",
+        "Record an evidence-based reasoning process in available guided Lab practice; historical chart claims require separately verified, rights-approved source data.",
+        "Review ungraded saved practice and Not Yet Assessed evidence; do not mistake a reflection for graded competence."
       ],
       "included": [
-        "Released interactive lessons, historical labs and supported assessments",
-        "Competency and learning-progress workflows under tool access"
+        "Existing authorized canonical Lab orientation and eligible guided beta examples, with the shared nine-stage learning experience; official assessment requires separately reviewed private grading",
+        "Practice evidence and member learning progress where the authenticated server confirms a saved attempt; ungraded reflections do not award mastery"
       ],
       "excluded": [
-        "eBooks, independent brokerage software or subscriptions",
+        "Complete eBooks, separately owned private book-authored instructional lessons, independently licensed market data and brokerage software",
         "Standalone journal analytics, market simulator and Market Tutor subscriptions"
       ],
-      "requirements": "Uses published lesson/lab datasets. Some free previews are available."
+      "requirements": "Canonical Lab descriptions can teach study orientation; private book-authored lessons still require that book or specifically authorized beta access. The 83 Upcoming SITE labs have no public Start/grade, and verified historical replay is not guaranteed."
     },
     "JOURNAL_ANALYTICS": {
       "outcomes": [
@@ -142,7 +142,7 @@ export const reviewedProductGuidesV01488={
         "Review MFE/MAE and journal connections to assess process."
       ],
       "included": [
-        "Released first-party historical simulator and replay features",
+        "Browser CSV educational replay and any independently rights-approved server-controlled historical replay currently published",
         "Supported trade review and journal integration"
       ],
       "excluded": [
@@ -150,7 +150,7 @@ export const reviewedProductGuidesV01488={
         "A proprietary third-party OnDemand installation or premium live market-data license",
         "Other separately sold tools and downloadable books"
       ],
-      "requirements": "Requires supported historical datasets, CSVs or independently connected market-data providers as applicable."
+      "requirements": "Browser CSV practice accepts member-supplied data; server-controlled historical replay requires a published, rights-approved dataset and may have none available. No broker-confirmed executions."
     },
     "MARKET_TUTOR": {
       "outcomes": [
