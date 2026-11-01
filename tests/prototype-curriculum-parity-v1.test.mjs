@@ -40,14 +40,14 @@ assert.equal(bridges.independentGradesIncluded,false);
 assert.equal(bridges.historicalBarDataIncluded,false);
 for(const [id,row] of Object.entries(bridges.entries)){
  assert.equal(row.labId,id);
- for(const facet of ['understand','recognize','apply','mistake','limits'])
+ for(const facet of ['understand','recognize','apply','mistake','limits']){
   const parts=row.tabs[facet];
   assert(Array.isArray(parts)&&parts.length>=1,'Missing original Lab teaching facet '+id+' '+facet);
   assert(parts.every(text=>typeof text==='string'&&text.trim().length>=15),'Empty Lab teaching facet '+id+' '+facet);
   if(row.instructionSource!=='ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101')
    assert(parts.length>=3,'Legacy three-part subject instruction missing for '+id+' '+facet);
   // A concise authored source is a valid preview, NOT independently accepted editorial depth.
-
+ }
 }
 assert.equal(new Set(indicators.guides.map(g=>g.code)).size,61);
 assert.equal(globalThis.CrownlightPrototypeIndicators.specs.length,15);
