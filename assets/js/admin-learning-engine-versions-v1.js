@@ -4,7 +4,7 @@ const root=()=>document.getElementById('admin-learning-engine-assignments');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let active=false,working=false;
 const editionLabels={
- FOUNDATION:'Foundation (Basic) — included',
+ FOUNDATION:'Talia Market Tutor v0.14.0.149 (Basic) — included',
  ADVANCED:'Advanced — planned entitlement; features not released',
  PROFESSIONAL:'Professional — planned entitlement; features not released',
  ENTERPRISE:'Enterprise — planned entitlement; features not released',
@@ -17,7 +17,7 @@ const labels={
  LEARNING_V33_CURRENT:'Learning v3.3 · Current deployment',
  LAB_V32_FREEZE_20261101:'Lab v3.2 · Frozen Free baseline (2026-11-01)',
  LAB_V32_CURRENT:'Lab v3.2 · Current deployment',
- TALIA_FREEZE_20261101:'Talia Mercer · Frozen Free baseline (2026-11-01)',
+ TALIA_FREEZE_20261101:'Talia Market Tutor v0.14.0.149 (Basic) · Frozen baseline',
  TALIA_CURRENT:'Talia Mercer · Current deployment'
 };
 async function token(){

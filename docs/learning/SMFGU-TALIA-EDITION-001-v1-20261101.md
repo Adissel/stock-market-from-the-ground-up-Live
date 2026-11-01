@@ -12,13 +12,15 @@
 **Status:** Owner-approved policy; Tutor edition editor implementation; premium features and sales remain unreleased
 **Dependencies:** Supabase platform_plans, Owner RBAC, current 20261101 frozen Free snapshot, market-tutor-v01492, original learning/assessment boundaries
 **Purpose:** Persist per-membership Talia edition choices without changing protected teaching quality, paid AI quotas or entitlements.
+**Current Basic product label:** Talia Market Tutor v0.14.0.149 (Basic). This is the owner-approved customer-facing name of the Foundation edition, based on the verified member-workspace source release. The separately versioned Tutor backend is not renamed, and Advanced/Professional/Enterprise editions have not thereby been released.
+
 
 ## Owner controlling assignment matrix
 | Plan | Shared Learning Engine | Shared Lab Engine | Talia Market Tutor |
 | --- | --- | --- | --- |
-| FREE | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Foundation (Basic) |
-| FOUNDING_14 | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Foundation (Basic) |
-| PICK_WHAT_YOU_WANT | Basic plus independently entitled add-ons | Basic plus independently entitled add-ons | Foundation (Basic) plus independently entitled add-ons |
+| FREE | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Talia Market Tutor v0.14.0.149 (Basic) |
+| FOUNDING_14 | v3.3 Basic frozen baseline | v3.2 Basic frozen baseline | Talia Market Tutor v0.14.0.149 (Basic) |
+| PICK_WHAT_YOU_WANT | Basic plus independently entitled add-ons | Basic plus independently entitled add-ons | Talia Market Tutor v0.14.0.149 (Basic) plus independently entitled add-ons |
 | ONDEMAND_MONTHLY | Based on verified purchased training product | Based on verified purchased training product | Based on verified purchased product |
 | FOUNDING_30 | Next-best published edition when released | Next-best published edition when released | Advanced (target) |
 | FOUNDING_60 | Best published edition when released | Best published edition when released | Professional (target) |
@@ -27,7 +29,7 @@
 | FULL_ANNUAL, archived memberships | **Not newly assigned by this approval** | **Not newly assigned** | **Unassigned until terms are reconciled** |
 
 ## Tutor edition distinctions (not a claim of implemented capability)
-- FOUNDATION (Basic): original source-grounded explanations; first-principles lessons; no pay-per-explanation; universal Explain / Guided Example / Try Another / Teach Deeper.
+- FOUNDATION / Talia Market Tutor v0.14.0.149 (Basic): original source-grounded explanations; first-principles lessons; no pay-per-explanation; universal Explain / Guided Example / Try Another / Teach Deeper.
 - ADVANCED: future richer contextual learner diagnostics and advanced practice tools; no reduced Basic explanation quality.
 - PROFESSIONAL: future advanced multi-context workflow, research/replay workbench integration, and larger analytical tooling; verified historical data boundaries remain mandatory.
 - ENTERPRISE: future highest-capability research/workflow Tutor; no guaranteed paid inference, current-data feed, trading advice, or private grading.

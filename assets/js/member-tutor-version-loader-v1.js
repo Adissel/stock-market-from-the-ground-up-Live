@@ -10,7 +10,7 @@ async function mount(){
    const edition=j.tutorEdition;
    if(edition){
     const label=document.getElementById('tutor-membership-edition');
-    const display={FOUNDATION:'Foundation (Basic)',ADVANCED:'Advanced',
+    const display={FOUNDATION:'Talia Market Tutor v0.14.0.149 (Basic)',ADVANCED:'Advanced',
      PROFESSIONAL:'Professional',ENTERPRISE:'Enterprise',
      PRODUCT_DEPENDENT:'On-Demand entitlement',UNASSIGNED:'Unassigned'};
     if(label)label.textContent='Membership Tutor edition: '+(display[edition.configured]||'Unassigned')+
