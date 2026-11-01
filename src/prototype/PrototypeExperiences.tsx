@@ -285,11 +285,18 @@ function Compare({design,studio,topic,setTopic,stage,setStage,reveal,setReveal,v
 function Suite({page}:{page:Page}){
  const [planCode,setPlanCode]=useState('FREE'),[studio,setStudio]=useState<Studio>('Standard'),[design,setDesign]=useState<Design>('quantum');
  const [topic,setTopic]=useState<Topic>('vwap'),[stage,setStage]=useState(2),[reveal,setReveal]=useState(54),[volume,setVolume]=useState(true),[ema,setEma]=useState(true),[proxy,setProxy]=useState(true),[focus,setFocus]=useState(30);
+ const [indicatorSettings,setIndicatorSettings]=useState<Record<string,number>>({...defaults});
+ const [indicatorEnabled,setIndicatorEnabled]=useState<Record<string,boolean>>({...defaultVisible});
+ const setSettings=(key:string,value:number)=>setIndicatorSettings(old=>({...old,[key]:Number.isFinite(value)?value:defaults[key]}));
+ const setEnabled=(key:string,value:boolean)=>setIndicatorEnabled(old=>({...old,[key]:value}));
+ const indicatorPrefs:IndicatorPrefs={settings:indicatorSettings,enabled:indicatorEnabled,setSettings,setEnabled,
+  reset:()=>{setIndicatorSettings({...defaults});setIndicatorEnabled({...defaultVisible})},
+  enableAll:()=>setIndicatorEnabled(Object.fromEntries(specs.map(x=>[x.id,true])))};
  const plan=plans.find(x=>x.code===planCode)||plans[0];
  const theme=page==='b'?'quantum':design;
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
- return <div className={'cx-app cx-theme-'+design+' cx-page-'+page}>
+ return <IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}>
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF RESTRICTED</span><a href="/prototype.html">Return to Prototype Center</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">PRODUCT DESIGN EXPERIMENT · 31 OCT 2026</div><h1>{page==='a'?'Six worlds. One professional platform.':page==='b'?'Three premium experiences, engineered.':'Every membership. One coherent learning standard.'}</h1><p>{page==='a'?'Dockable analytical panels, advanced ECharts, six distinct dark design systems and hands-on VWAP/candlestick learning.':page==='b'?'Quantum Command, Aurora Flow and Green/Black are distinct full-screen application compositions, not recolored copies.':'Choose any two of the eight existing membership identities, examine proposed layouts and inspect contingent tool access.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
@@ -300,10 +307,11 @@ function Suite({page}:{page:Page}){
    <label>Teaching topic<select value={topic} onChange={e=>setTopic(e.target.value as Topic)}><option value="vwap">Understand VWAP</option><option value="candle">Build & Understand a Candlestick</option></select></label>
   </div>
   {page==='a'&&<nav className="cx-designs" aria-label="Choose one of six advanced designs">{designs.map((d,i)=><button key={d.key} aria-pressed={design===d.key} onClick={()=>setDesign(d.key)}><i className={'cx-swatch cx-swatch-'+d.key}/><span><small>0{i+1} / DESIGN SYSTEM</small><b>{d.label}</b><small>{d.caption}</small></span></button>)}</nav>}
+  <IndicatorDock/>
   <div className="cx-statusline"><span><Icon type="◉"/> {plan.label} · {plan.preset}</span><span>Chart Studio: {studio} (preview only)</span><span>Fictional replay: {reveal} completed candles</span></div>
   {page==='a'?<Workstation {...props}/>:page==='b'?<Flagships {...props}/>:<Compare design={design} studio={studio} topic={topic} setTopic={setTopic} stage={stage} setStage={setStage} reveal={reveal} setReveal={safeSetReveal} volume={volume} ema={ema} proxy={proxy} focus={focus} setFocus={setFocus}/>}
   <footer className="cx-footer"><span>CROWN & LANTERN PRESS / INTERNAL DESIGN STUDY</span><span>REACT · TYPESCRIPT · JAVASCRIPT · HTML5 · CSS3 · APACHE ECHARTS 6.1</span><span>Demo only. Server membership rules unchanged.</span></footer>
- </div>;
+ </div></IndicatorContext.Provider>;
 }
 export function mountExperienceSuite(element:HTMLElement,page:Page):()=>void{
  const root:Root=createRoot(element);root.render(<Suite page={page}/>);return()=>root.unmount();
