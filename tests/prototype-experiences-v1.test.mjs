@@ -23,5 +23,10 @@ assert.match(build,/PrototypeExperiences\.tsx/);
 assert.match(build,/--noEmit --strict/);
 assert.match(build,/prototype-experiences-v1\.bundle\.js/);
 assert.match(css,/prefers-reduced-motion/);
-assert.doesNotMatch(src,/fetch\('/,'No network or entitlement calls belong inside synthetic page');
+// The protected synthetic prototype may load its public, static first-party tutor
+// guide, but must never issue dynamic entitlement, wallet, brokerage or user APIs.
+const allFetches=(src.match(/\\bfetch\\s*\\(/g)||[]).length;
+const approvedStaticFetches=(src.match(/\\bfetch\\s*\\(\\s*'\\/data\\/tutor-indicator-study-v1\\.json'\\s*,\\s*\\{\\s*cache:'no-store',credentials:'same-origin'\\s*\\}/g)||[]).length;
+assert.equal(approvedStaticFetches,1,'Expect exactly one immutable-path same-origin guide load');
+assert.equal(allFetches,approvedStaticFetches,'No remote, dynamic, entitlement, wallet or brokerage fetch calls allowed');
 console.log('PASS: three protected pages, eight plan identities, six themes, teaching and replay boundaries, TypeScript build and local-only interactions');
