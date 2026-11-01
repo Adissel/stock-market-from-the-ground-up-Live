@@ -149,3 +149,31 @@
  .cl-tier-echarts-frame .cl-echarts-pane-controls label{flex-wrap:wrap}
  .cl-tier-echarts-frame .cl-echarts-pane-controls input[type=range]{width:min(100%,170px)}
 }
+
+/* Section C: per-indicator palette, explicitly unsaved member-session settings. */
+.cl-tier-echarts-frame .cl-echarts-colors{
+ border:1px solid #426a84;border-radius:10px;padding:9px 11px;margin:12px 0;
+ background:#0b263b;color:#ecf7fc
+}
+.cl-tier-echarts-frame .cl-echarts-colors summary{
+ cursor:pointer;font-weight:700;min-height:30px;font-size:.85rem
+}
+.cl-tier-echarts-frame .cl-echarts-palette{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:10px;margin-top:11px
+}
+.cl-tier-echarts-frame .cl-echarts-palette label{
+ display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:space-between;
+ padding:7px 8px;border:1px solid #345775;border-radius:8px;font-size:.78rem
+}
+.cl-tier-echarts-frame .cl-echarts-palette input[type=color]{
+ height:30px;width:42px;border-radius:6px;border:1px solid #7391a7;
+ background:transparent;padding:2px
+}
+.cl-tier-echarts-frame .cl-echarts-palette select{
+ padding:6px 7px;min-height:31px;border:1px solid #7696b3;
+ border-radius:6px;background:#102a40;color:#f4fbff
+}
+.cl-tier-echarts-frame .cl-echarts-colors :is(summary,input,select):focus-visible{
+ outline:3px solid #afe7ff;outline-offset:3px
+}
