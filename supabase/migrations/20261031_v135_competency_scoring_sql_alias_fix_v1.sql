@@ -25,8 +25,7 @@ BEGIN
         <>3*length('from jsonb_array_elements(c.questions) q')
   THEN RAISE EXCEPTION 'V135_SCORER_ALIAS_CHANGED: expected three dimension query aliases';END IF;
   v_suffix := regexp_replace(v_suffix,'\mq\M','question_item','g');
-  IF strpos(v_suffix,'from jsonb_array_elements(c.questions) q')>0 OR
-     strpos(v_suffix,'question_item->>')=0
+  IF strpos(v_suffix,'question_item->>')=0
   THEN RAISE EXCEPTION 'V135_SCORER_REWRITE_INCOMPLETE';END IF;
   EXECUTE v_prefix||v_suffix;
 END;
