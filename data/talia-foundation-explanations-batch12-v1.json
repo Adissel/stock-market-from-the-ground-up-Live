@@ -20,8 +20,7 @@
       "reviewExplanation": "Ungraded formative correction: A marketable purchase priced at the offer and immediate sale priced at an unchanged bid can lose the bid–ask width even without a market move. The stated synthetic worked evidence is: At a fictional $9.90 bid/$10.10 ask, buying 100 shares at $10.10 and selling at $9.90 creates −$20 gross before fees. The result is conditional: Quotes are not guaranteed fills, depth can disappear, and costs change as the spread moves.",
       "transferQuestion": "FICTIONAL TRANSFER: At an unchanged $30.00 bid/$30.08 ask, calculate the gross spread cost for 200 shares; distinguish quotes from executions. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -36,6 +35,12 @@
         "independentPublicationAccepted": false,
         "sourceScope": "SEC primary order type/stop-order bulletin checked for order mechanic; original fictional arithmetic not independently released",
         "referenceCheckedDate": "2026-11-01"
+      },
+      "sourceScopeReview": {
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     },
     {
@@ -51,8 +56,7 @@
       "reviewExplanation": "Ungraded formative correction: A triggered stop-market sell may become a market order whose actual fill can differ materially from its stop trigger. The stated synthetic worked evidence is: Fictional plan: enter 50 shares at $20, stop trigger $19; a gap causes a fill at $18.60, producing a $70 loss rather than planned $50 before fees. The result is conditional: Broker routing, venue hours, market liquidity and order terms determine how a real stop works.",
       "transferQuestion": "FICTIONAL TRANSFER: For 30 shares bought at $25 with stop trigger $24 and fill $23.50, compare planned and realized gross losses. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -67,6 +71,12 @@
         "independentPublicationAccepted": false,
         "sourceScope": "SEC primary order type/stop-order bulletin checked for order mechanic; original fictional arithmetic not independently released",
         "referenceCheckedDate": "2026-11-01"
+      },
+      "sourceScopeReview": {
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     },
     {
@@ -82,8 +92,7 @@
       "reviewExplanation": "Ungraded formative correction: A stop-limit order requires both trigger and limit mechanics; a rapid decline may pass a sell limit without any execution. The stated synthetic worked evidence is: Fictional long shares have sell stop $19.50 and sell limit $19.40; a move from $19.60 to a $19.20 bid does not ensure a $19.40 sale. The result is conditional: Different brokers, order sessions and eligibility conditions affect triggering, routing and partial execution.",
       "transferQuestion": "FICTIONAL TRANSFER: If a sell stop activates at $30 with a $29.90 limit while all bids are $29.50, may execution be assumed? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -98,6 +107,12 @@
         "independentPublicationAccepted": false,
         "sourceScope": "SEC primary order type/stop-order bulletin checked for order mechanic; original fictional arithmetic not independently released",
         "referenceCheckedDate": "2026-11-01"
+      },
+      "sourceScopeReview": {
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     },
     {
@@ -449,8 +464,7 @@
       "reviewExplanation": "Ungraded formative correction: Net hypothetical trade result equals gross price gain minus defined paid commissions and other stated execution costs. The stated synthetic worked evidence is: A fictional price-only gain is $60, commission and fees total $8, so the stated net before taxes is $52. The result is conditional: Slippage, spread, financing, taxes and unobserved charges may create additional costs.",
       "transferQuestion": "FICTIONAL TRANSFER: For gross $42 and explicit fees $7, compute $35 net before taxes; identify omitted costs. Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -468,7 +482,11 @@
         "date": "2026-11-01",
         "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
         "publicationApproved": false,
-        "sourceContentCopied": false
+        "sourceContentCopied": false,
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     },
     {
@@ -484,8 +502,7 @@
       "reviewExplanation": "Ungraded formative correction: Realized simple exit distance may exceed the distance from intended entry to stop trigger, including on adverse price gaps. The stated synthetic worked evidence is: Fictional purchase $30, planned stop $29 and final sell at $28.60: realized $1.40/share loss versus planned $1.00/share, a 40% increase. The result is conditional: Actual results also depend on share quantity, fills and brokerage fees; no stop eliminates price-gap risk.",
       "transferQuestion": "FICTIONAL TRANSFER: If planned distance is $0.50 and actual loss distance $0.80, by what percent did the loss exceed plan? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -500,6 +517,12 @@
         "independentPublicationAccepted": false,
         "sourceScope": "SEC primary order type/stop-order bulletin checked for order mechanic; original fictional arithmetic not independently released",
         "referenceCheckedDate": "2026-11-01"
+      },
+      "sourceScopeReview": {
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     },
     {
@@ -571,8 +594,7 @@
       "reviewExplanation": "Ungraded formative correction: Selecting the best historical result among repeated parameter sweeps uses information from the supposedly independent evaluation sample. The stated synthetic worked evidence is: A fictional analyst checks 80 parameter sets on one 100-session dataset, picks the highest result, and reports it as a single unbiased test; that conclusion is invalid. The result is conditional: Out-of-sample evaluation must be genuinely held out from tuning and repeated decisions; even a positive holdout has uncertainty.",
       "transferQuestion": "FICTIONAL TRANSFER: If 100 candidate rules were tried on the same 50 sessions, why does the winner not represent a single prespecified trial? Explain why the method requires confirmed inputs and independent reconsideration rather than looking ahead at a final outcome.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/cloud-platform/backtesting/research-guide",
-        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/backtesting/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -590,7 +612,11 @@
         "date": "2026-11-01",
         "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
         "publicationApproved": false,
-        "sourceContentCopied": false
+        "sourceContentCopied": false,
+        "supersededResearchReferences": [
+          "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        ],
+        "note": "Secondary source retained for research-only review. Exactly one canonical candidate URL per ungraded lesson is required by source-only Tutor loader. No publication rights implied."
       }
     }
   ],
