@@ -468,6 +468,7 @@
       "reviewExplanation": "Ungraded mistake correction: Retain issuer identifier, filing accession, publication timestamp, financial period and any later amendments separately. The example illustrates the stated boundary with original fictional data: A fictional March 31 quarter ends with $8 million net income but the 10-Q is first publicly filed May 8; an April 10 replay cannot cite that 10-Q. Financial period matching is necessary but insufficient for point-in-time availability.",
       "transferQuestion": "FICTIONAL TRANSFER: For a study date April 20, may the learner use a fictional May 8 filing's full numbers? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
       "sourceUrls": [
+        "https://www.sec.gov/about/webmaster-frequently-asked-questions",
         "https://www.sec.gov/edgar/search/"
       ],
       "supplemental": true,
@@ -481,6 +482,12 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_market_data_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
+        "publicationApproved": false,
+        "sourceContentCopied": false
       }
     },
     {
@@ -552,6 +559,7 @@
       "reviewExplanation": "Ungraded mistake correction: Freeze parameter selection, timestamp features and revision vintages before evaluating on the held-out period. The example illustrates the stated boundary with original fictional data: A fictional 100-session dataset assigns first 70 sessions to development and final 30 to untouched evaluation; optimizing on all 100 invalidates the holdout. A single favorable holdout still does not prove an executable strategy or persistence after fees.",
       "transferQuestion": "FICTIONAL TRANSFER: If a learner changes an indicator lookback after seeing results on sessions 71–100, are those sessions still untouched? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
       "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/backtesting/research-guide",
         "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html"
       ],
       "supplemental": true,
@@ -565,6 +573,12 @@
         "result": "distinct_draft_source_claim_review_pending",
         "rights": "no_market_data_or_vendor_code_republished",
         "independentPublicationAccepted": false
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "candidateReferenceScope": "Exact method documented by primary agency or research methodology page; individual publication and commercial rights remain unapproved.",
+        "publicationApproved": false,
+        "sourceContentCopied": false
       }
     }
   ],
