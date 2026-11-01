@@ -31,3 +31,9 @@
 .pt-parity-inspector details summary{cursor:pointer;min-height:40px;display:list-item;padding:11px 0;font-weight:760;color:#bfe4ec}
 .pt-parity-inspector details[open] summary{color:#90f0d5;border-bottom:1px solid #294f60;margin-bottom:9px}
 .pt-parity-inspector details p{padding:4px 0;margin:4px 0}
+
+/* Evidence references are readable, keyboard-focusable external links. */
+#pt-curriculum-parity .pt-parity-sources{margin:8px 0 14px;padding-left:22px}
+#pt-curriculum-parity .pt-parity-sources li{padding:4px 0;overflow-wrap:anywhere}
+#pt-curriculum-parity .pt-parity-sources a{color:#9be9da;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+#pt-curriculum-parity .pt-parity-sources a:hover{color:#fff}
