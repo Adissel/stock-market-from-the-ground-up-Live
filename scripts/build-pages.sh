@@ -45,6 +45,7 @@ node tests/talia-research-math-second-seven-v1.test.mjs
 node tests/talia-indicators13-24-review-v1.test.mjs
 node tests/talia-indicators25-36-review-v1.test.mjs
 node tests/talia-indicators37-48-review-v1.test.mjs
+node tests/talia-indicators49-60-review-v1.test.mjs
 node tests/talia-foundation-batches08-09-gates-v1.test.mjs
 node tests/talia-foundation-six-gate-teaching-review-v1.test.mjs
 node tests/talia-foundation-explanations-batch05-v1.test.mjs
