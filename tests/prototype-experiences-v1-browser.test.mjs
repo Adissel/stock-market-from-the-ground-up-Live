@@ -88,7 +88,8 @@ try{
  await desk.getByRole('button',{name:'Check calculation'}).click();
  assert.match(await desk.locator('.cx-tutor-calc').textContent(),/Not yet/);
  await desk.getByRole('button',{name:'Sources & limits'}).click();
- assert.match(await desk.locator('.cx-tutor-evidence-body').textContent(),/No future bar is used/);
+ assert.match(await desk.locator('.cx-tutor-evidence-body').textContent(),/does not use bars after the selected timestamp/);
+ assert.match(await desk.locator('.cx-tutor-evidence-body').textContent(),/selected bar 30 of 96/,'Talia statistics must obey selected-bar cutoff even when 54 bars are displayed');
  await desk.getByRole('button',{name:'Inspect candle'}).click();
  assert.equal(await a.page.locator('.cx-right .cx-coach-actions button').count(),4,'Four permanently free instructional actions are present');
 
