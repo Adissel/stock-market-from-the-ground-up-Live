@@ -164,24 +164,93 @@ function draw(){
 }
 function select(id,focus=false){if(!workspace.has(id))return;state.id=id;const x=workspace.get(id);$('pt-title').textContent=x.name;$('pt-group').textContent=x.g;$('pt-desc').textContent=descriptions[id];nav($('pt-search').value);draw();window.dispatchEvent(new CustomEvent('crownlight:prototype-workspace',{detail:{id}}));if(focus)$('pt-title').focus();}
 function candles(){const secured=window.CrownlightPrototypeTeaching?.getChartCandles?.();if(Array.isArray(secured)&&secured.length)return secured;let v=100;const result=[];for(let i=0;i<24;i++){const open=v;v=Math.max(12,v+2.4*Math.sin(i*.71)+1.2*Math.cos(i*.39));result.push({t:'T'+String(i+1).padStart(2,'0'),open:+open.toFixed(2),close:+v.toFixed(2),high:+(Math.max(open,v)+1.6).toFixed(2),low:+(Math.min(open,v)-1.4).toFixed(2),volume:500+((i*97)%700)});}return state.id==='replay'?result.slice(0,state.revealed):result;}
+const chartView={volume:true,proxy:false,grid:true,mode:'analysis'};
+function applyChartMetrics(data){
+ const last=data[data.length-1],first=data[0];
+ if(!last||!first)return;
+ const high=Math.max(...data.map(d=>Number(d.high))),low=Math.min(...data.map(d=>Number(d.low)));
+ const delta=Number(last.close)-Number(first.open);
+ const pct=Number(first.open)?delta/Number(first.open)*100:0;
+ $('pt-metric-close').textContent='$'+Number(last.close).toFixed(2);
+ const change=$('pt-metric-change');
+ change.textContent=(delta>0?'+':'')+delta.toFixed(2)+' / '+(pct>0?'+':'')+pct.toFixed(2)+'%';
+ change.dataset.trend=delta>0?'up':delta<0?'down':'flat';
+ $('pt-metric-range').textContent='$'+low.toFixed(2)+' – $'+high.toFixed(2);
+ $('pt-metric-count').textContent=String(data.length).padStart(2,'0')+' BARS';
+ $('pt-chart-mode').textContent=state.kind.toUpperCase()+' / '+(chartView.volume&&state.kind!=='heatmap'?'VOLUME':'PRICE ONLY');
+}
+function proxySeries(data){
+ let total=0,weighted=0;
+ return data.map(c=>{
+  const v=Number(c.volume),typical=(Number(c.high)+Number(c.low)+Number(c.close))/3;
+  if(!(Number.isFinite(v)&&v>0&&Number.isFinite(typical)))return null;
+  total+=v;weighted+=v*typical;return +(weighted/total).toFixed(4);
+ });
+}
 async function plot(){
  try{
   const E=await window.CrownlightECharts.load();if($('pt-app').hidden)return;
-  if(!state.chart){state.chart=E.init($('pt-chart'),null,{renderer:'canvas'});state.resize=new ResizeObserver(()=>state.chart?.resize());state.resize.observe($('pt-chart'));}
+  const chartHost=$('pt-chart');
+  if(!state.chart){state.chart=E.init(chartHost,null,{renderer:'canvas'});state.resize=new ResizeObserver(()=>state.chart?.resize());state.resize.observe(chartHost);}
   const data=candles(),labels=data.map(x=>x.t),member=window.CrownlightClassroomMemberships;
   const appearance=member?.chartOptions?.(data);
-  const chartHost=$('pt-chart');
-  if(appearance&&chartHost){const height=appearance.height+'px';if(chartHost.style.height!==height){chartHost.style.height=height;state.chart.resize();}}
-  const base={animation:false,backgroundColor:'transparent',textStyle:{color:'#d7e7ef'},tooltip:{trigger:'axis',renderMode:'richText',formatter:appearance?.tooltip},grid:{left:52,right:25,top:35,bottom:57},xAxis:{type:'category',data:labels,axisLabel:{color:'#b8d0dd'}},yAxis:{type:'value',scale:true,axisLabel:{color:'#b8d0dd'},splitLine:appearance?.axisSplit||{lineStyle:{color:'#274355'}}},dataZoom:[{type:'inside'},{type:'slider',bottom:10,height:18,textStyle:{color:'#ccddea'}}]};
-  if(state.kind==='candlestick')base.series=[{name:'Fictional OHLC',type:'candlestick',data:data.map(x=>[x.open,x.close,x.low,x.high]),itemStyle:appearance?.itemStyle||{color:'#46c1a4',color0:'#db7474',borderColor:'#46c1a4',borderColor0:'#db7474'},barWidth:appearance?.barWidth}];
-  if(state.kind==='line')base.series=[{name:'Fictional close',type:'line',showSymbol:false,data:data.map(x=>x.close),lineStyle:{color:'#63c2df'}}];
-  if(state.kind==='bar')base.series=[{name:'Fictional volume',type:'bar',data:data.map(x=>x.volume),itemStyle:{color:'#5c9cda'}}];
-  if(state.kind==='heatmap'){base.xAxis={type:'category',data:labels};base.yAxis={type:'category',data:['Knowledge','Recognition','Decision','Process']};base.grid.bottom=94;base.visualMap={min:0,max:100,calculable:true,orient:'horizontal',bottom:28,textStyle:{color:'#e0eef7'}};base.series=[{type:'heatmap',name:'Fictional competency',data:data.flatMap((x,i)=>[0,1,2,3].map(j=>[i,j,30+(i*13+j*11)%69]))}];}
+  if(appearance&&chartHost){
+   const height=Math.min(600,Math.max(350,Number(appearance.height)||450))+'px';
+   if(chartHost.style.height!==height){chartHost.style.height=height;state.chart.resize();}
+  }
+  applyChartMetrics(data);
+  const hasVolume=chartView.volume&&state.kind!=='heatmap'&&state.kind!=='bar';
+  const isHeatmap=state.kind==='heatmap';
+  const prices=data.map(x=>[x.open,x.close,x.low,x.high]);
+  const sharedColor={color:'#56dfbc',color0:'#f07189',borderColor:'#56dfbc',borderColor0:'#f07189'};
+  const splitting=chartView.grid&&appearance?.axisSplit?.show!==false;
+  const axisStyle={axisLine:{lineStyle:{color:'#315267'}},axisTick:{show:false},axisLabel:{color:'#a5bac8',fontSize:10},splitLine:{show:splitting,lineStyle:{color:'#263c4c',type:'dashed',width:.8}}};
+  const priceXAxis={type:'category',data:labels,boundaryGap:true,axisLine:{lineStyle:{color:'#375466'}},
+    axisLabel:{show:!hasVolume,color:'#8daebd',fontSize:10,hideOverlap:true},axisTick:{show:false},splitLine:{show:false}};
+  const priceYAxis={type:'value',scale:true,position:'right',...axisStyle};
+  const base={animation:false,backgroundColor:'transparent',textStyle:{color:'#d7e7ef'},
+    tooltip:{trigger:'axis',renderMode:'richText',axisPointer:{type:'cross',lineStyle:{color:'#8bc5bf',width:1,type:'dashed'}},formatter:appearance?.tooltip},
+    grid:hasVolume?[{left:18,right:65,top:14,height:'63%'},{left:18,right:65,top:'80%',height:'11%'}]:{left:18,right:65,top:16,bottom:66},
+    xAxis:hasVolume?[{...priceXAxis,gridIndex:0},{...priceXAxis,gridIndex:1,axisLabel:{color:'#90abb9',fontSize:10}}]:priceXAxis,
+    yAxis:hasVolume?[{...priceYAxis,gridIndex:0},{type:'value',gridIndex:1,scale:true,axisLabel:{color:'#7898a9',fontSize:9},axisLine:{show:false},splitLine:{show:false},axisTick:{show:false}}]:priceYAxis,
+    dataZoom:[{type:'inside',xAxisIndex:hasVolume?[0,1]:[0],filterMode:'none'},{type:'slider',xAxisIndex:hasVolume?[0,1]:[0],bottom:7,height:13,showDetail:false,brushSelect:false,
+      borderColor:'#325469',fillerColor:'#3f8b8650',handleStyle:{color:'#7296a0',borderColor:'#b1ced5'},textStyle:{color:'#b0c3ce'}}],
+    series:[]};
+  if(state.kind==='candlestick'){
+   base.series.push({name:'Fictional OHLC',type:'candlestick',data:prices,itemStyle:appearance?.itemStyle||sharedColor,
+     barWidth:appearance?.barWidth||'65%',xAxisIndex:0,yAxisIndex:0});
+  }else if(state.kind==='line'){
+   base.series.push({name:'Fictional close',type:'line',smooth:.16,showSymbol:data.length<=5,symbolSize:6,
+     data:data.map(x=>x.close),lineStyle:{color:'#65d7cb',width:2.5},itemStyle:{color:'#8eeadc'},
+     areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'#4fcabb3b'},{offset:1,color:'#4fcabb00'}]}},
+     xAxisIndex:0,yAxisIndex:0});
+  }else if(state.kind==='bar'){
+   base.series.push({name:'Fictional volume',type:'bar',data:data.map(x=>x.volume),itemStyle:{color:'#5fb4ca',borderRadius:[2,2,0,0]},barMaxWidth:23});
+  }else if(isHeatmap){
+   base.grid={left:85,right:38,top:24,bottom:95};
+   base.xAxis={type:'category',data:labels,axisLabel:{color:'#9bb9c8'}};
+   base.yAxis={type:'category',data:['Knowledge','Recognition','Decision','Process'],axisLabel:{color:'#b9ccd7'}};
+   base.visualMap={min:0,max:100,calculable:true,orient:'horizontal',bottom:28,textStyle:{color:'#e0eef7'},inRange:{color:['#173a57','#358c96','#7bcdb6']}};
+   base.series=[{type:'heatmap',name:'Fictional competency',data:data.flatMap((x,i)=>[0,1,2,3].map(j=>[i,j,30+(i*13+j*11)%69]))}];
+  }
+  if(chartView.proxy&&(state.kind==='candlestick'||state.kind==='line')){
+   base.series.push({name:'OHLCV typical-price proxy (not trade VWAP)',type:'line',data:proxySeries(data),showSymbol:false,
+    lineStyle:{color:'#e5c480',width:1.7,type:'dashed'},z:4,xAxisIndex:0,yAxisIndex:0,
+    tooltip:{valueFormatter:value=>value===null?'N/A':'$'+Number(value).toFixed(4)}});
+  }
+  if(hasVolume){
+   base.series.push({name:'Fictional bar volume',type:'bar',data:data.map(c=>({
+     value:c.volume,itemStyle:{color:c.close>=c.open?'#3b8f84':'#99545e',opacity:.85}
+   })),xAxisIndex:1,yAxisIndex:1,barMaxWidth:25});
+   base.axisPointer={link:[{xAxisIndex:[0,1]}]};
+  }
   state.chart.setOption(base,{notMerge:true});
   state.chart.off('click');
-  state.chart.on('click',event=>{if(Number.isInteger(event?.dataIndex))member?.inspector?.($('pt-bar-inspector'),data,event.dataIndex)});
+  state.chart.on('click',event=>{
+   if(Number.isInteger(event?.dataIndex))member?.inspector?.($('pt-bar-inspector'),data,event.dataIndex);
+  });
   member?.inspector?.($('pt-bar-inspector'),data,data.length-1);
-  $('pt-chart-status').textContent='Interactive '+state.kind+' — detailed fictional OHLC, selectable inspection and membership-specific visual design. Not live market data.';
+  $('pt-chart-status').textContent='Interactive '+state.kind+' · '+data.length+' visible fictional bars · controls operate this preview only. The dashed line is an OHLCV typical-price proxy, not transaction VWAP.';
  }catch(e){$('pt-chart-status').textContent='ECharts unavailable: '+(e?.message||'Renderer error');}
 }
 function save(){window.CrownlightClassroomMemberships?.save?.();try{const obj={id:state.id,mode:state.mode,device:state.device,kind:state.kind,stage:state.stage,tier:state.tier,layout:state.layout,density:state.density,tutor:state.tutor,adminGroup:state.adminGroup,revealed:state.revealed,saved:new Date().toISOString()};localStorage.setItem('crownlight:prototype:v1:'+state.user,JSON.stringify(obj));state.saved=obj.saved;note('Saved locally for this administrator in this browser. No server records changed.');}catch{note('Local draft could not be saved.');}}
@@ -230,6 +299,23 @@ function controls(){
  $('pt-search').addEventListener('input',e=>nav(e.target.value.trim()));
  $('pt-device').addEventListener('change',e=>{state.device=e.target.value;draw()});
  $('pt-kind').addEventListener('change',e=>{state.kind=e.target.value;void plot()});
+ const tools=[['pt-chart-volume','volume'],['pt-chart-proxy','proxy'],['pt-chart-grid','grid']];
+ for(const [id,key] of tools)$(id).addEventListener('click',()=>{
+  chartView[key]=!chartView[key];
+  $(id).setAttribute('aria-pressed',String(chartView[key]));
+  void plot();
+ });
+ $('pt-chart-reset').addEventListener('click',()=>{
+  state.chart?.dispatchAction({type:'dataZoom',start:0,end:100});
+  $('pt-chart-status').textContent='Interactive '+state.kind+' · zoom reset to the visible fictional dataset.';
+ });
+ window.addEventListener('crownlight:prototype-view',event=>{
+  if(!state.user)return;
+  const mode=event.detail?.mode;
+  if(!['analysis','focus-chart','focus-lesson'].includes(mode))return;
+  chartView.mode=mode;$('pt-experience').dataset.view=mode;
+  requestAnimationFrame(()=>state.chart?.resize());
+ });
  $('pt-save').addEventListener('click',save);
  $('pt-reset').addEventListener('click',()=>{window.CrownlightClassroomMemberships?.reset?.();state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
