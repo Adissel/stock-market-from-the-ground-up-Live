@@ -146,6 +146,7 @@
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
   const assessmentNode=get('academy-official-assessment');if(assessmentNode){assessmentNode.replaceChildren();assessmentNode.hidden=true;}
   guidedSession?.dispose?.();guidedSession=null;
+  get('academy-legacy-guide')?.remove();
   get('academy-guided-host')?.remove();
   program=null;days=[];enrolled=false;progress.clear();drafts.clear();selfCheckDrafts.clear();progressAvailable=false;dayIndex=1;memberFirstName='';
   ++renderSerial;busy=false;get('academy-workspace').hidden=true;
@@ -727,14 +728,21 @@
   get('academy-limits').textContent=d.limitation||d.caution;
   showOriginalInstruction(d);
   guidedSession?.dispose?.();guidedSession=null;
+  get('academy-legacy-guide')?.remove();
   get('academy-guided-host')?.remove();
   const dayMember=userId,daySession=sessionSerial,dayProgram=activeCode;
   const tutorRequest=globalThis.GroundUpAcademyTutorBridgeV1?.create?.({client,userId:dayMember,day:d,
    isCurrent:()=>dayMember===userId&&daySession===sessionSerial&&dayProgram===activeCode&&
     dayIndex===d.day&&renderEpoch===renderSerial})||null;
+  let legacyGuide=null;
   if(d.programCode!=='free5'){
-   const h=node('div');h.id='academy-guided-host';
-   get('academy-original-instruction')?.before(h);
+   // Advanced day-specific practice stays available as a supplement, not
+   // a competing primary engine or a new authorized Lab.
+   legacyGuide=node('details');legacyGuide.id='academy-legacy-guide';
+   legacyGuide.className='academy-additional-lesson-practice';
+   legacyGuide.append(node('summary','Additional day-specific formative questions and advanced practice'));
+   const h=node('div');h.id='academy-guided-host';legacyGuide.append(h);
+   get('academy-original-instruction')?.before(legacyGuide);
    guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(h,{day:d,programCode:d.programCode,
     memberFirstName,tutorRequest})||null;
   }
@@ -776,21 +784,43 @@
   const slot=get('academy-lab-slot');
   slot.replaceChildren();
   const target=node('div');slot.append(target);
-  const labId=d.relatedLabs?.[0]?.id;
-  if(!labId){target.append(node('p',d.programCode==='free5'?'Talia’s worked examples and self-check appear above. You can also practice on fictional candles or make a private research watchlist.':'No authorized canonical Lab is linked to this day.'));return;}
+  if(d.programCode==='free5'){
+   target.append(node('p','Talia’s Free Foundations worked examples and self-check appear above.'));return;
+  }
+  const lesson=d.lesson||{};
+  const labId='academy:'+d.programCode+':'+d.day;
+  const methods=[
+   lesson.workedExample||lesson.worked||'',
+   ...(Array.isArray(lesson.sourceProcedure)?lesson.sourceProcedure:[]),
+   ...(Array.isArray(d.method)?d.method:[d.method||'']),
+   d.practice
+  ].filter(v=>typeof v==='string'&&v.trim()).slice(0,20);
+  const questions=[
+   ...(Array.isArray(lesson.formativeQuestions)?lesson.formativeQuestions.map(q=>q.prompt):[]),
+   lesson.selfCheck||''
+  ].filter(v=>typeof v==='string'&&v.trim()).slice(0,5);
   const study={
    id:labId,concept:d.title,goal:d.objective,
-   teaching:{what:d.objective,why:d.observe,when:d.observe,how:d.method||[d.practice],
-    commonError:d.remediation||'Check the source and time before interpreting.',
-    limitation:d.limitation||d.caution}
+   teaching:{what:d.objective,why:lesson.explanation||lesson.teach||d.observe,
+    when:d.observe,how:methods,questions,
+    commonError:lesson.error||d.remediation||'Check the source and time before interpreting.',
+    limitation:lesson.whenNot||d.limitation||d.caution}
   };
   const engine=globalThis.GroundUpLabEngineV32Universal;
-  if(typeof engine?.mount!=='function'){target.textContent='Guided instructor is unavailable. Your original study directions remain above.';return;}
+  if(typeof engine?.mount!=='function'){
+   target.textContent='Shared guided instructor unavailable. Open Additional day-specific formative questions and advanced practice.';
+   if(legacyGuide)legacyGuide.open=true;return;
+  }
   void Promise.resolve(engine.mount({labId,mode:'guided',target,lab:study,focusId:'academy-reflection',
+    academyLesson:{programCode:d.programCode,day:d.day,title:d.title,objective:d.objective,competencies:d.competencies},
     memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
     tutorRequest}))
-   .then(()=>{if(renderEpoch!==renderSerial)target.remove()})
-   .catch(()=>{if(renderEpoch===renderSerial)target.textContent='The guided instructor is unavailable; no grade or completion was recorded.'});
+   .then(ok=>{if(renderEpoch!==renderSerial){target.remove();return;}
+    if(ok!==true){if(legacyGuide)legacyGuide.open=true;target.append(node('p','Shared teaching was unavailable. Use the day-specific guided fallback.'))}})
+   .catch(()=>{if(renderEpoch===renderSerial){
+    target.textContent='Shared guided instructor unavailable. Use the day-specific guided fallback; no grade or completion was recorded.';
+    if(legacyGuide)legacyGuide.open=true;
+   }});
  }
  function updateProgress(){
   const finished=[...progress.values()].filter(p=>p.status==='reflection_saved').length;
