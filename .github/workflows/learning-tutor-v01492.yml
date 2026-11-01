@@ -157,6 +157,12 @@ on:
       - 'functions/api/credentials.js'
       - 'functions/_lib/tutor-request-boundary-v014147.js'
       - 'tests/talia-membership-only-v1.test.mjs'
+      - 'tests/talia-upload5-reconciliation-v1.test.mjs'
+      - 'tests/talia-upload5-and-claims-v1.test.mjs'
+      - 'tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs'
+      - 'scripts/qa/talia_indicator_16_20_reference_v1.py'
+      - 'data/talia-upload5-source-reconciliation-v1.json'
+      - 'data/talia-primary-scope-124-140-v1.json'
       - 'assets/js/member-tutor-version-loader-v1.js'
       - 'src/ts/production-completion.ts'
       - 'assets/js/dashboard-ui-legacy.js'
@@ -363,6 +369,12 @@ on:
       - 'functions/api/credentials.js'
       - 'functions/_lib/tutor-request-boundary-v014147.js'
       - 'tests/talia-membership-only-v1.test.mjs'
+      - 'tests/talia-upload5-reconciliation-v1.test.mjs'
+      - 'tests/talia-upload5-and-claims-v1.test.mjs'
+      - 'tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs'
+      - 'scripts/qa/talia_indicator_16_20_reference_v1.py'
+      - 'data/talia-upload5-source-reconciliation-v1.json'
+      - 'data/talia-primary-scope-124-140-v1.json'
       - 'assets/js/member-tutor-version-loader-v1.js'
       - 'src/ts/production-completion.ts'
       - 'assets/js/dashboard-ui-legacy.js'
@@ -520,6 +532,9 @@ jobs:
           node tests/talia-claim-triage-and-math-v1.test.mjs
           node tests/talia-rule605-options-primary-evidence-v1.test.mjs
           node tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs
+          node tests/talia-upload5-reconciliation-v1.test.mjs
+          node tests/talia-upload5-and-claims-v1.test.mjs
+          node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
           node tests/talia-indicators16-30-independent-math-v1.test.mjs
           node tests/talia-40-claim-multiturn-source-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
