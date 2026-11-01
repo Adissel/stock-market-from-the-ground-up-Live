@@ -103,13 +103,14 @@ function IndicatorDock(){
 
 function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number}){
  const ref=useRef<HTMLDivElement>(null),inst=useRef<any>(null),viewport=useRef({start:Math.max(0,100-40/Math.max(1,reveal)*100),end:100});
+ const [viewportLabel,setViewportLabel]=useState('Full session or revealed chart window');
  const prefs=React.useContext(IndicatorContext);
  const onSelectRef=useRef(onSelect);onSelectRef.current=onSelect;
  const settings=prefs?.settings,enabled=prefs?.enabled;
  const currentEnabled={...enabled,EMA_FAST:showEma&&!!enabled?.EMA_FAST,EMA_SLOW:showEma&&!!enabled?.EMA_SLOW,VWAP:showProxy&&!!enabled?.VWAP,VOLUME:showVolume&&!!enabled?.VOLUME};
  const subpaneCount=kind==='price'?Object.entries(currentEnabled).filter(([k,v])=>v&&['RSI','MACD','ATR','OBV'].includes(k)).length:0;
  const actualHeight=kind==='price'?Math.max(height,360+subpaneCount*122):height;
- const resetViewport=()=>{viewport.current={start:0,end:100};inst.current?.dispatchAction({type:'dataZoom',start:0,end:100})};
+ const resetViewport=()=>{viewport.current={start:0,end:100};setViewportLabel('Visible window: 0%–100%');inst.current?.dispatchAction({type:'dataZoom',start:0,end:100})};
  const moveWindow=(direction:number)=>{const {start,end}=viewport.current,windowSize=end-start,delta=direction*windowSize*.33;const left=Math.max(0,Math.min(100-windowSize,start+delta));inst.current?.dispatchAction({type:'dataZoom',start:left,end:left+windowSize})};
  const zoomWindow=(direction:number)=>{const {start,end}=viewport.current,mid=(start+end)/2;const width=Math.max(8,Math.min(100,(end-start)*(direction>0?.7:1.4)));const left=Math.max(0,Math.min(100-width,mid-width/2));inst.current?.dispatchAction({type:'dataZoom',start:left,end:left+width})};
  useEffect(()=>{
@@ -189,7 +190,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     inst.current.on('datazoom',()=>{
       if(!inst.current)return;
       const state=inst.current.getOption()?.dataZoom?.[0];
-      if(state&&Number.isFinite(state.start)&&Number.isFinite(state.end))viewport.current={start:state.start,end:state.end};
+      if(state&&Number.isFinite(state.start)&&Number.isFinite(state.end)){viewport.current={start:state.start,end:state.end};setViewportLabel('Visible window: '+state.start.toFixed(1)+'%–'+state.end.toFixed(1)+'%');}
     });
     inst.current.on('click',(p:any)=>{if(typeof p.dataIndex==='number')onSelectRef.current?.(p.dataIndex)});
    }
@@ -205,7 +206,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     <button aria-label="Pan chart right" onClick={()=>moveWindow(1)}>Pan →</button>
     <button aria-label="Zoom chart in" onClick={()=>zoomWindow(1)}>Zoom +</button>
     <button aria-label="Zoom chart out" onClick={()=>zoomWindow(-1)}>Zoom −</button>
-    <button aria-label="Fit all revealed candles" onClick={resetViewport}>Fit</button>
+    <button aria-label="Fit all revealed candles" onClick={resetViewport}>Fit</button><output className="cx-viewport-status" aria-live="polite">{viewportLabel}</output>
    </div>}
  <div ref={ref} className={'cx-chart '+(kind==='price'?'cx-chart-grabbable':'')} style={{height:actualHeight}}
    role="img" aria-label={kind==='price'?'Draggable synthetic OHLCV candlestick chart. Mouse drag pans the completed bars, Control plus wheel zooms; keyboard-accessible pan and zoom buttons appear above.':kind+' fictional visualization'}/>
