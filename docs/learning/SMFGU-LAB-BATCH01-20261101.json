@@ -1,0 +1,116 @@
+{
+  "documentId": "SMFGU-LAB-BATCH01-001",
+  "project": "The Stock Market: From the Ground Up",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "SUBJECT-SPECIFIC AUTHORING COMMITTED; INDIVIDUAL EVIDENCE / PROTECTED ASSESSMENT ACCEPTANCE PENDING",
+  "googleDriveLocation": null,
+  "googleDriveDocumentId": null,
+  "source": "data/lab-teaching-bridges-v014168.json",
+  "preservedLabCount": 419,
+  "scope": "First 20 canonical Labs in source order",
+  "independentOfficialGrades": false,
+  "historicalOHLCVVerified": false,
+  "entries": [
+    {
+      "id": "F1-C02-L01",
+      "title": "Basic Historical Replay Setup",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F1-C02-L02",
+      "title": "Independent Historical Replay Setup",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C04-L01",
+      "title": "A Public Company and Its Shares in the Secondary Market",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F1-C06-L01",
+      "title": "Participant Identity and Motive Cannot Be Read Directly From a Chart",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C07-L01",
+      "title": "Identify a Common Stock",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F1-C07-L02",
+      "title": "ETF Versus Index",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F1-C08-L01",
+      "title": "Share Price Versus Company Size — Mega-Cap Example",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F1-C08-L02",
+      "title": "Market-Cap Classification — Small-Cap Example",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C08-L03",
+      "title": "Very Small Capitalization and Sparse Trading Context",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C09-L01",
+      "title": "Same Stock, Different Account Constraints",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C10-L01",
+      "title": "Long vs. Short Directional Exposure",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C10-L02",
+      "title": "Long vs. Short Directional Exposure",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C12-L01",
+      "title": "One Stock, Three Different Decision Frames",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C13-L01",
+      "title": "Holding Horizon: Day Trade vs. Scalp vs. Swing",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F1-C13-L02",
+      "title": "Style vs. Approach vs. Setup vs. Context",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F2-C01-L01",
+      "title": "Identify premarket, the regular-market open, the regular-market close, and after-hours on one historical trading day",
+      "method": "specific_source_retained; selfcheck_and_transfer_rewritten"
+    },
+    {
+      "id": "F2-C02-L01",
+      "title": "Compare the opening environment with a midday window on the same stock",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F2-C02-L02",
+      "title": "Compare a midday window with a later-afternoon window",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F2-C02-L03",
+      "title": "Observe the approach to the regular-market close",
+      "method": "five_facet_rewrite"
+    },
+    {
+      "id": "F2-C03-L01",
+      "title": "Regular Close → After-Hours Transition",
+      "method": "five_facet_rewrite"
+    }
+  ]
+}

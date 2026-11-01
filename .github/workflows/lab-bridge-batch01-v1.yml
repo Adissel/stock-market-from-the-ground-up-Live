@@ -1,0 +1,19 @@
+name: Lab Bridge First 20 Editorial Source Contract
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'docs/learning/SMFGU-LAB-BATCH01-20261101.json'
+      - 'tests/lab-bridge-batch01-editorial-v1.test.mjs'
+      - '.github/workflows/lab-bridge-batch01-v1.yml'
+  workflow_dispatch:
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/lab-bridge-batch01-editorial-v1.test.mjs

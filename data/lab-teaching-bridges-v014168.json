@@ -45,11 +45,11 @@
           "Replay can build a documented process; it does not reproduce emotional pressure or assure results in a live account."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "At the paused historical replay time, which symbol, source, timeframe and completed bar are verifiable? What later data is still concealed and why is an order fill unproven?",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
+        "prompt": "On a different fictional session, pause at 10:15 ET, identify the last completed five-minute candle, write a conditional NO TRADE branch and explain why later MFE/MAE cannot establish fillable profit.",
         "topic": "Basic Historical Replay Setup",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -64,44 +64,43 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Independent Historical Replay Setup.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Independent historical replay begins with a decision rule set before any future candle is shown. A trading plan is a hypothesis about what observable evidence would justify acting, waiting or declining the trade.",
+          "Separate the visible facts from assumptions: the source, session, completed-bar timestamp, liquidity evidence, entry condition, invalidation and maximum planned loss are different fields.",
+          "A good plan permits a legitimate NO TRADE decision. Its quality is judged against the information available at the pause, not by whether the later price happened to rise."
         ],
         "recognize": [
-          "Here is how to recognize Independent Historical Replay Setup from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "On the frozen chart locate the last fully completed bar, the last permissible quote timestamp and the price level required for the trigger. Do not rely on a later candle.",
+          "Distinguish an entry trigger from an order fill. A screenshot and a resting limit price do not prove the simulated order would execute.",
+          "If spread, available size or price-source rights are missing, mark them unknown instead of inserting favorable values."
         ],
         "apply": [
-          "Let us practice Independent Historical Replay Setup using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Fictional exercise: the candidate entry is $10.20, invalidation $9.90 and risk budget $30. Planned risk per share is $10.20 − $9.90 = $0.30; the theoretical whole-share ceiling is floor($30 ÷ $0.30) = 100 shares before fees and slippage.",
+          "Write two conditional branches while playback is paused: ENTER only after the designated completed-bar confirmation with sufficient liquidity; otherwise WATCH or NO TRADE.",
+          "Record the plan and timestamp, lock the prediction, then advance one completed bar. Evaluate adherence to the recorded criteria, not hindsight profitability."
         ],
         "mistake": [
-          "A common error with Independent Historical Replay Setup: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not move the hypothetical stop after seeing the future low and pretend the original plan anticipated it. The comparison must use the previously recorded stop.",
+          "Do not interpret 100 theoretical shares as an approved order size: buying-power limits, borrowing restrictions, spreads and partial fills may reduce feasible size."
         ],
         "limits": [
-          "What Independent Historical Replay Setup cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Historical price bars do not reconstruct your exact queue priority, all displayed liquidity or a broker's execution.",
+          "Theoretical price risk assumes an execution at the entry and exit prices; a gap can produce a larger loss.",
+          "Without verifiable source, timestamp and rights, label the exercise fictional or source-unverified."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the independent historical replay setup interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "At a new fictional replay pause, planned entry is $7.80, stop reference $7.55 and risk budget $20. Calculate theoretical shares; list the exact candle and liquidity evidence required before selecting ENTER or NO TRADE.",
         "topic": "Independent Historical Replay Setup",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C04-L01": {
       "labId": "F1-C04-L01",
@@ -141,11 +140,11 @@
           "Company filings and corporate actions must be checked separately; a trading chart does not disclose the full ownership structure."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "If Investor A resells 100 shares at $10, who receives the $1,000 before costs and why does that differ from an issuer's primary offering?",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
+        "prompt": "In a new fictional example, distinguish an issuer's sale of newly created shares from a resale of 60 existing shares at $15, and identify which party initially receives each payment.",
         "topic": "A Public Company and Its Shares in the Secondary Market",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -160,44 +159,43 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Participant Identity and Motive Cannot Be Read Directly From a Chart.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A candlestick aggregates prices over time; it does not reveal who bought or sold or why. Even a sequence of prints cannot establish a participant's identity from its displayed price and size.",
+          "Time & Sales can report a price, quantity, time and eligible trade conditions. The best displayed bid and ask are quotes, not proof of the identity behind a completed trade.",
+          "An execution near the displayed ask may be consistent with an aggressive buy, but quote timing, hidden liquidity, routing and trade reporting can make that inference uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Participant Identity and Motive Cannot Be Read Directly From a Chart from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Fictional quote at 10:00:00 ET: bid $8.10, ask $8.12; a 40-share print appears at $8.12. Observe price, quote and timestamp separately.",
+          "If the next print is $8.11 with no synchronized quote, record 'midpoint-relative classification unknown' rather than assigning a buyer identity.",
+          "Differentiate reported shares, displayed top-of-book size, unexecuted orders and an inferred aggressor. Each has a different evidence basis."
         ],
         "apply": [
-          "Let us practice Participant Identity and Motive Cannot Be Read Directly From a Chart using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Step 1 — Record the exact quote time and bid/ask values; the spread is $8.12 − $8.10 = $0.02 per share.",
+          "Step 2 — For a print of 40 shares at $8.12, compute fictional notional value 40 × $8.12 = $324.80. That is a trade value, not the actor's profit or net position.",
+          "Step 3 — Describe only the price relative to the synchronized quote. List at least two alternate mechanisms that prevent identification of the account or intent.",
+          "Step 4 — Lock this classification before the next print or candle appears."
         ],
         "mistake": [
-          "A common error with Participant Identity and Motive Cannot Be Read Directly From a Chart: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Green ask-side prints are not a verified institutional-buying meter. The aggressor classification and the participant's purpose are separate questions.",
+          "Do not combine delayed quotes and later prints as if they were contemporaneous. An incorrect time alignment can reverse a bid/ask classification."
         ],
         "limits": [
-          "What Participant Identity and Motive Cannot Be Read Directly From a Chart cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "Trade conditions, consolidated coverage, reporting delays and hidden venues may be absent from a learner's feed.",
+          "Without broker identifiers or lawful account-level evidence, do not infer who participated, whether they were opening or closing positions, or what motivated the trade."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the participant identity and motive cannot be read directly from a chart interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
+        "prompt": "A fresh fictional print shows 80 shares at $6.02 with bid $6.00, ask $6.02 and synchronized timestamps. Compute its notional value, describe quote-relative price and name two reasons the buyer identity remains unknown.",
         "topic": "Participant Identity and Motive Cannot Be Read Directly From a Chart",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C07-L01": {
       "labId": "F1-C07-L01",
@@ -237,11 +235,11 @@
           "The stock's price alone does not establish market capitalization, float, liquidity or a company's balance sheet."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "What source verifies a ticker is a specific class of common stock, and why is a displayed ticker price insufficient to prove direct issuer ownership or company capitalization?",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
+        "prompt": "Compare a fictional common-stock listing with an ETF and a preferred-share symbol; name the document that confirms each security class and explain which direct common-share rights cannot be presumed.",
         "topic": "Identify a Common Stock",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -286,11 +284,11 @@
           "Read the fund's own documents and costs; broad diversification does not eliminate investment risk."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "Which is tradable: an index methodology calculation or the shares of an ETF? What costs and quote measurements are needed before comparing them?",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "A fictional benchmark reads 4,200 index points while an ETF tracking it quotes $42.10/$42.14. Explain why those levels have different units and estimate the ETF's $0.04 quoted spread without inferring guaranteed tracking.",
         "topic": "ETF Versus Index",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -335,11 +333,11 @@
           "A mega-cap classification is descriptive and does not guarantee liquidity or future returns."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support float and supply estimates, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "A company has 1 billion shares outstanding at $5 each. Compute estimated equity market capitalization and explain why $5 does not by itself describe company size or tradable float.",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional issued shares and restricted shares, determine what additional filings are needed before estimating tradable float.",
+        "prompt": "Company X has 120 million shares at $25; company Y has 900 million shares at $4. Calculate both fictional market capitalizations, compare the results and name the outstanding-share dates you still need.",
         "topic": "Share Price Versus Company Size — Mega-Cap Example",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -354,44 +352,42 @@
       "relatedCompetencies": [
         "FLOAT_SUPPLY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Market-Cap Classification — Small-Cap Example.",
-          "Shares outstanding, float and turnover have different denominators and publication dates.",
-          "State the source and as-of date of shares outstanding and floating shares; distinguish float, issuance, short interest and daily volume."
+          "Market capitalization estimates the equity market value of a company using an appropriate share price multiplied by the relevant outstanding share count. It is not the same as the company's cash, enterprise value or tradable float.",
+          "Small-cap thresholds are classification conventions and vary by index provider and date. State which published methodology defines the comparison before labeling a company.",
+          "Shares outstanding, public float and daily traded volume use different quantities. A company can have a modest market capitalization and still have limited stock immediately available for trading."
         ],
         "recognize": [
-          "Here is how to recognize Market-Cap Classification — Small-Cap Example from the source evidence.",
-          "State the source date for each share-count value before calculating a ratio.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Locate the price timestamp and the dated number of shares outstanding in issuer disclosures before multiplying them.",
+          "A 50-million-share count cannot be substituted for a 5-million-share float in a market-cap equation without changing the meaning.",
+          "If an index classifies a stock as small-cap, identify its published threshold and effective date rather than claiming one permanent universal cutoff."
         ],
         "apply": [
-          "Let us practice Market-Cap Classification — Small-Cap Example using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the source date for each share-count value before calculating a ratio.",
-          "Step 3 — Check the alternative or invalidation: The number of freely tradable shares is unverified or outdated."
+          "Fictional company A has 40,000,000 outstanding common shares and a $6.00 share price. Estimated equity market capitalization = 40,000,000 shares × $6.00/share = $240,000,000.",
+          "Suppose only 12,000,000 shares are estimated publicly tradable. That 12-million share float is not the denominator for the $240-million market capitalization.",
+          "Record source dates, security class, and the definition of small-cap being used; decide which inputs remain unverified."
         ],
         "mistake": [
-          "A common error with Market-Cap Classification — Small-Cap Example: Using total shares outstanding as verified tradable float.",
-          "Correct it by returning to the actual observation. State the source date for each share-count value before calculating a ratio.",
-          "Do not invent an unseen candle or trade fill."
+          "A low share price does not necessarily mean a small company: price must be combined with outstanding shares.",
+          "Avoid treating index membership or a float estimate as a permanent characteristic; offerings, splits and other corporate actions change quantities."
         ],
         "limits": [
-          "What Market-Cap Classification — Small-Cap Example cannot establish:",
-          "Turnover greater than 100% does not prove every share changed hands once.",
-          "An interpretation is invalidated or unproven when: The number of freely tradable shares is unverified or outdated."
+          "Outstanding shares may include classes with different economics; issuer disclosures and calculation methods matter.",
+          "Public float estimates, index size bands and prices can change between reporting dates; the exercise does not provide a live valuation."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support float and supply estimates, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the market-cap classification — small-cap example interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional issued shares and restricted shares, determine what additional filings are needed before estimating tradable float.",
+        "prompt": "A new fictional issuer has 75 million shares outstanding at $4.80/share and 22 million in estimated float. Calculate equity market cap, identify the unrelated float count and verify the classification method needed to call the issuer small-cap.",
         "topic": "Market-Cap Classification — Small-Cap Example",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C08-L03": {
       "labId": "F1-C08-L03",
@@ -401,44 +397,42 @@
       "relatedCompetencies": [
         "SLIPPAGE_SPREAD"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Very Small Capitalization and Sparse Trading Context.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Very small capitalization and sparse trading are related concerns but not synonyms. Market capitalization describes equity value; displayed liquidity describes executable interest at particular prices and times.",
+          "Quoted bid/ask spread is ask minus bid. Relative spread is (ask − bid) ÷ midpoint, and quoted size can be smaller than the proposed order.",
+          "Limited depth increases uncertainty around fills, spread costs and price impact even when a chart shows a dramatic percentage move."
         ],
         "recognize": [
-          "Here is how to recognize Very Small Capitalization and Sparse Trading Context from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Read the quote as a snapshot, not a promise. An ask displaying 20 shares does not establish a price for a proposed 100-share buy.",
+          "Separate the issuer's share count and capitalization from the bid/ask spread and trade volume.",
+          "Check timestamp, halt status, quote conditions and the availability of a lawful, sufficiently complete source."
         ],
         "apply": [
-          "Let us practice Very Small Capitalization and Sparse Trading Context using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Fictional bid $5.00, ask $5.08: the quoted spread is $0.08. Midpoint = ($5.00 + $5.08) ÷ 2 = $5.04; relative spread ≈ $0.08 ÷ $5.04 × 100 = 1.59%.",
+          "Buying 100 shares cannot be priced by multiplying 100 × $5.08 when only 20 shares are displayed at $5.08; the remaining 80 shares have unknown executable prices.",
+          "Classify the proposed order WATCH or NO TRADE until sufficient depth, acceptable price bounds and risk controls are verified."
         ],
         "mistake": [
-          "A common error with Very Small Capitalization and Sparse Trading Context: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not confuse a stock with a $0.50 price with one offering inexpensive execution. Thin depth and wide relative spreads can be costly.",
+          "Do not turn a displayed 20-share ask into a claim that 100 shares could be filled at that level."
         ],
         "limits": [
-          "What Very Small Capitalization and Sparse Trading Context cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Displayed size may change or be cancelled; hidden orders may exist and historical screenshots cannot reconstruct full fill quality.",
+          "This fictional snapshot does not establish market-wide depth, short availability or future price impact."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the very small capitalization and sparse trading context interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
+        "prompt": "New fictional quote: bid $2.90 for 15 shares; ask $3.02 for 25 shares. Compute midpoint, spread and relative spread. Decide whether buying 200 shares at $3.02 is verified executable, and justify WATCH/NO TRADE.",
         "topic": "Very Small Capitalization and Sparse Trading Context",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C09-L01": {
       "labId": "F1-C09-L01",
@@ -448,44 +442,42 @@
       "relatedCompetencies": [
         "POSITION_SIZING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Same Stock, Different Account Constraints.",
-          "The basic whole-share ceiling is floor(risk budget / planned per-share loss).",
-          "Compute planned per-share risk as absolute(entry minus invalidation) and theoretical shares as floor(risk budget divided by per-share risk); execution risk may exceed the model."
+          "Account type and broker rules can change which orders are available even when two learners observe the same stock. Available cash, margin authorization, settled funds, position limits and short-borrow eligibility are distinct constraints.",
+          "Risk-budget sizing calculates a theoretical whole-share ceiling from a chosen loss budget and price invalidation; it is not permission to place an order.",
+          "A valid plan must satisfy both the calculation and the actual account restrictions at the time of a proposed trade."
         ],
         "recognize": [
-          "Here is how to recognize Same Stock, Different Account Constraints from the source evidence.",
-          "Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Distinguish total account equity, immediately available buying power, settled cash, and discretionary loss budget.",
+          "A calculated 100 shares may be impossible if the account cannot fund the purchase or if the broker blocks the instrument.",
+          "Check whether the planned stop is a hypothetical risk reference or a working order; neither guarantees the eventual exit price."
         ],
         "apply": [
-          "Let us practice Same Stock, Different Account Constraints using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Step 3 — Check the alternative or invalidation: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Fictional entry $8.20 and invalidation $7.95 gives planned price risk $0.25/share. With a $25 budget, floor($25 ÷ $0.25) = 100 theoretical shares.",
+          "At $8.20/share, a 100-share purchase needs $820 before costs. An account with $500 usable cash cannot fund that quantity under a cash-only purchase assumption.",
+          "If only $500 is available, the cash ceiling is floor($500 ÷ $8.20) = 60 shares. Compare both limits and use the smaller, subject to all other restrictions."
         ],
         "mistake": [
-          "A common error with Same Stock, Different Account Constraints: Rounding quantity upward beyond the planned risk budget.",
-          "Correct it by returning to the actual observation. Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not use the entire account balance as the trading loss budget unless it was explicitly chosen and is consistent with a reasonable risk policy.",
+          "Do not assume stock-specific account rules are identical across brokers, account types or jurisdictions."
         ],
         "limits": [
-          "What Same Stock, Different Account Constraints cannot establish:",
-          "The calculated size is not a guarantee that a stop will fill at its level.",
-          "An interpretation is invalidated or unproven when: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Regulatory and broker restrictions may change over time; verify current official rules and the broker's terms.",
+          "Stops can slip, gaps can exceed budget and commissions or borrowing costs may alter realized exposure."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support share-count mathematics, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the same stock, different account constraints interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $8.20, reference $7.95 and planned $25 budget, calculate theoretical shares and list adverse fill/gap caveats.",
+        "prompt": "A second fictional account has $350 available cash and $18 risk budget. Proposed entry $6.50 and stop reference $6.20. Calculate risk-per-share, theoretical risk-based shares and cash-funded shares; explain which limit controls.",
         "topic": "Same Stock, Different Account Constraints",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C10-L01": {
       "labId": "F1-C10-L01",
@@ -495,44 +487,42 @@
       "relatedCompetencies": [
         "RISK_PER_SHARE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Long vs. Short Directional Exposure.",
-          "Planned risk per share is the absolute difference between entry assumption and predefined stop.",
-          "Label entry assumption and invalidation reference; compute absolute dollar distance per share, then account separately for spread, fees and gaps."
+          "A long stock position generally benefits when the stock price rises and loses value when it falls. A short position generally benefits when the price falls and loses when it rises, before fees and financing.",
+          "Directional exposure is not the same as how many shares were traded. Direction, entry, exit and quantity determine the signed price difference.",
+          "Long purchases have downside risk limited by the stock value when unleveraged; a short stock position can have losses exceeding the initial proceeds as price rises."
         ],
         "recognize": [
-          "Here is how to recognize Long vs. Short Directional Exposure from the source evidence.",
-          "Compute distance before choosing size; note fees and gap risk separately.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Long: shares are acquired first and later sold. Short: borrowed shares are typically sold first and purchased later to close; borrow terms matter.",
+          "A falling price helps a short position's marked price difference but can harm an existing long position.",
+          "Distinguish planned invalidation from guaranteed execution; a stop's trigger does not assure the final price."
         ],
         "apply": [
-          "Let us practice Long vs. Short Directional Exposure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compute distance before choosing size; note fees and gap risk separately.",
-          "Step 3 — Check the alternative or invalidation: Stop distance is zero, not observable, or based on future information."
+          "Fictional long: buy 50 shares at $12.00, later sell at $12.60. Gross price difference = ($12.60 − $12.00) × 50 = +$30 before costs.",
+          "Fictional short: sell short 50 shares at $12.00, later cover at $12.60. Gross price difference = ($12.00 − $12.60) × 50 = −$30 before borrow fees and costs.",
+          "For a proposed long entry $12.00 and stop reference $11.60, planned price risk = $0.40 per share; 50 shares imply $20 hypothetical price risk, not a guaranteed maximum loss."
         ],
         "mistake": [
-          "A common error with Long vs. Short Directional Exposure: Multiplying expected reward by shares and calling it maximum risk.",
-          "Correct it by returning to the actual observation. Compute distance before choosing size; note fees and gap risk separately.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not call a short sale a simple negative-number long without considering borrow availability, financing and potentially unbounded stock-price rise.",
+          "Do not confuse a planned stop reference with a realized fill or an assured loss limit."
         ],
         "limits": [
-          "What Long vs. Short Directional Exposure cannot establish:",
-          "A stop order does not guarantee a loss capped at that amount.",
-          "An interpretation is invalidated or unproven when: Stop distance is zero, not observable, or based on future information."
+          "Short selling may be restricted or unavailable for a specific account or security; check current requirements.",
+          "Trading costs, overnight moves, dividends and borrow fees can change actual returns."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support risk per share, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the long vs. short directional exposure interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $12.00 and invalidation $11.60, calculate $0.40 planned risk/share and explain why it is not realized loss.",
+        "prompt": "For new fictional prices, compare a 30-share long at $9.00 exited $8.60 with a 30-share short sold $9.00 covered $8.60. Compute opposite gross price differences and state borrowing/slippage caveats.",
         "topic": "Long vs. Short Directional Exposure",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C10-L02": {
       "labId": "F1-C10-L02",
@@ -542,44 +532,42 @@
       "relatedCompetencies": [
         "ORDER_SELECTION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Long vs. Short Directional Exposure.",
-          "Market, limit and stop orders impose different price, priority and trigger assumptions.",
-          "Separate market, limit and stop instructions by price constraint, execution uncertainty and possible adverse fills; include a broker and session caveat."
+          "Long and short describe direction of exposure; market, limit and stop orders describe how an instruction is triggered and potentially executed. Keep the two classifications separate.",
+          "A market order generally prioritizes execution over controlling the exact price. A limit order sets a price boundary but might not fill. Stop instructions have trigger and order-type distinctions.",
+          "A quote snapshot is not a guaranteed execution across all requested shares."
         ],
         "recognize": [
-          "Here is how to recognize Long vs. Short Directional Exposure from the source evidence.",
-          "Compare an order's condition against only the next server-revealed observation.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify whether the instruction opens a long, closes a long, opens a short, or covers a short before reading its order type.",
+          "A buy limit at $9.95 cannot execute above its stated limit, but it may never execute if eligible sellers remain at higher prices.",
+          "A stop-market trigger can create an order that fills worse than the stop price in a fast market."
         ],
         "apply": [
-          "Let us practice Long vs. Short Directional Exposure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare an order's condition against only the next server-revealed observation.",
-          "Step 3 — Check the alternative or invalidation: The required threshold is not observed, or trading is halted."
+          "Fictional top quote: bid $9.98 for 25 shares, ask $10.04 for 30 shares. A 100-share market buy could consume different ask levels; full-order average execution is unknown.",
+          "A 100-share buy limit at $10.00 defines a maximum price but could remain unfilled while the best ask is $10.04.",
+          "A hypothetical short cover is a buy transaction; whether it is permitted depends on borrowed stock, margin and broker restrictions. State these conditions separately."
         ],
         "mistake": [
-          "A common error with Long vs. Short Directional Exposure: Equating bar range overlap with a confirmed limit fill.",
-          "Correct it by returning to the actual observation. Compare an order's condition against only the next server-revealed observation.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not assume a limit guarantees a fill or that a stop order guarantees its trigger price.",
+          "Do not infer which side of the market a printed transaction came from without quote timing and trade-condition evidence."
         ],
         "limits": [
-          "What Long vs. Short Directional Exposure cannot establish:",
-          "A limit touch can imply a possible fill, never prove queue priority or full execution.",
-          "An interpretation is invalidated or unproven when: The required threshold is not observed, or trading is halted."
+          "Broker order handling and routing rules vary; exact order behavior depends on current terms.",
+          "A still chart does not verify queue position, partial executions, fees or the ability to borrow stock."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support order-type behavior, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the long vs. short directional exposure interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional thin quote, compare a market buy with a buy limit below the ask; explain the different unfilled and slippage outcomes.",
+        "prompt": "For a new fictional thin quote, best ask is $11.10 for only 10 shares. Compare a 75-share market buy and a 75-share buy limit at $11.00. What can be known about the allowed price and likelihood of full execution?",
         "topic": "Long vs. Short Directional Exposure",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C12-L01": {
       "labId": "F1-C12-L01",
@@ -589,44 +577,42 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about One Stock, Three Different Decision Frames.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "ENTER, WATCH and NO TRADE are distinct process decisions. ENTER requires predeclared evidence and acceptable risk; WATCH preserves the candidate without claiming a signal; NO TRADE records a valid reason to abstain.",
+          "Three traders may read the same stock while using different time horizons, account limits and setup requirements. Different decisions can be defensible if the assumptions are explicit.",
+          "The quality of a decision is its adherence to evidence and risk rules, not the benefit of seeing the later chart outcome."
         ],
         "recognize": [
-          "Here is how to recognize One Stock, Three Different Decision Frames from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "ENTER has a completed-bar trigger, liquidity criterion, invalidation and usable size. WATCH lacks at least one needed confirmation but can be revisited.",
+          "NO TRADE applies when a hard constraint is violated: prohibited instrument, insufficient data rights, unacceptable risk, unsupported borrow or insufficient funds.",
+          "Document the reason so a later profitable move does not retroactively invalidate an appropriate refusal."
         ],
         "apply": [
-          "Let us practice One Stock, Three Different Decision Frames using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Fictional candidate $15.00 with proposed invalidation $14.50 has $0.50 planned price risk/share. With $20 planned loss budget, the theoretical ceiling is 40 shares.",
+          "Trader A has $800 settled cash, sufficient hypothetical funding for 40 shares ($600) and verified setup criteria: ENTER may be considered, not presumed.",
+          "Trader B has only $200 usable cash: at most 13 shares before fees; Trader C lacks reliable spread data: WATCH or NO TRADE is defensible. State which evidence changes each outcome."
         ],
         "mistake": [
-          "A common error with One Stock, Three Different Decision Frames: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "A profitable future chart does not prove an unsupported earlier ENTER was correct. That is hindsight bias.",
+          "Do not equate WATCH with indecision; it is a defined process branch with conditions to reassess."
         ],
         "limits": [
-          "What One Stock, Three Different Decision Frames cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "This exercise assumes hypothetical fillable prices and excludes fees, market impact and changing account rules.",
+          "Each learner must verify real entitlements and risk rules independently; the engine does not recommend a real trade."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the one stock, three different decision frames interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
+        "prompt": "A fictional candidate has $0.70 planned loss/share, an allowed $21 risk budget and no verified current spread. Compute theoretical shares, then choose WATCH or NO TRADE without looking at the next candle.",
         "topic": "One Stock, Three Different Decision Frames",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C13-L01": {
       "labId": "F1-C13-L01",
@@ -636,44 +622,42 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Holding Horizon: Day Trade vs. Scalp vs. Swing.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Holding horizon describes how long a position is intended to remain open. Scalping often involves very brief opportunities, day trading generally closes positions within the trading day, and swing trading typically holds beyond one session.",
+          "These are broad educational categories rather than fixed universal time limits. A short-duration plan still needs an entry criterion, invalidation and reasonable cost assumptions.",
+          "Execution fees, spreads, borrowing and overnight gap exposure differ by strategy horizon and instrument."
         ],
         "recognize": [
-          "Here is how to recognize Holding Horizon: Day Trade vs. Scalp vs. Swing from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Ask whether the plan explicitly allows holding after the regular-market close. If yes, do not classify it as a same-day-only plan.",
+          "A scalp may have a small intended price movement relative to the spread; distinguish gross price change from net result.",
+          "Swing positions can face information published while the regular session is closed, including unfillable stop references."
         ],
         "apply": [
-          "Let us practice Holding Horizon: Day Trade vs. Scalp vs. Swing using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Fictional same-day plan: enter at $20.00, exit at $20.10; 100 shares yield $10 gross difference. A round-trip trading cost of $8 would leave $2 before other costs.",
+          "The same 100 shares held across an overnight gap from $20.00 to $18.80 would have a −$120 marked price difference. This is an illustration of gap exposure, not a forecast.",
+          "Choose one intended horizon, identify the corresponding session-boundary rule and specify how your evidence and risk controls change."
         ],
         "mistake": [
-          "A common error with Holding Horizon: Day Trade vs. Scalp vs. Swing: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not call a delayed exit a successful scalp merely because the market eventually returned to the target.",
+          "Do not use gross return without recognizing cost and the possibility of non-executable prices."
         ],
         "limits": [
-          "What Holding Horizon: Day Trade vs. Scalp vs. Swing cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Formal day-trading regulations, broker definitions and margin policies require up-to-date jurisdictional review.",
+          "A style label does not establish suitability or profitability, and these fictional prices are not recorded trades."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the holding horizon: day trade vs. scalp vs. swing interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "A new fictional strategy targets $0.06 gross/share across 80 shares with $5.50 round-trip cost. Calculate its gross $ and estimated net before other expenses, and identify why a scalp label is not proof of positive expectancy.",
         "topic": "Holding Horizon: Day Trade vs. Scalp vs. Swing",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F1-C13-L02": {
       "labId": "F1-C13-L02",
@@ -683,44 +667,42 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Style vs. Approach vs. Setup vs. Context.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Style describes a broad trading horizon or practice (such as swing trading). Approach describes how evidence is analyzed (such as trend-following). Setup specifies the required observable conditions for a candidate decision.",
+          "Context includes the surrounding market, session, liquidity, volatility and source limitations. Context can invalidate a setup even if a visual pattern appears present.",
+          "Using precise labels prevents a learner from mistaking a named strategy for an executable plan."
         ],
         "recognize": [
-          "Here is how to recognize Style vs. Approach vs. Setup vs. Context from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Classify 'day trade' as style, 'trend-following' as approach, 'completed-bar VWAP reclaim with increased volume' as setup, and 'thin premarket quote' as context.",
+          "A setup must define its trigger and invalidation; a style alone cannot authorize ENTER.",
+          "Check which facts were visible at the decision timestamp and which would only be revealed later."
         ],
         "apply": [
-          "Let us practice Style vs. Approach vs. Setup vs. Context using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Fictional candidate: a stock closes a completed five-minute bar at $11.10 while session VWAP is $11.00. The $0.10 difference is an observed relation, not proof of future movement.",
+          "Write the four fields separately. Style: day trading; approach: trend-following; setup: completed-bar VWAP reclaim plus independently defined volume confirmation; context: regular session, acceptable spread, no halt.",
+          "Then specify an invalidation (e.g., a future completed bar below the stated level), the source of volume evidence and a NO TRADE alternative if liquidity is unknown."
         ],
         "mistake": [
-          "A common error with Style vs. Approach vs. Setup vs. Context: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not use a strategy title as a replacement for objective triggers, risk limits and a source timestamp.",
+          "Do not backfit a setup after seeing later profitable bars. The entry and invalidation conditions must precede the reveal."
         ],
         "limits": [
-          "What Style vs. Approach vs. Setup vs. Context cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "A close above VWAP alone does not prove buyer identity or executable advantage.",
+          "Benchmark calculation depends on feed and price-input assumptions; session OHLCV proxies must not be described as exact trade-print VWAP."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the style vs. approach vs. setup vs. context interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "For another fictional setup, list style, approach, trigger, market context and invalidation separately. The setup shows an EMA reclaim but the volume feed is delayed. Explain which planned branch is valid before later bars appear.",
         "topic": "Style vs. Approach vs. Setup vs. Context",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F2-C01-L01": {
       "labId": "F2-C01-L01",
@@ -762,11 +744,11 @@
           "An after-hours chart cannot prove your limit order would have filled; displayed quotes can change rapidly."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
-      "instructionSource": "ORIGINAL_SPECIFIC_SUBJECT_TEXT_EDITORIAL_REVIEW_PENDING",
+      "selfCheck": "On an ordinary full U.S. trading day in Eastern Time, which bars fall before 9:30 a.m., within the regular 9:30 a.m.–4:00 p.m. session, and after 4:00 p.m.? What calendar exceptions must be checked?",
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_REVIEW_20261101",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
+        "prompt": "For a fictional session ending at 1:00 p.m. ET because of a verified exchange early close, classify 12:55 p.m. and 1:05 p.m. observations and explain why a default 4:00 p.m. cutoff would be wrong.",
         "topic": "Identify premarket, the regular-market open, the regular-market close, and after-hours on one historical trading day",
         "requiresNewEvidence": true,
         "noLookahead": true,
@@ -781,44 +763,42 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Compare the opening environment with a midday window on the same stock.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "The regular-market opening window often differs in volume and price movement from midday, but the actual difference must be measured for the chosen security and date.",
+          "Session comparisons require the same time zone, comparable interval lengths and completed bars. A five-minute chart does not justify mixing a 10-minute open with a 30-minute midday window without normalizing.",
+          "A volatility or volume comparison is descriptive; it does not establish future returns."
         ],
         "recognize": [
-          "Here is how to recognize Compare the opening environment with a midday window on the same stock from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify an explicitly defined opening window such as 9:30–10:00 ET and a midday window such as 12:00–12:30 ET on the same ordinary full U.S. trading day.",
+          "For each period record total reported volume, high-low range and the count of completed bars.",
+          "Watch for opening auction effects, halts, anomalous prints and missing candles that would make a direct comparison unreliable."
         ],
         "apply": [
-          "Let us practice Compare the opening environment with a midday window on the same stock using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Fictional 30-minute opening window: high $12.80, low $12.10, volume 900,000 shares. Range = $0.70.",
+          "Fictional 30-minute midday window: high $12.40, low $12.25, volume 240,000 shares. Range = $0.15. Opening/midday reported volume ratio = 900,000 ÷ 240,000 = 3.75.",
+          "State that the opening period had a larger measured range and volume in this example; avoid claiming that all opens or tomorrow's open will behave the same."
         ],
         "mistake": [
-          "A common error with Compare the opening environment with a midday window on the same stock: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not compare unadjusted quantities from different-duration windows and call the difference a market regime.",
+          "Do not interpret a larger opening range as guaranteed opportunity or as proof a reversal will follow."
         ],
         "limits": [
-          "What Compare the opening environment with a midday window on the same stock cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "The observed difference may be date- and security-specific; missing venues, halts and timezone errors undermine the comparison.",
+          "A two-window sample does not establish seasonality or forward predictive accuracy."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the compare the opening environment with a midday window on the same stock interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "For a different fictional trading date, the opening 30-minute volume is 480,000 and midday 30-minute volume 320,000, while ranges are $0.25 and $0.40. Calculate the volume ratio and explain why larger volume did not mean larger range.",
         "topic": "Compare the opening environment with a midday window on the same stock",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F2-C02-L02": {
       "labId": "F2-C02-L02",
@@ -828,44 +808,42 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Compare a midday window with a later-afternoon window.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Midday and later-afternoon trading can differ in participation, liquidity and price range. The size and direction of those differences must be observed, not assumed.",
+          "Use comparable windows from the same session and distinguish completed-bar evidence from intrabar changes.",
+          "A late-session increase in volume does not by itself identify buyers, sellers or a favorable entry."
         ],
         "recognize": [
-          "Here is how to recognize Compare a midday window with a later-afternoon window from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "On a fictional ordinary full day compare 12:00–12:30 ET with 15:00–15:30 ET using the same instrument and interval.",
+          "Record each window's high, low and aggregate volume. Note whether a closing auction would fall outside the selected window.",
+          "Check whether corporate announcements, trading halts or feed differences change the interpretation."
         ],
         "apply": [
-          "Let us practice Compare a midday window with a later-afternoon window using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Fictional midday: high $30.20, low $29.90, volume 120,000 shares; range = $0.30.",
+          "Fictional afternoon: high $30.55, low $29.95, volume 330,000 shares; range = $0.60. Afternoon volume is 330,000 ÷ 120,000 = 2.75 times midday volume.",
+          "Explain what changed in the observed windows and why neither volume ratio alone nor direction guarantees the next candle's outcome."
         ],
         "mistake": [
-          "A common error with Compare a midday window with a later-afternoon window: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not silently include closing-auction prints in one period and exclude them from the other.",
+          "Do not infer directional institutional intent from a higher reported share count."
         ],
         "limits": [
-          "What Compare a midday window with a later-afternoon window cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "One pair of windows cannot establish a durable trading edge or liquidity available for your exact order.",
+          "Session schedules, half days and feed quality must be checked before replication."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the compare a midday window with a later-afternoon window interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "New fictional midday 30-minute range is $0.65 and later-afternoon range is $0.30, while the afternoon has higher volume. State two measurable differences and why volume does not alone prove directional strength.",
         "topic": "Compare a midday window with a later-afternoon window",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F2-C02-L03": {
       "labId": "F2-C02-L03",
@@ -875,44 +853,42 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Observe the approach to the regular-market close.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Approaching the regular-market close can change order flow, spreads, auction preparation and liquidity. None of those patterns should be assumed for every stock or every trading day.",
+          "Separate continuous trading observations from the closing auction and from after-hours data.",
+          "The exact regular close and any special early-close schedule depend on the exchange calendar for the date."
         ],
         "recognize": [
-          "Here is how to recognize Observe the approach to the regular-market close from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Observe a defined 15:30–15:55 ET window rather than treating the last five minutes, the closing auction and after-hours as identical.",
+          "Record completed-bar range, reported volume, spread snapshots where available, and any publicly available auction information.",
+          "Check whether the exercise date is a standard session or an officially announced shortened one."
         ],
         "apply": [
-          "Let us practice Observe the approach to the regular-market close using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Fictional stock: a 15:30–15:45 ET window reports 40,000 shares and 15:45–16:00 ET reports 100,000 shares. Volume ratio = 100,000 ÷ 40,000 = 2.5, provided both windows cover equal durations and no duplicate auction print is counted.",
+          "If the last completed bar closes at $18.40 and an indicated auction price is $18.48, the $0.08 difference is an indicative comparison, not a guaranteed execution.",
+          "Before any replay reveal, write the eligible data cutoff and whether the planned decision allows any position beyond the close."
         ],
         "mistake": [
-          "A common error with Observe the approach to the regular-market close: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not treat indicative auction information as a guaranteed future closing price.",
+          "Do not assume a closing print is executable at the same price for a late-entering market order."
         ],
         "limits": [
-          "What Observe the approach to the regular-market close cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "Closing-auction mechanics vary by listing venue and current published rules.",
+          "The example does not verify historical auction messages, individual order priority or after-hours availability."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the observe the approach to the regular-market close interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "A newly sourced shortened trading day ends at 1:00 p.m. ET. Explain why observations from 12:30–12:55 ET belong to the close approach, not midday, and what calendar evidence is necessary.",
         "topic": "Observe the approach to the regular-market close",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F2-C03-L01": {
       "labId": "F2-C03-L01",
@@ -922,44 +898,42 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH01_SUBJECT_SPECIFIC_SOURCE_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Regular Close → After-Hours Transition.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "The regular-session close and after-hours trading are different market phases with distinct trading opportunities and potential liquidity.",
+          "A closing price from the regular session is a reference point. Later after-hours quotes and prints may depart from it without a corresponding change in every venue's displayed depth.",
+          "Some brokers do not permit every order type or security in after-hours trading; account authorization and venue restrictions matter."
         ],
         "recognize": [
-          "Here is how to recognize Regular Close → After-Hours Transition from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the official trading calendar, the closing reference timestamp, and the first after-hours quote or trade time.",
+          "A spread can widen when regular-session liquidity changes. Compare quotes only at their actual timestamps.",
+          "A later after-hours print does not establish where a trader could have exited at the 16:00 ET close."
         ],
         "apply": [
-          "Let us practice Regular Close → After-Hours Transition using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Fictional regular close $22.00; after-hours bid $21.80 and ask $22.20. The after-hours spread = $0.40, midpoint = ($21.80 + $22.20) ÷ 2 = $22.00.",
+          "At the regular close, a fictional quote of $21.99/$22.01 had a $0.02 spread. The later quoted spread is $0.40 ÷ $0.02 = 20 times as wide; that compares snapshots, not execution costs.",
+          "Decide WATCH or NO TRADE if the proposed order would exceed displayed after-hours size or violate the broker's supported order rules."
         ],
         "mistake": [
-          "A common error with Regular Close → After-Hours Transition: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Do not use the last regular-session trade to claim the same price is available after hours.",
+          "Do not confuse a price gap between two sessions with a verified fillable arbitrage opportunity."
         ],
         "limits": [
-          "What Regular Close → After-Hours Transition cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "After-hours execution conditions and eligible order types depend on broker, venue, security and date.",
+          "Historical top-of-book snapshots cannot reconstruct full depth, queue position or all off-exchange prints."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "What specific visible, timestamped inputs support the regular close → after-hours transition interpretation, what calculation or comparison is justified, and what observation would invalidate it?",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "In a different fictional session, regular close is $40.00 and the next after-hours quote is $39.65 bid/$40.35 ask. Compute spread and midpoint, then state what is unknown about a 150-share order.",
         "topic": "Regular Close → After-Hours Transition",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH01_20261101"
     },
     "F2-C03-L02": {
       "labId": "F2-C03-L02",
