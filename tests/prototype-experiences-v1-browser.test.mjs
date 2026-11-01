@@ -62,7 +62,7 @@ try{
  assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>6,'The editor must expose actual page elements for selection');
  await a.page.getByLabel('Find page element').fill('Talia');
  assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>=1,'Searching the element catalog must find the Talia teaching component');
- const chosenId=await a.page.getByLabel('Select page element').locator('option').first().getAttribute('value');
+ const chosenId=await a.page.getByLabel('Select page element').locator('option[value]:not([value=""])').first().getAttribute('value');
  assert.ok(chosenId);
  await a.page.getByLabel('Select page element').selectOption(chosenId);
  assert.equal(await a.page.getByLabel('Select page element').getAttribute('size'),null,'Page elements should be a dropdown, not a tall list');
