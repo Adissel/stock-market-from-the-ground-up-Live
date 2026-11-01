@@ -425,6 +425,58 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   if(result?.status&&result.status!=='insufficient_evidence')lastEvidenceDiagnosis=result;
   return result;
  }
+
+ function renderMethodSteps(parent){
+  const api=root.GroundUpLearningEvidenceV1;
+  if(!special||!api?.evaluateSteps||!['guided','practice'].includes(mode)||!['candle','vwap'].includes(kind))return;
+  const keys=kind==='candle'?['body','range','percent']:['dollars','shares','price'];
+  const names=kind==='candle'?['Real body (USD)','Full range (USD)','Body share (%)']:
+   ['Trade value (USD)','Total volume (shares)','VWAP (USD/share)'];
+  const group=el('section');group.className='gu-v33-method-steps';
+  group.setAttribute('aria-label','Optional ungraded calculation method check');
+  group.append(el('h3','Show the steps behind your calculation'));
+  appendParagraph(group,'Enter your three intermediate values. This fictional method check is free and does not change official grades or mastery.');
+  const inputs=[],layout=el('div');layout.className='gu-v33-method-grid';
+  for(const name of names){
+   const fieldInput=field(layout,name,'','input');fieldInput.setAttribute('aria-label',name);inputs.push(fieldInput);
+  }
+  group.append(layout);
+  const response=el('div');response.className='gu-v33-method-feedback';
+  response.setAttribute('role','status');response.setAttribute('aria-live','polite');
+  group.append(button('Check calculation steps',()=>{
+   const values=Object.fromEntries(keys.map((key,i)=>[key,inputs[i].value]));
+   const finding=api.evaluateSteps({kind,labId,mode,stage:'practice',provenance:'fictional_authored',
+    caseCode:kind==='candle'?'canonical_candle_body_pct':'canonical_vwap_trade_groups',inputs:values});
+   response.replaceChildren();
+   if(finding.status==='insufficient_evidence'){response.append(el('p',finding.reason));return;}
+   response.append(el('h4',finding.mismatchedStepCount?
+    finding.mismatchedStepCount+' intermediate calculation(s) to review':'All three fictional calculations matched'));
+   const list=el('ol');
+   for(const step of finding.steps){const li=el('li');
+    li.append(el('strong',step.label+': '),
+     document.createTextNode(step.matched?' Matches the authored example. ':' Needs review. '+step.explanation));
+    list.append(li);
+   }
+   response.append(list,el('p',finding.limitation));
+   const suggested=api.recommendPrerequisites?.({diagnosis:finding,guides:map.guides,evidence:skillEvidence});
+   if(suggested?.items?.length){
+    response.append(el('h4','Suggested prerequisite review · not an official failure'));
+    const links=el('ul');
+    for(const item of suggested.items){const li=el('li'),link=el('a',item.title);link.href=item.url;
+     li.append(link,document.createTextNode(' · '+item.status));links.append(li);}
+    response.append(links);
+   }
+   if(finding.followUp?.source==='fictional_constructed_no_feed'){
+    response.append(el('h4','New independent fictional case'),el('p',finding.followUp.prompt));
+    const next=field(response,'My new-case answer ('+finding.followUp.units+')','','input');
+    const notice=el('p');notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');
+    response.append(button('Check new case',()=>{
+     notice.textContent=api.checkFollowUp({id:finding.followUp.id,submitted:next.value}).reason;
+    }),notice);
+   }
+  }),response);parent.append(group);
+ }
+
  function renderEvidenceDiagnosis(parent){
   const r=lastEvidenceDiagnosis,api=root.GroundUpLearningEvidenceV1;
   if(!r||!api?.checkFollowUp||!['guided','practice'].includes(mode))return;
@@ -958,6 +1010,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     const guided=detail(body,'Teach This in More Depth',special.steps.concat(['Frequent misconception: '+(subject?.error||guide.commonError),'The answer describes the illustrative example; it does not predict the next bar.']));
     guided.addEventListener('toggle',()=>{if(guided.open)practiceAssisted=true});
     renderEvidenceDiagnosis(body);
+    renderMethodSteps(body);
    }else{
     const t=field(body,'Your independent observation and reasoning',practice);
     t.disabled=practiceResolved;

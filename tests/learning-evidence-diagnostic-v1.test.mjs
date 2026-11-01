@@ -114,3 +114,45 @@ test('Lab Engine routes diagnoses through current competency catalog and protect
  assert.match(engine,/neededPrerequisites\.length\|\|special/);
  assert.match(engine,/lastEvidenceDiagnosis&&stage===4/);
 });
+
+test('Three-step public candle and VWAP methods give explicit arithmetic evidence',()=>{
+ const inputs=[
+  {kind:'candle',caseCode:'canonical_candle_body_pct',inputs:{body:'1',range:'2',percent:'50'}},
+  {kind:'vwap',caseCode:'canonical_vwap_trade_groups',inputs:{dollars:'2600',shares:'300',price:'8.67'}}
+ ];
+ for(const item of inputs){
+  const r=diagnostic.evaluateSteps({...item,labId:'F1-C01-L01',mode:'guided',stage:'practice',provenance:'fictional_authored'});
+  assert.equal(r.status,'method_steps_matched');assert.equal(r.steps.length,3);
+  assert(r.steps.every(s=>s.matched));assert.equal(r.officialGrade,false);
+  assert.equal(r.memberRecordWritten,false);assert.match(r.followUp.prompt,/FICTIONAL/);
+ }
+});
+test('Six observable intermediate errors map to the original public competency guides',()=>{
+ const guides=JSON.parse(read('data/competency-study-guides-v01499.json')).guides;
+ const cases=[
+  ['candle','canonical_candle_body_pct',{body:'2',range:'2',percent:'100'},'candle_body_step'],
+  ['candle','canonical_candle_body_pct',{body:'1',range:'1',percent:'100'},'candle_range_step'],
+  ['candle','canonical_candle_body_pct',{body:'1',range:'2',percent:'0.5'},'candle_percent_step'],
+  ['vwap','canonical_vwap_trade_groups',{dollars:'1600',shares:'300',price:'9'},'vwap_notional_step'],
+  ['vwap','canonical_vwap_trade_groups',{dollars:'2600',shares:'200',price:'9'},'vwap_volume_step'],
+  ['vwap','canonical_vwap_trade_groups',{dollars:'2600',shares:'300',price:'9'},'vwap_price_step']
+ ];
+ for(const [kind,caseCode,inputs,code] of cases){
+  const r=diagnostic.evaluateSteps({kind,caseCode,inputs,labId:'F2-C07-L01',mode:'practice',stage:'practice',provenance:'fictional_authored'});
+  assert.equal(r.status,'observed_step_mismatch');assert.equal(r.code,code);
+  assert.equal(r.verifiedCause,false);assert.equal(r.observedStepMismatch,true);
+  assert(diagnostic.recommendPrerequisites({diagnosis:r,guides}).items.length>=1);
+ }
+});
+test('Method evidence fails closed for blind assessment, spoofed cases and invalid numeric input',()=>{
+ const good={kind:'candle',caseCode:'canonical_candle_body_pct',inputs:{body:'1',range:'2',percent:'50'},
+  labId:'F2-C07-L01',mode:'practice',stage:'practice',provenance:'fictional_authored'};
+ for(const changed of [{mode:'blind'},{mode:'assessment'},{stage:'assess'},{provenance:'historical_replay'},
+  {caseCode:'not_authored'},{labId:'no spaces allowed'},{inputs:{body:'Infinity',range:'2',percent:'50'}},
+  {inputs:{body:'1e2',range:'2',percent:'50'}},{inputs:{body:'1',range:'',percent:'50'}}]){
+  assert.equal(diagnostic.evaluateSteps({...good,...changed}).status,'insufficient_evidence');
+ }
+ const engine=read('assets/js/lab-engine-v32-universal.js');
+ assert.match(engine,/function renderMethodSteps\(parent\)/);
+ assert.match(engine,/renderMethodSteps\(body\)/);
+});

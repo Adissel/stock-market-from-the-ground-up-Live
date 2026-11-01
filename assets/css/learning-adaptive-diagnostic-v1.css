@@ -18,3 +18,11 @@
 .gu-v33-evidence-card input{max-width:18rem}
 .gu-v33-evidence-card button{margin:.65rem 0}
 .gu-v33-evidence-card :focus-visible{outline:3px solid var(--accent,#8ee2da);outline-offset:3px}
+
+.gu-v33-method-steps{margin:1rem 0;padding:1rem;border:1px solid var(--line,#546377);border-radius:12px;background:var(--card,#1d2a3a)}
+.gu-v33-method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:.8rem 0}
+.gu-v33-method-grid label{display:grid;gap:.3rem;min-width:0}.gu-v33-method-grid input{width:100%;min-width:0}
+.gu-v33-method-feedback:not(:empty){padding-top:.7rem;margin-top:.7rem;border-top:1px solid var(--line,#546377)}
+.gu-v33-method-feedback li{margin:.4rem 0}
+.gu-v33-method-steps :focus-visible{outline:3px solid var(--accent,#88dfd6);outline-offset:3px}
+@media(max-width:800px){.gu-v33-method-grid{grid-template-columns:1fr}}

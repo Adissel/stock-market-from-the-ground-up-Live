@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'assets/js/learning-evidence-diagnostic-v1.js'
+      - 'assets/css/learning-adaptive-diagnostic-v1.css'
+      - 'scripts/qa/learning_method_decimal_reference_v1.py'
       - 'assets/js/lab-engine-v32-universal.js'
       - 'lab-player.html'
       - 'tests/learning-evidence-diagnostic-v1.test.mjs'
@@ -21,5 +23,7 @@ jobs:
         run: |
           node --check assets/js/learning-evidence-diagnostic-v1.js
           node --check assets/js/lab-engine-v32-universal.js
+      - name: Independent decimal reference
+        run: python3 scripts/qa/learning_method_decimal_reference_v1.py
       - name: Curriculum and formative learning evidence contracts
         run: node --test tests/learning-evidence-diagnostic-v1.test.mjs tests/adaptive-learning-diagnostic-v1.test.mjs

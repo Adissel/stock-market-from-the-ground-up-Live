@@ -39,13 +39,20 @@ const SKILL_CODES=Object.freeze({
  full_range_not_body_share:Object.freeze(['CANDLE_READING']),
  unweighted_average:Object.freeze(['VWAP_CONTEXT','VOLUME_ANALYSIS']),
  dollar_notional_not_vwap:Object.freeze(['VWAP_CONTEXT']),
- volume_not_price:Object.freeze(['VOLUME_ANALYSIS','VWAP_CONTEXT'])
+ volume_not_price:Object.freeze(['VOLUME_ANALYSIS','VWAP_CONTEXT']),
+ candle_body_step:Object.freeze(['CANDLE_READING']),
+ candle_range_step:Object.freeze(['CANDLE_READING']),
+ candle_percent_step:Object.freeze(['CANDLE_READING']),
+ vwap_notional_step:Object.freeze(['VWAP_CONTEXT','VOLUME_ANALYSIS']),
+ vwap_volume_step:Object.freeze(['VOLUME_ANALYSIS','VWAP_CONTEXT']),
+ vwap_price_step:Object.freeze(['VWAP_CONTEXT'])
 });
 function recommendPrerequisites({diagnosis,guides,evidence}={}){
  const empty=Object.freeze({items:Object.freeze([]),source:'unverified_or_unclassified',
   officialGrade:false,masteryAwarded:false,memberProgressModified:false});
- if(diagnosis?.schema!==SCHEMA||diagnosis?.verifiedCause!==true||
-    diagnosis?.status!=='verified_misconception'||!SKILL_CODES[diagnosis.code])return empty;
+ if(diagnosis?.schema!==SCHEMA||!SKILL_CODES[diagnosis.code]||
+    !((diagnosis?.verifiedCause===true&&diagnosis.status==='verified_misconception')||
+      (diagnosis?.observedStepMismatch===true&&diagnosis.status==='observed_step_mismatch')))return empty;
  const catalog=guides instanceof Map?guides:
   new Map((Array.isArray(guides)?guides:[]).filter(g=>g&&typeof g.code==='string').map(g=>[g.code,g]));
  const verified=evidence?.ok===true&&Array.isArray(evidence.skills);
@@ -64,6 +71,55 @@ function recommendPrerequisites({diagnosis,guides,evidence}={}){
  }
  return Object.freeze({items:Object.freeze(items),source:'verified_formative_misconception',
   officialGrade:false,masteryAwarded:false,memberProgressModified:false});
+}
+
+
+/* Three public authored fictional calculation steps. A wrong intermediate
+ * value proves a mismatch, NOT the learner's motive or cognitive process.
+ */
+const STEP_CASES=Object.freeze({
+ candle:Object.freeze({id:'canonical_candle_body_pct',keys:Object.freeze(['body','range','percent']),
+  labels:Object.freeze(['Real body (USD)','High–low range (USD)','Body share (%)']),
+  expected:Object.freeze([1,2,50]),explain:Object.freeze([
+   'Real body = |Close − Open| = |$32 − $31| = $1.',
+   'Full range = High − Low = $32.50 − $30.50 = $2.',
+   'Body percent = $1 ÷ $2 × 100 = 50%.'])}),
+ vwap:Object.freeze({id:'canonical_vwap_trade_groups',keys:Object.freeze(['dollars','shares','price']),
+  labels:Object.freeze(['Trade value (USD)','Total volume (shares)','VWAP (USD/share)']),
+  expected:Object.freeze([2600,300,2600/300]),explain:Object.freeze([
+   'Trade value = $8 × 200 + $10 × 100 = $2,600.',
+   'Volume = 200 shares + 100 shares = 300 shares.',
+   'VWAP = $2,600 ÷ 300 ≈ $8.67 per share.'])})
+});
+const STEP_CODES=Object.freeze({candle:['candle_body_step','candle_range_step','candle_percent_step'],
+ vwap:['vwap_notional_step','vwap_volume_step','vwap_price_step']});
+function evaluateSteps({kind,caseCode,labId,mode,stage,provenance,inputs}={}){
+ const bad=reason=>Object.freeze({schema:SCHEMA,status:'insufficient_evidence',reason,officialGrade:false,masteryAwarded:false});
+ const ref=STEP_CASES[kind];
+ if(!ref||ref.id!==caseCode||!['guided','practice'].includes(mode)||stage!=='practice'||
+    provenance!=='fictional_authored'||!/^[A-Za-z0-9_-]{3,90}$/.test(String(labId||''))||
+    !inputs||typeof inputs!=='object'||Array.isArray(inputs))
+  return bad('This case does not provide approved public fictional calculation evidence.');
+ const steps=[];
+ for(let i=0;i<3;i++){
+  const val=String(inputs[ref.keys[i]]??'').trim();
+  if(val.length>24||!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(val))
+   return bad('Enter all three intermediate results in ordinary finite decimal notation.');
+  const actual=Number(val);if(!Number.isFinite(actual))return bad('Invalid numerical step.');
+  const tolerance=i===2?(kind==='candle'?.055:.015):.015;
+  steps.push(Object.freeze({key:ref.keys[i],label:ref.labels[i],value:actual,
+   matched:Math.abs(actual-ref.expected[i])<=tolerance,explanation:ref.explain[i]}));
+ }
+ const index=steps.findIndex(s=>!s.matched);
+ const choices=CASES[kind];
+ const selected=choices[[...labId].reduce((a,c)=>a+c.charCodeAt(0),0)%choices.length];
+ return Object.freeze({schema:SCHEMA,kind,labId,mode,stage,
+  status:index<0?'method_steps_matched':'observed_step_mismatch',
+  code:index<0?'none':STEP_CODES[kind][index],observedStepMismatch:index>=0,verifiedCause:false,
+  steps:Object.freeze(steps),mismatchedStepCount:steps.filter(s=>!s.matched).length,
+  followUp:Object.freeze({id:selected.id,prompt:selected.prompt,units:selected.units,source:selected.source}),
+  limitation:'An observed numeric mismatch does not establish why the learner made it. No official assessment result is created.',
+  officialGrade:false,masteryAwarded:false,memberRecordWritten:false,entitlementGranted:false,paidInference:false});
 }
 
 const none=(reason)=>Object.freeze({schema:SCHEMA,status:'insufficient_evidence',reason,
@@ -113,7 +169,7 @@ function checkFollowUp({id,submitted}={}){
  return Object.freeze({accepted:true,correct:close(answer,row.answer),officialGrade:false,masteryAwarded:false,
   reason:close(answer,row.answer)?'Correct fictional calculation; no official grade or mastery awarded.':'Not yet correct; revisit the original method, units and independent case inputs.'});
 }
-const api=Object.freeze({schema:SCHEMA,evaluate,checkFollowUp,recommendPrerequisites,caseIds:Object.freeze(Object.values(CASES).flat().map(x=>x.id))});
+const api=Object.freeze({schema:SCHEMA,evaluate,evaluateSteps,checkFollowUp,recommendPrerequisites,caseIds:Object.freeze(Object.values(CASES).flat().map(x=>x.id))});
 root.GroundUpLearningEvidenceV1=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

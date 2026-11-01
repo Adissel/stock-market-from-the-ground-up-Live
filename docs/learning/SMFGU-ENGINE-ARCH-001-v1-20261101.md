@@ -85,3 +85,11 @@ This is optional formative teaching for all entitled Guided/Practice lessons. It
 
 **Dependencies:** Existing v3.3/v3.2 Basic engines, entitlement gates, 30 published competency guides, protected server assessment, tests and Cloudflare deployment.
 **Next acceptance:** exact-commit CI, real signed-in member browser, account switching, screen reader and independent grading/quantitative checks.
+
+## Gate 3 intermediate-method verification (2026-11-01)
+
+**Document control:** SMFGU-ENGINE-ARCH-001 version 1.3 addendum; file type Markdown; project The Stock Market: From the Ground Up; source GitHub main; Google Drive location and document ID unassigned. Status source implemented; production browser acceptance pending. Dependencies: frozen Basic engines, authorized Lab Player, public fictional instructional cases, protected competency summary and tests.
+
+**Design:** A learner may enter three intermediate values for either the public fictional candle percentage or trade-price VWAP exercise. The shared Learning Engine evaluates each *observable numeric mismatch*, provides authored corrections and existing competency-guide links, and offers a distinct fictional follow-up, without claiming to infer the learner's thoughts. No official answer bank, paid inference, stored progress, market feed, separate LMS or premium feature grant is introduced. Python standard-library Decimal performs independent numerical regression checks in CI; the Cloudflare runtime remains JavaScript and the existing ECharts chart remains unchanged.
+
+**Research:** StocksToTrade public support pages are research comparators, not licensed content for reproduction. Original teaching text, calculations and graphics only. Review citation/redistribution rights independently.
