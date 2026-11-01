@@ -9,6 +9,7 @@ on:
       - 'assets/js/member-learning-layouts-v1.js'
       - 'assets/css/member-learning-layouts-v1.css'
       - 'tests/member-learning-layouts-v1.test.mjs'
+      - 'tests/member-learning-layouts-v1-browser.test.mjs'
       - 'assets/css/academy-guided-v1.css'
       - 'assets/js/bootcamp-academy-v014168.js'
       - 'assets/js/bootcamp.js'
