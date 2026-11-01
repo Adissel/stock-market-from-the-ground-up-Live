@@ -35,8 +35,11 @@ try{
  assert.equal(await home.page.locator('#pt-curriculum-parity').isVisible(),false,'Classic inspector hidden within new React experience');
  assert.equal(await home.page.locator('.cx-desk-banner').isVisible(),true,'Opening banner shows actual simulated price');
  assert.equal(await home.page.locator('.cx-desk-links a').count(),4);
- const firstChart=await home.page.locator('.cx-lp-visual').first().boundingBox();
- assert.ok(firstChart&&firstChart.y<850,'Lab and Boot Camp chart layout must be visible in first viewport');
+ const layoutPicker=await home.page.locator('.cx-eight-picker').boundingBox();
+ const eighthChoice=await home.page.locator('.cx-eight-picker button').last().boundingBox();
+ assert.ok(layoutPicker&&layoutPicker.y<850,'Eight classroom selectors must begin in the first viewport');
+ assert.ok(eighthChoice&&eighthChoice.y<850,'All eight layout choices must be visible near the top without scrolling through the old workbench');
+ assert.ok(await home.page.locator('.cx-lp-visual').first().isVisible(),'Selected layout must render its real interactive visual module');
  assert.equal(await home.page.locator('.cx-eight-picker button').count(),8,'Eight functional Lab and Boot Camp layouts must be visible');
  const layoutCodes=['foundations','indicator','replay','tape','scanner','risk','filings','academy'];
  for(const code of layoutCodes){
