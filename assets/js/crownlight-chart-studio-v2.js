@@ -76,12 +76,12 @@
    grid:{vertLines:{color:'rgba(83,116,158,.12)'},horzLines:{color:'rgba(83,116,158,.14)'}},
    crosshair:{mode:lib.CrosshairMode?.Normal??0,vertLine:{color:'#8a70f7',style:lib.LineStyle?.Dashed??2,labelBackgroundColor:'#6c50cf'},horzLine:{color:'#43dcf5',style:lib.LineStyle?.Dashed??2,labelBackgroundColor:'#11657e'}},
    rightPriceScale:{borderColor:'#2e486b',scaleMargins:{top:.1,bottom:.12}},
-   timeScale:{borderColor:'#2e486b',barSpacing:14,minBarSpacing:.6,rightOffset:16,timeVisible:true,secondsVisible:false,fixRightEdge:false,fixLeftEdge:false,
+   timeScale:{borderColor:'#2e486b',barSpacing:10,minBarSpacing:.6,rightOffset:16,timeVisible:true,secondsVisible:false,fixRightEdge:false,fixLeftEdge:false,
     tickMarkFormatter:time=>timeNY(Number(time)*1000).replace(/,\s*\d{4}/,'')},
    localization:{timeFormatter:time=>timeNY(Number(time)*1000)},
    handleScroll:{pressedMouseMove:true,mouseWheel:false,horzTouchDrag:true,vertTouchDrag:true},
    handleScale:{axisPressedMouseMove:true,mouseWheel:true,pinch:true},
-   kineticScroll:{touch:true,mouse:true}
+   kineticScroll:{touch:true,mouse:false}
   });
   state.candles=chart.addSeries(lib.CandlestickSeries,{
    upColor:'#2bf2b1',downColor:'#ff5f86',wickUpColor:'#83ffda',wickDownColor:'#ff94a9',borderUpColor:'#1bd698',borderDownColor:'#ff648d',
@@ -133,7 +133,11 @@
   if(!state.chart||!state.count)return;
   const scale=state.chart.timeScale();
   const count=state.count;
-  scale.setVisibleLogicalRange({from:Math.max(-1,count-Math.min(90,Math.max(23,count))),to:count+16});
+  // Maintain an approximately constant candle width while a sparse replay fills.
+   // Earlier logic enlarged the first few candles until more bars were revealed.
+   const visibleBars=80,rightPadding=16;
+   const from=Math.max(-1,count-visibleBars);
+   scale.setVisibleLogicalRange({from,to:from+visibleBars+rightPadding});
  }
  function updateFollow(){
   const button=state.shell?.querySelector('[data-cl="follow"]');

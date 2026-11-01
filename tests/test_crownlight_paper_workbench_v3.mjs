@@ -88,6 +88,13 @@ try{
  assert.match(workbench,/cl-panel-paper/);assert.match(workbench,/academy:free5/);
  assert.match(tutor,/Session VWAP estimate/);assert.match(tutor,/no[ -]trade/i);
  assert.match(chart,/minBarSpacing:\.6/);assert.match(chart,/rightOffset:16/);
+ // Chart must stop moving when the mouse is released, not coast until a second click.
+ assert.match(chart,/handleScroll:\{pressedMouseMove:true/);
+ assert.match(chart,/kineticScroll:\{touch:true,mouse:false\}/);
+ // Replay of only 8 completed bars must not zoom those candles across the full viewport.
+ assert.match(chart,/const visibleBars=80,rightPadding=16;/);
+ assert.match(chart,/scale\.setVisibleLogicalRange\(\{from,to:from\+visibleBars\+rightPadding\}\)/);
+ assert.match(chart,/barSpacing:10,minBarSpacing:\.6/);
  assert.match(html,/crownlight-paper-terminal-v1\.js/);
  assert.match(migration,/free_included/);
  console.log('PASS Workbench V3, paper-only authenticated access, explicit order confirmation, idempotency, live-account rejection and Free Sparks migration');
