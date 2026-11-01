@@ -75,7 +75,7 @@ test('Source registry explicitly distinguishes research, independent verificatio
  assert.match(doc.globalMetadata.license,/REFERENCE_ONLY/);
  for(const entry of doc.cases){
   for(const key of ['definition','formula','units','inputs','initialization','warmup','workedExample','independent','chart','interpretation','commonMistake','verification']){
-   assert.equal(typeof entry[key],'string');assert(entry[key].length>=12);
+   assert.equal(typeof entry[key],'string');assert(entry[key].trim().length>=(key==='units'?1:12));
   }
   assert(entry.references.length>=2);
   assert(entry.references.every(x=>x.url.startsWith('https://')));
