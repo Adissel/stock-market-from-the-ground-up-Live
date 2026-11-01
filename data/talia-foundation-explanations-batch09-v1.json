@@ -1,0 +1,571 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 9,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Twenty original synthetic trade-execution and order-cost reasoning cases; formulas are declared hypothetical and no real broker fills are claimed.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_QUOTED_EFFECTIVE_SPREAD",
+      "title": "Quoted spread and effective spread use different reference quantities",
+      "concept": "Quoted spread is contemporaneous offer minus bid; effective spread commonly uses twice the signed execution-price distance from the relevant midpoint.",
+      "procedure": "Define eligible quote and execution timestamps, calculate midpoint, direction of the trade, and label dollars per share or basis points.",
+      "workedCase": "FICTIONAL: Eligible quote is $10.00 bid/$10.10 ask, midpoint $10.05. A separately confirmed buy at $10.08 has $0.10 quoted spread and $0.06 effective spread (2×($10.08−$10.05)).",
+      "limit": "Rule 605 reporting conventions and timestamps must match; the effective result is not a guaranteed round-trip cash cost.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Rule 605 reporting conventions and timestamps must match; the effective result is not a guaranteed round-trip cash cost.",
+      "commonError": "Using the 10-cent quoted spread as the actual effective spread of a verified buy at $10.08.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Using the 10-cent quoted spread as the actual effective spread of a verified buy at $10.08.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: Eligible quote is $10.00 bid/$10.10 ask, midpoint $10.05. A separately confirmed buy at $10.08 has $0.10 quoted spread and $0.06 effective spread (2×($10.08−$10.05)).",
+      "transferQuestion": "FICTIONAL TRANSFER: At bid $20.00/offer $20.20, midpoint $20.10, a confirmed buy is $20.15. Calculate both spreads.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_IMPROVEMENT_BENCHMARK",
+      "title": "Price improvement is relative to a defined eligible quote, not yesterday's close",
+      "concept": "For a buy, a confirmed execution below the appropriate best offer may qualify as price improvement relative to that offer; for a sell, above the bid.",
+      "procedure": "Record executable order side, time-matched NBBO, relevant reporting exclusions and actual execution, then calculate side-appropriate difference.",
+      "workedCase": "FICTIONAL: Eligible offer is $12.05 and hypothetical actual buy fill is $12.03. Relative to that offer, illustrative buy-side price improvement is $0.02 per share; this says nothing about posttrade value.",
+      "limit": "Different market-center reporting rules, price improvement definitions and fees can change official statistics.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Different market-center reporting rules, price improvement definitions and fees can change official statistics.",
+      "commonError": "Comparing a buy fill to the prior closing price and calling the difference exchange price improvement.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Comparing a buy fill to the prior closing price and calling the difference exchange price improvement.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: Eligible offer is $12.05 and hypothetical actual buy fill is $12.03. Relative to that offer, illustrative buy-side price improvement is $0.02 per share; this says nothing about posttrade value.",
+      "transferQuestion": "FICTIONAL TRANSFER: A $25.00 best bid accompanies a confirmed sell at $25.01. Calculate a quote-relative improvement and name the timing assumption.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ORDER_FILL_RATE_DENOMINATOR",
+      "title": "Order fill rate requires a declared submitted quantity and confirmed executed shares",
+      "concept": "A filled fraction summarizes confirmed execution quantity divided by the eligible requested quantity, but definitions may exclude canceled or ineligible orders.",
+      "procedure": "Identify original quantity, cumulative confirmed fills, cancellation and quantity-adjustment events; compute filled shares over properly defined order quantity.",
+      "workedCase": "FICTIONAL: A hypothetical order requests 500 shares and has final reported executions of 100 and 150. Its simple share-fill fraction is 250/500 = 50%, not 100%, despite two fill records.",
+      "limit": "Order-level statistics may use order counts rather than share counts; choose a denominator explicitly.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Order-level statistics may use order counts rather than share counts; choose a denominator explicitly.",
+      "commonError": "Counting two fills as two completely filled orders or treating the open 250 shares as already acquired.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Counting two fills as two completely filled orders or treating the open 250 shares as already acquired.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A hypothetical order requests 500 shares and has final reported executions of 100 and 150. Its simple share-fill fraction is 250/500 = 50%, not 100%, despite two fill records.",
+      "transferQuestion": "FICTIONAL TRANSFER: Requested 800 shares, confirmed 300 and 100 shares. Compute simple share-fill fraction and residual.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CANCEL_REQUEST_VS_CONFIRMED",
+      "title": "Sending a cancel request does not prove the order stopped executing",
+      "concept": "Cancellation is an action request; the broker or venue must confirm order state, and an outstanding order can fill before that confirmation.",
+      "procedure": "Track order ID, initial accepted quantity, cancel-request time, fills during transition and explicit final canceled status.",
+      "workedCase": "FICTIONAL: A 200-share working order receives a cancel request at 10:00. A 50-share fill occurs at 10:00:00.100 before cancel confirmation at 10:00:00.150. The final exposure may be 50 shares, not zero.",
+      "limit": "Exact cancellation timing and acknowledgment semantics depend on broker and venue.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Exact cancellation timing and acknowledgment semantics depend on broker and venue.",
+      "commonError": "Setting positions to zero the instant a cancel button is pressed.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Setting positions to zero the instant a cancel button is pressed.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A 200-share working order receives a cancel request at 10:00. A 50-share fill occurs at 10:00:00.100 before cancel confirmation at 10:00:00.150. The final exposure may be 50 shares, not zero.",
+      "transferQuestion": "FICTIONAL TRANSFER: After submitting cancel, a 25-share execution confirms before cancellation. What evidence determines remaining quantity?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLACE_ORDER_ACK",
+      "title": "A submitted order modification does not immediately create the new executable price",
+      "concept": "Cancel/replace usually requires broker/venue acceptance; until an acknowledgment arrives the old instructions may still govern.",
+      "procedure": "Record prior order state, replacement request and acknowledgement; align fills to effective accepted terms.",
+      "workedCase": "FICTIONAL: A fictional 100-share buy limit at $10.00 is requested to change to $9.90 at 09:35:01, but acceptance is logged at 09:35:02. A trade at 09:35:01.500 cannot automatically be assigned the newer limit.",
+      "limit": "Queue priority and replace behavior differ across markets and broker gateways.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Queue priority and replace behavior differ across markets and broker gateways.",
+      "commonError": "Retrospectively applying a requested new limit to fills that occurred before replacement acknowledgment.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Retrospectively applying a requested new limit to fills that occurred before replacement acknowledgment.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A fictional 100-share buy limit at $10.00 is requested to change to $9.90 at 09:35:01, but acceptance is logged at 09:35:02. A trade at 09:35:01.500 cannot automatically be assigned the newer limit.",
+      "transferQuestion": "FICTIONAL TRANSFER: An order price update is requested at 11:10 but confirmed at 11:11. What limit should be assumed during the unconfirmed interval?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PARTIAL_FILL_RESIDUAL",
+      "title": "Residual shares depend on confirmed cumulative fills and order-state adjustments",
+      "concept": "An execution report reduces unfilled requested quantity, while cancellation or replacement can change the amount still working.",
+      "procedure": "Start from accepted quantity, subtract confirmed unique executions and reconcile replacements or cancels without double counting.",
+      "workedCase": "FICTIONAL: An accepted 600-share order executes 100, then 175. Confirmed filled shares are 275 and simple remaining quantity is 325 before any accepted replace or cancel.",
+      "limit": "Corrections, duplicate messages, busts and quantity updates alter final totals.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Corrections, duplicate messages, busts and quantity updates alter final totals.",
+      "commonError": "Mistaking a partial fill notice for a fully completed order or adding a duplicate execution twice.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Mistaking a partial fill notice for a fully completed order or adding a duplicate execution twice.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: An accepted 600-share order executes 100, then 175. Confirmed filled shares are 275 and simple remaining quantity is 325 before any accepted replace or cancel.",
+      "transferQuestion": "FICTIONAL TRANSFER: Accepted 400 shares with fills of 60 and 140; compute residual and state the missing evidence before claiming completion.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DAY_ORDER_SESSION_END",
+      "title": "A DAY time-in-force instruction has a session boundary that must be specified",
+      "concept": "A day order ordinarily expires at the broker-defined trading-day boundary when unfilled; market hours and extended-hours elections can change the effective window.",
+      "procedure": "Record broker TIF semantics, venue, session participation, submission date and final expiration report.",
+      "workedCase": "FICTIONAL: A DAY buy limit for 200 shares is entered at 15:00, remains unfilled at the stated 16:00 boundary and is confirmed expired. There are zero executions, not 200 carried into tomorrow by assumption.",
+      "limit": "Specific broker handling, partial fills, market holidays and after-hours settings can differ.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Specific broker handling, partial fills, market holidays and after-hours settings can differ.",
+      "commonError": "Assuming an unfilled DAY order is still working the following regular session.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Assuming an unfilled DAY order is still working the following regular session.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A DAY buy limit for 200 shares is entered at 15:00, remains unfilled at the stated 16:00 boundary and is confirmed expired. There are zero executions, not 200 carried into tomorrow by assumption.",
+      "transferQuestion": "FICTIONAL TRANSFER: A DAY order has 30 confirmed fills out of 100 before its expiration. What is the acquired quantity after expiration?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GTC_BROKER_EXPIRY",
+      "title": "Good-til-canceled is not necessarily indefinite across every broker",
+      "concept": "GTC expresses persistence beyond a single regular session under a broker's supported maximum duration, corporate actions and cancellation rules.",
+      "procedure": "Identify maximum broker duration, suspension events, corporate-action handling and actual order-status history.",
+      "workedCase": "FICTIONAL: A GTC order remains open after Monday's close, but the broker's hypothetical documented maximum duration is 30 calendar days. It cannot be assumed active indefinitely.",
+      "limit": "Broker terms and exchange rules, not this fictional duration, govern real order expiry.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Broker terms and exchange rules, not this fictional duration, govern real order expiry.",
+      "commonError": "Teaching 'GTC never expires' without acknowledging actual broker-specific durations.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Teaching 'GTC never expires' without acknowledging actual broker-specific durations.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A GTC order remains open after Monday's close, but the broker's hypothetical documented maximum duration is 30 calendar days. It cannot be assumed active indefinitely.",
+      "transferQuestion": "FICTIONAL TRANSFER: A GTC order was submitted 31 days ago; list facts needed to know whether it remains live.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_IOC_PARTIAL_CANCEL",
+      "title": "Immediate-or-cancel may execute the available portion and cancel the rest",
+      "concept": "IOC typically instructs immediate execution of eligible available quantity, with any unexecuted remainder canceled subject to venue/broker interpretation.",
+      "procedure": "Record actual IOC instructions, accepted size, immediate fills and cancellation confirmation rather than projecting a full position.",
+      "workedCase": "FICTIONAL: An illustrative 500-share IOC order executes 120 immediately; the other 380 are canceled. Confirmed acquired quantity is 120, not 500.",
+      "limit": "Routing, eligible order type, market status and actual available liquidity affect fill size.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Routing, eligible order type, market status and actual available liquidity affect fill size.",
+      "commonError": "Assuming the entire IOC order must be completed because it was accepted.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Assuming the entire IOC order must be completed because it was accepted.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: An illustrative 500-share IOC order executes 120 immediately; the other 380 are canceled. Confirmed acquired quantity is 120, not 500.",
+      "transferQuestion": "FICTIONAL TRANSFER: IOC requests 90 shares; 35 fill before cancellation. Report filled and canceled portions.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FOK_ALL_OR_NONE",
+      "title": "Fill-or-kill requests full immediate execution or cancellation under accepted broker rules",
+      "concept": "FOK requires a full specified quantity to be available and executable at once, under applicable venue semantics; absent that, the order should not partially fill.",
+      "procedure": "Verify whether FOK is supported for the instrument and route, then inspect final execution/cancel status.",
+      "workedCase": "FICTIONAL: A 400-share FOK buy at a specified limit cannot be fully satisfied at arrival. In the declared hypothetical FOK model, it cancels without a 100-share partial fill.",
+      "limit": "Some venues and brokers reject unsupported FOK instructions; a simulator must not pretend universal support.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Some venues and brokers reject unsupported FOK instructions; a simulator must not pretend universal support.",
+      "commonError": "Treating FOK and IOC as identical just because both specify immediate action.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Treating FOK and IOC as identical just because both specify immediate action.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A 400-share FOK buy at a specified limit cannot be fully satisfied at arrival. In the declared hypothetical FOK model, it cancels without a 100-share partial fill.",
+      "transferQuestion": "FICTIONAL TRANSFER: A simulated FOK order asks for 200 shares with only 150 eligible at the price. What is the modeled outcome?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EXTENDED_HOURS_NOT_NORMAL",
+      "title": "Extended-hours indications are not interchangeable with regular-session depth",
+      "concept": "Different trading sessions have distinct liquidity, order-type eligibility, volatility and venue participation; comparisons must preserve session labels.",
+      "procedure": "Read security, timezone, eligible session, broker-supported order types and contemporaneous quotes before a lesson speaks of a fill.",
+      "workedCase": "FICTIONAL: At 07:15, a premarket $20.00/$20.40 two-sided indication has a 40-cent quoted spread. The regular-session close of $20.15 yesterday does not override that spread.",
+      "limit": "Extended-hours access, halts, conditions and liquidity are broker- and market-dependent.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Extended-hours access, halts, conditions and liquidity are broker- and market-dependent.",
+      "commonError": "Using a regular-hours quote or last close as a guaranteed premarket execution price.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Using a regular-hours quote or last close as a guaranteed premarket execution price.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: At 07:15, a premarket $20.00/$20.40 two-sided indication has a 40-cent quoted spread. The regular-session close of $20.15 yesterday does not override that spread.",
+      "transferQuestion": "FICTIONAL TRANSFER: Premarket quote $9.80/$10.20, prior close $10.00. Compute the session-specific quoted spread and name a fill uncertainty.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ORDER_ROUTED_VS_EXECUTED",
+      "title": "A routing acknowledgment does not confirm share ownership",
+      "concept": "An order can be acknowledged as accepted and routed without any execution; confirmed fills are separate events.",
+      "procedure": "Trace accepted, routed, partially executed, filled, canceled or rejected states using order ID and cumulative fill count.",
+      "workedCase": "FICTIONAL: A simulated broker reports 'routed' for a 100-share limit order at 10:00, but execution quantity remains zero at 10:02. No share position has been acquired by that record.",
+      "limit": "Delayed reports and retry messages require idempotent state reconciliation.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Delayed reports and retry messages require idempotent state reconciliation.",
+      "commonError": "Recording 100 shares in the Journal solely because the order's status changed to routed.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Recording 100 shares in the Journal solely because the order's status changed to routed.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A simulated broker reports 'routed' for a 100-share limit order at 10:00, but execution quantity remains zero at 10:02. No share position has been acquired by that record.",
+      "transferQuestion": "FICTIONAL TRANSFER: A broker accepts 300 shares with 0 execution. How many shares should appear in a fill-based position record?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BUYING_POWER_SNAPSHOT",
+      "title": "Displayed buying power is a pre-trade constraint, not a guaranteed final position size",
+      "concept": "Available buying power depends on current account balances, margin rules, open orders and broker calculations; it can change before an order executes.",
+      "procedure": "Read buying-power timestamp, open commitments, eligible instrument and account permission before comparing required notional.",
+      "workedCase": "FICTIONAL: Buying power is $2,000 at a given time. A 100-share purchase at a hypothetical $19.50 requires $1,950 before costs. That arithmetic does not guarantee approval or execution.",
+      "limit": "Reserved funds, fees, price changes and margin eligibility may alter allowed quantity.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Reserved funds, fees, price changes and margin eligibility may alter allowed quantity.",
+      "commonError": "Assuming an old buying-power screen guarantees a new market order can fill its full planned size.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Assuming an old buying-power screen guarantees a new market order can fill its full planned size.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: Buying power is $2,000 at a given time. A 100-share purchase at a hypothetical $19.50 requires $1,950 before costs. That arithmetic does not guarantee approval or execution.",
+      "transferQuestion": "FICTIONAL TRANSFER: Buying power $1,000 and a hypothetical stock quote $12; calculate notional for 80 shares before commissions.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARGIN_INTEREST_PERIOD",
+      "title": "Borrowed-funds interest requires rate, balance and day-count conventions",
+      "concept": "Margin interest is a financing cost on eligible borrowed balances, calculated under broker-specific rate and accrual conventions.",
+      "procedure": "Declare principal, annualized rate, actual accrual days, 360/365 basis and whether the debt balance stayed constant.",
+      "workedCase": "FICTIONAL: A fixed hypothetical $1,000 debit at 12% simple annualized rate for 10 days on a 360-day basis incurs $1,000×0.12×10/360 = $3.33 before compounding.",
+      "limit": "Actual brokers may use variable tiered rates, changing daily balances, cutoff times and capitalization.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Actual brokers may use variable tiered rates, changing daily balances, cutoff times and capitalization.",
+      "commonError": "Assuming an annual 12% financing rate means 12% charged for ten days.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Assuming an annual 12% financing rate means 12% charged for ten days.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A fixed hypothetical $1,000 debit at 12% simple annualized rate for 10 days on a 360-day basis incurs $1,000×0.12×10/360 = $3.33 before compounding.",
+      "transferQuestion": "FICTIONAL TRANSFER: On a hypothetical 365-day simple basis, $2,000 at 10% for 5 days gives how much accrued interest?",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHORT_LOCATE_NOT_FILL",
+      "title": "A short locate or borrow indication does not establish an executable short order",
+      "concept": "Availability to borrow and a permitted short-sale execution are separate conditions; locates may be time-limited and subject to broker constraints.",
+      "procedure": "Confirm security borrow eligibility, locate status, order price tests, actual route and separately confirmed fill before recording shares short.",
+      "workedCase": "FICTIONAL: A simulator reports 500 shares 'available to locate' while no short order has executed. Net executed short quantity remains zero, whatever the borrow availability label says.",
+      "limit": "Short-sale rules, borrow recalls and account permissions are specific to issuer, time and institution.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Short-sale rules, borrow recalls and account permissions are specific to issuer, time and institution.",
+      "commonError": "Counting approved borrow capacity as an already-open executed short position.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Counting approved borrow capacity as an already-open executed short position.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A simulator reports 500 shares 'available to locate' while no short order has executed. Net executed short quantity remains zero, whatever the borrow availability label says.",
+      "transferQuestion": "FICTIONAL TRANSFER: A locate indicates 200 shares available, but a submitted order is rejected. What is the confirmed short position?",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BORROW_FEE_TIME_BASIS",
+      "title": "An indicative annual borrow fee is not a one-day interest amount",
+      "concept": "Stock-borrow costs often reference an annualized rate and an eligible market value under specific broker/day-count conventions.",
+      "procedure": "Choose quoted annual percentage, value of borrowed shares, accrual days and exact contractual day-count; distinguish indicative from billed rate.",
+      "workedCase": "FICTIONAL: A $5,000 hypothetical borrow at 36% annualized for 5 days on a declared 360-day simple basis would cost $5,000×0.36×5/360=$25, excluding other fees.",
+      "limit": "Rates can change abruptly and brokers may charge on actual loan value, settlement, collateral and fee rules.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Rates can change abruptly and brokers may charge on actual loan value, settlement, collateral and fee rules.",
+      "commonError": "Interpreting an indicative 36% annual borrow rate as a 36% cost over five days.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Interpreting an indicative 36% annual borrow rate as a 36% cost over five days.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A $5,000 hypothetical borrow at 36% annualized for 5 days on a declared 360-day simple basis would cost $5,000×0.36×5/360=$25, excluding other fees.",
+      "transferQuestion": "FICTIONAL TRANSFER: At a fictional 18% annual borrow rate, $4,000 for 2 days on 360-day simple convention, compute approximate interest.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COMMISSION_NET_PROCEEDS",
+      "title": "Gross execution proceeds and net cash after charges are different totals",
+      "concept": "A confirmed sale's gross proceeds are price×quantity; eligible commissions or fees reduce cash credited, separate from taxable gain.",
+      "procedure": "Reconcile unique fills at confirmed prices and actual assessed transaction costs before displaying net proceeds.",
+      "workedCase": "FICTIONAL: Sell 50 shares at $20.00 for $1,000 gross, with an illustrative $2 fee. Net sale proceeds are $998 before taxes and basis adjustments.",
+      "limit": "Regulatory charges, venue fees, FX conversion and account settings change actual cash settlement.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Regulatory charges, venue fees, FX conversion and account settings change actual cash settlement.",
+      "commonError": "Showing the $1,000 gross as actual settled net cash without subtracting the known $2 fee.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Showing the $1,000 gross as actual settled net cash without subtracting the known $2 fee.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: Sell 50 shares at $20.00 for $1,000 gross, with an illustrative $2 fee. Net sale proceeds are $998 before taxes and basis adjustments.",
+      "transferQuestion": "FICTIONAL TRANSFER: A sale fills 30 shares at $15 with hypothetical charges of $1.50. Compute gross and net cash.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PER_SHARE_PER_ORDER_FEE",
+      "title": "Per-share and flat-per-order fees produce different transaction costs",
+      "concept": "A broker might charge by executed share, by order, by venue or under a tier; the cost method must be declared before comparison.",
+      "procedure": "Check billing basis and whether multiple partial fills count as one or several chargeable events.",
+      "workedCase": "FICTIONAL: A 400-share execution at a fictional $0.005/share costs $2.00; a separately stated $1.00 flat-per-order schedule costs $1.00. They are alternative schedules, not additive charges.",
+      "limit": "Minimums, exchange pass-through and broker-specific rounding may alter total expenses.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Minimums, exchange pass-through and broker-specific rounding may alter total expenses.",
+      "commonError": "Multiplying a flat order charge by share count or assuming commission-free means zero total fees.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Multiplying a flat order charge by share count or assuming commission-free means zero total fees.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: A 400-share execution at a fictional $0.005/share costs $2.00; a separately stated $1.00 flat-per-order schedule costs $1.00. They are alternative schedules, not additive charges.",
+      "transferQuestion": "FICTIONAL TRANSFER: A hypothetical 600-share fill faces $0.004/share pricing or $2 flat. Compute each alternative total.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SLIPPAGE_REFERENCE_EXPLICIT",
+      "title": "Slippage cannot be interpreted without a declared decision-price benchmark",
+      "concept": "Slippage compares an actual confirmed execution price with a specified earlier or contemporaneous reference; it is not automatically market manipulation or a prediction.",
+      "procedure": "Document order side, decision timestamp, benchmark validity, fill price and per-share plus notional impact.",
+      "workedCase": "FICTIONAL: Buy decision reference $10.00, confirmed fill $10.08 for 100 shares. Buy-side adverse difference is +$0.08/share, or $8, under that declared benchmark, excluding fees.",
+      "limit": "Arrival price, midpoint and last trade are different benchmarks; quote freshness matters.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Arrival price, midpoint and last trade are different benchmarks; quote freshness matters.",
+      "commonError": "Comparing a buy fill to a later quote that was unknown when the order was submitted.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Comparing a buy fill to a later quote that was unknown when the order was submitted.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: Buy decision reference $10.00, confirmed fill $10.08 for 100 shares. Buy-side adverse difference is +$0.08/share, or $8, under that declared benchmark, excluding fees.",
+      "transferQuestion": "FICTIONAL TRANSFER: Hypothetical sell decision reference $18.00, confirmed sale $17.90 for 50 shares. Calculate adverse dollar difference.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REALIZED_SPREAD_HORIZON",
+      "title": "Realized spread depends on a posttrade midpoint at a specified future horizon",
+      "concept": "A realized-spread statistic compares an execution with a later midpoint according to an explicitly chosen horizon and reporting formula, unlike effective spread at execution.",
+      "procedure": "First define side sign, execution time and price, future midpoint horizon, then compute the reporting convention, avoiding accidental use in decision-point coaching.",
+      "workedCase": "FICTIONAL: For retrospective analysis only, a buy fill at $10.08 has a midpoint $10.06 one minute later. Under 2×(execution−later midpoint), realized spread is $0.04/share. The later midpoint must not be shown to a prior-decision learner.",
+      "limit": "Benchmark and reporting methodology can differ, and a delayed quote must not be smuggled into live decision guidance.",
+      "invalidation": "Do not attribute a fill, legal rule or financing cost without confirming the actual account, order-event and pricing conditions. Benchmark and reporting methodology can differ, and a delayed quote must not be smuggled into live decision guidance.",
+      "commonError": "Using the one-minute-later midpoint to justify an earlier trade decision or calling realized spread an order fill guarantee.",
+      "selfCheck": "Distinguish confirmed transaction evidence from a quoted or requested condition. Explain the precise mistake here: Using the one-minute-later midpoint to justify an earlier trade decision or calling realized spread an order fill guarantee.",
+      "reviewExplanation": "For formative ungraded correction, verify the original declared inputs, preserve their price/quantity/time units, and explain why the mistaken inference does not follow: FICTIONAL: For retrospective analysis only, a buy fill at $10.08 has a midpoint $10.06 one minute later. Under 2×(execution−later midpoint), realized spread is $0.04/share. The later midpoint must not be shown to a prior-decision learner.",
+      "transferQuestion": "FICTIONAL TRANSFER: A confirmed buy executes at $20.05 and later midpoint is $20.02 at a specified posttrade horizon. Compute retrospective spread and explain the chronology.",
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_no_redistributed_feed",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "draft_only_claim_specific_review_pending",
+        "rights": "no_market_data_licensed",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
