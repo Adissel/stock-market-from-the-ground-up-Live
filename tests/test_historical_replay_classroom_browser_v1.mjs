@@ -73,7 +73,7 @@ try{
  await page.locator('#hr-review').evaluate(x=>{x.value='1';x.dispatchEvent(new Event('input',{bubbles:true}));});
  assert.match(await page.locator('#hr-review-state').innerText(),/Reviewing previously/);
  assert.equal(cursor,2,'review UI must not change server cursor');
- await page.getByRole('button',{name:'Latest revealed'}).click();
+ await page.getByRole('button',{name:'Latest revealed',exact:true}).click();
  assert.match(await page.locator('#hr-talia-copy').innerText(),/most recently completed/);
  assert.equal(advancedBeforeLock,0,'No pre-lock server request');
  assert.deepEqual(errors,[]);
