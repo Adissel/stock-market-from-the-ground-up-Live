@@ -320,6 +320,24 @@ function formatMasterStudyGuide(g,mode,reflection){
  if(mode==='question')out.push('Answer from evidence visible at the pause, not from later prices.');
  return out.join('\n\n');
 }
+const MISCONCEPTION_INTENT=/\\b(?:common mistakes?|misconceptions?|correct my misunderstanding|what did i misunderstand|why (?:is|was|are) (?:that|this|my answer) wrong|explain the common mistake)\\b/i;
+function sourceOnlyMisconception(g){
+ const name=String(g.title||'this topic');
+ const error=String(g.commonError||'Treating a single observation as a guaranteed outcome.');
+ const concept=String(g.concept||'The source observation is conditional.');
+ const procedure=String(g.procedure||g.howToUse||'State the current observation and its inputs.');
+ const limit=String(g.limit||g.limits||'A documented observation cannot guarantee the next price.');
+ const transfer=String(g.transferQuestion||g.selfCheck||'Explain a new hypothetical case without looking ahead.');
+ return [
+  'Original, ungraded misconception coaching — '+name,
+  'A common mistake to examine (not a claim about what you personally believed): '+error,
+  'More accurate explanation: '+concept,
+  'How to check the evidence: '+procedure,
+  'What remains unknown: '+limit,
+  'Fresh independent transfer prompt: '+transfer,
+  'This explanation is not graded and does not reveal a protected assessment answer.'
+ ].join('\\n\\n');
+}
 function formatFoundationTopic(g,mode,reflection,question){
  const computed=mode==='explain'?foundationQuantTeaching(g.code,question):null;
  const topic='Original ungraded Foundation explanation — '+g.title;
@@ -339,6 +357,7 @@ function formatFoundationTopic(g,mode,reflection,question){
    'This explanation does not predict a trade outcome or grant a protected assessment result.'].join('\n\n');
 }
 function answerFromGuide(g,mode,answer,question=''){
+ if(mode==='explain'&&MISCONCEPTION_INTENT.test(String(question||'')))return sourceOnlyMisconception(g);
  if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question);
  // Reuse published canonical guide IDs; practice/review remain independently answered.
  const worked=mode==='explain'&&g?.officialCompetency!==false?foundationWorkedMath(g.code,question):null;
