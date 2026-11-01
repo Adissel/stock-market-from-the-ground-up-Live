@@ -51,6 +51,11 @@ test('Academy and the separate 30-day page each retain one existing optional ECh
  assert.match(academy,/originalInstruction\.append\(extra\)/);
  assert.match(academy,/kind:\/\\bvwap/);
  assert.match(thirtyPage,/data-crownlight-echarts-tutorial/);
+ // Switching study days or signing out must release the old ECharts instance.
+ assert.ok(academy.includes("function clean(){\n  academySupplementChart?.dispose?.();academySupplementChart=null;"));
+ assert.ok(academy.includes("academySupplementChart?.dispose?.();academySupplementChart=null;\n  globalThis.CrownlightLearningProgress?.reset?"));
+ assert.ok(academy.includes("academySupplementChart=view||null;"));
+ assert.ok(academy.includes("if(academySupplementChart===view)academySupplementChart=null;view=null"));
  assert.match(engine,/if\(!academyScope\)root\.GroundUpLabV33GradeDisplay/);
 });
 
