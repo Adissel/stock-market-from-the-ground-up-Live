@@ -844,3 +844,14 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app .cx-layout-deleted strong{font-size:11px;color:#ffcbd0}
 .cx-app .cx-layout-deleted button{font-size:11px;border-radius:6px;padding:9px;text-align:left;background:#54313c;color:#fff;border:1px solid #bf8d9e}
 @media(forced-colors:active){.cx-app .cx-layout-check,.cx-app .cx-layout-deleted button{border-color:CanvasText}}
+
+/* V24: corner handles are drawn outside the React chart/text subtree. */
+.cx-app .cx-layout-resize-outline{position:fixed;box-sizing:border-box;z-index:9998;pointer-events:none;border:2px solid #7ff5df;border-radius:4px;outline:1px solid #0b2530;outline-offset:2px;box-shadow:0 0 14px #5df6d84a}
+.cx-app .cx-layout-resize-corner{position:absolute;z-index:2;box-sizing:border-box;width:22px;height:22px;padding:0;pointer-events:auto;background:#e6fff9;border:3px solid #136a76;border-radius:5px;box-shadow:0 1px 10px #000a;touch-action:none;-webkit-user-select:none;user-select:none}
+.cx-app .cx-layout-resize-corner:hover,.cx-app .cx-layout-resize-corner:focus-visible{border-color:#2349a1;background:#fff;outline:3px solid #ffcf84;outline-offset:2px}
+.cx-app .cx-layout-resize-nw{top:-11px;left:-11px;cursor:nwse-resize}
+.cx-app .cx-layout-resize-ne{top:-11px;right:-11px;cursor:nesw-resize}
+.cx-app .cx-layout-resize-sw{bottom:-11px;left:-11px;cursor:nesw-resize}
+.cx-app .cx-layout-resize-se{bottom:-11px;right:-11px;cursor:nwse-resize}
+@media(max-width:700px){.cx-app .cx-layout-resize-corner{width:28px;height:28px}.cx-app .cx-layout-resize-nw{top:-14px;left:-14px}.cx-app .cx-layout-resize-ne{top:-14px;right:-14px}.cx-app .cx-layout-resize-sw{bottom:-14px;left:-14px}.cx-app .cx-layout-resize-se{bottom:-14px;right:-14px}}
+@media(forced-colors:active){.cx-app .cx-layout-resize-outline{border-color:Highlight}.cx-app .cx-layout-resize-corner{background:ButtonFace;border-color:ButtonText}}

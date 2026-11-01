@@ -765,7 +765,7 @@ function LayoutStudio({page}:{page:Page}){
  const [snapToGrid,setSnapToGrid]=useState(true),[inlineText,setInlineText]=useState(false);
  const snap=(v:number)=>snapToGrid?Math.round(v/10)*10:Math.round(v);
  const [kind,setKind]=useState<LayoutKind>('cards'),[selected,setSelected]=useState(''),[version,setVersion]=useState(0);
- const [note,setNote]=useState('Choose an element from the list or click a card. Drag to move; change its width and height below.');
+ const [note,setNote]=useState('Click to select an element, then drag a corner to resize or enter exact dimensions.');
  const [inventory,setInventory]=useState<Array<{id:string;label:string}>>([]);
  const [search,setSearch]=useState('');
  const [textDraft,setTextDraft]=useState('');
@@ -937,6 +937,79 @@ function LayoutStudio({page}:{page:Page}){
   root.addEventListener('pointerdown',down,true);root.addEventListener('click',suppress,true);root.addEventListener('focusout',finish,true);
   return()=>{root.removeEventListener('pointerdown',down,true);root.removeEventListener('click',suppress,true);root.removeEventListener('focusout',finish,true)};
  },[editing,clean,kind,inlineText,snapToGrid,keyFor,change,describe]);
+
+ const [resizeBounds,setResizeBounds]=useState<{left:number;top:number;width:number;height:number}|null>(null);
+ const dimension=(value:number,min:number)=>Math.min(2200,Math.max(min,snap(value)));
+ const beginCornerResize=(event:React.PointerEvent<HTMLButtonElement>,corner:'nw'|'ne'|'sw'|'se')=>{
+  if(!editing||clean||!selected||event.button!==0)return;
+  const el=selectedNode.current;
+  if(!el||!el.isConnected||el.dataset.cxLayoutKey!==selected||items.current[selected]?.deleted||items.current[selected]?.hidden)return;
+  event.preventDefault();event.stopPropagation();
+  const start=el.getBoundingClientRect(),prior=items.current[selected]||{x:0,y:0};
+  const button=event.currentTarget,pointer=event.pointerId,initialX=event.clientX,initialY=event.clientY;
+  let currentSize={x:prior.x,y:prior.y,width:start.width,height:start.height},moved=false,finished=false;
+  const revert=()=>{
+   el.style.width=prior.width?Math.round(prior.width)+'px':'';
+   el.style.height=prior.height?Math.round(prior.height)+'px':'';
+   el.style.maxWidth=prior.width?'none':'';
+   el.style.transform=!prior.detached&&(prior.x||prior.y)?'translate3d('+prior.x+'px,'+prior.y+'px,0)':'';
+   el.style.left=prior.detached?prior.x+'px':'';
+   el.style.top=prior.detached?prior.y+'px':'';
+   const r=el.getBoundingClientRect();setResizeBounds({left:r.left,top:r.top,width:r.width,height:r.height});
+  };
+  const preview=(e:PointerEvent)=>{
+   if(finished||e.pointerId!==pointer)return;
+   const dx=e.clientX-initialX,dy=e.clientY-initialY;
+   const left=corner.includes('w'),top=corner.includes('n');
+   const width=dimension(start.width+(left?-dx:dx),60),height=dimension(start.height+(top?-dy:dy),30);
+   currentSize={x:prior.x+(left?start.width-width:0),y:prior.y+(top?start.height-height:0),width,height};
+   moved=moved||Math.abs(width-start.width)>.5||Math.abs(height-start.height)>.5;
+   el.style.width=Math.round(width)+'px';el.style.maxWidth='none';el.style.height=Math.round(height)+'px';
+   if(prior.detached){el.style.left=Math.round(currentSize.x)+'px';el.style.top=Math.round(currentSize.y)+'px';}
+   else{el.style.position='relative';el.style.transform=currentSize.x||currentSize.y?'translate3d('+Math.round(currentSize.x)+'px,'+Math.round(currentSize.y)+'px,0)':'';}
+   const r=el.getBoundingClientRect();setResizeBounds({left:r.left,top:r.top,width:r.width,height:r.height});
+   e.preventDefault();
+  };
+  const cleanup=()=>{
+   window.removeEventListener('pointermove',preview,true);
+   window.removeEventListener('pointerup',finish,true);
+   window.removeEventListener('pointercancel',cancel,true);
+   window.removeEventListener('blur',cancel,true);
+   try{if(button.hasPointerCapture(pointer))button.releasePointerCapture(pointer)}catch{}
+  };
+  const finish=(e:PointerEvent)=>{
+   if(finished||e.pointerId!==pointer)return;
+   finished=true;cleanup();
+   if(moved){
+    change(selected,{x:Math.round(currentSize.x),y:Math.round(currentSize.y),width:Math.round(currentSize.width),height:Math.round(currentSize.height),name:prior.name||describe(el)});
+    setNote('Resized to '+Math.round(currentSize.width)+' × '+Math.round(currentSize.height)+' pixels. Undo remains available.');
+   }else revert();
+  };
+  const cancel=()=>{
+   if(finished)return;
+   finished=true;cleanup();revert();setNote('Resize canceled; previous size restored.');
+  };
+  try{button.setPointerCapture(pointer)}catch{}
+  window.addEventListener('pointermove',preview,true);
+  window.addEventListener('pointerup',finish,true);
+  window.addEventListener('pointercancel',cancel,true);
+  window.addEventListener('blur',cancel,true);
+ };
+ useEffect(()=>{
+  if(!editing||clean||!selected){setResizeBounds(null);return;}
+  const el=selectedNode.current;
+  if(!el||!el.isConnected||el.dataset.cxLayoutKey!==selected||items.current[selected]?.hidden||items.current[selected]?.deleted){setResizeBounds(null);return;}
+  const sync=()=>{
+   if(!el.isConnected){setResizeBounds(null);return;}
+   const r=el.getBoundingClientRect();
+   if(r.width<8||r.height<8){setResizeBounds(null);return;}
+   setResizeBounds(old=>old&&Math.abs(old.left-r.left)<.5&&Math.abs(old.top-r.top)<.5&&Math.abs(old.width-r.width)<.5&&Math.abs(old.height-r.height)<.5?old:{left:r.left,top:r.top,width:r.width,height:r.height});
+  };
+  sync();
+  const watcher=new ResizeObserver(sync);watcher.observe(el);
+  window.addEventListener('scroll',sync,true);window.addEventListener('resize',sync);
+  return()=>{watcher.disconnect();window.removeEventListener('scroll',sync,true);window.removeEventListener('resize',sync);};
+ },[editing,clean,selected,version]);
  const current:LayoutChange=items.current[selected]||{x:0,y:0};
  const detach=()=>{if(!selected)return;
   if(current.detached){modify({detached:false,x:0,y:0});return;}
@@ -954,11 +1027,14 @@ function LayoutStudio({page}:{page:Page}){
   setNote('Element removed from this draft. Use Restore deleted or Undo.');
  };
  return <div className="cx-layout-studio" data-cx-editor="true" aria-label="Prototype layout designer">
+  {editing&&!clean&&resizeBounds&&selected&&<div className="cx-layout-resize-outline" role="group" aria-label="Selected element resize handles" style={{left:resizeBounds.left,top:resizeBounds.top,width:resizeBounds.width,height:resizeBounds.height}}>
+   {(['nw','ne','sw','se'] as const).map(corner=><button type="button" key={corner} data-resize-corner={corner} className={'cx-layout-resize-corner cx-layout-resize-'+corner} aria-label={'Resize selected element from '+({nw:'top left',ne:'top right',sw:'bottom left',se:'bottom right'} as const)[corner]+' corner'} title="Drag to resize; release to save; Snap to Grid applies" onPointerDown={e=>beginCornerResize(e,corner)}/>)}
+  </div>}
   {!clean&&<button className="cx-layout-toggle" aria-expanded={editing} onClick={()=>setEditing(v=>!v)}>{editing?'Close Layout Designer':'Edit page layout'}</button>}
   {editing&&!clean&&<section className="cx-layout-toolbar" aria-label="Visual layout controls">
    <header><strong>Layout Designer · Staff only</strong><small>Edit page copy, remove draft elements, and position layouts. Changes stay in this browser.</small></header>
    <label>Choose elements to arrange<select aria-label="Layout element type" value={kind} onChange={e=>setKind(e.target.value as LayoutKind)}><option value="cards">Cards / charts</option><option value="buttons">Buttons / links</option><option value="labels">Labels</option><option value="text">Headings / text</option></select></label>
-   <p><strong>Choose an element below or click it directly on the page.</strong> This works with cards, charts, buttons, labels and text. Drag to move it, or enter its dimensions. Layout is saved locally for this screen size.</p>
+   <p><strong>Choose an element below or click it directly on the page.</strong> This works with cards, charts, buttons, labels and text. Drag to move or pull any selected corner to resize; exact dimensions remain available. Layout is saved locally for this screen size.</p>
    <label className="cx-layout-check"><input type="checkbox" aria-label="Snap to grid" checked={snapToGrid} onChange={e=>{setSnapToGrid(e.target.checked);try{window.localStorage.setItem(storageKey+':snap',String(e.target.checked))}catch{}}}/>Snap to grid (10 px)</label>
    <label className="cx-layout-check"><input type="checkbox" aria-label="Edit text directly" checked={inlineText} onChange={e=>{setInlineText(e.target.checked);if(e.target.checked)setKind('text');else clearInline()}}/>Edit text directly on page</label>
    <label>Find an element<input aria-label="Find page element" type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search: Talia, VWAP, chart, button..."/></label>
@@ -966,7 +1042,7 @@ function LayoutStudio({page}:{page:Page}){
     {inventory.filter(e=>!search||e.label.toLowerCase().includes(search.toLowerCase())).slice(0,400).map(e=><option key={e.id} value={e.id}>{e.label}</option>)}
    </select></label>
    <button type="button" className="cx-layout-refresh" onClick={refreshInventory}>Refresh element list</button>
-   <output aria-live="polite">Selected: {selected?(current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.tagName||'Element'):'None'}</output>
+   <output aria-live="polite">Selected: {selected?(current.name||selectedNode.current?.getAttribute('aria-label')||selectedNode.current?.tagName||'Element'):'None'}{resizeBounds?' · '+Math.round(resizeBounds.width)+' × '+Math.round(resizeBounds.height)+' px':''}</output>
    <div className="cx-layout-dimensions">
     <label>Width (px)<input aria-label="Selected element width" type="number" min="60" max="2200" value={current.width||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({width:e.target.value?Math.min(2200,Math.max(60,Number(e.target.value))):undefined})}/></label>
     <label>Height (px)<input aria-label="Selected element height" type="number" min="30" max="2200" value={current.height||''} placeholder="Auto" disabled={!selected} onChange={e=>modify({height:e.target.value?Math.min(2200,Math.max(30,Number(e.target.value))):undefined})}/></label>
