@@ -1,0 +1,335 @@
+{
+  "documentId": "SMFGU-LAB-BATCH02-20261101",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP — Learning Academy",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "sourceFile": "data/lab-teaching-bridges-v014168.json",
+  "originalLabCount": 419,
+  "ownerDecision": "20 ORIGINAL FICTIONAL TEACHING DRAFTS INTERNALLY ACCEPTED FOR DEVELOPMENT; PROTECTED EDITORIAL GRADING AND AUTHENTICATED RELEASE ACCEPTANCE WITHHELD",
+  "independentReviewer": false,
+  "independentGradedAssessmentAccepted": false,
+  "rightsReviewedForCommercialHistoricalData": false,
+  "sourceDocument": "Owner-uploaded Master Research Source Directory(20261101-204422).odt, content.xml sha256 c5037ac05e6d6d2d28cce305b7ed7d014c795ebebe653dd8eea0fd4e55afb556",
+  "entries": [
+    {
+      "id": "F2-C03-L02",
+      "title": "Premarket Information Release and Repricing",
+      "sourceId": "SEC-MKT",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          10.38,
+          10.04
+        ],
+        "expected": 0.34
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C04-L01",
+      "title": "Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote",
+      "sourceId": "FINRA-EDU",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          5.08,
+          5
+        ],
+        "expected": 0.08
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C04-L02",
+      "title": "Compare Quote Width Without Jumping Ahead to Liquidity Analysis",
+      "sourceId": "FINRA-EDU",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          0.12,
+          0.04
+        ],
+        "expected": 0.08
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C05-L01",
+      "title": "Raw 5-Minute Volume and Why the Timeframe Must Be Recorded",
+      "sourceId": "CHARTSCHOOL-IND",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          4200,
+          3400
+        ],
+        "expected": 800
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C05-L02",
+      "title": "Compare Lower Trading Activity With the Prior Exercise",
+      "sourceId": "CHARTSCHOOL-IND",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          4000,
+          2500
+        ],
+        "expected": 1500
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C05-L03",
+      "title": "High Volume Still Requires Liquidity and Order-Size Context",
+      "sourceId": "NASDAQ-TRADER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          1000,
+          200
+        ],
+        "expected": 5
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C06-L01",
+      "title": "Axes and Chart Types — Same Historical Window, Different Representation",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          12,
+          10
+        ],
+        "expected": 1.2
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C06-L02",
+      "title": "Chart Type Versus Aggregation — Change One Variable at a Time",
+      "sourceId": "TOS-LRN",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          10.5,
+          10.1
+        ],
+        "expected": 0.4
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C07-L01",
+      "title": "Construct an Up / Bullish Candle",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          11,
+          10
+        ],
+        "expected": 1
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C07-L02",
+      "title": "Construct a Down / Bearish Candle",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          12,
+          10.9
+        ],
+        "expected": 1.1
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C07-L03",
+      "title": "Identify an Exact or Near Doji",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          0.02,
+          2
+        ],
+        "expected": 0.01
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L01",
+      "title": "Large Up Body, Close Near High",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          0.95,
+          1.1
+        ],
+        "expected": 0.8636363636363635
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L02",
+      "title": "Large Down Body, Close Near Low",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          1.05,
+          1.2
+        ],
+        "expected": 0.875
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L03",
+      "title": "Long Lower Wick, Recovery Into the Close",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          10.2,
+          9.5
+        ],
+        "expected": 0.7
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L04",
+      "title": "Long Upper Wick, Close Back Near the Lower Area",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          5.9,
+          5.2
+        ],
+        "expected": 0.7
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L05",
+      "title": "Small Body With Two-Sided Excursion",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "divide",
+        "values": [
+          0.1,
+          2
+        ],
+        "expected": 0.05
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C08-L06",
+      "title": "Exact Doji With Unequal Wicks",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          15.8,
+          15
+        ],
+        "expected": 0.8
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C09-L01",
+      "title": "Upward Follow-Through With Contracting Ranges",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          10.8,
+          10.5
+        ],
+        "expected": 0.3
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C09-L02",
+      "title": "Downward Follow-Through",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          20,
+          19.6
+        ],
+        "expected": 0.4
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    },
+    {
+      "id": "F2-C09-L03",
+      "title": "Directional Follow-Through Interrupted by an Opposite Expansion",
+      "sourceId": "CHARTSCHOOL-OVER",
+      "numericalCheck": {
+        "operation": "subtract",
+        "values": [
+          12.4,
+          11.3
+        ],
+        "expected": 1.1
+      },
+      "status": "INTERNAL_OWNER_EDITORIAL_SOURCE_DRAFT_REVIEWED_NOT_FINAL_RELEASE_ACCEPTED",
+      "protectedGrade": false,
+      "rights": "FICTIONAL_ONLY_NO_THIRD_PARTY_REPUBLICATION"
+    }
+  ]
+}

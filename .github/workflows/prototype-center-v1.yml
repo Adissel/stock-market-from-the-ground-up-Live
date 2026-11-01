@@ -14,6 +14,9 @@ on:
       - 'assets/css/prototype-curriculum-parity-v1.css'
       - 'tests/prototype-curriculum-parity-v1.test.mjs'
       - 'scripts/guided-platform-quality-audit-v1.mjs'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'docs/learning/SMFGU-LAB-BATCH02-20261101.json'
+      - 'tests/lab-batch02-source-v1.test.mjs'
       - 'tests/prototype-experiences-v1-browser.test.mjs'
       - 'src/prototype/PrototypeThreeLab.tsx'
       - 'src/prototype/PrototypeWorkbenchDeck.tsx'
@@ -86,6 +89,7 @@ jobs:
           node tests/prototype-indicator-workbench-v2.test.mjs
           node tests/prototype-curriculum-parity-v1.test.mjs
           node scripts/guided-platform-quality-audit-v1.mjs
+          node tests/lab-batch02-source-v1.test.mjs
           node tests/prototype-teaching-v2.test.mjs
           node tests/prototype-private-document-v3.test.mjs
           node tests/prototype-membership-builder-v1.test.mjs

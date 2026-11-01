@@ -971,44 +971,39 @@
         "EMA_CONTEXT",
         "HOD_PM_LEVELS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Premarket Information Release and Repricing.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "Learning objective: Premarket Information Release and Repricing. Synthetic 08:14 release and premarket repricing must be studied in timestamp order. One quote changes from bid/ask $10.00/$10.08 at 08:13 to $10.30/$10.46 at 08:16, after the stated release.",
+          "Original FICTIONAL worked observation: At 08:13 the midpoint is $10.04 and at 08:16 it is $10.38, a $0.34 difference. Both are quote indications, not an executable share purchase or proof that a verified public disclosure caused the change."
         ],
         "recognize": [
-          "Here is how to recognize Premarket Information Release and Repricing from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Synthetic 08:14 release and premarket repricing must be studied in timestamp order. One quote changes from bid/ask $10.00/$10.08 at 08:13 to $10.30/$10.46 at 08:16, after the stated release.",
+          "Separate a measured fact from interpretation: The time on the synthetic release must be established independently; an earlier quote cannot include a later release. A price response may reflect other contemporaneous events."
         ],
         "apply": [
-          "Let us practice Premarket Information Release and Repricing using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Work the original FICTIONAL example without future observations: At 08:13 the midpoint is $10.04 and at 08:16 it is $10.38, a $0.34 difference. Both are quote indications, not an executable share purchase or proof that a verified public disclosure caused the change.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. The time on the synthetic release must be established independently; an earlier quote cannot include a later release. A price response may reflect other contemporaneous events."
         ],
         "mistake": [
-          "A common error with Premarket Information Release and Repricing: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Premarket Information Release and Repricing: Treating a timestamped change in quotes as a completed trade or certain causal attribution is a false inference.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Premarket Information Release and Repricing cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The time on the synthetic release must be established independently; an earlier quote cannot include a later release. A price response may reflect other contemporaneous events.",
+          "Source candidate SEC-MKT is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. The time on the synthetic release must be established independently; an earlier quote cannot include a later release. A price response may reflect other contemporaneous events.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
+        "prompt": "Create a fresh fictional release at 08:22 with quotes at 08:20 and 08:25. Determine which observations were available at the earlier decision and what confirmation is missing.",
         "topic": "Premarket Information Release and Repricing",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C03_L02"
     },
     "F2-C04-L01": {
       "labId": "F2-C04-L01",
@@ -1018,44 +1013,39 @@
       "relatedCompetencies": [
         "SLIPPAGE_SPREAD"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Learning objective: Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote. A quote snapshot has three distinct price concepts: best bid is an advertised buy quotation, best ask an advertised sell quotation, and last is a past transaction price. Fictional bid $5.00, ask $5.08, last $5.03.",
+          "Original FICTIONAL worked observation: Quoted spread = $5.08 − $5.00 = $0.08 and midpoint = ($5.00 + $5.08)/2 = $5.04. With 20 shares displayed at the ask, a 100-share market buy has no evidenced complete fill price."
         ],
         "recognize": [
-          "Here is how to recognize Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A quote snapshot has three distinct price concepts: best bid is an advertised buy quotation, best ask an advertised sell quotation, and last is a past transaction price. Fictional bid $5.00, ask $5.08, last $5.03.",
+          "Separate a measured fact from interpretation: A displayed size is not total market depth; a last sale is not a guaranteed executable quote and a quote can be canceled."
         ],
         "apply": [
-          "Let us practice Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Work the original FICTIONAL example without future observations: Quoted spread = $5.08 − $5.00 = $0.08 and midpoint = ($5.00 + $5.08)/2 = $5.04. With 20 shares displayed at the ask, a 100-share market buy has no evidenced complete fill price.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. A displayed size is not total market depth; a last sale is not a guaranteed executable quote and a quote can be canceled."
         ],
         "mistake": [
-          "A common error with Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote: Marking a 100-share buy as fully filled at the $5.08 offer despite only 20 shares displayed at that level invents execution.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "A displayed size is not total market depth; a last sale is not a guaranteed executable quote and a quote can be canceled.",
+          "Source candidate FINRA-EDU is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. A displayed size is not total market depth; a last sale is not a guaranteed executable quote and a quote can be canceled.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
+        "prompt": "On new fictional quotes bid $7.14, ask $7.22 and last $7.18 with 15 offered shares, compute spread and midpoint and state what is unknown for a 60-share order.",
         "topic": "Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C04_L01"
     },
     "F2-C04-L02": {
       "labId": "F2-C04-L02",
@@ -1065,44 +1055,39 @@
       "relatedCompetencies": [
         "SLIPPAGE_SPREAD"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Compare Quote Width Without Jumping Ahead to Liquidity Analysis.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Learning objective: Compare Quote Width Without Jumping Ahead to Liquidity Analysis. Compare quote width only at matching instrument, session and observation definitions. Synthetic snapshot A shows $10.00 bid and $10.04 ask; B shows $10.00 bid and $10.12 ask.",
+          "Original FICTIONAL worked observation: A has $0.04 quoted width and B has $0.12; B's width is $0.08 wider. This is a difference of quote snapshots, not a complete depth or execution-quality study."
         ],
         "recognize": [
-          "Here is how to recognize Compare Quote Width Without Jumping Ahead to Liquidity Analysis from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Compare quote width only at matching instrument, session and observation definitions. Synthetic snapshot A shows $10.00 bid and $10.04 ask; B shows $10.00 bid and $10.12 ask.",
+          "Separate a measured fact from interpretation: Hold price scale, time and quote type constant. A spread does not reveal depth beyond the top or the price for a multi-level fill."
         ],
         "apply": [
-          "Let us practice Compare Quote Width Without Jumping Ahead to Liquidity Analysis using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Work the original FICTIONAL example without future observations: A has $0.04 quoted width and B has $0.12; B's width is $0.08 wider. This is a difference of quote snapshots, not a complete depth or execution-quality study.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Hold price scale, time and quote type constant. A spread does not reveal depth beyond the top or the price for a multi-level fill."
         ],
         "mistake": [
-          "A common error with Compare Quote Width Without Jumping Ahead to Liquidity Analysis: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Compare Quote Width Without Jumping Ahead to Liquidity Analysis: Confusing a wider spread with proof of low overall trading volume mixes two distinct concepts.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Compare Quote Width Without Jumping Ahead to Liquidity Analysis cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Hold price scale, time and quote type constant. A spread does not reveal depth beyond the top or the price for a multi-level fill.",
+          "Source candidate FINRA-EDU is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Hold price scale, time and quote type constant. A spread does not reveal depth beyond the top or the price for a multi-level fill.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
+        "prompt": "Compare a new same-session $14.90/$14.96 snapshot with $14.90/$15.10; compute both widths, then identify which missing depth inputs prevent a fill-cost conclusion.",
         "topic": "Compare Quote Width Without Jumping Ahead to Liquidity Analysis",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C04_L02"
     },
     "F2-C05-L01": {
       "labId": "F2-C05-L01",
@@ -1114,44 +1099,39 @@
         "VOLUME_ANALYSIS",
         "SLIPPAGE_SPREAD"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Raw 5-Minute Volume and Why the Timeframe Must Be Recorded.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective: Raw 5-Minute Volume and Why the Timeframe Must Be Recorded. Five-minute raw volume is the shares printed in a completed five-minute bar, not a per-second rate or a moving average. Hypothetical 09:30–09:35 bar volume is 4,200 shares.",
+          "Original FICTIONAL worked observation: Four completed one-minute segments contain 800, 900, 1,100 and 600 shares: 3,400. The fifth one-minute segment must supply 800 more shares to reach the completed 4,200-share five-minute total."
         ],
         "recognize": [
-          "Here is how to recognize Raw 5-Minute Volume and Why the Timeframe Must Be Recorded from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Five-minute raw volume is the shares printed in a completed five-minute bar, not a per-second rate or a moving average. Hypothetical 09:30–09:35 bar volume is 4,200 shares.",
+          "Separate a measured fact from interpretation: Do not use a final 09:35 total at 09:33. A five-minute partial bar and a completed one-minute bar are not simultaneous final observations."
         ],
         "apply": [
-          "Let us practice Raw 5-Minute Volume and Why the Timeframe Must Be Recorded using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Work the original FICTIONAL example without future observations: Four completed one-minute segments contain 800, 900, 1,100 and 600 shares: 3,400. The fifth one-minute segment must supply 800 more shares to reach the completed 4,200-share five-minute total.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Do not use a final 09:35 total at 09:33. A five-minute partial bar and a completed one-minute bar are not simultaneous final observations."
         ],
         "mistake": [
-          "A common error with Raw 5-Minute Volume and Why the Timeframe Must Be Recorded: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Raw 5-Minute Volume and Why the Timeframe Must Be Recorded: Calling 4,200 shares the value known at 09:33 violates chart replay chronology.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Raw 5-Minute Volume and Why the Timeframe Must Be Recorded cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Do not use a final 09:35 total at 09:33. A five-minute partial bar and a completed one-minute bar are not simultaneous final observations.",
+          "Source candidate CHARTSCHOOL-IND is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Do not use a final 09:35 total at 09:33. A five-minute partial bar and a completed one-minute bar are not simultaneous final observations.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "For another fictional five-minute interval with 700, 650, 900, 500 and 750 completed one-minute counts, compute the final five-minute total and the total knowable after three minutes.",
         "topic": "Raw 5-Minute Volume and Why the Timeframe Must Be Recorded",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C05_L01"
     },
     "F2-C05-L02": {
       "labId": "F2-C05-L02",
@@ -1162,44 +1142,39 @@
         "SLIPPAGE_SPREAD",
         "VOLUME_ANALYSIS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Compare Lower Trading Activity With the Prior Exercise.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Learning objective: Compare Lower Trading Activity With the Prior Exercise. Hold bar duration constant when comparing activity. A previous fictional completed five-minute bar has 4,000 shares; the next completed five-minute bar has 2,500 shares.",
+          "Original FICTIONAL worked observation: The second bar contains 1,500 fewer shares, or 62.5% of the first bar's volume. The two five-minute intervals must be fully closed before comparison."
         ],
         "recognize": [
-          "Here is how to recognize Compare Lower Trading Activity With the Prior Exercise from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Hold bar duration constant when comparing activity. A previous fictional completed five-minute bar has 4,000 shares; the next completed five-minute bar has 2,500 shares.",
+          "Separate a measured fact from interpretation: Reduced share turnover does not by itself prove declining buyer motivation or lower visible order-book depth."
         ],
         "apply": [
-          "Let us practice Compare Lower Trading Activity With the Prior Exercise using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Work the original FICTIONAL example without future observations: The second bar contains 1,500 fewer shares, or 62.5% of the first bar's volume. The two five-minute intervals must be fully closed before comparison.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Reduced share turnover does not by itself prove declining buyer motivation or lower visible order-book depth."
         ],
         "mistake": [
-          "A common error with Compare Lower Trading Activity With the Prior Exercise: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Compare Lower Trading Activity With the Prior Exercise: Comparing a partial five-minute volume directly with the preceding completed bar can exaggerate contraction.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Compare Lower Trading Activity With the Prior Exercise cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Reduced share turnover does not by itself prove declining buyer motivation or lower visible order-book depth.",
+          "Source candidate CHARTSCHOOL-IND is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Reduced share turnover does not by itself prove declining buyer motivation or lower visible order-book depth.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
+        "prompt": "Repeat using completed same-duration fictional bars of 6,000 and 4,500 shares; calculate the difference and ratio, then identify one uncontrolled market-condition variable.",
         "topic": "Compare Lower Trading Activity With the Prior Exercise",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C05_L02"
     },
     "F2-C05-L03": {
       "labId": "F2-C05-L03",
@@ -1210,44 +1185,39 @@
         "SLIPPAGE_SPREAD",
         "VOLUME_ANALYSIS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about High Volume Still Requires Liquidity and Order-Size Context.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Learning objective: High Volume Still Requires Liquidity and Order-Size Context. Executed volume and top-of-book size are not interchangeable. A fictional five-minute bar records 120,000 executed shares while the displayed best ask at a later snapshot has only 200 shares.",
+          "Original FICTIONAL worked observation: A proposed 1,000-share buy is five times the shown top ask size. Even with 120,000 executed shares during the preceding interval, the extra 800 shares have no verified displayed fill at that quote."
         ],
         "recognize": [
-          "Here is how to recognize High Volume Still Requires Liquidity and Order-Size Context from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Executed volume and top-of-book size are not interchangeable. A fictional five-minute bar records 120,000 executed shares while the displayed best ask at a later snapshot has only 200 shares.",
+          "Separate a measured fact from interpretation: Volume aggregates past executions, while quote depth is a changing statement of currently displayed intent; hidden liquidity, routes and cancellations remain unknown."
         ],
         "apply": [
-          "Let us practice High Volume Still Requires Liquidity and Order-Size Context using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Work the original FICTIONAL example without future observations: A proposed 1,000-share buy is five times the shown top ask size. Even with 120,000 executed shares during the preceding interval, the extra 800 shares have no verified displayed fill at that quote.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Volume aggregates past executions, while quote depth is a changing statement of currently displayed intent; hidden liquidity, routes and cancellations remain unknown."
         ],
         "mistake": [
-          "A common error with High Volume Still Requires Liquidity and Order-Size Context: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in High Volume Still Requires Liquidity and Order-Size Context: Treating a high-volume candlestick as a promise of low slippage for a large order confuses history with current execution conditions.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What High Volume Still Requires Liquidity and Order-Size Context cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Volume aggregates past executions, while quote depth is a changing statement of currently displayed intent; hidden liquidity, routes and cancellations remain unknown.",
+          "Source candidate NASDAQ-TRADER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Volume aggregates past executions, while quote depth is a changing statement of currently displayed intent; hidden liquidity, routes and cancellations remain unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
+        "prompt": "For a fictional completed bar of 80,000 shares, a displayed 150-share ask and 600-share hypothetical buy, calculate the order/top-quote ratio and say what a fill simulation still needs.",
         "topic": "High Volume Still Requires Liquidity and Order-Size Context",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C05_L03"
     },
     "F2-C06-L01": {
       "labId": "F2-C06-L01",
@@ -1257,44 +1227,39 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Axes and Chart Types — Same Historical Window, Different Representation.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective: Axes and Chart Types — Same Historical Window, Different Representation. A line chart, candle chart and logarithmic price axis can portray the same completed close history without changing the actual quotes. Fictional closes move from $10 to $12.",
+          "Original FICTIONAL worked observation: The absolute increase is $2 and the close-to-close percentage increase is 20%. On a log axis the same ratio receives equal vertical treatment regardless of starting price."
         ],
         "recognize": [
-          "Here is how to recognize Axes and Chart Types — Same Historical Window, Different Representation from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A line chart, candle chart and logarithmic price axis can portray the same completed close history without changing the actual quotes. Fictional closes move from $10 to $12.",
+          "Separate a measured fact from interpretation: Changing axis scaling or chart type does not add volume, intrabar chronology or future data to the underlying record."
         ],
         "apply": [
-          "Let us practice Axes and Chart Types — Same Historical Window, Different Representation using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Work the original FICTIONAL example without future observations: The absolute increase is $2 and the close-to-close percentage increase is 20%. On a log axis the same ratio receives equal vertical treatment regardless of starting price.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Changing axis scaling or chart type does not add volume, intrabar chronology or future data to the underlying record."
         ],
         "mistake": [
-          "A common error with Axes and Chart Types — Same Historical Window, Different Representation: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Axes and Chart Types — Same Historical Window, Different Representation: Mistaking a steeper linear visual line for a stronger percentage return without inspecting the axis is unsafe.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Axes and Chart Types — Same Historical Window, Different Representation cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Changing axis scaling or chart type does not add volume, intrabar chronology or future data to the underlying record.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Changing axis scaling or chart type does not add volume, intrabar chronology or future data to the underlying record.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "Replot a fictional $50-to-$55 move on linear and log axes; calculate the percentage return and identify which data points remain unchanged.",
         "topic": "Axes and Chart Types — Same Historical Window, Different Representation",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C06_L01"
     },
     "F2-C06-L02": {
       "labId": "F2-C06-L02",
@@ -1304,44 +1269,39 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Chart Type Versus Aggregation — Change One Variable at a Time.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective: Chart Type Versus Aggregation — Change One Variable at a Time. Chart type determines displayed representation; aggregation determines which underlying trades or bars are combined. Five hypothetical completed one-minute closes are $10.10, $10.30, $10.20, $10.40 and $10.50.",
+          "Original FICTIONAL worked observation: The fifth completed one-minute close is $10.50. A five-minute close of $10.50 is not final until the entire fifth minute has ended; changing candle to line does not change that timing."
         ],
         "recognize": [
-          "Here is how to recognize Chart Type Versus Aggregation — Change One Variable at a Time from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Chart type determines displayed representation; aggregation determines which underlying trades or bars are combined. Five hypothetical completed one-minute closes are $10.10, $10.30, $10.20, $10.40 and $10.50.",
+          "Separate a measured fact from interpretation: Without corresponding one-minute opens, highs and lows, the complete five-minute OHLC candle cannot be reconstructed from closes alone."
         ],
         "apply": [
-          "Let us practice Chart Type Versus Aggregation — Change One Variable at a Time using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Work the original FICTIONAL example without future observations: The fifth completed one-minute close is $10.50. A five-minute close of $10.50 is not final until the entire fifth minute has ended; changing candle to line does not change that timing.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Without corresponding one-minute opens, highs and lows, the complete five-minute OHLC candle cannot be reconstructed from closes alone."
         ],
         "mistake": [
-          "A common error with Chart Type Versus Aggregation — Change One Variable at a Time: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Chart Type Versus Aggregation — Change One Variable at a Time: Using a final five-minute high while only two of its constituent minutes are complete introduces lookahead bias.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Chart Type Versus Aggregation — Change One Variable at a Time cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Without corresponding one-minute opens, highs and lows, the complete five-minute OHLC candle cannot be reconstructed from closes alone.",
+          "Source candidate TOS-LRN is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Without corresponding one-minute opens, highs and lows, the complete five-minute OHLC candle cannot be reconstructed from closes alone.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "Using a new five-minute interval, distinguish a completed third one-minute close from the unfinished five-minute close and list missing OHLC inputs.",
         "topic": "Chart Type Versus Aggregation — Change One Variable at a Time",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C06_L02"
     },
     "F2-C07-L01": {
       "labId": "F2-C07-L01",
@@ -1351,44 +1311,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Construct an Up / Bullish Candle.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Construct an Up / Bullish Candle. A bullish candle has close above open for one completed interval. Fictional O=$10.00, H=$11.20, L=$9.80, C=$11.00.",
+          "Original FICTIONAL worked observation: Body = $1.00; upper wick = $0.20; lower wick = $0.20; full range = $1.40. The close is higher than the open, but high-low sequencing is not encoded."
         ],
         "recognize": [
-          "Here is how to recognize Construct an Up / Bullish Candle from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A bullish candle has close above open for one completed interval. Fictional O=$10.00, H=$11.20, L=$9.80, C=$11.00.",
+          "Separate a measured fact from interpretation: One bullish candle is a completed interval summary, not evidence of a persistent trend or of who initiated the trades."
         ],
         "apply": [
-          "Let us practice Construct an Up / Bullish Candle using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: Body = $1.00; upper wick = $0.20; lower wick = $0.20; full range = $1.40. The close is higher than the open, but high-low sequencing is not encoded.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. One bullish candle is a completed interval summary, not evidence of a persistent trend or of who initiated the trades."
         ],
         "mistake": [
-          "A common error with Construct an Up / Bullish Candle: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Construct an Up / Bullish Candle: Assuming the high must have occurred last from a green close fabricates within-bar chronology.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Construct an Up / Bullish Candle cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "One bullish candle is a completed interval summary, not evidence of a persistent trend or of who initiated the trades.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. One bullish candle is a completed interval summary, not evidence of a persistent trend or of who initiated the trades.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Using fictional O=$8.20, H=$8.90, L=$8.00, C=$8.70, compute all four body/wick/range measures and explain what order of trades remains unknown.",
         "topic": "Construct an Up / Bullish Candle",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C07_L01"
     },
     "F2-C07-L02": {
       "labId": "F2-C07-L02",
@@ -1398,44 +1353,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Construct a Down / Bearish Candle.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Construct a Down / Bearish Candle. A bearish candle has close below open. Fictional O=$12.00, H=$12.10, L=$10.70, C=$10.90.",
+          "Original FICTIONAL worked observation: Absolute body is $1.10; upper wick is $0.10; lower wick is $0.20; range is $1.40. A lower close is a descriptive fact, not proof of future selling."
         ],
         "recognize": [
-          "Here is how to recognize Construct a Down / Bearish Candle from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A bearish candle has close below open. Fictional O=$12.00, H=$12.10, L=$10.70, C=$10.90.",
+          "Separate a measured fact from interpretation: The bar contains no verified time order between $12.10 high and $10.70 low, and quote spread is absent."
         ],
         "apply": [
-          "Let us practice Construct a Down / Bearish Candle using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: Absolute body is $1.10; upper wick is $0.10; lower wick is $0.20; range is $1.40. A lower close is a descriptive fact, not proof of future selling.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. The bar contains no verified time order between $12.10 high and $10.70 low, and quote spread is absent."
         ],
         "mistake": [
-          "A common error with Construct a Down / Bearish Candle: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Construct a Down / Bearish Candle: Reading a red body as guaranteed bearish continuation or an executable short entry confuses description and forecast.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Construct a Down / Bearish Candle cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "The bar contains no verified time order between $12.10 high and $10.70 low, and quote spread is absent.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. The bar contains no verified time order between $12.10 high and $10.70 low, and quote spread is absent.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Try O=$18.20, H=$18.30, L=$16.90, C=$17.10; compute body and wicks; state one missing execution fact.",
         "topic": "Construct a Down / Bearish Candle",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C07_L02"
     },
     "F2-C07-L03": {
       "labId": "F2-C07-L03",
@@ -1445,44 +1395,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Identify an Exact or Near Doji.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Identify an Exact or Near Doji. An exact doji has equal open and close; a near doji has a small but nonzero body under an explicitly declared tolerance. Fictional O=$20.00, H=$21.00, L=$19.00, C=$20.02.",
+          "Original FICTIONAL worked observation: The body is $0.02 and entire range is $2.00; body/range is 1%. For this exercise only, 'near doji' means body/range at most 2%. The measured sample qualifies."
         ],
         "recognize": [
-          "Here is how to recognize Identify an Exact or Near Doji from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: An exact doji has equal open and close; a near doji has a small but nonzero body under an explicitly declared tolerance. Fictional O=$20.00, H=$21.00, L=$19.00, C=$20.02.",
+          "Separate a measured fact from interpretation: No universal 2% threshold is implied; tick sizes, volatility and zero-range intervals can change sensible classification."
         ],
         "apply": [
-          "Let us practice Identify an Exact or Near Doji using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: The body is $0.02 and entire range is $2.00; body/range is 1%. For this exercise only, 'near doji' means body/range at most 2%. The measured sample qualifies.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. No universal 2% threshold is implied; tick sizes, volatility and zero-range intervals can change sensible classification."
         ],
         "mistake": [
-          "A common error with Identify an Exact or Near Doji: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Identify an Exact or Near Doji: Labeling an arbitrary small body as an exact doji without checking equality hides the difference between zero and near-zero.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Identify an Exact or Near Doji cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "No universal 2% threshold is implied; tick sizes, volatility and zero-range intervals can change sensible classification.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. No universal 2% threshold is implied; tick sizes, volatility and zero-range intervals can change sensible classification.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Use fictional O=$40.00, H=$40.50, L=$39.50, C=$40.04 with a stated 3% tolerance; calculate body/range and decide whether it qualifies.",
         "topic": "Identify an Exact or Near Doji",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C07_L03"
     },
     "F2-C08-L01": {
       "labId": "F2-C08-L01",
@@ -1492,44 +1437,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Large Up Body, Close Near High.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Large Up Body, Close Near High. A large green body closing near the high can be measured objectively for one completed candle. Fictional O=$7.00, H=$8.00, L=$6.90, C=$7.95.",
+          "Original FICTIONAL worked observation: The bullish body is $0.95 of the $1.10 full range, approximately 86.36%. The remaining upper wick is $0.05 and the lower wick is $0.10."
         ],
         "recognize": [
-          "Here is how to recognize Large Up Body, Close Near High from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A large green body closing near the high can be measured objectively for one completed candle. Fictional O=$7.00, H=$8.00, L=$6.90, C=$7.95.",
+          "Separate a measured fact from interpretation: An 86.36% body/range sample supports only an interval description; the next bar may gap or reverse."
         ],
         "apply": [
-          "Let us practice Large Up Body, Close Near High using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: The bullish body is $0.95 of the $1.10 full range, approximately 86.36%. The remaining upper wick is $0.05 and the lower wick is $0.10.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. An 86.36% body/range sample supports only an interval description; the next bar may gap or reverse."
         ],
         "mistake": [
-          "A common error with Large Up Body, Close Near High: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Large Up Body, Close Near High: Buying because a large green body looks 'certain to continue' substitutes conviction for a tested scenario.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Large Up Body, Close Near High cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "An 86.36% body/range sample supports only an interval description; the next bar may gap or reverse.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. An 86.36% body/range sample supports only an interval description; the next bar may gap or reverse.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Evaluate O=$9.00, H=$10.10, L=$8.80, C=$10.00: compute the body as a percent of range and the distance from close to high.",
         "topic": "Large Up Body, Close Near High",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L01"
     },
     "F2-C08-L02": {
       "labId": "F2-C08-L02",
@@ -1539,44 +1479,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Large Down Body, Close Near Low.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Large Down Body, Close Near Low. A large bearish body closing close to the low describes one completed candle. Fictional O=$9.80, H=$9.90, L=$8.70, C=$8.75.",
+          "Original FICTIONAL worked observation: The absolute body is $1.05 of a $1.20 range (87.5%); the lower wick is $0.05 and upper wick is $0.10."
         ],
         "recognize": [
-          "Here is how to recognize Large Down Body, Close Near Low from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A large bearish body closing close to the low describes one completed candle. Fictional O=$9.80, H=$9.90, L=$8.70, C=$8.75.",
+          "Separate a measured fact from interpretation: Neither a large red body nor a near-low close identifies the dominant participant or guarantees another downward bar."
         ],
         "apply": [
-          "Let us practice Large Down Body, Close Near Low using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: The absolute body is $1.05 of a $1.20 range (87.5%); the lower wick is $0.05 and upper wick is $0.10.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Neither a large red body nor a near-low close identifies the dominant participant or guarantees another downward bar."
         ],
         "mistake": [
-          "A common error with Large Down Body, Close Near Low: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Large Down Body, Close Near Low: Treating a lower close as proof of which side initiated all prints overstates OHLC evidence.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Large Down Body, Close Near Low cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Neither a large red body nor a near-low close identifies the dominant participant or guarantees another downward bar.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Neither a large red body nor a near-low close identifies the dominant participant or guarantees another downward bar.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Compute body/range and both wicks for a new fictional O=$15.20, H=$15.25, L=$14.10, C=$14.20; describe one unknown.",
         "topic": "Large Down Body, Close Near Low",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L02"
     },
     "F2-C08-L03": {
       "labId": "F2-C08-L03",
@@ -1586,44 +1521,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Long Lower Wick, Recovery Into the Close.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Long Lower Wick, Recovery Into the Close. A long lower wick shows excursion below the real body followed by a close above the low. Fictional O=$10.30, H=$10.40, L=$9.50, C=$10.20.",
+          "Original FICTIONAL worked observation: Body magnitude is $0.10; lower wick = min(open,close)−low = $0.70; upper wick = $0.10. The completed bar rebounded from its low without revealing the trade sequence."
         ],
         "recognize": [
-          "Here is how to recognize Long Lower Wick, Recovery Into the Close from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A long lower wick shows excursion below the real body followed by a close above the low. Fictional O=$10.30, H=$10.40, L=$9.50, C=$10.20.",
+          "Separate a measured fact from interpretation: A lower wick can be consistent with a recovery but it does not reveal who bought, when the high occurred, or whether any stop order filled."
         ],
         "apply": [
-          "Let us practice Long Lower Wick, Recovery Into the Close using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: Body magnitude is $0.10; lower wick = min(open,close)−low = $0.70; upper wick = $0.10. The completed bar rebounded from its low without revealing the trade sequence.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. A lower wick can be consistent with a recovery but it does not reveal who bought, when the high occurred, or whether any stop order filled."
         ],
         "mistake": [
-          "A common error with Long Lower Wick, Recovery Into the Close: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Long Lower Wick, Recovery Into the Close: Naming every long lower wick 'verified institutional support' invents information absent from OHLC.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Long Lower Wick, Recovery Into the Close cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "A lower wick can be consistent with a recovery but it does not reveal who bought, when the high occurred, or whether any stop order filled.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. A lower wick can be consistent with a recovery but it does not reveal who bought, when the high occurred, or whether any stop order filled.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "On a new fictional O=$6.20, H=$6.30, L=$5.30, C=$6.15, calculate both wick lengths and identify what would contradict a claimed next-bar reversal.",
         "topic": "Long Lower Wick, Recovery Into the Close",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L03"
     },
     "F2-C08-L04": {
       "labId": "F2-C08-L04",
@@ -1633,44 +1563,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Long Upper Wick, Close Back Near the Lower Area.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Long Upper Wick, Close Back Near the Lower Area. A long upper wick indicates an excursion above the body that was not retained at the close. Fictional O=$5.10, H=$5.90, L=$5.00, C=$5.20.",
+          "Original FICTIONAL worked observation: Upper wick = high−max(open,close) = $0.70, lower wick = $0.10 and real-body magnitude is $0.10. These are descriptive measurements of a finished interval."
         ],
         "recognize": [
-          "Here is how to recognize Long Upper Wick, Close Back Near the Lower Area from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A long upper wick indicates an excursion above the body that was not retained at the close. Fictional O=$5.10, H=$5.90, L=$5.00, C=$5.20.",
+          "Separate a measured fact from interpretation: OHLC alone does not identify who sold at $5.90, whether a stop sweep occurred, or the sequence of intrabar events."
         ],
         "apply": [
-          "Let us practice Long Upper Wick, Close Back Near the Lower Area using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: Upper wick = high−max(open,close) = $0.70, lower wick = $0.10 and real-body magnitude is $0.10. These are descriptive measurements of a finished interval.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. OHLC alone does not identify who sold at $5.90, whether a stop sweep occurred, or the sequence of intrabar events."
         ],
         "mistake": [
-          "A common error with Long Upper Wick, Close Back Near the Lower Area: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Long Upper Wick, Close Back Near the Lower Area: Equating an upper wick with a certain future short entry mistakes a possible hypothesis for a tested forecast.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Long Upper Wick, Close Back Near the Lower Area cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "OHLC alone does not identify who sold at $5.90, whether a stop sweep occurred, or the sequence of intrabar events.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. OHLC alone does not identify who sold at $5.90, whether a stop sweep occurred, or the sequence of intrabar events.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Using O=$20.10, H=$21.00, L=$20.00, C=$20.20, calculate the upper and lower wicks and a fact not provided by the candle.",
         "topic": "Long Upper Wick, Close Back Near the Lower Area",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L04"
     },
     "F2-C08-L05": {
       "labId": "F2-C08-L05",
@@ -1680,44 +1605,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Small Body With Two-Sided Excursion.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Small Body With Two-Sided Excursion. A narrow candle body can coexist with large movement on both sides. Fictional O=$30.00, H=$31.00, L=$29.00, C=$30.10.",
+          "Original FICTIONAL worked observation: The body is $0.10 and the entire interval range is $2.00, so body/range is 5%; upper wick $0.90 and lower wick $1.00."
         ],
         "recognize": [
-          "Here is how to recognize Small Body With Two-Sided Excursion from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A narrow candle body can coexist with large movement on both sides. Fictional O=$30.00, H=$31.00, L=$29.00, C=$30.10.",
+          "Separate a measured fact from interpretation: Small net open-to-close movement does not mean the price was static; this pattern does not independently prove exhaustion or reversal."
         ],
         "apply": [
-          "Let us practice Small Body With Two-Sided Excursion using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: The body is $0.10 and the entire interval range is $2.00, so body/range is 5%; upper wick $0.90 and lower wick $1.00.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Small net open-to-close movement does not mean the price was static; this pattern does not independently prove exhaustion or reversal."
         ],
         "mistake": [
-          "A common error with Small Body With Two-Sided Excursion: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Small Body With Two-Sided Excursion: Calling a small body a low-volatility bar without calculating the high-low range ignores two-sided excursion.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Small Body With Two-Sided Excursion cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Small net open-to-close movement does not mean the price was static; this pattern does not independently prove exhaustion or reversal.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Small net open-to-close movement does not mean the price was static; this pattern does not independently prove exhaustion or reversal.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Given O=$12.00, H=$12.80, L=$11.10, C=$11.95, calculate body and full range; explain why neither alone certifies trend.",
         "topic": "Small Body With Two-Sided Excursion",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L05"
     },
     "F2-C08-L06": {
       "labId": "F2-C08-L06",
@@ -1727,44 +1647,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Exact Doji With Unequal Wicks.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Exact Doji With Unequal Wicks. An exact doji requires identical open and close even when its wicks differ. Fictional O=$15.00, H=$15.80, L=$14.60, C=$15.00.",
+          "Original FICTIONAL worked observation: Body = $0.00; upper wick = $0.80; lower wick = $0.40. Wicks are unequal despite exact doji status, so 'symmetrical doji' would be inaccurate."
         ],
         "recognize": [
-          "Here is how to recognize Exact Doji With Unequal Wicks from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: An exact doji requires identical open and close even when its wicks differ. Fictional O=$15.00, H=$15.80, L=$14.60, C=$15.00.",
+          "Separate a measured fact from interpretation: With no complete within-candle sequence or follow-up, unequal wicks cannot prove that a breakout was rejected by a named participant."
         ],
         "apply": [
-          "Let us practice Exact Doji With Unequal Wicks using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: Body = $0.00; upper wick = $0.80; lower wick = $0.40. Wicks are unequal despite exact doji status, so 'symmetrical doji' would be inaccurate.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. With no complete within-candle sequence or follow-up, unequal wicks cannot prove that a breakout was rejected by a named participant."
         ],
         "mistake": [
-          "A common error with Exact Doji With Unequal Wicks: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Exact Doji With Unequal Wicks: Confusing an exact doji with equal upper and lower wicks adds a nonexistent definition.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Exact Doji With Unequal Wicks cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "With no complete within-candle sequence or follow-up, unequal wicks cannot prove that a breakout was rejected by a named participant.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. With no complete within-candle sequence or follow-up, unequal wicks cannot prove that a breakout was rejected by a named participant.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Evaluate O=$25.00, H=$25.70, L=$24.60, C=$25.00; calculate both wicks and decide whether body and wick symmetry are the same.",
         "topic": "Exact Doji With Unequal Wicks",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C08_L06"
     },
     "F2-C09-L01": {
       "labId": "F2-C09-L01",
@@ -1775,44 +1690,39 @@
         "CHART_STRUCTURE",
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Upward Follow-Through With Contracting Ranges.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective: Upward Follow-Through With Contracting Ranges. A sequence can rise while each completed interval trades over a narrowing range. Fictional three completed closes: $10.50, $10.80, $11.00, while ranges are $1.00, $0.70 and $0.40.",
+          "Original FICTIONAL worked observation: Close-to-close advances are $0.30 and $0.20 as range falls by $0.30 on each step. The measured pattern is rising closes with contracting absolute ranges."
         ],
         "recognize": [
-          "Here is how to recognize Upward Follow-Through With Contracting Ranges from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A sequence can rise while each completed interval trades over a narrowing range. Fictional three completed closes: $10.50, $10.80, $11.00, while ranges are $1.00, $0.70 and $0.40.",
+          "Separate a measured fact from interpretation: Those facts do not establish greater buying pressure, or confirm a breakout; differing gaps, volume and broader trend may change context."
         ],
         "apply": [
-          "Let us practice Upward Follow-Through With Contracting Ranges using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Work the original FICTIONAL example without future observations: Close-to-close advances are $0.30 and $0.20 as range falls by $0.30 on each step. The measured pattern is rising closes with contracting absolute ranges.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Those facts do not establish greater buying pressure, or confirm a breakout; differing gaps, volume and broader trend may change context."
         ],
         "mistake": [
-          "A common error with Upward Follow-Through With Contracting Ranges: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Upward Follow-Through With Contracting Ranges: Equating any higher close with acceleration while measured ranges shrink contradicts the observations.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Upward Follow-Through With Contracting Ranges cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Those facts do not establish greater buying pressure, or confirm a breakout; differing gaps, volume and broader trend may change context.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Those facts do not establish greater buying pressure, or confirm a breakout; differing gaps, volume and broader trend may change context.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For new fictional closes $15.00, $15.25, $15.40 and ranges $0.80, $0.60, $0.50, describe direction and range pattern; list a missing volume observation.",
         "topic": "Upward Follow-Through With Contracting Ranges",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C09_L01"
     },
     "F2-C09-L02": {
       "labId": "F2-C09-L02",
@@ -1822,44 +1732,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Downward Follow-Through.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Downward Follow-Through. Downward follow-through can be described as consecutive completed lower closes, without implying trade direction or inevitable continuation. Fictional closes are $20.00, $19.60 and $19.10.",
+          "Original FICTIONAL worked observation: First close-to-close change is −$0.40; second is −$0.50. Each observed completed close is lower, so the series meets this exercise's lower-close description."
         ],
         "recognize": [
-          "Here is how to recognize Downward Follow-Through from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: Downward follow-through can be described as consecutive completed lower closes, without implying trade direction or inevitable continuation. Fictional closes are $20.00, $19.60 and $19.10.",
+          "Separate a measured fact from interpretation: Nothing in those closes proves lower swing lows, an intact downtrend on all timeframes, a short fill, or what happened inside each bar."
         ],
         "apply": [
-          "Let us practice Downward Follow-Through using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: First close-to-close change is −$0.40; second is −$0.50. Each observed completed close is lower, so the series meets this exercise's lower-close description.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. Nothing in those closes proves lower swing lows, an intact downtrend on all timeframes, a short fill, or what happened inside each bar."
         ],
         "mistake": [
-          "A common error with Downward Follow-Through: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Downward Follow-Through: Calling any two lower closes a confirmed trend reversal or successful short trade overstates data.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Downward Follow-Through cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Nothing in those closes proves lower swing lows, an intact downtrend on all timeframes, a short fill, or what happened inside each bar.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. Nothing in those closes proves lower swing lows, an intact downtrend on all timeframes, a short fill, or what happened inside each bar.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "For new fictional closes $31.00, $30.80 and $30.95, determine where downward follow-through ceases and what intrabar evidence is unavailable.",
         "topic": "Downward Follow-Through",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C09_L02"
     },
     "F2-C09-L03": {
       "labId": "F2-C09-L03",
@@ -1869,44 +1774,39 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_SOURCE_WRITTEN_SOURCE_CLAIMS_RIGHTS_AND_INDEPENDENT_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Directional Follow-Through Interrupted by an Opposite Expansion.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective: Directional Follow-Through Interrupted by an Opposite Expansion. A contrary expansion candle can interrupt a provisional close-to-close directional sequence. Fictional preceding closes $12.00 and $12.40 are followed by a completed down close at $11.30.",
+          "Original FICTIONAL worked observation: The final close falls $1.10 from $12.40, while hypothetical interval ranges expand from $0.60 and $0.70 to $1.50. The measured opposing move is larger than the prior +$0.40 advance."
         ],
         "recognize": [
-          "Here is how to recognize Directional Follow-Through Interrupted by an Opposite Expansion from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify exactly which observations are completed and available: A contrary expansion candle can interrupt a provisional close-to-close directional sequence. Fictional preceding closes $12.00 and $12.40 are followed by a completed down close at $11.30.",
+          "Separate a measured fact from interpretation: An opposite expansion is a warning to reassess, not proof of a permanent reversal, short-sale eligibility or actual fill quality."
         ],
         "apply": [
-          "Let us practice Directional Follow-Through Interrupted by an Opposite Expansion using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Work the original FICTIONAL example without future observations: The final close falls $1.10 from $12.40, while hypothetical interval ranges expand from $0.60 and $0.70 to $1.50. The measured opposing move is larger than the prior +$0.40 advance.",
+          "Explain why the arithmetic alone is insufficient for a trading decision. An opposite expansion is a warning to reassess, not proof of a permanent reversal, short-sale eligibility or actual fill quality."
         ],
         "mistake": [
-          "A common error with Directional Follow-Through Interrupted by an Opposite Expansion: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Mistake to avoid in Directional Follow-Through Interrupted by an Opposite Expansion: Calling the first two upward closes a permanent bullish regime despite the next completed opposite bar ignores contradictory evidence.",
+          "Correction: check timestamp, price definitions, source completeness and relevant denominators before inferring causes or fills."
         ],
         "limits": [
-          "What Directional Follow-Through Interrupted by an Opposite Expansion cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "An opposite expansion is a warning to reassess, not proof of a permanent reversal, short-sale eligibility or actual fill quality.",
+          "Source candidate CHARTSCHOOL-OVER is for underlying concept research, not evidence that the numerical example occurred in a real market or is licensed historical replay."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Without looking at future observations, recalculate this lesson's measurement and name a missing fact. An opposite expansion is a warning to reassess, not proof of a permanent reversal, short-sale eligibility or actual fill quality.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "Using fictional closes $8.00, $8.35, $7.95 with ranges $0.50, $0.60, $1.20, decide whether the final bar invalidates a claim of uninterrupted upward follow-through.",
         "topic": "Directional Follow-Through Interrupted by an Opposite Expansion",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH02_F2_C09_L03"
     },
     "F2-C09-L04": {
       "labId": "F2-C09-L04",
