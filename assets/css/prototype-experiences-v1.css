@@ -104,3 +104,13 @@
 @media(max-width:850px){.cx-workgrid,.cx-compare-cols{grid-template-columns:1fr}.cx-right{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.cx-right .cx-panel:first-child{grid-column:1/-1}.cx-compare-top{min-height:0}.cx-bar{align-items:flex-start;flex-direction:column}.cx-kpis{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.cx-designs{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-pages a{padding:10px}.cx-pages small{font-size:9px}.cx-logo strong{font-size:10px}.cx-top-actions span{display:none}.cx-controlstrip label{min-width:calc(50% - 10px)}.cx-flagship-intro{flex-direction:column;align-items:start;padding:15px}.cx-flagship-tabs button{padding:9px;font-size:11px}.cx-right{grid-template-columns:1fr}.cx-right .cx-panel:first-child{grid-column:auto}.cx-trade{grid-template-columns:1fr 1fr 80px}.cx-candle-svg{max-height:170px}.cx-matrix{font-size:10px}.cx-matrix>div{padding:7px}.cx-check button{width:100%}}
 @media(prefers-reduced-motion:reduce){.cx-app *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* Launch links appear only inside the preexisting role-verified document. */
+#pt-root .pt-experiences-launcher{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 16px}
+#pt-root .pt-experiences-launcher a{padding:13px 18px;color:#eff8fe;background:linear-gradient(125deg,#142b3c,#102030);border:1px solid #396479;border-radius:10px;display:flex;flex-direction:column;gap:5px;text-decoration:none}
+#pt-root .pt-experiences-launcher a:hover,#pt-root .pt-experiences-launcher a:focus-visible{border-color:#67dacc;outline-offset:3px}
+#pt-root .pt-experiences-launcher strong{font-size:14px}
+#pt-root .pt-experiences-launcher span{color:#aac8d6;font-size:12px}
+#pt-root[data-experience-view="true"] .pt-experiences-launcher{display:none!important}
+@media(max-width:650px){#pt-root .pt-experiences-launcher{grid-template-columns:1fr}}
