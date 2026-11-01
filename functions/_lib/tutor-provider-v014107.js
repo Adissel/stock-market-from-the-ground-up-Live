@@ -1,4 +1,3 @@
-import {memberTutorByokInferenceAllowed} from './talia-member-byok-v1.js';
 /* v0.14.0.149 Provider router. All providers are OFF unless the existing
  * transactional global + member rate gate approves the request.
  * Cloudflare Workers AI requires a Workers FREE plan and a verified AI binding.
@@ -25,14 +24,8 @@ export function tutorProvider(env){
  }
  return {supported:false,provider:'unsupported',reason:'unsupported_provider'};
 }
-export async function callTutorModel(env,{instructions,input,signal,memberApiKey=null}){
- const memberRoute=memberApiKey!==null;
- const p=memberRoute?{
-  supported:memberTutorByokInferenceAllowed(env)&&/^sk-[A-Za-z0-9_-]{16,240}$/.test(String(memberApiKey||'')),
-  provider:'openai',model:String(env.TALIA_BYOK_MODEL||''),
-  endpoint:'https://api.openai.com/v1/responses',
-  reason:'member_provider_not_approved'
- }:tutorProvider(env);
+export async function callTutorModel(env,{instructions,input,signal}){
+ const p=tutorProvider(env);
  if(!p.supported)return {ok:false,reason:p.reason||'unsupported_provider'};
  if(typeof instructions!=='string'||typeof input!=='string'||instructions.length>4500||input.length>6500)
   return {ok:false,reason:'oversized_prompt'};
@@ -49,7 +42,7 @@ export async function callTutorModel(env,{instructions,input,signal,memberApiKey
     typeof result?.choices?.[0]?.message?.content==='string'?result.choices[0].message.content.trim():'';
    return {ok:!!text&&text.length<=2400,reason:text?'provider_ok':'provider_empty',text};
   }
-  const key=memberRoute?memberApiKey:trim(env.AI_TUTOR_API_KEY);if(!key)return {ok:false,reason:'provider_not_configured'};
+  const key=trim(env.AI_TUTOR_API_KEY);if(!key)return {ok:false,reason:'provider_not_configured'};
   const r=await fetch(p.endpoint,{method:'POST',signal,
    headers:{authorization:'Bearer '+key,'content-type':'application/json'},
    body:JSON.stringify({model:p.model,instructions,input,max_output_tokens:350,store:false})});
