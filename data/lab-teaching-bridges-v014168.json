@@ -1917,44 +1917,44 @@
         "CHART_STRUCTURE",
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Range Contraction Without One-Way Direction.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Range contraction without directional certainty. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three completed fictional candles have high–low ranges $1.20, $0.80, and $0.50, while closes move $10.00 → $10.20 → $10.10.",
+          "Original worked interpretation: The range contracts by $0.70 from the first to the third candle, but the second-to-third close falls $0.10; shrinking range does not mean consecutive higher closes."
         ],
         "recognize": [
-          "Here is how to recognize Range Contraction Without One-Way Direction from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Range contraction without directional certainty case.",
+          "An unfinished fourth candle with an apparent $0.20 range cannot establish completed contraction, and its later close is not available at the preceding pause.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Range Contraction Without One-Way Direction using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three completed fictional candles have high–low ranges $1.20, $0.80, and $0.50, while closes move $10.00 → $10.20 → $10.10.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The range contracts by $0.70 from the first to the third candle, but the second-to-third close falls $0.10; shrinking range does not mean consecutive higher closes.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: An unfinished fourth candle with an apparent $0.20 range cannot establish completed contraction, and its later close is not available at the preceding pause."
         ],
         "mistake": [
-          "A common error with Range Contraction Without One-Way Direction: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Calling every tight range a bullish breakout without confirming the completed sequence and actual close.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Range Contraction Without One-Way Direction cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: An unfinished fourth candle with an apparent $0.20 range cannot establish completed contraction, and its later close is not available at the preceding pause.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Range contraction without directional certainty, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "On a fresh fictional set of four completed bars with ranges $1.10, $0.95, $0.65, $0.70 and closes $20.00, $20.25, $20.10, $20.15, decide whether contraction persisted through bar four and whether direction is one-way.",
         "topic": "Range Contraction Without One-Way Direction",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C09-L05": {
       "labId": "F2-C09-L05",
@@ -1964,44 +1964,44 @@
       "relatedCompetencies": [
         "CANDLE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Mixed and Overlapping Sequence.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective — Mixed and overlapping candlesticks. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Fictional completed bars span [10.00,11.00], [10.30,11.20], and [10.20,10.90] in dollars per share.",
+          "Original worked interpretation: The common price interval is max(low)=10.30 through min(high)=10.90, a $0.60 overlap; overlapping price areas do not prove that either buyer or seller controlled the sequence."
         ],
         "recognize": [
-          "Here is how to recognize Mixed and Overlapping Sequence from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Mixed and overlapping candlesticks case.",
+          "Even when two highs rise, an intervening low or closing location can prevent clean one-way continuation; keep bar order separate from the envelope.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Mixed and Overlapping Sequence using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Step 1 — Record the fictional case without disclosing any later bar: Fictional completed bars span [10.00,11.00], [10.30,11.20], and [10.20,10.90] in dollars per share.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The common price interval is max(low)=10.30 through min(high)=10.90, a $0.60 overlap; overlapping price areas do not prove that either buyer or seller controlled the sequence.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Even when two highs rise, an intervening low or closing location can prevent clean one-way continuation; keep bar order separate from the envelope."
         ],
         "mistake": [
-          "A common error with Mixed and Overlapping Sequence: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Labeling an overlap as a confirmed trend or guessing within-bar trade sequencing from high/low ranges.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Mixed and Overlapping Sequence cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Specific failure boundary: Even when two highs rise, an intervening low or closing location can prevent clean one-way continuation; keep bar order separate from the envelope.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Mixed and overlapping candlesticks, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "For new fictional bar ranges [21.10,22.00], [21.40,22.20], [21.30,21.90], calculate the three-bar common overlap width and state why it is not an entry signal.",
         "topic": "Mixed and Overlapping Sequence",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C10-L01": {
       "labId": "F2-C10-L01",
@@ -2012,44 +2012,44 @@
         "MULTI_TIMEFRAME",
         "SEC_FILINGS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about 1-Minute vs. 3-Minute vs. 5-Minute Compression.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — One-, three- and five-minute completed-bar availability. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: At a fictional 09:33 ET pause, the 09:32–09:33 one-minute bar and the 09:30–09:33 three-minute bar have closed; the 09:30–09:35 five-minute bar has not.",
+          "Original worked interpretation: Exactly three minutes have elapsed from 09:30 to 09:33, while the five-minute interval still has two minutes left; only completed one- and three-minute bar OHLC can be final."
         ],
         "recognize": [
-          "Here is how to recognize 1-Minute vs. 3-Minute vs. 5-Minute Compression from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this One-, three- and five-minute completed-bar availability case.",
+          "A 09:30 label usually identifies interval opening, not completion; showing the full 09:30–09:35 five-minute high at 09:33 leaks a later observation.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice 1-Minute vs. 3-Minute vs. 5-Minute Compression using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: At a fictional 09:33 ET pause, the 09:32–09:33 one-minute bar and the 09:30–09:33 three-minute bar have closed; the 09:30–09:35 five-minute bar has not.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: Exactly three minutes have elapsed from 09:30 to 09:33, while the five-minute interval still has two minutes left; only completed one- and three-minute bar OHLC can be final.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A 09:30 label usually identifies interval opening, not completion; showing the full 09:30–09:35 five-minute high at 09:33 leaks a later observation."
         ],
         "mistake": [
-          "A common error with 1-Minute vs. 3-Minute vs. 5-Minute Compression: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Using the eventual high of a forming five-minute candle to justify a decision made at 09:33.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What 1-Minute vs. 3-Minute vs. 5-Minute Compression cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: A 09:30 label usually identifies interval opening, not completion; showing the full 09:30–09:35 five-minute high at 09:33 leaks a later observation.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For One-, three- and five-minute completed-bar availability, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "At a new fictional 10:04 ET pause, identify which 10:03–10:04 one-minute, 10:03–10:06 three-minute, and 10:00–10:05 five-minute candles have fully closed.",
         "topic": "1-Minute vs. 3-Minute vs. 5-Minute Compression",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C10-L02": {
       "labId": "F2-C10-L02",
@@ -2059,44 +2059,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Change History Without Changing Bar Size.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — Lookback history versus chart bar size. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: A chart displays ten completed five-minute bars; zooming out reveals 20 completed five-minute bars without changing the timeframe setting.",
+          "Original worked interpretation: The original ten bar intervals represent 50 minutes of completed observations; 20 five-minute intervals represent 100 minutes, but each bar still summarizes five minutes."
         ],
         "recognize": [
-          "Here is how to recognize Change History Without Changing Bar Size from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Lookback history versus chart bar size case.",
+          "Zooming is not a one-minute/three-minute conversion; visual width and temporal aggregation are different settings.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Change History Without Changing Bar Size using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: A chart displays ten completed five-minute bars; zooming out reveals 20 completed five-minute bars without changing the timeframe setting.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The original ten bar intervals represent 50 minutes of completed observations; 20 five-minute intervals represent 100 minutes, but each bar still summarizes five minutes.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Zooming is not a one-minute/three-minute conversion; visual width and temporal aggregation are different settings."
         ],
         "mistake": [
-          "A common error with Change History Without Changing Bar Size: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Misreading more visible candles as a finer timeframe and comparing indicator calculations as though their periods changed.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Change History Without Changing Bar Size cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: Zooming is not a one-minute/three-minute conversion; visual width and temporal aggregation are different settings.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Lookback history versus chart bar size, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "A fictional replay changes from six visible three-minute bars to 18 visible three-minute bars; calculate both represented durations and explain what happens to the three-minute setting.",
         "topic": "Change History Without Changing Bar Size",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C10-L03": {
       "labId": "F2-C10-L03",
@@ -2106,44 +2106,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Many Intraday Bars Become One Daily View.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — Aggregating completed intraday bars into a partial daily view. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Four consecutive fictional completed intraday bars have first open $10.00, highs $10.70/$11.50/$11.20/$11.10, lows $9.80/$9.50/$10.20/$10.40, final close $10.90, and volumes 100/200/150/200 shares.",
+          "Original worked interpretation: Their aggregate open is $10.00, high $11.50, low $9.50, close $10.90 and volume 650 shares. Four intraday bars alone do not make a verified full-session daily candle."
         ],
         "recognize": [
-          "Here is how to recognize Many Intraday Bars Become One Daily View from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Aggregating completed intraday bars into a partial daily view case.",
+          "A later fifth intraday bar might set a new high or low; do not retroactively expose that value inside this four-bar aggregation.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Many Intraday Bars Become One Daily View using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: Four consecutive fictional completed intraday bars have first open $10.00, highs $10.70/$11.50/$11.20/$11.10, lows $9.80/$9.50/$10.20/$10.40, final close $10.90, and volumes 100/200/150/200 shares.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: Their aggregate open is $10.00, high $11.50, low $9.50, close $10.90 and volume 650 shares. Four intraday bars alone do not make a verified full-session daily candle.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A later fifth intraday bar might set a new high or low; do not retroactively expose that value inside this four-bar aggregation."
         ],
         "mistake": [
-          "A common error with Many Intraday Bars Become One Daily View: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Presenting a partial-day aggregate as the complete exchange-session daily candle or summing closes instead of shares.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Many Intraday Bars Become One Daily View cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: A later fifth intraday bar might set a new high or low; do not retroactively expose that value inside this four-bar aggregation.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Aggregating completed intraday bars into a partial daily view, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "Given three new completed fictional intervals with opens $20/$20.30/$20.10, highs $20.50/$20.60/$20.40, lows $19.70/$20.00/$19.90, last close $20.20 and volumes 40/60/80, calculate the partial aggregate OHLCV and explain why it is not a final daily session.",
         "topic": "Many Intraday Bars Become One Daily View",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C11-L01": {
       "labId": "F2-C11-L01",
@@ -2154,44 +2154,44 @@
         "CANDLE_READING",
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Agreement on Completed-Candle Direction.",
-          "A candle summarizes OHLC observations for one interval; it does not encode the sequence between the high and low.",
-          "Check OHLC consistency first; compute body = absolute(close minus open), range = high minus low and wicks relative to the larger/smaller of open and close."
+          "Learning objective — Direction agreement across two completed timescales. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: At a common fictional completed-bar cutoff, the last one-minute candle is O=$10.20 and C=$10.40 and the last five-minute candle is O=$10.00 and C=$10.30.",
+          "Original worked interpretation: The one-minute body is +$0.20 and the five-minute body is +$0.30; both close above their opens, which is descriptive agreement rather than evidence of a profitable setup."
         ],
         "recognize": [
-          "Here is how to recognize Agreement on Completed-Candle Direction from the source evidence.",
-          "Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Direction agreement across two completed timescales case.",
+          "If the five-minute candle is still forming, its apparent green body is not a completed second observation and must not be counted as agreement.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Agreement on Completed-Candle Direction using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Step 3 — Check the alternative or invalidation: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Step 1 — Record the fictional case without disclosing any later bar: At a common fictional completed-bar cutoff, the last one-minute candle is O=$10.20 and C=$10.40 and the last five-minute candle is O=$10.00 and C=$10.30.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The one-minute body is +$0.20 and the five-minute body is +$0.30; both close above their opens, which is descriptive agreement rather than evidence of a profitable setup.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: If the five-minute candle is still forming, its apparent green body is not a completed second observation and must not be counted as agreement."
         ],
         "mistake": [
-          "A common error with Agreement on Completed-Candle Direction: Assuming the candle's high occurred after its low without tape evidence.",
-          "Correct it by returning to the actual observation. Identify body, upper/lower wicks, open, close and total range on a completed candle.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Treating direction agreement as independent evidence or an automatic buy recommendation.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Agreement on Completed-Candle Direction cannot establish:",
-          "A large upper wick can be consistent with rejection, but cannot prove who sold or why.",
-          "An interpretation is invalidated or unproven when: A wick interpretation conflicts with the broader visible series or an unseen candle is required."
+          "Specific failure boundary: If the five-minute candle is still forming, its apparent green body is not a completed second observation and must not be counted as agreement.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candles and price information, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Direction agreement across two completed timescales, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional O=12.40 H=12.90 L=12.10 C=12.20 calculate body, range and wicks without predicting the next candle.",
+        "prompt": "In a new fictional case, the completed one-minute bar opens $25.20 and closes $25.00 while the completed five-minute bar opens $24.70 and closes $25.00; classify agreement versus disagreement without forecasting.",
         "topic": "Agreement on Completed-Candle Direction",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C11-L02": {
       "labId": "F2-C11-L02",
@@ -2201,44 +2201,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Disagreement Across Scale.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — Short red candle inside a completed green larger bar. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: A completed fictional one-minute bar opens $10.40 and closes $10.20, while its enclosing five-minute bar opens $10.00 and closes $10.20 at the same completed cutoff.",
+          "Original worked interpretation: The one-minute body is −$0.20; the five-minute body is +$0.20. Their directions disagree even though the final price is identical at $10.20."
         ],
         "recognize": [
-          "Here is how to recognize Disagreement Across Scale from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Short red candle inside a completed green larger bar case.",
+          "A completed shorter red interval does not prove the broader five-minute upward outcome has reversed; the observations answer different time-aggregation questions.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Disagreement Across Scale using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: A completed fictional one-minute bar opens $10.40 and closes $10.20, while its enclosing five-minute bar opens $10.00 and closes $10.20 at the same completed cutoff.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The one-minute body is −$0.20; the five-minute body is +$0.20. Their directions disagree even though the final price is identical at $10.20.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A completed shorter red interval does not prove the broader five-minute upward outcome has reversed; the observations answer different time-aggregation questions."
         ],
         "mistake": [
-          "A common error with Disagreement Across Scale: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Replacing the longer bar's completed direction with the direction of its last minute.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Disagreement Across Scale cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: A completed shorter red interval does not prove the broader five-minute upward outcome has reversed; the observations answer different time-aggregation questions.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Short red candle inside a completed green larger bar, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "For a fresh fictional final minute O=$31.10/C=$30.90 and completed five-minute O=$30.20/C=$30.90, calculate both bodies and explain their disagreement.",
         "topic": "Disagreement Across Scale",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C11-L03": {
       "labId": "F2-C11-L03",
@@ -2248,44 +2248,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Opposite Disagreement.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — Short green candle inside a completed red larger bar. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: A fictional last one-minute bar opens $10.10 and closes $10.30, while its completed five-minute parent opens $10.50 and closes $10.30.",
+          "Original worked interpretation: The short candle body is +$0.20 while the longer candle is −$0.20. A bounce within the final minute can coexist with a down-close over the full five-minute interval."
         ],
         "recognize": [
-          "Here is how to recognize The Opposite Disagreement from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Short green candle inside a completed red larger bar case.",
+          "Seeing green in the last interval alone cannot erase earlier declines that still determine the parent candle's close-to-open direction.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice The Opposite Disagreement using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: A fictional last one-minute bar opens $10.10 and closes $10.30, while its completed five-minute parent opens $10.50 and closes $10.30.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The short candle body is +$0.20 while the longer candle is −$0.20. A bounce within the final minute can coexist with a down-close over the full five-minute interval.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Seeing green in the last interval alone cannot erase earlier declines that still determine the parent candle's close-to-open direction."
         ],
         "mistake": [
-          "A common error with The Opposite Disagreement: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Calling the last-minute bounce a five-minute bullish reversal without a completed confirming observation.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What The Opposite Disagreement cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: Seeing green in the last interval alone cannot erase earlier declines that still determine the parent candle's close-to-open direction.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Short green candle inside a completed red larger bar, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "For a new fictional one-minute O=$41.20/C=$41.55 and five-minute O=$41.80/C=$41.55, classify both signs and state a missing confirmation.",
         "topic": "The Opposite Disagreement",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C11-L04": {
       "labId": "F2-C11-L04",
@@ -2295,44 +2295,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Compression Hides Internal Sequence.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Learning objective — Information lost when intrabar sequence is compressed. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Two fictional intrabar paths are $10.00 → $11.00 → $9.00 → $10.00 and $10.00 → $9.00 → $11.00 → $10.00.",
+          "Original worked interpretation: Both paths compress to O=$10.00, H=$11.00, L=$9.00, C=$10.00, but the order of high and low is reversed; the final OHLC record cannot identify which path occurred."
         ],
         "recognize": [
-          "Here is how to recognize Compression Hides Internal Sequence from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Information lost when intrabar sequence is compressed case.",
+          "A candle's wick lengths do not prove whether a stop or target was touched first, even if both levels lie inside the high–low interval.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Compression Hides Internal Sequence using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Step 1 — Record the fictional case without disclosing any later bar: Two fictional intrabar paths are $10.00 → $11.00 → $9.00 → $10.00 and $10.00 → $9.00 → $11.00 → $10.00.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: Both paths compress to O=$10.00, H=$11.00, L=$9.00, C=$10.00, but the order of high and low is reversed; the final OHLC record cannot identify which path occurred.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A candle's wick lengths do not prove whether a stop or target was touched first, even if both levels lie inside the high–low interval."
         ],
         "mistake": [
-          "A common error with Compression Hides Internal Sequence: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Inferring stop-first or target-first execution from a historical candle that has no ordered transaction prints.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Compression Hides Internal Sequence cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Specific failure boundary: A candle's wick lengths do not prove whether a stop or target was touched first, even if both levels lie inside the high–low interval.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Information lost when intrabar sequence is compressed, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
+        "prompt": "Create two different fictional 4-tick paths that both compress to O=$20, H=$22, L=$19, C=$21, and explain why execution order cannot be identified from OHLC.",
         "topic": "Compression Hides Internal Sequence",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C12-L01": {
       "labId": "F2-C12-L01",
@@ -2342,44 +2342,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Classify a generally upward path.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Evidence for a generally rising completed-close path. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Five fictional completed closes are $10.00, $10.40, $10.70, $10.60 and $11.10.",
+          "Original worked interpretation: The endpoint change is +$1.10, but bar four falls $0.10 versus bar three; a generally upward path need not mean five consecutive rising closes."
         ],
         "recognize": [
-          "Here is how to recognize Classify a generally upward path from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Evidence for a generally rising completed-close path case.",
+          "A higher closing endpoint alone is not proof of confirmed higher swing highs and higher swing lows; swings need a declared pivot rule.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Classify a generally upward path using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Five fictional completed closes are $10.00, $10.40, $10.70, $10.60 and $11.10.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The endpoint change is +$1.10, but bar four falls $0.10 versus bar three; a generally upward path need not mean five consecutive rising closes.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A higher closing endpoint alone is not proof of confirmed higher swing highs and higher swing lows; swings need a declared pivot rule."
         ],
         "mistake": [
-          "A common error with Classify a generally upward path: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Labeling every individual interval bullish or claiming a verified trend without the required swing evidence.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Classify a generally upward path cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A higher closing endpoint alone is not proof of confirmed higher swing highs and higher swing lows; swings need a declared pivot rule.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Evidence for a generally rising completed-close path, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For new fictional completed closes $30.00, $30.60, $30.40, $30.90, $31.20, calculate the net change and identify the interval that did not rise.",
         "topic": "Classify a generally upward path",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C12-L02": {
       "labId": "F2-C12-L02",
@@ -2389,44 +2389,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Classify a generally downward path.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Evidence for a generally falling completed-close path. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Five fictional completed closes are $11.00, $10.70, $10.40, $10.50 and $10.10.",
+          "Original worked interpretation: The endpoint change is −$0.90 even though the fourth close rises $0.10 against the preceding bar; generally downward does not require unbroken declines."
         ],
         "recognize": [
-          "Here is how to recognize Classify a generally downward path from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Evidence for a generally falling completed-close path case.",
+          "A short upward segment does not establish a larger reversal or confirm lower swing highs without a declared pivot rule.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Classify a generally downward path using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Five fictional completed closes are $11.00, $10.70, $10.40, $10.50 and $10.10.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The endpoint change is −$0.90 even though the fourth close rises $0.10 against the preceding bar; generally downward does not require unbroken declines.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A short upward segment does not establish a larger reversal or confirm lower swing highs without a declared pivot rule."
         ],
         "mistake": [
-          "A common error with Classify a generally downward path: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Ignoring interim countertrend closes or inferring tradable short-sale fills from a sequence of closes.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Classify a generally downward path cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A short upward segment does not establish a larger reversal or confirm lower swing highs without a declared pivot rule.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Evidence for a generally falling completed-close path, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "On a new fictional close sequence $32.00, $31.40, $31.75, $31.10, $30.80, compute endpoint change and identify the countertrend rise.",
         "topic": "Classify a generally downward path",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C12-L03": {
       "labId": "F2-C12-L03",
@@ -2436,44 +2436,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Classify a broadly non-directional window.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — A broadly non-directional completed-close window. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Fictional completed closes are $10.00, $10.30, $9.90, $10.20 and $10.10.",
+          "Original worked interpretation: The observed maximum minus minimum is $10.30−$9.90=$0.40, while the endpoint difference is only +$0.10; this short sample supports cautious range description rather than a decisive direction."
         ],
         "recognize": [
-          "Here is how to recognize Classify a broadly non-directional window from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this A broadly non-directional completed-close window case.",
+          "A narrow observed close range cannot establish the full high–low intraday range, spread, liquidity, or future breakout location.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Classify a broadly non-directional window using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Fictional completed closes are $10.00, $10.30, $9.90, $10.20 and $10.10.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The observed maximum minus minimum is $10.30−$9.90=$0.40, while the endpoint difference is only +$0.10; this short sample supports cautious range description rather than a decisive direction.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A narrow observed close range cannot establish the full high–low intraday range, spread, liquidity, or future breakout location."
         ],
         "mistake": [
-          "A common error with Classify a broadly non-directional window: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Treating small net movement as proof of zero risk or a guaranteed sideways market.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Classify a broadly non-directional window cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A narrow observed close range cannot establish the full high–low intraday range, spread, liquidity, or future breakout location.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For A broadly non-directional completed-close window, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "Given fresh fictional closes $50.00, $49.70, $50.20, $49.90, $50.05, calculate their observed close-range width and net change, then describe uncertainty.",
         "topic": "Classify a broadly non-directional window",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C12-L04": {
       "labId": "F2-C12-L04",
@@ -2483,44 +2483,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about A broader upward path can contain a short downward segment.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Short pullback within a broader upward sequence. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Five fictional completed closes are $10.00, $10.80, $11.20, $10.90 and $11.60.",
+          "Original worked interpretation: The bar-four pullback is −$0.30 from bar three, while the overall endpoint change remains +$1.60; different observation windows legitimately produce different local direction labels."
         ],
         "recognize": [
-          "Here is how to recognize A broader upward path can contain a short downward segment from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Short pullback within a broader upward sequence case.",
+          "A pullback does not verify a tradable entry or guarantee a subsequent higher high; the final $11.60 close could not be used at the earlier $10.90 pause.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice A broader upward path can contain a short downward segment using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Five fictional completed closes are $10.00, $10.80, $11.20, $10.90 and $11.60.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The bar-four pullback is −$0.30 from bar three, while the overall endpoint change remains +$1.60; different observation windows legitimately produce different local direction labels.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A pullback does not verify a tradable entry or guarantee a subsequent higher high; the final $11.60 close could not be used at the earlier $10.90 pause."
         ],
         "mistake": [
-          "A common error with A broader upward path can contain a short downward segment: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Using the known final recovery to pretend a learner could have predicted it during the temporary decline.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What A broader upward path can contain a short downward segment cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A pullback does not verify a tradable entry or guarantee a subsequent higher high; the final $11.60 close could not be used at the earlier $10.90 pause.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Short pullback within a broader upward sequence, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "Use new fictional closes $25.00, $25.90, $26.30, $26.00, $26.50. At the fourth-bar pause, report known net change and the latest pullback without using the fifth close.",
         "topic": "A broader upward path can contain a short downward segment",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C13-L01": {
       "labId": "F2-C13-L01",
@@ -2530,44 +2530,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Higher highs and higher lows.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Candidate higher-high and higher-low swing comparisons. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three fictional confirmed swing highs are $10.70, $11.10 and $11.50; their paired confirmed swing lows are $10.00, $10.30 and $10.70.",
+          "Original worked interpretation: The high differences are +$0.40 then +$0.40 and the low differences are +$0.30 then +$0.40; the declared confirmed pivots form higher-high/higher-low comparisons."
         ],
         "recognize": [
-          "Here is how to recognize Higher highs and higher lows from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Candidate higher-high and higher-low swing comparisons case.",
+          "A current unconfirmed high cannot be labelled a confirmed swing high without seeing the rule's required post-pivot confirmation, which itself is not available at the pivot time.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Higher highs and higher lows using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three fictional confirmed swing highs are $10.70, $11.10 and $11.50; their paired confirmed swing lows are $10.00, $10.30 and $10.70.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The high differences are +$0.40 then +$0.40 and the low differences are +$0.30 then +$0.40; the declared confirmed pivots form higher-high/higher-low comparisons.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A current unconfirmed high cannot be labelled a confirmed swing high without seeing the rule's required post-pivot confirmation, which itself is not available at the pivot time."
         ],
         "mistake": [
-          "A common error with Higher highs and higher lows: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Plotting a confirmed HH or HL on an earlier replay frame using future pivot-confirmation bars.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Higher highs and higher lows cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A current unconfirmed high cannot be labelled a confirmed swing high without seeing the rule's required post-pivot confirmation, which itself is not available at the pivot time.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Candidate higher-high and higher-low swing comparisons, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For fresh confirmed hypothetical swing highs $20.60/$20.90/$21.40 and lows $19.90/$20.10/$20.30, classify both sequences; then state when a later pivot is legitimately confirmed.",
         "topic": "Higher highs and higher lows",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C13-L02": {
       "labId": "F2-C13-L02",
@@ -2577,44 +2577,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Lower high and lower low.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Candidate lower-high and lower-low swing comparisons. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three fictional confirmed swing highs are $11.50, $11.10 and $10.70; paired confirmed lows are $10.80, $10.50 and $10.10.",
+          "Original worked interpretation: The highs fall $0.40 twice and the lows fall $0.30 then $0.40; under the declared confirmed-swing assumption these are lower highs and lower lows."
         ],
         "recognize": [
-          "Here is how to recognize Lower high and lower low from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Candidate lower-high and lower-low swing comparisons case.",
+          "Falling closes alone do not establish independent swing highs/lows and do not prove that a short order could execute.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Lower high and lower low using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three fictional confirmed swing highs are $11.50, $11.10 and $10.70; paired confirmed lows are $10.80, $10.50 and $10.10.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The highs fall $0.40 twice and the lows fall $0.30 then $0.40; under the declared confirmed-swing assumption these are lower highs and lower lows.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Falling closes alone do not establish independent swing highs/lows and do not prove that a short order could execute."
         ],
         "mistake": [
-          "A common error with Lower high and lower low: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Calling a transient high a confirmed lower high before the pivot rule is satisfied.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Lower high and lower low cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: Falling closes alone do not establish independent swing highs/lows and do not prove that a short order could execute.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Candidate lower-high and lower-low swing comparisons, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "On new hypothetical confirmed highs $31.50/$31.20/$30.80 and lows $30.70/$30.40/$30.00, calculate successive swing differences and describe a failed confirmation case.",
         "topic": "Lower high and lower low",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C13-L03": {
       "labId": "F2-C13-L03",
@@ -2624,44 +2624,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Conflicting inward swing comparisons.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Contracting structure with lower high and higher low. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Two successive fictional confirmed swing highs are $11.80 then $11.40, while their paired lows are $10.00 then $10.40.",
+          "Original worked interpretation: The high change is −$0.40 while the low change is +$0.40. The swing envelope contracts, so the comparisons conflict rather than forming a standard HH/HL or LH/LL trend."
         ],
         "recognize": [
-          "Here is how to recognize Conflicting inward swing comparisons from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Contracting structure with lower high and higher low case.",
+          "Contracting swings do not predict the direction or timing of any later breakout; no future breach can be inferred from the current pair.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Conflicting inward swing comparisons using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Two successive fictional confirmed swing highs are $11.80 then $11.40, while their paired lows are $10.00 then $10.40.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The high change is −$0.40 while the low change is +$0.40. The swing envelope contracts, so the comparisons conflict rather than forming a standard HH/HL or LH/LL trend.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Contracting swings do not predict the direction or timing of any later breakout; no future breach can be inferred from the current pair."
         ],
         "mistake": [
-          "A common error with Conflicting inward swing comparisons: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Forcing every inward swing configuration into an unambiguous bullish or bearish trend label.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Conflicting inward swing comparisons cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: Contracting swings do not predict the direction or timing of any later breakout; no future breach can be inferred from the current pair.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Contracting structure with lower high and higher low, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "On new fictional confirmed highs $22.40 then $22.10 and lows $20.80 then $21.00, calculate the changes and identify the unresolved decision.",
         "topic": "Conflicting inward swing comparisons",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C13-L04": {
       "labId": "F2-C13-L04",
@@ -2671,44 +2671,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Conflicting outward swing comparisons.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Expanding structure with higher high and lower low. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Two successive fictional confirmed swing highs are $11.00 then $11.60, while the corresponding lows are $10.00 then $9.40.",
+          "Original worked interpretation: The high rises +$0.60 while the low falls −$0.60; the envelope widens, displaying outward conflict rather than a clean directional HH/HL or LH/LL sequence."
         ],
         "recognize": [
-          "Here is how to recognize Conflicting outward swing comparisons from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Expanding structure with higher high and lower low case.",
+          "Broader observed range can coincide with uncertainty or elevated risk; it does not establish trend continuation or reveal intrabar event order.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Conflicting outward swing comparisons using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Two successive fictional confirmed swing highs are $11.00 then $11.60, while the corresponding lows are $10.00 then $9.40.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The high rises +$0.60 while the low falls −$0.60; the envelope widens, displaying outward conflict rather than a clean directional HH/HL or LH/LL sequence.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: Broader observed range can coincide with uncertainty or elevated risk; it does not establish trend continuation or reveal intrabar event order."
         ],
         "mistake": [
-          "A common error with Conflicting outward swing comparisons: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Calling a higher high alone an uptrend while ignoring the concurrent lower low.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Conflicting outward swing comparisons cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: Broader observed range can coincide with uncertainty or elevated risk; it does not establish trend continuation or reveal intrabar event order.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Expanding structure with higher high and lower low, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For new fictional confirmed highs $52.00/$52.70 and lows $50.50/$49.90, compute the outward changes and explain why one directional label is unsupported.",
         "topic": "Conflicting outward swing comparisons",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C14-L01": {
       "labId": "F2-C14-L01",
@@ -2719,44 +2719,44 @@
         "CHART_STRUCTURE",
         "CANDIDATE_QUALITY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Candidate Support From Repeated Lower Reactions.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Candidate support inferred from repeated lower reactions. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three fictional completed reaction lows are $10.02, $9.98 and $10.05.",
+          "Original worked interpretation: The observed low spread is $10.05−$9.98=$0.07. A candidate support zone around $10.00 is an interpretation of repeated reactions, not a guaranteed order-fill price."
         ],
         "recognize": [
-          "Here is how to recognize Candidate Support From Repeated Lower Reactions from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Candidate support inferred from repeated lower reactions case.",
+          "A later price may trade below this area; the proposed zone is a hypothesis to observe with future completed evidence, not a floor.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Candidate Support From Repeated Lower Reactions using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three fictional completed reaction lows are $10.02, $9.98 and $10.05.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The observed low spread is $10.05−$9.98=$0.07. A candidate support zone around $10.00 is an interpretation of repeated reactions, not a guaranteed order-fill price.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A later price may trade below this area; the proposed zone is a hypothesis to observe with future completed evidence, not a floor."
         ],
         "mistake": [
-          "A common error with Candidate Support From Repeated Lower Reactions: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Drawing an exact immutable support price from three imperfect lows and treating it as risk-free.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Candidate Support From Repeated Lower Reactions cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A later price may trade below this area; the proposed zone is a hypothesis to observe with future completed evidence, not a floor.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Candidate support inferred from repeated lower reactions, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "Using three new completed reaction lows $25.08, $24.97 and $25.03, calculate the low spread and describe a reasonable candidate zone with uncertainty.",
         "topic": "Candidate Support From Repeated Lower Reactions",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C14-L02": {
       "labId": "F2-C14-L02",
@@ -2767,44 +2767,44 @@
         "CHART_STRUCTURE",
         "CANDIDATE_QUALITY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Candidate Resistance From Repeated Upper Reactions.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Candidate resistance inferred from repeated upper reactions. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three fictional completed reaction highs are $11.90, $12.00 and $11.95.",
+          "Original worked interpretation: The upper-reaction spread is $12.00−$11.90=$0.10, suggesting a possible resistance area near $12.00; no exact universal ceiling follows from three observations."
         ],
         "recognize": [
-          "Here is how to recognize Candidate Resistance From Repeated Upper Reactions from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Candidate resistance inferred from repeated upper reactions case.",
+          "A later high above $12.00 is not evidence available when the earlier candidate resistance is initially drawn.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Candidate Resistance From Repeated Upper Reactions using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three fictional completed reaction highs are $11.90, $12.00 and $11.95.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: The upper-reaction spread is $12.00−$11.90=$0.10, suggesting a possible resistance area near $12.00; no exact universal ceiling follows from three observations.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: A later high above $12.00 is not evidence available when the earlier candidate resistance is initially drawn."
         ],
         "mistake": [
-          "A common error with Candidate Resistance From Repeated Upper Reactions: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Marking $12.00 as an absolute unbreakable level instead of a tentative observed price region.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Candidate Resistance From Repeated Upper Reactions cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: A later high above $12.00 is not evidence available when the earlier candidate resistance is initially drawn.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Candidate resistance inferred from repeated upper reactions, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "From fictional completed highs $40.92, $41.05 and $41.00, compute their width and explain the distinction between a candidate resistance area and a confirmed reversal.",
         "topic": "Candidate Resistance From Repeated Upper Reactions",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C14-L03": {
       "labId": "F2-C14-L03",
@@ -2814,44 +2814,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Support Is Historical Evidence, Not a Guarantee.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Support is conditional historical evidence, not a guarantee. Examine only the available completed fictional observations.",
+          "Original FICTIONAL evidence: Three fictional completed reaction lows occur at $10.02, $9.98 and $10.01; a separate later completed bar closes at $9.70.",
+          "Original worked interpretation: Before that fourth bar, the first three lows span $0.04 and support near $10.00 is only tentative; after it completes, a $9.70 close is $0.28 below the lowest prior low."
         ],
         "recognize": [
-          "Here is how to recognize Support Is Historical Evidence, Not a Guarantee from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the exact observation cutoff, price units, bar interval and source provenance in this Support is conditional historical evidence, not a guarantee case.",
+          "The fourth close must remain concealed in any exercise paused at the third low; it cannot be used to justify claiming the support would fail in advance.",
+          "Distinguish observed price/interval values from inferred market intent, unknown fills, and unrevealed future bars. The numerical sequence is original fictional instruction, not authenticated market data."
         ],
         "apply": [
-          "Let us practice Support Is Historical Evidence, Not a Guarantee using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Step 1 — Record the fictional case without disclosing any later bar: Three fictional completed reaction lows occur at $10.02, $9.98 and $10.01; a separate later completed bar closes at $9.70.",
+          "Step 2 — Reproduce the original calculation or completed-observation comparison: Before that fourth bar, the first three lows span $0.04 and support near $10.00 is only tentative; after it completes, a $9.70 close is $0.28 below the lowest prior low.",
+          "Step 3 — Explain what the known observations support, and name the missing confirmation or alternative interpretation: The fourth close must remain concealed in any exercise paused at the third low; it cannot be used to justify claiming the support would fail in advance."
         ],
         "mistake": [
-          "A common error with Support Is Historical Evidence, Not a Guarantee: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common live-trading analysis mistake: Rewriting a previous trading plan with hindsight after observing the later break below support.",
+          "Correction: freeze the decision timestamp, name each input and timeframe, and separate completed chart evidence from predicted outcomes.",
+          "Practice the correction on new fictional observations without revealing protected rubric answers; a correct calculation alone is not an order recommendation or mastery award."
         ],
         "limits": [
-          "What Support Is Historical Evidence, Not a Guarantee cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Specific failure boundary: The fourth close must remain concealed in any exercise paused at the third low; it cannot be used to justify claiming the support would fail in advance.",
+          "The prices and times in this exercise are authored fictional examples. No unlicensed historical feed, transaction prints, chart screenshots or actual order execution are claimed.",
+          "The member may request original explanatory feedback, but no protected answer key, official grade, paid inference, market-data right or premium entitlement is included here."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Support is conditional historical evidence, not a guarantee, state the completed data you can verify and recompute the worked observation without future information. Then name the specific trading inference that the observation does not establish.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "Pause a new fictional replay after lows $30.02, $29.99 and $30.05; document a conditional support idea, then reveal a separate new completed close at $29.60 and state what changed without rewriting the first decision.",
         "topic": "Support Is Historical Evidence, Not a Guarantee",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH03_20261101"
     },
     "F2-C14-L04": {
       "labId": "F2-C14-L04",
