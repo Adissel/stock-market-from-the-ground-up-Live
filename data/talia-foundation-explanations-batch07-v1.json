@@ -50,7 +50,7 @@
       "workedCase": "FICTIONAL: $100 earns +10% to $110, then loses 10% of $110, ending $99. Full-period return = 1.10×0.90−1 = −1%, not zero.",
       "limit": "Contributions, withdrawals, distributions and valuation gaps change the account-return calculation, and observed historical percentages do not forecast later periods.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Contributions, withdrawals, distributions and valuation gaps change the account-return calculation, and observed historical percentages do not forecast later periods.",
-      "commonError": "Adding +10% and −10% and claiming the holder broke even.",
+      "commonError": "Adding +10% and −10% to report zero while ignoring that the second return applies to $110 rather than the original $100. The multipliers compound on changing account balances and must be linked chronologically.",
       "selfCheck": "Which dollar amount is the base for the second −10% step after the initial gain?",
       "reviewExplanation": "Check $100 → $110 → $99; the mistaken zero-sum percentage shortcut hides the $11 second-period decline. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A $200 account grows 20% and then falls 25%; find its terminal value and compound return.",
@@ -243,7 +243,7 @@
       "limit": "Transaction fees, account restrictions, liquidity and taxes may prevent exact shifts, so arithmetic is not advice to place those orders.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Transaction fees, account restrictions, liquidity and taxes may prevent exact shifts, so arithmetic is not advice to place those orders.",
       "commonError": "Rebalancing against the original $1,000 instead of the current $1,120 account denominator.",
-      "selfCheck": "What values should be multiplied by the desired 60% and 40% targets?",
+      "selfCheck": "Using the current $1,120 total rather than the original $1,000, compute the 60% and 40% target dollar balances. How much must move, before transaction costs and taxes, to meet those targets?",
       "reviewExplanation": "At total $1,120, target $672/$448; reallocation $48 is hypothetical before spreads, fees and tax, not execution advice. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Current $1,400 stocks and $600 bonds, target 50/50. Calculate idealized target dollars and transfer size.",
       "sourceUrls": [
@@ -339,7 +339,7 @@
       "limit": "Acquisitions, seasonal demand, revisions and year-to-date conventions can break naive extrapolation.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Acquisitions, seasonal demand, revisions and year-to-date conventions can break naive extrapolation.",
       "commonError": "Treating one quarter as annualized actuals or assuming quarterly financial statements are audited just because EDGAR hosts them.",
-      "selfCheck": "Does a first-quarter number represent a whole audited fiscal year?",
+      "selfCheck": "A fictional first-quarter 10-Q reports $24 million of sales. Is this an audited full-year result? Explain which form and reported fiscal interval must be checked before any annual comparison or quarter-over-quarter calculation.",
       "reviewExplanation": "Form 10-Q may use unaudited quarterly or YTD data; $24m Q1 cannot be substituted for the audited $100m prior-year figure. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A 10-Q states $12m six-month YTD cash flow and a compatible prior Q1 reports $7m. Calculate the Q2 increment.",
       "sourceUrls": [
@@ -499,7 +499,7 @@
       "limit": "Seasonality, product write-downs and inventory accounting conventions make cross-company turnover comparison conditional.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Seasonality, product write-downs and inventory accounting conventions make cross-company turnover comparison conditional.",
       "commonError": "Dividing sales revenue by just the year-end inventory and calling it standard cost-based annual turnover.",
-      "selfCheck": "Why is the numerator COST of sales and denominator AVERAGE inventory?",
+      "selfCheck": "Why is cost of sales ($120 million) divided by the average of $20 million and $30 million inventory rather than by $30 million alone or by sales revenue? State the numerator and denominator units.",
       "reviewExplanation": "Check ($20m+$30m)/2=$25m and annual COGS $120m/25m=4.8×; end-only inventory changes the method. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: COGS $90m, inventories $10m and $20m. Compute the average-based turnover multiple.",
       "sourceUrls": [
@@ -595,7 +595,7 @@
       "limit": "Negative book equity, off-balance commitments and financial-sector accounting can make conventional ratios misleading.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Negative book equity, off-balance commitments and financial-sector accounting can make conventional ratios misleading.",
       "commonError": "Comparing one firm's total liabilities/equity to another's interest-bearing debt/equity as though both were the same measure.",
-      "selfCheck": "What debt components and book equity definition are being compared?",
+      "selfCheck": "Given $90 million of interest-bearing borrowings and $60 million of book equity, compute the stated debt/equity ratio. Would adding trade payables to the debt numerator give the same metric? State the definition.",
       "reviewExplanation": "Check $90m interest-bearing debt/$60m equity=1.5×. Total liabilities could give a different value, so state the definition. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Short debt $10m, long debt $30m and book equity $20m. Calculate interest-bearing debt/equity.",
       "sourceUrls": [
