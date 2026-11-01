@@ -2,6 +2,7 @@ import {ungradedResponseReview} from './tutor-response-scaffold-v014102.js';
 import {foundationWorkedMath} from './tutor-foundation-worked-math-v1.js';
 import {foundationQuantTeaching} from './talia-foundation-quant-v1.js';
 import {foundationRiskTeaching} from './talia-foundation-risk-quant-v1.js';
+import {researchMathTeaching} from './talia-research-math-v1.js';
 import {indicatorWorkedTeaching} from './talia-indicator-worked-v1.js';
 /* v0.14.0.100 — zero-cost source-grounded tutor upgrade.
  * Reuses the 30 original public competency study guides already published
@@ -363,7 +364,7 @@ function sourceOnlyMisconception(g){
  ].join('\n\n');
 }
 function formatFoundationTopic(g,mode,reflection,question){
- const computed=mode==='explain'?(foundationQuantTeaching(g.code,question)||foundationRiskTeaching(g.code,question)):null;
+ const computed=mode==='explain'?(foundationQuantTeaching(g.code,question)||foundationRiskTeaching(g.code,question)||researchMathTeaching(g.code,question)):null;
  const topic='Original ungraded Foundation explanation — '+g.title;
  const base=[topic,'First principle: '+g.concept,'How to verify or calculate: '+g.procedure,
   'Limits and uncertainty: '+g.limit,'What would invalidate this interpretation: '+g.invalidation,
