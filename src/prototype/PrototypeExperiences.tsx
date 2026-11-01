@@ -154,6 +154,7 @@ const defaults:Record<string,number>={emaFast:9,emaSlow:20,sma:20,bbPeriod:20,bb
 const defaultVisible:Record<string,boolean>={EMA_FAST:true,EMA_SLOW:true,VWAP:true,VOLUME:true,RSI:false};
 function IndicatorDock(){
  const prefs=React.useContext(IndicatorContext);
+ const barLook=React.useContext(BarLookContext);
  const [open,setOpen]=useState(false),[search,setSearch]=useState(''),[guides,setGuides]=useState<Array<{code:string;title:string;family:string;concept:string;formula:string;limit?:string;limits?:string;howToUse?:string;commonError?:string}>>([]);
  const [chosen,setChosen]=useState('STUDY_EMA');
  useEffect(()=>{let live=true;fetch('/data/tutor-indicator-study-v1.json',{cache:'no-store',credentials:'same-origin'}).then(r=>{if(!r.ok)throw Error('Catalog unavailable');return r.json()}).then(d=>{if(live&&d?.count===61&&Array.isArray(d.guides)&&d.guides.length===61)setGuides(d.guides)}).catch(()=>{});return()=>{live=false}},[]);
@@ -167,6 +168,28 @@ function IndicatorDock(){
   <div><div className="cx-overline">ADJUSTABLE CALCULATION PARAMETERS · {prefs.studio.toUpperCase()} TOOL PREVIEW</div><div className="cx-indicator-params">{settingRow('emaFast','Fast EMA period',2,100)}{settingRow('emaSlow','Slow EMA period',3,100)}{settingRow('sma','SMA period',2,100)}{settingRow('rsi','RSI period',2,100)}{settingRow('bbPeriod','Bollinger period',2,100)}{settingRow('bbDeviation','Bollinger standard deviation',.5,4,.1)}{settingRow('macdFast','MACD fast',2,50)}{settingRow('macdSlow','MACD slow',3,100)}{settingRow('macdSignal','MACD signal',2,50)}{settingRow('atr','ATR period',2,100)}{settingRow('volPeriod','Volume SMA period',2,100)}{settingRow('orb','Opening range minutes',1,30)}{settingRow('pivot','Structure confirmation bars',1,5)}</div><p className="cx-small">Values update only after each fictional bar completes. Warm-up gaps remain empty, not zero. Signal studies do not predict or authorize trades.</p></div></div>
   <div className="cx-indicator-catalog"><div><div className="cx-overline">TALIA / FULL AUTHORED STUDY LIBRARY</div><label>Explore all {guides.length||61} indicator topics <select aria-label="Indicator teaching guide" value={chosen} onChange={e=>setChosen(e.target.value)}><option value="STUDY_EMA">Exponential Moving Average</option>{guides.filter(g=>g.code!=='STUDY_EMA').map(g=><option key={g.code} value={g.code}>{g.title} · {g.family}</option>)}</select></label></div><div className="cx-guide-copy"><strong>{guide?.title||'Exponential Moving Average'}</strong><p>{guide?.concept||'A recent-price-weighted moving average. View the calculation settings, bar history and limitations.'}</p><p><b>Formula:</b> {guide?.formula||'EMA(t) = α × price(t) + (1−α) × EMA(t−1), α=2/(N+1)'}</p><p><b>Where it fails:</b> {guide?.limit||guide?.limits||'Indicators derived from historical bars are not future price guarantees.'}</p><p><b>Common live-trading error:</b> {guide?.commonError||'Treating a crossover alone as a trade signal.'}</p><span className="cx-chip">61 topics are teaching references; 15 studies are calculated on this synthetic OHLCV fixture</span></div></div></>}
  </section>;
+}
+
+
+type BarLook='quantum'|'glass'|'holographic'|'classic';
+const barLooks:{id:BarLook;label:string}[]=[
+ {id:'quantum',label:'Quantum Neon'},
+ {id:'glass',label:'Precision Glass'},
+ {id:'holographic',label:'Holographic Intelligence'},
+ {id:'classic',label:'Market Classic'}
+];
+const BarLookContext=React.createContext<BarLook>('quantum');
+function barVisual(look:BarLook,up:boolean,good:string,bad:string){
+ const base=up?good:bad;
+ if(look==='classic')return {color:base,borderColor:base,borderWidth:.8,borderRadius:[2,2,0,0]};
+ const colors=look==='holographic'?(up?['#dcffff','#68d1f8','#13a8a9','#0a5269']:['#fff4d9','#ffb78b','#df6d92','#6b467e']):
+  look==='glass'?(up?['#eaffff','#9dece5','#40a9af','#134159']:['#fff2f7','#ffb1ce','#d35d89','#602e6c']):
+  (up?['#eafffa','#9affdf','#2be3b8','#087c87']:['#fff0f4','#ffbbd1','#fc5f95','#8a345f']);
+ return {color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:colors.map((color,i)=>({offset:i/3,color}))},
+  borderColor:up?'#8affdc':'#ffc5da',borderWidth:look==='glass'?1.2:.9,
+  borderRadius:look==='glass'?[6,6,1,1]:[5,5,0,0],
+  shadowBlur:look==='glass'?7:look==='holographic'?12:14,
+  shadowColor:up?'rgba(42,222,185,.32)':'rgba(238,75,141,.32)',shadowOffsetY:2};
 }
 
 function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320,syncGroup,chartRole}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number;syncGroup?:string;chartRole?:'technical'|'reference'}){
@@ -197,6 +220,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const cv=(k:string,fallback:string)=>style.getPropertyValue(k).trim()||fallback;
    const accent=cv('--cx-accent','#72e0d1'),good=cv('--cx-good','#46d5ad'),bad=cv('--cx-bad','#f27d98'),muted=cv('--cx-muted','#99aebe'),grid=cv('--cx-grid','#294452');
     const luminous=(base:string,light:string)=>({type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:light},{offset:.32,color:base},{offset:1,color:base}]});
+   const paintBar=(up:boolean)=>barVisual(barLook,up,good,bad);
    const bars=dataFor(reveal),names=bars.map(b=>b.time);
    const axis={axisLine:{lineStyle:{color:grid}},axisTick:{show:false},axisLabel:{color:muted,fontSize:10},splitLine:{lineStyle:{color:grid,opacity:.55}}};
    let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8))}},yAxis:{type:'value',scale:true,...axis},series:[]};
@@ -227,7 +251,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     const markerData=[...calculated.marks.map((m:any)=>({name:m.label,coord:[m.index,m.value],value:m.label,symbol:'pin',symbolSize:18,label:{color:'#06131e',fontWeight:700,fontSize:9}}))];
     if(focusBar>=0&&focusBar<bars.length)markerData.push({name:'Talia inspected bar',coord:[focusBar,bars[focusBar].h],symbol:'pin',symbolSize:25,value:bars[focusBar].time,itemStyle:{color:'#f6cb7a',borderColor:'#fff2bc',borderWidth:1},label:{show:true,color:'#0a2432',fontWeight:900,fontSize:8,formatter:()=>String(focusBar+1)}});
     option.series=[{id:'price-candles',type:'candlestick',name:'Fictional completed OHLCV',data:bars.map(b=>[b.o,b.c,b.l,b.h]),
-      itemStyle:{color:good,color0:bad,borderColor:'#a8ffe6',borderColor0:'#ffd0db',borderWidth:1.5,shadowBlur:2,shadowColor:'#051422'},barMaxWidth:20,barMinWidth:4,
+      itemStyle:{color:paintBar(true).color,color0:paintBar(false).color,borderColor:paintBar(true).borderColor,borderColor0:paintBar(false).borderColor,borderWidth:barLook==='classic'?1:2,shadowBlur:barLook==='classic'?0:5,shadowColor:'#102f3c'},barMaxWidth:22,barMinWidth:4,
       markLine:{silent:true,symbol:'none',lineStyle:{color:good,type:'dashed',opacity:.65,width:1},label:{show:true,position:'end',formatter:()=>dollars(bars[bars.length-1].c),color:'#041516',backgroundColor:good,padding:[4,7],borderRadius:3,fontWeight:800},data:[{yAxis:bars[bars.length-1].c},...(focusBar>=0&&focusBar<bars.length?[{xAxis:names[focusBar],lineStyle:{color:'#f6cb7a',type:'dotted',width:2,opacity:.75},label:{show:false}}]:[])]},
       markPoint:{silent:true,data:markerData}}];
     for(const x of calculated.price)option.series.push({id:'ind-'+x.label,name:x.label,type:'line',data:x.data,showSymbol:false,connectNulls:false,animation:false,
@@ -235,13 +259,13 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     for(const x of calculated.volume){
       const index=gridRows.findIndex(x=>x.id==='volume');if(index<0)continue;
       option.series.push({id:'volume-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
-       data:x.kind==='bar'?x.data.map((v:number,i:number)=>({value:v,itemStyle:{color:bars[i].c>=bars[i].o?luminous(good,'#caffed'):luminous(bad,'#ffe0e9'),borderRadius:[3,3,0,0]}})):x.data,
+       data:x.kind==='bar'?x.data.map((v:number,i:number)=>({value:v,itemStyle:paintBar(bars[i].c>=bars[i].o)})):x.data,
        showSymbol:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2},barMaxWidth:17,animation:false});
     }
     for(const x of calculated.pane){
      const index=gridRows.findIndex(g=>g.id===x.axis);if(index<0)continue;
      const series:any={id:'pane-'+x.label,name:x.label,type:x.kind==='bar'?'bar':'line',xAxisIndex:index,yAxisIndex:index,
-       data:x.data,showSymbol:false,animation:false,itemStyle:{color:x.kind==='bar'?luminous(x.color,'#e3f6ff'):x.color},lineStyle:{color:x.color,width:2.5},connectNulls:false};
+       data:x.kind==='bar'?x.data.map((v:number)=>({value:v,itemStyle:barVisual(barLook,v>=0,x.color,'#e9678d')})):x.data,showSymbol:false,animation:false,itemStyle:{color:x.color},lineStyle:{color:x.color,width:2.5},connectNulls:false};
      if(x.axis==='rsi'&&x.label.startsWith('Wilder'))series.markLine={silent:true,symbol:'none',lineStyle:{type:'dashed',color:grid},data:[{yAxis:30},{yAxis:70}]};
      option.series.push(series);
     }
@@ -260,7 +284,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
     option={...option,xAxis:{type:'category',data:values.map((_,i)=>String(i+1)),...axis},
       series:[{type:'line',name:'Fictional practice equity',data:values,smooth:.24,showSymbol:false,lineStyle:{color:accent,width:3},areaStyle:{opacity:.35,color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:accent},{offset:1,color:'rgba(9,25,40,0)'}]}}}]};
    }else if(kind==='volume'){
-    option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative volume',data:bars.map(b=>({value:b.v,itemStyle:{color:b.c>=b.o?luminous(good,'#caffef'):luminous(bad,'#ffe2e9'),borderRadius:[3,3,0,0]}}))}]};
+    option={...option,xAxis:{type:'category',data:names,...axis},series:[{type:'bar',name:'Illustrative volume',barMaxWidth:22,data:bars.map(b=>({value:b.v,itemStyle:paintBar(b.c>=b.o)}))}]};
    }
    inst.current=echarts.init(ref.current);
    inst.current.setOption(option,true);
@@ -277,7 +301,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
   }catch(error){if(ref.current)ref.current.textContent='Chart unavailable: check the locally hosted ECharts and shared indicator math bundles.';console.error('Crownlight synthetic chart',error)}
   })();
   return()=>{alive=false;resize?.disconnect();inst.current?.dispose();inst.current=null};
- },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole]);
+ },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook]);
  return <div className="cx-interactive-chart">
  {kind==='price'&&<div className="cx-pan-controls" role="toolbar" aria-label="Chart navigation and panning">
     <span>DRAG CHART TO PAN · SCROLL WHEEL TO ZOOM · RANGE SLIDER TO NAVIGATE</span>
@@ -664,6 +688,7 @@ function LayoutStudio({page}:{page:Page}){
 function Suite({page}:{page:Page}){
  const [learningMode,setLearningMode]=useState<LearningMode>('guided'),[blindChoice,setBlindChoice]=useState(''),[blindReason,setBlindReason]=useState(''),[blindLocked,setBlindLocked]=useState(false);
  const changeMode=(next:LearningMode)=>{setLearningMode(next);setBlindChoice('');setBlindReason('');setBlindLocked(false);setStage(next==='practice'?8:0)};
+ const [barLook,setBarLook]=useState<BarLook>('quantum');
  const [planCode,setPlanCode]=useState('FREE'),[studio,setStudio]=useState<Studio>('Standard'),[design,setDesign]=useState<Design>('quantum');
  const [selectedEditions,setSelectedEditions]=useState<{learning:EngineEdition;lab:EngineEdition;tutor:EngineEdition}>(editionPolicy.FREE);
  const [topic,setTopic]=useState<Topic>('vwap'),[stage,setStage]=useState(2),[reveal,setReveal]=useState(54),[volume,setVolume]=useState(true),[ema,setEma]=useState(true),[proxy,setProxy]=useState(true),[focus,setFocus]=useState(30);
@@ -678,7 +703,7 @@ function Suite({page}:{page:Page}){
  const theme=page==='b'?'quantum':design;
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
- return <IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
+ return <BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a href="/prototype.html?view=classic">Classic Builder</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 15 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
@@ -687,6 +712,7 @@ function Suite({page}:{page:Page}){
    <label>Independent Chart Studio preview<select value={studio} onChange={e=>setStudio(e.target.value as Studio)}>{(['Standard','Advanced','Professional'] as Studio[]).map(t=><option key={t}>{t}</option>)}</select></label>
    {page==='a'&&<label>Design system<select value={design} onChange={e=>setDesign(e.target.value as Design)}>{designs.map(d=><option key={d.key} value={d.key}>{d.label}</option>)}</select></label>}
    <label>Learning Mode<select aria-label="Prototype learning mode" value={learningMode} onChange={e=>changeMode(e.target.value as LearningMode)}>{educationModes.map(m=><option key={m.id} value={m.id}>{m.label}</option>)}</select></label>
+   <label>Bar Appearance<select aria-label="Bar appearance preset" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>{barLooks.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>
    <label>Teaching topic<select value={topic} onChange={e=>setTopic(e.target.value as Topic)}><option value="vwap">Understand VWAP</option><option value="candle">Build & Understand a Candlestick</option></select></label>
   </div>
   {page==='a'&&<nav className="cx-designs" aria-label="Choose one of six advanced designs">{designs.map((d,i)=><button key={d.key} aria-pressed={design===d.key} onClick={()=>setDesign(d.key)}><i className={'cx-swatch cx-swatch-'+d.key}/><span><small>0{i+1} / DESIGN SYSTEM</small><b>{d.label}</b><small>{d.caption}</small></span></button>)}</nav>}
@@ -704,7 +730,7 @@ function Suite({page}:{page:Page}){
   <div id="cx-platform"><PlatformExplorer design={theme} reveal={reveal} volume={volume} ema={ema} proxy={proxy} focus={Math.min(focus,reveal-1)}/></div>
   <div id="cx-members"><MemberExperience plan={plan} reveal={reveal} setReveal={safeSetReveal} stage={stage} setStage={setStage} setTopic={setTopic}/></div>
   <footer className="cx-footer"><span>CROWN & LANTERN PRESS / INTERNAL DESIGN STUDY</span><span>REACT · TYPESCRIPT · JAVASCRIPT · HTML5 · CSS3 · ECHARTS 6.1 · PYTHON PROPOSED</span><span>Demo only. Server membership rules unchanged.</span></footer>
- </div></IndicatorContext.Provider>;
+ </div></IndicatorContext.Provider></BarLookContext.Provider>;
 }
 export function mountExperienceSuite(element:HTMLElement,page:Page):()=>void{
  const root:Root=createRoot(element);root.render(<Suite page={page}/>);return()=>root.unmount();
