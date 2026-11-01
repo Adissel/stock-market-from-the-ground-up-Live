@@ -143,7 +143,7 @@
       "reviewExplanation": "Correct explanation tracks the counterparty and share-count change separately from quoted market capitalization.",
       "transferQuestion": "FICTIONAL TRANSFER: Distinguish a company issuing 500 new shares from one investor selling 500 existing shares; identify cash beneficiary in each.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-17"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,7 +167,7 @@
       "reviewExplanation": "Correct response separates issuance allocation from secondary liquidity and refuses to assume achievable fills.",
       "transferQuestion": "FICTIONAL TRANSFER: Offer $15 and first print $17; name why a trader without allocation cannot book a $2 per-share profit.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-17"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -311,7 +311,7 @@
       "reviewExplanation": "Correct explanation keeps fund-valuation arithmetic distinct from achievable order execution and clock alignment.",
       "transferQuestion": "FICTIONAL TRANSFER: Net assets $5m, 250k shares; market quote $19.90. Calculate NAV and signed discount.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4"
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -431,7 +431,7 @@
       "reviewExplanation": "Correct response identifies pricing mechanism and the information cutoff rather than applying a universal 'buy at last price' rule.",
       "transferQuestion": "FICTIONAL TRANSFER: A request arrives before a fund cutoff when yesterday NAV is $12. What price information is still unknown?",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -479,7 +479,7 @@
       "reviewExplanation": "Correct reasoning distinguishes an observed mark from a recorded execution and makes no tax determination.",
       "transferQuestion": "FICTIONAL TRANSFER: Eight shares cost $12 each; last trade is $10 with no sale. State the gross unrealized difference and whether realized cash exists.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/capital-gain"
       ],
       "supplemental": true,
       "foundationTopic": true,
