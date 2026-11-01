@@ -137,6 +137,15 @@ try{
   assert(a===null&&b===null||Number.isFinite(a)&&Math.abs(a-b)<1e-7,'No-lookahead EMA9 at '+i);
  }
  assert.equal(await page.locator('[data-cl-echarts-rows] tr').count(),30);
+ // An omitted/null bar must never become a synthetic zero-price candle.
+ const malformed=[...bars.slice(0,50),null,{
+  timestamp:bars[50].timestamp,open:null,high:0,low:0,close:0,volume:0
+ },bars[50]];
+ await page.evaluate(data=>window.CrownlightEChartsStudio.update(data,'FICTION','1-minute'),malformed);
+ const sanitized=await read();
+ assert.equal(sanitized.status.barCount,51,'Null and blank OHLCV records must be rejected');
+ const observed=await page.evaluate(()=>window.CrownlightEChartsStudio.getObserved().at(-1));
+ near(observed.close,bars[50].close,'Do not fabricate a zero close from null');
  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('crownlight:member-changed')));
  assert.equal(await page.locator('[data-cl-echarts-rows] tr').count(),0);
  assert.equal(await page.evaluate(()=>window.CrownlightEChartsStudio.getStatus().barCount),0);
