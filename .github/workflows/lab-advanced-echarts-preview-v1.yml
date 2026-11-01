@@ -1,0 +1,30 @@
+name: Lab Advanced ECharts Staff Prototype Gate V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/lab-advanced-echarts-preview-v1.js'
+      - 'assets/css/lab-advanced-echarts-preview-v1.css'
+      - 'assets/js/learning-indicators-v1.js'
+      - 'assets/js/learning-quant-studies-ui-v1.js'
+      - 'prototype.html'
+      - 'lab-player.html'
+      - 'tests/lab-advanced-echarts-preview-v1.test.mjs'
+      - 'tests/learning-indicators-v1.test.mjs'
+      - '.github/workflows/lab-advanced-echarts-preview-v1.yml'
+  workflow_dispatch:
+jobs:
+  bounded-fictional-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax of chart and indicator modules
+        run: |
+          node --check assets/js/lab-advanced-echarts-preview-v1.js
+          node --check assets/js/learning-indicators-v1.js
+          node --check assets/js/learning-quant-studies-ui-v1.js
+      - name: Bounded replay, ECharts lifecycle, real curriculum parity, private assessment
+        run: node --test tests/lab-advanced-echarts-preview-v1.test.mjs tests/learning-indicators-v1.test.mjs tests/learning-quant-studies-v1.test.mjs

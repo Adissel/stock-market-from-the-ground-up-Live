@@ -31,3 +31,18 @@ test('Two original ECharts instances share synchronization and accessible table'
  assert.match(html,/pt-advanced-next/);
  assert(!/fetch\(/.test(js));assert(!/localStorage/.test(js));
 });
+
+test('Full 419-Lab/61-indicator registry is preserved; only approved topical Labs receive new numerical aid',()=>{
+ const registry=JSON.parse(readFileSync('data/competency-lab-paths-v01499.json','utf8')).byLab;
+ const catalog=JSON.parse(readFileSync('data/tutor-indicator-study-v1.json','utf8'));
+ const math=require('../assets/js/learning-indicators-v1.js');
+ assert.equal(Object.keys(registry).length,419);
+ assert.equal(catalog.guides.length,61);
+ for(const code of ['STUDY_RSI','STUDY_MACD','STUDY_ATR','STUDY_BOLLINGER_BANDS'])
+  assert(catalog.guides.some(x=>x.code===code));
+ for(const [labId,id] of Object.entries(math.approved)){
+  assert(registry[labId],'Canonical Lab not found '+labId);
+  assert.equal(math.select({labId,topic:id==='rsi'?'RSI independent interpretation':'MACD interpretation'}),id);
+ }
+ assert.equal(math.select({labId:'F1-C01-L01',topic:'RSI'}),null);
+});
