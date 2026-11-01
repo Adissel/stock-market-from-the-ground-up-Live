@@ -25,7 +25,7 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html')&&!/^google[\
   const newAttrs=attributes.replace(/\bclass\s*=\s*(['"])([^'"]*)\1/i,(_m,q,classes)=>
    'class='+q+classes+' gu-academy-brand'+q);
   return '<a'+newAttrs+'><span class="gu-academy-brand-title">'+body.trim()+
-   '</span><span class="gu-academy-brand-subtitle">Learning Academy</span></a>';
+   '</span><span class="gu-academy-brand-subtitle">Training Academy</span></a>';
  });
  if(detected){
   withBrand++;
