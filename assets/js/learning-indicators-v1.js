@@ -7,8 +7,9 @@ const frozen=a=>Object.freeze(a);
 function ema(c,p){
  if(!Array.isArray(c)||!Number.isInteger(p)||p<2||p>100||c.length<p||c.length>500||!c.every(f))return null;
  const series=Array(c.length).fill(null),alpha=2/(p+1);
- let value=c.slice(0,p).reduce((a,b)=>a+b,0)/p;series[p-1]=value;
- for(let i=p;i<c.length;i++){value=alpha*c[i]+(1-alpha)*value;series[i]=value}
+ let value=c.slice(0,p).reduce((a,b)=>a+b,0)/p;
+ if(!f(value))return null;series[p-1]=value;
+ for(let i=p;i<c.length;i++){value=alpha*c[i]+(1-alpha)*value;if(!f(value))return null;series[i]=value}
  return frozen(series);
 }
 function rsi(c,p){
@@ -16,9 +17,10 @@ function rsi(c,p){
  let gain=0,loss=0;
  for(let i=1;i<=p;i++){const d=c[i]-c[i-1];gain+=Math.max(0,d);loss+=Math.max(0,-d)}
  gain/=p;loss/=p;
+ if(!f(gain)||!f(loss))return null;
  const history=Array(c.length).fill(null),ratio=(g,l)=>l===0?(g===0?50:100):100-100/(1+g/l);
  history[p]=ratio(gain,loss);
- for(let i=p+1;i<c.length;i++){const d=c[i]-c[i-1];gain=(gain*(p-1)+Math.max(0,d))/p;loss=(loss*(p-1)+Math.max(0,-d))/p;history[i]=ratio(gain,loss)}
+ for(let i=p+1;i<c.length;i++){const d=c[i]-c[i-1];gain=(gain*(p-1)+Math.max(0,d))/p;loss=(loss*(p-1)+Math.max(0,-d))/p;if(!f(gain)||!f(loss))return null;history[i]=ratio(gain,loss)}
  return frozen({history:frozen(history),values:frozen([gain,loss,history.at(-1)]),
   convention:'Wilder: seed simple average of first period price changes; then smooth average gains and losses by period; flat average = 50'});
 }
@@ -26,8 +28,11 @@ function macd(c,fast,slow,signal){
  if(!Array.isArray(c)||!Number.isInteger(fast)||!Number.isInteger(slow)||!Number.isInteger(signal)||
    fast<2||slow<=fast||signal<2||c.length<slow+signal-1||c.length>500||!c.every(x=>f(x)&&x>0))return null;
  const a=ema(c,fast),b=ema(c,slow);
+ if(!a||!b)return null;
  const line=c.map((_,i)=>b[i]===null?null:a[i]-b[i]);
+ if(!line.every(x=>x===null||f(x)))return null;
  const start=slow-1,seed=ema(line.slice(start),signal);
+ if(!seed)return null;
  const sig=c.map((_,i)=>i<start||seed[i-start]===null?null:seed[i-start]);
  const histogram=line.map((v,i)=>v===null||sig[i]===null?null:v-sig[i]);
  return frozen({line:frozen(line),signal:frozen(sig),histogram:frozen(histogram),
@@ -38,9 +43,11 @@ function atr(b,p){
  if(!Array.isArray(b)||!Number.isInteger(p)||p<2||p>100||b.length<p||b.length>500||
    !b.every(x=>x&&[x.h,x.l,x.c].every(f)&&x.l>0&&x.l<=x.c&&x.c<=x.h))return null;
  const tr=b.map((x,i)=>i===0?x.h-x.l:Math.max(x.h-x.l,Math.abs(x.h-b[i-1].c),Math.abs(x.l-b[i-1].c)));
+ if(!tr.every(f))return null;
  const seed=tr.slice(0,p).reduce((a,v)=>a+v,0)/p,history=Array(b.length).fill(null);
+ if(!f(seed))return null;
  let value=seed;history[p-1]=value;
- for(let i=p;i<b.length;i++){value=(value*(p-1)+tr[i])/p;history[i]=value}
+ for(let i=p;i<b.length;i++){value=(value*(p-1)+tr[i])/p;if(!f(value))return null;history[i]=value}
  return frozen({tr:frozen(tr),history:frozen(history),values:frozen([tr.at(-1),seed,value]),
   convention:'First true range high-minus-low, later max of range and prior-close gaps; first ATR is SMA of period true ranges, then Wilder smoothing'});
 }
@@ -51,6 +58,7 @@ function bollinger(c,p,k=2){
  for(let i=p-1;i<c.length;i++){
   const w=c.slice(i-p+1,i+1),avg=w.reduce((a,b)=>a+b,0)/p;
   const sigma=Math.sqrt(w.reduce((sum,v)=>sum+(v-avg)**2,0)/p);
+  if(!f(avg)||!f(sigma)||!f(avg-k*sigma)||!f(avg+k*sigma))return null;
   center[i]=avg;sd[i]=sigma;lower[i]=avg-k*sigma;upper[i]=avg+k*sigma
  }
  return frozen({center:frozen(center),upper:frozen(upper),lower:frozen(lower),sd:frozen(sd),
