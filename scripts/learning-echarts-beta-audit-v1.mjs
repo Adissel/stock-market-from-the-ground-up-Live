@@ -9,6 +9,7 @@ import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {academyPrograms,academyByCode} from '../functions/_lib/bootcamp-academy-v014168.js';
 import '../assets/js/prototype-indicator-workbench-v2.js';
 import {FOUNDATION_WORKED_MATH_CODES} from '../functions/_lib/tutor-foundation-worked-math-v1.js';
+import {FOUNDATION_QUANT_TOPICS} from '../functions/_lib/talia-foundation-quant-v1.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const map=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const bridge=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
@@ -16,7 +17,7 @@ const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
 const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
  freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
- tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0,foundationSupplementalTopicDrafts:0};
+ tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0,foundationSupplementalTopicDrafts:0,foundationQuantTopics:0};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
 // Inspect the authoritative first-party chart registry, not a copied metric.
@@ -69,11 +70,14 @@ const extensionBriefs=JSON.parse(read('data/tutor-indicator-expansion-v1.json'))
 const tutorGuided=JSON.parse(read('data/tutor-guided-practice-v1.json'));
 const guidedExtension=JSON.parse(read('data/tutor-guided-practice-expansion-v1.json'));
 const foundationTopics=JSON.parse(read('data/talia-foundation-explanations-batch01-v1.json'));
-metrics.foundationSupplementalTopicDrafts=foundationTopics.guides?.length||0;
-if(foundationTopics.goal!==600||foundationTopics.count!==20||metrics.foundationSupplementalTopicDrafts!==20||
-  foundationTopics.guides.some(g=>g.officialCompetency!==false||g.independentEditorialApproved!==false)||
-  new Set(foundationTopics.guides.map(g=>g.code)).size!==20)
- fail('foundation_600_topic_batch','Expected twenty separate ungraded source-authored topics for the 600-target development program');
+const secondTopicBatch=JSON.parse(read('data/talia-foundation-explanations-batch02-v1.json'));
+metrics.foundationQuantTopics=FOUNDATION_QUANT_TOPICS.length;
+metrics.foundationSupplementalTopicDrafts=(foundationTopics.guides?.length||0)+(secondTopicBatch.guides?.length||0);
+if(foundationTopics.goal!==600||secondTopicBatch.goal!==600||foundationTopics.count!==20||
+  secondTopicBatch.count!==20||metrics.foundationSupplementalTopicDrafts!==40||metrics.foundationQuantTopics!==9||
+  [...foundationTopics.guides,...secondTopicBatch.guides].some(g=>g.officialCompetency!==false||g.independentEditorialApproved!==false)||
+  new Set([...foundationTopics.guides,...secondTopicBatch.guides].map(g=>g.code)).size!==40)
+ fail('foundation_600_topic_batch','Expected forty distinct ungraded Foundation explanation drafts and nine quantitative teaching topics');
 const indicatorModules=tutorGuided.modules?.filter(m=>m.kind==='indicator')||[];
 const mapped=new Map(indicatorModules.map(m=>[m.guideCode,m]));
 metrics.indicatorBriefs=indicatorBriefs.guides?.length||0;
