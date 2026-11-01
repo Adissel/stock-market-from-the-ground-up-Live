@@ -40,6 +40,8 @@ node tests/talia-foundation-risk-quant-v1.test.mjs
 node tests/talia-foundation-explanations-batch04-v1.test.mjs
 node --check functions/_lib/talia-research-math-v1.js
 node tests/talia-research-math-v1.test.mjs
+node tests/talia-foundation-seven-math-review-v1.test.mjs
+node tests/talia-foundation-six-gate-teaching-review-v1.test.mjs
 node tests/talia-foundation-explanations-batch05-v1.test.mjs
 node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
 node --check functions/_lib/talia-indicator-worked-v1.js
