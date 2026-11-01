@@ -34,9 +34,10 @@ for(const s of catalog.sources){
 }
 const byId=new Map(catalog.sources.map(s=>[s.id,s]));
 const byCode=new Set(guides.map(g=>g.code));
+const competencyCodes=new Set(JSON.parse(rd('data/competency-study-guides-v01499.json')).guides.map(g=>g.code));
 assert.equal(catalog.subjectEvidencePilot.length,10);
 for(const p of catalog.subjectEvidencePilot){
- assert(byCode.has(p.indicatorCode),'Pilot must use existing canonical guide');
+ assert(p.indicatorCode?byCode.has(p.indicatorCode):competencyCodes.has(p.competencyCode),'Pilot must use an existing canonical indicator guide or clearly labeled related competency');
  assert(p.sourceIds.length>=2,'Independent source candidates required');
  assert(new Set(p.sourceIds).size===p.sourceIds.length,'Duplicate pilot reference');
  assert(p.sourceIds.every(id=>byId.has(id)),'Source pilot contains missing ref');

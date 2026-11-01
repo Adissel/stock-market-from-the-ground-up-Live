@@ -1100,7 +1100,7 @@
     },
     {
       "subject": "EXPECTANCY",
-      "indicatorCode": "STUDY_EXPECTANCY",
+      "indicatorCode": null,
       "sourceIds": [
         "FINRA-EDU",
         "QC-LEAN"
@@ -1110,11 +1110,13 @@
       "units": "currency per hypothetical trade",
       "seed": "finite 0≤p≤1, nonnegative gain/loss and cost",
       "limits": "not a prediction; win frequency estimated from biased/small samples may be misleading",
-      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING",
+      "competencyCode": "RISK_REWARD",
+      "sourceMappingStatus": "RELATED_COMPETENCY_CONTEXT_ONLY_NOT_AN_OFFICIAL_INDICATOR"
     },
     {
       "subject": "POSITION_SIZING",
-      "indicatorCode": "STUDY_POSITION_SIZING",
+      "indicatorCode": null,
       "sourceIds": [
         "FINRA-EDU",
         "QC-LEAN"
@@ -1124,7 +1126,9 @@
       "units": "whole shares",
       "seed": "long cash-only cap; entry>stop>0 and both budgets finite; zero risk distance invalid",
       "limits": "not an executable fill, actual loss cap or substitute for slippage/fees/gaps/margin regulations",
-      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING"
+      "status": "REFERENCES_IDENTIFIED_NUMERICAL_ACCEPTANCE_PENDING",
+      "competencyCode": "POSITION_SIZING",
+      "sourceMappingStatus": "RELATED_COMPETENCY_CONTEXT_ONLY_NOT_AN_OFFICIAL_INDICATOR"
     }
   ]
 }
