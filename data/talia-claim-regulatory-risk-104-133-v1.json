@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "date": "2026-11-01",
+  "project": "The Stock Market: From the Ground Up",
+  "status": "SOURCE_REVIEW_NOT_PUBLICATION_APPROVAL",
+  "critical": [
+    {
+      "number": 104,
+      "source": "https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
+      "finding": "2023 repurchase disclosure rule vacated effective December 19, 2023. Historical speech not controlling current rule.",
+      "decision": "LEGAL_SOURCE_CORRECTION_REQUIRED"
+    },
+    {
+      "number": 133,
+      "source": "https://www.sec.gov/about/webmaster-frequently-asked-questions",
+      "finding": "EDGAR acceptance precedes publication sometimes by minutes; first public availability not timestamped.",
+      "decision": "NO_LOOKAHEAD_REPLAY_CUTOFF_REQUIRED"
+    }
+  ]
+}
