@@ -60,9 +60,9 @@ function classroom(root){
  const area=create('section',undefined,'pt-card');area.append(create('h3','Classroom mode'));
  area.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;draw()}));
  const options=create('section',undefined,'pt-card');options.append(create('h3','Classroom layout designer'));
-options.append(create('p','Layout preset'));options.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{state.layout=v;draw()}));
-options.append(create('p','Content density'));options.append(buttons(['Comfortable','Compact'],state.density,v=>{state.density=v;draw()}));
-options.append(create('p','Instructor placement'));options.append(buttons(['Right','Bottom'],state.tutor,v=>{state.tutor=v;draw()}));
+options.append(create('p','Layout preset'));options.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('layout',v);else {state.layout=v;draw()}}));
+options.append(create('p','Content density'));options.append(buttons(['Comfortable','Compact'],state.density,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('density',v);else {state.density=v;draw()}}));
+options.append(create('p','Instructor placement'));options.append(buttons(['Right','Bottom'],state.tutor,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('tutor',v);else {state.tutor=v;draw()}}));
 const panes=grid([['Teaching pane','First-principles lesson content, numerical worked examples and guided practice.'],['Talia Mercer','Free explanations, contextual guidance, diagnostic feedback and instructional retries.'],['Chart laboratory','Fictional candlesticks, indicators and instructor annotations.']]);
 panes.classList.add('pt-classroom');panes.dataset.layout=state.layout;panes.dataset.density=state.density;panes.dataset.tutor=state.tutor;
 root.append(area,options,panes);
