@@ -512,6 +512,7 @@ function LayoutStudio({page}:{page:Page}){
  const save=useCallback(()=>{try{window.localStorage.setItem(storageKey,JSON.stringify(items.current))}catch{}},[storageKey]);
  const apply=useCallback(()=>{
   const root=document.querySelector<HTMLElement>('.cx-app');if(!root)return;
+  root.classList.toggle('cx-layout-customized',Object.values(items.current).some(v=>Boolean(v.x||v.y||v.width||v.height)));
   const targets=root.querySelectorAll<HTMLElement>(Object.values(layoutTargets).join(','));
   targets.forEach(el=>{
    if(el.closest('[data-cx-editor]'))return;

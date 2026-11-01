@@ -41,6 +41,8 @@ assert.match(src,/window\.localStorage/);
 assert.match(src,/cx-practice-pair/);
 assert.match(src,/Screenshot mode/);
 assert.match(css,/cx-preview-hide-chrome/);
+assert.match(src,/cx-layout-customized/);
+assert.match(css,/cx-layout-customized/);
 assert.match(css,/@container \(min-width: 660px\)/);
 // The protected synthetic prototype may load its public, static first-party tutor
 // guide, but must never issue dynamic entitlement, wallet, brokerage or user APIs.

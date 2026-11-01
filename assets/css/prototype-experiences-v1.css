@@ -602,3 +602,8 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app.cx-page-b .cx-flagship-aurora .cx-talia .cx-coach-content{flex:1}
 @media(max-width:950px){.cx-app.cx-page-b .cx-flagship-aurora{grid-template-columns:1fr}.cx-app.cx-page-b .cx-flagship-aurora .cx-talia{min-height:0}}
 @media(prefers-reduced-motion:reduce){.cx-app [data-cx-layout-key]{transition:none!important}}
+
+/* A moved card must remain visible after the edit toolbar is hidden for screenshots. */
+.cx-app.cx-layout-customized .cx-platform-explorer,.cx-app.cx-layout-customized .cx-platform-preview,.cx-app.cx-layout-customized .cx-member-experience{overflow:visible!important}
+.cx-app.cx-page-b .cx-flagship-aurora .cx-talia{min-height:560px}
+@media(max-width:950px){.cx-app.cx-page-b .cx-flagship-aurora .cx-talia{min-height:0}}
