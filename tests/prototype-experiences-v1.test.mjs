@@ -42,6 +42,11 @@ assert.match(src,/cx-practice-pair/);
 assert.match(src,/Screenshot mode/);
 assert.match(css,/cx-preview-hide-chrome/);
 assert.match(src,/cx-layout-customized/);
+assert.match(src,/function targetFrom\(/);
+assert.match(src,/Select page element/);
+assert.match(src,/Find page element/);
+assert.match(src,/Refresh element list/);
+assert.match(src,/selectById/);
 assert.match(css,/cx-layout-customized/);
 assert.match(css,/@container \(min-width: 660px\)/);
 // The protected synthetic prototype may load its public, static first-party tutor

@@ -59,6 +59,18 @@ try{
  await a.page.locator('.cx-talia-playback').first().getByRole('button',{name:'Pause auto-play'}).click();
  await a.page.getByRole('button',{name:'Edit page layout'}).click();
  await a.page.locator('.cx-layout-toolbar').waitFor({state:'visible'});
+ assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>6,'The editor must expose actual page elements for selection');
+ await a.page.getByLabel('Find page element').fill('Talia');
+ assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>=1,'Searching the element catalog must find the Talia teaching component');
+ const chosenId=await a.page.getByLabel('Select page element').locator('option').first().getAttribute('value');
+ assert.ok(chosenId);
+ await a.page.getByLabel('Select page element').selectOption(chosenId);
+ assert.equal(await a.page.getByLabel('Selected element width').isEnabled(),true,'Manual list selection must enable precise element sizing');
+ await a.page.getByLabel('Find page element').fill('');
+ await a.page.getByLabel('Layout element type').selectOption('labels');
+ assert.ok(await a.page.getByLabel('Select page element').locator('option').count()>2,'Labels must also be directly selectable');
+ await a.page.getByLabel('Layout element type').selectOption('cards');
+ await a.page.getByRole('button',{name:'Refresh element list'}).click();
  await a.page.locator('.cx-talia').first().click({position:{x:14,y:14}});
  await a.page.getByLabel('Selected element width').fill('620');
  await a.page.getByLabel('Selected element width').press('Tab');

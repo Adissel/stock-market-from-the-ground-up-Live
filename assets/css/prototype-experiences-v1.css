@@ -607,3 +607,11 @@ body:has(#pt-root[data-experience-view="true"])>.site-header{display:none!import
 .cx-app.cx-layout-customized .cx-platform-explorer,.cx-app.cx-layout-customized .cx-platform-preview,.cx-app.cx-layout-customized .cx-member-experience{overflow:visible!important}
 .cx-app.cx-page-b .cx-flagship-aurora .cx-talia{min-height:560px}
 @media(max-width:950px){.cx-app.cx-page-b .cx-flagship-aurora .cx-talia{min-height:0}}
+
+/* Layout selection v1.1: legible item catalog and obvious pickable surfaces. */
+.cx-app .cx-layout-toolbar select[aria-label="Select page element"]{display:block;min-height:140px;padding:5px;line-height:1.45;overflow:auto;white-space:normal}
+.cx-app .cx-layout-toolbar select[aria-label="Select page element"] option{padding:5px 7px;white-space:normal}
+.cx-app .cx-layout-toolbar input[type="search"]{border-color:#6fbac3}
+.cx-app .cx-layout-toolbar .cx-layout-refresh{padding:8px 12px;margin:4px 0 10px;border:1px solid #62d9ca;border-radius:6px;background:#174b61;color:#f2fffe}
+.cx-app.cx-layout-editing [data-cx-layout-key]:hover{outline:2px dashed #7de7d5;outline-offset:2px}
+.cx-app.cx-layout-editing [data-cx-layout-key][data-cx-selected="true"]{outline:3px solid #ffe1a2!important;outline-offset:3px;box-shadow:0 0 0 5px #0a2737!important}
