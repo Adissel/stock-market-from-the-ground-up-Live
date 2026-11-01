@@ -166,6 +166,7 @@ const masterStudyCache=new WeakMap();
 const MASTER_STUDY_SOURCES=/^https:\/\/(?:www\.)?(?:chartschool\.stockcharts\.com|toslc\.thinkorswim\.com|www\.cmegroup\.com|www\.investor\.gov)\//i;
 const MASTER_GROUPS=Object.freeze([
  {file:'tutor-indicator-study-v1.json',group:'indicators',count:61},
+ {file:'tutor-indicator-expansion-v1.json',group:'indicators_extension',count:12},
  {file:'tutor-watchlist-study-v1.json',group:'watchlists',count:22},
  {file:'tutor-strategy-study-v1.json',group:'strategies',count:50}
 ]);
