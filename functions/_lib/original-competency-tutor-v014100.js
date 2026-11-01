@@ -235,7 +235,7 @@ async function loadFoundationTopicExplanations(env,request){
  if(typeof env.ASSETS?.fetch!=='function')return [];
  const cached=foundationTopicCache.get(env.ASSETS);
  if(cached&&cached.expires>Date.now())return cached.guides;
- const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json','talia-foundation-explanations-batch05-v1.json','talia-foundation-explanations-batch06-v1.json','talia-foundation-explanations-batch07-v1.json','talia-foundation-explanations-batch08-v1.json','talia-foundation-explanations-batch09-v1.json'];
+ const files=['talia-foundation-explanations-batch01-v1.json','talia-foundation-explanations-batch02-v1.json','talia-foundation-explanations-batch03-v1.json','talia-foundation-explanations-batch04-v1.json','talia-foundation-explanations-batch05-v1.json','talia-foundation-explanations-batch06-v1.json','talia-foundation-explanations-batch07-v1.json','talia-foundation-explanations-batch08-v1.json','talia-foundation-explanations-batch09-v1.json','talia-foundation-explanations-batch10-v1.json','talia-foundation-explanations-batch11-v1.json'];
  const batches=await Promise.all(files.map(async file=>{
   try{
    const response=await env.ASSETS.fetch(new Request(new URL('/data/'+file,request.url),{method:'GET'}));
