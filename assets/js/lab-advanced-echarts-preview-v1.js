@@ -47,8 +47,10 @@ function mount(){
    {name:'EMA 9 · SMA seed',type:'line',connectNulls:false,data:data.ema9,symbol:'none'}]},{notMerge:true});
   charts[1].setOption({...common,series:[
    {name:'Fictional volume',type:'bar',data:data.volume},
-   {name:'Close',type:'line',data:data.closes,yAxisIndex:0,symbol:'none'}],
-   yAxis:[{type:'value',min:0,axisLabel:{color:'#ced8e4'}}]},{notMerge:true});
+   {name:'Close (USD)',type:'line',data:data.closes,yAxisIndex:1,symbol:'none'}],
+   yAxis:[
+    {name:'Shares',type:'value',min:0,axisLabel:{color:'#ced8e4'}},
+    {name:'USD',type:'value',scale:true,position:'right',axisLabel:{color:'#ced8e4'}}]},{notMerge:true});
   status.textContent='Showing '+data.count+' of '+data.total+' original fictional bars; no historical future bars, account data, grades or live market feed. EMA9 starts only after nine completed closes.';
   const table=document.getElementById('pt-advanced-series-table');
   if(table){
