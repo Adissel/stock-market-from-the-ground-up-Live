@@ -55,6 +55,7 @@ node tests/talia-foundation-batches10-11-gates-v1.test.mjs
 node tests/talia-foundation-batch12-gates-v1.test.mjs
 node tests/talia-tier-research-contracts-v1.test.mjs
 node tests/talia-claim-triage-and-math-v1.test.mjs
+node tests/talia-rule605-options-primary-evidence-v1.test.mjs
 node tests/talia-foundation-six-gate-teaching-review-v1.test.mjs
 node tests/talia-foundation-explanations-batch05-v1.test.mjs
 node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
