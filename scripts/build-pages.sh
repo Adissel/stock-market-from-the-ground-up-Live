@@ -3,6 +3,10 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/talia-classroom-source-v1.test.mjs
+node tests/talia-member-byok-v1.test.mjs
+node --check functions/api/credentials.js
+node --check functions/api/market-tutor-v01492.js
+node --check functions/_lib/talia-member-byok-v1.js
 python3 scripts/qa/talia_classroom_fictional_ohlc_v1.py
 # Journal V1 critical financial, policy-source and guided UI regressions.
 # This test is deterministic: it uses fictional inputs and no database/payment action.
