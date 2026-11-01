@@ -50,7 +50,7 @@ async function catalog(){
      !row.objective||!row.worked||!row.transfer)||
    academy?.ok!==true||!Array.isArray(academy.programs)||
    academy.programs.length<7||academy.programs.length>11||
-   !Array.isArray(computed)||computed.length!==15){
+   !Array.isArray(computed)||computed.length!==16){
    throw Error('Canonical learning registry or calculated-study count mismatch');
  }
  if(new Set(Object.keys(labs.byLab)).size!==419||
@@ -118,7 +118,7 @@ function render(){
  out.replaceChildren();
  const intro=h('p','Read-only inspection of CURRENT public learning metadata. This is not a member login, teaching transcript, grade or entitlement.','pt-parity-note');
  out.append(intro);
- const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 53 Talia synthetic calculations · 8 interpretation-only Talia studies · 15 computed Chart Studio studies','pt-parity-totals');
+ const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 53 Talia synthetic calculations · 8 interpretation-only Talia studies · 16 computed Chart Studio studies','pt-parity-totals');
  out.append(totals);
  const controls=h('div',undefined,'pt-parity-controls');
  const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');

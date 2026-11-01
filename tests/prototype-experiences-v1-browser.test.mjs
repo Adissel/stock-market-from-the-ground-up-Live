@@ -125,7 +125,7 @@ try{
  await a.page.getByRole('button',{name:'Expand indicators'}).click();
  await a.page.locator('.cx-indicator-catalog select[aria-label="Indicator teaching guide"] option').first().waitFor({state:'attached'});
  await a.page.waitForFunction(()=>document.querySelectorAll('.cx-indicator-catalog select option').length===61,null,{timeout:13000});
- assert.equal(await a.page.locator('.cx-study-choice input[type="checkbox"]').count(),15);
+ assert.equal(await a.page.locator('.cx-study-choice input[type="checkbox"]').count(),16);
  assert.equal(await a.page.getByLabel('Show Bollinger Bands').isDisabled(),true,'Standard Studio must not present Advanced studies as enabled');
  await a.page.getByLabel('Independent Chart Studio preview').selectOption('Advanced');
  assert.equal(await a.page.getByLabel('Show Bollinger Bands').isDisabled(),false);

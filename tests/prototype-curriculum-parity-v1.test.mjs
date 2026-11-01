@@ -50,7 +50,7 @@ for(const [id,row] of Object.entries(bridges.entries)){
  }
 }
 assert.equal(new Set(indicators.guides.map(g=>g.code)).size,61);
-assert.equal(globalThis.CrownlightPrototypeIndicators.specs.length,15);
+assert.equal(globalThis.CrownlightPrototypeIndicators.specs.length,16);
 assert.match(html,/<section id="pt-app" hidden/);
 assert.match(html,/id="pt-curriculum-parity"/);
 assert.match(html,/prototype-curriculum-parity-v1\.js/);
@@ -89,4 +89,4 @@ for(const prohibited of [/\/api\/stripe/i,/service.role/i,/\.insert\(/,/\.update
 }
 assert.match(css,/@media\(max-width:760px\)/);
 assert.match(css, /focus-visible/);
-console.log('PASS: staff-gated source parity with 419 Lab paths, 30 competency guides, 61 authored indicator studies, 53 Tutor calculations, 8 conceptual practices and 15 computed chart studies; authenticated Academy catalog only metadata');
+console.log('PASS: staff-gated source parity with 419 Lab paths, 30 competency guides, 61 authored indicator studies, 53 Tutor calculations, 8 conceptual practices and 16 computed chart studies; authenticated Academy catalog only metadata');
