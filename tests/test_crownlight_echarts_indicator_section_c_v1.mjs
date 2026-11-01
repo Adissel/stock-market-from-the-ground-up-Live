@@ -73,7 +73,9 @@ try{
  await table.locator('summary').click();
  assert(await table.locator('table caption').textContent());
  assert.equal(await table.locator('tbody tr').count(),30);
- await page.locator('input[aria-label="EMA 9 line color"]').fill('#ffcc00');
+ await page.locator('input[aria-label="EMA 9 line color"]').evaluate(el=>{
+  el.value='#ffcc00';el.dispatchEvent(new Event('input',{bubbles:true}));
+ });
  await page.locator('select[aria-label="Indicator line style"]').selectOption('dashed');
  const style=await page.evaluate(()=>{
   const e=window.echarts.getInstanceByDom(document.querySelector('[data-cl-echarts-chart]'));
