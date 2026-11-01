@@ -38,7 +38,7 @@ function fixture({otherUser=false,initial=null}={}){
   client,userId:USER,programCode:'risk60',day:1,alive:()=>alive
  });
  return {store,api:ctx.GroundUpAcademyStageCheckpointV1,calls,
-  get db(){return db;},stop:()=>{alive=false;}};
+  get db(){return db;},bump:()=>{db.revision++;},stop:()=>{alive=false;}};
 }
 test('Stage checkpoint round-trips without changing official grade or reflection APIs',async()=>{
  const f=fixture();
@@ -63,11 +63,11 @@ test('Stale second tab receives CAS conflict and cannot overwrite the first',asy
  await f.store.save(example());
  const competing=fixture({initial:example()});
  await competing.store.load();
- // Simulate a concurrent change to a newer revision.
- competing.calls.length=0;
- const snap=example();
- await competing.store.save(snap);
+ // Simulate another device winning the same revision before this tab saves.
+ competing.bump();
+ await assert.rejects(competing.store.save(example()),/Another device or tab saved a newer draft/);
  assert.equal(competing.db.revision,2);
+ assert.equal(competing.db.snapshot.stage,3);
 });
 test('Wrong account and stale lesson are fail-closed',async()=>{
  const wrong=fixture({otherUser:true});
