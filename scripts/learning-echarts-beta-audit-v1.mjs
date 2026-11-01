@@ -16,7 +16,7 @@ const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const official=new Set(guides.guides.map(x=>x.code));
 const critical=[],editorial=[],metrics={labs:0,labFacets:0,academyPrograms:0,academyDays:0,originalAcademyDays:0,newBetaAcademyDays:0,
  freeDays:5,studios:4,competencies:official.size,indicatorBriefs:0,tutorCalculatedStudies:0,
- tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0};
+ tutorInterpretationOnlyStudies:0,computedChartStudies:0,extendedIndicatorBriefs:0,totalTutorIndicatorBriefs:0,foundationWorkedMathTopics:0,tutorExplanationTarget:600,extendedIndicatorGuided:0,totalTutorGuidedLessons:0,foundationSupplementalTopicDrafts:0};
 const facets=['understand','recognize','apply','mistake','limits'];
 const fail=(id,reason)=>critical.push({id,reason});
 // Inspect the authoritative first-party chart registry, not a copied metric.
@@ -68,6 +68,12 @@ const indicatorBriefs=JSON.parse(read('data/tutor-indicator-study-v1.json'));
 const extensionBriefs=JSON.parse(read('data/tutor-indicator-expansion-v1.json'));
 const tutorGuided=JSON.parse(read('data/tutor-guided-practice-v1.json'));
 const guidedExtension=JSON.parse(read('data/tutor-guided-practice-expansion-v1.json'));
+const foundationTopics=JSON.parse(read('data/talia-foundation-explanations-batch01-v1.json'));
+metrics.foundationSupplementalTopicDrafts=foundationTopics.guides?.length||0;
+if(foundationTopics.goal!==600||foundationTopics.count!==20||metrics.foundationSupplementalTopicDrafts!==20||
+  foundationTopics.guides.some(g=>g.officialCompetency!==false||g.independentEditorialApproved!==false)||
+  new Set(foundationTopics.guides.map(g=>g.code)).size!==20)
+ fail('foundation_600_topic_batch','Expected twenty separate ungraded source-authored topics for the 600-target development program');
 const indicatorModules=tutorGuided.modules?.filter(m=>m.kind==='indicator')||[];
 const mapped=new Map(indicatorModules.map(m=>[m.guideCode,m]));
 metrics.indicatorBriefs=indicatorBriefs.guides?.length||0;
@@ -156,7 +162,7 @@ const result={documentId:'SMFGU-LEARN-BETA-AUDIT-001',version:'1.0',scope:'SOURC
  metrics:{...metrics,academyAndFreeDays:metrics.academyDays+metrics.freeDays},
   computedChartStudyIds:Array.isArray(computedChartRegistry)?computedChartRegistry.map(x=>x.id):[],
  critical,editorialReviewPending:editorial,criticalCount:critical.length,editorialFlags:editorial.length,
- note:'Ten Academy courses and 73 Tutor indicator teaching briefs are inventoried (61 original plus 12 new pending editorial review), not independently accepted. All 73 Tutor indicator briefs now have corresponding guided practice modules (61 existing + 12 new interpretation-only). 53 original ungraded numerical demos and 16 actual Chart Studio studies remain distinct. The owner target is 600 original Tutor explanations, not 600 new official competencies or 600 already accepted items. No private grade, historical license or real-member QA is implied.'};
+ note:'Ten Academy courses and 73 Tutor indicator teaching briefs are inventoried (61 original plus 12 new pending editorial review), not independently accepted. All 73 Tutor indicator briefs now have corresponding guided practice modules (61 existing + 12 new interpretation-only). 53 original ungraded numerical demos and 16 actual Chart Studio studies remain distinct. The owner target is 600 individually editorial-accepted Tutor explanations; twenty additional original supplementary Foundation topics are source-authored, not individually accepted, and they do not change the 30 official competencies. No private grade, historical license or real-member QA is implied.'};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/learning-echarts-beta-audit-v1.json',JSON.stringify(result,null,2));
 console.log(JSON.stringify({metrics:result.metrics,critical:critical.slice(0,12),criticalCount:critical.length,editorialFlags:editorial.length}));
