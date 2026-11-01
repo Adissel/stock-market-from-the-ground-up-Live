@@ -1,0 +1,431 @@
+{
+  "documentId": "SMFGU-LAB-BATCH04-SOURCE-INTAKE-001",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "status": "RESEARCH_INTAKE_ONLY_NOT_20_ADDITIONAL_LESSON_REWRITES",
+  "source": "Owner-uploaded Master Research Source Directory(3).odt; original nine-level research and rights framework",
+  "canonicalOriginalLabCount": 419,
+  "priorAuthoredRewrites": 60,
+  "additionalRewritesThisGate": 0,
+  "academyAcceptedUnits": 93,
+  "academyTotalUnits": 380,
+  "exactSourceDocument": "docs/research/master/master-source-registry-v1.json",
+  "excludedAmbiguousCanonTitles": [
+    "F3-C04-L01",
+    "F3-C04-L02",
+    "F3-C04-L03"
+  ],
+  "externalReferencesObserved": [
+    "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/chart-patterns/rectangle",
+    "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/gaps-and-gap-analysis",
+    "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/candlestick-charts/introduction-to-candlesticks",
+    "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/candlestick-charts/candlestick-pattern-dictionary",
+    "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi",
+    "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-histogram"
+  ],
+  "referenceAccessedAt": "2026-11-01",
+  "publicationRightsVerified": false,
+  "entries": [
+    {
+      "labId": "F2-C14-L04",
+      "title": "Why a Zone Can Be Better Than One Exact Line",
+      "collection": "FOUNDATION_BOOK_2",
+      "subject": "zones",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "editorialFocus": "Compare two prior reaction levels with a range; distinguish zone tolerance from certainty.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L01",
+      "title": "Resistance Breakout and Follow-Through",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Distinguish completed-bar close beyond resistance from earlier intrabar probe; note observed volume.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L02",
+      "title": "Support Breakdown and Follow-Through",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Separate breakdown confirmation from a transient downside wick; record completed support reference.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L03",
+      "title": "Upside Probe Versus Close-Based Breakout",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Contrast an intrabar upside high with completed close back inside historical range.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L04",
+      "title": "Breakdown, Retest From Below, and Reclaim",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Identify break, retest, and reclaim as sequential facts only after each bar completes.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L05",
+      "title": "Breakout, Brief Follow-Through, Then Re-Entry",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Document follow-through followed by re-entry without hindsight trading claims.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L06",
+      "title": "Failed downside break / rapid reclaim",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Differentiate failed downside probe from a sustained closing-basis breakdown.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C01-L07",
+      "title": "Ambiguous repeated interaction / no clean breakout",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "breakout",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Recognize repeated boundary interactions without forcing a breakout label.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C02-L01",
+      "title": "Pullback after an early advance",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "pullback",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Contrast retracement after completed advance with confirmed directional reversal.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C02-L02",
+      "title": "Consolidation that can be bracketed as a range",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "consolidation",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Bracket completed reaction highs and lows; make no prediction of breakout side.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C02-L03",
+      "title": "Gap up that completely fills",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "gaps",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Calculate previous close versus opening price and label an observed full gap fill only when reached.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C02-L04",
+      "title": "Gap down that only partially fills in the observation window",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "gaps",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Measure a partial gap fill within the visible window; do not use unseen future bars.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C02-L05",
+      "title": "Gap strength versus actual post-open structure",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "gaps",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "SCHWAB-EDU"
+      ],
+      "editorialFocus": "Separate opening gap direction from post-open bars and risk of immediate fade.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C03-L01",
+      "title": "Bearish Engulfing configuration and later outcome",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "candles",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "editorialFocus": "Check body engulfment using completed open/close; do not assume the entire high-low range is engulfed.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C03-L02",
+      "title": "Bullish Engulfing configuration and later outcome",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "candles",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "editorialFocus": "Check opposite-direction body engulfment; confirmation is separate from pattern identification.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C03-L03",
+      "title": "Exact Doji without a guaranteed reversal",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "candles",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "editorialFocus": "Distinguish equal open-close from automatic reversal; require completed context.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C03-L04",
+      "title": "RCT recognition only — first red 5-minute reference",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "rct",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "editorialFocus": "Identify the first completed red five-minute RCT reference without inferring later outcomes.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C07-L01",
+      "title": "RSI overbought is not a reversal command",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "rsi",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "TALIB-FUNC"
+      ],
+      "editorialFocus": "Treat high RSI as a momentum condition, not an order or a guaranteed immediate reversal.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C07-L02",
+      "title": "RSI oversold is not an automatic buy",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "rsi",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "TALIB-FUNC"
+      ],
+      "editorialFocus": "Treat low RSI as a momentum condition, not an automatic purchase signal.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    },
+    {
+      "labId": "F3-C07-L03",
+      "title": "MACD lag after a fast price impulse",
+      "collection": "FOUNDATION_BOOK_3",
+      "subject": "macd",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "TALIB-PY"
+      ],
+      "editorialFocus": "Document EMA seed, completed bars and lag of price-derived MACD observations.",
+      "completedBarBoundary": true,
+      "fictionalWorkedExampleRequired": true,
+      "ungradedNewTransferRequired": true,
+      "privateKeyMayBeCopied": false,
+      "sourceRights": "NOT_APPROVED_FOR_REPUBLICATION_OR_DATA_INGESTION",
+      "sourceClaimStatus": "CANDIDATE_REFERENCES_IDENTIFIED_NOT_INDIVIDUALLY_VERIFIED",
+      "lessonAuthoredInThisBatch": false,
+      "independentReviewerAccepted": false,
+      "memberBrowserAccepted": false
+    }
+  ]
+}
