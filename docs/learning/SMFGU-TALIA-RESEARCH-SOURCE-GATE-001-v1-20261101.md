@@ -76,7 +76,7 @@ The directory's nine priority levels are retained:
 
 **Source:** `Master Research Source Directory(5).odt`, 20 pages, current owner upload reviewed on 2026-11-01.
 
-**Actual link inventory from ODT package:** 98 embedded HTTP hyperlinks, 92 distinct URL paths after removing URL query tracking parameters, from 60 hostname labels. Every embedded URL contains `utm_source` tracking; strip tracking parameters when storing canonical source identity while retaining precise substantive path, source version and access date. These are *links discovered*, not 92 independently verified current claims or publication grants.
+**Actual link inventory from ODT package:** 98 embedded HTTP hyperlinks, 92 distinct canonical URLs after removing only `utm_*` tracking parameters, from 60 hostname labels. Every embedded URL contains `utm_source` tracking; strip tracking parameters when storing canonical source identity while retaining precise substantive URL path and query identifiers, source version and access date. These are *links discovered*, not 92 independently verified current claims or publication grants.
 
 **Existing source infrastructure — preserve:** `docs/research/master/master-source-registry-v1.json` already holds 73 explicitly labeled research-source candidates in nine levels; individual source candidates are not necessarily one-for-one with exact embedded pages. Do not infer that 25 links are missing, add duplicates automatically, or replace the accepted master ID structure. Reconcile by canonical source domain + exact source page + subject/claim + use rather than raw link count.
 
@@ -130,4 +130,4 @@ The directory's nine priority levels are retained:
 | Version | Date | Author / decision maker | Change | Status |
 |---|---|---|---|---|
 | 1.0 | 2026-11-01 | Acting project-owner/editorial architecture | Adopt uploaded nine-level research directory with independent fact, math and rights gates for Talia Tutor | Framework approved for development; individual publication acceptance pending |
-| 1.1 | 2026-11-01 | Tutor research-intake reconciliation | Reviewed current `(5).odt`: 98 hyperlinks / 92 distinct URL paths, mapped to existing 73-candidate registry; preserved membership-only policy and 240/600, 73/73 source baselines | Source intake approved; individual claims and real-member release remain open |
+| 1.1 | 2026-11-01 | Tutor research-intake reconciliation | Reviewed current `(5).odt`: 98 hyperlinks / 92 canonical URLs, mapped to existing 73-candidate registry; preserved membership-only policy and 240/600, 73/73 source baselines | Source intake approved; individual claims and real-member release remain open |
