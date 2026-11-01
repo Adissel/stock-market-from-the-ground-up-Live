@@ -57,8 +57,8 @@ try{
  assert.equal(anotherData.generation,'original-competency-guide');
  assert.equal(anotherData.sources[0].id,'CANDLE_READING');
  assert.match(anotherData.answer,/Original fictional worked example — ungraded/);
- assert.match(anotherData.answer,/open \\$20\\.40/);
- assert.match(data.answer,/open \\$10\\.00/);
+ assert.match(anotherData.answer,/open \$20\.40/);
+ assert.match(data.answer,/open \$10\.00/);
  assert.equal(anotherData.graded,false);
  assert.equal(anotherData.masteryAwarded,false);
  assert.equal(providerCalls,0,'No paid model or quota requests even if unused credentials exist');
