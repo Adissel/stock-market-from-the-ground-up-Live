@@ -41,7 +41,10 @@ assert(js.includes('aria-label'),'Source disclosure is accessible');
 assert(style.includes('background:transparent!important'),'Homepage statistics have no metric cards');
 
 assert(home.includes('href="candle-practice.html" aria-label="Open the free interactive candlestick learning workstation"'),'Entire workstation links to its actual public learning experience');
-assert(!home.includes('DEMONSTRATION · NOT LIVE DATA'),'Promotional demonstration banner removed');
+assert(home.includes('<small>CHART READING · DEMONSTRATION · NOT LIVE DATA</small>'),
+ 'The fictional chart workstation must accurately disclose demonstration-only, non-live data');
+assert(!/class="[^"]*gu-home-demo-banner/.test(home),
+ 'No separate promotional demonstration banner may appear outside the workstation');
 assert(js.includes('gu-home-right-rail'),'Homepage statistics are mounted directly above the linked workstation');
 assert(js.includes("rail.insertBefore(panel,rail.firstChild)"),'Statistics appear before workstation');
 assert(js.includes("existing.closest('.gu-home-stage-grid')"),'Moving component into rail must not cause observer remount loop');
