@@ -14,6 +14,9 @@
  function clean(input){
   const out=[];let prev=-Infinity;
   for(const b of Array.isArray(input)?input:[]){
+   // Null, missing and blank fields cannot be coerced into an artificial zero candle.
+   if(!b||typeof b!=='object'||
+    !['timestamp','open','high','low','close','volume'].every(k=>b[k]!==null&&b[k]!==undefined&&b[k]!==''))continue;
    const t=Number(b.timestamp),o=Number(b.open),h=Number(b.high),l=Number(b.low),c=Number(b.close),v=Number(b.volume);
    if(!Number.isSafeInteger(t)||t<=prev||![o,h,l,c,v].every(NUM)||
       o<0||c<0||v<0||l>Math.min(o,c)||h<Math.max(o,c)||h<l)continue;
