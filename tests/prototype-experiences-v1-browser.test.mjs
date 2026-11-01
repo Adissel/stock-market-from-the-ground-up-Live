@@ -147,7 +147,7 @@ try{
  assert.match(await a.page.locator('.cx-transfer').textContent(),/Correct/);
  await a.page.locator('.cx-replay button:has-text("Next +")').click();
  assert.match(await a.page.locator('.cx-statusline').textContent(),/55 completed candles/);
- const planProfiles=[['FREE','Your first clear view'],['PICK_WHAT_YOU_WANT','Select the tools you need'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
+ const planProfiles=[['FREE','Your first clear view'],['PICK_WHAT_YOU_WANT','Build the teaching workspace'],['FOUNDING_14','repeatable study routine'],['FOUNDING_30','chart observations into a process'],['FOUNDING_60','connected trading-learning command'],['FULL_MONTHLY','One home for charts'],['FULL_ANNUAL','Study deliberately'],['LIFETIME','durable learning workspace'],['ONDEMAND_MONTHLY','Rewind the chart']];
  for(const [code,headline] of planProfiles){
   await a.page.getByLabel('Membership design preview').selectOption(code);
   assert.match(await a.page.locator('.cx-member-hero h2').textContent(),new RegExp(headline,'i'),'Wrong proposed membership experience for '+code);
