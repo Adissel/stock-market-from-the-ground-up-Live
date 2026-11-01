@@ -144,8 +144,11 @@ function restore(){try{const data=JSON.parse(localStorage.getItem('crownlight:pr
 let checkingStaff=false;
 async function recheckStaffAccess(){
  if(!state.user||checkingStaff)return;
- checkingStaff=true;$('pt-app').hidden=true;$('pt-gate').hidden=false;
- $('pt-gate').textContent='Revalidating administrative permissions…';
+ // Keep the authorized workbench mounted while an in-flight role check runs.
+ // Hiding the entire page on window focus reset scroll and ECharts layouts.
+ // APIs enforce permissions independently; any revoked/invalid session still
+ // clears the workbench in the catch branch below.
+ checkingStaff=true;
  try{
   const sb=await window.getSupabaseClient?.();
   const {data:{session}}=await sb.auth.getSession();
@@ -158,7 +161,9 @@ async function recheckStaffAccess(){
   if(ctx.ok!==true||roles.includes('SHOWCASE_VIEWER')||!roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))||!permissions.includes('control_panel.access'))
    throw Error('Your account no longer has Prototype Center permissions.');
   $('pt-role').textContent=roles.includes('OWNER')?'Owner':roles.includes('ADMIN')?'Administrator':'Technical Administrator';
-  $('pt-gate').hidden=true;$('pt-app').hidden=false;state.chart?.resize();
+  $('pt-gate').hidden=true;
+  // A successful focus/visibility recheck must not remount or jump the page.
+  if($('pt-app').hidden){$('pt-app').hidden=false;state.chart?.resize();}
  }catch(error){
   state.resize?.disconnect();state.chart?.dispose();state.chart=null;
   window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();state.user=null;

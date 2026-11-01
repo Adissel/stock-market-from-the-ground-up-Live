@@ -10,7 +10,14 @@ new vm.Script(frontend,{filename:'prototype-teaching-v2.js'});
 assert.match(frontend,/prototype-training-cases/);
 assert.match(frontend,/privateAnswerKeysIncluded!==false/);
 assert.match(frontend,/gradingEnabled!==false/);
-assert.match(frontend,/state\.tab==='replay'\?state\.revealed/);
+assert.match(frontend,/const count=Math\.max\(1,Math\.min\(state\.revealed,x\.candles\.length\)\)/,
+ 'All ECharts case previews must honor the candle reveal boundary');
+assert.match(frontend,/const limit=Math\.max\(1,Math\.min\(state\.revealed,x\.candles\.length\)\)/,
+ 'All classroom calculations and tables must honor the reveal boundary');
+assert.match(frontend,/Reveal the third completed fictional candle/,
+ 'Worked breakout outcome must not be exposed before its candle is revealed');
+assert.match(frontend,/if\(breakout&&limit<3\)check\.disabled=true/,
+ 'Breakout calculations must remain unavailable until necessary evidence is revealed');
 const controller=fs.readFileSync('assets/js/prototype-center-v1.js','utf8');
 assert.match(controller,/CrownlightPrototypeTeaching\.mount/);
 assert.match(controller,/getChartCandles/);

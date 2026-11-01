@@ -103,6 +103,16 @@ try{
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Ungraded guided check/);
   await page.locator('[data-prototype-case] select[aria-label="Choose fictional instructional case"]').selectOption('1');
+  assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 2 of 4 candles/);
+  assert.equal(await page.locator('[data-prototype-case] .pt-table tr').count(),3,
+   'The visual table must display only two completed candles plus its heading');
+  assert.doesNotMatch(await page.locator('[data-prototype-case]').textContent(),/\$20\.60 − \$20\.15/,
+   'Future breakout values must not appear in the guided calculation');
+  assert.equal(await page.locator('[data-prototype-case] input[aria-label="Your guided calculation"]').isDisabled(),true,
+   'A question requiring candle three must be locked before reveal');
+  await page.locator('[data-prototype-case] button:has-text("Reveal next candle")').click();
+  assert.equal(await page.locator('[data-prototype-case] .pt-table tr').count(),4,
+   'Revealing candle three exposes exactly three bars and the heading');
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Rejection distance/);
   await page.locator('[data-prototype-case] input[aria-label="Your guided calculation"]').fill('0.45');
   await page.locator('[data-prototype-case] button:has-text("Check calculation")').click();
@@ -153,6 +163,28 @@ try{
   assert.equal(preference,true,'reduced-motion user preference available');
   assert.deepEqual(exceptions,[],'browser JavaScript exceptions');
   if(role==='OWNER'&&viewport.width===1280){
+   const uninterrupted=await page.evaluate(()=>{
+    window.scrollTo({top:350,behavior:'instant'});
+    const before=window.scrollY;
+    window.dispatchEvent(new Event('focus'));
+    return {before,after:window.scrollY,visible:!document.getElementById('pt-app').hidden};
+   });
+   assert(uninterrupted.before>=50,'Long Owner classroom should permit scroll retention test');
+   assert(uninterrupted.visible,'Returning to the Prototype tab must not hide the current classroom');
+   assert.equal(uninterrupted.after,uninterrupted.before,'Focus refresh must not reset document scroll');
+   await page.waitForTimeout(250);
+   assert.equal(await page.locator('#pt-app').isVisible(),true,'Successful background role check retains workspace');
+   const afterFocus=await page.evaluate(()=>window.scrollY);
+   assert.equal(afterFocus,uninterrupted.before,'Successful background verification must retain scroll position');
+   const afterVisibility=await page.evaluate(()=>{
+     document.dispatchEvent(new Event('visibilitychange'));
+     return {visible:!document.getElementById('pt-app').hidden,scroll:window.scrollY};
+   });
+   assert(afterVisibility.visible,'Visibilitychange must not blank the authorized classroom');
+   assert.equal(afterVisibility.scroll,uninterrupted.before);
+   await page.waitForTimeout(250);
+   assert.equal(await page.locator('#pt-app').isVisible(),true);
+
    revoke();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
    await page.waitForFunction(()=>document.querySelector('#pt-gate')?.textContent?.includes('no longer has Prototype Center permissions'),null,{timeout:12000});
    assert.equal(await page.locator('#pt-app').isVisible(),false,'role revocation must immediately hide the workbench');

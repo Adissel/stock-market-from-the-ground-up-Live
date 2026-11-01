@@ -7,7 +7,7 @@ const state={cache:null,pending:null,selected:0,revealed:2,caseChange:0,active:0
 const eligible=new Set(['classroom','labs','bootcamps','studio','replay','talia','admin']);
 const fmt=n=>Number(n).toFixed(2);
 function data(){return state.cache?.cases?.[state.selected]||null}
-function sampleCandles(){const x=data();if(!x||!eligible.has(state.tab))return null;const count=state.tab==='replay'?state.revealed:x.candles.length;
+function sampleCandles(){const x=data();if(!x||!eligible.has(state.tab))return null;const count=Math.max(1,Math.min(state.revealed,x.candles.length));
  return x.candles.slice(0,count).map(d=>({t:d.time,open:d.open,close:d.close,low:d.low,high:d.high,volume:d.volume}));}
 function setActiveTab(tab){if(tab==='replay'&&state.tab!==tab)state.revealed=2;state.tab=eligible.has(tab)?tab:null;}
 function reset(){state.cache=null;state.pending=null;state.selected=0;state.revealed=2;state.active++;state.tab=null;}
@@ -55,12 +55,13 @@ function build(root,tab,mode){
   root.append(h('p','Admin editorial control: source type, mathematical steps and independent-assessment boundaries can be reviewed without changing real lessons.'));
  }
  const nav=h('div',undefined,'pt-row');
- const prev=button('Previous candle',()=>{state.revealed=Math.max(1,state.revealed-1);build(root,tab,mode);event()});
- const next=button('Reveal next candle',()=>{state.revealed=Math.min(x.candles.length,state.revealed+1);build(root,tab,mode);event()});
+ const prev=button('Previous candle',()=>{state.revealed=Math.max(1,state.revealed-1);state.answer='';setNotice('');build(root,tab,mode);event()});
+ const next=button('Reveal next candle',()=>{state.revealed=Math.min(x.candles.length,state.revealed+1);state.answer='';setNotice('');build(root,tab,mode);event()});
  prev.disabled=state.revealed<=1;next.disabled=state.revealed>=x.candles.length;
  nav.append(prev,next,h('span','Visible '+state.revealed+' of '+x.candles.length+' candles'));
  root.append(nav);
- const limit=tab==='replay'?state.revealed:x.candles.length;
+ // All instructor previews obey the displayed reveal boundary, not just Replay.
+ const limit=Math.max(1,Math.min(state.revealed,x.candles.length));
  const tableScroller=h('div',undefined,'pt-table-scroll');tableScroller.setAttribute('role','region');tableScroller.setAttribute('aria-label','Fictional candle calculations (horizontally scrollable on small screens)');tableScroller.tabIndex=0;tableScroller.append(makeTable(x,limit));root.append(tableScroller);
  const formula=h('div',undefined,'pt-stage');
  const risk=x.id.endsWith('RISK-03'),breakout=x.id.endsWith('BREAKOUT-02');
@@ -68,7 +69,9 @@ function build(root,tab,mode){
  if(risk){
   formula.append(h('p','Hypothetical entry $15.25 − stop $15.00 = $0.25 risk per share. Target $15.75 − entry $15.25 = $0.50 potential reward per share. Planned reward/risk = $0.50 ÷ $0.25 = 2:1, before spread, fees and slippage.'));
  }else if(breakout){
-  formula.append(h('p','The third candle traded up to $20.60 but closed at $20.15. Rejection distance = $20.60 − $20.15 = $0.45/share; a wick is not proof of a specific subsequent outcome.'));
+  formula.append(h('p',limit<3
+   ?'Reveal the third completed fictional candle before calculating its rejection distance. Future candle values remain concealed.'
+   :'The third candle traded up to $20.60 but closed at $20.15. Rejection distance = $20.60 − $20.15 = $0.45/share; a wick is not proof of a specific subsequent outcome.'));
  }else{
   const rows=calc(x,limit),last=rows[rows.length-1];
   formula.append(h('p','Typical price = (High + Low + Close) ÷ 3. Cumulative bar proxy = Σ(Typical price × bar volume) ÷ Σ(bar volume). This is an OHLCV approximation, not true trade-print VWAP.'));
@@ -79,14 +82,16 @@ function build(root,tab,mode){
  question.append(h('h4','Ungraded guided check'),h('p',x.question));
  const input=h('input');input.type='number';input.step='0.01';input.placeholder='Enter dollar value';input.setAttribute('aria-label','Your guided calculation');input.value=state.answer;input.addEventListener('input',()=>{state.answer=input.value});
  const feedback=h('p',state.notice,'pt-note');feedback.setAttribute('role','status');
- question.append(input,button('Check calculation',()=>{
+ if(breakout&&limit<3){input.disabled=true;feedback.textContent='Reveal the third candle before answering this ungraded calculation.';}
+ const check=button('Check calculation',()=>{
   const entered=Number(input.value),expected=x.id.endsWith('RISK-03')?0.25:
    x.id.endsWith('BREAKOUT-02')?0.45:(x.candles[0].high+x.candles[0].low+x.candles[0].close)/3;
   if(!input.value.trim()||!Number.isFinite(entered)){feedback.textContent='Enter a numeric value in dollars; this is an ungraded teaching check.';return;}
   const advice=x.id.endsWith('RISK-03')?'Subtract the $15.00 stop from the $15.25 entry.':x.id.endsWith('BREAKOUT-02')?'Subtract the $20.15 close from the $20.60 high.':'For the first candle, add $10.40, $9.80, and $10.20, then divide by three.';
   feedback.textContent=Math.abs(entered-expected)<=0.011?'Correct to the nearest cent. '+advice:'Not yet. '+advice+' Guided retries are ungraded and do not affect progress.';
- }));
- question.append(feedback);root.append(question);
+ });
+ if(breakout&&limit<3)check.disabled=true;
+ question.append(input,check,feedback);root.append(question);
  const instruct=h('section',undefined,'pt-card');instruct.append(h('h4','Talia explanation'),h('p',x.instructor),h('p','This is instructional scenario analysis, not a trading signal or investment recommendation.'));root.append(instruct);
  const quality=h('div',undefined,'pt-card');
  quality.append(h('strong','Editorial protection'));
