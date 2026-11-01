@@ -111,7 +111,8 @@ def run():
   assert stored['gender']=='female' and stored['bio']=='Existing member biography','Unrelated profile fields changed'
   page.close()
 
-  for width,expected_cols in [(1600,4),(950,3),(740,2),(390,1)]:
+  for width,expected_cols in [(1600,1),(950,1),(740,1),(390,1)]:
+   # Owner-approved October 30 reduction: compact single-column Boot Camp cards at all sizes.
    page=browser.new_page(viewport={"width":width,"height":850})
    page.set_content('<body class="gu-bc-learning"><main class="section gu-redesign-academy">'+
     '<div class="wrap"><h1>Boot Camp Academy</h1><div id="academy-programs">'+
@@ -120,13 +121,15 @@ def run():
    page.add_style_tag(path=str(ROOT/'assets/css/bootcamp-academy-compact-v2.css'))
    geometry=page.evaluate("""() => ({
     width:document.querySelector('main>.wrap').getBoundingClientRect().width,
+    catalogWidth:document.getElementById('academy-programs').getBoundingClientRect().width,
     cols:getComputedStyle(document.getElementById('academy-programs')).gridTemplateColumns.split(' ').length,
     overflow:document.documentElement.scrollWidth>innerWidth+4
    })""")
    assert geometry['width']<=min(1221,width),'Academy content should stay within the intended width'
+   assert geometry['catalogWidth']<=min(820,width),(width,geometry)
    assert geometry['cols']==expected_cols,(width,geometry)
    assert not geometry['overflow'],(width,geometry)
    page.close()
   browser.close()
- print('PASS 30 premium avatars, Cancel/Apply, profile API integration (mocked), rejected saves, and four Academy widths.')
+ print('PASS 60 premium avatars, Cancel/Apply, profile API integration (mocked), rejected saves, and four owner-approved compact single-column Academy widths.')
 if __name__=='__main__':run()
