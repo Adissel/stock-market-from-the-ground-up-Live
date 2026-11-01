@@ -105,3 +105,9 @@
 .crownlight-toolbar-actions button[data-cl^="pan-"]{min-height:44px;min-width:92px;border-color:#547b96;background:linear-gradient(135deg,#18415a,#152b47);color:#e8f8ff;letter-spacing:.015em}
 .crownlight-toolbar-actions button[data-cl^="pan-"]:focus-visible{outline:3px solid #f7d894;outline-offset:3px}
 @media(max-width:650px){.crownlight-toolbar-actions button[data-cl^="pan-"]{flex:1 1 95px;min-height:44px}}
+
+/* V19 completed-candle inspection: accessible, compact and independent of cursor hover. */
+.crownlight-candle-reader{border:1px solid #355a72;border-top:0;border-radius:0 0 10px 10px;background:#0d2134;color:#d4e6f8;font-size:.83rem;line-height:1.6;padding:10px 15px;margin:0 0 10px}
+.crownlight-toolbar-actions button[data-cl^="inspect-"]{min-height:44px;border-color:#63718d;background:linear-gradient(135deg,#262e53,#102f45)}
+.crownlight-toolbar-actions button[data-cl^="inspect-"]:focus-visible{outline:3px solid #ffdc97;outline-offset:3px}
+@media(max-width:650px){.crownlight-toolbar-actions button[data-cl^="inspect-"]{flex:1 1 132px;min-height:44px}}

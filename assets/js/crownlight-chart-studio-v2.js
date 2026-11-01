@@ -33,7 +33,7 @@
  ];
  let prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
  const state={mounted:false,chart:null,candles:null,volume:null,series:[],lines:[],source:'',count:-1,
-  hover:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null};
+  hover:null,inspectIndex:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null};
  const $=id=>document.getElementById(id);
  const h=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
  const money=n=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'—';
@@ -47,7 +47,8 @@
   prefs=stored&&Array.isArray(stored.studies)?stored:{studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};prefs.appearance=safeAppearance(prefs.appearance);
   prefs.studies=prefs.studies.filter(x=>LABELS[x?.type]&&typeof x.color==='string').slice(0,18);
   if(!Array.isArray(prefs.levels))prefs.levels=[];
-  state.follow=prefs.follow!==false;state.source='';state.count=-1;state.hover=null;
+  state.follow=prefs.follow!==false;state.source='';state.count=-1;state.hover=null;state.inspectIndex=null;
+  const reader=state.shell?.querySelector('[data-cl="candle-reader"]');if(reader)reader.textContent='';
   if(state.mounted){updateFollow();renderLegend();applyAppearance()}
  }
  function timeNY(ms){
@@ -66,6 +67,8 @@
    '<button type="button" data-cl="zoom-out" title="Zoom out">−<span class="sr-only">Zoom out</span></button>'+
    '<button type="button" data-cl="pan-earlier" aria-label="Pan chart to earlier revealed candles" title="View earlier completed candles">← Earlier</button>'+
    '<button type="button" data-cl="pan-later" aria-label="Pan chart toward latest revealed candle" title="View later completed candles">Later →</button>'+
+   '<button type="button" data-cl="inspect-prev" aria-label="Inspect previous completed candle" title="Read the preceding revealed candle">Previous candle</button>'+
+   '<button type="button" data-cl="inspect-next" aria-label="Inspect next completed candle" title="Read the next revealed candle">Next candle</button>'+
    '<button type="button" data-cl="reset" title="Fit revealed history">Fit</button>'+
    '<button type="button" data-cl="follow" title="Follow the latest revealed candle">Follow</button>'+
    '<button type="button" data-cl="studies">Indicators <span class="cl-dot">●</span></button>'+
@@ -76,6 +79,7 @@
    '<button type="button" data-cl="fullscreen">⛶ <span class="cl-text">Expand</span></button></div></div>'+
    '<div class="crownlight-legend" aria-label="Selected indicators"></div>'+
    '<div class="crownlight-market-strip" aria-live="off"><span data-cl="hover-title">Move over a candle to inspect it</span><span data-cl="hover-data">O — H — L — C — V —</span></div>'+
+   '<p class="crownlight-candle-reader" data-cl="candle-reader" role="status" aria-live="polite" aria-atomic="true">Use Previous candle and Next candle to hear completed OHLCV observations.</p>'+
    '<div class="crownlight-plot" role="img" aria-label="Interactive candle chart. Mouse wheel zooms; drag pans. Keyboard controls are above."></div>'+
    '<div class="crownlight-help">Scroll to zoom at the cursor · Drag to explore revealed candles · Crosshair displays exact observed values · ET timestamps · <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView Lightweight Charts™</a> (Copyright © 2025 TradingView, Inc.)</div>'+ 
    '<section class="crownlight-coach" hidden aria-label="Talia chart learning panel"><div class="crownlight-coach-head"><span class="crownlight-coach-symbol">T</span><div><span>CHART LAB</span><h3>Read the Evidence with Talia</h3></div></div><div data-cl="coach-body"></div><label for="crownlight-observation">Your observation — what is known, unknown, or invalidated?</label><textarea id="crownlight-observation" rows="3" placeholder="Write your own analysis before revealing the next candle. No-trade is a valid conclusion."></textarea><div class="actions"><button type="button" data-cl="copy-observation">Copy observation</button><span data-cl="coach-feedback" role="status" aria-live="polite"></span></div></section>'+
@@ -142,6 +146,7 @@
      }
     }
    }
+   if(cmd==='inspect-prev'||cmd==='inspect-next')inspectCompletedCandle(cmd==='inspect-prev'?-1:1);
    if(cmd==='reset'){state.follow=true;fitVisible();save()}
    if(cmd==='follow'){state.follow=!state.follow;updateFollow();save();if(state.follow)scale.scrollToRealTime()}
    if(cmd==='studies')openStudies();
@@ -234,6 +239,8 @@
   const reset=source!==state.source||state.count>data.length;
   const prior=state.chart.timeScale().getVisibleLogicalRange();
   state.sim=sim;state.source=source;state.count=data.length;
+  if(reset)state.inspectIndex=null;
+  else if(Number.isInteger(state.inspectIndex))state.inspectIndex=Math.min(state.inspectIndex,Math.max(0,data.length-1));
   const a=safeAppearance(prefs.appearance),doji=b=>Math.abs(b.close-b.open)<=Math.max(.00001,Math.abs(b.open)*.00005);
   const candlePoints=data.map(b=>({time:Math.floor(b.time.getTime()/1000),open:b.open,high:b.high,low:b.low,close:b.close,
    ...(doji(b)?{color:a.doji,wickColor:a.doji,borderColor:a.doji}:{})}));
@@ -296,6 +303,26 @@
    source:String(sim.sourceProvider||''),
    bars:data.map(b=>({timestamp:b.time.getTime(),open:b.open,high:b.high,low:b.low,close:b.close,volume:b.volume}))
   }}));
+  return true;
+ }
+ // A separate keyboard/screen-reader path for inspecting only completed,
+ // already-revealed candles. Hover remains visual and never spams aria-live.
+ function inspectCompletedCandle(direction){
+  if(!state.sim||state.count<=0||!state.shell)return false;
+  const revealed=state.sim.candles.slice(0,state.count);
+  if(!revealed.length)return false;
+  const current=Number.isInteger(state.inspectIndex)?
+   Math.min(revealed.length-1,state.inspectIndex):revealed.length-1;
+  const index=Math.max(0,Math.min(revealed.length-1,current+direction));
+  state.inspectIndex=index;
+  const bar=revealed[index];
+  state.hover=bar;showHover(bar);
+  const reader=state.shell.querySelector('[data-cl="candle-reader"]');
+  if(reader)reader.textContent='Completed candle '+(index+1)+' of '+revealed.length+
+   '. '+timeNY(bar.time.getTime())+' Eastern. Open '+money(bar.open)+
+   ', high '+money(bar.high)+', low '+money(bar.low)+
+   ', close '+money(bar.close)+', volume '+num(bar.volume)+
+   '. Historical observation only; no future candle or trading conclusion.';
   return true;
  }
  function showHover(b){
@@ -494,7 +521,7 @@
  }
  function clearMemberState(){
   // A user change must not leave provider candles, notes or studies visible in a former session.
-  state.sim=null;state.hover=null;state.userId=null;state.tempPlan=null;state.source='';state.count=0;
+  state.sim=null;state.hover=null;state.inspectIndex=null;state.userId=null;state.tempPlan=null;state.source='';state.count=0;
   prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
   state.follow=true;
   if(state.chart){
@@ -509,6 +536,7 @@
    const values=state.shell.querySelector('[data-cl="hover-data"]');
    if(title)title.textContent='Sign in to view chart observations';
    if(values)values.textContent='O — H — L — C — V —';
+   const reader=state.shell.querySelector('[data-cl="candle-reader"]');if(reader)reader.textContent='';
    const source=state.shell.querySelector('.crownlight-source');
    const coach=state.shell.querySelector('.crownlight-coach');
    if(source)source.hidden=true;

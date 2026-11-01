@@ -109,6 +109,23 @@ try{
       'Navigation does not change replay progression or grant mastery');
     console.log('PASS actual held-button chart pan, release-to-stop, and keyboard accessible Earlier/Later in pinned Chromium');
    }
+   if(width===390){
+    // Keyboard-only OHLCV traversal must never disclose candle 26 while the
+    // source offers 65 bars but the member has revealed only 25.
+    const first=page.getByRole('button',{name:'Inspect previous completed candle'});
+    const next=page.getByRole('button',{name:'Inspect next completed candle'});
+    await first.focus();await page.keyboard.press('Enter');
+    let text=await page.locator('[data-cl="candle-reader"]').innerText();
+    assert.match(text,/Completed candle 24 of 25/);
+    assert.match(text,/Open .* high .* low .* close .* volume /);
+    await next.focus();await page.keyboard.press('Space');
+    text=await page.locator('[data-cl="candle-reader"]').innerText();
+    assert.match(text,/Completed candle 25 of 25/);
+    for(let i=0;i<4;i++)await next.click();
+    assert.match(await page.locator('[data-cl="candle-reader"]').innerText(),/Completed candle 25 of 25/,'Candle reader cannot traverse unrevealed OHLCV');
+    assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),25);
+    assert.equal(await page.locator('[data-cl="candle-reader"]').getAttribute('aria-live'),'polite');
+   }
    await page.locator('[data-cl="source"]').click();
    assert.match(await page.locator('.crownlight-source').innerText(),width===1440?/Revealed bars\s*65/:/Revealed bars\s*25/);
    await page.locator('[data-cl="coach"]').click();
@@ -144,6 +161,7 @@ try{
    assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),0,'Chart observations must be scrubbed on session loss');
    assert.equal(await page.locator('.crownlight-source').isVisible(),false,'Private source details hidden on session loss');
    assert.equal(await page.locator('.crownlight-coach').isVisible(),false,'Private Talia notes hidden on session loss');
+   assert.equal(await page.locator('[data-cl="candle-reader"]').innerText(),'','A11y candle readout scrubbed on sign-out');
    console.log('PASS real Chromium '+width+'px: canvas, zoom/wheel, indicators, coaching, source, replay and responsive width');
   }finally{await context.close()}
  }
