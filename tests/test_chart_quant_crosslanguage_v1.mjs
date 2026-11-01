@@ -65,5 +65,5 @@ for(const k of [1,3,5]){
 }
 assert.equal(reference.aggregate['3'].length,80);
 assert.equal(reference.aggregate['5'].length,48);
-assert.equal(reference.studies.vwap[120],(rows[120].high+rows[120].low+rows[120].close)/3);
+assert(finiteDifference(reference.studies.vwap[120],(rows[120].high+rows[120].low+rows[120].close)/3),'Second-session HLC3 VWAP must reset within floating-point tolerance');
 console.log('PASS independent Python vs JS numerical reference: SMA/EMA9/20/200, RSI, ATR, BB, MACD, HLC3 VWAP, no-lookahead prefixes, and actual 1/3/5-minute OHLCV grouping');
