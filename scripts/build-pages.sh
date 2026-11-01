@@ -159,6 +159,21 @@ node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/PrototypeWork
   --outfile="$output/assets/js/prototype-deck-v6.bundle.js"
 test -s "$output/assets/js/prototype-deck-v6.bundle.js" || { echo "React Prototype command deck missing" >&2; exit 7; }
 
+# React/TypeScript three-page Experience Suite. Shares the existing same-origin
+# ECharts loader and staff-only Prototype gate; no extra public route.
+test -s src/prototype/PrototypeExperiences.tsx
+cp -- src/prototype/PrototypeExperiences.tsx "$vendor_temp/PrototypeExperiences.tsx"
+node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
+  --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \
+  "$vendor_temp/PrototypeExperiences.tsx"
+node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/PrototypeExperiences.tsx" \
+  --bundle --format=esm --target=es2022 --minify \
+  --define:process.env.NODE_ENV='"production"' \
+  --outfile="$output/assets/js/prototype-experiences-v1.bundle.js"
+test -s "$output/assets/js/prototype-experiences-v1.bundle.js"
+test -s "$output/assets/css/prototype-experiences-v1.css"
+test -s "$output/assets/js/prototype-experiences-boot-v1.js"
+
 mkdir -p "$output/data"
 for file in crownlight-sparks-store-v014167.json books.json challenges.json commerce-config.json stripe-product-registry-v01437.json environments.json interactive-lab-index.json journal-taxonomy.json labs.json releases.json simulator_csv_template.csv skills.json store-products.json tutor-index.json competency-study-guides-v01499.json tutor-research-guides-v1.json tutor-video-transcript-research-v1.json tutor-decision-playbooks-v1.json tutor-advanced-decision-guides-v1.json tutor-indicator-study-v1.json tutor-watchlist-study-v1.json tutor-strategy-study-v1.json tutor-guided-practice-v1.json free-foundations-evidence-v1.json academy-specific-source-instruction-v1.json tutor-lab-claim-evidence-v1.json competency-lab-paths-v01499.json lab-teaching-bridges-v014168.json bootcamp-formative-v014154.json bootcamp-source-cases-v014166.json; do
   test -f "data/$file" || { echo "Missing public data: data/$file" >&2; exit 1; }
