@@ -68,31 +68,42 @@
   const renderUser=activeUser,renderLoad=loadSerial;
   const tutorRequest=globalThis.GroundUpAcademyTutorBridgeV1?.create?.({client:sb,userId:renderUser,day:d,
    isCurrent:()=>activeUser===renderUser&&loadSerial===renderLoad&&selected===d.day})||null;
-  guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(q('gu-bc-guided'),{day:d,programCode:'foundations30',
+  // Preserve the authored Academy guide as a supplemental practice surface.
+  const guidedHost=q('gu-bc-guided');let extra=guidedHost.closest('#gu-bc-additional-guide');
+  if(!extra){
+   extra=document.createElement('details');extra.id='gu-bc-additional-guide';
+   const caption=document.createElement('summary');
+   caption.textContent='Additional Boot Camp formative and advanced practice';
+   guidedHost.before(extra);extra.append(caption,guidedHost);
+  }
+  guidedSession=globalThis.GroundUpAcademyGuidedV1?.mount?.(guidedHost,{day:d,programCode:'foundations30',
    tutorRequest,memberFirstName})||null;
   const checkpoint=checkpoints.get(selected);
   const guideSlot=q('gu-bc-v32-stage')?.querySelector('#gu-v32-teaching-slot')||q('gu-bc-v32-stage');
   if(guideSlot){
-   const first=d.relatedLabs?.[0]?.id;
-   if(first)void globalThis.GroundUpLabEngineV32Universal?.mount?.({
-    labId:first,mode:'guided',target:guideSlot,focusId:'gu-bc-note',
-    memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),tutorRequest,
-    lab:{
-     id:first,concept:d.title,goal:d.objective,
-     teaching:{
-      // Each day uses its own approved content, not a generic 30-day
-      // explanation or an invented 31st official competency.
-      what:d.objective,
-      why:d.caution||d.observe,
-      when:d.observe,
-      how:[d.practice].filter(Boolean),
-      commonError:checkpoint?.commonMistake||d.caution,
-      limitation:d.caution,
-      questions:[checkpoint?.question].filter(Boolean)
-     }
-    }
-   });
-   else guideSlot.textContent='No canonical Lab learning bridge exists for this day.';
+   // The separate 30-day progress API remains authoritative. The in-memory
+   // Academy ID is not a canonical Lab, assessment, or book entitlement.
+   const labId='academy:foundations30:'+d.day,lesson=d.lesson||{};
+   const study={id:labId,concept:d.title,goal:d.objective,teaching:{
+    what:d.objective,why:lesson.explanation||lesson.teach||d.observe,
+    when:d.observe,how:[lesson.workedExample||lesson.worked||'',d.practice].filter(Boolean),
+    commonError:lesson.error||checkpoint?.commonMistake||d.caution,
+    limitation:lesson.whenNot||d.caution,
+    questions:[checkpoint?.question].filter(Boolean)
+   }};
+   const engine=globalThis.GroundUpLabEngineV32Universal;
+   if(typeof engine?.mount==='function'){
+    void Promise.resolve(engine.mount({
+     labId,mode:'guided',target:guideSlot,focusId:'gu-bc-note',
+     academyLesson:{programCode:'foundations30',day:d.day,title:d.title,objective:d.objective,
+      competencies:d.competencies,transfer:lesson.transfer||d.practice},
+     memberFirstName,allowTutorAI:true,tutorTopic:globalThis.GroundUpAcademyTutorBridgeV1?.topicFor?.(d),
+     tutorRequest,lab:study
+    })).then(ok=>{if(ok!==true&&selected===d.day)extra.open=true;})
+      .catch(()=>{if(selected===d.day){
+       extra.open=true;guideSlot.textContent='Shared instructor unavailable. Use additional practice; no grade was recorded.';
+      }});
+   }else{extra.open=true;guideSlot.textContent='Shared instructor unavailable. Use additional practice.';}
   }
   const source=sourceCases.get(selected),sourceSection=q('gu-bc-source-case');
   if(sourceSection){
