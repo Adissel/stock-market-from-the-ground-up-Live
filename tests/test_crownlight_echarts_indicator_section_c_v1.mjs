@@ -112,6 +112,20 @@ try{
   return {height:g.getBoundingClientRect().height,macd:o.grid[3].height};
  });
  assert.equal(resized.macd,230,'MACD pane must resize without changing math');
+ await page.locator('.cl-echarts-colors summary').click();
+ assert.equal(await page.locator('[data-indicator-color]').count(),14,
+  'Every supported indicator layer must expose a distinct color input');
+ await page.locator('[data-indicator-color="macd"]').evaluate(el=>{
+  el.value='#1234ab';el.dispatchEvent(new Event('input',{bubbles:true}));
+ });
+ await page.locator('[data-indicator-stroke="macd"]').selectOption('dotted');
+ const macdStyle=await page.evaluate(()=>{
+  const e=window.echarts.getInstanceByDom(document.querySelector('[data-cl-echarts-chart]'));
+  return e.getOption().series.find(x=>x.name==='MACD 12/26').lineStyle;
+ });
+ assert.equal(macdStyle.color,'#1234ab');
+ assert.equal(macdStyle.type,'dotted');
+
  assert(resized.height>panels.height);
  const table=page.locator('.cl-echarts-numeric-table');
  await table.locator('summary').click();
@@ -149,6 +163,12 @@ try{
  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('crownlight:member-changed')));
  assert.equal(await page.locator('[data-cl-echarts-rows] tr').count(),0);
  assert.equal(await page.evaluate(()=>window.CrownlightEChartsStudio.getStatus().barCount),0);
+ // Switching identities must not leak another member's in-memory chart palette.
+ assert.equal(await page.evaluate(async data=>
+  window.CrownlightEChartsStudio.mount(document.querySelector('#slot'),data,'NEW-MEMBER','1-minute'),bars),true);
+ assert.equal(await page.locator('[data-indicator-color="macd"]').inputValue(),'#71d5f4');
+ assert.equal(await page.locator('[data-indicator-stroke="macd"]').inputValue(),'default');
+ await page.evaluate(()=>window.CrownlightEChartsStudio.unmount());
  assert.deepEqual(errors,[]);
  await page.close();
  console.log('PASS Section C ECharts: original shared math overlays, EMA200 warmup, user styles, accessible table, revealed-only replay and account scrub');
