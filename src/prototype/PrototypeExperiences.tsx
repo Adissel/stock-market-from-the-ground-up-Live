@@ -201,6 +201,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
  const onPanStop=(e:React.PointerEvent<HTMLDivElement>)=>{if(activePointer.current?.id!==e.pointerId)return;activePointer.current=null;if(e.currentTarget.hasPointerCapture?.(e.pointerId))e.currentTarget.releasePointerCapture(e.pointerId)};
 
  const prefs=React.useContext(IndicatorContext);
+ const barLook=React.useContext(BarLookContext);
  const onSelectRef=useRef(onSelect);onSelectRef.current=onSelect;
  const settings=prefs?.settings,enabled=prefs?.enabled;
  const currentEnabled=Object.fromEntries(Object.entries({...enabled,EMA_FAST:showEma&&!!enabled?.EMA_FAST,EMA_SLOW:showEma&&!!enabled?.EMA_SLOW,VWAP:showProxy&&!!enabled?.VWAP,VOLUME:showVolume&&!!enabled?.VOLUME}).map(([k,v])=>[k,Boolean(v)&&studyAllowed(prefs?.studio||'Standard',k)]));
