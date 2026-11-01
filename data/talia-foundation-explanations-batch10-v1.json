@@ -1,0 +1,573 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 10,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "20 new original fictional point-in-time chart, replay, timestamp and research methodology lessons; citations are editorial candidates, not approved claims or redistributable data.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_REPLAY_BAR_START_VS_CLOSE",
+      "title": "A candle's opening timestamp is not proof its completed high and low were available",
+      "concept": "A bar may be labeled by opening time even though its final high, low, close and volume are only known when the interval closes.",
+      "procedure": "At 10:02, use only previous completed bars or specifically timestamped intrabar events; never show the final 10:05 close as history.",
+      "workedCase": "FICTIONAL: In a fictional 10:00–10:05 five-minute candle, the high $20.40 reached at 10:04 cannot be used at the 10:02 decision.",
+      "limit": "A five-minute opening label can be mistaken for the time the complete values were known.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A five-minute opening label can be mistaken for the time the complete values were known.",
+      "commonError": "A live-analysis error would be to assume that a five-minute opening label can be mistaken for the time the complete values were known. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: For a 14:30–14:35 candle, what values are defensible at 14:33 without an intrabar feed? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: At 10:02, use only previous completed bars or specifically timestamped intrabar events; never show the final 10:05 close as history. The example illustrates the stated boundary with original fictional data: In a fictional 10:00–10:05 five-minute candle, the high $20.40 reached at 10:04 cannot be used at the 10:02 decision. A five-minute opening label can be mistaken for the time the complete values were known.",
+      "transferQuestion": "FICTIONAL TRANSFER: For a 14:30–14:35 candle, what values are defensible at 14:33 without an intrabar feed? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_INCOMPLETE_HIGH",
+      "title": "A forming candle's final high is unknown until the candle finishes",
+      "concept": "During bar formation an observed provisional high can increase, so a replay chart must distinguish provisional observations from final OHLC.",
+      "procedure": "Record observation time and whether the candle is forming; suppress later highs or explicitly simulated intrabar evolution.",
+      "workedCase": "FICTIONAL: At 11:01 a fictional two-minute bar has observed high $12.10; at 11:02 its final high is $12.40, unavailable earlier.",
+      "limit": "A partial-bar high may be valid so far but must not be described as the eventual final high.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A partial-bar high may be valid so far but must not be described as the eventual final high.",
+      "commonError": "A live-analysis error would be to assume that a partial-bar high may be valid so far but must not be described as the eventual final high. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: If the visible provisional high is $9.80 at 10:01, can the chart already show $10.05 reached at 10:02? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Record observation time and whether the candle is forming; suppress later highs or explicitly simulated intrabar evolution. The example illustrates the stated boundary with original fictional data: At 11:01 a fictional two-minute bar has observed high $12.10; at 11:02 its final high is $12.40, unavailable earlier. A partial-bar high may be valid so far but must not be described as the eventual final high.",
+      "transferQuestion": "FICTIONAL TRANSFER: If the visible provisional high is $9.80 at 10:01, can the chart already show $10.05 reached at 10:02? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_LEFT_CONTEXT",
+      "title": "Earlier completed context can warm indicators without revealing later replay decisions",
+      "concept": "The replay may show known prestart bars for trend context but must withhold poststart evidence until its historical availability time.",
+      "procedure": "Separate context and unrevealed event indices, then validate chart overlays only against the currently released prefix.",
+      "workedCase": "FICTIONAL: A fictional replay starts at bar 101; bars 1–100 are completed context, while bars 102–110 must remain hidden until stepped.",
+      "limit": "Historical context is not the same as a permission to browse the entire outcome on a future bar.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Historical context is not the same as a permission to browse the entire outcome on a future bar.",
+      "commonError": "A live-analysis error would be to assume that historical context is not the same as a permission to browse the entire outcome on a future bar. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: For replay start at bar 76, which bars may be visible before the first decision is made? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Separate context and unrevealed event indices, then validate chart overlays only against the currently released prefix. The example illustrates the stated boundary with original fictional data: A fictional replay starts at bar 101; bars 1–100 are completed context, while bars 102–110 must remain hidden until stepped. Historical context is not the same as a permission to browse the entire outcome on a future bar.",
+      "transferQuestion": "FICTIONAL TRANSFER: For replay start at bar 76, which bars may be visible before the first decision is made? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_INDICATOR_WARMUP",
+      "title": "Indicator warmup must use completed past observations and declared seed rules",
+      "concept": "Recursive moving averages and oscillators require prior observations; a chart cannot infer all long-period state from a short visible prefix.",
+      "procedure": "Count required completed samples and record seed choice and missing-data treatment before exposing a computed overlay.",
+      "workedCase": "FICTIONAL: A fictional EMA200 seeded from a 200-close mean cannot be initialized from 199 valid closes; an unrelated 199-bar mean is not EMA200.",
+      "limit": "Platform-specific warmup and seed conventions may differ, and warmup output is not a trade recommendation.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Platform-specific warmup and seed conventions may differ, and warmup output is not a trade recommendation.",
+      "commonError": "A live-analysis error would be to assume that platform-specific warmup and seed conventions may differ, and warmup output is not a trade recommendation. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: If only 180 complete bars exist for a 200-close SMA seed, what readiness label should the Tutor show? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Count required completed samples and record seed choice and missing-data treatment before exposing a computed overlay. The example illustrates the stated boundary with original fictional data: A fictional EMA200 seeded from a 200-close mean cannot be initialized from 199 valid closes; an unrelated 199-bar mean is not EMA200. Platform-specific warmup and seed conventions may differ, and warmup output is not a trade recommendation.",
+      "transferQuestion": "FICTIONAL TRANSFER: If only 180 complete bars exist for a 200-close SMA seed, what readiness label should the Tutor show? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_EMA_INITIALIZATION",
+      "title": "EMA 9 and EMA 20 can disagree at startup because of seeding, not a changed market",
+      "concept": "A recursive EMA weights the latest price and preceding EMA by alpha = 2/(n+1), conditional on the chosen initialization.",
+      "procedure": "Disclose n, alpha, prior EMA, bar timestamp and whether the seed was computed by SMA or another policy.",
+      "workedCase": "FICTIONAL: For EMA9, alpha is 0.2; with prior initialized EMA $10.00 and completed close $11.00, new EMA = $10.20.",
+      "limit": "An EMA recursion cannot establish a correct first EMA without a documented seed and preceding history.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: An EMA recursion cannot establish a correct first EMA without a documented seed and preceding history.",
+      "commonError": "A live-analysis error would be to assume that an EMA recursion cannot establish a correct first EMA without a documented seed and preceding history. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: For EMA20, compute alpha = 2/21 and describe why copying a nine-bar seed is incorrect. Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Disclose n, alpha, prior EMA, bar timestamp and whether the seed was computed by SMA or another policy. The example illustrates the stated boundary with original fictional data: For EMA9, alpha is 0.2; with prior initialized EMA $10.00 and completed close $11.00, new EMA = $10.20. An EMA recursion cannot establish a correct first EMA without a documented seed and preceding history.",
+      "transferQuestion": "FICTIONAL TRANSFER: For EMA20, compute alpha = 2/21 and describe why copying a nine-bar seed is incorrect. Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_MISSING_BAR",
+      "title": "An absent data bar is not a zero-priced candle",
+      "concept": "Data gaps from an unavailable source, halt or session boundary require explicit missingness rather than synthetic zero-valued price movements.",
+      "procedure": "Validate cadence, exchange calendar and source flags before interpolating or suppressing a gap.",
+      "workedCase": "FICTIONAL: Fictional $12.50 close at 10:00 and $12.70 close at 10:10 do not prove a 10:05 candle traded at $0.",
+      "limit": "A missing row and a genuine zero-volume interval are different states; filling OHLC with zero corrupts indicator calculations.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A missing row and a genuine zero-volume interval are different states; filling OHLC with zero corrupts indicator calculations.",
+      "commonError": "A live-analysis error would be to assume that a missing row and a genuine zero-volume interval are different states; filling OHLC with zero corrupts indicator calculations. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: If one minute is missing in a five-minute segment, what data-quality label should accompany the chart? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Validate cadence, exchange calendar and source flags before interpolating or suppressing a gap. The example illustrates the stated boundary with original fictional data: Fictional $12.50 close at 10:00 and $12.70 close at 10:10 do not prove a 10:05 candle traded at $0. A missing row and a genuine zero-volume interval are different states; filling OHLC with zero corrupts indicator calculations.",
+      "transferQuestion": "FICTIONAL TRANSFER: If one minute is missing in a five-minute segment, what data-quality label should accompany the chart? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://www.nyse.com/markets/hours-calendars"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_VOLUME_MISSING",
+      "title": "Unknown volume must never be silently treated as observed zero volume",
+      "concept": "A blank volume field indicates missing evidence unless the feed explicitly reports a valid zero-volume interval.",
+      "procedure": "Keep volume availability separate from value and reject volume-dependent calculations when required inputs are missing.",
+      "workedCase": "FICTIONAL: The fictional 09:35 bar has high $8.20, low $8.00 and null volume; calculating volume SMA with 0 changes the result without evidence.",
+      "limit": "Zero is a measurement; null means not available, and denominators may then be invalid.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Zero is a measurement; null means not available, and denominators may then be invalid.",
+      "commonError": "A live-analysis error would be to assume that zero is a measurement; null means not available, and denominators may then be invalid. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: How should a 3-bar average respond to 100, missing, and 200 shares rather than invent a 0? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Keep volume availability separate from value and reject volume-dependent calculations when required inputs are missing. The example illustrates the stated boundary with original fictional data: The fictional 09:35 bar has high $8.20, low $8.00 and null volume; calculating volume SMA with 0 changes the result without evidence. Zero is a measurement; null means not available, and denominators may then be invalid.",
+      "transferQuestion": "FICTIONAL TRANSFER: How should a 3-bar average respond to 100, missing, and 200 shares rather than invent a 0? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_SPLIT_ADJUSTMENT",
+      "title": "Split-adjusted prices and unadjusted execution prices answer different questions",
+      "concept": "Corporate actions may restate past OHLC for continuity while executed historical fills and order prices remain recorded on their actual basis.",
+      "procedure": "Track price-adjustment mode and split factors across each replay record, and reconcile position share quantities separately.",
+      "workedCase": "FICTIONAL: A fictional 2-for-1 split can transform a prior unadjusted $40 bar into $20 adjusted, but a historic $40 order is not retroactively $20.",
+      "limit": "Mixing adjusted bars with unadjusted position sizes or orders corrupts profit and risk arithmetic.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Mixing adjusted bars with unadjusted position sizes or orders corrupts profit and risk arithmetic.",
+      "commonError": "A live-analysis error would be to assume that mixing adjusted bars with unadjusted position sizes or orders corrupts profit and risk arithmetic. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: A position with 10 shares before a hypothetical 2-for-1 split becomes how many shares after the split, absent other events? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Track price-adjustment mode and split factors across each replay record, and reconcile position share quantities separately. The example illustrates the stated boundary with original fictional data: A fictional 2-for-1 split can transform a prior unadjusted $40 bar into $20 adjusted, but a historic $40 order is not retroactively $20. Mixing adjusted bars with unadjusted position sizes or orders corrupts profit and risk arithmetic.",
+      "transferQuestion": "FICTIONAL TRANSFER: A position with 10 shares before a hypothetical 2-for-1 split becomes how many shares after the split, absent other events? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_TIME_ZONE",
+      "title": "Exchange session time and a learner's local clock must be separated",
+      "concept": "A timestamp is an instant plus a timezone/offset; replay decisions must use event instants rather than comparing unqualified clock labels.",
+      "procedure": "Store machine timestamps with explicit offsets and render exchange-local time with the exchange calendar.",
+      "workedCase": "FICTIONAL: A fictional timestamp 14:30 UTC and 09:30 at UTC−05:00 refer to the same moment in winter, not five hours of market movement.",
+      "limit": "Daylight-saving transitions and different exchanges make hard-coded offsets unsafe.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Daylight-saving transitions and different exchanges make hard-coded offsets unsafe.",
+      "commonError": "A live-analysis error would be to assume that daylight-saving transitions and different exchanges make hard-coded offsets unsafe. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: What additional context is needed before declaring two bars labeled 09:30 identical on different exchanges? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Store machine timestamps with explicit offsets and render exchange-local time with the exchange calendar. The example illustrates the stated boundary with original fictional data: A fictional timestamp 14:30 UTC and 09:30 at UTC−05:00 refer to the same moment in winter, not five hours of market movement. Daylight-saving transitions and different exchanges make hard-coded offsets unsafe.",
+      "transferQuestion": "FICTIONAL TRANSFER: What additional context is needed before declaring two bars labeled 09:30 identical on different exchanges? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://www.nyse.com/markets/hours-calendars"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_SESSION_VWAP_RESET",
+      "title": "A session-reset VWAP cannot be carried across a declared new session boundary",
+      "concept": "Session VWAP accumulates matched eligible price-volume observations under a specified reset and inclusion policy.",
+      "procedure": "Declare eligible sessions, reset instant and raw transaction-vs-bar proxy method before a VWAP lesson.",
+      "workedCase": "FICTIONAL: In a fictional first new-session trade at $20 with 100 shares, trade-print VWAP is $20 rather than yesterday's last VWAP $19.50.",
+      "limit": "Some platforms include extended-hours prints or set custom anchors, so default session boundaries cannot be assumed universal.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Some platforms include extended-hours prints or set custom anchors, so default session boundaries cannot be assumed universal.",
+      "commonError": "A live-analysis error would be to assume that some platforms include extended-hours prints or set custom anchors, so default session boundaries cannot be assumed universal. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: At the first trade of a newly reset session, why must yesterday's cumulative volume be excluded? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Declare eligible sessions, reset instant and raw transaction-vs-bar proxy method before a VWAP lesson. The example illustrates the stated boundary with original fictional data: In a fictional first new-session trade at $20 with 100 shares, trade-print VWAP is $20 rather than yesterday's last VWAP $19.50. Some platforms include extended-hours prints or set custom anchors, so default session boundaries cannot be assumed universal.",
+      "transferQuestion": "FICTIONAL TRANSFER: At the first trade of a newly reset session, why must yesterday's cumulative volume be excluded? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_BAR_VWAP_PROXY",
+      "title": "HLC3 bar VWAP is a proxy rather than a reconstruction of traded-price VWAP",
+      "concept": "The bar approximation substitutes typical price (high + low + close)/3 and weights by bar volume instead of using each execution price.",
+      "procedure": "Label input granularity, time window, total volume and whether exact trade-level prices are present.",
+      "workedCase": "FICTIONAL: A fictional bar H=$12, L=$9, C=$12, V=300 yields HLC3 $11 and weighted proxy contribution $3,300; unseen trades may differ.",
+      "limit": "A bar's HLC3 does not encode the distribution of prints inside the bar.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A bar's HLC3 does not encode the distribution of prints inside the bar.",
+      "commonError": "A live-analysis error would be to assume that a bar's HLC3 does not encode the distribution of prints inside the bar. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: For H=$20, L=$18, C=$19, V=100, calculate typical-price weighted contribution, not exact tape VWAP. Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Label input granularity, time window, total volume and whether exact trade-level prices are present. The example illustrates the stated boundary with original fictional data: A fictional bar H=$12, L=$9, C=$12, V=300 yields HLC3 $11 and weighted proxy contribution $3,300; unseen trades may differ. A bar's HLC3 does not encode the distribution of prints inside the bar.",
+      "transferQuestion": "FICTIONAL TRANSFER: For H=$20, L=$18, C=$19, V=100, calculate typical-price weighted contribution, not exact tape VWAP. Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_VIEWPORT_SCALE",
+      "title": "Changing the chart viewport does not change an indicator's historical calculation",
+      "concept": "A visual zoom or right-hand empty buffer should alter presentation bounds, not secretly change the underlying data prefix or smoothing seed.",
+      "procedure": "Separate chart viewport state from canonical candle array and indicator state, and rerender without recomputing on screen crop.",
+      "workedCase": "FICTIONAL: A fictional EMA20 at 10:30 remains $11.20 whether the chart displays ten or fifty prior candles if it has identical history.",
+      "limit": "Recalculating a moving average from only visible zoomed points changes its mathematical meaning.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Recalculating a moving average from only visible zoomed points changes its mathematical meaning.",
+      "commonError": "A live-analysis error would be to assume that recalculating a moving average from only visible zoomed points changes its mathematical meaning. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: What must remain constant when a learner adds ten empty spaces to the right of the newest revealed candle? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Separate chart viewport state from canonical candle array and indicator state, and rerender without recomputing on screen crop. The example illustrates the stated boundary with original fictional data: A fictional EMA20 at 10:30 remains $11.20 whether the chart displays ten or fifty prior candles if it has identical history. Recalculating a moving average from only visible zoomed points changes its mathematical meaning.",
+      "transferQuestion": "FICTIONAL TRANSFER: What must remain constant when a learner adds ten empty spaces to the right of the newest revealed candle? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_RIGHT_BUFFER",
+      "title": "Blank right-side chart space is a visual aid, not a future candle",
+      "concept": "A user-adjustable right buffer represents empty timeline coordinates for annotations while bars after the current replay decision remain undisclosed.",
+      "procedure": "Store buffer count as appearance state, never as candle data, and keep inspection cursor within observed bars.",
+      "workedCase": "FICTIONAL: A fictional playback releases candle 60 of 100; five right-side empty slots are layout space and not observed candles 61–65.",
+      "limit": "A phantom candle or future high rendered in blank space breaches the no-lookahead rule.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A phantom candle or future high rendered in blank space breaches the no-lookahead rule.",
+      "commonError": "A live-analysis error would be to assume that a phantom candle or future high rendered in blank space breaches the no-lookahead rule. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: When ten empty slots are requested, should moving-average sample count increase? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Store buffer count as appearance state, never as candle data, and keep inspection cursor within observed bars. The example illustrates the stated boundary with original fictional data: A fictional playback releases candle 60 of 100; five right-side empty slots are layout space and not observed candles 61–65. A phantom candle or future high rendered in blank space breaches the no-lookahead rule.",
+      "transferQuestion": "FICTIONAL TRANSFER: When ten empty slots are requested, should moving-average sample count increase? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_MULTI_TIMEFRAME_CLOSE",
+      "title": "A higher-timeframe bar must not reveal its final value before the interval ends",
+      "concept": "A five-minute bar formed from five one-minute observations is only final after the last eligible minute closes.",
+      "procedure": "Aggregate completed lower-timeframe observations with explicit interval end and mark forming higher bars distinctly.",
+      "workedCase": "FICTIONAL: At 10:03, a 10:00–10:05 five-minute candle cannot expose the final 10:04–10:05 high, even though 10:00–10:03 minutes are known.",
+      "limit": "A timestamp-aligned chart can still contain future evidence if a forming aggregate is marked complete.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A timestamp-aligned chart can still contain future evidence if a forming aggregate is marked complete.",
+      "commonError": "A live-analysis error would be to assume that a timestamp-aligned chart can still contain future evidence if a forming aggregate is marked complete. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: At 10:04, which one-minute closes can inform a five-minute forming candle beginning 10:00? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Aggregate completed lower-timeframe observations with explicit interval end and mark forming higher bars distinctly. The example illustrates the stated boundary with original fictional data: At 10:03, a 10:00–10:05 five-minute candle cannot expose the final 10:04–10:05 high, even though 10:00–10:03 minutes are known. A timestamp-aligned chart can still contain future evidence if a forming aggregate is marked complete.",
+      "transferQuestion": "FICTIONAL TRANSFER: At 10:04, which one-minute closes can inform a five-minute forming candle beginning 10:00? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_DECISION_FREEZE",
+      "title": "A replay decision must preserve its own time-stamped evidence envelope",
+      "concept": "Assess a learner's decision against what was visible at that decision time, not against a chart later expanded after the outcome.",
+      "procedure": "Record revealed-bar boundary, scenario data version, time, displayed indicators and response before stepping forward.",
+      "workedCase": "FICTIONAL: A learner marks 'wait' at fictional bar 20 when only bars 1–20 are released; bars 21–40 may be used in a later debrief, not the initial assessment.",
+      "limit": "Retrospective correctness is not identical to decision quality based on limited information.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Retrospective correctness is not identical to decision quality based on limited information.",
+      "commonError": "A live-analysis error would be to assume that retrospective correctness is not identical to decision quality based on limited information. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: What should the grader exclude when reviewing an answer recorded before a breakout appears three bars later? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Record revealed-bar boundary, scenario data version, time, displayed indicators and response before stepping forward. The example illustrates the stated boundary with original fictional data: A learner marks 'wait' at fictional bar 20 when only bars 1–20 are released; bars 21–40 may be used in a later debrief, not the initial assessment. Retrospective correctness is not identical to decision quality based on limited information.",
+      "transferQuestion": "FICTIONAL TRANSFER: What should the grader exclude when reviewing an answer recorded before a breakout appears three bars later? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_ECONOMIC_VINTAGE",
+      "title": "A current revised economic number is not necessarily what traders knew on its observation date",
+      "concept": "Economic series carry observation dates and separate initial-publication or vintage dates; point-in-time research uses the vintage available then.",
+      "procedure": "Record observation period, first public availability, revision vintage and replay decision date.",
+      "workedCase": "FICTIONAL: An invented initial unemployment estimate of 5.1% later revised to 5.3% cannot be shown as 5.3% at the earlier initial release.",
+      "limit": "Latest-vintage data can introduce look-ahead into a historical explanation even when the period label is old.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Latest-vintage data can introduce look-ahead into a historical explanation even when the period label is old.",
+      "commonError": "A live-analysis error would be to assume that latest-vintage data can introduce look-ahead into a historical explanation even when the period label is old. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: If a January observation is revised in March, which value may a February decision use? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Record observation period, first public availability, revision vintage and replay decision date. The example illustrates the stated boundary with original fictional data: An invented initial unemployment estimate of 5.1% later revised to 5.3% cannot be shown as 5.3% at the earlier initial release. Latest-vintage data can introduce look-ahead into a historical explanation even when the period label is old.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a January observation is revised in March, which value may a February decision use? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_FILING_AVAILABILITY",
+      "title": "A financial statement's period end is not its EDGAR public filing timestamp",
+      "concept": "A quarter ending March 31 may produce a filing weeks later; its content cannot be inserted into earlier historical decisions.",
+      "procedure": "Retain issuer identifier, filing accession, publication timestamp, financial period and any later amendments separately.",
+      "workedCase": "FICTIONAL: A fictional March 31 quarter ends with $8 million net income but the 10-Q is first publicly filed May 8; an April 10 replay cannot cite that 10-Q.",
+      "limit": "Financial period matching is necessary but insufficient for point-in-time availability.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Financial period matching is necessary but insufficient for point-in-time availability.",
+      "commonError": "A live-analysis error would be to assume that financial period matching is necessary but insufficient for point-in-time availability. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: For a study date April 20, may the learner use a fictional May 8 filing's full numbers? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Retain issuer identifier, filing accession, publication timestamp, financial period and any later amendments separately. The example illustrates the stated boundary with original fictional data: A fictional March 31 quarter ends with $8 million net income but the 10-Q is first publicly filed May 8; an April 10 replay cannot cite that 10-Q. Financial period matching is necessary but insufficient for point-in-time availability.",
+      "transferQuestion": "FICTIONAL TRANSFER: For a study date April 20, may the learner use a fictional May 8 filing's full numbers? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_CORPORATE_EVENT_TIMING",
+      "title": "A corporate-event announcement and effective date are not interchangeable",
+      "concept": "A split announcement may precede its effect, and historical replay should label announcement date, record date and effective date separately.",
+      "procedure": "Apply event adjustments only at the specified effective point and display knowledge of announced plans separately.",
+      "workedCase": "FICTIONAL: A fictional issuer announces a split June 1 effective July 1; on June 10 the action is known but not yet effective for actual share count.",
+      "limit": "Treating announcement as completed accounting action can misstate position and price adjustment.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: Treating announcement as completed accounting action can misstate position and price adjustment.",
+      "commonError": "A live-analysis error would be to assume that treating announcement as completed accounting action can misstate position and price adjustment. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: A two-for-one event announced but not yet effective should already double the replay account share count: yes or no? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Apply event adjustments only at the specified effective point and display knowledge of announced plans separately. The example illustrates the stated boundary with original fictional data: A fictional issuer announces a split June 1 effective July 1; on June 10 the action is known but not yet effective for actual share count. Treating announcement as completed accounting action can misstate position and price adjustment.",
+      "transferQuestion": "FICTIONAL TRANSFER: A two-for-one event announced but not yet effective should already double the replay account share count: yes or no? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_POSTTRADE_MEASURE",
+      "title": "Retrospective exit quality metrics must not leak into the original decision",
+      "concept": "MFE, MAE and realized slippage are measured with subsequent observations, which may be discussed only after the corresponding time passes.",
+      "procedure": "Label the metric's observation horizon and retrospective status, and avoid passing posttrade values into a learner's entry hint.",
+      "workedCase": "FICTIONAL: A fictional entry at $10 followed by later high $11 and low $9.70 has posttrade MFE +$1 and MAE −$0.30 per share, not known at entry.",
+      "limit": "The sequence of high and low across aggregated bars may be unknown and must not be invented.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: The sequence of high and low across aggregated bars may be unknown and must not be invented.",
+      "commonError": "A live-analysis error would be to assume that the sequence of high and low across aggregated bars may be unknown and must not be invented. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: At entry before any later prints, should the Tutor disclose eventual maximum favorable excursion? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Label the metric's observation horizon and retrospective status, and avoid passing posttrade values into a learner's entry hint. The example illustrates the stated boundary with original fictional data: A fictional entry at $10 followed by later high $11 and low $9.70 has posttrade MFE +$1 and MAE −$0.30 per share, not known at entry. The sequence of high and low across aggregated bars may be unknown and must not be invented.",
+      "transferQuestion": "FICTIONAL TRANSFER: At entry before any later prints, should the Tutor disclose eventual maximum favorable excursion? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_TRAIN_TEST_SPLIT",
+      "title": "Choosing strategy parameters with future test results contaminates the evaluation",
+      "concept": "A backtest must separate model-development observations from held-out later data and document the split boundary.",
+      "procedure": "Freeze parameter selection, timestamp features and revision vintages before evaluating on the held-out period.",
+      "workedCase": "FICTIONAL: A fictional 100-session dataset assigns first 70 sessions to development and final 30 to untouched evaluation; optimizing on all 100 invalidates the holdout.",
+      "limit": "A single favorable holdout still does not prove an executable strategy or persistence after fees.",
+      "invalidation": "Do not use the conclusion if the stated timestamp, unit, eligibility, lookback or source status is missing. Specifically: A single favorable holdout still does not prove an executable strategy or persistence after fees.",
+      "commonError": "A live-analysis error would be to assume that a single favorable holdout still does not prove an executable strategy or persistence after fees. This would distort the observed evidence available to a student or trader.",
+      "selfCheck": "Explain in your own words why this question matters: If a learner changes an indicator lookback after seeing results on sessions 71–100, are those sessions still untouched? Identify the precise inputs and what would be unknown at the original decision time.",
+      "reviewExplanation": "Ungraded mistake correction: Freeze parameter selection, timestamp features and revision vintages before evaluating on the held-out period. The example illustrates the stated boundary with original fictional data: A fictional 100-session dataset assigns first 70 sessions to development and final 30 to untouched evaluation; optimizing on all 100 invalidates the holdout. A single favorable holdout still does not prove an executable strategy or persistence after fees.",
+      "transferQuestion": "FICTIONAL TRANSFER: If a learner changes an indicator lookback after seeing results on sessions 71–100, are those sessions still untouched? Explain the calculation or data-boundary rule independently and identify a plausible invalid inference.",
+      "sourceUrls": [
+        "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_fictional_instruction_source_claims_and_rights_pending",
+      "editorSourceReview": {
+        "reviewer": "owner-delegated internal",
+        "result": "distinct_draft_source_claim_review_pending",
+        "rights": "no_market_data_or_vendor_code_republished",
+        "independentPublicationAccepted": false
+      }
+    }
+  ],
+  "existingOfficialCompetenciesPreserved": 30,
+  "registeredLabIdsPreserved": 419
+}
