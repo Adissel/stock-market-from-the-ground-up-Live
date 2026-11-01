@@ -45,7 +45,7 @@ test('both Tutor page and version loader require authenticated eligible membersh
  assert.match(loader,/entitlement\.freeEligible!==true/);
  assert.match(loader,/\/signin\.html\?next=/);
  assert.ok(loader.indexOf('entitlement.freeEligible!==true')<loader.indexOf("document.createElement('script')"));
- assert.doesNotMatch(html,/tutor-byok-use|personal API key/i);
+ assert.doesNotMatch(html,/tutor-byok-use|data-provider-field|id="tutor-member-key"/i);
  assert.doesNotMatch(loader,/TALIA_OPENAI_BYO|tutorByok/);
 });
 test('current Tutor cannot provide an anonymous local glossary answer or use personal member API keys',()=>{
