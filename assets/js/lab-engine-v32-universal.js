@@ -482,16 +482,34 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   // Shared fictional ECharts practice is available throughout the 419-Lab
   // curriculum. General-subject examples are explicitly optional, not a
   // substitute for the Lab's independently authored topic-specific evidence.
+  let optionalChart=null;
   if([1,2].includes(step)&&root.CrownlightLearningEChartsV1?.mount){
    const host=el('div');
    if(!special){
-    const extra=el('details');extra.className='gu-v35-supplement';
-    extra.append(el('summary','Optional ECharts chart-reading rehearsal — separate from this Lab topic'));
-    extra.append(host);body.append(extra);
-    extra.addEventListener('toggle',()=>{if(extra.open){
-     if(!host.firstChild){const view=root.CrownlightLearningEChartsV1.mount(host,{kind:'candle',interactive:true});if(view)echartsControllers.push(view)}
-     else echartsControllers.at(-1)?.resize?.();
-    }});
+    // Separate supplemental chart practice follows the actual topic-specific
+    // evidence instead of interrupting the Lab's primary teaching sequence.
+    const extra=el('details');extra.className='gu-v35-supplement gu-v35-chart-skills';
+    const summary=el('summary');
+    const title=el('span','Optional chart skills: measure a candlestick');
+    title.className='gu-v35-chart-skills-title';
+    const subtitle=el('small','Fictional · ungraded · independent of this lesson');
+    summary.append(title,subtitle);
+    const caution=el('p','A completed candle shows prices, not who traded, why they traded, or what happens next. This separate practice does not affect your Lab grade.');
+    caution.className='gu-v35-chart-skills-note';
+    host.className='gu-v35-chart-skills-content';
+    host.setAttribute('role','region');
+    host.setAttribute('aria-label','Optional interactive candlestick calculation practice');
+    host.tabIndex=0;
+    extra.append(summary,caution,host);
+    optionalChart=extra;
+    let supplementalView=null;
+    extra.addEventListener('toggle',()=>{
+     if(!extra.open)return;
+     if(!supplementalView){
+      supplementalView=root.CrownlightLearningEChartsV1.mount(host,{kind:'candle',interactive:true});
+      if(supplementalView)echartsControllers.push(supplementalView);
+     }else supplementalView.resize?.();
+    });
    }else{
     body.append(host);
     const view=root.CrownlightLearningEChartsV1.mount(host,{kind,interactive:step===2});
@@ -504,7 +522,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   // Only authored illustrative bars are used here; protected GUSIM bars stay on the replay server.
   if(labId==='DT-C01-L02'){
    const custom=root.CrownlightDT01L02Lesson?.extra?.(step);
-   if(custom){body.append(custom);return}
+   if(custom){body.append(custom);if(optionalChart)body.append(optionalChart);return}
   }
   // The illustrated source is always illustrative. The competency-based
   // worked-case viewer covers the Labs without an appropriate OHLC chart.
@@ -515,6 +533,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    code:guide.code,title:topic,stage:step
   });
   if(view)body.append(view);
+  if(optionalChart)body.append(optionalChart);
  }
  function lessonPlan(section=1){
   if(labId==='DT-C01-L02'&&root.CrownlightDT01L02Lesson?.lesson)

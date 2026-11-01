@@ -39,6 +39,22 @@ assert(graphic.includes("variant==='bearish'?{o:32,hv:32.5,l:30.5,c:31}"),
  'Bearish lessons must visually show a descending candle');
 assert(engine.includes("showVisual(1,topic==='Bearish Candle'?'bearish':visualType==='candle'?'worked':'default')"));
 assert(css.includes('gu-v35-teaching-actions')&&css.includes('gu-v35-chart-worked'));
+const optionalCss=read('assets/css/crownlight-learning-echarts-v1.css');
+assert(engine.includes('Optional chart skills: measure a candlestick'),
+ 'The generic chart must have an honest, topic-secondary label');
+assert(!engine.includes('Optional ECharts chart-reading rehearsal — separate from this Lab topic'),
+ 'Do not restore the oversized unrelated chart block');
+assert(engine.includes('if(optionalChart)body.append(optionalChart)'),
+ 'Supplemental practice must follow the authored subject visual');
+assert(engine.includes('A completed candle shows prices, not who traded'),
+ 'Supplemental practice must explicitly disclose market-evidence limitations');
+assert(optionalCss.includes('.gu-v35-chart-skills .gu-echarts-lesson')&&
+ optionalCss.includes('max-height:min(72vh,700px)')&&
+ optionalCss.includes(':focus-visible'),'The expanded skills drawer must be bounded and keyboard visible');
+for(const page of ['lab-player.html','bootcamp.html','bootcamp-academy.html'])
+ assert(read(page).includes('crownlight-learning-echarts-v1.css?v=2'),
+  'Teaching pages must load the updated classroom styling: '+page);
+
 assert(engine.includes("if(![3,5].includes(stage)"),
  'Protected Predict and Assess cannot embed instructional assistance');
 class E{

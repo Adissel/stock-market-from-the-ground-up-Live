@@ -25,3 +25,26 @@
 .gu-echarts-feedback{margin-top:10px}.gu-echarts-feedback li{padding:5px 0}
 .gu-echarts-correct{color:#91e8c8}.gu-echarts-retry{color:#ffca94}
 @media(max-width:600px){.gu-echarts-form{grid-template-columns:1fr}}
+
+/* Classroom optional skills drawer: keeps supplemental fictional practice
+   visually subordinate to the current Lab topic and keyboard accessible. */
+.gu-v35-chart-skills{max-width:920px;margin:18px 0;border:1px solid #46677d;border-radius:12px;background:#0c2030;overflow:hidden}
+.gu-v35-chart-skills>summary{cursor:pointer;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 16px;color:#edf5ff;font-weight:700}
+.gu-v35-chart-skills>summary::marker{color:#eac477}
+.gu-v35-chart-skills>summary:hover{background:#163248}
+.gu-v35-chart-skills>summary:focus-visible{outline:3px solid #f2c86d;outline-offset:-3px}
+.gu-v35-chart-skills-title{font-size:1rem}
+.gu-v35-chart-skills>summary small{font-weight:500;font-size:.8rem;color:#bcd1df}
+.gu-v35-chart-skills-note{margin:0;padding:0 16px 12px;color:#cbdde9;font-size:.89rem;line-height:1.5}
+.gu-v35-chart-skills-content{padding:0 12px 12px;outline-offset:-3px}
+.gu-v35-chart-skills-content:focus-visible{outline:3px solid #f2c86d}
+.gu-v35-chart-skills .gu-echarts-lesson{margin:0;max-height:min(72vh,700px);overflow-y:auto;overscroll-behavior:contain;border-radius:9px}
+.gu-v35-chart-skills .gu-echarts-plot{min-height:245px}
+@media(max-width:600px){
+ .gu-v35-chart-skills{max-width:100%;margin:12px 0}
+ .gu-v35-chart-skills>summary{display:block;padding:12px}
+ .gu-v35-chart-skills>summary small{display:block;margin-top:4px}
+ .gu-v35-chart-skills-content{padding:0 6px 8px}
+ .gu-v35-chart-skills .gu-echarts-plot{min-height:235px}
+ .gu-v35-chart-skills .gu-echarts-lesson{max-height:68vh}
+}
