@@ -37,6 +37,7 @@ jobs:
           node --check assets/js/bootcamp.js
           node --check assets/js/bootcamp-academy-v014168.js
           node tests/member-learning-layouts-v1.test.mjs
+          node tests/member-learning-layouts-v1-browser.test.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_guided_browser_v1.mjs
           node tests/test_academy_charts45_batch04_v1.mjs
