@@ -22,7 +22,7 @@ const draft={lab_id:LAB,book_number:1,
  source_status:'original_hypothetical_unreviewed_v01496',content};
 // Synthetic active grants must remain active across calendar dates; the live service still checks actual expiry.
 const oldFetch=globalThis.fetch;
-let member=true,suspended=false,grant=true,premium=true,reviewed=false,qaPass=false,ownerIssuer=true,catalogOverflow=false,seen=[];
+let member=true,suspended=false,grant=true,premium=true,reviewed=false,independentlyApprovedAssessment=false,qaPass=false,ownerIssuer=true,catalogOverflow=false,seen=[];
 const respond=(value,status=200)=>new Response(JSON.stringify(value),{status,
  headers:{'content-type':'application/json'}});
 globalThis.fetch=async(input,init={})=>{
@@ -38,7 +38,7 @@ globalThis.fetch=async(input,init={})=>{
  if(p.endsWith('/platform_labs'))return respond([{lab_id:LAB,book_code:'FOUNDATION_BOOK_1',active:true,registry_visible:true}]);
  if(p.endsWith('/lab_instruction_v014'))return respond(catalogOverflow?Array.from({length:500},()=>draft):[draft]);
  if(p.endsWith('/lab_training_sets_v014'))return respond(reviewed?[{
-  lab_id:LAB,version:97,review_state:'reviewed',source_status:'original_hypothetical_b01_individual_review_pending_v01497',
+  lab_id:LAB,version:97,review_state:'reviewed',source_status:independentlyApprovedAssessment?'independent_reviewed_assessment_fixture_v1':'original_hypothetical_b01_individual_review_pending_v01497',
   questions:[{id:'CASE',prompt:'What is the first observable candle?',kind:'choice',options:['A','B'],explanation:'Private explanatory feedback'}]
  }]:[]);
  if(p.endsWith('/user_library'))return respond([]);
@@ -104,6 +104,13 @@ try{
  body=await r.json();assert.equal(body.available,true);
  assert.equal(body.questionCount,1);
  assert(!JSON.stringify(body).includes('Private explanatory feedback'));
+ // A technically reviewed flag does not override pending independent acceptance.
+ r=await graded({request:new Request('https://site.test/api/interactive-training?action=start',{
+  method:'POST',headers:{authorization:'Bearer signed-in-session','content-type':'application/json'},
+  body:JSON.stringify({labId:LAB,mode:'assessment'})}),env});
+ assert.equal(r.status,409,'Pending individual editorial review must deny official assessment');
+ assert.match((await r.json()).error,/individual editorial review/i);
+ independentlyApprovedAssessment=true; // Synthetic only; no production assessment is modified.
  // Actual founding entitlement can attempt reviewed Assessment, without
  // transferring book ownership or exposing pre-answer explanations.
  r=await graded({request:new Request('https://site.test/api/interactive-training?action=start',{
@@ -111,6 +118,7 @@ try{
   body:JSON.stringify({labId:LAB,mode:'assessment'})}),env});
  assert.equal(r.status,201,'Genuine active founding plan may start a reviewed assessment');
  body=await r.json();assert.equal(body.question?.explanation,undefined);
+ independentlyApprovedAssessment=false;
 
  // Owner-issued temporary QA passes allow teaching, never official Assessment.
  grant=false;qaPass=true;
