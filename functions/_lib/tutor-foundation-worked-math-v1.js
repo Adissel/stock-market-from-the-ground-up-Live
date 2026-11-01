@@ -30,6 +30,12 @@ const examples=Object.freeze({
   {prior:[1000,2000],current:1500},
   {prior:[1000,2000],current:3000}
  ]),
+ SLIPPAGE_SPREAD: Object.freeze([{bid:9.98,ask:10.02,fill:10.07,shares:100},{bid:25,ask:25.06,fill:25.08,shares:50}]),
+ FLOAT_SUPPLY: Object.freeze([{issued:10000000,restricted:4000000,volume:2400000},{issued:5000000,restricted:1000000,volume:1000000}]),
+ MFE_MAE_REVIEW: Object.freeze([{entry:10,high:10.7,low:9.85,shares:100},{entry:20,high:20.25,low:19.6,shares:50}]),
+ HOD_PM_LEVELS: Object.freeze([{previous:10.5,observed:10.8},{previous:25.4,observed:25.1}]),
+ LEVEL2_READING: Object.freeze([{bid:10,ask:10.04,bidShares:1000,askShares:500},{bid:20,ask:20.1,bidShares:200,askShares:800}]),
+ MULTI_TIMEFRAME: Object.freeze([{short:5,long:15,minutes:45},{short:3,long:10,minutes:60}]),
  RISK_REWARD: Object.freeze([
   {entry:10,stop:9.8,target:10.4},
   {entry:10,stop:9.8,target:10.3}
@@ -91,6 +97,49 @@ export function foundationWorkedMath(code,question=''){
    '4. Relative-to-this-sample volume = '+qty(x.current)+' ÷ '+qty(avg)+' = '+ratio.toFixed(2)+'×.',
    'Limitation: this is a short within-sample comparison, NOT institutional-flow evidence or time-of-day relative volume. Comparable times, venues, data feeds and sessions must be specified.',
    'Try independently: change one preceding bar volume and recompute the baseline before interpreting the ratio.');
+ }else if(code==='SLIPPAGE_SPREAD'){
+  const spread=x.ask-x.bid,slip=x.fill-x.ask,total=slip*x.shares;
+  steps.push('1. Fictional displayed best bid '+money(x.bid)+' and ask '+money(x.ask)+' per share.',
+   '2. Displayed quoted spread = ask − bid = '+money(spread)+' per share; this is NOT a guaranteed executable spread.',
+   '3. Hypothetical marketable buy: expected ask '+money(x.ask)+', actual fictional fill '+money(x.fill)+'. Adverse slippage = fill − ask = '+money(slip)+' per share.',
+   '4. With '+qty(x.shares)+' fictional shares, price-only slippage = '+money(slip)+' × '+qty(x.shares)+' = '+money(total)+' before commissions and fees.',
+   'Limitation: quotes can change, displayed size may disappear, and a real market order could fill at several prices or not as anticipated.',
+   'Try independently: change the hypothetical fill while keeping the displayed quote fixed and recalculate slippage cost.');
+ }else if(code==='FLOAT_SUPPLY'){
+  const floating=x.issued-x.restricted,percent=100*floating/x.issued,turnover=100*x.volume/floating;
+  steps.push('1. Fictional issued shares: '+qty(x.issued)+'; nonfloating/restricted assumption: '+qty(x.restricted)+' shares.',
+   '2. Hypothetical float = issued − restricted = '+qty(floating)+' shares. Real float definitions need issuer, insider, lockup and vendor verification.',
+   '3. Float fraction = '+qty(floating)+' ÷ '+qty(x.issued)+' × 100 = '+percent.toFixed(2)+'%.',
+   '4. Fictional period trading volume = '+qty(x.volume)+' shares; volume ÷ estimated float = '+turnover.toFixed(2)+'%.',
+   'Limitation: a turnover fraction is not the fraction of unique shareholders who traded; share volume can turn over repeatedly and float estimates change.',
+   'Try independently: change only the restricted-share assumption and recalculate float fraction and turnover.');
+ }else if(code==='MFE_MAE_REVIEW'){
+  const favorable=x.high-x.entry,adverse=x.entry-x.low;
+  steps.push('1. Fictional long reference entry '+money(x.entry)+', later visible high '+money(x.high)+', low '+money(x.low)+' within the declared observation window.',
+   '2. Hypothetical MFE per share = high − entry = '+money(favorable)+'; for '+qty(x.shares)+' shares = '+money(favorable*x.shares)+'.',
+   '3. Hypothetical MAE per share = entry − low = '+money(adverse)+'; for '+qty(x.shares)+' shares = '+money(adverse*x.shares)+'.',
+   'Limitation: bar extrema do not disclose sequence or fillability, and a bar overlapping the entry requires a valid post-entry evidence window; this is not an actual realized result.',
+   'Try independently: change the declared post-entry observation window and recalculate MFE and MAE using only eligible bars.');
+ }else if(code==='HOD_PM_LEVELS'){
+  const diff=x.observed-x.previous,ratio=100*diff/x.previous;
+  steps.push('1. Fictional previously observed reference high '+money(x.previous)+' and later completed-bar close '+money(x.observed)+'.',
+   '2. Signed close-to-reference difference = '+money(x.observed)+' − '+money(x.previous)+' = '+(diff>=0?'+':'')+money(diff)+' per share.',
+   '3. Relative difference = difference ÷ reference × 100 = '+ratio.toFixed(2)+'%.',
+   'Limitation: the reference must be labeled as prior high-of-day or premarket high with a verified session and cutoff. A close above a level is not a verified breakout continuation or execution.',
+   'Try independently: replace the reference with an independently documented premarket high and recompute the signed distance.');
+ }else if(code==='LEVEL2_READING'){
+  const gap=x.ask-x.bid,ratio=x.bidShares/x.askShares;
+  steps.push('1. Fictional displayed bid '+money(x.bid)+' for '+qty(x.bidShares)+' shares; displayed ask '+money(x.ask)+' for '+qty(x.askShares)+' shares.',
+   '2. Displayed spread = ask − bid = '+money(gap)+' per share, or '+(100*gap/x.bid).toFixed(2)+'% of the displayed bid.',
+   '3. Displayed size ratio = '+qty(x.bidShares)+' ÷ '+qty(x.askShares)+' = '+ratio.toFixed(2)+':1, for this one quote snapshot only.',
+   'Limitation: displayed depth excludes hidden liquidity, cancellations, other feeds and changing queue positions. Neither quote size nor ratio identifies institutional buying.',
+   'Try independently: change one displayed size without moving the quoted prices and distinguish spread from depth.');
+ }else if(code==='MULTI_TIMEFRAME'){
+  steps.push('1. Consider fictional completed '+x.short+'-minute and '+x.long+'-minute bars over an exactly '+x.minutes+'-minute aligned observation window.',
+   '2. Number of complete '+x.short+'-minute bars = '+x.minutes+' ÷ '+x.short+' = '+(x.minutes/x.short)+' bars.',
+   '3. Number of complete '+x.long+'-minute bars = '+x.minutes+' ÷ '+x.long+' = '+(x.minutes/x.long)+' bars.',
+   'Limitation: counts require session-aligned boundaries and complete interval coverage; unfinished higher-timeframe bars cannot be treated as completed observations. Different chart periods are related observations, not independent confirmations.',
+   'Try independently: move the observation cutoff into the middle of a higher-timeframe candle and count only completed intervals.');
  }else if(code==='RISK_REWARD'){
   const risk=Math.abs(x.entry-x.stop),reward=x.target-x.entry,rr=reward/risk;
   steps.push('1. Fictional planned long entry '+money(x.entry)+', invalidation '+money(x.stop)+' and hypothetical target '+money(x.target)+'.',
