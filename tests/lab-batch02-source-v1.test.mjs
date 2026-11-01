@@ -15,7 +15,7 @@ for(const [i,x] of m.entries.entries()){
  assert.match(r.instructionSource,/^ORIGINAL_SUBJECT_SPECIFIC_BATCH02_/);
  assert.match(r.sourceStatus,/PENDING/);
  const tabs=['understand','recognize','apply','mistake','limits'];
- for(const k of tabs){assert.equal(r.tabs[k].length,2,x.id+' '+k);assert(r.tabs[k].every(v=>v.length>70),x.id+' '+k+' shallow content');}
+ for(const k of tabs){assert.equal(r.tabs[k].length,3,x.id+' '+k);assert(r.tabs[k].every(v=>v.length>70),x.id+' '+k+' shallow content');}
  assert.match(r.tabs.understand[1],/FICTIONAL/);
  assert.match(r.tabs.apply[0],/FICTIONAL/);
  assert(r.tabs.limits[1].includes(x.sourceId));
