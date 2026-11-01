@@ -161,7 +161,7 @@ async function recheckStaffAccess(){
   $('pt-gate').hidden=true;$('pt-app').hidden=false;state.chart?.resize();
  }catch(error){
   state.resize?.disconnect();state.chart?.dispose();state.chart=null;
-  window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();state.user=null;
+  window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();state.user=null;
   $('pt-app').hidden=true;$('pt-gate').hidden=false;
   $('pt-gate').textContent=error?.message||'Staff authorization unavailable.';
  }finally{checkingStaff=false;}
@@ -193,9 +193,10 @@ async function start(){try{
   if(design){state.layout=design.layout;state.density=design.density;state.tutor=design.tutor;}
   draw();
  }});
+ window.CrownlightClassroomPresetSync?.start?.(state.user);
  $('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
  if(state.saved)note('Restored local draft saved '+state.saved+'. Drafts are not synchronized across devices.');
- sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
+ sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
  }catch(e){$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent=e?.message||'Access denied.';}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else void start();
 })();
