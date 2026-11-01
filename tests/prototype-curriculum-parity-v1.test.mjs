@@ -8,6 +8,8 @@ const labs=JSON.parse(read('data/competency-lab-paths-v01499.json'));
 const guides=JSON.parse(read('data/competency-study-guides-v01499.json'));
 const indicators=JSON.parse(read('data/tutor-indicator-study-v1.json'));
 const bridges=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
+const academyCases=JSON.parse(read('data/academy-specific-source-instruction-v1.json'));
+const freeCases=JSON.parse(read('data/free-foundations-evidence-v1.json'));
 await import('../assets/js/crownlight-indicator-math-v2.js');
 await import('../assets/js/prototype-indicator-workbench-v2.js');
 assert.equal(labs.totalCanonicalLabs,419);
@@ -16,6 +18,14 @@ assert.equal(guides.guides.length,30);
 assert.equal(indicators.guides.length,61);
 assert.equal(indicators.count,61);
 assert.equal(bridges.canonicalLabCount,419);
+assert.equal(academyCases.records.length,3);
+assert.equal(freeCases.records.length,5);
+assert.equal(new Set(freeCases.records.map(x=>x.day)).size,5);
+for(const c of [...academyCases.records,...freeCases.records]){
+ for(const key of ['objective','claim','worked','calculation','counterexample','transfer','limit'])
+  assert.ok(typeof c[key]==='string'&&c[key].length>20,'Missing source-evidence teaching element '+key);
+}
+assert.ok(academyCases.records.every(x=>x.fictional===true));
 assert.equal(Object.keys(bridges.entries).length,419);
 assert.equal(bridges.independentGradesIncluded,false);
 assert.equal(bridges.historicalBarDataIncluded,false);
@@ -35,6 +45,11 @@ assert.match(js,/if\(!host\|\|!app\)return/);
 assert.match(js,/guard\.observe\(app,\{attributes:true,attributeFilter:\['hidden'\]\}\)/);
 assert.match(js,/totalCanonicalLabs!==419/);
 assert.match(js,/lab-teaching-bridges-v014168\.json/);
+assert.match(js,/academy-specific-source-instruction-v1\.json/);
+assert.match(js,/free-foundations-evidence-v1\.json/);
+assert.match(js,/academyRows\.unshift/);
+assert.match(js,/Actual documented instructional-day examples/);
+assert.match(js,/No individually source-documented instructional-day example/);
 assert.match(js,/independentGradesIncluded!==false/);
 assert.match(js,/facets=/);
 assert.match(js,/skills\?\.guides\?\.length!==30/);
