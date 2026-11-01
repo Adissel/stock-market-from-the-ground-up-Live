@@ -19,8 +19,8 @@
       "limit": "Distribution classifications, reinvestment prices and share fractions vary; cash payouts often reduce NAV and taxes may arise even without receiving cash.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Distribution classifications, reinvestment prices and share fractions vary; cash payouts often reduce NAV and taxes may arise even without receiving cash.",
       "commonError": "Counting reinvested shares as profit while ignoring the associated change in NAV.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Counting reinvested shares as profit while ignoring the associated change in NAV.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "How many new fund units can the eligible cash purchase, and why does reinvestment not establish an investment gain?",
+      "reviewExplanation": "Check 100 × $0.30 = $30, then $30 ÷ $15 = 2 extra units. If someone calls this a risk-free $30 gain, show how the distribution originated from fund assets. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: 80 fund units receive $0.25 each and buy at $10. Compute new units and state whether total wealth is guaranteed higher.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
@@ -43,8 +43,8 @@
       "limit": "Contributions, withdrawals, distributions and valuation gaps change the account-return calculation, and observed historical percentages do not forecast later periods.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Contributions, withdrawals, distributions and valuation gaps change the account-return calculation, and observed historical percentages do not forecast later periods.",
       "commonError": "Adding +10% and −10% and claiming the holder broke even.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Adding +10% and −10% and claiming the holder broke even.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Which dollar amount is the base for the second −10% step after the initial gain?",
+      "reviewExplanation": "Check $100 → $110 → $99; the mistaken zero-sum percentage shortcut hides the $11 second-period decline. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A $200 account grows 20% and then falls 25%; find its terminal value and compound return.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing"
@@ -67,8 +67,8 @@
       "limit": "Unequal intervals, external cash flows, and a terminal gross factor of zero change or limit the standard interpretation.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Unequal intervals, external cash flows, and a terminal gross factor of zero change or limit the standard interpretation.",
       "commonError": "Using the 5% arithmetic result as though it compounds to the actual 8% two-year gain.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Using the 5% arithmetic result as though it compounds to the actual 8% two-year gain.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Which average reproduces terminal compound value after two equal-length observations?",
+      "reviewExplanation": "Recompute 1.2×0.9=1.08 and compare sqrt(1.08)−1 with the 5% arithmetic average; only the former matches terminal wealth. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Calculate both averages for +50% and −20% over two equal years without cash flows.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing"
@@ -91,8 +91,8 @@
       "limit": "Personal consumption baskets, taxes and mismatched CPI periods make this a model of purchasing power, not a personal household guarantee.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Personal consumption baskets, taxes and mismatched CPI periods make this a model of purchasing power, not a personal household guarantee.",
       "commonError": "Presenting nominal percentage minus CPI percentage as an exactly calculated real investment return.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Presenting nominal percentage minus CPI percentage as an exactly calculated real investment return.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What matching annual index interval is required before claiming an exact real rate?",
+      "reviewExplanation": "Check 1.08 ÷ 1.03 − 1 ≈ 4.854%; 8−3 is a useful approximation but not the exact multiplicative inflation adjustment. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A nominal 5% one-year gain faces 10% price-index inflation; calculate the exact real return.",
       "sourceUrls": [
         "https://www.bls.gov/cpi/factsheets/calculating-percent-changes.htm"
@@ -115,8 +115,8 @@
       "limit": "Short periods are highly sensitive to timing, volatility, fees and hypothetical reinvestment; extrapolation is not a credible trading forecast.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Short periods are highly sensitive to timing, volatility, fees and hypothetical reinvestment; extrapolation is not a credible trading forecast.",
       "commonError": "Advertising 10.25% as actual cash earned in a year after observing only six months.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Advertising 10.25% as actual cash earned in a year after observing only six months.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What was actually observed over the six months, and what yearly number is hypothetical?",
+      "reviewExplanation": "Compute the annualized constant rate (1.05²−1)=10.25% without reporting that as a twelve-month realized gain. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A +2% return over a six-month interval; compute the equal-interval annualized equivalent without forecasting the next six months.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing"
@@ -139,8 +139,8 @@
       "limit": "Rebalancing, leverage, cash flows, tax lots and noncomparable dates require more sophisticated performance treatment.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Rebalancing, leverage, cash flows, tax lots and noncomparable dates require more sophisticated performance treatment.",
       "commonError": "Using the current ending allocation to compute prior-year performance without reconstructing cash flows.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Using the current ending allocation to compute prior-year performance without reconstructing cash flows.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Why must the same starting portfolio weights be applied to both stated period returns?",
+      "reviewExplanation": "Check that 60%×10% and 40%×−5% sum to +4%; $600→$660 and $400→$380 reconcile to $1,040. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: An account starts 25%/75%; component returns +12%/+4%. Compute no-flow combined return.",
       "sourceUrls": [
         "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
@@ -163,8 +163,8 @@
       "limit": "Fees, cash movement, splits and multiple holdings complicate real weights; the resulting allocation says nothing about expected return.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Fees, cash movement, splits and multiple holdings complicate real weights; the resulting allocation says nothing about expected return.",
       "commonError": "Assuming a portfolio labelled 60/40 remains at exactly those fractions after price changes.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Assuming a portfolio labelled 60/40 remains at exactly those fractions after price changes.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "After the stock gain, what is the NEW total asset denominator of the allocation?",
+      "reviewExplanation": "Use $720+$400=$1,120 and $720/1,120=64.29%; using the original denominator is the misconception. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A $500/$500 allocation experiences −20% stocks and unchanged bonds. Calculate the stock weight.",
       "sourceUrls": [
         "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
@@ -187,8 +187,8 @@
       "limit": "Transaction fees, account restrictions, liquidity and taxes may prevent exact shifts, so arithmetic is not advice to place those orders.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Transaction fees, account restrictions, liquidity and taxes may prevent exact shifts, so arithmetic is not advice to place those orders.",
       "commonError": "Rebalancing against the original $1,000 instead of the current $1,120 account denominator.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Rebalancing against the original $1,000 instead of the current $1,120 account denominator.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What values should be multiplied by the desired 60% and 40% targets?",
+      "reviewExplanation": "At total $1,120, target $672/$448; reallocation $48 is hypothetical before spreads, fees and tax, not execution advice. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Current $1,400 stocks and $600 bonds, target 50/50. Calculate idealized target dollars and transfer size.",
       "sourceUrls": [
         "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
@@ -211,8 +211,8 @@
       "limit": "Shared sectors, correlation and liquidity exposure are absent from this descriptive metric; lower H does not certify a safer outcome.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Shared sectors, correlation and liquidity exposure are absent from this descriptive metric; lower H does not certify a safer outcome.",
       "commonError": "Treating several tickers or a low H score as evidence that prices cannot fall together.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Treating several tickers or a low H score as evidence that prices cannot fall together.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "How does squaring allocation weights measure concentration yet omit comovement?",
+      "reviewExplanation": "Check 0.25+0.09+0.04=0.38; do not infer covariance, market betas or a numerical volatility reduction. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Calculate H for 50/50 and for four equal 25% positions; explain what H does not reveal.",
       "sourceUrls": [
         "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
@@ -235,8 +235,8 @@
       "limit": "This is one fictional scenario, not a measured correlation or loss-frequency estimate; future co-movement remains uncertain.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: This is one fictional scenario, not a measured correlation or loss-frequency estimate; future co-movement remains uncertain.",
       "commonError": "Using ticker count rather than portfolio exposures as proof of diversification benefits.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Using ticker count rather than portfolio exposures as proof of diversification benefits.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "If both holdings have the same negative scenario, can their names alone avoid the portfolio decline?",
+      "reviewExplanation": "The weighted sum is −10%; a fictional common shock is not a measured correlation coefficient or prediction. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A 40/60 portfolio suffers a concurrent −15% move in both holdings; compute its combined change.",
       "sourceUrls": [
         "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
@@ -259,8 +259,8 @@
       "limit": "Acquisitions, seasonal demand, revisions and year-to-date conventions can break naive extrapolation.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Acquisitions, seasonal demand, revisions and year-to-date conventions can break naive extrapolation.",
       "commonError": "Treating one quarter as annualized actuals or assuming quarterly financial statements are audited just because EDGAR hosts them.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Treating one quarter as annualized actuals or assuming quarterly financial statements are audited just because EDGAR hosts them.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Does a first-quarter number represent a whole audited fiscal year?",
+      "reviewExplanation": "Form 10-Q may use unaudited quarterly or YTD data; $24m Q1 cannot be substituted for the audited $100m prior-year figure. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A 10-Q states $12m six-month YTD cash flow and a compatible prior Q1 reports $7m. Calculate the Q2 increment.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q"
@@ -283,8 +283,8 @@
       "limit": "Different events trigger different disclosure requirements; legal and accounting impacts are fact-specific.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Different events trigger different disclosure requirements; legal and accounting impacts are fact-specific.",
       "commonError": "Treating an announced transaction value as money the company has already banked.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Treating an announced transaction value as money the company has already banked.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Which event has actually occurred: agreement signing or transaction settlement?",
+      "reviewExplanation": "A filed conditional $15m agreement is not $15m received; confirm conditions, closing evidence and accounting recognition separately. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: An 8-K announces a planned merger subject to approval. Identify two further facts needed to call it complete.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments"
@@ -307,8 +307,8 @@
       "limit": "Preliminary releases or subsequent amendments can provide other versions, each needing its own time-stamped evidence record.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Preliminary releases or subsequent amendments can provide other versions, each needing its own time-stamped evidence record.",
       "commonError": "Backdating financial information to period end and leaking unseen future filing facts into practice scenarios.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Backdating financial information to period end and leaking unseen future filing facts into practice scenarios.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What was public by January 15 given a hypothetical February 20 acceptance timestamp?",
+      "reviewExplanation": "Never let a February 20 Form 10-K disclosure enter the January 15 historical information set without a distinct earlier public source. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A quarter ends June 30, filing occurs August 6. Could a July 10 replay cite its 10-Q figures?",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments"
@@ -331,8 +331,8 @@
       "limit": "Presentation of unusual costs, segments and non-GAAP adjustments varies; margin alone cannot establish cash generation.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Presentation of unusual costs, segments and non-GAAP adjustments varies; margin alone cannot establish cash generation.",
       "commonError": "Calling the 40% gross margin 'operating margin' by omitting research, selling and administrative expenses.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Calling the 40% gross margin 'operating margin' by omitting research, selling and administrative expenses.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What remains after COGS AND operating expenses are subtracted from sales?",
+      "reviewExplanation": "Check $100m−$60m−$30m=$10m and 10% operating margin; 40% is only gross margin. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Revenue $80m, COGS $48m, operating expenses $20m. Calculate gross and operating margin separately.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -355,8 +355,8 @@
       "limit": "Debt covenants, refinancing, noncash income and changing rates make the coverage multiple insufficient to predict future payment.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Debt covenants, refinancing, noncash income and changing rates make the coverage multiple insufficient to predict future payment.",
       "commonError": "Reporting infinite coverage as a strong result when recorded interest expense is zero or unavailable.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Reporting infinite coverage as a strong result when recorded interest expense is zero or unavailable.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Why should an accounting EBIT coverage multiple not be read as available cash?",
+      "reviewExplanation": "Compute 12/3=4.0×, then identify cash-flow timing, future rates and why zero interest cannot yield an ordinary infinite ratio. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: EBIT $8m, annual interest expense $4m. Calculate basic ratio and one omitted liquidity consideration.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -379,8 +379,8 @@
       "limit": "Seasonality, product write-downs and inventory accounting conventions make cross-company turnover comparison conditional.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Seasonality, product write-downs and inventory accounting conventions make cross-company turnover comparison conditional.",
       "commonError": "Dividing sales revenue by just the year-end inventory and calling it standard cost-based annual turnover.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Dividing sales revenue by just the year-end inventory and calling it standard cost-based annual turnover.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Why is the numerator COST of sales and denominator AVERAGE inventory?",
+      "reviewExplanation": "Check ($20m+$30m)/2=$25m and annual COGS $120m/25m=4.8×; end-only inventory changes the method. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: COGS $90m, inventories $10m and $20m. Compute the average-based turnover multiple.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -403,8 +403,8 @@
       "limit": "Receivable quality, write-offs, seasonal sales, cash-sales inclusion and different 360/365 day bases can alter the result.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Receivable quality, write-offs, seasonal sales, cash-sales inclusion and different 360/365 day bases can alter the result.",
       "commonError": "Interpreting DSO as a contractual 36.5-day deadline for every customer or using incompatible sales periods.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Interpreting DSO as a contractual 36.5-day deadline for every customer or using incompatible sales periods.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What two compatible time-series inputs produce a collection-days estimate?",
+      "reviewExplanation": "Check 18m/180m×365=36.5 days; this is a modeled average of the receivables pool, not each invoice's legal due date. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Average receivables $12m and credit sales $120m for 365 days. Estimate DSO.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -427,8 +427,8 @@
       "limit": "Negative equity, buybacks and extraordinary items can distort interpretation; peer comparisons require accounting consistency.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Negative equity, buybacks and extraordinary items can distort interpretation; peer comparisons require accounting consistency.",
       "commonError": "Substituting market capitalization for book equity or calling ROE the realized shareholder holding-period return.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Substituting market capitalization for book equity or calling ROE the realized shareholder holding-period return.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "Which equity balances should accompany the year's attributable net income?",
+      "reviewExplanation": "Compute ($80m+$120m)/2=$100m; ROE=15%; don't claim the shareholder's quoted stock rose 15%. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Profit $6m, book equity starts $40m and ends $60m. Find simplified average-equity ROE.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -451,8 +451,8 @@
       "limit": "Negative book equity, off-balance commitments and financial-sector accounting can make conventional ratios misleading.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Negative book equity, off-balance commitments and financial-sector accounting can make conventional ratios misleading.",
       "commonError": "Comparing one firm's total liabilities/equity to another's interest-bearing debt/equity as though both were the same measure.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Comparing one firm's total liabilities/equity to another's interest-bearing debt/equity as though both were the same measure.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What debt components and book equity definition are being compared?",
+      "reviewExplanation": "Check $90m interest-bearing debt/$60m equity=1.5×. Total liabilities could give a different value, so state the definition. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Short debt $10m, long debt $30m and book equity $20m. Calculate interest-bearing debt/equity.",
       "sourceUrls": [
         "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
@@ -475,8 +475,8 @@
       "limit": "Loss-making or zero-EPS issuers, earnings restatements and special items make ordinary P/E comparison unreliable.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Loss-making or zero-EPS issuers, earnings restatements and special items make ordinary P/E comparison unreliable.",
       "commonError": "Calling earnings yield a declared dividend yield or equating the issuer's earnings with cash received by an investor.",
-      "selfCheck": "Before consulting the worked answer, identify the defined units, all necessary input values and time boundaries. Explain this precise misconception: Calling earnings yield a declared dividend yield or equating the issuer's earnings with cash received by an investor.",
-      "reviewExplanation": "Internal formative correction: repeat the explicit inputs and operations in this topic's fictional worked case, identify the incorrect inference in its common-error section, then solve the new transfer scenario without granting an assessment grade.",
+      "selfCheck": "What distinction separates EPS income from cash paid to a shareholder?",
+      "reviewExplanation": "A $50 quote and $5 EPS give P/E=10× and earnings yield=10%; the cash dividend is an independent declaration. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Price $36, EPS $3. Calculate P/E and earnings yield and name why neither guarantees a distribution.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio"
