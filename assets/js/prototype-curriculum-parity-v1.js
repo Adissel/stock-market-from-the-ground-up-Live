@@ -22,22 +22,30 @@ const fetchJson=async url=>{
  return response.json();
 };
 async function catalog(){
- const [labs,skills,indicators,guided,academy,bridges,academyEvidence,freeEvidence]=await Promise.all([
+ const [labs,skills,indicators,guided,indicatorExtension,guidedExtension,academy,bridges,academyEvidence,freeEvidence]=await Promise.all([
   fetchJson('/data/competency-lab-paths-v01499.json'),
   fetchJson('/data/competency-study-guides-v01499.json'),
   fetchJson('/data/tutor-indicator-study-v1.json'),
   fetchJson('/data/tutor-guided-practice-v1.json'),
+  fetchJson('/data/tutor-indicator-expansion-v1.json'),
+  fetchJson('/data/tutor-guided-practice-expansion-v1.json'),
   fetchJson('/api/bootcamp-academy?action=catalog'),
   fetchJson('/data/lab-teaching-bridges-v014168.json'),
   fetchJson('/data/academy-specific-source-instruction-v1.json'),
   fetchJson('/data/free-foundations-evidence-v1.json')
  ]);
  const computed=window.CrownlightPrototypeIndicators?.specs;
+ const allIndicatorGuides=[...(indicators?.guides||[]),...(indicatorExtension?.guides||[])];
+ const allGuidedModules=[...(guided?.modules||[]),...(guidedExtension?.modules||[])];
  if(labs?.totalCanonicalLabs!==419||Object.keys(labs.byLab||{}).length!==419||
    skills?.guides?.length!==30||indicators?.guides?.length!==61||
    indicators.count!==61||guided?.indicatorCount!==61||
    guided?.numericIndicatorCount!==53||guided?.interpretationOnlyIndicatorCount!==8||
-   !Array.isArray(guided.modules)||guided.modules.length!==134||bridges?.version!=='0.14.0.168'||
+   !Array.isArray(guided.modules)||guided.modules.length!==134||
+   indicatorExtension?.count!==12||indicatorExtension.guides?.length!==12||
+   guidedExtension?.indicatorCount!==12||guidedExtension.modules?.length!==12||
+   allIndicatorGuides.length!==73||allGuidedModules.length!==146||
+   bridges?.version!=='0.14.0.168'||
    bridges.canonicalLabCount!==419||bridges.officialCompetencyCount!==30||
    bridges.independentGradesIncluded!==false||bridges.historicalBarDataIncluded!==false||
    Object.keys(bridges.entries||{}).length!==419||
@@ -55,15 +63,18 @@ async function catalog(){
  }
  if(new Set(Object.keys(labs.byLab)).size!==419||
     new Set(indicators.guides.map(g=>g.code)).size!==61||
+    new Set(allIndicatorGuides.map(g=>g.code)).size!==73||
+    new Set(allGuidedModules.map(m=>m.id)).size!==146||
     new Set(academy.programs.map(p=>p.code)).size!==academy.programs.length){
    throw Error('Duplicate learning catalogue identifiers');
  }
- const indicatorModules=guided.modules.filter(m=>m.kind==='indicator');
+ const indicatorModules=allGuidedModules.filter(m=>m.kind==='indicator');
  const indicatorByCode=new Map(indicatorModules.map(m=>[m.guideCode,m]));
- if(indicatorModules.length!==61||indicatorByCode.size!==61||
+ if(indicatorModules.length!==73||indicatorByCode.size!==73||
    indicatorModules.filter(m=>m.metric!=='study-concept').length!==53||
-   indicatorModules.filter(m=>m.metric==='study-concept').length!==8||
-   indicators.guides.some(g=>!indicatorByCode.has(g.code)))
+   indicatorModules.filter(m=>m.metric==='study-concept').length!==20||
+   allIndicatorGuides.some(g=>!indicatorByCode.has(g.code)||
+     indicatorByCode.get(g.code)?.title!==g.title))
    throw Error('Guided indicator module and reference catalog mismatch');
  const guideByCode=new Map(skills.guides.map(g=>[g.code,g]));
  const academyCases=code=>academyEvidence.records.filter(row=>row.programCode===code).map(row=>({...row,kind:'advanced_source_evidence'}));
@@ -94,7 +105,7 @@ async function catalog(){
    bridge:bridges.entries[id]
   })),
   academy:academyRows,
-  guides:indicators.guides.map(g=>({
+  guides:allIndicatorGuides.map(g=>({
    key:g.code,title:g.title||g.code,summary:g.family||'Authored research brief',
    body:[['Concept',g.concept],['Formula',g.formula],['Why examine it',g.whyUse],
     ['How to use the study',g.howToUse],['Learning procedure',g.procedure],
@@ -118,7 +129,7 @@ function render(){
  out.replaceChildren();
  const intro=h('p','Read-only inspection of CURRENT public learning metadata. This is not a member login, teaching transcript, grade or entitlement.','pt-parity-note');
  out.append(intro);
- const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 61 original indicator briefs · 53 Talia synthetic calculations · 8 interpretation-only Talia studies · 16 computed Chart Studio studies','pt-parity-totals');
+ const totals=h('p','419 canonical Lab pathways · '+(snapshot.academy.length-1)+' currently listed Academy paths + Free Foundations · 30 competency guides · 73 indicator teaching guides (61 original + 12 extended) · 146 guided-practice modules · 53 Talia synthetic calculations · 20 interpretation-only Talia studies · 16 computed Chart Studio studies','pt-parity-totals');
  out.append(totals);
  const controls=h('div',undefined,'pt-parity-controls');
  const nav=h('div',undefined,'pt-parity-tabs');nav.setAttribute('role','group');nav.setAttribute('aria-label','Source catalog type');
