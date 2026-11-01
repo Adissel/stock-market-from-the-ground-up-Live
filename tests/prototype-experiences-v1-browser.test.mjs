@@ -145,6 +145,29 @@ try{
  await a.page.getByLabel('Selected element width').fill('620');
  await a.page.getByLabel('Selected element width').press('Tab');
  assert.equal(await a.page.locator('.cx-talia').first().evaluate(x=>x.style.width),'620px');
+ assert.equal(await a.page.locator('.cx-layout-resize-corner').count(),4,'Selected card must show four corner resize handles');
+ const dragCorner=async(dx,dy)=>{
+  const r=await a.page.locator('[data-resize-corner="nw"]').boundingBox();
+  assert.ok(r,'Top-left drag handle must be visible for the selected card');
+  const x=r.x+r.width/2,y=r.y+r.height/2;
+  await a.page.mouse.move(x,y);await a.page.mouse.down();
+  await a.page.mouse.move(x+dx,y+dy,{steps:5});await a.page.mouse.up();
+ };
+ await dragCorner(-30,-20);
+ const snappedWidth=await a.page.locator('.cx-talia').first().evaluate(x=>Number.parseInt(x.style.width,10));
+ assert.ok(snappedWidth>=640,'Dragging a corner outward enlarges the card live and persists on release');
+ assert.equal(snappedWidth%10,0,'Snap to grid quantizes corner resize width to 10px');
+ assert.ok((await a.page.locator('.cx-layout-toolbar').textContent()).includes('Resized to'),'Pointer release must save and report resized dimensions');
+ await a.page.getByLabel('Snap to grid').uncheck();
+ await dragCorner(-13,-7);
+ const freeWidth=await a.page.locator('.cx-talia').first().evaluate(x=>Number.parseInt(x.style.width,10));
+ assert.ok(freeWidth>snappedWidth&&freeWidth-snappedWidth<18,'Snap off permits fine corner resizing');
+ await a.page.getByRole('button',{name:'Undo',exact:true}).click();
+ assert.equal(await a.page.locator('.cx-talia').first().evaluate(x=>Number.parseInt(x.style.width,10)),snappedWidth,'A corner resize is a single undoable draft action');
+ await a.page.getByRole('button',{name:'Reset selected'}).click();
+ await a.page.getByLabel('Selected element width').fill('620');
+ await a.page.getByLabel('Selected element width').press('Tab');
+ await a.page.getByLabel('Snap to grid').check();
 
  await a.page.getByLabel('Selected text size').fill('19');
  await a.page.getByLabel('Selected text size').press('Tab');
