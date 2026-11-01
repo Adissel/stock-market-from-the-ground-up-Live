@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 await import('../assets/js/crownlight-indicator-math-v2.js');
 await import('../assets/js/prototype-indicator-workbench-v2.js');
+await import('../assets/js/crownlight-chart-tutor-v1.js');
 const api=globalThis.CrownlightPrototypeIndicators;
 assert.ok(api&&typeof api.compute==='function','Canonical indicator adapter must load');
 assert.equal(api.specs.length,16);
@@ -86,6 +87,26 @@ for(const guide of catalog.guides){
  assert.ok(Array.isArray(guide.sourceUrls)&&guide.sourceUrls.length>0&&guide.sourceUrls.every(x=>/^https:\/\//.test(x)),'Missing original source provenance '+guide.code);
  assert.equal(guide.officialCompetency,false,'Do not mislabel indicator brief as protected official competency');
 }
+
+// Talia's EMA 200 teaching must use the same completed-bar math as Studio.
+// This is synthetic reference evidence, not a live or licensed historical feed.
+const chartTutor=globalThis.CrownlightChartTutor;
+assert.ok(typeof chartTutor?.analyze==='function','Talia chart coaching must be available');
+const tutoringBars=Array.from({length:220},(_,i)=>{
+ const close=25+i*.07;
+ return {open:close-.03,high:close+.18,low:close-.19,close,volume:1100+(i%7)*40};
+});
+const underwarmed=chartTutor.analyze(tutoringBars.slice(0,199));
+const exactlyWarmed=chartTutor.analyze(tutoringBars.slice(0,200));
+const laterTutor=chartTutor.analyze(tutoringBars);
+const emaStudy=x=>x.facts.find(f=>f.name==='EMA 200');
+assert.equal(emaStudy(underwarmed).value,null,'No long-period estimate with 199 completed candles');
+assert.match(emaStudy(underwarmed).reading,/200 valid completed closes/);
+const expected200=math.ema(tutoringBars.map(x=>x.close),200);
+near(emaStudy(exactlyWarmed).value,expected200[199],'Talia EMA 200 at exact warmup');
+near(emaStudy(laterTutor).value,expected200[219],'Talia EMA 200 uses latest revealed bar');
+assert.ok(!underwarmed.cues.some(x=>/future.*candle/i.test(x)),'No fabricated future bars in cues');
+assert.match(emaStudy(exactlyWarmed).reading,/not automatic support/);
 
 const html=readFileSync('prototype.html','utf8');
 const tsx=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
