@@ -9,7 +9,7 @@
 | Google Drive document ID | Unassigned |
 | Filename | `docs/learning/SMFGU-TALIA-FOUNDATION-600-COVERAGE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.3 / 2026-11-01 |
+| Version / date | 1.4 / 2026-11-01 |
 | Status | Owner-defined 600-explanation target; first source implementation active; CI, authenticated QA and individual editorial sign-off pending |
 | Dependencies | `AGENTS.md`, `docs/learning/SMFGU-TALIA-EDITION-001-v1-20261101.md`, `docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md`, canonical 419 Lab registry, 10 Boot Camps, original 30 competencies, 73 Tutor indicator briefs, existing Tutor source-only API |
 | Purpose | Deliver 600 genuinely distinct original first-principles Tutor explanations without misrepresenting topic IDs, Lab registrations, historical evidence, rubrics or indicator computations as approved content. |
@@ -76,6 +76,37 @@ Each accepted explanation requires its own distinct concept boundary, substantiv
 - Foundation overall engineering completion percentage: **not responsibly measurable yet** until scoped requirements, CI and real member acceptance evidence are complete.
 - Enterprise, Professional, Advanced premium release: 0/3 independently accepted.
 
+
+## Foundation execution batch 03 — 2026-11-01 (Tutor-only implementation)
+**Controlling decisions:** The 30 public official competency identifiers, 419 registered Labs, 274 Boot Camp days, 61 original + 12 supplementary indicator guides, 146 guided modules, and 16 actual computed Chart Studio studies remain unchanged. These records provide educational cross-reference only; no protected grading engine, Supabase schema, money, live market feed, licensed research or separate AI service was modified.
+
+### Current source build
+1. **600 Foundation explanation goal:** New `data/talia-foundation-explanations-batch03-v1.json` contains twenty separately authored OHLC, market structure, indicator initialization, volume and replay-safety topics. Source drafting now **60/600 = 10.0%**, from 40/600. These are not 60 independently accepted published lessons: under the newly required item-level editorial acceptance program, **0/600 have verified independent sign-off**. Each batch preserves the 30 canonical graded competencies.
+2. **Safe source retrieval:** `functions/_lib/original-competency-tutor-v014100.js` now loads the third optional twenty-topic asset using the same validated, source-only module as previous batches. Duplicate code/title candidates and corrupt optional assets are excluded without disabling the first twenty or official source guides. `tests/talia-foundation-explanations-batch03-v1.test.mjs` enforces sixty distinct titles, exact-topic lookup, misconception practice and fail-safe fallback.
+3. **Five indicator calculations:** `functions/_lib/talia-indicator-worked-v1.js` supplies five fictional, deterministic source-only numerical explanations (Elder-Ray, Vortex, NVI, PVI, Ulcer Index). Each has alternative fictional cases and arithmetic guards; the existing Tutor `formatMasterStudyGuide` displays them only as ungraded explanatory content. `tests/talia-indicator-worked-v1.test.mjs` checks sample calculations and that self-check/review modes do not advertise an official grade. **Five mathematical teaching cases do not add five Chart Studio overlays** and do not turn the twelve additional interpretation-only guided Labs into released numerical engines.
+4. **73-indicator editorial triage:** `scripts/talia-indicator-editorial-review-v1.mjs` now inventories all 73 guide records, matching the existing seventy-three indicator guided modules, source URL structure, concise formula alerts, instructional/misconception notes and which five topics have source-only numerical examples. The output `artifacts/talia-indicator-editorial-review-v1.json` is build-generated QA data. **Link content, formula correctness, instructor acceptance, model-assisted review, and real browser access still require independent verification**; a structural pass is not a signed editorial approval.
+5. **Lab/Boot Camp cross-reference:** `scripts/talia-foundation-coverage-v1.mjs` now audits sixty source-authored supplemental topics against the same 419 public Lab and 274 Boot Camp day records, labeling overlap candidates as unverified until content-based editorial acceptance. Shared engines, protected answers and existing member progress remain intact.
+6. **Enforced release tests:** Both `scripts/build-pages.sh` and `.github/workflows/learning-tutor-v01492.yml` include source syntax, third-batch retrieval, pure indicator mathematics, full 73-guide structural triage and crosswalk inventory regressions. Cloudflare production SHA, live authenticated role tests and GitHub push-workflow conclusions must be independently checked before a final release claim.
+7. **Technology decision:** Cloudflare JS remains correct for source-only authenticated Tutoring; same-origin Apache ECharts + existing first-party indicator math remains the preferred chart visualization architecture. React/TypeScript may be introduced within an existing typed UI workspace only for validated complexity benefits. Python is appropriate for offline scientific validation where a separate server would add unsupported runtime or cost. The advanced stack is not a requirement to duplicate present secure components.
+
+### Gate progress by denominator
+| Gate | Source evidence | Release acceptance |
+|---|---|---|
+| 1. 600 independent explanations | 60/600 source-authored = 10%; not independently editorial-approved | 0/600 item acceptances verified |
+| 2. Worked mathematical teaching | 13 canonical worked topic IDs + 9 previously added source topics; no fixed total scope approved | Formula and member acceptance pending |
+| 3. Indicator guide content | 73/73 inventoried; independent accuracy/source review outstanding | Not fully accepted |
+| 4. New indicator computations | 5 of 12 new guide topics now have pure source-only example calculations; no new Chart Studio overlays | Not a released chart-calculation gate |
+| 5. Public curriculum cross-reference | All 419 Lab identifiers and 274 Boot Camp day positions inventoried, title-overlap suggestions only | No equivalence accepted from keyword matching |
+| 6. Conversational Tutor | Source-only explain/deepen/try-another/misconception actions source-implemented | Authenticated browser and pedagogy acceptance pending |
+| 7. Visual teaching | Prior original EMA9/20/200 ECharts tutorial passed source arithmetic build checks | Real browser, keyboard and screen-reader testing pending |
+| 8. Instructional QA | Numerical test suites and 73-guide structural triage implemented | Independent human source and pedagogical QA pending |
+| 9. Authenticated member QA | Not executed with verified real Free/Founding accounts in this batch | Pending |
+| 10. Final CI/release | Build/deploy evidence checked separately from whole-repo GitHub Actions conclusions | Pending |
+
+**Overall ten-gate final-release acceptance denominator remains 0/10 (0%)**, without equating that number to overall implemented engineering effort. No credible percentage of all Foundation engineering exists until every criterion has bounded estimates and completed QA evidence.
+
+### Version history addition
+| 1.4 | 2026-11-01 | Author third twenty-topic batch (60 total), implement five source-only indicator numerical cases, expand source coverage crosswalk and add 73-guide automated editorial triage | Main branch source implementation; independent instructional, browser and release acceptance pending |
 
 ## Foundation execution batch 02 — 2026-11-01 (noncommercial source implementation)
 - **Owner 600 explanation goal:** `data/talia-foundation-explanations-batch01-v1.json` and `data/talia-foundation-explanations-batch02-v1.json` now contain exactly 40 individually authored supplementary explanation candidates. Drafting progress **40/600 = 6.67%**. Individual independent editorial acceptance remains **0/600 under this new register**; do not confuse draft identity with editorial signoff.
