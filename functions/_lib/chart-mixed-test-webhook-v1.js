@@ -33,7 +33,7 @@ export async function acceptChartMixedTestEvent(event,env){
    o.stripe_session_id!==s.id||s.amount_subtotal!==o.cash_cents||
    s.amount_total!==o.cash_cents||s.currency!=='usd')fail();
   if(event.type==='checkout.session.expired'){
-   if(s.status!=='expired'||s.payment_status==='paid')fail();
+   if(s.status!=='expired'||s.mode!=='payment'||s.payment_status==='paid'||s.payment_intent)fail();
    return apply(c,o,event,'expired',s.id);
   }
   if(event.type==='checkout.session.async_payment_failed'){
