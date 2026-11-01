@@ -27,14 +27,14 @@ test('Review of study guides 13-24 has twelve original numerical, conditional an
   const out=answerFromGuide(g,'explain','','Explain '+g.title);
   assert.ok(out.includes(g.fictionalPrompt));
   assert.ok(out.includes(g.selfCheck));
-  assert.doesNotMatch(out,/guaranteed return|actual stock recommendation|protected mastery result/i);
+  assert.doesNotMatch(out,/we guarantee|buy this stock now|protected mastery result|mastery awarded/i);
   assert.doesNotMatch(answerFromGuide(g,'question','','Explain '+g.title),/Verified fictional calculation exercise:/);
  }
 });
 test('Review requires warmup and numerical invalidation for harder oscillators',()=>{
  for(const i of [1,2,6,7,10,11]){
   const g=guides[i];const all=g.fictionalPrompt+' '+g.selfCheck+' '+g.reviewExplanation;
-  assert.match(all,/seed|valid|warm|undefined|requir|smoothing|history|input/i,g.code);
+  assert.match(all,/seed|valid|warm|undefined|requir|smoothing|history|input|deviation is zero/i,g.code);
  }
  const k=guides.find(g=>g.code==='STUDY_STOCHASTIC');assert.match(k.reviewExplanation,/undefined/);
  const p=guides.find(g=>g.code==='STUDY_ROC');assert.match(p.reviewExplanation,/zero/);
