@@ -21,7 +21,7 @@ assert.equal(advanced.guides.length,13,'Advanced guides preserved');
 const all=masters.flatMap(m=>m.data.guides);
 assert.equal(all.length,133,'Exactly 133 original new market study briefs');
 assert.equal(new Set(all.map(x=>x.code)).size,133,'All new codes are unique');
-const allowed=/^https:\/\/(?:www\.)?(?:chartschool\.stockcharts\.com|toslc\.thinkorswim\.com|www\.cmegroup\.com|www\.investor\.gov)\//i;
+const allowed=/^https:\/\/(?:www\.)?(?:chartschool\.stockcharts\.com|toslc\.thinkorswim\.com|www\.cmegroup\.com|www\.investor\.gov|www\.cboe\.com)\//i;
 for(const m of masters){
  assert.equal(m.data.kind,'original_public_tutor_master_study');
  assert.equal(m.data.version,'1.0');
