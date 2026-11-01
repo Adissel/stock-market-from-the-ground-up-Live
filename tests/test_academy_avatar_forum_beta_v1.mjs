@@ -3,8 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {academyCatalog,academyByCode} from '../functions/_lib/bootcamp-academy-v014168.js';
 const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const codes={truth5:5,watchlist7:7,scanners10:10,foundations30:30,charts45:45,risk60:60,practicum90:90};
-assert.equal(academyCatalog.length,7);
+const codes={truth5:5,watchlist7:7,scanners10:10,foundations30:30,charts45:45,risk60:60,practicum90:90,tape10:10,indicators10:10,filings7:7};
+assert.equal(academyCatalog.length,10,'The original seven plus three restricted-beta Academy programs share one catalog');
+assert.deepEqual(new Set(academyCatalog.map(x=>x.code)),new Set(Object.keys(codes)),'No duplicate or missing canonical programs');
 for(const [code,days] of Object.entries(codes)){
  assert.equal(academyByCode[code].curriculum.length,days,code+' curriculum must be complete');
  assert(academyByCode[code].curriculum.every((d,i)=>d.day===i+1&&d.programCode===code),code+' day integrity');
@@ -43,4 +44,4 @@ assert(memberRPC.includes('to authenticated')&&!memberRPC.includes('grant select
 const forum=file('assets/js/market-commons-platform.js');
 assert(forum.includes('data-community-avatar-user'),'Forum posts must mount author avatar slots');
 assert(file('assets/js/community-avatars-v1.js').includes('gu_community_author_avatars_v1'),'Avatar UI must resolve through approved member-only RPC');
-console.log('PASS seven beta curricula, explicit 30-day enroll, 30 distinct portraits, inline Dashboard picker, privacy-controlled community avatars.');
+console.log('PASS ten canonical Academy source curricula (seven original plus three restricted beta), explicit 30-day enroll, 60 distinct portraits, inline Dashboard picker, privacy-controlled community avatars.');
