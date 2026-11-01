@@ -91,7 +91,7 @@ try{
  // A browser flag must not falsely certify a paid/authorized historical feed.
  await a.page.locator('[data-cl="source"]').click();
  const provenance=await a.page.locator('.crownlight-source').innerText();
- assert.match(provenance,/Chart-accessible bars\\s*25 completed bars shown/);
+ assert.match(provenance,/Chart-accessible bars\s*25 completed bars shown/);
  assert.match(provenance,/Not certified by this chart/);
  assert.match(provenance,/does not prove protected grading/);
  assert.doesNotMatch(provenance,/225 revealed observations only/);
