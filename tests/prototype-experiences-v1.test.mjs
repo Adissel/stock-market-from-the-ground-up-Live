@@ -60,10 +60,22 @@ assert.match(css,/cx-frame-less/);
 
 assert.match(css,/cx-layout-customized/);
 assert.match(css,/@container \(min-width: 660px\)/);
-// The protected synthetic prototype may load its public, static first-party tutor
-// guide, but must never issue dynamic entitlement, wallet, brokerage or user APIs.
+// Strict allowlist: public source metadata and the pre-existing read-only
+// Academy catalog only. No arbitrary runtime URLs, user/entitlement API, writes,
+// brokerage connection, grade keys or account data may enter this prototype.
 const allFetches=(src.match(/\bfetch\s*\(/g)||[]).length;
 const approvedStaticFetches=(src.match(/\bfetch\s*\(\s*'\/data\/tutor-indicator-study-v1\.json'\s*,\s*\{\s*cache:'no-store',credentials:'same-origin'\s*\}/g)||[]).length;
-assert.equal(approvedStaticFetches,1,'Expect exactly one immutable-path same-origin guide load');
-assert.equal(allFetches,approvedStaticFetches,'No remote, dynamic, entitlement, wallet or brokerage fetch calls allowed');
+const approvedMetadataLoader=(src.match(/\bfetch\s*\(\s*url\s*,\s*\{\s*cache:'no-store',credentials:'same-origin',headers:\{accept:'application\/json'\}\s*\}/g)||[]).length;
+assert.equal(approvedStaticFetches,1,'Exactly one fixed existing tutor-guide fetch');
+assert.equal(approvedMetadataLoader,1,'Exactly one same-origin GET-only canonical metadata loader');
+assert.equal(allFetches,approvedStaticFetches+approvedMetadataLoader,'Block all other fetch calls from the protected preview');
+const atlas=src.split('function CurriculumAtlas(){')[1]?.split('const platformAreas=[')[0]||'';
+assert.ok(atlas,'Curriculum Atlas must exist');
+const permitted=['/data/competency-lab-paths-v01499.json','/data/tutor-indicator-study-v1.json','/data/tutor-indicator-expansion-v1.json','/api/bootcamp-academy?action=catalog'];
+for(const url of permitted)assert.ok(atlas.includes("load('"+url+"')"),'Missing reviewed read-only URL '+url);
+assert.equal((atlas.match(/\bload\s*\(/g)||[]).length,permitted.length,'No unreviewed metadata source loads');
+assert.doesNotMatch(atlas,/method\s*:\s*['"](POST|PUT|PATCH|DELETE)|\/api\/(?:stripe|admin|wallet|member|auth|supabase|orders|grade|entitlement)/i,'No mutation or privileged data API');
+assert.match(src,/independent editorial approval pending/i);
+assert.match(css,/cx-curriculum-atlas/);
+assert.match(src,/function AtlasCoverage\(/);
 console.log('PASS: three protected pages, nine plan identities, six themes, teaching and replay boundaries, TypeScript build and local-only interactions');
