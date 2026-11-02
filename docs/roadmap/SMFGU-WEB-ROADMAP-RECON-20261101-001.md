@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.10 / 2026-11-01 |
+| Version / prepared | 1.11 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -243,6 +243,26 @@ Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v
 
 **Evidence:** `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md` (v1.6), `data/talia-claim-source-remediation-129-135-139-v1.json`, `scripts/qa/talia_claims101_140_independent_python_v1.py`, `tests/talia-claims101-140-python-js-editorial-v1.test.mjs`, `tests/talia-source-remediation-specificity-v1.test.mjs`. Cloudflare and GitHub exact-SHA acceptance must be independently confirmed; pending runs do not count.
 
+## Gate 2/3 acceptance work — five qualitative reviews and ECharts independent math
+
+**Project/date/authority:** The Stock Market: From the Ground Up, 2026-11-01. Preserve all 2,190 controlling Owner Roadmap item identities and existing signoffs. This v1.11 reconciliation is evidence documentation, not a new milestone, deployed rights grant, billing authorization, or protected assessment change. Google Drive document ID is unassigned; GitHub `docs/roadmap/SMFGU-WEB-ROADMAP-RECON-20261101-001.md` is the controlling source path.
+
+| Gate/substep | Executed evidence | Release boundary |
+|---|---|---|
+| 1 — canonical curriculum inventory | 1,366/1,366 target identities, conflict/duplicate source checks retained | Original 600 explanation slots, 73 guides, 419 Labs, 274 Academy days still controlling |
+| 2 — claims 101–140 | 35/35 independently tested fictional arithmetic cases + 5/5 individual qualitative SEC/FINRA/accounting source-scope reviews; 40/40 separate dispositions | Claims 104 and 133 retain legal and historic-publication warning; claim 129 has supplementary specific concentration formula source; 0/40 individual final publication rights and legal/editorial approvals |
+| 3 — ECharts source math | 18 independent Python-vs-production-JS complete series **passed** across 225 fictional, completed-bar observations; EMA warmup, RSI/ATR/MACD/Bollinger, HLC3 bar VWAP proxy, observed ranges, rewind consistency | Existing Chart Studio exposes 13 presentation toggles, NOT 73 certified live studies; 71/73 original per-subject math cases; VIX/SCTR research-only vendor holds; remaining settings/platform parity and authenticated browser UX still required |
+| 4 — source Tutor continuity | Original followup and member-identity fixture tests retained | Real authenticated conversation quality/retry/persistence/transfer not yet accepted |
+| 5 — paid advanced/professional source prototypes | Private server entitlement and revealed-bar contracts remain | Verified logged-in membership and premium product grants remain independently unaccepted |
+| 6 and 8 — exact-SHA CI and Cloudflare | Cloudflare **success and deployed** SHA `0cced43ad705989bcfcbf933652402717a1773bd` with targeted new checks `ok` | Full mandatory GitHub Actions matrix on one frozen SHA not independently established; later doc SHA requires another matching deployment |
+| 7 — genuine member/browser/accessibility | Previous seven-table RLS audit and existing source mock negative tests | Real Free/Founding/Owner, account A/B, staff and screen-reader verification remain OPEN |
+| 9 — premium commercial release | 0% of Advanced/Professional/Enterprise Learning and Lab engine editions independently released | No unsupported premium access, checkout or vendor data rights granted |
+| 10 — Foundation authoring | 280/600 = 46.67% source drafted; 320 not authored | Batch 13/14 0% independent publication signoff; do not infer official grade completion |
+
+**Strict accelerated gate denominator remains 1/10 = 10%**, and the overall website completion percentage remains unassigned. Individual math-source tests close important technical substeps but not the entire gate's required authorization, editor approval, accessible UX, rights, complete CI and production SHA evidence.
+
+**Accepted control sources:** `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, version 1.7; `data/talia-claims-five-qualitative-editorial-review-v1.json`; `scripts/qa/talia_echarts_member_math_python_v1.py`; `tests/talia-echarts-independent-python-js-v1.test.mjs`. CI source is Cloudflare Pages deployment records and the existing GitHub workflow; absent full Actions outcomes are explicitly not marked green.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -258,5 +278,6 @@ Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v
 | 1.8 | 2026-11-01 | Add 61–73 subject QA, 12 cross-implementation fixtures, official Cboe VIX and StockCharts SCTR restricted exceptions, 71/73 configured math denominator | Internal source QA only; all genuine publication, account, legal and release acceptance open |
 | 1.9 | 2026-11-01 | Verify actual 13-control ECharts UX vs 73 guide research, add CI crosswalk and live Supabase seven-table RLS/grants/policy audit | Production/member/rights acceptance still open |
 | 1.10 | 2026-11-01 | 280/600 authored drafts with Batch14 held; claim-specific Python/JS 35-number audit; three source remediation references; unchanged ten release gates | Full CI, genuine auth, rights and editorial acceptance open |
+| 1.11 | 2026-11-01 | Verified 5/5 qualitative source scopes, 18/18 independent complete ECharts math series, targeted Pages production deployment SHA | Source CI accepted only; full Actions, genuine logged-in users, rights and premium release remain open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.10 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.11 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
