@@ -46,3 +46,33 @@
 [data-tp-view="chart"] #tp-workspace .tc-grid{grid-template-columns:minmax(300px,.67fr) minmax(560px,1.6fr)}[data-tp-view="tutor"] #tp-workspace .tc-grid{grid-template-columns:minmax(560px,1.5fr) minmax(300px,.72fr)}[data-tp-view="chart"] #tp-workspace .tc-chart{height:min(62vh,680px)}[data-tp-view="tutor"] #tp-workspace .tc-transcript{max-height:65vh;min-height:440px}@media(max-width:1080px){[data-tp-view="chart"] #tp-workspace .tc-grid,[data-tp-view="tutor"] #tp-workspace .tc-grid{grid-template-columns:1fr}}
 
 .tp-chart-tools{padding:.85rem 1rem;margin:1rem 0 .35rem;border:1px solid #426e7e80;border-radius:10px;background:#0b1f2dd9;align-items:end!important}.tp-chart-tools label{display:flex;flex-direction:column;gap:.35rem;color:#bad1de;font-size:.71rem;font-weight:650}.tp-chart-tools select{background:#0b1a29;color:#e9faf8;border:1px solid #567e90;padding:.55rem .65rem;border-radius:7px;min-height:38px}.tp-chart-tools button{min-height:38px}.tp-chart-tools select:focus-visible{outline:3px solid #86eadc;outline-offset:2px}
+
+
+/* Talia workstation V3 — actual gated classroom, not a screenshot or faux chat. */
+.tp-body{background:radial-gradient(ellipse 75% 40% at 65% -18%,#173a4f 0,transparent 78%),#070e18!important}
+.tp-frame{max-width:1720px;padding-top:clamp(20px,3vw,46px)}
+.tp-console-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:24px;align-items:end;margin-bottom:27px}
+.tp-console-heading h1{font-size:clamp(2.35rem,4.25vw,4.5rem);font-weight:760;line-height:1.06;letter-spacing:-.055em;margin:10px 0 14px}
+.tp-console-heading h1 em{font-style:normal;color:#84ead8}
+.tp-intro{max-width:75ch;line-height:1.7;color:#adc4d4;font-size:.94rem}
+.tp-instructor{display:flex;align-items:center;gap:14px;padding:20px;border:1px solid #3e667b;border-radius:16px;background:linear-gradient(135deg,#193447,#0c1b2b);box-shadow:0 18px 50px #0005}
+.tp-avatar{width:66px;height:66px;flex:none;display:grid;place-items:center;border-radius:16px;background:linear-gradient(135deg,#346676,#0d3039);border:1px solid #80d8c5;font-size:1.18rem;font-weight:800;color:#c8fff3;letter-spacing:.06em}
+.tp-instructor strong,.tp-instructor span,.tp-instructor small{display:block}.tp-instructor strong{font-size:1.05rem;color:#f4fcff}.tp-instructor span{font-size:.83rem;color:#c1d4e1;margin-top:4px}.tp-instructor small{font-size:.72rem;color:#80e4cd;margin-top:8px}
+.tp-operational-bar{display:flex;flex-wrap:wrap;gap:0 25px;padding:13px 18px;background:#0a1928;border:1px solid #2e5367;border-radius:11px;margin:0 0 22px;align-items:center}
+.tp-operational-bar>span{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;color:#88a9be;letter-spacing:.035em;min-height:26px}
+.tp-operational-bar strong{color:#d8eaf3;font-size:.68rem;font-weight:720}.tp-signal{width:8px;height:8px;border-radius:50%;background:#bfa06c;box-shadow:0 0 0 3px #bfa06c23}
+.tp-command{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:17px 20px;margin:0 0 11px;border:1px solid #3a667a;border-radius:12px;background:#112336}
+.tp-command strong{font-size:1.08rem;color:#e9f7ff}.tp-command p{font-size:.77rem;color:#aac2d2;line-height:1.5;margin:5px 0 0}
+.tp-workspace-summary{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 15px}.tp-workspace-summary span{padding:8px 12px;border:1px solid #35576c;background:#0c1c2a;border-radius:7px;color:#b5d1e1;font-size:.73rem;font-weight:600}
+#tp-workspace .tc-grid{grid-template-columns:minmax(420px,1fr) minmax(460px,1.14fr)}
+#tp-workspace .tc-chat,#tp-workspace .tc-chart-panel{border-color:#49778b;background:#101e2d;box-shadow:0 24px 65px #0006,inset 0 1px #d4f7ff0a}
+#tp-workspace .tc-chat-top{padding-bottom:12px;border-bottom:1px solid #34556b}
+#tp-workspace .tc-transcript{min-height:390px;background:#071421;border-color:#34556b}
+#tp-workspace .tc-message{line-height:1.7;font-size:.91rem}
+#tp-workspace .tc-talia{background:#142e40;border-left:3px solid #60d6c5}
+#tp-workspace .tc-member{background:#17433f;border-right:3px solid #6ae9b9}
+#tp-workspace .tc-chart{height:480px;background:#081521;border-color:#385f79}
+#tp-workspace .tc-composer textarea{min-height:100px;line-height:1.65;background:#071725}
+#tp-workspace .tc-chipbar button:focus-visible,#tp-workspace .tc-composer button:focus-visible{outline:3px solid #9eead9;outline-offset:3px}
+@media(max-width:1150px){.tp-console-heading{grid-template-columns:1fr}.tp-instructor{max-width:410px}#tp-workspace .tc-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.tp-console-heading h1{font-size:2.5rem}.tp-command{padding:14px}.tp-instructor{padding:13px}.tp-operational-bar{gap:4px 13px}.tp-workspace-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.tp-workspace-summary span{font-size:.64rem}#tp-workspace .tc-chart{height:310px}}
