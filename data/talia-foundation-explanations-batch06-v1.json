@@ -127,16 +127,17 @@
       "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
       "title": "A share repurchase and a cash dividend distribute value through different mechanisms",
       "concept": "A cash dividend pays eligible holders directly, while a repurchase trades issuer cash for outstanding shares; effects depend on price, treasury treatment and later share count.",
-      "procedure": "Record dividend dollars or actual shares repurchased, price paid and any new issuance. Distinguish per-share cash received from indirect proportional ownership changes.",
+      "procedure": "Record dividend dollars or actual shares repurchased, price paid and any new issuance. Distinguish per-share cash received from indirect proportional ownership changes. Talia diagnostic: If 100 of 1,000 issuer shares are retired, does an unchanged 90-share holder receive cash?",
       "workedCase": "FICTIONAL: A company has 1,000 shares and buys back 100 at $10 each for $1,000. If retired with no new shares, outstanding shares become 900; an unchanged holder with 90 shares moves from 9.00% to 10.00% ownership, but receives no dividend cash from that repurchase.",
       "limit": "Accounting, dilution, retained shares, price paid and company value can alter the economic outcome; ownership percentage alone is not shareholder wealth.",
       "invalidation": "If retirement or actual share-count change is unverified, do not claim an ownership increase or EPS benefit.",
       "commonError": "Calling buyback spending a dividend paid to all shareholders or presuming a buyback always raises market price.",
       "selfCheck": "Explain the cash recipients in a dividend versus an issuer repurchase and whether ownership changes without transactions by the holder.",
-      "reviewExplanation": "Correct review identifies the recipients, the confirmed post-transaction share denominator and the limits of mechanical ownership arithmetic.",
+      "reviewExplanation": "Correct review identifies the recipients, the confirmed post-transaction share denominator and the limits of mechanical ownership arithmetic. Correction for learner reasoning: Their proportional share increases from 9% to 10% but they receive no dividend directly; firm value and retained-stock terms are separate. Research limitation: The SEC May 2023 repurchase-disclosure modernization rule was vacated effective December 19, 2023. The archived SEC speech is history, not currently effective reporting requirements.",
       "transferQuestion": "FICTIONAL TRANSFER: With 2,000 shares outstanding, 200 are retired while a holder retains 100. Compute ownership before and after, without predicting price.",
       "sourceUrls": [
-        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323"
+        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323",
+        "https://www.sec.gov/rules-regulations/2024/03/s7-21-21"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -161,19 +162,30 @@
         "decision": "HOLD_EXACT_COMPARISON",
         "formulaAndNumericReleaseAccepted": false,
         "independentPublicationAccepted": false
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_HIGH_PRIORITY_PRIMARY_SOURCE_AND_PEDAGOGY",
+        "outcome": "CORRECTED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "If 100 of 1,000 issuer shares are retired, does an unchanged 90-share holder receive cash?",
+        "correctiveTeaching": "Their proportional share increases from 9% to 10% but they receive no dividend directly; firm value and retained-stock terms are separate.",
+        "limitation": "The SEC May 2023 repurchase-disclosure modernization rule was vacated effective December 19, 2023. The archived SEC speech is history, not currently effective reporting requirements.",
+        "sourceVerified": "https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_PREFERRED_COMMON_CLAIMS",
       "title": "Preferred dividends and common voting claims are different security rights",
       "concept": "Common and preferred shares may provide different voting, dividend and liquidation rights; issue terms, rather than the word preferred alone, govern priority.",
-      "procedure": "Read the specific security prospectus: dividend seniority, cumulative/noncumulative treatment, conversion, call clauses and votes; do not infer all rights from ticker labels.",
+      "procedure": "Read the specific security prospectus: dividend seniority, cumulative/noncumulative treatment, conversion, call clauses and votes; do not infer all rights from ticker labels. Talia diagnostic: Does an unpaid noncumulative preferred dividend automatically carry into the next year?",
       "workedCase": "FICTIONAL: An issuer has common and noncumulative preferred stock with a contractual $2 preferred annual dividend. If no dividend is declared in one year, the student cannot assume a $2 arrear later; cumulative terms would be required for that conclusion.",
       "limit": "Preferred shares are not risk-free bonds and liquidation preferences may be worth less when company assets are insufficient.",
       "invalidation": "Without the certificate of designation and actual issuer decisions, do not infer a cumulative obligation or priority payment amount.",
       "commonError": "Assuming every preferred issue votes like common stock or guarantees fixed cash regardless of board decisions.",
       "selfCheck": "Which contract terms must be read before deciding whether skipped preferred dividends accumulate?",
-      "reviewExplanation": "Correct response identifies issue-specific priority and whether noncumulative terms invalidate a claim to unpaid prior-year dividends.",
+      "reviewExplanation": "Correct response identifies issue-specific priority and whether noncumulative terms invalidate a claim to unpaid prior-year dividends. Correction for learner reasoning: No: the specified contractual cumulative or noncumulative terms control, and declaration is not universal. Research limitation: A preferred stock is not a guaranteed bond coupon; actual security terms determine priority, conversion, vote and liquidation.",
       "transferQuestion": "FICTIONAL TRANSFER: Compare two preferred series, one cumulative and one noncumulative, after two skipped $1 distributions. Describe contractual arrears conditionally.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
@@ -193,6 +205,17 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_HIGH_PRIORITY_PRIMARY_SOURCE_AND_PEDAGOGY",
+        "outcome": "CORRECTED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does an unpaid noncumulative preferred dividend automatically carry into the next year?",
+        "correctiveTeaching": "No: the specified contractual cumulative or noncumulative terms control, and declaration is not universal.",
+        "limitation": "A preferred stock is not a guaranteed bond coupon; actual security terms determine priority, conversion, vote and liquidation.",
+        "sourceVerified": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
@@ -668,13 +691,13 @@
       "code": "TALIA_TOPIC_BOND_MATURITY_VS_DURATION",
       "title": "A bond's stated maturity and its sensitivity to yield changes are different measurements",
       "concept": "Maturity is a contractual calendar date; duration is an analytical measure of weighted cash-flow timing or yield sensitivity, with definitions that must be declared.",
-      "procedure": "Identify dated cash flows and selected duration convention; do not use time to maturity as a universal proxy for modified duration.",
+      "procedure": "Identify dated cash flows and selected duration convention; do not use time to maturity as a universal proxy for modified duration. Talia diagnostic: Can a five-year coupon bond and five-year zero-coupon bond have identical duration by assumption?",
       "workedCase": "FICTIONAL: Two securities each mature in five years, but one pays annual coupons and one pays no coupon. Their principal dates match; the coupon bond returns some cash earlier, so their Macaulay durations need not match five years.",
       "limit": "Yield curve shocks, embedded options and changing cash-flow assumptions can defeat simple duration approximations.",
       "invalidation": "If coupon schedule or duration convention is unspecified, no numeric interest-rate sensitivity should be assigned.",
       "commonError": "Treating 'five-year bond' as meaning a guaranteed 5% price movement for a one-point yield change.",
       "selfCheck": "Explain why earlier interim cash payments affect a weighted timing measure even with identical maturity dates.",
-      "reviewExplanation": "Correct explanation uses maturity as a due date, not as the coefficient in a price-risk model.",
+      "reviewExplanation": "Correct explanation uses maturity as a due date, not as the coefficient in a price-risk model. Correction for learner reasoning: Compare timing of promised cashflows, not simply the shared legal maturity date; Macaulay duration is PV-weighted timing. Research limitation: A bond's modified-duration estimate requires yield, convention and potentially option treatment; not a guaranteed rate-price forecast.",
       "transferQuestion": "FICTIONAL TRANSFER: Compare a three-year zero-coupon bond with an otherwise similar annual-coupon bond. Which returns cash earlier?",
       "sourceUrls": [
         "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
@@ -702,6 +725,17 @@
         "decision": "SOURCE_SCOPE_SUPPORTED",
         "formulaAndNumericReleaseAccepted": false,
         "independentPublicationAccepted": false
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_HIGH_PRIORITY_PRIMARY_SOURCE_AND_PEDAGOGY",
+        "outcome": "CORRECTED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can a five-year coupon bond and five-year zero-coupon bond have identical duration by assumption?",
+        "correctiveTeaching": "Compare timing of promised cashflows, not simply the shared legal maturity date; Macaulay duration is PV-weighted timing.",
+        "limitation": "A bond's modified-duration estimate requires yield, convention and potentially option treatment; not a guaranteed rate-price forecast.",
+        "sourceVerified": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
