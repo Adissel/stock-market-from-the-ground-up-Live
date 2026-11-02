@@ -264,6 +264,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -360,6 +369,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -456,6 +474,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -584,6 +611,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
