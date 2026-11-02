@@ -145,6 +145,8 @@ on:
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
       - 'tests/talia-40-claim-multiturn-source-v1.test.mjs'
       - 'tests/talia-claims101-140-python-js-editorial-v1.test.mjs'
+      - 'tests/talia-source-remediation-specificity-v1.test.mjs'
+      - 'data/talia-claim-source-remediation-129-135-139-v1.json'
       - 'scripts/qa/talia_claims101_140_independent_python_v1.py'
       - 'data/talia-claims-101-140-evidence-batch-v1.json'
       - 'scripts/curriculum-evidence-master-register-v1.mjs'
@@ -389,6 +391,8 @@ on:
       - 'scripts/qa/talia_indicator_15_reference_v1.py'
       - 'tests/talia-40-claim-multiturn-source-v1.test.mjs'
       - 'tests/talia-claims101-140-python-js-editorial-v1.test.mjs'
+      - 'tests/talia-source-remediation-specificity-v1.test.mjs'
+      - 'data/talia-claim-source-remediation-129-135-139-v1.json'
       - 'scripts/qa/talia_claims101_140_independent_python_v1.py'
       - 'data/talia-claims-101-140-evidence-batch-v1.json'
       - 'scripts/curriculum-evidence-master-register-v1.mjs'
@@ -617,6 +621,7 @@ jobs:
           node tests/talia-regulatory-timing-notices-v1.test.mjs
           node tests/talia-40-claim-multiturn-source-v1.test.mjs
           node tests/talia-claims101-140-python-js-editorial-v1.test.mjs
+          node tests/talia-source-remediation-specificity-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
           node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
