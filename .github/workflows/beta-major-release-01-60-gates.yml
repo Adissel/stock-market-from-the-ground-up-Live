@@ -307,3 +307,4 @@ jobs:
           print('PASS: 86 source test commands; member/browser, editorial, licensing, security and deployment require independent acceptance')
           PY
 # RELEASE-CUT 2026-11-02: Owner-accepted Academy regression and final exact-SHA CI requested.
+# RC20 RE-CUT 2026-11-02: seven groups, 86 source commands; launch after latest main c64d2b37c10f640b5b93182437fce0e4d6629bc3.
