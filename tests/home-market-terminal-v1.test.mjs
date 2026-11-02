@@ -27,3 +27,16 @@ test('dashboard chart labels show real counts and percentage without synthetic m
  for(const required of ['toLocaleString','Math.round(value*100/total)','Completed','In progress','Not started','aria-label'])assert.ok(p.includes(required),required);
  assert.doesNotMatch(p,/fetch\(|service_role|access_token/i);
 });
+
+test('fictional candle and volume colors meet nontext contrast on dark training plot',()=>{
+ const source=readFileSync('src/experience/HomeMarketTerminal.tsx','utf8');
+ const css=readFileSync('assets/css/home-market-terminal-v1.css','utf8');
+ const background='#071724';
+ assert.ok(css.includes(background));
+ const lum=hex=>{const c=hex.match(/[a-f0-9]{2}/ig);assert.equal(c?.length,3);const rgb=c.map(v=>parseInt(v,16)/255).map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]};
+ const contrast=(a,b)=>{const aa=lum(a),bb=lum(b);return (Math.max(aa,bb)+.05)/(Math.min(aa,bb)+.05)};
+ for(const color of ['#37c7aa','#e36d79','#2da98f','#be6570']){assert.ok(source.includes(color),'Missing rendered color '+color);assert.ok(contrast(color,background)>=3,'Insufficient nontext contrast '+color)}
+ assert.ok(source.includes('borderColor0'),'Bearish candle borders and wicks must remain visible');
+ assert.ok(source.includes('borderColor:'),'Bullish candle borders and wicks must remain visible');
+ assert.match(source,/Fictional market/);
+});
