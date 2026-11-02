@@ -68,3 +68,69 @@ export function draftEnterpriseProvenance({asOf,sources}={}){
  }
  return frozen({...empty,citations:frozen(out)});
 }
+
+/** Advanced source prototype: deterministic study order for distinct assessed gaps.
+ * This does not receive raw grades, history, PII or editable browser "competency" claims.
+ * Caller must validate provenance and member identity at a protected server route.
+ */
+export function draftAdvancedGapSequence({evidence,skills,maxItems=3}={}){
+ const empty=frozen({status:'source_prototype_not_released',items:frozen([]),officialGrade:false,memberProgressModified:false,premiumEntitlementGranted:false});
+ if(evidence?.ok!==true||evidence?.origin!=='authenticated_competency_summary'||
+    !Array.isArray(evidence.skills)||!Array.isArray(skills)||
+    !Number.isSafeInteger(maxItems)||maxItems<1||maxItems>5)return empty;
+ const names=new Map(skills.filter(s=>s&&/^[A-Z0-9_]{3,42}$/.test(s.code)&&typeof s.title==='string')
+   .map(s=>[s.code,safe(s.title,96)]));
+ const seen=new Set(),items=[];
+ for(const entry of evidence.skills){
+  if(!entry||!names.has(entry.code)||seen.has(entry.code))continue;
+  seen.add(entry.code);
+  if(!Number.isSafeInteger(entry.independentAssessments)||entry.independentAssessments<1)continue;
+  const category=safe(entry.status,32);
+  if(!['Needs Practice','Learning','Developing'].includes(category))continue;
+  items.push(frozen({code:entry.code,title:names.get(entry.code),status:category,
+   prompt:'Review a distinct fictional example, explain one error, and attempt an independent transfer.',
+   evidenceType:'authorized_summary_only',officialGrade:false}));
+  if(items.length===maxItems)break;
+ }
+ return frozen({...empty,items:frozen(items)});
+}
+
+/** Professional source prototype: previous-completed-close comparison.
+ * Requires independently validated completed replay timestamps; never returns
+ * the hidden future data or interprets a change as a trade-fill recommendation.
+ */
+export function draftProfessionalCloseDebrief(input={}){
+ const base=draftProfessionalEvidence(input);
+ const empty=frozen({status:'source_prototype_not_released',accepted:false,
+  explanation:'Insufficient verified completed-bar context.',hasFutureBars:false,officialGrade:false});
+ if(base.status!=='source_prototype_not_released'||base.observations.length<2)return empty;
+ const list=base.observations,last=list[list.length-1],prior=list[list.length-2];
+ if(!Number.isFinite(prior.close)||prior.close<=0)return empty;
+ const delta=last.close-prior.close,pct=100*delta/prior.close;
+ if(!Number.isFinite(pct))return empty;
+ return frozen({status:'source_prototype_not_released',accepted:true,
+  observationTime:base.asOf,lastCompletedTime:last.closeTime,
+  previousCompletedTime:prior.closeTime,priceChange:delta,percentChange:pct,
+  question:'What additional completed historical evidence would you require before inferring a trend?',
+  provenance:'source_only_revealed_completed_candles',hasFutureBars:false,officialGrade:false,
+  notARealFill:true});
+}
+
+/** Enterprise source prototype: as-of limited citation IDs only.
+ * No article text, private documents, licensed provider data or auto-ingestion.
+ */
+export function draftEnterpriseClaimCitationIndex({asOf,sources,requestedIds}={}){
+ const empty=frozen({status:'source_prototype_not_released',citations:frozen([]),
+  evidenceGaps:frozen([]),licensedDataImported:false,officialGrade:false});
+ if(!Array.isArray(requestedIds)||requestedIds.length>12||
+    requestedIds.some(id=>!/^[-A-Za-z0-9_]{3,72}$/.test(String(id))))return empty;
+ const base=draftEnterpriseProvenance({asOf,sources});
+ const byId=new Map(base.citations.map(c=>[c.id,c]));
+ const citations=[],gaps=[],used=new Set();
+ for(const id of requestedIds){
+  if(used.has(id))continue;used.add(id);
+  if(byId.has(id))citations.push(byId.get(id));
+  else gaps.push(id);
+ }
+ return frozen({...empty,citations:frozen(citations),evidenceGaps:frozen(gaps)});
+}
