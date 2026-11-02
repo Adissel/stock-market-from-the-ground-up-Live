@@ -134,6 +134,41 @@ export function enterpriseResearchStudy({manifest,observations,embargo=0,sensiti
   holdoutProtected:true,graded:false,masteryAwarded:false,
   limitation:'Chronological separation is necessary but does not establish predictive reliability.'});
 }
+/* Compute values on the trusted server from MEMBER-LABELED FICTIONAL bars.
+ * No caller-provided verified:true field can become an accepted indicator.
+ * The completed prefix validates OHLC and chronological order first.
+ */
+export function deriveFictionalCompletedStudies({evidence,emaPeriod=9}={}){
+ if(evidence?.provenance!=='fictional'||!Number.isInteger(emaPeriod)||
+    emaPeriod<2||emaPeriod>100)return null;
+ const prefix=asOfPrefix(evidence);
+ if(!prefix||prefix.bars.length<emaPeriod)return null;
+ const closes=prefix.bars.map(b=>b.close),bars=prefix.bars;
+ let ema=closes.slice(0,emaPeriod).reduce((a,b)=>a+b,0)/emaPeriod;
+ for(let i=emaPeriod;i<closes.length;i++)ema=closes[i]*2/(emaPeriod+1)+ema*(emaPeriod-1)/(emaPeriod+1);
+ const volume=bars.reduce((s,b)=>s+b.volume,0);
+ const vwap=volume>0?bars.reduce((s,b)=>s+(b.high+b.low+b.close)/3*b.volume,0)/volume:null;
+ const at=prefix.completedThrough;
+ const result=[freeze({name:'EMA',value:ema,asOf:at,
+   method:'SMA-seeded EMA '+emaPeriod+' on completed fictional closing prices',verified:true})];
+ if(vwap!==null)result.push(freeze({name:'VWAP',value:vwap,asOf:at,
+   method:'Typical-price volume-weighted mean of completed fictional candles',verified:true}));
+ return freeze({evidence:freeze({provenance:'fictional',asOf:evidence.asOf,
+   completedIndex:evidence.completedIndex,bars:prefix.bars}),
+   indicators:freeze(result),graded:false,masteryAwarded:false});
+}
+export function deriveFictionalCompletedFrames({evidence,frameSize=5}={}){
+ if(evidence?.provenance!=='fictional'||!Number.isSafeInteger(frameSize)||
+    frameSize<2||frameSize>60)return null;
+ const prefix=asOfPrefix(evidence);
+ if(!prefix)return null;
+ const frameRows=[],bars=prefix.bars;
+ for(let end=frameSize-1;end<bars.length&&frameRows.length<6;end+=frameSize){
+  frameRows.push(freeze({label:'Completed '+frameSize+'-bar group '+(frameRows.length+1),
+   completedThrough:bars[end].timestamp,close:bars[end].close,sourceVerified:true}));
+ }
+ return freeze(frameRows);
+}
 export function runEditionExercise({authorized,activity,payload}={}){
  if(authorized?.ok!==true||!['learning','lab'].includes(authorized.family)||
   !EDITIONS.includes(authorized.edition)||authorized.edition==='BASIC')return null;
