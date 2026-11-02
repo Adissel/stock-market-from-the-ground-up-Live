@@ -41,11 +41,11 @@
       "total": 8,
       "integrated": 0,
       "partial": 0,
-      "prototype": 5,
-      "not_implemented": 3,
+      "prototype": 6,
+      "not_implemented": 2,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 5
+      "automation_file_references": 6
     },
     "learning_ENTERPRISE": {
       "total": 8,
@@ -81,11 +81,11 @@
       "total": 8,
       "integrated": 0,
       "partial": 0,
-      "prototype": 5,
-      "not_implemented": 3,
+      "prototype": 6,
+      "not_implemented": 2,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 5
+      "automation_file_references": 6
     },
     "lab_ENTERPRISE": {
       "total": 8,
@@ -649,11 +649,11 @@
       "engine": "learning",
       "edition": "PROFESSIONAL",
       "title": "Persistent professional decision debrief",
-      "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "source_status": "prototype",
+      "evidence_file": "functions/api/learning-lab-edition-workspace.js",
+      "existing_test_file": "tests/learning-lab-edition-workspace-v1.test.mjs",
       "acceptance_criterion": "Save, isolate and restore authorized decision evidence.",
-      "unresolved": "No edition-specific protected history.",
+      "unresolved": "Private Supabase RLS table and revisioned server-controlled member workspace source implemented. The live database schema is applied with anonymous/member direct grants denied. No premium subscription grants are configured, authenticated member journeys and independent CI/release verification remain open; this is not source-integrated or released acceptance.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -753,11 +753,11 @@
       "engine": "lab",
       "edition": "PROFESSIONAL",
       "title": "Versioned professional Lab workspace persistence",
-      "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "source_status": "prototype",
+      "evidence_file": "functions/api/learning-lab-edition-workspace.js",
+      "existing_test_file": "tests/learning-lab-edition-workspace-v1.test.mjs",
       "acceptance_criterion": "Save and restore per-user view without cross-account disclosure.",
-      "unresolved": "Chart Studio persistence is separate engine.",
+      "unresolved": "Private Supabase RLS table and revisioned server-controlled member workspace source implemented. The live database schema is applied with anonymous/member direct grants denied. No premium subscription grants are configured, authenticated member journeys and independent CI/release verification remain open; this is not source-integrated or released acceptance.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
