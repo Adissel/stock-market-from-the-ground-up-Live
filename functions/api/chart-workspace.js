@@ -146,7 +146,10 @@ export async function onRequest({request,env}){
   if(request.headers.get('content-type')?.split(';')[0].toLowerCase()!=='application/json')
    return answer({ok:false,error:'Expected JSON'},415);
   if(Number(request.headers.get('content-length'))>16000)return answer({ok:false,error:'Workspace payload too large'},413);
-  const raw=await request.text();if(raw.length>16000)return answer({ok:false,error:'Workspace payload too large'},413);
+  const raw=await request.text();
+  // UTF-16 code units undercount multi-byte JSON; enforce the same 16 KiB bound in UTF-8.
+  if(raw.length>16000||new TextEncoder().encode(raw).byteLength>16000)
+   return answer({ok:false,error:'Workspace payload too large'},413);
   let value;try{value=JSON.parse(raw)}catch{return answer({ok:false,error:'Invalid JSON'},400)}
   if(!value||typeof value!=='object'||Array.isArray(value))return answer({ok:false,error:'Invalid workspace'},400);
   // An explicit revision is mandatory. Never turn an absent revision
