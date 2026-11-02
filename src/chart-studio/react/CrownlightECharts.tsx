@@ -31,6 +31,12 @@ export function CrownlightECharts({
   const callback = useRef(onBarInspect);
   const bars = useRef(completedBars);
   const [selected, setSelected] = useState<number | null>(null);
+  const inspect = (index: number) => {
+    const bar = bars.current[index];
+    if (!bar) return;
+    setSelected(index);
+    callback.current?.(bar);
+  };
   callback.current = onBarInspect;
   bars.current = completedBars;
 
@@ -42,8 +48,7 @@ export function CrownlightECharts({
     const onClick = (event: { dataIndex?: number; seriesType?: string }) => {
       const index = event.dataIndex;
       if (event.seriesType !== 'candlestick' || !Number.isInteger(index) || index! < 0) return;
-      const bar = bars.current[index!];
-      if (bar) { setSelected(index!); callback.current?.(bar); }
+      inspect(index!);
     };
     instance.on('click', onClick);
     const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => instance.resize()) : null;
@@ -72,7 +77,8 @@ export function CrownlightECharts({
       <caption>{symbol} {interval} — completed candles</caption>
       <thead><tr><th scope="col">Time</th><th scope="col">Open</th><th scope="col">High</th><th scope="col">Low</th><th scope="col">Close</th><th scope="col">Volume</th></tr></thead>
       <tbody>{completedBars.map((bar, i) => <tr key={`${bar.time}-${i}`}>
-        <th scope="row">{bar.time}</th><td>{bar.open}</td><td>{bar.high}</td><td>{bar.low}</td><td>{bar.close}</td><td>{bar.volume}</td>
+        <th scope="row"><button type="button" className="cl-react-chart__inspect" onClick={() => inspect(i)}
+          aria-label={`Inspect completed candle ${i + 1} at ${bar.time}`} aria-pressed={selected === i}>{bar.time}</button></th><td>{bar.open}</td><td>{bar.high}</td><td>{bar.low}</td><td>{bar.close}</td><td>{bar.volume}</td>
       </tr>)}</tbody>
     </table>
   </section>;
