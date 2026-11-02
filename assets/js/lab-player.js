@@ -694,7 +694,7 @@ async function initPlayer(){let loadEpoch=null;try{const params=new URLSearchPar
  // server-verified edition grant AND release flag. Never gate Basic instruction.
  if(session?.access_token&&PLAYER.access?.isMember===true&&memberUnchanged()){
   void globalThis.CrownlightEditionExercisePanelV1?.mount?.({
-   host:q('player-edition-exercise'),userId:memberId,
+   host:q('player-edition-exercise'),userId:memberId,labId:PLAYER.lab?.id,
    token:session.access_token,alive:memberUnchanged
   });
  }
