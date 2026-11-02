@@ -5373,44 +5373,44 @@
         "CHART_STRUCTURE",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Intraday Price Action and Market Structure — Range and mixed structure.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Intraday Price Action and Market Structure — Range and mixed structure begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional five-minute replay shows alternating closes between $10.12 support and $10.48 resistance, without a confirmed sequence of higher swing highs and higher swing lows.",
+          "Original FICTIONAL calculation context: 10.48 USD/share (Completed range ceiling) compared with 10.12 USD/share (Completed range floor). The recorded absolute difference is 0.36 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: Range width measures the enclosed $0.36 reference interval; it does not establish an upside trend or an executable bracket order. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Intraday Price Action and Market Structure — Range and mixed structure from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Intraday Price Action and Market Structure — Range and mixed structure by checking the completed time boundary and the correct completed range ceiling versus completed range floor rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional five-minute replay shows alternating closes between $10.12 support and $10.48 resistance, without a confirmed sequence of higher swing highs and higher swing lows. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: A static high-low range provides neither the within-bar path nor a guarantee that a limit order can fill. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Intraday Price Action and Market Structure — Range and mixed structure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Apply Intraday Price Action and Market Structure — Range and mixed structure to the original FICTIONAL observation. A fictional five-minute replay shows alternating closes between $10.12 support and $10.48 resistance, without a confirmed sequence of higher swing highs and higher swing lows. The key measurement uses 10.48 USD/share (Completed range ceiling) compared with 10.12 USD/share (Completed range floor).",
+          "Completed-evidence calculation: take the absolute difference of 10.48 and 10.12 USD/share, which equals 0.36 USD/share. Range width measures the enclosed $0.36 reference interval; it does not establish an upside trend or an executable bracket order.",
+          "Pause and explain your decision BEFORE revealing new information: Label only confirmed pivots, preserve both range boundaries, and choose WAIT when direction remains mixed. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Intraday Price Action and Market Structure — Range and mixed structure: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Intraday Price Action and Market Structure — Range and mixed structure: Calling every small uptick inside the range a new uptrend overlooks contradictory swing evidence and unconfirmed pivots. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Label only confirmed pivots, preserve both range boundaries, and choose WAIT when direction remains mixed. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. A static high-low range provides neither the within-bar path nor a guarantee that a limit order can fill."
         ],
         "limits": [
-          "What Intraday Price Action and Market Structure — Range and mixed structure cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limits of Intraday Price Action and Market Structure — Range and mixed structure: A static high-low range provides neither the within-bar path nor a guarantee that a limit order can fill. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and CMT-ASSOC require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Label only confirmed pivots, preserve both range boundaries, and choose WAIT when direction remains mixed. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Intraday Price Action and Market Structure — Range and mixed structure, independently identify the two already-completed observations (Completed range ceiling and Completed range floor), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
         "topic": "Intraday Price Action and Market Structure — Range and mixed structure",
+        "prompt": "In a separate FICTIONAL range bounded by $27.65 and $27.22, calculate its width and state why a middle-of-range close is inconclusive.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C07-L03": {
       "labId": "DT-C07-L03",
@@ -5421,44 +5421,44 @@
         "CHART_STRUCTURE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Intraday Price Action and Market Structure — Expansion and Contraction.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Intraday Price Action and Market Structure — Expansion and Contraction begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. Two complete fictional five-minute candles have high-low spans of $0.64 then $0.17; the latter candle is already finished at the learner's pause.",
+          "Original FICTIONAL calculation context: 0.64 USD/share (Earlier expanded range width) compared with 0.17 USD/share (Later contracted range width). The recorded absolute difference is 0.47 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The absolute difference of $0.47 compares observed spans rather than indicating an automatic pending breakout. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Intraday Price Action and Market Structure — Expansion and Contraction from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Intraday Price Action and Market Structure — Expansion and Contraction by checking the completed time boundary and the correct earlier expanded range width versus later contracted range width rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: Two complete fictional five-minute candles have high-low spans of $0.64 then $0.17; the latter candle is already finished at the learner's pause. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: A high-low span does not reveal temporal sequencing, execution cost, or the direction of the next candle. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Intraday Price Action and Market Structure — Expansion and Contraction using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Apply Intraday Price Action and Market Structure — Expansion and Contraction to the original FICTIONAL observation. Two complete fictional five-minute candles have high-low spans of $0.64 then $0.17; the latter candle is already finished at the learner's pause. The key measurement uses 0.64 USD/share (Earlier expanded range width) compared with 0.17 USD/share (Later contracted range width).",
+          "Completed-evidence calculation: take the absolute difference of 0.64 and 0.17 USD/share, which equals 0.47 USD/share. The absolute difference of $0.47 compares observed spans rather than indicating an automatic pending breakout.",
+          "Pause and explain your decision BEFORE revealing new information: Record the exact prior completed bar ranges, then decide whether the risk and direction evidence warrants a new decision. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Intraday Price Action and Market Structure — Expansion and Contraction: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Intraday Price Action and Market Structure — Expansion and Contraction: Reading price compression as a guaranteed explosive move ignores false breakouts and the absence of volume or liquidity confirmation. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Record the exact prior completed bar ranges, then decide whether the risk and direction evidence warrants a new decision. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. A high-low span does not reveal temporal sequencing, execution cost, or the direction of the next candle."
         ],
         "limits": [
-          "What Intraday Price Action and Market Structure — Expansion and Contraction cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Limits of Intraday Price Action and Market Structure — Expansion and Contraction: A high-low span does not reveal temporal sequencing, execution cost, or the direction of the next candle. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and CHARTSCHOOL-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Record the exact prior completed bar ranges, then decide whether the risk and direction evidence warrants a new decision. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Intraday Price Action and Market Structure — Expansion and Contraction, independently identify the two already-completed observations (Earlier expanded range width and Later contracted range width), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
         "topic": "Intraday Price Action and Market Structure — Expansion and Contraction",
+        "prompt": "With FICTIONAL completed ranges of $0.52 and $0.21, calculate contraction and write a no-trade condition.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C08-L01": {
       "labId": "DT-C08-L01",
@@ -5468,44 +5468,44 @@
       "relatedCompetencies": [
         "MULTI_TIMEFRAME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Using Multiple Timeframes — Higher-timeframe context.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Using Multiple Timeframes — Higher-timeframe context begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional fifteen-minute chart has a completed resistance reference of $52.44; a completed one-minute candle at the aligned timestamp closes at $52.10.",
+          "Original FICTIONAL calculation context: 52.44 USD/share (Higher-timeframe resistance) compared with 52.1 USD/share (Lower-timeframe completed close). The recorded absolute difference is 0.34 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.34 shortfall places the lower-timeframe close below the recorded higher-timeframe reference without implying the next one-minute bar will reject. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Using Multiple Timeframes — Higher-timeframe context from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Using Multiple Timeframes — Higher-timeframe context by checking the completed time boundary and the correct higher-timeframe resistance versus lower-timeframe completed close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional fifteen-minute chart has a completed resistance reference of $52.44; a completed one-minute candle at the aligned timestamp closes at $52.10. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: A fifteen-minute candle still forming at the pause may not be treated as a confirmed higher-timeframe close. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Using Multiple Timeframes — Higher-timeframe context using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Apply Using Multiple Timeframes — Higher-timeframe context to the original FICTIONAL observation. A fictional fifteen-minute chart has a completed resistance reference of $52.44; a completed one-minute candle at the aligned timestamp closes at $52.10. The key measurement uses 52.44 USD/share (Higher-timeframe resistance) compared with 52.1 USD/share (Lower-timeframe completed close).",
+          "Completed-evidence calculation: take the absolute difference of 52.44 and 52.10 USD/share, which equals 0.34 USD/share. The $0.34 shortfall places the lower-timeframe close below the recorded higher-timeframe reference without implying the next one-minute bar will reject.",
+          "Pause and explain your decision BEFORE revealing new information: Read the completed fifteen-minute level before evaluating the one-minute setup; align timestamps and use a no-trade branch when blocked. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Using Multiple Timeframes — Higher-timeframe context: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Using Multiple Timeframes — Higher-timeframe context: Entering on a one-minute bullish candle while ignoring its proximity to higher-timeframe resistance can reverse the intended context. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Read the completed fifteen-minute level before evaluating the one-minute setup; align timestamps and use a no-trade branch when blocked. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. A fifteen-minute candle still forming at the pause may not be treated as a confirmed higher-timeframe close."
         ],
         "limits": [
-          "What Using Multiple Timeframes — Higher-timeframe context cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Limits of Using Multiple Timeframes — Higher-timeframe context: A fifteen-minute candle still forming at the pause may not be treated as a confirmed higher-timeframe close. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and TOS-LRN require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Read the completed fifteen-minute level before evaluating the one-minute setup; align timestamps and use a no-trade branch when blocked. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Using Multiple Timeframes — Higher-timeframe context, independently identify the two already-completed observations (Higher-timeframe resistance and Lower-timeframe completed close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
         "topic": "Using Multiple Timeframes — Higher-timeframe context",
+        "prompt": "At FICTIONAL fifteen-minute resistance $64.80 and completed one-minute close $64.42, calculate the gap and identify which timeframe must already be completed.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C08-L02": {
       "labId": "DT-C08-L02",
@@ -5516,44 +5516,44 @@
         "MULTI_TIMEFRAME",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Using Multiple Timeframes — One- and three-minute timing.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Using Multiple Timeframes — One- and three-minute timing begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. At the same fictional replay pause, the latest completed one-minute close is $20.18 and the completed three-minute aggregation close is $20.03 from an earlier finish time.",
+          "Original FICTIONAL calculation context: 20.18 USD/share (Completed one-minute close) compared with 20.03 USD/share (Completed three-minute close). The recorded absolute difference is 0.15 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.15 distance is a difference between separate completion timestamps, not evidence that both bars closed simultaneously. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Using Multiple Timeframes — One- and three-minute timing from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Using Multiple Timeframes — One- and three-minute timing by checking the completed time boundary and the correct completed one-minute close versus completed three-minute close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: At the same fictional replay pause, the latest completed one-minute close is $20.18 and the completed three-minute aggregation close is $20.03 from an earlier finish time. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: One- and three-minute bars can summarize overlapping trades; their closes should not be added as independent market evidence. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Using Multiple Timeframes — One- and three-minute timing using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Apply Using Multiple Timeframes — One- and three-minute timing to the original FICTIONAL observation. At the same fictional replay pause, the latest completed one-minute close is $20.18 and the completed three-minute aggregation close is $20.03 from an earlier finish time. The key measurement uses 20.18 USD/share (Completed one-minute close) compared with 20.03 USD/share (Completed three-minute close).",
+          "Completed-evidence calculation: take the absolute difference of 20.18 and 20.03 USD/share, which equals 0.15 USD/share. The $0.15 distance is a difference between separate completion timestamps, not evidence that both bars closed simultaneously.",
+          "Pause and explain your decision BEFORE revealing new information: Mark exact timestamp boundaries, accept only completed one- and three-minute intervals, and require independent entry conditions. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Using Multiple Timeframes — One- and three-minute timing: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Using Multiple Timeframes — One- and three-minute timing: Using an unfinished three-minute candle alongside a completed one-minute bar leaks information that would not yet be finalized at that decision point. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Mark exact timestamp boundaries, accept only completed one- and three-minute intervals, and require independent entry conditions. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. One- and three-minute bars can summarize overlapping trades; their closes should not be added as independent market evidence."
         ],
         "limits": [
-          "What Using Multiple Timeframes — One- and three-minute timing cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Limits of Using Multiple Timeframes — One- and three-minute timing: One- and three-minute bars can summarize overlapping trades; their closes should not be added as independent market evidence. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: TOS-LRN and CHARTSCHOOL-OVER require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Mark exact timestamp boundaries, accept only completed one- and three-minute intervals, and require independent entry conditions. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Using Multiple Timeframes — One- and three-minute timing, independently identify the two already-completed observations (Completed one-minute close and Completed three-minute close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
         "topic": "Using Multiple Timeframes — One- and three-minute timing",
+        "prompt": "For a FICTIONAL completed one-minute close $33.26 and earlier completed three-minute close $33.11, calculate the distance and explain a shared-data limitation.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C08-L03": {
       "labId": "DT-C08-L03",
@@ -5564,44 +5564,44 @@
         "MULTI_TIMEFRAME",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern.",
-          "Higher and lower timeframes are different aggregations of the same chronology, not independent confirmations.",
-          "Label each candle aggregation interval and close time, and compare higher-timeframe structure only after its reference candle has closed."
+          "Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional five-minute range has a confirmed upper level at $38.25 while a later one-minute candidate candle closes at $38.17.",
+          "Original FICTIONAL calculation context: 38.25 USD/share (Higher-timeframe resistance) compared with 38.17 USD/share (Completed one-minute breakout candidate). The recorded absolute difference is 0.08 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The close remains $0.08 below the higher-timeframe barrier, so an apparent bullish lower-timeframe pattern is not a confirmed higher-timeframe break. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern from the source evidence.",
-          "State the close of each visible aggregation before describing alignment.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern by checking the completed time boundary and the correct higher-timeframe resistance versus completed one-minute breakout candidate rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional five-minute range has a confirmed upper level at $38.25 while a later one-minute candidate candle closes at $38.17. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Without true session data, higher-timeframe bar alignment, spread, or future confirmation, no breakout performance claim follows. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the close of each visible aggregation before describing alignment.",
-          "Step 3 — Check the alternative or invalidation: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Apply Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern to the original FICTIONAL observation. A fictional five-minute range has a confirmed upper level at $38.25 while a later one-minute candidate candle closes at $38.17. The key measurement uses 38.25 USD/share (Higher-timeframe resistance) compared with 38.17 USD/share (Completed one-minute breakout candidate).",
+          "Completed-evidence calculation: take the absolute difference of 38.25 and 38.17 USD/share, which equals 0.08 USD/share. The close remains $0.08 below the higher-timeframe barrier, so an apparent bullish lower-timeframe pattern is not a confirmed higher-timeframe break.",
+          "Pause and explain your decision BEFORE revealing new information: Preserve the same time-aligned completed five-minute and one-minute references, and explain why the strategy might decline the entry. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern: Using the finished higher-timeframe bar to justify an earlier entry.",
-          "Correct it by returning to the actual observation. State the close of each visible aggregation before describing alignment.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern: Copying a low-timeframe pattern label into a higher-timeframe trend call ignores stronger nearby structure and confirmation criteria. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Preserve the same time-aligned completed five-minute and one-minute references, and explain why the strategy might decline the entry. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Without true session data, higher-timeframe bar alignment, spread, or future confirmation, no breakout performance claim follows."
         ],
         "limits": [
-          "What Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern cannot establish:",
-          "A lower-timeframe reaction can occur inside an unresolved higher-timeframe candle.",
-          "An interpretation is invalidated or unproven when: The higher-timeframe candle is unfinished at the decision timestamp."
+          "Limits of Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern: Without true session data, higher-timeframe bar alignment, spread, or future confirmation, no breakout performance claim follows. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and CHARTSCHOOL-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Preserve the same time-aligned completed five-minute and one-minute references, and explain why the strategy might decline the entry. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support multi-timeframe alignment, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern, independently identify the two already-completed observations (Higher-timeframe resistance and Completed one-minute breakout candidate), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional five-minute bar in progress while a one-minute bar closes, state which evidence is final and what remains provisional.",
         "topic": "Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern",
+        "prompt": "With FICTIONAL five-minute resistance $71.10 and one-minute close $71.03, calculate the remaining distance and decide whether the break criterion is met.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C09-L01": {
       "labId": "DT-C09-L01",
@@ -5611,44 +5611,44 @@
       "relatedCompetencies": [
         "VOLUME_ANALYSIS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Volume in Day Trading — Absolute and relative volume.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Volume in Day Trading — Absolute and relative volume begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional five-minute bar contains 2,400 shares and a prior equal-duration five-minute reference contains 1,500 shares.",
+          "Original FICTIONAL calculation context: 2,400 shares (Completed five-minute volume) compared with 1,500 shares (Reference five-minute volume). The recorded absolute difference is 900 shares; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The 900-share excess is a raw difference; the relative multiple is 1.6 times only for this identical-volume-feed comparison. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Volume in Day Trading — Absolute and relative volume from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Volume in Day Trading — Absolute and relative volume by checking the completed time boundary and the correct completed five-minute volume versus reference five-minute volume rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional five-minute bar contains 2,400 shares and a prior equal-duration five-minute reference contains 1,500 shares. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Volume does not specify buyer intention, aggressor identity, order-book depth, or whether a trade was profitable. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Volume in Day Trading — Absolute and relative volume using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Apply Volume in Day Trading — Absolute and relative volume to the original FICTIONAL observation. A fictional five-minute bar contains 2,400 shares and a prior equal-duration five-minute reference contains 1,500 shares. The key measurement uses 2,400 shares (Completed five-minute volume) compared with 1,500 shares (Reference five-minute volume).",
+          "Completed-evidence calculation: take the absolute difference of 2400 and 1500 shares, which equals 900 shares. The 900-share excess is a raw difference; the relative multiple is 1.6 times only for this identical-volume-feed comparison.",
+          "Pause and explain your decision BEFORE revealing new information: Specify duration, session, source and how the comparison baseline was chosen before interpreting participation. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Volume in Day Trading — Absolute and relative volume: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Volume in Day Trading — Absolute and relative volume: Calling a bar high-relative-volume without matching time-of-day baseline, duration or vendor coverage can distort participation. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Specify duration, session, source and how the comparison baseline was chosen before interpreting participation. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed shares difference and a reasonable WAIT or NO TRADE alternative. Volume does not specify buyer intention, aggressor identity, order-book depth, or whether a trade was profitable."
         ],
         "limits": [
-          "What Volume in Day Trading — Absolute and relative volume cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Limits of Volume in Day Trading — Absolute and relative volume: Volume does not specify buyer intention, aggressor identity, order-book depth, or whether a trade was profitable. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-IND and SCHWAB-EDU require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Specify duration, session, source and how the comparison baseline was chosen before interpreting participation. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Volume in Day Trading — Absolute and relative volume, independently identify the two already-completed observations (Completed five-minute volume and Reference five-minute volume), recompute their absolute difference in shares, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
         "topic": "Volume in Day Trading — Absolute and relative volume",
+        "prompt": "In a FICTIONAL pair of equally timed bars with 3,600 and 2,250 shares, calculate the difference and proportional multiple.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C09-L02": {
       "labId": "DT-C09-L02",
@@ -5659,44 +5659,44 @@
         "VOLUME_ANALYSIS",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Volume in Day Trading — Volume contraction.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Volume in Day Trading — Volume contraction begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional consolidation displays a completed 800-share bar followed by a completed 420-share bar over equal intervals.",
+          "Original FICTIONAL calculation context: 800 shares (Earlier completed volume) compared with 420 shares (Later completed volume). The recorded absolute difference is 380 shares; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The 380-share reduction is a measure of observed activity contraction only, not a mathematical probability of breakout. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Volume in Day Trading — Volume contraction from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Volume in Day Trading — Volume contraction by checking the completed time boundary and the correct earlier completed volume versus later completed volume rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional consolidation displays a completed 800-share bar followed by a completed 420-share bar over equal intervals. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: One vendor's reported volume may exclude trades or venues; the missing feed provenance prevents market-wide conclusions. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Volume in Day Trading — Volume contraction using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Apply Volume in Day Trading — Volume contraction to the original FICTIONAL observation. A fictional consolidation displays a completed 800-share bar followed by a completed 420-share bar over equal intervals. The key measurement uses 800 shares (Earlier completed volume) compared with 420 shares (Later completed volume).",
+          "Completed-evidence calculation: take the absolute difference of 800 and 420 shares, which equals 380 shares. The 380-share reduction is a measure of observed activity contraction only, not a mathematical probability of breakout.",
+          "Pause and explain your decision BEFORE revealing new information: Confirm interval comparability and accompanying price contraction; prepare both upside, downside and no-trade alternatives. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Volume in Day Trading — Volume contraction: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Volume in Day Trading — Volume contraction: Assuming contraction must resolve upward ignores quiet trading, news interruptions and the possibility of additional sideways action. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Confirm interval comparability and accompanying price contraction; prepare both upside, downside and no-trade alternatives. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed shares difference and a reasonable WAIT or NO TRADE alternative. One vendor's reported volume may exclude trades or venues; the missing feed provenance prevents market-wide conclusions."
         ],
         "limits": [
-          "What Volume in Day Trading — Volume contraction cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Limits of Volume in Day Trading — Volume contraction: One vendor's reported volume may exclude trades or venues; the missing feed provenance prevents market-wide conclusions. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-IND and TOS-LRN require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Confirm interval comparability and accompanying price contraction; prepare both upside, downside and no-trade alternatives. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Volume in Day Trading — Volume contraction, independently identify the two already-completed observations (Earlier completed volume and Later completed volume), recompute their absolute difference in shares, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
         "topic": "Volume in Day Trading — Volume contraction",
+        "prompt": "For FICTIONAL completed 1,120-share then 670-share bars, calculate the change and identify why breakout direction remains unknown.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C09-L03": {
       "labId": "DT-C09-L03",
@@ -5707,44 +5707,44 @@
         "VOLUME_ANALYSIS",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Volume in Day Trading — What One Volume Bar Actually Represents.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Volume in Day Trading — What One Volume Bar Actually Represents begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional five-minute volume bar aggregates 1,200 reported shares, of which a single illustrative print contains 180 shares.",
+          "Original FICTIONAL calculation context: 1,200 shares (Complete bar aggregate volume) compared with 180 shares (One included reported print size). The recorded absolute difference is 1020 shares; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The remaining 1,020 shares describe other contribution to the aggregate; none are classified by buyer or seller initiation. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Volume in Day Trading — What One Volume Bar Actually Represents from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Volume in Day Trading — What One Volume Bar Actually Represents by checking the completed time boundary and the correct complete bar aggregate volume versus one included reported print size rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional five-minute volume bar aggregates 1,200 reported shares, of which a single illustrative print contains 180 shares. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: No transaction identifiers, venue flags or execution sequence are provided; this example cannot reconstruct authentic time and sales. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Volume in Day Trading — What One Volume Bar Actually Represents using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Apply Volume in Day Trading — What One Volume Bar Actually Represents to the original FICTIONAL observation. A fictional five-minute volume bar aggregates 1,200 reported shares, of which a single illustrative print contains 180 shares. The key measurement uses 1,200 shares (Complete bar aggregate volume) compared with 180 shares (One included reported print size).",
+          "Completed-evidence calculation: take the absolute difference of 1200 and 180 shares, which equals 1020 shares. The remaining 1,020 shares describe other contribution to the aggregate; none are classified by buyer or seller initiation.",
+          "Pause and explain your decision BEFORE revealing new information: Differentiate consolidated bar totals from individual tape messages and disclose the assumed reporting scope. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Volume in Day Trading — What One Volume Bar Actually Represents: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Volume in Day Trading — What One Volume Bar Actually Represents: Confusing one visible print with the entire OHLCV bar or interpreting bar color as the side of every trade misstates transaction data. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Differentiate consolidated bar totals from individual tape messages and disclose the assumed reporting scope. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed shares difference and a reasonable WAIT or NO TRADE alternative. No transaction identifiers, venue flags or execution sequence are provided; this example cannot reconstruct authentic time and sales."
         ],
         "limits": [
-          "What Volume in Day Trading — What One Volume Bar Actually Represents cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Limits of Volume in Day Trading — What One Volume Bar Actually Represents: No transaction identifiers, venue flags or execution sequence are provided; this example cannot reconstruct authentic time and sales. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-IND and FINRA-DATA require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Differentiate consolidated bar totals from individual tape messages and disclose the assumed reporting scope. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Volume in Day Trading — What One Volume Bar Actually Represents, independently identify the two already-completed observations (Complete bar aggregate volume and One included reported print size), recompute their absolute difference in shares, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
         "topic": "Volume in Day Trading — What One Volume Bar Actually Represents",
+        "prompt": "For a FICTIONAL 2,000-share volume bar with a highlighted 325-share print, compute the unassigned remainder and state why trade motive is unknown.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C10-L01": {
       "labId": "DT-C10-L01",
@@ -5755,44 +5755,44 @@
         "SLIPPAGE_SPREAD",
         "ORDER_SELECTION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional protected quote snapshot shows an ask at $10.07 and bid at $9.98 with no guaranteed size or executable fill.",
+          "Original FICTIONAL calculation context: 10.07 USD/share (Displayed ask) compared with 9.98 USD/share (Displayed bid). The recorded absolute difference is 0.09 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The quoted spread of $0.09 per share is a liquidity and execution-quality consideration, not a member's realized charge. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify by checking the completed time boundary and the correct displayed ask versus displayed bid rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional protected quote snapshot shows an ask at $10.07 and bid at $9.98 with no guaranteed size or executable fill. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: A quote snapshot does not prove routing quality, true fill, price improvement, hidden liquidity, fees or a complete best-bid-offer history. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Apply Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify to the original FICTIONAL observation. A fictional protected quote snapshot shows an ask at $10.07 and bid at $9.98 with no guaranteed size or executable fill. The key measurement uses 10.07 USD/share (Displayed ask) compared with 9.98 USD/share (Displayed bid).",
+          "Completed-evidence calculation: take the absolute difference of 10.07 and 9.98 USD/share, which equals 0.09 USD/share. The quoted spread of $0.09 per share is a liquidity and execution-quality consideration, not a member's realized charge.",
+          "Pause and explain your decision BEFORE revealing new information: Classify the quoted spread, available size, session and order type before estimating any possible execution cost. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify: Confusing the last trade price with an available bid or assuming the full displayed quote can fill a large order hides slippage. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Classify the quoted spread, available size, session and order type before estimating any possible execution cost. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. A quote snapshot does not prove routing quality, true fill, price improvement, hidden liquidity, fees or a complete best-bid-offer history."
         ],
         "limits": [
-          "What Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Limits of Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify: A quote snapshot does not prove routing quality, true fill, price improvement, hidden liquidity, fees or a complete best-bid-offer history. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: SEC-605 and FINRA-DATA require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Classify the quoted spread, available size, session and order type before estimating any possible execution cost. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify, independently identify the two already-completed observations (Displayed ask and Displayed bid), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
         "topic": "Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify",
+        "prompt": "With FICTIONAL bid $15.42 and ask $15.55, compute the spread and identify two reasons a market order might execute differently.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C10-L02": {
       "labId": "DT-C10-L02",
@@ -5804,44 +5804,44 @@
         "ORDER_SELECTION",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional order-book display shows 1,200 shares at one top-of-book bid and 300 shares at a different venue's visible level.",
+          "Original FICTIONAL calculation context: 1,200 shares (Visible top-of-book bid size) compared with 300 shares (Separate hypothetical venue displayed size). The recorded absolute difference is 900 shares; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The 900-share difference compares displayed quantities only; it does not establish a market-wide inventory or guaranteed executable depth. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth by checking the completed time boundary and the correct visible top-of-book bid size versus separate hypothetical venue displayed size rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional order-book display shows 1,200 shares at one top-of-book bid and 300 shares at a different venue's visible level. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Top-of-book and level-two messages cannot alone prove other traders' intent or determine a future fill. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Apply Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth to the original FICTIONAL observation. A fictional order-book display shows 1,200 shares at one top-of-book bid and 300 shares at a different venue's visible level. The key measurement uses 1,200 shares (Visible top-of-book bid size) compared with 300 shares (Separate hypothetical venue displayed size).",
+          "Completed-evidence calculation: take the absolute difference of 1200 and 300 shares, which equals 900 shares. The 900-share difference compares displayed quantities only; it does not establish a market-wide inventory or guaranteed executable depth.",
+          "Pause and explain your decision BEFORE revealing new information: Check venue, price level, timestamps and displayed-versus-executable liquidity before interpreting trade frequency or depth. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth: Assuming that all visible depth persists until an order arrives ignores cancellations, hidden orders, routing and quote updates. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Check venue, price level, timestamps and displayed-versus-executable liquidity before interpreting trade frequency or depth. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed shares difference and a reasonable WAIT or NO TRADE alternative. Top-of-book and level-two messages cannot alone prove other traders' intent or determine a future fill."
         ],
         "limits": [
-          "What Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Limits of Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth: Top-of-book and level-two messages cannot alone prove other traders' intent or determine a future fill. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: SEC-605 and FINRA-DATA require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Check venue, price level, timestamps and displayed-versus-executable liquidity before interpreting trade frequency or depth. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth, independently identify the two already-completed observations (Visible top-of-book bid size and Separate hypothetical venue displayed size), recompute their absolute difference in shares, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
         "topic": "Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth",
+        "prompt": "For FICTIONAL displayed venue sizes 2,100 and 750 shares, compute the difference and list a depth-visibility limitation.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C10-L03": {
       "labId": "DT-C10-L03",
@@ -5853,44 +5853,44 @@
         "ORDER_SELECTION",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional bid of $24.08 and ask of $24.18 define a $0.10 bid-ask spread at a single completed snapshot.",
+          "Original FICTIONAL calculation context: 24.18 USD/share (Displayed ask) compared with 24.08 USD/share (Displayed bid). The recorded absolute difference is 0.10 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The simple quoted midpoint is $24.13, halfway between bid and ask; neither midpoint nor last price guarantees an execution. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread by checking the completed time boundary and the correct displayed ask versus displayed bid rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional bid of $24.08 and ask of $24.18 define a $0.10 bid-ask spread at a single completed snapshot. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: The venue's displayed inside quote might change before order arrival, and the example does not certify a consolidated NBBO feed. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Apply Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread to the original FICTIONAL observation. A fictional bid of $24.08 and ask of $24.18 define a $0.10 bid-ask spread at a single completed snapshot. The key measurement uses 24.18 USD/share (Displayed ask) compared with 24.08 USD/share (Displayed bid).",
+          "Completed-evidence calculation: take the absolute difference of 24.18 and 24.08 USD/share, which equals 0.10 USD/share. The simple quoted midpoint is $24.13, halfway between bid and ask; neither midpoint nor last price guarantees an execution.",
+          "Pause and explain your decision BEFORE revealing new information: Compute bid, ask, midpoint and spread separately, and describe which side an aggressive buy typically consumes. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread: Treating midpoint as a freely executable quote for any market order ignores routing, size, price improvement and adverse selection. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Compute bid, ask, midpoint and spread separately, and describe which side an aggressive buy typically consumes. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. The venue's displayed inside quote might change before order arrival, and the example does not certify a consolidated NBBO feed."
         ],
         "limits": [
-          "What Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Limits of Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread: The venue's displayed inside quote might change before order arrival, and the example does not certify a consolidated NBBO feed. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: SEC-605 and NASDAQ-TRADER require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Compute bid, ask, midpoint and spread separately, and describe which side an aggressive buy typically consumes. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread, independently identify the two already-completed observations (Displayed ask and Displayed bid), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
         "topic": "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread",
+        "prompt": "For FICTIONAL bid $51.22 and ask $51.36, calculate spread and midpoint and explain why the midpoint is not a guaranteed fill.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C11-L01": {
       "labId": "DT-C11-L01",
@@ -5902,44 +5902,44 @@
         "VWAP_CONTEXT",
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP and Moving Averages in Intraday Trading — VWAP as a session reference.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional session record computes its VWAP using only completed price-volume contributions and reports $10.11 at the pause; a completed candle closes at $10.20.",
+          "Original FICTIONAL calculation context: 10.2 USD/share (Completed close) compared with 10.11 USD/share (Prior calculated session VWAP). The recorded absolute difference is 0.09 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.09 close-above-VWAP distance is a comparison, not a claim that VWAP equals an unweighted average or predicts mean reversion. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize VWAP and Moving Averages in Intraday Trading — VWAP as a session reference from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize VWAP and Moving Averages in Intraday Trading — VWAP as a session reference by checking the completed time boundary and the correct completed close versus prior calculated session vwap rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional session record computes its VWAP using only completed price-volume contributions and reports $10.11 at the pause; a completed candle closes at $10.20. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: The exact representative-price convention, session reset and provider adjustments must be declared before comparing real VWAP values. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice VWAP and Moving Averages in Intraday Trading — VWAP as a session reference using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Apply VWAP and Moving Averages in Intraday Trading — VWAP as a session reference to the original FICTIONAL observation. A fictional session record computes its VWAP using only completed price-volume contributions and reports $10.11 at the pause; a completed candle closes at $10.20. The key measurement uses 10.2 USD/share (Completed close) compared with 10.11 USD/share (Prior calculated session VWAP).",
+          "Completed-evidence calculation: take the absolute difference of 10.20 and 10.11 USD/share, which equals 0.09 USD/share. The $0.09 close-above-VWAP distance is a comparison, not a claim that VWAP equals an unweighted average or predicts mean reversion.",
+          "Pause and explain your decision BEFORE revealing new information: Maintain a session-specific cumulative price-times-volume numerator and cumulative volume denominator using only finished observations. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with VWAP and Moving Averages in Intraday Trading — VWAP as a session reference: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for VWAP and Moving Averages in Intraday Trading — VWAP as a session reference: Recomputing VWAP after importing future bars and showing the later value at an earlier replay cursor is no-lookahead contamination. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Maintain a session-specific cumulative price-times-volume numerator and cumulative volume denominator using only finished observations. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. The exact representative-price convention, session reset and provider adjustments must be declared before comparing real VWAP values."
         ],
         "limits": [
-          "What VWAP and Moving Averages in Intraday Trading — VWAP as a session reference cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Limits of VWAP and Moving Averages in Intraday Trading — VWAP as a session reference: The exact representative-price convention, session reset and provider adjustments must be declared before comparing real VWAP values. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: TOS-VWAP and CHARTSCHOOL-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Maintain a session-specific cumulative price-times-volume numerator and cumulative volume denominator using only finished observations. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For VWAP and Moving Averages in Intraday Trading — VWAP as a session reference, independently identify the two already-completed observations (Completed close and Prior calculated session VWAP), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
         "topic": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+        "prompt": "For FICTIONAL completed close $33.44 and already-calculated session VWAP $33.29, compute the distance and explain why future bars cannot be included.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C11-L02": {
       "labId": "DT-C11-L02",
@@ -5951,44 +5951,44 @@
         "VWAP_CONTEXT",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP and Moving Averages in Intraday Trading — Reclaim and rejection.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional previously completed candle closes at $33.28 while the contemporaneous VWAP reference computed from revealed session data is $33.19.",
+          "Original FICTIONAL calculation context: 33.28 USD/share (Completed price close) compared with 33.19 USD/share (Already-computed session VWAP). The recorded absolute difference is 0.09 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.09 separation is positive, but one close above VWAP is not a sustained reclaim or a verified subsequent rejection. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize VWAP and Moving Averages in Intraday Trading — Reclaim and rejection from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize VWAP and Moving Averages in Intraday Trading — Reclaim and rejection by checking the completed time boundary and the correct completed price close versus already-computed session vwap rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional previously completed candle closes at $33.28 while the contemporaneous VWAP reference computed from revealed session data is $33.19. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: VWAP does not reveal order-flow motive and cannot guarantee a reaction; spread, sampling and session reset still matter. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice VWAP and Moving Averages in Intraday Trading — Reclaim and rejection using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Apply VWAP and Moving Averages in Intraday Trading — Reclaim and rejection to the original FICTIONAL observation. A fictional previously completed candle closes at $33.28 while the contemporaneous VWAP reference computed from revealed session data is $33.19. The key measurement uses 33.28 USD/share (Completed price close) compared with 33.19 USD/share (Already-computed session VWAP).",
+          "Completed-evidence calculation: take the absolute difference of 33.28 and 33.19 USD/share, which equals 0.09 USD/share. The $0.09 separation is positive, but one close above VWAP is not a sustained reclaim or a verified subsequent rejection.",
+          "Pause and explain your decision BEFORE revealing new information: Define reclaim as a documented sequence of previously completed observations, preserve decision timestamps, and permit failed reclaim/no trade. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with VWAP and Moving Averages in Intraday Trading — Reclaim and rejection: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for VWAP and Moving Averages in Intraday Trading — Reclaim and rejection: Claiming that a brief intrabar VWAP touch was a lasting reclaim replaces a close-based criterion with hindsight. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Define reclaim as a documented sequence of previously completed observations, preserve decision timestamps, and permit failed reclaim/no trade. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. VWAP does not reveal order-flow motive and cannot guarantee a reaction; spread, sampling and session reset still matter."
         ],
         "limits": [
-          "What VWAP and Moving Averages in Intraday Trading — Reclaim and rejection cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Limits of VWAP and Moving Averages in Intraday Trading — Reclaim and rejection: VWAP does not reveal order-flow motive and cannot guarantee a reaction; spread, sampling and session reset still matter. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: TOS-VWAP and CHARTSCHOOL-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Define reclaim as a documented sequence of previously completed observations, preserve decision timestamps, and permit failed reclaim/no trade. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For VWAP and Moving Averages in Intraday Trading — Reclaim and rejection, independently identify the two already-completed observations (Completed price close and Already-computed session VWAP), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
         "topic": "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection",
+        "prompt": "With FICTIONAL close $47.05 and known VWAP $46.91, compute the separation and list extra completed evidence needed to classify a reclaim.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C11-L03": {
       "labId": "DT-C11-L03",
@@ -6000,44 +6000,44 @@
         "VWAP_CONTEXT",
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional intraday chart presents a session VWAP of $29.94 derived from earlier completed volume-weighted observations and a completed close of $29.86.",
+          "Original FICTIONAL calculation context: 29.94 USD/share (Current completed session VWAP) compared with 29.86 USD/share (Completed close). The recorded absolute difference is 0.08 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.08 close-below-reference distance describes the present state, not a guaranteed resistance level or a complete VWAP calculation from only two prices. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference by checking the completed time boundary and the correct current completed session vwap versus completed close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional intraday chart presents a session VWAP of $29.94 derived from earlier completed volume-weighted observations and a completed close of $29.86. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: The underlying cumulative sums and representative price series must be available to independently validate a true session VWAP. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Apply VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference to the original FICTIONAL observation. A fictional intraday chart presents a session VWAP of $29.94 derived from earlier completed volume-weighted observations and a completed close of $29.86. The key measurement uses 29.94 USD/share (Current completed session VWAP) compared with 29.86 USD/share (Completed close).",
+          "Completed-evidence calculation: take the absolute difference of 29.94 and 29.86 USD/share, which equals 0.08 USD/share. The $0.08 close-below-reference distance describes the present state, not a guaranteed resistance level or a complete VWAP calculation from only two prices.",
+          "Pause and explain your decision BEFORE revealing new information: State which session and price proxy are used, require positive cumulative volume, and align the VWAP cursor with the same completed-bar timestamp. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference: Resetting VWAP at an arbitrary chart zoom boundary or mixing premarket and regular-session bars without a declared rule changes the interpretation. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: State which session and price proxy are used, require positive cumulative volume, and align the VWAP cursor with the same completed-bar timestamp. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. The underlying cumulative sums and representative price series must be available to independently validate a true session VWAP."
         ],
         "limits": [
-          "What VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Limits of VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference: The underlying cumulative sums and representative price series must be available to independently validate a true session VWAP. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: TOS-VWAP and QC-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: State which session and price proxy are used, require positive cumulative volume, and align the VWAP cursor with the same completed-bar timestamp. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference, independently identify the two already-completed observations (Current completed session VWAP and Completed close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
         "topic": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+        "prompt": "With FICTIONAL completed VWAP $62.18 and close $62.04, compute the distance and specify which session and volume fields would be needed to reconstruct VWAP.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C12-L01": {
       "labId": "DT-C12-L01",
@@ -6049,44 +6049,44 @@
         "EMA_CONTEXT",
         "HOD_PM_LEVELS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Levels Day Traders Watch — Premarket high and low.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "The Levels Day Traders Watch — Premarket high and low begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional regular-session replay begins with a separately labeled premarket high at $42.50 and premarket low at $41.80, both already observed before the open.",
+          "Original FICTIONAL calculation context: 42.5 USD/share (Recorded premarket high) compared with 41.8 USD/share (Recorded premarket low). The recorded absolute difference is 0.70 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.70 premarket span is an observed reference range and does not certify that either extreme offers a future trade entry. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize The Levels Day Traders Watch — Premarket high and low from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize The Levels Day Traders Watch — Premarket high and low by checking the completed time boundary and the correct recorded premarket high versus recorded premarket low rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional regular-session replay begins with a separately labeled premarket high at $42.50 and premarket low at $41.80, both already observed before the open. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Exchange-specific premarket definitions and vendor inclusion rules can change the extreme; no live feed or trade fill is supplied. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice The Levels Day Traders Watch — Premarket high and low using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Apply The Levels Day Traders Watch — Premarket high and low to the original FICTIONAL observation. A fictional regular-session replay begins with a separately labeled premarket high at $42.50 and premarket low at $41.80, both already observed before the open. The key measurement uses 42.5 USD/share (Recorded premarket high) compared with 41.8 USD/share (Recorded premarket low).",
+          "Completed-evidence calculation: take the absolute difference of 42.50 and 41.80 USD/share, which equals 0.70 USD/share. The $0.70 premarket span is an observed reference range and does not certify that either extreme offers a future trade entry.",
+          "Pause and explain your decision BEFORE revealing new information: Freeze the permitted extended-hours window and its observed extrema at the decision pause; do not mix regular-session HOD with premarket high. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with The Levels Day Traders Watch — Premarket high and low: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for The Levels Day Traders Watch — Premarket high and low: Drawing the premarket high from bars after the regular-session decision time leaks future information into the chart. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Freeze the permitted extended-hours window and its observed extrema at the decision pause; do not mix regular-session HOD with premarket high. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Exchange-specific premarket definitions and vendor inclusion rules can change the extreme; no live feed or trade fill is supplied."
         ],
         "limits": [
-          "What The Levels Day Traders Watch — Premarket high and low cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Limits of The Levels Day Traders Watch — Premarket high and low: Exchange-specific premarket definitions and vendor inclusion rules can change the extreme; no live feed or trade fill is supplied. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: NASDAQ-TRADER and CHARTSCHOOL-OVER require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Freeze the permitted extended-hours window and its observed extrema at the decision pause; do not mix regular-session HOD with premarket high. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For The Levels Day Traders Watch — Premarket high and low, independently identify the two already-completed observations (Recorded premarket high and Recorded premarket low), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
         "topic": "The Levels Day Traders Watch — Premarket high and low",
+        "prompt": "For FICTIONAL premarket high $19.75 and low $19.22, calculate span and state why the time cutoff must be fixed.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C12-L02": {
       "labId": "DT-C12-L02",
@@ -6097,44 +6097,44 @@
         "HOD_PM_LEVELS",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Levels Day Traders Watch — High of day and low of day.",
-          "High-of-day, premarket and previous-day levels each depend on precise market-session boundaries.",
-          "Label premarket and regular-session high/low separately, with exact session timezone, data feed and prior-versus-current trading date."
+          "The Levels Day Traders Watch — High of day and low of day begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional session has produced an observed HOD of $20.60 and LOD of $20.10 through the latest completed visible bar.",
+          "Original FICTIONAL calculation context: 20.6 USD/share (High of day so far) compared with 20.1 USD/share (Low of day so far). The recorded absolute difference is 0.50 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The current $0.50 observed range may expand later, so a chart cannot label a future final-session high or low in an earlier pause. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize The Levels Day Traders Watch — High of day and low of day from the source evidence.",
-          "Write down the session timezone, source and last completed interval used to compute the level.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize The Levels Day Traders Watch — High of day and low of day by checking the completed time boundary and the correct high of day so far versus low of day so far rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional session has produced an observed HOD of $20.60 and LOD of $20.10 through the latest completed visible bar. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Halts, auction prints, corporate-action adjustments and feed definitions can affect real-session highs and lows. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice The Levels Day Traders Watch — High of day and low of day using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write down the session timezone, source and last completed interval used to compute the level.",
-          "Step 3 — Check the alternative or invalidation: Session mapping or corporate-action adjustment is unavailable or inconsistent."
+          "Apply The Levels Day Traders Watch — High of day and low of day to the original FICTIONAL observation. A fictional session has produced an observed HOD of $20.60 and LOD of $20.10 through the latest completed visible bar. The key measurement uses 20.6 USD/share (High of day so far) compared with 20.1 USD/share (Low of day so far).",
+          "Completed-evidence calculation: take the absolute difference of 20.60 and 20.10 USD/share, which equals 0.50 USD/share. The current $0.50 observed range may expand later, so a chart cannot label a future final-session high or low in an earlier pause.",
+          "Pause and explain your decision BEFORE revealing new information: Recompute provisional session extremes from only visible completed bars; label them as HOD/LOD so far. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with The Levels Day Traders Watch — High of day and low of day: Using tomorrow's high-of-day as today's decision level.",
-          "Correct it by returning to the actual observation. Write down the session timezone, source and last completed interval used to compute the level.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for The Levels Day Traders Watch — High of day and low of day: Using an end-of-day final HOD as if it were known at 10 a.m. violates the causal decision boundary. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Recompute provisional session extremes from only visible completed bars; label them as HOD/LOD so far. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Halts, auction prints, corporate-action adjustments and feed definitions can affect real-session highs and lows."
         ],
         "limits": [
-          "What The Levels Day Traders Watch — High of day and low of day cannot establish:",
-          "The level describes prior extremes, not an executable order price.",
-          "An interpretation is invalidated or unproven when: Session mapping or corporate-action adjustment is unavailable or inconsistent."
+          "Limits of The Levels Day Traders Watch — High of day and low of day: Halts, auction prints, corporate-action adjustments and feed definitions can affect real-session highs and lows. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and NASDAQ-TRADER require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Recompute provisional session extremes from only visible completed bars; label them as HOD/LOD so far. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support session high and premarket levels, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For The Levels Day Traders Watch — High of day and low of day, independently identify the two already-completed observations (High of day so far and Low of day so far), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional 08:30 high and 10:00 high, decide which level is PMH and which is regular-session HOD.",
         "topic": "The Levels Day Traders Watch — High of day and low of day",
+        "prompt": "At a FICTIONAL noon pause with HOD-so-far $72.40 and LOD-so-far $71.65, calculate range and explain why both labels are provisional.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C12-L03": {
       "labId": "DT-C12-L03",
@@ -6146,44 +6146,44 @@
         "EMA_CONTEXT",
         "HOD_PM_LEVELS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Levels Day Traders Watch — Premarket High and Low.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "The Levels Day Traders Watch — Premarket High and Low begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional symbol's fixed premarket review interval ends at 9:29 a.m. Eastern with recorded high $30.25 and low $29.75.",
+          "Original FICTIONAL calculation context: 30.25 USD/share (Premarket high at cutoff) compared with 29.75 USD/share (Premarket low at cutoff). The recorded absolute difference is 0.50 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.50 span is reference context. The 9:30 regular-session opening auction is a separate mechanism, not a premarket bar. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize The Levels Day Traders Watch — Premarket High and Low from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize The Levels Day Traders Watch — Premarket High and Low by checking the completed time boundary and the correct premarket high at cutoff versus premarket low at cutoff rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional symbol's fixed premarket review interval ends at 9:29 a.m. Eastern with recorded high $30.25 and low $29.75. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Premarket data coverage and auction information differ by venue; a fictional candle dataset cannot validate NBBO or execution. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice The Levels Day Traders Watch — Premarket High and Low using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Apply The Levels Day Traders Watch — Premarket High and Low to the original FICTIONAL observation. A fictional symbol's fixed premarket review interval ends at 9:29 a.m. Eastern with recorded high $30.25 and low $29.75. The key measurement uses 30.25 USD/share (Premarket high at cutoff) compared with 29.75 USD/share (Premarket low at cutoff).",
+          "Completed-evidence calculation: take the absolute difference of 30.25 and 29.75 USD/share, which equals 0.50 USD/share. The $0.50 span is reference context. The 9:30 regular-session opening auction is a separate mechanism, not a premarket bar.",
+          "Pause and explain your decision BEFORE revealing new information: Record exchange timezone, premarket start and cutoff, included trade types and whether indicative auction messages are separate. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with The Levels Day Traders Watch — Premarket High and Low: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for The Levels Day Traders Watch — Premarket High and Low: Including a regular-session bar in premarket extremes can alter the references and give a learner an invalid late signal. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Record exchange timezone, premarket start and cutoff, included trade types and whether indicative auction messages are separate. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Premarket data coverage and auction information differ by venue; a fictional candle dataset cannot validate NBBO or execution."
         ],
         "limits": [
-          "What The Levels Day Traders Watch — Premarket High and Low cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Limits of The Levels Day Traders Watch — Premarket High and Low: Premarket data coverage and auction information differ by venue; a fictional candle dataset cannot validate NBBO or execution. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: NASDAQ-TRADER and TOS-LRN require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Record exchange timezone, premarket start and cutoff, included trade types and whether indicative auction messages are separate. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For The Levels Day Traders Watch — Premarket High and Low, independently identify the two already-completed observations (Premarket high at cutoff and Premarket low at cutoff), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
         "topic": "The Levels Day Traders Watch — Premarket High and Low",
+        "prompt": "For FICTIONAL premarket high $41.90 and low $41.28, calculate its span and explain which 9:30 observations must stay excluded.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C13-L01": {
       "labId": "DT-C13-L01",
@@ -6193,44 +6193,44 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gaps and the Opening Period — Gap context.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Gaps and the Opening Period — Gap context begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional regular-session opening reference is $45.60 versus the previous completed regular-session closing reference of $45.00.",
+          "Original FICTIONAL calculation context: 45.6 USD/share (Regular-session opening reference) compared with 45 USD/share (Previous regular-session close). The recorded absolute difference is 0.60 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The observed $0.60 upward opening difference describes a gap in two timestamps, not the intraday path or a confirmed breakout. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Gaps and the Opening Period — Gap context from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Gaps and the Opening Period — Gap context by checking the completed time boundary and the correct regular-session opening reference versus previous regular-session close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional regular-session opening reference is $45.60 versus the previous completed regular-session closing reference of $45.00. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Corporate actions, premarket trades and official auction methodology can materially change a real gap measurement. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Gaps and the Opening Period — Gap context using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Apply Gaps and the Opening Period — Gap context to the original FICTIONAL observation. A fictional regular-session opening reference is $45.60 versus the previous completed regular-session closing reference of $45.00. The key measurement uses 45.6 USD/share (Regular-session opening reference) compared with 45 USD/share (Previous regular-session close).",
+          "Completed-evidence calculation: take the absolute difference of 45.60 and 45.00 USD/share, which equals 0.60 USD/share. The observed $0.60 upward opening difference describes a gap in two timestamps, not the intraday path or a confirmed breakout.",
+          "Pause and explain your decision BEFORE revealing new information: Separate the prior official close, the venue-specific opening mechanism, later completed price action and trade planning. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Gaps and the Opening Period — Gap context: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Gaps and the Opening Period — Gap context: Assuming an opening gap must fill, or calling a quote a final executable opening auction print, overstates the evidence. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Separate the prior official close, the venue-specific opening mechanism, later completed price action and trade planning. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Corporate actions, premarket trades and official auction methodology can materially change a real gap measurement."
         ],
         "limits": [
-          "What Gaps and the Opening Period — Gap context cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "Limits of Gaps and the Opening Period — Gap context: Corporate actions, premarket trades and official auction methodology can materially change a real gap measurement. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and NASDAQ-TRADER require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Separate the prior official close, the venue-specific opening mechanism, later completed price action and trade planning. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Gaps and the Opening Period — Gap context, independently identify the two already-completed observations (Regular-session opening reference and Previous regular-session close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
         "topic": "Gaps and the Opening Period — Gap context",
+        "prompt": "For FICTIONAL prior regular close $55.80 and open $56.25, compute the difference and name a data-adjustment check.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C13-L02": {
       "labId": "DT-C13-L02",
@@ -6240,44 +6240,44 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gaps and the Opening Period — Acceptance versus rejection.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Gaps and the Opening Period — Acceptance versus rejection begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional session opens at $12.30 after a previous completed regular-session close at $12.00; the first post-open candle is not yet completed at the pause.",
+          "Original FICTIONAL calculation context: 12.3 USD/share (Regular-session opening observation) compared with 12 USD/share (Previous completed close). The recorded absolute difference is 0.30 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The observed opening gap is $0.30, but neither acceptance above the gap nor rejection back toward the previous close is knowable at this moment. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Gaps and the Opening Period — Acceptance versus rejection from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Gaps and the Opening Period — Acceptance versus rejection by checking the completed time boundary and the correct regular-session opening observation versus previous completed close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional session opens at $12.30 after a previous completed regular-session close at $12.00; the first post-open candle is not yet completed at the pause. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: Auction prints, spread and volatile first minutes remain uncertain; gap size alone does not imply directional continuation. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Gaps and the Opening Period — Acceptance versus rejection using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Apply Gaps and the Opening Period — Acceptance versus rejection to the original FICTIONAL observation. A fictional session opens at $12.30 after a previous completed regular-session close at $12.00; the first post-open candle is not yet completed at the pause. The key measurement uses 12.3 USD/share (Regular-session opening observation) compared with 12 USD/share (Previous completed close).",
+          "Completed-evidence calculation: take the absolute difference of 12.30 and 12.00 USD/share, which equals 0.30 USD/share. The observed opening gap is $0.30, but neither acceptance above the gap nor rejection back toward the previous close is knowable at this moment.",
+          "Pause and explain your decision BEFORE revealing new information: Freeze the opening reference, wait for predefined completed-bar evidence and state separate acceptance, rejection and no-trade criteria. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Gaps and the Opening Period — Acceptance versus rejection: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Gaps and the Opening Period — Acceptance versus rejection: Applying a later completed five-minute candle to justify a decision placed at the opening time is hindsight bias. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Freeze the opening reference, wait for predefined completed-bar evidence and state separate acceptance, rejection and no-trade criteria. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. Auction prints, spread and volatile first minutes remain uncertain; gap size alone does not imply directional continuation."
         ],
         "limits": [
-          "What Gaps and the Opening Period — Acceptance versus rejection cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Limits of Gaps and the Opening Period — Acceptance versus rejection: Auction prints, spread and volatile first minutes remain uncertain; gap size alone does not imply directional continuation. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: CHARTSCHOOL-OVER and CHARTSCHOOL-IND require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Freeze the opening reference, wait for predefined completed-bar evidence and state separate acceptance, rejection and no-trade criteria. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Gaps and the Opening Period — Acceptance versus rejection, independently identify the two already-completed observations (Regular-session opening observation and Previous completed close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
         "topic": "Gaps and the Opening Period — Acceptance versus rejection",
+        "prompt": "For FICTIONAL previous close $22.10 and open $22.47, compute the gap and explain what future candle evidence must remain hidden.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C13-L03": {
       "labId": "DT-C13-L03",
@@ -6287,44 +6287,44 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "FICTIONAL_SUBJECT_INSTRUCTION_WRITTEN_CLAIM_MATH_RIGHTS_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Gaps and the Opening Period — Why the Opening Auction Matters.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Gaps and the Opening Period — Why the Opening Auction Matters begins with an explicit decision timestamp, a completed observation window and a question the learner can answer without unseen market data. A fictional venue reports an opening auction price of $51.12 after the earlier regular-session closing price was $50.95.",
+          "Original FICTIONAL calculation context: 51.12 USD/share (Illustrative opening auction price) compared with 50.95 USD/share (Previous regular-session close). The recorded absolute difference is 0.17 USD/share; an observed difference alone is not a buy or sell recommendation.",
+          "One-on-one Talia interpretation: The $0.17 difference compares two completed auction/close observations but does not reveal opening-auction order imbalance or an individual's fill. Before proceeding, explain what is observed, what remains unmeasured and whether a no-trade response is defensible."
         ],
         "recognize": [
-          "Here is how to recognize Gaps and the Opening Period — Why the Opening Auction Matters from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognize Gaps and the Opening Period — Why the Opening Auction Matters by checking the completed time boundary and the correct illustrative opening auction price versus previous regular-session close rather than recognizing a decorative chart pattern.",
+          "For this FICTIONAL case, read the timestamped context: A fictional venue reports an opening auction price of $51.12 after the earlier regular-session closing price was $50.95. Do not import later session extremes, future candles, live quotes or execution results.",
+          "Challenge the first interpretation using a defensible alternative: A fictional price pair cannot reproduce an actual exchange imbalance feed, allocation or full opening cross. Identify what additional real data would be necessary before claiming verified historical behavior."
         ],
         "apply": [
-          "Let us practice Gaps and the Opening Period — Why the Opening Auction Matters using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Apply Gaps and the Opening Period — Why the Opening Auction Matters to the original FICTIONAL observation. A fictional venue reports an opening auction price of $51.12 after the earlier regular-session closing price was $50.95. The key measurement uses 51.12 USD/share (Illustrative opening auction price) compared with 50.95 USD/share (Previous regular-session close).",
+          "Completed-evidence calculation: take the absolute difference of 51.12 and 50.95 USD/share, which equals 0.17 USD/share. The $0.17 difference compares two completed auction/close observations but does not reveal opening-auction order imbalance or an individual's fill.",
+          "Pause and explain your decision BEFORE revealing new information: Specify exchange, auction phase, final match versus indicative message, cutoff timestamp and instrument rules before describing an executable opportunity. No protected answer key, brokerage order, member grade or future market candle is included in this guided example."
         ],
         "mistake": [
-          "A common error with Gaps and the Opening Period — Why the Opening Auction Matters: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Live-trading mistake for Gaps and the Opening Period — Why the Opening Auction Matters: Treating an indicative auction imbalance message as a guaranteed matched fill or applying every exchange's auction rule interchangeably is incorrect. Reproduce the evidence available at the original pause rather than retrospectively substituting a better outcome.",
+          "Talia correction: Specify exchange, auction phase, final match versus indicative message, cutoff timestamp and instrument rules before describing an executable opportunity. Ask for a short written account of why the original temptation is unsound given the quoted evidence.",
+          "Self-repair prompt: with the same original FICTIONAL inputs, restate the observed USD/share difference and a reasonable WAIT or NO TRADE alternative. A fictional price pair cannot reproduce an actual exchange imbalance feed, allocation or full opening cross."
         ],
         "limits": [
-          "What Gaps and the Opening Period — Why the Opening Auction Matters cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Limits of Gaps and the Opening Period — Why the Opening Auction Matters: A fictional price pair cannot reproduce an actual exchange imbalance feed, allocation or full opening cross. This educational FICTIONAL comparison does not certify historical market data, full chart paths, future execution, a broker fill or realized performance.",
+          "Candidate source register only: NASDAQ-TRADER and NYSE require claim-level editorial review, formula-convention review where applicable, and separate publication/data rights. They are not approved feed or reproduction licenses.",
+          "No-lookahead and release boundary: Specify exchange, auction phase, final match versus indicative message, cutoff timestamp and instrument rules before describing an executable opportunity. A reviewer must confirm accurate input scope and timing in live authenticated member teaching; fictional arithmetic is not an independently graded competency result."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "For Gaps and the Opening Period — Why the Opening Auction Matters, independently identify the two already-completed observations (Illustrative opening auction price and Previous regular-session close), recompute their absolute difference in USD/share, explain the consequential live-trading mistake, and defend a neutral decision when evidence is insufficient.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
         "topic": "Gaps and the Opening Period — Why the Opening Auction Matters",
+        "prompt": "For FICTIONAL previous close $84.10 and final opening auction price $84.36, calculate the difference and distinguish indicative from final auction information.",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101"
     },
     "DT-C14-L01": {
       "labId": "DT-C14-L01",

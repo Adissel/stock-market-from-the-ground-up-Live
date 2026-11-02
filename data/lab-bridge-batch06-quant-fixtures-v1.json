@@ -1,0 +1,331 @@
+{
+  "schema": "SMFGU-LAB-BATCH06-QUANT-FIXTURES-V1",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "canonicalLabCount": 419,
+  "sourceAuthored": 120,
+  "independentGradesIncluded": false,
+  "historicalBarsIncluded": false,
+  "cases": [
+    {
+      "labId": "DT-C07-L02",
+      "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+      "inputs": [
+        10.48,
+        10.12
+      ],
+      "labels": [
+        "Completed range ceiling",
+        "Completed range floor"
+      ],
+      "unit": "USD/share",
+      "expected": 0.36,
+      "transferPrompt": "In a separate FICTIONAL range bounded by $27.65 and $27.22, calculate its width and state why a middle-of-range close is inconclusive.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C07-L03",
+      "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+      "inputs": [
+        0.64,
+        0.17
+      ],
+      "labels": [
+        "Earlier expanded range width",
+        "Later contracted range width"
+      ],
+      "unit": "USD/share",
+      "expected": 0.47,
+      "transferPrompt": "With FICTIONAL completed ranges of $0.52 and $0.21, calculate contraction and write a no-trade condition.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C08-L01",
+      "title": "Using Multiple Timeframes — Higher-timeframe context",
+      "inputs": [
+        52.44,
+        52.1
+      ],
+      "labels": [
+        "Higher-timeframe resistance",
+        "Lower-timeframe completed close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.34,
+      "transferPrompt": "At FICTIONAL fifteen-minute resistance $64.80 and completed one-minute close $64.42, calculate the gap and identify which timeframe must already be completed.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C08-L02",
+      "title": "Using Multiple Timeframes — One- and three-minute timing",
+      "inputs": [
+        20.18,
+        20.03
+      ],
+      "labels": [
+        "Completed one-minute close",
+        "Completed three-minute close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.15,
+      "transferPrompt": "For a FICTIONAL completed one-minute close $33.26 and earlier completed three-minute close $33.11, calculate the distance and explain a shared-data limitation.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C08-L03",
+      "title": "Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern",
+      "inputs": [
+        38.25,
+        38.17
+      ],
+      "labels": [
+        "Higher-timeframe resistance",
+        "Completed one-minute breakout candidate"
+      ],
+      "unit": "USD/share",
+      "expected": 0.08,
+      "transferPrompt": "With FICTIONAL five-minute resistance $71.10 and one-minute close $71.03, calculate the remaining distance and decide whether the break criterion is met.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C09-L01",
+      "title": "Volume in Day Trading — Absolute and relative volume",
+      "inputs": [
+        2400,
+        1500
+      ],
+      "labels": [
+        "Completed five-minute volume",
+        "Reference five-minute volume"
+      ],
+      "unit": "shares",
+      "expected": 900,
+      "transferPrompt": "In a FICTIONAL pair of equally timed bars with 3,600 and 2,250 shares, calculate the difference and proportional multiple.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C09-L02",
+      "title": "Volume in Day Trading — Volume contraction",
+      "inputs": [
+        800,
+        420
+      ],
+      "labels": [
+        "Earlier completed volume",
+        "Later completed volume"
+      ],
+      "unit": "shares",
+      "expected": 380,
+      "transferPrompt": "For FICTIONAL completed 1,120-share then 670-share bars, calculate the change and identify why breakout direction remains unknown.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C09-L03",
+      "title": "Volume in Day Trading — What One Volume Bar Actually Represents",
+      "inputs": [
+        1200,
+        180
+      ],
+      "labels": [
+        "Complete bar aggregate volume",
+        "One included reported print size"
+      ],
+      "unit": "shares",
+      "expected": 1020,
+      "transferPrompt": "For a FICTIONAL 2,000-share volume bar with a highlighted 325-share print, compute the unassigned remainder and state why trade motive is unknown.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C10-L01",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify",
+      "inputs": [
+        10.07,
+        9.98
+      ],
+      "labels": [
+        "Displayed ask",
+        "Displayed bid"
+      ],
+      "unit": "USD/share",
+      "expected": 0.09,
+      "transferPrompt": "With FICTIONAL bid $15.42 and ask $15.55, compute the spread and identify two reasons a market order might execute differently.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C10-L02",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth",
+      "inputs": [
+        1200,
+        300
+      ],
+      "labels": [
+        "Visible top-of-book bid size",
+        "Separate hypothetical venue displayed size"
+      ],
+      "unit": "shares",
+      "expected": 900,
+      "transferPrompt": "For FICTIONAL displayed venue sizes 2,100 and 750 shares, compute the difference and list a depth-visibility limitation.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C10-L03",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread",
+      "inputs": [
+        24.18,
+        24.08
+      ],
+      "labels": [
+        "Displayed ask",
+        "Displayed bid"
+      ],
+      "unit": "USD/share",
+      "expected": 0.1,
+      "transferPrompt": "For FICTIONAL bid $51.22 and ask $51.36, calculate spread and midpoint and explain why the midpoint is not a guaranteed fill.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C11-L01",
+      "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+      "inputs": [
+        10.2,
+        10.11
+      ],
+      "labels": [
+        "Completed close",
+        "Prior calculated session VWAP"
+      ],
+      "unit": "USD/share",
+      "expected": 0.09,
+      "transferPrompt": "For FICTIONAL completed close $33.44 and already-calculated session VWAP $33.29, compute the distance and explain why future bars cannot be included.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C11-L02",
+      "title": "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection",
+      "inputs": [
+        33.28,
+        33.19
+      ],
+      "labels": [
+        "Completed price close",
+        "Already-computed session VWAP"
+      ],
+      "unit": "USD/share",
+      "expected": 0.09,
+      "transferPrompt": "With FICTIONAL close $47.05 and known VWAP $46.91, compute the separation and list extra completed evidence needed to classify a reclaim.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C11-L03",
+      "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+      "inputs": [
+        29.94,
+        29.86
+      ],
+      "labels": [
+        "Current completed session VWAP",
+        "Completed close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.08,
+      "transferPrompt": "With FICTIONAL completed VWAP $62.18 and close $62.04, compute the distance and specify which session and volume fields would be needed to reconstruct VWAP.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C12-L01",
+      "title": "The Levels Day Traders Watch — Premarket high and low",
+      "inputs": [
+        42.5,
+        41.8
+      ],
+      "labels": [
+        "Recorded premarket high",
+        "Recorded premarket low"
+      ],
+      "unit": "USD/share",
+      "expected": 0.7,
+      "transferPrompt": "For FICTIONAL premarket high $19.75 and low $19.22, calculate span and state why the time cutoff must be fixed.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C12-L02",
+      "title": "The Levels Day Traders Watch — High of day and low of day",
+      "inputs": [
+        20.6,
+        20.1
+      ],
+      "labels": [
+        "High of day so far",
+        "Low of day so far"
+      ],
+      "unit": "USD/share",
+      "expected": 0.5,
+      "transferPrompt": "At a FICTIONAL noon pause with HOD-so-far $72.40 and LOD-so-far $71.65, calculate range and explain why both labels are provisional.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C12-L03",
+      "title": "The Levels Day Traders Watch — Premarket High and Low",
+      "inputs": [
+        30.25,
+        29.75
+      ],
+      "labels": [
+        "Premarket high at cutoff",
+        "Premarket low at cutoff"
+      ],
+      "unit": "USD/share",
+      "expected": 0.5,
+      "transferPrompt": "For FICTIONAL premarket high $41.90 and low $41.28, calculate its span and explain which 9:30 observations must stay excluded.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C13-L01",
+      "title": "Gaps and the Opening Period — Gap context",
+      "inputs": [
+        45.6,
+        45
+      ],
+      "labels": [
+        "Regular-session opening reference",
+        "Previous regular-session close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.6,
+      "transferPrompt": "For FICTIONAL prior regular close $55.80 and open $56.25, compute the difference and name a data-adjustment check.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C13-L02",
+      "title": "Gaps and the Opening Period — Acceptance versus rejection",
+      "inputs": [
+        12.3,
+        12
+      ],
+      "labels": [
+        "Regular-session opening observation",
+        "Previous completed close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.3,
+      "transferPrompt": "For FICTIONAL previous close $22.10 and open $22.47, compute the gap and explain what future candle evidence must remain hidden.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    },
+    {
+      "labId": "DT-C13-L03",
+      "title": "Gaps and the Opening Period — Why the Opening Auction Matters",
+      "inputs": [
+        51.12,
+        50.95
+      ],
+      "labels": [
+        "Illustrative opening auction price",
+        "Previous regular-session close"
+      ],
+      "unit": "USD/share",
+      "expected": 0.17,
+      "transferPrompt": "For FICTIONAL previous close $84.10 and final opening auction price $84.36, calculate the difference and distinguish indicative from final auction information.",
+      "status": "FICTIONAL_MATH_ONLY_NO_EDITORIAL_ACCEPTANCE"
+    }
+  ]
+}

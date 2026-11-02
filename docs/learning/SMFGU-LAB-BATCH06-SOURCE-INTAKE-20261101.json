@@ -1,0 +1,319 @@
+{
+  "schema": "SMFGU-LAB-BATCH06-SOURCE-INTAKE-001",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "status": "CANDIDATE_SOURCES_ONLY_20_ORIGINAL_DRAFTS_IN_SEPARATE_BRIDGE",
+  "canonicalLabCount": 419,
+  "priorAuthored": 100,
+  "newDrafts": 20,
+  "academyAccepted": 93,
+  "sourceRights": "NOT_APPROVED_FOR_PUBLICATION_OR_MARKET_DATA_INGESTION",
+  "excludedUnresolvedCanonTitles": [
+    "F3-C04-L01",
+    "F3-C04-L02",
+    "F3-C04-L03"
+  ],
+  "entries": [
+    {
+      "labId": "DT-C07-L02",
+      "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CMT-ASSOC"
+      ],
+      "reviewFocus": "Verify completed-time boundary, completed range ceiling, completed range floor, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C07-L03",
+      "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, earlier expanded range width, later contracted range width, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C08-L01",
+      "title": "Using Multiple Timeframes — Higher-timeframe context",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "TOS-LRN"
+      ],
+      "reviewFocus": "Verify completed-time boundary, higher-timeframe resistance, lower-timeframe completed close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C08-L02",
+      "title": "Using Multiple Timeframes — One- and three-minute timing",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-LRN",
+        "CHARTSCHOOL-OVER"
+      ],
+      "reviewFocus": "Verify completed-time boundary, completed one-minute close, completed three-minute close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C08-L03",
+      "title": "Using Multiple Timeframes — Higher-Timeframe Context Changes the Meaning of the Same Intraday Pattern",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, higher-timeframe resistance, completed one-minute breakout candidate, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C09-L01",
+      "title": "Volume in Day Trading — Absolute and relative volume",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "SCHWAB-EDU"
+      ],
+      "reviewFocus": "Verify completed-time boundary, completed five-minute volume, reference five-minute volume, appropriate shares interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C09-L02",
+      "title": "Volume in Day Trading — Volume contraction",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "TOS-LRN"
+      ],
+      "reviewFocus": "Verify completed-time boundary, earlier completed volume, later completed volume, appropriate shares interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C09-L03",
+      "title": "Volume in Day Trading — What One Volume Bar Actually Represents",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-IND",
+        "FINRA-DATA"
+      ],
+      "reviewFocus": "Verify completed-time boundary, complete bar aggregate volume, one included reported print size, appropriate shares interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C10-L01",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "SEC-605",
+        "FINRA-DATA"
+      ],
+      "reviewFocus": "Verify completed-time boundary, displayed ask, displayed bid, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C10-L02",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "SEC-605",
+        "FINRA-DATA"
+      ],
+      "reviewFocus": "Verify completed-time boundary, visible top-of-book bid size, separate hypothetical venue displayed size, appropriate shares interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C10-L03",
+      "title": "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "SEC-605",
+        "NASDAQ-TRADER"
+      ],
+      "reviewFocus": "Verify completed-time boundary, displayed ask, displayed bid, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C11-L01",
+      "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-VWAP",
+        "CHARTSCHOOL-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, completed close, prior calculated session vwap, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C11-L02",
+      "title": "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-VWAP",
+        "CHARTSCHOOL-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, completed price close, already-computed session vwap, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C11-L03",
+      "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "TOS-VWAP",
+        "QC-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, current completed session vwap, completed close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C12-L01",
+      "title": "The Levels Day Traders Watch — Premarket high and low",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NASDAQ-TRADER",
+        "CHARTSCHOOL-OVER"
+      ],
+      "reviewFocus": "Verify completed-time boundary, recorded premarket high, recorded premarket low, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C12-L02",
+      "title": "The Levels Day Traders Watch — High of day and low of day",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "NASDAQ-TRADER"
+      ],
+      "reviewFocus": "Verify completed-time boundary, high of day so far, low of day so far, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C12-L03",
+      "title": "The Levels Day Traders Watch — Premarket High and Low",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NASDAQ-TRADER",
+        "TOS-LRN"
+      ],
+      "reviewFocus": "Verify completed-time boundary, premarket high at cutoff, premarket low at cutoff, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C13-L01",
+      "title": "Gaps and the Opening Period — Gap context",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "NASDAQ-TRADER"
+      ],
+      "reviewFocus": "Verify completed-time boundary, regular-session opening reference, previous regular-session close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C13-L02",
+      "title": "Gaps and the Opening Period — Acceptance versus rejection",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "CHARTSCHOOL-OVER",
+        "CHARTSCHOOL-IND"
+      ],
+      "reviewFocus": "Verify completed-time boundary, regular-session opening observation, previous completed close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    },
+    {
+      "labId": "DT-C13-L03",
+      "title": "Gaps and the Opening Period — Why the Opening Auction Matters",
+      "collection": "DAY_TRADING_BOOK_1",
+      "sourceCandidateIds": [
+        "NASDAQ-TRADER",
+        "NYSE"
+      ],
+      "reviewFocus": "Verify completed-time boundary, illustrative opening auction price, previous regular-session close, appropriate USD/share interpretation, no-lookahead and decision limitations",
+      "individualClaimReview": false,
+      "independentMathReview": false,
+      "publicationRightsApproved": false,
+      "dataIngestionRightsApproved": false,
+      "memberAcceptance": false
+    }
+  ]
+}
