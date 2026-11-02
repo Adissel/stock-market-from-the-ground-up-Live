@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const tiers=readFileSync(new URL('../assets/js/crownlight-chart-tiers-v1.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../assets/css/crownlight-chart-tiers-v1.css',import.meta.url),'utf8');
+const workspace=readFileSync(new URL('../assets/js/crownlight-workspace-v2.js',import.meta.url),'utf8');
+const match=(s,re,label)=>assert.match(s,re,label);
+match(tiers,/barSpacing:10,allowed:/,'Bounded default candle density must exist');
+match(tiers,/density\.min='3';density\.max='24';density\.step='1'/,'Range must be bounded');
+match(tiers,/state\.barSpacing=spacing/,'Density must track actual selection');
+match(tiers,/for\(const entry of state\.charts\)[\s\S]{0,200}entry\.chart\.setBarSpace\?\.\(spacing\)/,'All enhanced charts receive bar spacing');
+match(tiers,/typeof chart\.setBarSpace==='function'\)chart\.setBarSpace\(state\.barSpacing\)/,'Mounted charts must restore in-session density');
+match(tiers,/state\.authUserId=null;state\.barSpacing=10;stopCharts\(\)/,'Account changes must clear unsaved density');
+match(tiers,/state\.bars=safeBars\(d\.bars\)/,'Chart input must pass revealed-only validation');
+match(workspace,/const VALID_LAYOUTS=new Set\(\['SIDE_BY_SIDE','STACKED','PRICE_FOCUS'\]\)/,'Preserve supported Professional layouts');
+match(css,/\.cl-chart-tier-tools \.cl-tier-density-control:focus-visible/,'Keyboard focus must be visible');
+match(css,/@media\(max-width:620px\)[\s\S]*?\.cl-chart-tier-tools \.cl-tier-density-label/,'Mobile controls must be responsive');
+console.log('PASS Professional density source contracts: bounded slider, linked charts, remount, privacy reset, responsive styling, existing workspace layouts');
