@@ -9,8 +9,11 @@ test('Basic outstanding criteria remain independently tracked',()=>{
   const f=ledger.features.find(x=>x.id===id);
   assert.ok(f,id);
   assert.equal(f.source_status,'partial',id);
-  assert.equal(f.real_member_accepted,id==='LE-BAS-07',id);
-  if(id==='LE-BAS-07')assert.match(f.real_member_acceptance_basis,/Owner-attested/);
+  assert.equal(f.real_member_accepted,false,id);
+  if(id==='LE-BAS-07'){
+   assert.equal(f.owner_authenticated_member_accepted,true,id);
+   assert.match(f.owner_authenticated_member_acceptance_basis,/Owner-attested/);
+  }
   if(id==='LA-BAS-08')assert.equal(f.authenticated_member_workflow_owner_accepted,true);
  }
 });
