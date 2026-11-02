@@ -11,6 +11,9 @@ on:
       - 'assets/js/crownlight-chart-tiers-v1.js'
       - 'assets/js/crownlight-workspace-v2.js'
       - 'tests/test_crownlight_chart_browser_v2.mjs'
+      - 'src/experience/HomeMarketTerminal.tsx'
+      - 'assets/css/home-market-terminal-v1.css'
+      - 'tests/home-market-real-hover-chromium-v1.mjs'
       - 'tests/test_crownlight_chart_studio_v2.mjs'
       - 'tests/test_crownlight_chart_tiers_browser_v1.mjs'
       - 'tests/test_crownlight_chart_workspace_v2.mjs'
@@ -46,13 +49,14 @@ jobs:
           node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
       - name: Install existing pinned open-source browser dependencies
         run: |
-          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1 lightweight-charts@5.2.1 klinecharts@10.1.0 echarts@6.1.0
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1 lightweight-charts@5.2.1 klinecharts@10.1.0 echarts@6.1.0 react@19.1.1 react-dom@19.1.1 esbuild@0.25.12
           npx playwright install --with-deps chromium
       - name: Prove actual Chromium pan, release, wheel zoom, tier workspaces and visualization
         run: |
           node tests/test_crownlight_chart_browser_v2.mjs
           node tests/test_crownlight_chart_tiers_browser_v1.mjs
           node tests/test_crownlight_echarts_studio_browser_v1.mjs
+          node tests/home-market-real-hover-chromium-v1.mjs
       - name: Preserve optional chart screenshots
         if: always()
         uses: actions/upload-artifact@v4
