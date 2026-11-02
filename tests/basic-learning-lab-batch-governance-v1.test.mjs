@@ -12,6 +12,7 @@ test('full Basic regression batch retains five independently required suites',()
  assert.match(workflow,/if: always\(\)/);
  assert.match(workflow,/details\['result'\]!='success'/);
  assert.match(workflow,/cancel-in-progress: false/);
+ assert.match(workflow,/queue: max/);
 });
 test('basic workflow covers all six owner gates with named source tests',()=>{
  const required=[
