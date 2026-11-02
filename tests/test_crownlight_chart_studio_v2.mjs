@@ -65,7 +65,7 @@ assert.match(studio,/function restoreWorkspacePreferences\(/);
 assert.match(studio,/function getWorkspacePreferences\(/);
 assert.match(studio,/wickColor:a\.doji/);
 assert.match(studio,/lineStyle:style==='dotted'/);
-assert.match(studio,/kineticScroll:\{touch:true,mouse:false\}/);
+assert.match(studio,/kineticScroll:\{touch:false,mouse:false\}/);
 assert.match(studio,/scopeToMember\(sim\?\.user\?\.id\)/);
 assert.match(studio,/KEY\+':'\+state\.userId/);
 assert.match(studio,/attributionLogo:true/);
