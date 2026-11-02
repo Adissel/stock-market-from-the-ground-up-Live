@@ -39,9 +39,12 @@ try{
  const guest=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'});
  const anonymous=await guest.newPage();
  await anonymous.goto(ORIGIN+'/talia-classroom.html',{waitUntil:'domcontentloaded',timeout:35000});
- await anonymous.getByText('Sign in with your membership').waitFor({state:'visible',timeout:30000});
+ await anonymous.waitForFunction(()=>/\\/signin(?:\\.html)?$/i.test(location.pathname)||!!document.querySelector('.tc-main a[href*="signin"]'),null,{timeout:15000});
+ const redirected=/\\/signin(?:\\.html)?$/i.test(new URL(anonymous.url()).pathname);
+ if(redirected)assert(await anonymous.locator('#login-identifier').isVisible(),'Guest redirect did not reach a real sign-in form');
+ else assert(await anonymous.locator('.tc-main a[href*="signin"]').count()>=1,'Guest does not see sign-in access guidance');
  assert.equal(await anonymous.locator('.tp-chart-tools').count(),0,'Guest gained member-only chart controls');
- mark('Anonymous classroom lock','PASS','Guest cannot render protected Tutor workstation');
+ mark('Anonymous classroom lock','PASS',redirected?'Guest redirected to sign-in':'Guest limited to access-required message');
  const adminGuest=await anonymous.request.get(ORIGIN+'/api/admin?action=context',{timeout:20000});
  assert([401,403].includes(adminGuest.status()),'Guest accessed Admin context');
  mark('Anonymous staff route denial','PASS','Admin API rejected anonymous request');
