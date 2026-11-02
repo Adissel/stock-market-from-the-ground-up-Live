@@ -3,6 +3,7 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 # Validate public navigation before lengthy integration suites; surface broken-link diagnostics in retained build logs.
 node --test tests/public-navigation-five-page-links-v1.test.mjs
+node --test tests/group1-public-copy-and-entitlements-v1.test.mjs
 # Section C release integrity: fail a deployment on mathematical or workspace defects.
 # Headless graphical Chromium acceptance remains in the dedicated GitHub workflow.
 node --check assets/js/crownlight-echarts-studio-v1.js
