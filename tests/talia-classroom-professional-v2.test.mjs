@@ -15,3 +15,5 @@ test('terminal is chart-dominant, switchable, and preserves protected learning w
  assert.match(s,/pathname\.endsWith\('\/talia-classroom\.html'\)\)\&\&/);
  assert.doesNotMatch(terminal,/\.lab-|\.bootcamp-/,'Protected interactive curricula must remain unchanged');
 });
+
+test('instructor width is user adjustable without new storage or service calls',()=>{assert.match(s,/setDockWidth\(Number\(e\.target\.value\)\)/);assert.match(s,/--tc-instructor-width/);assert.match(readFileSync('assets/css/talia-terminal-v3.css','utf8'),/var\(--tc-instructor-width,400px\)/)});
