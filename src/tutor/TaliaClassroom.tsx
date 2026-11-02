@@ -172,6 +172,13 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
       <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
     </table>
+    {prototype&&<details className="tp-candle-audit"><summary>Accessible completed-candle ledger — {visible} revealed candles</summary>
+      <p className="tc-muted">Only candles revealed at the current decision boundary appear below. Keyboard users can request an explanation for any completed candle.</p>
+      <div className="tp-candle-audit-scroll"><table className="tc-candle-table"><caption>Fictional replay: completed observations only</caption>
+        <thead><tr><th scope="col">Bar</th><th scope="col">Open</th><th scope="col">High</th><th scope="col">Low</th><th scope="col">Close</th><th scope="col">Tutor</th></tr></thead>
+        <tbody>{REPLAY.slice(0,visible).map((bar,i)=><tr key={i}><th scope="row">{i+1}</th><td>{bar[0].toFixed(2)}</td><td>{bar[3].toFixed(2)}</td><td>{bar[2].toFixed(2)}</td><td>{bar[1].toFixed(2)}</td><td><button type="button" className="tc-secondary" onClick={()=>onQuestion(('Explain fictional completed candle '+(i+1)+' with open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Use only the visible preceding candles.').slice(0,450))}>Explain bar {i+1}</button></td></tr>)}</tbody>
+      </table></div>
+    </details>}
     <div className="tc-row">
       <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
       <button type="button" className="tc-secondary" onClick={()=>setVisible(7)} disabled={visible===7}>Reset</button>
