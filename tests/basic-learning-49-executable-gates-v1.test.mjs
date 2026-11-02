@@ -44,8 +44,8 @@ examples.forEach((v,i)=>test(`33–40 Bollinger full rolling population sigma ca
 [
  ['Academy day restoration prioritizes requested valid day',/desired>=1&&desired<=days\.length\?desired:firstUnsaved/],
  ['Academy first unfinished day fallback',/const firstUnsaved=days\.find/],
- ['Academy progress payload must be an array',/!Array\.isArray\(data\.progress\)/],
- ['Academy progress checks day range',/x\.day<1\|\|x\.day>loaded\.length/],
+ ['Academy progress payload must be an array',/!Array\.isArray\(rows\)/],
+ ['Academy progress checks day range',/x\.day<1\|\|x\.day>dayCount/],
  ['Academy progress checks course identity',/x\.programCode!==undefined&&x\.programCode!==code/],
  ['Academy checks live session before persisting',/actor!==userId\|\|serial!==sessionSerial\|\|code!==activeCode/],
  ['Academy clears progress on account change',/The member account changed\. Private study data was cleared/],
