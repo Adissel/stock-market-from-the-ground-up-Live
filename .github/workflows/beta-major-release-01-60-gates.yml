@@ -163,6 +163,8 @@ jobs:
         run: node tests/talia-membership-history-matrix-v1.test.mjs
       - name: TUTOR 10 - talia-production-asset-sync-v1.test.mjs
         run: node tests/talia-production-asset-sync-v1.test.mjs
+      - name: Tutor prototype release security and instructional integration
+        run: node tests/talia-tutor-prototype-v1.test.mjs
   governance:
     runs-on: ubuntu-latest
     timeout-minutes: 25
