@@ -31,11 +31,18 @@ if(!window.echarts){chartEl.textContent=nums.map((n,i)=>['Completed','In progres
 chartEl.textContent='';chartInstance=chartInstance||window.echarts.init(chartEl,null,{renderer:'canvas'});chartInstance.setOption({backgroundColor:'transparent',color:['#4acbb2','#d7b56c','#506b87'],tooltip:{trigger:'item',formatter:'{b}: {c} Labs ({d}%)'},legend:{bottom:0,textStyle:{color:'#c4d2e3'}},series:[{name:'Lab Progress',type:'pie',radius:['60%','78%'],center:['50%','43%'],label:{show:false},data:nums.map((value,i)=>({name:['Completed','In progress','Not started'][i],value}))}]},true)};
 let debounce=0;const schedule=()=>{clearTimeout(debounce);debounce=setTimeout(update,100)};ids.forEach(id=>{const node=document.getElementById(id);if(node)new MutationObserver(schedule).observe(node,{childList:true,characterData:true,subtree:true})});window.addEventListener('resize',()=>chartInstance?.resize());update();
 }
-function auth(){const signin=document.querySelector('.gu-signin-page'),signup=document.querySelector('.gu-signup-page');if(!signin&&!signup)return;const main=signin||signup;
-const wrap=main.querySelector('.auth-page');if(!wrap)return;
-const sidebar=el('aside','gu-x-auth-sidebar');sidebar.append(el('p','gu-x-kicker','THE STOCK MARKET: FROM THE GROUND UP'),el('h2','',signup?'Start with understanding. Grow with practice.':'Welcome back to your learning workspace.'),el('p','',signup?'Create your account to begin the Free Foundations pathway and save eligible learning progress after email verification.':'Your lessons, Labs, progress and learning tools belong to one connected training experience.'));
-const list=el('ul','gu-x-assurance');['Structured Foundations lessons','Hands-on fictional chart exercises','Practice-first education with progress tracking','Educational tools—not investment advice'].forEach(t=>list.append(el('li','',t)));sidebar.append(list,link(signup?'Already a member? Sign in':'New here? Create an account',signup?'signin.html':'create-account.html','gu-x-auth-alt'));
-wrap.insertBefore(sidebar,wrap.firstChild);wrap.classList.add('gu-x-auth-layout');
+function auth(){
+const signin=document.querySelector('.gu-signin-page'),signup=document.querySelector('.gu-signup-page');if(!signin&&!signup)return;
+const main=signin||signup,wrap=main.querySelector('.auth-page');if(!wrap)return;
+const sidebar=el('aside','gu-x-auth-sidebar');
+sidebar.append(el('p','gu-x-kicker','THE STOCK MARKET: FROM THE GROUND UP'),el('h2','',signup?'Learn it. Practice it. Build your skill.':'Your learning continues here.'),el('p','',signup?'Create an account to start your Foundations lessons and save eligible progress after email verification.':'Sign in to return to your Labs, Boot Camps, Journal and member learning workspace.'));
+const list=el('ul','gu-x-assurance');['Guided lessons and learning paths','Fictional chart practice','Structured progress tracking'].forEach(t=>list.append(el('li','',t)));
+sidebar.append(list,link(signup?'Already registered? Sign in':'New member? Create an account',signup?'signin.html':'create-account.html','gu-x-auth-alt'));
+const content=el('div','gu-x-auth-content');
+if(signin){const form=wrap.querySelector('.gu-signin-form-column');if(!form)return;content.append(form)}
+else{[...wrap.children].forEach(child=>{if(child!==sidebar)content.append(child)})}
+wrap.replaceChildren(sidebar,content);wrap.classList.add('gu-x-auth-layout');
 }
+
 onReady(()=>{createPromo();improveStore();dashboard();auth()});
 })();
