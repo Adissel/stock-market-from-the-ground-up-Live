@@ -59,4 +59,13 @@ const internal=JSON.parse(read('data/founding600-terms-v014170.json'));
 assert.equal(internal.capacity,600,'Founder seat limit unchanged internally');
 assert.deepEqual([internal.plans.FOUNDING_30.recurringCents,internal.plans.FOUNDING_60.recurringCents],[4999,5999]);
 assert.deepEqual([internal.plans.FOUNDING_30.foundingDiscountBps,internal.plans.FOUNDING_60.foundingDiscountBps],[1000,1500]);
+const membershipMatrix=read('assets/js/membership-platform.js');
+assert(membershipMatrix.includes("['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60']"),
+ 'The public matrix must show only approved membership tiers');
+assert(membershipMatrix.includes("See plan access details"),
+ 'Missing legacy plan-tool associations cannot be shown as negative founding entitlements');
+assert(membershipMatrix.includes('See founding terms'),
+ 'Founding book companion benefits cannot be inferred from the generic matrix');
+assert.equal(internal.plans.FOUNDING_14.recurringCents,2299);
+assert.equal(internal.plans.FOUNDING_14.foundingDiscountBps,500);
 console.log('PASS Founder UI: Founding Members brand, single existing Commons, protected legacy QA marker, frozen internal 600 cap and $49.99/$59.99 10/15% commercial terms.');
