@@ -7,6 +7,15 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/crownlight-exact-sha-browser-acceptance.yml'
+      - 'assets/js/crownlight-chart-studio-v2.js'
+      - 'assets/js/crownlight-chart-tiers-v1.js'
+      - 'assets/js/crownlight-workspace-v2.js'
+      - 'tests/test_crownlight_chart_browser_v2.mjs'
+      - 'tests/test_crownlight_chart_studio_v2.mjs'
+      - 'tests/test_crownlight_chart_tiers_browser_v1.mjs'
+      - 'tests/test_crownlight_chart_workspace_v2.mjs'
+      - 'tests/test_chart_quant_crosslanguage_v1.mjs'
+      - 'tests/test_section_c_indicator_edge_crosslanguage_v1.mjs'
 permissions:
   contents: read
 jobs:
