@@ -38,6 +38,9 @@ jobs:
           assert options.index("if (!Number.isFinite(n))") < options.index("if (values.length < period)")
           assert 'sessionKey' in options and 'session !== lastSession' in options
           assert 'Invalid VWAP session' in options
+          assert 'barVwap(bars, sessionKey)' in options
+          assert 'sessionKey?: (bar: CompletedBar) => string' in adapter
+          assert 'buildCandleOptions(completedBars, symbol, interval, sessionKey)' in adapter
           assert 'inspectRef.current(index!)' in adapter
           assert 'typeof b.time' in options and 'Invalid or unordered completed bars' in options
           assert "prefers-reduced-motion" in css
