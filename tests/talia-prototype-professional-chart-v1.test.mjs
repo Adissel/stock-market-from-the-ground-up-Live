@@ -11,7 +11,7 @@ test('Customization is available only on the staff prototype and never authorize
  assert.match(ts,/prototype&&<div className="tc-row tp-chart-tools"/);
  assert.match(ts,/type="color"/);assert.match(ts,/moveOnMouseMove:true/);
  assert.match(ts,/onQuestion\('Explain the '/);
- assert.match(ts,/Volume is a fictional proxy/);
+ assert.match(ts,/Volume is a synthetic proxy/);
 });
 
 test('Member-scoped chart preferences validate stored values and do not persist conversation data',()=>{

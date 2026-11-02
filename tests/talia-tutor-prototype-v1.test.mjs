@@ -65,7 +65,7 @@ test('Advanced Tutor continues actual lessons and supplies only revealed chart e
  assert.match(source,/continueLesson\('transfer'\)/);
  assert.match(source,/bar\[0\]\.toFixed\(2\)/);
  assert.match(source,/bar\[3\]\.toFixed\(2\)/);
- assert.match(source,/Only '\+visible\+' bars have been revealed/);
+ assert.match(source,/Only '\+visible\+' underlying one-minute candles revealed/);
  assert.match(source,/no automatic paid retry/);
  assert.match(source,/saveHistory:currentSave,conversationId:thread/);
  assert.ok(css.includes('.tp-followup'));
