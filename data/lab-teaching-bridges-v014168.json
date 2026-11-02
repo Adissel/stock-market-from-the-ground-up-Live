@@ -6334,43 +6334,59 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Midday, Afternoon, and the Close — Midday compression.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Midday compression means activity and range have contracted during a defined midday interval; it is not proof that trading has ended.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Midday, Afternoon, and the Close — Midday compression.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Midday, Afternoon, and the Close — Midday compression from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Midday, Afternoon, and the Close — Midday compression.",
+          "FICTIONAL: 10:00–10:30 range is $0.80 on 240,000 shares; 12:00–12:30 range is $0.22 on 70,000 shares. Both range and volume contracted, while the next interval remains unknown.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Midday, Afternoon, and the Close — Midday compression using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — FICTIONAL: 10:00–10:30 range is $0.80 on 240,000 shares; 12:00–12:30 range is $0.22 on 70,000 shares. Both range and volume contracted, while the next interval remains unknown.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Midday, Afternoon, and the Close — Midday compression: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Calling every quiet interval safe or assuming the close must expand. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Midday, Afternoon, and the Close — Midday compression cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Midday compression means activity and range have contracted during a defined midday interval; it is not proof that trading has ended.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Midday, Afternoon, and the Close — Midday compression, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Midday, Afternoon, and the Close — Midday compression",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare two equal 20-minute fictional windows and state whether price range, share volume, both, or neither compressed."
+      },
+      "competencies": [
+        "MARKET_REGIME"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C14-L02": {
@@ -6382,43 +6398,60 @@
         "MARKET_REGIME",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Midday, Afternoon, and the Close — Power hour.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Power hour is an informal label for the final regular-session hour, not a guarantee of volume, direction, or opportunity.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Midday, Afternoon, and the Close — Power hour.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Midday, Afternoon, and the Close — Power hour from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Midday, Afternoon, and the Close — Power hour.",
+          "FICTIONAL: 14:00–15:00 trades 180,000 shares and 15:00–16:00 trades 270,000; the last hour is 1.5 times the prior hour, but direction and liquidity still require observation.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Midday, Afternoon, and the Close — Power hour using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — FICTIONAL: 14:00–15:00 trades 180,000 shares and 15:00–16:00 trades 270,000; the last hour is 1.5 times the prior hour, but direction and liquidity still require observation.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Midday, Afternoon, and the Close — Power hour: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Treating the clock label as an entry signal or using a partial final hour as a complete comparison. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Midday, Afternoon, and the Close — Power hour cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Power hour is an informal label for the final regular-session hour, not a guarantee of volume, direction, or opportunity.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Midday, Afternoon, and the Close — Power hour, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Midday, Afternoon, and the Close — Power hour",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Given two equal fictional final-hour windows, compute the volume ratio and list one fact still needed before a decision."
+      },
+      "competencies": [
+        "MARKET_REGIME",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C14-L03": {
@@ -6430,43 +6463,60 @@
         "MARKET_REGIME",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Midday, Afternoon, and the Close — Afternoon Reactivation.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Afternoon reactivation requires observable expansion after a quieter period, such as renewed volume or range, measured over equal intervals.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Midday, Afternoon, and the Close — Afternoon Reactivation.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Midday, Afternoon, and the Close — Afternoon Reactivation from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Midday, Afternoon, and the Close — Afternoon Reactivation.",
+          "FICTIONAL: consecutive 15-minute ranges are $0.18, $0.16, then $0.42 while volume rises from 40,000 to 95,000 shares; this is evidence of expansion, not predicted continuation.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Midday, Afternoon, and the Close — Afternoon Reactivation using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — FICTIONAL: consecutive 15-minute ranges are $0.18, $0.16, then $0.42 while volume rises from 40,000 to 95,000 shares; this is evidence of expansion, not predicted continuation.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Midday, Afternoon, and the Close — Afternoon Reactivation: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Using one green candle or a later close to retroactively label reactivation. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Midday, Afternoon, and the Close — Afternoon Reactivation cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Afternoon reactivation requires observable expansion after a quieter period, such as renewed volume or range, measured over equal intervals.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Midday, Afternoon, and the Close — Afternoon Reactivation, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Midday, Afternoon, and the Close — Afternoon Reactivation",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new three-window fictional sequence and identify the exact interval where expansion first becomes observable."
+      },
+      "competencies": [
+        "MARKET_REGIME",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C15-L01": {
@@ -6478,43 +6528,60 @@
         "HALTS_LULD",
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Trading Halts and Abnormal Market Conditions — Halt risk.",
-          "A halt is a market state that can invalidate immediate order assumptions; LULD has defined mechanics.",
-          "Distinguish the halt announcement, pause state, regulatory/venue source and reopening process; do not assume a stop can execute during a halt."
+          "A trading halt suspends normal executions; the last trade is stale and a stop cannot be assumed to execute during the pause.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Trading Halts and Abnormal Market Conditions — Halt risk.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Trading Halts and Abnormal Market Conditions — Halt risk from the source evidence.",
-          "Verify the applicable market and official halt/band rule before describing action.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Trading Halts and Abnormal Market Conditions — Halt risk.",
+          "FICTIONAL: last trade $8.20 at 10:14:58, official halt notice 10:15:03. A displayed $8.20 is not an executable post-halt quote and no reopen price is supplied.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Trading Halts and Abnormal Market Conditions — Halt risk using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Verify the applicable market and official halt/band rule before describing action.",
-          "Step 3 — Check the alternative or invalidation: The market state prohibits the expected entry or exit."
+          "Worked example — FICTIONAL: last trade $8.20 at 10:14:58, official halt notice 10:15:03. A displayed $8.20 is not an executable post-halt quote and no reopen price is supplied.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Trading Halts and Abnormal Market Conditions — Halt risk: Estimating exact reopen fills from the pre-halt candle.",
-          "Correct it by returning to the actual observation. Verify the applicable market and official halt/band rule before describing action.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Estimating the reopen price or a stop fill from the pre-halt candle. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Trading Halts and Abnormal Market Conditions — Halt risk cannot establish:",
-          "A halted security's displayed last trade is not a current executable fill.",
-          "An interpretation is invalidated or unproven when: The market state prohibits the expected entry or exit."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "A trading halt suspends normal executions; the last trade is stale and a stop cannot be assumed to execute during the pause.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support halts and price bands, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Trading Halts and Abnormal Market Conditions — Halt risk, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "In a fictional halted ticker with a pre-halt stop reference, explain the unknown reopening price and what can be observed only afterward.",
-        "topic": "Trading Halts and Abnormal Market Conditions — Halt risk",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify each item in a new halt timeline as known, stale, or unavailable before reopening."
+      },
+      "competencies": [
+        "HALTS_LULD",
+        "MARKET_REGIME"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C15-L02": {
@@ -6527,43 +6594,61 @@
         "MARKET_REGIME",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Trading Halts and Abnormal Market Conditions — Other abnormal conditions.",
-          "A halt is a market state that can invalidate immediate order assumptions; LULD has defined mechanics.",
-          "Distinguish the halt announcement, pause state, regulatory/venue source and reopening process; do not assume a stop can execute during a halt."
+          "Abnormal conditions include crossed or locked quotes, delayed feeds, volatility pauses, and venue-specific disruptions; each requires source verification.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Trading Halts and Abnormal Market Conditions — Other abnormal conditions.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Trading Halts and Abnormal Market Conditions — Other abnormal conditions from the source evidence.",
-          "Verify the applicable market and official halt/band rule before describing action.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Trading Halts and Abnormal Market Conditions — Other abnormal conditions.",
+          "FICTIONAL: one feed timestamp is 45 seconds older than another and its ask is below the newer bid. Mark the older display unreliable rather than inventing an arbitrage fill.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Trading Halts and Abnormal Market Conditions — Other abnormal conditions using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Verify the applicable market and official halt/band rule before describing action.",
-          "Step 3 — Check the alternative or invalidation: The market state prohibits the expected entry or exit."
+          "Worked example — FICTIONAL: one feed timestamp is 45 seconds older than another and its ask is below the newer bid. Mark the older display unreliable rather than inventing an arbitrage fill.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Trading Halts and Abnormal Market Conditions — Other abnormal conditions: Estimating exact reopen fills from the pre-halt candle.",
-          "Correct it by returning to the actual observation. Verify the applicable market and official halt/band rule before describing action.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Assuming every unusual quote is executable or that all venues share the same status. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Trading Halts and Abnormal Market Conditions — Other abnormal conditions cannot establish:",
-          "A halted security's displayed last trade is not a current executable fill.",
-          "An interpretation is invalidated or unproven when: The market state prohibits the expected entry or exit."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Abnormal conditions include crossed or locked quotes, delayed feeds, volatility pauses, and venue-specific disruptions; each requires source verification.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support halts and price bands, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Trading Halts and Abnormal Market Conditions — Other abnormal conditions, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "In a fictional halted ticker with a pre-halt stop reference, explain the unknown reopening price and what can be observed only afterward.",
-        "topic": "Trading Halts and Abnormal Market Conditions — Other abnormal conditions",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Review a fictional delayed-feed case and identify which timestamp and venue checks are required before interpretation."
+      },
+      "competencies": [
+        "HALTS_LULD",
+        "MARKET_REGIME",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C15-L03": {
@@ -6576,43 +6661,61 @@
         "MARKET_REGIME",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt.",
-          "A halt is a market state that can invalidate immediate order assumptions; LULD has defined mechanics.",
-          "Distinguish the halt announcement, pause state, regulatory/venue source and reopening process; do not assume a stop can execute during a halt."
+          "A position remains exposed during a halt even though normal execution is paused; planned risk is not a guaranteed maximum loss.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt from the source evidence.",
-          "Verify the applicable market and official halt/band rule before describing action.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt.",
+          "FICTIONAL: 100 shares entered at $12 with a planned $11.50 stop imply $50 planned distance, but no execution is possible in the supplied halt interval and no reopen fill is asserted.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Verify the applicable market and official halt/band rule before describing action.",
-          "Step 3 — Check the alternative or invalidation: The market state prohibits the expected entry or exit."
+          "Worked example — FICTIONAL: 100 shares entered at $12 with a planned $11.50 stop imply $50 planned distance, but no execution is possible in the supplied halt interval and no reopen fill is asserted.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt: Estimating exact reopen fills from the pre-halt candle.",
-          "Correct it by returning to the actual observation. Verify the applicable market and official halt/band rule before describing action.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Reporting the planned stop price as an actual exit or capped loss. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt cannot establish:",
-          "A halted security's displayed last trade is not a current executable fill.",
-          "An interpretation is invalidated or unproven when: The market state prohibits the expected entry or exit."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "A position remains exposed during a halt even though normal execution is paused; planned risk is not a guaranteed maximum loss.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support halts and price bands, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "In a fictional halted ticker with a pre-halt stop reference, explain the unknown reopening price and what can be observed only afterward.",
-        "topic": "Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "For a different fictional position, calculate planned distance and explain why halt exposure prevents an exact realized-loss claim."
+      },
+      "competencies": [
+        "HALTS_LULD",
+        "MARKET_REGIME",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C16-L01": {
@@ -6623,43 +6726,59 @@
       "relatedCompetencies": [
         "CANDIDATE_QUALITY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Makes a Stock Tradable Today? — Movement.",
-          "A candidate ranking is a transparent set of chosen criteria, not an investment recommendation.",
-          "Define the research universe, publication timestamp, observed liquidity, float as-of date and exclusion rules before assigning a candidate quality label."
+          "Tradable movement must be measured over a named interval and considered with spread and liquidity; percentage change alone is insufficient.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: What Makes a Stock Tradable Today? — Movement.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Makes a Stock Tradable Today? — Movement from the source evidence.",
-          "State measurable criteria and whether their inputs were known before ranking.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for What Makes a Stock Tradable Today? — Movement.",
+          "FICTIONAL: price moves from $10.00 to $10.60, a 6% change, but the displayed spread is $0.30. Record both observations without calling the security suitable.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice What Makes a Stock Tradable Today? — Movement using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State measurable criteria and whether their inputs were known before ranking.",
-          "Step 3 — Check the alternative or invalidation: The ranking uses future data or criteria that cannot be independently checked."
+          "Worked example — FICTIONAL: price moves from $10.00 to $10.60, a 6% change, but the displayed spread is $0.30. Record both observations without calling the security suitable.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with What Makes a Stock Tradable Today? — Movement: Fitting filters to a hindsight winner and calling it predictive.",
-          "Correct it by returning to the actual observation. State measurable criteria and whether their inputs were known before ranking.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Ranking movement without its start price, interval, spread, or session. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What What Makes a Stock Tradable Today? — Movement cannot establish:",
-          "A high educational score does not imply future outperformance.",
-          "An interpretation is invalidated or unproven when: The ranking uses future data or criteria that cannot be independently checked."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Tradable movement must be measured over a named interval and considered with spread and liquidity; percentage change alone is insufficient.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for What Makes a Stock Tradable Today? — Movement, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
-        "topic": "What Makes a Stock Tradable Today? — Movement",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute a new fictional percentage move and list two execution facts required before calling it tradable."
+      },
+      "competencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C16-L02": {
@@ -6671,43 +6790,60 @@
         "CHART_STRUCTURE",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Makes a Stock Tradable Today? — Structure.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Tradable structure describes completed swing relationships and invalidation levels, not a forecast from one candle.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: What Makes a Stock Tradable Today? — Structure.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Makes a Stock Tradable Today? — Structure from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for What Makes a Stock Tradable Today? — Structure.",
+          "FICTIONAL completed swing highs $9.80 then $10.10 and lows $9.20 then $9.45 form higher relationships through the cutoff; a later swing is concealed.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice What Makes a Stock Tradable Today? — Structure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Worked example — FICTIONAL completed swing highs $9.80 then $10.10 and lows $9.20 then $9.45 form higher relationships through the cutoff; a later swing is concealed.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with What Makes a Stock Tradable Today? — Structure: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Calling one strong candle a higher-high/higher-low sequence. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What What Makes a Stock Tradable Today? — Structure cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Tradable structure describes completed swing relationships and invalidation levels, not a forecast from one candle.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for What Makes a Stock Tradable Today? — Structure, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
-        "topic": "What Makes a Stock Tradable Today? — Structure",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Label a new four-pivot fictional sequence and state the price that would invalidate the current structure label."
+      },
+      "competencies": [
+        "CHART_STRUCTURE",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C16-L03": {
@@ -6719,43 +6855,60 @@
         "VOLUME_ANALYSIS",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Makes a Stock Tradable Today? — Participation: Volume and Trade Count.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Participation compares share volume and trade count over equal intervals; neither identifies participant motive.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: What Makes a Stock Tradable Today? — Participation: Volume and Trade Count.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Makes a Stock Tradable Today? — Participation: Volume and Trade Count from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for What Makes a Stock Tradable Today? — Participation: Volume and Trade Count.",
+          "FICTIONAL: window A has 100,000 shares in 500 trades, average 200 shares/trade; window B has 120,000 in 1,200 trades, average 100. Higher volume coexists with smaller average prints.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice What Makes a Stock Tradable Today? — Participation: Volume and Trade Count using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL: window A has 100,000 shares in 500 trades, average 200 shares/trade; window B has 120,000 in 1,200 trades, average 100. Higher volume coexists with smaller average prints.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with What Makes a Stock Tradable Today? — Participation: Volume and Trade Count: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Treating share volume and trade count as interchangeable or comparing unequal windows. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What What Makes a Stock Tradable Today? — Participation: Volume and Trade Count cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Participation compares share volume and trade count over equal intervals; neither identifies participant motive.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for What Makes a Stock Tradable Today? — Participation: Volume and Trade Count, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "What Makes a Stock Tradable Today? — Participation: Volume and Trade Count",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate average shares per trade for two new equal fictional windows and describe the difference without assigning intent."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C17-L01": {
@@ -6766,43 +6919,59 @@
       "relatedCompetencies": [
         "CATALYST_ANALYSIS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Why Is the Stock Moving? — Company events.",
-          "A market catalyst is a dated event or disclosure; chronology and provenance matter.",
-          "Record an issuer document or release URL, publication time, applicable reporting period and the precise claim; distinguish a catalyst hypothesis from demonstrated price causation."
+          "A company event is a dated issuer or regulatory disclosure; chronology supports availability, not proof that it caused every price move.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Why Is the Stock Moving? — Company events.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Why Is the Stock Moving? — Company events from the source evidence.",
-          "Document source URL, publication timestamp and what the issuer actually stated.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Why Is the Stock Moving? — Company events.",
+          "FICTIONAL: issuer release timestamp 08:05 and simulated decision 09:35. The release was available before the cutoff; causal strength and market interpretation remain separate questions.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Why Is the Stock Moving? — Company events using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document source URL, publication timestamp and what the issuer actually stated.",
-          "Step 3 — Check the alternative or invalidation: A cited disclosure was published after the simulated decision boundary."
+          "Worked example — FICTIONAL: issuer release timestamp 08:05 and simulated decision 09:35. The release was available before the cutoff; causal strength and market interpretation remain separate questions.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Why Is the Stock Moving? — Company events: Inventing a news headline to explain an already observed price move.",
-          "Correct it by returning to the actual observation. Document source URL, publication timestamp and what the issuer actually stated.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Using a later article or inventing a headline to explain an earlier move. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Why Is the Stock Moving? — Company events cannot establish:",
-          "A price response cannot, by itself, identify the cause.",
-          "An interpretation is invalidated or unproven when: A cited disclosure was published after the simulated decision boundary."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "A company event is a dated issuer or regulatory disclosure; chronology supports availability, not proof that it caused every price move.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support catalyst and disclosures, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Why Is the Stock Moving? — Company events, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional premarket rumor and a later verified filing, explain what was knowable at an earlier decision timestamp.",
-        "topic": "Why Is the Stock Moving? — Company events",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Order a new fictional release and decision timeline, then state what causation claim remains unsupported."
+      },
+      "competencies": [
+        "CATALYST_ANALYSIS"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C17-L02": {
@@ -6813,43 +6982,59 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Why Is the Stock Moving? — Technical and unexplained activity.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Technical or unexplained activity must remain labeled unexplained when no verified catalyst is available by the decision cutoff.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Why Is the Stock Moving? — Technical and unexplained activity.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Why Is the Stock Moving? — Technical and unexplained activity from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Why Is the Stock Moving? — Technical and unexplained activity.",
+          "FICTIONAL: price and volume expand at 10:20; source checks through 10:20 find no issuer filing or release. Record observed activity and an unknown catalyst, not a fabricated story.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Why Is the Stock Moving? — Technical and unexplained activity using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Worked example — FICTIONAL: price and volume expand at 10:20; source checks through 10:20 find no issuer filing or release. Record observed activity and an unknown catalyst, not a fabricated story.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Why Is the Stock Moving? — Technical and unexplained activity: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Converting the absence of a found source into proof that no catalyst exists. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Why Is the Stock Moving? — Technical and unexplained activity cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Technical or unexplained activity must remain labeled unexplained when no verified catalyst is available by the decision cutoff.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Why Is the Stock Moving? — Technical and unexplained activity, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
-        "topic": "Why Is the Stock Moving? — Technical and unexplained activity",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Review a new fictional cutoff search and separate observed market facts from unresolved explanation."
+      },
+      "competencies": [
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C17-L03": {
@@ -6861,43 +7046,60 @@
         "CATALYST_ANALYSIS",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Why Is the Stock Moving? — Market and Sector Catalysts.",
-          "A market catalyst is a dated event or disclosure; chronology and provenance matter.",
-          "Record an issuer document or release URL, publication time, applicable reporting period and the precise claim; distinguish a catalyst hypothesis from demonstrated price causation."
+          "Market and sector catalysts require a defined benchmark, timestamp, and comparison; co-movement does not prove direct causation.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Why Is the Stock Moving? — Market and Sector Catalysts.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Why Is the Stock Moving? — Market and Sector Catalysts from the source evidence.",
-          "Document source URL, publication timestamp and what the issuer actually stated.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Why Is the Stock Moving? — Market and Sector Catalysts.",
+          "FICTIONAL: sector basket rises 2.0% while a stock rises 3.2% over the same completed interval. The stock outperforms by 1.2 percentage points, but company-specific causes remain unverified.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Why Is the Stock Moving? — Market and Sector Catalysts using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document source URL, publication timestamp and what the issuer actually stated.",
-          "Step 3 — Check the alternative or invalidation: A cited disclosure was published after the simulated decision boundary."
+          "Worked example — FICTIONAL: sector basket rises 2.0% while a stock rises 3.2% over the same completed interval. The stock outperforms by 1.2 percentage points, but company-specific causes remain unverified.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Why Is the Stock Moving? — Market and Sector Catalysts: Inventing a news headline to explain an already observed price move.",
-          "Correct it by returning to the actual observation. Document source URL, publication timestamp and what the issuer actually stated.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Comparing mismatched intervals or calling correlation a proven cause. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Why Is the Stock Moving? — Market and Sector Catalysts cannot establish:",
-          "A price response cannot, by itself, identify the cause.",
-          "An interpretation is invalidated or unproven when: A cited disclosure was published after the simulated decision boundary."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Market and sector catalysts require a defined benchmark, timestamp, and comparison; co-movement does not prove direct causation.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support catalyst and disclosures, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Why Is the Stock Moving? — Market and Sector Catalysts, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional premarket rumor and a later verified filing, explain what was knowable at an earlier decision timestamp.",
-        "topic": "Why Is the Stock Moving? — Market and Sector Catalysts",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate relative change for a new stock/sector pair and list one alternative explanation."
+      },
+      "competencies": [
+        "CATALYST_ANALYSIS",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C18-L01": {
@@ -6908,43 +7110,59 @@
       "relatedCompetencies": [
         "CANDIDATE_QUALITY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe.",
-          "A candidate ranking is a transparent set of chosen criteria, not an investment recommendation.",
-          "Define the research universe, publication timestamp, observed liquidity, float as-of date and exclusion rules before assigning a candidate quality label."
+          "An eligible discovery universe is an explicit set of securities and exclusion rules created before ranking candidates.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe from the source evidence.",
-          "State measurable criteria and whether their inputs were known before ranking.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe.",
+          "FICTIONAL: 80 listed common stocks enter; 12 ETFs and 8 securities below a declared price floor are excluded, leaving 60 eligible records. This is screening, not recommendation.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State measurable criteria and whether their inputs were known before ranking.",
-          "Step 3 — Check the alternative or invalidation: The ranking uses future data or criteria that cannot be independently checked."
+          "Worked example — FICTIONAL: 80 listed common stocks enter; 12 ETFs and 8 securities below a declared price floor are excluded, leaving 60 eligible records. This is screening, not recommendation.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe: Fitting filters to a hindsight winner and calling it predictive.",
-          "Correct it by returning to the actual observation. State measurable criteria and whether their inputs were known before ranking.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Changing exclusions after seeing which symbol moved most. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe cannot establish:",
-          "A high educational score does not imply future outperformance.",
-          "An interpretation is invalidated or unproven when: The ranking uses future data or criteria that cannot be independently checked."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "An eligible discovery universe is an explicit set of securities and exclusion rules created before ranking candidates.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
-        "topic": "Building the Discovery Universe and Using Scanners Correctly — Start With an Eligible Universe",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply new fictional eligibility counts and document each exclusion before inspecting candidate scores."
+      },
+      "competencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C18-L02": {
@@ -6956,43 +7174,60 @@
         "CANDIDATE_QUALITY",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan.",
-          "A candidate ranking is a transparent set of chosen criteria, not an investment recommendation.",
-          "Define the research universe, publication timestamp, observed liquidity, float as-of date and exclusion rules before assigning a candidate quality label."
+          "A scanner result is reproducible only when its query, data cutoff, universe, and run timestamp are recorded.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan from the source evidence.",
-          "State measurable criteria and whether their inputs were known before ranking.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan.",
+          "FICTIONAL: scan run 09:20 uses observations through 09:19:59. A 09:25 volume print cannot be used to justify the earlier result.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State measurable criteria and whether their inputs were known before ranking.",
-          "Step 3 — Check the alternative or invalidation: The ranking uses future data or criteria that cannot be independently checked."
+          "Worked example — FICTIONAL: scan run 09:20 uses observations through 09:19:59. A 09:25 volume print cannot be used to justify the earlier result.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan: Fitting filters to a hindsight winner and calling it predictive.",
-          "Correct it by returning to the actual observation. State measurable criteria and whether their inputs were known before ranking.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Saving a symbol list without the scan time or silently using later data. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan cannot establish:",
-          "A high educational score does not imply future outperformance.",
-          "An interpretation is invalidated or unproven when: The ranking uses future data or criteria that cannot be independently checked."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "A scanner result is reproducible only when its query, data cutoff, universe, and run timestamp are recorded.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
-        "topic": "Building the Discovery Universe and Using Scanners Correctly — Timestamp Every Scan",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Given a new scan timeline, identify which fields were available and which must be excluded."
+      },
+      "competencies": [
+        "CANDIDATE_QUALITY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C18-L03": {
@@ -7004,43 +7239,60 @@
         "CANDIDATE_QUALITY",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information.",
-          "A candidate ranking is a transparent set of chosen criteria, not an investment recommendation.",
-          "Define the research universe, publication timestamp, observed liquidity, float as-of date and exclusion rules before assigning a candidate quality label."
+          "An empty scan is valid information about declared criteria at a declared time, not permission to weaken rules until a symbol appears.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information from the source evidence.",
-          "State measurable criteria and whether their inputs were known before ranking.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information.",
+          "FICTIONAL: zero of 60 eligible records meet price change ≥5%, volume ≥100,000, and spread ≤$0.05 at 09:20. The correct result is zero.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State measurable criteria and whether their inputs were known before ranking.",
-          "Step 3 — Check the alternative or invalidation: The ranking uses future data or criteria that cannot be independently checked."
+          "Worked example — FICTIONAL: zero of 60 eligible records meet price change ≥5%, volume ≥100,000, and spread ≤$0.05 at 09:20. The correct result is zero.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information: Fitting filters to a hindsight winner and calling it predictive.",
-          "Correct it by returning to the actual observation. State measurable criteria and whether their inputs were known before ranking.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Relaxing one threshold after seeing no results and presenting it as the original scan. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information cannot establish:",
-          "A high educational score does not imply future outperformance.",
-          "An interpretation is invalidated or unproven when: The ranking uses future data or criteria that cannot be independently checked."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "An empty scan is valid information about declared criteria at a declared time, not permission to weaken rules until a symbol appears.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
-        "topic": "Building the Discovery Universe and Using Scanners Correctly — Empty Results Are Information",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new fictional criteria table and explain how a revised scan must be versioned."
+      },
+      "competencies": [
+        "CANDIDATE_QUALITY",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C19-L01": {
@@ -7051,43 +7303,59 @@
       "relatedCompetencies": [
         "VOLUME_ANALYSIS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Percentage change compares a difference with an explicit baseline: (current−reference)/reference ×100.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change.",
+          "FICTIONAL: reference $8.00 and completed price $8.60 produce ($0.60/$8.00)×100=7.5%; reference time and adjustment state must be stated.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL: reference $8.00 and completed price $8.60 produce ($0.60/$8.00)×100=7.5%; reference time and adjustment state must be stated.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Dividing by the current price or mixing raw and split-adjusted baselines. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Percentage change compares a difference with an explicit baseline: (current−reference)/reference ×100.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Percentage Change",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute percentage change from a new fictional reference/current pair and name the denominator."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C19-L02": {
@@ -7099,43 +7367,60 @@
         "VOLUME_ANALYSIS",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Share volume is a count over a defined interval; dollar volume is a separate price-weighted measure.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume.",
+          "FICTIONAL: 20,000 shares at an illustrative $5 average correspond to $100,000 approximate dollar volume; neither number proves easy execution.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL: 20,000 shares at an illustrative $5 average correspond to $100,000 approximate dollar volume; neither number proves easy execution.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Calling shares dollars or comparing a partial interval with a full session. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Share volume is a count over a defined interval; dollar volume is a separate price-weighted measure.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Share Volume",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Convert a new fictional share-volume and average-price pair to approximate dollar volume and state one limitation."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C19-L03": {
@@ -7148,43 +7433,61 @@
         "CHART_STRUCTURE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Range is high minus low in price units; percentage range divides by a declared reference, while ATR is a different smoothed gap-aware measure.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility.",
+          "FICTIONAL: high $21, low $19 gives $2 range; relative to $20 reference it is 10%. This single interval is not ATR.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL: high $21, low $19 gives $2 range; relative to $20 reference it is 10%. This single interval is not ATR.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Calling one bar range ATR or omitting the reference used for a percentage. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Range is high minus low in price units; percentage range divides by a declared reference, while ATR is a different smoothed gap-aware measure.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate price and percentage range for a new fictional bar and explain why it is not ATR."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS",
+        "CHART_STRUCTURE",
+        "MFE_MAE_REVIEW"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C20-L01": {
@@ -7195,43 +7498,59 @@
       "relatedCompetencies": [
         "FLOAT_SUPPLY"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First.",
-          "Shares outstanding, float and turnover have different denominators and publication dates.",
-          "State the source and as-of date of shares outstanding and floating shares; distinguish float, issuance, short interest and daily volume."
+          "Security type must be identified before interpreting float, shares outstanding, or market capitalization because common stock, ETF, ADR, warrant, and preferred interests differ.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First from the source evidence.",
-          "State the source date for each share-count value before calculating a ratio.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First.",
+          "FICTIONAL: two tickers both show $10, but one is common stock and one a warrant. Their quoted prices do not imply equivalent ownership claims or share counts.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the source date for each share-count value before calculating a ratio.",
-          "Step 3 — Check the alternative or invalidation: The number of freely tradable shares is unverified or outdated."
+          "Worked example — FICTIONAL: two tickers both show $10, but one is common stock and one a warrant. Their quoted prices do not imply equivalent ownership claims or share counts.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First: Using total shares outstanding as verified tradable float.",
-          "Correct it by returning to the actual observation. State the source date for each share-count value before calculating a ratio.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Treating every ticker as common equity or comparing incompatible supply fields. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First cannot establish:",
-          "Turnover greater than 100% does not prove every share changed hands once.",
-          "An interpretation is invalidated or unproven when: The number of freely tradable shares is unverified or outdated."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "Security type must be identified before interpreting float, shares outstanding, or market capitalization because common stock, ETF, ADR, warrant, and preferred interests differ.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support float and supply estimates, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional issued shares and restricted shares, determine what additional filings are needed before estimating tradable float.",
-        "topic": "Float, Market Capitalization, Shares Outstanding, and Security Type — Security Type Comes First",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new fictional security record and list which supply field cannot be assumed across types."
+      },
+      "competencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C20-L02": {
@@ -7243,43 +7562,60 @@
         "FLOAT_SUPPLY",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate.",
-          "Shares outstanding, float and turnover have different denominators and publication dates.",
-          "State the source and as-of date of shares outstanding and floating shares; distinguish float, issuance, short interest and daily volume."
+          "A supply decision gate requires verified security type, as-of date, shares outstanding, float definition, and source before using supply in research.",
+          "The lesson uses only observations available at the stated fictional cutoff and preserves the canonical topic: Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate.",
+          "This original explanation is ungraded and does not reveal a protected answer key or assert a future market outcome."
         ],
         "recognize": [
-          "Here is how to recognize Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate from the source evidence.",
-          "State the source date for each share-count value before calculating a ratio.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Identify the timestamp, units, source type, comparison window, and facts actually visible for Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate.",
+          "FICTIONAL: 50 million shares outstanding and 18 million reported float as of June 30 yield float/outstanding=36%; the ratio may become stale and does not predict direction.",
+          "Separate the measured observation from any inference, recommendation, participant motive, or later outcome."
         ],
         "apply": [
-          "Let us practice Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State the source date for each share-count value before calculating a ratio.",
-          "Step 3 — Check the alternative or invalidation: The number of freely tradable shares is unverified or outdated."
+          "Worked example — FICTIONAL: 50 million shares outstanding and 18 million reported float as of June 30 yield float/outstanding=36%; the ratio may become stale and does not predict direction.",
+          "Show every intermediate quantity or evidence step, retain the stated units, and stop when a required input is unavailable.",
+          "Guided retry — change one fictional input, recompute or reclassify the evidence, and explain why the conclusion changed."
         ],
         "mistake": [
-          "A common error with Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate: Using total shares outstanding as verified tradable float.",
-          "Correct it by returning to the actual observation. State the source date for each share-count value before calculating a ratio.",
-          "Do not invent an unseen candle or trade fill."
+          "Common mistake — Using an undated float estimate or treating float turnover as unique owners. This produces an unsupported interpretation of the canonical topic and must be corrected before transfer practice.",
+          "Correction — return to the declared cutoff, canonical definition, inputs, units, and source rather than filling missing evidence with hindsight.",
+          "Retry with a different fictional case; an incorrect formative response never creates an official grade or mastery record."
         ],
         "limits": [
-          "What Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate cannot establish:",
-          "Turnover greater than 100% does not prove every share changed hands once.",
-          "An interpretation is invalidated or unproven when: The number of freely tradable shares is unverified or outdated."
+          "This lesson cannot establish a future return, executable fill, hidden participant intent, or investment recommendation.",
+          "A supply decision gate requires verified security type, as-of date, shares outstanding, float definition, and source before using supply in research.",
+          "Invalidate the conclusion when timestamps, units, source identity, comparison windows, or required observations are missing or inconsistent."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support float and supply estimates, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Using only the stated fictional cutoff for Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate, reproduce the definition or calculation, identify one common error, and explain one fact that remains unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional issued shares and restricted shares, determine what additional filings are needed before estimating tradable float.",
-        "topic": "Float, Market Capitalization, Shares Outstanding, and Security Type — Decision Gate",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute a new fictional float ratio, record the as-of date, and state one condition that blocks use."
+      },
+      "competencies": [
+        "FLOAT_SUPPLY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH07_20261102",
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "editorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C20-L03": {

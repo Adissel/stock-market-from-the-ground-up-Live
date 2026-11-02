@@ -13,7 +13,7 @@ This is a focused Basic reliability/security correction. It does not increase th
 | Filename / type | `SMFGU-LEARNING-LAB-FEATURE-AUDIT-001-v1-20261101.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/learning/` |
 | Google Drive location / document ID | Not created / unassigned |
-| Version / preparation date | 1.2 / November 1, 2026 |
+| Version / preparation date | 1.3 / November 2, 2026 |
 | Status | SOURCE INVENTORY AUDITED; production and independent release approval OPEN |
 | Data source | `data/learning-lab-engine-feature-audit-v1.json` |
 | Calculator | `scripts/qa/learning-lab-engine-feature-audit-v1.mjs` |
@@ -28,6 +28,10 @@ This is a focused Basic reliability/security correction. It does not increase th
 The six subject-specific Lab batch contracts still establish exactly **120/419** authored bridges, leaving **299**; no count was inferred from generic registry rows. At the member quantitative-workbench boundary, `learning-quant-studies-ui-v1.js` now independently revalidates the canonical Lab/topic/competency mapping selected by the shared engine. A browser caller therefore cannot convert tested but unmapped ATR or Bollinger mathematics into a released member lesson by passing a study ID directly. Existing mapped RSI, MACD, EMA and risk exercises retain their original authorization, fictional-data, retry, transfer and no-grade behavior.
 
 This hardening advances `LE-BAS-06` and `LA-BAS-07` but does not satisfy their full parity criteria: ATR/Bollinger canonical lesson approval, all applicable Lab chart mappings, accessible browser acceptance, provenance/editorial decisions and independently verified learning results remain open. The repository contains the November 1 Master Research Source Directory v1.1 and its 73-source registry; the separately referenced November 2 upload was not accessible during this batch.
+
+### Batch 07 curriculum authoring — v1.3
+
+Twenty previously unauthored canonical Day Trading Labs, `DT-C14-L01` through `DT-C20-L02`, now contain distinct first-principles definitions, fictional worked evidence, misconception correction, retries and new-case transfers. Competencies come from the existing canonical competency-path registry. Every bridge remains `BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING`, uses research candidates only, grants no publication/data-ingestion rights, contains no historical bars or protected grades, and has no member or independent editorial acceptance. Seven batch contracts now verify **140/419 authored and source-tested bridges; 279 remain**. `LE-BAS-08` and `LA-BAS-06` remain partial.
 
 Each of the eight combinations (two independent engines × four editions) has **exactly eight distinct additive feature requirements** recorded below. This v1.0 checklist is an auditable source-integration measure, **not an estimate of labor or total product completion**. A check is fully integrated only if the corresponding member-engine capability is present; `partial`, `prototype` and `not_implemented` contribute zero fully integrated checks.
 
@@ -185,5 +189,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | v1.0 | 2026-11-01 | Established 64 feature requirements and eight source-integration denominators with per-feature blockers, source and test pointers | Source audit complete; real-member and premium release acceptance open |
 | v1.1 | 2026-11-01 | Made Basic checkpoint writes fail closed until the authoritative member revision or verified empty state loads | Local targeted Node verification passed; exact-main CI, deployment and member acceptance open |
 | v1.2 | 2026-11-01 | Reverified 120/419 authored bridges and required canonical mapping revalidation at the member quantitative UI boundary | Source hardening tested; six Basic parity rows remain partial and release acceptance unchanged |
+| v1.3 | 2026-11-02 | Added and source-tested 20 distinct Day Trading bridges for a verified 140/419 authored denominator | Editorial, accessibility, authenticated member and publication acceptance remain open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-01 · v1.2 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.3 · GitHub `main` controlling · No payment, grade or premium grant.
