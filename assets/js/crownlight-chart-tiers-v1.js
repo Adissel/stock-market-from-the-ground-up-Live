@@ -295,7 +295,8 @@ function renderLockedButtons(){
   if(!state.visible.includes(tier)||isEntitled(tier))continue;
   const button=el('button','cl-locked-studio');
   button.type='button';
-  button.setAttribute('aria-label', 'Locked: '+names[tier]+'. View Lumens cost and balance');
+  button.setAttribute('aria-label','Locked: '+names[tier]+'. '+requirements[tier]+' Select to review current Lumens cost and wallet balance.');
+  button.title=requirements[tier]+' Select to review available access options.';
   button.append(el('span','cl-locked-icon','🔒'),el('span','',names[tier]));
   button.onclick=()=>void showLockedTier(tier);
   host.append(button);
