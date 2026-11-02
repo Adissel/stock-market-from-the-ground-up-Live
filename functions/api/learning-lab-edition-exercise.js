@@ -1,0 +1,114 @@
+/* Optional Learning/Lab premium formative exercises, server-side permissioned.
+ * ZERO live commerce writes, answer keys, official grading, member history or
+ * market feed. Premium remains locked until BOTH release switch and an explicit
+ * effective member PRODUCT GRANT exist. Plan targets alone never grant access.
+ */
+import {toolAccess} from './member-tool-access.js';
+import {enginePolicyForPlan} from '../_lib/learning-engine-tier-policy-v1.js';
+import {verifyEditionAuthorization,deriveFictionalCompletedStudies,
+ deriveFictionalCompletedFrames,advancedFormativeStudy,professionalDecisionStudy}
+ from '../_lib/learning-lab-edition-exercises-v1.js';
+const HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
+ 'vary':'Authorization','x-content-type-options':'nosniff'};
+const respond=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:HEADERS});
+const err=(message,status)=>Object.assign(new Error(message),{status});
+const LIMIT=24000;
+const EDITIONS=['ADVANCED','PROFESSIONAL','ENTERPRISE'];
+const FAMILY_TO_TOOL=Object.freeze({learning:'ONDEMAND_TRAINING',lab:'INTERACTIVE_LEARNING'});
+function config(env){
+ const base=String(env?.SUPABASE_URL||'').replace(/\/$/,'');
+ const secret=String(env?.SUPABASE_SECRET_KEY||'');
+ if(!/^https:\/\/[^/]+\.supabase\.co$/.test(base)||!secret)
+  throw err('Member rights storage is unavailable.',503);
+ const headers={apikey:secret,accept:'application/json'};
+ if(/^eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(secret))
+  headers.authorization='Bearer '+secret;
+ return {base,headers};
+}
+async function records(env,memberId){
+ const c=config(env);
+ const url=c.base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,metadata'+
+  '&user_id=eq.'+encodeURIComponent(memberId)+'&order=updated_at.desc&limit=20';
+ const r=await fetch(url,{headers:c.headers,cache:'no-store'});
+ if(!r.ok)throw err('Member subscription verification unavailable.',503);
+ const rows=await r.json().catch(()=>null);
+ if(!Array.isArray(rows)||rows.length>20)throw err('Member subscription records invalid.',503);
+ return rows;
+}
+function released(env,family,edition){
+ return env?.['ENGINE_'+family.toUpperCase()+'_'+edition+'_RELEASED']==='true';
+}
+function entitlement(rows,actorId,family,edition,env){
+ const now=Date.now();
+ // Explicit, current, server-owned subscription metadata; no legacy target
+ // can implicitly unlock a new engine.
+ for(const row of rows){
+  if(!row||row.status!=='active'||typeof row.plan_code!=='string')continue;
+  const period=Date.parse(row.current_period_end||'');
+  if(!Number.isFinite(period)||period<=now)continue;
+  const target=enginePolicyForPlan(row.plan_code).target[family];
+  const saved=row.metadata?.engine_edition_grants_v1?.[family];
+  if(!saved||saved.active!==true||typeof saved.expiresAt!=='string')continue;
+  const expiration=Date.parse(saved.expiresAt);
+  const auth=verifyEditionAuthorization({actorId,family,requested:edition,
+   planTarget:target,grant:{serverVerified:true,memberId:actorId,family,
+    edition:saved.edition,revoked:saved.revoked===true,expiresAt:Math.min(expiration,period)},
+   releaseEnabled:released(env,family,edition),now});
+  if(auth.ok)return auth;
+ }
+ return null;
+}
+function sameOrigin(req){
+ const origin=req.headers.get('origin'),site=req.headers.get('sec-fetch-site');
+ if(origin&&origin!==new URL(req.url).origin)throw err('Cross-origin requests denied.',403);
+ if(site&&!['same-origin','none'].includes(site))throw err('Cross-site requests denied.',403);
+}
+export async function onRequest({request,env}){
+ try{
+  if(request.method!=='POST')return respond({ok:false,error:'Method not allowed'},405);
+  sameOrigin(request);
+  const size=Number(request.headers.get('content-length')||0);
+  if(size>LIMIT)throw err('Request too large.',413);
+  const raw=await request.text();
+  if(raw.length>LIMIT)throw err('Request too large.',413);
+  let body;try{body=JSON.parse(raw)}catch{throw err('Invalid exercise request.',400)}
+  if(!body||typeof body!=='object'||Array.isArray(body)||
+     !['learning','lab'].includes(body.family)||!EDITIONS.includes(body.edition)||
+     !body.payload||typeof body.payload!=='object'||Array.isArray(body.payload))
+   throw err('Unsupported edition or exercise.',400);
+  const access=await toolAccess(env,request,FAMILY_TO_TOOL[body.family]);
+  if(!access?.userId||access.freeEligible!==true||access.authorized!==true)
+   throw err('Verified member tool access required.',403);
+  const rights=await records(env,access.userId);
+  const authorized=entitlement(rights,access.userId,body.family,body.edition,env);
+  if(!authorized)throw err('An active, released engine edition grant is required.',403);
+  // Original exercises from caller-provided fictional bars ONLY. A client
+  // cannot label an indicator as verified or assert licensed market rights.
+  const evidence=body.payload.evidence;
+  const derived=deriveFictionalCompletedStudies({
+   evidence,emaPeriod:body.payload.emaPeriod??9});
+  if(!derived)throw err('Valid completed fictional evidence required.',400);
+  let answer=null;
+  if(body.edition==='ADVANCED'&&body.activity==='advanced_formative_review'){
+   answer=advancedFormativeStudy({competencies:[],observations:[],
+    evidence:derived.evidence,indicators:derived.indicators});
+  }else if(body.edition==='PROFESSIONAL'&&body.activity==='decision_replay_review'){
+   const frames=deriveFictionalCompletedFrames({
+    evidence:derived.evidence,frameSize:body.payload.frameSize??5});
+   if(frames)answer=professionalDecisionStudy({evidence:derived.evidence,
+    indicators:derived.indicators,riskCases:body.payload.riskCases,frames});
+  }else if(body.edition==='ENTERPRISE'){
+   // Enterprise data-rights manifests MUST originate from a separate
+   // provider-verified source. Never trust browser-supplied license assertions.
+   throw err('Enterprise research data rights verification is not released.',403);
+  }
+  if(!answer)throw err('Exercise inputs or activity are invalid.',400);
+  return respond({ok:true,family:body.family,edition:body.edition,
+   result:answer,source:'MEMBER_SUPPLIED_FICTIONAL_UNGRADED',
+   officialGrade:false,masteryAwarded:false,memberRecordsModified:false});
+ }catch(error){
+  const status=[400,401,403,405,413].includes(error?.status)?error.status:503;
+  return respond({ok:false,error:status===503?'Learning edition service unavailable.':
+   error.message||'Exercise unavailable.'},status);
+ }
+}
