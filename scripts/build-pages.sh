@@ -456,6 +456,7 @@ console.log('PASS: generated sitemap.xml + robots.txt production build gate, '+e
 SITEMAP_GATE
 # Require the public-only GA4 and SEO fixture acceptance on every production build.
 # This is entirely local; no Google requests, member data or paid operations.
+node tests/test_public_sitemap_v2.mjs
 node tests/test_v014157_public_seo.mjs
 node tests/test_public_acquisition_v1.mjs
 node tests/test_member_growth_v1.mjs
