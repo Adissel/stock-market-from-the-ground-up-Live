@@ -47,5 +47,5 @@ test('Basic progress save requires authenticated enrollment and current session'
  const s=readFileSync('assets/js/bootcamp-academy-v014168.js','utf8');
  assert.match(s,/progressStore:enrolled&&progressAvailable/);
  assert.match(s,/dayMember===userId&&daySession===sessionSerial/);
- assert.match(s,/progress\.clear\(\);for\(const x of data\.progress\|\|\[\]\)progress\.set\(x\.day,x\)/);
+ assert.match(s,/progress\.clear\(\);for\(const x of data\.progress\)progress\.set\(x\.day,x\)/);
 });
