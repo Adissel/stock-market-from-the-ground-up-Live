@@ -111,3 +111,11 @@
 .crownlight-toolbar-actions button[data-cl^="inspect-"]{min-height:44px;border-color:#63718d;background:linear-gradient(135deg,#262e53,#102f45)}
 .crownlight-toolbar-actions button[data-cl^="inspect-"]:focus-visible{outline:3px solid #ffdc97;outline-offset:3px}
 @media(max-width:650px){.crownlight-toolbar-actions button[data-cl^="inspect-"]{flex:1 1 132px;min-height:44px}}
+
+/* 2026-11-02 Group 1: consistent toolbar spacing, legibility and keyboard focus. */
+.crownlight-toolbar-actions{column-gap:8px;row-gap:9px}
+.crownlight-toolbar-actions button{line-height:1.35}
+.crownlight-toolbar-actions button:focus-visible{outline:3px solid #ffe29c;outline-offset:3px;box-shadow:0 0 0 1px #0c1930}
+.crownlight-toolbar-actions button:disabled{opacity:.58;cursor:not-allowed}
+.crownlight-identity small{color:#c2d1ed}
+@media(max-width:650px){.crownlight-toolbar-actions{width:100%;justify-content:flex-start;gap:9px}.crownlight-toolbar-actions button{min-height:44px}}
