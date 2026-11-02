@@ -115,3 +115,21 @@
  .cl-chart-tier-tools .cl-tier-density-label{width:100%;justify-content:space-between}
  .cl-chart-tier-tools .cl-tier-density-control{flex:1;width:auto;max-width:none}
 }
+
+/* Professional adjustable split: handle overlays grid without becoming a third column. */
+.cl-chart-tier-switcher[data-cl-layout="SIDE_BY_SIDE"] .cl-chart-tier-panels:has(>.cl-tier-chart-frame + .cl-tier-chart-frame){
+ grid-template-columns:minmax(0,var(--cl-pro-primary,50fr)) minmax(0,var(--cl-pro-secondary,50fr));
+}
+.cl-chart-tier-switcher[data-cl-layout="PRICE_FOCUS"] .cl-chart-tier-panels:has(>.cl-tier-chart-frame + .cl-tier-chart-frame){
+ grid-template-columns:minmax(0,var(--cl-pro-primary,65fr)) minmax(0,var(--cl-pro-secondary,35fr));
+}
+.cl-chart-tier-panels:has(>.cl-professional-divider){position:relative}
+.cl-professional-divider{position:absolute;z-index:5;left:var(--cl-pro-handle,50%);top:0;bottom:0;width:14px;
+ transform:translateX(-50%);cursor:col-resize;touch-action:none;border-radius:8px;
+ background:linear-gradient(90deg,transparent 5px,#6a92ac 6px,#6a92ac 8px,transparent 9px)}
+.cl-professional-divider:focus-visible{outline:2px solid #f1d389;outline-offset:3px}
+.cl-professional-divider[hidden]{display:none!important}
+@media(max-width:1000px){
+ .cl-chart-tier-switcher .cl-chart-tier-panels:has(>.cl-tier-chart-frame + .cl-tier-chart-frame){grid-template-columns:minmax(0,1fr)!important}
+ .cl-professional-divider{display:none!important}
+}
