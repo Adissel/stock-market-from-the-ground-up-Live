@@ -94,3 +94,20 @@ A single eight-file git-tree commit was created twice but could not be moved ont
 **Revision history:** 1.1 / November 1, 2026 / replay-to-Talia chart visualization, source validation and test wiring / SOURCE ONLY, ACCEPTANCE OPEN.
 
 **Footer:** SMFGU-VIS-INT-005 · v1.1 · Read-only ungraded visualization · No protected grading or live trade authorization.
+
+
+## v1.2 — Real CI defect and correction (2026-11-01)
+
+**Document control:** SMFGU-VIS-INT-005, version 1.2, same GitHub main filename, no Google Drive document ID created.
+
+- GitHub Actions focused workflow run [41365272911](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41365272911) at source SHA `0ef65736` finished **FAILURE**. Its independent `visual-data-contract` Node job was **SUCCESS**, and its browser job **FAILURE**.
+- Raw job log recorded **PASS** for the real ECharts Free Foundations 390/1200 browser test and the compact Lab/Academy ten-stage browser test. The Admin browser fixture then raised `TypeError: Cannot read properties of undefined (reading 'description')` because it expected `getOption().aria[0].description` to be present in ECharts 6.1.0.
+- The production Admin DOM already supplies an exact `aria-label` to the chart and a visible synthetic-showcase warning. Corrected browser test `tests/test_crownlight_admin_shared_analytics_browser_v1.mjs` at commit `a1013112` now checks these **actual accessible DOM outputs**, while preserving zero-count, filter, data-table, pie choice and account-disposal assertions. This is a compatibility correction, not an authorization/security bypass or a disabled test.
+- The newly authored Talia/indicator Chromium suite used the same unsupported ECharts option lookup; corrected at `ce873d26` to inspect its real chart element's accessible label, preventing the same failure.
+- Direct in-tool V8 runtime with original `CrownlightIndicatorMath`, original `CrownlightChartTutor`, source visual kit and mocked DOM/verified session passed 5- and 25-revealed-bar computations, three visible-only overlays, null EMA warmup, malformed-event rejection and sign-out disposal. Its first mock omitted native `getAttribute`; after correcting the **mock**, real code exercised the rendering path. The bridge also now disposes a failed chart initialization (`030e990a`).
+- Replacement run [41367024097](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41367024097) was **PENDING** at the last check on `ce873d26`. **Do not mark the new Chromium gate passed until its actual results are available.**
+- The shared visualization effort now source-integrates Lab, Academy, Admin and indicator/Talia chart context, while the separate interactive Tutor conversation website and genuine multi-account browser integration remain separate acceptance tasks.
+
+**Revision history:** v1.2 / 2026-11-01 / real CI failure, code/test correction and pending clean rerun; source only.
+
+**Footer:** SMFGU-VIS-INT-005 · v1.2 · No payment, live trading, new Supabase writes or independent production approval.
