@@ -86,3 +86,18 @@
 #tp-workspace .tp-followup .tc-row{gap:8px}
 #tp-workspace .tp-followup button{flex:1 1 155px;min-height:42px}
 #tp-workspace .tp-followup button:focus-visible{outline:3px solid #a5f5df;outline-offset:2px}
+
+/* Six-stage ungraded instruction workstation */
+#tp-workspace .tp-instruction-engine{padding:17px;margin:13px 0;border:1px solid #436878;border-radius:14px;background:linear-gradient(140deg,#102638,#0a202c)}
+#tp-workspace .tp-instruction-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:9px}
+#tp-workspace .tp-instruction-header strong{font-size:.94rem;color:#ebfbff}
+#tp-workspace .tp-instruction-header p,#tp-workspace .tp-instruction-header span{font-size:.72rem;color:#a9c3d2;margin:4px 0}
+#tp-workspace .tp-instruction-controls{display:grid;grid-template-columns:1fr minmax(130px,.48fr);gap:10px;margin:13px 0}
+#tp-workspace .tp-instruction-controls label{display:grid;gap:5px;font-size:.72rem;color:#b5d5e0}
+#tp-workspace .tp-instruction-controls input,#tp-workspace .tp-instruction-controls select{width:100%;min-width:0;color:#e9f9ff;background:#0b1928;border:1px solid #5d7e90;border-radius:8px;padding:10px;min-height:42px;font:inherit}
+#tp-workspace .tp-instruction-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#tp-workspace .tp-instruction-steps button{min-width:0;display:flex;align-items:center;gap:9px;text-align:left;padding:12px 10px;border:1px solid #476576;background:#122d3d;color:#e1f4fd;border-radius:9px}
+#tp-workspace .tp-instruction-steps button span{font-variant-numeric:tabular-nums;color:#91b9c4;font-size:.67rem}
+#tp-workspace .tp-instruction-steps button[aria-pressed=true]{background:#125752;border-color:#5de1c5;box-shadow:inset 0 0 0 1px #5de1c566}
+#tp-workspace .tp-instruction-steps button:focus-visible,#tp-workspace .tp-instruction-controls input:focus-visible,#tp-workspace .tp-instruction-controls select:focus-visible{outline:3px solid #a8f0de;outline-offset:2px}
+@media(max-width:620px){#tp-workspace .tp-instruction-steps{grid-template-columns:repeat(2,minmax(0,1fr))}#tp-workspace .tp-instruction-controls{grid-template-columns:1fr}}
