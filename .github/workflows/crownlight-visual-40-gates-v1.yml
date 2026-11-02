@@ -18,6 +18,7 @@ permissions:
 concurrency:
   group: crownlight-visual-40-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 jobs:
   exact-source-40:
     runs-on: ubuntu-latest
