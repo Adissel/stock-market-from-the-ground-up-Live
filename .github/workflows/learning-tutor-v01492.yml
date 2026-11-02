@@ -151,6 +151,13 @@ on:
       - 'tests/talia-five-qualitative-source-dispositions-v1.test.mjs'
       - 'data/talia-claims-five-qualitative-editorial-review-v1.json'
       - 'tests/talia-echarts-independent-python-js-v1.test.mjs'
+      - 'tests/talia-training45-evaluation40-v1.test.mjs'
+      - 'tests/talia-training40-server-authorization-v1.test.mjs'
+      - 'tests/talia-training-synthetic-followup-privacy-v1.test.mjs'
+      - 'tests/talia-foundation-adaptive-reflection-v1.test.mjs'
+      - 'functions/_lib/talia-foundation-reflection-coach-v1.js'
+      - 'data/talia-training-editorial45-v1.json'
+      - 'data/talia-tutor-evaluation40-v1.json'
       - 'scripts/qa/talia_echarts_member_math_python_v1.py'
       - 'tests/talia-source-remediation-specificity-v1.test.mjs'
       - 'data/talia-claim-source-remediation-129-135-139-v1.json'
@@ -404,6 +411,13 @@ on:
       - 'tests/talia-five-qualitative-source-dispositions-v1.test.mjs'
       - 'data/talia-claims-five-qualitative-editorial-review-v1.json'
       - 'tests/talia-echarts-independent-python-js-v1.test.mjs'
+      - 'tests/talia-training45-evaluation40-v1.test.mjs'
+      - 'tests/talia-training40-server-authorization-v1.test.mjs'
+      - 'tests/talia-training-synthetic-followup-privacy-v1.test.mjs'
+      - 'tests/talia-foundation-adaptive-reflection-v1.test.mjs'
+      - 'functions/_lib/talia-foundation-reflection-coach-v1.js'
+      - 'data/talia-training-editorial45-v1.json'
+      - 'data/talia-tutor-evaluation40-v1.json'
       - 'scripts/qa/talia_echarts_member_math_python_v1.py'
       - 'tests/talia-source-remediation-specificity-v1.test.mjs'
       - 'data/talia-claim-source-remediation-129-135-139-v1.json'
@@ -639,6 +653,10 @@ jobs:
           node tests/talia-claims101-140-python-js-editorial-v1.test.mjs
           node tests/talia-five-qualitative-source-dispositions-v1.test.mjs
           node tests/talia-echarts-independent-python-js-v1.test.mjs
+          node tests/talia-training45-evaluation40-v1.test.mjs
+          node tests/talia-training40-server-authorization-v1.test.mjs
+          node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
+          node tests/talia-foundation-adaptive-reflection-v1.test.mjs
           node tests/talia-source-remediation-specificity-v1.test.mjs
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
