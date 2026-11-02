@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.12 / 2026-11-01 |
+| Version / prepared | 1.13 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -290,4 +290,12 @@ Against clean source baseline `011bf12996d90e512d41c3d309c4a8d01b485919`, the re
 
 **Revision history addition:** v1.12 / 2026-11-01 / Reproduced and corrected the chart-to-Tutor Chromium mismatch fixture; local Node and 5/5 ECharts Chromium suites pass; hosted exact-SHA CI, production, and genuine authenticated acceptance remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.12 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+## Hosted verification — chart-to-Tutor correction
+
+The source correction commit `e2ffc6ccdbc590066177a3e2ae693d93be8f51f1` completed **27/27 GitHub Actions workflows successfully** on the exact SHA. The focused ECharts [workflow run 41378238461](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41378238461) passed both Node contract and real Chromium jobs. The full [Sitewide Playwright and Stripe Noncharging Regression run 41378238408](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41378238408) also passed both jobs. Stripe lifecycle coverage was mocked and noncharging.
+
+Cloudflare Pages production `release-manifest.json` reported the same `gitCommit`; the changed JavaScript returned HTTP 200 and matched committed source after line-ending normalization. This verifies candidate source deployment parity, while the manifest still explicitly reports `productionAcceptance: not_certified`. Actual signed-in account A/B, Owner/Free/Founding roles, keyboard and screen-reader acceptance, editorial/source-rights approval, and consolidated Owner release acceptance remain OPEN.
+
+**Revision history addition:** v1.13 / 2026-11-01 / Recorded all 27 exact-SHA workflow successes, the two focused handoff gates, and Cloudflare production manifest plus served-asset parity; genuine member and consolidated release acceptance remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.13 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

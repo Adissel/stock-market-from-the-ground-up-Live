@@ -134,3 +134,16 @@ A single eight-file git-tree commit was created twice but could not be moved ont
 **Revision history:** v1.3 / 2026-11-01 / Corrected popup identity fixture and hardened same-origin readiness ordering; local 5/5 Chromium suites pass; hosted exact-SHA CI/deployment/auth acceptance open.
 
 **Footer:** SMFGU-VIS-INT-005 · v1.3 · Local source/test acceptance only; no production certification.
+
+
+## v1.4 — Exact-SHA CI and Cloudflare source verification (2026-11-01)
+
+The tested source fix commit `e2ffc6ccdbc590066177a3e2ae693d93be8f51f1` reached `main`. GitHub reported **27/27 Actions workflows successful** on this exact SHA, with no failed, cancelled, skipped or pending workflow in the observed run inventory. The focused [Crownlight Shared ECharts Visual Contracts workflow](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41378238461) passed both `visual-data-contract` and `visual-browser`; the [Sitewide Playwright & Stripe Noncharging Regression](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41378238408) passed both its sitewide Playwright and mocked signed-lifecycle jobs.
+
+The live Cloudflare Pages `release-manifest.json` at `https://stock-market-from-the-ground-up-d1r.pages.dev/release-manifest.json` returned `gitCommit=e2ffc6ccdbc590066177a3e2ae693d93be8f51f1`. The deployed chart handoff asset returned HTTP 200 and matched the local committed JavaScript after normalizing CRLF/LF line endings. Its byte hashes differ only because of line-ending normalization. This establishes source deployment parity for the changed asset; the manifest continues to label production acceptance `not certified`.
+
+**Still open:** real authenticated Owner/Free/Founding and account-switch acceptance; production session expiry and live entitlement behavior; keyboard and assistive-technology review; independent instructional/editorial/source-rights review; and the consolidated Owner acceptance gate. Green Actions and a matching served source asset do not close those checks.
+
+**Revision history:** v1.4 / 2026-11-01 / Recorded 27/27 exact-SHA Actions success, both focused CI jobs and Cloudflare manifest/asset parity; authenticated and owner acceptance remain open.
+
+**Footer:** SMFGU-VIS-INT-005 · v1.4 · Exact-SHA automation and source deployment confirmed; member/product acceptance open.
