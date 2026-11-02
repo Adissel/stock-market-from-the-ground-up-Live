@@ -192,17 +192,19 @@ function synchronize(source,event,type){
    const index=Math.min(data.length-1,Math.max(0,Math.ceil(range.realTo)-1));
    const stamp=data[index]?.timestamp;
    if(type==='onZoom'&&typeof target.chart.setBarSpace==='function'){
-    // KLineChart 10 returns a BarSpace OBJECT, unlike v9's numeric return.
-    // Measure the actual pixel distance of two revealed adjacent bars;
-    // this works across the documented v10 return shape and avoids guessing.
-    const a=Math.max(0,Math.min(data.length-2,index-1));
-    if(data.length>=2){
+    // KLineChart 10 may return a BarSpace object. Legacy adapters use
+    // a numeric pixel spacing; otherwise calculate from revealed candles.
+    const reported=source.chart.getBarSpace?.();
+    let spacing=typeof reported==='number'&&Number.isFinite(reported)?reported:NaN;
+    if(!Number.isFinite(spacing)&&data.length>=2){
+     const a=Math.max(0,Math.min(data.length-2,index-1));
      const first=source.chart.convertToPixel({timestamp:data[a].timestamp},{paneId:'candle_pane'});
      const second=source.chart.convertToPixel({timestamp:data[a+1].timestamp},{paneId:'candle_pane'});
-     const spacing=Math.abs(Number(second?.x)-Number(first?.x));
-     if(Number.isFinite(spacing)&&spacing>=1&&spacing<=50)
-      target.chart.setBarSpace(spacing);
+     if(Number.isFinite(first?.x)&&Number.isFinite(second?.x))
+      spacing=Math.abs(second.x-first.x);
     }
+    if(Number.isFinite(spacing)&&spacing>=1&&spacing<=50)
+     target.chart.setBarSpace(spacing);
    }
    if(Number.isSafeInteger(stamp)&&
       (target.chart.getDataList?.()||[]).some(b=>b.timestamp===stamp))
