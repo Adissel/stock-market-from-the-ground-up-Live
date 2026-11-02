@@ -42,13 +42,25 @@ const req=(path,method='GET',body)=>new Request('https://member.example'+path,{
 try{
  assert(academyBetaTester(env,user));
  assert(!academyBetaTester(env,nonTester));
- assert(academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester},nonTester),
-  'Only the explicitly designated QA identity receives supplemental invite-only instruction');
- assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:'malformed'},nonTester));
- assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester,
-  ACADEMY_THREE_CAMPS_BETA_ENABLED:'false'},nonTester));
- assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester,
-  ACADEMY_THREE_CAMPS_ENABLED:'true'},nonTester));
+ const future=new Date(Date.now()+24*60*60*1000).toISOString();
+ const expired=new Date(Date.now()-60*1000).toISOString();
+ const tooLong=new Date(Date.now()+72*60*60*1000).toISOString();
+ const qaEnv={...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester,
+  ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT:future};
+ assert(academyBetaTester(qaEnv,nonTester),
+  'A specifically invited QA user with a valid 24-hour grant may use only private Beta study');
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT:undefined},nonTester),
+  'Supplemental QA access must not exist without an expiry');
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT:expired},nonTester),
+  'Expired QA access must fail closed');
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT:tooLong},nonTester),
+  'A greater-than-48-hour QA grant must fail closed');
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT:'invalid'},nonTester));
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_QA_USER:'malformed'},nonTester));
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_BETA_ENABLED:'false'},nonTester));
+ assert(!academyBetaTester({...qaEnv,ACADEMY_THREE_CAMPS_ENABLED:'true'},nonTester));
+ assert(!academyBetaTester(qaEnv,'cccccccc-cccc-4ccc-8ccc-cccccccccccc'),
+  'Supplemental QA identity must match exactly');
  assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_USERS:user+',bad'},user));
  assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_ENABLED:'false'},user));
  const c=await academy({request:req('/api/bootcamp-academy?action=catalog'),env});
