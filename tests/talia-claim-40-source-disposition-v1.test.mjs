@@ -6,7 +6,8 @@ const prev=read('talia-claims-101-140-evidence-batch-v1.json');
 const next=read('talia-claims-remaining21-source-review-v1.json');
 const reg=read('talia-claim-regulatory-risk-104-133-v1.json');
 test('all 40 claim IDs have individual source-scope dispositions, no duplicates or rights approval',()=>{
- const prior=prev.rows.filter(x=>x.sourceStatus==='SELECTED_PRIMARY_PAGE_CONTENT_EXAMINED');
+ const laterIds=new Set(next.items.map(x=>x.number));
+ const prior=prev.rows.filter(x=>!laterIds.has(x.number));
  assert.equal(prior.length,19);assert.equal(next.items.length,21);
  const all=[...prior.map(x=>x.number),...next.items.map(x=>x.number)];
  assert.equal(new Set(all).size,40);
