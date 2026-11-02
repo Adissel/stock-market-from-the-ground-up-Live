@@ -1,11 +1,11 @@
 {
   "id": "SMFGU-TALIA-40-CLAIM-EVIDENCE-015",
   "date": "2026-11-01",
-  "version": "1.0",
+  "version": "1.1",
   "reviewedCount": 40,
   "sourcePagesIndividuallyRead": 6,
   "independentlyPublished": 0,
-  "status": "NINETEEN_CLAIM_SCOPES_INSPECTED_IN_TWO_BATCHES_ZERO_FINAL_PUBLICATION_ACCEPTANCE",
+  "status": "NINE_ADDITIONAL_PRIMARY_SOURCE_SCOPES_2026_11_01_ALL_PUBLICATION_HOLD",
   "rows": [
     {
       "number": 101,
@@ -135,13 +135,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
       "originalWorkedCase": "FICTIONAL: $1,000 face bond with 6% annual fixed coupon promises $60 annual interest, typically $30 per semiannual payment, subject to issuer payment and stated terms; purchasing the bond at $950 would not turn the annual coupon into $57.",
       "originalReviewCaveat": "Actual accrued interest, principal changes, callable issues and default risk can change cash flows; coupon is not total return.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov What Are Corporate Bonds lists par (face value), coupon rate, price, maturity and yield; coupon cash must be computed from stated par and annualized coupon convention. No guaranteed secondary-market return.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "sourcePage": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 109,
@@ -186,13 +195,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
       "originalWorkedCase": "FICTIONAL: A $1,000 par bond is quoted at 103% of par, or $1,030 clean price: $30 premium. A quote of 97 means $970: $30 discount. Neither quote says its contractual coupon rate.",
       "originalReviewCaveat": "Quoted price may exclude accrued interest; callable terms or default can prevent simple par recovery.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov corporate-bond bulletin expressly shows 90% and 110% of $1,000 face-value examples for discounts and premiums. Quote convention, accrued interest and issuer call/default remain separate.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "sourcePage": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 112,
@@ -237,13 +255,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs",
       "originalWorkedCase": "FICTIONAL: A benchmark total return is +8.0% and a comparable fund total return is +7.6% over the same year. Tracking difference = 7.6% − 8.0% = −0.4 percentage points. This is one-period difference, not a time-series tracking-error standard deviation.",
       "originalReviewCaveat": "Share-class expenses and index methodology can change comparisons; one year does not prove long-run replication quality.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov Index Funds explicitly describes tracking error, replication differences, fund fees and trading costs; citing it does not establish a specific fund tracking-difference number.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 115,
@@ -305,13 +332,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs",
       "originalWorkedCase": "FICTIONAL: A classroom open-end mutual fund receives a properly timed order and calculates a next NAV of $15.20; an illustrative ETF quote at $15.25 during the day is a tradable indication subject to execution, not the fund's final NAV.",
       "originalReviewCaveat": "Fund restrictions, market closures, premiums, discounts and delayed valuation can invalidate straightforward same-day comparisons.",
-      "sourceFactScope": "SEC Investor.gov ETF vs mutual fund bulletin distinguishes mutual-fund forward NAV from intraday ETF market trading.",
-      "sourceStatus": "SELECTED_PRIMARY_PAGE_CONTENT_EXAMINED",
+      "sourceFactScope": "Investor.gov mutual-fund/ETF characteristics directly compares daily mutual-fund NAV transactions with intraday ETF market-price transactions; no guaranteed ETF fill or NAV equality.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+        "sourcePage": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 119,
@@ -458,13 +494,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
       "originalWorkedCase": "FICTIONAL: $600 stocks grow 20% to $720; $400 bonds stay unchanged. Total $1,120; stock share becomes $720/$1,120=64.29%, not 60%.",
       "originalReviewCaveat": "Fees, cash movement, splits and multiple holdings complicate real weights; the resulting allocation says nothing about expected return.",
-      "sourceFactScope": "SEC Investor.gov asset allocation source confirms portfolio weight drift under unequal returns; numeric fraction independently checked.",
-      "sourceStatus": "SELECTED_PRIMARY_PAGE_CONTENT_EXAMINED",
+      "sourceFactScope": "Investor.gov rebalancing explainer states differing asset returns cause allocation drift; individual original arithmetic must still define as-of holdings and denominator.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "sourcePage": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 128,
@@ -475,13 +520,22 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
       "originalWorkedCase": "FICTIONAL: Current stocks $720, bonds $400, combined $1,120. For a hypothetical 60/40 target stocks should be $672 and bonds $448; an idealized transfer would move $48 between categories.",
       "originalReviewCaveat": "Transaction fees, account restrictions, liquidity and taxes may prevent exact shifts, so arithmetic is not advice to place those orders.",
-      "sourceFactScope": "SEC Investor.gov rebalancing source confirms return toward target asset mix; simplified transfer excludes friction.",
-      "sourceStatus": "SELECTED_PRIMARY_PAGE_CONTENT_EXAMINED",
+      "sourceFactScope": "Investor.gov Rebalancing definition directly supports returning to the original allocation mix; current-dollar target multiplication is independently original fictional arithmetic, not a quoted statutory formula.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/investing-basics/glossary/rebalancing",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/glossary/rebalancing",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 129,
@@ -526,30 +580,48 @@
       "secondResearchCandidate": "https://www.sec.gov/search-filings",
       "originalWorkedCase": "FICTIONAL: Issuer reports 2025 audited annual sales $100m, then 2026 first-quarter unaudited sales $24m. The quarter is not full-year 2026 revenue; multiplying by four does not create audited annual evidence.",
       "originalReviewCaveat": "Acquisitions, seasonal demand, revisions and year-to-date conventions can break naive extrapolation.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov Form 10-Q glossary says unaudited quarterly statements for first three fiscal quarters; EDGAR investor guide separately identifies audited 10-K statements.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 132,
       "code": "TALIA_TOPIC_EIGHTK_CONDITIONAL_EVENT",
       "title": "An 8-K agreement announcement is not necessarily a completed cash transaction",
       "category": "filings",
-      "source": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
       "secondResearchCandidate": "https://www.sec.gov/search-filings",
       "originalWorkedCase": "FICTIONAL: A current report describes a signed conditional $15m asset-sale agreement. The classroom cannot report $15m received or realized profit until the relevant completion and accounting evidence is available.",
       "originalReviewCaveat": "Different events trigger different disclosure requirements; legal and accounting impacts are fact-specific.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov How to Read an 8-K distinguishes Item 1.01 agreement entry from Item 2.01 completion of acquisition or asset disposition. An announced agreement alone does not prove closing.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "sourcePage": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 133,
@@ -560,13 +632,22 @@
       "secondResearchCandidate": "https://www.sec.gov/search-filings",
       "originalWorkedCase": "FICTIONAL: A company's year ends December 31, but the annual filing is first publicly accepted February 20. A January 15 replay must not use that 10-K as known information merely because it reports the prior year.",
       "originalReviewCaveat": "Preliminary releases or subsequent amendments can provide other versions, each needing its own time-stamped evidence record.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov EDGAR describes annual, quarterly and current filings; fiscal period-end date is different from public filing availability. Verify actual EDGAR acceptance timestamp for historical replay.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_INTERNAL_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "public Investor.gov primary education page reviewed",
+        "originalCitation": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "sourcePage": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "editorialStatus": "HOLD",
+        "sourceScopeChecked": true,
+        "arithmeticIndependentlyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 134,
@@ -698,5 +779,5 @@
     }
   ],
   "claimSourceScopeReviewed": 19,
-  "sourceClaimsAdditionalReviewed": 13
+  "sourceClaimsAdditionalReviewed": 22
 }
