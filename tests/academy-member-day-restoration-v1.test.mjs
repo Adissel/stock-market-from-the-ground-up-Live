@@ -24,6 +24,17 @@ test('restoration does not weaken authenticated progress or checkpoint gates',()
  assert.match(source,/if\(!\['start','save_reflection'\]\.includes\(action\)\|\|busy\|\|!program\|\|!progressAvailable\|\|!enrolled\)return/);
 });
 
-test('Academy rejects cross-program, missing, or invalid progress responses before restoring private checkpoints',()=>{assert.match(source,/!Array\.isArray\(data\.progress\)/);assert.match(source,/x\.day<1\|\|x\.day>loaded\.length/);assert.match(source,/x\.programCode!==undefined&&x\.programCode!==code/);assert.ok(source.indexOf('if(!Array.isArray(data.progress)')<source.indexOf('progress.clear();for(const x of data.progress)'));});
-
-test('Academy rejects duplicate progress days before restoring any member checkpoint',()=>{assert.match(source,/new Set\(data\.progress\.map\(x=>x\.day\)\)\.size!==data\.progress\.length/);assert.ok(source.indexOf('new Set(data.progress.map(x=>x.day))')<source.indexOf('progress.clear();for(const x of data.progress)'));});
+test('Academy rejects invalid progress before restoring any private checkpoint',()=>{
+ assert.match(source,/function validAcademyProgressRecords\(rows,code,dayCount,actor\)/);
+ assert.match(source,/!Array\.isArray\(rows\)/);
+ assert.match(source,/x\.day<1\|\|x\.day>dayCount/);
+ assert.match(source,/x\.programCode!==undefined&&x\.programCode!==code/);
+ assert.match(source,/if\(!validAcademyProgressRecords\(data\.progress,code,loaded\.length,userId\)\)/);
+ assert.ok(source.indexOf('if(!validAcademyProgressRecords(')<source.indexOf('progress.clear();for(const x of data.progress)'));
+});
+test('Academy validator rejects duplicate-day records and member identifier mismatches',()=>{
+ assert.match(source,/seen\.has\(x\.day\)/);
+ assert.match(source,/seen\.add\(x\.day\)/);
+ assert.match(source,/x\.user_id!==undefined&&x\.user_id!==actor/);
+ assert.match(source,/x\.memberId!==undefined&&x\.memberId!==actor/);
+});
