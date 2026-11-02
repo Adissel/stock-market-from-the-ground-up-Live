@@ -42,10 +42,15 @@ try{
   const values=await page.evaluate(()=>{
    const c=window.echarts.getInstanceByDom(document.querySelector('[data-admin-echarts-chart]'));
    const o=c.getOption();
-   return {data:o.series[0].data,mode:o.tooltip[0].renderMode,source:o.aria[0].description};
+   const region=document.querySelector('[data-admin-echarts-chart]');
+   return {data:o.series[0].data,mode:o.tooltip[0].renderMode,
+    accessibleLabel:region.getAttribute('aria-label'),
+    source:document.querySelector('[data-admin-echarts-status]').textContent};
   });
   assert.deepEqual(values.data,[0,3,11,2,0,8,5]);
   assert.equal(values.mode,'richText');
+  assert.match(values.accessibleLabel,/Registered profiles: 0/,
+   'Real chart element must retain an accurate accessible name');
   assert.match(values.source,/SYNTHETIC SHOWCASE/);
   await page.locator('[data-admin-echarts-group]').selectOption('commerce');
   assert.equal(await page.locator('#crownlight-admin-echarts table tbody tr').count(),3);
