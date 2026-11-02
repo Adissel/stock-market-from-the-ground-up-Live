@@ -68,6 +68,7 @@ on:
       - 'tests/test_academy_three_camps_browser_v1.mjs'
       - 'tests/test_risk60_advanced_days11_14_browser_v1.mjs'
       - 'tests/test_academy_risk60_days21_60_browser_v1.mjs'
+      - 'tests/test_academy_charts45_days01_40_browser_v1.mjs'
       - 'assets/css/bootcamp.css'
       - 'assets/css/bootcamp-academy-compact-v2.css'
       - 'assets/css/learning-workstation-v44.css'
@@ -186,6 +187,10 @@ jobs:
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
         run: node tests/test_academy_risk60_days21_60_browser_v1.mjs
+      - name: Browser-verify Charts45 original Days 01–40 across three viewport widths
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_academy_charts45_days01_40_browser_v1.mjs
       - name: Browser-verify all three new Boot Camp routes at mobile and desktop widths
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
