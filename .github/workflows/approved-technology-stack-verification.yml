@@ -1,6 +1,10 @@
 name: Approved Technology Stack Verification
 # Manual, non-deploying verification. Existing release workflows remain authoritative.
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/approved-technology-stack-verification.yml'
   workflow_dispatch:
 permissions:
   contents: read
