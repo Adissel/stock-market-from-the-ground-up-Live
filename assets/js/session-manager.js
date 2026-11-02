@@ -34,6 +34,15 @@ async function checkSessionTimeout(){
   timeoutCheckInFlight=(async()=>{
     const sb=await window.getSupabaseClient?.();
     if(!sb)return false;
+    // Do not call GoTrue /user when there is no valid access-token shape.
+    // A stale or malformed local session must fail closed without repeated 403 polling.
+    const {data:sessionData,error:sessionError}=await sb.auth.getSession();
+    const accessToken=sessionData?.session?.access_token;
+    if(sessionError||!accessToken||!/^([A-Za-z0-9_-]+\\.){2}[A-Za-z0-9_-]+$/.test(accessToken)){
+      if(accessToken)await sb.auth.signOut({scope:'local'}).catch(()=>{});
+      clearSessionClock();
+      return false;
+    }
     const {data:{user},error}=await sb.auth.getUser();
     if(error||!user){clearSessionClock();return false}
     const started=Number(localStorage.getItem(SESSION_KEYS.started)||0);
