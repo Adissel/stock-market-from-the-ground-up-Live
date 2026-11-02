@@ -20,7 +20,7 @@ test('Production Tutor and build references stay synchronized',()=>{
  const files=['functions/_lib/original-competency-tutor-v014100.js','scripts/build-pages.sh','scripts/talia-foundation-coverage-v1.mjs','.github/workflows/learning-tutor-v01492.yml'];
  for(const file of files){
   const source=readFileSync(new URL('../'+file,import.meta.url),'utf8');
-  for(const n of ['19','20'])assert.ok(source.includes('talia-foundation-explanations-batch'+n+'-v1.json'),file+' '+n);
+  for(const n of ['19','20'])assert.ok(source.includes('talia-foundation-explanations-batch'+n+'-v1.json')||(file==='scripts/build-pages.sh'&&source.includes('talia-foundation-explanations-batch{01..30}-v1.json')),file+' '+n);
  }
 });
 test('Selected fictional financial statements and point-in-time arithmetic',()=>{
