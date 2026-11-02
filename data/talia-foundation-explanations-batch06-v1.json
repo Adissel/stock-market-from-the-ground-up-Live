@@ -113,6 +113,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+        "claimSpecificScope": "SEC Investors.gov Stocks FAQ supports dividends as a possible income source and market-price variability but does NOT establish the specific indicated forward-dividend-yield calculation or any future payout assurance. Obtain a direct formula reference; keep original hypothetical arithmetic explicitly non-guaranteed.",
+        "decision": "HOLD_EXACT_FORMULA",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -145,6 +153,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323",
+        "claimSpecificScope": "SEC Commissioner statement concerns issuer share repurchases, motivations and disclosures, not a complete comparison to per-share declared cash dividends. Do not claim repurchases pay each holder cash or mechanically cause appreciation; document distinct transaction mechanics separately.",
+        "decision": "HOLD_EXACT_COMPARISON",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -209,6 +225,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-17",
+        "claimSpecificScope": "Investor.gov IPO bulletin directly distinguishes new shares sold by an issuer (capital raised by company) from registered existing selling shareholders whose proceeds belong to those shareholders. Normal secondary trades similarly transfer ownership rather than new issue proceeds; keep IPO registration distinctions clear.",
+        "decision": "SOURCE_SCOPE_SUPPORTED",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -653,7 +677,7 @@
       "reviewExplanation": "Correct explanation uses maturity as a due date, not as the coefficient in a price-risk model.",
       "transferQuestion": "FICTIONAL TRANSFER: Compare a three-year zero-coupon bond with an otherwise similar annual-coupon bond. Which returns cash earlier?",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86"
+        "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -670,6 +694,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+        "claimSpecificScope": "FINRA Duration investor source directly distinguishes Macaulay/modified/effective duration and sensitivity to market rate changes. Maturity is contractual principal repayment date, duration a rate sensitivity/cash-flow timing measure; do not infer guaranteed realized holding-period loss.",
+        "decision": "SOURCE_SCOPE_SUPPORTED",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
