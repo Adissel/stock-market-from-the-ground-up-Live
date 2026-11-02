@@ -46,7 +46,7 @@ jobs:
         run: |
           {
             echo "### Real two-member x three-camp unused-day private resume/save/CAS API QA"
-            echo "Tested SHA: `$GITHUB_SHA`"
+            printf 'Tested SHA: `%s`\n' "$GITHUB_SHA"
             echo "Workflow: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo "Genuine two-account QA disposition: **$QA_RESULT**."
             echo "A success means two genuine preapproved noncommercial QA identities each preserved old records and passed three new unused-day checkpoints, save/reload, stale CAS, guest denial and foreign-selector isolation; NOT full-course journeys."
