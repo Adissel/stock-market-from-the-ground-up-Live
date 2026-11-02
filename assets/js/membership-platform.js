@@ -37,10 +37,20 @@
    <span class="v11-badge">${money(t.individual_price_cents)}/mo</span></div><div class="actions">
    <a class="btn secondary" href="${esc(t.href||'tools.html')}">${t.status==='planned'?'Preview Roadmap':'View Tool'}</a>${buy}</div></article>`}
  function matrix(plans,tools,links){const cols=plans.filter(p=>['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60'].includes(p.plan_code)),set=new Set(links.map(x=>`${x.plan_code}|${x.tool_code}`));
+  // Founding entitlements are verified by the separate membership service, not
+  // legacy plan_tool_access rows. Missing rows are NOT evidence of exclusion.
+  const coverage=(p,t)=>{
+   if(t.status!=='live')return '<span class="catalog-cell-note">Not yet released</span>';
+   if(set.has(`${p.plan_code}|${t.tool_code}`)||p.includes_all_tools)
+    return '<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>';
+   if(['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60'].includes(p.plan_code))
+    return '<span class="catalog-cell-note">See plan access details</span>';
+   return '<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span>';
+  };
  return `<table class="catalog-comparison"><caption>Membership benefits · ✓ Included · X Not included. Product terms and release status apply.</caption><thead><tr><th>Feature</th>${cols.map(p=>`<th>${esc(p.name)}</th>`).join('')}</tr></thead><tbody>${tools.filter(t=>t.status!=='retired').map(t=>
- `<tr><td>${esc(t.name)}</td>${cols.map(p=>`<td>${t.status==='live'&&(set.has(`${p.plan_code}|${t.tool_code}`)||p.includes_all_tools)?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':'<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span>'}</td>`).join('')}
+ `<tr><td>${esc(t.name)}</td>${cols.map(p=>`<td>${coverage(p,t)}</td>`).join('')}
  </tr>`).join('')}
- <tr><td>Book companion learning (not ebook files)</td>${cols.map(p=>`<td>${p.includes_all_books?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':'<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span><small class="catalog-cell-note">Separate access</small>'}</td>`).join('')}</tr>
+ <tr><td>Book companion learning (not ebook files)</td>${cols.map(p=>`<td>${p.includes_all_books?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':p.plan_code.startsWith("FOUNDING_")?'<span class="catalog-cell-note">See founding terms</span>':'<span class="catalog-cell-note">Check separate access</span>'}</td>`).join('')}</tr>
  <tr><td>Five designated downloadable eBooks (when distribution is authorized)</td>${cols.map(p=>`<td>${'Separate purchase'}</td>`).join('')}</tr>
  <tr><td>Advertisements</td>${cols.map(p=>`<td>${esc(adLabel(p))}</td>`).join('')}</tr></tbody></table>`}
  function cleanMembershipPage(){document.querySelectorAll('h1,h2,h3').forEach(h=>{if(/^Book Companion Access$/i.test((h.textContent||'').trim()))(h.closest('section,article,.card,.product-card')||h.parentElement)?.remove()});
