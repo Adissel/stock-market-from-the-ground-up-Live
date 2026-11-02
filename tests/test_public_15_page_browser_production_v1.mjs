@@ -58,7 +58,7 @@ try{
     // Published Cloudflare canonicals are intentionally extensionless, even
     // when legacy navigation links request the corresponding .html route.
     // Require the exact non-redirecting SEO target; do not weaken host checks.
-    const expected=base+(path==='/'?'/':path.replace(/\\.html$/,''));
+    const expected=base+(path==='/'?'/':path.replace(/\.html$/,''));
     assert.equal(state.canonical,expected,'Canonical URL mismatch');
     if(['/','/learn.html','/tools.html'].includes(path)){
      for(const href of guides){
