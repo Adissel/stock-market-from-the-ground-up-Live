@@ -271,6 +271,18 @@ test -s "$output/assets/js/prototype-experiences-v1.bundle.js"
 test -s "$output/assets/css/prototype-experiences-v1.css"
 test -s "$output/assets/js/prototype-experiences-boot-v1.js"
 
+# Public React/TypeScript ECharts experience, with no privileged API or assessment state.
+test -s src/experience/HomeMarketTerminal.tsx
+cp -- src/experience/HomeMarketTerminal.tsx "$vendor_temp/HomeMarketTerminal.tsx"
+node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
+  --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \
+  "$vendor_temp/HomeMarketTerminal.tsx"
+node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/HomeMarketTerminal.tsx" \
+  --bundle --format=esm --target=es2022 --minify \
+  --define:process.env.NODE_ENV='"production"' \
+  --outfile="$output/assets/js/home-market-terminal-v1.bundle.js"
+test -s "$output/assets/js/home-market-terminal-v1.bundle.js"
+
 # Talia member classroom is a new presentation over the existing Tutor API.
 # Type-check against the same pinned React/TypeScript toolchain used by prototypes.
 test -s src/tutor/TaliaClassroom.tsx
