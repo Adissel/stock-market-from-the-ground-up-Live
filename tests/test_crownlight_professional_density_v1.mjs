@@ -30,4 +30,9 @@ match(workspace,/lostpointercapture/,'Pointer release and cancellation must clea
 match(workspace,/aria-orientation','horizontal'/,'Split control must state orientation');
 match(workspace,/if\(!permissionReady\|\|Tier\(\)\?\.getStatus/,'Divider updates must be membership gated');
 match(css,/\.cl-tier-quote-item strong/,'OHLCV data should retain a readable hierarchy');
+match(workspace,/KLineChart 10 returns a BarSpace OBJECT/,'Use v10 chart-space contract');
+match(workspace,/Math\.abs\(Number\(second\?\.x\)-Number\(first\?\.x\)\)/,'Zoom sync must measure actual revealed-bar spacing');
+match(workspace,/target\.chart\.setBarSpace\(spacing\)/,'Zoom sync must apply measured spacing');
+assert.doesNotMatch(workspace,/const space=source\.chart\.getBarSpace\(\);[\s\S]{0,80}Number\.isFinite\(space\)/,
+ 'Do not treat KLineChart 10 BarSpace object as a number');
 console.log('PASS Professional density source contracts: bounded slider, linked charts, remount, privacy reset, responsive styling, existing workspace layouts');
