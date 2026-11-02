@@ -78,6 +78,9 @@ on:
       - 'assets/js/bootcamp-academy-v014168.js'
       - 'functions/_lib/bootcamp-academy-v014168.js'
       - 'tests/test_teaching_full_width_v1.mjs'
+      - 'src/tutor/TaliaClassroom.tsx'
+      - 'tests/talia-prototype-professional-chart-v1.test.mjs'
+      - 'scripts/build-pages.sh'
       - 'tests/test_v014168_academy_browser.mjs'
       - 'tests/test_v014144_bootcamp_browser.mjs'
 permissions:
