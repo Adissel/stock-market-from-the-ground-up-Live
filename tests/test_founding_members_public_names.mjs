@@ -11,7 +11,7 @@ for(const path of pages){
  const source=read(path);
  assert.doesNotMatch(source,/Founding\s+600|The\s+Founding\s+600/i,
   'Internal cohort name must not appear to members on '+path);
- assert.doesNotMatch(source,/\b600\s+(?:places|founding places|founder seats|shared places)\b/i,
+ assert.doesNotMatch(source,/\b600\s+(?:numbered\s+)?(?:places|founding places|founder seats|shared places)\b/i,
   'Internal total cap must not be shown on '+path);
 }
 const store=read('store.html');
