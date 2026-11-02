@@ -257,7 +257,7 @@ jobs:
     needs: [learning, labs, academy, studio, tutor, governance, beta-next25]
     steps:
       - uses: actions/checkout@v4
-      - name: Validate 85 unique source-test commands
+      - name: Validate 86 unique source-test commands
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -269,12 +269,12 @@ jobs:
           base=re.findall(r'^\s*run: node (tests/[^\s]+)$',original,re.M)
           extra_text=workflow.split('  beta-next25:')[1].split('  release-source-summary:')[0]
           extra=re.findall(r'^\s*run: node (tests/[^\s]+)$',extra_text,re.M)
-          assert len(base)==60 and len(set(base))==60,'Require 60 distinct base tests'
+          assert len(base)==61 and len(set(base))==61,'Require 60 domain checks plus the Tutor prototype integration check'
           assert len(extra)==25 and len(set(extra))==25,'Require 25 distinct additional tests'
           assert not set(base)&set(extra),'Release gates must not duplicate tests'
           missing=[x for x in base+extra if not Path(x).is_file()]
           assert not missing,('Missing test files',missing)
-          print('PASS: 85 distinct existing source tests across 7 jobs')
+          print('PASS: 86 distinct existing source tests across 7 jobs')
           PY
       - name: Enforce all seven source jobs
         env:
@@ -287,5 +287,5 @@ jobs:
               print(name,result['result'])
           if len(jobs)!=7 or any(job['result']!='success' for job in jobs.values()):
               sys.exit('NO-GO: at least one of seven source jobs failed or was cancelled')
-          print('PASS: 85 source test commands; member/browser, editorial, licensing, security and deployment require independent acceptance')
+          print('PASS: 86 source test commands; member/browser, editorial, licensing, security and deployment require independent acceptance')
           PY
