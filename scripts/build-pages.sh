@@ -11,6 +11,7 @@ node tests/prototype-indicator-workbench-v2.test.mjs
 node tests/test_crownlight_chart_workspace_v2.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/test_site_shell_acceptance_v1.cjs
+node --test tests/atelier-sitewide-theme-v1.test.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 node tests/basic-quant-worked-inspection-v1.test.mjs
 node tests/basic-engine-six-gate-closeout-v1.test.mjs
