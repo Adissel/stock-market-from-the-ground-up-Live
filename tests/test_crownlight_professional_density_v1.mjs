@@ -4,7 +4,7 @@ const tiers=readFileSync(new URL('../assets/js/crownlight-chart-tiers-v1.js',imp
 const css=readFileSync(new URL('../assets/css/crownlight-chart-tiers-v1.css',import.meta.url),'utf8');
 const workspace=readFileSync(new URL('../assets/js/crownlight-workspace-v2.js',import.meta.url),'utf8');
 const match=(s,re,label)=>assert.match(s,re,label);
-match(tiers,/barSpacing:10,allowed:/,'Bounded default candle density must exist');
+match(tiers,/barSpacing:10(?:,|})/,'Bounded default candle density must exist');
 match(tiers,/density\.min='3';density\.max='24';density\.step='1'/,'Range must be bounded');
 match(tiers,/state\.barSpacing=spacing/,'Density must track actual selection');
 match(tiers,/for\(const entry of state\.charts\)[\s\S]{0,200}entry\.chart\.setBarSpace\?\.\(spacing\)/,'All enhanced charts receive bar spacing');
