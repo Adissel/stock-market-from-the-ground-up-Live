@@ -109,3 +109,11 @@ test('Real canonical registry labels yield only their entitled topic-specific op
  assert.equal(x.select({competencies:unrelated.relatedCompetencies,primaryCode:unrelated.relatedCompetencies[0],
   topic:known.get('F1-C02-L01')||unrelated.title}),null);
 });
+
+test('Member UI independently rejects calculations without a canonical lesson mapping',()=>{
+ const ui=readFileSync('assets/js/learning-quant-studies-ui-v1.js','utf8');
+ assert.match(ui,/selected!==studyId/);
+ assert.match(ui,/unmapped ATR\/Bollinger methods remain math-only/);
+ const engine=readFileSync('assets/js/lab-engine-v32-universal.js','utf8');
+ assert.match(engine,/context:\{\s*labId,topic,competencies:codes,primaryCode:codes\[0\]\|\|null/);
+});

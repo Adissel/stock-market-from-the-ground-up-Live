@@ -12,7 +12,7 @@ Basic Learning v3.3 / Lab v3.2 checkpoint persistence now fails closed after an 
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.17 / 2026-11-01 |
+| Version / prepared | 1.18 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -332,4 +332,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.17 / 2026-11-01 / Corrected Basic shared-engine checkpoint fail-open behavior after an unverified member-progress read; targeted local Node tests passed, while exact-main CI, deployment and real-member acceptance remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.17 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.18 / 2026-11-01 / Reverified 120/419 subject-specific Lab bridges and hardened the member quantitative UI against direct rendering of calculations without canonical lesson mappings. The six Basic parity features remain partial; exact-SHA CI/deployment for this change, 299 authored bridges, accessibility, editorial acceptance and the unavailable November 2 source-directory upload remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.18 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

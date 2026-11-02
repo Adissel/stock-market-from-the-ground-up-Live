@@ -456,7 +456,9 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   const ui=root.GroundUpLearningQuantStudiesUIV1;
   if(!ui?.mount)return;
   const host=el('section');host.className='gu-v33-quantitative-host';parent.append(host);
-  const controller=ui.mount({target:host,studyId:quantitativeStudyId,mode});
+  const controller=ui.mount({target:host,studyId:quantitativeStudyId,mode,context:{
+   labId,topic,competencies:codes,primaryCode:codes[0]||null
+  }});
   if(controller)echartsControllers.push(controller);
  }
  function renderMethodSteps(parent){

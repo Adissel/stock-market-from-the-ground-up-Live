@@ -63,6 +63,9 @@ test('Authorized member Lab integration and no premature independent-case answer
  const html=fs.readFileSync('lab-player.html','utf8');
  assert.match(ui,/const indicator=root\.GroundUpLearningIndicatorsV1/);
  assert.match(ui,/const values=Array\.isArray\(base\.chart\)/);
+ assert.match(ui,/const selected=math\?\.select\?\.\(context\|\|\{\}\)/);
+ assert.match(ui,/selected!==studyId/);
+ assert.match(lab,/context:\{\s*labId,topic,competencies:codes,primaryCode:codes\[0\]\|\|null/);
  assert(!ui.includes('New case steps'));
  assert(!ui.includes("node('td',later.values"));
  assert.match(lab,/GroundUpLearningIndicatorsV1\?\.select/);

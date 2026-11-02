@@ -173,7 +173,7 @@
       "evidence_file": "assets/js/learning-indicators-v1.js",
       "existing_test_file": "tests/learning-indicators-v1.test.mjs",
       "acceptance_criterion": "All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings.",
-      "unresolved": "Some calculations exist without approved lesson mapping.",
+      "unresolved": "RSI/MACD and existing EMA/risk mappings are fail-closed at both engine and UI boundaries; ATR/Bollinger calculations remain math-only until canonical lesson mappings and editorial review exist.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -199,7 +199,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "All 419 Labs receive original reviewed lessons and accessible progression.",
-      "unresolved": "Six batches record 120/419 authored; 299 remain.",
+      "unresolved": "Six batches reverified at 120/419 authored; 299 remain and no generated bridge counts as independent editorial acceptance.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -277,7 +277,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Every canonical Lab has specific reviewed example, correction and transfer.",
-      "unresolved": "120/419 individually authored; 299 remain.",
+      "unresolved": "Six batch contracts reverified at 120/419 individually authored; 299 remain and editorial/member acceptance is separate.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -290,7 +290,7 @@
       "evidence_file": "assets/js/learning-quant-studies-ui-v1.js",
       "existing_test_file": "tests/learning-quant-studies-v1.test.mjs",
       "acceptance_criterion": "Every relevant entitled Lab has verified math, chart and accessible fallback.",
-      "unresolved": "Selective initial studies only; not universal parity.",
+      "unresolved": "Selective mapped studies only; the member UI now rejects direct rendering of unmapped calculations, but universal chart/math/accessibility parity remains incomplete.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

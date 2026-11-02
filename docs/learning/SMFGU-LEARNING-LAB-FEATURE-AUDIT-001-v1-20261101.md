@@ -13,7 +13,7 @@ This is a focused Basic reliability/security correction. It does not increase th
 | Filename / type | `SMFGU-LEARNING-LAB-FEATURE-AUDIT-001-v1-20261101.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/learning/` |
 | Google Drive location / document ID | Not created / unassigned |
-| Version / preparation date | 1.1 / November 1, 2026 |
+| Version / preparation date | 1.2 / November 1, 2026 |
 | Status | SOURCE INVENTORY AUDITED; production and independent release approval OPEN |
 | Data source | `data/learning-lab-engine-feature-audit-v1.json` |
 | Calculator | `scripts/qa/learning-lab-engine-feature-audit-v1.mjs` |
@@ -22,6 +22,12 @@ This is a focused Basic reliability/security correction. It does not increase th
 | Purpose | Fix a verifiable denominator for each edition of each independent engine without counting policy targets, authored drafts or staff prototypes as production release. |
 
 ## Formula and evidence policy
+
+### Batch A/B mapping-boundary reconciliation — v1.2
+
+The six subject-specific Lab batch contracts still establish exactly **120/419** authored bridges, leaving **299**; no count was inferred from generic registry rows. At the member quantitative-workbench boundary, `learning-quant-studies-ui-v1.js` now independently revalidates the canonical Lab/topic/competency mapping selected by the shared engine. A browser caller therefore cannot convert tested but unmapped ATR or Bollinger mathematics into a released member lesson by passing a study ID directly. Existing mapped RSI, MACD, EMA and risk exercises retain their original authorization, fictional-data, retry, transfer and no-grade behavior.
+
+This hardening advances `LE-BAS-06` and `LA-BAS-07` but does not satisfy their full parity criteria: ATR/Bollinger canonical lesson approval, all applicable Lab chart mappings, accessible browser acceptance, provenance/editorial decisions and independently verified learning results remain open. The repository contains the November 1 Master Research Source Directory v1.1 and its 73-source registry; the separately referenced November 2 upload was not accessible during this batch.
 
 Each of the eight combinations (two independent engines × four editions) has **exactly eight distinct additive feature requirements** recorded below. This v1.0 checklist is an auditable source-integration measure, **not an estimate of labor or total product completion**. A check is fully integrated only if the corresponding member-engine capability is present; `partial`, `prototype` and `not_implemented` contribute zero fully integrated checks.
 
@@ -178,5 +184,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 |---|---|---|
 | v1.0 | 2026-11-01 | Established 64 feature requirements and eight source-integration denominators with per-feature blockers, source and test pointers | Source audit complete; real-member and premium release acceptance open |
 | v1.1 | 2026-11-01 | Made Basic checkpoint writes fail closed until the authoritative member revision or verified empty state loads | Local targeted Node verification passed; exact-main CI, deployment and member acceptance open |
+| v1.2 | 2026-11-01 | Reverified 120/419 authored bridges and required canonical mapping revalidation at the member quantitative UI boundary | Source hardening tested; six Basic parity rows remain partial and release acceptance unchanged |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-01 · v1.1 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-01 · v1.2 · GitHub `main` controlling · No payment, grade or premium grant.

@@ -1,12 +1,16 @@
 /* Existing member Lab Engine only. No new entitlement, storage or backend. */
 (function(root){'use strict';
 const sessions=new WeakMap();
-function mount({target,studyId,mode}={}){
+function mount({target,studyId,mode,context}={}){
  const baseline=root.GroundUpLearningQuantStudiesV1;
  const indicator=root.GroundUpLearningIndicatorsV1;
  const math=indicator?.definitions?.[studyId]?indicator:baseline;
  const def=math?.definitions?.[studyId];
- if(!target||!def||!['guided','practice'].includes(mode)||typeof target.replaceChildren!=='function')return null;
+ const selected=math?.select?.(context||{});
+ // Recheck the canonical topic mapping at the member UI boundary. A browser
+ // caller cannot turn a tested calculation into a released lesson merely by
+ // supplying its study ID; unmapped ATR/Bollinger methods remain math-only.
+ if(!target||!def||selected!==studyId||!['guided','practice'].includes(mode)||typeof target.replaceChildren!=='function')return null;
  sessions.get(target)?.dispose?.();
  const doc=target.ownerDocument||root.document;
  const node=(tag,value)=>{const x=doc.createElement(tag);if(value!==undefined)x.textContent=value;return x;};
