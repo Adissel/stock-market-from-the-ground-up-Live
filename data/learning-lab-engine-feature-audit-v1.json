@@ -173,9 +173,15 @@
       "evidence_file": "assets/js/learning-indicators-v1.js",
       "existing_test_file": "tests/learning-indicators-v1.test.mjs",
       "acceptance_criterion": "All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings.",
-      "unresolved": "All five named studies now have fail-closed canonical source mappings, including ATR DT-C19-L03 and Bollinger F3-C07-L04. Independent editorial approval, authenticated accessible member acceptance and exact-release evidence remain open, so the registered approval criterion is not yet fully satisfied.",
+      "unresolved": "Owner accepted all five indicator teaching mappings and content. Authenticated member rendering, real keyboard/screen-reader verification, complete applicable-Lab parity, and independent exact-release acceptance remain open.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LE-BAS-07",
@@ -186,9 +192,15 @@
       "evidence_file": "assets/js/bootcamp-academy-v014168.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Genuine learners maintain prerequisite and stage progress across courses.",
-      "unresolved": "End-to-end Academy member proof incomplete.",
+      "unresolved": "Owner accepted Free and Academy instructional programs. Real two-account signed-in prerequisite, saved checkpoint, session expiry, sign-out and cross-member restoration acceptance remains open; database and deterministic source controls passed.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LE-BAS-08",
@@ -199,9 +211,15 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "All 419 Labs receive original reviewed lessons and accessible progression.",
-      "unresolved": "Twenty-one batches now record 419/419 source-tested authored bridges. Independent human editorial, rights, authenticated accessibility and member acceptance remain open, so whole-catalogue reviewed instruction is not yet integrated.",
+      "unresolved": "Owner accepted 419/419 authored lessons and records. Source-integrity build gates exist; genuine authenticated member experience, assistive-technology operation and applicable source/market-data rights checks remain open.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LA-BAS-01",
@@ -277,9 +295,15 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Every canonical Lab has specific reviewed example, correction and transfer.",
-      "unresolved": "Twenty-one batch contracts verify 419/419 individually authored bridges; independent human editorial, rights, accessibility and authenticated member acceptance remain separate and open.",
+      "unresolved": "Owner accepted all 419 individually authored Lab bridges, worked examples, corrections and transfers. Retain authentic-member accessibility, any separately required rights evidence and independently verified technical release gates.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LA-BAS-07",
@@ -290,9 +314,15 @@
       "evidence_file": "assets/js/learning-quant-studies-ui-v1.js",
       "existing_test_file": "tests/learning-quant-studies-v1.test.mjs",
       "acceptance_criterion": "Every relevant entitled Lab has verified math, chart and accessible fallback.",
-      "unresolved": "Selective mapped studies only; the member UI now rejects direct rendering of unmapped calculations, but universal chart/math/accessibility parity remains incomplete.",
+      "unresolved": "Owner accepted educational/chart content. Not every applicable Lab has independently proven accessible quantitative/ECharts parity in a genuine member browser; real assistive-technology and full topical coverage remain open.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LA-BAS-08",
@@ -303,9 +333,15 @@
       "evidence_file": "assets/js/lab-player.js",
       "existing_test_file": "tests/engine-classroom-contract-v1.test.mjs",
       "acceptance_criterion": "Free and Academy checkpoints restore with signout and cross-member denial.",
-      "unresolved": "Real member browser and accessibility acceptance incomplete.",
+      "unresolved": "Owner accepted Academy and Free learning flows. Two real authenticated accounts, sign-out/expiry handling, prerequisites, checkpoint rehydration and cross-account isolation in browser remain open.",
       "real_member_accepted": false,
-      "independent_release_accepted": false
+      "independent_release_accepted": false,
+      "owner_editorial_accepted": true,
+      "owner_editorial_accepted_at": "2026-11-02",
+      "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
+      "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
+      "technical_release_acceptance": "OPEN",
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
     },
     {
       "id": "LE-ADV-01",
