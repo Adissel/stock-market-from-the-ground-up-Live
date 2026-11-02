@@ -46,6 +46,18 @@ const REPLAY:number[][]=[
   [20.66,20.49,20.40,20.73],[20.49,20.57,20.43,20.65]
 ];
 const initialQuestion=()=>new URLSearchParams(location.search).get('q')?.slice(0,450)||'';
+/* Public canonical IDs and stage hints only. Server independently checks the
+ * registered Lab and the member entitlement; never forward lesson answers. */
+const labHandoff=(()=>{
+  const params=new URLSearchParams(location.search);
+  const id=(params.get('lab')||'').toUpperCase();
+  const stage=params.get('stage')||'Learn';
+  const stages=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
+  if(!/^(?:F[123]-C\\d{2}-L\\d{2}|DT-C\\d{2}-L\\d{2}|TAPE-C\\d{2}-L\\d{2})$/.test(id))return null;
+  return {id,stage:stages.includes(stage)?stage:'Learn'};
+})();
+const labQuestion=(q:string)=>labHandoff
+  ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
 function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
   const host=useRef<HTMLDivElement|null>(null);
   const [visible,setVisible]=useState(7);
@@ -191,7 +203,7 @@ function Classroom(){
       const access=await getToken();if(!access)throw Error('Member session expired. Please sign in.');
       const res=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-        body:JSON.stringify({question:q,mode,learnerAnswer:reasoning.trim().slice(0,1800),
+        body:JSON.stringify({question:labQuestion(q),mode,learnerAnswer:reasoning.trim().slice(0,1800),
           requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread})});
       const result=await res.json().catch(()=>null);
       if(controller.signal.aborted||version!==epoch.current||identity.current!==targetId)return;
@@ -254,6 +266,7 @@ function Classroom(){
   </main>;
   return <main className="tc-main">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / TUTOR</p><h1>Talia Interactive Classroom</h1><p>Talk through a concept. Inspect a fictional chart. Practice your reasoning. Learn from reviewed explanations.</p></div><div className="tc-row"><a href="/market-tutor.html">Classic Tutor</a><a href="/labs.html">Labs</a><a href="/bootcamp-academy.html">Boot Camps</a></div></div>
+    {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid"><section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Conversation with Talia</h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
