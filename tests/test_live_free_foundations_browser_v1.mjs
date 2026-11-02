@@ -357,6 +357,100 @@ if(!email||!password){
     note('checks','Fictional Journal save persisted and reopened through genuine signed-in UI with exact owned ID.');
    }
   }catch(e){note('failures','Real Free QA Journal create/reopen: '+String(e.message||e).slice(0,330)+'; landing='+new URL(page.url()).pathname+'; status='+String(await page.locator('#new-journal-message').textContent().catch(()=>'' )).slice(0,100))}
+  // Actual Free Simulator-to-Journal persistence. One noncommercial, fictional
+  // paper-plan fixture on James_Test; no paper order is entered or executed.
+  // Idempotent across CI reruns: never modify a pre-existing QA record.
+  try{
+   const simMarker='FICTIONAL QA SIMULATOR PERSISTENCE V1';
+   await page.goto(origin+'/simulator.html?practice=free',{waitUntil:'domcontentloaded',timeout:30000});
+   await page.locator('#sim-content').waitFor({state:'visible',timeout:45000});
+   const simPreflight=await page.evaluate(async marker=>{
+    const sb=await window.getSupabaseClient();
+    const u=(await sb.auth.getUser()).data?.user;
+    const list=await sb.from('decision_journal')
+     .select('id,user_id,journal_type,thesis,simulator_source_label,plan_locked_at')
+     .eq('user_id',u.id).eq('thesis',marker).limit(2);
+    const usage=await sb.rpc('gu_v014121_my_free_week_usage');
+    return {id:u.id,rows:list.data,error:list.error?.message||null,
+     usage:usage.data,usageError:usage.error?.message||null};
+   },simMarker);
+   assert.equal(simPreflight.id,signed.id,'Simulator auth identity changed before save');
+   assert.equal(simPreflight.error,null);
+   assert.equal(simPreflight.usageError,null);
+   assert(Array.isArray(simPreflight.rows)&&simPreflight.rows.length<=1,
+    'Unexpected duplicate simulator QA plan');
+   let simRecordId;
+   if(simPreflight.rows.length){
+    assert(simPreflight.rows[0].plan_locked_at,
+     'Existing simulator QA marker was not successfully locked; preserve for review');
+    simRecordId=simPreflight.rows[0].id;
+    note('checks','Existing original fictional QA Simulator plan preserved without duplicate creation.');
+   }else{
+    const q=simPreflight.usage;
+    assert(q&&q.journalUnlimited===false&&q.simulatorUnlimited===false,
+     'Expected a genuine Free quota, not a premium or unverified Simulator entitlement');
+    if(q.journalUsed>=q.journalLimit||q.simulatorSavesUsed>=q.simulatorSaveLimit){
+     note('blocked','Free QA Simulator weekly save allowance exhausted; refused additional entry.');
+    }else{
+     await page.waitForFunction(()=>/Loaded 36 ORIGINAL FICTIONAL candles/i.test(
+      document.getElementById('sim-load-msg')?.textContent||''),null,{timeout:35000});
+     await page.locator('#sim-ticker').fill('GUSIM');
+     await page.locator('#sim-shares').fill('10');
+     await page.locator('#sim-stop').fill('1');
+     await page.locator('#sim-thesis').fill(simMarker);
+     await page.locator('#sim-entry-reason').fill(
+      'Noncommercial educational QA: document an original fictional scenario only.');
+     await page.locator('#sim-trigger').fill('No brokerage instruction; test plan persistence only.');
+     await page.locator('#sim-invalidation').fill(
+      'Invalid if any candle or source is interpreted as actual market data.');
+     await page.locator('#sim-lock-plan').click();
+     await page.waitForFunction(()=>/Simulator plan locked in journal record #\d+/i.test(
+      document.getElementById('sim-plan-msg')?.textContent||''),null,{timeout:25000});
+     note('checks','Genuine Free fictional Simulator plan locked and saved through UI without an order.');
+    }
+   }
+   const simSaved=await page.evaluate(async marker=>{
+    const sb=await window.getSupabaseClient();
+    const u=(await sb.auth.getUser()).data.user;
+    const list=await sb.from('decision_journal')
+     .select('id,user_id,journal_type,ticker,thesis,simulator_source,simulator_source_label,plan_locked_at')
+     .eq('user_id',u.id).eq('thesis',marker).limit(2);
+    return {rows:list.data,error:list.error?.message||null};
+   },simMarker);
+   if(!report.blocked.some(x=>x.includes('Simulator weekly save allowance'))){
+    assert.equal(simSaved.error,null);
+    assert.equal(simSaved.rows.length,1,'Expected exactly one owned fictional Simulator QA record');
+    const row=simSaved.rows[0];simRecordId=row.id;
+    assert.equal(row.user_id,signed.id);
+    assert.equal(row.journal_type,'paper');
+    assert.equal(row.ticker,'GUSIM');
+    assert(row.plan_locked_at,'Simulator paper plan must be locked server-side');
+    assert.match(row.simulator_source_label||'',/ORIGINAL FICTIONAL STARTER/);
+    await page.goto(origin+'/journal.html',{waitUntil:'domcontentloaded',timeout:30000});
+    await page.locator('#journal-content').waitFor({state:'visible',timeout:30000});
+    await page.locator('#journal-search').fill('GUSIM');
+    await page.locator('#journal-rows tr[data-id="'+simRecordId+'"] a').first()
+     .waitFor({state:'visible',timeout:20000});
+    await page.locator('#journal-rows tr[data-id="'+simRecordId+'"] a').first().click();
+    await page.waitForURL(url=>Number(new URL(url).searchParams.get('id'))===Number(simRecordId),
+     {timeout:25000});
+    await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+    const verify=await page.evaluate(async id=>{
+     const sb=await window.getSupabaseClient();
+     const u=(await sb.auth.getUser()).data.user;
+     const q=await sb.from('decision_journal')
+      .select('id,plan_locked_at,user_id').eq('id',id).eq('user_id',u.id).single();
+     return {row:q.data,error:q.error?.message||null};
+    },simRecordId);
+    assert.equal(verify.error,null);
+    assert.equal(verify.row?.id,simRecordId);
+    assert(verify.row?.plan_locked_at);
+    note('checks','Genuine Free Simulator save reopened from Journal and survived full reload.');
+   }
+  }catch(e){
+   note('failures','Real Free Simulator paper-plan save/reopen: '+
+    String(e.message||e).slice(0,360));
+  }
   // Automated WCAG 2.0/2.1/2.2 A/AA audit of real authenticated Free surfaces.
   // Checks actual accessibility tree rules, not just CSS selector presence.
   // Human screen-reader review remains an independent required gate.
