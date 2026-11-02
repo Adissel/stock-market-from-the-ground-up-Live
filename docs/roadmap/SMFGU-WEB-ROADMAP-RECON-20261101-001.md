@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.14 / 2026-11-01 |
+| Version / prepared | 1.15 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -306,4 +306,16 @@ Local fixture-authenticated Chromium tests cover 390/768/1440 px chart interacti
 
 **Revision history addition:** v1.14 / 2026-11-01 / Advanced the live member Chart Studio source and local desktop/mobile QA; exact-commit CI, deployment parity, genuine account/provider tests, rights, and consolidated release acceptance remain separate gates.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.14 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+## Talia Tutor Training execution continuation — v1.15
+
+**Source and live-build evidence (2026-11-01):** The original 45 individual Tutor instructional reviews (20 Batch 13, 20 Batch 14, five priority Foundation lessons) and 40 source-only scenario outcomes (20 PASS, 20 PARTIAL) remain controlling. New CI-tested integration calls the **existing authorized Tutor POST endpoint** with two simulated member identities for 40/40 exact guide scenarios, checks 403 suspension, validates same-member prior-question retrieval and cross-member conversation denial, and ignores forged browser history. This is synthetic API acceptance, **not** real Free/Founding/Owner credential testing. Cloudflare successfully built/deployed code with the new route, followup and adaptive tests in SHA `d2c5e5ca9134b7cfa109e09f9e5f8d51e66e2ee9`; the inspected logs contain no `not ok` and explicit PASS for the new regression groups.
+
+**Actual Tutor improvement:** The existing source-only Foundation `review` now selects one of four authored topic-specific feedback scaffolds: uncertain learner, certainty wording, numeric explanation and evidence reasoning. Every one of the 45 reviewed lessons has separately exercised responses for all four text categories, while private reflection text is not echoed and no grade or mastery is assigned. The module is `functions/_lib/talia-foundation-reflection-coach-v1.js`, reused through the existing `original-competency-tutor-v014100.js`; no new paid inference, database, entitlement or engine created.
+
+**Scope boundary:** A detected writing pattern is not proof of factual correctness, actual misconception, or a verified trader skill. Saved previous **question** context is server-scoped; it does not yet prove persistent personalized remediation across real member sessions. The 40 original source cases remain 20 PASS/20 PARTIAL for full teaching acceptance. The wider 600-topic curriculum is 280/600 authored. Independent lesson publication approval remains 0/45. Basic Learning v3.3 and Lab v3.2 are preserved, with complete engine-wide percentages unverified. Advanced/Professional/Enterprise Learning/Lab/Tutor premium release 0% independently accepted.
+
+**CI and release:** One early intermediate Pages attempt timed out launching an independent Python Decimal indicator fixture within eight seconds; its cold-start timeout was increased to 30 seconds without changing numeric tolerances or formulas. Subsequent successful Pages tests do not certify all mandatory GitHub Actions on a frozen SHA. Exact final-head production parity, user A/B real sessions, chart entitlement/cutoff, mobile/screen readers and third-party source redistribution rights remain OPEN. **Overall ten-gate strict closure remains 1/10 = 10%**, sitewide percentage unscored. Controlling supplemental report: `docs/learning/2026-11-01_TALIA_MASTER_TRAINING_45_REVIEWS_v1.md`, version 1.1 (document ID `SMFGU-TALIA-TRAIN-045-001`), GitHub main; Google Drive document ID not assigned.
+
+**Revision-history addition:** v1.15 / 2026-11-01 / Added actual-Tutor-route 40-case synthetic access QA, four member conversation protections, four-way per-topic ungraded coaching on 45 reviews, CI regression and Pages build verification. Independent commercial/member release still OPEN.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.15 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
