@@ -33,7 +33,9 @@ permissions:
   contents: read
 concurrency:
   group: crownlight-visual-kit-${{ github.ref }}
-  cancel-in-progress: true
+  # Preserve running focused verification when independent workstreams push to main.
+  # GitHub may replace superseded pending runs; an already-running test can finish.
+  cancel-in-progress: false
 jobs:
   visual-data-contract:
     runs-on: ubuntu-latest
