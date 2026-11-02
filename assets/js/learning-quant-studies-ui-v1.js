@@ -35,7 +35,26 @@ function mount({target,studyId,mode,context}={}){
  const tbody=node('tbody');
  for(let i=0;i<3;i++){const tr=node('tr');const th=node('th',def.keys[i]);th.setAttribute('scope','row');tr.append(th,node('td',base.values[i].toFixed(studyId==='sizing'?0:2)));tbody.append(tr)}
  table.append(thead,tbody);
- shell.append(chart,table);
+ // Each chart's full fictional numerical series is readable without color, canvas or hover.
+ const lines=Array.isArray(base.chart)?base.chart:(studyId==='ema'
+  ?[{name:'Fictional close',data:def.initial.closes},{name:'SMA-seeded EMA',data:base.history}]
+  :[{name:'Original method steps',data:base.values}]);
+ const steps=base.labels||(studyId==='ema'?def.initial.closes.map((_,i)=>'Close '+(i+1)):def.keys);
+ const seriesTable=node('table');seriesTable.className='gu-quant-table gu-quant-series-table';
+ seriesTable.append(node('caption','Complete fictional indicator series with warmup periods'));
+ const seriesHead=node('thead'),seriesRow=node('tr'),stepHead=node('th','Completed step');
+ stepHead.setAttribute('scope','col');seriesRow.append(stepHead);
+ for(const line of lines){const head=node('th',line.name);head.setAttribute('scope','col');seriesRow.append(head)}
+ seriesHead.append(seriesRow);seriesTable.append(seriesHead);
+ const seriesBody=node('tbody');
+ for(let i=0;i<steps.length;i++){
+  const row=node('tr'),step=node('th',steps[i]);step.setAttribute('scope','row');row.append(step);
+  for(const line of lines){const value=line.data?.[i];
+   row.append(node('td',typeof value==='number'&&Number.isFinite(value)?String(Math.round(value*10000)/10000):'Not available — warmup'))}
+  seriesBody.append(row);
+ }
+ seriesTable.append(seriesBody);
+ shell.append(chart,table,seriesTable);
  const fields=[],grid=node('div');grid.className='gu-quant-grid';
  def.keys.forEach(label=>{const l=node('label',label),inp=node('input');inp.type='text';inp.inputMode='decimal';inp.autocomplete='off';inp.maxLength=24;l.append(inp);grid.append(l);fields.push(inp)});
  const worked=node('button','Show worked values in practice fields');worked.type='button';worked.className='secondary';
