@@ -45,7 +45,7 @@ try{
     setBarSpace:space=>actions.push({type:'barSpace',space}),
     scrollToTimestamp:stamp=>actions.push({type:'scroll',stamp}),
     convertFromPixel:()=>({timestamp:t1}),
-    convertToPixel:({timestamp})=>timestamp===t1?{x:77}:null,
+    convertToPixel:({timestamp})=>timestamp===t1?{x:77}:timestamp===t0?{x:71}:null,
     executeAction:(type,opts)=>actions.push({type,opts}),
     getOverlays:()=>[...existing],
     createOverlay:drawing=>{created.push(drawing);return 'restored_'+created.length},
@@ -78,6 +78,28 @@ try{
  const actions=await page.evaluate(()=>window.__charts[1].actions);
  assert(actions.some(x=>x.type==='barSpace'&&x.space===6));
  assert(actions.some(x=>x.type==='scroll'&&x.stamp===t1));
+ // KLineChart v10 can report a BarSpace object rather than a numeric spacing.
+ // The synced target must still match real revealed-candle pixel distance.
+ await page.evaluate(()=>{
+  const source=window.__charts[0],target=window.__charts[1];
+  source.chart.getBarSpace=()=>({barSpace:6,halfBarSpace:3});
+  target.actions.length=0;
+  source.events.onZoom({});
+ });
+ const objectActions=await page.evaluate(()=>window.__charts[1].actions);
+ assert(objectActions.some(x=>x.type==='barSpace'&&x.space===6),
+  'v10 BarSpace object must synchronize by visible revealed-bar pixel distance');
+ assert(objectActions.some(x=>x.type==='scroll'&&x.stamp===t1));
+ // A destination with no matching revealed timestamp must not seek forward.
+ await page.evaluate(({t0})=>{
+  const source=window.__charts[0],target=window.__charts[1];
+  target.actions.length=0;
+  target.chart.getDataList=()=>[{timestamp:t0}];
+  source.events.onZoom({});
+ },{t0});
+ assert.equal(await page.evaluate(()=>window.__charts[1].actions.some(x=>x.type==='scroll')),false,
+  'Never scroll a linked chart to an unrevealed future timestamp');
+ await page.evaluate(()=>{window.__charts[1].chart.getDataList=()=>window.__data});
  await page.locator('[data-cl-sync]').uncheck();
  const n=await page.evaluate(()=>window.__charts[1].actions.length);
  await page.evaluate(()=>window.__charts[0].events.onScroll({}));
