@@ -61,7 +61,7 @@ assert.equal(docs.filter(x=>!newCodes.has(x.program)).length,247);
 assert.equal(docs.filter(x=>newCodes.has(x.program)&&x.advancedSourceReady).length,27);
 const sourceTotal=docs.filter(x=>x.advancedSourceReady).length;
 const originalUpgraded=docs.filter(x=>!newCodes.has(x.program)&&x.advancedSourceReady).length;
-assert(originalUpgraded>=44,'Risk60 D01-D44 must retain full original advanced source; this is not individually accepted teaching');
+assert(originalUpgraded>=60,'Risk60 D01-D60 must retain full original advanced source; this is not individually accepted teaching');
 const originalAuthored=docs.filter(x=>!newCodes.has(x.program)&&x.originalFieldAuthoring).length;
 const summary={
  schema:'smfgu-academy-274-deep-source-v1',project:'The Stock Market: From the Ground Up',

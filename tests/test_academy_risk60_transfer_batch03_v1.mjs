@@ -54,4 +54,4 @@ assert.equal(m.parentDaysNewlyAuthored,225);
 assert.equal(m.parentDaysStillNeedingLesson,0);
 assert.equal(m.approvedByThisScript,0);
 assert.equal(m.protectedAssessmentsApprovedByThisScript,0);
-console.log('PASS twenty unique independently worked fictional Risk60 final transfer cases: 162/247 source-authoring, 85 Practicum90 not authored, NO protected grades or independent human approvals.');
+console.log('PASS twenty unique independently worked fictional Risk60 final transfer cases within the 247/247 baseline source-authored original days; NO protected grades or independent human approvals.');
