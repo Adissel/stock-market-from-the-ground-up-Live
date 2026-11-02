@@ -9,6 +9,7 @@ assert.equal(rewardPreview({scopeType:'canonical_lab',scopeId:'F1-C02-L01',amoun
 assert.equal(validRewardDefinition({scopeType:'academy_program',scopeId:'truth5',amount:50,
  approved:true,approvedRevision:'v99',serverEvidenceRequired:true}),true);
 assert.equal(giftingPolicy.enabled,false);
+assert.equal(giftingPolicy.releasePhase,'V2_DEFERRED','V1 must never present member gifting as a launch requirement');
 assert.equal(giftAvailability().enabled,false);
 for(const n of [0,9,201,12.1,-10,NaN,Infinity,'100'])assert.equal(validateGiftAmount(n),false);
 for(const n of [10,100,200])assert.equal(validateGiftAmount(n),true);
