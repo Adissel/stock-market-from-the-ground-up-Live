@@ -1,10 +1,28 @@
-/* v0.14.0.109: public-only, explicitly enumerated SEO sitemap.
- * Do not add private dashboard, admin, member notes, legal shell pages, or
- * under-review market case data until the corresponding release gate passes.
+/* Compatibility-only route: the Cloudflare Pages static sitemap.xml built by
+ * scripts/build-public-sitemap-v2.mjs is the authoritative public sitemap.
+ * _routes.json excludes /sitemap.xml from Functions routing. Keep this fallback
+ * restricted to those same 19 reviewed public canonical, extensionless paths.
  */
 export const PUBLIC_PAGES=Object.freeze([
- '/','/books.html','/learn.html','/tools.html','/membership.html',
- '/store.html','/about.html','/help.html','/labs.html','/forum.html','/market-commons.html'
+ '/',
+ '/about',
+ '/books',
+ '/store',
+ '/learn',
+ '/tools',
+ '/lab-samples',
+ '/membership',
+ '/help',
+ '/philosophy',
+ '/how-stock-market-works',
+ '/how-to-read-candlestick-charts',
+ '/vwap-explained',
+ '/bid-ask-spread-explained',
+ '/stock-trading-risk-management',
+ '/candle-practice',
+ '/free-foundations-challenge',
+ '/market-vs-limit-orders',
+ '/support-resistance-basics'
 ]);
 const xml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
 export function onRequestGet({request,env}){
