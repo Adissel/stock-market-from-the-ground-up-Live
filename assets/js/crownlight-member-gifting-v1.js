@@ -6,6 +6,18 @@ if(!root){const history=document.querySelector('[data-member-lumen-history]');
  if(!history)return;root=document.createElement('section');root.dataset.memberLumenGifting='1';
  root.className='gu-member-lumen-widget gu-member-lumen-gifting';root.setAttribute('aria-label','Member-to-member Lumen gifts');
  history.after(root)}
+// V1 release freeze: show a read-only notice, never mount recipient discovery,
+// consent controls, or a transfer form. V2 keeps the separate technical backlog.
+const V1_MEMBER_GIFTING_DEFERRED=true;
+if(V1_MEMBER_GIFTING_DEFERRED){
+ const title=document.createElement('h3');
+ title.textContent='Member gifting — future release';
+ const explanation=document.createElement('p');
+ explanation.textContent='Transferring Lumens between members is not part of the current release. Your Lumens wallet and approved learning benefits are unaffected.';
+ root.setAttribute('aria-label','Member gifting future release notice');
+ root.replaceChildren(title,explanation);
+ return;
+}
 const el=(tag,text)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;return x};
 const msg=el('p','Checking member gifting availability…');msg.setAttribute('role','status');
 const h=el('h3','Send Lumens to another member');
