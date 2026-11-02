@@ -8,3 +8,8 @@
 .cl-react-chart__accessible-table:focus-within{outline:2px solid #8edaf0}
 @media(max-width:700px){.cl-react-chart{padding:8px;border-radius:10px}.cl-react-chart__accessible-table{display:block;overflow-x:auto;white-space:nowrap}}
 @media(prefers-reduced-motion:reduce){.cl-react-chart *{animation:none!important;transition:none!important}}
+
+.cl-react-chart__inspect{font:inherit;font-variant-numeric:tabular-nums;text-align:left;color:#d9f0fc;background:transparent;border:1px solid transparent;border-radius:5px;padding:5px 8px;cursor:pointer}
+.cl-react-chart__inspect:hover{background:#1c4559;border-color:#547b8e}
+.cl-react-chart__inspect:focus-visible{outline:3px solid #91e1ff;outline-offset:2px}
+.cl-react-chart__inspect[aria-pressed="true"]{color:#081a29;background:#9de5f4;border-color:#9de5f4}
