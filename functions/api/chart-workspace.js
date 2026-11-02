@@ -5,6 +5,9 @@ import {crownlightChartEntitlement} from './chart-tier-access.js';
 import {memberIdentity} from './member-tool-access.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const answer=(obj,status=200)=>new Response(JSON.stringify(obj),{status,headers:H});
+// 16 KiB applies to the actual UTF-8 payload, not just JavaScript code units.
+export const workspacePayloadWithinLimit=raw=>typeof raw==='string'&&
+ raw.length<=16000&&new TextEncoder().encode(raw).byteLength<=16000;
 const ranks={STANDARD:0,ADVANCED:1,PROFESSIONAL:2};
 const VALID_STUDIES=new Set(['RSI','MACD','BOLL','MA','EMA','SMA','ATR','VOL']);
 const VALID_DRAWINGS=new Set(['segment','horizontalStraightLine','fibonacciLine']);
@@ -148,7 +151,7 @@ export async function onRequest({request,env}){
   if(Number(request.headers.get('content-length'))>16000)return answer({ok:false,error:'Workspace payload too large'},413);
   const raw=await request.text();
   // UTF-16 code units undercount multi-byte JSON; enforce the same 16 KiB bound in UTF-8.
-  if(raw.length>16000||new TextEncoder().encode(raw).byteLength>16000)
+  if(!workspacePayloadWithinLimit(raw))
    return answer({ok:false,error:'Workspace payload too large'},413);
   let value;try{value=JSON.parse(raw)}catch{return answer({ok:false,error:'Invalid JSON'},400)}
   if(!value||typeof value!=='object'||Array.isArray(value))return answer({ok:false,error:'Invalid workspace'},400);
