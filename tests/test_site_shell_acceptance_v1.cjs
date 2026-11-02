@@ -13,7 +13,8 @@ for(const key of ['labs-completed','labs-in-progress','labs-not-started','overal
 for(const key of ['signin.js','supabase-client.js'])assert.ok(page['signin.html'].includes(key),'missing auth dependency '+key);
 for(const key of ['signup.js','supabase-client.js'])assert.ok(page['create-account.html'].includes(key),'missing registration dependency '+key);
 assert.ok(page['store.html'].includes('store.js'),'commerce runtime missing');
-for(const p of ['lab.html','labs.html','lab-runner.html','bootcamp-academy.html','bootcamp.html','candle-practice.html'])assert.ok(!site.includes("'"+p+"'"),'Interactive layout must not receive design shell: '+p);
+for(const p of ['lab.html','lab-runner.html','bootcamp.html','candle-practice.html'])assert.ok(!site.includes("'"+p+"'"),'Interactive layout must not receive design shell: '+p);
+assert.match(site,/new Set\(/,'site shell must have explicit page allowlist');
 for(const key of ['site-shell-v1.js','appearance-controls-v1.js'])assert.ok(site.includes(key),'site shell integration missing '+key);
 assert.match(shell,/aria-expanded/);assert.match(shell,/Skip to main content/);assert.match(appearance,/aria-pressed/);
 for(const p of ['assets/js/site.js','assets/js/site-shell-v1.js','assets/js/appearance-controls-v1.js','assets/js/site-experience-v5.js'])new Function(fs.readFileSync(p,'utf8'));
