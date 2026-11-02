@@ -284,6 +284,17 @@ node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/HomeMarketTer
   --outfile="$output/assets/js/home-market-terminal-v1.bundle.js"
 test -s "$output/assets/js/home-market-terminal-v1.bundle.js"
 
+# Member-only React/ECharts analytics; reads existing dashboard statistics, never private APIs.
+cp -- src/experience/MemberProgressVisual.tsx "$vendor_temp/MemberProgressVisual.tsx"
+node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
+ --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \
+ "$vendor_temp/MemberProgressVisual.tsx"
+node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/MemberProgressVisual.tsx" \
+ --bundle --format=esm --target=es2022 --minify \
+ --define:process.env.NODE_ENV='"production"' \
+ --outfile="$output/assets/js/member-progress-visual-v1.bundle.js"
+test -s "$output/assets/js/member-progress-visual-v1.bundle.js"
+
 # Talia member classroom is a new presentation over the existing Tutor API.
 # Type-check against the same pinned React/TypeScript toolchain used by prototypes.
 test -s src/tutor/TaliaClassroom.tsx
