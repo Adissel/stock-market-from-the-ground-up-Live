@@ -39,11 +39,29 @@ for(const [name,path,match] of [
 await check('home canonical master domain','/',200,t=>{
  assert.match(t,/<link[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/stock-market-from-the-ground-up-d1r\.pages\.dev\//i);
 });
-await check('sitemap master domain','/sitemap.xml',200,t=>{
- assert.ok(t.includes('<loc>'+origin+'/')); assert.ok(!t.includes(oldOrigin+'/'));
+await check('sitemap valid XML and canonical master domain','/sitemap.xml',200,(t,r)=>{
+ assert.match(r.headers.get('content-type')||'',/^(application|text)\/xml\\b/i,'Sitemap must be served as XML');
+ assert.match(t,/^<\\?xml version="1\\.0" encoding="UTF-8"\\?>\\s*<urlset xmlns="http:\/\/www\\.sitemaps\\.org\/schemas\/sitemap\/0\\.9">/);
+ assert.match(t,/<\\/urlset>\\s*$/);
+ assert.doesNotMatch(t,/<html\\b|<!DOCTYPE|<script\\b/i,'Sitemap must not be an HTML fallback');
+ const entries=[...t.matchAll(/<url>\\s*<loc>([^<]+)<\\/loc>\\s*<\\/url>/g)].map(m=>m[1]);
+ assert.ok(entries.length>=1,'Sitemap must include at least one public URL');
+ assert.ok(entries.includes(origin+'/'),'Homepage must be indexed');
+ assert.equal((t.match(/<url>/g)||[]).length,entries.length,'Every URL entry must have one loc');
+ assert.equal((t.match(/<loc>/g)||[]).length,entries.length,'No malformed loc elements');
+ assert.equal(new Set(entries).size,entries.length,'Duplicate sitemap URLs');
+ for(const entry of entries){
+  const u=new URL(entry);assert.equal(u.origin,origin,'Off-domain canonical sitemap URL');
+  assert.equal(u.protocol,'https:');assert.equal(u.username,'');assert.equal(u.password,'');
+  assert.equal(u.search,'');assert.equal(u.hash,'');
+  assert.doesNotMatch(u.pathname,/^\\/(api|admin|dashboard|account|journal|simulator)(\\/|$)/i,'Private sitemap URL');
+ }
+ assert.ok(!t.includes(oldOrigin+'/'),'Old canonical hostname must not appear');
 });
-await check('robots sitemap master domain','/robots.txt',200,t=>{
- assert.ok(t.includes('Sitemap: '+origin+'/sitemap.xml'));
+await check('robots sitemap master domain','/robots.txt',200,(t,r)=>{
+ assert.match(r.headers.get('content-type')||'',/^text\/plain\\b/i);
+ const sitemapDirectives=t.split(/\\r?\\n/).filter(line=>/^Sitemap:/i.test(line.trim()));
+ assert.deepEqual(sitemapDirectives,['Sitemap: '+origin+'/sitemap.xml'],'robots.txt must advertise exactly the production sitemap');
 });
 await check('Pages health','/api/runtime-health-v014259',200,t=>{
  const j=JSON.parse(t);assert.equal(j.ok,true);assert.equal(j.readOnly,true);
