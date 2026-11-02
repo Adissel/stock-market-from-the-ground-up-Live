@@ -190,6 +190,26 @@ function Classroom(){
   const [conversationId,setConversationId]=useState<string|null>(null);
   const [conversationLabel,setConversationLabel]=useState('');
   const [busy,setBusy]=useState(false);
+  const phases=['Observe','Explain','Attempt','Correct','Retry','Transfer'] as const;
+  type Phase=typeof phases[number];
+  const [phase,setPhase]=useState<Phase>('Observe');
+  const [attempts,setAttempts]=useState(0);
+  const [sessionTopic,setSessionTopic]=useState('Reading completed candles');
+  const [dimension,setDimension]=useState<'Knowledge'|'Recognition'|'Decision'|'Process'>('Recognition');
+  const phaseInstructions:Record<Phase,{mode:Mode;prompt:string}>={
+    Observe:{mode:'question',prompt:'Ask me to identify two observable facts from the current completed candle or concept. Do not interpret for me yet.'},
+    Explain:{mode:'explain',prompt:'Teach the concept from first principles. Separate the observed evidence from assumptions and use a fictional worked example.'},
+    Attempt:{mode:'question',prompt:'Ask one diagnostic question. Wait for my answer before providing the explanation. This is ungraded.'},
+    Correct:{mode:'review',prompt:'Help me inspect my reasoning for a specific misconception. Explain the correction and why my inference may fail. Do not supply a private rubric.'},
+    Retry:{mode:'question',prompt:'Give me a DIFFERENT ungraded question focused on the same misconception; wait for my attempt.'},
+    Transfer:{mode:'practice',prompt:'Give a new fictional scenario requiring an independent decision including NO TRADE. Do not grade or award mastery.'}
+  };
+  const preparePhase=(next:Phase)=>{
+    setPhase(next);
+    setMode(phaseInstructions[next].mode);
+    setQuestion((sessionTopic+'. '+phaseInstructions[next].prompt).slice(0,450));
+    setStatus('Instruction prepared for '+next+'. Review the question and send it to Talia.');
+  };
   const [status,setStatus]=useState('Verifying member sign-in...');
   const epoch=useRef(0),pending=useRef<AbortController|null>(null);
   const log=useRef<HTMLOListElement|null>(null);
@@ -199,7 +219,7 @@ function Classroom(){
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
     setConversationId(null);setConversationLabel('');setSave(false);
-    setReasoning('');setBusy(false);setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
+    setReasoning('');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
   },[]);
   useEffect(()=>{
     let live=true,unsubscribe:(()=>void)|null=null;
@@ -277,7 +297,7 @@ function Classroom(){
           res.status===403?'Tutor access could not be verified for this account.':
           res.status===401?'Member session expired.':result?.error||'No verified Tutor explanation is available.');
       setChat(x=>[...x,{id:crypto.randomUUID(),who:'talia',text:result.answer.slice(0,7000),label:result.generation||'source-grounded'}]);
-      setReasoning('');
+      setReasoning('');setAttempts(n=>n+1);
       setStatus(currentSave?(result.historySaved?'Saved to the existing private Tutor history.':'Response displayed, but private saving was not confirmed.'):
         'Response displayed in this tab only. No model request, grade or saved history was created by this interface.');
     }catch(err){
@@ -353,6 +373,19 @@ function Classroom(){
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
       </div>
+      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
+        <div className="tp-instruction-header"><div><strong>Guided lesson pathway</strong><p>Instructor-directed practice, not a grade or verified mastery record.</p></div><span>{attempts} Tutor exchanges in this session</span></div>
+        <div className="tp-instruction-controls">
+          <label>Current study focus<input value={sessionTopic} maxLength={90} onChange={e=>setSessionTopic(e.target.value)} aria-label="Current study focus"/></label>
+          <label>Practice dimension<select value={dimension} onChange={e=>setDimension(e.target.value as typeof dimension)}>
+            <option>Knowledge</option><option>Recognition</option><option>Decision</option><option>Process</option>
+          </select></label>
+        </div>
+        <div className="tp-instruction-steps" role="group" aria-label="Instruction phases">
+          {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>preparePhase(p)} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
+        </div>
+        <p className="tc-muted">Current instructional lens: {dimension}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
+      </section>}
       {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
         <section className="tp-followup" aria-label="Continue the current learning session">
           <strong>Continue this lesson</strong>
