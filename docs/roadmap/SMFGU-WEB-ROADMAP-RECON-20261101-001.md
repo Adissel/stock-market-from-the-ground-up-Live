@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.15 / 2026-11-01 |
+| Version / prepared | 1.16 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -318,4 +318,12 @@ Local fixture-authenticated Chromium tests cover 390/768/1440 px chart interacti
 
 **Revision-history addition:** v1.15 / 2026-11-01 / Added actual-Tutor-route 40-case synthetic access QA, four member conversation protections, four-way per-topic ungraded coaching on 45 reviews, CI regression and Pages build verification. Independent commercial/member release still OPEN.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.15 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+## Chart Studio 3.0 hosted source acceptance — v1.16
+
+The Chart Studio correction SHA `c1792214c67907df07e4dd68215496cd5698432e` passed all **28/28** triggered Actions workflows, including real Chromium charts, source-scoped workspace, Replay Journal, and full Sitewide Playwright plus mocked, noncharging Stripe regression. Cloudflare production manifest matched the SHA and served changed chart assets matched committed bytes after line-ending normalization. The first source SHA had stale literal-source test failures that were repaired; cancelled or pending runs were not counted as passes. See the linked [Chart Studio release evidence](../releases/2026-11-01_CROWNLIGHT_CHART_STUDIO_3_MEMBER_WORKSTATION_BATCH.md).
+
+This advances source/CI/deployment parity only. Genuine Free, Founding, Professional Owner, restricted and account A/B sessions, personal-provider rights, historical cutoff acceptance, screen-reader/manual keyboard review, and consolidated Owner release remain OPEN. No Chart Studio strict release gate or sitewide completion percentage was incremented from synthetic QA alone.
+
+**Revision-history addition:** v1.16 / 2026-11-01 / Recorded 28/28 exact correction-SHA Actions successes and matching Cloudflare served-source parity for the Chart Studio member workstation batch; genuine release acceptance remains open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.16 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
