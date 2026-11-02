@@ -65,6 +65,9 @@ function aggregateCompleted(rows:number[][],minutes:1|3|5){
  }
  return groups;
 }
+const isTaliaPrototypePath=()=>window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-tutor-prototype');
+const isTaliaClassroomPath=()=>window.location.pathname.endsWith('/talia-classroom.html')||window.location.pathname.endsWith('/talia-classroom');
+const isTaliaAdvancedRoute=()=>isTaliaPrototypePath()||isTaliaClassroomPath();
 const initialQuestion=()=>new URLSearchParams(location.search).get('q')?.slice(0,450)||'';
 /* Public canonical IDs and stage hints only. Server independently checks the
  * registered Lab and the member entitlement; never forward lesson answers. */
@@ -84,7 +87,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
   const [visible,setVisible]=useState(7);
   const [timeframe,setTimeframe]=useState<1|3|5>(1);
   const [compare,setCompare]=useState(false);
-  const prototype=typeof window!=='undefined'&&(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'));
+  const prototype=typeof window!=='undefined'&&isTaliaAdvancedRoute();
   const [study,setStudy]=useState<'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap'>('ema9');
   const [zoom,setZoom]=useState(100);
   const [showVolume,setShowVolume]=useState(true);
@@ -245,6 +248,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
   </section>;
 }
 function Classroom(){
+  const advancedExperience=isTaliaAdvancedRoute();
   const [member,setMember]=useState<Member|null>(null);
   const [ready,setReady]=useState(false);
   const [chat,setChat]=useState<ChatLine[]>(DEFAULT);
@@ -450,7 +454,7 @@ function Classroom(){
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
       <h1>Talia Interactive Classroom</h1><p>{status}</p>
       <p>The interactive chart, conversations and private study functions are available only to verified members. No personal API key is required.</p>
-      <p><a href={'/signin.html?next='+encodeURIComponent(window.location.pathname.endsWith('/talia-tutor-prototype.html')?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in with your membership</a></p>
+      <p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in with your membership</a></p>
     </div></div>
   </main>;
   return <main className="tc-main">
@@ -465,7 +469,7 @@ function Classroom(){
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
       </div>
-      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
+      {advancedExperience&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
         <div className="tp-instruction-header"><div><strong>Guided lesson pathway</strong><p>Instructor-directed practice, not a grade or verified mastery record.</p></div><span>{attempts} Tutor exchanges in this session</span></div>
         <div className="tp-instruction-controls">
           <label>Current study focus<input value={sessionTopic} maxLength={90} onChange={e=>setSessionTopic(e.target.value)} aria-label="Current study focus"/></label>
@@ -492,7 +496,7 @@ function Classroom(){
         </div>
         <p className="tc-muted">Current instructional lens: {dimension}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
-      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
+      {advancedExperience&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
         <section className="tp-followup" aria-label="Continue the current learning session">
           <strong>Continue this lesson</strong>
           <p className="tc-muted">Choose how Talia should build on the conversation. You can edit the question before submitting it.</p>
@@ -503,7 +507,7 @@ function Classroom(){
           </div>
           <p className="tc-muted">For verified server-side follow-up context, create or select an authorized private conversation and enable saving.</p>
         </section>}
-      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
+      {advancedExperience&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
         <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
         <div className="tp-teaching-loop-actions">
           <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');safeSuggest('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.')}}>1 · Explain & demonstrate</button>
@@ -528,7 +532,7 @@ function Classroom(){
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
           <button type="submit" disabled={!member||busy||question.trim().length<4}>Ask Talia</button>
         </div>
-        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(window.location.pathname.endsWith('/talia-tutor-prototype.html')?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
+        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
