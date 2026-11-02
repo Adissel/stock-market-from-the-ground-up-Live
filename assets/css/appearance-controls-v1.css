@@ -21,3 +21,5 @@ html[data-smfgu-theme="light"] body.sm-experience-v7 .sm-v5-button:not(.primary)
 html[data-smfgu-theme="light"] body.sm-experience-v7 .sm-v5-store-aside{background:#20384c!important}
 html[data-smfgu-theme="light"] body.sm-experience-v7 .sm-v5-store-aside span{color:#edf4f9!important}
 @media(max-width:840px){.sm-theme-picker{order:3}}
+
+.sm-theme-dot[data-smfgu-theme="atelier"]{background:linear-gradient(140deg,#f6f3eb 0 48%,#3046ce 49% 73%,#e55740 74%)!important}
