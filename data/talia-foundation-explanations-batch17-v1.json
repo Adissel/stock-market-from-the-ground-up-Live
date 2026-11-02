@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 17,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original synthetic indicator methodology lessons 321–340; no official scoring, no protected answers, no externally accepted citation or mathematics.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_FIRST_VALID_SMA_OUTPUT_INDEX",
+      "title": "First valid SMA output index",
+      "concept": "A simple moving average needs n completed closing observations; earlier indices cannot produce a complete-window value.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: For n=3 and zero-based indexing, first result is at index 2; closes 10,12,14 average 12.",
+      "limit": "At least n valid same-unit closes are required.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. At least n valid same-unit closes are required.",
+      "commonError": "Live-trading mistake: Putting a full-window SMA at index zero introduces unavailable history. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A simple moving average needs n completed closing observations; earlier indices cannot produce a complete-window value. Worked calculation: For n=3 and zero-based indexing, first result is at index 2; closes 10,12,14 average 12. Correct the common mistake: Putting a full-window SMA at index zero introduces unavailable history. Critical limitation: At least n valid same-unit closes are required. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: For closes 20,22,24,26 and n=3, identify first valid index and first mean. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ROLLING_VERSUS_EXPANDING_AVERAGES",
+      "title": "Rolling versus expanding averages",
+      "concept": "A rolling average drops the oldest observation when the window advances; an expanding average retains all previous valid observations.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Closes 10,20,30,40: three-bar rolling mean at fourth bar is 30, expanding mean is 25.",
+      "limit": "Missing bars and session policies change which observations qualify.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Missing bars and session policies change which observations qualify.",
+      "commonError": "Live-trading mistake: Calling the expanding statistic SMA2 hides incompatible denominators. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A rolling average drops the oldest observation when the window advances; an expanding average retains all previous valid observations. Worked calculation: Closes 10,20,30,40: three-bar rolling mean at fourth bar is 30, expanding mean is 25. Correct the common mistake: Calling the expanding statistic SMA2 hides incompatible denominators. Critical limitation: Missing bars and session policies change which observations qualify. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: For 2,4,6,8 with a two-bar rolling window, compare final rolling and expanding averages. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EMA_SMOOTHING_COEFFICIENT_BY_PERIOD",
+      "title": "EMA smoothing coefficient by period",
+      "concept": "The standard period-n EMA recursion weights each new completed close by alpha=2/(n+1).",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: For n=9, alpha 0.2; previous EMA 100 and close 105 give next EMA 101.",
+      "limit": "Declare initialization and warmup; seed choice affects startup outputs.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Declare initialization and warmup; seed choice affects startup outputs.",
+      "commonError": "Live-trading mistake: Using n instead of n+1 creates a different smoothing rule. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: The standard period-n EMA recursion weights each new completed close by alpha=2/(n+1). Worked calculation: For n=9, alpha 0.2; previous EMA 100 and close 105 give next EMA 101. Correct the common mistake: Using n instead of n+1 creates a different smoothing rule. Critical limitation: Declare initialization and warmup; seed choice affects startup outputs. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: With n=19, prior EMA 40 and completed close 50, calculate alpha and next EMA. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EMA_SEED_AT_THE_FIRST_COMPLETE_WINDOW",
+      "title": "EMA seed at the first complete window",
+      "concept": "An SMA-seeded EMA begins after n valid closes rather than assuming an invented earlier recursive value.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: For n=3, closes 10,12,14 seed EMA=12 at index 2; next close 16 yields EMA 14.",
+      "limit": "The official study variant and handling of incomplete history must be declared.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. The official study variant and handling of incomplete history must be declared.",
+      "commonError": "Live-trading mistake: Seeding at the first raw close while claiming an SMA seed changes early outcomes. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: An SMA-seeded EMA begins after n valid closes rather than assuming an invented earlier recursive value. Worked calculation: For n=3, closes 10,12,14 seed EMA=12 at index 2; next close 16 yields EMA 14. Correct the common mistake: Seeding at the first raw close while claiming an SMA seed changes early outcomes. Critical limitation: The official study variant and handling of incomplete history must be declared. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: For n=3, closes 8,10,12,14 find first seed and following EMA. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRUE_RANGE_ACROSS_A_PRICE_GAP",
+      "title": "True range across a price gap",
+      "concept": "True range takes the largest of bar range and movements relative to the preceding close.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Prior close 100; bar high 106 and low 104: max(2,6,4)=6.",
+      "limit": "The prior completed close and consistent adjusted-price treatment are mandatory.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. The prior completed close and consistent adjusted-price treatment are mandatory.",
+      "commonError": "Live-trading mistake: Using high minus low alone misses overnight gap magnitude. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: True range takes the largest of bar range and movements relative to the preceding close. Worked calculation: Prior close 100; bar high 106 and low 104: max(2,6,4)=6. Correct the common mistake: Using high minus low alone misses overnight gap magnitude. Critical limitation: The prior completed close and consistent adjusted-price treatment are mandatory. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Prior close 50, high 48, low 46: find true range. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INITIAL_ATR_WITH_WILDER_SMOOTHING",
+      "title": "Initial ATR with Wilder smoothing",
+      "concept": "ATR typically seeds as the arithmetic mean of n true ranges and then applies Wilder recursion.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: With n=3, true ranges 2,4,6 seed ATR=4; next TR=10 gives (4×2+10)/3=6.",
+      "limit": "Variants differ on first-bar TR and indexing.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Variants differ on first-bar TR and indexing.",
+      "commonError": "Live-trading mistake: Treating the first true range as the seed while claiming a three-range mean misaligns outputs. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: ATR typically seeds as the arithmetic mean of n true ranges and then applies Wilder recursion. Worked calculation: With n=3, true ranges 2,4,6 seed ATR=4; next TR=10 gives (4×2+10)/3=6. Correct the common mistake: Treating the first true range as the seed while claiming a three-range mean misaligns outputs. Critical limitation: Variants differ on first-bar TR and indexing. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: With n=3, true ranges 1,2,3 followed by 6, calculate seed and next ATR. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BOLLINGER_POPULATION_DEVIATION_CONVENTION",
+      "title": "Bollinger population-deviation convention",
+      "concept": "A Bollinger-style band needs explicit lookback and population or sample deviation definition.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Closes 8,10,12: mean 10 and population sigma=sqrt(8/3); at k=2, upper band about 13.266.",
+      "limit": "Band output before warmup and flat standard deviation need explicit handling.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Band output before warmup and flat standard deviation need explicit handling.",
+      "commonError": "Live-trading mistake: Switching silently to sample sigma enlarges the bands. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A Bollinger-style band needs explicit lookback and population or sample deviation definition. Worked calculation: Closes 8,10,12: mean 10 and population sigma=sqrt(8/3); at k=2, upper band about 13.266. Correct the common mistake: Switching silently to sample sigma enlarges the bands. Critical limitation: Band output before warmup and flat standard deviation need explicit handling. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: For closes 3,5,7 and k=2, compute mean and upper population band. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ROLLING_HIGHEST_HIGH_PRICE_CHANNEL",
+      "title": "Rolling highest-high price channel",
+      "concept": "A channel upper bound is the highest valid completed high within the chosen observation window.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Highs 10,13,11,12 and n=3 produce final upper channel 13.",
+      "limit": "Window length and whether current bar is included must be declared.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Window length and whether current bar is included must be declared.",
+      "commonError": "Live-trading mistake: Including an unfinished next candle introduces lookahead. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A channel upper bound is the highest valid completed high within the chosen observation window. Worked calculation: Highs 10,13,11,12 and n=3 produce final upper channel 13. Correct the common mistake: Including an unfinished next candle introduces lookahead. Critical limitation: Window length and whether current bar is included must be declared. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Highs 7,9,8,10 with n=2: find final upper bound. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DONCHIAN_PRIOR_CHANNEL_BREAKOUT_BOUNDARY",
+      "title": "Donchian prior-channel breakout boundary",
+      "concept": "A signal against prior completed channel highs must exclude the decision bar when defining the threshold.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Previous three highs 10,11,12 set prior upper boundary 12; current completed close 12.50 crosses it.",
+      "limit": "An observed crossing does not guarantee continuation or fill.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. An observed crossing does not guarantee continuation or fill.",
+      "commonError": "Live-trading mistake: Including the decision candle high in the prior boundary can change the test. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A signal against prior completed channel highs must exclude the decision bar when defining the threshold. Worked calculation: Previous three highs 10,11,12 set prior upper boundary 12; current completed close 12.50 crosses it. Correct the common mistake: Including the decision candle high in the prior boundary can change the test. Critical limitation: An observed crossing does not guarantee continuation or fill. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Previous highs 20,22,21; current close 21.50: is it above the prior three-bar high? Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VWAP_VOLUME_DENOMINATOR_VALIDATION",
+      "title": "VWAP volume denominator validation",
+      "concept": "A weighted price ratio cannot be computed when cumulative eligible volume is zero.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Two completed bars with HLC3 values 10 and 12 and volumes 100 and 300 give bar-proxy VWAP 11.50.",
+      "limit": "This HLC3 calculation is not trade-print VWAP and sessions must be aligned.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. This HLC3 calculation is not trade-print VWAP and sessions must be aligned.",
+      "commonError": "Live-trading mistake: Dividing by bar count instead of volume makes an unweighted mean. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A weighted price ratio cannot be computed when cumulative eligible volume is zero. Worked calculation: Two completed bars with HLC3 values 10 and 12 and volumes 100 and 300 give bar-proxy VWAP 11.50. Correct the common mistake: Dividing by bar count instead of volume makes an unweighted mean. Critical limitation: This HLC3 calculation is not trade-print VWAP and sessions must be aligned. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Fictional HLC3 prices 20 and 24 weighted by volume 200 and 200: calculate proxy. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SESSION_VWAP_RESETS_AND_CUMULATIVE_STATE",
+      "title": "Session VWAP resets and cumulative state",
+      "concept": "A session-dependent VWAP starts a new numerator and denominator at the declared session boundary.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Prior session total price-volume 1000 and volume 100; new session first trade at 20 for volume 50 has VWAP 20, not 1200/150.",
+      "limit": "Session templates and extended-hours inclusion vary by provider.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Session templates and extended-hours inclusion vary by provider.",
+      "commonError": "Live-trading mistake: Carrying yesterday's totals into today's VWAP corrupts the new-session average. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A session-dependent VWAP starts a new numerator and denominator at the declared session boundary. Worked calculation: Prior session total price-volume 1000 and volume 100; new session first trade at 20 for volume 50 has VWAP 20, not 1200/150. Correct the common mistake: Carrying yesterday's totals into today's VWAP corrupts the new-session average. Critical limitation: Session templates and extended-hours inclusion vary by provider. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: At a fresh session, trades 10×10 shares and 12×30 shares: compute session VWAP. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RSI_WILDER_GAIN_AND_LOSS_INITIALIZATION",
+      "title": "RSI Wilder gain and loss initialization",
+      "concept": "Wilder RSI computes initial average gains and average losses from a declared number of consecutive price changes.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: For n=3, changes +2,-1,+3 yield mean gain 5/3, mean loss 1/3 and RSI 83.333.",
+      "limit": "Zero-loss and all-flat conventions require explicit bounded outputs.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Zero-loss and all-flat conventions require explicit bounded outputs.",
+      "commonError": "Live-trading mistake: Using only two changes for RSI3 shifts the first valid index. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: Wilder RSI computes initial average gains and average losses from a declared number of consecutive price changes. Worked calculation: For n=3, changes +2,-1,+3 yield mean gain 5/3, mean loss 1/3 and RSI 83.333. Correct the common mistake: Using only two changes for RSI3 shifts the first valid index. Critical limitation: Zero-loss and all-flat conventions require explicit bounded outputs. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: For n=3, changes +1,-2,+1: compute initial RSI. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RSI_ZERO_LOSS_EDGE_CASE",
+      "title": "RSI zero-loss edge case",
+      "concept": "When average loss is zero and gain is positive, conventional RSI is at its upper bound rather than an arithmetic division failure.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Average gain 2 and average loss 0 imply RSI 100 under the declared convention.",
+      "limit": "Flat gain and flat loss simultaneously must use a separately declared neutral rule.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Flat gain and flat loss simultaneously must use a separately declared neutral rule.",
+      "commonError": "Live-trading mistake: Dividing by zero and emitting NaN damages chart interpretation. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: When average loss is zero and gain is positive, conventional RSI is at its upper bound rather than an arithmetic division failure. Worked calculation: Average gain 2 and average loss 0 imply RSI 100 under the declared convention. Correct the common mistake: Dividing by zero and emitting NaN damages chart interpretation. Critical limitation: Flat gain and flat loss simultaneously must use a separately declared neutral rule. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Average gain 0 and average loss 1: calculate RSI and justify its bound. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MACD_HISTOGRAM_UNIT_CONSISTENCY",
+      "title": "MACD histogram unit consistency",
+      "concept": "MACD histogram is a difference between the MACD line and its signal average, retaining price units.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: A MACD line 1.40 with signal line 1.10 yields histogram +0.30 price units.",
+      "limit": "Both lines require their declared EMA seed and warmup history.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Both lines require their declared EMA seed and warmup history.",
+      "commonError": "Live-trading mistake: Displaying price-unit histogram as a percentage is a unit error. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: MACD histogram is a difference between the MACD line and its signal average, retaining price units. Worked calculation: A MACD line 1.40 with signal line 1.10 yields histogram +0.30 price units. Correct the common mistake: Displaying price-unit histogram as a percentage is a unit error. Critical limitation: Both lines require their declared EMA seed and warmup history. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: A MACD line -0.20 and signal 0.15: calculate histogram. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OBV_FLAT_CLOSE_RULE",
+      "title": "OBV flat close rule",
+      "concept": "On-balance volume adds volume on higher closes, subtracts it on lower closes, and leaves the cumulative value unchanged on ties.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Previous OBV 500; completed close unchanged with volume 1000 leaves OBV 500.",
+      "limit": "The starting OBV seed is conventional and does not imply money flow.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. The starting OBV seed is conventional and does not imply money flow.",
+      "commonError": "Live-trading mistake: Assuming every high-volume bar increases OBV regardless of close direction. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: On-balance volume adds volume on higher closes, subtracts it on lower closes, and leaves the cumulative value unchanged on ties. Worked calculation: Previous OBV 500; completed close unchanged with volume 1000 leaves OBV 500. Correct the common mistake: Assuming every high-volume bar increases OBV regardless of close direction. Critical limitation: The starting OBV seed is conventional and does not imply money flow. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Previous OBV 200 and close rises on volume 80: find next OBV. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CMF_CANDLE_ZERO_RANGE_EXCLUSION",
+      "title": "CMF candle zero-range exclusion",
+      "concept": "Chaikin money flow multipliers are undefined on a high-equals-low candle unless a safe policy is defined.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: If high=low=close=10 on volume 500, a declared zero multiplier contributes 0 to CMF numerator.",
+      "limit": "Define zero-range handling and require nonzero aggregate volume.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Define zero-range handling and require nonzero aggregate volume.",
+      "commonError": "Live-trading mistake: Dividing by zero or silently treating unknown volume as zero. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: Chaikin money flow multipliers are undefined on a high-equals-low candle unless a safe policy is defined. Worked calculation: If high=low=close=10 on volume 500, a declared zero multiplier contributes 0 to CMF numerator. Correct the common mistake: Dividing by zero or silently treating unknown volume as zero. Critical limitation: Define zero-range handling and require nonzero aggregate volume. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: A zero-range bar on volume 100 followed by a valid +1 multiplier bar on volume 300: calculate CMF. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STOCHASTIC_PERCENT_K_WITH_FLAT_LOOKBACK",
+      "title": "Stochastic percent K with flat lookback",
+      "concept": "The stochastic oscillator locates close within a rolling high-low interval.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Window high 15, low 10, close 12: %K =40.",
+      "limit": "If highest high equals lowest low, the result requires a defined fallback.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. If highest high equals lowest low, the result requires a defined fallback.",
+      "commonError": "Live-trading mistake: Using a candle body range rather than the highest-high/lowest-low window gives a different statistic. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: The stochastic oscillator locates close within a rolling high-low interval. Worked calculation: Window high 15, low 10, close 12: %K =40. Correct the common mistake: Using a candle body range rather than the highest-high/lowest-low window gives a different statistic. Critical limitation: If highest high equals lowest low, the result requires a defined fallback. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Window high 25, low 20, close 24: calculate %K. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_OSCILLATOR_AS_A_PERCENTAGE_OF_SLOW_MEAN",
+      "title": "Volume oscillator as a percentage of slow mean",
+      "concept": "Comparing fast and slow average volume requires a declared denominator and consistent eligible bars.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Fast mean volume 1200; slow mean 1000: (1200-1000)/1000=20%.",
+      "limit": "Slow volume average zero makes the percent undefined.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Slow volume average zero makes the percent undefined.",
+      "commonError": "Live-trading mistake: Mistaking absolute shares difference for a percent masks scale. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: Comparing fast and slow average volume requires a declared denominator and consistent eligible bars. Worked calculation: Fast mean volume 1200; slow mean 1000: (1200-1000)/1000=20%. Correct the common mistake: Mistaking absolute shares difference for a percent masks scale. Critical limitation: Slow volume average zero makes the percent undefined. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Fast average 800 and slow average 1000: compute oscillator. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GAP_SIZE_IN_BASIS_POINTS_AGAINST_PRIOR_CLOSE",
+      "title": "Gap size in basis points against prior close",
+      "concept": "A gap can be normalized to the prior completed close in basis points.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Prior close 50, next open 50.25: gap 0.5%=50 basis points.",
+      "limit": "Corporate actions and adjusted versus raw prices can change the valid comparison.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. Corporate actions and adjusted versus raw prices can change the valid comparison.",
+      "commonError": "Live-trading mistake: Computing a gap with the same bar close uses future information at the open. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A gap can be normalized to the prior completed close in basis points. Worked calculation: Prior close 50, next open 50.25: gap 0.5%=50 basis points. Correct the common mistake: Computing a gap with the same bar close uses future information at the open. Critical limitation: Corporate actions and adjusted versus raw prices can change the valid comparison. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Previous close 25, next open 24.90: calculate signed gap basis points. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FINITE_WINDOW_VOLATILITY_FOR_IDENTICAL_PRICES",
+      "title": "Finite-window volatility for identical prices",
+      "concept": "A sequence of identical valid closes has zero measured return dispersion, not missing observations.",
+      "procedure": "Prerequisite: recognize a completed candle, observation units, chronological order, and indicator warmup. State the inputs and formula described in the example, apply them strictly to eligible observations, and identify the first valid output. Do not read an incomplete or future bar.",
+      "workedCase": "FICTIONAL: Closes 10,10,10,10 imply three zero simple returns and zero sample standard deviation.",
+      "limit": "At least two returns are required for sample standard deviation; stale quotes need separate review.",
+      "invalidation": "HOLD if necessary chronological inputs, denominator, correct window, or declared variant are absent. At least two returns are required for sample standard deviation; stale quotes need separate review.",
+      "commonError": "Live-trading mistake: Confusing verified zero variance with no market data hides important input quality distinctions. Correct it by recalculating only with the specified completed observations.",
+      "selfCheck": "Identify the inputs, output units, and why the decision-time cutoff changes whether the formula can be evaluated.",
+      "reviewExplanation": "Ungraded guided reasoning: A sequence of identical valid closes has zero measured return dispersion, not missing observations. Worked calculation: Closes 10,10,10,10 imply three zero simple returns and zero sample standard deviation. Correct the common mistake: Confusing verified zero variance with no market data hides important input quality distinctions. Critical limitation: At least two returns are required for sample standard deviation; stale quotes need separate review. This does not assess official mastery.",
+      "transferQuestion": "FICTIONAL independent transfer: Closes 20,20,20,20: compute period returns and sample dispersion. Explain the warmup boundary and why a missing earlier value cannot be invented.",
+      "sourceUrls": [
+        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified_or_republication_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    }
+  ]
+}
