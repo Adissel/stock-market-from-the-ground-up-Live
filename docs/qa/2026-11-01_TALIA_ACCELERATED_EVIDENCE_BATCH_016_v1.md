@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.3 / November 1, 2026 |
+| Version / date | 1.4 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -102,6 +102,20 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 - **Foundation Batch 13:** 20 authored source-only topics are present, giving **260/600 = 43.33%** drafts; `tests/talia-foundation-batch13-gates-v1.test.mjs` already tests 20 distinct guides, independent fictional numerics, answer-key isolation, protected official competencies and the current source-only loader. None of the twenty is individually independently release-approved. Draft topics 261–280 are deferred until source/editorial gates, not silently added.
 - **Release:** Premium Advanced/Professional/Enterprise acceptance **0%** for both shared engine editions; Basic retains v3.3/v3.2 without an independently measured full release percentage. Genuine Free/Founding/Owner sessions, WCAG, screening, exact-head GitHub Actions and Cloudflare production matching all remain open. No paid service, changed membership SKU or unrestricted feed enabled.
 
+## Accelerated execution: final 13 studies (61–73), development review v1.4
+
+**Scope and implementation:** The final thirteen original indicator-study guide IDs are inventoried from the existing 61+12 canonical guide files. A new original Python independent math reference `scripts/qa/talia_indicators61_73_python_v1.py` and separately written JavaScript acceptance test `tests/talia-indicators61-73-python-js-v1.test.mjs` compare twelve explicitly seeded, wholly fictional cases. Each study has its own provenance and disposition in `data/talia-indicators61-73-evidence-v1.json`; **six individual source/methodology pages were examined** and other source links remain candidates. The Cloudflare Pages build and dedicated Tutor Actions workflow now include the test, with the automated register deriving the canonical 73 IDs. Nothing changes member commerce, real account permissions, locked assessment answers or production indicator licenses.
+
+**Calculable original examples:** Elder-Ray 13-bar EMA Bull Power; scaled Ease of Movement; Choppiness 14; Vortex 14 positive/negative components; 7/14/28 Ultimate Oscillator; double 25/13 EMA True Strength Index; 14-period Ulcer Index; 25-period Mass Index using two EMA9 passes; price-relative NVI/PVI seeded at 1000; DPO20 current calculation with an 11-bar backward graphical displacement; and a ten-bar, clamped normalized Fisher transform (not full platform recursive version). The tests explicitly check zero denominators, initialization conventions, missing warmups and the limitation on backdating the DPO to its graphical plot date.
+
+**Vendor benchmark hold:** The thirteenth item, official Cboe VIX, is not an original arithmetic fixture. Cboe defines its VIX using eligible SPX option bid/ask midpoint quotes, specific maturities and a constant 30-day interpolation. Synthetic OHLCV of a stock cannot truthfully recreate VIX, and separate benchmark rights/licensed quote access remain unapproved. Similarly, the earlier proprietary StockCharts SCTR remains source-researched without a fabricated score. No commercial or third-party data reuse was authorized.
+
+**Revised denominator:** There are **73/73 original study subjects source inventoried (100%)**; **71/73 = 97.26% have one independently implemented numerical QA case configured** (59 prior + 12 new), and **2/73 = 2.74% are intentionally held as vendor-defined calculations**. This numerical coverage must **not** be portrayed as 71 vendor-matched chart production indicators, 71 completed risk reviews, or 71 published lessons. **0/73 final individual editorial-and-rights release acceptance** remains the only defensible fully released indicator denominator at this stage.
+
+**Unchanged curriculum:** 600 Foundation explanation target slots, 260 source-authored / 340 to author, 419 Lab IDs, 274 Academy days; Learning Engine Basic v3.3 and Lab Engine Basic v3.2 unchanged. Authenticated real Free/Founding/Owner and full GitHub Actions same-SHA acceptance remain distinct. No new official grades, monetary tests or premium capabilities were enabled.
+
+**QA state when recorded:** 12 final mathematical fixtures written and CI wired; until exact commit build evidence appears, count them as *configured*, not independently passed by CI. This report does not assert a frozen final SHA or full workflow matrix approval.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -110,5 +124,6 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 | 1.1 | 2026-11-01 | 19/40 claim scopes, 15 additional individual study source records and independent Python/JS component arithmetic QA | Internal source-only acceptance; full indicator, member and release approvals pending |
 | 1.2 | 2026-11-01 | 40/40 source dispositions, 260/600 source-authored topics, 45 indicator math QA fixtures, three-source URL reconciliations, Tutor correction tests | Internal source-only acceptance; commercial, authenticated and release review open |
 | 1.3 | 2026-11-01 | 46–60 volume/breadth QA: 14 independent numeric cases, SCTR proprietary hold, source-status identity reconciliation, 260 authored explanations preserved | Development-only QA; CI, rights, publication and genuine member acceptance remain open |
+| 1.4 | 2026-11-01 | Complete 73/73 subject review; add 12 original math tests for 61–73, preserve Cboe VIX and StockCharts SCTR restrictions, maintain exact-head deployment hold | Internal development QA, not independent chart, rights, legal or member release signoff |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.3 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.4 · Source record `main` · No unauthorized premium release or paid API calls.
