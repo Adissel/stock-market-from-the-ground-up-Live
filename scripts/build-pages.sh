@@ -66,6 +66,7 @@ node tests/talia-claim-triage-and-math-v1.test.mjs
 node tests/talia-rule605-options-primary-evidence-v1.test.mjs
 node tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs
 node tests/talia-indicators16-30-independent-math-v1.test.mjs
+node tests/talia-indicators31-45-python-js-v1.test.mjs
 node tests/talia-recursive-indicators-python-js-v1.test.mjs
 node tests/talia-claim-40-source-disposition-v1.test.mjs
 node tests/talia-tutor40-conversational-quality-v1.test.mjs
