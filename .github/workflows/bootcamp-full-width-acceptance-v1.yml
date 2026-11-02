@@ -39,6 +39,8 @@ on:
       - 'functions/_lib/academy-risk60-practice-depth-day23-24-v1.js'
       - 'functions/_lib/academy-charts45-depth-days01-20-v1.js'
       - 'tests/test_academy_charts45_depth_days01_20_v1.mjs'
+      - 'functions/_lib/academy-charts45-depth-days21-40-v1.js'
+      - 'tests/test_academy_charts45_depth_days21_40_v1.mjs'
       - 'functions/_lib/academy-risk60-advanced-depth-days25-44-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days45-52-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days53-60-v1.js'
@@ -142,6 +144,7 @@ jobs:
           node --check functions/_lib/academy-risk60-advanced-depth-days53-60-v1.js
           node --test tests/academy-risk60-d45-d60-execution-register-v1.test.mjs
           node tests/test_academy_charts45_depth_days01_20_v1.mjs
+          node tests/test_academy_charts45_depth_days21_40_v1.mjs
           node scripts/academy-274-advanced-readiness-preflight-v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_three_camps_completion_contract_v1.mjs
