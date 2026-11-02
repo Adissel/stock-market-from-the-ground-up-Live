@@ -912,7 +912,8 @@
    progressAvailable=data.progressAvailable===true;enrolled=data.enrolled===true;
    // Fail closed on malformed or cross-program progress before restoring any private checkpoint.
    if(!Array.isArray(data.progress)||data.progress.some(x=>!x||!Number.isSafeInteger(x.day)||x.day<1||x.day>loaded.length||
-     (x.programCode!==undefined&&x.programCode!==code)))
+     (x.programCode!==undefined&&x.programCode!==code))||
+     new Set(data.progress.map(x=>x.day)).size!==data.progress.length)
     throw Error('This member’s learning record could not be verified. No progress was restored.');
    progress.clear();for(const x of data.progress)progress.set(x.day,x);
    // Restore the member to the requested or first unfinished study day for
