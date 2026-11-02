@@ -44,7 +44,7 @@ for(const [id,m] of Object.entries(labs.byLab)){
  const row=bridge.entries[id];
  assert(row&&row.labId===id&&row.title===m.title);
  assert.equal(row.collection,m.bookCode);
- const isAuthoredBatch= /^ORIGINAL_SUBJECT_SPECIFIC_BATCH0[234]_/.test(String(row.instructionSource||''));
+ const isAuthoredBatch= /^ORIGINAL_SUBJECT_SPECIFIC_BATCH0[2345]_/.test(String(row.instructionSource||''));
  const hasPendingEditorialHold=typeof row.sourceStatus==='string'&&row.sourceStatus.includes('PENDING')&&
   !/EDITORIAL_(?:ACCEPTED|APPROVED)|HISTORICAL_(?:ACCEPTED|APPROVED)/.test(row.sourceStatus);
  const sourceHold=['CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA',

@@ -4424,44 +4424,44 @@
       "relatedCompetencies": [
         "SQUEEZE_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Momentum whipsaw in a narrow price window.",
-          "An extension is distance relative to a defined reference; a squeeze interpretation needs more evidence than an upward candle.",
-          "Separate short interest, borrow constraints, supply, forced-buying hypotheses and observed prints; a sharp rise alone cannot establish short covering."
+          "Learning objective — Momentum whipsaw in a narrow price window. Constrain momentum-whipsaw interpretation to completed bars and explicitly defined observation windows. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: Two completed fictional closes $10.20 and $10.06 occur inside a narrow previously mapped trading range; the next unseen candle is not part of the observation. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The later completed close is $0.14 below the earlier one. A momentum oscillator could alternate during choppy price movement, but no oscillator is computed from these two observations. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Momentum whipsaw in a narrow price window from the source evidence.",
-          "Identify the comparison benchmark and what is observable about the move.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Momentum whipsaw in a narrow price window begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Constrain momentum-whipsaw interpretation to completed bars and explicitly defined observation windows.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: Two completed fictional closes $10.20 and $10.06 occur inside a narrow previously mapped trading range; the next unseen candle is not part of the observation. Always state the measured inputs and units.",
+          "Alternative interpretation: A pair of price closes is insufficient to reconstruct Wilder RSI or another path-dependent oscillator without prior bars, seeding, period and smoothing conventions. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Momentum whipsaw in a narrow price window using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the comparison benchmark and what is observable about the move.",
-          "Step 3 — Check the alternative or invalidation: A required participation or context condition is absent."
+          "Practice the original FICTIONAL example for Momentum whipsaw in a narrow price window: Two completed fictional closes $10.20 and $10.06 occur inside a narrow previously mapped trading range; the next unseen candle is not part of the observation. The later completed close is $0.14 below the earlier one. A momentum oscillator could alternate during choppy price movement, but no oscillator is computed from these two observations. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.20 and $10.06 is $0.14. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Mark the actual completed close and reference boundaries at each pause; treat changing momentum as a diagnostic observation, not permission to trade. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Momentum whipsaw in a narrow price window: Claiming a short squeeze solely because the price rose.",
-          "Correct it by returning to the actual observation. Identify the comparison benchmark and what is observable about the move.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Momentum whipsaw in a narrow price window: Calling each oscillator threshold a fresh trend signal during a narrow sideways window ignores repeated reversals and indicator warmup. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Mark the actual completed close and reference boundaries at each pause; treat changing momentum as a diagnostic observation, not permission to trade. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. A pair of price closes is insufficient to reconstruct Wilder RSI or another path-dependent oscillator without prior bars, seeding, period and smoothing conventions. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Momentum whipsaw in a narrow price window cannot establish:",
-          "Rapid upside does not establish short positioning without independent position evidence.",
-          "An interpretation is invalidated or unproven when: A required participation or context condition is absent."
+          "Critical limitation for Momentum whipsaw in a narrow price window: A pair of price closes is insufficient to reconstruct Wilder RSI or another path-dependent oscillator without prior bars, seeding, period and smoothing conventions. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: CHARTSCHOOL-IND and QC-IND are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Mark the actual completed close and reference boundaries at each pause; treat changing momentum as a diagnostic observation, not permission to trade. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support extension and short squeezes, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Momentum whipsaw in a narrow price window. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional price acceleration with no dated short-interest evidence, mark squeeze causality UNKNOWN and specify what independent evidence is needed.",
+        "prompt": "In a separate FICTIONAL range, completed closes change from $18.40 to $18.23; compute the difference and describe why an oscillator whipsaw might remain untradeable.",
         "topic": "Momentum whipsaw in a narrow price window",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C01-L01": {
       "labId": "DT-C01-L01",
@@ -4471,44 +4471,44 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Day Trading: What It Is and What It Is Not — The defining boundary.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Learning objective — Day Trading: What It Is and What It Is Not — The defining boundary. Explain day-trading session and open-close boundaries without confusing risk exposure with investment holding periods. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional participant opens and closes a hypothetical position within the same trading date, recording an illustrative purchase price of $10.00 and sale price of $10.18. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The difference between the two stated prices is $0.18 per share before all fees, slippage and applicable execution costs. Matching printed prices does not prove either fill happened. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Day Trading: What It Is and What It Is Not — The defining boundary from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Day Trading: What It Is and What It Is Not — The defining boundary begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Explain day-trading session and open-close boundaries without confusing risk exposure with investment holding periods.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional participant opens and closes a hypothetical position within the same trading date, recording an illustrative purchase price of $10.00 and sale price of $10.18. Always state the measured inputs and units.",
+          "Alternative interpretation: Regulatory definitions and day-trading margin obligations depend on the instrument, account, jurisdiction and currently effective rules; this fictional exercise provides no legal determination. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Day Trading: What It Is and What It Is Not — The defining boundary using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Practice the original FICTIONAL example for Day Trading: What It Is and What It Is Not — The defining boundary: A fictional participant opens and closes a hypothetical position within the same trading date, recording an illustrative purchase price of $10.00 and sale price of $10.18. The difference between the two stated prices is $0.18 per share before all fees, slippage and applicable execution costs. Matching printed prices does not prove either fill happened. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.18 and $10.00 is $0.18. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Distinguish a one-session educational example from an enforceable regulatory classification; independently verify governing account and instrument rules. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Day Trading: What It Is and What It Is Not — The defining boundary: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Day Trading: What It Is and What It Is Not — The defining boundary: Describing an intraday round trip as risk-free because it closes before the session ends mistakes time exposure for price and execution risk. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Distinguish a one-session educational example from an enforceable regulatory classification; independently verify governing account and instrument rules. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Regulatory definitions and day-trading margin obligations depend on the instrument, account, jurisdiction and currently effective rules; this fictional exercise provides no legal determination. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Day Trading: What It Is and What It Is Not — The defining boundary cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Critical limitation for Day Trading: What It Is and What It Is Not — The defining boundary: Regulatory definitions and day-trading margin obligations depend on the instrument, account, jurisdiction and currently effective rules; this fictional exercise provides no legal determination. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SEC-INV are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Distinguish a one-session educational example from an enforceable regulatory classification; independently verify governing account and instrument rules. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Day Trading: What It Is and What It Is Not — The defining boundary. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "For FICTIONAL same-day quoted entry $32.40 and exit $32.17, compute their signed difference and identify two execution uncertainties.",
         "topic": "Day Trading: What It Is and What It Is Not — The defining boundary",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C01-L02": {
       "labId": "DT-C01-L02",
@@ -4519,44 +4519,44 @@
         "EMA_CONTEXT",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Day Trading: What It Is and What It Is Not — What day trading demands.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "Learning objective — Day Trading: What It Is and What It Is Not — What day trading demands. Connect capital, discipline, time constraints, order management and risk to the realistic burdens of day trading. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional learner allocates $90 of available practice time, then estimates a $25 preparation interval before the first independent simulation decision. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: After allowing for preparation, $65 of the stated 90-minute exercise window remains; this is scheduling arithmetic, not a trading performance metric. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Day Trading: What It Is and What It Is Not — What day trading demands from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Day Trading: What It Is and What It Is Not — What day trading demands begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Connect capital, discipline, time constraints, order management and risk to the realistic burdens of day trading.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional learner allocates $90 of available practice time, then estimates a $25 preparation interval before the first independent simulation decision. Always state the measured inputs and units.",
+          "Alternative interpretation: The exercise does not establish how long real markets or different account holders need; financial or legal obligations cannot be inferred from a lesson timetable. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Day Trading: What It Is and What It Is Not — What day trading demands using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Practice the original FICTIONAL example for Day Trading: What It Is and What It Is Not — What day trading demands: A fictional learner allocates $90 of available practice time, then estimates a $25 preparation interval before the first independent simulation decision. After allowing for preparation, $65 of the stated 90-minute exercise window remains; this is scheduling arithmetic, not a trading performance metric. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $90.00 and $25.00 is $65.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Reserve sufficient time for source checks, chart setup, scenario review and no-trade decisions before enabling simulated execution. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Day Trading: What It Is and What It Is Not — What day trading demands: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Day Trading: What It Is and What It Is Not — What day trading demands: Assuming a fast chart can replace preparation, a written risk limit and focused review makes the learning schedule unreliable. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Reserve sufficient time for source checks, chart setup, scenario review and no-trade decisions before enabling simulated execution. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. The exercise does not establish how long real markets or different account holders need; financial or legal obligations cannot be inferred from a lesson timetable. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Day Trading: What It Is and What It Is Not — What day trading demands cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Critical limitation for Day Trading: What It Is and What It Is Not — What day trading demands: The exercise does not establish how long real markets or different account holders need; financial or legal obligations cannot be inferred from a lesson timetable. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Reserve sufficient time for source checks, chart setup, scenario review and no-trade decisions before enabling simulated execution. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Day Trading: What It Is and What It Is Not — What day trading demands. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
+        "prompt": "For an independent FICTIONAL 120-minute study allocation requiring 35 minutes of setup, calculate available guided-practice time and list two preparation tasks.",
         "topic": "Day Trading: What It Is and What It Is Not — What day trading demands",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C01-L03": {
       "labId": "DT-C01-L03",
@@ -4566,44 +4566,44 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Learning objective — Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls. Distinguish controllable order inputs and maximum planned risk from uncontrollable prices, liquidity and fills. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional planned long entry is $10.00 with a proposed invalidation reference at $9.70, both recorded before the instructional pause. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The planned entry-to-invalidation distance is $0.30 per share. A trader can specify those inputs but cannot dictate available liquidity or the eventual execution price. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Distinguish controllable order inputs and maximum planned risk from uncontrollable prices, liquidity and fills.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional planned long entry is $10.00 with a proposed invalidation reference at $9.70, both recorded before the instructional pause. Always state the measured inputs and units.",
+          "Alternative interpretation: This is a planned distance, not a guaranteed capped loss; exchange rules, broker handling and market conditions require separate verification. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Practice the original FICTIONAL example for Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls: A fictional planned long entry is $10.00 with a proposed invalidation reference at $9.70, both recorded before the instructional pause. The planned entry-to-invalidation distance is $0.30 per share. A trader can specify those inputs but cannot dictate available liquidity or the eventual execution price. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.00 and $9.70 is $0.30. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Differentiate controllable order instructions and intended maximum exposure from actual fills, costs and unforeseen market movements. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls: Treating a stop level as a guaranteed execution price understates gaps, trading halts and volatile order-book conditions. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Differentiate controllable order instructions and intended maximum exposure from actual fills, costs and unforeseen market movements. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. This is a planned distance, not a guaranteed capped loss; exchange rules, broker handling and market conditions require separate verification. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Critical limitation for Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls: This is a planned distance, not a guaranteed capped loss; exchange rules, broker handling and market conditions require separate verification. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Differentiate controllable order instructions and intended maximum exposure from actual fills, costs and unforeseen market movements. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
+        "prompt": "For FICTIONAL planned entry $44.20 and invalidation $43.65, compute intended risk distance per share and name two uncontrollable outcomes.",
         "topic": "Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C02-L01": {
       "labId": "DT-C02-L01",
@@ -4613,44 +4613,44 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about How a Day Trade Actually Works — From idea to qualified opportunity.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Learning objective — How a Day Trade Actually Works — From idea to qualified opportunity. Separate a researched candidate and a qualified conditional setup from an automatic trade signal. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional scanner records 200 shares in one completed observation and 350 shares in a separate completed observation, without validating float, spread or session quality. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The newer observation exceeds the earlier quantity by 150 shares. A larger activity number alone is not a qualified trading opportunity. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize How a Day Trade Actually Works — From idea to qualified opportunity from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing How a Day Trade Actually Works — From idea to qualified opportunity begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Separate a researched candidate and a qualified conditional setup from an automatic trade signal.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional scanner records 200 shares in one completed observation and 350 shares in a separate completed observation, without validating float, spread or session quality. Always state the measured inputs and units.",
+          "Alternative interpretation: Comparable sessions, venue scope, market-data quality and price structure remain unknown in this simplified fictional example. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice How a Day Trade Actually Works — From idea to qualified opportunity using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Practice the original FICTIONAL example for How a Day Trade Actually Works — From idea to qualified opportunity: A fictional scanner records 200 shares in one completed observation and 350 shares in a separate completed observation, without validating float, spread or session quality. The newer observation exceeds the earlier quantity by 150 shares. A larger activity number alone is not a qualified trading opportunity. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $350.00 and $200.00 is $150.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Define a candidate, inspect the fixed screening criteria and only then form an if/then hypothesis; absence of qualification supports NO TRADE. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with How a Day Trade Actually Works — From idea to qualified opportunity: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for How a Day Trade Actually Works — From idea to qualified opportunity: Promoting a watchlist candidate to an executable setup solely because its volume grew bypasses independent liquidity, structure and risk checks. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Define a candidate, inspect the fixed screening criteria and only then form an if/then hypothesis; absence of qualification supports NO TRADE. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Comparable sessions, venue scope, market-data quality and price structure remain unknown in this simplified fictional example. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What How a Day Trade Actually Works — From idea to qualified opportunity cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Critical limitation for How a Day Trade Actually Works — From idea to qualified opportunity: Comparable sessions, venue scope, market-data quality and price structure remain unknown in this simplified fictional example. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: SCHWAB-EDU and FINRA-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Define a candidate, inspect the fixed screening criteria and only then form an if/then hypothesis; absence of qualification supports NO TRADE. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain How a Day Trade Actually Works — From idea to qualified opportunity. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "On a fresh FICTIONAL 900-share reference interval and 1,240-share later interval, calculate the difference and explain why a scanner match may still be rejected.",
         "topic": "How a Day Trade Actually Works — From idea to qualified opportunity",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C02-L02": {
       "labId": "DT-C02-L02",
@@ -4660,44 +4660,44 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about How a Day Trade Actually Works — Management begins at entry.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Learning objective — How a Day Trade Actually Works — Management begins at entry. Connect entries to explicit exit, invalidation and order-state evaluation rather than unverified fills. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional planned long entry at $10.20 has an earlier identified structural invalidation at $9.92. No brokerage order has been submitted. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The difference is $0.28 per share of planned distance, which belongs in the management plan before an entry decision is considered. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize How a Day Trade Actually Works — Management begins at entry from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing How a Day Trade Actually Works — Management begins at entry begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Connect entries to explicit exit, invalidation and order-state evaluation rather than unverified fills.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional planned long entry at $10.20 has an earlier identified structural invalidation at $9.92. No brokerage order has been submitted. Always state the measured inputs and units.",
+          "Alternative interpretation: Actual fills, partial execution, spread expansion, halts and fee effects are unobserved and cannot be substituted with this illustrative distance. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice How a Day Trade Actually Works — Management begins at entry using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Practice the original FICTIONAL example for How a Day Trade Actually Works — Management begins at entry: A fictional planned long entry at $10.20 has an earlier identified structural invalidation at $9.92. No brokerage order has been submitted. The difference is $0.28 per share of planned distance, which belongs in the management plan before an entry decision is considered. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.20 and $9.92 is $0.28. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Prewrite entry, invalidation, position sizing limit and the possibility that a stop executes away from its trigger price. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with How a Day Trade Actually Works — Management begins at entry: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for How a Day Trade Actually Works — Management begins at entry: Writing an exit rule only after the simulated entry replaces proactive management with hindsight-based improvisation. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Prewrite entry, invalidation, position sizing limit and the possibility that a stop executes away from its trigger price. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Actual fills, partial execution, spread expansion, halts and fee effects are unobserved and cannot be substituted with this illustrative distance. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What How a Day Trade Actually Works — Management begins at entry cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Critical limitation for How a Day Trade Actually Works — Management begins at entry: Actual fills, partial execution, spread expansion, halts and fee effects are unobserved and cannot be substituted with this illustrative distance. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Prewrite entry, invalidation, position sizing limit and the possibility that a stop executes away from its trigger price. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain How a Day Trade Actually Works — Management begins at entry. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
+        "prompt": "For FICTIONAL entry $28.40 and planned invalidation $27.95, calculate the distance and state why the final loss might differ.",
         "topic": "How a Day Trade Actually Works — Management begins at entry",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C02-L03": {
       "labId": "DT-C02-L03",
@@ -4707,44 +4707,44 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Learning objective — How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language. Create conditional if/then trade hypotheses without suggesting future information was available in advance. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional prior resistance is $10.40 and the most recent completed bar closes at $10.38; the written thesis requires a completed close strictly above resistance. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The observed close is $0.02 below the prewritten level, so the stated condition has not been met at the decision pause. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Create conditional if/then trade hypotheses without suggesting future information was available in advance.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional prior resistance is $10.40 and the most recent completed bar closes at $10.38; the written thesis requires a completed close strictly above resistance. Always state the measured inputs and units.",
+          "Alternative interpretation: A conditional rule cannot guarantee a trade, and an intrabar touch cannot replace the required closing observation. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Practice the original FICTIONAL example for How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language: A fictional prior resistance is $10.40 and the most recent completed bar closes at $10.38; the written thesis requires a completed close strictly above resistance. The observed close is $0.02 below the prewritten level, so the stated condition has not been met at the decision pause. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.40 and $10.38 is $0.02. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Write IF the completed bar closes beyond the recorded reference AND risk conditions hold, THEN review the setup; ELSE WAIT or NO TRADE. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language: Replacing a failed condition with a new one only after seeing the last bar undermines a falsifiable trading thesis. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Write IF the completed bar closes beyond the recorded reference AND risk conditions hold, THEN review the setup; ELSE WAIT or NO TRADE. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. A conditional rule cannot guarantee a trade, and an intrabar touch cannot replace the required closing observation. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Critical limitation for How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language: A conditional rule cannot guarantee a trade, and an intrabar touch cannot replace the required closing observation. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: SCHWAB-EDU and FINRA-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Write IF the completed bar closes beyond the recorded reference AND risk conditions hold, THEN review the setup; ELSE WAIT or NO TRADE. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
+        "prompt": "For FICTIONAL resistance $41.20 and completed close $41.16, calculate the shortfall and provide the corresponding NO TRADE branch.",
         "topic": "How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C03-L01": {
       "labId": "DT-C03-L01",
@@ -4755,44 +4755,44 @@
         "EMA_CONTEXT",
         "HOD_PM_LEVELS"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Trading Day — Premarket.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "Learning objective — The Trading Day — Premarket. Teach premarket session, quote/volume coverage, liquidity limitations and official trading-hours context. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional premarket quote displays best bid $20.00 and best ask $20.16 with no verified depth or completed transaction at either level. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The quoted spread is $0.16 per share; limited visible size and unverified venue coverage prevent a conclusion about a full order's execution. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize The Trading Day — Premarket from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing The Trading Day — Premarket begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Teach premarket session, quote/volume coverage, liquidity limitations and official trading-hours context.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional premarket quote displays best bid $20.00 and best ask $20.16 with no verified depth or completed transaction at either level. Always state the measured inputs and units.",
+          "Alternative interpretation: Trading hours and auction mechanics require current exchange-specific reference checks; the quotation does not prove a fill or consolidated price. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice The Trading Day — Premarket using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Practice the original FICTIONAL example for The Trading Day — Premarket: A fictional premarket quote displays best bid $20.00 and best ask $20.16 with no verified depth or completed transaction at either level. The quoted spread is $0.16 per share; limited visible size and unverified venue coverage prevent a conclusion about a full order's execution. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $20.16 and $20.00 is $0.16. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Separate the trading session, current bid and ask, displayed size, order type and actual venue permissions before planning a premarket order. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with The Trading Day — Premarket: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for The Trading Day — Premarket: Using the displayed last trade as though it were a current executable ask ignores wider premarket spreads and uncertain liquidity. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Separate the trading session, current bid and ask, displayed size, order type and actual venue permissions before planning a premarket order. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Trading hours and auction mechanics require current exchange-specific reference checks; the quotation does not prove a fill or consolidated price. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What The Trading Day — Premarket cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "Critical limitation for The Trading Day — Premarket: Trading hours and auction mechanics require current exchange-specific reference checks; the quotation does not prove a fill or consolidated price. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: NASDAQ-TRADER and NYSE are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Separate the trading session, current bid and ask, displayed size, order type and actual venue permissions before planning a premarket order. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain The Trading Day — Premarket. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
+        "prompt": "For a FICTIONAL premarket bid $52.10 and ask $52.31, compute spread and state why a 500-share market order has unknown cost.",
         "topic": "The Trading Day — Premarket",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C03-L02": {
       "labId": "DT-C03-L02",
@@ -4803,44 +4803,44 @@
         "MARKET_REGIME",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Trading Day — Midday.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Learning objective — The Trading Day — Midday. Describe reduced midday participation as an observed variable, not a universal or guaranteed market regime. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional observed early-session bar contains 2,400 shares, while an already-completed midday comparison bar contains 1,200 shares from the same invented feed. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The two bars differ by 1,200 shares, but a single pair cannot establish a general seasonal liquidity rule for every symbol and date. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize The Trading Day — Midday from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing The Trading Day — Midday begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Describe reduced midday participation as an observed variable, not a universal or guaranteed market regime.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional observed early-session bar contains 2,400 shares, while an already-completed midday comparison bar contains 1,200 shares from the same invented feed. Always state the measured inputs and units.",
+          "Alternative interpretation: Exchange conditions, news catalysts and trading halts can override a common intraday tendency; no real market data is provided here. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice The Trading Day — Midday using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Practice the original FICTIONAL example for The Trading Day — Midday: A fictional observed early-session bar contains 2,400 shares, while an already-completed midday comparison bar contains 1,200 shares from the same invented feed. The two bars differ by 1,200 shares, but a single pair cannot establish a general seasonal liquidity rule for every symbol and date. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $2400.00 and $1200.00 is $1200.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Compare equal-duration completed bars and inspect quotes, volatility and the present session rather than assuming a universal midday regime. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with The Trading Day — Midday: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for The Trading Day — Midday: Claiming that midday always offers cheap, easy execution from one lower-volume bar confuses volume, depth and spread. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Compare equal-duration completed bars and inspect quotes, volatility and the present session rather than assuming a universal midday regime. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Exchange conditions, news catalysts and trading halts can override a common intraday tendency; no real market data is provided here. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What The Trading Day — Midday cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "Critical limitation for The Trading Day — Midday: Exchange conditions, news catalysts and trading halts can override a common intraday tendency; no real market data is provided here. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: NYSE and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Compare equal-duration completed bars and inspect quotes, volatility and the present session rather than assuming a universal midday regime. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain The Trading Day — Midday. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
+        "prompt": "For a new FICTIONAL 3,100-share completed morning bar and 1,750-share midday bar, calculate the difference without declaring guaranteed liquidity.",
         "topic": "The Trading Day — Midday",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C03-L03": {
       "labId": "DT-C03-L03",
@@ -4852,44 +4852,44 @@
         "ENTER_WATCH_NO_TRADE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions.",
-          "A candidate ranking is a transparent set of chosen criteria, not an investment recommendation.",
-          "Define the research universe, publication timestamp, observed liquidity, float as-of date and exclusion rules before assigning a candidate quality label."
+          "Learning objective — The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions. Distinguish 9:30–10:00 a.m. ET price discovery, opening auctions and evidence-based decision constraints. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional 9:30–10:00 a.m. Eastern opening window includes two already-completed references: an initial $10.05 close and a later $10.30 close. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The recorded $0.25 price change describes the visible opening interval, not the order of all intrabar trades or a reliable future direction. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions from the source evidence.",
-          "State measurable criteria and whether their inputs were known before ranking.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Distinguish 9:30–10:00 a.m. ET price discovery, opening auctions and evidence-based decision constraints.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional 9:30–10:00 a.m. Eastern opening window includes two already-completed references: an initial $10.05 close and a later $10.30 close. Always state the measured inputs and units.",
+          "Alternative interpretation: Precise opening auction procedures depend on the exchange and must be verified against current official rules, not generalized from fictional candles. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State measurable criteria and whether their inputs were known before ranking.",
-          "Step 3 — Check the alternative or invalidation: The ranking uses future data or criteria that cannot be independently checked."
+          "Practice the original FICTIONAL example for The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions: A fictional 9:30–10:00 a.m. Eastern opening window includes two already-completed references: an initial $10.05 close and a later $10.30 close. The recorded $0.25 price change describes the visible opening interval, not the order of all intrabar trades or a reliable future direction. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.30 and $10.05 is $0.25. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Label every bar's session timestamp and completion state, distinguish auction observation from continuous trading, and require independent risk criteria. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions: Fitting filters to a hindsight winner and calling it predictive.",
-          "Correct it by returning to the actual observation. State measurable criteria and whether their inputs were known before ranking.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions: Treating the opening period's large visible move as an automatic breakout entry disregards opening-auction effects and rapidly changing spreads. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Label every bar's session timestamp and completion state, distinguish auction observation from continuous trading, and require independent risk criteria. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Precise opening auction procedures depend on the exchange and must be verified against current official rules, not generalized from fictional candles. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions cannot establish:",
-          "A high educational score does not imply future outperformance.",
-          "An interpretation is invalidated or unproven when: The ranking uses future data or criteria that cannot be independently checked."
+          "Critical limitation for The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions: Precise opening auction procedures depend on the exchange and must be verified against current official rules, not generalized from fictional candles. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: NYSE and NASDAQ-TRADER are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Label every bar's session timestamp and completion state, distinguish auction observation from continuous trading, and require independent risk criteria. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support candidate research, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional tickers with missing versus complete spread/source data and justify a WATCH versus NO TRADE disposition.",
+        "prompt": "Using FICTIONAL completed opening-window closes $29.50 then $29.82, compute the change and name a condition that would justify waiting.",
         "topic": "The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C04-L01": {
       "labId": "DT-C04-L01",
@@ -4899,44 +4899,44 @@
       "relatedCompetencies": [
         "POSITION_SIZING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition.",
-          "The basic whole-share ceiling is floor(risk budget / planned per-share loss).",
-          "Compute planned per-share risk as absolute(entry minus invalidation) and theoretical shares as floor(risk budget divided by per-share risk); execution risk may exceed the model."
+          "Learning objective — Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition. REQUIRES CURRENT REGULATORY REVIEW: verify effective dates and controlling day-trading margin/settlement provisions before publishing any 2026 transition statement. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional account illustration displays $2,000 of cash equity and a separate hypothetical $6,000 field labeled possible broker buying power, without broker approval or an account agreement. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The displayed amounts differ by $4,000. The difference is an illustration of borrowing-related exposure, not confirmed available credit or permission to day trade. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition from the source evidence.",
-          "Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. REQUIRES CURRENT REGULATORY REVIEW: verify effective dates and controlling day-trading margin/settlement provisions before publishing any 2026 transition statement.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional account illustration displays $2,000 of cash equity and a separate hypothetical $6,000 field labeled possible broker buying power, without broker approval or an account agreement. Always state the measured inputs and units.",
+          "Alternative interpretation: 2026 day-trading margin-transition and pattern-day-trader claims are specifically UNVERIFIED in this lesson; a qualified compliance review is required before publication. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Step 3 — Check the alternative or invalidation: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Practice the original FICTIONAL example for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition: A fictional account illustration displays $2,000 of cash equity and a separate hypothetical $6,000 field labeled possible broker buying power, without broker approval or an account agreement. The displayed amounts differ by $4,000. The difference is an illustration of borrowing-related exposure, not confirmed available credit or permission to day trade. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $6000.00 and $2000.00 is $4000.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Identify account type, broker house requirements, effective regulatory rules, settlement and borrowing terms from authoritative current documents before making claims. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition: Rounding quantity upward beyond the planned risk budget.",
-          "Correct it by returning to the actual observation. Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition: Assuming that a displayed buying-power figure guarantees legal eligibility or a presently available credit line creates serious account risk. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Identify account type, broker house requirements, effective regulatory rules, settlement and borrowing terms from authoritative current documents before making claims. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. 2026 day-trading margin-transition and pattern-day-trader claims are specifically UNVERIFIED in this lesson; a qualified compliance review is required before publication. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition cannot establish:",
-          "The calculated size is not a guarantee that a stop will fill at its level.",
-          "An interpretation is invalidated or unproven when: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Critical limitation for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition: 2026 day-trading margin-transition and pattern-day-trader claims are specifically UNVERIFIED in this lesson; a qualified compliance review is required before publication. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SEC-INV are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Identify account type, broker house requirements, effective regulatory rules, settlement and borrowing terms from authoritative current documents before making claims. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support share-count mathematics, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $8.20, reference $7.95 and planned $25 budget, calculate theoretical shares and list adverse fill/gap caveats.",
+        "prompt": "In a FICTIONAL account dashboard showing $5,000 cash and $11,000 illustrative possible buying power, calculate the difference and identify what must be verified first.",
         "topic": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C04-L02": {
       "labId": "DT-C04-L02",
@@ -4947,44 +4947,44 @@
         "POSITION_SIZING",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements.",
-          "The basic whole-share ceiling is floor(risk budget / planned per-share loss).",
-          "Compute planned per-share risk as absolute(entry minus invalidation) and theoretical shares as floor(risk budget divided by per-share risk); execution risk may exceed the model."
+          "Learning objective — Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements. REQUIRES CURRENT BROKER/RULE REVIEW: separate available buying power, borrowing, broker house margin and possible liquidation risk. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional broker interface shows $5,000 possible intraday buying power and $2,000 cash equity, with no actual securities or collateral valuation supplied. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The $3,000 difference between the two displayed numbers does not establish spendable cash, borrowing capacity or risk-free return potential. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements from the source evidence.",
-          "Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. REQUIRES CURRENT BROKER/RULE REVIEW: separate available buying power, borrowing, broker house margin and possible liquidation risk.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional broker interface shows $5,000 possible intraday buying power and $2,000 cash equity, with no actual securities or collateral valuation supplied. Always state the measured inputs and units.",
+          "Alternative interpretation: Current margin and purchasing restrictions depend on actual broker terms, the account and effective law; no single numerical multiplier is asserted. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Step 3 — Check the alternative or invalidation: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Practice the original FICTIONAL example for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements: A fictional broker interface shows $5,000 possible intraday buying power and $2,000 cash equity, with no actual securities or collateral valuation supplied. The $3,000 difference between the two displayed numbers does not establish spendable cash, borrowing capacity or risk-free return potential. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $5000.00 and $2000.00 is $3000.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Check broker-specific calculation definitions, maintenance and house requirements, current borrowing availability, costs and scenario losses. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements: Rounding quantity upward beyond the planned risk budget.",
-          "Correct it by returning to the actual observation. Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements: Equating buying power with owned cash can result in incorrect exposure, margin-call and liquidation assumptions. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Check broker-specific calculation definitions, maintenance and house requirements, current borrowing availability, costs and scenario losses. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Current margin and purchasing restrictions depend on actual broker terms, the account and effective law; no single numerical multiplier is asserted. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements cannot establish:",
-          "The calculated size is not a guarantee that a stop will fill at its level.",
-          "An interpretation is invalidated or unproven when: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Critical limitation for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements: Current margin and purchasing restrictions depend on actual broker terms, the account and effective law; no single numerical multiplier is asserted. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Check broker-specific calculation definitions, maintenance and house requirements, current borrowing availability, costs and scenario losses. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support share-count mathematics, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $8.20, reference $7.95 and planned $25 budget, calculate theoretical shares and list adverse fill/gap caveats.",
+        "prompt": "For an unrelated FICTIONAL display of $7,500 possible buying power and $3,000 cash, compute the difference and describe why a pretrade check is still necessary.",
         "topic": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C04-L03": {
       "labId": "DT-C04-L03",
@@ -4995,44 +4995,44 @@
         "POSITION_SIZING",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function.",
-          "The basic whole-share ceiling is floor(risk budget / planned per-share loss).",
-          "Compute planned per-share risk as absolute(entry minus invalidation) and theoretical shares as floor(risk budget divided by per-share risk); execution risk may exceed the model."
+          "Learning objective — Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function. REQUIRES CURRENT REGULATORY REVIEW: credit versus cash, collateral, interest, maintenance rules and liquidation risk. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional account has $2,000 of stated equity and a hypothetical total $6,000 exposure. No financing was formally approved or interest calculation supplied. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The exposure exceeds stated equity by $4,000; this arithmetic illustrates potential leverage exposure without proving a broker-funded loan amount. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function from the source evidence.",
-          "Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. REQUIRES CURRENT REGULATORY REVIEW: credit versus cash, collateral, interest, maintenance rules and liquidation risk.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional account has $2,000 of stated equity and a hypothetical total $6,000 exposure. No financing was formally approved or interest calculation supplied. Always state the measured inputs and units.",
+          "Alternative interpretation: Do not teach any 2026 effective regulatory threshold or broker margin percentage until verified by current authoritative regulatory and broker sources. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Step 3 — Check the alternative or invalidation: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Practice the original FICTIONAL example for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function: A fictional account has $2,000 of stated equity and a hypothetical total $6,000 exposure. No financing was formally approved or interest calculation supplied. The exposure exceeds stated equity by $4,000; this arithmetic illustrates potential leverage exposure without proving a broker-funded loan amount. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $6000.00 and $2000.00 is $4000.00. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Separate cash equity, notional position value, financed balance, house margin, collateral valuation and eventual realized P&L. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function: Rounding quantity upward beyond the planned risk budget.",
-          "Correct it by returning to the actual observation. Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function: Treating leverage as automatically multiplying profits overlooks the possibility of larger losses, interest costs and broker liquidation. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Separate cash equity, notional position value, financed balance, house margin, collateral valuation and eventual realized P&L. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Do not teach any 2026 effective regulatory threshold or broker margin percentage until verified by current authoritative regulatory and broker sources. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function cannot establish:",
-          "The calculated size is not a guarantee that a stop will fill at its level.",
-          "An interpretation is invalidated or unproven when: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
+          "Critical limitation for Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function: Do not teach any 2026 effective regulatory threshold or broker margin percentage until verified by current authoritative regulatory and broker sources. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SEC-INV are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Separate cash equity, notional position value, financed balance, house margin, collateral valuation and eventual realized P&L. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support share-count mathematics, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $8.20, reference $7.95 and planned $25 budget, calculate theoretical shares and list adverse fill/gap caveats.",
+        "prompt": "For FICTIONAL account equity $8,000 and hypothetical exposure $18,000, compute excess exposure and list two separate financing questions.",
         "topic": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C05-L01": {
       "labId": "DT-C05-L01",
@@ -5042,44 +5042,44 @@
       "relatedCompetencies": [
         "RISK_PER_SHARE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Risk Comes Before Profit — Risk per trade.",
-          "Planned risk per share is the absolute difference between entry assumption and predefined stop.",
-          "Label entry assumption and invalidation reference; compute absolute dollar distance per share, then account separately for spread, fees and gaps."
+          "Learning objective — Risk Comes Before Profit — Risk per trade. Define risk per share using entry/invalidation distance and distinguish planned risk from actual slip-adjusted loss. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional planned long entry is $21.00 per share and its prewritten invalidation is $20.60, with an unconfirmed opportunity and no entered order. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The planned price distance is $0.40 per share; position sizing would also require a stated dollar risk budget, lot constraints, spread and realistic fill assumptions. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Risk Comes Before Profit — Risk per trade from the source evidence.",
-          "Compute distance before choosing size; note fees and gap risk separately.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Risk Comes Before Profit — Risk per trade begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Define risk per share using entry/invalidation distance and distinguish planned risk from actual slip-adjusted loss.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional planned long entry is $21.00 per share and its prewritten invalidation is $20.60, with an unconfirmed opportunity and no entered order. Always state the measured inputs and units.",
+          "Alternative interpretation: A stop price is not a guaranteed loss cap; slippage, fees and sharp gaps can increase the realized amount. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Risk Comes Before Profit — Risk per trade using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compute distance before choosing size; note fees and gap risk separately.",
-          "Step 3 — Check the alternative or invalidation: Stop distance is zero, not observable, or based on future information."
+          "Practice the original FICTIONAL example for Risk Comes Before Profit — Risk per trade: A fictional planned long entry is $21.00 per share and its prewritten invalidation is $20.60, with an unconfirmed opportunity and no entered order. The planned price distance is $0.40 per share; position sizing would also require a stated dollar risk budget, lot constraints, spread and realistic fill assumptions. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $21.00 and $20.60 is $0.40. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Calculate entry minus invalidation first, then apply a separate risk budget and reject positions that cannot be sized or executed safely. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Risk Comes Before Profit — Risk per trade: Multiplying expected reward by shares and calling it maximum risk.",
-          "Correct it by returning to the actual observation. Compute distance before choosing size; note fees and gap risk separately.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Risk Comes Before Profit — Risk per trade: Using the expected reward to excuse an absent or overly large stop incorrectly places profit before bounded planned risk. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Calculate entry minus invalidation first, then apply a separate risk budget and reject positions that cannot be sized or executed safely. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. A stop price is not a guaranteed loss cap; slippage, fees and sharp gaps can increase the realized amount. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Risk Comes Before Profit — Risk per trade cannot establish:",
-          "A stop order does not guarantee a loss capped at that amount.",
-          "An interpretation is invalidated or unproven when: Stop distance is zero, not observable, or based on future information."
+          "Critical limitation for Risk Comes Before Profit — Risk per trade: A stop price is not a guaranteed loss cap; slippage, fees and sharp gaps can increase the realized amount. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and SCHWAB-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Calculate entry minus invalidation first, then apply a separate risk budget and reject positions that cannot be sized or executed safely. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support risk per share, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Risk Comes Before Profit — Risk per trade. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $12.00 and invalidation $11.60, calculate $0.40 planned risk/share and explain why it is not realized loss.",
+        "prompt": "Given a fresh FICTIONAL entry $64.30 and invalidation $63.78, compute per-share planned distance and explain why order size still cannot be determined.",
         "topic": "Risk Comes Before Profit — Risk per trade",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C05-L02": {
       "labId": "DT-C05-L02",
@@ -5089,44 +5089,44 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Risk Comes Before Profit — Reward does not erase risk.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Learning objective — Risk Comes Before Profit — Reward does not erase risk. Calculate expectancy with consistent win/loss units and acknowledge loss tails, commissions and model uncertainty. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional proposed entry is $30.20 and an optimistic prewritten target is $30.80; the equally fictional invalidation reference is $29.90. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The projected price difference to the target is $0.60 per share, but the target is not a forecast of a filled exit or a realized gain. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Risk Comes Before Profit — Reward does not erase risk from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Risk Comes Before Profit — Reward does not erase risk begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Calculate expectancy with consistent win/loss units and acknowledge loss tails, commissions and model uncertainty.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional proposed entry is $30.20 and an optimistic prewritten target is $30.80; the equally fictional invalidation reference is $29.90. Always state the measured inputs and units.",
+          "Alternative interpretation: Historical win rate, variance, commissions and actual target reachability are missing; no expectancy or profit claim can be derived. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Risk Comes Before Profit — Reward does not erase risk using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Practice the original FICTIONAL example for Risk Comes Before Profit — Reward does not erase risk: A fictional proposed entry is $30.20 and an optimistic prewritten target is $30.80; the equally fictional invalidation reference is $29.90. The projected price difference to the target is $0.60 per share, but the target is not a forecast of a filled exit or a realized gain. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $30.80 and $30.20 is $0.60. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Keep planned upside distance separate from stop distance, estimated win frequency, adverse outcomes, costs and the option to remain flat. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Risk Comes Before Profit — Reward does not erase risk: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Risk Comes Before Profit — Reward does not erase risk: Treating an attractive stated target as offsetting unknown loss frequency and execution risk confuses reward magnitude with expected value. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Keep planned upside distance separate from stop distance, estimated win frequency, adverse outcomes, costs and the option to remain flat. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Historical win rate, variance, commissions and actual target reachability are missing; no expectancy or profit claim can be derived. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Risk Comes Before Profit — Reward does not erase risk cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Critical limitation for Risk Comes Before Profit — Reward does not erase risk: Historical win rate, variance, commissions and actual target reachability are missing; no expectancy or profit claim can be derived. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and QC-LEAN are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Keep planned upside distance separate from stop distance, estimated win frequency, adverse outcomes, costs and the option to remain flat. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Risk Comes Before Profit — Reward does not erase risk. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
+        "prompt": "In a new FICTIONAL plan with entry $19.20 and target $19.95, compute possible reward distance and identify the extra inputs needed for expectancy.",
         "topic": "Risk Comes Before Profit — Reward does not erase risk",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C05-L03": {
       "labId": "DT-C05-L03",
@@ -5137,44 +5137,44 @@
         "ORDER_SELECTION",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Risk Comes Before Profit — Add Execution Risk to the Model.",
-          "Market, limit and stop orders impose different price, priority and trigger assumptions.",
-          "Separate market, limit and stop instructions by price constraint, execution uncertainty and possible adverse fills; include a broker and session caveat."
+          "Learning objective — Risk Comes Before Profit — Add Execution Risk to the Model. Distinguish spread, depth, fill uncertainty, slippage and venue conditions in realistic execution risk. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional completed quote snapshot shows bid $10.00 and ask $10.08; neither displayed size nor order-book depth is known. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The quoted spread is $0.08 per share, before fees and any adverse price movement during execution; it is not a verified round-trip cost. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Risk Comes Before Profit — Add Execution Risk to the Model from the source evidence.",
-          "Compare an order's condition against only the next server-revealed observation.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Risk Comes Before Profit — Add Execution Risk to the Model begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Distinguish spread, depth, fill uncertainty, slippage and venue conditions in realistic execution risk.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional completed quote snapshot shows bid $10.00 and ask $10.08; neither displayed size nor order-book depth is known. Always state the measured inputs and units.",
+          "Alternative interpretation: A displayed spread is not proof of actual fills, and order costs vary with size, timing, venues and fees. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Risk Comes Before Profit — Add Execution Risk to the Model using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare an order's condition against only the next server-revealed observation.",
-          "Step 3 — Check the alternative or invalidation: The required threshold is not observed, or trading is halted."
+          "Practice the original FICTIONAL example for Risk Comes Before Profit — Add Execution Risk to the Model: A fictional completed quote snapshot shows bid $10.00 and ask $10.08; neither displayed size nor order-book depth is known. The quoted spread is $0.08 per share, before fees and any adverse price movement during execution; it is not a verified round-trip cost. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.08 and $10.00 is $0.08. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Inspect which quote side an aggressing order typically consumes, available size, slippage, broker routing and incomplete fills. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Risk Comes Before Profit — Add Execution Risk to the Model: Equating bar range overlap with a confirmed limit fill.",
-          "Correct it by returning to the actual observation. Compare an order's condition against only the next server-revealed observation.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Risk Comes Before Profit — Add Execution Risk to the Model: Assuming a market buy can be filled at the bid while a simultaneous sell can use the ask reverses executable quote sides. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Inspect which quote side an aggressing order typically consumes, available size, slippage, broker routing and incomplete fills. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. A displayed spread is not proof of actual fills, and order costs vary with size, timing, venues and fees. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Risk Comes Before Profit — Add Execution Risk to the Model cannot establish:",
-          "A limit touch can imply a possible fill, never prove queue priority or full execution.",
-          "An interpretation is invalidated or unproven when: The required threshold is not observed, or trading is halted."
+          "Critical limitation for Risk Comes Before Profit — Add Execution Risk to the Model: A displayed spread is not proof of actual fills, and order costs vary with size, timing, venues and fees. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: FINRA-EDU and NASDAQ-TRADER are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Inspect which quote side an aggressing order typically consumes, available size, slippage, broker routing and incomplete fills. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support order-type behavior, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Risk Comes Before Profit — Add Execution Risk to the Model. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional thin quote, compare a market buy with a buy limit below the ask; explain the different unfilled and slippage outcomes.",
+        "prompt": "For FICTIONAL quote bid $43.25 and ask $43.38, calculate the spread and explain why a 1,000-share market order can have greater cost.",
         "topic": "Risk Comes Before Profit — Add Execution Risk to the Model",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C06-L01": {
       "labId": "DT-C06-L01",
@@ -5184,44 +5184,44 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building Your Day-Trading Laboratory — Freeze the workspace.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "Learning objective — Building Your Day-Trading Laboratory — Freeze the workspace. Freeze a reproducible replay workspace, timestamp, symbol, visible completed bars and setup inputs. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional replay chart was paused with completed closes $10.10 and $10.42; the workstation stores the chosen date, symbol, timeframe and last completed bar. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The two visible close references differ by $0.32, but the screen's consistency depends on retaining the exact pause cursor and indicator settings. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Building Your Day-Trading Laboratory — Freeze the workspace from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Building Your Day-Trading Laboratory — Freeze the workspace begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Freeze a reproducible replay workspace, timestamp, symbol, visible completed bars and setup inputs.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional replay chart was paused with completed closes $10.10 and $10.42; the workstation stores the chosen date, symbol, timeframe and last completed bar. Always state the measured inputs and units.",
+          "Alternative interpretation: Fictional chart history can demonstrate process; it is not proof of a licensed historical series or an executable backtest. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Building Your Day-Trading Laboratory — Freeze the workspace using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Practice the original FICTIONAL example for Building Your Day-Trading Laboratory — Freeze the workspace: A fictional replay chart was paused with completed closes $10.10 and $10.42; the workstation stores the chosen date, symbol, timeframe and last completed bar. The two visible close references differ by $0.32, but the screen's consistency depends on retaining the exact pause cursor and indicator settings. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.42 and $10.10 is $0.32. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Record visible bar count, timeframe, indicator parameters, session timezone and selected workspace layout before taking an independent decision. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Building Your Day-Trading Laboratory — Freeze the workspace: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Building Your Day-Trading Laboratory — Freeze the workspace: Changing chart settings after looking ahead and then claiming they were frozen at the earlier pause invalidates the historical-learning record. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Record visible bar count, timeframe, indicator parameters, session timezone and selected workspace layout before taking an independent decision. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Fictional chart history can demonstrate process; it is not proof of a licensed historical series or an executable backtest. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Building Your Day-Trading Laboratory — Freeze the workspace cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Critical limitation for Building Your Day-Trading Laboratory — Freeze the workspace: Fictional chart history can demonstrate process; it is not proof of a licensed historical series or an executable backtest. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: TOS-LRN and ECHARTS are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Record visible bar count, timeframe, indicator parameters, session timezone and selected workspace layout before taking an independent decision. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Building Your Day-Trading Laboratory — Freeze the workspace. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
+        "prompt": "On a separate FICTIONAL workspace with completed closes $37.80 and $38.16, calculate their difference and identify the settings that must remain frozen.",
         "topic": "Building Your Day-Trading Laboratory — Freeze the workspace",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C06-L02": {
       "labId": "DT-C06-L02",
@@ -5231,44 +5231,44 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building Your Day-Trading Laboratory — Use progressive reveal.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Learning objective — Building Your Day-Trading Laboratory — Use progressive reveal. Use strictly progressive completed-bar reveal with hidden future history and no outcome-informed hints. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional replay reveals two completed closes $9.80 and $9.95, while every later bar remains inaccessible to the learner at the current pause. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The currently revealed close-to-close increase is $0.15. A valid replay preserves those numbers even if a hidden future candle is replaced. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Building Your Day-Trading Laboratory — Use progressive reveal from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Building Your Day-Trading Laboratory — Use progressive reveal begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Use strictly progressive completed-bar reveal with hidden future history and no outcome-informed hints.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional replay reveals two completed closes $9.80 and $9.95, while every later bar remains inaccessible to the learner at the current pause. Always state the measured inputs and units.",
+          "Alternative interpretation: A completed OHLC bar does not reveal its within-bar trade sequence; replay must not invent authentic ticks or fills. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Building Your Day-Trading Laboratory — Use progressive reveal using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Practice the original FICTIONAL example for Building Your Day-Trading Laboratory — Use progressive reveal: A fictional replay reveals two completed closes $9.80 and $9.95, while every later bar remains inaccessible to the learner at the current pause. The currently revealed close-to-close increase is $0.15. A valid replay preserves those numbers even if a hidden future candle is replaced. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $9.95 and $9.80 is $0.15. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Advance the cursor only after the learner records a choice, recompute indicators from visible completed bars, and keep future outcomes hidden. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Building Your Day-Trading Laboratory — Use progressive reveal: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Building Your Day-Trading Laboratory — Use progressive reveal: Showing a later reversal when explaining the present decision violates no-lookahead teaching and contaminates an independent transfer. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Advance the cursor only after the learner records a choice, recompute indicators from visible completed bars, and keep future outcomes hidden. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. A completed OHLC bar does not reveal its within-bar trade sequence; replay must not invent authentic ticks or fills. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Building Your Day-Trading Laboratory — Use progressive reveal cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "Critical limitation for Building Your Day-Trading Laboratory — Use progressive reveal: A completed OHLC bar does not reveal its within-bar trade sequence; replay must not invent authentic ticks or fills. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: TOS-LRN and ECHARTS are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Advance the cursor only after the learner records a choice, recompute indicators from visible completed bars, and keep future outcomes hidden. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Building Your Day-Trading Laboratory — Use progressive reveal. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
+        "prompt": "For a FICTIONAL progressively revealed pair $54.20 then $54.08, compute the signed change and explain which later facts must remain concealed.",
         "topic": "Building Your Day-Trading Laboratory — Use progressive reveal",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C06-L03": {
       "labId": "DT-C06-L03",
@@ -5278,44 +5278,44 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Learning objective — Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart. Record market/session timezone and replay pause time before chart display or lesson decision. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional replay explicitly labels an earlier session reference close $10.20 and the first complete five-minute observation close $10.05 at 9:35 a.m. Eastern. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The first fully completed bar's close is $0.15 below the earlier reference, but this says nothing about trades made before the replay pause. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Record market/session timezone and replay pause time before chart display or lesson decision.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional replay explicitly labels an earlier session reference close $10.20 and the first complete five-minute observation close $10.05 at 9:35 a.m. Eastern. Always state the measured inputs and units.",
+          "Alternative interpretation: Time-zone conversion, daylight-saving behavior and session definitions require verification against the exact historical venue date. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Practice the original FICTIONAL example for Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart: A fictional replay explicitly labels an earlier session reference close $10.20 and the first complete five-minute observation close $10.05 at 9:35 a.m. Eastern. The first fully completed bar's close is $0.15 below the earlier reference, but this says nothing about trades made before the replay pause. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.20 and $10.05 is $0.15. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Verify exchange session, timezone, day, data vendor, adjustment policy and exact last completed candle before revealing the chart. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart: Selecting a replay clock by the last visible candle after viewing the outcome introduces future-bar information into earlier decisions. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Verify exchange session, timezone, day, data vendor, adjustment policy and exact last completed candle before revealing the chart. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Time-zone conversion, daylight-saving behavior and session definitions require verification against the exact historical venue date. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Critical limitation for Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart: Time-zone conversion, daylight-saving behavior and session definitions require verification against the exact historical venue date. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: TOS-LRN and FINRA-EDU are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Verify exchange session, timezone, day, data vendor, adjustment policy and exact last completed candle before revealing the chart. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
+        "prompt": "At a new FICTIONAL pause of 9:35 a.m. Eastern, references are $61.20 and a first completed close $61.05; compute the difference and state the visible window.",
         "topic": "Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C07-L01": {
       "labId": "DT-C07-L01",
@@ -5325,44 +5325,44 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "ORIGINAL_FICTIONAL_INSTRUCTION_WRITTEN_CLAIM_FORMULA_RIGHTS_REGULATORY_AND_INDEPENDENT_EDITORIAL_ACCEPTANCE_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Intraday Price Action and Market Structure — Higher highs and higher lows.",
-          "A trend is a sequence of observable swing relationships, not a guarantee that the next swing will continue.",
-          "Mark completed swing pivots, bar intervals and the exact invalidation level before labeling a higher high, lower high or consolidation."
+          "Learning objective — Intraday Price Action and Market Structure — Higher highs and higher lows. Mark confirmed higher swing highs and lows using completed pivot evidence without future-bar pivot labeling. This lesson is original educational instruction and uses only observations completed before the stated decision pause.",
+          "Original FICTIONAL evidence: A fictional previously confirmed completed swing high is $10.30 and a later completed candidate swing high is $10.55, with the intervening and following confirmation rules specified in the exercise. The scenario is not a licensed real-market record or proof of a completed member order.",
+          "First-principles explanation: The later observed high exceeds the earlier reference by $0.25, but this comparison alone does not prove an established higher-high/higher-low sequence. Explain which portion is measured fact and which portion is uncertain."
         ],
         "recognize": [
-          "Here is how to recognize Intraday Price Action and Market Structure — Higher highs and higher lows from the source evidence.",
-          "Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Recognizing Intraday Price Action and Market Structure — Higher highs and higher lows begins by writing the exact reference, session and temporal boundary, then distinguishing observations from assumptions. Mark confirmed higher swing highs and lows using completed pivot evidence without future-bar pivot labeling.",
+          "Read the completed original FICTIONAL evidence without predicting unseen bars: A fictional previously confirmed completed swing high is $10.30 and a later completed candidate swing high is $10.55, with the intervening and following confirmation rules specified in the exercise. Always state the measured inputs and units.",
+          "Alternative interpretation: Without an accompanying validated higher low, the two highs do not establish an uptrend or future continuation. An analysis must remain neutral or NO TRADE when the available evidence does not satisfy its prewritten criteria."
         ],
         "apply": [
-          "Let us practice Intraday Price Action and Market Structure — Higher highs and higher lows using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Step 3 — Check the alternative or invalidation: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Practice the original FICTIONAL example for Intraday Price Action and Market Structure — Higher highs and higher lows: A fictional previously confirmed completed swing high is $10.30 and a later completed candidate swing high is $10.55, with the intervening and following confirmation rules specified in the exercise. The later observed high exceeds the earlier reference by $0.25, but this comparison alone does not prove an established higher-high/higher-low sequence. Reproduce the arithmetic without using a future-bar outcome or unverified fill.",
+          "Independent numerical step: the absolute distance between the explicitly labeled reference values $10.55 and $10.30 is $0.25. State what the quantities represent; a valid difference is not a trade recommendation.",
+          "Bounded conclusion: Define the pivot-confirmation convention before examining later completed bars; classify a candidate separately from an accepted swing. The worked example is ungraded; an independent assessment retains its own private answer key."
         ],
         "mistake": [
-          "A common error with Intraday Price Action and Market Structure — Higher highs and higher lows: Treating a single green candle as confirmed trend structure.",
-          "Correct it by returning to the actual observation. Mark two consecutive observable swing highs and lows; explain whether each exceeds or undercuts the preceding swing.",
-          "Do not invent an unseen candle or trade fill."
+          "A consequential trading or study error for Intraday Price Action and Market Structure — Higher highs and higher lows: Labelling a forming candle high as a fully confirmed pivot before the pivot rule completes uses information that may not yet exist. This distinction matters before any live order or independent assessment.",
+          "Corrective Talia coaching: Define the pivot-confirmation convention before examining later completed bars; classify a candidate separately from an accepted swing. Revisit the visible input values, the original reference condition and the appropriate neutral alternative.",
+          "Fresh diagnostic: ask the learner to identify how this error changes the decision. Without an accompanying validated higher low, the two highs do not establish an uptrend or future continuation. Do not substitute later bar evidence for a current-pause explanation."
         ],
         "limits": [
-          "What Intraday Price Action and Market Structure — Higher highs and higher lows cannot establish:",
-          "A breakout over a level is a hypothesis about continuation, not proof of buying intent.",
-          "An interpretation is invalidated or unproven when: The next observed swing invalidates the proposed structure, or the chart lacks enough visible pivots."
+          "Critical limitation for Intraday Price Action and Market Structure — Higher highs and higher lows: Without an accompanying validated higher low, the two highs do not establish an uptrend or future continuation. No historical market feed, member brokerage fill or guaranteed profit has been independently certified.",
+          "Research and rights: CHARTSCHOOL-OVER and TOS-LRN are candidate references requiring individual claim and publication-rights review. Nothing here grants third-party data republication or AI-training permission.",
+          "Risk and review hold: Define the pivot-confirmation convention before examining later completed bars; classify a candidate separately from an accepted swing. Sensitive margin, account and regulatory descriptions remain subject to current-rule validation and appropriate professional review."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support structural chart reading, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "At the given completed observation boundary, explain Intraday Price Action and Market Structure — Higher highs and higher lows. Reproduce the referenced measurement, distinguish fact from inference, identify the live-trading mistake, and justify a risk-aware WAIT or NO TRADE alternative without seeing future bars.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a new fictional five-bar sequence, label possible structure and state which unseen bar would invalidate it.",
+        "prompt": "For FICTIONAL confirmed high $82.40 and later candidate high $82.76, calculate the difference and describe what must happen before pivot confirmation.",
         "topic": "Intraday Price Action and Market Structure — Higher highs and higher lows",
         "requiresNewEvidence": true,
         "noLookahead": true,
         "graded": false
-      }
+      },
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
     },
     "DT-C07-L02": {
       "labId": "DT-C07-L02",

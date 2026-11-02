@@ -1,0 +1,250 @@
+{
+  "schema": "SMFGU-LAB-BATCH05-QUANT-FIXTURES-V1",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "status": "ORIGINAL_FICTIONAL_NUMERICAL_COMPARISONS_NOT_REGULATORY_ACCEPTANCE",
+  "labCount": 419,
+  "sourceAuthored": 100,
+  "cases": [
+    {
+      "labId": "F3-C07-L04",
+      "title": "Momentum whipsaw in a narrow price window",
+      "inputs": [
+        10.2,
+        10.06
+      ],
+      "expected": 0.14,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "In a separate FICTIONAL range, completed closes change from $18.40 to $18.23; compute the difference and describe why an oscillator whipsaw might remain untradeable.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C01-L01",
+      "title": "Day Trading: What It Is and What It Is Not — The defining boundary",
+      "inputs": [
+        10.18,
+        10
+      ],
+      "expected": 0.18,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL same-day quoted entry $32.40 and exit $32.17, compute their signed difference and identify two execution uncertainties.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C01-L02",
+      "title": "Day Trading: What It Is and What It Is Not — What day trading demands",
+      "inputs": [
+        90,
+        25
+      ],
+      "expected": 65,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For an independent FICTIONAL 120-minute study allocation requiring 35 minutes of setup, calculate available guided-practice time and list two preparation tasks.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C01-L03",
+      "title": "Day Trading: What It Is and What It Is Not — What the Day Trader Actually Controls",
+      "inputs": [
+        10,
+        9.7
+      ],
+      "expected": 0.3,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL planned entry $44.20 and invalidation $43.65, compute intended risk distance per share and name two uncontrollable outcomes.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C02-L01",
+      "title": "How a Day Trade Actually Works — From idea to qualified opportunity",
+      "inputs": [
+        350,
+        200
+      ],
+      "expected": 150,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "On a fresh FICTIONAL 900-share reference interval and 1,240-share later interval, calculate the difference and explain why a scanner match may still be rejected.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C02-L02",
+      "title": "How a Day Trade Actually Works — Management begins at entry",
+      "inputs": [
+        10.2,
+        9.92
+      ],
+      "expected": 0.28,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL entry $28.40 and planned invalidation $27.95, calculate the distance and state why the final loss might differ.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C02-L03",
+      "title": "How a Day Trade Actually Works — Stage 2 — Build the Thesis in Conditional Language",
+      "inputs": [
+        10.4,
+        10.38
+      ],
+      "expected": 0.02,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL resistance $41.20 and completed close $41.16, calculate the shortfall and provide the corresponding NO TRADE branch.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C03-L01",
+      "title": "The Trading Day — Premarket",
+      "inputs": [
+        20.16,
+        20
+      ],
+      "expected": 0.16,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For a FICTIONAL premarket bid $52.10 and ask $52.31, compute spread and state why a 500-share market order has unknown cost.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C03-L02",
+      "title": "The Trading Day — Midday",
+      "inputs": [
+        2400,
+        1200
+      ],
+      "expected": 1200,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For a new FICTIONAL 3,100-share completed morning bar and 1,750-share midday bar, calculate the difference without declaring guaranteed liquidity.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C03-L03",
+      "title": "The Trading Day — 9:30-10:00 a.m. ET: Price Discovery and Compression of Decisions",
+      "inputs": [
+        10.3,
+        10.05
+      ],
+      "expected": 0.25,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "Using FICTIONAL completed opening-window closes $29.50 then $29.82, compute the change and name a condition that would justify waiting.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C04-L01",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition",
+      "inputs": [
+        6000,
+        2000
+      ],
+      "expected": 4000,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "In a FICTIONAL account dashboard showing $5,000 cash and $11,000 illustrative possible buying power, calculate the difference and identify what must be verified first.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C04-L02",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements",
+      "inputs": [
+        5000,
+        2000
+      ],
+      "expected": 3000,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For an unrelated FICTIONAL display of $7,500 possible buying power and $3,000 cash, compute the difference and describe why a pretrade check is still necessary.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C04-L03",
+      "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function",
+      "inputs": [
+        6000,
+        2000
+      ],
+      "expected": 4000,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL account equity $8,000 and hypothetical exposure $18,000, compute excess exposure and list two separate financing questions.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C05-L01",
+      "title": "Risk Comes Before Profit — Risk per trade",
+      "inputs": [
+        21,
+        20.6
+      ],
+      "expected": 0.4,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "Given a fresh FICTIONAL entry $64.30 and invalidation $63.78, compute per-share planned distance and explain why order size still cannot be determined.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C05-L02",
+      "title": "Risk Comes Before Profit — Reward does not erase risk",
+      "inputs": [
+        30.8,
+        30.2
+      ],
+      "expected": 0.6,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "In a new FICTIONAL plan with entry $19.20 and target $19.95, compute possible reward distance and identify the extra inputs needed for expectancy.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C05-L03",
+      "title": "Risk Comes Before Profit — Add Execution Risk to the Model",
+      "inputs": [
+        10.08,
+        10
+      ],
+      "expected": 0.08,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL quote bid $43.25 and ask $43.38, calculate the spread and explain why a 1,000-share market order can have greater cost.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C06-L01",
+      "title": "Building Your Day-Trading Laboratory — Freeze the workspace",
+      "inputs": [
+        10.42,
+        10.1
+      ],
+      "expected": 0.32,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "On a separate FICTIONAL workspace with completed closes $37.80 and $38.16, calculate their difference and identify the settings that must remain frozen.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C06-L02",
+      "title": "Building Your Day-Trading Laboratory — Use progressive reveal",
+      "inputs": [
+        9.95,
+        9.8
+      ],
+      "expected": 0.15,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For a FICTIONAL progressively revealed pair $54.20 then $54.08, compute the signed change and explain which later facts must remain concealed.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C06-L03",
+      "title": "Building Your Day-Trading Laboratory — Set the Historical Clock Before Looking at the Chart",
+      "inputs": [
+        10.2,
+        10.05
+      ],
+      "expected": 0.15,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "At a new FICTIONAL pause of 9:35 a.m. Eastern, references are $61.20 and a first completed close $61.05; compute the difference and state the visible window.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    },
+    {
+      "labId": "DT-C07-L01",
+      "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+      "inputs": [
+        10.55,
+        10.3
+      ],
+      "expected": 0.25,
+      "differenceKind": "ABSOLUTE_DIFFERENCE_IN_DECLARED_UNITS",
+      "transferPrompt": "For FICTIONAL confirmed high $82.40 and later candidate high $82.76, calculate the difference and describe what must happen before pivot confirmation.",
+      "status": "FICTIONAL_MATH_SOURCE_ONLY"
+    }
+  ]
+}

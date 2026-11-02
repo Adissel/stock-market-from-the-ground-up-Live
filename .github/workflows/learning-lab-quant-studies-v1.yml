@@ -14,6 +14,9 @@ on:
       - 'assets/js/lab-batch04-echarts-v1.js'
       - 'assets/css/lab-batch04-echarts-v1.css'
       - 'data/lab-bridge-batch04-quant-fixtures-v1.json'
+      - 'data/lab-bridge-batch05-quant-fixtures-v1.json'
+      - 'tests/lab-bridge-batch05-source-v1.test.mjs'
+      - 'scripts/qa/lab_batch05_decimal_reference_v1.py'
       - 'scripts/qa/lab_batch04_decimal_reference_v1.py'
       - 'data/lab-teaching-bridges-v014168.json'
       - 'scripts/qa/learning_indicator_decimal_reference_v1.py'
@@ -46,5 +49,6 @@ jobs:
           python3 scripts/qa/learning_quant_decimal_reference_v1.py
           python3 scripts/qa/learning_indicator_decimal_reference_v1.py
           python3 scripts/qa/lab_batch04_decimal_reference_v1.py
+          python3 scripts/qa/lab_batch05_decimal_reference_v1.py
       - name: Original quantitative research and safety contracts
-        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs tests/learning-indicators-v1.test.mjs tests/lab-bridge-batch03-v1.test.mjs tests/lab-bridge-batch04-source-v1.test.mjs tests/lab-batch04-echarts-v1.test.mjs tests/lab-batch04-internal-qa-v1.test.mjs
+        run: node --test tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs tests/learning-indicators-v1.test.mjs tests/lab-bridge-batch03-v1.test.mjs tests/lab-bridge-batch04-source-v1.test.mjs tests/lab-batch04-echarts-v1.test.mjs tests/lab-batch04-internal-qa-v1.test.mjs tests/lab-bridge-batch05-source-v1.test.mjs
