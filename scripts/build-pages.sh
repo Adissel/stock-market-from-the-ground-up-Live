@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
+# Section C release integrity: fail a deployment on mathematical or workspace defects.
+# Headless graphical Chromium acceptance remains in the dedicated GitHub workflow.
+node --check assets/js/crownlight-echarts-studio-v1.js
+node --check assets/js/crownlight-workspace-v2.js
+node --check assets/js/prototype-indicator-workbench-v2.js
+node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
+node tests/prototype-indicator-workbench-v2.test.mjs
+node tests/test_crownlight_chart_workspace_v2.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/talia-classroom-source-v1.test.mjs
 node tests/talia-membership-only-v1.test.mjs
