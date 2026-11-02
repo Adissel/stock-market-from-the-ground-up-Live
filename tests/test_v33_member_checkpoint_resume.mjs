@@ -87,6 +87,18 @@ assert.match(universal,/let checkpointLoadVerified=!progressStore;/);
 assert.match(universal,/checkpointLoadVerified=true;/);
 assert.match(universal,/render\(\);checkpointReady=checkpointLoadVerified;/);
 assert.match(universal,/saveCheckpointControl\.disabled=!checkpointReady;/);
+// A failed authoritative read must never allow a revision-zero CAS write.
+let failedReadWrites=0;
+const failedReadSb={
+ from(){return {select(){return {eq(){return {eq(){return {
+   maybeSingle:async()=>({data:null,error:{message:'network error'}})
+ }}}}}}}},
+ async rpc(){failedReadWrites++;return {data:{ok:true,saved:{rev:1}},error:null}}
+};
+const failedReadStore=checkpoint.create({sb:failedReadSb,userId:ID,labId:lab,mode:'guided',alive:()=>true});
+await assert.rejects(failedReadStore.load(),/cannot be verified/i);
+await assert.rejects(failedReadStore.save(input),/not loaded/i);
+assert.equal(failedReadWrites,0,'Failed checkpoint read must never send a write');
 const practiceOnly=checkpoint.create({sb,userId:ID,labId:lab,mode:'practice',alive:()=>accountActive});
 assert.equal(await practiceOnly.load(),null,'The practice mode cannot preload guided instructional state');
 accountActive=false;
