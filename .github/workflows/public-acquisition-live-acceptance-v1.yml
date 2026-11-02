@@ -12,6 +12,7 @@ on:
       - 'dashboard.html'
       - 'journal.html'
       - 'assets/js/journal.js'
+      - 'assets/js/site-experience-v5.js'
       - 'free-watchlist.html'
       - 'assets/js/verified-replay-v01492.js'
       - 'functions/_lib/free-foundations-v1.js'
