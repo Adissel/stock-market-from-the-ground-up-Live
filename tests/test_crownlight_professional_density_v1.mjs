@@ -29,6 +29,8 @@ match(workspace,/e.pointerId!==activePointer/,'Unrelated pointer events must not
 match(workspace,/lostpointercapture/,'Pointer release and cancellation must clear drag state');
 match(workspace,/aria-orientation','horizontal'/,'Split control must state orientation');
 match(workspace,/if\(!permissionReady\|\|Tier\(\)\?\.getStatus/,'Divider updates must be membership gated');
+match(css,/\.cl-chart-tier-panels:has\(>\.cl-tier-chart-frame ~ \.cl-tier-chart-frame\)/,'Two chart frames must remain a grid even when a divider is inserted between siblings');
+assert.doesNotMatch(css,/\.cl-tier-chart-frame \+ \.cl-tier-chart-frame/,'Avoid brittle immediately-adjacent Professional chart selectors');
 match(css,/\.cl-tier-quote-item strong/,'OHLCV data should retain a readable hierarchy');
 match(workspace,/KLineChart 10 returns a BarSpace OBJECT/,'Use v10 chart-space contract');
 match(workspace,/Math\.abs\(Number\(second\?\.x\)-Number\(first\?\.x\)\)/,'Zoom sync must measure actual revealed-bar spacing');
