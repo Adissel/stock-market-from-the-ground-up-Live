@@ -461,7 +461,7 @@ function Classroom(){
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
-        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('Current view cleared. Saved history was not deleted.')}}>New unsaved topic</button>
+        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
