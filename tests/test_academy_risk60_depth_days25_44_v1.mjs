@@ -19,6 +19,8 @@ for(let day=25;day<=44;day++){
  assert.equal(runtime.programCode,'risk60');assert.equal(runtime.day,day);
  assert.equal(lesson.topicSourceDay,risk60SourceDays[day<=40?day-21:day-41], 'Retain frozen nonsequential source-day mapping D'+day);
  assert.equal(Object.hasOwn(a,'topicSourceDay'),false,'Supplemental depth must never override canonical source registry');
+ assert.equal(lesson.instructionalFocus,a.instructionalFocus);
+ assert.equal(lesson.title.endsWith(day<=40?' — guided new-case rehearsal':' — independent unfamiliar case'),true,'Original course lesson title must survive supplemental source merge');
  assert.equal(runtime.officiallyGraded,false);assert.equal(runtime.masteryAwarded,false);
  assert.equal(lesson.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
  assert.equal(lesson.formativeQuestions.length,12);assert.equal(lesson.advancedPracticums.length,1);
