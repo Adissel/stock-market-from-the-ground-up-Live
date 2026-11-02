@@ -303,7 +303,7 @@ function Classroom(){
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
       <h1>Talia Interactive Classroom</h1><p>{status}</p>
       <p>The interactive chart, conversations and private study functions are available only to verified members. No personal API key is required.</p>
-      <p><a href={'/signin.html?next='+encodeURIComponent('/talia-classroom.html')}>Sign in with your membership</a></p>
+      <p><a href={'/signin.html?next='+encodeURIComponent(window.location.pathname.endsWith('/talia-tutor-prototype.html')?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in with your membership</a></p>
     </div></div>
   </main>;
   return <main className="tc-main">
@@ -333,7 +333,7 @@ function Classroom(){
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
           <button type="submit" disabled={!member||busy||question.trim().length<4}>Ask Talia</button>
         </div>
-        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent('/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
+        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(window.location.pathname.endsWith('/talia-tutor-prototype.html')?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
