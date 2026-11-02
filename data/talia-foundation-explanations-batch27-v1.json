@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 27,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Distinct fictional return-statistics and benchmark concepts 521–540. Source/rights and independent review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_ARITHMETIC_MEAN_RETURN",
+      "title": "Arithmetic mean return",
+      "concept": "Arithmetic mean return adds periodic returns and divides by the number of observations.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Returns 2%, −1%, and 3% sum to 4%; 4%/3 = 1.33%.",
+      "limit": "It does not represent compounded wealth growth.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. It does not represent compounded wealth growth.",
+      "commonError": "Trading misconception: Using arithmetic mean as compounded return ignores sequence and multiplication. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Arithmetic mean return adds periodic returns and divides by the number of observations. Worked fictional evidence: Returns 2%, −1%, and 3% sum to 4%; 4%/3 = 1.33%. Error correction: Using arithmetic mean as compounded return ignores sequence and multiplication. Boundary: It does not represent compounded wealth growth. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Returns 4%, −2%, 1%, 3%: calculate arithmetic mean and name its limitation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GEOMETRIC_MEAN_RETURN",
+      "title": "Geometric mean return",
+      "concept": "Geometric mean compounds periodic growth factors and converts the product back to an average rate.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Returns +10% then −10% give factors 1.10×0.90=0.99; two-period geometric mean is sqrt(0.99)−1≈−0.50%.",
+      "limit": "Taxes, flows, and unequal periods require separate treatment.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Taxes, flows, and unequal periods require separate treatment.",
+      "commonError": "Trading misconception: Averaging +10% and −10% to zero hides the 1% wealth decline. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Geometric mean compounds periodic growth factors and converts the product back to an average rate. Worked fictional evidence: Returns +10% then −10% give factors 1.10×0.90=0.99; two-period geometric mean is sqrt(0.99)−1≈−0.50%. Error correction: Averaging +10% and −10% to zero hides the 1% wealth decline. Boundary: Taxes, flows, and unequal periods require separate treatment. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For +20% then −10%, calculate total factor and two-period geometric mean.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COMPOUND_CUMULATIVE_RETURN",
+      "title": "Compound cumulative return",
+      "concept": "Cumulative return multiplies successive one-plus-return factors rather than adding percentage changes.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: +5%, +4%, −2% gives 1.05×1.04×0.98=1.07016, or 7.016%.",
+      "limit": "External cash flows require time-weighted handling.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. External cash flows require time-weighted handling.",
+      "commonError": "Trading misconception: Adding returns to 7% omits compounding interaction. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Cumulative return multiplies successive one-plus-return factors rather than adding percentage changes. Worked fictional evidence: +5%, +4%, −2% gives 1.05×1.04×0.98=1.07016, or 7.016%. Error correction: Adding returns to 7% omits compounding interaction. Boundary: External cash flows require time-weighted handling. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compound +3%, −1%, +2% and compare with their sum.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LOG_RETURN",
+      "title": "Log return",
+      "concept": "Log return is the natural logarithm of ending price divided by beginning price for positive prices.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Price $50 to $52 gives ln(52/50)=ln(1.04)≈3.922%.",
+      "limit": "Log returns are not simple percentage returns and require positive values.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Log returns are not simple percentage returns and require positive values.",
+      "commonError": "Trading misconception: Labeling 3.922% log return as exactly the 4% simple return conflates measures. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Log return is the natural logarithm of ending price divided by beginning price for positive prices. Worked fictional evidence: Price $50 to $52 gives ln(52/50)=ln(1.04)≈3.922%. Error correction: Labeling 3.922% log return as exactly the 4% simple return conflates measures. Boundary: Log returns are not simple percentage returns and require positive values. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Price $80 to $76: calculate the log-return expression and sign.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SAMPLE_VARIANCE",
+      "title": "Sample variance",
+      "concept": "Sample variance averages squared deviations using n−1 when observations estimate a broader distribution.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Values 2,4,6 have mean 4; squared deviations 4+0+4=8; sample variance=8/(3−1)=4.",
+      "limit": "Small samples and unstable distributions limit inference.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Small samples and unstable distributions limit inference.",
+      "commonError": "Trading misconception: Dividing by n while labeling sample variance changes the estimator. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Sample variance averages squared deviations using n−1 when observations estimate a broader distribution. Worked fictional evidence: Values 2,4,6 have mean 4; squared deviations 4+0+4=8; sample variance=8/(3−1)=4. Error correction: Dividing by n while labeling sample variance changes the estimator. Boundary: Small samples and unstable distributions limit inference. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For 1,3,5,7 compute mean, squared deviations, and sample variance.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STANDARD_DEVIATION_OF_RETURNS",
+      "title": "Standard deviation of returns",
+      "concept": "Standard deviation is the square root of variance and retains the return unit.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: If sample variance is 0.0004, standard deviation=sqrt(0.0004)=0.02=2%.",
+      "limit": "It measures dispersion, not worst-case loss or direction.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. It measures dispersion, not worst-case loss or direction.",
+      "commonError": "Trading misconception: Calling two standard deviations the maximum possible move assumes unsupported bounds. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Standard deviation is the square root of variance and retains the return unit. Worked fictional evidence: If sample variance is 0.0004, standard deviation=sqrt(0.0004)=0.02=2%. Error correction: Calling two standard deviations the maximum possible move assumes unsupported bounds. Boundary: It measures dispersion, not worst-case loss or direction. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Given variance 0.0009, compute standard deviation and state what it cannot guarantee.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DOWNSIDE_DEVIATION",
+      "title": "Downside deviation",
+      "concept": "Downside deviation measures shortfalls below a declared target rather than all dispersion.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Target 0%; returns 2%, −3%, −1% have shortfalls 0, −3%, −1%; squared sum=0.001; declared divisor 3 gives sqrt(0.001/3)=1.826%.",
+      "limit": "Divisor and target conventions must be disclosed.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Divisor and target conventions must be disclosed.",
+      "commonError": "Trading misconception: Removing non-shortfall periods from the divisor without disclosure changes the metric. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Downside deviation measures shortfalls below a declared target rather than all dispersion. Worked fictional evidence: Target 0%; returns 2%, −3%, −1% have shortfalls 0, −3%, −1%; squared sum=0.001; declared divisor 3 gives sqrt(0.001/3)=1.826%. Error correction: Removing non-shortfall periods from the divisor without disclosure changes the metric. Boundary: Divisor and target conventions must be disclosed. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Using target 0%, calculate declared-population downside deviation for −2%, 1%, −4%.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COVARIANCE",
+      "title": "Return covariance",
+      "concept": "Covariance measures whether paired deviations tend to share direction and scale.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Paired deviations A: +2%,−2%; B:+1%,−1%; products 0.0002 and 0.0002; population covariance=0.0002.",
+      "limit": "Magnitude depends on units and does not prove causation.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Magnitude depends on units and does not prove causation.",
+      "commonError": "Trading misconception: Comparing raw covariance across differently volatile assets can mislead. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Covariance measures whether paired deviations tend to share direction and scale. Worked fictional evidence: Paired deviations A: +2%,−2%; B:+1%,−1%; products 0.0002 and 0.0002; population covariance=0.0002. Error correction: Comparing raw covariance across differently volatile assets can mislead. Boundary: Magnitude depends on units and does not prove causation. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compute population covariance for paired deviations +1%,−1% and +3%,−3%.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CORRELATION_COEFFICIENT",
+      "title": "Correlation coefficient",
+      "concept": "Correlation normalizes covariance by the product of standard deviations and ranges from −1 to +1 when defined.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Covariance 0.00015, standard deviations 0.02 and 0.01: correlation=0.00015/0.0002=0.75.",
+      "limit": "Correlation can change and does not establish causal or tail dependence.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Correlation can change and does not establish causal or tail dependence.",
+      "commonError": "Trading misconception: Treating 0.75 as 75% of one asset’s move caused by the other is incorrect. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Correlation normalizes covariance by the product of standard deviations and ranges from −1 to +1 when defined. Worked fictional evidence: Covariance 0.00015, standard deviations 0.02 and 0.01: correlation=0.00015/0.0002=0.75. Error correction: Treating 0.75 as 75% of one asset’s move caused by the other is incorrect. Boundary: Correlation can change and does not establish causal or tail dependence. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Covariance −0.0001 with deviations 0.02 and 0.01: compute correlation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BETA_FROM_COVARIANCE",
+      "title": "Beta from covariance",
+      "concept": "A simple beta estimate divides asset-market covariance by market variance using matched observations.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Covariance 0.0003 / market variance 0.0002 = beta 1.5.",
+      "limit": "Historical beta depends on window, benchmark, frequency, and adjustments.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Historical beta depends on window, benchmark, frequency, and adjustments.",
+      "commonError": "Trading misconception: Calling beta 1.5 a forecast of a 1.5% move tomorrow invents certainty. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A simple beta estimate divides asset-market covariance by market variance using matched observations. Worked fictional evidence: Covariance 0.0003 / market variance 0.0002 = beta 1.5. Error correction: Calling beta 1.5 a forecast of a 1.5% move tomorrow invents certainty. Boundary: Historical beta depends on window, benchmark, frequency, and adjustments. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Covariance 0.00012 and market variance 0.00016: compute beta and name one dependency.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ALPHA_SIMPLE_REGRESSION",
+      "title": "Simple regression alpha",
+      "concept": "Regression alpha is the intercept after accounting for estimated benchmark sensitivity over a specified sample.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Mean asset return 1.2%, beta 1.1, mean market return 0.8%: alpha=1.2%−1.1×0.8%=0.32%.",
+      "limit": "The intercept is sample-dependent and not guaranteed skill.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. The intercept is sample-dependent and not guaranteed skill.",
+      "commonError": "Trading misconception: Calling sample alpha a future excess return ignores estimation error. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Regression alpha is the intercept after accounting for estimated benchmark sensitivity over a specified sample. Worked fictional evidence: Mean asset return 1.2%, beta 1.1, mean market return 0.8%: alpha=1.2%−1.1×0.8%=0.32%. Error correction: Calling sample alpha a future excess return ignores estimation error. Boundary: The intercept is sample-dependent and not guaranteed skill. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Asset mean 0.9%, beta 0.8, market mean 0.7%: compute simple alpha.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHARPE_RATIO_SIMPLE",
+      "title": "Simple Sharpe ratio",
+      "concept": "A simple Sharpe ratio divides average excess return by return standard deviation for matching periods.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Mean return 1.0%, risk-free 0.2%, deviation 2.0%: (1.0−0.2)/2.0=0.40.",
+      "limit": "Annualization, non-normal returns, and changing rates matter.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Annualization, non-normal returns, and changing rates matter.",
+      "commonError": "Trading misconception: Using total return instead of average periodic excess return mixes units. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A simple Sharpe ratio divides average excess return by return standard deviation for matching periods. Worked fictional evidence: Mean return 1.0%, risk-free 0.2%, deviation 2.0%: (1.0−0.2)/2.0=0.40. Error correction: Using total return instead of average periodic excess return mixes units. Boundary: Annualization, non-normal returns, and changing rates matter. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Mean 0.7%, risk-free 0.1%, deviation 1.5%: compute period Sharpe.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SORTINO_RATIO_SIMPLE",
+      "title": "Simple Sortino ratio",
+      "concept": "A simple Sortino ratio divides average excess return by downside deviation relative to a declared target.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Mean 0.9%, target 0.1%, downside deviation 1.6%: 0.8/1.6=0.50.",
+      "limit": "Target and downside-deviation conventions control comparison.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Target and downside-deviation conventions control comparison.",
+      "commonError": "Trading misconception: Substituting total standard deviation while calling it Sortino changes the measure. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A simple Sortino ratio divides average excess return by downside deviation relative to a declared target. Worked fictional evidence: Mean 0.9%, target 0.1%, downside deviation 1.6%: 0.8/1.6=0.50. Error correction: Substituting total standard deviation while calling it Sortino changes the measure. Boundary: Target and downside-deviation conventions control comparison. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Mean 0.6%, target 0%, downside deviation 1.2%: compute ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CALMAR_RATIO_SIMPLE",
+      "title": "Simple Calmar ratio",
+      "concept": "A simple Calmar ratio divides an annualized return measure by absolute maximum drawdown over a stated window.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Annual return 12% / 20% maximum drawdown = 0.60.",
+      "limit": "Window selection and annualization can dominate the result.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Window selection and annualization can dominate the result.",
+      "commonError": "Trading misconception: Using current drawdown instead of maximum historical drawdown inflates the ratio. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A simple Calmar ratio divides an annualized return measure by absolute maximum drawdown over a stated window. Worked fictional evidence: Annual return 12% / 20% maximum drawdown = 0.60. Error correction: Using current drawdown instead of maximum historical drawdown inflates the ratio. Boundary: Window selection and annualization can dominate the result. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Annual return 9% and maximum drawdown 15%: compute ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VALUE_AT_RISK_HISTORICAL_QUANTILE",
+      "title": "Historical-quantile value at risk",
+      "concept": "Historical VaR selects a loss quantile from an ordered sample under a declared convention.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Twenty fictional daily returns sorted worst to best; the chosen 5% convention selects the single worst, −4%, so reported loss threshold is 4%.",
+      "limit": "Small samples and unseen tail losses make VaR incomplete.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Small samples and unseen tail losses make VaR incomplete.",
+      "commonError": "Trading misconception: Calling 4% the maximum possible loss confuses a quantile with a bound. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Historical VaR selects a loss quantile from an ordered sample under a declared convention. Worked fictional evidence: Twenty fictional daily returns sorted worst to best; the chosen 5% convention selects the single worst, −4%, so reported loss threshold is 4%. Error correction: Calling 4% the maximum possible loss confuses a quantile with a bound. Boundary: Small samples and unseen tail losses make VaR incomplete. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For 100 ordered observations, identify the observation position under a stated nearest-rank 5% convention.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EXPECTED_SHORTFALL_SIMPLE",
+      "title": "Simple expected shortfall",
+      "concept": "Expected shortfall averages losses beyond a declared VaR cutoff under a consistent tail convention.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Worst three returns are −6%, −4%, −2%; their average is −4%.",
+      "limit": "Tail sample size and method must be disclosed.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Tail sample size and method must be disclosed.",
+      "commonError": "Trading misconception: Averaging all returns instead of tail observations is not expected shortfall. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Expected shortfall averages losses beyond a declared VaR cutoff under a consistent tail convention. Worked fictional evidence: Worst three returns are −6%, −4%, −2%; their average is −4%. Error correction: Averaging all returns instead of tail observations is not expected shortfall. Boundary: Tail sample size and method must be disclosed. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Tail losses −8%, −5%, −3%, −2%: compute their simple average.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRACKING_ERROR",
+      "title": "Tracking error",
+      "concept": "Tracking error is the standard deviation of periodic active returns against a specified benchmark.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Active returns 1%, −1%, 0%; mean 0%; sample deviation=sqrt((0.0001+0.0001)/(3−1))=1%.",
+      "limit": "Benchmark fit and observation frequency matter.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Benchmark fit and observation frequency matter.",
+      "commonError": "Trading misconception: Using the standard deviation of portfolio returns alone omits the benchmark. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Tracking error is the standard deviation of periodic active returns against a specified benchmark. Worked fictional evidence: Active returns 1%, −1%, 0%; mean 0%; sample deviation=sqrt((0.0001+0.0001)/(3−1))=1%. Error correction: Using the standard deviation of portfolio returns alone omits the benchmark. Boundary: Benchmark fit and observation frequency matter. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compute sample tracking error for active returns 2%, 0%, −2%.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INFORMATION_RATIO",
+      "title": "Information ratio",
+      "concept": "Information ratio divides average active return by tracking error for matching periods.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Average active return 0.4% / tracking error 1.0% = 0.40.",
+      "limit": "Short histories and benchmark choice limit inference.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Short histories and benchmark choice limit inference.",
+      "commonError": "Trading misconception: Dividing total cumulative active return by periodic tracking error mixes horizons. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Information ratio divides average active return by tracking error for matching periods. Worked fictional evidence: Average active return 0.4% / tracking error 1.0% = 0.40. Error correction: Dividing total cumulative active return by periodic tracking error mixes horizons. Boundary: Short histories and benchmark choice limit inference. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Average active return 0.3% and tracking error 1.5%: compute ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_UP_CAPTURE_RATIO",
+      "title": "Upside capture ratio",
+      "concept": "Upside capture compares portfolio return with benchmark return during benchmark-up periods under a declared aggregation method.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Across selected up periods portfolio totals 12% and benchmark totals 10%; simple ratio=120%.",
+      "limit": "Compounded and arithmetic aggregation can differ.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Compounded and arithmetic aggregation can differ.",
+      "commonError": "Trading misconception: Including benchmark-down periods changes the stated upside sample. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Upside capture compares portfolio return with benchmark return during benchmark-up periods under a declared aggregation method. Worked fictional evidence: Across selected up periods portfolio totals 12% and benchmark totals 10%; simple ratio=120%. Error correction: Including benchmark-down periods changes the stated upside sample. Boundary: Compounded and arithmetic aggregation can differ. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Portfolio 9% versus benchmark 12% across declared up periods: compute simple capture.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DOWN_CAPTURE_RATIO",
+      "title": "Downside capture ratio",
+      "concept": "Downside capture compares portfolio and benchmark returns during benchmark-down periods with an explicit sign convention.",
+      "prerequisites": "Understand periodic returns, matched timestamps, sample versus population conventions, units, and that historical statistics are not forecasts.",
+      "procedure": "Declare the sample, benchmark, frequency, formula, denominator convention and cutoff; substitute each fictional input; show intermediate arithmetic; interpret only the bounded historical statistic.",
+      "workedCase": "FICTIONAL: Portfolio totals −6%, benchmark −10%; magnitude ratio=60%, indicating smaller sampled decline.",
+      "limit": "Negative signs and compounding conventions must be disclosed.",
+      "invalidation": "HOLD when the sample, frequency, benchmark, convention, unit, source rights, or required input is unavailable. Negative signs and compounding conventions must be disclosed.",
+      "commonError": "Trading misconception: Calling 60% guaranteed protection extrapolates beyond the sample. Correct by restoring the declared statistic, sample boundary, denominator, and units.",
+      "selfCheck": "Reproduce the fictional statistic, identify its denominator or convention, correct the misconception, and state one invalidating condition.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Downside capture compares portfolio and benchmark returns during benchmark-down periods with an explicit sign convention. Worked fictional evidence: Portfolio totals −6%, benchmark −10%; magnitude ratio=60%, indicating smaller sampled decline. Error correction: Calling 60% guaranteed protection extrapolates beyond the sample. Boundary: Negative signs and compounding conventions must be disclosed. No protected assessment, forecast, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Portfolio −8%, benchmark −5%: compute magnitude capture and interpret cautiously.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,571 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 26,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Distinct fictional financial-statement and valuation concepts 501–520. Source/rights and independent review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_CURRENT_RATIO",
+      "title": "Current ratio",
+      "concept": "Current ratio divides current assets by current liabilities for the same reporting date.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Current assets $9 million / current liabilities $6 million = 1.50.",
+      "limit": "Classification choices and reporting-date seasonality limit comparison.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Classification choices and reporting-date seasonality limit comparison.",
+      "commonError": "Trading misconception: Calling 1.50 proof of solvency ignores cash quality and future obligations. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Current ratio divides current assets by current liabilities for the same reporting date. Worked fictional evidence: Current assets $9 million / current liabilities $6 million = 1.50. Error correction: Calling 1.50 proof of solvency ignores cash quality and future obligations. Boundary: Classification choices and reporting-date seasonality limit comparison. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Assets $14m, liabilities $8m: compute ratio and name an omitted liquidity fact.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_QUICK_RATIO",
+      "title": "Quick ratio",
+      "concept": "Quick ratio narrows liquid assets by excluding inventory and other defined current items.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Cash $3m + receivables $4m divided by $5m current liabilities = 1.40.",
+      "limit": "Receivable collectability and definition variants must be reviewed.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Receivable collectability and definition variants must be reviewed.",
+      "commonError": "Trading misconception: Including $2m inventory while calling the result a quick ratio changes the metric. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Quick ratio narrows liquid assets by excluding inventory and other defined current items. Worked fictional evidence: Cash $3m + receivables $4m divided by $5m current liabilities = 1.40. Error correction: Including $2m inventory while calling the result a quick ratio changes the metric. Boundary: Receivable collectability and definition variants must be reviewed. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Cash $2m, receivables $3m, liabilities $4m: compute quick ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WORKING_CAPITAL",
+      "title": "Working capital",
+      "concept": "Working capital subtracts current liabilities from current assets and remains a dollar amount.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: $12m current assets − $9m current liabilities = $3m working capital.",
+      "limit": "Positive working capital does not reveal timing or asset quality.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Positive working capital does not reveal timing or asset quality.",
+      "commonError": "Trading misconception: Reporting $3m as a ratio or as freely spendable cash misstates the measure. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Working capital subtracts current liabilities from current assets and remains a dollar amount. Worked fictional evidence: $12m current assets − $9m current liabilities = $3m working capital. Error correction: Reporting $3m as a ratio or as freely spendable cash misstates the measure. Boundary: Positive working capital does not reveal timing or asset quality. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Current assets $7m and liabilities $8.5m: compute working capital and interpret its sign cautiously.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_MARGIN",
+      "title": "Gross margin",
+      "concept": "Gross margin divides revenue minus cost of revenue by revenue for a stated period.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Revenue $20m − cost $12m = $8m gross profit; $8m/$20m=40%.",
+      "limit": "Classification policies and product mix affect comparability.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Classification policies and product mix affect comparability.",
+      "commonError": "Trading misconception: Dividing gross profit by cost instead of revenue produces a different markup metric. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Gross margin divides revenue minus cost of revenue by revenue for a stated period. Worked fictional evidence: Revenue $20m − cost $12m = $8m gross profit; $8m/$20m=40%. Error correction: Dividing gross profit by cost instead of revenue produces a different markup metric. Boundary: Classification policies and product mix affect comparability. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Revenue $15m and cost $9m: compute gross profit and margin.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPERATING_MARGIN",
+      "title": "Operating margin",
+      "concept": "Operating margin divides operating income by revenue using consistent period and accounting definitions.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Operating income $2.4m / revenue $16m = 15%.",
+      "limit": "Nonrecurring items and segment mix can distort comparisons.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Nonrecurring items and segment mix can distort comparisons.",
+      "commonError": "Trading misconception: Substituting net income while labeling operating margin mixes profit layers. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Operating margin divides operating income by revenue using consistent period and accounting definitions. Worked fictional evidence: Operating income $2.4m / revenue $16m = 15%. Error correction: Substituting net income while labeling operating margin mixes profit layers. Boundary: Nonrecurring items and segment mix can distort comparisons. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Operating income −$1m on $10m revenue: compute and interpret the margin.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_NET_MARGIN",
+      "title": "Net margin",
+      "concept": "Net margin divides net income attributable under the chosen scope by revenue.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Net income $1.2m / revenue $24m = 5%.",
+      "limit": "Tax, interest, noncontrolling interests, and one-time items matter.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Tax, interest, noncontrolling interests, and one-time items matter.",
+      "commonError": "Trading misconception: Using EPS numerator with consolidated revenue can mix scopes. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Net margin divides net income attributable under the chosen scope by revenue. Worked fictional evidence: Net income $1.2m / revenue $24m = 5%. Error correction: Using EPS numerator with consolidated revenue can mix scopes. Boundary: Tax, interest, noncontrolling interests, and one-time items matter. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Net loss $0.6m on $12m revenue: compute net margin.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REVENUE_GROWTH_RATE",
+      "title": "Revenue growth rate",
+      "concept": "Period-over-period revenue growth uses the earlier comparable period as denominator.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Revenue rises from $40m to $46m: ($6m/$40m)×100=15%.",
+      "limit": "Currency, acquisitions, and unequal periods can break comparability.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Currency, acquisitions, and unequal periods can break comparability.",
+      "commonError": "Trading misconception: Dividing the $6m change by current $46m understates the conventional rate. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Period-over-period revenue growth uses the earlier comparable period as denominator. Worked fictional evidence: Revenue rises from $40m to $46m: ($6m/$40m)×100=15%. Error correction: Dividing the $6m change by current $46m understates the conventional rate. Boundary: Currency, acquisitions, and unequal periods can break comparability. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Revenue changes $25m to $30m: compute growth and identify the denominator.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EPS_BASIC_VERSUS_DILUTED",
+      "title": "Basic versus diluted EPS",
+      "concept": "Basic and diluted EPS use different weighted-average share denominators and must not be interchanged.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: $10m earnings / 5m basic shares=$2.00; /6m diluted shares=$1.67.",
+      "limit": "Antidilutive securities and attribution rules affect the denominator.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Antidilutive securities and attribution rules affect the denominator.",
+      "commonError": "Trading misconception: Using period-end shares instead of weighted-average shares misstates EPS. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Basic and diluted EPS use different weighted-average share denominators and must not be interchanged. Worked fictional evidence: $10m earnings / 5m basic shares=$2.00; /6m diluted shares=$1.67. Error correction: Using period-end shares instead of weighted-average shares misstates EPS. Boundary: Antidilutive securities and attribution rules affect the denominator. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: $8m earnings, 4m basic and 5m diluted shares: compute both.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FREE_CASH_FLOW_SIMPLIFIED",
+      "title": "Simplified free cash flow",
+      "concept": "A common simplified free-cash-flow measure subtracts capital expenditures from operating cash flow.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Operating cash flow $7m − capital expenditures $2m = $5m.",
+      "limit": "Definitions vary and acquisitions or financing are not included.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Definitions vary and acquisitions or financing are not included.",
+      "commonError": "Trading misconception: Subtracting depreciation instead of cash capital expenditure mixes accrual and cash items. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A common simplified free-cash-flow measure subtracts capital expenditures from operating cash flow. Worked fictional evidence: Operating cash flow $7m − capital expenditures $2m = $5m. Error correction: Subtracting depreciation instead of cash capital expenditure mixes accrual and cash items. Boundary: Definitions vary and acquisitions or financing are not included. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: OCF $4.5m and capex $1.2m: compute simplified FCF.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CASH_RUNWAY_SIMPLE",
+      "title": "Simple cash runway",
+      "concept": "A simple runway estimate divides available cash by a consistently measured periodic cash burn.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Cash $12m / quarterly burn $3m = 4 quarters.",
+      "limit": "Burn can change and restricted cash or financing access may differ.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Burn can change and restricted cash or financing access may differ.",
+      "commonError": "Trading misconception: Mixing annual cash with monthly burn without unit conversion produces nonsense. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A simple runway estimate divides available cash by a consistently measured periodic cash burn. Worked fictional evidence: Cash $12m / quarterly burn $3m = 4 quarters. Error correction: Mixing annual cash with monthly burn without unit conversion produces nonsense. Boundary: Burn can change and restricted cash or financing access may differ. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Cash $9m and monthly burn $1.5m: compute months of simple runway.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEBT_TO_EQUITY",
+      "title": "Debt-to-equity ratio",
+      "concept": "Debt-to-equity divides a defined debt measure by a consistently defined equity balance.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Debt $18m / equity $12m = 1.50.",
+      "limit": "Negative equity and lease classification can make the ratio misleading.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Negative equity and lease classification can make the ratio misleading.",
+      "commonError": "Trading misconception: Using enterprise value as equity changes the accounting ratio. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Debt-to-equity divides a defined debt measure by a consistently defined equity balance. Worked fictional evidence: Debt $18m / equity $12m = 1.50. Error correction: Using enterprise value as equity changes the accounting ratio. Boundary: Negative equity and lease classification can make the ratio misleading. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Debt $7m and equity $14m: compute ratio and state one limitation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INTEREST_COVERAGE",
+      "title": "Interest coverage",
+      "concept": "Interest coverage commonly divides operating earnings by interest expense for the same period.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: EBIT $6m / interest $2m = 3.0 times.",
+      "limit": "Negative earnings and capitalized interest require care.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Negative earnings and capitalized interest require care.",
+      "commonError": "Trading misconception: Calling 3× a guarantee of payment ignores cash timing and future rates. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Interest coverage commonly divides operating earnings by interest expense for the same period. Worked fictional evidence: EBIT $6m / interest $2m = 3.0 times. Error correction: Calling 3× a guarantee of payment ignores cash timing and future rates. Boundary: Negative earnings and capitalized interest require care. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: EBIT $4m and interest $1.6m: compute coverage.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INVENTORY_TURNOVER",
+      "title": "Inventory turnover",
+      "concept": "Inventory turnover commonly divides period cost of goods sold by average inventory.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: COGS $24m / average inventory $6m = 4.0 turns.",
+      "limit": "Seasonality and inventory accounting methods affect comparison.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Seasonality and inventory accounting methods affect comparison.",
+      "commonError": "Trading misconception: Using ending inventory without disclosure can distort a seasonal business. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Inventory turnover commonly divides period cost of goods sold by average inventory. Worked fictional evidence: COGS $24m / average inventory $6m = 4.0 turns. Error correction: Using ending inventory without disclosure can distort a seasonal business. Boundary: Seasonality and inventory accounting methods affect comparison. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: COGS $18m and average inventory $3m: compute turnover.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RECEIVABLE_DAYS",
+      "title": "Receivable days",
+      "concept": "Receivable days estimates collection time from average receivables divided by period credit sales times period days.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Average receivables $5m / annual sales $50m ×365 = 36.5 days.",
+      "limit": "Credit-sales data may differ from total revenue.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Credit-sales data may differ from total revenue.",
+      "commonError": "Trading misconception: Treating all revenue as credit sales without disclosure weakens the estimate. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Receivable days estimates collection time from average receivables divided by period credit sales times period days. Worked fictional evidence: Average receivables $5m / annual sales $50m ×365 = 36.5 days. Error correction: Treating all revenue as credit sales without disclosure weakens the estimate. Boundary: Credit-sales data may differ from total revenue. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Receivables $3m and annual credit sales $30m: compute approximate days.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BOOK_VALUE_PER_SHARE",
+      "title": "Book value per share",
+      "concept": "Book value per share divides applicable common equity by common shares outstanding at the same date.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Common equity $45m / 15m shares = $3.00 per share.",
+      "limit": "Intangibles, preferred claims, and share-date mismatch matter.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Intangibles, preferred claims, and share-date mismatch matter.",
+      "commonError": "Trading misconception: Calling book value a guaranteed liquidation price ignores asset realizability. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Book value per share divides applicable common equity by common shares outstanding at the same date. Worked fictional evidence: Common equity $45m / 15m shares = $3.00 per share. Error correction: Calling book value a guaranteed liquidation price ignores asset realizability. Boundary: Intangibles, preferred claims, and share-date mismatch matter. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Equity $28m and 8m shares: compute book value per share.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_TO_EARNINGS",
+      "title": "Price-to-earnings ratio",
+      "concept": "P/E divides a stated share price by comparable earnings per share and requires period labeling.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Price $30 / trailing EPS $2 = 15×.",
+      "limit": "Negative EPS, cyclicality, and one-time earnings can make P/E uninformative.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Negative EPS, cyclicality, and one-time earnings can make P/E uninformative.",
+      "commonError": "Trading misconception: Mixing forward price with trailing EPS without labeling the periods confuses comparison. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: P/E divides a stated share price by comparable earnings per share and requires period labeling. Worked fictional evidence: Price $30 / trailing EPS $2 = 15×. Error correction: Mixing forward price with trailing EPS without labeling the periods confuses comparison. Boundary: Negative EPS, cyclicality, and one-time earnings can make P/E uninformative. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Price $24 and EPS $1.50: compute P/E and state the earnings period needed.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_TO_SALES",
+      "title": "Price-to-sales ratio",
+      "concept": "Price-to-sales relates market capitalization to period revenue, or price per share to revenue per share.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Market cap $120m / annual revenue $60m = 2.0×.",
+      "limit": "Margins, dilution, and revenue quality remain unmeasured.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Margins, dilution, and revenue quality remain unmeasured.",
+      "commonError": "Trading misconception: Calling a lower P/S automatically cheaper ignores profitability and growth differences. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Price-to-sales relates market capitalization to period revenue, or price per share to revenue per share. Worked fictional evidence: Market cap $120m / annual revenue $60m = 2.0×. Error correction: Calling a lower P/S automatically cheaper ignores profitability and growth differences. Boundary: Margins, dilution, and revenue quality remain unmeasured. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Market cap $75m and revenue $50m: compute P/S and name an omitted factor.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ENTERPRISE_VALUE_SIMPLE",
+      "title": "Simplified enterprise value",
+      "concept": "Simplified enterprise value adds debt to equity value and subtracts cash under a declared scope.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Market cap $100m + debt $30m − cash $20m = $110m.",
+      "limit": "Preferred stock, leases, minority interests, and restricted cash may be required.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Preferred stock, leases, minority interests, and restricted cash may be required.",
+      "commonError": "Trading misconception: Subtracting all reported cash without checking availability can understate EV. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Simplified enterprise value adds debt to equity value and subtracts cash under a declared scope. Worked fictional evidence: Market cap $100m + debt $30m − cash $20m = $110m. Error correction: Subtracting all reported cash without checking availability can understate EV. Boundary: Preferred stock, leases, minority interests, and restricted cash may be required. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Market cap $80m, debt $25m, cash $10m: compute simplified EV.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EV_TO_SALES",
+      "title": "Enterprise value to sales",
+      "concept": "EV/sales divides consistently dated enterprise value by revenue for a declared period.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: EV $150m / annual revenue $75m = 2.0×.",
+      "limit": "Capital structure scope and revenue comparability control usefulness.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Capital structure scope and revenue comparability control usefulness.",
+      "commonError": "Trading misconception: Mixing current EV with an unlabeled quarterly revenue number exaggerates the ratio. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: EV/sales divides consistently dated enterprise value by revenue for a declared period. Worked fictional evidence: EV $150m / annual revenue $75m = 2.0×. Error correction: Mixing current EV with an unlabeled quarterly revenue number exaggerates the ratio. Boundary: Capital structure scope and revenue comparability control usefulness. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: EV $90m and annual revenue $45m: compute ratio and label period.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHARE_COUNT_DILUTION_RATE",
+      "title": "Share-count dilution rate",
+      "concept": "Share-count dilution compares weighted-average or period-end shares on a consistent basis.",
+      "prerequisites": "Understand financial-statement periods, numerator and denominator scope, units, source dates, and that a ratio is evidence rather than a trade instruction.",
+      "procedure": "Define the reporting period and accounting scope; write the formula; substitute each fictional value with units; calculate the intermediate result; compare only like periods and stop when a required disclosure is absent.",
+      "workedCase": "FICTIONAL: Shares rise from 20m to 25m: (5m/20m)×100=25%.",
+      "limit": "Buybacks, splits, and denominator choice affect interpretation.",
+      "invalidation": "HOLD when period, accounting scope, numerator, denominator, units, source rights, or comparability cannot be verified. Buybacks, splits, and denominator choice affect interpretation.",
+      "commonError": "Trading misconception: Calling a split-adjusted increase economic dilution without reconciliation can be wrong. Correct by restoring the stated formula, matching period, source scope, and units.",
+      "selfCheck": "Reproduce the fictional calculation, identify its denominator, correct the misconception, and state one limitation that blocks a directional conclusion.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Share-count dilution compares weighted-average or period-end shares on a consistent basis. Worked fictional evidence: Shares rise from 20m to 25m: (5m/20m)×100=25%. Error correction: Calling a split-adjusted increase economic dilution without reconciliation can be wrong. Boundary: Buybacks, splits, and denominator choice affect interpretation. No protected assessment, valuation conclusion, or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Shares rise from 40m to 46m: compute percentage change and name one reconciliation item.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}

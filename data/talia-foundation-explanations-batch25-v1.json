@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 25,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Distinct fictional execution and risk concepts 481–500. Source/rights and independent review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_POSITION_SIZE_FROM_FIXED_DOLLAR_RISK",
+      "title": "Position size from fixed dollar risk",
+      "concept": "Position size divides permitted dollar risk by per-share entry-to-stop distance.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Entry $25.00, stop $24.50: distance $0.50; $100 risk / $0.50 = 200 shares.",
+      "limit": "Position size ignores slippage, fees, gaps, and whether the stop can execute.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Position size ignores slippage, fees, gaps, and whether the stop can execute.",
+      "commonError": "Live-trading misconception: Using account balance instead of permitted trade risk can oversize the position. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Position size divides permitted dollar risk by per-share entry-to-stop distance. Worked fictional evidence: Entry $25.00, stop $24.50: distance $0.50; $100 risk / $0.50 = 200 shares. Error correction: Using account balance instead of permitted trade risk can oversize the position. Boundary: Position size ignores slippage, fees, gaps, and whether the stop can execute. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Risk $90 with $0.30 distance: compute shares and state an execution defect.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_POSITION_SIZE_ROUNDING_DOWN",
+      "title": "Position-size rounding down",
+      "concept": "A risk-based share calculation is rounded down to a tradable whole quantity so the stated cap is not exceeded.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: $75 / $0.40 = 187.5 shares; round down to 187, producing $74.80 planned price risk.",
+      "limit": "Broker lot rules and transaction costs can require further reduction.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Broker lot rules and transaction costs can require further reduction.",
+      "commonError": "Live-trading misconception: Rounding 187.5 up to 188 exceeds the stated $75 cap before costs. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A risk-based share calculation is rounded down to a tradable whole quantity so the stated cap is not exceeded. Worked fictional evidence: $75 / $0.40 = 187.5 shares; round down to 187, producing $74.80 planned price risk. Error correction: Rounding 187.5 up to 188 exceeds the stated $75 cap before costs. Boundary: Broker lot rules and transaction costs can require further reduction. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Risk $65 with $0.28 distance: calculate and round conservatively.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GAP_RISK_BEYOND_STOP",
+      "title": "Gap risk beyond a stop",
+      "concept": "A stop defines an intended trigger, not a guaranteed exit price when the next executable market is beyond it.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: 100 shares entered $20 with $19.50 stop imply $50 planned risk; a hypothetical $19.10 fill implies $90 price loss.",
+      "limit": "The fill is fictional; actual liquidity and order type determine execution.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. The fill is fictional; actual liquidity and order type determine execution.",
+      "commonError": "Live-trading misconception: Reporting $50 as the maximum possible loss confuses planned distance with realized execution. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A stop defines an intended trigger, not a guaranteed exit price when the next executable market is beyond it. Worked fictional evidence: 100 shares entered $20 with $19.50 stop imply $50 planned risk; a hypothetical $19.10 fill implies $90 price loss. Error correction: Reporting $50 as the maximum possible loss confuses planned distance with realized execution. Boundary: The fill is fictional; actual liquidity and order type determine execution. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For 80 shares, $30 entry, $29.60 stop, and $29.20 fictional fill, compare planned and realized price loss.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PORTFOLIO_HEAT_SUM",
+      "title": "Portfolio heat sum",
+      "concept": "Portfolio heat adds the planned dollar risk of concurrently open positions rather than their market values.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Three planned risks of $60, $80, and $40 sum to $180 portfolio heat.",
+      "limit": "Correlations and gap risk can make aggregate realized loss larger.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Correlations and gap risk can make aggregate realized loss larger.",
+      "commonError": "Live-trading misconception: Adding notional values instead of stop-based risks misstates the planned loss budget. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Portfolio heat adds the planned dollar risk of concurrently open positions rather than their market values. Worked fictional evidence: Three planned risks of $60, $80, and $40 sum to $180 portfolio heat. Error correction: Adding notional values instead of stop-based risks misstates the planned loss budget. Boundary: Correlations and gap risk can make aggregate realized loss larger. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Add planned risks $45, $55, and $70; name a factor the sum omits.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RISK_PERCENT_OF_EQUITY",
+      "title": "Risk as percent of equity",
+      "concept": "Trade-risk percentage divides planned dollar risk by current account equity and states both timestamps.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: $120 planned risk / $24,000 equity = 0.005 = 0.5%.",
+      "limit": "Equity can change and planned risk is not guaranteed realized loss.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Equity can change and planned risk is not guaranteed realized loss.",
+      "commonError": "Live-trading misconception: Dividing by buying power instead of stated equity changes the metric. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Trade-risk percentage divides planned dollar risk by current account equity and states both timestamps. Worked fictional evidence: $120 planned risk / $24,000 equity = 0.005 = 0.5%. Error correction: Dividing by buying power instead of stated equity changes the metric. Boundary: Equity can change and planned risk is not guaranteed realized loss. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compute $75 risk as a percentage of $15,000 equity and identify the denominator.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REWARD_RISK_RATIO",
+      "title": "Planned reward-to-risk ratio",
+      "concept": "Planned reward-to-risk divides target distance by stop distance using the same entry reference.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Entry $40, stop $39.20 gives $0.80 risk; target $41.60 gives $1.60 reward; ratio=2.0.",
+      "limit": "Targets and stops are plans, not fill guarantees or probabilities.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Targets and stops are plans, not fill guarantees or probabilities.",
+      "commonError": "Live-trading misconception: Calling a 2:1 geometry a 67% win probability invents information. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Planned reward-to-risk divides target distance by stop distance using the same entry reference. Worked fictional evidence: Entry $40, stop $39.20 gives $0.80 risk; target $41.60 gives $1.60 reward; ratio=2.0. Error correction: Calling a 2:1 geometry a 67% win probability invents information. Boundary: Targets and stops are plans, not fill guarantees or probabilities. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Entry $18, stop $17.70, target $18.75: compute the planned ratio.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAKEVEN_WIN_RATE",
+      "title": "Breakeven win rate before costs",
+      "concept": "For constant average win and loss sizes, breakeven win rate is average loss divided by their sum.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Average win $150 and loss $100: $100/($150+$100)=40%.",
+      "limit": "Variable outcomes, costs, slippage, and fat tails alter realized breakeven.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Variable outcomes, costs, slippage, and fat tails alter realized breakeven.",
+      "commonError": "Live-trading misconception: Using 1/reward-risk without defining average realized outcomes can mislead. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: For constant average win and loss sizes, breakeven win rate is average loss divided by their sum. Worked fictional evidence: Average win $150 and loss $100: $100/($150+$100)=40%. Error correction: Using 1/reward-risk without defining average realized outcomes can mislead. Boundary: Variable outcomes, costs, slippage, and fat tails alter realized breakeven. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Average win $90 and loss $60: compute pre-cost breakeven rate.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EXPECTANCY_PER_TRADE",
+      "title": "Arithmetic expectancy per trade",
+      "concept": "Arithmetic expectancy weights average wins and losses by their observed probabilities.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: 45% wins×$120 minus 55% losses×$70 = $54−$38.50=$15.50.",
+      "limit": "A small historical sample does not establish a stable future distribution.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. A small historical sample does not establish a stable future distribution.",
+      "commonError": "Live-trading misconception: Averaging $120 and −$70 without outcome frequencies produces the wrong expectancy. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Arithmetic expectancy weights average wins and losses by their observed probabilities. Worked fictional evidence: 45% wins×$120 minus 55% losses×$70 = $54−$38.50=$15.50. Error correction: Averaging $120 and −$70 without outcome frequencies produces the wrong expectancy. Boundary: A small historical sample does not establish a stable future distribution. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: With 40% wins of $140 and 60% losses of $80, compute arithmetic expectancy.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAXIMUM_DRAWDOWN",
+      "title": "Maximum drawdown from equity peaks",
+      "concept": "Maximum drawdown measures the largest peak-to-later-trough decline before a new peak.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Equity peaks at $10,500 then troughs at $9,450: decline $1,050, or 10%.",
+      "limit": "Sampling frequency and cash flows can change the measured path.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Sampling frequency and cash flows can change the measured path.",
+      "commonError": "Live-trading misconception: Measuring from starting equity instead of the relevant prior peak understates drawdown. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Maximum drawdown measures the largest peak-to-later-trough decline before a new peak. Worked fictional evidence: Equity peaks at $10,500 then troughs at $9,450: decline $1,050, or 10%. Error correction: Measuring from starting equity instead of the relevant prior peak understates drawdown. Boundary: Sampling frequency and cash flows can change the measured path. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Peak $12,000 and later trough $10,800: calculate dollar and percentage drawdown.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RECOVERY_PERCENT_AFTER_LOSS",
+      "title": "Recovery percentage after a loss",
+      "concept": "The gain required to recover a loss uses the reduced equity as its denominator.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: $10,000 falls 20% to $8,000; recovering $2,000 requires $2,000/$8,000=25%.",
+      "limit": "Deposits and withdrawals must be separated from trading recovery.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Deposits and withdrawals must be separated from trading recovery.",
+      "commonError": "Live-trading misconception: Assuming a 20% loss needs only a 20% gain ignores the changed base. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: The gain required to recover a loss uses the reduced equity as its denominator. Worked fictional evidence: $10,000 falls 20% to $8,000; recovering $2,000 requires $2,000/$8,000=25%. Error correction: Assuming a 20% loss needs only a 20% gain ignores the changed base. Boundary: Deposits and withdrawals must be separated from trading recovery. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: After a 25% decline from $8,000, compute the percentage gain needed to recover.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LIMIT_ORDER_PRICE_BOUNDARY",
+      "title": "Limit-order price boundary",
+      "concept": "A buy limit sets the highest acceptable price and a sell limit sets the lowest, but neither guarantees execution.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: A $15.00 buy limit may fill at $14.98 or $15.00, not above $15.00 under ordinary handling.",
+      "limit": "Queue position, venue rules, and fast markets affect whether it fills.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Queue position, venue rules, and fast markets affect whether it fills.",
+      "commonError": "Live-trading misconception: Treating a displayed touch at $15.00 as proof the order executed ignores queue priority. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A buy limit sets the highest acceptable price and a sell limit sets the lowest, but neither guarantees execution. Worked fictional evidence: A $15.00 buy limit may fill at $14.98 or $15.00, not above $15.00 under ordinary handling. Error correction: Treating a displayed touch at $15.00 as proof the order executed ignores queue priority. Boundary: Queue position, venue rules, and fast markets affect whether it fills. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For a $22 sell limit, state allowable price direction and one reason for no fill.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_ORDER_EXECUTION_UNCERTAINTY",
+      "title": "Market-order execution uncertainty",
+      "concept": "A market order prioritizes immediacy over price certainty and interacts with available liquidity.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: A fictional buy consumes 100 shares at $10.00 and 50 at $10.08: average=(1000+504)/150=$10.0267.",
+      "limit": "Displayed liquidity can change before arrival; the book is fictional.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Displayed liquidity can change before arrival; the book is fictional.",
+      "commonError": "Live-trading misconception: Assuming the last trade is the guaranteed market-order fill ignores spread and depth. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A market order prioritizes immediacy over price certainty and interacts with available liquidity. Worked fictional evidence: A fictional buy consumes 100 shares at $10.00 and 50 at $10.08: average=(1000+504)/150=$10.0267. Error correction: Assuming the last trade is the guaranteed market-order fill ignores spread and depth. Boundary: Displayed liquidity can change before arrival; the book is fictional. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compute average fill for 80 shares at $5.00 and 20 at $5.10.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BID_ASK_SPREAD_COST",
+      "title": "Bid-ask spread cost",
+      "concept": "Crossing the spread creates an immediate mark-to-mid difference that depends on direction and size.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Bid $30.00, ask $30.10, midpoint $30.05; a buy at ask is $0.05 above midpoint, or $5 on 100 shares.",
+      "limit": "Midpoint is a reference, not an executable guarantee.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Midpoint is a reference, not an executable guarantee.",
+      "commonError": "Live-trading misconception: Calling the full $0.10 spread the one-way midpoint cost doubles this stated measure. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Crossing the spread creates an immediate mark-to-mid difference that depends on direction and size. Worked fictional evidence: Bid $30.00, ask $30.10, midpoint $30.05; a buy at ask is $0.05 above midpoint, or $5 on 100 shares. Error correction: Calling the full $0.10 spread the one-way midpoint cost doubles this stated measure. Boundary: Midpoint is a reference, not an executable guarantee. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Bid $12.40 and ask $12.48: compute spread and buy-to-mid distance.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SLIPPAGE_BASIS_POINTS",
+      "title": "Slippage in basis points",
+      "concept": "Slippage basis points divides execution-price difference by the chosen benchmark and multiplies by 10,000.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Expected buy $50.00, fill $50.10: $0.10/$50×10,000=20 bps adverse.",
+      "limit": "Benchmark choice and sign convention must be declared.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Benchmark choice and sign convention must be declared.",
+      "commonError": "Live-trading misconception: Dividing by fill price while labeling the benchmark arrival price makes results inconsistent. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Slippage basis points divides execution-price difference by the chosen benchmark and multiplies by 10,000. Worked fictional evidence: Expected buy $50.00, fill $50.10: $0.10/$50×10,000=20 bps adverse. Error correction: Dividing by fill price while labeling the benchmark arrival price makes results inconsistent. Boundary: Benchmark choice and sign convention must be declared. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Expected $25.00 and buy fill $25.04: compute adverse basis points.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_WEIGHTED_AVERAGE_FILL",
+      "title": "Volume-weighted average fill",
+      "concept": "An average fill weights each price by executed share quantity, not by the number of partial fills.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: 50 shares at $9.90 and 150 at $10.10: (495+1515)/200=$10.05.",
+      "limit": "Fees and unfilled quantity are outside this price-only average.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Fees and unfilled quantity are outside this price-only average.",
+      "commonError": "Live-trading misconception: Averaging $9.90 and $10.10 to $10.00 ignores unequal sizes. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: An average fill weights each price by executed share quantity, not by the number of partial fills. Worked fictional evidence: 50 shares at $9.90 and 150 at $10.10: (495+1515)/200=$10.05. Error correction: Averaging $9.90 and $10.10 to $10.00 ignores unequal sizes. Boundary: Fees and unfilled quantity are outside this price-only average. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compute the average for 25 shares at $20 and 75 at $20.20.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PARTIAL_FILL_REMAINING_QUANTITY",
+      "title": "Partial fill and remaining quantity",
+      "concept": "Remaining order quantity equals submitted quantity minus confirmed executions without counting canceled shares as fills.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Order 500 shares; executions 120 and 180 total 300; remaining quantity is 200.",
+      "limit": "Late execution reports or replace requests require order-state reconciliation.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Late execution reports or replace requests require order-state reconciliation.",
+      "commonError": "Live-trading misconception: Subtracting only the latest partial fill leaves an incorrect open quantity. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Remaining order quantity equals submitted quantity minus confirmed executions without counting canceled shares as fills. Worked fictional evidence: Order 500 shares; executions 120 and 180 total 300; remaining quantity is 200. Error correction: Subtracting only the latest partial fill leaves an incorrect open quantity. Boundary: Late execution reports or replace requests require order-state reconciliation. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Order 350 with fills 100 and 75: calculate filled and remaining quantities.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STOP_LIMIT_TRIGGER_AND_LIMIT",
+      "title": "Stop-limit trigger and limit",
+      "concept": "A stop-limit order activates a limit order at the stop; price can move beyond the limit without execution.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: Sell stop $19.50, limit $19.40; a jump from $19.60 to $19.20 triggers but is below the acceptable sell limit.",
+      "limit": "Venue rules and quote conditions govern triggers; this is not execution advice.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Venue rules and quote conditions govern triggers; this is not execution advice.",
+      "commonError": "Live-trading misconception: Assuming activation guarantees a sale confuses trigger logic with limit eligibility. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A stop-limit order activates a limit order at the stop; price can move beyond the limit without execution. Worked fictional evidence: Sell stop $19.50, limit $19.40; a jump from $19.60 to $19.20 triggers but is below the acceptable sell limit. Error correction: Assuming activation guarantees a sale confuses trigger logic with limit eligibility. Boundary: Venue rules and quote conditions govern triggers; this is not execution advice. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For sell stop $30 and limit $29.80 with next market $29.60, classify trigger and fill eligibility.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRAILING_STOP_REFERENCE",
+      "title": "Trailing-stop reference path",
+      "concept": "A trailing amount follows its defined favorable reference and does not move backward when price retreats.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: A $1 trail from a high of $25 gives $24 stop reference; new high $26.20 raises it to $25.20.",
+      "limit": "Broker definitions, gaps, and trigger sources vary.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Broker definitions, gaps, and trigger sources vary.",
+      "commonError": "Live-trading misconception: Recalculating the trail downward after a retreat defeats the one-way reference rule. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A trailing amount follows its defined favorable reference and does not move backward when price retreats. Worked fictional evidence: A $1 trail from a high of $25 gives $24 stop reference; new high $26.20 raises it to $25.20. Error correction: Recalculating the trail downward after a retreat defeats the one-way reference rule. Boundary: Broker definitions, gaps, and trigger sources vary. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: With $0.75 trail and highs $18 then $19.10, calculate both stop references.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ORDER_CANCELLATION_RACE",
+      "title": "Order-cancellation race",
+      "concept": "A cancel request is not a confirmed cancellation; an execution may occur before the venue accepts the cancel.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: A 200-share order receives a 50-share fill, then cancel is requested; a later 30-share fill leaves 120 only after cancel confirmation.",
+      "limit": "Message ordering and venue acknowledgments must be preserved.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Message ordering and venue acknowledgments must be preserved.",
+      "commonError": "Live-trading misconception: Treating cancel-click time as the end of exposure can omit valid late fills. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: A cancel request is not a confirmed cancellation; an execution may occur before the venue accepts the cancel. Worked fictional evidence: A 200-share order receives a 50-share fill, then cancel is requested; a later 30-share fill leaves 120 only after cancel confirmation. Error correction: Treating cancel-click time as the end of exposure can omit valid late fills. Boundary: Message ordering and venue acknowledgments must be preserved. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Submitted 300, filled 100, cancel pending, then 40 fill: compute exposure before confirmation.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TIME_IN_FORCE_BOUNDARY",
+      "title": "Time-in-force boundary",
+      "concept": "Time in force controls order duration, not whether a valid price will be available.",
+      "prerequisites": "Understand order state, units, timestamps, planned versus realized outcomes, and that fictional calculations are not trading instructions.",
+      "procedure": "Name the decision cutoff, inputs, units, formula or state transition; show every intermediate step; distinguish planned values from observed executions; stop when a required input is unavailable.",
+      "workedCase": "FICTIONAL: A day limit remains eligible during its broker-defined session and expires unfilled with 0 of 100 shares executed.",
+      "limit": "Broker session definitions and extended-hours eligibility vary.",
+      "invalidation": "HOLD when timestamps, order state, units, source rights, or a required input cannot be verified. Broker session definitions and extended-hours eligibility vary.",
+      "commonError": "Live-trading misconception: Assuming DAY always includes extended hours ignores broker and venue rules. Correct by returning to the stated inputs, formula, order state, and evidence cutoff.",
+      "selfCheck": "Reproduce the fictional calculation or classification, correct the misconception, and name one condition that invalidates the result.",
+      "reviewExplanation": "Ungraded Talia walkthrough: Time in force controls order duration, not whether a valid price will be available. Worked fictional evidence: A day limit remains eligible during its broker-defined session and expires unfilled with 0 of 100 shares executed. Error correction: Assuming DAY always includes extended hours ignores broker and venue rules. Boundary: Broker session definitions and extended-hours eligibility vary. No protected assessment, personalized order, or future outcome is created.",
+      "transferQuestion": "FICTIONAL independent transfer: For an unfilled 250-share DAY order, state expiration effect and a definition to verify.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}

@@ -119,10 +119,19 @@ on:
       - 'data/talia-foundation-explanations-batch20-v1.json'
       - 'data/talia-foundation-explanations-batch21-v1.json'
       - 'data/talia-foundation-explanations-batch22-v1.json'
+      - 'data/talia-foundation-explanations-batch23-v1.json'
+      - 'data/talia-foundation-explanations-batch24-v1.json'
+      - 'data/talia-foundation-explanations-batch25-v1.json'
+      - 'data/talia-foundation-explanations-batch26-v1.json'
+      - 'data/talia-foundation-explanations-batch27-v1.json'
+      - 'data/talia-foundation-explanations-batch28-v1.json'
+      - 'data/talia-foundation-explanations-batch29-v1.json'
+      - 'data/talia-foundation-explanations-batch30-v1.json'
       - 'tests/talia-foundation-batch14-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches15-16-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches17-18-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches19-20-gates-v1.test.mjs'
+      - 'tests/talia-foundation-batches25-30-gates-v1.test.mjs'
       - 'tests/talia-source-indicator8-python-js-v1.test.mjs'
       - 'scripts/qa/talia_source_indicator8_python_v1.py'
       - 'tests/talia-foundation-batch13-gates-v1.test.mjs'
@@ -397,10 +406,19 @@ on:
       - 'data/talia-foundation-explanations-batch20-v1.json'
       - 'data/talia-foundation-explanations-batch21-v1.json'
       - 'data/talia-foundation-explanations-batch22-v1.json'
+      - 'data/talia-foundation-explanations-batch23-v1.json'
+      - 'data/talia-foundation-explanations-batch24-v1.json'
+      - 'data/talia-foundation-explanations-batch25-v1.json'
+      - 'data/talia-foundation-explanations-batch26-v1.json'
+      - 'data/talia-foundation-explanations-batch27-v1.json'
+      - 'data/talia-foundation-explanations-batch28-v1.json'
+      - 'data/talia-foundation-explanations-batch29-v1.json'
+      - 'data/talia-foundation-explanations-batch30-v1.json'
       - 'tests/talia-foundation-batch14-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches15-16-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches17-18-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches19-20-gates-v1.test.mjs'
+      - 'tests/talia-foundation-batches25-30-gates-v1.test.mjs'
       - 'tests/talia-source-indicator8-python-js-v1.test.mjs'
       - 'scripts/qa/talia_source_indicator8_python_v1.py'
       - 'tests/talia-foundation-batch13-gates-v1.test.mjs'
@@ -697,6 +715,7 @@ jobs:
           node scripts/curriculum-evidence-master-register-v1.mjs
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
           node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
+          node --test tests/talia-foundation-batches25-30-gates-v1.test.mjs
           node --check functions/_lib/talia-indicator-worked-v1.js
           node tests/talia-indicator-worked-v1.test.mjs
           node scripts/talia-indicator-editorial-review-v1.mjs
