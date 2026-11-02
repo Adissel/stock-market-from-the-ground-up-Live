@@ -12,6 +12,7 @@ node tests/test_crownlight_chart_workspace_v2.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/talia-classroom-source-v1.test.mjs
 node tests/talia-membership-only-v1.test.mjs
+node tests/talia-member-conversations-isolation-v1.test.mjs
 node tests/talia-foundation-batch13-gates-v1.test.mjs
 node tests/talia-batch13-20-transfer-v1.test.mjs
 node tests/talia-upload5-reconciliation-v1.test.mjs
