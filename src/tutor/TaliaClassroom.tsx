@@ -58,7 +58,7 @@ const labHandoff=(()=>{
 })();
 const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
-function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
+function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;memberId:string}){
   const host=useRef<HTMLDivElement|null>(null);
   const [visible,setVisible]=useState(7);
   const prototype=typeof window!=='undefined'&&window.location.pathname.endsWith('/talia-tutor-prototype.html');
@@ -70,6 +70,28 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
   const [bull,setBull]=useState('#38c6a6');
   const [bear,setBear]=useState('#e37779');
   const [annotation,setAnnotation]=useState<number|null>(null);
+  const [settingsLoaded,setSettingsLoaded]=useState(false);
+  useEffect(()=>{
+    if(!prototype||!memberId)return;
+    setSettingsLoaded(false);
+    try{
+      const raw=window.localStorage.getItem('smfgu-talia-prototype-chart-v1:'+memberId);
+      if(raw){const v=JSON.parse(raw);
+        if(['none','sma3','ema3','ema9','ema20','ema200','vwap'].includes(v.study))setStudy(v.study);
+        if([0,3,6].includes(v.buffer))setBuffer(v.buffer);
+        if([45,70,100].includes(v.zoom))setZoom(v.zoom);
+        if(typeof v.bull==='string'&&/^#[0-9a-fA-F]{6}$/.test(v.bull))setBull(v.bull);
+        if(typeof v.bear==='string'&&/^#[0-9a-fA-F]{6}$/.test(v.bear))setBear(v.bear);
+        if(typeof v.showVolume==='boolean')setShowVolume(v.showVolume);
+        if(typeof v.showStructure==='boolean')setShowStructure(v.showStructure);
+      }
+    }catch{/* Settings storage is optional; chart continues with safe defaults. */}
+    setSettingsLoaded(true);
+  },[prototype,memberId]);
+  useEffect(()=>{
+    if(!prototype||!memberId||!settingsLoaded)return;
+    try{window.localStorage.setItem('smfgu-talia-prototype-chart-v1:'+memberId,JSON.stringify({study,buffer,zoom,bull,bear,showVolume,showStructure}));}catch{/* Private browsing may disable storage. */}
+  },[prototype,memberId,settingsLoaded,study,buffer,zoom,bull,bear,showVolume,showStructure]);
   const [status,setStatus]=useState('Fictional completed-bar teaching example; subsequent bars are concealed.');
   useEffect(()=>{
     let disposed=false,plot:ChartInstance|null=null;
@@ -376,7 +398,7 @@ function Classroom(){
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
       <p className="tc-muted">This classroom uses the existing authenticated Tutor API and approved source materials. It does not use paid model inference, award grades, access protected answer keys, or send future market bars. Saved follow-up context is verified only when the server confirms the member-owned conversation.</p>
-    </section><FictionalChart onQuestion={safeSuggest}/></div>
+    </section><FictionalChart onQuestion={safeSuggest} memberId={member.id}/></div>
   </main>;
 }
 const host=document.getElementById('talia-classroom-root');if(host)createRoot(host).render(<Classroom/>);
