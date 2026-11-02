@@ -119,6 +119,8 @@ on:
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'tests/talia-indicators31-45-python-js-v1.test.mjs'
+      - 'scripts/qa/talia_indicators31_45_python_v1.py'
       - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
       - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
       - 'tests/talia-tutor40-conversational-quality-v1.test.mjs'
@@ -341,6 +343,8 @@ on:
       - 'tests/talia-rule605-options-primary-evidence-v1.test.mjs'
       - 'tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators16-30-independent-math-v1.test.mjs'
+      - 'tests/talia-indicators31-45-python-js-v1.test.mjs'
+      - 'scripts/qa/talia_indicators31_45_python_v1.py'
       - 'tests/talia-recursive-indicators-python-js-v1.test.mjs'
       - 'tests/talia-claim-40-source-disposition-v1.test.mjs'
       - 'tests/talia-tutor40-conversational-quality-v1.test.mjs'
@@ -557,6 +561,7 @@ jobs:
           node tests/talia-upload5-and-claims-v1.test.mjs
           node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
           node tests/talia-indicators16-30-independent-math-v1.test.mjs
+          node tests/talia-indicators31-45-python-js-v1.test.mjs
           node tests/talia-recursive-indicators-python-js-v1.test.mjs
           node tests/talia-claim-40-source-disposition-v1.test.mjs
           node tests/talia-tutor40-conversational-quality-v1.test.mjs
