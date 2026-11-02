@@ -14,8 +14,9 @@ test('every Tutor-loaded Foundation batch exists and is included in both Cloudfl
  assert.ok(loopA&&loopB,'production artifact copy loops present');
  for(const name of required){
   assert.ok(existsSync('data/'+name),'missing original '+name);
-  assert.ok(loopA.split(/\s+/).includes(name),'missing staged deployment asset: '+name);
-  assert.ok(loopB.split(/\s+/).includes(name),'missing public Tutor asset: '+name);
+  const isCopied=loop=>loop.split(/\s+/).includes(name)||([...loop.matchAll(/talia-foundation-explanations-batch\{(\d{2})\.\.(\d{2})\}-v1\.json/g)].some(([,start,end])=>{const n=Number(name.match(/batch(\d{2})/)[1]);return n>=Number(start)&&n<=Number(end)}));
+  assert.ok(isCopied(loopA),'missing staged deployment asset: '+name);
+  assert.ok(isCopied(loopB),'missing public Tutor asset: '+name);
  }
 });
 test('new Tutor source drafts stay ungraded and do not silently become published competencies',()=>{
