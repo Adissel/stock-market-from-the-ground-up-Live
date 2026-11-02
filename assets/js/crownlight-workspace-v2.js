@@ -349,28 +349,48 @@ function installDivider(){
  handle.dataset.clPanelDivider='';
  handle.setAttribute('role','slider');
  handle.setAttribute('aria-label','Resize Professional chart columns');
- handle.setAttribute('aria-valuemin','25');handle.setAttribute('aria-valuemax','75');
+ handle.setAttribute('aria-valuemin','25');
+ handle.setAttribute('aria-valuemax','75');
+ handle.setAttribute('aria-orientation','horizontal');
  handle.tabIndex=0;
- let dragging=false;
+ let activePointer=null,lastAnnounced=0;
  const update=ratio=>{
-  workspace.panelRatio=Math.max(25,Math.min(75,Math.round(ratio)));
-  applyLayout();msg('Chart columns resized. Save workspace to retain these proportions.');
+  if(!permissionReady||Tier()?.getStatus?.()?.selected!=='PROFESSIONAL')return;
+  const next=Math.max(25,Math.min(75,Math.round(ratio)));
+  if(next===workspace.panelRatio)return;
+  workspace.panelRatio=next;
+  applyLayout();
+  if(Math.abs(next-lastAnnounced)>=5){
+   msg('Chart split '+next+'% / '+(100-next)+'%. Save workspace to retain.');
+   lastAnnounced=next;
+  }
  };
  handle.addEventListener('pointerdown',e=>{
-  if(e.button!==0||container.dataset.clLayout==='STACKED'||window.matchMedia('(max-width: 1000px)').matches)return;
-  dragging=true;handle.setPointerCapture(e.pointerId);e.preventDefault();
+  if(e.button!==0||!permissionReady||container.dataset.clLayout==='STACKED'||
+    window.matchMedia('(max-width: 1000px)').matches)return;
+  activePointer=e.pointerId;
+  handle.setPointerCapture(e.pointerId);
+  e.preventDefault();
  });
  handle.addEventListener('pointermove',e=>{
-  if(!dragging)return;
+  if(e.pointerId!==activePointer)return;
   const bounds=grid.getBoundingClientRect();
   if(bounds.width>0)update((e.clientX-bounds.left)/bounds.width*100);
  });
- const stop=()=>{dragging=false};
- handle.addEventListener('pointerup',stop);handle.addEventListener('pointercancel',stop);
+ const stop=e=>{
+  if(e.pointerId!==activePointer)return;
+  activePointer=null;
+  if(handle.hasPointerCapture(e.pointerId))handle.releasePointerCapture(e.pointerId);
+  msg('Chart split adjusted. Select Save workspace to retain these proportions.');
+ };
+ handle.addEventListener('pointerup',stop);
+ handle.addEventListener('pointercancel',stop);
+ handle.addEventListener('lostpointercapture',()=>{activePointer=null;});
  handle.addEventListener('keydown',e=>{
-  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)||
+    !permissionReady||container.dataset.clLayout==='STACKED')return;
   e.preventDefault();
-  const n=workspace.panelRatio||50;
+  const n=Number.isInteger(workspace.panelRatio)?workspace.panelRatio:50;
   update(e.key==='Home'?25:e.key==='End'?75:n+(e.key==='ArrowLeft'?-5:5));
  });
  grid.append(handle);
