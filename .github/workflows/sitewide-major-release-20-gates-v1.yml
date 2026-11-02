@@ -20,6 +20,7 @@ permissions:
 concurrency:
   group: sitewide-20-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 jobs:
   site-and-journal:
     runs-on: ubuntu-latest
