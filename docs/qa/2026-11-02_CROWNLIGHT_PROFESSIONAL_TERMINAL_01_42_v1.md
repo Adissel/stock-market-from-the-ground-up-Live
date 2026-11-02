@@ -105,3 +105,18 @@
 | 1.3 | 2026-11-02 | Reconcile first ten gates; ECharts directional volume visual correction; acceptance blockers recorded | Partial source implementation; release acceptance OPEN |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.3 · Source-only evidence, pending exact-head release acceptance.
+
+
+## November 2 — Gate 1 browser acceptance execution attempt (v1.4)
+- Gate: held-button drag pans, release immediately stops horizontal movement, and mouse-wheel zoom alters the actual rendered candle spacing.
+- Existing real Chromium suite: `tests/test_crownlight_chart_browser_v2.mjs`; already checks desktop mouse-down/move/up, release-to-stop and keyboard panning. New wheel-effect assertion compares real `CrownlightStudio.getStatus().spacing` before/after `page.mouse.wheel(0,-210)`.
+- Source test change commit: `3c6c0b401a06f90b7b1ae48e93a868b401fe61f8` on `main`. Existing `.github/workflows/crownlight-chart-studio-browser-v2.yml` lists this test and triggers on edits to it.
+- CI verification: GitHub connector returned no commit status contexts and no pull-request workflow runs; the latter endpoint excludes ordinary push runs. The public workflow page could not be fetched. **No passing real-browser execution was observed in this turn.** Gate 1 therefore remains **OPEN / NOT RELEASE-ACCEPTED**.
+- No production JS, DB, auth, entitlement, payment or replay-content changes in this Gate 1 test-only execution.
+- Rollback: revert commit `3c6c0b401a06f90b7b1ae48e93a868b401fe61f8` if the new test check proves unstable; never disable drag/release safety checks to force green CI.
+
+| Version | Date | Description | Status |
+| --- | --- | --- | --- |
+| 1.4 | 2026-11-02 | Gate 1 actual Chromium wheel-zoom acceptance assertion committed; CI results inaccessible | SOURCE TEST COMMITTED; RELEASE GATE OPEN |
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.4 · No unsupported production acceptance claim.
