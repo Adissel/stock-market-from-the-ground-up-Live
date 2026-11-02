@@ -4,7 +4,7 @@
 |---|---|
 | Project | The Stock Market: From the Ground Up — Boot Camp Academy |
 | Document ID | SMFGU-ACADEMY-SIX-GATE-20261102 |
-| Version | 1.0 |
+| Version | 1.1 |
 | Date | November 2, 2026 |
 | Filename/type | `docs/qa/2026-11-02_ACADEMY_216_QUESTION_CORRECTIONS_AND_SIX_GATE_EXECUTION_V1.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
@@ -17,11 +17,28 @@
 
 - Full private field-structure scan: **54/54 cases, 216/216 questions, 216/216 rubric fields, 648/648 option explanations**.
 - Machine-verifiable key-to-option resolution: **216/216**; feedback Correct/Incorrect tag agreement **648/648** after changes.
-- **Ten independently reasoned scoring-error corrections across nine inactive candidate cases**. These keys had previously been incorrectly associated with distractor content despite being structurally self-consistent. Corrective explanations were rewritten in private storage.
-- Affected cases: `BC3_FILINGS7_D07_V2`, `BC3_INDICATORS10_D04_V2`, `BC3_INDICATORS10_D06_V1`, `BC3_INDICATORS10_D06_V2`, `BC3_INDICATORS10_D07_V1` (two questions), `BC3_TAPE10_D01_V2`, `BC3_TAPE10_D05_V1`, `BC3_TAPE10_D06_V1`, `BC3_TAPE10_D07_V2`.
+- **First-pass AI-assisted scored-choice-to-rubric inspection covered 216/216 private questions. Fifty-five defensible-answer contradictions were corrected**, with explanations rewritten in private storage. The initial keyword-risk screen found 10; complete question-by-question inspection identified 45 more (13 SEC Filings, 16 Reading the Tape, 16 Technical Indicators). This is an editorial QA pass, NOT independent expert acceptance or full distractor/source validation.
+- Initial 10 corrections affected cases: `BC3_FILINGS7_D07_V2`, `BC3_INDICATORS10_D04_V2`, `BC3_INDICATORS10_D06_V1`, `BC3_INDICATORS10_D06_V2`, `BC3_INDICATORS10_D07_V1` (two questions), `BC3_TAPE10_D01_V2`, `BC3_TAPE10_D05_V1`, `BC3_TAPE10_D06_V1`, `BC3_TAPE10_D07_V2`.
 - Distinctions checked: reverse splits do not prevent financing dilution; EMA9 smoothing is 2/10 and EMA20 smoothing is 2/21 with a defined previous seed; a displayed bid/offer is not a guaranteed fill; an execution print differs from a quote; marketable order execution requires actual route/size evidence.
 - Only **20/216** questions presently contain an explicit `source_url` research-reference field and those **20 are labeled pending independent verification**. The remaining **196** need per-item source traceability or approved equivalent documentation. This count is not a judgment that their subject matter is necessarily wrong.
 - **No case is independently accepted for official grades: 0/54.** Structural review and targeted fixes do not justify claiming all 216 questions have passed semantic/fair-answer/source validation. Review remaining distractors, calculations, source dates, scope and uncertainty.
+
+### Extended manual scoring inspection — 45 further corrections after the initial report
+
+The whole-inventory first pass compared each of the 216 currently keyed responses against its associated question and rubric. It found another **45 demonstrably incorrect keyed selections in 23 inactive cases**, all repaired through conditional private database updates with concise corrective rationales:
+
+| New correction batch | Questions corrected | Private cases updated |
+|---|---:|---:|
+| SEC Filings | 13 | 6 |
+| Reading the Tape | 16 | 8 |
+| Technical Indicators | 16 | 9 |
+| **Additional** | **45** | **23** |
+
+These are in addition to the initial 10 fixes in nine cases; some cases overlap across batches. **Cumulative correction count this execution: 55 questions.** No protected question, option label, answer code or member record was committed to GitHub.
+
+**Scope and remaining issue:** This first pass assessed the stored selected responses in all 216 questions and inspected alternate options in flagged cases, but is *not* a full independent examiner review of all 648 distractors and feedback meanings, nor independent factual/source approval. Reviewers must still check case-specific fair answers, difficulty, alternative reasonable interpretations, all calculations, and associated sources.
+
+Post-correction rerun of `20261102_academy_protected_54_private_integrity_READ_ONLY.sql` again returned `private_draft_integrity_hold_pass=true` with 216/216 resolvable keys, 648/648 explanatory tags aligned, zero live grading records, 54/54 inactive cases and zero approved route mappings. Its passing state is structural only.
 
 ## 2. Independent version-two transfer cases
 
@@ -73,6 +90,6 @@ Publishing this report also changes `main` and requires a fresh exact-head check
 
 **Risk classification:** Critical issue remediation (incorrect private keys) executed; source lineage/independent examiner and authenticated Beta blockers remain critical. **Official release decision: HOLD.**
 
-**Revision history:** v1.0 — 2026-11-02: 10 private scoring defects corrected, five V2 cases reauthored, DB protection/attempt constraints verified, regression preflight executed, zero grading/publication activation.
+**Revision history:** v1.0 — 2026-11-02: initial 10 scoring corrections and five V2 revisions. v1.1 — 2026-11-02: first-pass 216-question selected-answer inspection, 45 additional private corrections, repeat structural postflight; no graded publication.
 
 **Footer:** Crown & Lantern Press — privacy-safe internal QA metadata. No protected answer-key values, option codes, student records or confidential item bodies published.
