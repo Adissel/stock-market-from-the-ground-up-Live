@@ -7,7 +7,7 @@
 | New document ID | SMFGU-TALIA-TRAIN-045-001 |
 | Source | GitHub main, `docs/learning/2026-11-01_TALIA_MASTER_TRAINING_45_REVIEWS_v1.md` |
 | Google Drive | Not created; document ID unassigned |
-| Version/date | 1.0 / November 1, 2026 |
+| Version/date | 1.1 / November 1, 2026 |
 | Status | Internal instructional revision completed; independent editorial and member release NOT accepted |
 | Dependencies | AGENTS.md, SMFGU-COORD-005, Learning v3.3, Lab v3.2, source-only Tutor, 600 explanation target slots |
 | Purpose | 45 individual corrective teaching reviews, 40 executable scenario evaluations, provenance and reproducible acceptance record |
@@ -54,10 +54,20 @@ Owner advisory scope `docs/sitewide/SMFGU-FIVE-CHAT-COORDINATION-REGISTER-v1.md`
 9. Require full mandatory GitHub Actions and exact matching Cloudflare production SHA, including rollback.
 10. Obtain independent curriculum/rights signoffs and release only separately accepted Basic/premium functionality; resume further drafting after editorial prerequisites.
 
+## Continuation acceptance — v1.1
+
+Forty source-only training scenarios were exercised through the existing Tutor POST endpoint under two simulated GoTrue identities. Exact topic selection, protected-grade denial and suspended access passed in the Cloudflare build for SHA `bd9a904a96e07c3b0e5ec045feb96237cfe289de`. Four additional server-route tests for verified prior-question context, cross-member conversation denial, forged browser history and restricted membership passed in SHA `142cfd851af2cbeac4c75d7b761b02e2ff214a4c`.
+
+Talia's existing Foundation review now provides four lesson-specific, **ungraded** adaptive writing modes: uncertainty support, certainty checks, arithmetic-unit verification and evidence-building. The 45-lesson, four-way source regression and private-text non-echo checks passed and deployed in SHA `e569b22fd110e89f267f33ea233919d28cb997b6`. This is deterministic source coaching, not real-account, persistent conversational, chart-rights, AI-model, or editorial-release acceptance.
+
+The source-only Tutor integration added `functions/_lib/talia-foundation-reflection-coach-v1.js` and an additive import/review call in `original-competency-tutor-v014100.js`. The existing Tutor GitHub workflow was updated to trigger and run the new route/adaptive checks. An unrelated indicator QA Python subprocess timeout was expanded from eight to 30 seconds without changing the mathematical assertions.
+
+**Status:** 45/45 internal revisions; 40/40 original source scenarios executed (20 PASS / 20 PARTIAL); 40 synthetic member-route cases passed; four conversation access fixtures passed; three adaptive regression groups passed. **Zero** independently approved publication rights or premium releases. All real member roles, screen readers, full mandatory GitHub Actions and exact-final-SHA acceptance remain OPEN.
+
 ## Revision history
 
 | Version/date | Change | Signoff |
 |---|---|---|
 | 1.0 / 2026-11-01 | 45 individual pedagogical revisions; five factual risk corrections; 40 scenario source test evidence; source loader allowlist repair; coordination handoff | Internal source QA only, NO independent editorial, legal, member or commercial release approval |
 
-**Footer:** SMFGU-TALIA-TRAIN-045-001 · v1.0 · GitHub main · Rights, genuine accounts and exact-head release acceptance remain OPEN.
+**Footer:** SMFGU-TALIA-TRAIN-045-001 · v1.1 · GitHub main · Rights, genuine accounts and exact-head release acceptance remain OPEN.
