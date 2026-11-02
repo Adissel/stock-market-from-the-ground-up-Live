@@ -38,7 +38,12 @@ export async function onRequest({request,env}){try{
    (!s.current_period_end||Date.parse(s.current_period_end)>Date.now()));
   if(chosen&&/^[A-Z][A-Z0-9_]{1,63}$/.test(chosen.plan_code))planCode=chosen.plan_code;
  }
- const plans=await read(base+'/rest/v1/platform_plans?select=plan_code,metadata&plan_code=eq.'+encodeURIComponent(planCode)+'&limit=1',dbHeaders);
+ let plans=await read(base+'/rest/v1/platform_plans?select=plan_code,metadata&plan_code=eq.'+encodeURIComponent(planCode)+'&limit=1',dbHeaders);
+ // A subscription code without a registered plan must never inherit CURRENT editions.
+ if(planCode!=='FREE'&&(!Array.isArray(plans)||plans[0]?.plan_code!==planCode)){
+  planCode='FREE';
+  plans=await read(base+'/rest/v1/platform_plans?select=plan_code,metadata&plan_code=eq.FREE&limit=1',dbHeaders);
+ }
  const stored=plans[0]?.metadata?.learning_engines_v1,selected=fallback(planCode);
  for(const key of Object.keys(versions))if(versions[key].includes(stored?.[key]))selected[key]=stored[key];
  const savedEdition=plans[0]?.metadata?.talia_market_tutor_v1?.tier;
