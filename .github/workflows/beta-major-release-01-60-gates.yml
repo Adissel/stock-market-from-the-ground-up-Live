@@ -193,10 +193,68 @@ jobs:
         run: node tests/talia-regulatory-timing-notices-v1.test.mjs
       - name: GOVERNANCE 10 - talia-40-source-register-consistency-v1.test.mjs
         run: node tests/talia-40-source-register-consistency-v1.test.mjs
+  beta-next25:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: NEXT 01 - security - test_founder_admin_security_v014181.mjs
+        run: node tests/test_founder_admin_security_v014181.mjs
+      - name: NEXT 02 - security - test_username_login_captcha_v014275.mjs
+        run: node tests/test_username_login_captcha_v014275.mjs
+      - name: NEXT 03 - security - test_ad_sales_security_v014231.mjs
+        run: node tests/test_ad_sales_security_v014231.mjs
+      - name: NEXT 04 - security - v01407_forum_security_regression.mjs
+        run: node tests/v01407_forum_security_regression.mjs
+      - name: NEXT 05 - security - test_founder_payment_gates_v014199.mjs
+        run: node tests/test_founder_payment_gates_v014199.mjs
+      - name: NEXT 06 - learning - lab-engine-v33.test.mjs
+        run: node tests/lab-engine-v33.test.mjs
+      - name: NEXT 07 - learning - lab-engine-v33-visual.test.mjs
+        run: node tests/lab-engine-v33-visual.test.mjs
+      - name: NEXT 08 - learning - lab-batch04-internal-qa-v1.test.mjs
+        run: node tests/lab-batch04-internal-qa-v1.test.mjs
+      - name: NEXT 09 - learning - test_v33_checkpoint_acknowledgement.mjs
+        run: node tests/test_v33_checkpoint_acknowledgement.mjs
+      - name: NEXT 10 - learning - adaptive-learning-diagnostic-v1.test.mjs
+        run: node tests/adaptive-learning-diagnostic-v1.test.mjs
+      - name: NEXT 11 - tutor - talia-upload5-and-claims-v1.test.mjs
+        run: node tests/talia-upload5-and-claims-v1.test.mjs
+      - name: NEXT 12 - tutor - talia-classroom-professional-v2.test.mjs
+        run: node tests/talia-classroom-professional-v2.test.mjs
+      - name: NEXT 13 - tutor - talia-foundation-misconception-v1.test.mjs
+        run: node tests/talia-foundation-misconception-v1.test.mjs
+      - name: NEXT 14 - tutor - talia-member-foundation-server-v1.test.mjs
+        run: node tests/talia-member-foundation-server-v1.test.mjs
+      - name: NEXT 15 - tutor - talia-tier-research-contracts-v1.test.mjs
+        run: node tests/talia-tier-research-contracts-v1.test.mjs
+      - name: NEXT 16 - academy - test_academy_stage_checkpoint_v1.mjs
+        run: node tests/test_academy_stage_checkpoint_v1.mjs
+      - name: NEXT 17 - academy - test_v014162_bootcamp_v32.mjs
+        run: node tests/test_v014162_bootcamp_v32.mjs
+      - name: NEXT 18 - academy - test_v33_talia_question_flow_browser.mjs
+        run: node tests/test_v33_talia_question_flow_browser.mjs
+      - name: NEXT 19 - academy - engine-classroom-contract-v1.test.mjs
+        run: node tests/engine-classroom-contract-v1.test.mjs
+      - name: NEXT 20 - academy - test_beta_public_free_open_v014269.mjs
+        run: node tests/test_beta_public_free_open_v014269.mjs
+      - name: NEXT 21 - operations - test_support_routing_v1.mjs
+        run: node tests/test_support_routing_v1.mjs
+      - name: NEXT 22 - operations - test_crownlight_learning_echarts_v1.mjs
+        run: node tests/test_crownlight_learning_echarts_v1.mjs
+      - name: NEXT 23 - operations - test_cloudflare_master_target_v014274.mjs
+        run: node tests/test_cloudflare_master_target_v014274.mjs
+      - name: NEXT 24 - operations - test_ad_legacy_delivery_guard_v014248.mjs
+        run: node tests/test_ad_legacy_delivery_guard_v014248.mjs
+      - name: NEXT 25 - operations - test_founder_discount_15_contract.mjs
+        run: node tests/test_founder_discount_15_contract.mjs
   release-source-summary:
     runs-on: ubuntu-latest
     if: always()
-    needs: [learning, labs, academy, studio, tutor, governance]
+    needs: [learning, labs, academy, studio, tutor, governance, beta-next25]
     steps:
       - name: Verify 60 unique existing test files and balanced release domains
         run: |
@@ -214,7 +272,7 @@ jobs:
           assert not missing,('Missing release tests',missing)
           print('PASS: 60 distinct present tests across six domains')
           PY
-      - name: Require six complete successful groups and all 60 checks
+      - name: Require seven complete successful groups and all 85 source checks
         env:
           NEEDS_JSON: ${{ toJSON(needs) }}
         run: |
@@ -222,9 +280,9 @@ jobs:
           import json,os,sys
           results=json.loads(os.environ['NEEDS_JSON'])
           for k,v in results.items():print(k,v['result'])
-          if len(results)!=6 or any(v['result']!='success' for v in results.values()):
-              sys.exit('BLOCKED: 60-gate beta source batch not accepted')
-          print('60 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
+          if len(results)!=7 or any(v['result']!='success' for v in results.values()):
+              sys.exit('BLOCKED: 85-gate beta source batch not accepted')
+          print('85 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
           summary=os.environ.get('GITHUB_STEP_SUMMARY')
           if summary:
               with open(summary,'a',encoding='utf-8') as out:
@@ -232,5 +290,5 @@ jobs:
                   out.write('Commit: `'+os.environ.get('GITHUB_SHA','unknown')+'`\n\n')
                   out.write('| Domain | Job conclusion |\n|---|---|\n')
                   for name,value in sorted(results.items()):out.write('| '+name+' | '+value['result']+' |\n')
-                  out.write('\n60 source commands are required; authenticated browser, editor, live commerce and final production SHA remain separate gates.\n')
+                  out.write('\n85 source commands are required; authenticated browser, editor, live commerce and final production SHA remain separate gates.\n')
           PY
