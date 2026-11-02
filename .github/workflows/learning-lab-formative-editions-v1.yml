@@ -5,11 +5,15 @@ on:
     paths:
       - 'functions/_lib/learning-lab-formative-editions-v1.js'
       - 'tests/learning-lab-formative-editions-v1.test.mjs'
+      - 'functions/_lib/learning-lab-research-evidence-v1.js'
+      - 'tests/learning-lab-research-evidence-v1.test.mjs'
       - '.github/workflows/learning-lab-formative-editions-v1.yml'
   pull_request:
     paths:
       - 'functions/_lib/learning-lab-formative-editions-v1.js'
       - 'tests/learning-lab-formative-editions-v1.test.mjs'
+      - 'functions/_lib/learning-lab-research-evidence-v1.js'
+      - 'tests/learning-lab-research-evidence-v1.test.mjs'
       - '.github/workflows/learning-lab-formative-editions-v1.yml'
   workflow_dispatch:
 permissions:
@@ -28,4 +32,5 @@ jobs:
       - name: Verify source syntax and deterministic no-entitlement contracts
         run: |
           node --check functions/_lib/learning-lab-formative-editions-v1.js
-          node --test tests/learning-lab-formative-editions-v1.test.mjs
+          node --check functions/_lib/learning-lab-research-evidence-v1.js
+          node --test tests/learning-lab-formative-editions-v1.test.mjs tests/learning-lab-research-evidence-v1.test.mjs
