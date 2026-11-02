@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v014100.js';
+import {classifyMisconception,evaluateInstructionalCycle} from '../functions/_lib/talia-instructional-evaluation-v1.js';
 const read=p=>JSON.parse(readFileSync('data/'+p,'utf8'));
 const b13=read('talia-foundation-explanations-batch13-v1.json').guides;
 const b14=read('talia-foundation-explanations-batch14-v1.json').guides;
@@ -52,21 +53,29 @@ for(const scenario of cases){
   assert.ok(g,'Missing exact canonical guide');
   assert.equal(g.editorialTrainingReviewV1?.diagnosticQuestion,scenario.prompt);
   const first=answerFromGuide(g,'explain','','Explain '+g.title);
+  const learnerAnswer='My first reasoning follows this mistaken assumption: '+g.commonError;
+  const review=answerFromGuide(g,'review',learnerAnswer,'Review my reasoning');
+  const retry=answerFromGuide(g,'explain','','Explain the common mistake');
+  const transfer=answerFromGuide(g,'explain','','Walk me through step-by-step in more depth');
+  const evaluated=evaluateInstructionalCycle({guide:g,scenario,turns:{initial:first,
+   misconceptionTypes:classifyMisconception(g,learnerAnswer),review,retry,transfer}});
+  assert.equal(evaluated.status,scenario.status,scenario.id+' evidence-derived result');
+  assert.deepEqual(evaluated.failedCore,[],scenario.id+' complete source instructional cycle');
   assert.ok(first.includes(g.concept)&&first.includes(g.workedCase),scenario.id+' original teaching');
   assert.ok(first.includes(scenario.prompt),scenario.id+' diagnostic');
   assert.ok(first.includes(scenario.expectedTransfer),scenario.id+' transfer');
   assert.ok(first.includes('Limits and uncertainty:'),scenario.id+' uncertainty');
   assert.match(first,/ung raded|ungraded/i);
   if(scenario.category==='INDICATOR_MATH'){
-   const deep=answerFromGuide(g,'explain','','Walk me through step-by-step in more depth');
+   const deep=transfer;
    assert.ok(deep.includes(g.workedCase));
    assert.ok(deep.includes(g.transferQuestion));
    assert.ok(deep.includes(g.commonError));
    assert.notEqual(deep,first);
   }
   if(scenario.category==='MISCONCEPTION_FOLLOWUP'){
-   const error=answerFromGuide(g,'explain','','Explain the common mistake');
-   const response=answerFromGuide(g,'review','I originally assumed that the earlier quote guaranteed my fill.','Review my reasoning');
+   const error=retry;
+   const response=review;
    assert.ok(error.includes('A common mistake to examine'));
    assert.ok(error.includes(g.commonError));
    assert.ok(error.includes(g.transferQuestion));
@@ -81,7 +90,6 @@ for(const scenario of cases){
    assert.equal(g.editorialTrainingReviewV1?.independentPublicationApproved,false);
   }
   assert.doesNotMatch(first,/guaranteed profitable trade|mastery credit was awarded|official grade achieved/i);
-  console.log('EVAL40 '+scenario.id+' '+(scenario.category==='MISCONCEPTION_FOLLOWUP'||scenario.category==='HISTORICAL_RISK_TRANSFER'?'PARTIAL':'PASS')+
-   ' internal_source_only_no_auth_or_live_chart');
+  console.log('EVAL40 '+scenario.id+' '+evaluated.status+' evidence_derived missing='+evaluated.missingExternalEvidence.join(','));
  });
 }

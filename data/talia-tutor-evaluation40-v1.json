@@ -1,15 +1,15 @@
 {
   "id": "SMFGU-TALIA-EVAL-040",
-  "version": "1.1",
+  "version": "2.0",
   "date": "2026-11-01",
-  "methodology": "40 tests of actual source-only answerFromGuide responses; 10 each foundation, indicator math, misconception/followup, history/risk/transfer; source tests do not simulate authenticated memory or full chart ECharts sessions",
+  "methodology": "Forty scenarios execute the actual source-only answerFromGuide cycle. functions/_lib/talia-instructional-evaluation-v1.js derives PASS, FAIL, or PARTIAL from diagnosis, misconception classification, targeted correction, guided retry, independent transfer, limitation, no-grade and mathematical evidence plus explicitly required external evidence. Category never assigns the result. Missing authenticated continuity or authorized chart-cutoff evidence produces PARTIAL only after the core source cycle passes.",
   "counts": {
     "foundation": 10,
     "indicatorMath": 10,
     "misconceptionFollowup": 10,
     "historicalRiskTransfer": 10
   },
-  "resultsStatus": "TEST_EXECUTED_SOURCE_ONLY_REQUIRES_AUTHENTICATED_INDEPENDENT_ACCEPTANCE",
+  "resultsStatus": "EVIDENCE_DERIVED_20_PASS_20_PARTIAL_REQUIRES_AUTHENTICATED_AND_CHART_ACCEPTANCE",
   "publisherAcceptance": false,
   "scenarios": [
     {
