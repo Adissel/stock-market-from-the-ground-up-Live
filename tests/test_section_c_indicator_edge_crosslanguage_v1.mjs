@@ -5,7 +5,7 @@ import {execFileSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const expected=JSON.parse(execFileSync('python3',
- ['scripts/qa/section_c_indicator_edge_reference_v1.py'],{encoding:'utf8',timeout:8000}));
+ ['scripts/qa/section_c_indicator_edge_reference_v1.py'],{encoding:'utf8',timeout:30000}));
 const ctx={window:{},Intl,console};
 vm.createContext(ctx);
 vm.runInContext(readFileSync('assets/js/crownlight-indicator-math-v2.js','utf8'),ctx);
