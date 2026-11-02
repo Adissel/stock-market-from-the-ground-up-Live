@@ -120,3 +120,19 @@
 | 1.4 | 2026-11-02 | Gate 1 actual Chromium wheel-zoom acceptance assertion committed; CI results inaccessible | SOURCE TEST COMMITTED; RELEASE GATE OPEN |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.4 · No unsupported production acceptance claim.
+
+
+## November 2 — Next 40 gates: batch release integrity checkpoint
+**Scope interpretation:** The requested next 40 gates are acceptance/release checkpoints, not proof that 40 independent completed features exist. The existing requirement buckets 01–10 rendering, 11–20 interaction, 21–30 workstation and 31–42 indicators remain the controlling functional inventory. Do not silently equate these 42 requirements to the separate first-ten workflow gates.
+
+**Engineering action:** Existing ECharts Chromium integration test had a stale numeric volume payload assertion after production source changed volume bars to item-specific up/down/neutral color objects. Updated `tests/test_crownlight_echarts_studio_browser_v1.mjs` to assert the actual ECharts bar-object data with unchanged observed values; source commit `d54c12092988cd65bf4a481954e35f5b3d99b261` on `main`.
+
+**Release blockers:** A source test correction does not constitute a passing test run. GitHub's combined commit status endpoint returned no status contexts for that commit. Direct authenticated Chromium, exact-head GitHub Actions push result, and Cloudflare deployed-head confirmation remain unverified. Forty gates must NOT be marked released without their individual passing evidence. No further changes to chart engine, authentication, RLS, replay or payment were performed.
+
+**Next execution order:** 1. Obtain actual failing/passing Actions run log for latest `main`; 2. Repair real Chromium regressions (especially ECharts volume payload); 3. Confirm mouse drag/release and wheel-zoom acceptance; 4. Verify authenticated saved workspaces and two-chart synchronization; 5. Verify indicator math and 42 requirements one by one; 6. Match production Cloudflare SHA; 7. Approve only independently accepted gates.
+
+| Version | Date | Change | Status |
+| --- | --- | --- | --- |
+| 1.5 | 2026-11-02 | Align ECharts Chromium regression with directional volume rendering; record next 40 acceptance boundaries | Source correction committed; 40-gate release NOT ACCEPTED |
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.5 · No unverified CI, browser, member, or deployment sign-off.
