@@ -21,9 +21,10 @@ export function buildPublicSitemapV2({root,origin,pages}){
  const urls=[],seen=new Set();
  for(const page of pages){
   const path=page?.path;
-  assert(typeof path==='string'&&(path==='/'||/^\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)),
-   'Sitemap page must be a final extensionless route');
+  assert(typeof path==='string','Sitemap page path must be text');
   assert(!privateRoute.test(path),'Private or membership route excluded: '+path);
+  assert(path==='/'||/^\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path),
+   'Sitemap page must be a final extensionless route');
   const url=origin+path;
   assert(page.canonical===url,'SEO canonical and sitemap URL must match: '+path);
   assert(!seen.has(url),'Duplicate public sitemap location: '+url);seen.add(url);
