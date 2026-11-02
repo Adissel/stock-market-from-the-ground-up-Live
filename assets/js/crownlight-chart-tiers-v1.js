@@ -8,7 +8,7 @@ const LIB='https://cdn.jsdelivr.net/npm/klinecharts@10.1.0/dist/umd/klinecharts.
 const levels={STANDARD:0,ADVANCED:1,PROFESSIONAL:2};
 const names={STANDARD:'Standard · Lightweight Charts',ADVANCED:'Advanced · KLineChart',
  PROFESSIONAL:'Professional · Multi-chart KLineChart',ECHARTS:'Apache ECharts · Price & Volume Analytics'};
-const state={allowed:['STANDARD'],visible:['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],tier:'STANDARD',selected:'STANDARD',bars:[],autoStarted:false,authUserId:null,symbol:'REPLAY',
+const state={barSpacing:10,allowed:['STANDARD'],visible:['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],tier:'STANDARD',selected:'STANDARD',bars:[],autoStarted:false,authUserId:null,symbol:'REPLAY',
  timeframe:'1-minute',source:'',charts:[],version:0,verified:false,view:null,notice:null,loading:null,
  accessExpiry:null,accessKind:null,accessTier:null,expireRechecked:false,sparksAvailable:false,sparkOffers:[],sparkBalance:null,sparkLoadError:'',sparkLoading:false};
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
@@ -63,7 +63,7 @@ async function permission(){
   if(!isEntitled(state.selected)){state.selected='STANDARD';stopCharts()}
   status('Your verified access includes Crownlight '+state.tier+'. Advanced chart tools use the same revealed replay data.');
  }catch{if(authEpoch!==state.authEpoch)return;state.allowed=['STANDARD'];state.tier='STANDARD';state.verified=false;state.selected='STANDARD';stopCharts();
-  state.accessExpiry=null;state.accessKind=null;state.accessTier=null;
+  state.accessExpiry=null;state.accessKind=null;state.accessTier=null;state.barSpacing=10;
   status('Advanced chart permissions could not be verified. Standard chart remains available to eligible signed-in members.');}
  renderChoices();
  window.dispatchEvent(new CustomEvent('crownlight:tier-permission',{detail:{verified:state.verified,tier:state.tier}}));
@@ -494,6 +494,8 @@ function initOne(id,type){
  try{addStudyToChart(entry,'EMA')}catch(e){console.warn('EMA indicator unavailable',e)}
  if(type==='analysis')try{addStudyToChart(entry,'MACD')}catch(e){console.warn('MACD unavailable',e)}
  fitStudyPanes(entry);
+ // Reapply the member's in-session candle density after chart remounts.
+ if(typeof chart.setBarSpace==='function')chart.setBarSpace(state.barSpacing);
  return entry;
 }
 async function loadEngine(){
@@ -604,15 +606,16 @@ function createControls(){
  tools.append(indicator,add,remove,drawing,draw);
  const densityLabel=el('label','cl-tier-density-label','Candle density');
  const density=el('input','cl-tier-density-control');
- density.type='range';density.min='3';density.max='24';density.step='1';density.value='10';
+ density.type='range';density.min='3';density.max='24';density.step='1';density.value=String(state.barSpacing);
  density.setAttribute('aria-label','Candle width in pixels; adjusts both linked Professional charts');
- const densityValue=el('output','cl-tier-density-value','10 px');
+ const densityValue=el('output','cl-tier-density-value',state.barSpacing+' px');
  density.setAttribute('aria-describedby','cl-tier-density-value');
  densityValue.id='cl-tier-density-value';
  density.oninput=()=>{
   const spacing=Number(density.value);
   if(!Number.isFinite(spacing)||spacing<3||spacing>24)return;
   // Operate only on already-mounted charts. Never request extra bars.
+  state.barSpacing=spacing;
   for(const entry of state.charts){
    try{entry.chart.setBarSpace?.(spacing)}catch(error){
     console.warn('Candle density adjustment unavailable',error?.message);
@@ -662,7 +665,7 @@ async function init(){
      state.version++;state.bars=[];state.selected='STANDARD';state.autoStarted=false;
    state.sparkOffers=[];state.sparkBalance=null;state.sparkLoadError='';
    state.accessExpiry=null;state.accessKind=null;state.accessTier=null;
-     state.authUserId=null;stopCharts();
+     state.authUserId=null;state.barSpacing=10;stopCharts();
      // Clear saved member-private controls before the new account is verified.
      window.dispatchEvent(new CustomEvent('crownlight:member-changed'));
     }
