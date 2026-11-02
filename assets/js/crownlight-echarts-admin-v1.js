@@ -88,6 +88,13 @@
    new root.echarts.graphic.LinearGradient(0,0,1,0,[
     {offset:0,color:'#217ca4'},{offset:0.55,color:'#38a9d8'},
     {offset:1,color:'#75ddc5'}]):'#4cb9d9';
+  const sharedBar=bar?root.CrownlightVisualKitV1?.barOptions({
+   kind:'counts',
+   sourceLabel:snapshot.showcase===true?
+    'SYNTHETIC SHOWCASE (not operational data)':'Existing authorized Admin summary snapshot',
+   reducedMotion:!!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches,
+   items:items.map(item=>({label:item.label,value:item.value}))
+  }):null;
   const option=bar?{
    grid:{left:175,right:73,top:24,bottom:39,containLabel:false},
    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
@@ -122,7 +129,7 @@
    backgroundColor:'transparent',aria:{show:true,
     description:'Authorized operational record counts. '+describe+
      '. Record types are not mutually exclusive and do not represent a historical trend.'},
-   textStyle:{color:'#edf7fa'},...option
+   textStyle:{color:'#edf7fa'},...(sharedBar||option)
   },{notMerge:true});
   const label=snapshot.showcase===true?'SYNTHETIC SHOWCASE — not operational data':
    'Authorized Admin dashboard snapshot';
