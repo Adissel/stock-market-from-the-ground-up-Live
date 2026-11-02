@@ -76,6 +76,11 @@ try{
   await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
   for(const index of [10,13,14,17,18,19,20,21]){
    await page.locator('#academy-days .gu-bc-day').nth(index).click();
+   const disclosure=page.locator('#academy-legacy-guide');
+   await disclosure.waitFor({state:'attached'});
+   assert.equal(await disclosure.evaluate(el=>el.open),false,
+    'Supplementary advanced instruction must remain collapsed until requested');
+   await disclosure.locator(':scope > summary').click();
    const host=page.locator('#academy-guided-host .academy-guided-ten');
    await host.waitFor({state:'visible'});
    assert.match(await host.innerText(),/Suggested active-learning itinerary\s*[—–-]\s*45 minutes\s*\(self-paced\)/,
