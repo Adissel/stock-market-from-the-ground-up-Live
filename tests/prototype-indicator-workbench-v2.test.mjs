@@ -40,6 +40,34 @@ assert.ok(api.validSettings({emaFast:0,emaSlow:500,rsi:0,bbDeviation:70}).emaFas
 // These are original deterministic fixtures, not historical or predictive market evidence.
 const math=globalThis.CrownlightIndicatorMath;
 const near=(actual,expected,label)=>assert.ok(Number.isFinite(actual)&&Math.abs(actual-expected)<1e-9,label+': '+actual+' !== '+expected);
+// Multi-session acceptance: dates reset exchange-time HOD/LOD, opening range,
+// and HLC3 VWAP; untrusted proxy input never supplies chart mathematics.
+const sessionBars=[];
+for(const d of [7,8]){
+ for(let minute=0;minute<6;minute++){
+  const t=Date.UTC(2024,4,d,13,29+minute);
+  const c=d*10+minute;
+  sessionBars.push({time:new Date(t).toISOString(),o:c-.1,h:c+.3,l:c-.4,c,v:100+minute,
+   proxy:999999});
+ }
+}
+const onlySessions={...Object.fromEntries(api.specs.map(x=>[x.id,false])),
+ VWAP:true,HOD:true,LOD:true,OR:true};
+const sessions=api.compute(sessionBars,{orb:3},onlySessions);
+const sessionLine=label=>sessions.price.find(x=>x.label===label)?.data;
+assert.equal(sessionLine('Observed HOD')[0],null,'Premarket is not completed regular-session HOD');
+near(sessionLine('Observed HOD')[1],sessionBars[1].h,'First regular HOD');
+near(sessionLine('Observed HOD')[7],sessionBars[7].h,'Next-day HOD must reset');
+near(sessionLine('Observed LOD')[7],sessionBars[7].l,'Next-day LOD must reset');
+assert.equal(sessionLine('Opening range high')[3],null,'Opening range cannot confirm before all 3 minutes');
+near(sessionLine('Opening range high')[4],Math.max(...sessionBars.slice(1,4).map(b=>b.h)),'Completed opening range');
+assert.equal(sessionLine('Opening range high')[9],null,'New day opening range warmup must recur');
+const sessionProxy=sessionLine('HLC3 volume-weighted bar proxy');
+near(sessionProxy[1],(sessionBars[1].h+sessionBars[1].l+sessionBars[1].c)/3,'Regular-session VWAP reset');
+near(sessionProxy[7],(sessionBars[7].h+sessionBars[7].l+sessionBars[7].c)/3,'Next-session VWAP reset');
+assert(sessionProxy.every(x=>x===null||x<999999),'Never trust externally supplied proxy values');
+assert.throws(()=>api.compute([sessionBars[0],{...sessionBars[1],time:'1'}],{},onlySessions),
+ /Mixed dated and undated/,'Mixed dated and undated input cannot inherit a false session');
 // G1: a missing price invalidates only windows containing that missing observation.
 assert.deepEqual(math.sma([1,2,NaN,4,5,6],2),[null,1.5,null,null,4.5,5.5]);
 // G2: EMA starts from the exact SMA seed and uses alpha=2/(N+1).
