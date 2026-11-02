@@ -8,6 +8,7 @@ import {onRequest as activityRoute} from '../functions/api/member-lumen-activity
 import {onRequest as integrityRoute} from '../functions/api/member-lumen-integrity.js';
 assert.equal(awardPolicy.enabled,false);
 assert.equal(giftingPolicy.enabled,false);
+assert.equal(giftingPolicy.releasePhase,'V2_DEFERRED');
 assert.equal(rewardPreview({}).lumens,null);
 assert.equal(PLANNED_LUMEN_AMOUNT_V1.canonicalLab,2);
 assert.equal(plannedCompletionAmount('bootcamp','risk60'),130);
@@ -60,6 +61,8 @@ assert.match(sources[1],/gift-received-reversal/);
 assert.match(sources[3],/refreshIntegrity/);
 const giftUi=readFileSync('assets/js/crownlight-member-gifting-v1.js','utf8');
 assert.match(giftUi,/member-lumen-gifts/);
+assert.match(giftUi,/V1_MEMBER_GIFTING_DEFERRED=true/);
+assert.match(giftUi,/Member gifting — future release/);
 assert.match(giftUi,/toggle\(false\)/);
 assert.match(giftUi,/Verify recipient/);
 assert.match(giftUi,/Review and send Lumens/);
