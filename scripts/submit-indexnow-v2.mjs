@@ -8,8 +8,8 @@ import {readFileSync} from 'node:fs';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const host=new URL(origin).host;
 const key='0f6a1a00e2945eb90d24e5c5b6e75946';
-const paths=['/candle-practice.html','/free-foundations-challenge.html',
- '/market-vs-limit-orders.html','/support-resistance-basics.html'];
+const paths=['/candle-practice','/free-foundations-challenge',
+ '/market-vs-limit-orders','/support-resistance-basics'];
 const mode=process.argv.slice(2);
 assert(mode.length===1&&['--verify','--submit'].includes(mode[0]),'Use --verify or --submit');
 assert(/^[a-f0-9]{32}$/.test(key),'Invalid ownership key');
