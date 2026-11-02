@@ -1,0 +1,9 @@
+/* Professional Chart Studio theme bridge; presentation only; never touches learning engines. */
+(()=>{'use strict';
+if(location.pathname.split('/').pop()!=='simulator.html')return;
+const choices=['spectrum','ultraviolet','solar'],key='smfgu:appearance:v3';
+let current='spectrum';try{const saved=localStorage.getItem(key);if(choices.includes(saved))current=saved}catch(_){}
+function apply(value){const selected=choices.includes(value)?value:'spectrum';document.documentElement.setAttribute('data-cl-studio-theme',selected);document.body?.classList.add('cl-studio-spectrum');document.querySelectorAll('[data-cl-choice]').forEach(el=>el.setAttribute('aria-pressed',String(el.getAttribute('data-cl-choice')===selected)));try{localStorage.setItem(key,selected)}catch(_){}}
+function mount(){if(!document.body?.classList.contains('simulator-page'))return;const nav=document.querySelector('.site-header .navlinks');if(!nav||nav.querySelector('.cl-studio-theme-picker'))return;const group=document.createElement('div');group.className='cl-studio-theme-picker';group.setAttribute('role','group');group.setAttribute('aria-label','Chart Studio color theme');const label=document.createElement('span');label.textContent='Studio theme';group.append(label);for(const value of choices){const button=document.createElement('button');button.type='button';button.className='cl-studio-theme-button';button.setAttribute('data-cl-choice',value);button.setAttribute('aria-label',value==='spectrum'?'Spectrum colors':value==='ultraviolet'?'Ultraviolet colors':'Solar colors');button.title=button.getAttribute('aria-label');button.addEventListener('click',()=>apply(value));group.append(button)}nav.append(group);apply(current)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+})();
