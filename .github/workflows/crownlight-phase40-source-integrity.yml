@@ -1,0 +1,30 @@
+name: Crownlight Phase 40 Source Integrity (Free)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/test_crownlight_phase40_source_integrity_v1.mjs'
+      - '.github/workflows/crownlight-phase40-source-integrity.yml'
+permissions:
+  contents: read
+jobs:
+  phase40-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify forty Crownlight release source contracts
+        run: node tests/test_crownlight_phase40_source_integrity_v1.mjs
+      - name: Verify privacy, tier and member-workspace contracts
+        run: |
+          node tests/test_crownlight_chart_studio_v2.mjs
+          node tests/test_crownlight_chart_tiers_v1.mjs
+          node tests/test_crownlight_professional_density_v1.mjs
+          node tests/test_crownlight_chart_workspace_v2.mjs
+          node tests/test_crownlight_lab_handoff_v2.mjs
