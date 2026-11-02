@@ -36,13 +36,13 @@
    <div class="v11-tool-meta"><span class="v11-badge ${released?'active':''}">${esc(String(t.status||'planned').toUpperCase())}</span>
    <span class="v11-badge">${money(t.individual_price_cents)}/mo</span></div><div class="actions">
    <a class="btn secondary" href="${esc(t.href||'tools.html')}">${t.status==='planned'?'Preview Roadmap':'View Tool'}</a>${buy}</div></article>`}
- function matrix(plans,tools,links){const cols=plans.filter(p=>['FREE','FULL_MONTHLY','FULL_ANNUAL','LIFETIME'].includes(p.plan_code)),set=new Set(links.map(x=>`${x.plan_code}|${x.tool_code}`));
- return `<table class="catalog-comparison"><caption>Membership benefits · ✓ Included · X Not included. Product terms and release status apply.</caption><thead><tr><th>Feature</th>${cols.map(p=>`<th>${esc(p.name)}</th>`).join('')}<th>Pick Your Tools</th></tr></thead><tbody>${tools.filter(t=>t.status!=='retired').map(t=>
+ function matrix(plans,tools,links){const cols=plans.filter(p=>['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60'].includes(p.plan_code)),set=new Set(links.map(x=>`${x.plan_code}|${x.tool_code}`));
+ return `<table class="catalog-comparison"><caption>Membership benefits · ✓ Included · X Not included. Product terms and release status apply.</caption><thead><tr><th>Feature</th>${cols.map(p=>`<th>${esc(p.name)}</th>`).join('')}</tr></thead><tbody>${tools.filter(t=>t.status!=='retired').map(t=>
  `<tr><td>${esc(t.name)}</td>${cols.map(p=>`<td>${set.has(`${p.plan_code}|${t.tool_code}`)||p.includes_all_tools?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':'<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span>'}</td>`).join('')}
- <td>${t.status==='live'?`<span>${money(t.individual_price_cents)}/month</span>`:'<span>Not yet offered</span>'}</td></tr>`).join('')}
- <tr><td>Book companion learning (not ebook files)</td>${cols.map(p=>`<td>${p.includes_all_books?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':'<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span><small class="catalog-cell-note">Separate access</small>'}</td>`).join('')}<td>Books separately</td></tr>
- <tr><td>Five designated downloadable eBooks (when distribution is authorized)</td>${cols.map(p=>`<td>${p.plan_code==='LIFETIME'?'Included when available':'Separate purchase'}</td>`).join('')}<td>Separate purchase</td></tr>
- <tr><td>Advertisements</td>${cols.map(p=>`<td>${esc(adLabel(p))}</td>`).join('')}<td>May display ads</td></tr></tbody></table>`}
+ </tr>`).join('')}
+ <tr><td>Book companion learning (not ebook files)</td>${cols.map(p=>`<td>${p.includes_all_books?'<span class="catalog-coverage is-included" role="img" aria-label="Included">✓</span>':'<span class="catalog-coverage is-excluded" role="img" aria-label="Not included">X</span><small class="catalog-cell-note">Separate access</small>'}</td>`).join('')}</tr>
+ <tr><td>Five designated downloadable eBooks (when distribution is authorized)</td>${cols.map(p=>`<td>${'Separate purchase'}</td>`).join('')}</tr>
+ <tr><td>Advertisements</td>${cols.map(p=>`<td>${esc(adLabel(p))}</td>`).join('')}</tr></tbody></table>`}
  function cleanMembershipPage(){document.querySelectorAll('h1,h2,h3').forEach(h=>{if(/^Book Companion Access$/i.test((h.textContent||'').trim()))(h.closest('section,article,.card,.product-card')||h.parentElement)?.remove()});
   document.querySelectorAll('p').forEach(p=>{if(/Book Companion Access remains separate from membership/i.test(p.textContent||''))p.textContent='Book companion learning is included in Full and Lifetime memberships. Downloadable eBooks are separate except for the five designated Lifetime editions when digital distribution is authorized.'})}
  async function init(){cleanMembershipPage();const cur=document.getElementById('membership-current');try{const d=await load();
