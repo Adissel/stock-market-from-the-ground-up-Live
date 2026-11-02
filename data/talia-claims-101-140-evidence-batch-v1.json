@@ -5,7 +5,7 @@
   "reviewedCount": 40,
   "sourcePagesIndividuallyRead": 6,
   "independentlyPublished": 0,
-  "status": "NINE_ADDITIONAL_PRIMARY_SOURCE_SCOPES_2026_11_01_ALL_PUBLICATION_HOLD",
+  "status": "THREE_ADDITIONAL_CLAIM_SCOPE_CORRECTIONS_NOT_PUBLICATION_SIGNOFF",
   "rows": [
     {
       "number": 101,
@@ -29,17 +29,25 @@
       "code": "TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN",
       "title": "Cash dividends and share-price changes must both enter a holding-period return",
       "category": "dividend",
-      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and",
+      "source": "https://www.investor.gov/introduction-investing",
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and",
       "originalWorkedCase": "FICTIONAL: Buy at $40.00, sell at $39.00 and receive $1.50 cash dividend per share. Total price-plus-cash return = (39 − 40 + 1.50)/40 = 1.25%, although price alone fell 2.50%.",
       "originalReviewCaveat": "The calculation omits transaction costs, taxes, reinvestment dates and any corporate actions; ex-date adjustments alone are not a free return.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov states investment return can arise from changes in asset value or dividend and interest payments; the ex-dividend eligibility reference does not on its own establish total investment return or price-only performance. Fictional price-plus-cash math still needs independent review.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "current SEC Investor.gov publicly accessible source article, reviewed for claim-specific scope",
+        "sourcePage": "https://www.investor.gov/introduction-investing",
+        "sourceScopeChecked": true,
+        "mathIndependentlyAccepted": false,
+        "rightsSeparatelyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 103,
@@ -221,13 +229,21 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
       "originalWorkedCase": "FICTIONAL: A contractual $1,000 one-year payment valued at $952.38 at 5% becomes $909.09 at 10% under unchanged promised payment assumptions. Separately, if repayment were only $900 certain at 5%, its illustrative PV would be $857.14. These are different hypothetical changes.",
       "originalReviewCaveat": "Real markets combine uncertain probabilities, recovery rates, liquidity, taxes and rate changes; neither demonstration is a complete pricing model.",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov Bonds FAQ separately identifies credit/default risk and interest-rate price risk. Do not present issuer default and market-yield sensitivity as the same risk or assert a guaranteed bond resale price.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "current SEC Investor.gov publicly accessible source article, reviewed for claim-specific scope",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "sourceScopeChecked": true,
+        "mathIndependentlyAccepted": false,
+        "rightsSeparatelyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 113,
@@ -409,13 +425,21 @@
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
       "originalWorkedCase": "FICTIONAL: $100 earns +10% to $110, then loses 10% of $110, ending $99. Full-period return = 1.10×0.90−1 = −1%, not zero.",
       "originalReviewCaveat": "Contributions, withdrawals, distributions and valuation gaps change the account-return calculation, and observed historical percentages do not forecast lat",
-      "sourceFactScope": "SOURCE_CANDIDATE_ONLY_NO_INDEPENDENT_EXACT_CLAIM_SIGNOFF",
-      "sourceStatus": "CANONICAL_URL_AND_CONCEPT_MAPPED",
+      "sourceFactScope": "Investor.gov Introduction to Investing describes compounding returns on previously earned returns; it does not verify a specific portfolio's future yield or justify assuming a constant market return. Numeric hypothetical sequences remain independently testable.",
+      "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
       "thirdPartyRights": "NOT_APPROVED",
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
-      "independentPublicationApproved": false
+      "independentPublicationApproved": false,
+      "internalScopeVerification": {
+        "basis": "current SEC Investor.gov publicly accessible source article, reviewed for claim-specific scope",
+        "sourcePage": "https://www.investor.gov/introduction-investing",
+        "sourceScopeChecked": true,
+        "mathIndependentlyAccepted": false,
+        "rightsSeparatelyAccepted": false,
+        "publicationAccepted": false
+      }
     },
     {
       "number": 123,
