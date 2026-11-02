@@ -288,7 +288,7 @@ if(tier==='PROFESSIONAL'){
  assert.equal(Number(await divider.getAttribute('aria-valuenow')),moved,
   'Releasing pointer must stop resizing immediately');
  const density=page.locator('.cl-tier-density-control');
- await density.fill('14');
+ await density.evaluate(input=>{input.value='14';input.dispatchEvent(new Event('input',{bubbles:true}));});
  assert.equal(await page.locator('.cl-tier-density-value').innerText(),'14 px',
   'Professional candle-density control must reflect requested spacing');
  console.log('PASS Professional real Chromium divider keyboard, hold/drag, release-stop and density control.');
