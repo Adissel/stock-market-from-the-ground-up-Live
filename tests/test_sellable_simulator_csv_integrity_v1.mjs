@@ -51,7 +51,9 @@ assert.equal(env.parseCSV(quoted).length,2,'Quoted CSV metadata must not break p
 assert(!script.includes("/fictional/i.test(String(SIM.sourceName"),'Fictional source cannot be inferred from upload filename');
 assert(script.includes('SIM.originalFictional===true'));
 assert(script.includes('SIM.sourceName=file.name;SIM.sourceProvider=')&&script.includes('SIM.originalFictional=false'));
-assert(script.includes('SIM.candles=starter.generate();SIM.sourceName=starter.source;SIM.originalFictional=true'));
+assert(script.includes('SIM.candles=starter.generate();SIM.sourceName=starter.source;')&&
+ script.includes('SIM.originalFictional=true'),
+ 'Original fictional data remains explicitly classified independently of its filename');
 assert(script.includes("sourceProvider='csv_upload'"),'Legacy Journal source enum remains unchanged');
 assert(script.includes("if(file.size>SIM_CSV_MAX_BYTES)"),'Bound member file before buffering');
 assert(script.includes('SIM.index=warm')&&script.includes('SIM.candles.slice(start,end+1)'),

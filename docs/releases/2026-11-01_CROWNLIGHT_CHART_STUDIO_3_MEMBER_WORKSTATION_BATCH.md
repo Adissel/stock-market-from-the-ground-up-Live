@@ -25,6 +25,8 @@
 
 ## Remaining release gates and rollback
 
+The first hosted source SHA `0229ae06829f3437d94818fee8f727447387b1ae` exposed two stale literal-source assertions in `test_sellable_simulator_csv_integrity_v1.mjs` and `test_crownlight_paper_workbench_v3.mjs`. Both were corrected to check the retained fictional classification and the new width/spacing/right-buffer logic; their local tests pass. The cancelled sitewide run and the unrelated credentialed live-browser timeout are not passing evidence. Check the next exact SHA before accepting production.
+
 Genuine signed-in Free, Founding, Professional Owner, restricted, and two-account tests remain open. Personal Tiingo/Alpaca import must be verified with authorized provider access and rights; official historical replay must keep its server cutoff. Keyboard and screen-reader manual acceptance, actual performance, sitewide CI, Cloudflare matching-SHA deployment, and consolidated Owner acceptance remain open. The 73 Tutor indicator guides remain source research; they are not 73 released live chart controls.
 
 Rollback is the previous `main` SHA recorded in this batch's commit parent. Revert this source commit through normal protected `main` workflow if the new UI or chart range fails production verification. No schema/data rollback is needed. Preserve account-specific workspaces and member records.
