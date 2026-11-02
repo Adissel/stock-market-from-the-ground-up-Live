@@ -84,7 +84,7 @@ const toolSummary=(t,page)=>{const d=String(t.description||'').replace(/\s+/g,' 
  return d.length>120?esc(d.slice(0,120).trimEnd())+'… <a class="gu-catalog-read-more" href="'+esc(page)+'">Read more</a>':esc(d||'See the full product details.')};
 function toolCard(t){
  const page=details('tool',t.toolCode),released=activeTool(t),enroll=released&&t.checkoutEnabled;
- const price=Number(t.priceCents)>0?dollars(t.priceCents)+'/month':t.toolCode==='ONDEMAND_TRAINING'?'Included with Historical Replay Learning — $19.99/month':'Included with eligible membership';
+ const price=Number(t.priceCents)>0?dollars(t.priceCents)+'/month':t.toolCode==='ONDEMAND_TRAINING'?'Availability and price to be confirmed':'Included with eligible membership';
  const action=enroll?'<a class="btn" href="checkout.html?type=tool&amp;code='+encodeURIComponent(t.toolCode)+'">Subscribe Now</a>':
  '<span class="store-soon-label">'+(released?'Purchasing opens soon':'Beta / development · Individual checkout unavailable')+'</span>';
  return `<article class="v11-tool-card store-sell-card">${toolImages[t.toolCode]?`<a class="store-tool-visual" href="${esc(page)}" aria-label="Explore ${esc(t.name)}"><img src="${esc(toolImages[t.toolCode])}" alt="" loading="lazy" width="640" height="320"></a>`:'<div class="store-tool-visual store-tool-visual-generic" aria-hidden="true"></div>'}<div class="eyebrow">${esc(t.category)}</div>
