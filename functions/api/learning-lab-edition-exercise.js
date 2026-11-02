@@ -59,6 +59,18 @@ function entitlement(rows,actorId,family,edition,env){
  }
  return null;
 }
+export async function authorizeEditionRequest({request,env,family,edition}){
+ if(!['learning','lab'].includes(family)||!EDITIONS.includes(edition))
+  throw err('Unsupported edition or exercise.',400);
+ const access=await toolAccess(env,request,FAMILY_TO_TOOL[family]);
+ if(access.authorized!==true||!access.userId)
+  throw err(access.reason||'Premium learning edition access required.',403);
+ const rows=await records(env,access.userId);
+ const authorization=entitlement(rows,access.userId,family,edition,env);
+ if(!authorization?.ok)
+  throw err('Requested learning edition is not authorized.',403);
+ return {memberId:access.userId,family,edition,authorization};
+}
 function sameOrigin(req){
  const origin=req.headers.get('origin'),site=req.headers.get('sec-fetch-site');
  if(origin&&origin!==new URL(req.url).origin)throw err('Cross-origin requests denied.',403);
