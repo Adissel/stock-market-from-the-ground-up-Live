@@ -5,24 +5,25 @@ function cfg(env){const url=clean(env.SUPABASE_URL).replace(/\/$/,'');const pub=
 async function raw(url,opts={}){const r=await fetch(url,opts),t=await r.text();let d={};try{d=t?JSON.parse(t):{}}catch{d={raw:t}}if(!r.ok)throw Object.assign(new Error(d.message||d.error||t||`HTTP ${r.status}`),{status:r.status});return d}
 async function rest(env,path,{method='GET',body,prefer}={}){const {url,secret}=cfg(env),headers={apikey:secret,authorization:`Bearer ${secret}`,accept:'application/json'};if(body!==undefined)headers['content-type']='application/json';if(prefer)headers.prefer=prefer;return raw(`${url}/rest/v1/${path}`,{method,headers,body:body===undefined?undefined:JSON.stringify(body)})}
 async function maybeUser(env,req){const h=req.headers.get('authorization')||'';if(!h.startsWith('Bearer '))return null;const {url,pub}=cfg(env);try{return await raw(`${url}/auth/v1/user`,{headers:{apikey:pub,authorization:h}})}catch{return null}}
-const active=(status,end)=>['active','trialing'].includes(String(status||''))&&(!end||new Date(end)>new Date());
-async function accessCode(env,uid){
-  if(!uid)return 'SIGNED_OUT';
-  // Use the canonical entitlement resolver first so ad frequency always follows the
-  // same effective membership shown in Profile, even when grants/subscriptions overlap.
-  try{
-    const resolved=await rest(env,'rpc/my_platform_access_for_user',{method:'POST',body:{target_user:uid}});
-    const obj=Array.isArray(resolved)?resolved[0]:resolved;
-    const code=clean(obj?.planCode||obj?.plan_code);
-    if(code)return code;
-  }catch{}
-  // Conservative fallback for schema-cache/transient RPC failures.
-  try{const roles=await rest(env,`admin_user_roles?select=role_code,expires_at&user_id=eq.${encodeURIComponent(uid)}`);if((roles||[]).some(r=>r.role_code==='OWNER'&&(!r.expires_at||new Date(r.expires_at)>new Date())))return 'OWNER'}catch{}
-  try{const grants=await rest(env,`user_plan_grants?select=plan_code,status,ends_at&user_id=eq.${encodeURIComponent(uid)}&status=in.(active,trialing)`);for(const code of ['LIFETIME','FULL_ANNUAL','FULL_MONTHLY'])if((grants||[]).some(g=>g.plan_code===code&&active(g.status,g.ends_at)))return code}catch{}
-  try{const subs=await rest(env,`site_subscriptions?select=plan_code,status,current_period_end&user_id=eq.${encodeURIComponent(uid)}&status=in.(active,trialing)`);for(const code of ['LIFETIME','FULL_ANNUAL','FULL_MONTHLY'])if((subs||[]).some(s=>s.plan_code===code&&active(s.status,s.current_period_end)))return code}catch{}
-  try{const ent=await rest(env,`entitlements?select=product_key,status,ends_at&user_id=eq.${encodeURIComponent(uid)}&status=in.(active,trialing)`);if((ent||[]).some(e=>e.product_key==='full_learning_access'&&active(e.status,e.ends_at)))return 'BOOK_TRIAL'}catch{}
-  try{const passes=await rest(env,`user_tool_passes?select=id,status,ends_at,current_period_end&user_id=eq.${encodeURIComponent(uid)}&status=in.(active,trialing)&limit=1`);if((passes||[]).some(p=>active(p.status,p.ends_at||p.current_period_end)))return 'PICK_WHAT_YOU_WANT'}catch{}
-  return 'FREE';
+// Ad targeting must use the same authenticated self-account summary as the
+// member dashboard. Service-side arbitrary-user legacy helpers have different
+// historical term rules; do not infer a paid plan from raw grants or passes.
+async function accessCode(env,req,uid){
+ if(!uid)return 'SIGNED_OUT';
+ const bearer=String(req.headers.get('authorization')||'');
+ if(!/^Bearer\\s+\\S+$/i.test(bearer))return 'UNVERIFIED';
+ try{
+  const {url,pub}=cfg(env);
+  const resolved=await raw(url+'/rest/v1/rpc/my_platform_access',{
+   method:'POST',cache:'no-store',
+   headers:{apikey:pub,authorization:bearer,accept:'application/json',
+    'content-type':'application/json'},body:'{}'});
+  const account=Array.isArray(resolved)?resolved[0]:resolved;
+  if(account?.authenticated!==true||account?.synthetic===true||
+     account?.productionEntitlements===false)return 'UNVERIFIED';
+  const code=clean(account.planCode||account.plan_code);
+  return /^[A-Z][A-Z0-9_]{1,70}$/.test(code)?code:'UNVERIFIED';
+ }catch{return 'UNVERIFIED'} // Unknown access never receives a paid or Free ad policy.
 }
 async function policy(env,code){try{return (await rest(env,`plan_ad_policies?select=*&access_code=eq.${encodeURIComponent(code)}&limit=1`))?.[0]||null}catch{return null}}
 async function event(env,campaign,creative,slot,type,userId,page,sessionToken,code){try{await rest(env,'ad_events',{method:'POST',prefer:'return=minimal',body:{campaign_id:campaign||null,creative_id:creative||null,placement_code:slot||null,event_type:type,user_id:userId||null,page_path:page||null,session_token:sessionToken||null,access_code:code||null}})}catch{}}
@@ -59,7 +60,7 @@ export async function onRequest(context){
           :new Response('Not found',{status:404,headers:{'cache-control':'no-store'}});
       }
     }
-    const usr=await maybeUser(env,request),code=await accessCode(env,usr?.id);
+    const usr=await maybeUser(env,request),code=await accessCode(env,request,usr?.id);
     if(action==='serve'){
       const p=await policy(env,code);if(!p?.ads_enabled)return json({ok:true,creative:null,adFree:true,accessCode:code});
       const slot=clean(u.searchParams.get('slot')),sid=clean(u.searchParams.get('sid')).slice(0,100),page=clean(u.searchParams.get('page'));
