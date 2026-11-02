@@ -101,3 +101,5 @@
 #tp-workspace .tp-instruction-steps button[aria-pressed=true]{background:#125752;border-color:#5de1c5;box-shadow:inset 0 0 0 1px #5de1c566}
 #tp-workspace .tp-instruction-steps button:focus-visible,#tp-workspace .tp-instruction-controls input:focus-visible,#tp-workspace .tp-instruction-controls select:focus-visible{outline:3px solid #a8f0de;outline-offset:2px}
 @media(max-width:620px){#tp-workspace .tp-instruction-steps{grid-template-columns:repeat(2,minmax(0,1fr))}#tp-workspace .tp-instruction-controls{grid-template-columns:1fr}}
+
+.tp-candle-audit{margin:1rem 0;border:1px solid #446377;border-radius:10px;padding:.75rem;background:#0a1c2b}.tp-candle-audit summary{cursor:pointer;font-weight:650;color:#d9f5f1;padding:.25rem}.tp-candle-audit summary:focus-visible{outline:3px solid #73e2cf;outline-offset:3px}.tp-candle-audit-scroll{max-height:320px;overflow:auto}.tp-candle-audit .tc-candle-table{min-width:570px;width:100%}.tp-candle-audit button{min-width:106px}
