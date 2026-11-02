@@ -105,6 +105,9 @@ export async function onRequest({request,env}){
    if(body.payload.manifest!==undefined||body.payload.sourceRights!==undefined||
       body.payload.historical!==undefined)
     throw err('External research sources require separately verified rights.',403);
+   const embargo=body.payload.embargo??2;
+   if(!Number.isSafeInteger(embargo)||embargo<1||embargo>3)
+    throw err('Chronological holdout embargo must be 1 to 3 observations.',400);
    const completed=derived.evidence.bars;
    const trainEnd=Math.floor(completed.length*.6);
    const training=completed.slice(0,trainEnd).map(x=>x.close);
@@ -116,7 +119,7 @@ export async function onRequest({request,env}){
       asOf:derived.evidence.asOf,rights:'verified_for_requested_use',
       serverRightsVerified:true}],
      observations:completed.map(x=>({timestamp:x.timestamp,value:x.close})),
-     embargo:2,
+     embargo,
      sensitivity:[{method:'Training-only trailing mean',parameter:3,result:mean(3),
       holdoutUsedForSelection:false},
       {method:'Training-only trailing mean',parameter:5,result:mean(5),
