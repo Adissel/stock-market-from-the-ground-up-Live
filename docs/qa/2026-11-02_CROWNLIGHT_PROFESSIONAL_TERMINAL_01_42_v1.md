@@ -76,3 +76,32 @@
 | 1.2 | 2026-11-02 | Pointer capture hardening, tested server normalization cases and Professional visual refinement | Committed; integrated CI/browser acceptance OPEN |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.2 · This is source-only evidence, not deployed release certification.
+
+
+## November 2 — first-ten reconciliation and ECharts volume contrast
+**Scope:** Owner-directed first batch of ten quality and acceptance requirements; existing Standard/Advanced/Professional/ECharts implementations remain in place.
+
+| Gate | Source assessment | Acceptance |
+| --- | --- | --- |
+| 1. Reconcile chart engines | Standard Lightweight Charts; Advanced/Professional KLineChart; ECharts alternate study surface | Source reviewed; production parity OPEN |
+| 2. Mouse drag / release | Standard `kineticScroll.mouse=false`; prototype pointer release fixes present | Authenticated browser drag/release OPEN |
+| 3. Zoom, crosshair and density | Existing wheel/zoom controls, linked ECharts axes, Professional 3–24 spacing | Browser precision and input devices OPEN |
+| 4. Candle / volume graphics | ECharts candles already distinguish up/down. ECharts volume bars changed from uniform blue to green/up, red/down and neutral/doji, using ONLY revealed bar open/close/volume | SOURCE CHANGE COMMITTED; visual acceptance OPEN |
+| 5. Professional synchronization | Two-chart event synchronization and ResizeObserver source exist | Actual viewport/panel alignment browser QA OPEN |
+| 6. Authentication / persistence | Existing server entitlement and `/api/chart-workspace` member-private persistence unchanged | Real authenticated / RLS QA OPEN |
+| 7. Regression and CI | Existing Node/Playwright chart workflow contains chart regression gates | Exact final SHA CI OPEN |
+| 8. Production deployment | Cloudflare deployed commit was not independently retrieved | Deployed SHA comparison OPEN |
+| 9. QA traceability | This register updated with code evidence and outstanding gates | Register source COMMITTED; release not accepted |
+| 10. Next batch | Deferred until the first batch's browser, CI and deployment gates succeed | NOT STARTED |
+
+**Source change:** `assets/js/crownlight-echarts-studio-v1.js` commit `c2e213365731f64159b76b993cc393439f9b9c14`. Bar-value data remain unchanged. This is not an indicator formula or price-data change and does not introduce market feeds or dependencies.
+
+**Verification limits:** GitHub connector source read/write is not equivalent to executing the site's Chromium suite. No browser, CI, production or accessibility sign-off is claimed here. No SQL migration, payment action, membership change, private grading or third-party data entitlement change.
+
+**Rollback:** Revert ECharts chart source commit `c2e213365731f64159b76b993cc393439f9b9c14` if the changed volume color semantics cause regression. The historical volume remains untouched.
+
+| Version | Date | Description | Status |
+| --- | --- | --- | --- |
+| 1.3 | 2026-11-02 | Reconcile first ten gates; ECharts directional volume visual correction; acceptance blockers recorded | Partial source implementation; release acceptance OPEN |
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.3 · Source-only evidence, pending exact-head release acceptance.
