@@ -3,7 +3,7 @@
 **Project:** The Stock Market: From the Ground Up / Crownlight Chart Studio
 **Company:** Cyber Nexus Publishing / Crown & Lantern Press
 **Filename / file type:** `docs/qa/2026-11-02_CROWNLIGHT_PROFESSIONAL_TERMINAL_01_42_v1.md` / Markdown
-**Version / date:** 1.7 / 2026-11-02
+**Version / date:** 1.8 / 2026-11-02
 **Status:** PARTIAL TECHNICAL ACCEPTANCE — historical real Chromium and two-account isolation ACCEPTED; full 42-item crosswalk and final-head release certification OPEN
 **Authoritative location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`
 **Google Drive location / document ID:** Not created / unassigned
@@ -167,3 +167,14 @@ The Owner explicitly states: “I reviewed, accepted and sign off on everything 
 **Revision history:** v1.7, 2026-11-02 — restored independently confirmed historical authenticated Chromium and real-member isolation acceptance, recorded Owner/member sign-off, and corrected cross-register percentage interpretation.
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.7 · Historical acceptance preserved; final 42-item certification crosswalk remains controlled.
+
+
+## No-repeat acceptance crosswalk — controlling supplement v1.8
+
+**Owner-approved continuity:** See `docs/qa/2026-11-02_OWNER_ACCEPTANCE_NO_REPEAT_CROSSWALK_v1.md` (`SMFGU-QA-NOREPEAT-001`), containing 18 already accepted, reviewed or previously verified activities and the applicable CI URLs. The accepted real Standard/Advanced/Professional Chromium sessions, two-member private workspace isolation, two-tab CAS, Chart Studio Owner-verified core synchronization, and Owner editorial approval of the current 419 Labs and Boot Camps **must not be requested again as new Owner work**. Execute only changed-code regression or genuinely untested scenarios. Preserve historical releases as historical evidence; do not assert new current-head parity from old runs.
+
+**Scoring correction:** `0/42 formal closures` is an administrative traceability deficit, **not** a software-completion percentage. The controlling **distinct** 14-gate Chart Studio register has 3/14 fully accepted (21.4%), 10 partial and one open; its count is not interchangeable with the 42-item ledger. The 42 register currently presents four ten-/twelve-item ranges rather than forty-two individual signed criteria. Do not invent item-level acceptance until an item-specific crosswalk exists. Source tests and historical real-member evidence are to be reused, not re-executed without a changed acceptance surface.
+
+**Revision history:** v1.8 / 2026-11-02 — added authoritative no-repeat crosswalk, protected accepted Owner/member Chromium/isolation, clarified progress denominators and narrowed future acceptance to actual deltas.
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.8 · Owner acceptance preserved; final released SHA and unmapped per-item criteria remain separate.
