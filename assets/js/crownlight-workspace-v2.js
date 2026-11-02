@@ -78,7 +78,10 @@ function applyLayout(){
  const container=document.getElementById('cl-chart-tier-switcher');
  if(container){
   container.dataset.clLayout=eligible?layout:'SIDE_BY_SIDE';
-  const ratio=eligible&&Number.isInteger(workspace.panelRatio)?Math.max(25,Math.min(75,workspace.panelRatio)):50;
+  // Price Focus defaults to a readable 2:1 left/right split. Keep the member's
+  // explicitly adjusted ratio when present; normal side-by-side remains 1:1.
+  const defaultRatio=layout==='PRICE_FOCUS'?67:50;
+  const ratio=eligible&&Number.isInteger(workspace.panelRatio)?Math.max(25,Math.min(75,workspace.panelRatio)):defaultRatio;
   container.style.setProperty('--cl-pro-primary',ratio+'fr');
   container.style.setProperty('--cl-pro-secondary',(100-ratio)+'fr');
   container.style.setProperty('--cl-pro-handle',ratio+'%');
