@@ -6,8 +6,8 @@ import {enginePolicyForPlan} from '../functions/_lib/learning-engine-tier-policy
 const load=()=>JSON.parse(readFileSync('data/learning-lab-engine-feature-audit-v1.json','utf8'));
 test('64 distinct evidence-backed features, eight each by engine and edition',()=>{
  const r=featureReport(load());assert.equal(Object.keys(r).length,8);
- assert.equal(r.learning_BASIC.integrated,5);assert.equal(r.learning_BASIC.pct,62.5);
- assert.equal(r.lab_BASIC.integrated,5);assert.equal(r.lab_BASIC.pct,62.5);
+ assert.equal(r.learning_BASIC.integrated,6);assert.equal(r.learning_BASIC.pct,75);
+ assert.equal(r.lab_BASIC.integrated,6);assert.equal(r.lab_BASIC.pct,75);
  for(const [key,v] of Object.entries(r)){
   assert.equal(v.total,8);assert.equal(v.releaseAccepted,0);
   if(!key.endsWith('_BASIC'))assert.equal(v.integrated,0);
