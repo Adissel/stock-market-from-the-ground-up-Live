@@ -1,0 +1,44 @@
+/* SMFGU Experience V7 — independent page identities, no Lab/Boot Camp selectors. */
+:root{--sm-ink:#e9f3fb;--sm-muted:#aec5d7;--sm-brass:#e3bb75;--sm-line:rgba(132,182,210,.26)}
+body.sm-experience-v7{background:#071624;color:var(--sm-ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+body.sm-experience-v7 .site-header{position:relative!important;top:auto!important;background:#091421!important;border-bottom:1px solid #264357!important;z-index:20}
+body.sm-experience-v7 .site-header .wrap.nav{max-width:1440px;min-height:74px;align-items:center}
+body.sm-experience-v7 .site-header .navlinks{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+body.sm-experience-v7 .site-header .navlinks a{font-weight:650;font-size:.88rem}
+body.sm-experience-v7 .site-header .gu-nav-register{background:#e2c084;color:#0d2134!important;border-radius:8px}
+body.sm-experience-v7 .site-header .gu-nav-signin{border:1px solid #466279;border-radius:8px}
+body.sm-experience-v7 .site-header .brand{letter-spacing:.015em;font-weight:770}
+body.sm-experience-v7 .footer{background:#07111d!important;border-top:1px solid #2c4558}
+body.sm-experience-v7 :is(button,a,input,select):focus-visible{outline:3px solid #52d8d0;outline-offset:3px}
+/* Home: architectural editorial identity with restrained heading and functioning training graphic */
+body.sm-experience-v7 .sm-v5-home{background:linear-gradient(120deg,#0a1829 5%,#102a36 100%)!important}
+body.sm-experience-v7 .sm-v5-copy h1{font-size:clamp(2.5rem,4.35vw,4.8rem)!important;line-height:1.11!important;font-weight:660!important;max-width:740px!important;letter-spacing:-.04em!important}
+body.sm-experience-v7 .sm-v5-terminal{border-radius:14px!important;background:#0a1c2c!important}
+body.sm-experience-v7 .sm-v5-terminal-head{background:#142b3f}
+body.sm-experience-v7 .sm-v5-home .sm-v5-stat strong{font-size:2rem}
+/* Store: distinct editorial catalogue identity and visible product categories */
+body.sm-experience-v7 main.gu-redesign-store{background:linear-gradient(180deg,#0e1a2a,#091522 46%,#101d2c)!important}
+body.sm-experience-v7 .sm-v5-store-hero{background:linear-gradient(115deg,#173047,#183849)!important;border:1px solid #4b6978!important;border-radius:12px!important}
+body.sm-experience-v7 .sm-v5-store-hero h1{font-family:Georgia,"Times New Roman",serif!important;font-weight:500!important;letter-spacing:-.035em!important;max-width:710px}
+body.sm-experience-v7 .gu-redesign-store [id^="store-panel-"]{min-width:0}
+body.sm-experience-v7 .gu-redesign-store :is(.card,.store-card,.product-card){border:1px solid #355066;border-radius:12px;background:linear-gradient(155deg,#14273a,#102133);box-shadow:0 12px 35px rgba(0,0,0,.14)}
+/* Dashboard: retain every original statistic and member-owned data binding */
+body.sm-experience-v7 .gu-member-dashboard-shell{background:#0b1728!important;color:#eaf2fa}
+body.sm-experience-v7 .gu-member-dashboard-shell .gu-member-side-menu{position:static!important;background:#101f31!important;border-right:1px solid #385369}
+body.sm-experience-v7 .gu-member-dashboard-shell main{min-width:0}
+body.sm-experience-v7 .gu-member-dashboard-shell .gu-dashboard-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:25px;padding:clamp(25px,3vw,45px)!important;background:linear-gradient(120deg,#16374a,#112337)!important;border:1px solid #456477;border-radius:15px;margin:10px 0 24px!important}
+body.sm-experience-v7 .gu-member-dashboard-shell .gu-dashboard-intro h1{font-size:clamp(2.2rem,3vw,3.6rem);color:#f6f9fd;font-weight:650}
+body.sm-experience-v7 .gu-member-dashboard-shell .dashboard-stat-grid{gap:14px}
+body.sm-experience-v7 .gu-member-dashboard-shell .dashboard-stat{background:#132b3d!important;border:1px solid #355569!important;border-radius:12px!important;padding:19px!important}
+body.sm-experience-v7 .gu-member-dashboard-shell .dashboard-stat strong{color:#f6d08b;font-variant-numeric:tabular-nums}
+body.sm-experience-v7 .gu-member-dashboard-shell .card{background:#122538!important;border:1px solid #304c62!important;border-radius:14px!important}
+/* Account pages: separate light-accent identity. Actual form is top-level priority. */
+body.sm-experience-v7 main.gu-signin-page,body.sm-experience-v7 main.gu-signup-page{background:linear-gradient(135deg,#0c1c2b,#112e3f)!important}
+body.sm-experience-v7 .gu-signin-page .gu-x-auth-sidebar,body.sm-experience-v7 .gu-signup-page .gu-x-auth-sidebar{position:static!important;max-width:470px!important;top:auto!important}
+body.sm-experience-v7 .gu-signin-page .gu-x-auth-sidebar h2,body.sm-experience-v7 .gu-signup-page .gu-x-auth-sidebar h2{font-family:Georgia,"Times New Roman",serif!important;font-size:clamp(2rem,3.1vw,3.5rem)!important;font-weight:500!important;line-height:1.15!important}
+body.sm-experience-v7 .gu-signin-page #gu-signin-center{max-width:1120px!important}
+body.sm-experience-v7 .gu-signin-page .gu-x-auth-content,body.sm-experience-v7 .gu-signup-page .gu-x-auth-content{background:rgba(7,19,34,.6);padding:clamp(18px,3vw,32px);border:1px solid #335469;border-radius:15px;box-sizing:border-box}
+body.sm-experience-v7 .gu-signin-page .gu-x-auth-content form,body.sm-experience-v7 .gu-signup-page .gu-x-auth-content form{max-width:100%}
+body.sm-experience-v7 .gu-signup-page .gu-x-auth-content>h1{font-family:Georgia,"Times New Roman",serif!important;font-weight:500!important}
+@media(max-width:850px){body.sm-experience-v7 .site-header .wrap.nav{display:flex;flex-direction:column;align-items:flex-start}body.sm-experience-v7 .gu-signup-page .auth-page.gu-x-auth-layout,body.sm-experience-v7 .gu-signin-page #gu-signin-center.gu-x-auth-layout{display:flex!important;flex-direction:column!important;gap:20px!important}body.sm-experience-v7 .gu-x-auth-content{width:100%!important}body.sm-experience-v7 .gu-member-dashboard-shell .dashboard-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){body.sm-experience-v7 .gu-member-dashboard-shell .dashboard-stat-grid{grid-template-columns:1fr}body.sm-experience-v7 .sm-v5-home-grid{gap:15px}body.sm-experience-v7 .sm-v5-copy h1{font-size:2.5rem!important}}
