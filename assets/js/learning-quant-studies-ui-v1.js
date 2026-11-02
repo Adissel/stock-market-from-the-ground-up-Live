@@ -90,7 +90,7 @@ function mount({target,studyId,mode,context}={}){
    chartInstance=e.init(chart,null,{renderer:'svg'});
    // Chart renders only the already worked case. Independent transfer results
    // are NEVER plotted or printed before the learner attempts the new case.
-   const values=Array.isArray(base.chart)?base.chart:
+   const values=Array.isArray(base.chart)?base.chart.map(line=>({name:line.name,type:line.type==='bar'?'bar':'line',data:line.data,connectNulls:false})):
     studyId==='ema'?[{name:'Fictional close',type:'line',data:def.initial.closes},
       {name:'SMA-seeded EMA',type:'line',data:base.history,connectNulls:false}]:
       [{name:'Original method steps',type:'bar',data:base.values}];
