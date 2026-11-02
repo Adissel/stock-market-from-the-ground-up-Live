@@ -187,6 +187,16 @@
       else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
       else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
     });
+    // An Escape key can be pressed immediately after the drawer becomes
+    // visible, before requestAnimationFrame moves focus inside the dialog.
+    // Capture it at document scope while open so keyboard users always have
+    // a reliable dismiss path. Ignore Escape everywhere when the drawer is shut.
+    document.addEventListener('keydown',e=>{
+      if(e.key!=='Escape'||drawer.hidden)return;
+      e.preventDefault();
+      e.stopPropagation();
+      close();
+    },true);
     search.addEventListener('input',()=>{
       const term=search.value.trim().toLowerCase();
       let matches=0;
