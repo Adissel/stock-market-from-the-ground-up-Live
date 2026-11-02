@@ -223,4 +223,12 @@ jobs:
           if len(results)!=6 or any(v['result']!='success' for v in results.values()):
               sys.exit('BLOCKED: 60-gate beta source batch not accepted')
           print('60 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
+          summary=os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with open(summary,'a',encoding='utf-8') as out:
+                  out.write('## Beta Major Release 01 — source evidence\n\n')
+                  out.write('Commit: `'+os.environ.get('GITHUB_SHA','unknown')+'`\n\n')
+                  out.write('| Domain | Job conclusion |\n|---|---|\n')
+                  for name,value in sorted(results.items()):out.write('| '+name+' | '+value['result']+' |\n')
+                  out.write('\n60 source commands are required; authenticated browser, editor, live commerce and final production SHA remain separate gates.\n')
           PY
