@@ -28,7 +28,7 @@ for(let i=0;i<20;i++){
  assert(!allCases.has(ac.id));allCases.add(ac.id);
  for(const k of ['scenario','task','worked','pitfall','transfer'])
   assert(ac[k].length>=70,'Advanced field '+k+' day '+day.day);
- const v=lesson.numericChecks[0];
+ const v=lesson.advancedNumericChecks[0];
  const result=v.operation==='pct'?(v.a-v.b)/v.b*100:v.operation==='ratio'?v.a/v.b*100:
   v.operation==='abs'?Math.abs(v.a-v.b):v.a-v.b;
  assert(Number.isFinite(result)&&Math.abs(result-v.expected)<1e-7,
