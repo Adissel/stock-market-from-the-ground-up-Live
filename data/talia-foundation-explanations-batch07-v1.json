@@ -240,6 +240,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -272,6 +281,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/rebalancing",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/rebalancing",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -368,6 +386,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -383,7 +410,7 @@
       "reviewExplanation": "A filed conditional $15m agreement is not $15m received; confirm conditions, closing evidence and accounting recognition separately. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: An 8-K announces a planned merger subject to approval. Identify two further facts needed to call it complete.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -400,6 +427,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -432,6 +468,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "reviewer": "internal exact-primary-reference scoping, not independent publication approval",
+        "date": "2026-11-01",
+        "priorCandidate": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "currentCandidate": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
+        "originalWorkedCaseKept": true,
+        "independentPublicationAccepted": false
       }
     },
     {
