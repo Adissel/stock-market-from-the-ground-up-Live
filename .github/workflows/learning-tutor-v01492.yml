@@ -177,6 +177,8 @@ on:
       - 'tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators21-30-source-math-v1.test.mjs'
       - 'tests/talia-indicators21-30-crosslanguage-v1.test.mjs'
+      - 'tests/talia-indicator46-73-python-js-v1.test.mjs'
+      - 'scripts/qa/talia_indicator46_73_python_v1.py'
       - 'scripts/qa/talia_indicator21_30_python_v1.py'
       - 'scripts/qa/talia_indicator_16_20_reference_v1.py'
       - 'data/talia-upload5-source-reconciliation-v1.json'
@@ -407,6 +409,8 @@ on:
       - 'tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs'
       - 'tests/talia-indicators21-30-source-math-v1.test.mjs'
       - 'tests/talia-indicators21-30-crosslanguage-v1.test.mjs'
+      - 'tests/talia-indicator46-73-python-js-v1.test.mjs'
+      - 'scripts/qa/talia_indicator46_73_python_v1.py'
       - 'scripts/qa/talia_indicator21_30_python_v1.py'
       - 'scripts/qa/talia_indicator_16_20_reference_v1.py'
       - 'data/talia-upload5-source-reconciliation-v1.json'
@@ -574,6 +578,7 @@ jobs:
           node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
           node tests/talia-indicators21-30-source-math-v1.test.mjs
           node tests/talia-indicators21-30-crosslanguage-v1.test.mjs
+          node tests/talia-indicator46-73-python-js-v1.test.mjs
           node tests/talia-indicators16-30-independent-math-v1.test.mjs
           node tests/talia-indicators31-45-python-js-v1.test.mjs
           node tests/talia-indicators46-60-python-js-v1.test.mjs
