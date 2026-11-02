@@ -16,6 +16,7 @@ const indicatorReview=read('data/talia-claim-triage-181-240-and-indicators-v1.js
 const forty=read('data/talia-claims-101-140-evidence-batch-v1.json');
 const remaining21=read('data/talia-claims-remaining21-source-review-v1.json');
 const fourth15=read('data/talia-indicators46-60-evidence-v1.json');
+const final13=read('data/talia-indicators61-73-evidence-v1.json');
 const claims181=indicatorReview.topics;
 const stages={explanations:[],indicators:[],labs:[],academy:[]};
 const knownTopics=[];
@@ -71,13 +72,17 @@ assert.equal(ics.length,73);assert.equal(indicatorReview.indicators.length,73);
 assert.equal(fourth15.records.length,15);
 assert.deepEqual(fourth15.records.map(x=>x.id),ics.slice(45,60).map(x=>x.code));
 assert.equal(fourth15.records.filter(x=>x.publicationAccepted).length,0);
+assert.equal(final13.items.length,13);
+assert.deepEqual(final13.items.map(x=>x.code),ics.slice(60).map(x=>x.code));
+assert.equal(final13.items.filter(x=>x.independentPublicationApproved).length,0);
+assert.equal(final13.items.filter(x=>x.numericalTestStatus.startsWith('INDEPENDENT')).length,12);
 assert.equal(new Set(ics.map(x=>x.code)).size,73);
 stages.indicators=ics.map((g,i)=>{
  const r=indicatorReview.indicators[i];assert.equal(r.code,g.code);
  return {id:g.code,ordinal:i+1,title:g.title,formula:g.formula,
   sourceUrls:g.sourceUrls,review:'SOURCE_GUIDE_AUTHORED_FORMULA_RIGHTS_HOLD',
   crosscheck15:i<15?'JS_PYTHON_REFERENCE_TEST_CONFIGURED':
-    i<30?'SECOND_15_COMPONENT_TEST_CONFIGURED':i<45?'THIRD_15_PYTHON_JS_CASE_TEST_CONFIGURED':i===54?'PROPRIETARY_SCTR_NOT_NUMERICALLY_ACCEPTED':i<60?'FOURTH_14_PYTHON_JS_CASE_CONFIGURED':'NOT_IN_FIRST_60_RESEARCH_SUBJECTS',
+    i<30?'SECOND_15_COMPONENT_TEST_CONFIGURED':i<45?'THIRD_15_PYTHON_JS_CASE_TEST_CONFIGURED':i===54?'PROPRIETARY_SCTR_NOT_NUMERICALLY_ACCEPTED':i<60?'FOURTH_14_PYTHON_JS_CASE_CONFIGURED':i===60?'OFFICIAL_VIX_BENCHMARK_RESTRICTED':i<73?'FIFTH_12_PYTHON_JS_CASE_CONFIGURED':'NOT_IN_73_CANONICAL_GUIDES',
   independentlyReleased:false,formulaRightsAccepted:false};
 });
 const ids=Object.keys(official.byLab||{});
@@ -111,7 +116,7 @@ const summary={version:'1.0',documentId:'SMFGU-CURRICULUM-EVIDENCE-REGISTER-001'
  generatedFrom:'GitHub main canonical files; read-only source-only projection',
  date:'2026-11-01',status:'DEVELOPMENT_EVIDENCE_NOT_MEMBER_RELEASE_ACCEPTANCE',
  totals:{all:1366,explanationTargets:600,explanationsAuthored:knownTopics.length,explanationsNotAuthored:600-knownTopics.length,
-  indicators:73,indicatorGuidesAuthored:73,indicatorNumericCaseCoverage:59,indicatorProprietaryHold:1,indicatorSourceBatchThrough:60,labIds:419,academyDayIds:274,
+  indicators:73,indicatorGuidesAuthored:73,indicatorNumericCaseCoverage:71,indicatorProprietaryOrMethodologyHold:2,indicatorSourceBatchThrough:73,labIds:419,academyDayIds:274,
   fortyClaimScopeRows:40,fortySourceScopeDispositions:40,sourceScopeCorrections:[104,133],claimScope141to180:40,claimScope181to240:60,
   verifiedPublications:0,matchedPremiumReleaseClaims:0},
  references:{researchDirectory:'docs/research/master/master-source-registry-v1.json',
