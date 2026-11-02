@@ -82,10 +82,25 @@ test('Premium endpoints forbid browser-asserted market data rights, even with an
  const r=await onRequest({request:request(body),env});assert.equal(r.status,400);
  }finally{f.restore()}
 });
-test('Enterprise research cannot trust client-supplied licensing, even with plan and release flag',async()=>{
+test('Enterprise grant produces fictional training-only chronology, embargo, and protected holdout',async()=>{
  const f=fixture({family:'learning',plan:'LIFETIME',edition:'ENTERPRISE'});try{
  const r=await onRequest({request:request(form('ENTERPRISE','learning')),env});
- assert.equal(r.status,403);assert.match((await r.json()).error,/rights verification/i);
+ assert.equal(r.status,200);const response=await r.json();
+ assert.equal(response.ok,true);assert.equal(response.result.edition,'ENTERPRISE');
+ assert.equal(response.result.holdoutProtected,true);
+ assert.equal(response.result.training.count,7);
+ assert.equal(response.result.embargo.count,2);
+ assert.equal(response.result.evaluation.count,3);
+ assert.equal(response.result.graded,false);
+ assert.equal(response.memberRecordsModified,false);
+ }finally{f.restore()}
+});
+test('Enterprise refuses browser-supplied external rights or provider manifests',async()=>{
+ const f=fixture({family:'learning',plan:'LIFETIME',edition:'ENTERPRISE'});try{
+ const forged=form('ENTERPRISE','learning');
+ forged.payload.manifest=[{id:'unlicensed',serverRightsVerified:true}];
+ const r=await onRequest({request:request(forged),env});
+ assert.equal(r.status,403);assert.match((await r.json()).error,/verified rights/i);
  }finally{f.restore()}
 });
 test('Forged cross-origin POST denied before any service-role or member lookup',async()=>{
