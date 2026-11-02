@@ -61,6 +61,10 @@ const labQuestion=(q:string)=>labHandoff
 function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
   const host=useRef<HTMLDivElement|null>(null);
   const [visible,setVisible]=useState(7);
+  const prototype=typeof window!=='undefined'&&window.location.pathname.endsWith('/talia-tutor-prototype.html');
+  const [study,setStudy]=useState<'none'|'sma3'|'ema3'>('ema3');
+  const [zoom,setZoom]=useState(100);
+  const [annotation,setAnnotation]=useState<number|null>(null);
   const [status,setStatus]=useState('Fictional completed-bar teaching example; subsequent bars are concealed.');
   useEffect(()=>{
     let disposed=false,plot:ChartInstance|null=null;
@@ -73,8 +77,17 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
         const echarts=await window.CrownlightECharts.load();
         if(disposed||!host.current)return;
         plot=echarts.init(host.current);
+        const closes=REPLAY.slice(0,visible).map(r=>r[1]);
+        const overlay=closes.map((_,i)=>{
+          if(i<2||study==='none')return null;
+          if(study==='sma3')return Number(((closes[i]+closes[i-1]+closes[i-2])/3).toFixed(4));
+          let ema=(closes[0]+closes[1]+closes[2])/3;
+          for(let j=3;j<=i;j++)ema=closes[j]*.5+ema*.5;
+          return Number(ema.toFixed(4));
+        });
         plot.setOption({
           animation:false,backgroundColor:'transparent',
+          dataZoom:prototype?[{type:'inside',start:Math.max(0,100-zoom),end:100,zoomOnMouseWheel:true,moveOnMouseMove:true,moveOnMouseWheel:false},{type:'slider',start:Math.max(0,100-zoom),end:100,height:13,bottom:7}]:[],
           grid:{top:24,left:50,right:18,bottom:42},
           xAxis:{type:'category',data:REPLAY.slice(0,visible).map((_,i)=>'Bar '+(i+1)),axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},
           yAxis:{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},
@@ -82,7 +95,9 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
             const r=REPLAY.slice(0,visible)[x.dataIndex];return r?'Fictional bar '+(x.dataIndex+1)+' | O '+r[0]+' H '+r[3]+' L '+r[2]+' C '+r[1]:'';
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
-            data:REPLAY.slice(0,visible),itemStyle:{color:'#38c6a6',color0:'#e37779',borderColor:'#38c6a6',borderColor0:'#e37779'}}]
+            data:REPLAY.slice(0,visible),itemStyle:{color:'#38c6a6',color0:'#e37779',borderColor:'#38c6a6',borderColor0:'#e37779'},
+            markPoint:prototype&&annotation!==null&&annotation<visible?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[annotation,REPLAY[annotation][1]],value:'Study'}]}:undefined},
+            ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':'EMA 3',data:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[])]
         });
         plot.on('click',e=>{
           const i=Number(e.dataIndex);
@@ -96,11 +111,18 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
     };
     void mount();
     return ()=>{disposed=true;window.removeEventListener('resize',resize);plot?.dispose()};
-  },[visible,onQuestion]);
+  },[visible,onQuestion,prototype,study,zoom,annotation]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
     <div className="tc-row tc-row-between"><h2>Chart classroom</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
     <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
+    {prototype&&<div className="tc-row tp-chart-tools" aria-label="Chart analysis controls">
+      <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="none">No overlay</option></select></label>
+      <label>Visible window <select value={zoom} onChange={e=>setZoom(Number(e.target.value))}><option value={100}>All revealed bars</option><option value={70}>70%</option><option value={45}>45%</option></select></label>
+      <button type="button" className="tc-secondary" onClick={()=>setAnnotation(visible-1)}>Annotate latest</button>
+      <button type="button" className="tc-secondary" onClick={()=>setAnnotation(null)} disabled={annotation===null}>Clear annotation</button>
+      <button type="button" className="tc-secondary" onClick={()=>onQuestion('Explain the '+(study==='none'?'candle structure':study.toUpperCase())+' visible through completed fictional bar '+visible+'. State any warmup limitation and do not reference future candles.')}>Teach this chart</button>
+    </div>}
     <div className="tc-chart" ref={host} role="img" aria-label={'Fictional price chart showing '+visible+' completed candlesticks'} />
     <p className="tc-muted" role="status">{status}</p>
     <table className="tc-candle-table"><caption>Latest visible completed candle</caption>
