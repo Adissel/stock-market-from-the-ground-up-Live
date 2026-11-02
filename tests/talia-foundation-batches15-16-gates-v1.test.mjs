@@ -25,7 +25,7 @@ test('existing Tutor and production build both reference the new source batches'
  const build=readFileSync(new URL('../scripts/build-pages.sh',import.meta.url),'utf8');
  const workflow=readFileSync(new URL('../.github/workflows/learning-tutor-v01492.yml',import.meta.url),'utf8');
  for(const name of ['talia-foundation-explanations-batch15-v1.json','talia-foundation-explanations-batch16-v1.json']){
-  assert.ok(tutor.includes(name));assert.ok(build.includes(name));assert.ok(workflow.includes('data/'+name));
+  assert.ok(tutor.includes(name));assert.ok(build.includes(name)||build.includes('talia-foundation-explanations-batch{01..30}-v1.json'),'Bash copy range must include '+name);assert.ok(workflow.includes('data/'+name));
  }
 });
 test('independent fictional arithmetic spot-checks',()=>{
