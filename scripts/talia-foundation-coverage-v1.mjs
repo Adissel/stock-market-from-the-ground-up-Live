@@ -46,7 +46,7 @@ assert.equal(FOUNDATION_WORKED_MATH_CODES.length,13);
 assert.equal(FOUNDATION_QUANT_TOPICS.length,9);
 const topics=[...first,...second,...third,...fourth,...fifth,...sixth,...seventh,...eighth,...ninth,...tenth,...eleventh,...twelfth,...thirteenth,...fourteenth,...fifteenth,...sixteenth];
 assert.equal(new Set(topics.map(g=>g.code)).size,320);
-assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,280);
+assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,320);
 assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);assert.equal(TALIA_RESEARCH_MATH_CODES.length,14);
 assert.equal(TALIA_STUDY_CALCULATED.length,8);
 const grades=new Set(core.map(x=>x.code));
