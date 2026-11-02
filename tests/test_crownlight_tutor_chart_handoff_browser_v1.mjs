@@ -51,7 +51,24 @@ const fixture=async(receiverUser='MemberA',allowed=true)=>{
  assert.match(receiver.url(),/chartHandoff=[0-9a-f]{32}/);
  assert.doesNotMatch(receiver.url(),/EMA|VWAP|candle|MemberA|fixture-test-only/);
  if(allowed&&receiverUser==='MemberA'){
-  await receiver.waitForFunction(()=>document.querySelector('#tutor-question').value.includes('revealed EMA 9'));
+  try{
+   await receiver.waitForFunction(()=>document.querySelector('#tutor-question')?.value.includes('revealed EMA 9'),null,{timeout:5500});
+  }catch(error){
+   const sourceState=await source.evaluate(()=>({
+    status:document.querySelector('[data-talia-handoff-status]')?.textContent,
+    state:window.CrownlightTutorChartHandoffV1?.getStatus(),
+    opener:!!window.opener
+   }));
+   const targetState=await receiver.evaluate(()=>({
+    status:document.querySelector('#tutor-chart-handoff-status')?.textContent,
+    state:window.CrownlightTutorChartHandoffV1?.getStatus(),
+    opener:!!window.opener,
+    currentUser:typeof window.getSupabaseClient,
+    value:document.querySelector('#tutor-question')?.value,
+    location:location.href
+   }));
+   throw new Error('Tutor handoff did not arrive: '+JSON.stringify({sourceState,targetState,failures})+'; '+error.message);
+  }
   assert.match(await receiver.locator('#tutor-chart-handoff-status').innerText(),/Nothing has been automatically sent/);
   assert.equal(await receiver.evaluate(()=>window.__submitted),0);
   assert.equal(await source.evaluate(()=>window.CrownlightTutorChartHandoffV1.getStatus().waitingForVerifiedTutor),false);
