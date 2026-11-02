@@ -200,41 +200,17 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re,collections,sys
+          import re,collections
           workflow=Path('.github/workflows/beta-major-release-01-60-gates.yml').read_text()
-          lines=re.findall(r'^\s*- name: (LEARNING|LABS|ACADEMY|STUDIO|TUTOR|GOVERNANCE) (\d{2}) - ([^\n]+)
-        env:
-          NEEDS_JSON: ${{ toJSON(needs) }}
-        run: |
-          python3 - <<'PY'
-          import json,os,sys
-          results=json.loads(os.environ['NEEDS_JSON'])
-          for k,v in results.items():print(k,v['result'])
-          if len(results)!=6 or any(v['result']!='success' for v in results.values()):
-              sys.exit('BLOCKED: 60-gate beta source batch not accepted')
-          print('60 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
-          PY
-,workflow,re.M)
+          lines=re.findall(r'^\s*- name: (LEARNING|LABS|ACADEMY|STUDIO|TUTOR|GOVERNANCE) (\d{2}) - ([^\n]+)$',workflow,re.M)
           groups=collections.Counter(group for group,number,title in lines)
-          files=re.findall(r'^\s*run: node (tests/[^\s]+)
-        env:
-          NEEDS_JSON: ${{ toJSON(needs) }}
-        run: |
-          python3 - <<'PY'
-          import json,os,sys
-          results=json.loads(os.environ['NEEDS_JSON'])
-          for k,v in results.items():print(k,v['result'])
-          if len(results)!=6 or any(v['result']!='success' for v in results.values()):
-              sys.exit('BLOCKED: 60-gate beta source batch not accepted')
-          print('60 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
-          PY
-,workflow,re.M)
+          files=re.findall(r'^\s*run: node (tests/[^\s]+)$',workflow,re.M)
           expected={'LEARNING','LABS','ACADEMY','STUDIO','TUTOR','GOVERNANCE'}
           assert set(groups)==expected and all(groups[k]==10 for k in expected),(groups,'exactly ten checks per domain required')
-          assert len(lines)==60 and len(files)==60 and len(set(files))==60,'Expected 60 uniquely named test files'
+          assert len(lines)==60 and len(files)==60 and len(set(files))==60,'Expected 60 unique test files'
           missing=[name for name in files if not Path(name).is_file()]
           assert not missing,('Missing release tests',missing)
-          print('PASS: 60 distinct present test files across six balanced domains')
+          print('PASS: 60 distinct present tests across six domains')
           PY
       - name: Require six complete successful groups and all 60 checks
         env:
