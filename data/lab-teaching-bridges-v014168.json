@@ -4461,7 +4461,18 @@
         "noLookahead": true,
         "graded": false
       },
-      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101"
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101",
+      "indicatorLesson": {
+        "studyId": "bollinger",
+        "mappingStatus": "SOURCE_INTEGRATED_EDITORIAL_REVIEW_PENDING",
+        "summary": "Bollinger Bands: completed-close SMA, population deviation, declared multiplier and warmup.",
+        "definitionSource": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "historicalData": false,
+        "completedBarsOnly": true,
+        "accessibleTableRequired": true,
+        "officialGrade": false,
+        "memberAcceptance": false
+      }
     },
     "DT-C01-L01": {
       "labId": "DT-C01-L01",
@@ -7487,6 +7498,17 @@
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
         "editorialAcceptance": false,
+        "memberAcceptance": false
+      },
+      "indicatorLesson": {
+        "studyId": "atr",
+        "mappingStatus": "SOURCE_INTEGRATED_EDITORIAL_REVIEW_PENDING",
+        "summary": "Average True Range: gap-aware true range, period seed and Wilder update in USD/share.",
+        "definitionSource": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "historicalData": false,
+        "completedBarsOnly": true,
+        "accessibleTableRequired": true,
+        "officialGrade": false,
         "memberAcceptance": false
       }
     },

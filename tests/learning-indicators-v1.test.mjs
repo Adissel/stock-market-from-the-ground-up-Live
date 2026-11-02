@@ -48,8 +48,12 @@ test('Independent transfer and formative diagnostic do not grade or persist',()=
 test('Authored Lab bridges and assessment boundary fail closed',()=>{
  assert.equal(m.select({labId:'F3-C07-L01',topic:'RSI overbought'}),'rsi');
  assert.equal(m.select({labId:'F3-C07-L03',topic:'MACD lag'}),'macd');
+ assert.equal(m.select({labId:'DT-C19-L03',topic:'Range and Volatility'}),'atr');
+ assert.equal(m.select({labId:'F3-C07-L04',topic:'Momentum whipsaw in a narrow price window'}),'bollinger');
  assert.equal(m.select({labId:'F1-C01-L01',topic:'RSI'}),null);
  assert.equal(m.select({labId:'F3-C07-L01',topic:'MACD'}),null);
+ assert.equal(m.select({labId:'DT-C19-L03',topic:'Bollinger Bands'}),null);
+ assert.equal(m.select({labId:'F3-C07-L04',topic:'Average True Range'}),null);
  const inputs=m.calculate('rsi',m.definitions.rsi.initial).values.map(String);
  for(const bad of [{mode:'assessment'},{mode:'blind'},{stage:'assess'},{provenance:'historical_unverified'},{inputs:['Infinity',inputs[1],inputs[2]]}]){
   assert.equal(m.assess({studyId:'rsi',inputs,mode:'guided',stage:'practice',provenance:'fictional_authored',...bad}).status,'insufficient_evidence');

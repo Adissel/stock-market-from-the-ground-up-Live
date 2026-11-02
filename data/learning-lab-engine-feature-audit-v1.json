@@ -173,7 +173,7 @@
       "evidence_file": "assets/js/learning-indicators-v1.js",
       "existing_test_file": "tests/learning-indicators-v1.test.mjs",
       "acceptance_criterion": "All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings.",
-      "unresolved": "RSI/MACD and existing EMA/risk mappings are fail-closed at both engine and UI boundaries; ATR/Bollinger calculations remain math-only until canonical lesson mappings and editorial review exist.",
+      "unresolved": "All five named studies now have fail-closed canonical source mappings, including ATR DT-C19-L03 and Bollinger F3-C07-L04. Independent editorial approval, authenticated accessible member acceptance and exact-release evidence remain open, so the registered approval criterion is not yet fully satisfied.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

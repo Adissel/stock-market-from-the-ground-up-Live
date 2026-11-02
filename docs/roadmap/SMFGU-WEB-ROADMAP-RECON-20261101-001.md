@@ -12,7 +12,7 @@ Basic Learning v3.3 / Lab v3.2 checkpoint persistence now fails closed after an 
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.19 / 2026-11-02 |
+| Version / prepared | 1.20 / 2026-11-02 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -336,4 +336,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.19 / 2026-11-02 / Added 20 distinct, rights-gated Day Trading teaching bridges (`DT-C14-L01`–`DT-C20-L02`) and verified all seven batch contracts at 140/419 authored. The new material remains editorial-review-pending; 279 bridges, member accessibility, publication and engine-wide release acceptance remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.19 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.20 / 2026-11-02 / Bound existing ATR and Bollinger teaching workbenches to canonical Labs `DT-C19-L03` and `F3-C07-L04` with topic revalidation, completed-bar conventions, accessible-table requirements and independent numerical regression. All five named Basic indicator studies now have source mappings; editorial approval, authenticated accessibility, full topical-Lab parity, exact-SHA CI and production parity remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.20 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

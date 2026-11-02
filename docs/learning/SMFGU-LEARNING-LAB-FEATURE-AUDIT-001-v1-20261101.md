@@ -13,7 +13,7 @@ This is a focused Basic reliability/security correction. It does not increase th
 | Filename / type | `SMFGU-LEARNING-LAB-FEATURE-AUDIT-001-v1-20261101.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/learning/` |
 | Google Drive location / document ID | Not created / unassigned |
-| Version / preparation date | 1.3 / November 2, 2026 |
+| Version / preparation date | 1.4 / November 2, 2026 |
 | Status | SOURCE INVENTORY AUDITED; production and independent release approval OPEN |
 | Data source | `data/learning-lab-engine-feature-audit-v1.json` |
 | Calculator | `scripts/qa/learning-lab-engine-feature-audit-v1.mjs` |
@@ -33,6 +33,12 @@ This hardening advances `LE-BAS-06` and `LA-BAS-07` but does not satisfy their f
 
 Twenty previously unauthored canonical Day Trading Labs, `DT-C14-L01` through `DT-C20-L02`, now contain distinct first-principles definitions, fictional worked evidence, misconception correction, retries and new-case transfers. Competencies come from the existing canonical competency-path registry. Every bridge remains `BATCH07_ORIGINAL_EDITORIAL_REVIEW_PENDING`, uses research candidates only, grants no publication/data-ingestion rights, contains no historical bars or protected grades, and has no member or independent editorial acceptance. Seven batch contracts now verify **140/419 authored and source-tested bridges; 279 remain**. `LE-BAS-08` and `LA-BAS-06` remain partial.
 
+### ATR and Bollinger canonical source integration — v1.4
+
+The existing shared indicator calculator and quantitative workbench now authorize ATR only for canonical Lab `DT-C19-L03` (Range and Volatility) and Bollinger Bands only for canonical Lab `F3-C07-L04` (narrow price-window whipsaw). Both mappings require the matching canonical topic, use completed fictional bars, declare USD/share units and calculation conventions, retain accessible-table requirements, and remain ungraded. Wrong-topic requests fail closed. Existing Batch 5 and Batch 7 authored instruction was preserved byte-for-content rather than replaced by an indicator-specific duplicate.
+
+Focused source verification covers the period seed, Wilder recursion, gap-aware true range, population-deviation convention, warmup, finite-output rejection, changed transfer inputs and no-lookahead prefix independence. This establishes **5/5 named indicator studies with canonical source integration**, but the new ATR/Bollinger records remain `EDITORIAL_REVIEW_PENDING`; authenticated accessible member review, individual editorial approval, exact-SHA CI and matching deployment remain open. Consequently `LE-BAS-06` and `LA-BAS-07` remain partial under their registered full acceptance criteria.
+
 Each of the eight combinations (two independent engines × four editions) has **exactly eight distinct additive feature requirements** recorded below. This v1.0 checklist is an auditable source-integration measure, **not an estimate of labor or total product completion**. A check is fully integrated only if the corresponding member-engine capability is present; `partial`, `prototype` and `not_implemented` contribute zero fully integrated checks.
 
 **Source-integration percentage = 100 × fully integrated feature checks / 8.** Premium rows assess only **new capabilities for that premium edition**; inherited Basic features are not counted a second time. A source or test filename is evidence of a relevant implementation/contract, not proof that a fresh GitHub workflow, real member browser journey or independent editorial audit passed. Full release for each edition requires verified authorization, testing, licensing, accessibility and same-SHA deployment, separately.
@@ -50,7 +56,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | Shared Lab | PROFESSIONAL | 0/8 | 0.00% | 0 | 4 | Not independently released |
 | Shared Lab | ENTERPRISE | 0/8 | 0.00% | 0 | 3 | Not independently released |
 
-**Related curriculum denominator:** the latest independently documented six-batch register contains **120/419 (28.64%) individually authored Lab teaching bridges**; 299 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 120/419 curriculum statistic is NOT included in these engine integration percentages.
+**Related curriculum denominator:** the latest source-tested seven-batch register contains **140/419 (33.41%) individually authored Lab teaching bridges**; 279 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 140/419 curriculum statistic is NOT included in these engine integration percentages.
 
 ## Shared Learning Engine — detailed feature-by-feature findings
 
@@ -63,9 +69,9 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LE-BAS-03 | Evidence-led misconception feedback | integrated | `assets/js/learning-evidence-diagnostic-v1.js` · `tests/learning-evidence-diagnostic-v1.test.mjs` | Observed mistakes yield supported ungraded feedback without made-up mastery. | Real learner and independent editorial acceptance open. |
 | LE-BAS-04 | Prerequisite review from existing evidence | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/engine-classroom-contract-v1.test.mjs` | Show only authorized prerequisite suggestions without changing stored competency. | Cross-account member evaluation open. |
 | LE-BAS-05 | Independent practice, retries and transfer | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/learning-lab-formative-editions-v1.test.mjs` | Distinct ungraded transfer must not disclose answers before an attempt. | Protected grade and accessibility acceptance open. |
-| LE-BAS-06 | Complete indicator-topic teaching parity | partial | `assets/js/learning-indicators-v1.js` · `tests/learning-indicators-v1.test.mjs` | All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings. | Some calculations exist without approved lesson mapping. |
+| LE-BAS-06 | Complete indicator-topic teaching parity | partial | `assets/js/learning-indicators-v1.js` · `tests/learning-indicators-v1.test.mjs` · `tests/basic-atr-bollinger-lessons-v1.test.mjs` | All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings. | 5/5 named studies have canonical source mappings; ATR/Bollinger editorial approval and authenticated accessible acceptance remain open. |
 | LE-BAS-07 | Free Foundations and Academy progression parity | partial | `assets/js/bootcamp-academy-v014168.js` · `tests/test_v014099_curriculum_contract.mjs` | Genuine learners maintain prerequisite and stage progress across courses. | End-to-end Academy member proof incomplete. |
-| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/test_v014099_curriculum_contract.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Six batches record 120/419 authored; 299 remain. |
+| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/test_v014099_curriculum_contract.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Seven batches record 140/419 authored; 279 remain. |
 
 ### ADVANCED
 
@@ -190,5 +196,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | v1.1 | 2026-11-01 | Made Basic checkpoint writes fail closed until the authoritative member revision or verified empty state loads | Local targeted Node verification passed; exact-main CI, deployment and member acceptance open |
 | v1.2 | 2026-11-01 | Reverified 120/419 authored bridges and required canonical mapping revalidation at the member quantitative UI boundary | Source hardening tested; six Basic parity rows remain partial and release acceptance unchanged |
 | v1.3 | 2026-11-02 | Added and source-tested 20 distinct Day Trading bridges for a verified 140/419 authored denominator | Editorial, accessibility, authenticated member and publication acceptance remain open |
+| v1.4 | 2026-11-02 | Added fail-closed canonical ATR and Bollinger source mappings without replacing existing authored lessons; verified 5/5 named studies at the source boundary | ATR/Bollinger editorial approval, authenticated accessibility, exact-SHA CI/deployment and full Lab parity remain open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.3 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.4 · GitHub `main` controlling · No payment, grade or premium grant.

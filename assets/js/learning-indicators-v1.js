@@ -110,9 +110,15 @@ function calculate(id,input){
   chart:frozen([{name:'Close',type:'line',data:input.closes},{name:'Middle',type:'line',data:r.center},{name:'Upper',type:'line',data:r.upper},{name:'Lower',type:'line',data:r.lower}]),
   labels:input.closes.map((_,i)=>'Close '+(i+1))});
 }
-const approved=frozen({'F3-C07-L01':'rsi','F3-C07-L02':'rsi','F3-C07-L03':'macd'});
+const approved=frozen({'F3-C07-L01':'rsi','F3-C07-L02':'rsi','F3-C07-L03':'macd',
+ 'DT-C19-L03':'atr','F3-C07-L04':'bollinger'});
+const topicMatch=frozen({
+ rsi:/\bRSI\b/i,macd:/\bMACD\b/i,
+ atr:/Range and Volatility|Average True Range|\bATR\b/i,
+ bollinger:/narrow price window|Bollinger|volatility bands?/i
+});
 function select({labId,topic}={}){
- const id=approved[labId];return id&&typeof topic==='string'&&(id==='rsi'?/\bRSI\b/i:/\bMACD\b/i).test(topic)?id:null;
+ const id=approved[labId];return id&&typeof topic==='string'&&topicMatch[id].test(topic)?id:null;
 }
 function assess({studyId,inputs,mode,stage,provenance}={}){
  const fail=reason=>frozen({status:'insufficient_evidence',reason,officialGrade:false,masteryAwarded:false});
