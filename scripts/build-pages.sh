@@ -96,6 +96,7 @@ node tests/talia-claims101-140-python-js-editorial-v1.test.mjs
 node tests/talia-five-qualitative-source-dispositions-v1.test.mjs
 node tests/talia-training45-evaluation40-v1.test.mjs
 node tests/talia-training40-server-authorization-v1.test.mjs
+node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
 node tests/talia-echarts-independent-python-js-v1.test.mjs
 node tests/talia-source-remediation-specificity-v1.test.mjs
 node scripts/curriculum-evidence-master-register-v1.mjs --write
