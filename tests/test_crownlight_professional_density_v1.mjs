@@ -14,4 +14,8 @@ match(tiers,/state\.bars=safeBars\(d\.bars\)/,'Chart input must pass revealed-on
 match(workspace,/const VALID_LAYOUTS=new Set\(\['SIDE_BY_SIDE','STACKED','PRICE_FOCUS'\]\)/,'Preserve supported Professional layouts');
 match(css,/\.cl-chart-tier-tools \.cl-tier-density-control:focus-visible/,'Keyboard focus must be visible');
 match(css,/@media\(max-width:620px\)[\s\S]*?\.cl-chart-tier-tools \.cl-tier-density-label/,'Mobile controls must be responsive');
+match(tiers,/state\.resizeObserver=new ResizeObserver/,'Enhanced charts must react to element resize');
+match(tiers,/state\.resizeObserver\?\.disconnect\(\)/,'Observer must disconnect before chart teardown');
+match(tiers,/if\(state\.resizeFrame\)cancelAnimationFrame\(state\.resizeFrame\)/,'Pending resize work must be cancelled');
+match(tiers,/state\.resizeObserver\.observe\(entry\.host\.parentElement\)/,'Observe mounted chart frames');
 console.log('PASS Professional density source contracts: bounded slider, linked charts, remount, privacy reset, responsive styling, existing workspace layouts');
