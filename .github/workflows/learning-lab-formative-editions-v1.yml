@@ -1,0 +1,31 @@
+name: Shared Learning and Lab Formative Edition Contracts
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/_lib/learning-lab-formative-editions-v1.js'
+      - 'tests/learning-lab-formative-editions-v1.test.mjs'
+      - '.github/workflows/learning-lab-formative-editions-v1.yml'
+  pull_request:
+    paths:
+      - 'functions/_lib/learning-lab-formative-editions-v1.js'
+      - 'tests/learning-lab-formative-editions-v1.test.mjs'
+      - '.github/workflows/learning-lab-formative-editions-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  formative-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source syntax and deterministic no-entitlement contracts
+        run: |
+          node --check functions/_lib/learning-lab-formative-editions-v1.js
+          node --test tests/learning-lab-formative-editions-v1.test.mjs
