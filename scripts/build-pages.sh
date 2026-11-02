@@ -29,6 +29,7 @@ node tests/test_founding_members_public_names.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 # Public fictional candle inspector: 24 runtime accuracy/privacy regressions.
 node --test tests/home-market-tooltip-20-behavior-v1.test.mjs
+node --test tests/public-navigation-five-page-links-v1.test.mjs
 node --test tests/basic-five-study-dom-interaction-20.test.mjs
 node tests/basic-quant-worked-inspection-v1.test.mjs
 node tests/academy-20-actual-progress-validation-v1.test.mjs
