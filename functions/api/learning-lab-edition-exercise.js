@@ -6,7 +6,8 @@
 import {toolAccess} from './member-tool-access.js';
 import {enginePolicyForPlan} from '../_lib/learning-engine-tier-policy-v1.js';
 import {verifyEditionAuthorization,deriveFictionalCompletedStudies,
- deriveFictionalCompletedFrames,advancedFormativeStudy,professionalDecisionStudy}
+ deriveFictionalCompletedFrames,advancedFormativeStudy,professionalDecisionStudy,
+ enterpriseResearchStudy}
  from '../_lib/learning-lab-edition-exercises-v1.js';
 const HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'vary':'Authorization','x-content-type-options':'nosniff'};
@@ -97,10 +98,31 @@ export async function onRequest({request,env}){
     evidence:derived.evidence,frameSize:body.payload.frameSize??5});
    if(frames)answer=professionalDecisionStudy({evidence:derived.evidence,
     indicators:derived.indicators,riskCases:body.payload.riskCases,frames});
-  }else if(body.edition==='ENTERPRISE'){
-   // Enterprise data-rights manifests MUST originate from a separate
-   // provider-verified source. Never trust browser-supplied license assertions.
-   throw err('Enterprise research data rights verification is not released.',403);
+  }else if(body.edition==='ENTERPRISE'&&body.activity==='chronological_validation'){
+   // Original MEMBER-LABELED FICTIONAL observations only. Do not accept a
+   // client-asserted provider rights manifest, license, held-out test selection
+   // or historical source. No external market datasets are supported here.
+   if(body.payload.manifest!==undefined||body.payload.sourceRights!==undefined||
+      body.payload.historical!==undefined)
+    throw err('External research sources require separately verified rights.',403);
+   const completed=derived.evidence.bars;
+   const trainEnd=Math.floor(completed.length*.6);
+   const training=completed.slice(0,trainEnd).map(x=>x.close);
+   if(training.length>=5){
+    const mean=n=>training.slice(-n).reduce((a,b)=>a+b,0)/n;
+    answer=enterpriseResearchStudy({
+     manifest:[{id:'original-fictional-member-input',methodVersion:'v1',
+      reference:'Member-entered fictional training data, not a licensed market dataset',
+      asOf:derived.evidence.asOf,rights:'verified_for_requested_use',
+      serverRightsVerified:true}],
+     observations:completed.map(x=>({timestamp:x.timestamp,value:x.close})),
+     embargo:2,
+     sensitivity:[{method:'Training-only trailing mean',parameter:3,result:mean(3),
+      holdoutUsedForSelection:false},
+      {method:'Training-only trailing mean',parameter:5,result:mean(5),
+       holdoutUsedForSelection:false}]
+    });
+   }
   }
   if(!answer)throw err('Exercise inputs or activity are invalid.',400);
   return respond({ok:true,family:body.family,edition:body.edition,
