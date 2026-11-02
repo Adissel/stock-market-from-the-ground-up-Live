@@ -18,6 +18,7 @@ node --test tests/crownlight-integrated-40-gates-v1.test.mjs
 node --test tests/crownlight-member-acceptance-phase2-40.test.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 node tests/basic-quant-worked-inspection-v1.test.mjs
+node tests/academy-20-actual-progress-validation-v1.test.mjs
 node tests/academy-member-day-restoration-v1.test.mjs
 node tests/basic-all-419-lab-bridge-integrity-v1.test.mjs
 node tests/basic-learning-49-executable-gates-v1.test.mjs
