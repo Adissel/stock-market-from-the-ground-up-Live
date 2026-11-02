@@ -8,7 +8,7 @@ test('Basic outstanding criteria remain independently tracked',()=>{
  for(const id of open){
   const f=ledger.features.find(x=>x.id===id);
   assert.ok(f,id);
-  assert.equal(f.source_status,'partial',id);
+  assert.equal(f.source_status,['LE-BAS-06','LA-BAS-06'].includes(id)?'integrated':'partial',id);
   assert.equal(f.real_member_accepted,false,id);
   if(id==='LE-BAS-07'){
    assert.equal(f.owner_authenticated_member_accepted,true,id);
@@ -65,6 +65,6 @@ test('Final owner sign-off is recorded for all six Basic gates without fabricati
   assert.equal(item.owner_reapproval_required,false,id);
   assert.equal(item.owner_signoff_status,'CLOSED_BY_OWNER',id);
  }
- assert.equal(ledger.counts.learning_BASIC.integrated_percent,62.5);
- assert.equal(ledger.counts.lab_BASIC.integrated_percent,62.5);
+ assert.equal(ledger.counts.learning_BASIC.integrated_percent,75);
+ assert.equal(ledger.counts.lab_BASIC.integrated_percent,75);
 });
