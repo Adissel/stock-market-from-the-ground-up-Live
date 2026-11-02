@@ -14,6 +14,9 @@ on:
       - 'assets/js/lab-player.js'
       - 'assets/css/learning-lab-edition-panel-v1.css'
       - 'lab-player.html'
+      - 'functions/api/learning-lab-edition-workspace.js'
+      - 'tests/learning-lab-edition-workspace-v1.test.mjs'
+      - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
   workflow_dispatch:
 permissions:
@@ -34,6 +37,7 @@ jobs:
         run: |
           node --check functions/_lib/learning-lab-edition-exercises-v1.js
           node --check functions/api/learning-lab-edition-exercise.js
+          node --check functions/api/learning-lab-edition-workspace.js
       - name: Verify source safety and chronology
         run: node --test tests/learning-lab-edition-exercises-v1.test.mjs
       - name: Verify member UI source integration and accessibility fallbacks
@@ -50,6 +54,8 @@ jobs:
           node-version: '22'
       - name: Verify member grants, expiry, forgery and noncharging boundaries
         run: node --test tests/learning-lab-edition-api-v1.test.mjs
+      - name: Verify private revisioned premium workspace authorization
+        run: node --test tests/learning-lab-edition-workspace-v1.test.mjs
   fail-closed-summary:
     runs-on: ubuntu-latest
     if: always()
