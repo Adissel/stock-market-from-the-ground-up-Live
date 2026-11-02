@@ -497,7 +497,7 @@ export const risk60DeepDays25to44V1=Object.freeze(Object.fromEntries(entries.map
   transfer:transferQ+' '+transferA+' '+altA
  });
  for(const k of ['scenario','task','worked','pitfall','transfer'])if(advanced[k].length<95)throw Error('Short advanced '+k+' D'+day);
- return [day,Object.freeze({topicSourceDay:day<=40?day-20:day-40,
+ return [day,Object.freeze({
  title,formativeQuestions:Object.freeze(formativeQuestions),
  advancedPracticums:Object.freeze([advanced]),numericCheck:Object.freeze({operation:numericCheck[0],inputs:Object.freeze(numericCheck[1]),expected:numericCheck[2]}),
  sourceStatus:'AUTHOR_SOURCE_ONLY_INDEPENDENT_ACCEPTANCE_PENDING'})];

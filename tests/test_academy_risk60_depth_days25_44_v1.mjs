@@ -6,6 +6,7 @@ import {academyPrograms} from '../functions/_lib/bootcamp-academy-v014168.js';
 import {risk60DeepDays25to44V1} from '../functions/_lib/academy-risk60-advanced-depth-days25-44-v1.js';
 import {risk60PracticeBatch02} from '../functions/_lib/academy-risk60-practice-batch02-v1.js';
 import {risk60TransferBatch03} from '../functions/_lib/academy-risk60-transfer-batch03-v1.js';
+import {risk60SourceDays} from '../functions/_lib/academy-risk60-learning-batch01-v1.js';
 const r=academyPrograms.find(x=>x.code==='risk60');
 assert.equal(r?.curriculum.length,60);
 const operations={difference:v=>v[0]-v[1],product:v=>v[0]*v[1],ratio:v=>v[0]/v[1],percent:v=>100*v[0]/v[1],returnPct:v=>100*(v[1]-v[0])/v[0],spreadPct:v=>100*(v[1]-v[0])/((v[0]+v[1])/2),weighted2:v=>(v[0]*v[1]+v[2]*v[3])/(v[0]+v[2]),floorDiv:v=>Math.floor(v[0]/v[1])};
@@ -16,7 +17,8 @@ for(let day=25;day<=44;day++){
  const origin=day<=40?risk60PracticeBatch02[day-21]:risk60TransferBatch03[day-41];
  assert.strictEqual(lesson,origin,'Runtime must use existing member-facing engine');
  assert.equal(runtime.programCode,'risk60');assert.equal(runtime.day,day);
- assert.equal(lesson.topicSourceDay,day<=40?day-20:day-40);
+ assert.equal(lesson.topicSourceDay,risk60SourceDays[day<=40?day-21:day-41], 'Retain frozen nonsequential source-day mapping D'+day);
+ assert.equal(Object.hasOwn(a,'topicSourceDay'),false,'Supplemental depth must never override canonical source registry');
  assert.equal(runtime.officiallyGraded,false);assert.equal(runtime.masteryAwarded,false);
  assert.equal(lesson.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
  assert.equal(lesson.formativeQuestions.length,12);assert.equal(lesson.advancedPracticums.length,1);
