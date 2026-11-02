@@ -19,11 +19,11 @@
   "counts": {
     "learning_BASIC": {
       "total": 8,
-      "integrated": 5,
-      "partial": 3,
+      "integrated": 6,
+      "partial": 2,
       "prototype": 0,
       "not_implemented": 0,
-      "integrated_percent": 62.5,
+      "integrated_percent": 75,
       "released_features": 0,
       "automation_file_references": 8
     },
@@ -59,11 +59,11 @@
     },
     "lab_BASIC": {
       "total": 8,
-      "integrated": 5,
-      "partial": 3,
+      "integrated": 6,
+      "partial": 2,
       "prototype": 0,
       "not_implemented": 0,
-      "integrated_percent": 62.5,
+      "integrated_percent": 75,
       "released_features": 0,
       "automation_file_references": 8
     },
@@ -169,11 +169,11 @@
       "engine": "learning",
       "edition": "BASIC",
       "title": "Complete indicator-topic teaching parity",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/learning-indicators-v1.js",
       "existing_test_file": "tests/learning-indicators-v1.test.mjs",
       "acceptance_criterion": "All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Source integration criterion satisfied, including owner editorial acceptance. Independent final GitHub Actions matrix, latest exact-SHA Cloudflare deployment, and any real assistive-technology or third-party licensing certification remain distinct release-evidence gates.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -186,7 +186,9 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "All five EMA, RSI, MACD, ATR and Bollinger source mappings, numerical method tests, fictional ungraded feedback, and owner-approved teaching content verified; mapped workbench DOM suite executed 20/20."
     },
     {
       "id": "LE-BAS-07",
@@ -310,11 +312,11 @@
       "engine": "lab",
       "edition": "BASIC",
       "title": "419 original individually authored Lab cases",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Every canonical Lab has specific reviewed example, correction and transfer.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Source integration criterion satisfied, including owner editorial acceptance. Independent final GitHub Actions matrix, latest exact-SHA Cloudflare deployment, and any real assistive-technology or third-party licensing certification remain distinct release-evidence gates.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -327,7 +329,9 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "Exactly 419 unique authored Lab bridges validated by mandatory 420-check source suite with distinct teaching source, ungraded no-lookahead transfer, and owner-approved editorial content."
     },
     {
       "id": "LA-BAS-07",
@@ -1012,8 +1016,8 @@
     "total": 6,
     "approved_percent": 100,
     "owner_reapproval_required": false,
-    "independent_verified_learning_percent": 62.5,
-    "independent_verified_lab_percent": 62.5,
+    "independent_verified_learning_percent": 75,
+    "independent_verified_lab_percent": 75,
     "release_verification_status": "INDEPENDENT_EVIDENCE_RECONCILIATION_NOT_COMPLETED"
   }
 }
