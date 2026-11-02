@@ -58,7 +58,7 @@ try{
    const supplement=page.locator('#academy-legacy-guide');
    await supplement.waitFor({state:'attached',timeout:15000});
    if(!(await supplement.evaluate(node=>node.open)))
-    await supplement.locator('summary').click();
+    await supplement.locator(':scope > summary').click();
    await page.locator('.academy-guided-ten').waitFor({state:'visible',timeout:15000});
    assert.equal(await page.locator('#academy-days .gu-bc-day').count(),academyByCode[code].days);
    assert.match(await page.locator('#academy-course-title').innerText(),new RegExp(code==='tape10'?'Tape':code==='indicators10'?'VWAP':'SEC Filings'));
