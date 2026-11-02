@@ -1,0 +1,12 @@
+#cl-progress-react{background:linear-gradient(120deg,#102536,#0b1a2a)!important;border:1px solid #34566b;border-radius:14px}
+.cl-progress-visual{display:grid;grid-template-columns:minmax(0,1fr) 220px;align-items:center;gap:16px;padding:24px;max-width:100%}
+.cl-progress-visual h2{color:#eef7fc;font-size:clamp(1.25rem,2vw,1.85rem);font-weight:690;letter-spacing:-.035em;margin:10px 0}
+.cl-progress-visual p{color:#abc4d3;font-size:.86rem;line-height:1.6}
+.cl-progress-overline{color:#edca8e;font-size:.7rem;letter-spacing:.13em;font-weight:790}
+.cl-progress-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:19px}
+.cl-progress-legend span{background:#19344a;border:1px solid #385a70;border-radius:8px;padding:10px 12px;color:#d1e3ec;font-size:.76rem}
+.cl-progress-legend b{font-variant-numeric:tabular-nums;color:#f0d19b}
+.cl-progress-graphic{height:190px;position:relative}
+.cl-progress-graphic>div{height:100%;width:100%}
+.cl-progress-graphic>strong{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:1.5rem;font-weight:750;color:#e6f3f9;pointer-events:none}
+@media(max-width:690px){.cl-progress-visual{grid-template-columns:1fr;padding:14px}.cl-progress-graphic{max-width:260px;width:100%;margin:0 auto}}
