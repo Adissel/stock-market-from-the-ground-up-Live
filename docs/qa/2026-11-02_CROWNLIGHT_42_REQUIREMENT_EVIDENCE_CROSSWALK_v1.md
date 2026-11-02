@@ -4,7 +4,7 @@
 **Project:** THE STOCK MARKET: FROM THE GROUND UP — Crownlight Chart Studio  
 **Document ID:** SMFGU-CHART-PRO-42-TRACE-001  
 **Filename / file type:** `docs/qa/2026-11-02_CROWNLIGHT_42_REQUIREMENT_EVIDENCE_CROSSWALK_v1.md` / Markdown  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date / status:** 2026-11-02 / EVIDENCE RECONCILED — historical subcriteria accepted, latest-head technical release open  
 **Repository / branch:** `cybernexuspublishing/stock-market-from-the-ground-up` / `main`  
 **Google Drive folder / ID:** Not created / unassigned; GitHub is authoritative  
@@ -87,3 +87,18 @@ The Owner's existing 42 register provided **four ranges**, not 42 individually w
 | 1.0 | 2026-11-02 | Created explicit 42-row engineering acceptance criteria; reconciled historical signed-in browser, two-member, prior mathematical/source evidence; recorded 20 current-source delta checks and open exact-head blockers | 10 historical accepted / 27 partial / 5 open |
 
 **Footer:** SMFGU-CHART-PRO-42-TRACE-001 · v1.0 · Owner acceptance preserved; release parity and untested new features remain open; no money, entitlements, protected grading or member changes.
+
+
+## Follow-up production parity and licensing classification (2026-11-02)
+
+**Successfully deployed *source-equivalent* chart revision:** Cloudflare Pages deployment at commit `c93d9df9558c3059e837343937033a377d664e5` recorded BUILD SUCCESS and DEPLOY SUCCESS. GitHub `fetch_file(ref=c93d9df)` returned exactly the same Git blob SHA for both `assets/js/crownlight-workspace-v2.js` (`98f7169544bee4412d7c16f0911681611321ca1b`) and `assets/css/crownlight-chart-tiers-v1.css` (`b38655b6d51b8d5621f5b2068504d2800ba69cfa`) as in the latest inspected source. **This verifies successful deployment of the changed two-chart grid/divider source**, not an exact SHA match between the concurrently advancing latest `main` and the current published site, and not a passing changed-layout Chromium workflow.
+
+**Targeted security:** Production Supabase read-only SQL verified seven relevant privileged Chart Studio workspace/commerce test RPC definitions (workspace save v3/v4, chart cash test apply, four mixed test operations). Each had `anon_execute=false`, `member_execute=false`, and `service_execute=true`; this is defense-in-depth scope evidence, **not** a claim of global role/plan or commercial checkout certification. The advisor separately reported 220 INFO RLS-without-policy notices, four WARN anonymous-executable privileged functions, 87 WARN authenticated-executable privileged functions and one leaked-password-protection WARN; none of these findings singled out those chart RPCs. Only scoped privilege review, not blanket revocation, is authorized. Details: [issue #158](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/issues/158) and [Supabase guidance](https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable).
+
+**Historical dataset rights segregation:** Production read-only inventory: 419 published *original computer-created fictional* scenarios; two historically sourced published datasets explicitly `qa_release_only=true` under IEX historical attribution; 87 draft source-review cases with Alpaca SIP internal-review attribution. They must not be reclassified as universally licensed simply because the Owner approved the 419 instructional Lab bridges; see [issue #155 acceptance note](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/issues/155). Historical-data commercial distribution rights are not accepted.
+
+**Work remaining:** changed-layout real Chromium geometry, pointer release and keyboard acceptance; final head-SHA CI/deploy parity; distinct new data source/license exceptions, screen-reader focus audit, paid/staff entitlement lifecycle. Preserved accepted Owner/member history must not be reopened wholesale.
+
+**Revision history:** v1.1 / 2026-11-02 — confirmed deployed source-equivalent JS/CSS, scoped privileged-RPC access, and strict fictional/QA-only/draft historical dataset inventory, with open changed-feature release gates.
+
+**Footer:** SMFGU-CHART-PRO-42-TRACE-001 · v1.1 · Source-equivalent deployment verified; final real-browser and exact-head sign-off OPEN.
