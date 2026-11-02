@@ -1,0 +1,531 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 20,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original point-in-time data, research and replay lessons 381–400; SEC EDGAR URL is not claim-specific verification.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_POINT_IN_TIME_RESEARCH_DATASET_VERSUS_CURRENT_REVISED_VALUE",
+      "title": "Point-in-time research dataset versus current revised value",
+      "concept": "A current historical table may contain facts revised after a past decision date.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional report initially announces GDP growth 1.5% on May 1 and revises it to 2.0% on June 1; May 10 research must use 1.5%.",
+      "limit": "Release times, vendor propagation and revision history must be validated.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Release times, vendor propagation and revision history must be validated.",
+      "commonError": "Research/trading error: Using revised data as if contemporaneously observable introduces hindsight. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A current historical table may contain facts revised after a past decision date. Use the fictional case: Fictional report initially announces GDP growth 1.5% on May 1 and revises it to 2.0% on June 1; May 10 research must use 1.5%. The critical misconception is Using revised data as if contemporaneously observable introduces hindsight. Limit: Release times, vendor propagation and revision history must be validated. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A report changes 3% to 2.5% two weeks later; which vintage belongs at the earlier decision? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_TIMESTAMP_VERSUS_PROVIDER_RECEIPT_TIMESTAMP",
+      "title": "Price timestamp versus provider receipt timestamp",
+      "concept": "An exchange event timestamp and the time a client receives a report are different observations.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional trade occurred 10:00:00.100 and vendor delivered it 10:00:00.300; reporting delay is 200 milliseconds.",
+      "limit": "Clock synchronization and timestamp accuracy affect conclusions.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Clock synchronization and timestamp accuracy affect conclusions.",
+      "commonError": "Research/trading error: Treating receipt time as trade time misorders replay decisions. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: An exchange event timestamp and the time a client receives a report are different observations. Use the fictional case: Fictional trade occurred 10:00:00.100 and vendor delivered it 10:00:00.300; reporting delay is 200 milliseconds. The critical misconception is Treating receipt time as trade time misorders replay decisions. Limit: Clock synchronization and timestamp accuracy affect conclusions. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Event at 09:30:01.200, receipt at 09:30:01.950: calculate latency. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PROVIDER_FEED_COVERAGE_VERSUS_CONSOLIDATED_TRADING_VOLUME",
+      "title": "Provider feed coverage versus consolidated trading volume",
+      "concept": "A venue-only trade feed need not represent total shares traded across all reporting venues.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: A fictional feed reports 30,000 shares while an authorized consolidated reference reports 100,000: observed coverage 30%.",
+      "limit": "The feed and reference must cover the same symbol, interval and corrections.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. The feed and reference must cover the same symbol, interval and corrections.",
+      "commonError": "Research/trading error: Presenting partial-feed volume as the total market denominator misstates participation. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A venue-only trade feed need not represent total shares traded across all reporting venues. Use the fictional case: A fictional feed reports 30,000 shares while an authorized consolidated reference reports 100,000: observed coverage 30%. The critical misconception is Presenting partial-feed volume as the total market denominator misstates participation. Limit: The feed and reference must cover the same symbol, interval and corrections. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A feed shows 25,000 and reference 80,000: compute share coverage. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MISSING_QUOTE_VERSUS_ZERO_PRICE_QUOTE",
+      "title": "Missing quote versus zero-price quote",
+      "concept": "Unavailable data and an observed numeric zero are different states and must not be represented interchangeably.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional quote stream omits 10:03 while 10:02 bid is $12.50; a fabricated $0 bid at 10:03 is not valid.",
+      "limit": "A stale last-known quote requires visible freshness labeling.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. A stale last-known quote requires visible freshness labeling.",
+      "commonError": "Research/trading error: Replacing missing quotes with zero can manufacture crashes and signals. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: Unavailable data and an observed numeric zero are different states and must not be represented interchangeably. Use the fictional case: Fictional quote stream omits 10:03 while 10:02 bid is $12.50; a fabricated $0 bid at 10:03 is not valid. The critical misconception is Replacing missing quotes with zero can manufacture crashes and signals. Limit: A stale last-known quote requires visible freshness labeling. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: At an unreported time, what state must a quote chart represent? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TIMESTAMP_ORDER_IN_REPLAY_EVENT_PROCESSING",
+      "title": "Timestamp order in replay event processing",
+      "concept": "A deterministic replay must sort eligible events by event time and stable tie-break conventions.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional prints at 10:00:02,10:00:01,10:00:03 need chronological ordering 01,02,03 before sequential interpretation.",
+      "limit": "Equal timestamps and feed corrections require a declared secondary ordering policy.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Equal timestamps and feed corrections require a declared secondary ordering policy.",
+      "commonError": "Research/trading error: Treating raw arrival order as exchange chronology may distort sequence. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A deterministic replay must sort eligible events by event time and stable tie-break conventions. Use the fictional case: Fictional prints at 10:00:02,10:00:01,10:00:03 need chronological ordering 01,02,03 before sequential interpretation. The critical misconception is Treating raw arrival order as exchange chronology may distort sequence. Limit: Equal timestamps and feed corrections require a declared secondary ordering policy. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Sort timestamps 09:30:05,09:30:03,09:30:04 and identify first observed event. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CORPORATE_SPLIT_EFFECTIVE_DATE_ADJUSTMENT",
+      "title": "Corporate split effective-date adjustment",
+      "concept": "A split adjustment must apply only when corporate-action information and effective timing permit.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional 2-for-1 split changes raw price $100 to $50 and quantity 10 to 20 shares without changing $1,000 notional.",
+      "limit": "Historical adjusted charts and actual raw historical transaction prices are distinct.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Historical adjusted charts and actual raw historical transaction prices are distinct.",
+      "commonError": "Research/trading error: Applying future split factors to decision-time raw execution quotes can create false fills. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A split adjustment must apply only when corporate-action information and effective timing permit. Use the fictional case: Fictional 2-for-1 split changes raw price $100 to $50 and quantity 10 to 20 shares without changing $1,000 notional. The critical misconception is Applying future split factors to decision-time raw execution quotes can create false fills. Limit: Historical adjusted charts and actual raw historical transaction prices are distinct. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A 4-for-1 split on 5 shares at $80: compute after-split count and comparable price. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DIVIDEND_ADJUSTED_TOTAL_RETURN_INDEX_CONVENTION",
+      "title": "Dividend-adjusted total-return index convention",
+      "concept": "A dividend-reinvestment index represents an explicit reinvestment model rather than raw price alone.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Price begins $100, ends $101, and eligible cash distribution is $2: simplified gross holding-period total return is 3%.",
+      "limit": "Actual index reinvestment timing, withholding and adjustment rules differ.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Actual index reinvestment timing, withholding and adjustment rules differ.",
+      "commonError": "Research/trading error: Reporting only price decline ignores qualifying cash distributions. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A dividend-reinvestment index represents an explicit reinvestment model rather than raw price alone. Use the fictional case: Price begins $100, ends $101, and eligible cash distribution is $2: simplified gross holding-period total return is 3%. The critical misconception is Reporting only price decline ignores qualifying cash distributions. Limit: Actual index reinvestment timing, withholding and adjustment rules differ. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Price $50 to $49, cash distribution $2: compute simple holding-period total return. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_WEIGHTED_BENCHMARK_VERSUS_ARITHMETIC_BENCHMARK",
+      "title": "Volume-weighted benchmark versus arithmetic benchmark",
+      "concept": "A benchmark built from trades needs price and size weights rather than one vote per print.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Trades 10 shares at $20 and 90 at $21 produce VWAP $20.90, simple two-print mean $20.50.",
+      "limit": "Odd-lot coverage, corrections and feed rights constrain real reconstruction.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Odd-lot coverage, corrections and feed rights constrain real reconstruction.",
+      "commonError": "Research/trading error: Treating two prints as equal-volume can misstate execution quality. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A benchmark built from trades needs price and size weights rather than one vote per print. Use the fictional case: Trades 10 shares at $20 and 90 at $21 produce VWAP $20.90, simple two-print mean $20.50. The critical misconception is Treating two prints as equal-volume can misstate execution quality. Limit: Odd-lot coverage, corrections and feed rights constrain real reconstruction. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Trades 25 shares at $30 and 75 at $32: compute trade-weighted price. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BID_ASK_SPREAD_VERSUS_LAST_TRADE_DISPLACEMENT",
+      "title": "Bid ask spread versus last trade displacement",
+      "concept": "The displayed two-sided spread and the difference between a last trade and midpoint are separate statistics.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Bid $10.00, ask $10.10 imply spread $0.10; last trade $10.30 is $0.25 above midpoint $10.05.",
+      "limit": "Ensure quotes are valid at the relevant execution event.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Ensure quotes are valid at the relevant execution event.",
+      "commonError": "Research/trading error: Assuming a last trade must lie inside current quotes mixes timestamps and venues. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: The displayed two-sided spread and the difference between a last trade and midpoint are separate statistics. Use the fictional case: Bid $10.00, ask $10.10 imply spread $0.10; last trade $10.30 is $0.25 above midpoint $10.05. The critical misconception is Assuming a last trade must lie inside current quotes mixes timestamps and venues. Limit: Ensure quotes are valid at the relevant execution event. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Bid $20 and ask $20.20, last print $20.30: compute spread and print-midpoint displacement. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRADE_CORRECTION_AND_CUMULATIVE_VOLUME_REVISION",
+      "title": "Trade correction and cumulative volume revision",
+      "concept": "A corrected or canceled tape print can change previously aggregated eligible reported volume.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional prints 100 and 200 shares yield 300; canceling erroneous 200-share print revises eligible total to 100.",
+      "limit": "Feeds define correction identifiers and update semantics.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Feeds define correction identifiers and update semantics.",
+      "commonError": "Research/trading error: Counting both original and replacement reports double counts shares. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A corrected or canceled tape print can change previously aggregated eligible reported volume. Use the fictional case: Fictional prints 100 and 200 shares yield 300; canceling erroneous 200-share print revises eligible total to 100. The critical misconception is Counting both original and replacement reports double counts shares. Limit: Feeds define correction identifiers and update semantics. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A 500-share print canceled from a 1,500-share aggregate: compute revised total. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REPLAY_WARMUP_WINDOW_AND_DECISION_WINDOW",
+      "title": "Replay warmup window and decision window",
+      "concept": "An indicator may need pre-start historical observations to produce valid outputs without showing future decisions.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional 20-period SMA at replay bar 0 is computed from 19 earlier completed pre-start closes plus first completed replay close.",
+      "limit": "A decision at first bar open cannot access the completed first-bar close.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. A decision at first bar open cannot access the completed first-bar close.",
+      "commonError": "Research/trading error: Starting EMA or SMA without prior bars may produce false signals or huge zoom artifacts. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: An indicator may need pre-start historical observations to produce valid outputs without showing future decisions. Use the fictional case: Fictional 20-period SMA at replay bar 0 is computed from 19 earlier completed pre-start closes plus first completed replay close. The critical misconception is Starting EMA or SMA without prior bars may produce false signals or huge zoom artifacts. Limit: A decision at first bar open cannot access the completed first-bar close. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: With SMA5, how many completed earlier closes are needed before the first replay close? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CHART_VIEWPORT_CHANGES_AND_DATA_INTEGRITY",
+      "title": "Chart viewport changes and data integrity",
+      "concept": "Changing zoom or pan should alter only the visible projection, not the underlying calculation history.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: A fictional SMA value of 10.50 at index 100 remains 10.50 when only indices 80–120 are displayed.",
+      "limit": "Rendering optimization must preserve chronological source data.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Rendering optimization must preserve chronological source data.",
+      "commonError": "Research/trading error: Recomputing indicator seeds from only visible bars creates unstable values. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: Changing zoom or pan should alter only the visible projection, not the underlying calculation history. Use the fictional case: A fictional SMA value of 10.50 at index 100 remains 10.50 when only indices 80–120 are displayed. The critical misconception is Recomputing indicator seeds from only visible bars creates unstable values. Limit: Rendering optimization must preserve chronological source data. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: If a user zooms from 100 bars to 20 bars, should a correctly computed historical EMA at the same index change? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FICTIONAL_VERSUS_LICENSED_HISTORICAL_CANDLE_PROVENANCE",
+      "title": "Fictional versus licensed historical candle provenance",
+      "concept": "Synthetic OHLCV needs clear labeling so learners cannot mistake it for an exchange-recorded period.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: A fabricated $10/$11/$9/$10.50 candle is labeled FICTIONAL even if its shape resembles a real chart.",
+      "limit": "Historical datasets require origin, timezone, adjustments and usage rights.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Historical datasets require origin, timezone, adjustments and usage rights.",
+      "commonError": "Research/trading error: Advertising invented candles as actual ticker history misrepresents evidence. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: Synthetic OHLCV needs clear labeling so learners cannot mistake it for an exchange-recorded period. Use the fictional case: A fabricated $10/$11/$9/$10.50 candle is labeled FICTIONAL even if its shape resembles a real chart. The critical misconception is Advertising invented candles as actual ticker history misrepresents evidence. Limit: Historical datasets require origin, timezone, adjustments and usage rights. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: What provenance label belongs on a made-up $20 open and $22 high? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STUDY_SAMPLE_SURVIVORSHIP_AUDIT",
+      "title": "Study sample survivorship audit",
+      "concept": "A study that retains only currently listed stocks can exclude failures that existed during the past window.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional original universe has 100 members; only 80 survive to present: current-only testing excludes 20%.",
+      "limit": "Universe membership and delisting returns must be point-in-time sourced.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Universe membership and delisting returns must be point-in-time sourced.",
+      "commonError": "Research/trading error: Using current constituents in a 2020 backtest can inflate apparent performance. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A study that retains only currently listed stocks can exclude failures that existed during the past window. Use the fictional case: Fictional original universe has 100 members; only 80 survive to present: current-only testing excludes 20%. The critical misconception is Using current constituents in a 2020 backtest can inflate apparent performance. Limit: Universe membership and delisting returns must be point-in-time sourced. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Original list 200 securities with 30 delisted: compute excluded fraction. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STRATEGY_SELECTION_VERSUS_OUT_OF_SAMPLE_EVIDENCE",
+      "title": "Strategy selection versus out-of-sample evidence",
+      "concept": "Choosing the best performing model on a test set turns that set into part of development.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional 20 strategies tried on a 'holdout'; selecting the winner contaminates the holdout for acceptance.",
+      "limit": "Frozen model choice, costs and separate future evaluation remain necessary.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Frozen model choice, costs and separate future evaluation remain necessary.",
+      "commonError": "Research/trading error: Calling repeated test-set optimization independent validation is incorrect. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: Choosing the best performing model on a test set turns that set into part of development. Use the fictional case: Fictional 20 strategies tried on a 'holdout'; selecting the winner contaminates the holdout for acceptance. The critical misconception is Calling repeated test-set optimization independent validation is incorrect. Limit: Frozen model choice, costs and separate future evaluation remain necessary. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: If ten variants are compared on the declared test year, may the same year remain untouched out-of-sample evidence? Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SIMULATED_SLIPPAGE_VERSUS_OBSERVED_EXECUTION_COST",
+      "title": "Simulated slippage versus observed execution cost",
+      "concept": "A simulator cost assumption is not evidence of what a live order would have achieved.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional 100-share buy at $20 reference with assumed 0.02/share slippage adds $2 modeled cost.",
+      "limit": "Liquidity, spread, routing and volatility affect actual execution.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Liquidity, spread, routing and volatility affect actual execution.",
+      "commonError": "Research/trading error: Treating modeled slippage as a verified broker fill hides uncertainty. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A simulator cost assumption is not evidence of what a live order would have achieved. Use the fictional case: Fictional 100-share buy at $20 reference with assumed 0.02/share slippage adds $2 modeled cost. The critical misconception is Treating modeled slippage as a verified broker fill hides uncertainty. Limit: Liquidity, spread, routing and volatility affect actual execution. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A 50-share hypothetical order with $0.03/share slip: compute modeled cost. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRANSACTION_COST_SENSITIVITY_OF_SMALL_SIGNALS",
+      "title": "Transaction-cost sensitivity of small signals",
+      "concept": "Costs can erase a narrow hypothetical gross trading advantage.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Hypothetical gross gain $15 less $8 total fees and $10 modeled slippage yields net -$3.",
+      "limit": "Costs are scenario inputs and need sensitivity testing.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Costs are scenario inputs and need sensitivity testing.",
+      "commonError": "Research/trading error: Assuming the gross backtest outcome survives realistic friction overstates viability. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: Costs can erase a narrow hypothetical gross trading advantage. Use the fictional case: Hypothetical gross gain $15 less $8 total fees and $10 modeled slippage yields net -$3. The critical misconception is Assuming the gross backtest outcome survives realistic friction overstates viability. Limit: Costs are scenario inputs and need sensitivity testing. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: Gross gain $30, fees $5 and slip $12: compute modeled net. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STRATEGY_EXPECTANCY_CONFIDENCE_VERSUS_POINT_ESTIMATE",
+      "title": "Strategy expectancy confidence versus point estimate",
+      "concept": "A sample mean outcome has uncertainty that depends on variability and sample size.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional 25 independent outcomes with mean $4 and sample SD $20 imply conventional standard error $4.",
+      "limit": "Heavy tails and dependence make simple confidence approximations unreliable.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Heavy tails and dependence make simple confidence approximations unreliable.",
+      "commonError": "Research/trading error: Describing a positive sample mean as a guaranteed positive population expectancy ignores uncertainty. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A sample mean outcome has uncertainty that depends on variability and sample size. Use the fictional case: Fictional 25 independent outcomes with mean $4 and sample SD $20 imply conventional standard error $4. The critical misconception is Describing a positive sample mean as a guaranteed positive population expectancy ignores uncertainty. Limit: Heavy tails and dependence make simple confidence approximations unreliable. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A sample mean $3 with SD $12 across 16 independent outcomes: compute SE. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DRAWDOWN_RECOVERY_WITH_CASH_FLOWS_EXCLUDED",
+      "title": "Drawdown recovery with cash flows excluded",
+      "concept": "A recovery comparison must isolate the original account path from injected capital.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Account falls $1000 to $800, then receives $200 deposit; marked $1000 is not an earned 25% recovery.",
+      "limit": "Midperiod cash-flow allocation requires an explicit performance method.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. Midperiod cash-flow allocation requires an explicit performance method.",
+      "commonError": "Research/trading error: Calling a deposit-induced balance restoration an investment gain is misleading. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A recovery comparison must isolate the original account path from injected capital. Use the fictional case: Account falls $1000 to $800, then receives $200 deposit; marked $1000 is not an earned 25% recovery. The critical misconception is Calling a deposit-induced balance restoration an investment gain is misleading. Limit: Midperiod cash-flow allocation requires an explicit performance method. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: An $800 account gets a $100 deposit and marks $900: distinguish deposit from return. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_UNCERTAINTY_OF_A_LEVEL_CROSSING_ON_INCOMPLETE_BARS",
+      "title": "Uncertainty of a level crossing on incomplete bars",
+      "concept": "A forming bar can temporarily exceed a threshold before its completed close changes the conclusion.",
+      "procedure": "Prerequisite: distinguish real observations from synthetic examples, know the event timestamp and information-publication cutoff, and define feed scope. Calculate the illustrative quantity or follow the chronological event procedure using only eligible facts. Identify any revised, delayed, excluded, or unlicensed observations before inference.",
+      "workedCase": "FICTIONAL: Fictional threshold $30, forming bar prints $30.50, then completes $29.80: closing breakout criterion is not met.",
+      "limit": "An exchange print at the level is not a guarantee of executable liquidity.",
+      "invalidation": "Do not proceed where event timing, initial vintage, inclusion scope, license, or correct historical chronology cannot be established. An exchange print at the level is not a guarantee of executable liquidity.",
+      "commonError": "Research/trading error: Concluding a confirmed close-based breakout at the intrabar high uses the wrong temporal rule. Correct by restoring the applicable point-in-time evidence boundary.",
+      "selfCheck": "Which data vintage, event time, publication time or feed scope governs the conclusion?",
+      "reviewExplanation": "Ungraded Talia reasoning: A forming bar can temporarily exceed a threshold before its completed close changes the conclusion. Use the fictional case: Fictional threshold $30, forming bar prints $30.50, then completes $29.80: closing breakout criterion is not met. The critical misconception is Concluding a confirmed close-based breakout at the intrabar high uses the wrong temporal rule. Limit: An exchange print at the level is not a guarantee of executable liquidity. No future candle or protected official answer can be used.",
+      "transferQuestion": "FICTIONAL independent transfer: A bar touches $40.20 intrabar but closes $39.90 against $40 resistance: classify using closes. Identify the earliest decision time at which evidence permits your conclusion.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_candidate_no_market_data_redistribution_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
