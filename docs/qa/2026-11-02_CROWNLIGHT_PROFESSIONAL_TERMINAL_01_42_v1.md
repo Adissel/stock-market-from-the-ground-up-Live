@@ -43,3 +43,18 @@
 | 1.0 | 2026-11-02 | Audited existing first-42 scope; added Professional density, lifecycle reset, accessible styling, regression and CI wiring | Source committed, CI and browser acceptance open |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.0 · Internal engineering register · No financial execution or licensed-data claims.
+
+
+## November 2, 2026 — subsequent execution / layout reflow
+- **Prior source head:** `badec24a7e7e16d2ca514ebac30dc34df2c5f05b`; the GitHub connector's commit workflow retrieval is PR-only, therefore an empty response cannot prove a push CI result.
+- **Enhancement:** Professional and Advanced KLineChart panels now register a bounded requestAnimationFrame-scheduled ResizeObserver on the chart frame; resize after CSS layout/sidebar changes even when the window does not resize. On Stop, disconnect observer and cancel pending frame to avoid stale references or multi-mount callbacks.
+- **Source files:** `assets/js/crownlight-chart-tiers-v1.js` and `tests/test_crownlight_professional_density_v1.mjs`.
+- **Source implementation commit:** `ed562263273fe9b48fd23effa676874e38b31010`; regression source commit `d4604d737a8519432e28e230bb7f5421ec12903b`.
+- **Acceptance:** Source committed, browser proof **OPEN**. No authenticated window resize, keyboard, member-context, cross-device or Cloudflare deployed-SHA sign-off should be inferred.
+- **Dependencies:** No new packages, DB migration, API, entitlements, billing, historical provider rights, or engine replacement.
+
+| Version | Date | Description | Status |
+| --- | --- | --- | --- |
+| 1.1 | 2026-11-02 | Enhanced workspace panel responsive resize observer and regression checks | Source committed; CI/browser acceptance open |
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.1 · Source evidence only.
