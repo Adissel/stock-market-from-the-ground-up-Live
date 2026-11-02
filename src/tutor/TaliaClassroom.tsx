@@ -239,7 +239,8 @@ function Classroom(){
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
     setConversationId(null);setConversationLabel('');setSave(false);
-    setReasoning('');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
+    setQuestion('');setReasoning('');setMode('explain');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');
+    setMisconception('observation');setConfidence('unsure');setDimension('Recognition');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
   },[]);
   useEffect(()=>{
     let live=true,unsubscribe:(()=>void)|null=null;
