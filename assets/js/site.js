@@ -262,13 +262,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 (()=>{if(document.querySelector('link[data-gu-nav-entrypoints]'))return;const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/css/nav-entrypoints-v1.css?v=1';l.dataset.guNavEntrypoints='1';document.head.append(l)})();
 
 /* Sitewide user appearance choice. Labs and Boot Camps retain locked original layouts. */
-(()=>{const page=location.pathname.split('/').pop()||'index.html';if(/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/i.test(page))return;
+(()=>{const page=location.pathname.split('/').pop()||'index.html';if(!new Set(['index.html','store.html','dashboard.html','signin.html','create-account.html','books.html','membership.html','about.html','corrections.html','market-commons.html','founding600.html','learn.html','privacy.html','terms.html','advertise.html','contact.html','support.html','faq.html','account.html','profile.html','journal.html','watchlist.html','my-learning.html']).has(page.toLowerCase()))return;
 const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/css/appearance-controls-v1.css?v=1';document.head.append(css);
 const js=document.createElement('script');js.defer=true;js.src='/assets/js/appearance-controls-v1.js?v=1';document.head.append(js);
 })();
 
 /* Mount the integrated, progressive site shell outside interactive curricula. */
-(()=>{const page=location.pathname.split('/').pop()||'index.html';if(/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/i.test(page))return;
+(()=>{const page=location.pathname.split('/').pop()||'index.html';if(!new Set(['index.html','store.html','dashboard.html','signin.html','create-account.html','books.html','membership.html','about.html','corrections.html','market-commons.html','founding600.html','learn.html','privacy.html','terms.html','advertise.html','contact.html','support.html','faq.html','account.html','profile.html','journal.html','watchlist.html','my-learning.html']).has(page.toLowerCase()))return;
 const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='/assets/css/site-shell-v1.css?v=1';document.head.append(stylesheet);
 const script=document.createElement('script');script.src='/assets/js/site-shell-v1.js?v=1';script.defer=true;document.head.append(script);
 })();
