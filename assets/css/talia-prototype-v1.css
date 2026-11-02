@@ -1,0 +1,14 @@
+/* Crownlight Tutor prototype: non-production visual shell layered on the existing React classroom. */
+.tp-body{background:radial-gradient(ellipse at 77% -18%,#16415a 0%,transparent 46%),linear-gradient(150deg,#08111f,#101e30 54%,#08121f);color:#e8f0f9;min-height:100vh}
+.tp-topbar{display:flex;align-items:center;gap:2rem;padding:1.15rem clamp(1rem,4vw,4rem);border-bottom:1px solid #ffffff1e;background:#071321d6;position:relative;z-index:2;flex-wrap:wrap}
+.tp-mark{font-size:.82rem;letter-spacing:.14em;font-weight:800;color:#eff6ff;text-decoration:none}.tp-mark span{color:#9cb0c5;font-weight:500}.tp-topbar nav{display:flex;gap:1.5rem;margin-left:auto}.tp-topbar nav a{color:#c7dcf0;text-decoration:none;font-size:.85rem}.tp-topstatus{font-size:.67rem;letter-spacing:.13em;border:1px solid #4d7382;color:#9cdcd5;padding:.48rem .7rem;border-radius:999px}
+.tp-frame{max-width:1740px;margin:auto;padding:clamp(1rem,3vw,3rem)}
+.tp-hero{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(280px,.85fr);align-items:end;gap:2rem;margin:1.6rem 0 2rem}
+.tp-kicker{color:#67d9d1;letter-spacing:.19em;font-size:.72rem;font-weight:700}.tp-hero h1{font-size:clamp(2.2rem,4.1vw,4.9rem);line-height:1.06;letter-spacing:-.055em;margin:.7rem 0 1rem;font-weight:730}.tp-hero h1 em{color:#75dccc;font-style:normal}.tp-hero p:not(.tp-kicker){max-width:760px;color:#b3c6da;line-height:1.7}
+.tp-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}.tp-metrics div{padding:1.15rem .7rem;background:linear-gradient(150deg,#1e3449aa,#0a1c2caa);border:1px solid #42657a77;border-radius:12px}.tp-metrics strong{display:block;font-size:clamp(1.5rem,2.4vw,2.7rem);font-variant-numeric:tabular-nums;color:#f5fcff}.tp-metrics span{display:block;font-size:.68rem;color:#aac2d6;margin-top:.35rem}
+.tp-ribbon{display:flex;gap:.7rem;flex-wrap:wrap;margin:0 0 1.6rem}.tp-ribbon span{border:1px solid #6e95a342;background:#142a3a;color:#b6d2e5;font-size:.64rem;letter-spacing:.08em;padding:.45rem .72rem;border-radius:5px}
+#tp-auth{border:1px solid #54778d;border-radius:12px;background:#182f40;padding:1.3rem;color:#d9eafa}
+#tp-workspace{min-width:0}#tp-workspace .tc-main{max-width:none}#tp-workspace .tc-chart-panel,#tp-workspace .tc-chat-panel{box-shadow:0 16px 48px #0003}
+.tp-footer{max-width:1740px;margin:1.5rem auto 0;padding:1.5rem clamp(1rem,3vw,3rem);font-size:.72rem;color:#9bb2c7;border-top:1px solid #ffffff1b}
+@media(max-width:900px){.tp-hero{grid-template-columns:1fr}.tp-metrics{max-width:570px}}@media(max-width:550px){.tp-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.tp-topstatus{display:none}.tp-topbar nav{gap:.7rem}}
+@media(prefers-reduced-motion:reduce){.tp-body *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
