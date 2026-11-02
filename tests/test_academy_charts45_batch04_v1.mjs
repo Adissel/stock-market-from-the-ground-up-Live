@@ -11,7 +11,7 @@ for(const [i,d] of p.curriculum.entries()){
  assert.equal(d.day,i+1);assert.equal(d.programCode,'charts45');
  const l=d.lesson;assert(l,'Missing lesson '+d.day);parents.add(d.sourceDay);
  const frozen=chartCaseBySourcePhase[d.sourceDay][Math.floor(i/15)];
- if(i>=20)assert.equal(l,frozen,'Unchanged Charts45 days must retain original object identity');
+ if(i>=40)assert.equal(l,frozen,'Unchanged Charts45 Days 41–45 must retain original object identity');
  else{
   // The new supplemental instructional layer is additive. Test every original
   // field, including its editorial status, for exact value/reference parity.
