@@ -88,6 +88,7 @@ node tests/talia-indicators61-73-python-js-v1.test.mjs
 node tests/talia-release-evidence-crosswalk-v1.test.mjs
 node tests/talia-recursive-indicators-python-js-v1.test.mjs
 node tests/talia-claim-40-source-disposition-v1.test.mjs
+node tests/talia-40-source-register-consistency-v1.test.mjs
 node tests/talia-tutor40-conversational-quality-v1.test.mjs
 node tests/talia-regulatory-timing-notices-v1.test.mjs
 node tests/talia-40-claim-multiturn-source-v1.test.mjs
