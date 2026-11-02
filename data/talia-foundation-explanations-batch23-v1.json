@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 23,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Fictional journal, process, learning and no-trade scenarios 441–460; source and mathematical review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_JOURNAL_PLANNED_ENTRY_VERSUS_ACTUAL_FILL",
+      "title": "Journal planned entry versus actual fill",
+      "concept": "A journal must separate a pretrade intended price from the subsequently confirmed execution.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Plan to buy at $20; actual confirmed buy at $20.08 for 50 shares: entry slippage is $4 adverse.",
+      "limit": "Requires a timestamped plan recorded before the fill.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Requires a timestamped plan recorded before the fill.",
+      "commonError": "Live-trading error: Rewriting the plan to the actual fill erases process evidence. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A journal must separate a pretrade intended price from the subsequently confirmed execution. Apply this documented example: Plan to buy at $20; actual confirmed buy at $20.08 for 50 shares: entry slippage is $4 adverse. Correct this misconception: Rewriting the plan to the actual fill erases process evidence. Boundary: Requires a timestamped plan recorded before the fill. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: A planned $30 buy fills at $30.03 for 40 shares: calculate adverse price difference and dollars. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_OUTCOME_VERSUS_DECISION_QUALITY",
+      "title": "Journal outcome versus decision quality",
+      "concept": "A profitable result is not proof that the information available when entering supported a sound decision.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A fictional plan risks $20 on a documented setup and unexpectedly earns $30 despite entering outside its stated rule; profit does not erase the rule violation.",
+      "limit": "Decision rubrics must be evaluated with contemporaneous evidence, not future outcome.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Decision rubrics must be evaluated with contemporaneous evidence, not future outcome.",
+      "commonError": "Live-trading error: Marking all winners as good decisions reinforces invalid process. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A profitable result is not proof that the information available when entering supported a sound decision. Apply this documented example: A fictional plan risks $20 on a documented setup and unexpectedly earns $30 despite entering outside its stated rule; profit does not erase the rule violation. Correct this misconception: Marking all winners as good decisions reinforces invalid process. Boundary: Decision rubrics must be evaluated with contemporaneous evidence, not future outcome. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: A recorded rule is violated but the trade gains $12: distinguish outcome and process quality. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_RULE_ADHERENCE_PERCENTAGE",
+      "title": "Journal rule adherence percentage",
+      "concept": "Rule adherence is a proportion of eligible logged decisions meeting a predefined observable process standard.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: 18 of 24 eligible decisions follow a stated process: 18/24=75% adherence.",
+      "limit": "The denominator must disclose skipped or ineligible observations.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. The denominator must disclose skipped or ineligible observations.",
+      "commonError": "Live-trading error: Using profitable trades as numerator substitutes P&L for adherence. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Rule adherence is a proportion of eligible logged decisions meeting a predefined observable process standard. Apply this documented example: 18 of 24 eligible decisions follow a stated process: 18/24=75% adherence. Correct this misconception: Using profitable trades as numerator substitutes P&L for adherence. Boundary: The denominator must disclose skipped or ineligible observations. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Of 30 documented decisions, 21 comply: compute the rate. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_MISSING_DATA_RATE",
+      "title": "Journal missing-data rate",
+      "concept": "An incomplete journal cannot support the same conclusions as a fully observed record.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: 5 of 40 required entry-time fields are missing: missing-field rate =12.5%.",
+      "limit": "Fields and eligibility criteria must be frozen before counting.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Fields and eligibility criteria must be frozen before counting.",
+      "commonError": "Live-trading error: Treating blanks as zero can fabricate risk and performance statistics. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: An incomplete journal cannot support the same conclusions as a fully observed record. Apply this documented example: 5 of 40 required entry-time fields are missing: missing-field rate =12.5%. Correct this misconception: Treating blanks as zero can fabricate risk and performance statistics. Boundary: Fields and eligibility criteria must be frozen before counting. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Eight missing fields out of 50 expected fields: calculate the rate. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_REALIZED_VERSUS_UNREALIZED_P_L",
+      "title": "Journal realized versus unrealized P&L",
+      "concept": "An open position's quoted change is not the same as a gain recognized upon closure.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Buy 20 shares at $10, current mark $10.50: $10 unrealized before charges until shares are sold.",
+      "limit": "Bid/ask, partial closure and fees affect realizability.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Bid/ask, partial closure and fees affect realizability.",
+      "commonError": "Live-trading error: Counting a marked gain as confirmed sale proceeds creates a false execution. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: An open position's quoted change is not the same as a gain recognized upon closure. Apply this documented example: Buy 20 shares at $10, current mark $10.50: $10 unrealized before charges until shares are sold. Correct this misconception: Counting a marked gain as confirmed sale proceeds creates a false execution. Boundary: Bid/ask, partial closure and fees affect realizability. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: 30 shares entered at $15 and marked at $14.80: compute unrealized change. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_AVERAGE_HOLDING_DURATION",
+      "title": "Journal average holding duration",
+      "concept": "Holding time needs actual confirmed entry and exit timestamps rather than candle count assumptions.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Two complete trades last 20 and 40 minutes: average holding duration 30 minutes.",
+      "limit": "Partial fills, weekends and paused sessions require explicit conventions.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Partial fills, weekends and paused sessions require explicit conventions.",
+      "commonError": "Live-trading error: Assuming three five-minute candles always mean precisely 15 minutes ignores actual event times. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Holding time needs actual confirmed entry and exit timestamps rather than candle count assumptions. Apply this documented example: Two complete trades last 20 and 40 minutes: average holding duration 30 minutes. Correct this misconception: Assuming three five-minute candles always mean precisely 15 minutes ignores actual event times. Boundary: Partial fills, weekends and paused sessions require explicit conventions. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Durations 15,25,50 minutes: compute arithmetic average. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_TRADE_GROUPING_BY_SETUP",
+      "title": "Journal trade grouping by setup",
+      "concept": "A strategy-level summary must aggregate records under a stable setup definition.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A fictional breakout group has gains +$20,-$10,+$30: net +$40 from three records.",
+      "limit": "Consistent tagging and immutable revision history are needed.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Consistent tagging and immutable revision history are needed.",
+      "commonError": "Live-trading error: Changing setup labels after outcomes creates selection bias. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A strategy-level summary must aggregate records under a stable setup definition. Apply this documented example: A fictional breakout group has gains +$20,-$10,+$30: net +$40 from three records. Correct this misconception: Changing setup labels after outcomes creates selection bias. Boundary: Consistent tagging and immutable revision history are needed. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: A pullback group produces -$5,+$15,-$3: compute net outcome. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_SAMPLE_SIZE_VERSUS_CLAIMED_EDGE",
+      "title": "Journal sample size versus claimed edge",
+      "concept": "A small count of hypothetical wins does not establish predictive success probability.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Four wins in five trades give an observed 80% sample win rate, not a guaranteed 80% future rate.",
+      "limit": "Selection bias, trading costs and dependence must be examined.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Selection bias, trading costs and dependence must be examined.",
+      "commonError": "Live-trading error: Marketing an observed fraction as proven future performance ignores uncertainty. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A small count of hypothetical wins does not establish predictive success probability. Apply this documented example: Four wins in five trades give an observed 80% sample win rate, not a guaranteed 80% future rate. Correct this misconception: Marketing an observed fraction as proven future performance ignores uncertainty. Boundary: Selection bias, trading costs and dependence must be examined. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Seven wins in ten recorded trades: state sample rate and what remains unknown. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_GROSS_TO_NET_RECONCILIATION",
+      "title": "Journal gross to net reconciliation",
+      "concept": "Net closed-trade outcome deducts all appropriate transaction charges and costs from gross outcome.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Gross closed-trade gain $50, commissions $4 and other explicit fees $1: net $45.",
+      "limit": "Borrow costs, dividends, taxes and currency conversion may also matter.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Borrow costs, dividends, taxes and currency conversion may also matter.",
+      "commonError": "Live-trading error: Leaving fee fields blank while reporting net creates unsupported results. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Net closed-trade outcome deducts all appropriate transaction charges and costs from gross outcome. Apply this documented example: Gross closed-trade gain $50, commissions $4 and other explicit fees $1: net $45. Correct this misconception: Leaving fee fields blank while reporting net creates unsupported results. Boundary: Borrow costs, dividends, taxes and currency conversion may also matter. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Gross gain $35, commissions $3, fees $2: compute net. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_PLANNED_RISK_VERSUS_REALIZED_R",
+      "title": "Journal planned risk versus realized R",
+      "concept": "Realized R uses a fixed initial documented risk unit, not a stop recalculated after seeing the outcome.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Documented initial risk $25, closed net loss $50: realized -2R.",
+      "limit": "Initial risk and net P&L must use matching units and trade scope.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Initial risk and net P&L must use matching units and trade scope.",
+      "commonError": "Live-trading error: Changing the denominator to the largest observed adverse excursion manipulates the score. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Realized R uses a fixed initial documented risk unit, not a stop recalculated after seeing the outcome. Apply this documented example: Documented initial risk $25, closed net loss $50: realized -2R. Correct this misconception: Changing the denominator to the largest observed adverse excursion manipulates the score. Boundary: Initial risk and net P&L must use matching units and trade scope. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Initial risk $40, closed net gain $60: compute signed R. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_OPPORTUNITY_COST_IS_NOT_REALIZED_LOSS",
+      "title": "Journal opportunity cost is not realized loss",
+      "concept": "A missed market movement is not a booked trade loss.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A fictional stock rises $2 after a trader correctly skips it; shares held remain zero and realized trading loss is $0.",
+      "limit": "Hindsight price movement cannot justify the earlier decision.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Hindsight price movement cannot justify the earlier decision.",
+      "commonError": "Live-trading error: Punishing every valid no-trade decision encourages forced trades. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A missed market movement is not a booked trade loss. Apply this documented example: A fictional stock rises $2 after a trader correctly skips it; shares held remain zero and realized trading loss is $0. Correct this misconception: Punishing every valid no-trade decision encourages forced trades. Boundary: Hindsight price movement cannot justify the earlier decision. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Skip a trade and price later rises $3: distinguish missed hypothetical gain from realized P&L. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CHECKLIST_PASS_RATE_VERSUS_PREDICTION",
+      "title": "Checklist pass rate versus prediction",
+      "concept": "A checklist measures whether documented criteria were met; it does not establish outcome certainty.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Three of four mandatory conditions are true at the decision boundary: the setup fails a rule requiring all four.",
+      "limit": "Conditions must use observations available before the decision.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Conditions must use observations available before the decision.",
+      "commonError": "Live-trading error: Treating a 75% checklist pass rate as 75% success probability confuses processes. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A checklist measures whether documented criteria were met; it does not establish outcome certainty. Apply this documented example: Three of four mandatory conditions are true at the decision boundary: the setup fails a rule requiring all four. Correct this misconception: Treating a 75% checklist pass rate as 75% success probability confuses processes. Boundary: Conditions must use observations available before the decision. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Two of three mandatory conditions pass under an all-required rule: is entry authorized? Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TRADING_HALT_JOURNAL_RECONSTRUCTION",
+      "title": "Trading halt journal reconstruction",
+      "concept": "A journal must distinguish the last reported price before a halt from a later executable reopening price.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A fictional last print before a halt is $20, reopening fill occurs at $18: a planned $19.50 stop did not prove an exit.",
+      "limit": "Halt status, actual trade confirmations and reopening conditions are necessary.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Halt status, actual trade confirmations and reopening conditions are necessary.",
+      "commonError": "Live-trading error: Entering the planned stop as a confirmed fill fabricates performance. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A journal must distinguish the last reported price before a halt from a later executable reopening price. Apply this documented example: A fictional last print before a halt is $20, reopening fill occurs at $18: a planned $19.50 stop did not prove an exit. Correct this misconception: Entering the planned stop as a confirmed fill fabricates performance. Boundary: Halt status, actual trade confirmations and reopening conditions are necessary. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Pre-halt $30, reopening execution $27: calculate gap in dollars per share. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_NO_TRADE_DECISION_DOCUMENTATION",
+      "title": "No-trade decision documentation",
+      "concept": "A no-trade entry can document valid reasoning without inventing an order or fill.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Fictional scanner shows an unconfirmed breakout; the learner logs 'stand aside' at 10:05, zero shares and no realized P&L.",
+      "limit": "Preserve time-stamped evidence and distinguishing note from broker order.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Preserve time-stamped evidence and distinguishing note from broker order.",
+      "commonError": "Live-trading error: Backfilling a hypothetical winner as executed inflates journal returns. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A no-trade entry can document valid reasoning without inventing an order or fill. Apply this documented example: Fictional scanner shows an unconfirmed breakout; the learner logs 'stand aside' at 10:05, zero shares and no realized P&L. Correct this misconception: Backfilling a hypothetical winner as executed inflates journal returns. Boundary: Preserve time-stamped evidence and distinguishing note from broker order. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: At 11:00 the quote is stale; describe a valid no-trade record. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRETRADE_INVALIDATION_CONDITION",
+      "title": "Pretrade invalidation condition",
+      "concept": "A falsifiable pretrade condition specifies which observable event would invalidate the thesis.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Before entry, a learner records that a completed 5-minute close below $25 invalidates a long setup; an intrabar touch alone does not satisfy that chosen rule.",
+      "limit": "Rule must distinguish monitoring, order handling and executable exit.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Rule must distinguish monitoring, order handling and executable exit.",
+      "commonError": "Live-trading error: Moving the invalidation line after a loss turns a rule into hindsight. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A falsifiable pretrade condition specifies which observable event would invalidate the thesis. Apply this documented example: Before entry, a learner records that a completed 5-minute close below $25 invalidates a long setup; an intrabar touch alone does not satisfy that chosen rule. Correct this misconception: Moving the invalidation line after a loss turns a rule into hindsight. Boundary: Rule must distinguish monitoring, order handling and executable exit. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: State what would invalidate a long idea if the declared completed-bar boundary is $40. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_JOURNAL_RISK_CONCENTRATION_ACROSS_SIMULTANEOUS_PLANS",
+      "title": "Journal risk concentration across simultaneous plans",
+      "concept": "Individually small plans may combine into a larger aggregate initial risk budget.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Three independent fictional planned exposures each risk $50; gross planned risk total is $150 before overlap.",
+      "limit": "Stop fills are not assured and correlated assets can move together.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Stop fills are not assured and correlated assets can move together.",
+      "commonError": "Live-trading error: Treating a gross sum as proof of maximum portfolio loss ignores gaps and dependence. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Individually small plans may combine into a larger aggregate initial risk budget. Apply this documented example: Three independent fictional planned exposures each risk $50; gross planned risk total is $150 before overlap. Correct this misconception: Treating a gross sum as proof of maximum portfolio loss ignores gaps and dependence. Boundary: Stop fills are not assured and correlated assets can move together. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Two positions plan $35 and $65 risk: add risk and note correlation uncertainty. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DAILY_REALIZED_P_L_VERSUS_OPEN_EXPOSURE",
+      "title": "Daily realized P&L versus open exposure",
+      "concept": "A day's closed outcomes and unsettled/open marked outcomes are different quantities.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Closed trades net -$40, open position marked +$25: realized daily P&L remains -$40 under the stated convention.",
+      "limit": "Broker accounting, session boundary and cost conventions vary.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Broker accounting, session boundary and cost conventions vary.",
+      "commonError": "Live-trading error: Netting open hypothetical gains against actual closed losses without labels conceals risk. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A day's closed outcomes and unsettled/open marked outcomes are different quantities. Apply this documented example: Closed trades net -$40, open position marked +$25: realized daily P&L remains -$40 under the stated convention. Correct this misconception: Netting open hypothetical gains against actual closed losses without labels conceals risk. Boundary: Broker accounting, session boundary and cost conventions vary. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Closed trades +$75 and open mark -$30: report realized value separately. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LEARNING_RETRY_VERSUS_GRADED_RETAKE",
+      "title": "Learning retry versus graded retake",
+      "concept": "An ungraded explanation retry changes practice experience but must not write an official mastery grade.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: Learner retries a fictional sizing example twice; official competency grade remains unchanged at its prior status.",
+      "limit": "Private rubrics and entitlements must remain server-enforced.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Private rubrics and entitlements must remain server-enforced.",
+      "commonError": "Live-trading error: Awarding mastery for a revealed hint defeats protected assessment boundaries. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: An ungraded explanation retry changes practice experience but must not write an official mastery grade. Apply this documented example: Learner retries a fictional sizing example twice; official competency grade remains unchanged at its prior status. Correct this misconception: Awarding mastery for a revealed hint defeats protected assessment boundaries. Boundary: Private rubrics and entitlements must remain server-enforced. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: After three ungraded coaching attempts, should the official Skills score automatically increase? Explain. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SELF_REPORTED_CONFIDENCE_VERSUS_DEMONSTRATED_COMPETENCY",
+      "title": "Self-reported confidence versus demonstrated competency",
+      "concept": "A learner's confidence rating is subjective and cannot substitute for an independently assessed skill.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A learner records confidence 9/10 but incorrectly handles a stop-limit example; 9/10 is not a 90% competency score.",
+      "limit": "Calibration requires repeated independent evaluation using accepted tasks.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Calibration requires repeated independent evaluation using accepted tasks.",
+      "commonError": "Live-trading error: Calling confidence percent a verified trading ability exaggerates evidence. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: A learner's confidence rating is subjective and cannot substitute for an independently assessed skill. Apply this documented example: A learner records confidence 9/10 but incorrectly handles a stop-limit example; 9/10 is not a 90% competency score. Correct this misconception: Calling confidence percent a verified trading ability exaggerates evidence. Boundary: Calibration requires repeated independent evaluation using accepted tasks. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: Confidence 3 of 5 after a correct practice example: distinguish rating from grade. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PROCESS_IMPROVEMENT_MEASURED_WITH_CONSISTENT_RUBRICS",
+      "title": "Process improvement measured with consistent rubrics",
+      "concept": "Improvement requires comparable measurements at two times rather than redefined criteria.",
+      "prerequisites": "Know the difference between a proposed order, an executed order, completed evidence and the journal's reporting scope.",
+      "procedure": "Step 1 — record the relevant event and timestamp without later revision. Step 2 — apply the explicit quantitative operation or classification described by the example. Step 3 — check denominator, unit, eligible records and whether the data existed at the original decision time.",
+      "workedCase": "FICTIONAL: A process rubric scored 6/10 before and 8/10 later under the same rubric: gain is two points, or 20 percentage points.",
+      "limit": "Editorially stable rubric, timing and task equivalence are required.",
+      "invalidation": "Do not claim the outcome if the timestamps, confirmed fills, denominator, account valuation or prior documented plan are absent. Editorially stable rubric, timing and task equivalence are required.",
+      "commonError": "Live-trading error: Changing denominators without disclosure creates false improvement. Correct by separating recorded contemporaneous evidence from retrospective interpretation.",
+      "selfCheck": "Which inputs were available when the decision was made, and which source proves the record?",
+      "reviewExplanation": "Ungraded coaching: Improvement requires comparable measurements at two times rather than redefined criteria. Apply this documented example: A process rubric scored 6/10 before and 8/10 later under the same rubric: gain is two points, or 20 percentage points. Correct this misconception: Changing denominators without disclosure creates false improvement. Boundary: Editorially stable rubric, timing and task equivalence are required. There is no protected score or transaction recommendation.",
+      "transferQuestion": "FICTIONAL independent transfer: A rubric moves from 4/8 to 6/8: calculate change in percentage points. Identify a missing input or condition that would invalidate your answer.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
