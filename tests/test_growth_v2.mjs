@@ -65,7 +65,8 @@ assert(build.includes('cp -- "$INDEXNOW_VERIFICATION_KEY.txt"'),'IndexNow key no
 const notifier=file('scripts/submit-indexnow-v2.mjs');
 assert(notifier.includes("mode[0]==='--submit'"),'Notifier must be explicit opt-in');
 assert(notifier.includes("https://api.indexnow.org/indexnow"),'IndexNow official endpoint expected');
-assert(notifier.includes("const paths=['/candle-practice.html'"),'Use curated public URLs only');
+assert(notifier.includes("const paths=['/candle-practice'"),'Use curated final public URLs only');
+assert(!notifier.includes("'/candle-practice.html'"),'Public sitemap notifier must not use Cloudflare-redirected HTML paths');
 assert(notifier.includes("sitemap.includes('<loc>'"),'Sitemap membership must be verified');
 assert(notifier.includes("const actual=(await fetchText(origin+'/'+key+'.txt')).trim()"),
  'Real production ownership key verification required');
