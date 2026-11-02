@@ -7,8 +7,8 @@
 | Document ID | SMFGU-TALIA-RESEARCH-SOURCE-GATE-001 |
 | Filename | `docs/learning/SMFGU-TALIA-RESEARCH-SOURCE-GATE-001-v1-20261101.md` |
 | File type | Markdown |
-| Version / date | 1.1 / 2026-11-01 |
-| Status | Owner source directory (5) reconciled; 240/600 Foundation drafts and 73/73 upgraded guides inventoried; individual publication and authenticated acceptance still open |
+| Version / date | 1.2 / 2026-11-01 |
+| Status | Owner source directory (5) reconciled; 260/600 Foundation drafts and 73/73 upgraded guides inventoried; individual publication and authenticated acceptance still open |
 | Google Drive location | Not created; GitHub `main` is controlling |
 | Google Drive document ID | Unassigned |
 | Dependencies | `AGENTS.md`; `SMFGU-TALIA-FOUNDATION-600-COVERAGE-001`; five `data/talia-foundation-explanations-batch0*-v1.json` assets; `scripts/talia-indicator-editorial-review-v1.mjs` |
@@ -103,10 +103,10 @@ The directory's nine priority levels are retained:
 
 | Item | Verified existing source position | Acceptance boundary |
 |---|---|---|
-| Foundation supplemental explanation drafts | 240 / 600 = **40.0%** authored in source | 0/600 independently publication-accepted |
+| Foundation supplemental explanation drafts | 260 / 600 = **43.33%** authored in source | 0/600 independently publication-accepted |
 | Indicator teaching guides upgraded | 73 / 73 = **100.0%** authoring/upgrading | 0/73 fully independently publication-accepted; not 73 coded Chart Studio overlays |
 | Claim-scope triage for 101–240 | 140/140 individually registered = **100% triage inventory** | Precise primary/secondary claim corroboration and final editorial release still open |
-| Python/JS first-15 indicator study crosschecks | 15 study implementations inventoried in Batch 016 | Fictional-fixture agreement does not imply all periods/conventions accepted; exact current pipeline needed |
+| Python/JS first-15 indicator study crosschecks | 20 study implementations inventoried in Batch 016 | Fictional-fixture agreement does not imply all periods/conventions accepted; exact current pipeline needed |
 | Source registry | 73 research candidate entries | 98 uploaded reference links are not separately verified or formally cleared for every use |
 | Premium Tutor editions | Basic baseline present; Advanced/Professional/Enterprise source prototypes present | No premium edition independently released; no defensible per-edition engineering percentage yet |
 
@@ -131,3 +131,8 @@ The directory's nine priority levels are retained:
 |---|---|---|---|---|
 | 1.0 | 2026-11-01 | Acting project-owner/editorial architecture | Adopt uploaded nine-level research directory with independent fact, math and rights gates for Talia Tutor | Framework approved for development; individual publication acceptance pending |
 | 1.1 | 2026-11-01 | Tutor research-intake reconciliation | Reviewed current `(5).odt`: 98 hyperlinks / 92 canonical URLs, mapped to existing 73-candidate registry; preserved membership-only policy and 240/600, 73/73 source baselines | Source intake approved; individual claims and real-member release remain open |
+
+
+## Tutor intake addendum v1.2
+
+Upload (5): 92 distinct URLs reconciled against the 73-source master using 32 exact matches, 55 provider candidates, and 5 unmapped providers. Six Foundation 101–140 sources reviewed and qualified. Batch13 added 20 original fictional lessons, bringing authored coverage to 260/600 (43.33%), with 0/600 individually accepted. Python/JavaScript fictional-study crosschecks now cover 20/73 (27.40%) with no independent edition release claim. Existing membership-only policy and no-member-AI-key direction remain controlling. Full current CI and live member acceptance remain open.
