@@ -1,0 +1,571 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 15,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original fictional lessons 281–300. Candidate research URLs not verified at claim level; numerical and external editorial acceptance not established.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_MIDPOINT_BETWEEN_TWO_QUOTES",
+      "title": "Midpoint between two quotes",
+      "concept": "The arithmetic midpoint averages simultaneous eligible bid and ask quotes.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Add the bid and ask, then divide by two; both quotes must share a valid timestamp. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Bid $20.10 and ask $20.30 give midpoint $20.20.",
+      "limit": "Stale or crossed quotes invalidate naive midpoint interpretation.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Stale or crossed quotes invalidate naive midpoint interpretation.",
+      "commonError": "Live-trading error: A $20.20 midpoint is not an offered execution price. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: The arithmetic midpoint averages simultaneous eligible bid and ask quotes. Add the bid and ask, then divide by two; both quotes must share a valid timestamp. Work the fictional example: Bid $20.10 and ask $20.30 give midpoint $20.20. The misconception is: A $20.20 midpoint is not an offered execution price. Limitation: Stale or crossed quotes invalidate naive midpoint interpretation. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Bid $31.20 and ask $31.60: determine midpoint. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RELATIVE_QUOTED_SPREAD_IN_BASIS_POINTS",
+      "title": "Relative quoted spread in basis points",
+      "concept": "Spread basis points normalize a two-sided price difference to a declared reference price.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Subtract bid from ask; divide by midpoint and multiply by 10,000. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Bid $49.90, ask $50.10: spread $0.20, midpoint $50; relative spread 40 basis points.",
+      "limit": "Quote validity, tick conventions and locked markets matter.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Quote validity, tick conventions and locked markets matter.",
+      "commonError": "Live-trading error: Dividing spread by bid without naming the denominator changes the measure. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Spread basis points normalize a two-sided price difference to a declared reference price. Subtract bid from ask; divide by midpoint and multiply by 10,000. Work the fictional example: Bid $49.90, ask $50.10: spread $0.20, midpoint $50; relative spread 40 basis points. The misconception is: Dividing spread by bid without naming the denominator changes the measure. Limitation: Quote validity, tick conventions and locked markets matter. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Bid $19.95 and ask $20.05: compute midpoint-normalized spread in basis points. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_IMPACT_MEASURED_FROM_AN_ARRIVAL_BENCHMARK",
+      "title": "Price impact measured from an arrival benchmark",
+      "concept": "Arrival-price impact compares an executed fill against a predeclared decision benchmark.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. For a buy, subtract arrival benchmark from fill; multiply by filled shares. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Fictional buy: 80 shares filled at $25.08 against $25.00 arrival benchmark: $6.40 adverse difference.",
+      "limit": "The observed difference does not identify its cause.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. The observed difference does not identify its cause.",
+      "commonError": "Live-trading error: Calling the entire price difference a broker fee confuses execution and explicit charges. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Arrival-price impact compares an executed fill against a predeclared decision benchmark. For a buy, subtract arrival benchmark from fill; multiply by filled shares. Work the fictional example: Fictional buy: 80 shares filled at $25.08 against $25.00 arrival benchmark: $6.40 adverse difference. The misconception is: Calling the entire price difference a broker fee confuses execution and explicit charges. Limitation: The observed difference does not identify its cause. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Buy 50 shares at $40.06 with $40.00 arrival benchmark: calculate adverse dollars. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DOLLAR_COST_OF_AN_INCOMPLETE_ROUND_TRIP",
+      "title": "Dollar cost of an incomplete round trip",
+      "concept": "A round trip must account for entry and exit fees separately.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Multiply entry shares and price; subtract exit proceeds from cost only after subtracting eligible charges. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Buy 100 at $10, sell 100 at $10.20, pay $2 at each side: gross $20; net $16.",
+      "limit": "Partial exits and tax treatment require additional records.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Partial exits and tax treatment require additional records.",
+      "commonError": "Live-trading error: Counting only entry fees inflates net performance. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A round trip must account for entry and exit fees separately. Multiply entry shares and price; subtract exit proceeds from cost only after subtracting eligible charges. Work the fictional example: Buy 100 at $10, sell 100 at $10.20, pay $2 at each side: gross $20; net $16. The misconception is: Counting only entry fees inflates net performance. Limitation: Partial exits and tax treatment require additional records. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Buy 30 at $15, sell at $15.50; each side costs $1: compute net. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PORTFOLIO_TURNOVER_AS_THE_LESSER_FLOW_CONVENTION",
+      "title": "Portfolio turnover as the lesser-flow convention",
+      "concept": "One portfolio turnover convention uses the lesser of gross purchases and gross sales over average assets.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Choose matched-period purchases and sales, take the lesser, divide by average assets. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Purchases $8,000, sales $6,000, average portfolio value $40,000: turnover 15%.",
+      "limit": "Cash flows and published fund conventions can alter reported ratios.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Cash flows and published fund conventions can alter reported ratios.",
+      "commonError": "Live-trading error: Adding purchases and sales and dividing by the same denominator is a different convention. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: One portfolio turnover convention uses the lesser of gross purchases and gross sales over average assets. Choose matched-period purchases and sales, take the lesser, divide by average assets. Work the fictional example: Purchases $8,000, sales $6,000, average portfolio value $40,000: turnover 15%. The misconception is: Adding purchases and sales and dividing by the same denominator is a different convention. Limitation: Cash flows and published fund conventions can alter reported ratios. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Purchases $4,000, sales $7,000, average assets $20,000: compute lesser-flow turnover. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RETURN_CONTRIBUTION_IN_PERCENTAGE_POINTS",
+      "title": "Return contribution in percentage points",
+      "concept": "Contribution measures how many percentage points of account performance a holding produced.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Multiply beginning portfolio weight by holding return, then convert to percentage points. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: A 25% opening weight rising 8% contributes +2 percentage points.",
+      "limit": "Assumes matched no-flow buy-and-hold return measurement.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Assumes matched no-flow buy-and-hold return measurement.",
+      "commonError": "Live-trading error: Calling +2 percentage points a 2% return on the holding is incorrect. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Contribution measures how many percentage points of account performance a holding produced. Multiply beginning portfolio weight by holding return, then convert to percentage points. Work the fictional example: A 25% opening weight rising 8% contributes +2 percentage points. The misconception is: Calling +2 percentage points a 2% return on the holding is incorrect. Limitation: Assumes matched no-flow buy-and-hold return measurement. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: A 40% starting weight loses 5%: calculate contribution in points. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PERCENTAGE_CHANGE_IN_ACCOUNT_EQUITY_EXCLUDING_DEPOSITS",
+      "title": "Percentage change in account equity excluding deposits",
+      "concept": "External deposits must be removed before measuring simple dollar trading gain.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Subtract starting equity and net external contributions from ending equity; divide result by starting equity. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Start $10,000; add $2,000; end $12,400: simplified gain $400 or 4%.",
+      "limit": "Midperiod flows require time- or money-weighted methodology for precise performance.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Midperiod flows require time- or money-weighted methodology for precise performance.",
+      "commonError": "Live-trading error: Reporting 24% account growth as investing return includes the contribution. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: External deposits must be removed before measuring simple dollar trading gain. Subtract starting equity and net external contributions from ending equity; divide result by starting equity. Work the fictional example: Start $10,000; add $2,000; end $12,400: simplified gain $400 or 4%. The misconception is: Reporting 24% account growth as investing return includes the contribution. Limitation: Midperiod flows require time- or money-weighted methodology for precise performance. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Start $8,000; add $1,000; end $9,320: compute simplified return. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ASSET_WEIGHT_DRIFT_AFTER_A_DECLINE",
+      "title": "Asset-weight drift after a decline",
+      "concept": "A falling holding can become a smaller percentage of a stable two-asset account.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Revalue each asset and divide each by their new combined value. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Stocks $700 decline 20% to $560; stable bonds $300; stock weight $560/$860 or 65.12%.",
+      "limit": "Transaction fees and flows would change the denominator.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Transaction fees and flows would change the denominator.",
+      "commonError": "Live-trading error: Keeping 70% as the new weight ignores relative price changes. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A falling holding can become a smaller percentage of a stable two-asset account. Revalue each asset and divide each by their new combined value. Work the fictional example: Stocks $700 decline 20% to $560; stable bonds $300; stock weight $560/$860 or 65.12%. The misconception is: Keeping 70% as the new weight ignores relative price changes. Limitation: Transaction fees and flows would change the denominator. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Stocks $400 decline 25%, cash $600 stays: compute current stock weight. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PORTFOLIO_CASH_WITHDRAWAL_AND_CONCENTRATION",
+      "title": "Portfolio cash withdrawal and concentration",
+      "concept": "Removing cash increases the share of the remaining investment in the account.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Subtract the withdrawal from cash and total equity; then divide holding value by new total. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Stock $3,000 and cash $2,000; withdraw $1,000 cash: stock share rises from 60% to 75%.",
+      "limit": "Cash withdrawal must be feasible and separate from investment return.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Cash withdrawal must be feasible and separate from investment return.",
+      "commonError": "Live-trading error: Mistaking the increase in weight for stock appreciation. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Removing cash increases the share of the remaining investment in the account. Subtract the withdrawal from cash and total equity; then divide holding value by new total. Work the fictional example: Stock $3,000 and cash $2,000; withdraw $1,000 cash: stock share rises from 60% to 75%. The misconception is: Mistaking the increase in weight for stock appreciation. Limitation: Cash withdrawal must be feasible and separate from investment return. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Stock $2,000 and cash $3,000; withdraw $1,000: recompute stock weight. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EQUITY_DRAWDOWN_RECOVERY_AMOUNT",
+      "title": "Equity drawdown recovery amount",
+      "concept": "A loss from the starting equity requires a larger percentage rebound on the reduced balance.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Compute original minus reduced equity; divide required gain by current reduced equity. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: $1,000 declines to $750: $250/$750 = 33.33% gain required to recover.",
+      "limit": "Fees, deposits and changing exposure invalidate an assumed direct recovery path.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Fees, deposits and changing exposure invalidate an assumed direct recovery path.",
+      "commonError": "Live-trading error: A 25% gain after a 25% loss does not restore the original level. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A loss from the starting equity requires a larger percentage rebound on the reduced balance. Compute original minus reduced equity; divide required gain by current reduced equity. Work the fictional example: $1,000 declines to $750: $250/$750 = 33.33% gain required to recover. The misconception is: A 25% gain after a 25% loss does not restore the original level. Limitation: Fees, deposits and changing exposure invalidate an assumed direct recovery path. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: $500 declines to $400: what percentage gain restores $500? State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_AVERAGE_DOLLAR_LOSS_PER_LOSING_TRADE",
+      "title": "Average dollar loss per losing trade",
+      "concept": "A mean loss describes realized losses, not a guaranteed maximum loss.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Divide the total positive magnitudes of losing outcomes by the losing-trade count. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Losses $40, $60 and $80 average $60 per losing trade.",
+      "limit": "Sample definitions, commissions and outliers change interpretation.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Sample definitions, commissions and outliers change interpretation.",
+      "commonError": "Live-trading error: Including winning trades in the loss-only denominator understates the result. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A mean loss describes realized losses, not a guaranteed maximum loss. Divide the total positive magnitudes of losing outcomes by the losing-trade count. Work the fictional example: Losses $40, $60 and $80 average $60 per losing trade. The misconception is: Including winning trades in the loss-only denominator understates the result. Limitation: Sample definitions, commissions and outliers change interpretation. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Losses $25 and $75: calculate average loss. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PROFIT_FACTOR_FROM_CLOSED_TRADES",
+      "title": "Profit factor from closed trades",
+      "concept": "Profit factor compares gross gains on winners against absolute gross losses on losers.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Add gains separately; divide by the positive magnitude of losses. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Wins $300 and $100; losses $150 and $50: profit factor $400/$200 = 2.",
+      "limit": "Zero gross losses make the conventional ratio undefined or infinite by convention.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Zero gross losses make the conventional ratio undefined or infinite by convention.",
+      "commonError": "Live-trading error: Using net profit in the numerator is not gross profit factor. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Profit factor compares gross gains on winners against absolute gross losses on losers. Add gains separately; divide by the positive magnitude of losses. Work the fictional example: Wins $300 and $100; losses $150 and $50: profit factor $400/$200 = 2. The misconception is: Using net profit in the numerator is not gross profit factor. Limitation: Zero gross losses make the conventional ratio undefined or infinite by convention. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Wins total $240; losses total $160: compute profit factor. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAXIMUM_FAVORABLE_EXCURSION_FOR_A_SHORT",
+      "title": "Maximum favorable excursion for a short",
+      "concept": "Short-position MFE uses the most advantageous lower price after entry within the eligible observation window.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. For a short, subtract the lowest eligible traded low from entry, then multiply by shares if desired. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Short entry $30; subsequent eligible low $28.50: favorable excursion $1.50/share.",
+      "limit": "MFE is retrospective and cannot justify the earlier entry.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. MFE is retrospective and cannot justify the earlier entry.",
+      "commonError": "Live-trading error: Using later bars after the measured exit gives false MFE. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Short-position MFE uses the most advantageous lower price after entry within the eligible observation window. For a short, subtract the lowest eligible traded low from entry, then multiply by shares if desired. Work the fictional example: Short entry $30; subsequent eligible low $28.50: favorable excursion $1.50/share. The misconception is: Using later bars after the measured exit gives false MFE. Limitation: MFE is retrospective and cannot justify the earlier entry. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Short $42, eligible low $40.80: compute per-share MFE. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAXIMUM_ADVERSE_EXCURSION_FOR_A_SHORT",
+      "title": "Maximum adverse excursion for a short",
+      "concept": "Short-position MAE captures the highest adverse high while the short remains open.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. For a short, subtract entry from the highest eligible price and floor at zero. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Short $30; eligible high $31.20: MAE $1.20/share.",
+      "limit": "Quote versus executed-price basis and interval alignment must be declared.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Quote versus executed-price basis and interval alignment must be declared.",
+      "commonError": "Live-trading error: Recording only the closing price hides intratrade adverse travel. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Short-position MAE captures the highest adverse high while the short remains open. For a short, subtract entry from the highest eligible price and floor at zero. Work the fictional example: Short $30; eligible high $31.20: MAE $1.20/share. The misconception is: Recording only the closing price hides intratrade adverse travel. Limitation: Quote versus executed-price basis and interval alignment must be declared. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Short $18, eligible high $18.75: compute MAE. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DOLLAR_RISK_INCLUDING_A_FIXED_EXIT_FEE",
+      "title": "Dollar risk including a fixed exit fee",
+      "concept": "An estimated fixed exit fee adds to price-distance risk for a defined share count.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Multiply shares by absolute entry-to-stop distance and add the stated estimated exit fee. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: 40 shares, $0.50 planned distance, $2 estimated exit fee: planned $22.",
+      "limit": "Stops are not guaranteed fills; entry costs and slippage may raise realized losses.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Stops are not guaranteed fills; entry costs and slippage may raise realized losses.",
+      "commonError": "Live-trading error: Ignoring the fee misstates the estimated loss budget. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: An estimated fixed exit fee adds to price-distance risk for a defined share count. Multiply shares by absolute entry-to-stop distance and add the stated estimated exit fee. Work the fictional example: 40 shares, $0.50 planned distance, $2 estimated exit fee: planned $22. The misconception is: Ignoring the fee misstates the estimated loss budget. Limitation: Stops are not guaranteed fills; entry costs and slippage may raise realized losses. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: 50 shares, $0.30 distance and $1 exit fee: compute planned amount. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAXIMUM_WHOLE_SHARES_WITH_FIXED_PER_ORDER_CHARGES",
+      "title": "Maximum whole shares with fixed per-order charges",
+      "concept": "An upfront order charge reduces the cash available for whole-share purchases.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Subtract estimated buy fee from available cash; divide by share price and floor. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Cash $505, fee $5, price $24: floor(500/24)=20 shares.",
+      "limit": "Broker fractional permissions and variable fees change this ceiling.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Broker fractional permissions and variable fees change this ceiling.",
+      "commonError": "Live-trading error: Ignoring fees can cause an order to exceed allocated cash. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: An upfront order charge reduces the cash available for whole-share purchases. Subtract estimated buy fee from available cash; divide by share price and floor. Work the fictional example: Cash $505, fee $5, price $24: floor(500/24)=20 shares. The misconception is: Ignoring fees can cause an order to exceed allocated cash. Limitation: Broker fractional permissions and variable fees change this ceiling. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Cash $203, fee $3, price $25: compute whole shares. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAK_EVEN_FRACTION_WITH_UNEQUAL_WIN_AND_LOSS",
+      "title": "Break-even fraction with unequal win and loss",
+      "concept": "The zero-expectancy win fraction depends on average win and average loss magnitudes.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Divide absolute average loss by sum of average win and absolute average loss. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Average win $75 and loss $25: break-even win share 25%.",
+      "limit": "Costs and correlated outcomes alter real expectancy.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Costs and correlated outcomes alter real expectancy.",
+      "commonError": "Live-trading error: Claiming a 50% win rate is always needed ignores payoff asymmetry. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: The zero-expectancy win fraction depends on average win and average loss magnitudes. Divide absolute average loss by sum of average win and absolute average loss. Work the fictional example: Average win $75 and loss $25: break-even win share 25%. The misconception is: Claiming a 50% win rate is always needed ignores payoff asymmetry. Limitation: Costs and correlated outcomes alter real expectancy. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Average win $40, loss $60: compute break-even fraction. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FEE_ADJUSTED_BREAK_EVEN_SALE_PRICE",
+      "title": "Fee-adjusted break-even sale price",
+      "concept": "A flat sell fee raises the sale price required to recover total purchase and sell costs.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Sum buy notional and both stated fees; divide by shares sold. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Buy 10 shares at $20, $1 buy fee and $1 sell fee: break-even sale $20.20/share.",
+      "limit": "Bid-ask spread, partials and taxes are excluded.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Bid-ask spread, partials and taxes are excluded.",
+      "commonError": "Live-trading error: Calling $20 the net break-even ignores commissions. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A flat sell fee raises the sale price required to recover total purchase and sell costs. Sum buy notional and both stated fees; divide by shares sold. Work the fictional example: Buy 10 shares at $20, $1 buy fee and $1 sell fee: break-even sale $20.20/share. The misconception is: Calling $20 the net break-even ignores commissions. Limitation: Bid-ask spread, partials and taxes are excluded. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Buy 20 at $15; both fees $2: find break-even sale price. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PARTICIPATION_FRACTION_OF_ELIGIBLE_INTERVAL_VOLUME",
+      "title": "Participation fraction of eligible interval volume",
+      "concept": "A volume participation percentage compares executed size with observed same-interval total reported volume.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Divide filled shares by total relevant interval reported shares and multiply by 100. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: Filled 1,000 shares during an interval reporting 50,000 shares: 2% participation.",
+      "limit": "Feed scope, odd lots and reporting delays may affect comparability.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Feed scope, odd lots and reporting delays may affect comparability.",
+      "commonError": "Live-trading error: Equating 2% with a guaranteed executable liquidity share is unjustified. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: A volume participation percentage compares executed size with observed same-interval total reported volume. Divide filled shares by total relevant interval reported shares and multiply by 100. Work the fictional example: Filled 1,000 shares during an interval reporting 50,000 shares: 2% participation. The misconception is: Equating 2% with a guaranteed executable liquidity share is unjustified. Limitation: Feed scope, odd lots and reporting delays may affect comparability. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: Filled 500 shares with 20,000 reported during the interval: compute fraction. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_CAPITALIZATION_AFTER_NEW_SHARE_ISSUANCE",
+      "title": "Market capitalization after new share issuance",
+      "concept": "Total quoted equity capitalization can change with shares outstanding without equaling cash proceeds.",
+      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Multiply new outstanding share count by same-time market quote, separating capitalization from issuer cash. Use only completed information available at the decision boundary.",
+      "workedCase": "FICTIONAL: 1 million shares at $20 imply $20 million; 200,000 new shares at unchanged $20 imply $24 million.",
+      "limit": "Issuance changes supply, pricing and balance sheet; unchanged quote is only a fictional assumption.",
+      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Issuance changes supply, pricing and balance sheet; unchanged quote is only a fictional assumption.",
+      "commonError": "Live-trading error: Calling the entire $4 million capitalization change a realized shareholder gain. Correct by rebuilding the expression from recorded inputs.",
+      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
+      "reviewExplanation": "Ungraded guided correction: Total quoted equity capitalization can change with shares outstanding without equaling cash proceeds. Multiply new outstanding share count by same-time market quote, separating capitalization from issuer cash. Work the fictional example: 1 million shares at $20 imply $20 million; 200,000 new shares at unchanged $20 imply $24 million. The misconception is: Calling the entire $4 million capitalization change a realized shareholder gain. Limitation: Issuance changes supply, pricing and balance sheet; unchanged quote is only a fictional assumption. This is not a protected assessment or trading instruction.",
+      "transferQuestion": "FICTIONAL independent transfer: 2 million shares at $12, then 100,000 new shares at unchanged quote: compute new capitalization. State assumptions and a condition that invalidates the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_public_research_candidate_not_cleared_for_republication",
+      "editorSourceReview": {
+        "reviewer": "internal original source author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    }
+  ]
+}
