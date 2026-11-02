@@ -1,7 +1,7 @@
-// Member-to-member gifting policy: disabled until an audited atomic ledger
-// procedure, verified recipient lookup, abuse controls and legal approval exist.
+// Deferred V2 feature. Member-to-member Lumen transfers are out of V1 scope.
+// Keep all transfer and recipient-consent controls fail-closed in V1.
 export const giftingPolicy=Object.freeze({
- enabled:false,minLumens:10,maxLumens:200,
+ enabled:false,releasePhase:'V2_DEFERRED',minLumens:10,maxLumens:200,
  recipient:'verified_opt_in_username',
  sender:'authenticated_member',
  cashOut:false,marketplaceResale:false,
@@ -15,5 +15,5 @@ export function validateGiftAmount(value){
 export function giftAvailability(){
  return {enabled:giftingPolicy.enabled,min:giftingPolicy.minLumens,
  max:giftingPolicy.maxLumens,
- message:'Lumen gifting is under development and cannot be submitted.'};
+ message:'Member-to-member Lumen gifting is deferred to a future release and is unavailable in V1.'};
 }
