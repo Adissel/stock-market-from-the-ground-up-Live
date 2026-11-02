@@ -31,10 +31,10 @@ function mount({target,studyId,mode,context}={}){
  chart.setAttribute('aria-label',def.label+' · original fictional worked example only; equivalent values provided in the following table');
  const table=node('table');table.className='gu-quant-table';
  const caption=node('caption','Numerical values behind this fictional chart');table.append(caption);
- const header=node('tr');for(const v of ['Step','Worked example'])header.append(node('th',v));
+ const thead=node('thead'),header=node('tr');for(const v of ['Step','Worked example']){const th=node('th',v);th.setAttribute('scope','col');header.append(th)}thead.append(header);
  const tbody=node('tbody');
- for(let i=0;i<3;i++){const tr=node('tr');tr.append(node('th',def.keys[i]),node('td',base.values[i].toFixed(studyId==='sizing'?0:2)));tbody.append(tr)}
- table.append(header,tbody);
+ for(let i=0;i<3;i++){const tr=node('tr');const th=node('th',def.keys[i]);th.setAttribute('scope','row');tr.append(th,node('td',base.values[i].toFixed(studyId==='sizing'?0:2)));tbody.append(tr)}
+ table.append(thead,tbody);
  shell.append(chart,table);
  const fields=[],grid=node('div');grid.className='gu-quant-grid';
  def.keys.forEach(label=>{const l=node('label',label),inp=node('input');inp.type='text';inp.inputMode='decimal';inp.autocomplete='off';inp.maxLength=24;l.append(inp);grid.append(l);fields.push(inp)});
