@@ -127,6 +127,16 @@ await assert.rejects(store.save({...input,stage:6}),/account changed/i);
 assert.equal(calls,4,'Sign-out must block stale writes');
 assert.equal(await store.load(),null,'Account swap must not reuse private checkpoint');
 assert.equal(checkpoint.create({sb,userId:'bad',labId:lab,mode:'guided'}),null);
+for(const malformedId of [
+ '------------------------------------',
+ 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+ 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa',
+ 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-extra'
+]){
+ assert.equal(checkpoint.create({sb,userId:malformedId,labId:lab,mode:'guided'}),null,
+  'Malformed account identifier must fail before reading or writing checkpoints');
+}
+
 const player=read('assets/js/lab-player.js'),engine=read('assets/js/lab-engine-v32-universal.js');
 assert(player.includes('progressStore:window.GroundUpLabJourneyCheckpointV33'));
 assert(player.includes('labPlayerSessionEpoch===epoch'));
