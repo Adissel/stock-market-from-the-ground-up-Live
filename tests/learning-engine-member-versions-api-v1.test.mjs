@@ -22,7 +22,7 @@ function setup({role='OWNER',flag='',sub=null}={}){
   if(path.endsWith('/auth/v1/user'))return result({id:'11111111-1111-4111-8111-111111111111'});
   if(path.endsWith('/rest/v1/profiles'))return result([{account_kind:'member',deleted_at:null}]);
   if(path.endsWith('/rest/v1/admin_user_roles'))
-   return result(role==='OWNER'?[{role_code:'OWNER',expires_at:null}]:[]);
+   return result(['OWNER','SHOWCASE_VIEWER'].includes(role)?[{role_code:role,expires_at:null}]:[]);
   if(path.endsWith('/rest/v1/admin_user_flags'))return result(flag?[{status:flag}]:[]);
   if(path.endsWith('/rest/v1/site_subscriptions'))return result(sub?[sub]:[]);
   if(path.endsWith('/rest/v1/platform_plans')){
