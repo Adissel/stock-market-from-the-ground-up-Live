@@ -15,7 +15,12 @@ test('classroom uses existing service authority and never initiates paid AI infe
  assert.match(source,/onAuthStateChange/);
  assert.match(source,/identity\.current!==targetId/);
  assert.match(source,/pending\.current\?\.abort\(\)/);
- assert.doesNotMatch(source,/localStorage|sessionStorage|innerHTML|service_role|SUPABASE_SECRET_KEY|fetch\(['"]https?:/i);
+ assert.doesNotMatch(source,/sessionStorage|innerHTML|service_role|SUPABASE_SECRET_KEY|fetch\(['"]https?:/i);
+ // Only prototype chart presentation settings may be stored in the browser; never Tutor answers/history.
+ const reads=[...source.matchAll(/localStorage\.(?:getItem|setItem)\(([^\n]+)/g)];
+ assert.equal(reads.length,2,'exactly one scoped preference read and write');
+ for(const item of reads)assert.match(item[1],/smfgu-talia-prototype-chart-v1:'\+memberId/);
+ assert.match(source,/if\(!prototype\|\|!memberId/);
  assert.doesNotMatch(source,/readPrivateRubric|fetchProtectedAnswerKey|brokerOrder|placeOrder/i);
 });
 test('fictional replay supplies only the revealed candles to the renderer',()=>{
