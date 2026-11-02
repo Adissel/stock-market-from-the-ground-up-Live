@@ -31,7 +31,15 @@ test('Keyboard reachable forms and data table remain accessible',()=>{
  assert.match(ui,/createElement\(tag\)/);
  assert.match(ui,/build\('table'\)/);
  assert.match(ui,/build\('caption'/);
- assert.match(ui,/setAttribute\('aria-label','EMA period for fictional exercise'\)/);
+ assert.match(ui,/EMA period for fictional exercise/);
+ assert.match(ui,/Observations embargoed between training and holdout/);
  assert.match(css,/:focus-visible/);
  assert.match(css,/@media\(max-width:620px\)/);
+});
+
+test('Enterprise member source is enabled only after explicit release grant',()=>{
+ assert.match(ui,/for\(const edition of \['ENTERPRISE','PROFESSIONAL','ADVANCED'\]\)/);
+ assert.match(ui,/edition==='ENTERPRISE'\?'chronological_validation'/);
+ assert.match(ui,/The held-out values are not displayed or used to choose a method/);
+ assert.match(ui,/selected==='ENTERPRISE'\?\[1,2,3\]:\[5,9,12,20\]/);
 });
