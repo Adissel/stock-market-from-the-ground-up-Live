@@ -1,0 +1,35 @@
+# Dedicated execution of 40 independently named source-level visual regression tests.
+# Evidence is SOURCE ONLY. Authenticated acceptance, content rights and production matching remain separate.
+name: Crownlight Integrated Visual 40-Gate Release
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/css/crownlight-spectrum-v1.css'
+      - 'assets/js/site.js'
+      - 'assets/js/appearance-controls-v1.js'
+      - 'src/experience/**'
+      - 'index.html'
+      - 'tests/crownlight-integrated-40-gates-v1.test.mjs'
+      - '.github/workflows/crownlight-visual-40-gates-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crownlight-visual-40-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  exact-source-40:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute 40 separately named visual/source assertions
+        run: |
+          node --test tests/crownlight-integrated-40-gates-v1.test.mjs
+      - name: Explicit scope of the resulting acceptance
+        run: |
+          echo "Source assertions only: not authenticated browser QA, not actual production confirmation."
