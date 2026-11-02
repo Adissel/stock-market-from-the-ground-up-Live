@@ -26,6 +26,7 @@ permissions:
 concurrency:
   group: basic-engine-full-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 jobs:
   numerical-verification:
     runs-on: ubuntu-latest
