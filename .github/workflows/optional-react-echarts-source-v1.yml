@@ -31,6 +31,10 @@ jobs:
           assert 'completedBars' in adapter and 'onBarInspect' in adapter
           assert 'aria-label' in adapter and '<table' in adapter
           assert 'Bar HLC3 VWAP (approx.)' in options and 'connectNulls: false' in options
+          assert 'Invalid close' in options and 'if (values.length < period)' in options
+          assert options.index("if (!Number.isFinite(n))") < options.index("if (values.length < period)")
+          assert 'sessionKey' in options and 'session !== lastSession' in options
+          assert 'Invalid VWAP session' in options
           assert "prefers-reduced-motion" in css
           print('Source controls passed; TS compile, browser and production integration remain unverified')
           PY
