@@ -69,5 +69,6 @@ The source-only Tutor integration added `functions/_lib/talia-foundation-reflect
 | Version/date | Change | Signoff |
 |---|---|---|
 | 1.0 / 2026-11-01 | 45 individual pedagogical revisions; five factual risk corrections; 40 scenario source test evidence; source loader allowlist repair; coordination handoff | Internal source QA only, NO independent editorial, legal, member or commercial release approval |
+| 1.1 / 2026-11-01 | 40 synthetic authenticated Tutor route checks, same-member history and cross-member denial, four adaptive response conditions for 45 lessons, existing CI integration | Source-level tests passed; real account, publishing rights, screen reader and full mandatory GitHub Actions acceptance OPEN |
 
 **Footer:** SMFGU-TALIA-TRAIN-045-001 · v1.1 · GitHub main · Rights, genuine accounts and exact-head release acceptance remain OPEN.
