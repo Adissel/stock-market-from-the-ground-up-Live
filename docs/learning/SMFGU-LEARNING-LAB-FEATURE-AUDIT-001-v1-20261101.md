@@ -56,7 +56,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | Shared Lab | PROFESSIONAL | 0/8 | 0.00% | 0 | 4 | Not independently released |
 | Shared Lab | ENTERPRISE | 0/8 | 0.00% | 0 | 3 | Not independently released |
 
-**Related curriculum denominator:** the latest source-tested thirteen-batch register contains **260/419 (62.05%) individually authored Lab teaching bridges**; 159 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 260/419 curriculum statistic is NOT included in these engine integration percentages.
+**Related curriculum denominator:** the latest source-tested fourteen-batch register contains **280/419 (66.83%) individually authored Lab teaching bridges**; 139 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 280/419 curriculum statistic is NOT included in these engine integration percentages.
 
 ## Shared Learning Engine — detailed feature-by-feature findings
 
@@ -71,7 +71,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LE-BAS-05 | Independent practice, retries and transfer | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/learning-lab-formative-editions-v1.test.mjs` | Distinct ungraded transfer must not disclose answers before an attempt. | Protected grade and accessibility acceptance open. |
 | LE-BAS-06 | Complete indicator-topic teaching parity | partial | `assets/js/learning-indicators-v1.js` · `tests/learning-indicators-v1.test.mjs` · `tests/basic-atr-bollinger-lessons-v1.test.mjs` | All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings. | 5/5 named studies have canonical source mappings; ATR/Bollinger editorial approval and authenticated accessible acceptance remain open. |
 | LE-BAS-07 | Free Foundations and Academy progression parity | partial | `assets/js/bootcamp-academy-v014168.js` · `tests/academy-member-day-restoration-v1.test.mjs` | Genuine learners maintain prerequisite and stage progress across courses. | Valid requested-day and first-unfinished restoration are source-tested; authenticated cross-course accessibility acceptance remains open. |
-| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/lab-bridge-batch13-source-v1.test.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Thirteen batches record 260/419 authored; 159 remain. |
+| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/lab-bridge-batch14-source-v1.test.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Fourteen batches record 280/419 authored; 139 remain. |
 
 ### ADVANCED
 
@@ -201,5 +201,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | v1.6 | 2026-11-02 | Added Batch11 for 220/419 authored, completing source-authored bridges for the 13 recovered Foundation records; recorded 20 individual Batch10 AI preflights | Independent human editorial, authenticated continuity/accessibility, 199 Labs and complete topical-chart parity remain open |
 | v1.7 | 2026-11-02 | Added Batch12 for 240/419 authored, including provenance-safe replay cases that do not invent named-security history; reconciled the Batch04 title-recovery research contract | Independent human editorial, authenticated continuity/accessibility, 179 Labs and complete topical-chart parity remain open |
 | v1.8 | 2026-11-02 | Added Batch13 for 260/419 authored, extending replay/readiness and tape-reading instruction with explicit feed, timestamp, uncertainty and no-lookahead boundaries | Independent human editorial, authenticated continuity/accessibility, 159 Labs and complete topical-chart parity remain open |
+| v1.9 | 2026-11-02 | Added Batch14 for 280/419 authored with auditable tape-rate, depth, liquidity-sequence, absorption and sweep instruction | Independent human editorial, authenticated continuity/accessibility, 139 Labs and complete topical-chart parity remain open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.8 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.9 · GitHub `main` controlling · No payment, grade or premium grant.

@@ -346,4 +346,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.24 / 2026-11-02 / Added twenty original Batch13 replay/readiness and tape-reading bridges for 260/419 source-authored and source-tested. The tape lessons preserve timestamps, feed limits, quote/print separation, no-lookahead and uncertainty instead of inferring participant identity. Independent human editorial, authenticated continuity/accessibility, publication rights and 159 unauthored Labs remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.24 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.25 / 2026-11-02 / Added twenty original Batch14 tape-reading bridges for 280/419 source-authored and source-tested. New instruction preserves unknown aggressor volume, compatible denominators, partial-depth limits, synchronized liquidity sequences and completed aftermath. Independent human editorial, authenticated continuity/accessibility, publication rights and 139 unauthored Labs remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.25 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

@@ -19204,43 +19204,101 @@
         "HOD_PM_LEVELS",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Infer Aggressor Side Carefully — A method you can audit.",
-          "High-of-day, premarket and previous-day levels each depend on precise market-session boundaries.",
-          "Label premarket and regular-session high/low separately, with exact session timezone, data feed and prior-versus-current trading date."
+          "An auditable aggressor method preserves the contemporaneous quote, print, classification rule, and an unknown category.",
+          "This lesson preserves the canonical topic Infer Aggressor Side Carefully — A method you can audit and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Infer Aggressor Side Carefully — A method you can audit from the source evidence.",
-          "Write down the session timezone, source and last completed interval used to compute the level.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL quote $20.00/$20.06: prints $20.06, $20.03, $20.00 classify ask-side, unknown, bid-side under the stated rule.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Infer Aggressor Side Carefully — A method you can audit using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write down the session timezone, source and last completed interval used to compute the level.",
-          "Step 3 — Check the alternative or invalidation: Session mapping or corporate-action adjustment is unavailable or inconsistent."
+          "Worked example — FICTIONAL quote $20.00/$20.06: prints $20.06, $20.03, $20.00 classify ask-side, unknown, bid-side under the stated rule.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Infer Aggressor Side Carefully — A method you can audit: Using tomorrow's high-of-day as today's decision level.",
-          "Correct it by returning to the actual observation. Write down the session timezone, source and last completed interval used to compute the level.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Silently forcing every inside-spread print to one side.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Infer Aggressor Side Carefully — A method you can audit cannot establish:",
-          "The level describes prior extremes, not an executable order price.",
-          "An interpretation is invalidated or unproven when: Session mapping or corporate-action adjustment is unavailable or inconsistent."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "An auditable aggressor method preserves the contemporaneous quote, print, classification rule, and an unknown category.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support session high and premarket levels, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Infer Aggressor Side Carefully — A method you can audit calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional 08:30 high and 10:00 high, decide which level is PMH and which is regular-session HOD.",
-        "topic": "Infer Aggressor Side Carefully — A method you can audit",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new time-matched set and retain an explicit unknown bucket."
+      },
+      "competencies": [
+        "HOD_PM_LEVELS",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C06-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C06-L02",
+          "topic:Infer Aggressor Side Carefully — A method you can audit",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C06-L03": {
@@ -19252,43 +19310,101 @@
         "VOLUME_ANALYSIS",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Signed volume assigns positive, negative, or unknown volume using a disclosed inference rule; it is not participant identity or motive.",
+          "This lesson preserves the canonical topic Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 200 ask-side, 100 bid-side, 50 unknown gives signed known volume +100 shares while 50 stays unclassified.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL 200 ask-side, 100 bid-side, 50 unknown gives signed known volume +100 shares while 50 stays unclassified.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Dropping unknown prints from the denominator without disclosure.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Signed volume assigns positive, negative, or unknown volume using a disclosed inference rule; it is not participant identity or motive.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute known signed volume and unknown share percentage for a new sample."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C06-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C06-L03",
+          "topic:Infer Aggressor Side Carefully — Optional signed volume, with unknowns kept visible",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C07-L01": {
@@ -19299,43 +19415,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Print Size, Notional Value, and Clusters — Size needs a denominator.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Print size becomes meaningful only relative to a declared denominator such as recent median size, total window volume, or displayed liquidity.",
+          "This lesson preserves the canonical topic Print Size, Notional Value, and Clusters — Size needs a denominator and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Print Size, Notional Value, and Clusters — Size needs a denominator from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 600-share print versus 200-share median is 3.0 times median; it is 12% of a 5,000-share window.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Print Size, Notional Value, and Clusters — Size needs a denominator using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 600-share print versus 200-share median is 3.0 times median; it is 12% of a 5,000-share window.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Print Size, Notional Value, and Clusters — Size needs a denominator: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling a print large without naming a comparison window.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Print Size, Notional Value, and Clusters — Size needs a denominator cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Print size becomes meaningful only relative to a declared denominator such as recent median size, total window volume, or displayed liquidity.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Print Size, Notional Value, and Clusters — Size needs a denominator calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Print Size, Notional Value, and Clusters — Size needs a denominator",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare a new print with both median size and window volume."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C06-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C07-L01",
+          "topic:Print Size, Notional Value, and Clusters — Size needs a denominator",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C07-L02": {
@@ -19346,43 +19519,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Print Size, Notional Value, and Clusters — Split reports are not a participant list.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Multiple reports may reflect routing, venue reporting, or separate executions; the feed does not provide a participant list.",
+          "This lesson preserves the canonical topic Print Size, Notional Value, and Clusters — Split reports are not a participant list and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Print Size, Notional Value, and Clusters — Split reports are not a participant list from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL reports 100,150,250 shares within one millisecond total 500, but do not establish one order or three traders.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Print Size, Notional Value, and Clusters — Split reports are not a participant list using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL reports 100,150,250 shares within one millisecond total 500, but do not establish one order or three traders.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Print Size, Notional Value, and Clusters — Split reports are not a participant list: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Counting report rows as unique participants.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Print Size, Notional Value, and Clusters — Split reports are not a participant list cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Multiple reports may reflect routing, venue reporting, or separate executions; the feed does not provide a participant list.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Print Size, Notional Value, and Clusters — Split reports are not a participant list calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Print Size, Notional Value, and Clusters — Split reports are not a participant list",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Total a new cluster and list the identities the feed cannot establish."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C07-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C07-L02",
+          "topic:Print Size, Notional Value, and Clusters — Split reports are not a participant list",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C07-L03": {
@@ -19393,43 +19623,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Print Size, Notional Value, and Clusters — Make the comparison fair.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Fair cluster comparison uses equal-duration windows, matching filters, compatible coverage, and the same size units.",
+          "This lesson preserves the canonical topic Print Size, Notional Value, and Clusters — Make the comparison fair and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Print Size, Notional Value, and Clusters — Make the comparison fair from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL window A 1,000 shares/10 seconds=100 shares/s; B 1,800/30=60 shares/s, so raw total reverses the rate comparison.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Print Size, Notional Value, and Clusters — Make the comparison fair using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL window A 1,000 shares/10 seconds=100 shares/s; B 1,800/30=60 shares/s, so raw total reverses the rate comparison.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Print Size, Notional Value, and Clusters — Make the comparison fair: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Comparing raw totals from unequal windows.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Print Size, Notional Value, and Clusters — Make the comparison fair cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Fair cluster comparison uses equal-duration windows, matching filters, compatible coverage, and the same size units.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Print Size, Notional Value, and Clusters — Make the comparison fair calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Print Size, Notional Value, and Clusters — Make the comparison fair",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Normalize two new clusters by duration and disclose their filters."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C07-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C07-L03",
+          "topic:Print Size, Notional Value, and Clusters — Make the comparison fair",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C08-L01": {
@@ -19440,43 +19727,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Speed, Acceleration, and Deceleration — Fast compared with what?.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Tape speed is a rate measured against a declared baseline, such as prints or shares per second over compatible windows.",
+          "This lesson preserves the canonical topic Speed, Acceleration, and Deceleration — Fast compared with what? and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Speed, Acceleration, and Deceleration — Fast compared with what? from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL baseline 10 prints/20s=0.5/s; current 9 prints/6s=1.5/s, three times baseline.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Speed, Acceleration, and Deceleration — Fast compared with what? using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL baseline 10 prints/20s=0.5/s; current 9 prints/6s=1.5/s, three times baseline.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Speed, Acceleration, and Deceleration — Fast compared with what?: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling activity fast from visual flashing alone.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Speed, Acceleration, and Deceleration — Fast compared with what? cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Tape speed is a rate measured against a declared baseline, such as prints or shares per second over compatible windows.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Speed, Acceleration, and Deceleration — Fast compared with what? calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Speed, Acceleration, and Deceleration — Fast compared with what?",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate baseline and current print rates for new equal-filter samples."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C07-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C08-L01",
+          "topic:Speed, Acceleration, and Deceleration — Fast compared with what?",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C08-L02": {
@@ -19487,43 +19831,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Speed, Acceleration, and Deceleration — Pair effort with result.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Effort pairs transaction activity with price response; high activity and little progress differs from high activity and large progress.",
+          "This lesson preserves the canonical topic Speed, Acceleration, and Deceleration — Pair effort with result and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Speed, Acceleration, and Deceleration — Pair effort with result from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 4,000 shares move $0.02 versus prior 1,000 moving $0.10; cents per 1,000 shares are $0.005 versus $0.10.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Speed, Acceleration, and Deceleration — Pair effort with result using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 4,000 shares move $0.02 versus prior 1,000 moving $0.10; cents per 1,000 shares are $0.005 versus $0.10.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Speed, Acceleration, and Deceleration — Pair effort with result: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Treating higher volume as proportional price progress.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Speed, Acceleration, and Deceleration — Pair effort with result cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Effort pairs transaction activity with price response; high activity and little progress differs from high activity and large progress.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Speed, Acceleration, and Deceleration — Pair effort with result calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Speed, Acceleration, and Deceleration — Pair effort with result",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare price change per 1,000 shares for two new windows."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C08-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C08-L02",
+          "topic:Speed, Acceleration, and Deceleration — Pair effort with result",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C08-L03": {
@@ -19534,43 +19935,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Speed, Acceleration, and Deceleration — A practical pace worksheet.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A pace worksheet records window duration, print count, shares, notional, price change, filters, and missing-feed caveats.",
+          "This lesson preserves the canonical topic Speed, Acceleration, and Deceleration — A practical pace worksheet and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Speed, Acceleration, and Deceleration — A practical pace worksheet from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 15s window: 12 prints, 2,400 shares gives 0.8 prints/s and 160 shares/s.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Speed, Acceleration, and Deceleration — A practical pace worksheet using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 15s window: 12 prints, 2,400 shares gives 0.8 prints/s and 160 shares/s.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Speed, Acceleration, and Deceleration — A practical pace worksheet: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Recording a pace label without underlying counts and duration.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Speed, Acceleration, and Deceleration — A practical pace worksheet cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A pace worksheet records window duration, print count, shares, notional, price change, filters, and missing-feed caveats.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Speed, Acceleration, and Deceleration — A practical pace worksheet calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Speed, Acceleration, and Deceleration — A practical pace worksheet",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Complete all fields and rates for a new fictional window."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C08-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C08-L03",
+          "topic:Speed, Acceleration, and Deceleration — A practical pace worksheet",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C09-L01": {
@@ -19582,43 +20040,101 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read Level II as a Partial Order Book — Interest that has not yet traded.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Level II is a partial, venue/feed-dependent display of resting interest that can change or cancel before execution.",
+          "This lesson preserves the canonical topic Read Level II as a Partial Order Book — Interest that has not yet traded and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read Level II as a Partial Order Book — Interest that has not yet traded from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL depth shows 500@$10.00 bid and 300@$10.05 ask; neither row is executed volume or guaranteed persistence.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read Level II as a Partial Order Book — Interest that has not yet traded using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL depth shows 500@$10.00 bid and 300@$10.05 ask; neither row is executed volume or guaranteed persistence.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read Level II as a Partial Order Book — Interest that has not yet traded: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Adding displayed depth to traded volume.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read Level II as a Partial Order Book — Interest that has not yet traded cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Level II is a partial, venue/feed-dependent display of resting interest that can change or cancel before execution.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read Level II as a Partial Order Book — Interest that has not yet traded calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read Level II as a Partial Order Book — Interest that has not yet traded",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Separate displayed and executed quantities in a new event sequence."
+      },
+      "competencies": [
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C08-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C09-L01",
+          "topic:Read Level II as a Partial Order Book — Interest that has not yet traded",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C09-L02": {
@@ -19630,43 +20146,101 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read Level II as a Partial Order Book — Walk through the display.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A depth walk reads prices in order, size at each level, cumulative size, timestamp, venue scope, and unit convention.",
+          "This lesson preserves the canonical topic Read Level II as a Partial Order Book — Walk through the display and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read Level II as a Partial Order Book — Walk through the display from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL asks 100@$8.01,200@$8.03,300@$8.05: cumulative displayed size through $8.03 is 300 shares.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read Level II as a Partial Order Book — Walk through the display using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL asks 100@$8.01,200@$8.03,300@$8.05: cumulative displayed size through $8.03 is 300 shares.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read Level II as a Partial Order Book — Walk through the display: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Reading a deeper price without accumulating earlier eligible levels.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read Level II as a Partial Order Book — Walk through the display cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A depth walk reads prices in order, size at each level, cumulative size, timestamp, venue scope, and unit convention.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read Level II as a Partial Order Book — Walk through the display calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read Level II as a Partial Order Book — Walk through the display",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate cumulative displayed size and bounded cost for a new ladder."
+      },
+      "competencies": [
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C09-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C09-L02",
+          "topic:Read Level II as a Partial Order Book — Walk through the display",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C09-L03": {
@@ -19678,43 +20252,101 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read Level II as a Partial Order Book — Why a large wall can mislead.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A displayed wall may cancel, refresh, execute, belong to multiple orders, or sit outside relevant range; its size alone is not directional proof.",
+          "This lesson preserves the canonical topic Read Level II as a Partial Order Book — Why a large wall can mislead and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read Level II as a Partial Order Book — Why a large wall can mislead from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 5,000@$12.00 disappears with only 200 reported at that price, leaving cancellation versus unobserved routing unresolved.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read Level II as a Partial Order Book — Why a large wall can mislead using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 5,000@$12.00 disappears with only 200 reported at that price, leaving cancellation versus unobserved routing unresolved.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read Level II as a Partial Order Book — Why a large wall can mislead: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Assuming every disappearing wall fully traded.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read Level II as a Partial Order Book — Why a large wall can mislead cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A displayed wall may cancel, refresh, execute, belong to multiple orders, or sit outside relevant range; its size alone is not directional proof.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read Level II as a Partial Order Book — Why a large wall can mislead calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read Level II as a Partial Order Book — Why a large wall can mislead",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Reconcile a new wall change with matched prints and preserve alternatives."
+      },
+      "competencies": [
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C09-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C09-L03",
+          "topic:Read Level II as a Partial Order Book — Why a large wall can mislead",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C10-L01": {
@@ -19727,43 +20359,102 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Adding, pulling, and refreshing are time-sequence descriptions requiring at least two synchronized depth snapshots and matched prints.",
+          "This lesson preserves the canonical topic Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL ask size $6.10 changes 500→900→400 while 300 shares print; observed changes do not uniquely allocate cancellation and refresh.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL ask size $6.10 changes 500→900→400 while 300 shares print; observed changes do not uniquely allocate cancellation and refresh.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Inferring a liquidity event from one photograph.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Adding, pulling, and refreshing are time-sequence descriptions requiring at least two synchronized depth snapshots and matched prints.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Describe a new three-snapshot sequence without assigning motive."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C09-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C10-L01",
+          "topic:Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C10-L02": {
@@ -19776,43 +20467,102 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Identical final depth can arise from different sequences, so evidence must retain intermediate states and transaction reports.",
+          "This lesson preserves the canonical topic Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL cases both end 400@$9.00: one falls 800→400 with no print; another 800→300 after 500 print then refreshes to 400.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL cases both end 400@$9.00: one falls 800→400 with no print; another 800→300 after 500 print then refreshes to 400.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling equal endpoints equal market behavior.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Identical final depth can arise from different sequences, so evidence must retain intermediate states and transaction reports.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare two new sequences that share an endpoint but differ in path."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C10-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C10-L02",
+          "topic:Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C10-L03": {
@@ -19825,43 +20575,102 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Stronger liquidity evidence combines repeated synchronized changes, matched executions, stable feed coverage, and a predeclared observation rule.",
+          "This lesson preserves the canonical topic Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL three cycles each show 200 ask shares print and displayed 300 restore within 100ms; repetition supports refresh inference but not identity.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL three cycles each show 200 ask shares print and displayed 300 restore within 100ms; repetition supports refresh inference but not identity.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Claiming certainty from one apparent refill.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Stronger liquidity evidence combines repeated synchronized changes, matched executions, stable feed coverage, and a predeclared observation rule.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply a repetition threshold to a new synchronized sequence."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C10-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C10-L03",
+          "topic:Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C11-L01": {
@@ -19872,43 +20681,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Absorption and Stalled Price — Much activity, little progress.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Absorption is an inference when substantial aggressive activity produces limited price progress near a reference; it requires effort and response.",
+          "This lesson preserves the canonical topic Absorption and Stalled Price — Much activity, little progress and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Absorption and Stalled Price — Much activity, little progress from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 5,000 ask-side shares near $20.00 move the best ask only $0.01 during the window. This is candidate absorption, not proof.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Absorption and Stalled Price — Much activity, little progress using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 5,000 ask-side shares near $20.00 move the best ask only $0.01 during the window. This is candidate absorption, not proof.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Absorption and Stalled Price — Much activity, little progress: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Labeling any high-volume candle absorption.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Absorption and Stalled Price — Much activity, little progress cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Absorption is an inference when substantial aggressive activity produces limited price progress near a reference; it requires effort and response.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Absorption and Stalled Price — Much activity, little progress calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Absorption and Stalled Price — Much activity, little progress",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare activity and price progress for a new reference window."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C10-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C11-L01",
+          "topic:Absorption and Stalled Price — Much activity, little progress",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C11-L02": {
@@ -19919,43 +20785,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Absorption and Stalled Price — Build a testable statement.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A testable absorption statement declares side, price zone, time window, activity threshold, limited-progress rule, and invalidating evidence.",
+          "This lesson preserves the canonical topic Absorption and Stalled Price — Build a testable statement and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Absorption and Stalled Price — Build a testable statement from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL rule: ≥3,000 ask-side shares in 20s within $10.00-$10.03 while progress ≤$0.02; observed 3,400 and $0.01 meets it.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Absorption and Stalled Price — Build a testable statement using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL rule: ≥3,000 ask-side shares in 20s within $10.00-$10.03 while progress ≤$0.02; observed 3,400 and $0.01 meets it.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Absorption and Stalled Price — Build a testable statement: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using words like heavy and stalled without thresholds.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Absorption and Stalled Price — Build a testable statement cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A testable absorption statement declares side, price zone, time window, activity threshold, limited-progress rule, and invalidating evidence.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Absorption and Stalled Price — Build a testable statement calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Absorption and Stalled Price — Build a testable statement",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Write and evaluate a new quantified candidate-absorption rule."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C11-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C11-L02",
+          "topic:Absorption and Stalled Price — Build a testable statement",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C11-L03": {
@@ -19966,43 +20889,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Absorption and Stalled Price — Why the next response matters.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "The response after candidate absorption distinguishes continued stall, release, reversal, or unresolved behavior without retroactively changing prior facts.",
+          "This lesson preserves the canonical topic Absorption and Stalled Price — Why the next response matters and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Absorption and Stalled Price — Why the next response matters from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL candidate zone ends 10:05; next completed window moves $0.12 through it, invalidating continued-stall interpretation.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Absorption and Stalled Price — Why the next response matters using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL candidate zone ends 10:05; next completed window moves $0.12 through it, invalidating continued-stall interpretation.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Absorption and Stalled Price — Why the next response matters: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using future response to claim the original inference was certain.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Absorption and Stalled Price — Why the next response matters cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "The response after candidate absorption distinguishes continued stall, release, reversal, or unresolved behavior without retroactively changing prior facts.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Absorption and Stalled Price — Why the next response matters calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Absorption and Stalled Price — Why the next response matters",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new post-window response while preserving the earlier observation."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C11-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C11-L03",
+          "topic:Absorption and Stalled Price — Why the next response matters",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C12-L01": {
@@ -20015,43 +20995,102 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation.",
-          "Volume counts reported units over a defined interval; volume alone does not reveal who initiated each trade.",
-          "Label whether volume measures shares, notional dollars or relative volume; disclose aggregation interval, baseline and missing records."
+          "Exhaustion is a cautious inference from declining participation and progress after prior activity, not simply a price reversal.",
+          "This lesson preserves the canonical topic Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation from the source evidence.",
-          "Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL consecutive 10s windows show 3,000,1,800,700 shares and price progress $0.12,$0.06,$0.01. Participation and progress decelerate.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Step 3 — Check the alternative or invalidation: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "Worked example — FICTIONAL consecutive 10s windows show 3,000,1,800,700 shares and price progress $0.12,$0.06,$0.01. Participation and progress decelerate.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation: Comparing a full-day volume bar with a one-minute bar.",
-          "Correct it by returning to the actual observation. Compare observed volume with the same-length interval of a defensible reference sample.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling every smaller candle exhaustion.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation cannot establish:",
-          "Large volume is consistent with activity, not proof of a specific participant's motive.",
-          "An interpretation is invalidated or unproven when: Reference-session times, corporate actions or reported volume units are inconsistent."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Exhaustion is a cautious inference from declining participation and progress after prior activity, not simply a price reversal.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support volume and participation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare two fictional five-minute volume readings against the same time-of-day baseline and explain why raw volume alone cannot establish buying pressure.",
-        "topic": "Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Measure activity and progress across three new equal windows."
+      },
+      "competencies": [
+        "VOLUME_ANALYSIS",
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C11-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C12-L01",
+          "topic:Exhaustion, Sweeps, and Thin Liquidity — Exhaustion is an inference about fading participation",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C12-L02": {
@@ -20063,43 +21102,101 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "A sweep describes rapid consumption or execution across multiple price levels; feed completeness and order identity remain unknown.",
+          "This lesson preserves the canonical topic Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL asks at $5.00,$5.02,$5.05 each report 200 shares within 40ms, totaling 600 across $0.05.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL asks at $5.00,$5.02,$5.05 each report 200 shares within 40ms, totaling 600 across $0.05.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling any fast print sequence one market order.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A sweep describes rapid consumption or execution across multiple price levels; feed completeness and order identity remain unknown.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Measure levels, size, price span, and duration for a new sequence."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C12-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C12-L02",
+          "topic:Exhaustion, Sweeps, and Thin Liquidity — Sweeps describe rapid consumption across prices",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C12-L03": {
@@ -20111,43 +21208,101 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Sweep interpretation depends on the completed aftermath: continuation, refill, immediate reversal, or insufficient observation.",
+          "This lesson preserves the canonical topic Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL upward sweep ends $15.10; next completed window trades $15.02-$15.06, an immediate retrace rather than proven continuation.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL upward sweep ends $15.10; next completed window trades $15.02-$15.06, an immediate retrace rather than proven continuation.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Declaring a sweep successful before observing its aftermath.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Sweep interpretation depends on the completed aftermath: continuation, refill, immediate reversal, or insufficient observation.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new completed aftermath without using later windows."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C12-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH14_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C12-L03",
+          "topic:Exhaustion, Sweeps, and Thin Liquidity — Read the aftermath",
+          "source_status:BATCH14_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C13-L01": {
