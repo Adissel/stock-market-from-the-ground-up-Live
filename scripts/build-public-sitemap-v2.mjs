@@ -41,6 +41,8 @@ export function buildPublicSitemapV2({root,origin,pages}){
   urls.map(url=>'  <url><loc>'+xmlEscape(url)+'</loc></url>').join('\n')+
   '\n</urlset>\n';
  assert(Buffer.byteLength(xml,'utf8')<=50*1024*1024,'Sitemap exceeds protocol size cap');
+ // Keep the existing public path stable and publish a new, separately submitable V2 sitemap.
  writeFileSync(join(root,'sitemap.xml'),xml,'utf8');
+ writeFileSync(join(root,'sitemap-v2.xml'),xml,'utf8');
  return Object.freeze({count:urls.length,urls:Object.freeze(urls),xml});
 }
