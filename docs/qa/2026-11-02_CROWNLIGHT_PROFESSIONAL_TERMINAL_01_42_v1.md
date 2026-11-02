@@ -3,8 +3,8 @@
 **Project:** The Stock Market: From the Ground Up / Crownlight Chart Studio
 **Company:** Cyber Nexus Publishing / Crown & Lantern Press
 **Filename / file type:** `docs/qa/2026-11-02_CROWNLIGHT_PROFESSIONAL_TERMINAL_01_42_v1.md` / Markdown
-**Version / date:** 1.8 / 2026-11-02
-**Status:** PARTIAL TECHNICAL ACCEPTANCE — historical real Chromium and two-account isolation ACCEPTED; full 42-item crosswalk and final-head release certification OPEN
+**Version / date:** 1.9 / 2026-11-02
+**Status:** 42 operational subcriteria mapped: 10 previously accepted (23.8%), 27 partial, 5 open; final-head release certification OPEN
 **Authoritative location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`
 **Google Drive location / document ID:** Not created / unassigned
 **New file required:** Yes — retain this source QA register alongside existing releases
@@ -178,3 +178,16 @@ The Owner explicitly states: “I reviewed, accepted and sign off on everything 
 **Revision history:** v1.8 / 2026-11-02 — added authoritative no-repeat crosswalk, protected accepted Owner/member Chromium/isolation, clarified progress denominators and narrowed future acceptance to actual deltas.
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.8 · Owner acceptance preserved; final released SHA and unmapped per-item criteria remain separate.
+
+
+## Forty-two individual operational criteria reconciled — v1.9
+
+The separate detailed crosswalk `docs/qa/2026-11-02_CROWNLIGHT_42_REQUIREMENT_EVIDENCE_CROSSWALK_v1.md` (`SMFGU-CHART-PRO-42-TRACE-001`) breaks the four historical ranges into 42 explicitly labeled **engineering interpretations**, with each item's existing acceptance evidence and remaining release-specific work. No arbitrary reconstruction is presented as the Owner's verbatim original 42-item specification.
+
+**Acceptance evidence score (operational historical subcriteria):** **10/42 = 23.8% historically accepted**, 27 partially evidenced, 5 open. The score replaces the misleading 0/42 *unmapped administrative status* for this newly defined operational crosswalk; it is **not** equivalent to the current-head production final-release percentage. The separate 14-gate Chart Studio register retains 3/14 accepted (21.4%). Owner-accepted real Chromium and two-member isolation never require a general repeat solely because source revisions continue.
+
+**2026-11-02 delta checks:** 20 distinct source-level layout/divider interactions verified against current JS/CSS. Latest changed chart Chromium and exact-SHA production parity still await confirmed completed run. Previously accepted read-only member/CI runs remain controlling historical evidence.
+
+**Revision history:** v1.9 / 2026-11-02 — linked individual 42-row operational traceability matrix; preserved ten narrow historic acceptances and all 27 partial/five open cases; retained release and licensing boundaries.
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.9 · 42 operational criteria mapped, final release open.
