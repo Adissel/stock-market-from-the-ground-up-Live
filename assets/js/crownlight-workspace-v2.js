@@ -5,7 +5,13 @@
 (()=>{'use strict';
 let workspace={version:2,selected:'STANDARD',sync:true,studies:[],drawings:[],layout:'SIDE_BY_SIDE',drawingContext:null,drawingSets:[]};
 let permissionEpoch=0,loadingWorkspace=false,linked=false,guard=false,syncEnabled=true;
-let workspaceRevision=null,savingWorkspace=false,pendingChartRestore=false;
+let workspaceRevision=null,savingWorkspace=false,pendingChartRestore=false,pendingEchartsRestore=false;
+function restoreEchartsPreferences(){
+ if(!permissionReady||!storeAvailable||!pendingEchartsRestore)return;
+ if(window.CrownlightEChartsStudio?.getStatus?.().ready!==true)return;
+ if(window.CrownlightEChartsStudio.restorePreferences?.(workspace.echartsPreferences)===true)
+  pendingEchartsRestore=false;
+}
 function restoreChartPreferences(){
  if(!permissionReady||!storeAvailable||!pendingChartRestore)return;
  // Clear the deferred flag BEFORE restoring: redraw emits revealed-bars synchronously,
@@ -231,6 +237,8 @@ async function persist(){
    .filter(x=>['RSI','MACD','BOLL','MA','EMA','SMA','ATR','VOL'].includes(x)))].slice(0,8);
   const memberChart=window.CrownlightStudio?.getWorkspacePreferences?.();
   if(memberChart){draft.appearance=memberChart.appearance;draft.chartStudies=memberChart.chartStudies}
+  const echartsPrefs=window.CrownlightEChartsStudio?.getPreferences?.();
+  if(echartsPrefs)draft.echartsPreferences=echartsPrefs;
   const payload={...draft,expectedUpdatedAt:workspaceRevision};
   if(JSON.stringify(payload).length>14000)
    throw Error('Workspace annotation collections exceed the safe 14 KB budget. Reduce drawings before saving.');
@@ -252,7 +260,7 @@ async function persist(){
 async function restore(){
  const epoch=++permissionEpoch;
  permissionReady=Tier()?.getStatus().verified===true;
- if(!permissionReady){workspace={version:2,selected:'STANDARD',sync:true,studies:[],drawings:[],layout:'SIDE_BY_SIDE',drawingContext:null,drawingSets:[]};syncEnabled=true;linked=false;storeAvailable=false;workspaceRevision=null;pendingChartRestore=false;
+ if(!permissionReady){workspace={version:2,selected:'STANDARD',sync:true,studies:[],drawings:[],layout:'SIDE_BY_SIDE',drawingContext:null,drawingSets:[]};syncEnabled=true;linked=false;storeAvailable=false;workspaceRevision=null;pendingChartRestore=false;pendingEchartsRestore=false;
   const box=ui?.querySelector('[data-cl-studies]');if(box)box.value='';
   const toggle=ui?.querySelector('[data-cl-sync]');if(toggle)toggle.checked=true;
   applyLayout();
@@ -268,7 +276,8 @@ async function restore(){
   }
   applyLayout();displaySavedCount();
   pendingChartRestore=Boolean(workspace.appearance||workspace.chartStudies);
-  restoreChartPreferences();
+  pendingEchartsRestore=Boolean(workspace.echartsPreferences);
+  restoreChartPreferences();restoreEchartsPreferences();
   msg(r.updatedAt?'Private workspace loaded.':'Workspace ready; save to retain changes across sessions.');
   if(workspace.selected!=='STANDARD'&&Tier().getStatus().allowed.includes(workspace.selected))
    await Tier().choose(workspace.selected);
@@ -360,7 +369,7 @@ function controls(){
 }
 function scrubMemberWorkspace(){
  // Any in-flight GET for the previous member must not restore stale settings.
- permissionEpoch++;permissionReady=false;loadingWorkspace=false;storeAvailable=false;workspaceRevision=null;pendingChartRestore=false;
+ permissionEpoch++;permissionReady=false;loadingWorkspace=false;storeAvailable=false;workspaceRevision=null;pendingChartRestore=false;pendingEchartsRestore=false;
  workspace={version:2,selected:'STANDARD',sync:true,studies:[],drawings:[],layout:'SIDE_BY_SIDE',drawingContext:null,drawingSets:[]};
  syncEnabled=true;linked=false;
  if(ui){
@@ -373,13 +382,13 @@ function scrubMemberWorkspace(){
 window.addEventListener('crownlight:member-changed',scrubMemberWorkspace);
 window.addEventListener('crownlight:tier-permission',()=>{permissionEpoch++;void restore()});
 window.addEventListener('crownlight:tier-mounted',e=>{
- applyLayout();
+ applyLayout();restoreEchartsPreferences();
  if(e.detail?.tier==='PROFESSIONAL')wireSync();
  if(e.detail?.tier!=='STANDARD'){applyStudies();applyOverlays()}
  displaySavedCount();
 });
 window.addEventListener('crownlight:revealed-bars',()=>{
- restoreChartPreferences();
+ restoreChartPreferences();restoreEchartsPreferences();
  // Never restore drawings that reference bars later than the last revealed bar.
  if(getCharts().length===2)wireSync();
  applyOverlays();displaySavedCount();
