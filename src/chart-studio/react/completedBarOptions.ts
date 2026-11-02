@@ -45,7 +45,8 @@ export function barVwap(bars: readonly CompletedBar[], sessionKey: (bar: Complet
 export function buildCandleOptions(bars: readonly CompletedBar[], symbol: string, interval: string): EChartsOption {
   for (let i = 0; i < bars.length; i++) {
     const b = bars[i];
-    if (![b.open,b.high,b.low,b.close,b.volume].every(Number.isFinite) ||
+    if (typeof b.time !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(b.time) ||
+      ![b.open,b.high,b.low,b.close,b.volume].every(Number.isFinite) ||
       b.high < Math.max(b.open,b.close,b.low) || b.low > Math.min(b.open,b.close,b.high) ||
       b.volume < 0 || (i > 0 && b.time <= bars[i - 1].time)) throw new TypeError('Invalid or unordered completed bars');
   }
