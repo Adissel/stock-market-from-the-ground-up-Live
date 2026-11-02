@@ -300,6 +300,18 @@ function Classroom(){
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to load history.')}
   };
   const safeSuggest=useCallback((q:string)=>{setQuestion(q.slice(0,450));setStatus('Review the suggested question, then send it to Talia.');},[]);
+  const latestExchange=chat.length>=3&&chat[chat.length-1]?.who==='talia'?
+    [...chat].reverse().find(line=>line.who==='member')?.text||'the current topic':'the current topic';
+  const continueLesson=(kind:'clarify'|'challenge'|'transfer')=>{
+    const subject=latestExchange.slice(0,170);
+    if(kind==='clarify'){
+      setMode('explain');safeSuggest('Continue our previous lesson about '+subject+'. Explain one difficult part more clearly, using a distinct fictional example. Do not assume I understood.');
+    }else if(kind==='challenge'){
+      setMode('question');safeSuggest('Continue our previous lesson about '+subject+'. Ask ONE evidence-based diagnostic question and wait for my attempt before correcting.');
+    }else{
+      setMode('practice');safeSuggest('Continue our previous lesson about '+subject+'. Give a different fictional transfer case and invite NO TRADE as an option; do not grade.');
+    }
+  };
   if(!member)return <main className="tc-main" aria-label="Talia membership access">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
       <h1>Talia Interactive Classroom</h1><p>{status}</p>
@@ -319,6 +331,17 @@ function Classroom(){
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
       </div>
+      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
+        <section className="tp-followup" aria-label="Continue the current learning session">
+          <strong>Continue this lesson</strong>
+          <p className="tc-muted">Choose how Talia should build on the conversation. You can edit the question before submitting it.</p>
+          <div className="tc-row">
+            <button type="button" className="tc-secondary" onClick={()=>continueLesson('clarify')} disabled={busy}>Explain it another way</button>
+            <button type="button" className="tc-secondary" onClick={()=>continueLesson('challenge')} disabled={busy}>Check my understanding</button>
+            <button type="button" className="tc-secondary" onClick={()=>continueLesson('transfer')} disabled={busy}>Practice a new scenario</button>
+          </div>
+          <p className="tc-muted">For verified server-side follow-up context, create or select an authorized private conversation and enable saving.</p>
+        </section>}
       {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
         <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
         <div className="tp-teaching-loop-actions">
