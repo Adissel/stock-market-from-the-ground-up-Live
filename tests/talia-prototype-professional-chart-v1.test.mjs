@@ -13,3 +13,12 @@ test('Customization is available only on the staff prototype and never authorize
  assert.match(ts,/onQuestion\('Explain the '/);
  assert.match(ts,/Volume is a fictional proxy/);
 });
+
+test('Member-scoped chart preferences validate stored values and do not persist conversation data',()=>{
+ assert.match(ts,/smfgu-talia-prototype-chart-v1:'\+memberId/);
+ assert.match(ts,/localStorage\.getItem/);
+ assert.match(ts,/localStorage\.setItem/);
+ assert.match(ts,/settingsLoaded/);
+ assert.match(ts,/memberId=\{member\.id\}/);
+ assert.match(ts,/Private browsing may disable storage/);
+});
