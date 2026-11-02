@@ -21,7 +21,9 @@ type ChartInstance={
   setOption:(value:unknown,options?:unknown)=>void;
   on:(event:string,cb:(event:{dataIndex?:number})=>void)=>void;
   dispose:()=>void;
-  resize:()=>void
+  resize:()=>void;
+  getOption?:()=>{dataZoom?:Array<{start?:number;end?:number}>};
+  dispatchAction?:(action:unknown)=>void
 };
 type ChartApi={init:(el:HTMLElement)=>ChartInstance};
 declare global{
@@ -45,6 +47,24 @@ const REPLAY:number[][]=[
   [20.79,20.85,20.71,20.96],[20.85,20.66,20.60,20.94],
   [20.66,20.49,20.40,20.73],[20.49,20.57,20.43,20.65]
 ];
+// Original deterministic synthetic observations, not a feed, protected replay or grade.
+for(let i=0;i<248;i++){
+ const previous=REPLAY[REPLAY.length-1][1];
+ const close=Number((previous+0.038*Math.sin(i*0.37)+0.027*Math.cos(i*0.13)-(i%19===0?0.055:0)).toFixed(2));
+ const high=Number((Math.max(previous,close)+0.03+(i%4)*0.01).toFixed(2));
+ const low=Number((Math.min(previous,close)-0.03-(i%3)*0.01).toFixed(2));
+ REPLAY.push([previous,close,low,high]);
+}
+const syntheticVolume=(bar:number[],index:number)=>200+Math.round(Math.abs(bar[1]-bar[0])*3700)+index*17;
+function aggregateCompleted(rows:number[][],minutes:1|3|5){
+ if(minutes===1)return rows;
+ const groups:number[][]=[];
+ for(let i=0;i+minutes<=rows.length;i+=minutes){
+  const batch=rows.slice(i,i+minutes);
+  groups.push([batch[0][0],batch[minutes-1][1],Math.min(...batch.map(r=>r[2])),Math.max(...batch.map(r=>r[3]))]);
+ }
+ return groups;
+}
 const initialQuestion=()=>new URLSearchParams(location.search).get('q')?.slice(0,450)||'';
 /* Public canonical IDs and stage hints only. Server independently checks the
  * registered Lab and the member entitlement; never forward lesson answers. */
@@ -60,7 +80,10 @@ const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
 function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;memberId:string}){
   const host=useRef<HTMLDivElement|null>(null);
+  const chartRef=useRef<ChartInstance|null>(null);
   const [visible,setVisible]=useState(7);
+  const [timeframe,setTimeframe]=useState<1|3|5>(1);
+  const [compare,setCompare]=useState(false);
   const prototype=typeof window!=='undefined'&&(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'));
   const [study,setStudy]=useState<'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap'>('ema9');
   const [zoom,setZoom]=useState(100);
@@ -93,6 +116,18 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
     try{window.localStorage.setItem('smfgu-talia-prototype-chart-v1:'+memberId,JSON.stringify({study,buffer,zoom,bull,bear,showVolume,showStructure}));}catch{/* Private browsing may disable storage. */}
   },[prototype,memberId,settingsLoaded,study,buffer,zoom,bull,bear,showVolume,showStructure]);
   const [status,setStatus]=useState('Fictional completed-bar teaching example; subsequent bars are concealed.');
+  const panChart=(direction:-1|1)=>{
+    const chart=chartRef.current;
+    const view=chart?.getOption?.().dataZoom?.[0];
+    if(!chart?.dispatchAction||!view)return;
+    const start=Number(view.start??0),end=Number(view.end??100),span=Math.max(1,end-start);
+    const nextStart=Math.max(0,Math.min(100-span,start+direction*span*.45));
+    chart.dispatchAction({type:'dataZoom',start:nextStart,end:nextStart+span});
+  };
+  const releasePointer=(event:React.PointerEvent<HTMLDivElement>)=>{
+    const el=event.target as Element;
+    if(el.hasPointerCapture?.(event.pointerId))el.releasePointerCapture(event.pointerId);
+  };
   useEffect(()=>{
     let disposed=false,plot:ChartInstance|null=null,observer:ResizeObserver|null=null;
     const resize=()=>plot?.resize();
@@ -104,7 +139,10 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
         const echarts=await window.CrownlightECharts.load();
         if(disposed||!host.current)return;
         plot=echarts.init(host.current);
-        const closes=REPLAY.slice(0,visible).map(r=>r[1]);
+        chartRef.current=plot;
+        const revealed=REPLAY.slice(0,visible);
+        const shown=aggregateCompleted(revealed,timeframe);
+        const closes=shown.map(r=>r[1]);
         const overlay=closes.map((_,i)=>{
           if(i<2||study==='none')return null;
           if(study==='sma3')return Number(((closes[i]+closes[i-1]+closes[i-2])/3).toFixed(4));
@@ -114,10 +152,21 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
         });
         // Display only completed observations; longer lookback indicators correctly remain in warmup.
         const ema=(period:number)=>closes.map((_,i)=>{if(i<period-1)return null;let v=closes.slice(0,period).reduce((a,b)=>a+b,0)/period;for(let j=period;j<=i;j++)v=v+(closes[j]-v)*2/(period+1);return Number(v.toFixed(4))});
-        const shown=REPLAY.slice(0,visible);
-        const volumes=shown.map((r,i)=>200+Math.round(Math.abs(r[1]-r[0])*3700)+i*17); // labeled fictional proxy, NOT market volume
+        const volumes=shown.map((_,i)=>revealed.slice(i*timeframe,(i+1)*timeframe).reduce((total,r,j)=>total+syntheticVolume(r,i*timeframe+j),0)); // synthetic proxy, NOT market volume
         const vwap=shown.map((_,i)=>{let sum=0,qty=0;for(let j=0;j<=i;j++){sum+=((shown[j][3]+shown[j][2]+shown[j][1])/3)*volumes[j];qty+=volumes[j]}return Number((sum/qty).toFixed(4))});
-        const structure=shown.map((r,i)=>i>=2&&i<visible-1&&r[3]>shown[i-1][3]&&r[3]>shown[i+1][3]?{coord:[i,r[3]],value:'Swing H'}:null).filter((x):x is {coord:number[],value:string}=>x!==null);
+        const structure:{coord:number[];value:string}[]=[];
+        let earlierHigh:number|null=null,earlierLow:number|null=null;
+        for(let i=1;i<shown.length-1;i++){
+         const bar=shown[i],left=shown[i-1],right=shown[i+1];
+         if(bar[3]>left[3]&&bar[3]>right[3]){
+          const label=earlierHigh===null?'Swing H':bar[3]>earlierHigh?'HH':bar[3]<earlierHigh?'LH':'Equal H';
+          structure.push({coord:[i,bar[3]],value:label});earlierHigh=bar[3];
+         }
+         if(bar[2]<left[2]&&bar[2]<right[2]){
+          const label=earlierLow===null?'Swing L':bar[2]>earlierLow?'HL':bar[2]<earlierLow?'LL':'Equal L';
+          structure.push({coord:[i,bar[2]],value:label});earlierLow=bar[2];
+         }
+        }
         const horizon=Array.from({length:prototype?buffer:0},(_,i)=>'Buffer '+(i+1));
         plot.setOption({
           animation:false,backgroundColor:'transparent',
@@ -126,38 +175,44 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
           xAxis:showVolume&&prototype?[{type:'category',data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},{type:'category',gridIndex:1,data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{show:false},axisLine:{show:false}}]:{type:'category',data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},
           yAxis:showVolume&&prototype?[{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},{type:'value',gridIndex:1,axisLabel:{color:'#88a8bb'},splitLine:{show:false}}]:{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},
           tooltip:{trigger:'item',formatter:(x:{dataIndex:number})=>{
-            const r=REPLAY.slice(0,visible)[x.dataIndex];return r?'Fictional bar '+(x.dataIndex+1)+' | O '+r[0]+' H '+r[3]+' L '+r[2]+' C '+r[1]:'';
+            const r=shown[x.dataIndex];return r?'Completed '+timeframe+'m fictional bar '+(x.dataIndex+1)+' | O '+r[0].toFixed(2)+' H '+r[3].toFixed(2)+' L '+r[2].toFixed(2)+' C '+r[1].toFixed(2):'';
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
-            data:shown,itemStyle:{color:prototype?bull:'#38c6a6',color0:prototype?bear:'#e37779',borderColor:prototype?bull:'#38c6a6',borderColor0:prototype?bear:'#e37779'},
+            data:shown,itemStyle:{color:prototype?bull:'#38c6a6',color0:prototype?bear:'#e37779',borderColor:prototype?bull:'#38c6a6',borderColor0:prototype?bear:'#e37779',borderWidth:1.5,shadowBlur:prototype?4:0,shadowColor:'#145a67'},
             markLine:prototype&&showStructure?{symbol:'none',lineStyle:{color:'#668ba1',type:'dashed'},data:[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible high'},{yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible low'}]}:undefined,
-            markPoint:prototype&&annotation!==null&&annotation<visible?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[annotation,REPLAY[annotation][1]],value:'Study'}]}:undefined},
+            markPoint:prototype&&annotation!==null&&Math.floor(annotation/timeframe)<shown.length?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[Math.floor(annotation/timeframe),shown[Math.floor(annotation/timeframe)][1]],value:'Study'}]}:undefined},
             ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':study.toUpperCase(),data:study==='ema9'?ema(9):study==='ema20'?ema(20):study==='ema200'?ema(200):study==='vwap'?vwap:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[]),
-            ...(prototype&&showVolume?[{type:'bar',name:'Fictional volume proxy',xAxisIndex:1,yAxisIndex:1,data:volumes,itemStyle:{color:'#3c8192'}}]:[]),
-            ...(prototype&&showStructure&&structure.length?[{type:'scatter',name:'Visible swing highs',data:structure.map(x=>x.coord),symbolSize:9,itemStyle:{color:'#d6b77f'}}]:[])]
+            ...(prototype&&compare?[9,20,200].map(period=>({type:'line',name:'EMA '+period,data:ema(period),showSymbol:false,connectNulls:false,lineStyle:{width:period===200?2.8:2,color:period===9?'#f4ce79':period===20?'#80b9ff':'#ed86cd'},itemStyle:{color:'#f4ce79'},smooth:false})):[]),
+            ...(prototype&&compare?[{type:'line',name:'VWAP proxy',data:vwap,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#9de7e2',type:'dashed'},itemStyle:{color:'#9de7e2'}}]:[]),
+            ...(prototype&&showVolume?[{type:'bar',name:'Fictional volume proxy',xAxisIndex:1,yAxisIndex:1,data:volumes,itemStyle:{color:'#388fac'}}]:[]),
+            ...(prototype&&showStructure&&structure.length?[{type:'scatter',name:'Confirmed market structure',data:structure.map(x=>({value:x.coord,name:x.value})),symbolSize:10,label:{show:true,position:'top',formatter:(x:{data?:{name?:string}})=>x.data?.name||'',color:'#f5d79c',fontSize:11},itemStyle:{color:'#eac783'}}]:[])]
         });
         plot.on('click',e=>{
           const i=Number(e.dataIndex);
-          if(Number.isInteger(i)&&i>=0&&i<visible){
-            const bar=REPLAY[i];
-            onQuestion(('Fictional completed bar '+(i+1)+': open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Only '+visible+' bars have been revealed. Coach me through its body, wicks and prior visible structure. Ask what I observe before explaining. Do not use future bars or grade me.').slice(0,450));
+          if(Number.isInteger(i)&&i>=0&&i<shown.length){
+            const bar=shown[i];
+            onQuestion(('Completed '+timeframe+'-minute fictional bar '+(i+1)+': open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Only '+visible+' underlying one-minute candles revealed. Guide my observations and prior confirmed structure; no future bars or grading.').slice(0,450));
           }
         });
         window.addEventListener('resize',resize);
         if(typeof ResizeObserver!=='undefined'&&host.current){observer=new ResizeObserver(resize);observer.observe(host.current)}
-        setStatus(visible+' of '+REPLAY.length+' fictional completed bars are currently visible.');
+        setStatus(visible+' of '+REPLAY.length+' fictional one-minute candles revealed; '+shown.length+' fully completed '+timeframe+'-minute candles rendered. Incomplete timeframe groups are concealed.');
       }catch{if(!disposed)setStatus('Chart unavailable; the completed-candle table remains available.')}
     };
     void mount();
-    return ()=>{disposed=true;window.removeEventListener('resize',resize);observer?.disconnect();plot?.dispose()};
-  },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear]);
+    return ()=>{disposed=true;window.removeEventListener('resize',resize);observer?.disconnect();if(chartRef.current===plot)chartRef.current=null;plot?.dispose()};
+  },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear,timeframe,compare]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
     <div className="tc-row tc-row-between"><h2>Market analysis workspace</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
     <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
     {prototype&&<div className="tc-row tp-chart-tools" aria-label="Chart analysis controls">
       <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="ema9">EMA 9</option><option value="ema20">EMA 20 (requires 20 bars)</option><option value="ema200">EMA 200 (requires 200 bars)</option><option value="vwap">Fictional proxy VWAP</option><option value="none">No overlay</option></select></label>
-      <label>Visible window <select value={zoom} onChange={e=>setZoom(Number(e.target.value))}><option value={100}>All revealed bars</option><option value={70}>70%</option><option value={45}>45%</option></select></label>
+      <label>Completed interval <select value={timeframe} onChange={e=>setTimeframe(Number(e.target.value) as 1|3|5)}><option value={1}>1 minute</option><option value={3}>3 minutes</option><option value={5}>5 minutes</option></select></label>
+      <label>Visible window <select value={zoom} onChange={e=>setZoom(Number(e.target.value))}><option value={100}>All revealed bars</option><option value={70}>70%</option><option value={45}>45%</option><option value={20}>20% detail</option></select></label>
+      <button type="button" className="tc-secondary" onClick={()=>panChart(-1)} aria-label="Pan to older completed candles">Pan left</button>
+      <button type="button" className="tc-secondary" onClick={()=>panChart(1)} aria-label="Pan to newer completed candles">Pan right</button>
+      <label><input type="checkbox" checked={compare} onChange={e=>setCompare(e.target.checked)}/> Compare EMA 9 / 20 / 200 + VWAP</label>
       <label>Right buffer <select value={buffer} onChange={e=>setBuffer(Number(e.target.value))}><option value={0}>None</option><option value={3}>3 bars</option><option value={6}>6 bars</option></select></label>
       <label>Bull <input aria-label="Bull candle color" type="color" value={bull} onChange={e=>setBull(e.target.value)}/></label>
       <label>Bear <input aria-label="Bear candle color" type="color" value={bear} onChange={e=>setBear(e.target.value)}/></label>
@@ -165,10 +220,10 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       <label><input type="checkbox" checked={showStructure} onChange={e=>setShowStructure(e.target.checked)}/> Structure</label>
       <button type="button" className="tc-secondary" onClick={()=>setAnnotation(visible-1)}>Annotate latest</button>
       <button type="button" className="tc-secondary" onClick={()=>setAnnotation(null)} disabled={annotation===null}>Clear annotation</button>
-      <button type="button" className="tc-secondary" onClick={()=>onQuestion('Explain the '+(study==='none'?'candle structure':study.toUpperCase())+' visible through completed fictional bar '+visible+'. State any warmup limitation and do not reference future candles.')}>Teach this chart</button>
+      <button type="button" className="tc-secondary" onClick={()=>onQuestion('Teach the '+(study==='none'?'candle structure':study.toUpperCase())+' on this '+timeframe+'-minute chart using only '+visible+' revealed one-minute bars. Explain indicator warmup and any confirmed HH/HL/LH/LL labels without future candles.')}>Teach this chart</button>
     </div>}
-    <div className="tc-chart" ref={host} role="img" aria-label={'Fictional price chart showing '+visible+' completed candlesticks'} />
-    <p className="tc-muted" role="status">{status}{prototype?' Volume is a fictional proxy, not observed trading volume. EMA 20/200 remain unavailable until sufficient bars exist; blank right-side buffer contains no future data.':''}</p>
+    <div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Fictional price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />
+    <p className="tc-muted" role="status">{status}{prototype?' Volume is a synthetic proxy, not observed trading volume. EMA 20 and 200 require enough complete timeframe bars; the right buffer contains no future data.':''}</p>
     <table className="tc-candle-table"><caption>Latest visible completed candle</caption>
       <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
       <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
@@ -181,8 +236,10 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       </table></div>
     </details>}
     <div className="tc-row">
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>setVisible(v=>Math.max(7,v-1))} disabled={visible<=7}>Step back one bar</button>}
       <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
-      <button type="button" className="tc-secondary" onClick={()=>setVisible(7)} disabled={visible===7}>Reset</button>
+      <button type="button" className="tc-secondary" onClick={()=>{setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7}>Reset</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
     </div>
   </section>;

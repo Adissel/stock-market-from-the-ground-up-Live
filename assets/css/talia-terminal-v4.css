@@ -1,0 +1,15 @@
+/* Crownlight Talia V4: visual polish across existing shared React/ECharts classroom. */
+.tc-body .tc-terminal-controls{background:linear-gradient(110deg,#12384c,#0b1f32 60%,#152337);border-color:#548ba3;box-shadow:0 12px 35px #020a1190}
+.tc-body .tc-terminal-identity strong{font-size:.85rem;color:#a6fff0}
+.tc-body .tc-chart-panel{background:linear-gradient(155deg,#153046,#081728 70%);border-color:#46788b;box-shadow:0 18px 46px #0008}
+.tc-body .tc-chart-panel>p{font-size:clamp(.82rem,.86vw,.96rem);line-height:1.65}
+.tc-body .tc-chart{background:radial-gradient(ellipse at 55% 3%,#133044,#070f1d 65%);border:1px solid #46768b;box-shadow:inset 0 0 35px #0c314b55,0 7px 25px #0007}
+.tc-body .tp-chart-tools{background:linear-gradient(180deg,#123247,#0d2436);border:1px solid #537d92;gap:11px 12px}
+.tc-body .tp-chart-tools label{font-size:clamp(.78rem,.82vw,.9rem);color:#e4f2fa;line-height:1.5}
+.tc-body .tp-chart-tools select{max-width:230px;min-height:39px}
+.tc-body .tp-chart-tools button,.tc-body .tc-chart-panel>.tc-row:last-child button{min-height:42px}
+.tc-body .tc-terminal-grid .tc-chart-panel h2{font-size:clamp(1.25rem,1.6vw,1.55rem)}
+.tc-body .tc-candle-table th,.tc-body .tc-candle-table td{font-size:clamp(.8rem,.84vw,.96rem)}
+.tc-body .tc-chart-panel :focus-visible{outline:3px solid #84ffe5;outline-offset:3px}
+@media(max-width:750px){.tc-body .tp-chart-tools{align-items:stretch;flex-direction:column}.tc-body .tp-chart-tools label{justify-content:space-between}.tc-body .tp-chart-tools select{max-width:100%}.tc-body .tc-terminal-grid .tc-chart{height:430px;min-height:430px}}
+@media(prefers-reduced-motion:reduce){.tc-body .tc-terminal-controls,.tc-body .tc-chart,.tc-body .tc-chart-panel{transition:none!important;animation:none!important}}

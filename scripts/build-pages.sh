@@ -62,6 +62,7 @@ node tests/basic-engine-six-gate-closeout-v1.test.mjs
 node --test tests/learning-lab-edition-workspace-v1.test.mjs
 node tests/talia-classroom-source-v1.test.mjs
 node --test tests/talia-classroom-professional-v2.test.mjs
+node --test tests/talia-terminal-v4.test.mjs
 node tests/talia-tutor-prototype-v1.test.mjs
 node tests/talia-prototype-professional-chart-v1.test.mjs
 node tests/talia-membership-only-v1.test.mjs

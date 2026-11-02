@@ -26,7 +26,7 @@ test('classroom uses existing service authority and never initiates paid AI infe
 test('fictional replay supplies only the revealed candles to the renderer',()=>{
  assert.match(source,/FICTIONAL \/ REVEALED PREFIX/);
  assert.match(source,/REPLAY\.slice\(0,visible\)/);
- assert.match(source,/const r=REPLAY\.slice\(0,visible\)\[x\.dataIndex\]/);
+ assert.match(source,/const r=shown\[x\.dataIndex\]/);
  assert.match(source,/not a secure historical replay/);
  assert.match(source,/visible===REPLAY\.length/);
  assert.match(source,/Latest visible completed candle/);
