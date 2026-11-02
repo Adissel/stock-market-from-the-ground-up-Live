@@ -350,6 +350,7 @@ function Classroom(){
       const data=await res.json().catch(()=>null);
       if(version!==epoch.current||identity.current!==uid)return;
       if(!res.ok||!data?.ok||typeof data.id!=='string')throw Error('Private conversation storage is unavailable for this membership.');
+      const confirmed=await getToken();if(!confirmed||version!==epoch.current||identity.current!==uid)return;
       setConversationId(data.id);setConversationLabel(title.trim());setChat(DEFAULT);setSave(true);
       setStatus('Private conversation created. Only server-verified saved turns can supply verified follow-up context.');
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to create private conversation.')}
@@ -363,9 +364,12 @@ function Classroom(){
       const data=await res.json().catch(()=>null);
       if(version!==epoch.current||identity.current!==uid)return;
       if(!res.ok||!data?.ok||!Array.isArray(data.history))throw Error('Private Tutor history is not available.');
+      // Prevent loading a previous member's history if authorization changed during this request.
+      const confirmed=await getToken();if(!confirmed||version!==epoch.current||identity.current!==uid)return;
       const rows=data.history.slice(-30).reverse().flatMap((item:{id?:string;question?:string;answer?:string})=>[
         {id:String(item.id||crypto.randomUUID())+'-q',who:'member' as const,text:String(item.question||'').slice(0,450)},
         {id:String(item.id||crypto.randomUUID())+'-a',who:'talia' as const,text:String(item.answer||'').slice(0,7000),label:'Previously saved'}]);
+      if(version!==epoch.current||identity.current!==uid)return;
       setChat([DEFAULT[0],...rows]);setConversationId(null);setConversationLabel('');
       setStatus(rows.length/2+' previously saved Tutor exchanges loaded for display only. New replies remain separate unless you select private saving.');
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to load history.')}
