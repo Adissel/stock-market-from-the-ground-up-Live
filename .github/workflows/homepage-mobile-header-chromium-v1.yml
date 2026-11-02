@@ -1,0 +1,44 @@
+name: Homepage Mobile Header Chromium Acceptance (Free)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/homepage-mobile-header-chromium-v1.yml'
+      - 'tests/test_googlebot_mobile_header_browser_v1.mjs'
+      - 'assets/js/navigation.js'
+      - 'assets/css/mobile-auth.css'
+      - 'assets/css/sitewide-composition-v014234.css'
+permissions:
+  contents: read
+jobs:
+  mobile-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record exact source under test
+        run: echo "MOBILE_SOURCE_SHA=${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Install only pinned open-source browser
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Diagnose deployed real mobile header at four widths
+        env:
+          MOBILE_HEADER_DIAG_ONLY: '1'
+        run: node tests/test_googlebot_mobile_header_browser_v1.mjs
+      - name: Validate accessibility, menu focus and compact header
+        run: node tests/test_googlebot_mobile_header_browser_v1.mjs
+      - name: Preserve screenshots and menu provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-googlebot-mobile-header
+          path: artifacts/mobile-header/
+          if-no-files-found: ignore
+          retention-days: 7
