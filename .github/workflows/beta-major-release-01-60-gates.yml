@@ -264,7 +264,42 @@ jobs:
           workflow=Path('.github/workflows/beta-major-release-01-60-gates.yml').read_text()
           lines=re.findall(r'^\s*- name: (LEARNING|LABS|ACADEMY|STUDIO|TUTOR|GOVERNANCE) (\d{2}) - ([^\n]+)$',workflow,re.M)
           groups=collections.Counter(group for group,number,title in lines)
-          files=re.findall(r'^\s*run: node (tests/[^\s]+)$',workflow,re.M)
+          files=re.findall(r'^\s*run: node (tests/[^\s]+)
+          expected={'LEARNING','LABS','ACADEMY','STUDIO','TUTOR','GOVERNANCE'}
+          assert set(groups)==expected and all(groups[k]==10 for k in expected),(groups,'exactly ten checks per domain required')
+          assert len(lines)==60 and len(files)==60 and len(set(files))==60,'Expected 60 unique test files'
+          missing=[name for name in files if not Path(name).is_file()]
+          assert not missing,('Missing release tests',missing)
+          print('PASS: 60 distinct present tests across six domains')
+          batch=workflow.split('  beta-next25:')[1].split('  release-source-summary:')[0]
+          extra=re.findall(r'^\s*run: node (tests/[^\s]+)$',batch,re.M)
+          assert len(extra)==25 and len(set(extra))==25,'Expected 25 unique additional gate commands'
+          assert not set(extra).intersection(files),'Next 25 must add coverage rather than repeat original 60'
+          missing_extra=[name for name in extra if not Path(name).is_file()]
+          assert not missing_extra,('Missing next-batch tests',missing_extra)
+          print('PASS: 25 distinct additional tests; 85 unique total')
+          PY
+      - name: Require seven complete successful groups and all 85 source checks
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json,os,sys
+          results=json.loads(os.environ['NEEDS_JSON'])
+          for k,v in results.items():print(k,v['result'])
+          if len(results)!=7 or any(v['result']!='success' for v in results.values()):
+              sys.exit('BLOCKED: 85-gate beta source batch not accepted')
+          print('85 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
+          summary=os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with open(summary,'a',encoding='utf-8') as out:
+                  out.write('## Beta Major Release 01 — source evidence\n\n')
+                  out.write('Commit: `'+os.environ.get('GITHUB_SHA','unknown')+'`\n\n')
+                  out.write('| Domain | Job conclusion |\n|---|---|\n')
+                  for name,value in sorted(results.items()):out.write('| '+name+' | '+value['result']+' |\n')
+                  out.write('\n85 source commands are required; authenticated browser, editor, live commerce and final production SHA remain separate gates.\n')
+          PY
+,workflow.split('  beta-next25:')[0],re.M)
           expected={'LEARNING','LABS','ACADEMY','STUDIO','TUTOR','GOVERNANCE'}
           assert set(groups)==expected and all(groups[k]==10 for k in expected),(groups,'exactly ten checks per domain required')
           assert len(lines)==60 and len(files)==60 and len(set(files))==60,'Expected 60 unique test files'
