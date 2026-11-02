@@ -1,0 +1,39 @@
+name: Public Sitemap Canonical Acceptance (No Charge)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/public-sitemap-canonical-acceptance.yml'
+      - 'scripts/build-public-seo.mjs'
+      - 'scripts/submit-indexnow-v2.mjs'
+      - 'tests/test_v014157_public_seo.mjs'
+      - 'tests/test_growth_v2.mjs'
+      - 'scripts/build-pages.sh'
+permissions:
+  contents: read
+jobs:
+  sitemap-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record tested commit
+        run: echo "SITEMAP_SOURCE_SHA=${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Validate and independently rebuild 19 canonical public pages
+        run: |
+          node --check scripts/build-public-seo.mjs
+          node --check scripts/submit-indexnow-v2.mjs
+          node tests/test_v014157_public_seo.mjs
+      - name: Protect free lesson discovery and canonical IndexNow contracts
+        run: |
+          node tests/test_public_acquisition_v1.mjs
+          node tests/test_growth_v2.mjs
+      - name: Verify changed sitemap contract remains present in production build gate
+        run: |
+          grep -q "Sitemap loc must be the final extensionless public URL" scripts/build-pages.sh
