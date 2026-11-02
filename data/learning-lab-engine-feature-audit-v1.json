@@ -192,15 +192,17 @@
       "evidence_file": "assets/js/bootcamp-academy-v014168.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Genuine learners maintain prerequisite and stage progress across courses.",
-      "unresolved": "Owner accepted Free and Academy instructional programs. Real two-account signed-in prerequisite, saved checkpoint, session expiry, sign-out and cross-member restoration acceptance remains open; database and deterministic source controls passed.",
-      "real_member_accepted": false,
+      "unresolved": "Owner confirms authenticated Free/Academy member acceptance completed. Release-level CI, exact-SHA deployment and any separate browser session-security or assistive-technology tests are not thereby certified; independent release acceptance still open.",
+      "real_member_accepted": true,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
       "owner_editorial_accepted_at": "2026-11-02",
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "real_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied",
+      "real_member_acceptance_date": "2026-11-02"
     },
     {
       "id": "LE-BAS-08",
@@ -333,7 +335,7 @@
       "evidence_file": "assets/js/lab-player.js",
       "existing_test_file": "tests/engine-classroom-contract-v1.test.mjs",
       "acceptance_criterion": "Free and Academy checkpoints restore with signout and cross-member denial.",
-      "unresolved": "Owner accepted Academy and Free learning flows. Two real authenticated accounts, sign-out/expiry handling, prerequisites, checkpoint rehydration and cross-account isolation in browser remain open.",
+      "unresolved": "Owner confirms authenticated member acceptance completed. Dedicated sign-out, expired-session, account-switching, cross-member denial and assistive-technology evidence remain separately open; release closure not yet established.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -341,7 +343,10 @@
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "authenticated_member_workflow_owner_accepted": true,
+      "authenticated_member_workflow_owner_accepted_date": "2026-11-02",
+      "authenticated_member_workflow_acceptance_basis": "Owner-attested; limited to authenticated member acceptance, without asserting separate sign-out, expired-session or cross-member denial"
     },
     {
       "id": "LE-ADV-01",
