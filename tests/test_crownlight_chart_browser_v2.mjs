@@ -57,7 +57,12 @@ try{
    const after=await page.evaluate(()=>window.CrownlightStudio.getStatus().spacing);
    assert(Number.isFinite(before)&&Number.isFinite(after)&&after>before,'Real chart zoom changes candle spacing (before='+before+', after='+after+')');
    await page.locator('.crownlight-plot').hover({position:{x:100,y:150}});
+   const wheelBefore=await page.evaluate(()=>window.CrownlightStudio.getStatus().spacing);
    await page.mouse.wheel(0,-210);
+   await page.waitForTimeout(250);
+   const wheelAfter=await page.evaluate(()=>window.CrownlightStudio.getStatus().spacing);
+   assert(Number.isFinite(wheelBefore)&&Number.isFinite(wheelAfter)&&wheelAfter>wheelBefore,
+     'Mouse-wheel zoom must change the REAL chart candle spacing (before='+wheelBefore+', after='+wheelAfter+')');
    // Reproduce the original complaint against the actual chart canvas:
    // a held-button pan must move the logical range, but motion after release
    // (including a moving mouse) must never continue scrolling the chart.
