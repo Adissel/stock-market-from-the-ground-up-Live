@@ -602,6 +602,27 @@ function createControls(){
   catch{status('Drawing tool unavailable.')}
  };
  tools.append(indicator,add,remove,drawing,draw);
+ const densityLabel=el('label','cl-tier-density-label','Candle density');
+ const density=el('input','cl-tier-density-control');
+ density.type='range';density.min='3';density.max='24';density.step='1';density.value='10';
+ density.setAttribute('aria-label','Candle width in pixels; adjusts both linked Professional charts');
+ const densityValue=el('output','cl-tier-density-value','10 px');
+ density.setAttribute('aria-describedby','cl-tier-density-value');
+ densityValue.id='cl-tier-density-value';
+ density.oninput=()=>{
+  const spacing=Number(density.value);
+  if(!Number.isFinite(spacing)||spacing<3||spacing>24)return;
+  // Operate only on already-mounted charts. Never request extra bars.
+  for(const entry of state.charts){
+   try{entry.chart.setBarSpace?.(spacing)}catch(error){
+    console.warn('Candle density adjustment unavailable',error?.message);
+   }
+  }
+  densityValue.textContent=spacing+' px';
+ };
+ densityLabel.append(density,densityValue);
+ tools.append(densityLabel);
+
  const note=el('p','cl-chart-tier-note','The second Professional chart studies the SAME revealed candles; it does not display a future timeframe or undisclosed data.');
  const grid=el('div','cl-chart-tier-panels');grid.dataset.clTierPanels='';
  enhanced.append(tools,note,grid);panel.append(enhanced);
