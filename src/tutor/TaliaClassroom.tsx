@@ -94,7 +94,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
   },[prototype,memberId,settingsLoaded,study,buffer,zoom,bull,bear,showVolume,showStructure]);
   const [status,setStatus]=useState('Fictional completed-bar teaching example; subsequent bars are concealed.');
   useEffect(()=>{
-    let disposed=false,plot:ChartInstance|null=null;
+    let disposed=false,plot:ChartInstance|null=null,observer:ResizeObserver|null=null;
     const resize=()=>plot?.resize();
     const mount=async()=>{
       try{
@@ -144,11 +144,12 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
           }
         });
         window.addEventListener('resize',resize);
+        if(typeof ResizeObserver!=='undefined'&&host.current){observer=new ResizeObserver(resize);observer.observe(host.current)}
         setStatus(visible+' of '+REPLAY.length+' fictional completed bars are currently visible.');
       }catch{if(!disposed)setStatus('Chart unavailable; the completed-candle table remains available.')}
     };
     void mount();
-    return ()=>{disposed=true;window.removeEventListener('resize',resize);plot?.dispose()};
+    return ()=>{disposed=true;window.removeEventListener('resize',resize);observer?.disconnect();plot?.dispose()};
   },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
