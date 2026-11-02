@@ -1,4 +1,5 @@
 import {ungradedResponseReview} from './tutor-response-scaffold-v014102.js';
+import {coachFoundationReflection} from './talia-foundation-reflection-coach-v1.js';
 import {foundationWorkedMath} from './tutor-foundation-worked-math-v1.js';
 import {foundationQuantTeaching} from './talia-foundation-quant-v1.js';
 import {foundationRiskTeaching} from './talia-foundation-risk-quant-v1.js';
@@ -401,8 +402,9 @@ function formatFoundationTopic(g,mode,reflection,question){
  if(mode==='question')return [...base,'Independent ungraded self-check: '+g.selfCheck,
   'Do not use a future observation or an official assessment answer.'].join('\n\n');
  if(mode==='review')return [...base,'Ungraded review criterion: '+g.reviewExplanation,
+  coachFoundationReflection(g,reflection),
   ungradedResponseReview(reflection),
-  'No rubric was scored and no mastery credit was awarded.'].join('\n\n');
+  'No rubric was scored and no mastery credit was awarded.'].filter(Boolean).join('\n\n');
  return [...base,'Original fictional worked explanation: '+g.workedCase,
    ...(computed?['Original independent calculation and units: '+computed]:[]),
    'Independent transfer question: '+g.transferQuestion,
