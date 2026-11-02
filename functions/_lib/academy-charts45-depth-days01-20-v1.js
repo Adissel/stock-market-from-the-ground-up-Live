@@ -78,7 +78,7 @@ function create(index){
  })]);
  return Object.freeze({topicSourceDay:sourceDay,phase:base.phase,
   formativeQuestions,advancedPracticums,numericChecks:Object.freeze([check]),
-  instructionalFocus:evidence,status:'ORIGINAL_CHARTS45_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING'});
+  instructionalFocus:evidence,supplementarySourceStatus:'ORIGINAL_CHARTS45_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING'});
 }
 export const charts45DepthDays01to20=Object.freeze(Object.fromEntries(
  specs.map((_,i)=>[i+1,create(i)])));

@@ -10,7 +10,16 @@ const examples=new Set(),transfer=new Set(),parents=new Set();
 for(const [i,d] of p.curriculum.entries()){
  assert.equal(d.day,i+1);assert.equal(d.programCode,'charts45');
  const l=d.lesson;assert(l,'Missing lesson '+d.day);parents.add(d.sourceDay);
- assert.equal(l,chartCaseBySourcePhase[d.sourceDay][Math.floor(i/15)]);
+ const frozen=chartCaseBySourcePhase[d.sourceDay][Math.floor(i/15)];
+ if(i>=20)assert.equal(l,frozen,'Unchanged Charts45 days must retain original object identity');
+ else{
+  // The new supplemental instructional layer is additive. Test every original
+  // field, including its editorial status, for exact value/reference parity.
+  for(const [key,value] of Object.entries(frozen))
+   assert.equal(l[key],value,'Frozen original Charts45 field changed '+key+' day '+d.day);
+  assert.equal(l.supplementarySourceStatus,
+   'ORIGINAL_CHARTS45_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
+ }
  assert(l.explanation.length>120&&l.workedExample.length>100);
  assert(/FICTIONAL/.test(l.workedExample));
  assert(l.sourceProcedure.length>=3&&l.reviewGuide.length>90);
