@@ -19,6 +19,7 @@ try{
  ok('two actual canonical files and standard XML',()=>{
   assert.equal(result.count,2);
   assert.equal(readFileSync(join(root,'sitemap.xml'),'utf8'),result.xml);
+  assert.equal(readFileSync(join(root,'sitemap-v2.xml'),'utf8'),result.xml,'New submitable v2 URL must match canonical sitemap');
   assert.match(result.xml,/^<\?xml version="1\.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
   assert.equal((result.xml.match(/<loc>/g)||[]).length,2);
   assert(result.xml.includes('<loc>'+origin+'/about</loc>'));
