@@ -558,12 +558,12 @@
       "title": "A buy limit places a price boundary without guaranteeing an execution",
       "concept": "An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled.",
       "procedure": "Step 1 — Establish the fictional data's as-of time and units. Step 2 — Compare the declared buy limit with eligible offer prices and available orders at the decision instant; do not treat a limit as a trade print. Step 3 — Recheck the denominator, use only available information and distinguish a calculation from an actual market result. Talia ungraded diagnostic question: Does a later $19.90 candle low prove a $20 limit filled?",
-      "workedCase": "FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; zero execution is confirmed by that quote alone even if a later candle trades $19.90.",
+      "workedCase": "FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; the displayed quote alone establishes neither a fill nor a no-fill result for the order even if a later candle trades $19.90.",
       "limit": "Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed.",
       "invalidation": "This teaching conclusion must be withheld if an observed input is absent, the timestamps are incompatible, the denominator is invalid, or the declared assumptions fail. Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed.",
       "commonError": "Live-trading mistake to avoid: Marking a paper order as filled merely because a chart's later low touched its limit creates look-ahead and false execution history. The correct response is to verify the inputs and acknowledge uncertainty rather than invent a fill or future evidence.",
       "selfCheck": "Try a new ungraded fictional situation without looking at a subsequent bar or trading outcome: FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Declare inputs, units, and why a real result might differ.",
-      "reviewExplanation": "Ungraded correction: An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled. The calculation uses this original worked example: FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; zero execution is confirmed by that quote alone even if a later candle trades $19.90. Key practical limitation: Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed. No protected answer key or mastery grade was used. Specific corrective instruction: Require order status, marketable liquidity, queue and actual trade confirmation. Boundary: A prior quoted offer cannot prove a fill or zero fills.",
+      "reviewExplanation": "Ungraded correction: An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled. The calculation uses this original worked example: FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; zero execution is confirmed by that quote alone even if a later candle trades $19.90. Key practical limitation: Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed. No protected answer key or mastery grade was used. Specific corrective instruction: Require order status, marketable liquidity, queue and actual trade confirmation. Boundary: A prior quoted offer cannot prove a fill or zero fills. Editorial clarification: Neither a quote nor a later candle low proves a particular order filled or went unfilled; require an actual order-status or execution report.",
       "transferQuestion": "FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Explain the calculation and what a previously unavailable price or document would change.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
@@ -592,7 +592,8 @@
         "transferPrompt": "FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Explain the calculation and what a previously unavailable price or document would change.",
         "sourceCandidate": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "defectCorrection": "Corrected unsupported claim of confirmed zero execution from a quote snapshot; no actual order status supplied."
       }
     },
     {
