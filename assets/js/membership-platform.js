@@ -29,7 +29,7 @@
   return `<article class="v11-plan ${code==='FULL_MONTHLY'?'recommended':''}">
    ${code==='FULL_MONTHLY'?'<span class="v11-plan-ribbon">Recommended</span>':''}
    <div class="eyebrow">${esc(code==='FULL_MONTHLY'?'Full Platform — Monthly':code==='FREE'?'Free Membership':p.name)}</div><div class="v11-price">${esc(heading)}</div>
-   <p>${esc(p.description||note)}</p><ul>${list.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+   <p>${esc(founderDays?note:(p.description||note))}</p><ul>${list.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
    ${terms?`<p class="small">${esc(terms)}</p>`:''}${action}</article>`}
  function toolCard(t){const released=t.status==='live';const buy='<span class="btn disabled-buy" aria-disabled="true">Tool Subscription Coming Soon</span>';
   return `<article class="v11-tool-card"><div class="eyebrow">${esc(t.category)}</div><h3>${esc(t.name)}</h3><p>${esc(t.description||'')}</p>
