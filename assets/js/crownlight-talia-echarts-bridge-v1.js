@@ -46,7 +46,7 @@
   try{
    if(!authClient){
     const sb=await root.getSupabaseClient();
-    if(!sb?.auth?.getUser||!sb?.auth?.onAuthStateChange)return false;
+    if(!sb?.auth?.getUser||!sb?.auth?.getSession||!sb?.auth?.onAuthStateChange)return false;
     authClient=sb.auth;
     authClient.onAuthStateChange((event,session)=>{
      const id=session?.user?.id||null;
@@ -56,10 +56,19 @@
      }
     });
    }
-   if(verified&&memberId&&checkedAt&&Date.now()-checkedAt<15000)return true;
+   // Session identity is inexpensive to read and prevents cache reuse across
+   // account switches even before a delayed Auth callback is delivered.
+   const sessionState=await authClient.getSession();
+   const currentId=sessionState?.data?.session?.user?.id||null;
+   if(sessionState?.error||!currentId){verified=false;memberId=null;checkedAt=0;return false}
+   if(memberId&&memberId!==currentId){
+    verified=false;memberId=null;checkedAt=0;
+    clear('Member changed. Previous chart context cleared.');
+   }
+   if(verified&&memberId===currentId&&checkedAt&&Date.now()-checkedAt<15000)return true;
    const result=await authClient.getUser();
    const uid=result?.data?.user?.id||null;
-   if(result?.error||!uid)return false;
+   if(result?.error||!uid||uid!==currentId)return false;
    if(memberId&&memberId!==uid)clear('Member changed. Previous teaching view cleared.');
    memberId=uid;verified=true;checkedAt=Date.now();
    return true;
