@@ -224,7 +224,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
     </div>}
     <div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Fictional price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />
     <p className="tc-muted" role="status">{status}{prototype?' Volume is a synthetic proxy, not observed trading volume. EMA 20 and 200 require enough complete timeframe bars; the right buffer contains no future data.':''}</p>
-    <table className="tc-candle-table"><caption>Latest visible completed candle</caption>
+    <table className="tc-candle-table"><caption>Latest visible completed candle (base one-minute source)</caption>
       <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
       <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
     </table>
@@ -239,7 +239,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
       {prototype&&<button type="button" className="tc-secondary" onClick={()=>setVisible(v=>Math.max(7,v-1))} disabled={visible<=7}>Step back one bar</button>}
       <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
-      <button type="button" className="tc-secondary" onClick={()=>{setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7}>Reset</button>
+      <button type="button" className="tc-secondary" onClick={()=>{setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
     </div>
   </section>;

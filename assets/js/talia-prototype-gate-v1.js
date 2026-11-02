@@ -24,7 +24,7 @@ async function verify(){
   if(context.ok!==true||roles.includes('SHOWCASE_VIEWER')||!roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))||!permissions.includes('control_panel.access'))throw Error('This prototype requires Owner or authorized Administrator access.');
   if(!mounted){
    mounted=true;
-   const script=document.createElement('script');script.type='module';script.src='/assets/js/talia-classroom-v1.bundle.js';
+   const script=document.createElement('script');script.type='module';script.src='/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4';
    script.onerror=()=>{mounted=false;fail('The Tutor application could not load. Reload the page to retry.');};document.head.append(script);
   }
   status.hidden=true;workspace.hidden=false;
