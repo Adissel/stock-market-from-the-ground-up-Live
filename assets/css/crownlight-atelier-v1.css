@@ -1,0 +1,68 @@
+/* CROWNLIGHT ATELIER — site-wide design identity, November 2026.
+   Strict opt-in .cl-atelier: never select Lab or Boot Camp interaction roots.
+   Ivory / ink / electric indigo / vermilion replace navy / teal / gold.
+*/
+html body.cl-atelier{--cl-paper:#f6f3eb;--cl-page:#eeebe4;--cl-ink:#172338;--cl-sub:#48576a;--cl-blue:#3046ce;--cl-red:#e55740;--cl-border:#cacdd1;--cl-white:#fffdf8;background:#f6f3eb!important;color:#172338!important;font-family:Inter,Arial,Helvetica,sans-serif!important;line-height:1.55}
+html body.cl-atelier :is(h1,h2,h3,h4){font-family:Inter,Arial,Helvetica,sans-serif!important;letter-spacing:-.035em;color:#172338}
+html body.cl-atelier :is(p,li,small,label,summary){color:inherit}
+html body.cl-atelier a{color:#3046ce}
+html body.cl-atelier a:focus-visible,html body.cl-atelier button:focus-visible,html body.cl-atelier input:focus-visible{outline:3px solid #e55740!important;outline-offset:3px}
+html body.cl-atelier .site-header{position:relative!important;background:#fffdf8!important;border-bottom:2px solid #172338!important;box-shadow:0 8px 28px rgba(20,30,48,.07)!important;color:#172338!important}
+html body.cl-atelier .site-header .wrap.nav{max-width:1480px;min-height:78px}
+html body.cl-atelier .site-header .brand{color:#172338!important;font-weight:900;letter-spacing:-.07em;font-size:clamp(.85rem,1.15vw,1.12rem)}
+html body.cl-atelier .site-header .brand span{color:#e55740!important}
+html body.cl-atelier .site-header .navlinks a{color:#243449!important;border-radius:5px!important;font-weight:650}
+html body.cl-atelier .site-header .navlinks a:hover{background:#ecebf9!important;color:#3046ce!important}
+html body.cl-atelier .site-header .navlinks .gu-nav-register{background:#3046ce!important;color:white!important;border:1px solid #3046ce!important}
+html body.cl-atelier .site-header .navlinks .gu-nav-signin{border:1px solid #172338!important;color:#172338!important}
+html body.cl-atelier .sm-shell-menu{background:#3046ce!important;color:white!important;border-color:#3046ce!important}
+html body.cl-atelier :is(main,.section,.gu-premium-home,.gu-redesign-store){color:#172338}
+html body.cl-atelier :is(.card,.gu-path-card,.gu-member-dashboard-shell .card,.dashboard-stat,.gu-member-lumen-widget){background:#fffdf8!important;border:1px solid #d1d0ce!important;color:#1a2c40!important;border-radius:11px!important;box-shadow:0 9px 25px rgba(24,39,56,.06)!important}
+html body.cl-atelier :is(.card,.dashboard-stat) :is(h2,h3,strong){color:#1a2c40}
+html body.cl-atelier :is(.eyebrow,.sm-v5-eyebrow){color:#e55740!important;font-weight:850;letter-spacing:.13em}
+html body.cl-atelier :is(.btn,.sm-v5-button.primary,button[type=submit]){background:#3046ce!important;color:#fff!important;border-color:#3046ce!important;border-radius:6px!important;box-shadow:none!important;font-weight:750}
+html body.cl-atelier :is(.btn.secondary,.sm-v5-button:not(.primary)){background:#fffdf8!important;color:#23385a!important;border:1px solid #a6afbb!important}
+html body.cl-atelier :is(.btn,button,a){transition:background-color .16s ease,color .16s ease,border-color .16s ease,transform .16s ease}
+html body.cl-atelier :is(.card,.gu-path-card):hover{border-color:#b0b5dc!important}
+html body.cl-atelier .site-footer,html body.cl-atelier footer.footer,html body.cl-atelier footer{background:#1e2a43!important;color:#eef0f7!important;border-top:5px solid #e55740!important}
+html body.cl-atelier footer :is(a,p,div,span,strong,small){color:#eef0f7!important}
+html body.cl-atelier .sm-v5-home{background:#f0eddf!important;border-bottom:1px solid #c4c2ba!important;position:relative}
+html body.cl-atelier .sm-v5-home:before{content:'';position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,#e55740 0 26%,#3046ce 26% 75%,#172338 75%)}
+html body.cl-atelier .sm-v5-copy h1{color:#18263e!important;font-weight:850!important;letter-spacing:-.06em!important;font-size:clamp(2.65rem,4.7vw,5.4rem)!important;line-height:1.065!important}
+html body.cl-atelier .sm-v5-lede{color:#4a5666!important;font-size:clamp(1.03rem,1.4vw,1.24rem)!important}
+html body.cl-atelier .sm-v5-tags span{background:#fffdf8!important;color:#3046ce!important;border:1px solid #c7c6d5!important}
+html body.cl-atelier .sm-v5-stats{border-top:2px solid #bfc1bf!important}
+html body.cl-atelier .sm-v5-stat{border-color:#c6c6c4!important}
+html body.cl-atelier .sm-v5-stat strong{color:#3046ce!important}
+html body.cl-atelier .sm-v5-stat span{color:#3a4759!important}
+html body.cl-atelier .sm-v5-terminal{background:#182840!important;border:1px solid #30445c!important;box-shadow:18px 20px 0 #d6d3ca!important;border-radius:12px!important}
+html body.cl-atelier .sm-v5-terminal-head{background:#223858!important;color:#fff!important}
+html body.cl-atelier .sm-v5-terminal-head span,html body.cl-atelier .sm-v5-disclaimer{color:#e2ebf6!important}
+html body.cl-atelier main.gu-redesign-store{background:#f5f1e8!important}
+html body.cl-atelier .sm-v5-store-hero{background:#3046ce!important;border:0!important;border-radius:9px!important;color:white!important}
+html body.cl-atelier .sm-v5-store-hero :is(h1,h2,p,span){color:#fff!important}
+html body.cl-atelier .sm-v5-store-hero h1{font-family:Georgia,serif!important;font-weight:700!important;letter-spacing:-.05em!important}
+html body.cl-atelier .sm-v5-store-aside{background:#172338!important;border:1px solid #59667b!important}
+html body.cl-atelier .sm-v5-store-aside :is(p,span,strong){color:#fff!important}
+html body.cl-atelier .gu-redesign-store :is(.card,.store-card,.product-card){background:#fffdf8!important;border:1px solid #d6d2ca!important;box-shadow:6px 6px 0 #e7e2d9!important}
+html body.cl-atelier .gu-member-dashboard-shell{background:#f2efe8!important;color:#172338!important}
+html body.cl-atelier .gu-member-dashboard-shell .gu-member-side-menu{background:#e5e9ef!important;border-right:1px solid #c5cbd4!important}
+html body.cl-atelier .gu-member-dashboard-shell .gu-dashboard-intro{background:#3046ce!important;border:0!important;box-shadow:8px 8px 0 #d4d5e0!important}
+html body.cl-atelier .gu-member-dashboard-shell .gu-dashboard-intro :is(h1,p,.eyebrow){color:#fff!important}
+html body.cl-atelier .gu-member-dashboard-shell .dashboard-stat strong{color:#3046ce!important}
+html body.cl-atelier #cl-progress-react,html body.cl-atelier #cl-continuity-hub{background:#fffdf8!important;border-color:#c6cbd0!important}
+html body.cl-atelier #cl-progress-react :is(h2,p,.cl-progress-overline),html body.cl-atelier #cl-continuity-hub :is(h2,p,.eyebrow){color:#172338!important}
+html body.cl-atelier .cl-progress-legend span,html body.cl-atelier .cl-continuity-links a{background:#eef0f5!important;border-color:#ced2de!important;color:#23314b!important}
+html body.cl-atelier .cl-progress-legend b,html body.cl-atelier .cl-continuity-metric strong{color:#3046ce!important}
+html body.cl-atelier .cl-continuity-links a span{color:#596579!important}
+html body.cl-atelier .gu-signin-page,html body.cl-atelier .gu-signup-page{background:#f5f1e8!important}
+html body.cl-atelier .gu-x-auth-sidebar{background:#3046ce!important;border:0!important}
+html body.cl-atelier .gu-x-auth-sidebar :is(h2,h3,p,li,span,strong){color:#fff!important}
+html body.cl-atelier .gu-x-auth-content{background:#fffdf8!important;border:1px solid #d3d0c9!important;box-shadow:8px 8px 0 #dedbd3!important;color:#1b2b40!important}
+html body.cl-atelier :is(input,textarea,select){accent-color:#3046ce}
+html body.cl-atelier :is(.gu-x-auth-content,.card) :is(input,textarea,select){background:#fff!important;color:#152439!important;border:1px solid #a7b0bd!important}
+html body.cl-atelier .sm-theme-picker{background:#e8e7e5!important;border-color:#b6bbc4!important}
+html body.cl-atelier .sm-theme-dot[aria-pressed=true]{outline-color:#e55740!important}
+@media(max-width:980px){html body.cl-atelier .site-header .navlinks{background:#fffdf8!important;border-color:#cbd0d6!important}html body.cl-atelier .site-header .navlinks a{color:#172338!important}}
+@media(max-width:620px){html body.cl-atelier .sm-v5-terminal{box-shadow:5px 8px 0 #d6d3ca!important}html body.cl-atelier .sm-v5-copy h1{font-size:2.75rem!important}}
+@media(prefers-reduced-motion:reduce){html body.cl-atelier *,html body.cl-atelier *:before,html body.cl-atelier *:after{transition:none!important;animation:none!important}}
