@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/approved-technology-stack-verification.yml'
+      - 'assets/js/lab-journey-checkpoint-v33.js'
+      - 'assets/learning-versions/**/js/lab-journey-checkpoint-v33.js'
+      - 'tests/test_v33_member_checkpoint_resume.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -52,6 +55,10 @@ jobs:
           test -s scripts/build-pages.sh
           node tests/talia-classroom-source-v1.test.mjs
           node tests/talia-membership-only-v1.test.mjs
+      - name: Verify protected Lab checkpoint CAS regression and recovery
+        run: |
+          node tests/test_v33_member_checkpoint_resume.mjs
+          node tests/test_v33_dual_mode_atomic_resume.mjs
       - name: Build production assets using pinned existing dependencies
         run: bash scripts/build-pages.sh
       - name: Verify built HTML5, CSS3, React, ECharts entrypoints
