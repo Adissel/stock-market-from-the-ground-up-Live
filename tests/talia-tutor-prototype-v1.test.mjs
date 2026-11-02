@@ -94,3 +94,12 @@ test('Personalized learning state and unsent text are scrubbed on identity chang
  for(const token of ["setQuestion('')","setMisconception('observation')","setConfidence('unsure')","setDimension('Recognition')","setConversationId(null)","pending.current?.abort()"])
   assert.ok(reset.includes(token),'Account switch must clear '+token);
 });
+
+test('Starting new Tutor topic aborts outstanding requests and resets all ungraded phase state',()=>{
+ const source=read('src/tutor/TaliaClassroom.tsx');
+ const marker=source.indexOf('New unsaved topic</button>');
+ assert.ok(marker>0,'New unsaved topic action must exist');
+ const action=source.slice(marker-520,marker);
+ for(const token of ['pending.current?.abort()','epoch.current++',"setQuestion('')","setReasoning('')","setPhase('Observe')",'setAttempts(0)',"setMisconception('observation')","setConfidence('unsure')",'setConversationId(null)','setSave(false)'])
+  assert.ok(action.includes(token),'Topic reset must include '+token);
+});
