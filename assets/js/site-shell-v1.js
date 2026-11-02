@@ -15,5 +15,5 @@ function navigation(){
 }
 function mainLandmark(){const main=document.querySelector('main');if(!main)return;let skip=document.querySelector('.sm-shell-skip');if(!skip){skip=document.createElement('a');skip.href='#sm-shell-main';skip.className='sm-shell-skip';skip.textContent='Skip to main content';document.body.prepend(skip)}if(!main.id)main.id='sm-shell-main';else skip.href='#'+main.id;main.setAttribute('tabindex','-1')}
 function observe(){const footer=document.querySelector('footer');if(footer&&!footer.querySelector('[data-sm-shell-info]')){const p=document.createElement('p');p.dataset.smShellInfo='1';p.className='sm-shell-disclaimer';p.textContent='Educational information only. Fictional simulations are not investment recommendations.';footer.append(p)}}
-ready(()=>{navigation();mainLandmark();observe()});
+ready(()=>{document.body.classList.add('sm-experience-v7');navigation();mainLandmark();observe()});
 })();
