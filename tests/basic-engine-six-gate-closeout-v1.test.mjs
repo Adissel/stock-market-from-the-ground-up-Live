@@ -51,3 +51,17 @@ test('Basic progress save requires authenticated enrollment and current session'
  assert.match(s,/dayMember===userId&&daySession===sessionSerial/);
  assert.match(s,/progress\.clear\(\);for\(const x of data\.progress\)progress\.set\(x\.day,x\)/);
 });
+
+
+test('Final owner sign-off is recorded for all six Basic gates without fabricating technical verification',()=>{
+ assert.equal(ledger.owner_signoff_BASIC?.approved_count,6);
+ assert.equal(ledger.owner_signoff_BASIC?.approved_percent,100);
+ for(const id of open){
+  const item=ledger.features.find(x=>x.id===id);
+  assert.equal(item.owner_operational_acceptance,'ACCEPTED_COMPLETE_AND_WORKING',id);
+  assert.equal(item.owner_reapproval_required,false,id);
+  assert.equal(item.owner_signoff_status,'CLOSED_BY_OWNER',id);
+ }
+ assert.equal(ledger.counts.learning_BASIC.integrated_percent,62.5);
+ assert.equal(ledger.counts.lab_BASIC.integrated_percent,62.5);
+});
