@@ -427,7 +427,15 @@ function controls(){
  layoutSelect.setAttribute('aria-label','Professional chart panel layout');
  for(const [name,desc] of [['SIDE_BY_SIDE','Side by side'],['STACKED','Stacked'],['PRICE_FOCUS','Price focus']])
   layoutSelect.add(new Option(desc,name));
- layoutSelect.onchange=()=>{workspace.layout=layoutSelect.value;applyLayout();msg('Chart layout changed. Save workspace to retain this preference.')};
+ layoutSelect.onchange=()=>{
+  const next=layoutSelect.value;
+  // A remembered 50/50 side-by-side ratio must not override the intended
+  // 2:1 Price Focus layout. Preserve custom ratios only within a layout.
+  if(workspace.layout!==next)workspace.panelRatio=next==='PRICE_FOCUS'?67:50;
+  workspace.layout=next;
+  applyLayout();
+  msg('Chart layout changed. Save workspace to retain this preference.');
+ };
  layoutLabel.append(layoutSelect);
  const save=document.createElement('button');save.type='button';save.textContent='Save workspace';save.dataset.clSave='';save.onclick=()=>void persist();
  const reload=document.createElement('button');reload.type='button';reload.textContent='Restore';reload.dataset.clRestore='';reload.onclick=()=>void restore();
