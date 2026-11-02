@@ -1,0 +1,62 @@
+{
+  "id": "SMFGU-TALIA-CLAIMS-QUALITATIVE-105-119-131-132-133-021",
+  "version": "1.0",
+  "date": "2026-11-01",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "status": "FIVE_INDIVIDUAL_QUALITATIVE_SOURCE_DISPOSITIONS_WITH_PUBLICATION_HOLDS",
+  "count": 5,
+  "publicationApproved": 0,
+  "rightsCleared": false,
+  "individualRecords": [
+    {
+      "claim": 105,
+      "code": "TALIA_TOPIC_PREFERRED_COMMON_CLAIMS",
+      "source": "https://dart.deloitte.com/USDART/home/codification/presentation/asc260-10/roadmap-earnings-per-share/chapter-3-basic-eps/3-2-income-available-common-stockholders",
+      "alternate": "https://www.occ.treas.gov/topics/charters-and-licensing/interpretations-and-decisions/2019/int1162.pdf",
+      "decision": "CONCEPT_SUPPORTED_WITH_ISSUE_SPECIFIC_CONTRACT_HOLD",
+      "validation": "Cumulative preferred unpaid dividends carry forward according to issue terms; missed noncumulative dividends do not automatically become arrears. Claim 105's hypothetical noncumulative $2 example does not establish a right to declare any dividend.",
+      "risk": "Preferred shares can have other participation, ranking, redemption and tax rules; inspect issuer instrument for actual rights. No universal promise of payments.",
+      "productionReleaseApproved": false
+    },
+    {
+      "claim": 119,
+      "code": "TALIA_TOPIC_BOND_MATURITY_VS_DURATION",
+      "source": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+      "alternate": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/yield-based-bond-duration-measures-and-properties",
+      "decision": "CONCEPT_SUPPORTED_WITH_CONVENTION_HOLD",
+      "validation": "Contractual maturity specifies the due date; Macaulay duration is a present-value-weighted average cash-flow timing, and modified duration estimates sensitivity to a small yield change. Coupon and zero-coupon obligations with the same maturity may have different duration.",
+      "risk": "Duration can differ with yield, compounding, cash-flow uncertainty, callable terms, and day count. 'Five years' is not a fixed sensitivity coefficient.",
+      "productionReleaseApproved": false
+    },
+    {
+      "claim": 131,
+      "code": "TALIA_TOPIC_TENQ_VS_TENK_PERIOD",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-10-q",
+      "alternate": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "decision": "CONCEPT_SUPPORTED_FISCAL_PERIOD_HOLD",
+      "validation": "10-Q provides unaudited statements for each of the first three fiscal quarters, while annual 10-K is a separate filing. The one-quarter $24m fictional number cannot be relabeled as audited full-year $100m or safely multiplied by four.",
+      "risk": "Different fiscal calendars, cumulative year-to-date figures, revisions and audit exceptions require reading the actual filing.",
+      "productionReleaseApproved": false
+    },
+    {
+      "claim": 132,
+      "code": "TALIA_TOPIC_EIGHTK_CONDITIONAL_EVENT",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8",
+      "alternate": "https://dart.deloitte.com/USDART/home/accounting/sec/sec-material-supplement/corporation-finance-interpretations/exchange-act-form-8-k",
+      "decision": "CONCEPT_SUPPORTED_COMPLETION_SEPARATE",
+      "validation": "Form 8-K Item 1.01 entry into a material agreement and Item 2.01 completion of a significant asset acquisition or disposition describe different events. A conditional signed $15m disposal does not prove receipt of $15m or booked gain.",
+      "risk": "Specific 8-K items, closing circumstances, materiality and GAAP accounting require issuer-specific review.",
+      "productionReleaseApproved": false
+    },
+    {
+      "claim": 133,
+      "code": "TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE",
+      "source": "https://www.sec.gov/about/webmaster-frequently-asked-questions",
+      "alternate": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+      "decision": "NO_LOOKAHEAD_CORRECTION_CONFIRMED_RELEASE_HOLD",
+      "validation": "SEC reports common 1–3 minute lag between EDGAR system acceptance timestamp and public website filing availability and says no first-public-availability timestamp exists. A January 15 replay cannot use a February 20 acceptance filing; a February 20 replay cannot infer precise public access from the acceptance instant alone.",
+      "risk": "A compliant point-in-time dataset needs observed dissemination timestamp or conservative lag with uncertainty labels; cannot assert information was public at a specific second without evidence.",
+      "productionReleaseApproved": false
+    }
+  ]
+}
