@@ -8,6 +8,13 @@ on:
       - 'functions/**'
       - 'data/**'
       - 'tests/**'
+      - 'src/**'
+      - 'scripts/**'
+      - 'talia-tutor-prototype.html'
+      - 'talia-classroom.html'
+      - 'prototype.html'
+      - 'lab-player.html'
+      - 'bootcamp-academy.html'
       - '.github/workflows/beta-major-release-01-60-gates.yml'
   workflow_dispatch:
 permissions:
