@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {verifyEditionAuthorization,advancedFormativeStudy,professionalDecisionStudy,
- enterpriseResearchStudy,runEditionExercise,EDITION_SCHEMA} from '../functions/_lib/learning-lab-edition-exercises-v1.js';
+ enterpriseResearchStudy,runEditionExercise,deriveFictionalCompletedStudies,deriveFictionalCompletedFrames,EDITION_SCHEMA} from '../functions/_lib/learning-lab-edition-exercises-v1.js';
 const id='11111111-1111-4111-8111-111111111111',other='22222222-2222-4222-8222-222222222222';
 const now=1800000000000,days=86400000;
 const fictional=()=>({provenance:'fictional',asOf:6000,completedIndex:4,
@@ -93,4 +93,21 @@ test('Returned structures are immutable and contain no official grades or privat
  assert.equal(Object.isFrozen(x),true);assert.equal(Object.isFrozen(x.hypotheticalRisk),true);
  assert.equal(Object.isFrozen(x.evidence.indicators),true);
  assert.equal(JSON.stringify(x).includes('correctAnswer'),false);
+});
+
+test('server derives independently calculated EMA/VWAP from completed fictional prices',()=>{
+ const derived=deriveFictionalCompletedStudies({evidence:fictional(),emaPeriod:3});
+ assert.equal(derived.indicators.length,2);
+ assert.equal(derived.indicators[0].name,'EMA');
+ assert.equal(derived.indicators[1].name,'VWAP');
+ assert.equal(derived.indicators[0].asOf,5000);
+ assert.equal(derived.evidence.bars.length,5);
+ assert.equal(deriveFictionalCompletedStudies({evidence:{...fictional(),provenance:'licensed_historical'}}),null);
+ assert.equal(deriveFictionalCompletedStudies({evidence:fictional(),emaPeriod:100}),null);
+});
+test('server derives only fully completed frames and refuses forged sources',()=>{
+ const x=deriveFictionalCompletedFrames({evidence:fictional(),frameSize:2});
+ assert.equal(x.length,2);assert.equal(x[0].completedThrough,2000);
+ assert.equal(x[1].completedThrough,4000);
+ assert.equal(deriveFictionalCompletedFrames({evidence:{...fictional(),provenance:'licensed_historical'}}),null);
 });
