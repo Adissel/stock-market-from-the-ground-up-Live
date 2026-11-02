@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.5 / 2026-11-01 |
+| Version / prepared | 1.6 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -161,6 +161,15 @@ Date: 2026-11-01. Source committed to `main`; automated CI and independently aut
 - Acceptance hold: exact-commit CI success, Cloudflare matching production deployment, genuine two-account authenticated privacy, keyboard/screen reader and physical mobile acceptance, 16-study individual reviews, 73-guide editorial rights, Talia, 419 Lab and 274 Boot Camp learning journeys.
 - Metrics remain evidence-scoped: 73/73 source guide inventory; 16/16 source study registrations; original 15/73 canonical math comparisons; no assertion of individually publication-approved guide progress. Basic engines v3.3/v3.2 retained; no invented percentage for Advanced/Professional/Enterprise editions or whole website.
 
+
+## Section C — 16-study timestamp and source-math hardening (v1.6)
+
+The operational 16-study prototype adapter now uses completed OHLCV calculations from the shared original indicator-math engine. For valid timestamped candles, observed HOD/LOD, opening range and HLC3 session VWAP use exchange-time session boundaries. For legacy undated fictional editor fixtures, a single synthetic-session model is preserved and explicitly nonhistorical. Mixed dated and undated candles fail closed rather than inventing a session. The VWAP view no longer trusts caller-provided precomputed `proxy` fields; it derives values from revealed OHLCV.
+
+Source changes: `assets/js/prototype-indicator-workbench-v2.js`, `tests/prototype-indicator-workbench-v2.test.mjs`. New checks cover premarket-to-regular and next-day resets, opening-range warmup, fabricated-proxy rejection and invalid mixed timestamps. Existing 16-choice inventory remains 16/16; individual release signoff remains OPEN until the prototype workflow passes on one frozen SHA and all 16 calculation/unit criteria receive independent review.
+
+No changes to chart backend pricing, member identity grants, saved grades, market feed licenses, or Stripe were included in this batch.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -171,5 +180,6 @@ Date: 2026-11-01. Source committed to `main`; automated CI and independently aut
 | 1.3 | 2026-11-01 | Implement first Section C ECharts overlay/control/table source batch; add offline Chromium CI gate; preserve denominator and release distinctions | Source implementation; exact-head CI, Cloudflare and authenticated acceptance open |
 | 1.4 | 2026-11-01 | Add synchronized RSI/MACD/ATR panes, editable panel heights, strict OHLCV input control, independent Decimal edge fixtures, and expanded browser CI | Source committed; independent final release acceptance open |
 | 1.5 | 2026-11-01 | Connect per-indicator ECharts settings to the existing authenticated versioned workspace, add server allowlist and client privacy/restore tests; preserve non-release mathematical and editorial denominators | Source committed; independent exact-main, Cloudflare and signed-in acceptance open |
+| 1.6 | 2026-11-01 | Repair 16-study prototype session calculations and derived VWAP; expand multi-session and proxy-integrity regression tests | Source committed; workflow/external acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.5 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.6 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
