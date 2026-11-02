@@ -81,6 +81,7 @@ function applyLayout(){
   const ratio=eligible&&Number.isInteger(workspace.panelRatio)?Math.max(25,Math.min(75,workspace.panelRatio)):50;
   container.style.setProperty('--cl-pro-primary',ratio+'fr');
   container.style.setProperty('--cl-pro-secondary',(100-ratio)+'fr');
+  container.style.setProperty('--cl-pro-handle',ratio+'%');
   const handle=container.querySelector('[data-cl-panel-divider]');
   if(handle){handle.hidden=!eligible||layout==='STACKED';handle.setAttribute('aria-valuenow',String(ratio));}
  }
