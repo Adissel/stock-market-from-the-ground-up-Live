@@ -90,6 +90,7 @@ node tests/talia-claim-40-source-disposition-v1.test.mjs
 node tests/talia-tutor40-conversational-quality-v1.test.mjs
 node tests/talia-regulatory-timing-notices-v1.test.mjs
 node tests/talia-40-claim-multiturn-source-v1.test.mjs
+node tests/talia-claims101-140-python-js-editorial-v1.test.mjs
 node scripts/curriculum-evidence-master-register-v1.mjs --write
 node tests/talia-foundation-six-gate-teaching-review-v1.test.mjs
 node tests/talia-foundation-explanations-batch05-v1.test.mjs
