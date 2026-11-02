@@ -133,3 +133,23 @@
  .cl-chart-tier-switcher .cl-chart-tier-panels:has(>.cl-tier-chart-frame + .cl-tier-chart-frame){grid-template-columns:minmax(0,1fr)!important}
  .cl-professional-divider{display:none!important}
 }
+
+/* Professional workstation refinement: legible data density and focus, no fake prices. */
+.cl-chart-tier-switcher{background:linear-gradient(145deg,#101e31,#091725 72%);border-color:#486881;
+ box-shadow:inset 0 1px 0 rgba(206,233,255,.09),0 12px 34px rgba(0,6,20,.24)}
+.cl-chart-tier-tools{padding:10px 12px;border:1px solid #35536f;border-radius:10px;background:#0b1b2c}
+.cl-chart-tier-tools button,.cl-chart-tier-tools select{min-height:38px}
+.cl-chart-tier-tools button:focus-visible,.cl-chart-tier-tools select:focus-visible,
+.cl-workspace-row button:focus-visible,.cl-workspace-row select:focus-visible{
+ outline:2px solid #edca7c;outline-offset:2px;
+}
+.cl-tier-chart-frame{background:#071422;border:1px solid #395b79;border-radius:12px;
+ overflow:hidden;box-shadow:0 10px 30px rgba(0,5,17,.22)}
+.cl-tier-chart-summary{background:linear-gradient(180deg,#132b42,#0b1d30);border:0;border-bottom:1px solid #2c4b67;border-radius:0}
+.cl-tier-kline-canvas{border:0;border-radius:0;background:#061321}
+.cl-tier-quote-item{background:#091d30;border:1px solid rgba(83,124,155,.33);padding:6px 8px}
+.cl-tier-quote-item strong{font-size:clamp(.73rem,.9vw,.94rem);letter-spacing:.012em}
+.cl-tier-study-readout summary:focus-visible{outline:2px solid #edca7c;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+ .cl-chart-tier-switcher,.cl-tier-chart-frame{scroll-behavior:auto;transition:none!important}
+}
