@@ -5,6 +5,7 @@
  * premium reads. Optimistic revision conflict prevents stale account updates.
  */
 import {authorizeEditionRequest,onRequest as calculateEdition} from './learning-lab-edition-exercise.js';
+import {toolAccess} from './member-tool-access.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'vary':'Authorization','x-content-type-options':'nosniff'};
 const reply=(obj,status=200)=>new Response(JSON.stringify(obj),{status,headers:H});
@@ -27,6 +28,21 @@ function sourceUrl(config,actor,body,extra=''){
   family:'eq.'+body.family,edition:'eq.'+body.edition});
  if(extra)q.set('revision','eq.'+extra);
  return config.base+'/rest/v1/gu_learning_lab_edition_workspaces_v1?'+q.toString();
+}
+async function verifyPublishedLab(config,env,request,caseKey,memberId){
+ const url=config.base+'/rest/v1/platform_labs?select=lab_id,book_code,active,registry_visible'+
+  '&lab_id=eq.'+encodeURIComponent(caseKey)+'&limit=1';
+ const r=await fetch(url,{headers:config.headers,cache:'no-store'});
+ if(!r.ok)throw fail('Lab registry verification unavailable.',503);
+ const rows=await r.json().catch(()=>null);
+ if(!Array.isArray(rows)||rows.length!==1||rows[0]?.lab_id!==caseKey||
+  rows[0].active!==true||rows[0].registry_visible!==true)
+  throw fail('Lab is not in the published canonical registry.',404);
+ if(rows[0].book_code==='SITE_EXCLUSIVE'){
+  const training=await toolAccess(env,request,'ONDEMAND_TRAINING');
+  if(training.userId!==memberId||training.authorized!==true)
+   throw fail('Separate site-only training entitlement required.',403);
+ }
 }
 async function dbRead(config,url){
  const r=await fetch(url,{headers:config.headers,cache:'no-store'});
@@ -60,7 +76,9 @@ export async function onRequest({request,env}){
   if(!body||!validFamily(body.family)||!validEdition(body.edition)||!validCase(body.caseKey))
    throw fail('Invalid workspace identity.',400);
   const rights=await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
-  const config=db(env),target=sourceUrl(config,rights.memberId,body);
+  const config=db(env);
+  if(body.family==='lab')await verifyPublishedLab(config,env,request,body.caseKey,rights.memberId);
+  const target=sourceUrl(config,rights.memberId,body);
   if(request.method==='GET'){
    const rows=await dbRead(config,target);
    return reply({ok:true,found:rows.length===1,workspace:rows[0]||null,
@@ -105,7 +123,7 @@ export async function onRequest({request,env}){
    updated_at:rows[0].updated_at},memberRecordsModified:true,
    officialGrade:false,masteryAwarded:false});
  }catch(error){
-  const status=[400,401,403,405,409,413].includes(error?.status)?error.status:503;
+  const status=[400,401,403,404,405,409,413].includes(error?.status)?error.status:503;
   return reply({ok:false,error:status===503?'Private edition workspace unavailable.':
    error?.message||'Workspace request failed.'},status);
  }
