@@ -24,3 +24,11 @@ test('Prototype preserves existing ECharts and accessible fictional prefix prese
  assert.match(tsx,/CrownlightECharts/);
  assert.match(tsx,/getSupabaseClient/);
 });
+
+test('Prototype sign-in returns staff to the prototype route without bypassing staff authorization',()=>{
+ const classroom=read('src/tutor/TaliaClassroom.tsx');
+ assert.match(classroom,/pathname\.endsWith\('\/talia-tutor-prototype\.html'\)\?'\/talia-tutor-prototype\.html':'\/talia-classroom\.html'/);
+ const gate=read('assets/js/talia-prototype-gate-v1.js');
+ assert.match(gate,/\/api\/admin\?action=context/);
+ assert.match(gate,/control_panel\.access/);
+});
