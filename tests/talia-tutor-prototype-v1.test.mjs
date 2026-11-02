@@ -87,3 +87,10 @@ test('Talia advanced six-phase pathway stays ungraded and uses existing authenti
  assert.match(css,/\.tp-instruction-steps button\[aria-pressed=true\]/);
  assert.doesNotMatch(tsx,/awardMastery|giveGrade|privateAnswerKey/);
 });
+
+test('Personalized learning state and unsent text are scrubbed on identity change',()=>{
+ const source=read('src/tutor/TaliaClassroom.tsx');
+ const reset=source.slice(source.indexOf('const reset=useCallback'),source.indexOf('useEffect(()=>{',source.indexOf('const reset=useCallback')));
+ for(const token of ["setQuestion('')","setMisconception('observation')","setConfidence('unsure')","setDimension('Recognition')","setConversationId(null)","pending.current?.abort()"])
+  assert.ok(reset.includes(token),'Account switch must clear '+token);
+});
