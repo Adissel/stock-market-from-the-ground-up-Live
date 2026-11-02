@@ -108,3 +108,25 @@ test('Unknown subscription plan fails closed to registered FREE without current 
   assert(unknown.calls.every(call=>call.method==='GET'));
  }finally{unknown.restore()}
 });
+
+test('Member-version endpoint denies writes and malformed provider configuration before network access',async()=>{
+ const post=await memberEndpoint({request:make('/api/member-learning-engine-versions',{method:'POST'}),env});
+ assert.equal(post.status,405);
+ const unavailable=await memberEndpoint({request:make('/api/member-learning-engine-versions'),env:{SUPABASE_URL:'http://insecure.example',SUPABASE_SECRET_KEY:'x',SUPABASE_PUBLISHABLE_KEY:'x'}});
+ assert.equal(unavailable.status,503);
+});
+test('Suspended member cannot inspect engine versions even with an active subscription',async()=>{
+ const m=setup({flag:'suspended',sub:{plan_code:'FULL_MONTHLY',status:'active',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,403);
+  assert(m.calls.every(x=>x.method==='GET'));
+ }finally{m.restore()}
+});
+test('Showcase-only access cannot inherit member version selection',async()=>{
+ const m=setup({role:'SHOWCASE_VIEWER',sub:{plan_code:'FULL_MONTHLY',status:'active',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,403);
+ }finally{m.restore()}
+});
