@@ -175,3 +175,15 @@ test('Unknown subscription state cannot select paid-plan versions',async()=>{
   assert.equal((await response.json()).planCode,'FREE');
  }finally{m.restore()}
 });
+
+test('Anonymous request cannot produce premium member versions',async()=>{
+ const m=setup({sub:{plan_code:'FULL_MONTHLY',status:'active',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions'),env});
+  assert.equal(response.status,200);
+  const payload=await response.json();
+  assert.equal(payload.planCode,'FREE');
+  assert.deepEqual(payload.versions,FREE);
+  assert.equal(payload.tutorEdition.premiumFeaturesAvailable,false);
+ }finally{m.restore()}
+});
