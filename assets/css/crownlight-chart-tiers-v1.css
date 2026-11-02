@@ -92,3 +92,26 @@
 .cl-workspace-collections-manager button:disabled{opacity:.45;cursor:not-allowed}
 .cl-workspace-collections{overflow-wrap:anywhere;font-size:.83rem;line-height:1.5;margin:8px 0}
 @media(max-width:620px){.cl-workspace-collections-manager{align-items:stretch}.cl-workspace-collections-manager label,.cl-workspace-collections-manager select{width:100%}.cl-workspace-collections-manager button{width:100%}}
+
+
+/* Professional Terminal V1: accessible compact candle density control. */
+.cl-chart-tier-tools .cl-tier-density-label{
+ display:inline-flex;align-items:center;gap:9px;flex-wrap:wrap;
+ min-height:39px;padding:6px 11px;border:1px solid #507291;
+ border-radius:9px;background:#0a1c30;color:#deedf9;font-size:.82rem;
+ font-weight:650;
+}
+.cl-chart-tier-tools .cl-tier-density-control{
+ width:120px;max-width:34vw;min-width:70px;accent-color:#44d9e8;cursor:ew-resize;
+}
+.cl-chart-tier-tools .cl-tier-density-control:focus-visible{
+ outline:2px solid #f1d389;outline-offset:4px;border-radius:4px;
+}
+.cl-chart-tier-tools .cl-tier-density-value{
+ display:inline-block;min-width:46px;color:#f1d389;text-align:right;
+ font-variant-numeric:tabular-nums;
+}
+@media(max-width:620px){
+ .cl-chart-tier-tools .cl-tier-density-label{width:100%;justify-content:space-between}
+ .cl-chart-tier-tools .cl-tier-density-control{flex:1;width:auto;max-width:none}
+}
