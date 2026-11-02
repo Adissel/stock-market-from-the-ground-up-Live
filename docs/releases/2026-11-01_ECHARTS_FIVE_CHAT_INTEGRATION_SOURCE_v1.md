@@ -73,3 +73,24 @@ A single eight-file git-tree commit was created twice but could not be moved ont
 | 1.0 | 2026-11-01 | Recorded six-gate execution, shared kit rollout, no-charge source tests and open release boundaries |
 
 **Footer:** SMFGU-VIS-INT-005 · v1.0 · Source release evidence, not production certification.
+
+
+## v1.1 — Chart-to-Talia revealed-candle integration (2026-11-01)
+
+**Document control:** SMFGU-VIS-INT-005, version 1.1. GitHub main remains the only source of record. No new Google Drive file/ID, Supabase SQL migration, charged API, premium edition, or entitlement has been introduced.
+
+**New source:** `assets/js/crownlight-talia-echarts-bridge-v1.js` (initial commit `90747fcb`, session/retry fixes `5556fa14`, `030e990a`), `assets/css/crownlight-talia-echarts-bridge-v1.css` (`d42e8f51`). Mounted on `verified-replay.html` (`1bd54abc`) and `simulator.html` (`608d0eaa`).
+
+**Data path:** Existing member-restricted chart controller emits `crownlight:revealed-bars` containing only *currently revealed, completed OHLCV observations*. The bridge rejects missing, null, nonfinite, negative, non-monotonic or inconsistent observations and any event containing more than 2,500 bars; it does not fetch/extend scenario data or derive hidden bars. A signed-in Supabase `auth.getUser` check is required before rendering; the verified-user lookup is briefly cached and sign-out/member changes immediately dispose the visualization. Authentication alone does not grant replay entitlement; the existing chart controller and protected server must enforce those rights.
+
+**Formula ownership:** Existing `CrownlightIndicatorMath.ema` and `vwapProxy` supply original EMA 9/EMA 20 and HLC3-volume VWAP estimate. New ECharts adapter `CrownlightVisualKitV1.indicatorSeries` renders only indices up to `visibleThroughBar=history.length-1`, retaining null warm-ups. Existing `CrownlightChartTutor.analyze` supplies deterministic interpretation and an ungraded practice question, not a new AI/Tutor engine, official answer or trade recommendation. The exact-value native table remains available when ECharts fails. The source/symbol declaration is sanitized and not represented as a licensed/historical provenance determination.
+
+**Focused tests:** `tests/test_crownlight_talia_echarts_bridge_v1.mjs` (`c3dac9f5`) checks strict prefixes, EMA warmup, malformed events, sign-out and account switch with canonical math and a controlled chart engine. `tests/test_crownlight_talia_echarts_bridge_browser_v1.mjs` (`845b6dd1`; assertion correction `b836672f`) exercises genuine pinned ECharts SVG at 390px/1200px, tooltip/series boundaries, exact table and sign-out using **mock** auth. Both are wired to the focused visualization CI (`f5330ccc`). Direct in-session V8 source execution additionally confirmed five-bar and 25-bar render paths with three series, strict 24-index cutoff, missing initial EMA and account-clearing behavior. **GitHub Node/Chromium run and live signed-in member acceptance remain pending.**
+
+**Group adoption:** Of the five originally requested component groups—Lab, Boot Camp, indicator overlay consumer, Interactive Tutor website, Admin—**4/5 source-integrated** (Lab, Boot Camp, indicator chart teaching adapter, Admin). The fifth, actual independently authenticated **Interactive Tutor Website** conversation/UI integration, remains OPEN and owned by `Build Interactive Tutor Website`. The Simulator's deterministic Talia panel is not a substitute for the member's protected interactive chat product.
+
+**Unresolved release gates:** Exact-head targeted test success, full mandatory CI, latest Cloudflare matching SHA, genuine multi-account permissions, phone/touch and screen-reader audits, source/licensing/editorial sign-off, and release acceptance. Continuous cross-chat commits may cancel older runs. No truthful overall website completion percentage is established.
+
+**Revision history:** 1.1 / November 1, 2026 / replay-to-Talia chart visualization, source validation and test wiring / SOURCE ONLY, ACCEPTANCE OPEN.
+
+**Footer:** SMFGU-VIS-INT-005 · v1.1 · Read-only ungraded visualization · No protected grading or live trade authorization.
