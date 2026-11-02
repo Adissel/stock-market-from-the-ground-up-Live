@@ -12,7 +12,7 @@ const tutorDefault=code=>({
  LIFETIME:'ENTERPRISE',ONDEMAND_MONTHLY:'PRODUCT_DEPENDENT'
 })[code]||'UNASSIGNED';
 const editions=['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE','PRODUCT_DEPENDENT'];
-async function read(url,headers){const r=await fetch(url,{headers,cache:'no-store'}),j=await r.json().catch(()=>null);if(!r.ok)throw bad('Membership version service unavailable',503);return j}
+async function read(url,headers,isAuth=false){const r=await fetch(url,{headers,cache:'no-store'});if(!r.ok){const denied=isAuth&&(r.status===401||r.status===403);throw bad(denied?'Invalid member session':'Membership version service unavailable',denied?401:503)}return r.json().catch(()=>null)}
 export async function onRequest({request,env}){try{
  if(request.method!=='GET')return out({ok:false,error:'Method not allowed'},405);
  const base=String(env.SUPABASE_URL||'').replace(/\/$/,''),secret=String(env.SUPABASE_SECRET_KEY||''),pub=String(env.SUPABASE_PUBLISHABLE_KEY||'');
@@ -21,7 +21,7 @@ export async function onRequest({request,env}){try{
  const token=/^Bearer\s+(.+)$/i.exec(request.headers.get('authorization')||'')?.[1];
  let planCode='FREE';
  if(token){
-  const user=await read(base+'/auth/v1/user',{apikey:pub,authorization:'Bearer '+token});
+  const user=await read(base+'/auth/v1/user',{apikey:pub,authorization:'Bearer '+token},true);
   if(!user?.id)throw bad('Invalid member session',401);
   const id=encodeURIComponent(user.id);
   const [profiles,flags,roles,subs]=await Promise.all([
