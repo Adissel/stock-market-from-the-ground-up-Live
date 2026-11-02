@@ -36,6 +36,24 @@ const configured=normalizeWorkspace({appearance:{bullish:'#AABBCC',grid:'#334455
 assert.deepEqual(configured.appearance,{bullish:'#aabbcc',bearish:'#ff5f86',doji:'#dfc17c',grid:'#334455',barSpacing:11,rightBuffer:22});
 assert.deepEqual(configured.chartStudies[0],{id:'ema200',type:'EMA',period:200,color:'#123abc',width:3,lineStyle:'dotted'});
 assert.equal(configured.chartStudies.length,2);assert.equal(configured.chartStudies[1].lineStyle,'solid');
+
+const chartPrefs=normalizeWorkspace({
+ selected:'PROFESSIONAL',echartsPreferences:{
+  enabled:{rsi14:true,macd:true,malicious:true,ema20:'yes'},
+  colors:{macd:'#Ab12Cd',atr14:'red',script:'javascript:alert(1)'},
+  lineStyles:{macd:'dotted',unknown:'solid',rsi14:'javascript'},
+  paneSizes:{macd:225,atr14:999,rsi14:115},
+  stroke:'dashed',apiKey:'never-save',bars:[{close:55}]
+ }
+},pro).echartsPreferences;
+assert.deepEqual(chartPrefs.enabled,{rsi14:true,macd:true});
+assert.deepEqual(chartPrefs.colors,{macd:'#ab12cd'});
+assert.deepEqual(chartPrefs.lineStyles,{macd:'dotted'});
+assert.deepEqual(chartPrefs.paneSizes,{rsi14:115,macd:225});
+assert.equal(chartPrefs.stroke,'dashed');
+assert.equal('apiKey' in chartPrefs,false);
+assert.equal('bars' in chartPrefs,false);
+assert.equal(normalizeWorkspace({echartsPreferences:null},pro).echartsPreferences,null);
 assert.equal('credential' in configured,false);assert.equal('script' in configured.appearance,false);
 assert.equal(normalizeWorkspace({appearance:null,chartStudies:null},pro).appearance,null);
 assert.equal((await onRequest({request:new Request('https://site.test/api/chart-workspace',{method:'DELETE'}),env:{}})).status,405);
