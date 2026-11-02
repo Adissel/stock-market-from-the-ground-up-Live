@@ -9,6 +9,7 @@ export function onRequestGet({request,env}){
  'Disallow: /journal','Disallow: /simulator','Disallow: /site-lab',
  'Disallow: /market-tutor','Disallow: /training-editor','Disallow: /skills',
  'Disallow: /privacy.html','Disallow: /terms.html',
+ 'Sitemap: '+origin.origin+'/sitemap-v2.xml',
  'Sitemap: '+origin.origin+'/sitemap.xml',''];
  return new Response(rules.join('\n'),{headers:{
   'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=3600',
