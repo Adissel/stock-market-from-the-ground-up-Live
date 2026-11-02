@@ -1,0 +1,54 @@
+# One-shot, noncharging real browser acceptance on the exact source snapshot.
+# Independent of the high-frequency main push workflow's concurrency group.
+name: Crownlight Exact-SHA Browser Acceptance (Free)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/crownlight-exact-sha-browser-acceptance.yml'
+permissions:
+  contents: read
+jobs:
+  release-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record exact tested main commit
+        run: echo "ACCEPTANCE_SHA=${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Validate source, entitlement, persistence and independent Python calculations
+        run: |
+          node --check assets/js/crownlight-chart-studio-v2.js
+          node --check assets/js/crownlight-chart-tiers-v1.js
+          node --check assets/js/crownlight-workspace-v2.js
+          node tests/test_crownlight_chart_studio_v2.mjs
+          node tests/test_crownlight_paper_workbench_v3.mjs
+          node tests/test_crownlight_chart_tiers_v1.mjs
+          node tests/test_crownlight_professional_density_v1.mjs
+          node tests/test_crownlight_chart_workspace_v2.mjs
+          node tests/test_crownlight_lab_handoff_v2.mjs
+          node tests/test_chart_quant_crosslanguage_v1.mjs
+          node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
+      - name: Install existing pinned open-source browser dependencies
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1 lightweight-charts@5.2.1 klinecharts@10.1.0 echarts@6.1.0
+          npx playwright install --with-deps chromium
+      - name: Prove actual Chromium pan, release, wheel zoom, tier workspaces and visualization
+        run: |
+          node tests/test_crownlight_chart_browser_v2.mjs
+          node tests/test_crownlight_chart_tiers_browser_v1.mjs
+          node tests/test_crownlight_echarts_studio_browser_v1.mjs
+      - name: Preserve optional chart screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crownlight-exact-sha-chromium
+          path: artifacts/crownlight-*.png
+          if-no-files-found: ignore
+          retention-days: 7
