@@ -17,7 +17,7 @@ try{
    if(u.pathname==='/assets/js/supabase-client.js')
     return route.fulfill({status:200,contentType:'application/javascript',body:`
      const member={id:'11111111-1111-4111-8111-111111111111',user_metadata:{first_name:'QA'}};
-     const session={access_token:'fixture-member-token',user:member};
+     const session={access_token:'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaXh0dXJlIn0.c2lnbmF0dXJl',user:member};
      const client={auth:{
        getSession:async()=>({data:{session}}),
        getUser:async()=>({data:{user:member}}),
@@ -31,7 +31,7 @@ try{
      };
      window.getSupabaseClient=async()=>client;`});
    if(u.pathname==='/api/lab-registry-access'){
-    if(route.request().headers()['authorization']!=='Bearer fixture-member-token')
+    if(route.request().headers()['authorization']!=='Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaXh0dXJlIn0.c2lnbmF0dXJl')
      return route.fulfill({status:401,contentType:'application/json',body:'{"ok":false}'});
     return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
      ok:true,freeEligible:true,interactive:false,training:false,bookCodes:[],
@@ -46,7 +46,7 @@ try{
     return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
      ok:true,publishedIds:[],guidedBetaIds:['F2-C01-L01']
     })});
-   if(u.pathname==='/api/lab-content'&&route.request().headers()['authorization']!=='Bearer fixture-member-token')
+   if(u.pathname==='/api/lab-content'&&route.request().headers()['authorization']!=='Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaXh0dXJlIn0.c2lnbmF0dXJl')
     return route.fulfill({status:401,contentType:'application/json',body:'{"ok":false,"error":"SIGN_IN_REQUIRED"}'});
    if(u.pathname==='/api/lab-content')
     return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
