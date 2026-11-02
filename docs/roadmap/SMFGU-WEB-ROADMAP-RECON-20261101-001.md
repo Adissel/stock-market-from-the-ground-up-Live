@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.7 / 2026-11-01 |
+| Version / prepared | 1.8 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -186,6 +186,26 @@ The controlled source-of-record is `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENC
 
 **Execution order:** (1) preserve canonical IDs and source math; (2) complete 40 individual claim publication-ready mathematical/editorial remediation; (3) resolve 60–73 and SCTR restrictions; (4) authenticated multi-turn Tutor QA; (5) integrate completed-bar-only ECharts with server privileges; (6) full mandatory Actions matrix; (7) genuine member/staff/mobile/assistive QA; (8) exact-SHA Cloudflare production match; (9) independently accept only eligible functions; (10) start topics 261–280 when editorial prerequisites are accepted. The strict ten-gate completion is **1/10 = 10%** until each gate's stated complete requirements are actually satisfied. Overall website completion remains unassigned.
 
+## Final 13 Indicator Subjects — Source QA 61–73
+
+This update preserves the existing Owner completion denominator and does not modify authenticated milestone records. Source QA and publication acceptance are separately accounted for.
+
+| Controlled milestone | Current source evidence | Release interpretation |
+|---|---|---|
+| Foundation explanation target registry | 600 target identities, **260/600 (43.33%) source authored** | No additional grades or independent publication approvals |
+| Indicator research inventory | **73/73 subject identities (100%)** | All study subjects now have source-level records; SCTR and official VIX vendor-methodology restrictions retained |
+| Independently constructed numerical cases | **71/73 (97.26%) configured** | 12 added final-group Python/JavaScript cases; source QA and exact-commit CI cannot substitute for vendor-specific implementation acceptance |
+| Vendor-defined benchmark/rank exceptions | **2/73** | StockCharts SCTR and Cboe VIX: no fabricated exact numeric calculation, redistributable dataset or vendor license |
+| Final source-editorial/commercial approval | **0/73** | Rights, full formula variants, chart UX, authenticated session and protected grade acceptance pending |
+| Foundation claims 101–140 | **40/40 ID-based source dispositions recorded** | Individual final mathematical/rights/legal acceptance open |
+| Lab / Academy inventory | **419/419 Lab IDs; 274/274 Academy-day IDs** | Original nine-stage teaching and authenticated curriculum parity not independently accepted |
+| Learning Engine / Lab Engine Basic | **v3.3 / v3.2 retained** | No fabricated full Basic completion percentage |
+| Advanced / Professional / Enterprise | **0% premium release accepted** | Existing server gates, research prototypes and member-only features remain differentiated from release approval |
+
+**Release controls:** Require exact GitHub Actions matrix, matching Cloudflare production commit, genuine Free/Founding/Owner authentication, no future-bar leakage in chart/tutor, independent source and data rights, original protected assessment answers and accessible browser tests before assigning release signoff.
+
+Source QA record: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, v1.4. Indicator details: `data/talia-indicators61-73-evidence-v1.json`. Research standards: approved directory and nine-level master source registry, but a source reference does not grant commercial chart, quote feed, code, or ML reuse rights.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -198,5 +218,6 @@ The controlled source-of-record is `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENC
 | 1.5 | 2026-11-01 | Connect per-indicator ECharts settings to the existing authenticated versioned workspace, add server allowlist and client privacy/restore tests; preserve non-release mathematical and editorial denominators | Source committed; independent exact-main, Cloudflare and signed-in acceptance open |
 | 1.6 | 2026-11-01 | Repair 16-study prototype session calculations and derived VWAP; expand multi-session and proxy-integrity regression tests | Source committed; workflow/external acceptance open |
 | 1.7 | 2026-11-01 | Reconcile 60 studied subjects / 59 independent numeric fixtures, 260 authored explanations, source review identity fix and continued ten-gate controls | Source QA only; exact-head GitHub Actions, rights and real sessions open |
+| 1.8 | 2026-11-01 | Add 61–73 subject QA, 12 cross-implementation fixtures, official Cboe VIX and StockCharts SCTR restricted exceptions, 71/73 configured math denominator | Internal source QA only; all genuine publication, account, legal and release acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.7 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.8 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
