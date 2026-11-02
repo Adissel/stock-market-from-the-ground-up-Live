@@ -9,6 +9,8 @@ node --check assets/js/prototype-indicator-workbench-v2.js
 node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
 node tests/prototype-indicator-workbench-v2.test.mjs
 node tests/test_crownlight_chart_workspace_v2.mjs
+# Twenty runtime authorization, data-minimization and UTF-8 payload tests.
+node --test tests/crownlight-workspace-phase2-behavior-20.test.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
 node tests/test_site_shell_acceptance_v1.cjs
 node --test tests/atelier-sitewide-theme-v1.test.mjs
