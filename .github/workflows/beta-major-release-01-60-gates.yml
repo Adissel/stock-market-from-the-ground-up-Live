@@ -1,0 +1,203 @@
+# Source-only release batch. Passing does not authorize LIVE commerce or certify real-user / editorial acceptance.
+name: Beta Major Release 01 - 60 Evidence Gates
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/**'
+      - 'functions/**'
+      - 'data/**'
+      - 'tests/**'
+      - '.github/workflows/beta-major-release-01-60-gates.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: beta-major-release-01-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  learning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: LEARNING 01 - learning-indicators-v1.test.mjs
+        run: node tests/learning-indicators-v1.test.mjs
+      - name: LEARNING 02 - basic-atr-bollinger-lessons-v1.test.mjs
+        run: node tests/basic-atr-bollinger-lessons-v1.test.mjs
+      - name: LEARNING 03 - learning-quant-studies-v1.test.mjs
+        run: node tests/learning-quant-studies-v1.test.mjs
+      - name: LEARNING 04 - learning-evidence-diagnostic-v1.test.mjs
+        run: node tests/learning-evidence-diagnostic-v1.test.mjs
+      - name: LEARNING 05 - learning-engine-tier-policy-v1.test.mjs
+        run: node tests/learning-engine-tier-policy-v1.test.mjs
+      - name: LEARNING 06 - learning-engine-member-versions-v1.test.mjs
+        run: node tests/learning-engine-member-versions-v1.test.mjs
+      - name: LEARNING 07 - learning-engine-member-versions-api-v1.test.mjs
+        run: node tests/learning-engine-member-versions-api-v1.test.mjs
+      - name: LEARNING 08 - learning-lab-engine-feature-audit-v1.test.mjs
+        run: node tests/learning-lab-engine-feature-audit-v1.test.mjs
+      - name: LEARNING 09 - learning-lab-research-evidence-v1.test.mjs
+        run: node tests/learning-lab-research-evidence-v1.test.mjs
+      - name: LEARNING 10 - learning-lab-formative-editions-v1.test.mjs
+        run: node tests/learning-lab-formative-editions-v1.test.mjs
+  labs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: LABS 01 - lab-bridge-batch01-editorial-v1.test.mjs
+        run: node tests/lab-bridge-batch01-editorial-v1.test.mjs
+      - name: LABS 02 - lab-bridge-batch03-v1.test.mjs
+        run: node tests/lab-bridge-batch03-v1.test.mjs
+      - name: LABS 03 - lab-bridge-batch04-source-v1.test.mjs
+        run: node tests/lab-bridge-batch04-source-v1.test.mjs
+      - name: LABS 04 - lab-bridge-batch05-source-v1.test.mjs
+        run: node tests/lab-bridge-batch05-source-v1.test.mjs
+      - name: LABS 05 - lab-bridge-batch06-source-v1.test.mjs
+        run: node tests/lab-bridge-batch06-source-v1.test.mjs
+      - name: LABS 06 - lab-bridge-batch07-source-v1.test.mjs
+        run: node tests/lab-bridge-batch07-source-v1.test.mjs
+      - name: LABS 07 - lab-bridge-batch08-source-v1.test.mjs
+        run: node tests/lab-bridge-batch08-source-v1.test.mjs
+      - name: LABS 08 - lab-bridge-batch09-source-v1.test.mjs
+        run: node tests/lab-bridge-batch09-source-v1.test.mjs
+      - name: LABS 09 - lab-bridge-batch10-source-v1.test.mjs
+        run: node tests/lab-bridge-batch10-source-v1.test.mjs
+      - name: LABS 10 - lab-bridge-batches15-21-source-v1.test.mjs
+        run: node tests/lab-bridge-batches15-21-source-v1.test.mjs
+  academy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: ACADEMY 01 - academy-member-day-restoration-v1.test.mjs
+        run: node tests/academy-member-day-restoration-v1.test.mjs
+      - name: ACADEMY 02 - test_academy_first22_educational_evidence_v1.mjs
+        run: node tests/test_academy_first22_educational_evidence_v1.mjs
+      - name: ACADEMY 03 - test_academy_first42_claim_review_v1.mjs
+        run: node tests/test_academy_first42_claim_review_v1.mjs
+      - name: ACADEMY 04 - test_academy_first42_independent_numeric_cases_v1.mjs
+        run: node tests/test_academy_first42_independent_numeric_cases_v1.mjs
+      - name: ACADEMY 05 - test_academy_foundations_batch02_v1.mjs
+        run: node tests/test_academy_foundations_batch02_v1.mjs
+      - name: ACADEMY 06 - test_academy_foundations_batch03_v1.mjs
+        run: node tests/test_academy_foundations_batch03_v1.mjs
+      - name: ACADEMY 07 - test_academy_charts45_batch04_v1.mjs
+        run: node tests/test_academy_charts45_batch04_v1.mjs
+      - name: ACADEMY 08 - test_academy_risk60_batch01_v1.mjs
+        run: node tests/test_academy_risk60_batch01_v1.mjs
+      - name: ACADEMY 09 - test_academy_practicum90_all90_v1.mjs
+        run: node tests/test_academy_practicum90_all90_v1.mjs
+      - name: ACADEMY 10 - test_academy_shared_lab_parity_v1.mjs
+        run: node tests/test_academy_shared_lab_parity_v1.mjs
+  studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: STUDIO 01 - lab-batch04-echarts-v1.test.mjs
+        run: node tests/lab-batch04-echarts-v1.test.mjs
+      - name: STUDIO 02 - lab-advanced-echarts-preview-v1.test.mjs
+        run: node tests/lab-advanced-echarts-preview-v1.test.mjs
+      - name: STUDIO 03 - talia-echarts-independent-python-js-v1.test.mjs
+        run: node tests/talia-echarts-independent-python-js-v1.test.mjs
+      - name: STUDIO 04 - talia-foundation-ema-visual-v1.test.mjs
+        run: node tests/talia-foundation-ema-visual-v1.test.mjs
+      - name: STUDIO 05 - talia-prototype-professional-chart-v1.test.mjs
+        run: node tests/talia-prototype-professional-chart-v1.test.mjs
+      - name: STUDIO 06 - talia-recursive-indicators-python-js-v1.test.mjs
+        run: node tests/talia-recursive-indicators-python-js-v1.test.mjs
+      - name: STUDIO 07 - talia-indicator-15-python-js-crosscheck-v1.test.mjs
+        run: node tests/talia-indicator-15-python-js-crosscheck-v1.test.mjs
+      - name: STUDIO 08 - talia-indicators21-30-crosslanguage-v1.test.mjs
+        run: node tests/talia-indicators21-30-crosslanguage-v1.test.mjs
+      - name: STUDIO 09 - talia-indicators31-45-python-js-v1.test.mjs
+        run: node tests/talia-indicators31-45-python-js-v1.test.mjs
+      - name: STUDIO 10 - talia-indicators46-60-python-js-v1.test.mjs
+        run: node tests/talia-indicators46-60-python-js-v1.test.mjs
+  tutor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: TUTOR 01 - talia-classroom-source-v1.test.mjs
+        run: node tests/talia-classroom-source-v1.test.mjs
+      - name: TUTOR 02 - talia-member-conversations-isolation-v1.test.mjs
+        run: node tests/talia-member-conversations-isolation-v1.test.mjs
+      - name: TUTOR 03 - talia-membership-only-v1.test.mjs
+        run: node tests/talia-membership-only-v1.test.mjs
+      - name: TUTOR 04 - talia-training40-server-authorization-v1.test.mjs
+        run: node tests/talia-training40-server-authorization-v1.test.mjs
+      - name: TUTOR 05 - talia-training-synthetic-followup-privacy-v1.test.mjs
+        run: node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
+      - name: TUTOR 06 - talia-classroom-lab-handoff-v1.test.mjs
+        run: node tests/talia-classroom-lab-handoff-v1.test.mjs
+      - name: TUTOR 07 - talia-tutor40-conversational-quality-v1.test.mjs
+        run: node tests/talia-tutor40-conversational-quality-v1.test.mjs
+      - name: TUTOR 08 - talia-source-remediation-specificity-v1.test.mjs
+        run: node tests/talia-source-remediation-specificity-v1.test.mjs
+      - name: TUTOR 09 - talia-membership-history-matrix-v1.test.mjs
+        run: node tests/talia-membership-history-matrix-v1.test.mjs
+      - name: TUTOR 10 - talia-production-asset-sync-v1.test.mjs
+        run: node tests/talia-production-asset-sync-v1.test.mjs
+  governance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: GOVERNANCE 01 - basic-learning-lab-batch-governance-v1.test.mjs
+        run: node tests/basic-learning-lab-batch-governance-v1.test.mjs
+      - name: GOVERNANCE 02 - test_academy_progress_contract.mjs
+        run: node tests/test_academy_progress_contract.mjs
+      - name: GOVERNANCE 03 - test_academy_audit_schema_contract.mjs
+        run: node tests/test_academy_audit_schema_contract.mjs
+      - name: GOVERNANCE 04 - test_academy_classroom_semantics_v1.mjs
+        run: node tests/test_academy_classroom_semantics_v1.mjs
+      - name: GOVERNANCE 05 - test_academy_first42_fictional_provenance_gate_v1.mjs
+        run: node tests/test_academy_first42_fictional_provenance_gate_v1.mjs
+      - name: GOVERNANCE 06 - test_academy_specific_source_instruction_v1.mjs
+        run: node tests/test_academy_specific_source_instruction_v1.mjs
+      - name: GOVERNANCE 07 - talia-release-evidence-crosswalk-v1.test.mjs
+        run: node tests/talia-release-evidence-crosswalk-v1.test.mjs
+      - name: GOVERNANCE 08 - talia-evaluation-methodology-v2.test.mjs
+        run: node tests/talia-evaluation-methodology-v2.test.mjs
+      - name: GOVERNANCE 09 - talia-regulatory-timing-notices-v1.test.mjs
+        run: node tests/talia-regulatory-timing-notices-v1.test.mjs
+      - name: GOVERNANCE 10 - talia-40-source-register-consistency-v1.test.mjs
+        run: node tests/talia-40-source-register-consistency-v1.test.mjs
+  release-source-summary:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [learning, labs, academy, studio, tutor, governance]
+    steps:
+      - name: Require six complete successful groups and all 60 checks
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json,os,sys
+          results=json.loads(os.environ['NEEDS_JSON'])
+          for k,v in results.items():print(k,v['result'])
+          if len(results)!=6 or any(v['result']!='success' for v in results.values()):
+              sys.exit('BLOCKED: 60-gate beta source batch not accepted')
+          print('60 source evidence commands passed; member/browser/security/commerce/editorial and deployment signoffs remain independently required.')
+          PY
