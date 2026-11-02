@@ -62,8 +62,13 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
   const host=useRef<HTMLDivElement|null>(null);
   const [visible,setVisible]=useState(7);
   const prototype=typeof window!=='undefined'&&window.location.pathname.endsWith('/talia-tutor-prototype.html');
-  const [study,setStudy]=useState<'none'|'sma3'|'ema3'>('ema3');
+  const [study,setStudy]=useState<'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap'>('ema9');
   const [zoom,setZoom]=useState(100);
+  const [showVolume,setShowVolume]=useState(true);
+  const [showStructure,setShowStructure]=useState(true);
+  const [buffer,setBuffer]=useState(3);
+  const [bull,setBull]=useState('#38c6a6');
+  const [bear,setBear]=useState('#e37779');
   const [annotation,setAnnotation]=useState<number|null>(null);
   const [status,setStatus]=useState('Fictional completed-bar teaching example; subsequent bars are concealed.');
   useEffect(()=>{
@@ -85,19 +90,29 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
           for(let j=3;j<=i;j++)ema=closes[j]*.5+ema*.5;
           return Number(ema.toFixed(4));
         });
+        // Display only completed observations; longer lookback indicators correctly remain in warmup.
+        const ema=(period:number)=>closes.map((_,i)=>{if(i<period-1)return null;let v=closes.slice(0,period).reduce((a,b)=>a+b,0)/period;for(let j=period;j<=i;j++)v=v+(closes[j]-v)*2/(period+1);return Number(v.toFixed(4))});
+        const shown=REPLAY.slice(0,visible);
+        const volumes=shown.map((r,i)=>200+Math.round(Math.abs(r[1]-r[0])*3700)+i*17); // labeled fictional proxy, NOT market volume
+        const vwap=shown.map((_,i)=>{let sum=0,qty=0;for(let j=0;j<=i;j++){sum+=((shown[j][3]+shown[j][2]+shown[j][1])/3)*volumes[j];qty+=volumes[j]}return Number((sum/qty).toFixed(4))});
+        const structure=shown.map((r,i)=>i>=2&&i<visible-1&&r[3]>shown[i-1][3]&&r[3]>shown[i+1][3]?{coord:[i,r[3]],value:'Swing H'}:null).filter((x):x is {coord:number[],value:string}=>x!==null);
+        const horizon=Array.from({length:prototype?buffer:0},(_,i)=>'Buffer '+(i+1));
         plot.setOption({
           animation:false,backgroundColor:'transparent',
           dataZoom:prototype?[{type:'inside',start:Math.max(0,100-zoom),end:100,zoomOnMouseWheel:true,moveOnMouseMove:true,moveOnMouseWheel:false},{type:'slider',start:Math.max(0,100-zoom),end:100,height:13,bottom:7}]:[],
-          grid:{top:24,left:50,right:18,bottom:42},
-          xAxis:{type:'category',data:REPLAY.slice(0,visible).map((_,i)=>'Bar '+(i+1)),axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},
-          yAxis:{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},
+          grid:showVolume&&prototype?[{top:26,left:52,right:25,height:'58%'},{top:'74%',left:52,right:25,height:'14%'}]:{top:24,left:50,right:25,bottom:55},
+          xAxis:showVolume&&prototype?[{type:'category',data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},{type:'category',gridIndex:1,data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{show:false},axisLine:{show:false}}]:{type:'category',data:[...shown.map((_,i)=>'Bar '+(i+1)),...horizon],axisLabel:{color:'#a4b7c9'},axisLine:{lineStyle:{color:'#536578'}}},
+          yAxis:showVolume&&prototype?[{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},{type:'value',gridIndex:1,axisLabel:{color:'#88a8bb'},splitLine:{show:false}}]:{scale:true,type:'value',axisLabel:{color:'#a4b7c9'},splitLine:{lineStyle:{color:'#34465a',opacity:0.35}}},
           tooltip:{trigger:'item',formatter:(x:{dataIndex:number})=>{
             const r=REPLAY.slice(0,visible)[x.dataIndex];return r?'Fictional bar '+(x.dataIndex+1)+' | O '+r[0]+' H '+r[3]+' L '+r[2]+' C '+r[1]:'';
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
-            data:REPLAY.slice(0,visible),itemStyle:{color:'#38c6a6',color0:'#e37779',borderColor:'#38c6a6',borderColor0:'#e37779'},
+            data:shown,itemStyle:{color:prototype?bull:'#38c6a6',color0:prototype?bear:'#e37779',borderColor:prototype?bull:'#38c6a6',borderColor0:prototype?bear:'#e37779'},
+            markLine:prototype&&showStructure?{symbol:'none',lineStyle:{color:'#668ba1',type:'dashed'},data:[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible high'},{yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible low'}]}:undefined,
             markPoint:prototype&&annotation!==null&&annotation<visible?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[annotation,REPLAY[annotation][1]],value:'Study'}]}:undefined},
-            ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':'EMA 3',data:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[])]
+            ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':study.toUpperCase(),data:study==='ema9'?ema(9):study==='ema20'?ema(20):study==='ema200'?ema(200):study==='vwap'?vwap:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[]),
+            ...(prototype&&showVolume?[{type:'bar',name:'Fictional volume proxy',xAxisIndex:1,yAxisIndex:1,data:volumes,itemStyle:{color:'#3c8192'}}]:[]),
+            ...(prototype&&showStructure&&structure.length?[{type:'scatter',name:'Visible swing highs',data:structure.map(x=>x.coord),symbolSize:9,itemStyle:{color:'#d6b77f'}}]:[])]
         });
         plot.on('click',e=>{
           const i=Number(e.dataIndex);
@@ -111,20 +126,25 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
     };
     void mount();
     return ()=>{disposed=true;window.removeEventListener('resize',resize);plot?.dispose()};
-  },[visible,onQuestion,prototype,study,zoom,annotation]);
+  },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
     <div className="tc-row tc-row-between"><h2>Chart classroom</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
     <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
     {prototype&&<div className="tc-row tp-chart-tools" aria-label="Chart analysis controls">
-      <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="none">No overlay</option></select></label>
+      <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="ema9">EMA 9</option><option value="ema20">EMA 20 (requires 20 bars)</option><option value="ema200">EMA 200 (requires 200 bars)</option><option value="vwap">Fictional proxy VWAP</option><option value="none">No overlay</option></select></label>
       <label>Visible window <select value={zoom} onChange={e=>setZoom(Number(e.target.value))}><option value={100}>All revealed bars</option><option value={70}>70%</option><option value={45}>45%</option></select></label>
+      <label>Right buffer <select value={buffer} onChange={e=>setBuffer(Number(e.target.value))}><option value={0}>None</option><option value={3}>3 bars</option><option value={6}>6 bars</option></select></label>
+      <label>Bull <input aria-label="Bull candle color" type="color" value={bull} onChange={e=>setBull(e.target.value)}/></label>
+      <label>Bear <input aria-label="Bear candle color" type="color" value={bear} onChange={e=>setBear(e.target.value)}/></label>
+      <label><input type="checkbox" checked={showVolume} onChange={e=>setShowVolume(e.target.checked)}/> Volume proxy</label>
+      <label><input type="checkbox" checked={showStructure} onChange={e=>setShowStructure(e.target.checked)}/> Structure</label>
       <button type="button" className="tc-secondary" onClick={()=>setAnnotation(visible-1)}>Annotate latest</button>
       <button type="button" className="tc-secondary" onClick={()=>setAnnotation(null)} disabled={annotation===null}>Clear annotation</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion('Explain the '+(study==='none'?'candle structure':study.toUpperCase())+' visible through completed fictional bar '+visible+'. State any warmup limitation and do not reference future candles.')}>Teach this chart</button>
     </div>}
     <div className="tc-chart" ref={host} role="img" aria-label={'Fictional price chart showing '+visible+' completed candlesticks'} />
-    <p className="tc-muted" role="status">{status}</p>
+    <p className="tc-muted" role="status">{status}{prototype?' Volume is a fictional proxy, not observed trading volume. EMA 20/200 remain unavailable until sufficient bars exist; blank right-side buffer contains no future data.':''}</p>
     <table className="tc-candle-table"><caption>Latest visible completed candle</caption>
       <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
       <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
