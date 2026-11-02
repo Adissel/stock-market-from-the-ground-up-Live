@@ -62,6 +62,6 @@ try{
  });
  await test('anonymous session never reaches member data',async()=>{
   const r=await conversations({request:new Request('https://tutor.test/api/member-tutor-conversations'),env});
-  assert.equal(r.status,503); // auth guard maps failures to generic unavailable response
+  assert.equal(r.status,401); // anonymous caller never reaches storage
  });
 }finally{globalThis.fetch=original}
