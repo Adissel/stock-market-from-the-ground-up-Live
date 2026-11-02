@@ -99,6 +99,27 @@ const failedReadStore=checkpoint.create({sb:failedReadSb,userId:ID,labId:lab,mod
 await assert.rejects(failedReadStore.load(),/cannot be verified/i);
 await assert.rejects(failedReadStore.save(input),/not loaded/i);
 assert.equal(failedReadWrites,0,'Failed checkpoint read must never send a write');
+ // Recovery after a failed read must first prove the current authoritative revision.
+let recoveredWrites=0;
+let recoveredRecord={version:2,rev:7,modes:{guided:input}};
+const recoveryDb={
+ from(){return {select(){return {eq(){return {eq(){return {
+   maybeSingle:async()=>({data:{responses:{learning_journey_v33:recoveredRecord}},error:null})
+ }}}}}}}},
+ async rpc(name,args){
+   assert.equal(name,'gu_v33_save_lab_journey');
+   recoveredWrites++;
+   assert.equal(args.p_expected_revision,7,'Recovery must use verified revision 7, never 0');
+   return {data:{ok:true,saved:{version:2,rev:8,modes:{guided:args.p_checkpoint}}},error:null};
+ }
+};
+const recoveredStore=checkpoint.create({sb:recoveryDb,userId:ID,labId:lab,mode:'guided',alive:()=>true});
+await assert.rejects(recoveredStore.save(input),/not loaded/i);
+assert.equal(recoveredWrites,0);
+assert.equal((await recoveredStore.load()).stage,4);
+await recoveredStore.save({...input,stage:5});
+assert.equal(recoveredWrites,1);
+
 const practiceOnly=checkpoint.create({sb,userId:ID,labId:lab,mode:'practice',alive:()=>accountActive});
 assert.equal(await practiceOnly.load(),null,'The practice mode cannot preload guided instructional state');
 accountActive=false;
