@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.11 / 2026-11-01 |
+| Version / prepared | 1.12 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -280,4 +280,14 @@ Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v
 | 1.10 | 2026-11-01 | 280/600 authored drafts with Batch14 held; claim-specific Python/JS 35-number audit; three source remediation references; unchanged ten release gates | Full CI, genuine auth, rights and editorial acceptance open |
 | 1.11 | 2026-11-01 | Verified 5/5 qualitative source scopes, 18/18 independent complete ECharts math series, targeted Pages production deployment SHA | Source CI accepted only; full Actions, genuine logged-in users, rights and premium release remain open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.11 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+## ECharts-to-Tutor Chromium mismatch correction — local execution evidence
+
+Against clean source baseline `011bf12996d90e512d41c3d309c4a8d01b485919`, the reported account-mismatch Chromium timeout was reproduced. Inspection showed the browser fixture captured the identity during the popup's inherited `about:blank` document, so the supposed second account was actually `MemberA`. The fixture now resolves identity at Auth-read time after navigation. The source handoff also retries its short-lived, same-origin nonce readiness message to handle popup initialization ordering, and stops the retry on explicit account rejection or successful transfer. Account comparison, access entitlement, user-editable question, and no-auto-submit checks remain enforced.
+
+**Local results:** The handoff Node contract and all five existing ECharts Chromium suites passed with pinned Playwright 1.56.1 and ECharts 6.1.0. This is mocked browser evidence. GitHub Actions on the resulting exact `main` SHA, Cloudflare production parity, real signed-in account A/B, keyboard/mobile and screen-reader acceptance remain OPEN until independently verified. No database/API schema, membership, protected grade, chart formula, or payment changes were made.
+
+**Roadmap status:** This closes the local reproduction/correction substep for the chart-to-Tutor handoff. It does not close the full Tutor, ECharts, authentication, or production release gates. Existing 2,190 canonical Owner Roadmap items and all engine/product acceptance denominators remain unchanged.
+
+**Revision history addition:** v1.12 / 2026-11-01 / Reproduced and corrected the chart-to-Tutor Chromium mismatch fixture; local Node and 5/5 ECharts Chromium suites pass; hosted exact-SHA CI, production, and genuine authenticated acceptance remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.12 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

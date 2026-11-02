@@ -10,7 +10,7 @@
  const receiverNonce=url.searchParams.get('chartHandoff');
  const senderHost=document.getElementById('crownlight-talia-echarts-visual');
  const questionBox=document.getElementById('tutor-question');
- let context=null,pending=null,receiverId=null,used=false;
+ let context=null,pending=null,receiverId=null,used=false,readyTimer=null;
  const cleanText=x=>typeof x==='string'&&x.length>0&&x.length<=450&&
   !/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(x);
  const validNonce=x=>typeof x==='string'&&/^[a-f0-9]{32}$/.test(x);
@@ -69,11 +69,17 @@
   if(event.origin!==root.location.origin||!data||data.type!==TYPE||data.v!==VERSION)return;
   if(senderHost){
    const state=pending;
-   if(!state||data.action!=='ready'||event.source!==state.tab||
+   if(!state||state.checking||data.action!=='ready'||event.source!==state.tab||
     data.nonce!==state.nonce||!validNonce(data.nonce)||Date.now()-state.started>120000)return;
+   state.checking=true;
    const account=await member();
-   if(state!==pending||!account||account.id!==data.memberId||
+   if(state!==pending)return;
+   if(!account||account.id!==data.memberId||
     !root.CrownlightTaliaEChartsBridgeV1?.getStatus?.().memberVerified){
+    // The receiver repeats its nonce-bound readiness message to cover the
+    // popup-load race. Tell this exact opener-linked receiver to stop retrying.
+    event.source.postMessage({type:TYPE,v:VERSION,action:'rejected',
+     nonce:state.nonce,memberId:data.memberId},root.location.origin);
     fail('Tutor is signed into a different or unverified member. No chart values transferred.');return
    }
    event.source.postMessage({type:TYPE,v:VERSION,action:'evidence',
@@ -82,12 +88,19 @@
    status('The same signed-in member received an editable chart question. No message was automatically sent.');
    return;
   }
+  if(questionBox&&data.action==='rejected'&&event.source===root.opener&&
+   validNonce(receiverNonce)&&data.nonce===receiverNonce&&data.memberId===receiverId){
+   clearTimeout(readyTimer);readyTimer=null;
+   const note=document.getElementById('tutor-chart-handoff-status');
+   if(note)note.textContent='The chart and Tutor sessions belong to different or unverified members. No chart values were transferred.';
+   return;
+  }
   if(!questionBox||!validNonce(receiverNonce)||used||data.action!=='evidence'||
    event.source!==root.opener||data.nonce!==receiverNonce||data.memberId!==receiverId||
    !cleanText(data.question))return;
   const account=await member();
   if(used||!account||account.id!==receiverId)return;
-  used=true;questionBox.value=data.question;
+  used=true;clearTimeout(readyTimer);readyTimer=null;questionBox.value=data.question;
   questionBox.dispatchEvent(new Event('input',{bubbles:true}));
   const note=document.getElementById('tutor-chart-handoff-status');
   if(note)note.textContent='Visible chart evidence transferred from your authorized chart. Review or edit the question, then choose Ask Talia. Nothing has been automatically sent.';
@@ -106,9 +119,20 @@
     (body.authorized!==true&&body.freeEligible!==true))return;
   }catch{return}
   receiverId=account.id;
-  root.opener.postMessage({type:TYPE,v:VERSION,action:'ready',
-   nonce:receiverNonce,memberId:receiverId},root.location.origin);
+  // window.open() returns before the receiving document necessarily finishes
+  // loading. A single READY can arrive before the sender stores its pending
+  // popup state; retry only this short-lived nonce/member assertion until the
+  // sender accepts it, rejects the account, or the handoff expires.
+  const readyUntil=Date.now()+120000;
+  const announceReady=()=>{
+   if(!receiverId||used||!root.opener||Date.now()>=readyUntil)return;
+   root.opener.postMessage({type:TYPE,v:VERSION,action:'ready',
+    nonce:receiverNonce,memberId:receiverId},root.location.origin);
+   readyTimer=setTimeout(announceReady,150);
+  };
+  announceReady();
  }
+ root.addEventListener('pagehide',()=>{clearTimeout(readyTimer);readyTimer=null});
  if(senderHost){
   clear();
   root.addEventListener('crownlight:member-changed',clear);

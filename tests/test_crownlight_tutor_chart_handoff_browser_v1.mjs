@@ -11,10 +11,13 @@ const failures=[];
 const fixture=async(receiverUser='MemberA',allowed=true)=>{
  const context=await browser.newContext({viewport:{width:390,height:780}});
  await context.addInitScript(({targetUser})=>{
-  const id=location.pathname.includes('market-tutor.html')?targetUser:'MemberA';
+  // A popup's initial about:blank document may inherit the opener before it
+  // navigates. Resolve the fixture identity when Auth is read, after navigation.
+  const identity=()=>location.pathname.includes('market-tutor.html')?targetUser:'MemberA';
+  window.__fixtureIdentity=identity();
   window.getSupabaseClient=async()=>({auth:{
-   getSession:async()=>({data:{session:{access_token:'fixture-test-only',user:{id}}}}),
-   getUser:async()=>({data:{user:{id}}})
+   getSession:async()=>({data:{session:{access_token:'fixture-test-only',user:{id:identity()}}}}),
+   getUser:async()=>({data:{user:{id:identity()}}})
   }});
   window.__submitted=0;
   window.CrownlightTaliaEChartsBridgeV1={getStatus:()=>({memberVerified:true})};
@@ -73,7 +76,18 @@ const fixture=async(receiverUser='MemberA',allowed=true)=>{
   assert.equal(await receiver.evaluate(()=>window.__submitted),0);
   assert.equal(await source.evaluate(()=>window.CrownlightTutorChartHandoffV1.getStatus().waitingForVerifiedTutor),false);
  }else if(allowed){
-  await source.waitForFunction(()=>document.querySelector('[data-talia-handoff-status]').textContent.includes('different or unverified'));
+  try{
+   await source.waitForFunction(()=>document.querySelector('[data-talia-handoff-status]').textContent.includes('different or unverified'));
+  }catch(error){
+   const sourceState=await source.evaluate(()=>(
+    ({status:document.querySelector('[data-talia-handoff-status]')?.textContent,
+     state:window.CrownlightTutorChartHandoffV1?.getStatus(),opener:!!window.opener})));
+   const targetState=await receiver.evaluate(()=>(
+    ({status:document.querySelector('#tutor-chart-handoff-status')?.textContent,
+     state:window.CrownlightTutorChartHandoffV1?.getStatus(),opener:!!window.opener,
+     location:location.href,fixtureIdentity:window.__fixtureIdentity})));
+   throw new Error('Mismatched-member handoff was not rejected: '+JSON.stringify({sourceState,targetState,failures})+'; '+error.message);
+  }
   assert.equal(await receiver.locator('#tutor-question').inputValue(),'');
  }else{
   await receiver.waitForTimeout(140);

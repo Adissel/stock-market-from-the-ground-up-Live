@@ -15,7 +15,11 @@ for(const route of ['simulator.html','verified-replay.html']){
 const html=readFileSync('market-tutor.html','utf8');
 assert(html.includes('id="tutor-chart-handoff-status"'));
 assert(html.includes('crownlight-tutor-chart-handoff-v1.js'));
-const tick=async()=>{for(let i=0;i<50;i++)await Promise.resolve()};
+const tick=async()=>{
+ for(let i=0;i<50;i++)await Promise.resolve();
+ await new Promise(resolve=>setTimeout(resolve,0));
+ for(let i=0;i<10;i++)await Promise.resolve();
+};
 class Node{
  constructor(){this.disabled=true;this.textContent='';this.events={};this.value='';this.focused=false}
  addEventListener(type,cb){this.events[type]=cb}
@@ -64,7 +68,7 @@ const create=(member='same',eligible=true)=>{
   'tutor-chart-handoff-status':note})[id]||null};
  const makeContext=(win,dom)=>vm.runInNewContext(script,{
   window:win,document:dom,URL,Uint8Array,Date,Event:class{constructor(type){this.type=type}},
-  setTimeout,console
+  setTimeout,clearTimeout,console
  },{timeout:2500});
  makeContext(sender,domA);
  return {sender,receiver,button,status,question,note,makeContext,domB,
@@ -80,7 +84,11 @@ const create=(member='same',eligible=true)=>{
  assert.doesNotMatch(c.getURL().href,/EMA|VWAP|observed|trade|Bearer/);
  c.makeContext(c.receiver,c.domB);
  await tick();
- assert.match(c.question.value,/EMA 9 and HLC3 VWAP/);
+ assert.match(c.question.value,/EMA 9 and HLC3 VWAP/,JSON.stringify({
+  question:c.question.value,note:c.note.textContent,sourceStatus:c.status.textContent,
+  sourceState:c.sender.CrownlightTutorChartHandoffV1.getStatus(),
+  sent:c.senderMessage,received:c.receiverMessage
+ }));
  assert.equal(c.question.focused,true);
  assert.equal(c.question.lastEvent,'input');
  assert.match(c.note.textContent,/Nothing has been automatically sent/);

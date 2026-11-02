@@ -111,3 +111,26 @@ A single eight-file git-tree commit was created twice but could not be moved ont
 **Revision history:** v1.2 / 2026-11-01 / real CI failure, code/test correction and pending clean rerun; source only.
 
 **Footer:** SMFGU-VIS-INT-005 · v1.2 · No payment, live trading, new Supabase writes or independent production approval.
+
+
+## v1.3 — Chart-to-Tutor account-mismatch Chromium correction (2026-11-01)
+
+**Base:** `main` at `011bf12996d90e512d41c3d309c4a8d01b485919`; clean before this batch. The reported Actions run `41371524815` was not accessible from the local GitHub CLI (not installed), so its historical hosted log was not independently re-read. The reported mismatch scenario was reproduced locally against the current source and failed at the same browser wait.
+
+**Confirmed cause:** The browser fixture captured `location.pathname` while the popup was still its inherited initial `about:blank` document. It therefore permanently assigned the source account (`MemberA`) to the Tutor popup even in the `MemberB` case. The production account comparison was not receiving a different account ID, so the test waited for a rejection that its fixture could never produce.
+
+**Changes:**
+
+- `tests/test_crownlight_tutor_chart_handoff_browser_v1.mjs` resolves its mock identity when Auth is queried after navigation, and includes state diagnostics if the mismatch rejection regresses.
+- `assets/js/crownlight-tutor-chart-handoff-v1.js` repeats the nonce-bound readiness message briefly to tolerate the real `window.open()`/popup-load ordering window. The sender serializes readiness checks, explicitly rejects a receiver with a different or unverified account, and the receiver stops retrying after rejection or acceptance. Origin, exact popup source, nonce, fresh sender Auth identity, receiver Auth identity, entitlement recheck, 450-character bound, user edit, and no-auto-submit controls remain in force.
+- `tests/test_crownlight_tutor_chart_handoff_v1.mjs` pumps the async Auth/message path through an event-loop turn and supplies `clearTimeout` to its VM browser context.
+
+**Contract and impact:** Existing `SMFGU-VIS-INT-005` one-time postMessage event remains v1 with the same payload fields and data boundaries. No database/API contract, entitlement, membership, protected assessment, grading, indicator math, historical-data cutoff, or payment behavior changed. No Supabase migration is required. Rollback is a revert of the three scoped source/test files; there is no persisted state to restore.
+
+**Local evidence:** PASS `node --check` for the handoff source and browser test; PASS the handoff Node contract; PASS all five focused ECharts Chromium suites (Free Foundations, Learning Progress, Admin Analytics, chart-linked Talia bridge, and chart-to-Tutor handoff). The browser suite uses mocked identities and entitlement responses; it is not authenticated member acceptance. The workflow's two GitHub jobs, complete Actions matrix, deployed Cloudflare SHA, keyboard/screen-reader review, and signed-in two-account acceptance remain OPEN pending the resulting pushed SHA and genuine account access.
+
+**Completion boundary:** The specific reproduced browser defect is corrected and locally verified. Interactive Tutor conversation history, source-grounded multi-turn dialogue, actual member progress persistence, assessment privacy, and real Free/Founding/Owner acceptance were not implemented or certified by this defect correction. Preserve the v1.2 and roadmap completion denominators; do not assign whole-site or full Tutor integration completion from these tests.
+
+**Revision history:** v1.3 / 2026-11-01 / Corrected popup identity fixture and hardened same-origin readiness ordering; local 5/5 Chromium suites pass; hosted exact-SHA CI/deployment/auth acceptance open.
+
+**Footer:** SMFGU-VIS-INT-005 · v1.3 · Local source/test acceptance only; no production certification.
