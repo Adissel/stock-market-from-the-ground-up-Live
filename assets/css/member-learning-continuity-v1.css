@@ -1,0 +1,14 @@
+/* Member continuity workspace. No Lab or Boot Camp selectors. */
+.cl-continuity-hub{background:linear-gradient(120deg,#122c40,#0d1d30)!important;border:1px solid #42657a!important;overflow:hidden}
+.cl-continuity-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;padding:4px 3px 23px;border-bottom:1px solid rgba(151,195,218,.25)}
+.cl-continuity-top h2{font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:650;letter-spacing:-.035em;margin:.15em 0}
+.cl-continuity-top p{margin:4px 0;max-width:720px;color:#b0c6d7;line-height:1.6}
+.cl-continuity-metric{display:flex;flex-direction:column;gap:4px;align-items:flex-end;white-space:nowrap}
+.cl-continuity-metric strong{font-size:clamp(2rem,4vw,3rem);color:#f3c888;line-height:1}
+.cl-continuity-metric small{font-size:12px;color:#a9bdce}
+.cl-continuity-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:19px}
+.cl-continuity-links a{display:flex;flex-direction:column;gap:7px;background:#172e42;border:1px solid #37556b;border-radius:10px;padding:19px;text-decoration:none;color:#ecf6fb;min-width:0;transition:background .18s,border-color .18s}
+.cl-continuity-links a:hover,.cl-continuity-links a:focus-visible{background:#23465a;border-color:#58b7bc}
+.cl-continuity-links a b{font-size:.98rem}.cl-continuity-links a span{color:#b8ccd9;font-size:.82rem;line-height:1.5}
+@media(max-width:950px){.cl-continuity-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.cl-continuity-links{grid-template-columns:1fr}.cl-continuity-metric{align-items:flex-start}.cl-continuity-hub{padding:16px!important}}
