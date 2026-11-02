@@ -9,7 +9,7 @@
 | GitHub controlling path | `docs/qa/2026-11-01_TALIA_UPLOAD5_10_GATE_EXECUTION_017_v1.md` (`main`) |
 | Google Drive location / file ID | Not created; unassigned |
 | Version / date | 1.0 / November 1, 2026 |
-| Status | Source implementation progressed; targeted Cloudflare test output passed; full exact-head CI and independent release acceptance OPEN |
+| Status | Source implementation progressed; targeted Tutor tests passed; Pages commit 92a9bf9 successfully deployed; final exact-head GitHub CI and independent release acceptance OPEN |
 | Dependencies | Master Research Source Directory(5).odt; 73-entry master source registry; `SMFGU-TALIA-MEMBER-ACCESS-001`; existing 30 competencies, source-only Tutor API and versioned frozen baseline |
 | Purpose | Evidence-based Tutor-only execution record against owner-specified ten gates. No paid AI API, new member key, official grade, trade execution or member entitlement changed. |
 
@@ -26,7 +26,7 @@
 | 7. Tutor ECharts and replay evidence | **PARTIAL** | React classroom tooltip restricted to `REPLAY.slice(0,visible)`; honest static fictional client-fixture warning; source assertions added | Secure server-supplied replay and actual browser/assistive-technology acceptance, no-lookahead across timeframes |
 | 8. Real authenticated Basic privacy | **OPEN** | Existing membership-only API, current/frozen loader, React classroom and source assertions preserved | Two genuine signed-in accounts, Free and entitled membership, real saved-history isolation, sign-out and device accessibility |
 | 9. Advanced/Professional/Enterprise | **SOURCE PROTOTYPES, UNRELEASED** | Existing `talia-tier-research-contracts-v1.js` offers bounded prerequisite/replay/provenance functions; release flag `TALIA_PREMIUM_RESEARCH_RELEASED=false` | Authenticated entitlement integration and independent tier-specific product QA; no invented % |
-| 10. Full CI and production acceptance | **OPEN / CI FAILURE TO RESOLVE** | Targeted Cloudflare log shows 260-topic and five new Python/JS indicator tests passing; new source intake tests passing. Whole Pages build on subsequent SHAs reported failures later than the available initial 1,000 log lines. No complete latest GitHub Actions evidence | Diagnose actual later failing build job, rerun complete CI on frozen SHA, match successful Cloudflare deployment and perform real accessibility/security acceptance |
+| 10. Full CI and production acceptance | **OPEN / EXACT-HEAD CI TO VERIFY** | Targeted Cloudflare log shows 260-topic and five new Python/JS indicator tests passing; new source intake tests passing. Earlier Pages builds failed; commit 92a9bf9212344ee0c5483a683f697181c25ad87c subsequently successfully deployed with Tutor source checks passing. No complete latest SHA GitHub Actions evidence | Freeze a final SHA, verify all relevant GitHub Actions and matching Cloudflare deployment and perform real accessibility/security acceptance |
 
 ## Numerically supported progress
 
@@ -53,7 +53,7 @@
 
 ## What is next in execution order
 
-1. Resolve the failure in the full site build on a frozen `main` commit and match Pages deploy with GitHub Actions results. Preserve unrelated concurrent work and existing security tests; do not claim exact-head acceptance from partial logs.
+1. Verify all GitHub Actions on a frozen `main` SHA and confirm matching successful Pages deployment. A successful prior Pages build alone does not prove later HEAD acceptance. Preserve unrelated concurrent work and existing security tests; do not claim exact-head acceptance from partial logs.
 2. Complete remaining individual evidence checks for 101–140 and update exact source scopes rather than generic broad URLs.
 3. Independently validate indicators 21–30 and 46–73, including alternative seed, correct first-valid bar, units and calculation limits.
 4. Re-run the complete 260-topic no-grading, distinctive explanation and missing-asset fallback suites with source references and correct mathematical interpretation.
