@@ -6,3 +6,5 @@ test('Workbench retains canonical authorization and source-only teaching',()=>{a
 test('Worked example table has semantic column and row headings for assistive navigation',()=>{assert.match(source,/const thead=node\('thead'\)/);assert.match(source,/th\.setAttribute\('scope','col'\)/);assert.match(source,/th\.setAttribute\('scope','row'\)/);assert.match(source,/table\.append\(thead,tbody\)/);});
 
 test('Full chart data is accessible in an independent numerical table including warmup',()=>{assert.match(source,/Complete fictional indicator series with warmup periods/);assert.match(source,/gu-quant-series-table/);assert.match(source,/line\.data\?\.\[i\]/);assert.match(source,/Not available — warmup/);assert.match(source,/shell\.append\(chart,table,seriesTable\)/);});
+
+test('Every authored indicator ECharts series receives an explicit supported type and retains warmup gaps',()=>{assert.match(source,/base\.chart\.map\(line=>\(\{name:line\.name,type:line\.type==='bar'\?'bar':'line',data:line\.data,connectNulls:false\}\)\)/);});
