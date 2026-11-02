@@ -1,0 +1,20 @@
+/* Same-origin ECharts/Talia teaching bridge: original, ungraded and accessible. */
+#crownlight-talia-echarts-visual{margin-block:1.35rem;padding:clamp(1rem,2vw,1.55rem);
+ background:linear-gradient(155deg,#112b3d,#0d202e 65%,#162f3f);
+ border:1px solid #41687e;border-radius:14px;color:#ebf5fa;min-width:0}
+#crownlight-talia-echarts-visual h3{font-size:clamp(1.12rem,1.9vw,1.5rem);margin:.2rem 0 .5rem;color:#f2faff}
+#crownlight-talia-echarts-visual h4{font-size:1rem;margin:1rem 0 .5rem;color:#ecf6fb}
+#crownlight-talia-echarts-visual .cte-kicker{text-transform:uppercase;letter-spacing:.14em;color:#80dbc5;font-size:.7rem;font-weight:750}
+#crownlight-talia-echarts-visual p{color:#d8e9f1;line-height:1.65;max-width:90ch}
+#crownlight-talia-echarts-visual [data-talia-echarts-status]{font-size:.88rem;color:#d3e6ef}
+#crownlight-talia-echarts-visual [data-talia-echarts-plot]{width:100%;height:clamp(270px,35vw,380px);min-width:0}
+#crownlight-talia-echarts-visual [data-talia-echarts-plot][hidden]{display:none}
+#crownlight-talia-echarts-visual .cte-table-scroll{max-width:100%;overflow-x:auto}
+#crownlight-talia-echarts-visual table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;text-align:left;color:#eef8fc}
+#crownlight-talia-echarts-visual caption{text-align:left;color:#b7d0e2;padding:.5rem 0}
+#crownlight-talia-echarts-visual th,#crownlight-talia-echarts-visual td{padding:.56rem .7rem;border-bottom:1px solid #345669}
+#crownlight-talia-echarts-visual th{font-weight:650}
+#crownlight-talia-echarts-visual .cte-teaching{border-top:1px solid #345669;margin-top:1rem}
+#crownlight-talia-echarts-visual .cte-teaching p{margin:.5rem 0}
+@media(max-width:600px){#crownlight-talia-echarts-visual{padding:.85rem;border-radius:10px}#crownlight-talia-echarts-visual table{font-size:.85rem}#crownlight-talia-echarts-visual th,#crownlight-talia-echarts-visual td{padding:.45rem .35rem}}
+@media(prefers-reduced-motion:reduce){#crownlight-talia-echarts-visual *{scroll-behavior:auto!important;transition:none!important}}
