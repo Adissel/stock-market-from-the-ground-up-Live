@@ -26,7 +26,8 @@ try{
  assert.equal(result.status,0,'Source SEO build failed: '+result.stderr);
  const sitemap=readFileSync(join(root,'sitemap.xml'),'utf8');
  assert(sitemap.includes('<loc>'+origin+'/</loc>'));
- assert(sitemap.includes('<loc>'+origin+'/about.html</loc>'));
+ assert(sitemap.includes('<loc>'+origin+'/about</loc>'));
+ assert(!/<loc>[^<]*\.html<\/loc>/i.test(sitemap),'Sitemap must use final Cloudflare Pages URLs without redirects');
  assert.equal((sitemap.match(/<url><loc>/g)||[]).length,19,'Exactly 19 eligible public pages');
  assert(!sitemap.includes('/admin.html')&&!sitemap.includes('/dashboard.html')&&!sitemap.includes('/privacy.html'));
  assert(readFileSync(join(root,'admin.html'),'utf8').includes('noindex,nofollow'));
@@ -42,7 +43,7 @@ try{
   assert(!titles.has(title),'Duplicate public title: '+slug);
   assert(!descriptions.has(summary),'Duplicate public summary: '+slug);
   titles.add(title);descriptions.add(summary);
-  const url=origin+(slug==='index'?'/':'/'+slug+'.html');
+  const url=origin+(slug==='index'?'/':'/'+slug);
   assert(page.includes('<link rel="canonical" href="'+url+'">'),'Canonical mismatch: '+slug);
   assert(page.includes('<meta property="og:url" content="'+url+'">'),'Social URL mismatch: '+slug);
   assert.equal((page.match(/<meta property="og:title"/g)||[]).length,1,'Duplicate social metadata: '+slug);
