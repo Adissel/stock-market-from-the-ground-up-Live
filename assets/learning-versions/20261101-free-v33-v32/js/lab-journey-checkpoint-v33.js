@@ -33,9 +33,10 @@
     !/^[0-9a-f-]{36}$/i.test(String(userId||''))||!['guided','practice'].includes(mode))
    return null;
   const valid=()=>typeof alive==='function'?alive()===true:true;
-  let queue=Promise.resolve(),revision=0;
+  let queue=Promise.resolve(),revision=0,ready=false;
   return{
    async load(){
+    ready=false;
     if(!valid())return null;
     const {data,error}=await sb.from('site_lab_progress')
      .select('responses').eq('user_id',userId).eq('lab_id',labId).maybeSingle();
@@ -56,6 +57,7 @@
     if(raw&&(!Number.isSafeInteger(raw.rev)||raw.rev<0))
      throw Error('Saved journey revision is invalid; no progress was overwritten.');
     revision=raw?.rev||0;
+    ready=true;
     return found;
    },
    save(raw){
@@ -63,6 +65,7 @@
     const checkpoint=normalize(raw,mode);
     if(!checkpoint)return Promise.reject(Error('Invalid ungraded progress record.'));
     queue=queue.catch(()=>{}).then(async()=>{
+     if(!ready)throw Error('Authoritative checkpoint was not loaded. Reload before saving.');
      if(!valid())throw Error('Member account changed; previous draft was not saved.');
      const {data,error}=await sb.rpc('gu_v33_save_lab_journey',{
       p_lab:labId,p_checkpoint:checkpoint,p_expected_revision:revision
