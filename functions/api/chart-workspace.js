@@ -34,6 +34,31 @@ function chartStudyPrefs(raw){
  }
  return result;
 }
+/* ECharts optional studio presentation, stored in the existing authenticated
+ * JSONB workspace. Do not permit script strings, raw data or credential fields.
+ * Client-only controls do not grant premium tier access or private data access. */
+const ECHARTS_ITEMS=new Set(['ema9','ema20','ema200','sma20','vwap','bb20','hod','lod',
+ 'volma20','structure','rsi14','macd','atr14','macdSignal','macdHistogram']);
+const ECHARTS_PANES=['rsi14','macd','atr14'];
+function safeEchartsPreferences(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))return null;
+ const enabled={},colors={},lineStyles={},paneSizes={};
+ if(raw.enabled&&typeof raw.enabled==='object'&&!Array.isArray(raw.enabled))
+  for(const [key,value] of Object.entries(raw.enabled))
+   if(ECHARTS_ITEMS.has(key)&&typeof value==='boolean')enabled[key]=value;
+ if(raw.colors&&typeof raw.colors==='object'&&!Array.isArray(raw.colors))
+  for(const [key,value] of Object.entries(raw.colors))
+   if(ECHARTS_ITEMS.has(key)&&typeof value==='string'&&/^#[0-9a-f]{6}$/i.test(value))
+    colors[key]=value.toLowerCase();
+ if(raw.lineStyles&&typeof raw.lineStyles==='object'&&!Array.isArray(raw.lineStyles))
+  for(const [key,value] of Object.entries(raw.lineStyles))
+   if(ECHARTS_ITEMS.has(key)&&SAFE_LINES.has(value))lineStyles[key]=value;
+ if(raw.paneSizes&&typeof raw.paneSizes==='object'&&!Array.isArray(raw.paneSizes))
+  for(const key of ECHARTS_PANES)
+   if(Number.isInteger(raw.paneSizes[key])&&raw.paneSizes[key]>=110&&raw.paneSizes[key]<=285)
+    paneSizes[key]=raw.paneSizes[key];
+ return {enabled,colors,lineStyles,paneSizes,stroke:SAFE_LINES.has(raw.stroke)?raw.stroke:'solid'};
+}
 export function normalizeWorkspace(input,entitlement){
  const raw=input&&typeof input==='object'&&!Array.isArray(input)?input:{};
  const requested=String(raw.selected||'STANDARD');
@@ -81,7 +106,7 @@ export function normalizeWorkspace(input,entitlement){
   known.add(entry.context);
   drawingSets.push({context:entry.context,drawings:subset});
  }
- return {version:2,selected,sync:raw.sync!==false,studies,drawings,layout,drawingContext,drawingSets,appearance:chartAppearance(raw.appearance),chartStudies:chartStudyPrefs(raw.chartStudies)};
+ return {version:2,selected,sync:raw.sync!==false,studies,drawings,layout,drawingContext,drawingSets,appearance:chartAppearance(raw.appearance),chartStudies:chartStudyPrefs(raw.chartStudies),echartsPreferences:safeEchartsPreferences(raw.echartsPreferences)};
 }
 const cfg=env=>{
  const base=String(env.SUPABASE_URL||'').replace(/\/$/,'');
