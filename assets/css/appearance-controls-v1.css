@@ -23,3 +23,7 @@ html[data-smfgu-theme="light"] body.sm-experience-v7 .sm-v5-store-aside span{col
 @media(max-width:840px){.sm-theme-picker{order:3}}
 
 .sm-theme-dot[data-smfgu-theme="atelier"]{background:linear-gradient(140deg,#f6f3eb 0 48%,#3046ce 49% 73%,#e55740 74%)!important}
+
+.sm-theme-dot[data-smfgu-theme="spectrum"]{background:linear-gradient(135deg,#070916 40%,#53f4dc 40% 70%,#a875ff 70%)!important}
+.sm-theme-dot[data-smfgu-theme="ultraviolet"]{background:linear-gradient(135deg,#100720 40%,#dd73ff 40% 70%,#55e9ff 70%)!important}
+.sm-theme-dot[data-smfgu-theme="solar"]{background:linear-gradient(135deg,#0c1016 40%,#ffe267 40% 70%,#ff785b 70%)!important}
