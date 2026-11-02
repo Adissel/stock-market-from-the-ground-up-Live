@@ -198,6 +198,7 @@ if(!email||!password){
   }catch(e){
    note('failures','Real signed-in Talia preference workflow: '+String(e.message||e).slice(0,300));
   }
+  const qaResearch='FICTIONAL QA STUDY ONLY: The GUSIM teaching candles do not represent an issuer, an executable quotation, or verified market liquidity. Choose NO TRADE until genuine independent evidence exists.';
   try {
   const watchPreflight=await page.request.get(origin+'/api/free-watchlist',
    {headers:bearer,timeout:30000});
@@ -205,7 +206,6 @@ if(!email||!password){
   const watchBefore=await watchPreflight.json();
   assert.equal(watchBefore.ok,true);
   assert(Array.isArray(watchBefore.entries));
-  const qaResearch='FICTIONAL QA STUDY ONLY: The GUSIM teaching candles do not represent an issuer, an executable quotation, or verified market liquidity. Choose NO TRADE until genuine independent evidence exists.';
   const prior=watchBefore.entries.find(x=>x.symbol==='GUSIM');
   assert(!prior||(prior.sourceKind==='FICTIONAL'&&prior.status==='NO_TRADE'&&prior.researchNote===qaResearch),
    'Existing GUSIM research differs from authorized QA sample; refusing to change it.');
