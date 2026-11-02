@@ -57,7 +57,7 @@ try{
   const chart=await page.evaluate(()=>{
    const c=window.echarts.getInstanceByDom(document.querySelector('[data-talia-echarts-plot]'));
    return {type:c.getOption().series.map(s=>s.type),points:c.getOption().series.map(s=>s.data),
-    description:c.getOption().aria[0].description};
+    description:document.querySelector('[data-talia-echarts-plot]').getAttribute('aria-label')};
   });
   assert.deepEqual(chart.type,['line','line','line']);
   assert(chart.points.every(s=>s.length===25 && s.every(p=>p[0]<=24)));
