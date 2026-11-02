@@ -312,16 +312,17 @@
       "code": "TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION",
       "title": "A squared-weight concentration index does not measure return covariance",
       "concept": "A position-concentration index sums squared portfolio weights and describes capital allocation concentration, not how independently prices move.",
-      "procedure": "Determine same-time position weights as nonnegative decimal fractions totaling one; compute H=sum(weight²) and specify excluded leverage.",
+      "procedure": "Determine same-time position weights as nonnegative decimal fractions totaling one; compute H=sum(weight²) and specify excluded leverage. Talia diagnostic: Does H=0.38 prove this portfolio is low-risk?",
       "workedCase": "FICTIONAL: 50%,30%,20% weights give 0.50²+0.30²+0.20²=0.38; equal thirds would give 1/3≈0.333, showing greater concentration by this measure.",
       "limit": "Shared sectors, correlation and liquidity exposure are absent from this descriptive metric; lower H does not certify a safer outcome.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Shared sectors, correlation and liquidity exposure are absent from this descriptive metric; lower H does not certify a safer outcome.",
       "commonError": "Treating several tickers or a low H score as evidence that prices cannot fall together.",
       "selfCheck": "How does squaring allocation weights measure concentration yet omit comovement?",
-      "reviewExplanation": "Check 0.25+0.09+0.04=0.38; do not infer covariance, market betas or a numerical volatility reduction. This is formative guidance, not a protected grading decision.",
+      "reviewExplanation": "Check 0.25+0.09+0.04=0.38; do not infer covariance, market betas or a numerical volatility reduction. This is formative guidance, not a protected grading decision. Specific correction: No: sum squared portfolio weights measures concentration and gives an effective-holdings count of about 2.63; it does not measure covariance, leverage or future losses. Material limitation: HHI portfolio weight convention uses decimal weights. Market-share HHI on a 0–10,000 regulatory scale is analogous, not identical. Concentration alone cannot guarantee risk reduction.",
       "transferQuestion": "FICTIONAL TRANSFER: Calculate H for 50/50 and for four equal 25% positions; explain what H does not reveal.",
       "sourceUrls": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
+        "https://www.ssga.com/us/en/individual/insights/concentration-is-up-diversification-isnt-gone"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -346,6 +347,17 @@
         "decision": "HOLD_SQUARED_WEIGHT_FORMULA",
         "formulaAndNumericReleaseAccepted": false,
         "independentPublicationAccepted": false
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "HIGH_PRIORITY_INDIVIDUAL_PRIMARY_SOURCE_AND_CUTOFF_REVIEW",
+        "outcome": "CORRECTED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does H=0.38 prove this portfolio is low-risk?",
+        "correctiveTeaching": "No: sum squared portfolio weights measures concentration and gives an effective-holdings count of about 2.63; it does not measure covariance, leverage or future losses.",
+        "limitation": "HHI portfolio weight convention uses decimal weights. Market-share HHI on a 0–10,000 regulatory scale is analogous, not identical. Concentration alone cannot guarantee risk reduction.",
+        "sourceVerified": "https://www.ssga.com/us/en/individual/insights/concentration-is-up-diversification-isnt-gone",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
@@ -466,16 +478,17 @@
       "code": "TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE",
       "title": "Fiscal statement dates are not equivalent to historical public-information timestamps",
       "concept": "A financial statement describes a fiscal observation period; its filing/acceptance time controls when its particular disclosure could enter the public information set.",
-      "procedure": "Compare fiscal period end, actual EDGAR acceptance timestamp, any earlier public release and the historical replay observation cutoff.",
-      "workedCase": "FICTIONAL: A company's year ends December 31, but the annual filing is first publicly accepted February 20. A January 15 replay must not use that 10-K as known information merely because it reports the prior year.",
+      "procedure": "Compare fiscal period end, actual EDGAR acceptance timestamp, any earlier public release and the historical replay observation cutoff. Talia diagnostic: If a Form 10-K has an EDGAR acceptance timestamp at 14:00, may a 14:00 historical replay use it as publicly known?",
+      "workedCase": "FICTIONAL: A company's year ends December 31, but the annual filing is accepted by EDGAR on February 20, and its first public availability may occur later. A January 15 replay must not use that 10-K as known information merely because it reports the prior year.",
       "limit": "Preliminary releases or subsequent amendments can provide other versions, each needing its own time-stamped evidence record.",
       "invalidation": "Stop the calculation when its required inputs or matched dates are missing. Specifically: Preliminary releases or subsequent amendments can provide other versions, each needing its own time-stamped evidence record.",
       "commonError": "Backdating financial information to period end and leaking unseen future filing facts into practice scenarios.",
       "selfCheck": "What was public by January 15 given a hypothetical February 20 acceptance timestamp?",
-      "reviewExplanation": "Never let a February 20 Form 10-K disclosure enter the January 15 historical information set without a distinct earlier public source. This is formative guidance, not a protected grading decision.",
+      "reviewExplanation": "Never let a February 20 Form 10-K disclosure enter the January 15 historical information set without a distinct earlier public source. This is formative guidance, not a protected grading decision. Specific correction: No: acceptance is a different event from first public dissemination; SEC reports often 1–3 minutes lag but no exact first-public-availability timestamp. Use independently observed release or a conservatively declared lag. Material limitation: A December 31 fiscal period end is not public release; filing acceptance also cannot certify the first available second on SEC.gov.",
       "transferQuestion": "FICTIONAL TRANSFER: A quarter ends June 30, filing occurs August 6. Could a July 10 replay cite its 10-Q figures?",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments"
+        "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+        "https://www.sec.gov/about/webmaster-frequently-asked-questions"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -501,6 +514,17 @@
         "claimStatus": "PRIMARY_SCOPE_REVIEWED_MATH_AND_INDEPENDENT_PUBLICATION_HOLD",
         "originalWorkedCaseKept": true,
         "independentPublicationAccepted": false
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "HIGH_PRIORITY_INDIVIDUAL_PRIMARY_SOURCE_AND_CUTOFF_REVIEW",
+        "outcome": "CORRECTED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "If a Form 10-K has an EDGAR acceptance timestamp at 14:00, may a 14:00 historical replay use it as publicly known?",
+        "correctiveTeaching": "No: acceptance is a different event from first public dissemination; SEC reports often 1–3 minutes lag but no exact first-public-availability timestamp. Use independently observed release or a conservatively declared lag.",
+        "limitation": "A December 31 fiscal period end is not public release; filing acceptance also cannot certify the first available second on SEC.gov.",
+        "sourceVerified": "https://www.sec.gov/about/webmaster-frequently-asked-questions",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
