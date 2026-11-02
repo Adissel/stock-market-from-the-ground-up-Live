@@ -143,7 +143,9 @@ permissions:
   contents: read
 concurrency:
   group: crownlight-chart-studio-${{ github.ref }}
-  cancel-in-progress: true
+  # Preserve an in-flight Chromium acceptance run even when main receives new commits.
+  # GitHub may replace a pending run, but must not cancel the currently running proof.
+  cancel-in-progress: false
 jobs:
   chart-browser:
     runs-on: ubuntu-latest
