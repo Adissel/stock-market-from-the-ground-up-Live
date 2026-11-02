@@ -9,20 +9,22 @@ import {chromium} from 'playwright';
 // Verify the production domain before AND after browser acceptance: a green
 // browser run on an older deployment must never certify another main commit.
 const ORIGIN=String(process.env.V4_ACCEPTANCE_ORIGIN||'https://stock-market-from-the-ground-up-d1r.pages.dev').replace(/\/$/,'');
-const SHA=String(process.env.GITHUB_SHA||process.env.V4_ACCEPTANCE_SHA||'').trim().toLowerCase();
+const RUN_SHA=String(process.env.GITHUB_SHA||'').trim().toLowerCase();
+const SHA=String(process.env.V4_PINNED_DEPLOYMENT_SHA||process.env.V4_ACCEPTANCE_SHA||RUN_SHA).trim().toLowerCase();
+const PINNED=SHA!==RUN_SHA;
 const requireExactDeployment=async()=>{
- if(!/^[0-9a-f]{40}$/.test(SHA))throw Error('BLOCKED: runner exact GitHub SHA is unavailable');
+ if(!/^[0-9a-f]{40}$/.test(SHA))throw Error('BLOCKED: pinned deployment SHA is missing or malformed');
  const url=ORIGIN+'/release-manifest.json?release_verification='+SHA;
  const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(25000)});
  if(!response.ok)throw Error('BLOCKED: production release manifest unavailable: HTTP '+response.status);
  const manifest=await response.json();
- if(manifest?.gitCommit!==SHA)throw Error('BLOCKED: Cloudflare production source SHA does not match GitHub run SHA: expected '+SHA+' observed '+String(manifest?.gitCommit||'missing'));
+ if(manifest?.gitCommit!==SHA)throw Error('BLOCKED: immutable Cloudflare SHA mismatch: expected '+SHA+' observed '+String(manifest?.gitCommit||'missing'));
  return SHA;
 };
 const EXPECTED_ID='f42f9301-18e6-43a3-8531-32d371fd22c1'; // Existing James_Test QA identity
 const DIR=process.env.QA_ARTIFACT_DIR||'artifacts/talia-v4-oat';
 mkdirSync(DIR,{recursive:true});
-const output={id:'SMFGU-TALIA-V4-OAT-001',releaseSha:SHA,origin:ORIGIN,checks:[],twoAccount:'NOT_TESTED',staff:'NOT_TESTED',noPayments:true,noProtectedWrites:true,completed:false};
+const output={id:'SMFGU-TALIA-V4-OAT-001',releaseSha:SHA,testRunnerSha:RUN_SHA,pinnedDeployment:PINNED,productionSignoff:false,origin:ORIGIN,checks:[],twoAccount:'NOT_TESTED',staff:'NOT_TESTED',noPayments:true,noProtectedWrites:true,completed:false};
 const mark=(name,result,detail='')=>{output.checks.push({name,result,detail});console.log(result+' '+name+(detail?' '+detail:''))};
 const fail=(code,msg)=>{const e=new Error(code+': '+msg);e.code=code;throw e};
 const wait=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -38,19 +40,20 @@ const dataFor=async page=>page.evaluate(()=>{
 let browser;
 try{
  assert(ORIGIN.startsWith('https://'),'Production acceptance URL must use HTTPS');
- // At most four polls, separated by 90s, for real Cloudflare build completion.
- // A production SHA mismatch is a hard release HOLD, never an unconditional pass.
+ // Pin an already-successful immutable Pages deployment. This permits genuine
+ // interactive QA while other teams commit, without certifying moving production.
+ // A different manifest SHA is always a hard failure.
  let deployed=false;
- for(let attempt=1;attempt<=4;attempt++){
+ for(let attempt=1;attempt<=(PINNED?1:4);attempt++){
   try{await requireExactDeployment();deployed=true;break;}
   catch(err){
-   if(attempt===4)throw err;
+   if(attempt===(PINNED?1:4))throw err;
    console.log('DEPLOYMENT_PENDING: exact SHA not yet active ('+attempt+'/4); recheck after 90s');
    await wait(90000);
   }
  }
  assert(deployed,'Exact deployment verification did not pass');
- mark('Verified production source SHA','PASS','Production manifest equals the actual GitHub run commit');
+ mark('Verified immutable deployment source SHA','PASS','Pages manifest equals pinned source commit '+SHA.slice(0,8));
  for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4-route2']){
   const res=await fetch(ORIGIN+path,{signal:AbortSignal.timeout(25000)});
   assert.equal(res.status,200,'Release asset status '+res.status+' for '+path);
@@ -213,7 +216,7 @@ try{
  }
  await ctx.close();
  await requireExactDeployment(); // Catch production drift while browser QA was running.
- mark('Verified production SHA after browser','PASS','GitHub run SHA remained the deployed production SHA');
+ mark('Verified immutable SHA after browser','PASS','Pinned Pages deployment has not changed');
  output.completed=output.checks.every(c=>c.result==='PASS')&&output.twoAccount==='PASS'&&output.staff==='PASS';
  if(!output.completed)fail('RELEASE_HOLD','Browser and privacy gates require complete verified PASS');
 }catch(err){
@@ -224,5 +227,5 @@ try{
 }finally{
  writeFileSync(DIR+'/results.json',JSON.stringify(output,null,2)+'\n');
  try{await browser?.close()}catch{}
- console.log('ACCEPTANCE_RESULT '+JSON.stringify({releaseSha:SHA,completed:output.completed,passed:output.checks.filter(x=>x.result==='PASS').length,blocked:output.checks.filter(x=>x.result==='BLOCKED').length,failureCode:output.failureCode||null,twoAccount:output.twoAccount,staff:output.staff}));
+ console.log('ACCEPTANCE_RESULT '+JSON.stringify({releaseSha:SHA,pinnedDeployment:PINNED,productionSignoff:false,completed:output.completed,passed:output.checks.filter(x=>x.result==='PASS').length,blocked:output.checks.filter(x=>x.result==='BLOCKED').length,failureCode:output.failureCode||null,twoAccount:output.twoAccount,staff:output.staff}));
 }
