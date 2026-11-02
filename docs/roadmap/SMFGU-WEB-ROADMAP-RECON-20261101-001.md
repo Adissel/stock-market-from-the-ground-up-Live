@@ -1,5 +1,9 @@
 # Website Development Roadmap — November 1 Release and Curriculum Reconciliation
 
+## Shared-engine Gate 2 checkpoint integrity — 2026-11-01
+
+Basic Learning v3.3 / Lab v3.2 checkpoint persistence now fails closed after an unverified progress read: the browser cannot enable a revision-zero save until the existing member record or verified empty state has loaded successfully. This preserves existing progress and CAS isolation without adding a ledger, grade, entitlement, paid service or premium capability. Targeted Node verification passed locally; Python was unavailable on the host. Exact-main CI, Cloudflare parity and authenticated member persistence acceptance remain required, so no release-acceptance percentage changes.
+
 | Document control | Value |
 |---|---|
 | Company / imprint | Cyber Nexus Publishing / Crown & Lantern Press |
@@ -8,7 +12,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.16 / 2026-11-01 |
+| Version / prepared | 1.17 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -326,4 +330,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.16 / 2026-11-01 / Recorded 28/28 exact correction-SHA Actions successes and matching Cloudflare served-source parity for the Chart Studio member workstation batch; genuine release acceptance remains open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.16 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.17 / 2026-11-01 / Corrected Basic shared-engine checkpoint fail-open behavior after an unverified member-progress read; targeted local Node tests passed, while exact-main CI, deployment and real-member acceptance remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.17 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

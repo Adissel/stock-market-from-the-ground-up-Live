@@ -78,6 +78,15 @@ const resumed=await store.load();
 assert.equal(resumed.stage,6);
 assert.equal(resumed.practiceCount,2);
 assert.equal(resumed.learnerReplies.length,2);
+
+// The classroom must fail closed when the authoritative checkpoint revision
+// cannot be loaded. A transient read failure must not enable a revision-zero
+// write that could replace a legacy member draft.
+const universal=read('assets/js/lab-engine-v32-universal.js');
+assert.match(universal,/let checkpointLoadVerified=!progressStore;/);
+assert.match(universal,/checkpointLoadVerified=true;/);
+assert.match(universal,/render\(\);checkpointReady=checkpointLoadVerified;/);
+assert.match(universal,/saveCheckpointControl\.disabled=!checkpointReady;/);
 const practiceOnly=checkpoint.create({sb,userId:ID,labId:lab,mode:'practice',alive:()=>accountActive});
 assert.equal(await practiceOnly.load(),null,'The practice mode cannot preload guided instructional state');
 accountActive=false;

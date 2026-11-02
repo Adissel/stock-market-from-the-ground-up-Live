@@ -1,5 +1,11 @@
 # SMFGU — Shared Learning and Lab Engines: Feature-Level Completion Audit
 
+## Gate 2 Basic progress-integrity correction — 2026-11-01
+
+The existing v3.3 member checkpoint integration now remains fail-closed when its authoritative `site_lab_progress` read cannot be verified. Previously, the classroom displayed a load-failure warning but then re-enabled saves with an unverified revision; a legacy revision-zero record could therefore be replaced after a transient read failure. `assets/js/lab-engine-v32-universal.js` now enables checkpoint writes only after a successful load (including a verified empty result), and keeps the save control disabled after a load error. `tests/test_v33_member_checkpoint_resume.mjs` protects the new state transition alongside the existing serialization, CAS-conflict, account-change and protected-field checks.
+
+This is a focused Basic reliability/security correction. It does not increase the 64-feature numerator, release a premium edition, alter grading, change entitlements, certify authenticated production persistence, or establish independent release acceptance. Local Node source and targeted engine tests passed; Python validation was not runnable because the execution host has no Python interpreter. Exact-head CI, matching Cloudflare deployment and genuine member browser acceptance remain open.
+
 | Control | Value |
 |---|---|
 | Project | THE STOCK MARKET: FROM THE GROUND UP |
@@ -7,7 +13,7 @@
 | Filename / type | `SMFGU-LEARNING-LAB-FEATURE-AUDIT-001-v1-20261101.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/learning/` |
 | Google Drive location / document ID | Not created / unassigned |
-| Version / preparation date | 1.0 / November 1, 2026 |
+| Version / preparation date | 1.1 / November 1, 2026 |
 | Status | SOURCE INVENTORY AUDITED; production and independent release approval OPEN |
 | Data source | `data/learning-lab-engine-feature-audit-v1.json` |
 | Calculator | `scripts/qa/learning-lab-engine-feature-audit-v1.mjs` |
@@ -171,5 +177,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | Version | Date | Change | Decision |
 |---|---|---|
 | v1.0 | 2026-11-01 | Established 64 feature requirements and eight source-integration denominators with per-feature blockers, source and test pointers | Source audit complete; real-member and premium release acceptance open |
+| v1.1 | 2026-11-01 | Made Basic checkpoint writes fail closed until the authoritative member revision or verified empty state loads | Local targeted Node verification passed; exact-main CI, deployment and member acceptance open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-01 · v1.0 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-01 · v1.1 · GitHub `main` controlling · No payment, grade or premium grant.

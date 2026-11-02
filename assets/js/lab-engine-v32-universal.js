@@ -1460,6 +1460,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    }
   }
  }
+ let checkpointLoadVerified=!progressStore;
  if(progressStore){
   checkpointNote.textContent='Checking your private, ungraded learning checkpoint…';
   try{
@@ -1477,13 +1478,15 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     checkpointNote.textContent='Resumed your ungraded learning draft at '+STEPS[stage]+
      '. No grade, mastered competency or historical outcome was restored.';
    }else checkpointNote.textContent='No saved draft yet. This ungraded learning journey can save to your private account.';
+   checkpointLoadVerified=true;
   }catch{
    if(sessions.get(target)!==token)return false;
    checkpointNote.textContent='Private progress could not be loaded. You may study locally; no saved checkpoint is claimed.';
   }
  }else checkpointNote.textContent='This learning journey is local to this page until an eligible member session is available.';
  if(sessions.get(target)!==token)return false;
- render();checkpointReady=true;
+ render();checkpointReady=checkpointLoadVerified;
+ saveCheckpointControl.disabled=!checkpointReady;
  // Ask the existing authenticated competency service, only during non-blind
  // modes. Account changes and rerenders cannot replay stale personalized state.
  if(typeof skillEvidenceRequest==='function'&&(neededPrerequisites.length||special)){
