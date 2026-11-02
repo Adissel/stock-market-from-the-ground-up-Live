@@ -30,7 +30,7 @@ async function verify(){
   status.hidden=true;workspace.hidden=false;
   if(connection)connection.textContent='Authorized staff session';
  }catch(error){fail(error?.message||'Prototype access unavailable.')}
- finally{checking=false;}
+ finally{checking=false;if(requestRevision!==revision&&!document.hidden)queueMicrotask(()=>void verify());}
 }
 document.addEventListener('DOMContentLoaded',()=>{void verify();window.addEventListener('focus',()=>{invalidate();void verify()});document.addEventListener('visibilitychange',()=>{if(document.hidden)invalidate();else void verify()})});
 })();
