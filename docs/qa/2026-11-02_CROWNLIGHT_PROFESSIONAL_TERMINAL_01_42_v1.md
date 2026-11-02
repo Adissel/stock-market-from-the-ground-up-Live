@@ -58,3 +58,21 @@
 | 1.1 | 2026-11-02 | Enhanced workspace panel responsive resize observer and regression checks | Source committed; CI/browser acceptance open |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.1 · Source evidence only.
+
+
+## November 2 — extended execution: pointer correctness, release contracts, visual hierarchy
+- Real Professional member chart divider now filters touch/pointer events by pointer ID, responds to lost pointer capture, clamps 25–75%, supplies accessible slider orientation, and checks current server-verified permission before accepting movement. This is *source implementation*, not confirmed cross-browser behavior.
+- Existing private chart-workspace normalizer has additional executable Node assertions for 25, 50, 75, invalid fractional/string/null/out-of-range panel ratios and downgraded Standard/Advanced projections.
+- CSS chart shell, OHLCV data blocks, enhanced toolbar, accessible focus styles and responsive presentation improved without touching chart prices or protected progress.
+- Static regression suite checks pointer lifecycle and chart visual styling.
+- Latest source commit in this sub-batch `ec9f5e1c7403334538a97dda71e1703e4330dba3`.
+- **CI status:** GitHub combined commit statuses returned no statuses and the connected GitHub workflow-run endpoint filters to pull-request events. Therefore *push Actions execution and production match remain unverified*, not successful.
+- **Remaining blockers:** Actual workflow run evidence, browser drag/release/zoom tests, genuine authenticated Professional member visual acceptance, indicator mathematical review across all 61 source guides and production deployed SHA comparison.
+- **Database:** No migration. Existing `chart-workspace` JSONB normalizer accepts panelRatio without altering table definition.
+- **Financial:** No payment, live brokerage operation, entitlement grant, licensed-feed redistribution, or paid provider service activated.
+
+| Version | Date | Description | Status |
+| --- | --- | --- | --- |
+| 1.2 | 2026-11-02 | Pointer capture hardening, tested server normalization cases and Professional visual refinement | Committed; integrated CI/browser acceptance OPEN |
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.2 · This is source-only evidence, not deployed release certification.
