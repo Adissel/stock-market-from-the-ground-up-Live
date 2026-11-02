@@ -318,6 +318,16 @@ function Classroom(){
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
       </div>
+      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
+        <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
+        <div className="tp-teaching-loop-actions">
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');safeSuggest('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.')}}>1 · Explain & demonstrate</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('question');safeSuggest('Ask me one ungraded diagnostic question about the current concept. Withhold the explanation until I attempt an answer.')}}>2 · Diagnose understanding</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('review');safeSuggest('Identify a misconception in my reasoning, explain why it fails using completed evidence, and guide me toward a correction without giving a protected answer key.')}}>3 · Correct reasoning</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('practice');safeSuggest('Give me a new fictional transfer scenario requiring an independent decision, including NO TRADE as an option. Do not grade it.')}}>4 · Independent transfer</button>
+        </div>
+        <p className="tc-muted">Ungraded teaching aid. These prompts do not advance a Lab stage, generate mastery credits, or record a protected assessment.</p>
+      </section>}
       <form onSubmit={send} className="tc-composer">
         <label htmlFor="tc-question">Your question or follow-up</label>
         <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)} maxLength={450} rows={3} placeholder="Ask Talia to explain a concept, show an example, or clarify a mistake" disabled={!member||busy}/>
