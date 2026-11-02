@@ -121,7 +121,8 @@ for(const name of candidates){
  if(/<meta\s+[^>]*name=['"]robots['"][^>]*noindex/i.test(html)){
   report.excluded.push(name+'.html (existing noindex)');continue;
  }
- const path=name==='index'?'/':'/'+name+'.html';
+ // Cloudflare Pages serves these public HTML assets at extensionless canonical URLs.
+ const path=name==='index'?'/':'/'+name;
  const canonical=origin+path;
  const seo=metadata[name];
  if(seo){
@@ -156,7 +157,7 @@ for(const name of candidates){
   const schema=name==='index'?{
    '@context':'https://schema.org','@graph':[
     {'@type':'WebSite',name:'The Stock Market: From the Ground Up — Training Academy',alternateName:'The Stock Market: From the Ground Up',url:origin+'/'},
-    {'@type':'Organization',name:'Crown & Lantern Press',url:origin+'/about.html'}
+    {'@type':'Organization',name:'Crown & Lantern Press',url:origin+'/about'}
    ]
   }:{
    '@context':'https://schema.org','@type':'Article',
@@ -182,7 +183,7 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html'))){
  // Search Console's exact ownership token is not an HTML document. Never mutate it.
  if(file==='googleb8863e241e8dc1fa.html')continue;
  const slug=file.slice(0,-5);
- if(candidates.includes(slug)&&indexable.has(slug==='index'?'/':'/'+file))continue;
+ if(candidates.includes(slug)&&indexable.has(slug==='index'?'/':'/'+slug))continue;
  const location=join(output,file);
  let html=readFileSync(location,'utf8');
  if(!/<meta\s+[^>]*name=['"]robots['"]/i.test(html)){
@@ -202,15 +203,15 @@ writeFileSync(join(output,'sitemap.xml'),sitemap);
 const feedSlugs=['free-foundations-challenge','candle-practice',
  'market-vs-limit-orders','support-resistance-basics',
  'how-stock-market-works','how-to-read-candlestick-charts'];
-const feedItems=feedSlugs.filter(slug=>indexable.has('/'+slug+'.html')).map(slug=>{
- const item=metadata[slug],link=origin+'/'+slug+'.html';
+const feedItems=feedSlugs.filter(slug=>indexable.has('/'+slug)).map(slug=>{
+ const item=metadata[slug],link=origin+'/'+slug;
  return '  <item><title>'+xmlEntities(item.title)+'</title><link>'+xmlEntities(link)+
   '</link><guid isPermaLink="true">'+xmlEntities(link)+'</guid><description>'+
   xmlEntities(item.description)+'</description></item>';
 });
 const freeFeed='<?xml version="1.0" encoding="UTF-8"?>\n'+
  '<rss version="2.0"><channel><title>SMFGU — Free Stock Market Learning</title>'+ 
- '<link>'+xmlEntities(origin+'/free-foundations-challenge.html')+'</link>'+ 
+ '<link>'+xmlEntities(origin+'/free-foundations-challenge')+'</link>'+ 
  '<description>Original free beginner lessons and fictional chart practice. Education only.</description>'+ 
  '<language>en-US</language>\n'+feedItems.join('\n')+'\n</channel></rss>\n';
 writeFileSync(join(output,'feed.xml'),freeFeed);
