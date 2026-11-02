@@ -12,7 +12,8 @@ test('terminal is chart-dominant, switchable, and preserves protected learning w
  assert.match(terminal,/\.tc-terminal-grid>\.tc-chart-panel\{grid-column:1;grid-row:1/);
  assert.match(s,/aria-label="Six-phase guided lesson"/);
  assert.match(s,/aria-label="Progressive ungraded instructional pathway"/);
- assert.match(s,/pathname\.endsWith\('\/talia-classroom\.html'\)\)\&\&/);
+ assert.match(s,/const advancedExperience=isTaliaAdvancedRoute\(\)/);
+ assert.match(s,/advancedExperience&&<section className="tp-teaching-loop"/);
  assert.doesNotMatch(terminal,/\.lab-|\.bootcamp-/,'Protected interactive curricula must remain unchanged');
 });
 

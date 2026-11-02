@@ -27,7 +27,7 @@ test('Prototype preserves existing ECharts and accessible fictional prefix prese
 
 test('Prototype sign-in returns staff to the prototype route without bypassing staff authorization',()=>{
  const classroom=read('src/tutor/TaliaClassroom.tsx');
- assert.match(classroom,/pathname\.endsWith\('\/talia-tutor-prototype\.html'\)\?'\/talia-tutor-prototype\.html':'\/talia-classroom\.html'/);
+ assert.match(classroom,/isTaliaPrototypePath\(\)\?'\/talia-tutor-prototype\.html':'\/talia-classroom\.html'/);
  const gate=read('assets/js/talia-prototype-gate-v1.js');
  assert.match(gate,/\/api\/admin\?action=context/);
  assert.match(gate,/control_panel\.access/);
@@ -52,7 +52,7 @@ test('Guided educational cycle remains ungraded and available to signed-in class
  assert.match(classroom,/setMode\('review'\)/);
  assert.match(classroom,/setMode\('question'\)/);
  assert.match(classroom,/Do not grade it/);
- assert.match(classroom,/pathname\.endsWith\('\/talia-classroom\.html'\)\)\&\&<section className="tp-teaching-loop"/);
+ assert.match(classroom,/advancedExperience&&<section className="tp-teaching-loop"/);
 });
 
 test('Advanced Tutor continues actual lessons and supplies only revealed chart evidence',()=>{
