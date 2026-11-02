@@ -51,6 +51,7 @@ on:
       - 'assets/js/store.js'
       - 'assets/js/founding600-enrollment-v014198.js'
       - 'tests/test_crownlight_chart_tiers_v1.mjs'
+      - 'tests/test_crownlight_professional_density_v1.mjs'
       - 'tests/test_crownlight_chart_tiers_browser_v1.mjs'
       - 'tests/test_crownlight_studio_menu_api_v1.mjs'
       - 'tests/test_crownlight_studio_menu_browser_v1.mjs'
@@ -177,6 +178,8 @@ jobs:
           node tests/test_crownlight_echarts_admin_smoke_v1.mjs
           node tests/test_crownlight_admin_shared_analytics_browser_v1.mjs
           node tests/test_crownlight_echarts_local_asset_v2.mjs
+          node --check assets/js/crownlight-chart-tiers-v1.js
+          node tests/test_crownlight_professional_density_v1.mjs
           node --check assets/js/crownlight-indicator-math-v2.js
           node tests/test_crownlight_chart_studio_v2.mjs
           node --check assets/js/crownlight-chart-tiers-v1.js
