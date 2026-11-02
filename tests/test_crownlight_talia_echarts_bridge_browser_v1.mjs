@@ -61,7 +61,7 @@ try{
   });
   assert.deepEqual(chart.type,['line','line','line']);
   assert(chart.points.every(s=>s.length===25 && s.every(p=>p[0]<=24)));
-  assert.match(chart.description,/only.*revealed/i);
+  assert.match(chart.description,/revealed completed candles only/i);
   assert.match(await page.locator('[data-talia-echarts-teaching]').innerText(),/Talia.*revealed|revealed indicators/i);
   await page.evaluate(()=>{
    window.dispatchEvent(new CustomEvent('crownlight:revealed-bars',{
