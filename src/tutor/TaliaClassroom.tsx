@@ -53,7 +53,7 @@ const labHandoff=(()=>{
   const id=(params.get('lab')||'').toUpperCase();
   const stage=params.get('stage')||'Learn';
   const stages=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
-  if(!/^(?:F[123]-C\\d{2}-L\\d{2}|DT-C\\d{2}-L\\d{2}|TAPE-C\\d{2}-L\\d{2})$/.test(id))return null;
+  if(!/^(?:F[123]-C\d{2}-L\d{2}|DT-C\d{2}-L\d{2}|TAPE-C\d{2}-L\d{2})$/.test(id))return null;
   return {id,stage:stages.includes(stage)?stage:'Learn'};
 })();
 const labQuestion=(q:string)=>labHandoff
