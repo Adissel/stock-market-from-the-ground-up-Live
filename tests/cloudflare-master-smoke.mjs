@@ -18,18 +18,22 @@ async function check(name,path,status,fn){
   results.passed.push(name);
  }catch(e){results.failures.push({name,error:String(e.message||e)})}
 }
+function validAuthGuard(j){
+ if(j?.ok!==true||typeof j.enabled!=='boolean'||'secret' in j)return false;
+ return j.enabled===true?j.sitekey===expectedSitekey:j.sitekey===null;
+}
 // Cloudflare's native GitHub deployment is eventually consistent with Pages build env changes.
 let ready=false;
 for(let i=0;i<16;i++){
  try{
   const [home,auth]=await Promise.all([get('/'),get('/api/auth-guard-v0135')]);
   ready=home.r.status===200&&home.t.includes('https://stock-market-from-the-ground-up-d1r.pages.dev/')
-    &&auth.r.status===200&&JSON.parse(auth.t).sitekey===expectedSitekey;
+    &&auth.r.status===200&&validAuthGuard(JSON.parse(auth.t));
   if(ready)break;
  }catch{}
  if(i!==15)await new Promise(r=>setTimeout(r,7000));
 }
-if(!ready)results.failures.push({name:'master configuration propagation',error:'Master canonical or Turnstile site key not deployed'});
+if(!ready)results.failures.push({name:'master configuration propagation',error:'Master canonical or valid Turnstile runtime state not deployed'});
 for(const [name,path,match] of [
  ['homepage','/','The Stock Market: From the Ground Up'],
  ['store','/store','Memberships'],
@@ -69,9 +73,10 @@ await check('Pages health','/api/runtime-health-v014259',200,t=>{
 await check('Pages edge probe','/api/edge-probe-v014266',200,t=>{
  const j=JSON.parse(t);assert.equal(j.ok,true);
 });
-await check('new Turnstile site key only','/api/auth-guard-v0135',200,t=>{
- const j=JSON.parse(t);assert.equal(j.ok,true);assert.equal(j.enabled,true);
- assert.equal(j.sitekey,expectedSitekey);assert.equal(j.secret,undefined);
+await check('Turnstile runtime configuration and secret isolation','/api/auth-guard-v0135',200,t=>{
+ const j=JSON.parse(t);
+ assert.ok(validAuthGuard(j),'Enabled state requires configured public site key; owner-disabled state requires null site key; never expose secrets');
+ if(!j.enabled)results.blocked.push('Turnstile currently disabled by runtime policy: CAPTCHA-enabled browser acceptance not verified');
 });
 for(const path of ['/.git/config','/.mcp.json','/supabase/migrations/private.sql','/workers/billing-scheduler.js']){
  await check('private path hidden '+path,path,404);
