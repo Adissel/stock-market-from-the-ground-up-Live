@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.4 / November 1, 2026 |
+| Version / date | 1.5 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -116,6 +116,35 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 
 **QA state when recorded:** 12 final mathematical fixtures written and CI wired; until exact commit build evidence appears, count them as *configured*, not independently passed by CI. This report does not assert a frozen final SHA or full workflow matrix approval.
 
+## Source-to-production and live RLS review — v1.5
+
+**Purpose:** Prevent authoring/research evidence being mistaken for production capability, paid entitlement or real-user acceptance. Source control location: this QA file on GitHub `main`, companion roadmap `docs/roadmap/SMFGU-WEB-ROADMAP-RECON-20261101-001.md`. Google Drive ID remains unassigned. Date: 2026-11-01. Status: internal development and live read-only metadata verification; not commercial or authenticated release approval.
+
+### Real implementation crosswalk
+
+- Research: **73/73** canonical Tutor indicator study guides; **71/73** independent fictional numerical fixtures; exceptions StockCharts SCTR and official Cboe VIX. **0/73** individual full-platform/editorial/redistribution signoffs.
+- Actual member Chart Studio ECharts presentation: **13 named on/off options** in `assets/js/crownlight-echarts-studio-v1.js`: EMA9, EMA20, EMA200, SMA20, HLC3 VWAP, Bollinger20, observed HOD/LOD, volume SMA20, confirmed structure, RSI14, MACD, ATR14. These are chart presentation toggles, NOT thirteen independent research studies or an implementation of all 73 guides. Some options represent levels, a composite or display components.
+- Formula source: `assets/js/crownlight-indicator-math-v2.js` reused by the ECharts experience, with independent Python Decimal/JS numerical edge tests and Chrome browser source tests in the existing Chart Studio workflow. The VWAP is explicitly labeled an **HLC3 OHLCV approximation**, never exact transaction VWAP. Real account acceptance, customizable settings across all 73, full chart/vendor formula parity and chronological authenticated replay remain pending.
+- Introduced automated `tests/talia-release-evidence-crosswalk-v1.test.mjs` in existing Pages build and Tutor Actions workflow. It verifies the 73 research IDs, 71 fixtures, two vendor holds, 13 currently configured ECharts presentation controls, and continued lock on separate premium Learning, Lab and Tutor engine add-on grants. It fails if those baseline distinctions drift; this is a source-level regression, not an entitlement issuance.
+
+### Verified Supabase grants and policies (read-only, live, project `oxihglyfgzywsupnyicb`)
+
+| Existing public table | RLS | Direct `anon` SELECT/INSERT | Direct `authenticated` SELECT/INSERT | Policy evidence |
+|---|---|---|---|---|
+| `gu_member_tutor_conversations_v014149` | Enabled | None | None | No direct table policies; server-mediated |
+| `gu_member_tutor_exchanges_v014102` | Enabled | None | None | No direct table policies; server-mediated |
+| `crownlight_chart_workspaces_v1` | Enabled | None | None | No direct table policies; server-mediated |
+| `gu_academy_stage_checkpoint_v1` | Enabled | None | None | No direct table policies; server-mediated |
+| `lab_attempts` | Enabled | None | SELECT and INSERT | Both policies restrict `user_id=auth.uid()` |
+| `lab_progress` | Enabled | None | SELECT and INSERT | Four CRUD policies restrict `user_id=auth.uid()`; policy roles `public` but RLS identity predicate remains |
+| `competency_evidence` | Enabled | None | SELECT only | Read policy restricts `user_id=auth.uid()` |
+
+All seven rows were inspected from PostgreSQL system catalogs and `pg_policies`. This is **structural authorization evidence only**; it is not proof of real JWT/member-account isolation through every server route. Service-role APIs, RPC functions and session transitions still require negative member A/member B and revoked-role tests. No data was modified or private member identity queried.
+
+### Release reconciliation
+
+Cloudflare successfully deployed the previously queued commit `48268413d477a8ebd02515044a257fe022aa46e7`. This closes **that commit's** Pages deployment status. A subsequently authored crosswalk test has a newer SHA and requires its own successful build. No full GitHub Actions matrix was independently established at one frozen SHA. Ten-gate **strict completion stays 1/10 = 10%** pending complete gate-specific acceptance. Current authoring remains 260/600, and Basic v3.3/v3.2 unchanged. Premium Advanced/Professional/Enterprise Learning, Lab and Tutor engine releases remain restricted.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -125,5 +154,6 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 | 1.2 | 2026-11-01 | 40/40 source dispositions, 260/600 source-authored topics, 45 indicator math QA fixtures, three-source URL reconciliations, Tutor correction tests | Internal source-only acceptance; commercial, authenticated and release review open |
 | 1.3 | 2026-11-01 | 46–60 volume/breadth QA: 14 independent numeric cases, SCTR proprietary hold, source-status identity reconciliation, 260 authored explanations preserved | Development-only QA; CI, rights, publication and genuine member acceptance remain open |
 | 1.4 | 2026-11-01 | Complete 73/73 subject review; add 12 original math tests for 61–73, preserve Cboe VIX and StockCharts SCTR restrictions, maintain exact-head deployment hold | Internal development QA, not independent chart, rights, legal or member release signoff |
+| 1.5 | 2026-11-01 | Verify real 13-option ECharts crosswalk, live seven-table Supabase RLS/grants/policies, latest prior SHA Pages deploy, retain authenticated release holds | Development and live metadata review only; genuine identities and complete Actions release remain open |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.4 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.5 · Source record `main` · No unauthorized premium release or paid API calls.
