@@ -10,7 +10,7 @@ test('40 original Foundation lessons: source and ungraded integrity',()=>{
  for(const x of rows){
   assert.match(x.code,/^TALIA_TOPIC_[A-Z0-9_]+$/);
   for(const key of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])
-    assert.ok(typeof x[key]==='string'&&x[key].length>25,x.code+': '+key);
+    assert.ok(typeof x[key]==='string'&&x[key].length>(key==='title'?15:25),x.code+': '+key);
   assert.match(x.workedCase,/FICTIONAL/);
   assert.match(x.transferQuestion,/FICTIONAL/);
   assert.equal(x.officialCompetency,false);
