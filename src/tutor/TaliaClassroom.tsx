@@ -117,7 +117,8 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
         plot.on('click',e=>{
           const i=Number(e.dataIndex);
           if(Number.isInteger(i)&&i>=0&&i<visible){
-            onQuestion('Explain how to interpret fictional completed candle '+(i+1)+' using only its OHLC and preceding visible context. Do not predict a future bar.');
+            const bar=REPLAY[i];
+            onQuestion(('Fictional completed bar '+(i+1)+': open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Only '+visible+' bars have been revealed. Coach me through its body, wicks and prior visible structure. Ask what I observe before explaining. Do not use future bars or grade me.').slice(0,450));
           }
         });
         window.addEventListener('resize',resize);
@@ -152,7 +153,7 @@ function FictionalChart({onQuestion}:{onQuestion:(q:string)=>void}){
     <div className="tc-row">
       <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
       <button type="button" className="tc-secondary" onClick={()=>setVisible(7)} disabled={visible===7}>Reset</button>
-      <button type="button" className="tc-secondary" onClick={()=>onQuestion('Teach me to interpret completed fictional bar '+visible+' without using later candles.')}>Ask Talia about this candle</button>
+      <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
     </div>
   </section>;
 }
