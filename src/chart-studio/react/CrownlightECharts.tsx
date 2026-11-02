@@ -28,6 +28,7 @@ export function CrownlightECharts({
 }: CrownlightChartProps) {
   const node = useRef<HTMLDivElement>(null);
   const chart = useRef<ECharts | null>(null);
+  const inspectRef = useRef<(index: number) => void>(() => undefined);
   const callback = useRef(onBarInspect);
   const bars = useRef(completedBars);
   const [selected, setSelected] = useState<number | null>(null);
@@ -37,6 +38,7 @@ export function CrownlightECharts({
     setSelected(index);
     callback.current?.(bar);
   };
+  inspectRef.current = inspect;
   callback.current = onBarInspect;
   bars.current = completedBars;
 
@@ -48,7 +50,7 @@ export function CrownlightECharts({
     const onClick = (event: { dataIndex?: number; seriesType?: string }) => {
       const index = event.dataIndex;
       if (event.seriesType !== 'candlestick' || !Number.isInteger(index) || index! < 0) return;
-      inspect(index!);
+      inspectRef.current(index!);
     };
     instance.on('click', onClick);
     const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => instance.resize()) : null;
