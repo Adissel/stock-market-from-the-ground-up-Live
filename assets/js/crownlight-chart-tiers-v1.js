@@ -8,7 +8,7 @@ const LIB='https://cdn.jsdelivr.net/npm/klinecharts@10.1.0/dist/umd/klinecharts.
 const levels={STANDARD:0,ADVANCED:1,PROFESSIONAL:2};
 const names={STANDARD:'Standard · Lightweight Charts',ADVANCED:'Advanced · KLineChart',
  PROFESSIONAL:'Professional · Multi-chart KLineChart',ECHARTS:'Apache ECharts · Price & Volume Analytics'};
-const state={barSpacing:10,allowed:['STANDARD'],visible:['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],tier:'STANDARD',selected:'STANDARD',bars:[],autoStarted:false,authUserId:null,symbol:'REPLAY',
+const state={barSpacing:10,resizeObserver:null,resizeFrame:0,allowed:['STANDARD'],visible:['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],tier:'STANDARD',selected:'STANDARD',bars:[],autoStarted:false,authUserId:null,symbol:'REPLAY',
  timeframe:'1-minute',source:'',charts:[],version:0,verified:false,view:null,notice:null,loading:null,
  accessExpiry:null,accessKind:null,accessTier:null,expireRechecked:false,sparksAvailable:false,sparkOffers:[],sparkBalance:null,sparkLoadError:'',sparkLoading:false};
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
@@ -82,6 +82,9 @@ function autoStartRequestedStudio(){
 }
 function isEntitled(t){return state.verified&&state.allowed.includes(t==='ECHARTS'?'STANDARD':t)}
 function stopCharts(){
+ state.resizeObserver?.disconnect();state.resizeObserver=null;
+ if(state.resizeFrame)cancelAnimationFrame(state.resizeFrame);
+ state.resizeFrame=0;
  window.CrownlightEChartsStudio?.unmount();
  for(const entry of state.charts){try{window.klinecharts?.dispose(entry.id)}catch{}}
  state.charts=[];state.view?.querySelector('[data-cl-tier-panels]')?.replaceChildren();document.body.classList.remove('cl-tier-enhanced');
@@ -542,6 +545,19 @@ async function choose(tier){
   state.charts.push(initOne('cl-tier-primary','primary'));
   if(tier==='PROFESSIONAL')state.charts.push(initOne('cl-tier-secondary','analysis'));
   balancePanels();
+  // Chart widths change when the member switches layouts, resizes the window,
+  // or opens a side panel. ResizeObserver is required for non-window reflow.
+  if(typeof ResizeObserver==='function'){
+   state.resizeObserver=new ResizeObserver(()=>{
+    if(state.resizeFrame)return;
+    state.resizeFrame=requestAnimationFrame(()=>{
+     state.resizeFrame=0;
+     if(state.selected!==tier||!state.verified)return;
+     for(const entry of state.charts)entry.chart.resize?.();
+    });
+   });
+   for(const entry of state.charts)state.resizeObserver.observe(entry.host.parentElement);
+  }
   state.charts.forEach(updateCompactReadout);
   window.dispatchEvent(new CustomEvent('crownlight:tier-mounted',{detail:{tier}}));
   status(state.bars.length?
