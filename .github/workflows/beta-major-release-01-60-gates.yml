@@ -192,6 +192,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      # NEXT 18 is an actual Chromium fixture, not a static Node-only test.
+      # Match the repository's established free sitewide browser harness.
+      - name: Build exact local Pages browser fixture
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/index.html
+          test ! -e public/data/interactive-labs.json
+          test ! -d public/supabase
+          test ! -d public/functions
+      - name: Install pinned Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start localhost fixture for mandatory browser test
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory public >/tmp/gu-release-beta-browser.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null
       - name: NEXT 01 - security - test_founder_admin_security_v014181.mjs
         run: node tests/test_founder_admin_security_v014181.mjs
       - name: NEXT 02 - security - test_username_login_captcha_v014275.mjs
