@@ -1,0 +1,23 @@
+/* Crownlight Studio Spectrum — isolated to standalone simulator, not Lab / Boot Camp screens */
+html[data-cl-studio-theme="spectrum"]{--cl-s-bg:#070916;--cl-s-surface:#12192c;--cl-s-raised:#1b2740;--cl-s-border:#3d5278;--cl-s-accent:#53f4dc;--cl-s-second:#a875ff;--cl-s-text:#f2f5ff;--cl-s-muted:#b4c7da}
+html[data-cl-studio-theme="ultraviolet"]{--cl-s-bg:#100720;--cl-s-surface:#211136;--cl-s-raised:#2e1a49;--cl-s-border:#664580;--cl-s-accent:#dd73ff;--cl-s-second:#55e9ff;--cl-s-text:#f9f0ff;--cl-s-muted:#dbc6e9}
+html[data-cl-studio-theme="solar"]{--cl-s-bg:#0c1016;--cl-s-surface:#1b222d;--cl-s-raised:#273039;--cl-s-border:#677483;--cl-s-accent:#ffe267;--cl-s-second:#ff785b;--cl-s-text:#fff8e9;--cl-s-muted:#d0c4b4}
+html body.simulator-page.cl-studio-spectrum{background:var(--cl-s-bg)!important;color:var(--cl-s-text)!important}
+html body.simulator-page.cl-studio-spectrum .site-header{background:var(--cl-s-bg)!important;border-bottom:1px solid var(--cl-s-border)!important}
+html body.simulator-page.cl-studio-spectrum .site-header :is(.brand,.navlinks a){color:var(--cl-s-text)!important}
+html body.simulator-page.cl-studio-spectrum .section{background:var(--cl-s-bg);color:var(--cl-s-text)}
+html body.simulator-page.cl-studio-spectrum :is(.journal-card,.sim-chart-panel,.sim-side,.sim-lab-method,.sim-server-scenario,.sim-chart-head){background:var(--cl-s-surface)!important;color:var(--cl-s-text)!important;border:1px solid var(--cl-s-border)!important;border-radius:12px!important}
+html body.simulator-page.cl-studio-spectrum :is(.eyebrow,.sim-mode-title){color:var(--cl-s-accent)!important}
+html body.simulator-page.cl-studio-spectrum :is(.journal-small,.sim-dataset-status,.sim-scenario-disclosure){color:var(--cl-s-muted)!important}
+html body.simulator-page.cl-studio-spectrum :is(input,select,textarea){background:var(--cl-s-raised)!important;color:var(--cl-s-text)!important;border-color:var(--cl-s-border)!important;accent-color:var(--cl-s-accent)}
+html body.simulator-page.cl-studio-spectrum :is(button,.btn):not(.cl-studio-theme-button){border-radius:7px}
+html body.simulator-page.cl-studio-spectrum :is(a,button,input,select,textarea):focus-visible{outline:3px solid var(--cl-s-second)!important;outline-offset:3px}
+.cl-studio-theme-picker{display:flex;align-items:center;flex-wrap:wrap;gap:7px;padding:8px 12px;background:#12192c;border:1px solid #435779;border-radius:9px}
+.cl-studio-theme-picker>span{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#e2eaf6;margin-right:4px}
+.cl-studio-theme-button{width:26px;height:26px;border-radius:50%;border:2px solid #9faabb;cursor:pointer;flex:none}
+.cl-studio-theme-button[data-cl-choice="spectrum"]{background:linear-gradient(140deg,#070916 35%,#53f4dc 36% 66%,#a875ff 67%)}
+.cl-studio-theme-button[data-cl-choice="ultraviolet"]{background:linear-gradient(140deg,#100720 35%,#dd73ff 36% 66%,#55e9ff 67%)}
+.cl-studio-theme-button[data-cl-choice="solar"]{background:linear-gradient(140deg,#0c1016 35%,#ffe267 36% 66%,#ff785b 67%)}
+.cl-studio-theme-button[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:800px){.cl-studio-theme-picker{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.simulator-page.cl-studio-spectrum *{transition:none!important;animation:none!important}}
