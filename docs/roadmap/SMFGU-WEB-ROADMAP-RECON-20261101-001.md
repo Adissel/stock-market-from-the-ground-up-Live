@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.8 / 2026-11-01 |
+| Version / prepared | 1.9 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -206,6 +206,22 @@ This update preserves the existing Owner completion denominator and does not mod
 
 Source QA record: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, v1.4. Indicator details: `data/talia-indicators61-73-evidence-v1.json`. Research standards: approved directory and nine-level master source registry, but a source reference does not grant commercial chart, quote feed, code, or ML reuse rights.
 
+## Acceptance reconciliation: actual Chart Studio and live Supabase — v1.9
+
+This section updates the factual release evidence without changing the **2,190 original Owner Roadmap commitment IDs**, stored progress, checkout, member entitlements, official grading, or source-authoring objectives.
+
+**Gate 3:** There are 73 unique Tutor research study guides, 71 original fictional numerical reference cases and two intentionally restricted vendor-defined calculations (SCTR and VIX). Actual ECharts Chart Studio exposes **13 presentation toggles** in `assets/js/crownlight-echarts-studio-v1.js`, and reuse of shared math does not equate to 73 live implementations. `tests/talia-release-evidence-crosswalk-v1.test.mjs` now enforces the separation in both existing Pages and Tutor CI. Full configurable indicator coverage, matched vendor conventions, real member replay and commercial display rights remain OPEN.
+
+**Gate 7:** Live Supabase inspection of seven representative competency, Lab, Tutor, Chart Workspace and Academy tables found RLS enabled for all seven. Tutor conversation, Tutor exchange, Chart Workspace and Academy checkpoint tables have **no direct anonymous or ordinary authenticated SELECT/INSERT grants**, and existing Lab/competency policies use `auth.uid()=user_id`. This is not genuine two-account browser acceptance and does not certify all `SECURITY DEFINER` routes; complete user A/B, session revocation, and staff roles remain OPEN.
+
+**Gate 8:** The formerly queued Pages SHA `48268413d477a8ebd02515044a257fe022aa46e7` is verified deployed. Newer concurrent commits and dedicated Actions require a fresh frozen-SHA acceptance; an empty GitHub combined commit-status response is not proof Actions did or did not pass.
+
+**Gate 9:** Premium engine product/checkout flags remain disabled. A member's verified Professional **Chart Studio** tier is separate from any future independently released Professional **Shared Learning/Lab/Tutor** edition. Do not conflate the entitlements.
+
+**Next executable sequence:** (1) pass the new source-vs-production CI crosswalk; (2) complete all 40 claim-specific editorial/mathematical remedies; (3) test current ECharts actual supported indicators on completed chronological data; (4) run authenticated Tutor 40-scenario A/B journeys; (5) verify authenticated member/role isolation on existing server endpoints; (6) verify full mandatory Actions, not only Pages; (7) freeze one SHA and match production deploy; (8) release only signed-off functionality; (9) continue 260/600 explanation authoring after relevant gates. Strict accelerated ten-gate completion remains **1/10 = 10%**, overall website percentage unassigned.
+
+Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, v1.5. GitHub is the source of record; Google Drive document ID not assigned.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -219,5 +235,6 @@ Source QA record: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md
 | 1.6 | 2026-11-01 | Repair 16-study prototype session calculations and derived VWAP; expand multi-session and proxy-integrity regression tests | Source committed; workflow/external acceptance open |
 | 1.7 | 2026-11-01 | Reconcile 60 studied subjects / 59 independent numeric fixtures, 260 authored explanations, source review identity fix and continued ten-gate controls | Source QA only; exact-head GitHub Actions, rights and real sessions open |
 | 1.8 | 2026-11-01 | Add 61–73 subject QA, 12 cross-implementation fixtures, official Cboe VIX and StockCharts SCTR restricted exceptions, 71/73 configured math denominator | Internal source QA only; all genuine publication, account, legal and release acceptance open |
+| 1.9 | 2026-11-01 | Verify actual 13-control ECharts UX vs 73 guide research, add CI crosswalk and live Supabase seven-table RLS/grants/policy audit | Production/member/rights acceptance still open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.8 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.9 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
