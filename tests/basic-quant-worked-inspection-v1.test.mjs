@@ -4,3 +4,5 @@ test('Member workbench offers accessible inspectable worked-value entry without 
 test('Workbench retains canonical authorization and source-only teaching',()=>{assert.match(source,/selected!==studyId/);assert.match(source,/Fictional teaching inputs only/);assert.match(source,/stage:'practice',provenance:'fictional_authored'/);assert.match(source,/Independent transfer results/);});
 
 test('Worked example table has semantic column and row headings for assistive navigation',()=>{assert.match(source,/const thead=node\('thead'\)/);assert.match(source,/th\.setAttribute\('scope','col'\)/);assert.match(source,/th\.setAttribute\('scope','row'\)/);assert.match(source,/table\.append\(thead,tbody\)/);});
+
+test('Full chart data is accessible in an independent numerical table including warmup',()=>{assert.match(source,/Complete fictional indicator series with warmup periods/);assert.match(source,/gu-quant-series-table/);assert.match(source,/line\.data\?\.\[i\]/);assert.match(source,/Not available — warmup/);assert.match(source,/shell\.append\(chart,table,seriesTable\)/);});
