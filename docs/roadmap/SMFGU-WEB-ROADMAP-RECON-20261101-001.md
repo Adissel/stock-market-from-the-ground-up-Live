@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.4 / 2026-11-01 |
+| Version / prepared | 1.5 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -149,6 +149,18 @@ The nine-level source directory is authoritative for research selection, not bla
 
 **Denominator protection:** 73/73 source guide records, original 15 existing canonical Python/JS indicator comparisons, 16 prototype choice registrations; no increase in 0/73 independently publication-approved guides or separately verified 419-Lab/274-Academy curriculum integrations based on this source-only batch. Basic engines remain canonical; Advanced/Professional/Enterprise release percentages and overall website completion remain unassigned until individual acceptance evidence exists.
 
+
+## Section C — ECharts customization and private-workspace integration, v1.5
+
+Date: 2026-11-01. Source committed to `main`; automated CI and independently authenticated acceptance remain subject to latest stable release SHA.
+
+- ECharts source: member-selectable colors and independently selectable line styles for the available indicator visualizations, synchronized RSI/MACD/ATR lower panels and sliders, member-change in-memory reset, and `getPreferences` / `restorePreferences` controls.
+- Existing authenticated private-workspace bridge: `CrownlightWorkspaceV2.persist` now includes bounded ECharts presentation preferences in its existing revision-protected PUT request. `restore` applies them after authorized GET when ECharts is mounted; delayed mounts are handled through existing tier-mounted/revealed-bars events. Supabase table, service tokens and protected grade storage are unchanged.
+- Server-side source contract: `functions/api/chart-workspace.js` accepts only documented study IDs, Boolean visibility, six-digit color values, solid/dashed/dotted lines, valid panel sizes (110–285), and a valid stroke value. Unknown attributes including third-party bars and credential-like fields are dropped. No tier access is granted by these settings.
+- Additional tests: `tests/test_crownlight_chart_workspace_v2.mjs` checks normalization/credential rejection; `tests/test_crownlight_echarts_indicator_section_c_v1.mjs` exercises a user presentation snapshot, remount/restore, replay rewind, and account-change isolation; `tests/test_section_c_indicator_edge_crosslanguage_v1.mjs` retains independent Python Decimal numerical boundaries.
+- Acceptance hold: exact-commit CI success, Cloudflare matching production deployment, genuine two-account authenticated privacy, keyboard/screen reader and physical mobile acceptance, 16-study individual reviews, 73-guide editorial rights, Talia, 419 Lab and 274 Boot Camp learning journeys.
+- Metrics remain evidence-scoped: 73/73 source guide inventory; 16/16 source study registrations; original 15/73 canonical math comparisons; no assertion of individually publication-approved guide progress. Basic engines v3.3/v3.2 retained; no invented percentage for Advanced/Professional/Enterprise editions or whole website.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -158,5 +170,6 @@ The nine-level source directory is authoritative for research selection, not bla
 | 1.2 | 2026-11-01 | Link 1,366 identity projection, 40-claim evidence batch, 15-indicator Python/JS regression and no-release research holds | Source progress accepted as development evidence only |
 | 1.3 | 2026-11-01 | Implement first Section C ECharts overlay/control/table source batch; add offline Chromium CI gate; preserve denominator and release distinctions | Source implementation; exact-head CI, Cloudflare and authenticated acceptance open |
 | 1.4 | 2026-11-01 | Add synchronized RSI/MACD/ATR panes, editable panel heights, strict OHLCV input control, independent Decimal edge fixtures, and expanded browser CI | Source committed; independent final release acceptance open |
+| 1.5 | 2026-11-01 | Connect per-indicator ECharts settings to the existing authenticated versioned workspace, add server allowlist and client privacy/restore tests; preserve non-release mathematical and editorial denominators | Source committed; independent exact-main, Cloudflare and signed-in acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.4 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.5 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
