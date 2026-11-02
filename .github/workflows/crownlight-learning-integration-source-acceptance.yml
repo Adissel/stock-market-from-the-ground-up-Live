@@ -1,0 +1,57 @@
+# Free, offline technical acceptance only. Owner approved source records;
+# independent provenance, authenticated production and grading remain separate.
+name: Crownlight Labs Academy Talia Source Acceptance (Free)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/crownlight-learning-integration-source-acceptance.yml'
+      - 'scripts/learning-echarts-beta-audit-v1.mjs'
+      - 'data/competency-lab-paths-v01499.json'
+      - 'data/tutor-indicator-study-v1.json'
+      - 'data/tutor-indicator-expansion-v1.json'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'tests/test_v014168_419_teaching_bridges.mjs'
+      - 'tests/test_v014168_academy_family.mjs'
+      - 'tests/academy-member-day-restoration-v1.test.mjs'
+      - 'tests/engine-classroom-contract-v1.test.mjs'
+      - 'tests/learning-engine-tier-policy-v1.test.mjs'
+permissions:
+  contents: read
+jobs:
+  learning-curriculum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record exact technical acceptance commit
+        run: echo "LEARNING_SOURCE_SHA=${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify 419 Lab and ten Academy paths with 73 Tutor briefs and 16 calculated chart studies
+        run: |
+          node scripts/learning-echarts-beta-audit-v1.mjs
+          node tests/test_v014168_419_teaching_bridges.mjs
+          node tests/basic-all-419-lab-bridge-integrity-v1.test.mjs
+          node tests/test_v014168_academy_family.mjs
+      - name: Verify no privileged learning-engine or grading bypass
+        run: |
+          node tests/test_crownlight_lab_handoff_v2.mjs
+          node tests/academy-member-day-restoration-v1.test.mjs
+          node --test tests/engine-classroom-contract-v1.test.mjs tests/learning-engine-tier-policy-v1.test.mjs
+      - name: Verify independent indicator math and curriculum mappings
+        run: |
+          node tests/test_chart_quant_crosslanguage_v1.mjs
+          node tests/prototype-curriculum-parity-v1.test.mjs
+      - name: Save bounded curriculum evidence and editorial exceptions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crownlight-learning-inventory
+          path: artifacts/learning-echarts-beta-audit-v1.json
+          if-no-files-found: ignore
+          retention-days: 7
