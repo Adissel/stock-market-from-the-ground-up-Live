@@ -9,6 +9,11 @@ on:
       - 'functions/api/learning-lab-edition-exercise.js'
       - 'tests/learning-lab-edition-exercises-v1.test.mjs'
       - 'tests/learning-lab-edition-api-v1.test.mjs'
+      - 'tests/learning-lab-edition-member-surface-v1.test.mjs'
+      - 'assets/js/learning-lab-edition-panel-v1.js'
+      - 'assets/js/lab-player.js'
+      - 'assets/css/learning-lab-edition-panel-v1.css'
+      - 'lab-player.html'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
   workflow_dispatch:
 permissions:
@@ -31,6 +36,10 @@ jobs:
           node --check functions/api/learning-lab-edition-exercise.js
       - name: Verify source safety and chronology
         run: node --test tests/learning-lab-edition-exercises-v1.test.mjs
+      - name: Verify member UI source integration and accessibility fallbacks
+        run: node --test tests/learning-lab-edition-member-surface-v1.test.mjs
+      - name: Verify browser workbench syntax
+        run: node --check assets/js/learning-lab-edition-panel-v1.js
   grant-revocation-security:
     runs-on: ubuntu-latest
     timeout-minutes: 12
