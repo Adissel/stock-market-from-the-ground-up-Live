@@ -72,7 +72,7 @@ stages.indicators=ics.map((g,i)=>{
  return {id:g.code,ordinal:i+1,title:g.title,formula:g.formula,
   sourceUrls:g.sourceUrls,review:'SOURCE_GUIDE_AUTHORED_FORMULA_RIGHTS_HOLD',
   crosscheck15:i<15?'JS_PYTHON_REFERENCE_TEST_CONFIGURED':
-    i<30?'SECOND_15_COMPONENT_TEST_CONFIGURED':'NOT_IN_FIRST_30_CROSSCHECK_BATCH',
+    i<30?'SECOND_15_COMPONENT_TEST_CONFIGURED':i<45?'THIRD_15_PYTHON_JS_CASE_TEST_CONFIGURED':'NOT_IN_FIRST_45_CROSSCHECK_BATCH',
   independentlyReleased:false,formulaRightsAccepted:false};
 });
 const ids=Object.keys(official.byLab||{});
