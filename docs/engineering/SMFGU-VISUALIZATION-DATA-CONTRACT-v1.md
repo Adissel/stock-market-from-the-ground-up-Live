@@ -52,6 +52,7 @@ type IndicatorInput = {
 interface VisualKit {
   barOptions(input: BarInput): object | null;
   indicatorSeries(input: IndicatorInput): object | null;
+  stageJourneyOptions(input: {labels: string[]; index: number; sourceLabel: string; reducedMotion?: boolean}): object | null;
 }
 ```
 
@@ -59,7 +60,7 @@ interface VisualKit {
 
 **Indicator lookahead:** The factory returns only finite-or-null computed samples with `bar <= visibleThroughBar`. It does not reconstruct the withheld bars, compute the study, manufacture a warm-up, infer future state, or authorize a data source. The upstream source determines whether the series is historical, licensed, synthetic, or member-provided, and must verify that declared source. Missing values remain `null`, not zero.
 
-**Accessibility:** Every view must have an explicit, accurate label and native exact-value table or equivalent semantic fallback on the consuming page; an ECharts `aria` label alone is insufficient. Avoid embedding unsanitized user HTML in tooltip strings; use rich-text tooltip mode or safe text construction. Honor reduced motion, proper contrast, keyboard focus, zoom behavior and account-change disposal.
+**Visible-stage timeline:** \`stageJourneyOptions\` accepts ten existing published stage names and current 0-based visible-stage index from the current engine. Colored segments describe *navigation position*, not completed tasks, scores, mastery, or authorized membership. It never mutates progress; invalid labels or indices fail closed. The existing Lab/Academy visible-stage ECharts widget uses this shared factory with its former implementation preserved as fallback.\n\n**Accessibility:** Every view must have an explicit, accurate label and native exact-value table or equivalent semantic fallback on the consuming page; an ECharts `aria` label alone is insufficient. Avoid embedding unsanitized user HTML in tooltip strings; use rich-text tooltip mode or safe text construction. Honor reduced motion, proper contrast, keyboard focus, zoom behavior and account-change disposal.
 
 ## Consumer binding policy
 
