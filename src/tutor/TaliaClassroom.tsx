@@ -61,7 +61,7 @@ const labQuestion=(q:string)=>labHandoff
 function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;memberId:string}){
   const host=useRef<HTMLDivElement|null>(null);
   const [visible,setVisible]=useState(7);
-  const prototype=typeof window!=='undefined'&&window.location.pathname.endsWith('/talia-tutor-prototype.html');
+  const prototype=typeof window!=='undefined'&&(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'));
   const [study,setStudy]=useState<'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap'>('ema9');
   const [zoom,setZoom]=useState(100);
   const [showVolume,setShowVolume]=useState(true);
@@ -152,7 +152,7 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
   },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
-    <div className="tc-row tc-row-between"><h2>Chart classroom</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
+    <div className="tc-row tc-row-between"><h2>Market analysis workspace</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
     <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
     {prototype&&<div className="tc-row tp-chart-tools" aria-label="Chart analysis controls">
       <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="ema9">EMA 9</option><option value="ema20">EMA 20 (requires 20 bars)</option><option value="ema200">EMA 200 (requires 200 bars)</option><option value="vwap">Fictional proxy VWAP</option><option value="none">No overlay</option></select></label>
@@ -393,7 +393,7 @@ function Classroom(){
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / TUTOR</p><h1>Talia Interactive Classroom</h1><p>Talk through a concept. Inspect a fictional chart. Practice your reasoning. Learn from reviewed explanations.</p></div><div className="tc-row"><a href="/market-tutor.html">Classic Tutor</a><a href="/labs.html">Labs</a><a href="/bootcamp-academy.html">Boot Camps</a></div></div>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid"><section className="tc-chat" aria-labelledby="tc-chat-title">
-      <div className="tc-chat-top"><div><h2 id="tc-chat-title">Conversation with Talia</h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
+      <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
         {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong><p>{m.text}</p>{m.label&&<small>{m.label}</small>}</li>)}
       </ol>
