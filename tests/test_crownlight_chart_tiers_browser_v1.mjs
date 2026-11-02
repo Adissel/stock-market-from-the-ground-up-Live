@@ -191,14 +191,30 @@ if(tier==='PROFESSIONAL'){
  const ratio=rects=>rects[0].width/rects[1].width;
  const testMode=async mode=>{
   await page.locator('select[data-cl-layout]').selectOption(mode);
-  await page.waitForFunction(mode=>{
-   const cards=[...document.querySelectorAll('.cl-tier-chart-frame')].map(e=>e.getBoundingClientRect());
-   if(cards.length!==2)return false;
-   if(mode==='STACKED')return cards[1].top>=cards[0].bottom-2&&Math.abs(cards[0].width-cards[1].width)<3;
-   const aligned=Math.abs(cards[0].top-cards[1].top)<2;
-   const proportion=cards[0].width/cards[1].width;
-   return aligned&&(mode==='SIDE_BY_SIDE'?proportion>.95&&proportion<1.05:proportion>1.85&&proportion<2.15);
-  },mode,{timeout:8000});
+  try{
+   await page.waitForFunction(mode=>{
+    const cards=[...document.querySelectorAll('.cl-tier-chart-frame')].map(e=>e.getBoundingClientRect());
+    if(cards.length!==2)return false;
+    if(mode==='STACKED')return cards[1].top>=cards[0].bottom-2&&Math.abs(cards[0].width-cards[1].width)<3;
+    const aligned=Math.abs(cards[0].top-cards[1].top)<2;
+    const proportion=cards[0].width/cards[1].width;
+    return aligned&&(mode==='SIDE_BY_SIDE'?proportion>.95&&proportion<1.05:proportion>1.85&&proportion<2.15);
+   },mode,{timeout:8000});
+  }catch(error){
+   // Preserve the strict browser gate and report actual rendered geometry.
+   const geometryFailure=await page.evaluate(()=>{
+    const root=document.getElementById('cl-chart-tier-switcher');
+    const panels=root?.querySelector('.cl-chart-tier-panels');
+    const cards=[...(panels?.querySelectorAll('.cl-tier-chart-frame')||[])].map(e=>{
+     const b=e.getBoundingClientRect();return {x:b.x,y:b.y,width:b.width,height:b.height,bottom:b.bottom};
+    });
+    return {mode:root?.dataset.clLayout,columns:panels?getComputedStyle(panels).gridTemplateColumns:null,
+     primary:root?.style.getPropertyValue('--cl-pro-primary'),
+     secondary:root?.style.getPropertyValue('--cl-pro-secondary'),cards};
+   });
+   console.error('CROWNLIGHT_LAYOUT_GEOMETRY_FAILURE '+JSON.stringify({requested:mode,...geometryFailure}));
+   throw error;
+  }
   return geometry();
  };
  const side=await testMode('SIDE_BY_SIDE');
