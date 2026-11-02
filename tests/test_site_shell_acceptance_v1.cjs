@@ -18,4 +18,14 @@ assert.match(site,/new Set\(/,'site shell must have explicit page allowlist');
 for(const key of ['site-shell-v1.js','appearance-controls-v1.js'])assert.ok(site.includes(key),'site shell integration missing '+key);
 assert.match(shell,/aria-expanded/);assert.match(shell,/Skip to main content/);assert.match(appearance,/aria-pressed/);
 for(const p of ['assets/js/site.js','assets/js/site-shell-v1.js','assets/js/appearance-controls-v1.js','assets/js/site-experience-v5.js'])new Function(fs.readFileSync(p,'utf8'));
+
+const continuity=fs.readFileSync('assets/js/member-learning-continuity-v1.js','utf8');
+assert.match(page['dashboard.html'],/member-learning-continuity-v1\.js/);
+assert.match(page['dashboard.html'],/member-learning-continuity-v1\.css/);
+for(const destination of ['/learn.html','/labs.html','/simulator.html','/talia-classroom.html','/journal.html','/market-tutor.html'])assert.ok(continuity.includes(destination),'missing curriculum continuity destination: '+destination);
+assert.match(continuity,/getElementById\('dashboard-content'\)/,'requires authenticated dashboard content');
+assert.match(continuity,/getElementById\('overall-progress'\)/,'real member progress source');
+assert.doesNotMatch(continuity,/fetch\(|localStorage|sessionStorage|supabase\.from|innerHTML\s*\+=/,'read-only navigation must not touch private state');
+new Function(continuity);
+
 console.log('PASS: core page design, protected curricula, retained dashboard statistics, auth, commerce, accessible shell, JavaScript syntax');
