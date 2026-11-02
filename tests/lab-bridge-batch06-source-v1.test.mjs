@@ -19,7 +19,8 @@ test('Batch06 retains official 419 Labs, 30 competencies, no protected grades an
  assert.equal(intake.entries.length,20);
  assert.equal(cases.cases.length,20);
  assert.deepEqual(new Set(rows.map(x=>x.labId)),new Set(intake.entries.map(x=>x.labId)));
- for(const id of intake.excludedUnresolvedCanonTitles)assert.equal(bridge.entries[id].title,id);
+ const publicLabs=load('data/labs.json');
+ for(const id of intake.excludedUnresolvedCanonTitles){const recovered=publicLabs.find(x=>x.id===id)?.concept;assert(recovered&&recovered!==id);assert.equal(bridge.entries[id].title,recovered)}
 });
 test('Batch06 every source individually original, financial-rights held, no-lookahead ungraded transfer',()=>{
  const observed=new Set(),prior=new Set(Object.values(bridge.entries).filter(x=>x.instructionSource!=='ORIGINAL_SUBJECT_SPECIFIC_BATCH06_20261101').map(x=>x.transfer?.prompt));
