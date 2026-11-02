@@ -216,3 +216,12 @@ test('Private conversation creation and history require a fresh verified identit
  assert.match(history,/if\(version!==epoch\.current\|\|identity\.current!==uid\)return;\s*setChat/);
  assert.doesNotMatch(history,/localStorage|sessionStorage|setItem/);
 });
+
+test('Staff prototype revokes visibility while revalidating and rejects session replacement races',()=>{
+ const gate=read('assets/js/talia-prototype-gate-v1.js');
+ for(const token of ['const invalidate=','revision++','requestRevision!==revision','current.data.session.user?.id!==user.id','current.data.session.access_token!==session.access_token','document.hidden','window.addEventListener(\'focus\'','workspace.hidden=true'])
+  assert.ok(gate.includes(token),'Fail-closed reauthorization missing '+token);
+ assert.match(gate,/cache:'no-store'/);
+ assert.match(gate,/control_panel.access/);
+ assert.doesNotMatch(gate,/localStorage|sessionStorage|service_role/);
+});
