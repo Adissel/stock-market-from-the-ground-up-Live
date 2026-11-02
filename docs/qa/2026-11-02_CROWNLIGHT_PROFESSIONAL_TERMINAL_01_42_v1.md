@@ -3,8 +3,8 @@
 **Project:** The Stock Market: From the Ground Up / Crownlight Chart Studio
 **Company:** Cyber Nexus Publishing / Crown & Lantern Press
 **Filename / file type:** `docs/qa/2026-11-02_CROWNLIGHT_PROFESSIONAL_TERMINAL_01_42_v1.md` / Markdown
-**Version / date:** 1.0 / 2026-11-02
-**Status:** PARTIAL SOURCE IMPLEMENTATION — CI, exact-deployment and real-browser acceptance OPEN
+**Version / date:** 1.7 / 2026-11-02
+**Status:** PARTIAL TECHNICAL ACCEPTANCE — historical real Chromium and two-account isolation ACCEPTED; full 42-item crosswalk and final-head release certification OPEN
 **Authoritative location:** GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`
 **Google Drive location / document ID:** Not created / unassigned
 **New file required:** Yes — retain this source QA register alongside existing releases
@@ -144,3 +144,26 @@ The Owner explicitly states: “I reviewed, accepted and sign off on everything 
 **Current QA control:** Preserve the distinction between (a) Owner approval, (b) source committed, (c) passing exact-SHA CI, (d) independent browser and authenticated RLS acceptance, and (e) Cloudflare production verified. All previously OPEN objective gates remain OPEN until independently evidenced. No live payment, irreversible data mutation or entitlement changes are authorized by this sign-off.
 
 **Version:** 1.6 / 2026-11-02. **Status:** Owner approved continuation; technical release acceptance outstanding.
+
+
+## Owner/member correction — Real Chromium and private member isolation (November 2, 2026)
+
+**Owner confirmation:** The Owner explicitly confirms “Real Chromium acceptance — I did this” and “Authenticated member isolation — members accepted.” These are approved historical acceptance results, **not new unexecuted tasks**. Do not ask the Owner or members to repeat already accepted acceptance solely because another 42-requirement register was not reconciled.
+
+**Independent corroboration retrieved from GitHub Actions:**
+
+| Pre-existing accepted evidence | Commit / run | Actual conclusion | Status |
+| --- | --- | --- | --- |
+| Authenticated Standard and Professional Chromium, separate real GoTrue users, visual controls, mobile/keyboard, saved studies, two-tab revision conflict and QA cleanup | `59194d184cca30eaba85b80941eb6c82f758147b` / [run 41236465069](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41236465069) | `signed-disposable-qa` job SUCCESS; actual browser and cleanup step SUCCESS | **ACCEPTED HISTORICALLY** |
+| Actual two-member GoTrue isolation and denied cross-account workspace requests, temporary QA cleanup | `df58283b918c813c8708400d63bcae3d2c9fad89` / [run 41233580742](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41233580742) | `real-disposable-chart-qa` job SUCCESS; two-user security/cleanup step SUCCESS | **ACCEPTED HISTORICALLY + MEMBER ACCEPTED BY OWNER REPORT** |
+| Real signed-in Advanced Studio and 25 noncharging authenticated API/Chromium checks | `af24099dc74285fa78ba6c5f77a440f51caa16b4` / [run 41237482584](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41237482584) | Both `production-signed-in-chart-api` and `production-browser-chart-ui` jobs SUCCESS; original QA document records QA25 **25/25 PASS**, no paid charges | **ACCEPTED HISTORICALLY** |
+
+**Controlling previously accepted register:** `docs/qa/2026-10-31_CHART_STUDIO_SIX_PLUS_EIGHT_ACCEPTANCE_v1.md` v1.3. That distinct 14-gate register records **C01 real Chromium ACCEPTED, C07 two-account isolation ACCEPTED, C09 two-tab CAS ACCEPTED**: **3/14 = 21.4% strictly accepted**, ten partial, one open. **Do not overwrite that evidence with a false 0% description of all previously completed work.**
+
+**Professional Terminal 42-item reconciliation:** The current 42-item register groups requirements by 01–10 rendering, 11–20 interaction, 21–30 workstation and 31–42 studies. It has not yet converted each criterion into a separately numbered, evidenced sign-off. Its 0/42 *administrative closures* must not be represented as 0% engineering completion, failed Chromium, or failed member isolation. Preserve the accepted real-browser and real-member evidence above and map it into individual applicable requirements in a later strict crosswalk. A production change after the historic SHA still needs targeted regression validation; that does not retrospectively invalidate a successful historical acceptance.
+
+**Still open without duplicating passed acceptance:** current-head/final-deployed-SHA parity, recent revised layout/gesture regression, remaining complete synchronized two-chart/drawing workflows where not previously covered, mathematical/replay and licensing requirements, accessibility gaps, and technical sign-off of the separately specified 42-item matrix.
+
+**Revision history:** v1.7, 2026-11-02 — restored independently confirmed historical authenticated Chromium and real-member isolation acceptance, recorded Owner/member sign-off, and corrected cross-register percentage interpretation.
+
+**Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.7 · Historical acceptance preserved; final 42-item certification crosswalk remains controlled.
