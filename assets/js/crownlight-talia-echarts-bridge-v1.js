@@ -21,7 +21,7 @@
  const note='The visual uses only the completed candles currently revealed by the chart. No future candle is used. EMA requires its full seed; HLC3-volume VWAP is an estimate, not trade-print VWAP. This is ungraded teaching, not a signal, score or official Talia AI conversation.';
  const add=(type,text)=>{const node=document.createElement(type);node.textContent=text;return node};
  function clear(reason){
-  revision++;visibleCount=0;chart?.dispose();chart=null;
+  revision++;visibleCount=0;root.CrownlightTutorChartHandoffV1?.clear();chart?.dispose();chart=null;
   observer?.disconnect();observer=null;plot.hidden=true;body.replaceChildren();
   teaching.replaceChildren();status.textContent=reason||'Awaiting revealed candles from the active member chart.';
  }
@@ -134,6 +134,16 @@
   let interpretation=null;
   try{interpretation=tutor?.analyze?.(history)||null}catch{interpretation=null}
   fillFacts(history,series,interpretation,source);
+  // User-consented handoff to the separately authorized Market Tutor.
+  // Only the CURRENT completed candle and upstream indicator calculations
+  // enter a short-lived, in-memory question; the URL contains only a nonce.
+  const at=history.length-1;
+  const question=('Teach me to interpret this already-revealed chart using no future bars. '+
+   'Declared source: '+source+'. Completed candle '+history.length+
+   ', close '+fmt(history[at].close)+', EMA 9 '+fmt(series.ema9[at])+
+   ', EMA 20 '+fmt(series.ema20[at])+', HLC3-volume VWAP estimate '+
+   fmt(series.vwap[at])+'. What is observable, uncertain, and a reasonable NO TRADE case?').slice(0,450);
+  root.CrownlightTutorChartHandoffV1?.setContext({question});
   visibleCount=history.length;
   status.textContent='Displaying '+visibleCount+' completed revealed candles · declared source '+source+
    ' · ungraded instructional chart. Membership entitlements remain enforced by the existing chart controller.';
