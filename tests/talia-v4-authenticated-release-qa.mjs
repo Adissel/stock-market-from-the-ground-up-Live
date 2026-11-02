@@ -70,7 +70,30 @@ try{
  assert(session.hasSession&&session.id===EXPECTED_ID,'James_Test browser identity does not match expected QA identity');
  mark('James_Test real browser sign-in','PASS','Verified Supabase identity and website login');
  await page.goto(ORIGIN+'/talia-classroom.html',{waitUntil:'domcontentloaded',timeout:35000});
- await page.locator('.tp-chart-tools').waitFor({state:'visible',timeout:30000});
+ const accessProbe=await page.evaluate(async()=>{
+  const result={route:location.pathname,session:false,toolHttp:0,toolOk:false,authorized:false,freeEligible:false,rootPresent:!!document.getElementById('talia-classroom-root')};
+  try{
+   const client=await window.getSupabaseClient?.();
+   const {data}=await client.auth.getSession();
+   result.session=!!data?.session?.access_token;
+   if(result.session){
+    const response=await fetch('/api/member-tool-access?tool=MARKET_TUTOR',{cache:'no-store',headers:{authorization:'Bearer '+data.session.access_token}});
+    const j=await response.json().catch(()=>({}));
+    result.toolHttp=response.status;result.toolOk=j?.ok===true;result.authorized=j?.authorized===true;result.freeEligible=j?.freeEligible===true;
+   }
+  }catch{}
+  return result;
+ });
+ console.log('TALIA_SAFE_ACCESS_PROBE '+JSON.stringify(accessProbe));
+ if(!accessProbe.session)fail('BLOCKED_CLASSROOM_SESSION','Verified member session not preserved after opening classroom');
+ if(!accessProbe.toolOk||(!accessProbe.authorized&&!accessProbe.freeEligible))fail('BLOCKED_TUTOR_ACCESS','No positive Tutor entitlement from server; HTTP '+accessProbe.toolHttp);
+ try{await page.locator('.tp-chart-tools').waitFor({state:'visible',timeout:15000});}
+ catch{
+  const diag=await page.evaluate(()=>({route:location.pathname,hasRoot:!!document.getElementById('talia-classroom-root'),hasChartPanel:!!document.querySelector('.tc-chart-panel'),hasChartCanvas:!!document.querySelector('.tc-chart canvas'),hasEChartsLoader:!!window.CrownlightECharts}));
+  console.error('TALIA_SAFE_RENDER_DIAGNOSTIC '+JSON.stringify(diag));
+  await page.screenshot({path:DIR+'/render-blocker.png',fullPage:false}).catch(()=>{});
+  fail('BLOCKED_CHART_RENDER','Authorized member but V4 chart controls not visible after 15 seconds');
+ }
  await page.waitForFunction(()=>{const el=document.querySelector('.tc-chart');return !!(el&&window.echarts?.getInstanceByDom?.(el))},null,{timeout:30000});
  let state=await dataFor(page);
  assert.equal(state.barCount,7,'Seven completed base candles required initially');
