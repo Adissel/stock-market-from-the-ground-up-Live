@@ -56,7 +56,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | Shared Lab | PROFESSIONAL | 0/8 | 0.00% | 0 | 4 | Not independently released |
 | Shared Lab | ENTERPRISE | 0/8 | 0.00% | 0 | 3 | Not independently released |
 
-**Related curriculum denominator:** the latest source-tested ten-batch register contains **200/419 (47.73%) individually authored Lab teaching bridges**; 219 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 200/419 curriculum statistic is NOT included in these engine integration percentages.
+**Related curriculum denominator:** the latest source-tested eleven-batch register contains **220/419 (52.51%) individually authored Lab teaching bridges**; 199 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 220/419 curriculum statistic is NOT included in these engine integration percentages.
 
 ## Shared Learning Engine — detailed feature-by-feature findings
 
@@ -71,7 +71,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LE-BAS-05 | Independent practice, retries and transfer | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/learning-lab-formative-editions-v1.test.mjs` | Distinct ungraded transfer must not disclose answers before an attempt. | Protected grade and accessibility acceptance open. |
 | LE-BAS-06 | Complete indicator-topic teaching parity | partial | `assets/js/learning-indicators-v1.js` · `tests/learning-indicators-v1.test.mjs` · `tests/basic-atr-bollinger-lessons-v1.test.mjs` | All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings. | 5/5 named studies have canonical source mappings; ATR/Bollinger editorial approval and authenticated accessible acceptance remain open. |
 | LE-BAS-07 | Free Foundations and Academy progression parity | partial | `assets/js/bootcamp-academy-v014168.js` · `tests/academy-member-day-restoration-v1.test.mjs` | Genuine learners maintain prerequisite and stage progress across courses. | Valid requested-day and first-unfinished restoration are source-tested; authenticated cross-course accessibility acceptance remains open. |
-| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/lab-bridge-batch10-source-v1.test.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Ten batches record 200/419 authored; 219 remain. |
+| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/lab-bridge-batch11-source-v1.test.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Eleven batches record 220/419 authored; 199 remain. |
 
 ### ADVANCED
 
@@ -198,5 +198,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | v1.3 | 2026-11-02 | Added and source-tested 20 distinct Day Trading bridges for a verified 140/419 authored denominator | Editorial, accessibility, authenticated member and publication acceptance remain open |
 | v1.4 | 2026-11-02 | Added fail-closed canonical ATR and Bollinger source mappings without replacing existing authored lessons; verified 5/5 named studies at the source boundary | ATR/Bollinger editorial approval, authenticated accessibility, exact-SHA CI/deployment and full Lab parity remain open |
 | v1.5 | 2026-11-02 | Recovered 13 canonical Foundation titles from two matching existing companion registries; recorded 40 Batch08-09 AI preflights; added Batch10 for 200/419 authored; reconciled Academy restoration evidence | Independent human editorial, authenticated continuity/accessibility, 219 Labs and complete topical-chart parity remain open |
+| v1.6 | 2026-11-02 | Added Batch11 for 220/419 authored, completing source-authored bridges for the 13 recovered Foundation records; recorded 20 individual Batch10 AI preflights | Independent human editorial, authenticated continuity/accessibility, 199 Labs and complete topical-chart parity remain open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.5 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.6 · GitHub `main` controlling · No payment, grade or premium grant.

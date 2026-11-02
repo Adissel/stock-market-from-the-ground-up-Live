@@ -340,4 +340,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.21 / 2026-11-02 / Recovered all 13 formerly ID-only Foundation titles from matching existing `data/labs.json` and `data/interactive-lab-index.json` companion concepts and updated the controlling catalog, competency map and bridge records together. Added twenty original Batch10 bridges (`DT-C34-L01`–`DT-C40-L02`) for 200/419 authored, and recorded forty individual Batch08-09 AI editorial preflights without claiming human approval. Academy requested-day/first-unfinished restoration remains source-tested; genuine authenticated continuity/accessibility and 219 unauthored Labs remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.21 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.22 / 2026-11-02 / Added twenty original Batch11 bridges for 220/419 source-authored and source-tested, including all thirteen recovered Foundation records and seven Day Trading records. Completed individual Batch10 AI editorial preflight without claiming independent human approval. Genuine authenticated continuity/accessibility, independent editorial acceptance, publication rights and 199 unauthored Labs remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.22 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

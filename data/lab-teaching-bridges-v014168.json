@@ -3672,43 +3672,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Example 1: ORCL.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "An EMA comparison must declare the close series, period, seed convention, and completed-bar cutoff before interpreting the ORCL example.",
+          "This lesson preserves the canonical topic Example 1: ORCL and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Example 1: ORCL from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL ORCL closes 100, 102, 101, 104 with period 3: SMA seed is 101.00; alpha=0.5; next EMA is 102.50.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Example 1: ORCL using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL ORCL closes 100, 102, 101, 104 with period 3: SMA seed is 101.00; alpha=0.5; next EMA is 102.50.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Example 1: ORCL: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling one rising EMA value a verified trade signal.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Example 1: ORCL cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "An EMA comparison must declare the close series, period, seed convention, and completed-bar cutoff before interpreting the ORCL example.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Example 1: ORCL calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "Example 1: ORCL",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Use new fictional ORCL-like closes and calculate the seed and next EMA."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C03-L04"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C04-L01",
+          "topic:Example 1: ORCL",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C04-L02": {
@@ -3719,43 +3776,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Example 2: VZ.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "A slower-moving VZ example illustrates that indicator meaning comes from formula and context, not ticker reputation or price level.",
+          "This lesson preserves the canonical topic Example 2: VZ and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Example 2: VZ from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL VZ closes 40.00, 40.20, 40.10, 40.30 with period 3: seed 40.10 and next EMA 40.20.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Example 2: VZ using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL VZ closes 40.00, 40.20, 40.10, 40.30 with period 3: seed 40.10 and next EMA 40.20.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Example 2: VZ: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Assuming a low-volatility ticker makes an EMA crossover reliable.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Example 2: VZ cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A slower-moving VZ example illustrates that indicator meaning comes from formula and context, not ticker reputation or price level.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Example 2: VZ calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "Example 2: VZ",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate a new period-3 EMA and separate arithmetic from a trade decision."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C04-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C04-L02",
+          "topic:Example 2: VZ",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C04-L03": {
@@ -3766,43 +3880,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Example 3: GM.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "The GM example compares completed closes without using later candles; identical EMA parameters can react differently to a different path.",
+          "This lesson preserves the canonical topic Example 3: GM and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Example 3: GM from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL GM closes 50, 49, 51, 52: period-3 seed 50.00 and next EMA 51.00.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Example 3: GM using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL GM closes 50, 49, 51, 52: period-3 seed 50.00 and next EMA 51.00.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Example 3: GM: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using a later close to revise the earlier seed.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Example 3: GM cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "The GM example compares completed closes without using later candles; identical EMA parameters can react differently to a different path.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Example 3: GM calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "Example 3: GM",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute the same convention on a new four-close path and identify the cutoff."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C04-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C04-L03",
+          "topic:Example 3: GM",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C05-L01": {
@@ -3813,43 +3984,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Calculate the SMA.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "A simple moving average is the arithmetic mean of the most recent declared number of completed observations.",
+          "This lesson preserves the canonical topic Calculate the SMA and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Calculate the SMA from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL closes 10, 12, 11, 13; period 3 final SMA=(12+11+13)/3=12.00.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Calculate the SMA using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL closes 10, 12, 11, 13; period 3 final SMA=(12+11+13)/3=12.00.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Calculate the SMA: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Dividing by the full history instead of the declared window.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Calculate the SMA cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A simple moving average is the arithmetic mean of the most recent declared number of completed observations.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Calculate the SMA calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "Calculate the SMA",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate a period-4 SMA from five new closes and show the included window."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C04-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C05-L01",
+          "topic:Calculate the SMA",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C05-L02": {
@@ -3860,43 +4088,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Shorter Versus Longer Length.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "Shorter averages replace observations sooner and therefore react faster; longer averages smooth more history but do not predict direction.",
+          "This lesson preserves the canonical topic Shorter Versus Longer Length and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Shorter Versus Longer Length from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL closes 8,9,10,11,12: final SMA3=11.00 while SMA5=10.00, a $1.00 difference.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Shorter Versus Longer Length using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL closes 8,9,10,11,12: final SMA3=11.00 while SMA5=10.00, a $1.00 difference.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Shorter Versus Longer Length: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling the shorter average more accurate because it moves faster.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Shorter Versus Longer Length cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Shorter averages replace observations sooner and therefore react faster; longer averages smooth more history but do not predict direction.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Shorter Versus Longer Length calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "Shorter Versus Longer Length",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare period 2 and period 4 averages on a new series."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C05-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C05-L02",
+          "topic:Shorter Versus Longer Length",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C05-L03": {
@@ -3907,43 +4192,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about SMA9, EMA9, and EMA20.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "SMA9, EMA9, and EMA20 use different weighting and warmup; values are comparable only after each has valid completed-bar output.",
+          "This lesson preserves the canonical topic SMA9, EMA9, and EMA20 and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize SMA9, EMA9, and EMA20 from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL illustration after valid seeds: prior EMA9 20.00, new close 21.00, alpha 0.2 gives EMA9 20.20; an EMA20 alpha 2/21 reacts more slowly.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice SMA9, EMA9, and EMA20 using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL illustration after valid seeds: prior EMA9 20.00, new close 21.00, alpha 0.2 gives EMA9 20.20; an EMA20 alpha 2/21 reacts more slowly.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with SMA9, EMA9, and EMA20: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Plotting pre-warmup placeholders as real indicator values.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What SMA9, EMA9, and EMA20 cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "SMA9, EMA9, and EMA20 use different weighting and warmup; values are comparable only after each has valid completed-bar output.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the SMA9, EMA9, and EMA20 calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "SMA9, EMA9, and EMA20",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute one EMA9 update and one EMA20 update from new valid seeds."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C05-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C05-L03",
+          "topic:SMA9, EMA9, and EMA20",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C05-L04": {
@@ -3954,43 +4296,100 @@
       "relatedCompetencies": [
         "EMA_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about A Crossover Is Not a Trade.",
-          "An exponential moving average weights recent completed closes more heavily; it is a lagging statistic.",
-          "Calculate an EMA only from timestamped completed closes, an explicitly specified period and a documented initialization convention; distinguish lagging context from prediction."
+          "A crossover records the ordering of two completed indicator values; it does not establish liquidity, fill, invalidation, or future return.",
+          "This lesson preserves the canonical topic A Crossover Is Not a Trade and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize A Crossover Is Not a Trade from the source evidence.",
-          "Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL prior fast 9.90 below slow 10.00; current fast 10.08 above slow 10.03. A cross occurred, while execution evidence remains absent.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice A Crossover Is Not a Trade using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Step 3 — Check the alternative or invalidation: The input history or EMA calculation boundary cannot be verified."
+          "Worked example — FICTIONAL prior fast 9.90 below slow 10.00; current fast 10.08 above slow 10.03. A cross occurred, while execution evidence remains absent.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with A Crossover Is Not a Trade: Calculating an EMA with future closes or presenting a cross as a fill signal.",
-          "Correct it by returning to the actual observation. Identify the indicator period and whether its inputs stop at the current revealed bar.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Treating a crossover timestamp as a guaranteed entry fill.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What A Crossover Is Not a Trade cannot establish:",
-          "A cross of two moving averages does not guarantee continuation.",
-          "An interpretation is invalidated or unproven when: The input history or EMA calculation boundary cannot be verified."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A crossover records the ordering of two completed indicator values; it does not establish liquidity, fill, invalidation, or future return.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support ema and trend context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the A Crossover Is Not a Trade calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a new fictional set of closes and an indicated EMA, identify which bars were complete and what would invalidate an EMA-based hypothesis.",
-        "topic": "A Crossover Is Not a Trade",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new two-step ordering and list three missing trade-plan fields."
+      },
+      "competencies": [
+        "EMA_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C05-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C05-L04",
+          "topic:A Crossover Is Not a Trade",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L01": {
@@ -4001,43 +4400,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP Reclaim.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "A VWAP reclaim approaches from below and satisfies a predeclared completed-bar condition above the contemporaneous session VWAP.",
+          "This lesson preserves the canonical topic VWAP Reclaim and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize VWAP Reclaim from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL VWAP 25.00; price approaches from 24.70 and closes 25.12, $0.12 or 0.48% above.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice VWAP Reclaim using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL VWAP 25.00; price approaches from 24.70 and closes 25.12, $0.12 or 0.48% above.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with VWAP Reclaim: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using final-session VWAP for an earlier reclaim decision.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What VWAP Reclaim cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A VWAP reclaim approaches from below and satisfies a predeclared completed-bar condition above the contemporaneous session VWAP.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the VWAP Reclaim calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "VWAP Reclaim",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new below-to-above sequence using time-matched VWAP."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C05-L04"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L01",
+          "topic:VWAP Reclaim",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L02": {
@@ -4048,43 +4504,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP Rejection.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "VWAP rejection tests from below but fails the declared reclaim condition; it is an observation, not a forecast.",
+          "This lesson preserves the canonical topic VWAP Rejection and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize VWAP Rejection from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL VWAP 7.50; intrabar high 7.56, close 7.42. A close-based reclaim failed by $0.08.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice VWAP Rejection using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL VWAP 7.50; intrabar high 7.56, close 7.42. A close-based reclaim failed by $0.08.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with VWAP Rejection: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling an intrabar touch a completed reclaim.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What VWAP Rejection cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "VWAP rejection tests from below but fails the declared reclaim condition; it is an observation, not a forecast.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the VWAP Rejection calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "VWAP Rejection",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new test under touch- and close-based rules."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C06-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L02",
+          "topic:VWAP Rejection",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L03": {
@@ -4095,43 +4608,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP Failure.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "VWAP failure loses a time-matched VWAP after prior completed support above it.",
+          "This lesson preserves the canonical topic VWAP Failure and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize VWAP Failure from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL prior close 15.20 above VWAP 15.00; next close 14.88 is $0.12 below, satisfying the stated failure rule.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice VWAP Failure using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL prior close 15.20 above VWAP 15.00; next close 14.88 is $0.12 below, satisfying the stated failure rule.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with VWAP Failure: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Confusing failure after support with rejection from below.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What VWAP Failure cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "VWAP failure loses a time-matched VWAP after prior completed support above it.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the VWAP Failure calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "VWAP Failure",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new two-bar approach and close sequence."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C06-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L03",
+          "topic:VWAP Failure",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L04": {
@@ -4142,43 +4712,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP Chop.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "VWAP chop is repeated crossing without sustained acceptance under the declared rule; transaction costs and false triggers remain relevant.",
+          "This lesson preserves the canonical topic VWAP Chop and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize VWAP Chop from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL closes relative to VWAP are +0.04,-0.03,+0.02,-0.05, four alternating sides in four completed bars.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice VWAP Chop using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL closes relative to VWAP are +0.04,-0.03,+0.02,-0.05, four alternating sides in four completed bars.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with VWAP Chop: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Choosing only the final cross and ignoring prior whipsaws.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What VWAP Chop cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "VWAP chop is repeated crossing without sustained acceptance under the declared rule; transaction costs and false triggers remain relevant.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the VWAP Chop calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "VWAP Chop",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Count crossings in a new completed sequence and state the rule."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C06-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L04",
+          "topic:VWAP Chop",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L05": {
@@ -4189,43 +4816,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about VWAP Hold.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "A VWAP hold approaches from above, tests the level, and remains above under a completed-bar rule.",
+          "This lesson preserves the canonical topic VWAP Hold and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize VWAP Hold from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL VWAP 30.00; low 29.96 and close 30.18 produces a $0.18 close above after a test.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice VWAP Hold using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL VWAP 30.00; low 29.96 and close 30.18 produces a $0.18 close above after a test.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with VWAP Hold: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling every above-VWAP candle a hold without a test.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What VWAP Hold cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A VWAP hold approaches from above, tests the level, and remains above under a completed-bar rule.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the VWAP Hold calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "VWAP Hold",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply a hold rule to a new low, close, and time-matched VWAP."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C06-L04"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L05",
+          "topic:VWAP Hold",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C06-L06": {
@@ -4236,43 +4920,100 @@
       "relatedCompetencies": [
         "VWAP_CONTEXT"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Failed VWAP Reclaim.",
-          "Volume-weighted average price summarizes a defined set of trades, not a standalone trading instruction.",
-          "Identify the session anchor, included prints, cumulative price-times-volume convention and cumulative volume; do not treat a VWAP line as support guaranteed to hold."
+          "A failed VWAP reclaim first meets the declared reclaim rule and later loses VWAP on completed evidence.",
+          "This lesson preserves the canonical topic Failed VWAP Reclaim and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Failed VWAP Reclaim from the source evidence.",
-          "Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL closes 12.08 above VWAP 12.00, then 11.91 below; the loss is $0.09 after a completed reclaim.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Failed VWAP Reclaim using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Step 3 — Check the alternative or invalidation: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "Worked example — FICTIONAL closes 12.08 above VWAP 12.00, then 11.91 below; the loss is $0.09 after a completed reclaim.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Failed VWAP Reclaim: Describing a two-print weighted mean as verified full-session VWAP.",
-          "Correct it by returning to the actual observation. Describe where the currently displayed price is relative to the properly scoped VWAP.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Labeling the first failed attempt from below as a failed reclaim.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Failed VWAP Reclaim cannot establish:",
-          "Price above VWAP does not prove the next trade will be profitable.",
-          "An interpretation is invalidated or unproven when: The comparison depends on missing trade/volume inputs or a different session boundary."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A failed VWAP reclaim first meets the declared reclaim rule and later loses VWAP on completed evidence.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support vwap as context, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Failed VWAP Reclaim calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional VWAP reclaim with a later failed retest and specify what evidence was available before each close.",
-        "topic": "Failed VWAP Reclaim",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Distinguish rejection, reclaim, and failed reclaim in a new sequence."
+      },
+      "competencies": [
+        "VWAP_CONTEXT"
+      ],
+      "prerequisites": [
+        "F3-C06-L05"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:F3-C06-L06",
+          "topic:Failed VWAP Reclaim",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "F3-C07-L01": {
@@ -11396,7 +12137,7 @@
         "PULLBACK_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A consolidation box uses a predeclared completed-window high and low; its width is high minus low.",
@@ -11474,7 +12215,7 @@
         "context": [
           "canonical_lab_id:DT-C34-L01",
           "topic:Consolidations, Ranges, and Compression-to-Expansion Setups — Define the Box",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -11489,7 +12230,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -11504,7 +12245,7 @@
         "PULLBACK_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Productive compression combines contracting range with continuing observable participation; dead liquidity has sparse transactions or unusable spreads.",
@@ -11582,7 +12323,7 @@
         "context": [
           "canonical_lab_id:DT-C34-L02",
           "topic:Consolidations, Ranges, and Compression-to-Expansion Setups — Dead Liquidity Is Not Productive Compression",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -11597,7 +12338,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -11612,7 +12353,7 @@
         "PULLBACK_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A false break trades beyond a defined range boundary and then fails the declared acceptance rule; range failure is measured only after completed evidence.",
@@ -11690,7 +12431,7 @@
         "context": [
           "canonical_lab_id:DT-C34-L03",
           "topic:Consolidations, Ranges, and Compression-to-Expansion Setups — False Break and Range Failure",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -11705,7 +12446,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -11718,7 +12459,7 @@
       "relatedCompetencies": [
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Gap context compares the current session reference with the prior regular-session close and records catalyst, liquidity, and adjustment state separately.",
@@ -11794,7 +12535,7 @@
         "context": [
           "canonical_lab_id:DT-C35-L01",
           "topic:Gap Continuation, Gap Failure, and Opening-Range Setups — Gap Context",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -11809,7 +12550,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -11823,7 +12564,7 @@
         "CHART_STRUCTURE",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "An opening range is the high and low of a declared completed interval after the regular-session open.",
@@ -11900,7 +12641,7 @@
         "context": [
           "canonical_lab_id:DT-C35-L02",
           "topic:Gap Continuation, Gap Failure, and Opening-Range Setups — Define the Opening Range",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -11915,7 +12656,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -11930,7 +12671,7 @@
         "CANDLE_READING",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "First-candle risk measures the distance from a proposed trigger to structural invalidation before an entry decision.",
@@ -12008,7 +12749,7 @@
         "context": [
           "canonical_lab_id:DT-C35-L03",
           "topic:Gap Continuation, Gap Failure, and Opening-Range Setups — First-Candle Risk",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12023,7 +12764,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12037,7 +12778,7 @@
         "FAILED_BREAKOUT",
         "PULLBACK_RECOGNITION"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Exhaustion is a multi-factor condition involving expansion, participation, liquidity, and failed continuation; no fixed percentage proves it.",
@@ -12114,7 +12855,7 @@
         "context": [
           "canonical_lab_id:DT-C36-L01",
           "topic:Reversals, Exhaustion, and Failed-Move Setups — Exhaustion Is a Condition, Not a Percentage",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12129,7 +12870,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12144,7 +12885,7 @@
         "PULLBACK_RECOGNITION",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A lower high or higher low requires two confirmed pivots and a later completed confirmation event.",
@@ -12222,7 +12963,7 @@
         "context": [
           "canonical_lab_id:DT-C36-L02",
           "topic:Reversals, Exhaustion, and Failed-Move Setups — Lower High / Higher Low Confirmation",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12237,7 +12978,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12252,7 +12993,7 @@
         "PULLBACK_RECOGNITION",
         "CHART_STRUCTURE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Countertrend risk includes adverse trend persistence, wider invalidation distance, and uncertain timing even when reversal evidence appears.",
@@ -12330,7 +13071,7 @@
         "context": [
           "canonical_lab_id:DT-C36-L03",
           "topic:Reversals, Exhaustion, and Failed-Move Setups — Countertrend Risk",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12345,7 +13086,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12359,7 +13100,7 @@
         "HALTS_LULD",
         "SQUEEZE_CONTEXT"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A trading halt is an exchange or regulatory pause with a stated code or condition; it is not proof of news quality or future direction.",
@@ -12436,7 +13177,7 @@
         "context": [
           "canonical_lab_id:DT-C37-L01",
           "topic:Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Why Trading Can Halt",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12451,7 +13192,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12466,7 +13207,7 @@
         "SQUEEZE_CONTEXT",
         "CANDIDATE_QUALITY"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Resumption begins a new price-discovery process; the last pre-halt trade is not a guaranteed reopening fill.",
@@ -12544,7 +13285,7 @@
         "context": [
           "canonical_lab_id:DT-C37-L02",
           "topic:Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Resumption Is New Price Discovery",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12559,7 +13300,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12574,7 +13315,7 @@
         "SQUEEZE_CONTEXT",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Gap risk is the difference between intended invalidation and the first executable price when trading resumes.",
@@ -12652,7 +13393,7 @@
         "context": [
           "canonical_lab_id:DT-C37-L03",
           "topic:Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Risk Through Gaps",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12667,7 +13408,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12680,7 +13421,7 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A thesis is a falsifiable statement linking current evidence, expected condition, and invalidating observation; it is not a slogan.",
@@ -12756,7 +13497,7 @@
         "context": [
           "canonical_lab_id:DT-C38-L01",
           "topic:Building the Trade Plan — Thesis",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12771,7 +13512,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12786,7 +13527,7 @@
         "INVALIDATION_DISCIPLINE",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Invalidation is the observable condition that disproves or blocks the setup, defined before entry and separate from account loss limit.",
@@ -12864,7 +13605,7 @@
         "context": [
           "canonical_lab_id:DT-C38-L02",
           "topic:Building the Trade Plan — Invalidation",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12879,7 +13620,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12893,7 +13634,7 @@
         "INDEPENDENT_PLAN",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A trigger states the exact completed event that authorizes the next decision while leaving execution and outcome uncertain.",
@@ -12970,7 +13711,7 @@
         "context": [
           "canonical_lab_id:DT-C38-L03",
           "topic:Building the Trade Plan — The Trigger",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -12985,7 +13726,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -12999,7 +13740,7 @@
         "ENTER_WATCH_NO_TRADE",
         "CHASE_FOMO_DISCIPLINE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Confirmation waits for declared evidence; chasing enters after price has moved beyond the planned location without recalculating risk.",
@@ -13076,7 +13817,7 @@
         "context": [
           "canonical_lab_id:DT-C39-L01",
           "topic:Making the Entry Decision — Confirmation versus chasing",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -13091,7 +13832,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -13104,7 +13845,7 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Entry location and invalidation jointly determine per-share risk; neither chart attractiveness nor share price alone determines size.",
@@ -13180,7 +13921,7 @@
         "context": [
           "canonical_lab_id:DT-C39-L02",
           "topic:Making the Entry Decision — Entry location and risk",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -13195,7 +13936,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -13209,7 +13950,7 @@
         "ENTER_WATCH_NO_TRADE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Risk geometry compares entry-to-invalidation distance with entry-to-target distance using the same units and predeclared levels.",
@@ -13286,7 +14027,7 @@
         "context": [
           "canonical_lab_id:DT-C39-L03",
           "topic:Making the Entry Decision — Entry Location Determines Risk Geometry",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -13301,7 +14042,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -13316,7 +14057,7 @@
         "RISK_REWARD",
         "RISK_PER_SHARE"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "Risk per share is absolute entry minus invalidation distance, adjusted conceptually for direction and not confused with position value.",
@@ -13394,7 +14135,7 @@
         "context": [
           "canonical_lab_id:DT-C40-L01",
           "topic:Position Sizing, Reward-to-Risk, and Maximum Entry — Risk Per Share",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
         ]
       },
       "provenance": {
@@ -13409,7 +14150,7 @@
         "fictionalExamples": true,
         "publicationRights": "NOT_APPROVED",
         "dataIngestionRights": "NOT_APPROVED",
-        "aiEditorialPreflight": false,
+        "aiEditorialPreflight": true,
         "independentEditorialAcceptance": false,
         "memberAcceptance": false
       }
@@ -13424,7 +14165,7 @@
         "RISK_REWARD",
         "SLIPPAGE_SPREAD"
       ],
-      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "sourceStatus": "BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING",
       "tabs": {
         "understand": [
           "A slippage reserve reduces the risk budget available for structural distance; it is a planning allowance, not a promised fill.",
@@ -13502,7 +14243,115 @@
         "context": [
           "canonical_lab_id:DT-C40-L02",
           "topic:Position Sizing, Reward-to-Risk, and Maximum Entry — Slippage Reserve",
-          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+          "source_status:BATCH10_ORIGINAL_AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": true,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
+      }
+    },
+    "DT-C40-L03": {
+      "labId": "DT-C40-L03",
+      "collection": "DAY_TRADING_BOOK_1",
+      "title": "Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk",
+      "mappedGuideCode": "POSITION_SIZING",
+      "relatedCompetencies": [
+        "POSITION_SIZING",
+        "RISK_REWARD",
+        "MFE_MAE_REVIEW"
+      ],
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
+      "tabs": {
+        "understand": [
+          "Position value is shares multiplied by price; planned risk is shares multiplied by entry-to-invalidation distance. They answer different questions.",
+          "This lesson preserves the canonical topic Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
+        ],
+        "recognize": [
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 200 shares at $25 has $5,000 position value; $0.30 risk per share gives $60 planned price risk.",
+          "Separate calculation from inference, recommendation, and later outcome."
+        ],
+        "apply": [
+          "Worked example — FICTIONAL 200 shares at $25 has $5,000 position value; $0.30 risk per share gives $60 planned price risk.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
+        ],
+        "mistake": [
+          "Common misconception — Treating total position value as the amount expected to lose.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
+        ],
+        "limits": [
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Position value is shares multiplied by price; planned risk is shares multiplied by entry-to-invalidation distance. They answer different questions.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
+        ]
+      },
+      "selfCheck": "Reproduce the Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk calculation or classification, correct the misconception, and name one unknown.",
+      "transfer": {
+        "type": "ungraded_independent_practice",
+        "graded": false,
+        "noLookahead": true,
+        "requiresNewEvidence": true,
+        "prompt": "Calculate value and planned risk for a new price, size, and invalidation."
+      },
+      "competencies": [
+        "POSITION_SIZING",
+        "RISK_REWARD",
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C40-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C40-L03",
+          "topic:Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
         ]
       },
       "provenance": {
@@ -13522,55 +14371,6 @@
         "memberAcceptance": false
       }
     },
-    "DT-C40-L03": {
-      "labId": "DT-C40-L03",
-      "collection": "DAY_TRADING_BOOK_1",
-      "title": "Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk",
-      "mappedGuideCode": "POSITION_SIZING",
-      "relatedCompetencies": [
-        "POSITION_SIZING",
-        "RISK_REWARD",
-        "MFE_MAE_REVIEW"
-      ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
-      "tabs": {
-        "understand": [
-          "We will learn about Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk.",
-          "The basic whole-share ceiling is floor(risk budget / planned per-share loss).",
-          "Compute planned per-share risk as absolute(entry minus invalidation) and theoretical shares as floor(risk budget divided by per-share risk); execution risk may exceed the model."
-        ],
-        "recognize": [
-          "Here is how to recognize Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk from the source evidence.",
-          "Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Find the time, labels and comparable measurements before interpreting the result."
-        ],
-        "apply": [
-          "Let us practice Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Step 3 — Check the alternative or invalidation: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
-        ],
-        "mistake": [
-          "A common error with Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk: Rounding quantity upward beyond the planned risk budget.",
-          "Correct it by returning to the actual observation. Calculate budget, stop distance and maximum whole shares, then check liquidity and buying-power limits.",
-          "Do not invent an unseen candle or trade fill."
-        ],
-        "limits": [
-          "What Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk cannot establish:",
-          "The calculated size is not a guarantee that a stop will fill at its level.",
-          "An interpretation is invalidated or unproven when: The trade exceeds buying power, liquidity assumptions, or the predetermined loss budget."
-        ]
-      },
-      "selfCheck": "Before revealing any later observation, which specific facts support share-count mathematics, what remains unknown, and what could invalidate your reading?",
-      "transfer": {
-        "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $8.20, reference $7.95 and planned $25 budget, calculate theoretical shares and list adverse fill/gap caveats.",
-        "topic": "Position Sizing, Reward-to-Risk, and Maximum Entry — Position Value Versus Risk",
-        "requiresNewEvidence": true,
-        "noLookahead": true,
-        "graded": false
-      }
-    },
     "DT-C41-L01": {
       "labId": "DT-C41-L01",
       "collection": "DAY_TRADING_BOOK_1",
@@ -13579,43 +14379,100 @@
       "relatedCompetencies": [
         "ORDER_SELECTION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Order Selection, Fills, Partial Fills, and Execution Control — Market Orders.",
-          "Market, limit and stop orders impose different price, priority and trigger assumptions.",
-          "Separate market, limit and stop instructions by price constraint, execution uncertainty and possible adverse fills; include a broker and session caveat."
+          "A market order prioritizes immediate execution opportunity but does not guarantee price, size, or absence of partial fills.",
+          "This lesson preserves the canonical topic Order Selection, Fills, Partial Fills, and Execution Control — Market Orders and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Order Selection, Fills, Partial Fills, and Execution Control — Market Orders from the source evidence.",
-          "Compare an order's condition against only the next server-revealed observation.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL displayed ask is $10.05 for 100 shares and next ask $10.20; a 150-share market buy cannot assume all shares fill at $10.05.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Order Selection, Fills, Partial Fills, and Execution Control — Market Orders using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare an order's condition against only the next server-revealed observation.",
-          "Step 3 — Check the alternative or invalidation: The required threshold is not observed, or trading is halted."
+          "Worked example — FICTIONAL displayed ask is $10.05 for 100 shares and next ask $10.20; a 150-share market buy cannot assume all shares fill at $10.05.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Order Selection, Fills, Partial Fills, and Execution Control — Market Orders: Equating bar range overlap with a confirmed limit fill.",
-          "Correct it by returning to the actual observation. Compare an order's condition against only the next server-revealed observation.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Equating the displayed best ask with a guaranteed fill.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Order Selection, Fills, Partial Fills, and Execution Control — Market Orders cannot establish:",
-          "A limit touch can imply a possible fill, never prove queue priority or full execution.",
-          "An interpretation is invalidated or unproven when: The required threshold is not observed, or trading is halted."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A market order prioritizes immediate execution opportunity but does not guarantee price, size, or absence of partial fills.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support order-type behavior, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Order Selection, Fills, Partial Fills, and Execution Control — Market Orders calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional thin quote, compare a market buy with a buy limit below the ask; explain the different unfilled and slippage outcomes.",
-        "topic": "Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Estimate the bounded displayed-book cost for a new two-level fictional ask."
+      },
+      "competencies": [
+        "ORDER_SELECTION"
+      ],
+      "prerequisites": [
+        "DT-C40-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C41-L01",
+          "topic:Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C41-L02": {
@@ -13627,43 +14484,101 @@
         "ORDER_SELECTION",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders.",
-          "Market, limit and stop orders impose different price, priority and trigger assumptions.",
-          "Separate market, limit and stop instructions by price constraint, execution uncertainty and possible adverse fills; include a broker and session caveat."
+          "A marketable limit order sets a worst acceptable price while seeking immediate execution; it can still partially fill or not fill.",
+          "This lesson preserves the canonical topic Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders from the source evidence.",
-          "Compare an order's condition against only the next server-revealed observation.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL buy limit $8.10 with asks 100@$8.05 and 80@$8.12: at most 100 displayed shares are eligible at or below the limit.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare an order's condition against only the next server-revealed observation.",
-          "Step 3 — Check the alternative or invalidation: The required threshold is not observed, or trading is halted."
+          "Worked example — FICTIONAL buy limit $8.10 with asks 100@$8.05 and 80@$8.12: at most 100 displayed shares are eligible at or below the limit.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders: Equating bar range overlap with a confirmed limit fill.",
-          "Correct it by returning to the actual observation. Compare an order's condition against only the next server-revealed observation.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling a marketable limit order a guaranteed full fill.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders cannot establish:",
-          "A limit touch can imply a possible fill, never prove queue priority or full execution.",
-          "An interpretation is invalidated or unproven when: The required threshold is not observed, or trading is halted."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A marketable limit order sets a worst acceptable price while seeking immediate execution; it can still partially fill or not fill.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support order-type behavior, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional thin quote, compare a market buy with a buy limit below the ask; explain the different unfilled and slippage outcomes.",
-        "topic": "Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Determine eligible displayed size for a new limit and ask ladder."
+      },
+      "competencies": [
+        "ORDER_SELECTION",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C41-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C41-L02",
+          "topic:Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C41-L03": {
@@ -13676,43 +14591,102 @@
         "SLIPPAGE_SPREAD",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position.",
-          "Market, limit and stop orders impose different price, priority and trigger assumptions.",
-          "Separate market, limit and stop instructions by price constraint, execution uncertainty and possible adverse fills; include a broker and session caveat."
+          "Spread is ask minus bid; queue position affects execution priority but cannot be known from aggregate size alone.",
+          "This lesson preserves the canonical topic Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position from the source evidence.",
-          "Compare an order's condition against only the next server-revealed observation.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid $5.00, ask $5.08 gives $0.08 spread or 1.6% of bid; displayed size does not reveal the learner’s queue position.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Compare an order's condition against only the next server-revealed observation.",
-          "Step 3 — Check the alternative or invalidation: The required threshold is not observed, or trading is halted."
+          "Worked example — FICTIONAL bid $5.00, ask $5.08 gives $0.08 spread or 1.6% of bid; displayed size does not reveal the learner’s queue position.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position: Equating bar range overlap with a confirmed limit fill.",
-          "Correct it by returning to the actual observation. Compare an order's condition against only the next server-revealed observation.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Claiming first-in-queue status from a Level 1 quote.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position cannot establish:",
-          "A limit touch can imply a possible fill, never prove queue priority or full execution.",
-          "An interpretation is invalidated or unproven when: The required threshold is not observed, or trading is halted."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Spread is ask minus bid; queue position affects execution priority but cannot be known from aggregate size alone.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support order-type behavior, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For a fictional thin quote, compare a market buy with a buy limit below the ask; explain the different unfilled and slippage outcomes.",
-        "topic": "Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate a new spread and list unknown queue evidence."
+      },
+      "competencies": [
+        "ORDER_SELECTION",
+        "SLIPPAGE_SPREAD",
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C41-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C41-L03",
+          "topic:Order Selection, Fills, Partial Fills, and Execution Control — Spread and Queue Position",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C42-L01": {
@@ -13723,43 +14697,100 @@
       "relatedCompetencies": [
         "INVALIDATION_DISCIPLINE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Stops and Invalidation — Structural invalidation.",
-          "An invalidation describes observations that would refute a setup under a predefined rule.",
-          "Define invalidation in observable completed data before the trade, and explain why a stop reference is not a guaranteed execution price."
+          "Structural invalidation is the market observation that defeats the setup logic, defined before entry and separate from a dollar budget.",
+          "This lesson preserves the canonical topic Stops and Invalidation — Structural invalidation and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Stops and Invalidation — Structural invalidation from the source evidence.",
-          "Write an observable condition and timing window before advancing replay.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL entry $16.40 and structural invalidation $15.95 create $0.45 per-share distance.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Stops and Invalidation — Structural invalidation using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write an observable condition and timing window before advancing replay.",
-          "Step 3 — Check the alternative or invalidation: The setup no longer holds under the recorded condition."
+          "Worked example — FICTIONAL entry $16.40 and structural invalidation $15.95 create $0.45 per-share distance.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Stops and Invalidation — Structural invalidation: Using arbitrary losses as a substitute for a reasoned invalidation.",
-          "Correct it by returning to the actual observation. Write an observable condition and timing window before advancing replay.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Moving invalidation merely to avoid taking a planned loss.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Stops and Invalidation — Structural invalidation cannot establish:",
-          "Changing the rule after an adverse move corrupts evaluation.",
-          "An interpretation is invalidated or unproven when: The setup no longer holds under the recorded condition."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Structural invalidation is the market observation that defeats the setup logic, defined before entry and separate from a dollar budget.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support precommitted invalidation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Stops and Invalidation — Structural invalidation calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional scenario, test whether the price or volume observation has violated the plan and state the resulting action.",
-        "topic": "Stops and Invalidation — Structural invalidation",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Define and calculate a new structural invalidation distance."
+      },
+      "competencies": [
+        "INVALIDATION_DISCIPLINE"
+      ],
+      "prerequisites": [
+        "DT-C41-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C42-L01",
+          "topic:Stops and Invalidation — Structural invalidation",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C42-L02": {
@@ -13772,43 +14803,102 @@
         "SLIPPAGE_SPREAD",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Stops and Invalidation — Slippage and gaps.",
-          "An invalidation describes observations that would refute a setup under a predefined rule.",
-          "Define invalidation in observable completed data before the trade, and explain why a stop reference is not a guaranteed execution price."
+          "A stop trigger does not guarantee its trigger price when the market gaps or liquidity disappears.",
+          "This lesson preserves the canonical topic Stops and Invalidation — Slippage and gaps and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Stops and Invalidation — Slippage and gaps from the source evidence.",
-          "Write an observable condition and timing window before advancing replay.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL stop reference $20.00 and first executable price $19.55 create $0.45 additional slippage per share.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Stops and Invalidation — Slippage and gaps using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write an observable condition and timing window before advancing replay.",
-          "Step 3 — Check the alternative or invalidation: The setup no longer holds under the recorded condition."
+          "Worked example — FICTIONAL stop reference $20.00 and first executable price $19.55 create $0.45 additional slippage per share.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Stops and Invalidation — Slippage and gaps: Using arbitrary losses as a substitute for a reasoned invalidation.",
-          "Correct it by returning to the actual observation. Write an observable condition and timing window before advancing replay.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Modeling gap loss as zero because a stop existed.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Stops and Invalidation — Slippage and gaps cannot establish:",
-          "Changing the rule after an adverse move corrupts evaluation.",
-          "An interpretation is invalidated or unproven when: The setup no longer holds under the recorded condition."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A stop trigger does not guarantee its trigger price when the market gaps or liquidity disappears.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support precommitted invalidation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Stops and Invalidation — Slippage and gaps calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional scenario, test whether the price or volume observation has violated the plan and state the resulting action.",
-        "topic": "Stops and Invalidation — Slippage and gaps",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate additional loss for a new stop and executable price."
+      },
+      "competencies": [
+        "INVALIDATION_DISCIPLINE",
+        "SLIPPAGE_SPREAD",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C42-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C42-L02",
+          "topic:Stops and Invalidation — Slippage and gaps",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C42-L03": {
@@ -13820,43 +14910,101 @@
         "INVALIDATION_DISCIPLINE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Stops and Invalidation — Hard Stops.",
-          "An invalidation describes observations that would refute a setup under a predefined rule.",
-          "Define invalidation in observable completed data before the trade, and explain why a stop reference is not a guaranteed execution price."
+          "A hard stop is a precommitted exit instruction or rule; its risk still depends on order type, liquidity, gaps, and broker handling.",
+          "This lesson preserves the canonical topic Stops and Invalidation — Hard Stops and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Stops and Invalidation — Hard Stops from the source evidence.",
-          "Write an observable condition and timing window before advancing replay.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 120 shares, planned $0.25 distance gives $30 risk; a $0.10 adverse fill adds $12, totaling $42 before fees.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Stops and Invalidation — Hard Stops using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write an observable condition and timing window before advancing replay.",
-          "Step 3 — Check the alternative or invalidation: The setup no longer holds under the recorded condition."
+          "Worked example — FICTIONAL 120 shares, planned $0.25 distance gives $30 risk; a $0.10 adverse fill adds $12, totaling $42 before fees.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Stops and Invalidation — Hard Stops: Using arbitrary losses as a substitute for a reasoned invalidation.",
-          "Correct it by returning to the actual observation. Write an observable condition and timing window before advancing replay.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling hard-stop placement a guarantee of maximum loss.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Stops and Invalidation — Hard Stops cannot establish:",
-          "Changing the rule after an adverse move corrupts evaluation.",
-          "An interpretation is invalidated or unproven when: The setup no longer holds under the recorded condition."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A hard stop is a precommitted exit instruction or rule; its risk still depends on order type, liquidity, gaps, and broker handling.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support precommitted invalidation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Stops and Invalidation — Hard Stops calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional scenario, test whether the price or volume observation has violated the plan and state the resulting action.",
-        "topic": "Stops and Invalidation — Hard Stops",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate planned and slippage-adjusted risk for a new case."
+      },
+      "competencies": [
+        "INVALIDATION_DISCIPLINE",
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C42-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C42-L03",
+          "topic:Stops and Invalidation — Hard Stops",
+          "source_status:BATCH11_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C43-L01": {

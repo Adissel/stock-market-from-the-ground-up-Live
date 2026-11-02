@@ -1,0 +1,232 @@
+{
+  "schema": "SMFGU-LAB-AI-EDITORIAL-PREFLIGHT-V1",
+  "batch": "BATCH10",
+  "reviewedAt": "2026-11-02",
+  "reviewKind": "AI_ASSISTED_INTERNAL_PREFLIGHT",
+  "reviewCount": 20,
+  "independentHumanEditorialAcceptance": false,
+  "authenticatedMemberAcceptance": false,
+  "publicationRightsApproved": false,
+  "reviews": [
+    {
+      "labId": "DT-C34-L01",
+      "title": "Consolidations, Ranges, and Compression-to-Expansion Setups — Define the Box",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Consolidations, Ranges, and Compression-to-Expansion Setups — Define the Box: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C34-L02",
+      "title": "Consolidations, Ranges, and Compression-to-Expansion Setups — Dead Liquidity Is Not Productive Compression",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Consolidations, Ranges, and Compression-to-Expansion Setups — Dead Liquidity Is Not Productive Compression: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C34-L03",
+      "title": "Consolidations, Ranges, and Compression-to-Expansion Setups — False Break and Range Failure",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Consolidations, Ranges, and Compression-to-Expansion Setups — False Break and Range Failure: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C35-L01",
+      "title": "Gap Continuation, Gap Failure, and Opening-Range Setups — Gap Context",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Gap Continuation, Gap Failure, and Opening-Range Setups — Gap Context: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C35-L02",
+      "title": "Gap Continuation, Gap Failure, and Opening-Range Setups — Define the Opening Range",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Gap Continuation, Gap Failure, and Opening-Range Setups — Define the Opening Range: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C35-L03",
+      "title": "Gap Continuation, Gap Failure, and Opening-Range Setups — First-Candle Risk",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Gap Continuation, Gap Failure, and Opening-Range Setups — First-Candle Risk: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C36-L01",
+      "title": "Reversals, Exhaustion, and Failed-Move Setups — Exhaustion Is a Condition, Not a Percentage",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Reversals, Exhaustion, and Failed-Move Setups — Exhaustion Is a Condition, Not a Percentage: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C36-L02",
+      "title": "Reversals, Exhaustion, and Failed-Move Setups — Lower High / Higher Low Confirmation",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Reversals, Exhaustion, and Failed-Move Setups — Lower High / Higher Low Confirmation: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C36-L03",
+      "title": "Reversals, Exhaustion, and Failed-Move Setups — Countertrend Risk",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Reversals, Exhaustion, and Failed-Move Setups — Countertrend Risk: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C37-L01",
+      "title": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Why Trading Can Halt",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Why Trading Can Halt: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C37-L02",
+      "title": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Resumption Is New Price Discovery",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Resumption Is New Price Discovery: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C37-L03",
+      "title": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Risk Through Gaps",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Trading Halts, Resumptions, Parabolic Moves, and Extreme Volatility — Risk Through Gaps: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C38-L01",
+      "title": "Building the Trade Plan — Thesis",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Building the Trade Plan — Thesis: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C38-L02",
+      "title": "Building the Trade Plan — Invalidation",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Building the Trade Plan — Invalidation: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C38-L03",
+      "title": "Building the Trade Plan — The Trigger",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Building the Trade Plan — The Trigger: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C39-L01",
+      "title": "Making the Entry Decision — Confirmation versus chasing",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Making the Entry Decision — Confirmation versus chasing: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C39-L02",
+      "title": "Making the Entry Decision — Entry location and risk",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Making the Entry Decision — Entry location and risk: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C39-L03",
+      "title": "Making the Entry Decision — Entry Location Determines Risk Geometry",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Making the Entry Decision — Entry Location Determines Risk Geometry: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C40-L01",
+      "title": "Position Sizing, Reward-to-Risk, and Maximum Entry — Risk Per Share",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Position Sizing, Reward-to-Risk, and Maximum Entry — Risk Per Share: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    },
+    {
+      "labId": "DT-C40-L02",
+      "title": "Position Sizing, Reward-to-Risk, and Maximum Entry — Slippage Reserve",
+      "outcome": "AI_PREFLIGHT_PASS",
+      "note": "Position Sizing, Reward-to-Risk, and Maximum Entry — Slippage Reserve: individually reviewed formula or classification inputs, units, completed-bar cutoff, scenario originality, misconception correction, independent changed-evidence transfer, text accessibility, research hold, and protected-answer denial.",
+      "formulaAndUnitsReviewed": true,
+      "topicConsistency": true,
+      "misconceptionCorrection": true,
+      "transferIndependent": true,
+      "accessibleTextAvailable": true
+    }
+  ]
+}

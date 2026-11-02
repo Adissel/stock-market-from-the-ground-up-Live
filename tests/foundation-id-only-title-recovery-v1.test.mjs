@@ -7,4 +7,4 @@ test('thirteen formerly ID-only Foundation titles match both pre-existing compan
  assert.equal(cat.length,419);assert.equal(ids.length,13);
  for(const id of ids){const title=publicLabs.find(x=>x.id===id).concept;assert.equal(idx.find(x=>x.id===id).concept,title);assert.notEqual(title,id);assert.equal(cat.find(x=>x.lab_id===id).title,title);assert.equal(paths[id].title,title);assert.equal(bridge[id].title,title)}
 });
-test('title recovery neither authors lessons nor changes protected grading',()=>{for(const id of ids){const x=bridge[id];assert.equal(x.instructionSource,undefined);assert.equal(x.transfer.graded,false);assert(!JSON.stringify(x).includes('officialAnswer'))}});
+test('recovered titles remain canonical after later authoring and protected grading stays private',()=>{for(const id of ids){const x=bridge[id];assert.equal(x.instructionSource,'ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102');assert.equal(x.transfer.graded,false);assert(!JSON.stringify(x).includes('officialAnswer'))}});
