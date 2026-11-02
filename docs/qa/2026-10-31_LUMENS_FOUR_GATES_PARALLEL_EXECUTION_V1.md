@@ -8,12 +8,18 @@
 | File type | Markdown |
 | GitHub location | `docs/qa/` on `cybernexuspublishing/stock-market-from-the-ground-up`, `main` |
 | Google Drive | Not created; no Drive document ID or location |
-| Version | 1.5 |
-| Date | 2026-10-31 |
-| Status | **9 OF 12 ACCEPTED; GATE A SCORER AND QUEUE ROLLBACK TEST PASS; GATE B ACCEPTED; C LEGAL HOLD; D EXACT-SHA CI OPEN** |
+| Version | 1.6 |
+| Date | 2026-11-02 (amended; original evidence dated 2026-10-31) |
+| Status | **AMENDED V1: 9 OF 11 ACCEPTED (81.8%); GIFTING REMOVED TO V2; INDEPENDENT GRADES AND EXACT-SHA CI STILL OPEN** |
 | Dependencies | Supabase grading/competency evidence, nonexpiring single Lumen wallet, member Auth, Stripe dedicated TEST account, recipient opt-in and private account isolation, Cloudflare exact production commit |
 | Purpose | Consolidate owner-delegated execution on the four V1 acceptance milestones and preserve reproducible evidence |
 | Owner authority | Owner reaffirmed delegated routine engineering, editorial and QA decisions on 2026-10-31 and accepted retention of the gifting release hold. This is **not** legal clearance, human-review impersonation or LIVE-charge authorization. |
+
+## Controlling amendment — 2026-11-02 (v1.6)
+
+**Owner-approved scope change:** member-to-member Lumen gifts, recipient lookups, transferable credit instruments, and gift legal-security clearance are removed from V1 acceptance and transferred to a separately gated V2 backlog. **Historical 9/12 = 75% remains the v1.5 baseline, not the current V1 scope.** The superseding count is **9/11 = 81.8% accepted**, with two remaining milestones: (A) independent official grading and exactly-once rewards, and (D) exact-main-SHA all-green CI plus matching Cloudflare production acceptance. Former Gate C is **deferred, not passed**. No earning, gifts, cash-out, or bank transfers are enabled by this decision.
+
+Authoritative new scope record: [Crownlight Lumens V1 scope rebase and V2 gifting backlog](2026-11-02_LUMENS_V1_SCOPE_REBASE_V2_BACKLOG.md). Previous technical and counsel-risk analysis below is preserved for V2 due diligence, not asserted as a V1 launch dependency. The disabled gifting policy, REST endpoint gates and Supabase release flags must remain in place.
 
 ## Milestone 3 — Protected reward technical integration
 
@@ -132,6 +138,7 @@ A FinCEN closed-loop/rewards exception or Missouri loyalty-program exclusion can
 
 | Date | Version | Summary | Signoff |
 |---|---|---|---|
+| 2026-11-02 | 1.6 | Owner-approved V1 rebase: member gifting removed to V2; preserve hold and supersede prior milestone denominator; only independent rewards and exact-SHA release outstanding | V1 accepted 9/11 = 81.8%; gifting not accepted, V2 HOLD |
 | 2026-10-31 | 1.5 | Applied v135 scorer alias collision repair; passed real grader→evidence→outbox rollback-only 100% QA and deduplication; repeated two-member gifting disabled-rejection; added CI source regression | Engineering PASS; Gate B accepted; Gates A, C, D still OPEN, 9/12 = 75% |
 | 2026-10-31 | 1.4 | Matched four Stripe TEST refunds with Chart TEST ledger, member credit buckets and balance; verified 14/14 TEST Lumens restored and refund replay idempotency; retained approval/legal/CI gates | Milestone 4 TEST wallet accounting ACCEPTED; 9/12 = 75%; remaining gates A/C/D OPEN |
 | 2026-10-31 | 1.3 | Repaired production v135 grader SQLSTATE 42702 ambiguous member id lookup with forward-only migration; confirmed draft rejection, service-only grants, zero attempts and no credits | Grader draft fail-closed path PASS; genuine approved scoring and final release OPEN |
