@@ -64,8 +64,14 @@ try{
    assert.equal(result.body.historySaved,false,sc.id);
    assert.equal(result.body.verifiedFollowupContext,false,sc.id);
    assert.ok(result.body.answer.includes(guide.editorialTrainingReviewV1.diagnosticQuestion),sc.id+' diagnostic');
-   assert.ok(result.body.answer.includes(guide.transferQuestion),sc.id+' ungraded transfer');
-   assert.ok(result.body.answer.includes(guide.workedCase),sc.id+' fictional teaching');
+   if(sc.category==='MISCONCEPTION_FOLLOWUP'){
+    assert.match(result.body.answer,/Ungraded review criterion:/,sc.id+' review criterion');
+    assert.match(result.body.answer,/No rubric was scored and no mastery credit was awarded/,sc.id+' protected grade');
+    assert.ok(result.body.answer.includes(guide.reviewExplanation),sc.id+' authored review correction');
+   }else{
+    assert.ok(result.body.answer.includes(guide.transferQuestion),sc.id+' ungraded transfer');
+    assert.ok(result.body.answer.includes(guide.workedCase),sc.id+' fictional teaching');
+   }
    assert.doesNotMatch(JSON.stringify(result.body),/private.answer.key|masteryAwarded":true/i);
   }
   assert.equal(requests,40);
