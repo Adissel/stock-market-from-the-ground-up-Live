@@ -26,7 +26,7 @@ test('new lessons registered for production asset retrieval and coverage',()=>{
  const workflow=readFileSync(new URL('../.github/workflows/learning-tutor-v01492.yml',import.meta.url),'utf8');
  for(const n of ['17','18']){
   const file='talia-foundation-explanations-batch'+n+'-v1.json';
-  assert.ok(code.includes(file));assert.ok(build.includes(file));assert.ok(coverage.includes(file));
+  assert.ok(code.includes(file));assert.ok(build.includes(file)||build.includes('talia-foundation-explanations-batch{01..30}-v1.json'));assert.ok(coverage.includes(file));
   assert.ok(workflow.includes('data/'+file));
  }
 });
