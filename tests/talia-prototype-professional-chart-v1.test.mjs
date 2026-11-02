@@ -10,7 +10,7 @@ test('Customization is available only on the staff prototype and never authorize
  assert.match(ts,/pathname\.endsWith\('\/talia-tutor-prototype\.html'\)/);
  assert.match(ts,/prototype&&<div className="tc-row tp-chart-tools"/);
  assert.match(ts,/type="color"/);assert.match(ts,/moveOnMouseMove:true/);
- assert.match(ts,/onQuestion\('Explain the '/);
+ assert.match(ts,/onQuestion\('Teach the '/);
  assert.match(ts,/Volume is a synthetic proxy/);
 });
 
