@@ -6,6 +6,10 @@ on:
     paths:
       - '.github/workflows/academy-three-beta-six-genuine-member-journeys-v1.yml'
       - 'tests/live-academy-three-beta-six-real-member-journeys-v1.mjs'
+      - 'functions/api/bootcamp-academy.js'
+      - 'functions/_lib/academy-three-camps-v1.js'
+      - 'functions/_lib/academy-three-camps-beta-access-v1.js'
+      - 'assets/js/bootcamp-academy-v014168.js'
 permissions:
   contents: read
   issues: write

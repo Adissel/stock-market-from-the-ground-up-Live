@@ -7,6 +7,10 @@ on:
     paths:
       - '.github/workflows/live-academy-progress-qa.yml'
       - 'tests/live-academy-progress-qa.mjs'
+      - 'functions/api/bootcamp-academy.js'
+      - 'functions/_lib/bootcamp-academy-v014168.js'
+      - 'assets/js/bootcamp-academy-v014168.js'
+      - 'functions/_lib/academy-risk60-transfer-batch03-v1.js'
 permissions:
   contents: read
 concurrency:
