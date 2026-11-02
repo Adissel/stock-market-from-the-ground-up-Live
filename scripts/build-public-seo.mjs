@@ -221,5 +221,6 @@ writeFileSync(join(output,'robots.txt'),[
  'Disallow: /journal','Disallow: /simulator','Disallow: /market-tutor',
  'Disallow: /checkout','Disallow: /settings','Disallow: /owner-roadmap',
  'Disallow: /training-editor','Disallow: /lab-player',
+ 'Sitemap: '+origin+'/sitemap-v2.xml',
  'Sitemap: '+origin+'/sitemap.xml',''].join('\n'));
 console.log('D17 public SEO build: '+indexable.size+' whitelisted public routes; other HTML noindex; canonical domain needs D18 approval.');
