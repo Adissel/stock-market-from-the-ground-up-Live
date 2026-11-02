@@ -237,8 +237,12 @@ async function persist(){
    .filter(x=>['RSI','MACD','BOLL','MA','EMA','SMA','ATR','VOL'].includes(x)))].slice(0,8);
   const memberChart=window.CrownlightStudio?.getWorkspacePreferences?.();
   if(memberChart){draft.appearance=memberChart.appearance;draft.chartStudies=memberChart.chartStudies}
-  const echartsPrefs=window.CrownlightEChartsStudio?.getPreferences?.();
-  if(echartsPrefs)draft.echartsPreferences=echartsPrefs;
+  // Do not overwrite saved ECharts settings with defaults when the member is
+  // saving a different chart engine and the ECharts panel is not mounted.
+  if(window.CrownlightEChartsStudio?.getStatus?.().ready===true){
+   const echartsPrefs=window.CrownlightEChartsStudio.getPreferences?.();
+   if(echartsPrefs)draft.echartsPreferences=echartsPrefs;
+  }
   const payload={...draft,expectedUpdatedAt:workspaceRevision};
   if(JSON.stringify(payload).length>14000)
    throw Error('Workspace annotation collections exceed the safe 14 KB budget. Reduce drawings before saving.');
