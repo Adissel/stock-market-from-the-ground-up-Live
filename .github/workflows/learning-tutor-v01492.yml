@@ -124,6 +124,7 @@ on:
       - 'tests/talia-indicators31-45-python-js-v1.test.mjs'
       - 'tests/talia-indicators46-60-python-js-v1.test.mjs'
       - 'tests/talia-indicators61-73-python-js-v1.test.mjs'
+      - 'tests/talia-release-evidence-crosswalk-v1.test.mjs'
       - 'scripts/qa/talia_indicators61_73_python_v1.py'
       - 'data/talia-indicators61-73-evidence-v1.json'
       - 'scripts/qa/talia_indicators46_60_python_v1.py'
@@ -363,6 +364,7 @@ on:
       - 'tests/talia-indicators31-45-python-js-v1.test.mjs'
       - 'tests/talia-indicators46-60-python-js-v1.test.mjs'
       - 'tests/talia-indicators61-73-python-js-v1.test.mjs'
+      - 'tests/talia-release-evidence-crosswalk-v1.test.mjs'
       - 'scripts/qa/talia_indicators61_73_python_v1.py'
       - 'data/talia-indicators61-73-evidence-v1.json'
       - 'scripts/qa/talia_indicators46_60_python_v1.py'
@@ -599,6 +601,7 @@ jobs:
           node tests/talia-indicators31-45-python-js-v1.test.mjs
           node tests/talia-indicators46-60-python-js-v1.test.mjs
           node tests/talia-indicators61-73-python-js-v1.test.mjs
+          node tests/talia-release-evidence-crosswalk-v1.test.mjs
           node tests/talia-recursive-indicators-python-js-v1.test.mjs
           node tests/talia-claim-40-source-disposition-v1.test.mjs
           node tests/talia-tutor40-conversational-quality-v1.test.mjs
