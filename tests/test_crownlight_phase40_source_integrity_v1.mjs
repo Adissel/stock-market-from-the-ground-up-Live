@@ -53,7 +53,7 @@ for(const [index,file] of files.entries()){
   assert.ok(existsSync(file),'Missing required release artifact');
   const source=readFileSync(file,'utf8');
   assert.ok(source.trim().length>40,'Empty/truncated release artifact');
-  if(/\\.(?:mjs|js)$/.test(file)){
+  if(/\.(?:mjs|js)$/.test(file)){
    const check=spawnSync(process.execPath,['--check',file],{encoding:'utf8',timeout:15000});
    assert.equal(check.status,0,check.stderr||'Invalid JavaScript syntax');
   }
