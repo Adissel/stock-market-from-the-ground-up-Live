@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
+# Cloudflare retains only a bounded prefix of very verbose TAP output. Run the
+# identical build once in a child process and emit a useful terminal tail so a
+# late Pages-only failure is diagnosable. Other CI/local runs keep full output.
+if [[ "${CF_PAGES:-0}" == "1" && "${SMFGU_PAGES_LOG_WRAPPED:-0}" != "1" ]]; then
+  pages_build_log="$(mktemp)"
+  export SMFGU_PAGES_LOG_WRAPPED=1
+  if bash "${BASH_SOURCE[0]}" >"$pages_build_log" 2>&1; then
+    tail -n 120 "$pages_build_log"
+    rm -f "$pages_build_log"
+    exit 0
+  else
+    pages_build_status=$?
+  fi
+  echo "Cloudflare Pages build failed with exit $pages_build_status; terminal output follows." >&2
+  tail -n 300 "$pages_build_log" >&2
+  rm -f "$pages_build_log"
+  exit "$pages_build_status"
+fi
 # Validate public navigation before lengthy integration suites; surface broken-link diagnostics in retained build logs.
 node --test tests/public-navigation-five-page-links-v1.test.mjs
 node --test tests/group1-public-copy-and-entitlements-v1.test.mjs
