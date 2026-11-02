@@ -342,6 +342,8 @@ data['builtAtUtc']=datetime.datetime.now(datetime.timezone.utc).isoformat(timesp
 data['status']='built-source-not-live-verified'
 with open(p,'w',encoding='utf-8') as f:json.dump(data,f,indent=2);f.write('\n')
 PYBUILD
+# Reproducible two-engine four-edition evidence audit; no member requests or paid services.
+node --test tests/learning-lab-engine-feature-audit-v1.test.mjs
 node scripts/build-site-accessibility.mjs
 node scripts/build-site-brand-academy-v1.mjs
 node tests/test_site_brand_academy_v1.mjs
