@@ -21,6 +21,29 @@ async function rest(actor,path,body){
  if(!r.ok)throw Error('SPARKS_SERVICE_UNAVAILABLE');
  return r.json();
 }
+/**
+ * Validate noncommercial Chart Pass quote before invoking the atomic
+ * idempotent redemption RPC. Never allow silent browser cross-site writes
+ * or code-unit length undercounts for multibyte JSON.
+ */
+export function parseChartPassRequest(request,raw){
+ const url=new URL(request.url);
+ if(request.headers.get('origin')!==url.origin||
+  (request.headers.get('sec-fetch-site')&&!['same-origin','none'].includes(request.headers.get('sec-fetch-site'))))
+  return {status:403,error:'ORIGIN_MISMATCH'};
+ if(request.headers.get('content-type')?.split(';')[0].trim().toLowerCase()!=='application/json')
+  return {status:415,error:'INVALID_CONTENT_TYPE'};
+ if(typeof raw!=='string'||raw.length>1024||new TextEncoder().encode(raw).byteLength>1024||
+  Number(request.headers.get('content-length')||0)>1024)
+  return {status:413,error:'INVALID_REQUEST'};
+ let b;try{b=JSON.parse(raw)}catch{return {status:400,error:'INVALID_REQUEST'}}
+ if(!b||typeof b!=='object'||Array.isArray(b)||Object.keys(b).length!==3||
+    Object.keys(b).some(k=>!['sku','requestId','expectedCost'].includes(k))||
+    !SKUS.has(b.sku)||typeof b.requestId!=='string'||!uuid.test(b.requestId)||
+    !Number.isSafeInteger(b.expectedCost)||b.expectedCost<1||b.expectedCost>100000)
+  return {status:400,error:'INVALID_REQUEST'};
+ return {status:200,value:{sku:b.sku,requestId:b.requestId,expectedCost:b.expectedCost}};
+}
 export async function onRequest({request,env}){
  if(!['GET','POST'].includes(request.method))return response({ok:false,error:'METHOD_NOT_ALLOWED'},405);
  try{
@@ -34,18 +57,10 @@ export async function onRequest({request,env}){
     description:x.description
    })),passes:(passes||[]).filter(x=>x.expires_at&&Date.parse(x.expires_at)>Date.now())});
   }
-  if(request.headers.get('origin')!==new URL(request.url).origin)
-   return response({ok:false,error:'ORIGIN_MISMATCH'},403);
-  if(Number(request.headers.get('content-length')||0)>1024)
-   return response({ok:false,error:'INVALID_REQUEST'},413);
   const raw=await request.text();
-  if(raw.length>1024)return response({ok:false,error:'INVALID_REQUEST'},413);
-  let b;try{b=JSON.parse(raw)}catch{return response({ok:false,error:'INVALID_REQUEST'},400)}
-  if(!b||typeof b!=='object'||Array.isArray(b)||Object.keys(b).length!==3||
-     Object.keys(b).some(k=>!['sku','requestId','expectedCost'].includes(k))||
-     !SKUS.has(b.sku)||typeof b.requestId!=='string'||!uuid.test(b.requestId)||
-     !Number.isSafeInteger(b.expectedCost)||b.expectedCost<1||b.expectedCost>100000)
-   return response({ok:false,error:'INVALID_REQUEST'},400);
+  const parsed=parseChartPassRequest(request,raw);
+  if(parsed.status!==200)return response({ok:false,error:parsed.error},parsed.status);
+  const b=parsed.value;
   // An existing paid/full membership or Owner QA access is not a Sparks purchase.
   const current=await crownlightChartEntitlement(env,request);
   if(!current.eligible)return response({ok:false,error:'NOT_ELIGIBLE'},403);
