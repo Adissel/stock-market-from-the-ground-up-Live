@@ -5,8 +5,20 @@ import assert from 'node:assert/strict';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {chromium} from 'playwright';
 
-const ORIGIN=process.env.V4_ACCEPTANCE_ORIGIN||'https://ce574a77.stock-market-from-the-ground-up-d1r.pages.dev';
-const SHA='53e8073f755be7d301ce1f1cf210bcf73c7573ca';
+// The build writes its Cloudflare commit SHA to public/release-manifest.json.
+// Verify the production domain before AND after browser acceptance: a green
+// browser run on an older deployment must never certify another main commit.
+const ORIGIN=String(process.env.V4_ACCEPTANCE_ORIGIN||'https://stock-market-from-the-ground-up-d1r.pages.dev').replace(/\/$/,'');
+const SHA=String(process.env.GITHUB_SHA||process.env.V4_ACCEPTANCE_SHA||'').trim().toLowerCase();
+const requireExactDeployment=async()=>{
+ if(!/^[0-9a-f]{40}$/.test(SHA))throw Error('BLOCKED: runner exact GitHub SHA is unavailable');
+ const url=ORIGIN+'/release-manifest.json?release_verification='+SHA;
+ const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(25000)});
+ if(!response.ok)throw Error('BLOCKED: production release manifest unavailable: HTTP '+response.status);
+ const manifest=await response.json();
+ if(manifest?.gitCommit!==SHA)throw Error('BLOCKED: Cloudflare production source SHA does not match GitHub run SHA: expected '+SHA+' observed '+String(manifest?.gitCommit||'missing'));
+ return SHA;
+};
 const EXPECTED_ID='f42f9301-18e6-43a3-8531-32d371fd22c1'; // Existing James_Test QA identity
 const DIR=process.env.QA_ARTIFACT_DIR||'artifacts/talia-v4-oat';
 mkdirSync(DIR,{recursive:true});
@@ -25,7 +37,20 @@ const dataFor=async page=>page.evaluate(()=>{
 });
 let browser;
 try{
- assert(ORIGIN.startsWith('https://'),'Immutable release URL must use HTTPS');
+ assert(ORIGIN.startsWith('https://'),'Production acceptance URL must use HTTPS');
+ // At most four polls, separated by 90s, for real Cloudflare build completion.
+ // A production SHA mismatch is a hard release HOLD, never an unconditional pass.
+ let deployed=false;
+ for(let attempt=1;attempt<=4;attempt++){
+  try{await requireExactDeployment();deployed=true;break;}
+  catch(err){
+   if(attempt===4)throw err;
+   console.log('DEPLOYMENT_PENDING: exact SHA not yet active ('+attempt+'/4); recheck after 90s');
+   await wait(90000);
+  }
+ }
+ assert(deployed,'Exact deployment verification did not pass');
+ mark('Verified production source SHA','PASS','Production manifest equals the actual GitHub run commit');
  for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4-route2']){
   const res=await fetch(ORIGIN+path,{signal:AbortSignal.timeout(25000)});
   assert.equal(res.status,200,'Release asset status '+res.status+' for '+path);
@@ -182,6 +207,8 @@ try{
   await second.close();
  }
  await ctx.close();
+ await requireExactDeployment(); // Catch production drift while browser QA was running.
+ mark('Verified production SHA after browser','PASS','GitHub run SHA remained the deployed production SHA');
  output.completed=output.checks.every(c=>c.result==='PASS')&&output.twoAccount==='PASS'&&output.staff==='PASS';
  if(!output.completed)fail('RELEASE_HOLD','Browser and privacy gates require complete verified PASS');
 }catch(err){
