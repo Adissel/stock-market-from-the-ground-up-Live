@@ -210,6 +210,9 @@ try{
    // browser completion. This remains a mocked API, not a live member proof.
    await page.reload({waitUntil:'domcontentloaded'});
    await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
+   assert.equal(await page.locator('#academy-days .gu-bc-day.is-active').getAttribute('data-day'),'2',
+    'Reload without an explicit day must resume at the first unfinished study day');
+   await page.locator('#academy-days .gu-bc-day').first().click();
    if(code==='truth5'){
     assert.equal(await page.locator('#academy-self-check-answer').inputValue(),'',
      'Local ungraded self-check drafts must not persist or leak after page reload');
