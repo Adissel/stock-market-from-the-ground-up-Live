@@ -258,3 +258,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 if(!nav.querySelector('a[href$="create-account.html"]')){const a=document.createElement('a');a.href='/create-account.html';a.textContent='Create Account';a.className='gu-nav-register';nav.appendChild(a)}})};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance,{once:true});else enhance();
 })();
+
+(()=>{if(document.querySelector('link[data-gu-nav-entrypoints]'))return;const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/css/nav-entrypoints-v1.css?v=1';l.dataset.guNavEntrypoints='1';document.head.append(l)})();
