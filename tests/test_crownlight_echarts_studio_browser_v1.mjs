@@ -54,7 +54,7 @@ try{
     return {series:e.getOption().series.map(x=>x.data),type:e.getOption().series.map(x=>x.type),
      zoom:e.getOption().dataZoom.length,shown:window.CrownlightEChartsStudio.getStatus(),selected:window.CrownlightChartTiers.getStatus().selected};
    });
-   assert.deepEqual(result.series,[[[10,10.5,9,11],[10.5,11,10,12]],[1200,1500]]);
+   assert.deepEqual(result.series,[[[10,10.5,9,11],[10.5,11,10,12]],[{value:1200,itemStyle:{color:'#36d5ae'}},{value:1500,itemStyle:{color:'#36d5ae'}}]],'Volume must retain observed values with up-candle colors');
    assert.deepEqual(result.type,['candlestick','bar']);assert.equal(result.zoom,2);
    assert.equal(result.selected,'ECHARTS');assert.equal(result.shown.barCount,2);
    await p.evaluate(v=>window.dispatchEvent(new CustomEvent('crownlight:revealed-bars',{detail:{bars:v,symbol:'FICTION-EDU'}})),two.slice(0,1));
