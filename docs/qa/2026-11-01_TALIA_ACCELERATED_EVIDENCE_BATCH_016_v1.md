@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.6 / November 1, 2026 |
+| Version / date | 1.7 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -159,6 +159,20 @@ Cloudflare successfully deployed the previously queued commit `48268413d477a8ebd
 
 **CI state:** The new source changes and tests were committed on `main`. A queued/running Cloudflare build is not a completed same-commit acceptance; only a verified success log may promote mathematical fixture status to CI passed. No paid API, private grade mutation, new checkout, or unrestricted vendor-data calculation was introduced.
 
+## Five qualitative claims and ECharts independent source parity — v1.7
+
+**Document control:** THE STOCK MARKET: FROM THE GROUND UP; GitHub `main`; document ID `SMFGU-TALIA-EVIDENCE-BATCH-016`; filename `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`; Markdown; version 1.7; November 1, 2026; status **targeted production-build QA passed; complete independent release not accepted**; Google Drive ID not assigned. Dependencies: Shared Learning v3.3, Lab v3.2, Crownlight ECharts source, Tutor source-only guides, 1,366-item curriculum target registry, Cloudflare Pages and independent math fixtures.
+
+**Gate 2 — five qualitative decisions:** New `data/talia-claims-five-qualitative-editorial-review-v1.json` contains separate claims 105, 119, 131, 132, 133. Specific sources and conditions: cumulative/noncumulative preferred terms (Deloitte/OCC); maturity versus Macaulay duration (FINRA/CFA); unaudited first-three-fiscal-quarter Form 10-Q versus annual Form 10-K (SEC); Form 8-K Item 1.01 conditional agreement versus Item 2.01 completed asset transaction (SEC); EDGAR acceptance versus first website dissemination (SEC). `tests/talia-five-qualitative-source-dispositions-v1.test.mjs` checks all five canonical identities, separate source and limitation evidence, risk caveats and nonpublication flags. **5/5 individual qualitative source scopes recorded and source checks passed, but 0/5 independently publication-approved**. These are learning source dispositions, not a securities lawyer's approval, third-party data license or final review of all legal variations.
+
+**Gate 3 — first independent full-series actual Chart Studio math:** Unlike the earlier comparison that used `CrownlightIndicatorMath` as the browser's expected-value generator, the new `scripts/qa/talia_echarts_member_math_python_v1.py` independently computes 18 complete chronological study/level series for the original 225 completed 2024-05-07 fictional 1-minute candles. `tests/talia-echarts-independent-python-js-v1.test.mjs` checks all observations and warmup indices against **production `assets/js/crownlight-indicator-math-v2.js`**, plus strict prefix rewind and volume-zero proxy behavior. Cases: EMA 9/20/200, SMA20, volume SMA20, RSI14, Wilder ATR14, Bollinger20 center/upper/lower, MACD line/signal/histogram, session HLC3 VWAP proxy, observed HOD/LOD and confirmed 5-minute opening-range high/low. **18/18 independently compared source-library full series passed on the defined original fixture**. This is NOT every broker/vendor seed variant, not an authorized exchange feed, not an individual production test of 73 research guides, and not signed-in ECharts/React UI acceptance. The 13 member-facing toggles remain the actual available chart presentation subset.
+
+**Build and deployment evidence:** Cloudflare Pages reported **success and production deployment** for SHA `0cced43ad705989bcfcbf933652402717a1773bd`. The exact build log showed `ok` for the two five-claim tests and three independent Python/JS ECharts tests, with no `not ok` in the inspected log. This verifies **targeted Pages build and publish on that SHA only**. It does not establish all mandatory GitHub Actions workflows, private authenticated Free/Founding/Owner browser journeys, cross-account revocation, complete assistive-technology acceptance, market-data rights or future premium Learning/Lab/Tutor engine releases.
+
+**Progress and holds:** 1,366/1,366 target identities; 280/600 (46.67%) original authored, none auto-published; 40/40 individual claim source dispositions; 35/35 original numerical claim cases independently tested; five qualitative claim reviews separately documented; 73/73 indicator research subjects, 71/73 original individual numerical fixtures, two vendor-defined methodological holds (SCTR and Cboe VIX). **0/73 full indicator/rights commercial approvals**, premium Learning/Lab engine editions 0% independent release acceptance, Basic v3.3/v3.2 full engine-wide acceptance not quantified. **Strict accelerated ten-gate completion is still 1/10 = 10%.** Preserve all protected assessments and original canonical identities.
+
+**Next execution in order:** Close individual claim corrections/rights; match real ECharts settings and source variations on authenticated member data; complete true signed-in Tutor multi-turn consent/misconception and user A/B isolation; verify full mandatory GitHub Actions on one SHA; freeze the production SHA and separately test Free, Founding, Owner, mobile and screen-reader; individually sign off only released, rights-cleared functionality; complete Batch13/14 editorial approvals before additional source expansion.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -170,5 +184,6 @@ Cloudflare successfully deployed the previously queued commit `48268413d477a8ebd
 | 1.4 | 2026-11-01 | Complete 73/73 subject review; add 12 original math tests for 61–73, preserve Cboe VIX and StockCharts SCTR restrictions, maintain exact-head deployment hold | Internal development QA, not independent chart, rights, legal or member release signoff |
 | 1.5 | 2026-11-01 | Verify real 13-option ECharts crosswalk, live seven-table Supabase RLS/grants/policies, latest prior SHA Pages deploy, retain authenticated release holds | Development and live metadata review only; genuine identities and complete Actions release remain open |
 | 1.6 | 2026-11-01 | Add independently constructed Python/JS checks for 35 Foundation claim calculations; three source remediations; record 280/600 drafted with Batch14 editorial hold | No full Actions, individual editorial, genuine auth, licensing, legal or premium release acceptance |
+| 1.7 | 2026-11-01 | Five individual qualitative source reviews and 18 full Python-vs-production-JS indicator series, Cloudflare production SHA verified | Targeted Pages acceptance only; user account, Actions matrix and release approvals pending |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.6 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.7 · Source record `main` · No unauthorized premium release or paid API calls.
