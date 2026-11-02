@@ -6,7 +6,7 @@ const intake=read('docs/learning/SMFGU-LAB-BATCH05-SOURCE-INTAKE-20261101.json')
 const bridges=read('data/lab-teaching-bridges-v014168.json');
 const catalog=read('docs/research/master/master-source-registry-v1.json');
 const ref=new Map(catalog.sources.map(x=>[x.id,x]));
-test('Batch 05: twenty original canonical non-rewritten Lab subjects and candidate rights holds',()=>{
+test('Batch 05: twenty originally unmapped canonical sources, now authored separately with rights holds',()=>{
  assert.equal(intake.canonicalLabs,419);
  assert(intake.alreadyAuthored>=80);
  assert.equal(intake.additionalAuthored,0);
@@ -17,7 +17,11 @@ test('Batch 05: twenty original canonical non-rewritten Lab subjects and candida
   assert(b,'Unknown canonical Lab '+r.labId);
   assert.equal(b.title,r.title);
   assert.equal(b.collection,r.collection);
-  assert.equal(b.instructionSource,undefined,'Research intake cannot claim authored source');
+  // The intake is an immutable historical pre-authoring snapshot. The LIVE
+  // teaching bridge is now source-authored; research candidate rights remain
+  // explicitly unapproved until independent editorial acceptance.
+  assert.equal(b.instructionSource,'ORIGINAL_SUBJECT_SPECIFIC_BATCH05_20261101');
+  assert.match(b.sourceStatus,/EDITORIAL_ACCEPTANCE_PENDING/);
   assert(r.reviewFocus.length>=60);
   assert.equal(r.approvedRights,false);
   assert.equal(r.teachingSourceAuthored,false);

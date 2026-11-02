@@ -60,17 +60,7 @@ function mount(target,{labId,bridge}={}){
     aria:{enabled:true,description:'Two fictionally completed prices. Full numerical data is in the adjacent table.'},
     tooltip:{trigger:'axis'},grid:{top:24,bottom:54,left:62,right:20},
     xAxis:{type:'category',data:names[labId],axisLabel:{color:'#e2f0f5',interval:0,overflow:'truncate',width:140}},
-    yAxis:{type:'value',min:0,scale:false,axisLabel:{color:'#e2f0f5',formatter:v=>'
-    series:[{type:'bar',name:'Fictional completed values',data:pair,barMaxWidth:68,itemStyle:{color:p=>p.dataIndex===0?'#2bc3cf':'#d5a548',borderRadius:[5,5,0,0]}}]
-   },true);
-   if(typeof ResizeObserver==='function'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(graphic);}
-  });
- }).catch(()=>{if(!disposed){graphic.textContent='Chart unavailable; use the authored fictional example text.';status.textContent='No verified market data or grade is implied.';}});
- return {dispose(){disposed=true;observer?.disconnect();chartInstance?.dispose();host.remove();}};
-}
-root.GroundUpLabBatch04EChartsV1=Object.freeze({mount,version:'1.0',fictionalOnly:true});
-})(globalThis);
-+Number(v).toFixed(2)}},
+    yAxis:{type:'value',min:0,scale:false,axisLabel:{color:'#e2f0f5',formatter:v=>'$'+Number(v).toFixed(2)}},
     series:[{type:'bar',name:'Fictional completed values',data:pair,barMaxWidth:68,itemStyle:{color:p=>p.dataIndex===0?'#2bc3cf':'#d5a548',borderRadius:[5,5,0,0]}}]
    },true);
    if(typeof ResizeObserver==='function'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(graphic);}

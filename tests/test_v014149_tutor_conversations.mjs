@@ -3,13 +3,13 @@ import {onRequest,attachTutorExchange,ownedConversation} from '../functions/api/
 const uid='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',other='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const id='cccccccc-cccc-4ccc-8ccc-cccccccccccc',exchange='dddddddd-dddd-4ddd-8ddd-dddddddddddd';
 const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_test',SUPABASE_SECRET_KEY:'sb_secret_test'};
-const original=globalThis.fetch;let allowed=true,reads=0,links=0,foreignRequests=0;
+const original=globalThis.fetch;let allowed=true,blocked=false,reads=0,links=0,foreignRequests=0;
 const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'content-type':'application/json'}});
 globalThis.fetch=async(url,opt={})=>{
  const u=String(url);
  if(u.endsWith('/auth/v1/user'))return json({id:uid});
  if(u.includes('/profiles?'))return json([{account_kind:'member'}]);
- if(u.includes('/admin_user_flags?'))return json([{status:'active'}]);
+ if(u.includes('/admin_user_flags?'))return json([{status:blocked?'suspended':'active'}]);
  if(u.includes('/admin_user_roles?'))return json([]);
  if(u.includes('/rpc/user_has_tool_access'))return json(allowed);
  if(u.includes('gu_member_tutor_conversations_v014149?')){
@@ -48,8 +48,15 @@ try{
  assert.equal(await attachTutorExchange(env,uid,exchange,id),true);
  assert.equal(await attachTutorExchange(env,other,exchange,id),false);
  assert.equal(links,1);assert.equal(foreignRequests,2);
+ // Read-only and existing private saved conversations remain available
+ // to authenticated, eligible Basic/Free members after a paid Tutor add-on
+ // expires. That is deliberate account data preservation, not free AI access.
  allowed=false;r=await onRequest({env,request:request('GET')});
- assert.equal(r.status,403);
+ assert.equal(r.status,200);
+ assert.equal((await r.json()).conversations[0].id,id);
+ blocked=true;
+ r=await onRequest({env,request:request('GET')});
+ assert.equal(r.status,403,'Suspended member must fail closed regardless of prior entitlements');
  assert.ok(reads>=4);
- console.log('PASS D09 scoped private conversations, CRUD, CSRF, entitlement and exchange owner isolation');
+ console.log('PASS D09 private conversation ownership, Basic historical access, suspended-member denial and CSRF');
 }finally{globalThis.fetch=original}
