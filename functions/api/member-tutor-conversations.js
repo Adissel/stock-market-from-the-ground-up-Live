@@ -88,7 +88,9 @@ export async function onRequest({request,env}){
    method:'DELETE',headers:{prefer:'return=representation'}});
   if(!r.ok||!Array.isArray(r.data)||r.data.length!==1)throw Error('delete failed');
   return json({ok:true,deleted:true,notice:'Saved exchanges were retained and moved to Unfiled.'});
- }catch{
+ }catch(e){
+  if(e?.status===401)return json({ok:false,error:'Sign in required.'},401);
+  if(e?.status===403)return json({ok:false,error:'Eligible member account required.'},403);
   return json({ok:false,error:'Conversation storage is unavailable; source-only Tutor remains usable.'},503);
  }
 }
