@@ -98,7 +98,7 @@
    localization:{timeFormatter:time=>timeNY(Number(time)*1000)},
    handleScroll:{pressedMouseMove:true,mouseWheel:false,horzTouchDrag:true,vertTouchDrag:true},
    handleScale:{axisPressedMouseMove:true,mouseWheel:true,pinch:true},
-   kineticScroll:{touch:true,mouse:false}
+   kineticScroll:{touch:false,mouse:false}
   });
   state.candles=chart.addSeries(lib.CandlestickSeries,{
    upColor:'#2bf2b1',downColor:'#ff5f86',wickUpColor:'#83ffda',wickDownColor:'#ff94a9',borderUpColor:'#1bd698',borderDownColor:'#ff648d',
