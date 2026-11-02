@@ -11,13 +11,13 @@
       "code": "TALIA_TOPIC_PORTFOLIO_POSITION_WEIGHT",
       "title": "Position weight measures one holding's value relative to the whole portfolio",
       "concept": "A position weight compares that holding's marked value with total current portfolio value, using the same valuation timestamp.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Multiply current shares by their quoted marked price; then divide that marked position value by the entire marked portfolio value and express the ratio as a percent. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Multiply current shares by their quoted marked price; then divide that marked position value by the entire marked portfolio value and express the ratio as a percent. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Is share quantity divided by portfolio dollars a valid weight?",
       "workedCase": "FICTIONAL: 40 shares marked at $25 are worth $1,000 in a $5,000 portfolio; that holding is 20% of marked portfolio value.",
       "limit": "A snapshot weight changes with market prices and cash movements; it is not a limit order, ownership percentage of the issuer, or trading recommendation.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. A snapshot weight changes with market prices and cash movements; it is not a limit order, ownership percentage of the issuer, or trading recommendation.",
       "commonError": "Live-trading mistake: A trader may wrongly divide share count by dollar portfolio value and misstate concentration. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: 30 shares at $18 in a $3,600 portfolio represent what percentage of marked value? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A position weight compares that holding's marked value with total current portfolio value, using the same valuation timestamp. Work through this example: FICTIONAL: 40 shares marked at $25 are worth $1,000 in a $5,000 portfolio; that holding is 20% of marked portfolio value. Check the critical limitation: A snapshot weight changes with market prices and cash movements; it is not a limit order, ownership percentage of the issuer, or trading recommendation. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A position weight compares that holding's marked value with total current portfolio value, using the same valuation timestamp. Work through this example: FICTIONAL: 40 shares marked at $25 are worth $1,000 in a $5,000 portfolio; that holding is 20% of marked portfolio value. Check the critical limitation: A snapshot weight changes with market prices and cash movements; it is not a limit order, ownership percentage of the issuer, or trading recommendation. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Convert the holding to same-time market value first, then divide by total net portfolio value. Boundary: Same-time valuations and included account liabilities must be defined.",
       "transferQuestion": "FICTIONAL TRANSFER: 30 shares at $18 in a $3,600 portfolio represent what percentage of marked value? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -34,19 +34,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Is share quantity divided by portfolio dollars a valid weight?",
+        "correction": "Convert the holding to same-time market value first, then divide by total net portfolio value.",
+        "limitation": "Same-time valuations and included account liabilities must be defined.",
+        "transferPrompt": "FICTIONAL TRANSFER: 30 shares at $18 in a $3,600 portfolio represent what percentage of marked value? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_CASH_WEIGHT_PORTFOLIO",
       "title": "Uninvested cash contributes to the portfolio allocation denominator",
       "concept": "A portfolio allocation percentage should account for relevant uninvested cash rather than pretending the portfolio contains only securities.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the eligible marked securities value and settled available cash under the fictional definition, then divide cash by the total. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the eligible marked securities value and settled available cash under the fictional definition, then divide cash by the total. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Should uninvested cash be omitted from portfolio allocation?",
       "workedCase": "FICTIONAL: A $3,000 stock position plus $2,000 cash makes $5,000 portfolio value; the cash allocation is 40%.",
       "limit": "Restricted cash, unsettled proceeds, margin balances and accrued fees can cause account-specific purchasing power to differ from this fictional cash weight.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Restricted cash, unsettled proceeds, margin balances and accrued fees can cause account-specific purchasing power to differ from this fictional cash weight.",
       "commonError": "Live-trading mistake: A trader may omit idle cash and accidentally call a partial equity allocation a fully invested portfolio. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A $7,500 stock position and $2,500 cash create what cash weight, ignoring fees and borrowing? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A portfolio allocation percentage should account for relevant uninvested cash rather than pretending the portfolio contains only securities. Work through this example: FICTIONAL: A $3,000 stock position plus $2,000 cash makes $5,000 portfolio value; the cash allocation is 40%. Check the critical limitation: Restricted cash, unsettled proceeds, margin balances and accrued fees can cause account-specific purchasing power to differ from this fictional cash weight. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A portfolio allocation percentage should account for relevant uninvested cash rather than pretending the portfolio contains only securities. Work through this example: FICTIONAL: A $3,000 stock position plus $2,000 cash makes $5,000 portfolio value; the cash allocation is 40%. Check the critical limitation: Restricted cash, unsettled proceeds, margin balances and accrued fees can cause account-specific purchasing power to differ from this fictional cash weight. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Include eligible cash with marked holdings in total net equity; distinguish restricted buying power. Boundary: Cash weight is not necessarily withdrawable or available-to-trade cash.",
       "transferQuestion": "FICTIONAL TRANSFER: A $7,500 stock position and $2,500 cash create what cash weight, ignoring fees and borrowing? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -63,19 +75,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Should uninvested cash be omitted from portfolio allocation?",
+        "correction": "Include eligible cash with marked holdings in total net equity; distinguish restricted buying power.",
+        "limitation": "Cash weight is not necessarily withdrawable or available-to-trade cash.",
+        "transferPrompt": "FICTIONAL TRANSFER: A $7,500 stock position and $2,500 cash create what cash weight, ignoring fees and borrowing? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_ADDED_CASH_CHANGE_WEIGHT",
       "title": "Adding cash changes investment weights without a market-price change",
       "concept": "A cash contribution raises the total portfolio denominator even if every stock quote stays exactly where it was.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute the original holding value and initial account total, add the new external cash contribution only to account total, then recompute weight. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute the original holding value and initial account total, add the new external cash contribution only to account total, then recompute weight. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a cash contribution change weight even if market prices stay flat?",
       "workedCase": "FICTIONAL: $4,000 in stock and $1,000 cash make an 80% stock weight; adding $1,000 cash without trading changes stock weight to $4,000/$6,000 = 66.67%.",
       "limit": "A contribution is not an investment return and cannot be counted as price appreciation or a winning trade.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. A contribution is not an investment return and cannot be counted as price appreciation or a winning trade.",
       "commonError": "Live-trading mistake: A trader can misreport deposit-funded account growth as successful trading performance. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: $3,000 stock plus $1,000 cash receives an extra $2,000 contribution; find the new stock weight. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A cash contribution raises the total portfolio denominator even if every stock quote stays exactly where it was. Work through this example: FICTIONAL: $4,000 in stock and $1,000 cash make an 80% stock weight; adding $1,000 cash without trading changes stock weight to $4,000/$6,000 = 66.67%. Check the critical limitation: A contribution is not an investment return and cannot be counted as price appreciation or a winning trade. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A cash contribution raises the total portfolio denominator even if every stock quote stays exactly where it was. Work through this example: FICTIONAL: $4,000 in stock and $1,000 cash make an 80% stock weight; adding $1,000 cash without trading changes stock weight to $4,000/$6,000 = 66.67%. Check the critical limitation: A contribution is not an investment return and cannot be counted as price appreciation or a winning trade. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Recompute the larger total account denominator after the contribution before discussing positions. Boundary: Contribution is an external flow, not a generated trading gain.",
       "transferQuestion": "FICTIONAL TRANSFER: $3,000 stock plus $1,000 cash receives an extra $2,000 contribution; find the new stock weight. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -92,19 +116,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does a cash contribution change weight even if market prices stay flat?",
+        "correction": "Recompute the larger total account denominator after the contribution before discussing positions.",
+        "limitation": "Contribution is an external flow, not a generated trading gain.",
+        "transferPrompt": "FICTIONAL TRANSFER: $3,000 stock plus $1,000 cash receives an extra $2,000 contribution; find the new stock weight. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_ACCOUNT_EQUITY_VS_DEPOSIT",
       "title": "An initial deposit is not the same as the account's current marked equity",
       "concept": "A deposit records capital contributed; marked equity adds current marked investment changes and relevant other account components.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Use a fictional fully funded account with no borrowing, start from the contributed amount, and add or subtract the declared change in marked securities value. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Use a fictional fully funded account with no borrowing, start from the contributed amount, and add or subtract the declared change in marked securities value. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does an initial $2,000 deposit force current equity to remain $2,000?",
       "workedCase": "FICTIONAL: An investor deposits $2,000 and the held securities subsequently lose $120 while no other items change; account marked equity is $1,880, not $2,000.",
       "limit": "Real brokerage equity can also reflect unsettled transactions, liabilities, accrued charges, distributions, interest and other positions.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Real brokerage equity can also reflect unsettled transactions, liabilities, accrued charges, distributions, interest and other positions.",
       "commonError": "Live-trading mistake: A trader may call the original deposit their available account value after the market has moved. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Starting equity of $4,500 falls $225 in marked securities value with no transfers; what is current equity? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A deposit records capital contributed; marked equity adds current marked investment changes and relevant other account components. Work through this example: FICTIONAL: An investor deposits $2,000 and the held securities subsequently lose $120 while no other items change; account marked equity is $1,880, not $2,000. Check the critical limitation: Real brokerage equity can also reflect unsettled transactions, liabilities, accrued charges, distributions, interest and other positions. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A deposit records capital contributed; marked equity adds current marked investment changes and relevant other account components. Work through this example: FICTIONAL: An investor deposits $2,000 and the held securities subsequently lose $120 while no other items change; account marked equity is $1,880, not $2,000. Check the critical limitation: Real brokerage equity can also reflect unsettled transactions, liabilities, accrued charges, distributions, interest and other positions. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Update marked assets and liabilities as of now; a $120 loss yields $1,880 in the simplified case. Boundary: Net liquidation and cash balances may differ.",
       "transferQuestion": "FICTIONAL TRANSFER: Starting equity of $4,500 falls $225 in marked securities value with no transfers; what is current equity? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics"
@@ -121,19 +157,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does an initial $2,000 deposit force current equity to remain $2,000?",
+        "correction": "Update marked assets and liabilities as of now; a $120 loss yields $1,880 in the simplified case.",
+        "limitation": "Net liquidation and cash balances may differ.",
+        "transferPrompt": "FICTIONAL TRANSFER: Starting equity of $4,500 falls $225 in marked securities value with no transfers; what is current equity? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_RELATIVE_RETURN_PERCENTAGE_POINTS",
       "title": "Investment return differences in percentage points are not percentage changes of the return itself",
       "concept": "A percentage-point gap is obtained by subtracting two stated percentages measured on a compatible period and basis.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Align the performance windows and return definitions, then subtract benchmark percentage from portfolio percentage; label the result percentage points. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Align the performance windows and return definitions, then subtract benchmark percentage from portfolio percentage; label the result percentage points. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Is an 8% minus 5% performance difference 3% relative return?",
       "workedCase": "FICTIONAL: A portfolio gains 8% and a compatible benchmark gains 5% over the same interval; the portfolio is ahead by 3 percentage points.",
       "limit": "A 3-percentage-point gap is not necessarily a 3% relative ratio, manager alpha, or risk-adjusted excess performance.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. A 3-percentage-point gap is not necessarily a 3% relative ratio, manager alpha, or risk-adjusted excess performance.",
       "commonError": "Live-trading mistake: A learner may call a 3-point difference a 60% gain without explaining the benchmark denominator. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A portfolio returns −2% while the benchmark returns +1% over the same dates; what is the percentage-point gap? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A percentage-point gap is obtained by subtracting two stated percentages measured on a compatible period and basis. Work through this example: FICTIONAL: A portfolio gains 8% and a compatible benchmark gains 5% over the same interval; the portfolio is ahead by 3 percentage points. Check the critical limitation: A 3-percentage-point gap is not necessarily a 3% relative ratio, manager alpha, or risk-adjusted excess performance. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A percentage-point gap is obtained by subtracting two stated percentages measured on a compatible period and basis. Work through this example: FICTIONAL: A portfolio gains 8% and a compatible benchmark gains 5% over the same interval; the portfolio is ahead by 3 percentage points. Check the critical limitation: A 3-percentage-point gap is not necessarily a 3% relative ratio, manager alpha, or risk-adjusted excess performance. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Report 3 percentage points for the difference; relative return requires its own defined ratio. Boundary: A percentage-point difference is not automatically risk-adjusted alpha.",
       "transferQuestion": "FICTIONAL TRANSFER: A portfolio returns −2% while the benchmark returns +1% over the same dates; what is the percentage-point gap? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started"
@@ -150,19 +198,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Is an 8% minus 5% performance difference 3% relative return?",
+        "correction": "Report 3 percentage points for the difference; relative return requires its own defined ratio.",
+        "limitation": "A percentage-point difference is not automatically risk-adjusted alpha.",
+        "transferPrompt": "FICTIONAL TRANSFER: A portfolio returns −2% while the benchmark returns +1% over the same dates; what is the percentage-point gap? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/getting-started",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_PERIOD_RETURN_COMPOUND_NOT_ADD",
       "title": "Sequential percentage changes compound rather than simply adding together",
       "concept": "A later percentage return applies to the already changed value, so the base for each period can differ.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Convert each consecutive percentage into a return factor and multiply those factors before subtracting one. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Convert each consecutive percentage into a return factor and multiply those factors before subtracting one. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can +10% and −10% be added to conclude no change?",
       "workedCase": "FICTIONAL: A $100 holding rises 10% to $110 and then falls 10% to $99; the two-period net change is −1%, not zero.",
       "limit": "Withdrawals, fees, distributions and currencies alter actual investment performance; these examples contain none.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Withdrawals, fees, distributions and currencies alter actual investment performance; these examples contain none.",
       "commonError": "Live-trading mistake: A trader may add plus and minus percentages and wrongly conclude the position returned to the starting value. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A fictional holding rises 20% in one completed period and falls 10% in the next; find its total return. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A later percentage return applies to the already changed value, so the base for each period can differ. Work through this example: FICTIONAL: A $100 holding rises 10% to $110 and then falls 10% to $99; the two-period net change is −1%, not zero. Check the critical limitation: Withdrawals, fees, distributions and currencies alter actual investment performance; these examples contain none. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A later percentage return applies to the already changed value, so the base for each period can differ. Work through this example: FICTIONAL: A $100 holding rises 10% to $110 and then falls 10% to $99; the two-period net change is −1%, not zero. Check the critical limitation: Withdrawals, fees, distributions and currencies alter actual investment performance; these examples contain none. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Compound gross factors 1.10 × .90 = .99, a net −1%. Boundary: Fee, dividend and cash-flow assumptions must be stated.",
       "transferQuestion": "FICTIONAL TRANSFER: A fictional holding rises 20% in one completed period and falls 10% in the next; find its total return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics"
@@ -179,19 +239,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can +10% and −10% be added to conclude no change?",
+        "correction": "Compound gross factors 1.10 × .90 = .99, a net −1%.",
+        "limitation": "Fee, dividend and cash-flow assumptions must be stated.",
+        "transferPrompt": "FICTIONAL TRANSFER: A fictional holding rises 20% in one completed period and falls 10% in the next; find its total return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_INVESTED_SLICE_VS_TOTAL_RETURN",
       "title": "Return on an invested slice is not automatically a return on the entire portfolio",
       "concept": "A position-specific return and portfolio-level return use different denominators when a portfolio includes cash or other holdings.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Calculate the changed position's profit, then divide by the relevant starting capital for each explicitly defined measurement. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Calculate the changed position's profit, then divide by the relevant starting capital for each explicitly defined measurement. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a 10% gain on $1,000 imply 10% gain on a $5,000 account?",
       "workedCase": "FICTIONAL: A $1,000 holding gains $100 while a separate $4,000 stays in cash; the holding gains 10%, but the combined $5,000 account gains 2% before fees.",
       "limit": "Portfolio-level return requires matched starting and ending valuations and external-flow adjustments when deposits occur.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Portfolio-level return requires matched starting and ending valuations and external-flow adjustments when deposits occur.",
       "commonError": "Live-trading mistake: A trader may report a successful single-position percentage as the whole-account investment result. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A $600 invested holding earns $30 while $2,400 remains in cash; compute holding return and total-account return. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A position-specific return and portfolio-level return use different denominators when a portfolio includes cash or other holdings. Work through this example: FICTIONAL: A $1,000 holding gains $100 while a separate $4,000 stays in cash; the holding gains 10%, but the combined $5,000 account gains 2% before fees. Check the critical limitation: Portfolio-level return requires matched starting and ending valuations and external-flow adjustments when deposits occur. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A position-specific return and portfolio-level return use different denominators when a portfolio includes cash or other holdings. Work through this example: FICTIONAL: A $1,000 holding gains $100 while a separate $4,000 stays in cash; the holding gains 10%, but the combined $5,000 account gains 2% before fees. Check the critical limitation: Portfolio-level return requires matched starting and ending valuations and external-flow adjustments when deposits occur. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Divide $100 change by the relevant $5,000 total to show 2% account return. Boundary: Match dates and control for external deposits.",
       "transferQuestion": "FICTIONAL TRANSFER: A $600 invested holding earns $30 while $2,400 remains in cash; compute holding return and total-account return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -208,19 +280,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can a 10% gain on $1,000 imply 10% gain on a $5,000 account?",
+        "correction": "Divide $100 change by the relevant $5,000 total to show 2% account return.",
+        "limitation": "Match dates and control for external deposits.",
+        "transferPrompt": "FICTIONAL TRANSFER: A $600 invested holding earns $30 while $2,400 remains in cash; compute holding return and total-account return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_CASH_PROCEEDS_AFTER_SALE_FEE",
       "title": "Gross sales proceeds and deposited net proceeds are different amounts",
       "concept": "The dollars generated by shares multiplied by execution price can exceed the account's after-fee sales proceeds.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Multiply the actually sold fictional share count by the stated execution price, then subtract only explicitly assumed transaction charges. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Multiply the actually sold fictional share count by the stated execution price, then subtract only explicitly assumed transaction charges. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does $540 gross sale automatically become $540 cash credit?",
       "workedCase": "FICTIONAL: Selling 30 shares at $18 generates $540 gross proceeds; a fictional $2 selling fee makes $538 net proceeds before tax.",
       "limit": "Sales proceeds do not alone reveal profit because acquisition cost, taxes, other fees and unsettled balances are separate.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Sales proceeds do not alone reveal profit because acquisition cost, taxes, other fees and unsettled balances are separate.",
       "commonError": "Live-trading mistake: A learner may label the entire sale notional as profit rather than proceeds. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Sell 25 shares at $12.50 with a $1.50 selling fee; calculate gross and net proceeds. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: The dollars generated by shares multiplied by execution price can exceed the account's after-fee sales proceeds. Work through this example: FICTIONAL: Selling 30 shares at $18 generates $540 gross proceeds; a fictional $2 selling fee makes $538 net proceeds before tax. Check the critical limitation: Sales proceeds do not alone reveal profit because acquisition cost, taxes, other fees and unsettled balances are separate. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: The dollars generated by shares multiplied by execution price can exceed the account's after-fee sales proceeds. Work through this example: FICTIONAL: Selling 30 shares at $18 generates $540 gross proceeds; a fictional $2 selling fee makes $538 net proceeds before tax. Check the critical limitation: Sales proceeds do not alone reveal profit because acquisition cost, taxes, other fees and unsettled balances are separate. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Subtract the stated $2 selling charge: $538 fictional net proceeds before tax. Boundary: Sales proceeds and capital gain require different denominators.",
       "transferQuestion": "FICTIONAL TRANSFER: Sell 25 shares at $12.50 with a $1.50 selling fee; calculate gross and net proceeds. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
@@ -237,19 +321,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does $540 gross sale automatically become $540 cash credit?",
+        "correction": "Subtract the stated $2 selling charge: $538 fictional net proceeds before tax.",
+        "limitation": "Sales proceeds and capital gain require different denominators.",
+        "transferPrompt": "FICTIONAL TRANSFER: Sell 25 shares at $12.50 with a $1.50 selling fee; calculate gross and net proceeds. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_DIVIDEND_CASH_GROSS_VS_NET",
       "title": "Gross dividend entitlement and after-withholding cash can differ",
       "concept": "A quoted cash dividend is a declared per-share amount, but any fictional withholding reduces cash actually received.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute eligible shares times declared per-share dividend, then apply only the stated hypothetical withholding to that gross cash amount. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute eligible shares times declared per-share dividend, then apply only the stated hypothetical withholding to that gross cash amount. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does $30 gross dividend mean $30 after withholding?",
       "workedCase": "FICTIONAL: Eligible 100 shares at $0.30 dividend imply $30 gross; a fictional 10% withholding leaves $27 net cash.",
       "limit": "Actual withholding, classification, account type and tax outcome depend on jurisdiction and individual facts; the percentage here is hypothetical.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Actual withholding, classification, account type and tax outcome depend on jurisdiction and individual facts; the percentage here is hypothetical.",
       "commonError": "Live-trading mistake: A trader can confuse the declared per-share dividend with guaranteed after-tax cash. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Assume 80 entitled shares, $0.25 per share and a hypothetical 5% withholding; find gross and net amounts. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A quoted cash dividend is a declared per-share amount, but any fictional withholding reduces cash actually received. Work through this example: FICTIONAL: Eligible 100 shares at $0.30 dividend imply $30 gross; a fictional 10% withholding leaves $27 net cash. Check the critical limitation: Actual withholding, classification, account type and tax outcome depend on jurisdiction and individual facts; the percentage here is hypothetical. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A quoted cash dividend is a declared per-share amount, but any fictional withholding reduces cash actually received. Work through this example: FICTIONAL: Eligible 100 shares at $0.30 dividend imply $30 gross; a fictional 10% withholding leaves $27 net cash. Check the critical limitation: Actual withholding, classification, account type and tax outcome depend on jurisdiction and individual facts; the percentage here is hypothetical. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Apply the explicitly hypothetical 10% withholding separately to reach $27 cash. Boundary: Tax rules cannot be inferred from an invented rate.",
       "transferQuestion": "FICTIONAL TRANSFER: Assume 80 entitled shares, $0.25 per share and a hypothetical 5% withholding; find gross and net amounts. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
@@ -266,19 +362,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does $30 gross dividend mean $30 after withholding?",
+        "correction": "Apply the explicitly hypothetical 10% withholding separately to reach $27 cash.",
+        "limitation": "Tax rules cannot be inferred from an invented rate.",
+        "transferPrompt": "FICTIONAL TRANSFER: Assume 80 entitled shares, $0.25 per share and a hypothetical 5% withholding; find gross and net amounts. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_SETTLEMENT_BUSINESS_DAY_COUNT",
       "title": "A trading settlement interval counts eligible business days, not calendar days",
       "concept": "For a transaction under a stated T+1 convention, the next eligible business day follows the trade date under the governing calendar.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Identify the assumed business-day calendar, start at the trade date, exclude the trade day and count forward one eligible settlement day. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Identify the assumed business-day calendar, start at the trade date, exclude the trade day and count forward one eligible settlement day. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a Friday T+1 U.S. equity trade settle on Saturday?",
       "workedCase": "FICTIONAL: With no holidays, a Friday regular-way U.S. stock transaction under an assumed T+1 calendar settles Monday, not Saturday.",
       "limit": "Real market holidays, asset classes and exceptional transactions change the schedule; settlement is not a promise about cash withdrawal eligibility.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Real market holidays, asset classes and exceptional transactions change the schedule; settlement is not a promise about cash withdrawal eligibility.",
       "commonError": "Live-trading mistake: A trader may mistake the first calendar day after a Friday transaction for an eligible securities settlement day. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Under the same no-holiday T+1 example, what day follows a Thursday trade for settlement? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: For a transaction under a stated T+1 convention, the next eligible business day follows the trade date under the governing calendar. Work through this example: FICTIONAL: With no holidays, a Friday regular-way U.S. stock transaction under an assumed T+1 calendar settles Monday, not Saturday. Check the critical limitation: Real market holidays, asset classes and exceptional transactions change the schedule; settlement is not a promise about cash withdrawal eligibility. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: For a transaction under a stated T+1 convention, the next eligible business day follows the trade date under the governing calendar. Work through this example: FICTIONAL: With no holidays, a Friday regular-way U.S. stock transaction under an assumed T+1 calendar settles Monday, not Saturday. Check the critical limitation: Real market holidays, asset classes and exceptional transactions change the schedule; settlement is not a promise about cash withdrawal eligibility. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Count the next eligible business day, Monday when no market holiday intervenes. Boundary: Asset class, holidays, special terms can change dates.",
       "transferQuestion": "FICTIONAL TRANSFER: Under the same no-holiday T+1 example, what day follows a Thursday trade for settlement? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.finra.org/investors/investing/investment-products/stocks/settling-securities-transactions"
@@ -295,19 +403,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can a Friday T+1 U.S. equity trade settle on Saturday?",
+        "correction": "Count the next eligible business day, Monday when no market holiday intervenes.",
+        "limitation": "Asset class, holidays, special terms can change dates.",
+        "transferPrompt": "FICTIONAL TRANSFER: Under the same no-holiday T+1 example, what day follows a Thursday trade for settlement? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.finra.org/investors/investing/investment-products/stocks/settling-securities-transactions",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_TRADE_TIME_NOT_SETTLEMENT_TIME",
       "title": "Execution time and settlement time describe different stages of a transaction",
       "concept": "A recorded trade execution and subsequent securities/cash settlement are separate operational events.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Mark the fictional execution time and the assumed settlement date separately; never substitute the later settlement day for the moment a fill occurred. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Mark the fictional execution time and the assumed settlement date separately; never substitute the later settlement day for the moment a fill occurred. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Should a Tuesday 10:15 execution be journaled as a Wednesday trade?",
       "workedCase": "FICTIONAL: An order fills on Tuesday at 10:15 a.m.; assuming no holiday and standard T+1, settlement is Wednesday, but the execution remains Tuesday at 10:15.",
       "limit": "The example assumes an eligible regular-way U.S. equity; other products and account rules can operate differently.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. The example assumes an eligible regular-way U.S. equity; other products and account rules can operate differently.",
       "commonError": "Live-trading mistake: A student may date the trade by settlement and distort their replay journal's actual decision time. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A completed Thursday fill at 2:00 p.m. with no intervening holiday has what assumed T+1 settlement date, and when was the fill? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A recorded trade execution and subsequent securities/cash settlement are separate operational events. Work through this example: FICTIONAL: An order fills on Tuesday at 10:15 a.m.; assuming no holiday and standard T+1, settlement is Wednesday, but the execution remains Tuesday at 10:15. Check the critical limitation: The example assumes an eligible regular-way U.S. equity; other products and account rules can operate differently. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A recorded trade execution and subsequent securities/cash settlement are separate operational events. Work through this example: FICTIONAL: An order fills on Tuesday at 10:15 a.m.; assuming no holiday and standard T+1, settlement is Wednesday, but the execution remains Tuesday at 10:15. Check the critical limitation: The example assumes an eligible regular-way U.S. equity; other products and account rules can operate differently. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Preserve executed timestamp on Tuesday; record settlement as a distinct Wednesday operational event. Boundary: Settlement date is not evidence of when the fill was known.",
       "transferQuestion": "FICTIONAL TRANSFER: A completed Thursday fill at 2:00 p.m. with no intervening holiday has what assumed T+1 settlement date, and when was the fill? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.finra.org/investors/investing/investment-products/stocks/settling-securities-transactions"
@@ -324,19 +444,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Should a Tuesday 10:15 execution be journaled as a Wednesday trade?",
+        "correction": "Preserve executed timestamp on Tuesday; record settlement as a distinct Wednesday operational event.",
+        "limitation": "Settlement date is not evidence of when the fill was known.",
+        "transferPrompt": "FICTIONAL TRANSFER: A completed Thursday fill at 2:00 p.m. with no intervening holiday has what assumed T+1 settlement date, and when was the fill? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.finra.org/investors/investing/investment-products/stocks/settling-securities-transactions",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_QUOTE_DEPTH_NOT_EXECUTED_VOLUME",
       "title": "Displayed order-book depth is not evidence that those shares traded",
       "concept": "A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum displayed fictional share quantities only within the clearly labeled order-book side; do not add them to executed interval volume. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum displayed fictional share quantities only within the clearly labeled order-book side; do not add them to executed interval volume. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Did 500 displayed bid shares trade merely by appearing in Level II?",
       "workedCase": "FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot.",
       "limit": "Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity.",
       "commonError": "Live-trading mistake: A tape learner may count every displayed bid order as a confirmed purchase. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval. Work through this example: FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot. Check the critical limitation: Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval. Work through this example: FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot. Check the critical limitation: Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Distinguish outstanding displayed orders from actual executed prints. Boundary: Hidden/cancelled orders and feed snapshots are not fills.",
       "transferQuestion": "FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nasdaqtrader.com/"
@@ -353,19 +485,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Did 500 displayed bid shares trade merely by appearing in Level II?",
+        "correction": "Distinguish outstanding displayed orders from actual executed prints.",
+        "limitation": "Hidden/cancelled orders and feed snapshots are not fills.",
+        "transferPrompt": "FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nasdaqtrader.com/",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_NUMBER_OF_ORDERS_VS_SHARE_DEPTH",
       "title": "Order count and displayed share quantity are separate market-depth measurements",
       "concept": "One resting order can represent many shares, and several orders can together represent the same displayed quantity.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the fictional quantity of each displayed order and count distinct orders as a separate unit before drawing comparisons. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the fictional quantity of each displayed order and count distinct orders as a separate unit before drawing comparisons. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does six displayed orders automatically mean six shares?",
       "workedCase": "FICTIONAL: One displayed bid order has 500 shares while five others each have 100; six orders together show 1,000 shares.",
       "limit": "Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders.",
       "commonError": "Live-trading mistake: A trader may see 1,000 shares and claim there were exactly 1,000 buyers. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: One resting order can represent many shares, and several orders can together represent the same displayed quantity. Work through this example: FICTIONAL: One displayed bid order has 500 shares while five others each have 100; six orders together show 1,000 shares. Check the critical limitation: Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: One resting order can represent many shares, and several orders can together represent the same displayed quantity. Work through this example: FICTIONAL: One displayed bid order has 500 shares while five others each have 100; six orders together show 1,000 shares. Check the critical limitation: Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Count the six orders and separately sum their 1,000 displayed shares. Boundary: Aggregated-by-price depth may omit underlying order count.",
       "transferQuestion": "FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nasdaqtrader.com/"
@@ -382,19 +526,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does six displayed orders automatically mean six shares?",
+        "correction": "Count the six orders and separately sum their 1,000 displayed shares.",
+        "limitation": "Aggregated-by-price depth may omit underlying order count.",
+        "transferPrompt": "FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nasdaqtrader.com/",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_ORDER_DAY_DURATION_NOT_FILL",
       "title": "A day-order duration does not establish whether an order executed",
       "concept": "A day order's designated active interval and any completed execution are independent facts about order handling.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare a fictional order's time-in-force against the documented session end and check the actual fill report rather than assuming execution. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare a fictional order's time-in-force against the documented session end and check the actual fill report rather than assuming execution. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a Day limit order prove all 100 shares filled by 4:00?",
       "workedCase": "FICTIONAL: A 100-share day limit order submitted at 3:45 p.m. has zero reported fills by the assumed 4:00 p.m. regular-session end; its executed share count remains 0.",
       "limit": "Broker and venue definitions of eligible sessions, extensions and cancellations differ, so the actual order status controls.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Broker and venue definitions of eligible sessions, extensions and cancellations differ, so the actual order status controls.",
       "commonError": "Live-trading mistake: A trader may mistake an expired order for a filled transaction because a later chart crossed the limit. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A 50-share day limit shows 20 shares filled before session end; how many actually executed, and what remains unfilled? Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A day order's designated active interval and any completed execution are independent facts about order handling. Work through this example: FICTIONAL: A 100-share day limit order submitted at 3:45 p.m. has zero reported fills by the assumed 4:00 p.m. regular-session end; its executed share count remains 0. Check the critical limitation: Broker and venue definitions of eligible sessions, extensions and cancellations differ, so the actual order status controls. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A day order's designated active interval and any completed execution are independent facts about order handling. Work through this example: FICTIONAL: A 100-share day limit order submitted at 3:45 p.m. has zero reported fills by the assumed 4:00 p.m. regular-session end; its executed share count remains 0. Check the critical limitation: Broker and venue definitions of eligible sessions, extensions and cancellations differ, so the actual order status controls. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Use broker-reported executed quantity and remaining unfilled status at cutoff. Boundary: Time-in-force expiration is not an execution record.",
       "transferQuestion": "FICTIONAL TRANSFER: A 50-share day limit shows 20 shares filled before session end; how many actually executed, and what remains unfilled? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
@@ -411,19 +567,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does a Day limit order prove all 100 shares filled by 4:00?",
+        "correction": "Use broker-reported executed quantity and remaining unfilled status at cutoff.",
+        "limitation": "Time-in-force expiration is not an execution record.",
+        "transferPrompt": "FICTIONAL TRANSFER: A 50-share day limit shows 20 shares filled before session end; how many actually executed, and what remains unfilled? Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_TRADING_HALT_QUOTE_NOT_REOPEN_FILL",
       "title": "A pre-halt last price does not determine the price of a later reopening fill",
       "concept": "When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record the fictional pre-halt print and the separately supplied reopening fill; compute a gap only after the second event actually becomes available. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record the fictional pre-halt print and the separately supplied reopening fill; compute a gap only after the second event actually becomes available. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a pre-halt $20 quote determine the reopening execution price?",
       "workedCase": "FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change.",
       "limit": "Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill.",
       "commonError": "Live-trading mistake: A trader may mark a stopped strategy closed at the pre-halt quote despite no eligible execution. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening. Work through this example: FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change. Check the critical limitation: Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening. Work through this example: FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change. Check the critical limitation: Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Only an actual later reopening print documents a retrospective $18.40 price. Boundary: Before the reopening, its price is future information.",
       "transferQuestion": "FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nasdaqtrader.com/"
@@ -440,19 +608,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can a pre-halt $20 quote determine the reopening execution price?",
+        "correction": "Only an actual later reopening print documents a retrospective $18.40 price.",
+        "limitation": "Before the reopening, its price is future information.",
+        "transferPrompt": "FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nasdaqtrader.com/",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_TRADE_PRINT_LIQUIDITY_NOT_BUYER_ID",
       "title": "Time-and-sales prints cannot identify the actual beneficial buyer by color",
       "concept": "A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare the fictional executed print with its separately timestamped quotes; describe only the observable print and classification uncertainty. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare the fictional executed print with its separately timestamped quotes; describe only the observable print and classification uncertainty. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a red or green Time & Sales print reveal buyer identity?",
       "workedCase": "FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers.",
       "limit": "Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable.",
       "commonError": "Live-trading mistake: A trader may interpret a green tape entry as proof that a specific institution initiated a buy. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity. Work through this example: FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers. Check the critical limitation: Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity. Work through this example: FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers. Check the critical limitation: Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Observe print quantity and price; infer aggressor side only cautiously with matched quotes. Boundary: Color never proves beneficial ownership or count of counterparties.",
       "transferQuestion": "FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nasdaqtrader.com/"
@@ -469,19 +649,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does a red or green Time & Sales print reveal buyer identity?",
+        "correction": "Observe print quantity and price; infer aggressor side only cautiously with matched quotes.",
+        "limitation": "Color never proves beneficial ownership or count of counterparties.",
+        "transferPrompt": "FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nasdaqtrader.com/",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_OUT_OF_SEQUENCE_PRINT_CONTEXT",
       "title": "Historical print reports can arrive later than the underlying execution time",
       "concept": "A reported arrival timestamp and the actual trade timestamp can differ, especially after corrections or delayed reporting.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record both timestamps when the fictional data supplies them and compare events by actual execution time rather than arrival order. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record both timestamps when the fictional data supplies them and compare events by actual execution time rather than arrival order. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a 10:01:25 reported print inform a 10:01:15 decision?",
       "workedCase": "FICTIONAL: A trade executed at 10:01:10 is reported at 10:01:25, fifteen seconds later; its availability to a 10:01:15 decision is not established by the later report.",
       "limit": "Different feed entitlements and rules change which clock is authoritative; never reconstruct earlier knowledge from late-arriving messages.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Different feed entitlements and rules change which clock is authoritative; never reconstruct earlier knowledge from late-arriving messages.",
       "commonError": "Live-trading mistake: A replay learner may accidentally use a corrected historical print before the data was actually published. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: A print executed at 09:35:00 reaches a feed at 09:35:12; calculate report latency and identify whether it was known at 09:35:05. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A reported arrival timestamp and the actual trade timestamp can differ, especially after corrections or delayed reporting. Work through this example: FICTIONAL: A trade executed at 10:01:10 is reported at 10:01:25, fifteen seconds later; its availability to a 10:01:15 decision is not established by the later report. Check the critical limitation: Different feed entitlements and rules change which clock is authoritative; never reconstruct earlier knowledge from late-arriving messages. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A reported arrival timestamp and the actual trade timestamp can differ, especially after corrections or delayed reporting. Work through this example: FICTIONAL: A trade executed at 10:01:10 is reported at 10:01:25, fifteen seconds later; its availability to a 10:01:15 decision is not established by the later report. Check the critical limitation: Different feed entitlements and rules change which clock is authoritative; never reconstruct earlier knowledge from late-arriving messages. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Track execution time and separately received-at timestamp; no, it was not yet reported. Boundary: Do not backdate late reports into earlier learning decisions.",
       "transferQuestion": "FICTIONAL TRANSFER: A print executed at 09:35:00 reaches a feed at 09:35:12; calculate report latency and identify whether it was known at 09:35:05. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.finra.org/finra-data"
@@ -498,19 +690,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can a 10:01:25 reported print inform a 10:01:15 decision?",
+        "correction": "Track execution time and separately received-at timestamp; no, it was not yet reported.",
+        "limitation": "Do not backdate late reports into earlier learning decisions.",
+        "transferPrompt": "FICTIONAL TRANSFER: A print executed at 09:35:00 reaches a feed at 09:35:12; calculate report latency and identify whether it was known at 09:35:05. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.finra.org/finra-data",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_MARKET_DATA_AGGREGATION_INTERVAL",
       "title": "Market-data aggregation changes what an interval-volume bar represents",
       "concept": "A volume histogram bar aggregates prints attributed to a particular time interval, not individual order submissions.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum only fictional executed share quantities assigned to the same specified completed interval and compare with other separately completed intervals. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum only fictional executed share quantities assigned to the same specified completed interval and compare with other separately completed intervals. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can three executed prints be counted as one trade if they share a one-minute bar?",
       "workedCase": "FICTIONAL: Three prints of 100, 250 and 150 shares within a completed one-minute window produce a 500-share volume bar.",
       "limit": "Vendor corrections, odd-lot inclusion and interval boundary conventions can change actual historical aggregates.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Vendor corrections, odd-lot inclusion and interval boundary conventions can change actual historical aggregates.",
       "commonError": "Live-trading mistake: A trader can misinterpret 500 share volume as 500 individual transactions or count future prints in an unfinished bar. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Four executions of 80, 120, 100 and 200 shares occur within one completed interval; compute its share-volume bar. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A volume histogram bar aggregates prints attributed to a particular time interval, not individual order submissions. Work through this example: FICTIONAL: Three prints of 100, 250 and 150 shares within a completed one-minute window produce a 500-share volume bar. Check the critical limitation: Vendor corrections, odd-lot inclusion and interval boundary conventions can change actual historical aggregates. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A volume histogram bar aggregates prints attributed to a particular time interval, not individual order submissions. Work through this example: FICTIONAL: Three prints of 100, 250 and 150 shares within a completed one-minute window produce a 500-share volume bar. Check the critical limitation: Vendor corrections, odd-lot inclusion and interval boundary conventions can change actual historical aggregates. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Sum 100+250+150=500 shares but distinguish three prints from one volume bar. Boundary: Feed eligibility and corrections may modify aggregates.",
       "transferQuestion": "FICTIONAL TRANSFER: Four executions of 80, 120, 100 and 200 shares occur within one completed interval; compute its share-volume bar. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nyse.com/market-data/historical"
@@ -527,19 +731,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Can three executed prints be counted as one trade if they share a one-minute bar?",
+        "correction": "Sum 100+250+150=500 shares but distinguish three prints from one volume bar.",
+        "limitation": "Feed eligibility and corrections may modify aggregates.",
+        "transferPrompt": "FICTIONAL TRANSFER: Four executions of 80, 120, 100 and 200 shares occur within one completed interval; compute its share-volume bar. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nyse.com/market-data/historical",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_LOG_AXIS_RATIO_VS_DOLLAR_DISTANCE",
       "title": "Equal logarithmic price-axis spacing represents equal ratios rather than equal dollar moves",
       "concept": "A logarithmic price axis compares relative price ratios, while a linear axis makes equal dollar differences equally tall.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute comparable positive-price ratios rather than using absolute-dollar differences to interpret two logarithmic steps. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compute comparable positive-price ratios rather than using absolute-dollar differences to interpret two logarithmic steps. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Do identical log-axis distances always represent identical dollar changes?",
       "workedCase": "FICTIONAL: Moving from $10 to $20 doubles price, as does moving from $20 to $40; both are 100% gains despite unequal $10 and $20 changes.",
       "limit": "Logarithmic scaling cannot directly plot nonpositive prices, and switching scales changes appearance but not historical trade prints.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Logarithmic scaling cannot directly plot nonpositive prices, and switching scales changes appearance but not historical trade prints.",
       "commonError": "Live-trading mistake: A learner may judge two logarithmic candle distances as equal dollar profits instead of equal proportional changes. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Compare moves from $5 to $10 and $10 to $20 under a logarithmic axis and report each percentage change. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A logarithmic price axis compares relative price ratios, while a linear axis makes equal dollar differences equally tall. Work through this example: FICTIONAL: Moving from $10 to $20 doubles price, as does moving from $20 to $40; both are 100% gains despite unequal $10 and $20 changes. Check the critical limitation: Logarithmic scaling cannot directly plot nonpositive prices, and switching scales changes appearance but not historical trade prints. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A logarithmic price axis compares relative price ratios, while a linear axis makes equal dollar differences equally tall. Work through this example: FICTIONAL: Moving from $10 to $20 doubles price, as does moving from $20 to $40; both are 100% gains despite unequal $10 and $20 changes. Check the critical limitation: Logarithmic scaling cannot directly plot nonpositive prices, and switching scales changes appearance but not historical trade prints. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Compare price ratios, such as $10→$20 versus $20→$40; both double. Boundary: Nonpositive prices cannot be represented by ordinary log scale.",
       "transferQuestion": "FICTIONAL TRANSFER: Compare moves from $5 to $10 and $10 to $20 under a logarithmic axis and report each percentage change. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://chartschool.stockcharts.com/"
@@ -556,19 +772,31 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Do identical log-axis distances always represent identical dollar changes?",
+        "correction": "Compare price ratios, such as $10→$20 versus $20→$40; both double.",
+        "limitation": "Nonpositive prices cannot be represented by ordinary log scale.",
+        "transferPrompt": "FICTIONAL TRANSFER: Compare moves from $5 to $10 and $10 to $20 under a logarithmic axis and report each percentage change. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://chartschool.stockcharts.com/",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     },
     {
       "code": "TALIA_TOPIC_ZERO_VOLUME_NO_PRINT_ASSERTION",
       "title": "A reported zero-volume interval is not evidence that price never moved in every venue",
       "concept": "A zero in a specific feed's time bucket means no eligible counted executions were recorded there under that feed's inclusion rules.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Check the stated feed, session, and completed time bucket before treating an observed zero as a measured fact. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption.",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Check the stated feed, session, and completed time bucket before treating an observed zero as a measured fact. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a provider's zero-volume bar prove zero market movement everywhere?",
       "workedCase": "FICTIONAL: A chart feed records 0 eligible shares in one completed one-minute window and 600 in the next; the two buckets sum to 600 reported shares, not 600 trades.",
       "limit": "Missing data, stale quote updates, excluded venues and reporting delays differ from an explicit measured zero.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Missing data, stale quote updates, excluded venues and reporting delays differ from an explicit measured zero.",
       "commonError": "Live-trading mistake: A trader may fabricate activity by filling a missing bar with zero or assume all markets were inactive from one data provider's bucket. Correct it by declaring the missing information and using only completed, reported evidence rather than inventing a fill.",
       "selfCheck": "Try an independent ungraded calculation without reading future bars. FICTIONAL TRANSFER: Three completed buckets report 0, 150 and 250 shares; calculate reported share volume and identify what remains unknown. Identify what information you could not have known beforehand.",
-      "reviewExplanation": "Ungraded correction: A zero in a specific feed's time bucket means no eligible counted executions were recorded there under that feed's inclusion rules. Work through this example: FICTIONAL: A chart feed records 0 eligible shares in one completed one-minute window and 600 in the next; the two buckets sum to 600 reported shares, not 600 trades. Check the critical limitation: Missing data, stale quote updates, excluded venues and reporting delays differ from an explicit measured zero. This response is not a protected assessment answer or mastery award.",
+      "reviewExplanation": "Ungraded correction: A zero in a specific feed's time bucket means no eligible counted executions were recorded there under that feed's inclusion rules. Work through this example: FICTIONAL: A chart feed records 0 eligible shares in one completed one-minute window and 600 in the next; the two buckets sum to 600 reported shares, not 600 trades. Check the critical limitation: Missing data, stale quote updates, excluded venues and reporting delays differ from an explicit measured zero. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Interpret the zero only under the stated feed/session eligibility rule. Boundary: Explicit zero differs from missing observations and excluded venues.",
       "transferQuestion": "FICTIONAL TRANSFER: Three completed buckets report 0, 150 and 250 shares; calculate reported share volume and identify what remains unknown. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
         "https://www.nyse.com/market-data/historical"
@@ -585,6 +813,18 @@
         "independentPublicationAccepted": false,
         "sourceScope": "Research pointer only; exact fact/rights/claim support and individual numerical proof remain pending",
         "referenceCheckedDate": null
+      },
+      "editorialTrainingReviewV1": {
+        "reviewDate": "2026-11-01",
+        "scope": "INDIVIDUAL_INTERNAL_TEACHING_AND_SOURCE_REVIEW",
+        "outcome": "REVISED_PENDING_INDEPENDENT_EDITORIAL",
+        "diagnosticQuestion": "Does a provider's zero-volume bar prove zero market movement everywhere?",
+        "correction": "Interpret the zero only under the stated feed/session eligibility rule.",
+        "limitation": "Explicit zero differs from missing observations and excluded venues.",
+        "transferPrompt": "FICTIONAL TRANSFER: Three completed buckets report 0, 150 and 250 shares; calculate reported share volume and identify what remains unknown. Explain the relevant units, what is only assumed, and what would invalidate your result.",
+        "sourceCandidate": "https://www.nyse.com/market-data/historical",
+        "independentPublicationApproved": false,
+        "rightsCleared": false
       }
     }
   ],
