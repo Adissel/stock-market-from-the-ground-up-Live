@@ -90,7 +90,7 @@ try{
  assert.match(chart,/minBarSpacing:\.6/);assert.match(chart,/rightOffset:16/);
  // Chart must stop moving when the mouse is released, not coast until a second click.
  assert.match(chart,/handleScroll:\{pressedMouseMove:true/);
- assert.match(chart,/kineticScroll:\{touch:true,mouse:false\}/);
+ assert.match(chart,/kineticScroll:\{touch:false,mouse:false\}/);
  // Replay of only 8 completed bars must not zoom those candles across the full viewport.
  assert.match(chart,/const span=Math\.max\(includeAll\?state\.count\+appearance\.rightBuffer:8,/);
  assert.match(chart,/width\/appearance\.barSpacing/,
