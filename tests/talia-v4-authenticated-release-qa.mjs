@@ -96,30 +96,35 @@ try{
  assert(session.hasSession&&session.id===EXPECTED_ID,'James_Test browser identity does not match expected QA identity');
  mark('James_Test real browser sign-in','PASS','Verified Supabase identity and website login');
  await page.goto(ORIGIN+'/talia-classroom.html',{waitUntil:'domcontentloaded',timeout:35000});
- try{
-  await page.waitForFunction(async()=>{
-   if(typeof window.getSupabaseClient!=='function')return false;
-   const client=await window.getSupabaseClient();
-   const result=await client.auth.getSession();
-   return !!result?.data?.session?.access_token;
-  },null,{timeout:18000});
- }catch{
-  console.error('TALIA_SESSION_SETTLE_TIMEOUT '+new URL(page.url()).pathname);
- }
- const accessProbe=await page.evaluate(async()=>{
-  const result={route:location.pathname,session:false,toolHttp:0,toolOk:false,authorized:false,freeEligible:false,rootPresent:!!document.getElementById('talia-classroom-root')};
+ let accessProbe={route:new URL(page.url()).pathname,session:false,toolHttp:0,toolOk:false,authorized:false,freeEligible:false,rootPresent:false};
+ let navigationsDuringProbe=0;
+ for(let attempt=0;attempt<7;attempt++){
+  await wait(1100);
   try{
-   const client=await window.getSupabaseClient?.();
-   const {data}=await client.auth.getSession();
-   result.session=!!data?.session?.access_token;
-   if(result.session){
-    const response=await fetch('/api/member-tool-access?tool=MARKET_TUTOR',{cache:'no-store',headers:{authorization:'Bearer '+data.session.access_token}});
-    const j=await response.json().catch(()=>({}));
-    result.toolHttp=response.status;result.toolOk=j?.ok===true;result.authorized=j?.authorized===true;result.freeEligible=j?.freeEligible===true;
-   }
-  }catch{}
-  return result;
- });
+   const candidate=await page.evaluate(async()=>{
+    const result={route:location.pathname,session:false,toolHttp:0,toolOk:false,authorized:false,freeEligible:false,rootPresent:!!document.getElementById('talia-classroom-root')};
+    try{
+     const client=await window.getSupabaseClient?.();
+     const {data}=await client.auth.getSession();
+     result.session=!!data?.session?.access_token;
+     if(result.session){
+      const response=await fetch('/api/member-tool-access?tool=MARKET_TUTOR',{cache:'no-store',headers:{authorization:'Bearer '+data.session.access_token}});
+      const j=await response.json().catch(()=>({}));
+      result.toolHttp=response.status;result.toolOk=j?.ok===true;result.authorized=j?.authorized===true;result.freeEligible=j?.freeEligible===true;
+     }
+    }catch{}
+    return result;
+   });
+   accessProbe=candidate;
+   if(accessProbe.session&&accessProbe.toolOk)break;
+  }catch(error){
+   const msg=String(error?.message||'');
+   if(/Execution context was destroyed|navigation/i.test(msg)){navigationsDuringProbe++;continue}
+   throw error;
+  }
+ }
+ accessProbe.route=new URL(page.url()).pathname;
+ console.log('TALIA_NAVIGATION_RETRIES '+navigationsDuringProbe);
  console.log('TALIA_SAFE_ACCESS_PROBE '+JSON.stringify(accessProbe));
  if(!accessProbe.session)fail('BLOCKED_CLASSROOM_SESSION','Verified member session not preserved after opening classroom');
  if(!accessProbe.toolOk||(!accessProbe.authorized&&!accessProbe.freeEligible))fail('BLOCKED_TUTOR_ACCESS','No positive Tutor entitlement from server; HTTP '+accessProbe.toolHttp);
