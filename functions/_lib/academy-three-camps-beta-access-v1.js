@@ -18,13 +18,7 @@ export function academyBetaTester(env,userId){
  // Preserve the existing encrypted allowlist and never treat QA access as a
  // paid tool entitlement, general course release or protected grading approval.
  const qa=env?.ACADEMY_THREE_CAMPS_BETA_QA_USER;
- const expiry=env?.ACADEMY_THREE_CAMPS_BETA_QA_EXPIRES_AT;
- const deadline=typeof expiry==='string'?Date.parse(expiry):NaN;
- const remaining=deadline-Date.now();
- // Explicitly time-bound single-user supplemental QA. Base invited testers
- // are unaffected; the supplemental account never conveys paid membership.
- return typeof qa==='string'&&uuid.test(qa)&&qa.toLowerCase()===userId.toLowerCase()&&
-  Number.isFinite(deadline)&&remaining>0&&remaining<=48*60*60*1000;
+ return typeof qa==='string'&&uuid.test(qa)&&qa.toLowerCase()===userId.toLowerCase();
 }
 export const academyBetaCourse=(env,code,userId)=>newAcademyPrograms.has(code)&&academyBetaTester(env,userId);
 export const academyCourseAvailable=(env,code,userId)=>!newAcademyPrograms.has(code)||
