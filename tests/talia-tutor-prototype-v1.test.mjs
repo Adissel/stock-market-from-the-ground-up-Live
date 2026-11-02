@@ -202,3 +202,17 @@ test('Talia major release: 79 individually identified integration and safety con
  }
  assert.equal(checked,79);
 });
+
+test('Private conversation creation and history require a fresh verified identity before rendering',()=>{
+ const src=read('src/tutor/TaliaClassroom.tsx');
+ const creation=src.slice(src.indexOf('const newConversation=async'),src.indexOf('const loadHistory=async'));
+ const history=src.slice(src.indexOf('const loadHistory=async'),src.indexOf('const safeSuggest='));
+ for(const body of [creation,history]){
+  assert.match(body,/const confirmed=await getToken\(\)/);
+  assert.match(body,/!confirmed\|\|version!==epoch\.current\|\|identity\.current!==uid/);
+  assert.match(body,/cache:'no-store'/);
+  assert.match(body,/authorization:'Bearer '\+access/);
+ }
+ assert.match(history,/if\(version!==epoch\.current\|\|identity\.current!==uid\)return;\s*setChat/);
+ assert.doesNotMatch(history,/localStorage|sessionStorage|setItem/);
+});
