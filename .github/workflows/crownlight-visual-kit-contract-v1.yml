@@ -7,6 +7,9 @@ on:
       - 'assets/js/crownlight-visual-kit-v1.js'
       - 'assets/js/free-foundations-echarts-v1.js'
       - 'assets/js/learning-progress-echarts-v1.js'
+      - 'assets/js/crownlight-echarts-admin-v1.js'
+      - 'admin.html'
+      - 'tests/test_crownlight_admin_shared_analytics_browser_v1.mjs'
       - 'lab-player.html'
       - 'bootcamp-academy.html'
       - 'tests/test_learning_progress_echarts_v1.mjs'
@@ -39,3 +42,23 @@ jobs:
           node --check assets/js/crownlight-echarts-admin-v1.js
           node --check tests/crownlight-visual-kit-v1.test.mjs
           node tests/crownlight-visual-kit-v1.test.mjs
+
+  visual-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned free browser runtime and local ECharts
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1 echarts@6.1.0
+          npx playwright install --with-deps chromium
+      - name: Run focused real ECharts Chromium suites
+        run: |
+          node tests/test_free_foundations_echarts_v1.mjs
+          node tests/test_learning_progress_echarts_v1.mjs
+          node tests/test_crownlight_admin_shared_analytics_browser_v1.mjs
