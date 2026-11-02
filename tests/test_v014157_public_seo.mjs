@@ -25,6 +25,7 @@ try{
  const result=run(origin);
  assert.equal(result.status,0,'Source SEO build failed: '+result.stderr);
  const sitemap=readFileSync(join(root,'sitemap.xml'),'utf8');
+ assert.equal(readFileSync(join(root,'sitemap-v2.xml'),'utf8'),sitemap,'New sitemap v2 must match compatibility sitemap');
  assert(sitemap.includes('<loc>'+origin+'/</loc>'));
  assert(sitemap.includes('<loc>'+origin+'/about</loc>'));
  assert(!/<loc>[^<]*\.html<\/loc>/i.test(sitemap),'Sitemap must use final Cloudflare Pages URLs without redirects');
@@ -68,6 +69,7 @@ try{
  for(const page of ['admin.html','dashboard.html','privacy.html']){
   assert(!readFileSync(join(root,page),'utf8').includes('ga4-consent-v1.js'),'No Analytics script on private/legal page: '+page);
  }
+ assert(readFileSync(join(root,'robots.txt'),'utf8').includes('Sitemap: '+origin+'/sitemap-v2.xml'));
  assert(readFileSync(join(root,'robots.txt'),'utf8').includes('Sitemap: '+origin+'/sitemap.xml'));
  assert(readFileSync(join(root,'privacy.html'),'utf8').includes('noindex,follow'));
  assert.equal(run('http://not-secure.test').status,1,'Refuse insecure SEO origin');
