@@ -48,7 +48,7 @@
    const raw=x.timestamp??x.time;
    if(raw instanceof Date)return Number.isFinite(raw.getTime())?raw:null;
    if(typeof raw==='number'&&Number.isSafeInteger(raw))return new Date(raw);
-   if(typeof raw==='string'&&/^\\d{4}-\\d\\d-\\d\\d[T ]/.test(raw)){
+   if(typeof raw==='string'&&/^\d{4}-\d\d-\d\d[T ]/.test(raw)){
     const value=new Date(raw);return Number.isFinite(value.getTime())?value:null;
    }
    return null;
