@@ -20,6 +20,7 @@ for(const banned of ['/admin','/api/','/dashboard','/journal','/owner-roadmap',
 response=robots({env:ctx.env,request:new Request(site+'/robots.txt')});
 const rules=await response.text();
 assert.equal(response.status,200);assert(rules.includes('Sitemap: '+site+'/sitemap.xml'));
+assert(rules.includes('Sitemap: '+site+'/sitemap-v2.xml'),'Legacy robots handler must advertise new sitemap v2');
 assert(rules.includes('Disallow: /api/')&&rules.includes('Disallow: /admin'));
 assert.equal(sitemap({env:{PUBLIC_SITE_ORIGIN:'http://insecure.example'},request:ctx.request}).status,503);
 assert.equal(robots({env:{PUBLIC_SITE_ORIGIN:'https://site.example/?junk=1'},request:ctx.request}).status,503);
