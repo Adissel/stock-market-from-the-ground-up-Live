@@ -21,6 +21,7 @@ node tests/basic-quant-worked-inspection-v1.test.mjs
 node tests/academy-member-day-restoration-v1.test.mjs
 node tests/basic-all-419-lab-bridge-integrity-v1.test.mjs
 node tests/basic-learning-49-executable-gates-v1.test.mjs
+node tests/basic-indicator-20-negative-safety-gates-v1.test.mjs
 node tests/basic-five-indicator-parity-v1.test.mjs
 node tests/basic-engine-six-gate-closeout-v1.test.mjs
 node tests/talia-classroom-source-v1.test.mjs
