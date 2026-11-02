@@ -268,6 +268,30 @@ console.log('PASS '+tier+' keyboard focus, locked options and 390px responsive S
 await page.locator('[data-cl-save]').click();
 await page.waitForFunction(()=>/Workspace saved privately/.test(document.querySelector('.cl-workspace-status')?.textContent||''));
 if(tier==='PROFESSIONAL'){
+ // Real Chromium pointer and keyboard interactions, not source-string checks.
+ const divider=page.locator('[data-cl-panel-divider]');
+ await divider.waitFor({state:'visible'});
+ const before=await divider.getAttribute('aria-valuenow');
+ await divider.focus();
+ await page.keyboard.press('ArrowRight');
+ const keyboard=Number(await divider.getAttribute('aria-valuenow'));
+ assert.equal(keyboard,Math.min(75,Number(before)+5),'Keyboard resize must move the saved split');
+ const bounds=await divider.boundingBox();
+ assert(bounds?.width>0&&bounds?.height>0,'Divider must have a pointer target');
+ await page.mouse.move(bounds.x+bounds.width/2,bounds.y+Math.min(80,bounds.height/2));
+ await page.mouse.down();
+ await page.mouse.move(bounds.x+bounds.width/2+45,bounds.y+Math.min(80,bounds.height/2),{steps:5});
+ await page.mouse.up();
+ const moved=Number(await divider.getAttribute('aria-valuenow'));
+ assert(moved>=keyboard,'Real drag must not reverse the rightward resize');
+ await page.mouse.move(bounds.x+bounds.width/2-65,bounds.y+Math.min(80,bounds.height/2));
+ assert.equal(Number(await divider.getAttribute('aria-valuenow')),moved,
+  'Releasing pointer must stop resizing immediately');
+ const density=page.locator('.cl-tier-density-control');
+ await density.fill('14');
+ assert.equal(await page.locator('.cl-tier-density-value').innerText(),'14 px',
+  'Professional candle-density control must reflect requested spacing');
+ console.log('PASS Professional real Chromium divider keyboard, hold/drag, release-stop and density control.');
  await page.locator('[data-cl-studies]').fill('EMA, RSI');
  // Account switching must remove the previous member's candles and saved labels
  // before a new member can be shown any chart.
