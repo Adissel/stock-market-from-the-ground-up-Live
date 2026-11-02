@@ -874,6 +874,24 @@
    if(actor===userId&&serial===sessionSerial&&code===activeCode){busy=false;updateProgress();updateDays()}
   }
  }
+ // Pure, fail-closed record validation. Server RLS remains the authority for member data.
+ function validAcademyProgressRecords(rows,code,dayCount,actor){
+  if(!Array.isArray(rows)||!Number.isSafeInteger(dayCount)||dayCount<1||
+   typeof code!=='string'||!code||typeof actor!=='string'||!actor)return false;
+  const seen=new Set();
+  for(const x of rows){
+   if(!x||typeof x!=='object'||Array.isArray(x)||!Number.isSafeInteger(x.day)||
+    x.day<1||x.day>dayCount||seen.has(x.day)||
+    (x.programCode!==undefined&&x.programCode!==code)||
+    (x.program_code!==undefined&&x.program_code!==code)||
+    (x.userId!==undefined&&x.userId!==actor)||
+    (x.user_id!==undefined&&x.user_id!==actor)||
+    (x.memberId!==undefined&&x.memberId!==actor)||
+    (x.member_id!==undefined&&x.member_id!==actor))return false;
+   seen.add(x.day);
+  }
+  return true;
+ }
  async function open(code){
   if(!expected.has(code))return;
   if(code==='foundations30'){window.location.assign('bootcamp.html');return}
@@ -911,9 +929,7 @@
    program=data.program;days=loaded;
    progressAvailable=data.progressAvailable===true;enrolled=data.enrolled===true;
    // Fail closed on malformed or cross-program progress before restoring any private checkpoint.
-   if(!Array.isArray(data.progress)||data.progress.some(x=>!x||!Number.isSafeInteger(x.day)||x.day<1||x.day>loaded.length||
-     (x.programCode!==undefined&&x.programCode!==code))||
-     new Set(data.progress.map(x=>x.day)).size!==data.progress.length)
+   if(!validAcademyProgressRecords(data.progress,code,loaded.length,userId))
     throw Error('This member’s learning record could not be verified. No progress was restored.');
    progress.clear();for(const x of data.progress)progress.set(x.day,x);
    // Restore the member to the requested or first unfinished study day for
