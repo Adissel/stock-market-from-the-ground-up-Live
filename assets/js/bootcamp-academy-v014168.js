@@ -910,7 +910,11 @@
     throw Error('This program’s complete learning sequence could not be verified.');
    program=data.program;days=loaded;
    progressAvailable=data.progressAvailable===true;enrolled=data.enrolled===true;
-   progress.clear();for(const x of data.progress||[])progress.set(x.day,x);
+   // Fail closed on malformed or cross-program progress before restoring any private checkpoint.
+   if(!Array.isArray(data.progress)||data.progress.some(x=>!x||!Number.isSafeInteger(x.day)||x.day<1||x.day>loaded.length||
+     (x.programCode!==undefined&&x.programCode!==code)))
+    throw Error('This member’s learning record could not be verified. No progress was restored.');
+   progress.clear();for(const x of data.progress)progress.set(x.day,x);
    // Restore the member to the requested or first unfinished study day for
    // both Free Foundations and Academy. Previously Academy always reopened on
    // Day 1 even when the authenticated progress response showed later work.
