@@ -43,3 +43,15 @@ test('Enterprise member source is enabled only after explicit release grant',()=
  assert.match(ui,/The held-out values are not displayed or used to choose a method/);
  assert.match(ui,/selected==='ENTERPRISE'\?\[1,2,3\]:\[5,9,12,20\]/);
 });
+
+test('Private edition workspace is member and canonical Lab scoped with revision conflict handling',()=>{
+ assert.match(player,/labId:PLAYER\.lab\?\.id/);
+ assert.match(ui,/caseKey=typeof labId==='string'/);
+ assert.match(ui,/Save private study/);
+ assert.match(ui,/Restore private study/);
+ assert.match(ui,/expectedRevision:revision/);
+ assert.match(ui,/response\.status===409/);
+ assert.match(ui,/revision=data\.workspace\.revision/);
+ assert.match(ui,/host\.replaceChildren\(\);host\.hidden=true;return/);
+ assert.doesNotMatch(ui,/localStorage|sessionStorage/);
+});
