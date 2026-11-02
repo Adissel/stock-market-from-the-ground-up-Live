@@ -1,0 +1,531 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 22,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original synthetic derivatives/volatility instruction 421–440. Official VIX remains restricted hold.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_HISTORICAL_REALIZED_VOLATILITY_OF_SIMPLE_RETURNS",
+      "title": "Historical realized volatility of simple returns",
+      "concept": "Realized return volatility summarizes measured dispersion over completed observations and is not an options-market implied parameter.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional two completed daily returns +1% and -1% have population standard deviation 1 percentage point.",
+      "limit": "Data sampling, volatility estimator and corporate adjustments change outputs.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Data sampling, volatility estimator and corporate adjustments change outputs.",
+      "commonError": "Live/research mistake: Substituting historical return SD for official VIX is methodologically invalid. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Realized return volatility summarizes measured dispersion over completed observations and is not an options-market implied parameter. Worked scenario: Fictional two completed daily returns +1% and -1% have population standard deviation 1 percentage point. Misconception correction: Substituting historical return SD for official VIX is methodologically invalid. Limit: Data sampling, volatility estimator and corporate adjustments change outputs. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Returns +2% and -2%: compute population volatility and identify measurement frequency. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ANNUALIZED_VARIANCE_VERSUS_ANNUALIZED_STANDARD_DEVIATION",
+      "title": "Annualized variance versus annualized standard deviation",
+      "concept": "Variance scales with time under simplifying independence assumptions while standard deviation scales with its square root.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Daily return variance 0.0001 with 252 sessions gives annualized variance 0.0252, and standard deviation sqrt(0.0252).",
+      "limit": "Dependence and volatility clustering violate simple scaling assumptions.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Dependence and volatility clustering violate simple scaling assumptions.",
+      "commonError": "Live/research mistake: Multiplying standard deviation by 252 confuses square and original units. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Variance scales with time under simplifying independence assumptions while standard deviation scales with its square root. Worked scenario: Daily return variance 0.0001 with 252 sessions gives annualized variance 0.0252, and standard deviation sqrt(0.0252). Misconception correction: Multiplying standard deviation by 252 confuses square and original units. Limit: Dependence and volatility clustering violate simple scaling assumptions. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Daily variance 0.0004 and 252-day convention: compute annual variance. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_IMPLIED_VOLATILITY_TERM_STRUCTURE",
+      "title": "Implied volatility term structure",
+      "concept": "Different expirations can have different model-implied volatility, so the volatility term structure is not a flat constant.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: A fictional 30-day IV 25% and 90-day IV 30% differ by 5 percentage points.",
+      "limit": "Different strikes and quote times confound expiry comparisons.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Different strikes and quote times confound expiry comparisons.",
+      "commonError": "Live/research mistake: Calling a difference in implied levels a realized future direction forecast is unjustified. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Different expirations can have different model-implied volatility, so the volatility term structure is not a flat constant. Worked scenario: A fictional 30-day IV 25% and 90-day IV 30% differ by 5 percentage points. Misconception correction: Calling a difference in implied levels a realized future direction forecast is unjustified. Limit: Different strikes and quote times confound expiry comparisons. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: A 20-day IV 40% and 60-day IV 34%: identify which expiry has the higher quote. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLATILITY_SKEW_ACROSS_STRIKES",
+      "title": "Volatility skew across strikes",
+      "concept": "Options with matching expiration but different strikes may imply different volatility due to pricing and risk preferences.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional 90%-moneyness put IV 35% and at-the-money IV 25% show 10 percentage-point skew.",
+      "limit": "Different strikes, option types and liquidity must be matched.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Different strikes, option types and liquidity must be matched.",
+      "commonError": "Live/research mistake: Treating all options on one underlying as having a single IV ignores strike dependence. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Options with matching expiration but different strikes may imply different volatility due to pricing and risk preferences. Worked scenario: Fictional 90%-moneyness put IV 35% and at-the-money IV 25% show 10 percentage-point skew. Misconception correction: Treating all options on one underlying as having a single IV ignores strike dependence. Limit: Different strikes, option types and liquidity must be matched. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Same expiry put IV 32% and ATM IV 28%: compute the gap. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VARIANCE_VERSUS_VOLATILITY_QUOTE_UNITS",
+      "title": "Variance versus volatility quote units",
+      "concept": "Variance is the square of standard deviation and thus has squared-return units.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Annualized volatility 20%=0.20 implies annualized variance 0.04, not 0.20.",
+      "limit": "Estimators, windows and annualization are convention-dependent.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Estimators, windows and annualization are convention-dependent.",
+      "commonError": "Live/research mistake: Treating 0.04 variance as 4% standard deviation understates volatility. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Variance is the square of standard deviation and thus has squared-return units. Worked scenario: Annualized volatility 20%=0.20 implies annualized variance 0.04, not 0.20. Misconception correction: Treating 0.04 variance as 4% standard deviation understates volatility. Limit: Estimators, windows and annualization are convention-dependent. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Annualized volatility 30%: calculate annualized variance in decimal units. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DELTA_NEUTRAL_HEDGE_APPROXIMATION",
+      "title": "Delta-neutral hedge approximation",
+      "concept": "An option position's first-order delta exposure can be offset by an opposite stock quantity under stated multiplier assumptions.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: One long call delta +0.60 with 100-share multiplier has +60 share-equivalent delta, modeled offset by short 60 shares.",
+      "limit": "Delta is dynamic and short stock may involve borrow and margin constraints.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Delta is dynamic and short stock may involve borrow and margin constraints.",
+      "commonError": "Live/research mistake: Calling a delta hedge risk-free ignores gamma, gap and hedge rebalancing. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: An option position's first-order delta exposure can be offset by an opposite stock quantity under stated multiplier assumptions. Worked scenario: One long call delta +0.60 with 100-share multiplier has +60 share-equivalent delta, modeled offset by short 60 shares. Misconception correction: Calling a delta hedge risk-free ignores gamma, gap and hedge rebalancing. Limit: Delta is dynamic and short stock may involve borrow and margin constraints. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Two calls delta +0.25 and multiplier 100: find combined approximate share-equivalent delta. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GAMMA_DOLLAR_EXPOSURE_CONVENTION",
+      "title": "Gamma-dollar exposure convention",
+      "concept": "Gamma can be scaled by contract multiplier and a declared underlying move to estimate nonlinear option response.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Call gamma 0.02 per $1, multiplier 100, and $1 move imply approximately 2 share-equivalents change in total delta.",
+      "limit": "Strike, volatility, large moves and higher-order terms matter.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Strike, volatility, large moves and higher-order terms matter.",
+      "commonError": "Live/research mistake: Treating a gamma ratio as dollars of guaranteed profit confuses derivative and P&L. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Gamma can be scaled by contract multiplier and a declared underlying move to estimate nonlinear option response. Worked scenario: Call gamma 0.02 per $1, multiplier 100, and $1 move imply approximately 2 share-equivalents change in total delta. Misconception correction: Treating a gamma ratio as dollars of guaranteed profit confuses derivative and P&L. Limit: Strike, volatility, large moves and higher-order terms matter. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Gamma .03, multiplier 100, two contracts: compute delta-share change for a $1 move. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SIMPLE_STRANGLE_EXPIRATION_BREAKEVENS",
+      "title": "Simple strangle expiration breakevens",
+      "concept": "A long strangle buys different-strike put and call and its breakevens include both premiums under simplified expiration payoff.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Long put strike 90 and call strike 110, combined debit $5: simple expiration breakevens 85 and 115.",
+      "limit": "Assignment, liquidity, multiplier, expiry alignment and costs apply.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Assignment, liquidity, multiplier, expiry alignment and costs apply.",
+      "commonError": "Live/research mistake: Using each leg premium alone understates the combined cost. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: A long strangle buys different-strike put and call and its breakevens include both premiums under simplified expiration payoff. Worked scenario: Long put strike 90 and call strike 110, combined debit $5: simple expiration breakevens 85 and 115. Misconception correction: Using each leg premium alone understates the combined cost. Limit: Assignment, liquidity, multiplier, expiry alignment and costs apply. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Put strike 40, call strike 50, combined premium $3: find both expiration breakevens. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LONG_STRADDLE_VERSUS_LONG_STRANGLE_INITIAL_COST",
+      "title": "Long straddle versus long strangle initial cost",
+      "concept": "A straddle uses a common strike while a strangle typically uses different strikes; total premium is the sum of both purchased legs.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional call $3 and put $4 produce $7 per underlying share total debit, regardless of whether called a straddle by strike.",
+      "limit": "Premium costs alone do not establish the shape of the expiration payoff.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Premium costs alone do not establish the shape of the expiration payoff.",
+      "commonError": "Live/research mistake: Describing distinct strike contracts as a same-strike straddle is a classification error. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: A straddle uses a common strike while a strangle typically uses different strikes; total premium is the sum of both purchased legs. Worked scenario: Fictional call $3 and put $4 produce $7 per underlying share total debit, regardless of whether called a straddle by strike. Misconception correction: Describing distinct strike contracts as a same-strike straddle is a classification error. Limit: Premium costs alone do not establish the shape of the expiration payoff. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Call $2 and put $1.50 with 100-share multiplier: compute total debit. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_IRON_CONDOR_EXPIRATION_MAXIMUM_PROFIT",
+      "title": "Iron condor expiration maximum profit",
+      "concept": "A conventional four-leg net-credit iron condor has maximum simple expiration profit equal to the net credit before fees.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: One 100-share-multiplier condor receives $1.25 credit/share, implying $125 theoretical maximum profit.",
+      "limit": "Wing width, assignment and fees govern risk.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Wing width, assignment and fees govern risk.",
+      "commonError": "Live/research mistake: Counting both sold legs' gross credits without subtracting purchased hedges is incorrect. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: A conventional four-leg net-credit iron condor has maximum simple expiration profit equal to the net credit before fees. Worked scenario: One 100-share-multiplier condor receives $1.25 credit/share, implying $125 theoretical maximum profit. Misconception correction: Counting both sold legs' gross credits without subtracting purchased hedges is incorrect. Limit: Wing width, assignment and fees govern risk. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Net condor credit $.80 per share, multiplier 100: find maximum gross profit. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_IRON_CONDOR_WING_WIDTH_AND_LOSS_CAP",
+      "title": "Iron condor wing width and loss cap",
+      "concept": "For equal-width wings under ideal expiration settlement, the max loss per share equals wing width minus received credit.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional width $5 and net credit $1.20 imply max expiration loss $3.80/share.",
+      "limit": "Unequal widths require the larger exposed wing to be evaluated.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Unequal widths require the larger exposed wing to be evaluated.",
+      "commonError": "Live/research mistake: Using max possible credit as the worst-case loss ignores short wing exposure. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: For equal-width wings under ideal expiration settlement, the max loss per share equals wing width minus received credit. Worked scenario: Fictional width $5 and net credit $1.20 imply max expiration loss $3.80/share. Misconception correction: Using max possible credit as the worst-case loss ignores short wing exposure. Limit: Unequal widths require the larger exposed wing to be evaluated. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Equal wing width $4, net credit $.90: calculate ideal expiration maximum loss. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CALENDAR_SPREAD_EXPIRATION_MISMATCH_RISK",
+      "title": "Calendar spread expiration mismatch risk",
+      "concept": "A calendar spread holds legs with different expirations; payoff cannot be reduced to a single same-expiry vertical formula.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: A fictional near-term option expires in seven days and far-term option in 35 days, leaving 28 calendar days between expiries.",
+      "limit": "Early assignment and volatility changes create complex interim risk.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Early assignment and volatility changes create complex interim risk.",
+      "commonError": "Live/research mistake: Applying the vertical strike-width maximum gain formula to a calendar spread is invalid. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: A calendar spread holds legs with different expirations; payoff cannot be reduced to a single same-expiry vertical formula. Worked scenario: A fictional near-term option expires in seven days and far-term option in 35 days, leaving 28 calendar days between expiries. Misconception correction: Applying the vertical strike-width maximum gain formula to a calendar spread is invalid. Limit: Early assignment and volatility changes create complex interim risk. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Short leg expires in 10 days and long leg in 40 days: compute calendar separation. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTIONS_CONTRACT_SETTLEMENT_MODE_DISTINCTION",
+      "title": "Options contract settlement mode distinction",
+      "concept": "Cash settlement pays an amount under contract rules; physical settlement exchanges the specified underlying or deliverable.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional cash-settled index option with $3 exercise value and multiplier 100 pays $300 under modeled settlement.",
+      "limit": "Settlement values and exercise style must be checked with the official contract.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Settlement values and exercise style must be checked with the official contract.",
+      "commonError": "Live/research mistake: Assuming every in-the-money option delivers common shares is false. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Cash settlement pays an amount under contract rules; physical settlement exchanges the specified underlying or deliverable. Worked scenario: Fictional cash-settled index option with $3 exercise value and multiplier 100 pays $300 under modeled settlement. Misconception correction: Assuming every in-the-money option delivers common shares is false. Limit: Settlement values and exercise style must be checked with the official contract. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Cash-settled intrinsic $1.75 and multiplier 100: compute theoretical cash settlement. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_AMERICAN_VERSUS_EUROPEAN_EXERCISE_STYLE",
+      "title": "American versus European exercise style",
+      "concept": "American-style contracts generally allow exercise before expiration; European-style ones generally restrict exercise to prescribed expiry rules.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: A fictional American-style holder may request early exercise under contract rules, but European-style exercise is restricted.",
+      "limit": "Exercise and settlement terms depend on actual listing.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Exercise and settlement terms depend on actual listing.",
+      "commonError": "Live/research mistake: Calling all index options European or all stock options American without contract verification is unsafe. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: American-style contracts generally allow exercise before expiration; European-style ones generally restrict exercise to prescribed expiry rules. Worked scenario: A fictional American-style holder may request early exercise under contract rules, but European-style exercise is restricted. Misconception correction: Calling all index options European or all stock options American without contract verification is unsafe. Limit: Exercise and settlement terms depend on actual listing. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: For two identical-looking strikes with different exercise styles, identify which permits early exercise. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EARLY_EXERCISE_AND_REMAINING_EXTRINSIC_PREMIUM",
+      "title": "Early exercise and remaining extrinsic premium",
+      "concept": "Exercising before expiration may forfeit remaining extrinsic value that could have been realized by selling the option.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional call premium $5.00 and intrinsic $4.00 leaves $1.00 extrinsic value/share potentially sacrificed by exercise.",
+      "limit": "Dividends, tax and transaction constraints can change practical choices.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Dividends, tax and transaction constraints can change practical choices.",
+      "commonError": "Live/research mistake: Treating early exercise as automatically financially superior ignores residual time value. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Exercising before expiration may forfeit remaining extrinsic value that could have been realized by selling the option. Worked scenario: Fictional call premium $5.00 and intrinsic $4.00 leaves $1.00 extrinsic value/share potentially sacrificed by exercise. Misconception correction: Treating early exercise as automatically financially superior ignores residual time value. Limit: Dividends, tax and transaction constraints can change practical choices. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Premium $3.50 with intrinsic $3: calculate extrinsic amount. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTIONS_MARKET_MAKER_QUOTE_INVENTORY_UNCERTAINTY",
+      "title": "Options market maker quote inventory uncertainty",
+      "concept": "A displayed options bid and ask are conditional trading interests, not proof of a market maker's position or motive.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Fictional call bid 1.10 and ask 1.30 have $0.20 spread; that alone reveals no dealer net inventory.",
+      "limit": "Routing, exchange depth and quote cancellation matter.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Routing, exchange depth and quote cancellation matter.",
+      "commonError": "Live/research mistake: Inferring a dealer is net short from the quoted spread exceeds the observation. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: A displayed options bid and ask are conditional trading interests, not proof of a market maker's position or motive. Worked scenario: Fictional call bid 1.10 and ask 1.30 have $0.20 spread; that alone reveals no dealer net inventory. Misconception correction: Inferring a dealer is net short from the quoted spread exceeds the observation. Limit: Routing, exchange depth and quote cancellation matter. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Given quotes $2.05/$2.30, calculate spread and explain what inventory cannot be known. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_CONTRACT_NOTIONAL_DELTA_EXPOSURE",
+      "title": "Option contract notional delta exposure",
+      "concept": "Delta-adjusted share-equivalent exposure is option count times multiplier times delta under a declared sign convention.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: Three long calls at delta +0.40 and multiplier 100 imply +120 share-equivalent exposure.",
+      "limit": "Delta changes with market state; long option loss is constrained by premium plus costs under standard assumptions.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Delta changes with market state; long option loss is constrained by premium plus costs under standard assumptions.",
+      "commonError": "Live/research mistake: Equating delta exposure with maximum possible loss misunderstands nonlinear options risk. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Delta-adjusted share-equivalent exposure is option count times multiplier times delta under a declared sign convention. Worked scenario: Three long calls at delta +0.40 and multiplier 100 imply +120 share-equivalent exposure. Misconception correction: Equating delta exposure with maximum possible loss misunderstands nonlinear options risk. Limit: Delta changes with market state; long option loss is constrained by premium plus costs under standard assumptions. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Four long puts delta -0.30, multiplier 100: compute signed share-equivalent exposure. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EXERCISE_BY_EXCEPTION_VERSUS_EXPLICIT_INSTRUCTIONS",
+      "title": "Exercise by exception versus explicit instructions",
+      "concept": "Broker and clearing rules may automatically exercise eligible options at expiration subject to exceptions and account instructions.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: A fictional option $0.02 in the money may fall within a default exercise threshold, but actual handling requires the controlling contract and broker instructions.",
+      "limit": "Actual OCC/clearing rules, cutoff times and special instructions govern.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Actual OCC/clearing rules, cutoff times and special instructions govern.",
+      "commonError": "Live/research mistake: Assuming a position always expires harmlessly without exercise or assignment review is risky. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Broker and clearing rules may automatically exercise eligible options at expiration subject to exceptions and account instructions. Worked scenario: A fictional option $0.02 in the money may fall within a default exercise threshold, but actual handling requires the controlling contract and broker instructions. Misconception correction: Assuming a position always expires harmlessly without exercise or assignment review is risky. Limit: Actual OCC/clearing rules, cutoff times and special instructions govern. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: An option is $0.01 ITM at expiration: explain why brokerage policy must still be checked. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_EXPIRATION_PAYOFF_VERSUS_PRE_EXPIRATION_MARK",
+      "title": "Option expiration payoff versus pre-expiration mark",
+      "concept": "Expiration intrinsic payoff is not the same as a premium quotation while time value remains.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: A call at strike $50 with stock at $52 has $2 intrinsic; a quoted option premium $2.80 before expiry includes $0.80 extrinsic.",
+      "limit": "Liquidity, volatility, rates and remaining time determine actual marks.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. Liquidity, volatility, rates and remaining time determine actual marks.",
+      "commonError": "Live/research mistake: Using an expiration payoff graph as today's guaranteed exit quote is incorrect. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Expiration intrinsic payoff is not the same as a premium quotation while time value remains. Worked scenario: A call at strike $50 with stock at $52 has $2 intrinsic; a quoted option premium $2.80 before expiry includes $0.80 extrinsic. Misconception correction: Using an expiration payoff graph as today's guaranteed exit quote is incorrect. Limit: Liquidity, volatility, rates and remaining time determine actual marks. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Strike 40, stock 43, option premium 4.20: separate intrinsic and extrinsic. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OFFICIAL_VOLATILITY_INDEX_VERSUS_EDUCATIONAL_APPROXIMATION",
+      "title": "Official volatility index versus educational approximation",
+      "concept": "Published official index values require their formal constituent and quote-selection method rather than historical-stock-return shortcuts.",
+      "procedure": "Prerequisites: understand contract definitions, model conventions, quote date, strike/expiration selection, and volatility versus squared volatility units. Apply the stated educational formula using the fictional inputs. Keep each example ungraded and distinguish an approximation from the official index or execution event.",
+      "workedCase": "FICTIONAL: An educational 20% annualized stock-return dispersion is not the official Cboe VIX index level even if both use volatility units.",
+      "limit": "The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights.",
+      "invalidation": "HOLD if the expiry, strike, exercise terms, quote timing, normalization, feed rights or mathematical variant are missing. The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights.",
+      "commonError": "Live/research mistake: Comparing unrelated inputs under one label creates factual misrepresentation. Correct by checking contract-specific inputs and units.",
+      "selfCheck": "Which model assumptions and observations are required, and what does the computed result not establish?",
+      "reviewExplanation": "Ungraded coaching: Published official index values require their formal constituent and quote-selection method rather than historical-stock-return shortcuts. Worked scenario: An educational 20% annualized stock-return dispersion is not the official Cboe VIX index level even if both use volatility units. Misconception correction: Comparing unrelated inputs under one label creates factual misrepresentation. Limit: The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights. This is not an official volatility value, profit prediction or graded result.",
+      "transferQuestion": "FICTIONAL transfer: Given a stock historical-volatility calculation of 25%, can it be labeled official VIX? Explain. State the applicable contract, sign convention and evidence cutoff.",
+      "sourceUrls": [
+        "https://www.cboe.com/tradable_products/vix/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_reference_not_official_formula_or_quote_license",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
