@@ -1,0 +1,112 @@
+# Sitewide source regression batch. Passing does NOT establish production, billing, accessibility or authenticated acceptance.
+name: Sitewide Major Release - 20 Source Gates
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-pages.sh'
+      - 'assets/**'
+      - 'functions/**'
+      - 'tests/**'
+      - 'data/**'
+      - 'lab-player.html'
+      - 'bootcamp-academy.html'
+      - 'prototype.html'
+      - 'admin.html'
+      - '.github/workflows/sitewide-major-release-20-gates-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sitewide-20-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  site-and-journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 01 Site shell
+        run: node tests/test_site_shell_acceptance_v1.cjs
+      - name: 02 Journal integrity
+        run: node tests/test_journal_guided_integrity_v1.mjs
+      - name: 03 Journal V2
+        run: node tests/test_journal_v2.mjs
+      - name: 04 Journal visuals
+        run: node tests/test_journal_visual_v3.mjs
+      - name: 05 Chart workspace
+        run: node tests/test_crownlight_chart_workspace_v2.mjs
+  chart-and-education:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 06 Prototype indicators
+        run: node tests/prototype-indicator-workbench-v2.test.mjs
+      - name: 07 Indicator mathematics
+        run: node tests/learning-indicators-v1.test.mjs
+      - name: 08 ATR Bollinger curriculum
+        run: node tests/basic-atr-bollinger-lessons-v1.test.mjs
+      - name: 09 Academy restoration
+        run: node tests/academy-member-day-restoration-v1.test.mjs
+      - name: 10 Shared classroom contract
+        run: node tests/engine-classroom-contract-v1.test.mjs
+  labs-and-tutor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 11 Basic feature ledger
+        run: node tests/learning-lab-engine-feature-audit-v1.test.mjs
+      - name: 12 Lab ECharts
+        run: node tests/lab-batch04-echarts-v1.test.mjs
+      - name: 13 Checkpoint integrity
+        run: node tests/test_v33_member_checkpoint_resume.mjs
+      - name: 14 Tutor classroom source
+        run: node tests/talia-classroom-source-v1.test.mjs
+      - name: 15 Tutor prototype
+        run: node tests/talia-tutor-prototype-v1.test.mjs
+  tutor-membership-and-watchlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 16 Tutor member isolation
+        run: node tests/talia-member-conversations-isolation-v1.test.mjs
+      - name: 17 Tutor membership
+        run: node tests/talia-membership-only-v1.test.mjs
+      - name: 18 Tutor asset parity
+        run: node tests/talia-production-asset-sync-v1.test.mjs
+      - name: 19 Watchlist persistence
+        run: node tests/test_talia_watchlist_persistence_v1.mjs
+      - name: 20 Watchlist interface
+        run: node tests/test_talia_watchlist_v4.mjs
+  summary:
+    runs-on: ubuntu-latest
+    needs: [site-and-journal, chart-and-education, labs-and-tutor, tutor-membership-and-watchlist]
+    if: always()
+    steps:
+      - name: Require all 20 source gates
+        env:
+          JOBS: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import os,json,sys
+          jobs=json.loads(os.environ['JOBS'])
+          for name,job in jobs.items(): print(name,job['result'])
+          if len(jobs)!=4 or any(job['result']!='success' for job in jobs.values()):
+              sys.exit('Major release source-gate failure; production acceptance blocked')
+          print('20 source test commands succeeded; live member, payments, accessibility and Cloudflare SHA acceptance remain separate')
+          PY
