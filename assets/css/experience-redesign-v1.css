@@ -37,3 +37,46 @@ body.gu-visual-v1{background:#07111e;color:var(--gu-ink);font-feature-settings:"
 @media(max-width:840px){.gu-visual-v1 .site-header .wrap.nav{align-items:flex-start;padding-top:14px;padding-bottom:14px}.gu-visual-v1 .navlinks{gap:7px}.gu-visual-v1 .navlinks>a{font-size:.87rem}.gu-visual-v1 .gu-home-message h1{font-size:clamp(2.35rem,8vw,3.5rem)}}
 @media(max-width:540px){.gu-visual-v1 .navlinks .gu-nav-signin,.gu-visual-v1 .navlinks .gu-nav-register{flex:1;text-align:center;white-space:nowrap}.gu-visual-v1 .site-header .brand{font-size:.87rem}}
 @media(prefers-reduced-motion:reduce){.gu-visual-v1 *{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Integrated section architecture */
+.gu-visual-v1 .gu-x-learning-gallery,.gu-visual-v1 .gu-x-store-intro,.gu-visual-v1 .gu-x-command{color:#edf3fb}
+.gu-x-learning-gallery{padding:clamp(44px,6vw,92px) 0;background:linear-gradient(180deg,#0a1727,#0c1d30)}
+.gu-x-head{max-width:850px;margin-bottom:26px}
+.gu-x-kicker{margin:0 0 13px;color:#d8b871;font-size:.75rem;letter-spacing:.19em;font-weight:850}
+.gu-x-head h2,.gu-x-auth-sidebar h2{margin:0 0 13px;color:#f4f7fd;font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.2}
+.gu-x-copy,.gu-x-feature p,.gu-x-progress-copy p,.gu-x-auth-sidebar p{color:#b4c5d7;line-height:1.7}
+.gu-x-feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gu-x-feature{display:flex;flex-direction:column;min-height:240px;padding:25px;background:linear-gradient(155deg,rgba(33,61,87,.75),rgba(13,28,45,.9));border:1px solid rgba(144,183,214,.23);border-radius:16px;box-shadow:0 16px 35px rgba(0,0,0,.12)}
+.gu-x-step{color:#d6b574;font-size:.73rem;letter-spacing:.12em;font-weight:850}
+.gu-x-feature h3{font-size:1.4rem;margin:20px 0 4px;color:#f4f7fb}
+.gu-x-feature p{font-size:.94rem;flex:1}
+.gu-x-card-link,.gu-x-auth-alt{color:#f2d08e;font-weight:750;text-decoration:underline;text-underline-offset:5px}
+.gu-x-store-intro{margin:28px 0 35px;padding:clamp(22px,3vw,36px);border-radius:20px;background:linear-gradient(122deg,rgba(23,50,79,.85),rgba(11,24,43,.92));border:1px solid rgba(151,190,218,.23)}
+.gu-x-store-search{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.gu-x-store-search label{font-weight:700;color:#e4edf9;white-space:nowrap}
+.gu-x-store-search input{flex:1;min-width:210px;max-width:600px;background:#0a182b;border:1px solid #55708d;color:#eef4fd;padding:13px 17px}
+.gu-x-search-status{color:#b8d1de;font-size:.9rem}
+.gu-x-filtered{display:none!important}
+.gu-x-command{margin-bottom:30px;padding:25px;background:linear-gradient(120deg,#142a44,#0c2035);border:1px solid rgba(140,188,217,.25);border-radius:18px}
+.gu-x-command .gu-x-head{margin-bottom:22px}
+.gu-x-command-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.gu-x-command-link{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:10px 15px;background:#203d59;border:1px solid #4c6b86;border-radius:10px;color:#eff6fd;text-decoration:none;font-weight:750}
+.gu-x-command-link:hover{background:#315573}
+.gu-x-progress-visual{display:grid;grid-template-columns:minmax(190px,1fr) minmax(200px,370px);gap:12px;align-items:center;padding:17px 20px;border:1px solid rgba(143,181,210,.22);border-radius:13px;background:#0a1a2c}
+.gu-x-progress-copy h3{color:#f2f6fc;margin-top:0}
+.gu-x-chart{min-height:260px}
+.gu-x-chart-fallback{grid-column:1/-1;color:#b4c5d7}
+.gu-x-auth-layout{display:grid!important;grid-template-columns:minmax(240px,.8fr) minmax(320px,1.2fr);gap:clamp(24px,5vw,75px)!important;align-items:start;max-width:1150px!important}
+.gu-x-auth-sidebar{padding:36px clamp(12px,3vw,36px) 25px 0;position:sticky;top:110px}
+.gu-x-auth-sidebar h2{font-size:clamp(2.1rem,3vw,3.4rem)}
+.gu-x-assurance{list-style:none;margin:27px 0;padding:0}
+.gu-x-assurance li{padding:11px 0 11px 25px;border-bottom:1px solid rgba(156,182,204,.17);color:#d2dfeb;position:relative}
+.gu-x-assurance li:before{content:'✓';position:absolute;left:0;color:#67d3bc}
+.gu-visual-v1 .gu-signup-page .auth-page>.eyebrow,.gu-visual-v1 .gu-signup-page .auth-page>h1,.gu-visual-v1 .gu-signup-page .auth-page>.section-intro,.gu-visual-v1 .gu-signup-page .auth-page>.small{grid-column:2}
+.gu-visual-v1 .gu-signup-page .auth-page>.gu-x-auth-sidebar{grid-column:1;grid-row:1/span 6}
+.gu-visual-v1 .gu-signup-page .auth-page>.auth-card,.gu-visual-v1 .gu-signup-page .auth-page>#create-account-card{grid-column:2}
+.gu-visual-v1 .gu-signin-page .gu-x-auth-layout{width:100%}
+.gu-visual-v1 .gu-signin-page .gu-x-auth-sidebar{min-width:0}
+@media(max-width:1070px){.gu-x-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:790px){.gu-x-auth-layout{display:block!important}.gu-x-auth-sidebar{position:static;padding:15px 0 25px}.gu-x-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gu-x-progress-visual{grid-template-columns:1fr}.gu-x-chart{min-height:260px}.gu-visual-v1 .gu-signup-page .auth-page>*{grid-column:auto!important}}
+@media(max-width:540px){.gu-x-feature-grid{grid-template-columns:1fr}.gu-x-feature{min-height:210px}.gu-x-store-search{align-items:stretch;flex-direction:column}.gu-x-store-search input{min-width:0;width:100%}.gu-x-command{padding:17px}.gu-x-command-link{width:100%}}
