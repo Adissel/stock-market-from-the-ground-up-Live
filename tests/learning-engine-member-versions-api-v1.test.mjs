@@ -153,3 +153,25 @@ test('Valid trialing member resolves currently assigned plan without granting pr
   assert.equal(result.tutorEdition.premiumFeaturesAvailable,false);
  }finally{m.restore()}
 });
+
+test('Explicitly invalid bearer session never falls back to anonymous Free silently',async()=>{
+ const m=setup();
+ try{
+  const original=globalThis.fetch;
+  globalThis.fetch=async(url,opts={})=>{
+   if(String(url).includes('/auth/v1/user'))return new Response(JSON.stringify({error:'invalid JWT'}),{status:401,headers:{'content-type':'application/json'}});
+   return original(url,opts);
+  };
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,503);
+  assert.equal((await response.json()).ok,false);
+ }finally{m.restore()}
+});
+test('Unknown subscription state cannot select paid-plan versions',async()=>{
+ const m=setup({sub:{plan_code:'FULL_MONTHLY',status:'past_due',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,200);
+  assert.equal((await response.json()).planCode,'FREE');
+ }finally{m.restore()}
+});
