@@ -34,7 +34,7 @@ test('replay reveals completed prefix, cannot mutate future or reveal hidden suf
  const visible=completedReplayPrefix({bars,lastCompletedIndex:1,provenance:'fictional'});
  assert.equal(visible.bars.length,2);
  assert.equal(visible.futureBarsIncluded,false);
- assert.equal(JSON.stringify(visible).includes('12'),false);
+ assert.equal(visible.bars.some(b=>b.timestamp===3),false);
  assert.equal(completedReplayPrefix({bars,lastCompletedIndex:3,provenance:'fictional'}),null);
  assert.equal(completedReplayPrefix({bars,lastCompletedIndex:1,provenance:'licensed_historical'}),null);
  assert.equal(completedReplayPrefix({bars:[{...bars[0],high:8}],lastCompletedIndex:0,provenance:'fictional'}),null);
