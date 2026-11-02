@@ -13,8 +13,8 @@ export interface CompletedBar {
 export function ema(values: readonly number[], period: number): (number | null)[] {
   if (!Number.isInteger(period) || period < 1) throw new RangeError('EMA period must be positive integer');
   const out: (number | null)[] = Array(values.length).fill(null);
-  if (values.length < period) return out;
   for (const n of values) if (!Number.isFinite(n)) throw new TypeError('Invalid close');
+  if (values.length < period) return out;
   let current = values.slice(0, period).reduce((a, b) => a + b, 0) / period;
   out[period - 1] = current;
   const alpha = 2 / (period + 1);
@@ -25,10 +25,16 @@ export function ema(values: readonly number[], period: number): (number | null)[
   return out;
 }
 
-export function barVwap(bars: readonly CompletedBar[]): (number | null)[] {
-  let total = 0, weighted = 0;
+/** HLC3 bar-VWAP approximation, reset at an explicit session boundary.
+ * Default UTC date should be replaced by exchange-specific sessions when needed.
+ */
+export function barVwap(bars: readonly CompletedBar[], sessionKey: (bar: CompletedBar) => string = b => b.time.slice(0, 10)): (number | null)[] {
+  let total = 0, weighted = 0, lastSession: string | null = null;
   return bars.map(b => {
     if (![b.high, b.low, b.close, b.volume].every(Number.isFinite) || b.volume < 0) throw new TypeError('Invalid OHLCV');
+    const session = sessionKey(b);
+    if (typeof session !== 'string' || !session.trim()) throw new TypeError('Invalid VWAP session');
+    if (session !== lastSession) { total = 0; weighted = 0; lastSession = session; }
     const typical = (b.high + b.low + b.close) / 3;
     total += b.volume;
     weighted += typical * b.volume;
