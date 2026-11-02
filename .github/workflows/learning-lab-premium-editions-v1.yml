@@ -1,0 +1,60 @@
+# Evidence gates for ungraded premium source candidates.
+# This workflow DOES NOT turn on purchases, entitlements or a production release.
+name: Learning Lab Editions - Source and Authorization
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/_lib/learning-lab-edition-exercises-v1.js'
+      - 'functions/api/learning-lab-edition-exercise.js'
+      - 'tests/learning-lab-edition-exercises-v1.test.mjs'
+      - 'tests/learning-lab-edition-api-v1.test.mjs'
+      - '.github/workflows/learning-lab-premium-editions-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: learning-lab-editions-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  ungraded-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify premium function syntax
+        run: |
+          node --check functions/_lib/learning-lab-edition-exercises-v1.js
+          node --check functions/api/learning-lab-edition-exercise.js
+      - name: Verify source safety and chronology
+        run: node --test tests/learning-lab-edition-exercises-v1.test.mjs
+  grant-revocation-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify member grants, expiry, forgery and noncharging boundaries
+        run: node --test tests/learning-lab-edition-api-v1.test.mjs
+  fail-closed-summary:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ungraded-math, grant-revocation-security]
+    steps:
+      - name: Require all source candidate tests
+        env:
+          RESULTS: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import os,json,sys
+          results=json.loads(os.environ['RESULTS'])
+          print({k:v['result'] for k,v in results.items()})
+          if len(results)!=2 or any(v['result']!='success' for v in results.values()):
+              sys.exit('Edition source readiness failed or was cancelled')
+          print('EDITION SOURCE PASS — not a released entitlement, browser acceptance or production SHA signoff')
+          PY
