@@ -54,6 +54,11 @@ const assertProgress=(answer)=>{assert.equal(answer.status,200);assert.equal(ans
 };
 try{
  const signed=await authenticate();
+ // Protect existing customer records from a mispointed CI secret. This same
+ // fixed noncommercial QA user is the approved A identity in the two-user test.
+ assert.equal(signed.user?.id,'f42f9301-18e6-43a3-8531-32d371fd22c1',
+  'BLOCKED: configured secret does not sign in as the designated Academy QA A account');
+ console.log('PASS designated noncommercial Academy QA A account identity (ID not logged).');
  const balance=await run(origin+'/api/member-sparks-balance',{
   headers:{authorization:'Bearer '+signed.access_token}
  });
@@ -73,6 +78,11 @@ try{
  });
  assert.equal(access.status,200,'Live entitlement read must be available');
  assert.equal(access.body.ok,true,'Live entitlement must resolve');
+ assert.equal(access.body.tool,'ONDEMAND_TRAINING','Entitlement lookup must target the intended tool');
+ console.log('Live QA training entitlement response: '+JSON.stringify({
+  authorized:access.body.authorized===true,
+  denialCode:access.body.denialCode||null
+ })+' (no identities or secrets logged).');
  if(access.body.authorized!==true)
   throw Error('BLOCKED: authenticated QA member has no ONDEMAND_TRAINING entitlement. '+ 
    'Use an approved noncommercial QA entitlement; never bypass the normal access check.');
