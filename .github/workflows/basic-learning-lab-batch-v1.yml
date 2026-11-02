@@ -1,5 +1,5 @@
-# Combined Basic engine regression batch. Passing synthetic tests is not production signoff.
-name: Basic Learning + Lab Combined Acceptance Batch
+# Consolidated Basic-engine source regression. Does not represent authenticated release acceptance.
+name: Basic Learning and Lab Full Regression Batch
 on:
   push:
     branches: [main]
@@ -7,6 +7,8 @@ on:
       - 'assets/js/learning-*.js'
       - 'assets/js/lab-*.js'
       - 'assets/js/bootcamp-academy-v014168.js'
+      - 'assets/css/learning-*.css'
+      - 'assets/css/lab-*.css'
       - 'functions/_lib/learning-*.js'
       - 'functions/_lib/engine-classroom-contract-v1.js'
       - 'data/lab-teaching-bridges-v014168.json'
@@ -15,43 +17,98 @@ on:
       - 'tests/*lab*.mjs'
       - 'tests/*academy*.mjs'
       - 'tests/basic-atr-bollinger-lessons-v1.test.mjs'
+      - 'tests/test_v33_member_checkpoint_resume.mjs'
       - '.github/workflows/basic-learning-lab-batch-v1.yml'
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: basic-engine-full-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  math-and-topic-parity:
+  numerical-verification:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Gate 1 - indicator and evidence-led instruction
+      - name: Syntax of member mathematical modules
+        run: |
+          node --check assets/js/learning-indicators-v1.js
+          node --check assets/js/learning-quant-studies-v1.js
+          node --check assets/js/learning-quant-studies-ui-v1.js
+      - name: Five study mappings, calculations, feedback, independent transfer
         run: |
           node --test tests/learning-indicators-v1.test.mjs tests/basic-atr-bollinger-lessons-v1.test.mjs tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs
-      - name: Independent numerical reference checks
+      - name: Independent Decimal numerical verification
         run: |
           python3 scripts/qa/learning_indicator_decimal_reference_v1.py
           python3 scripts/qa/learning_quant_decimal_reference_v1.py
-  curriculum-and-progression:
+  lab-curriculum-parity:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Gates 2, 3, and 4 - academy and curriculum source
+      - name: Canonical lessons, distinct batch coverage and feature ledger
         run: |
-          node --test tests/academy-member-day-restoration-v1.test.mjs tests/lab-bridge-batches15-21-source-v1.test.mjs tests/learning-lab-engine-feature-audit-v1.test.mjs
-  boundary-and-lab:
+          node --test tests/lab-bridge-batches15-21-source-v1.test.mjs tests/lab-bridge-batch04-source-v1.test.mjs tests/lab-bridge-batch05-source-v1.test.mjs tests/lab-bridge-batch06-source-v1.test.mjs tests/learning-lab-engine-feature-audit-v1.test.mjs
+  free-and-academy-continuity:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Gates 5 and 6 - Lab boundary and engine editions
+      - name: Member progress restoration and classroom contract
         run: |
-          node --test tests/engine-classroom-contract-v1.test.mjs tests/learning-lab-formative-editions-v1.test.mjs
-          node tests/test_v33_member_checkpoint_resume.mjs
+          node --test tests/academy-member-day-restoration-v1.test.mjs tests/engine-classroom-contract-v1.test.mjs
+  chart-study-and-visual-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Quantitative studies, ECharts integration, bounded preview
+        run: |
+          node --test tests/lab-batch04-echarts-v1.test.mjs tests/lab-advanced-echarts-preview-v1.test.mjs tests/learning-lab-formative-editions-v1.test.mjs
+  checkpoint-and-account-boundaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fail-closed checkpoint reads, CAS revision conflicts and account changes
+        run: node tests/test_v33_member_checkpoint_resume.mjs
+  combined-source-summary:
+    runs-on: ubuntu-latest
+    needs:
+      - numerical-verification
+      - lab-curriculum-parity
+      - free-and-academy-continuity
+      - chart-study-and-visual-parity
+      - checkpoint-and-account-boundaries
+    if: always()
+    steps:
+      - name: Enforce all five regression gates
+        env:
+          RESULT_JSON: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json,os,sys
+          jobs=json.loads(os.environ['RESULT_JSON'])
+          for name,details in jobs.items():
+              print(name+': '+details['result'])
+          if any(details['result']!='success' for details in jobs.values()):
+              sys.exit('Basic combined batch is NOT accepted: one or more required jobs are incomplete or failed')
+          print('All five SOURCE regression jobs passed; member, editorial, accessibility and deployment acceptance remain separate.')
+          PY
