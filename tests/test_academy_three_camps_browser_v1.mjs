@@ -128,8 +128,19 @@ try{
      academyByCode[code].curriculum[index].title,{timeout:10000});
     assert.equal(await page.locator('#academy-days .gu-bc-day').nth(index).getAttribute('aria-current'),
      'step','Focused study day exposes its current state: '+code+' '+(index+1));
+    // renderDay() creates a fresh, intentionally collapsed additional-practice
+    // disclosure on each day change. Expand the selected day's content before
+    // asserting visible subject evidence; innerText() of a collapsed disclosure
+    // is empty even when the correctly authored DOM is present.
+    const selectedGuide=page.locator('#academy-legacy-guide');
+    await selectedGuide.waitFor({state:'attached',timeout:15000});
+    if(!(await selectedGuide.evaluate(el=>el.open)))
+     await selectedGuide.locator(':scope > summary').click();
+    await page.locator('.academy-evidence-head').waitFor({state:'visible',timeout:15000});
+    assert.equal(await selectedGuide.evaluate(el=>el.open),true,
+     'Selected day-specific teaching disclosure must remain open: '+code+' '+(index+1));
     assert((await page.locator('.academy-evidence-head').innerText()).includes(expectHead),
-     'Each day must keep its subject-specific evidence: '+code+' '+(index+1));
+     'Each day must keep visible subject-specific evidence: '+code+' '+(index+1));
    }
    assert.equal(await page.locator('.academy-assessment-status').getAttribute('role'),'status',
     'Protected assessment status must be announced accessibly');
