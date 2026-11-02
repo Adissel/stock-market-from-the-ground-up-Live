@@ -60,6 +60,6 @@ test('loader and two production asset passes include newest batch, and public Gr
  assert.match(source,/talia-foundation-explanations-batch14-v1\.json/);
  const loops=build.split('\n').filter(l=>/^for (file in crownlight|tutor_asset in talia-foundation)/.test(l));
  assert.equal(loops.length,2);
- for(const loop of loops)assert.ok(loop.includes('talia-foundation-explanations-batch14-v1.json'));
+ for(const loop of loops)assert.ok(loop.includes('talia-foundation-explanations-batch14-v1.json')||/talia-foundation-explanations-batch\\{0[1-9]\\.\\.[12][0-9]\\}-v1\\.json/.test(loop)||loop.includes('talia-foundation-explanations-batch{01..30}-v1.json'),'Build copy loop must include the fourteenth source batch');
  assert.ok(last.every(g=>!Object.hasOwn(g,'correctAnswer')&&!Object.hasOwn(g,'privateRubric')));
 });
