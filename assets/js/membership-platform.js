@@ -22,7 +22,7 @@
   const list=[adLabel(p),...(free?freeBenefits(p):[]),...(founderDays?[`Crownlight Chart Studio ${code==='FOUNDING_14'?'Standard':code==='FOUNDING_30'?'Advanced':'Professional'} while eligible`,`${code==='FOUNDING_14'?'5':code==='FOUNDING_30'?'10':'15'}% eligible-purchase discount, subject to founding terms`]:[]),pick?'Pick individual released tools and services':p.includes_all_tools?'Released first-party learning tools':free?'Public glossary and released samples; advanced Tutor and server replay are paid':founderDays?'Released educational features according to founding tier':'Free/sample access',
     lifetime?'Five designated eBook downloads when legally available; companions included':
     full?'All available book companion learning (not full eBook files)':
-    p.includes_all_books?'Book companions included':'Book companion access separately'];
+    p.includes_all_books?'Book companions included':founderDays?'Book benefits follow the selected founding offer':'Book companion access separately'];
   const action=free?'<a class="btn secondary" href="create-account.html">Create Free Account</a>':
     pick?'<a class="btn secondary" href="#tool-passes">Choose Your Tools</a>':
     '<span class="btn disabled-buy" aria-disabled="true">Enrollment Opening Soon</span>';
