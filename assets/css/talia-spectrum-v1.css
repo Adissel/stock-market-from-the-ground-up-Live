@@ -1,0 +1,24 @@
+/* Talia Classroom: signed-in Spectrum/Ultraviolet/Solar extension.
+   Presentation only; no changes to assessment or member history. */
+html[data-smfgu-theme="spectrum"]{--tc-v-bg:#070916;--tc-v-panel:#11172d;--tc-v-raised:#1c2942;--tc-v-edge:#3d517c;--tc-v-accent:#53f4dc;--tc-v-second:#a875ff;--tc-v-text:#f2f5ff;--tc-v-muted:#bbcbdf}
+html[data-smfgu-theme="ultraviolet"]{--tc-v-bg:#100720;--tc-v-panel:#211136;--tc-v-raised:#2c1945;--tc-v-edge:#664580;--tc-v-accent:#dd73ff;--tc-v-second:#55e9ff;--tc-v-text:#f9f0ff;--tc-v-muted:#dacbe7}
+html[data-smfgu-theme="solar"]{--tc-v-bg:#0c1016;--tc-v-panel:#1b222d;--tc-v-raised:#273039;--tc-v-edge:#657080;--tc-v-accent:#ffe267;--tc-v-second:#ff785b;--tc-v-text:#fff8e9;--tc-v-muted:#d1c7ba}
+html body.tc-body{background:var(--tc-v-bg,#070916)!important;color:var(--tc-v-text,#f2f5ff)!important}
+html body.tc-body :is(.tc-chat,.tc-chart-panel,.tc-composer,.tp-instruction-engine,.tp-followup,.tp-teaching-loop){background:var(--tc-v-panel,#11172d)!important;border-color:var(--tc-v-edge,#3d517c)!important;color:var(--tc-v-text,#f2f5ff)!important}
+html body.tc-body .tc-terminal-controls{background:var(--tc-v-panel,#11172d)!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body .tc-terminal-identity strong,html body.tc-body .tc-teaching-label{color:var(--tc-v-accent,#53f4dc)!important}
+html body.tc-body .tc-terminal-identity span,html body.tc-body .tc-muted{color:var(--tc-v-muted,#bbcbdf)!important}
+html body.tc-body .tc-terminal-switches button{background:var(--tc-v-raised,#1c2942)!important;color:var(--tc-v-text,#f2f5ff)!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body .tc-terminal-switches button[aria-pressed=true]{background:var(--tc-v-accent,#53f4dc)!important;color:#07111c!important;border-color:var(--tc-v-accent,#53f4dc)!important}
+html body.tc-body .tc-transcript{background:var(--tc-v-bg,#070916)!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body .tc-talia{background:var(--tc-v-raised,#1c2942)!important;border-left:3px solid var(--tc-v-accent,#53f4dc)!important}
+html body.tc-body .tc-member{background:var(--tc-v-panel,#11172d)!important;border-right:3px solid var(--tc-v-second,#a875ff)!important}
+html body.tc-body .tc-message strong{color:var(--tc-v-accent,#53f4dc)!important}
+html body.tc-body :is(.tc-chart,.tp-chart-tools){background:var(--tc-v-bg,#070916)!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body :is(select,textarea,input:not([type=checkbox]):not([type=color])){background:var(--tc-v-raised,#1c2942)!important;color:var(--tc-v-text,#f2f5ff)!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body :is(button,a,input,select,textarea):focus-visible{outline:3px solid var(--tc-v-second,#a875ff)!important;outline-offset:3px}
+html body.tc-body .tc-top{background:linear-gradient(110deg,var(--tc-v-raised,#1c2942),var(--tc-v-bg,#070916))!important;border-color:var(--tc-v-edge,#3d517c)!important}
+html body.tc-body .tc-top h1,html body.tc-body .tc-chat h2,html body.tc-body .tc-chart-panel h2{color:var(--tc-v-text,#f2f5ff)!important}
+html body.tc-body .tc-eyebrow{color:var(--tc-v-accent,#53f4dc)!important}
+html body.tc-body .tc-pill{border-color:var(--tc-v-accent,#53f4dc)!important;color:var(--tc-v-accent,#53f4dc)!important}
+@media(prefers-reduced-motion:reduce){html body.tc-body *{transition:none!important;animation:none!important}}
