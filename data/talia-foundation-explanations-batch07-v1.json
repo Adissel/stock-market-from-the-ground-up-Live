@@ -104,6 +104,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://syndication.finra.org/content/key-concepts-return-and-rate-return",
+        "claimSpecificScope": "FINRA return bulletin differentiates total and annualized rate of return and provides a multi-year example, but does not independently establish arithmetic-mean versus geometric-mean definitions for a specified return series. Preserve independently tested fictional factors and obtain direct time-series statistics source.",
+        "decision": "HOLD_ARITHMETIC_VS_GEOMETRIC",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -138,12 +146,12 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "reviewType": "exact_claim_scope_internal_research_preflight",
         "date": "2026-11-01",
-        "sourceUrl": "https://www.bls.gov/cpi/factsheets/calculating-percent-changes.htm",
-        "disposition": "BLS validates matched-price-index inflation-rate input; exact real investment return uses original independent multiplicative mathematics.",
-        "independentPublicationAccepted": false,
-        "reviewer": "internal_source_review"
+        "sourcePage": "https://www.bls.gov/cpi/factsheets/calculating-percent-changes.htm",
+        "claimSpecificScope": "BLS verifies properly aligned CPI index percent-change computation and base-period comparability. It is not direct evidence for the exact real investment return equation (1+nominal)/(1+inflation)-1; that equation must be independently sourced/proved, with same-period aligned inputs.",
+        "decision": "HOLD_REAL_RETURN_FORMULA",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -176,6 +184,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://syndication.finra.org/content/key-concepts-return-and-rate-return",
+        "claimSpecificScope": "FINRA return bulletin differentiates multi-year realized holding-period return and calculated annualized rate. Applying a mathematical annualization factor to partial-period results is a comparison convention, not a realized 12-month investment result or forecast; no extra claim of payout certainty.",
+        "decision": "SOURCE_SCOPE_SUPPORTED_WITH_LIMIT",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -322,6 +338,14 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "sourcePage": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
+        "claimSpecificScope": "SEC asset allocation guide teaches spreading exposures and diversification but not a Herfindahl-style sum-of-squared-portfolio-weights concentration metric, and does not equate it to covariance or correlation. Require direct concentration measure source and explicit weights/missing asset-class treatment.",
+        "decision": "HOLD_SQUARED_WEIGHT_FORMULA",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -543,12 +567,12 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "reviewType": "exact_claim_scope_internal_research_preflight",
         "date": "2026-11-01",
-        "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html",
-        "disposition": "Specific formula EBIT/interest supported by NYU Stern Damodaran financial ratios; SEC generic statement guide alone did not support formula.",
-        "independentPublicationAccepted": false,
-        "reviewer": "internal_source_review"
+        "sourcePage": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html",
+        "claimSpecificScope": "Damodaran Stern NYU financial ratios table explicitly defines interest coverage as EBIT divided by interest expense. Denominator zero/negative, reporting period and definitions of expense remain separate editorial/arithmetical checks; no interest payment guarantee.",
+        "decision": "SOURCE_SCOPE_SUPPORTED_WITH_LIMIT",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -615,12 +639,12 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "reviewType": "exact_claim_scope_internal_research_preflight",
         "date": "2026-11-01",
-        "sourceUrl": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
-        "disposition": "SEC generic statement overview does NOT validate 365-day receivables-collection formula. Original lesson must disclose average, credit sales, period day-count, and industry/provider alternatives; no broad-source signoff.",
-        "independentPublicationAccepted": false,
-        "reviewer": "internal_source_review"
+        "sourcePage": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
+        "claimSpecificScope": "SEC financial-statement beginner guide explains receivables/statement concepts but does NOT specify days-sales-outstanding using matched credit sales, average receivables and a defined period length. Seek direct accounting formula and note provider numerator conventions.",
+        "decision": "HOLD_DSO_FORMULA",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -636,7 +660,7 @@
       "reviewExplanation": "Compute ($80m+$120m)/2=$100m; ROE=15%; don't claim the shareholder's quoted stock rose 15%. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: Profit $6m, book equity starts $40m and ends $60m. Find simplified average-equity ROE.",
       "sourceUrls": [
-        "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -655,12 +679,12 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "reviewType": "exact_claim_scope_internal_research_preflight",
         "date": "2026-11-01",
-        "sourceUrl": "https://www.sec.gov/files/investor/pubs/begfinstmtguide.htm",
-        "disposition": "SEC generic financial-statement guide supports income/equity definitions but NOT the average-common-equity ROE convention; keep original arithmetic with explicit denominator convention and editorial hold.",
-        "independentPublicationAccepted": false,
-        "reviewer": "internal_source_review"
+        "sourcePage": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html",
+        "claimSpecificScope": "Damodaran NYU Stern ROE definition states net income divided by book equity and says equity denominator can use the period's beginning or average value. The attributable-income numerator, preferred/noncontrolling adjustments and negative/zero equity are explicit limitations.",
+        "decision": "SOURCE_SCOPE_SUPPORTED_WITH_LIMIT",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -735,12 +759,12 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "reviewType": "exact_claim_scope_internal_research_preflight",
         "date": "2026-11-01",
-        "sourceUrl": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
-        "disposition": "SEC primary investor guide supports P/E price/EPS; earnings yield is the independently derived reciprocal with positive price/EPS, not an amount actually distributed.",
-        "independentPublicationAccepted": false,
-        "reviewer": "internal_source_review"
+        "sourcePage": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+        "claimSpecificScope": "SEC financial-statement guide defines EPS and P/E as price per share divided by EPS, and explains that a company generally retains some earnings. For positive denominators, EPS/price is algebraically reciprocal P/E, not dividend cash paid; negative/zero EPS requires caveat.",
+        "decision": "SOURCE_SCOPE_SUPPORTED_DERIVED_MATH",
+        "formulaAndNumericReleaseAccepted": false,
+        "independentPublicationAccepted": false
       }
     }
   ]
