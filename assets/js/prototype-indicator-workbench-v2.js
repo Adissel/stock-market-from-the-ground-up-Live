@@ -42,7 +42,21 @@
   if(!math)throw Error('Shared indicator math source not loaded');
   const settings=validSettings(config);
   const selected={...enabledDefault,...show};
-  const b=bars.map(x=>({open:x.o,high:x.h,low:x.l,close:x.c,volume:x.v}));
+  // Dated bars use the canonical exchange-time session engine. Undated
+  // fictional editor fixtures remain one continuous synthetic session.
+  const times=bars.map(x=>{
+   const raw=x.timestamp??x.time;
+   if(raw instanceof Date)return Number.isFinite(raw.getTime())?raw:null;
+   if(typeof raw==='number'&&Number.isSafeInteger(raw))return new Date(raw);
+   if(typeof raw==='string'&&/^\\d{4}-\\d\\d-\\d\\d[T ]/.test(raw)){
+    const value=new Date(raw);return Number.isFinite(value.getTime())?value:null;
+   }
+   return null;
+  });
+  const dated=times.every(x=>x instanceof Date);
+  if(times.some(x=>x instanceof Date)&&!dated)
+   throw Error('Mixed dated and undated bars cannot be assigned an exchange session');
+  const b=bars.map((x,i)=>({time:times[i],open:x.o,high:x.h,low:x.l,close:x.c,volume:x.v}));
   const closes=b.map(x=>x.close),volumes=b.map(x=>x.volume);
   const price=[],pane=[],volume=[],marks=[];
   const line=(label,data,color,width=1.8,axis='price')=>{
@@ -53,19 +67,34 @@
   if(selected.EMA_SLOW)line('EMA '+settings.emaSlow,math.ema(closes,settings.emaSlow),'#efd07c');
   if(selected.EMA_200)line('EMA '+settings.ema200,math.ema(closes,settings.ema200),'#b899ff',2);
   if(selected.SMA)line('SMA '+settings.sma,math.sma(closes,settings.sma),'#c4a7ff');
-  if(selected.VWAP)line('HLC3 volume-weighted bar proxy',bars.map(x=>x.proxy),'#7f9cff',2);
+  if(selected.VWAP){
+   let pv=0,volumeSum=0;
+   const fictional=b.map(x=>{
+    if(x.volume>0){pv+=((x.high+x.low+x.close)/3)*x.volume;volumeSum+=x.volume}
+    return volumeSum>0?pv/volumeSum:null;
+   });
+   line('HLC3 volume-weighted bar proxy',dated?math.vwapProxy(b):fictional,'#7f9cff',2);
+  }
   if(selected.BB){
    const band=math.bollinger(b,settings.bbPeriod,settings.bbDeviation);
    line('Bollinger middle',band.middle,'#a3e0c0',1.2);
    line('Bollinger upper',band.upper,'#cb99ed',1.4);
    line('Bollinger lower',band.lower,'#cb99ed',1.4);
   }
-  if(selected.HOD||selected.LOD){let hi=-Infinity,lo=Infinity;const high=[],low=[];
+  if((selected.HOD||selected.LOD)&&dated){
+   const levels=math.observedLevels(b);
+   if(selected.HOD)line('Observed HOD',levels.HOD,'#ffcc9a',1.3);
+   if(selected.LOD)line('Observed LOD',levels.LOD,'#e89aa7',1.3);
+  }else if(selected.HOD||selected.LOD){let hi=-Infinity,lo=Infinity;const high=[],low=[];
    for(const x of b){hi=Math.max(hi,x.high);lo=Math.min(lo,x.low);high.push(hi);low.push(lo)}
    if(selected.HOD)line('Observed HOD',high,'#ffcc9a',1.3);
    if(selected.LOD)line('Observed LOD',low,'#e89aa7',1.3);
   }
-  if(selected.OR){const n=settings.orb;let hi=-Infinity,lo=Infinity;const high=[],low=[];
+  if(selected.OR&&dated){
+   const range=math.openingRange(b,settings.orb);
+   line('Opening range high',range.upper,'#cce78a',1.5);
+   line('Opening range low',range.lower,'#9ebff2',1.5);
+  }else if(selected.OR){const n=settings.orb;let hi=-Infinity,lo=Infinity;const high=[],low=[];
    for(let i=0;i<b.length;i++){if(i<n){hi=Math.max(hi,b[i].high);lo=Math.min(lo,b[i].low)}high.push(i>=n?hi:null);low.push(i>=n?lo:null)}
    line('Opening range high',high,'#cce78a',1.5);line('Opening range low',low,'#9ebff2',1.5);
   }
