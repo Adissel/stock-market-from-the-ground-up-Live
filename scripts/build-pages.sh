@@ -100,6 +100,7 @@ node tests/talia-claims101-140-python-js-editorial-v1.test.mjs
 node tests/talia-five-qualitative-source-dispositions-v1.test.mjs
 node tests/talia-training45-evaluation40-v1.test.mjs
 node tests/talia-evaluation-methodology-v2.test.mjs
+node --test tests/talia-membership-history-matrix-v1.test.mjs
 node tests/talia-training40-server-authorization-v1.test.mjs
 node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
 node tests/talia-foundation-adaptive-reflection-v1.test.mjs

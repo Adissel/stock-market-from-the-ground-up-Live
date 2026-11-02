@@ -166,6 +166,7 @@ on:
       - 'tests/talia-echarts-independent-python-js-v1.test.mjs'
       - 'tests/talia-training45-evaluation40-v1.test.mjs'
       - 'tests/talia-evaluation-methodology-v2.test.mjs'
+      - 'tests/talia-membership-history-matrix-v1.test.mjs'
       - 'functions/_lib/talia-instructional-evaluation-v1.js'
       - 'tests/talia-training40-server-authorization-v1.test.mjs'
       - 'tests/talia-training-synthetic-followup-privacy-v1.test.mjs'
@@ -443,6 +444,7 @@ on:
       - 'tests/talia-echarts-independent-python-js-v1.test.mjs'
       - 'tests/talia-training45-evaluation40-v1.test.mjs'
       - 'tests/talia-evaluation-methodology-v2.test.mjs'
+      - 'tests/talia-membership-history-matrix-v1.test.mjs'
       - 'functions/_lib/talia-instructional-evaluation-v1.js'
       - 'tests/talia-training40-server-authorization-v1.test.mjs'
       - 'tests/talia-training-synthetic-followup-privacy-v1.test.mjs'
@@ -687,6 +689,7 @@ jobs:
           node tests/talia-echarts-independent-python-js-v1.test.mjs
           node tests/talia-training45-evaluation40-v1.test.mjs
           node tests/talia-evaluation-methodology-v2.test.mjs
+          node --test tests/talia-membership-history-matrix-v1.test.mjs
           node tests/talia-training40-server-authorization-v1.test.mjs
           node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
           node tests/talia-foundation-adaptive-reflection-v1.test.mjs
