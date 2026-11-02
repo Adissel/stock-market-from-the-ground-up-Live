@@ -198,6 +198,8 @@ on:
       - 'functions/api/credentials.js'
       - 'functions/_lib/tutor-request-boundary-v014147.js'
       - 'tests/talia-membership-only-v1.test.mjs'
+      - 'src/tutor/TaliaClassroom.tsx'
+      - 'tests/talia-classroom-lab-handoff-v1.test.mjs'
       - 'tests/talia-member-conversations-isolation-v1.test.mjs'
       - 'functions/api/member-tutor-conversations.js'
       - 'tests/talia-upload5-reconciliation-v1.test.mjs'
@@ -672,6 +674,7 @@ jobs:
           node tests/test_v014102_tutor_ai_consent.mjs
           node tests/test_v014103_first_party_ai_service.mjs
           node tests/talia-membership-only-v1.test.mjs
+          node --test tests/talia-classroom-lab-handoff-v1.test.mjs
           node tests/talia-member-conversations-isolation-v1.test.mjs
           node tests/test_v014107_tutor_quality.mjs
           node tests/test_v014107_server_history_and_throttle.mjs
