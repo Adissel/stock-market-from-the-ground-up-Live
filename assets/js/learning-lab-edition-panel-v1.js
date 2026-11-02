@@ -53,19 +53,21 @@
   }
   host.append(build('p',result.limitation||'No trading recommendation or official mastery is implied.'));
  };
- async function mount({host,userId,token,alive}={}){
+ async function mount({host,userId,token,alive,labId}={}){
   scrub();
   const epoch=serial;
   if(!host||!userId||typeof token!=='string'||!token||typeof alive!=='function')return;
-  let selected='ENTERPRISE',risk=100,emaPeriod=9,embargo=2;
+  let selected='ENTERPRISE',risk=100,emaPeriod=9,embargo=2,revision=0;
+  const caseKey=typeof labId==='string'&&/^[A-Za-z0-9_-]{3,80}$/.test(labId)?labId:null;
   const source=demo();
-  const invoke=async(edition)=>{
-   if(!alive()||serial!==epoch)return null;
-   const body={family:'lab',edition,
+  const exerciseBody=edition=>({family:'lab',edition,
     activity:edition==='ENTERPRISE'?'chronological_validation':
      edition==='PROFESSIONAL'?'decision_replay_review':'advanced_formative_review',
     payload:{evidence:source,emaPeriod,embargo,frameSize:5,
-     riskCases:[{entry:40,stop:38,riskBudget:risk,availableCash:1000}]}};
+     riskCases:[{entry:40,stop:38,riskBudget:risk,availableCash:1000}]}});
+  const invoke=async(edition)=>{
+   if(!alive()||serial!==epoch)return null;
+   const body=exerciseBody(edition);
    const response=await fetch('/api/learning-lab-edition-exercise',{
     method:'POST',cache:'no-store',credentials:'same-origin',signal:activeController.signal,
     headers:{'authorization':'Bearer '+token,'content-type':'application/json'},
@@ -99,10 +101,52 @@
    label.append(select);choices.append(label);
    const recalc=build('button','Recalculate fictional example');recalc.type='button';
    choices.append(recalc);
+   const save=build('button','Save private study');
+   const restore=build('button','Restore private study');
+   save.type='button';restore.type='button';
+   if(!caseKey){save.disabled=true;restore.disabled=true}
+   choices.append(save,restore);
    const output=build('div');output.className='gu-edition-exercise-output';
    output.setAttribute('aria-live','polite');
    const status=build('p','Server-approved educational calculation. No member progress was changed.');
    status.setAttribute('role','status');
+   const storageUrl='/api/learning-lab-edition-workspace';
+   const storageHeaders={'authorization':'Bearer '+token,'content-type':'application/json'};
+   save.addEventListener('click',async()=>{
+    if(serial!==epoch||!alive()||!caseKey)return;
+    save.disabled=true;status.textContent='Saving private ungraded example…';
+    try{
+     const response=await fetch(storageUrl,{method:'POST',credentials:'same-origin',
+      cache:'no-store',signal:activeController.signal,headers:storageHeaders,
+      body:JSON.stringify({...exerciseBody(selected),caseKey,expectedRevision:revision})});
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok){status.textContent=response.status===409?
+      'This study changed in another session. Restore the latest revision before saving.':
+      'Study save unavailable. No official grade or mastery was changed.';return}
+     revision=data.workspace.revision;
+     status.textContent='Saved private study revision '+revision+'. No official grade was changed.';
+    }catch{if(serial===epoch&&alive())status.textContent='Study save unavailable.'}
+    finally{if(serial===epoch&&alive())save.disabled=false}
+   });
+   restore.addEventListener('click',async()=>{
+    if(serial!==epoch||!alive()||!caseKey)return;
+    restore.disabled=true;status.textContent='Restoring authorized private study…';
+    try{
+     const params=new URLSearchParams({family:'lab',edition:selected,caseKey});
+     const response=await fetch(storageUrl+'?'+params,{method:'GET',credentials:'same-origin',
+      cache:'no-store',signal:activeController.signal,headers:storageHeaders});
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok){
+      host.replaceChildren();host.hidden=true;return
+     }
+     if(!data.found){revision=0;status.textContent='No saved private study exists.';return}
+     revision=data.workspace.revision;explain(data.workspace.summary,output);
+     status.textContent='Restored private study revision '+revision+'. No official grade was changed.';
+    }catch{if(serial===epoch&&alive())status.textContent='Study restore unavailable.'}
+    finally{if(serial===epoch&&alive())restore.disabled=false}
+   });
    recalc.addEventListener('click',async()=>{
     if(serial!==epoch||!alive())return;
     if(selected==='ENTERPRISE')embargo=Number(select.value);
