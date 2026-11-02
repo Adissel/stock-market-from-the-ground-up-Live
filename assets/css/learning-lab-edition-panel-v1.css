@@ -1,0 +1,18 @@
+/* A released premium Lab supplement, hidden until server grant. */
+#player-edition-exercise[hidden]{display:none!important}
+.gu-edition-exercise{margin:18px 0;padding:18px;background:#091e31;color:#eaf6ff;border:1px solid #55799a;border-radius:12px;line-height:1.55}
+.gu-edition-exercise h2{font-size:1.2rem;margin:0 0 8px;color:#f3f8fd}
+.gu-edition-exercise p{max-width:78ch}
+.gu-edition-exercise-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:12px 0}
+.gu-edition-exercise-controls label{display:grid;gap:5px;font-weight:650}
+.gu-edition-exercise-controls select,.gu-edition-exercise-controls button{min-height:42px;padding:8px 12px;font:inherit;border:1px solid #7dabc9;border-radius:8px;color:#f0f9ff;background:#123753}
+.gu-edition-exercise-controls button{cursor:pointer;background:#175371}
+.gu-edition-exercise-controls button:disabled{opacity:.65}
+.gu-edition-exercise-controls :focus-visible{outline:3px solid #f2cf87;outline-offset:3px}
+.gu-edition-exercise-output{max-width:100%;overflow-x:auto}
+.gu-edition-exercise table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:300px}
+.gu-edition-exercise table caption{font-weight:650;padding:8px 0;text-align:left}
+.gu-edition-exercise th,.gu-edition-exercise td{text-align:left;vertical-align:top;padding:10px 9px;border-bottom:1px solid #395c79}
+.gu-edition-exercise th{font-weight:700}
+@media(max-width:620px){.gu-edition-exercise{padding:13px}.gu-edition-exercise-controls{align-items:stretch;flex-direction:column}.gu-edition-exercise-controls label,.gu-edition-exercise-controls select,.gu-edition-exercise-controls button{width:100%}}
+@media(prefers-reduced-motion:reduce){.gu-edition-exercise *{transition:none!important;animation:none!important}}
