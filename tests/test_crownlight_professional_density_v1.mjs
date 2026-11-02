@@ -18,4 +18,11 @@ match(tiers,/state\.resizeObserver=new ResizeObserver/,'Enhanced charts must rea
 match(tiers,/state\.resizeObserver\?\.disconnect\(\)/,'Observer must disconnect before chart teardown');
 match(tiers,/if\(state\.resizeFrame\)cancelAnimationFrame\(state\.resizeFrame\)/,'Pending resize work must be cancelled');
 match(tiers,/state\.resizeObserver\.observe\(entry\.host\.parentElement\)/,'Observe mounted chart frames');
+const api=readFileSync(new URL('../functions/api/chart-workspace.js',import.meta.url),'utf8');
+match(workspace,/setPointerCapture\(e.pointerId\)/,'Professional divider should capture pointer during dragging');
+match(workspace,/role','slider'/,'Divider must expose an accessible slider role');
+match(workspace,/draft.panelRatio=/,'Panel ratio must be sent through existing workspace save');
+match(workspace,/--cl-pro-handle/,'Divider handle must track current split');
+match(api,/raw.panelRatio>=25&&raw.panelRatio<=75/,'Server must bound saved panel ratio');
+match(api,/layout,panelRatio,drawingContext/,'Existing normalized workspace must return safe ratio');
 console.log('PASS Professional density source contracts: bounded slider, linked charts, remount, privacy reset, responsive styling, existing workspace layouts');
