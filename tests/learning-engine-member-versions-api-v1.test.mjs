@@ -94,3 +94,17 @@ test('Member resolver returns current for paid active plan but not revoked or re
   assert.equal(r.status,403);
  }finally{restricted.restore()}
 });
+
+test('Unknown subscription plan fails closed to registered FREE without current engine editions',async()=>{
+ const unknown=setup({sub:{plan_code:'UNREGISTERED_PREMIUM',status:'active',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(r.status,200);
+  const payload=await r.json();
+  assert.equal(payload.planCode,'FREE');
+  assert.deepEqual(payload.versions,FREE);
+  assert.equal(payload.engineTierPolicy.premiumFeaturesReleased,false);
+  assert(unknown.calls.some(call=>call.path.endsWith('/rest/v1/platform_plans')));
+  assert(unknown.calls.every(call=>call.method==='GET'));
+ }finally{unknown.restore()}
+});
