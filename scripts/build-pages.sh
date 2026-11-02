@@ -430,6 +430,7 @@ assert.ok(entries.length>0&&entries.includes(origin+'/'),'Sitemap must include c
 assert.equal((xml.match(/<url>/g)||[]).length,entries.length,'Malformed sitemap url entries');
 assert.equal((xml.match(/<loc>/g)||[]).length,entries.length,'Malformed sitemap loc entries');
 assert.equal(new Set(entries).size,entries.length,'Duplicate sitemap URL');
+assert.ok(entries.every(url=>!new URL(url).pathname.endsWith('.html')),'Sitemap loc must be the final extensionless public URL');
 for(const item of entries){const url=new URL(item);assert.equal(url.origin,origin,'Noncanonical sitemap URL');assert.equal(url.protocol,'https:');assert.equal(url.search,'');assert.equal(url.hash,'');}
 assert.deepEqual(robots.split(/\r?\n/).filter(s=>/^Sitemap:/i.test(s.trim())),['Sitemap: '+origin+'/sitemap.xml'],'robots.txt sitemap reference mismatch');
 console.log('PASS: generated sitemap.xml + robots.txt production build gate, '+entries.length+' canonical URLs');
