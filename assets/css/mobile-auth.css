@@ -64,3 +64,54 @@ body.v1341-mobile-open{overflow:hidden;touch-action:none}
 }
 
 @media(prefers-reduced-motion:reduce){.v1341-mobile-panel{scroll-behavior:auto}}
+
+
+/* 2026-11-02 — Google Inspection Tool reproduced two distinct mobile Menus:
+ * .sm-shell-menu (newer shell) and #v1341-mobile-menu (canonical accessible drawer).
+ * Retain the existing secure member-aware drawer and suppress the competing shell
+ * ONLY when its replacement exists on the same header. Never hide search/alerts.
+ */
+@media (max-width:900px){
+  .site-header:has(#v1341-mobile-menu) .sm-shell-menu{
+    display:none!important;
+  }
+  .site-header:has(#v1341-mobile-menu) #sm-shell-links{
+    display:none!important;
+  }
+  .site-header .nav:has(#v1341-mobile-menu){
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto!important;
+    align-items:center!important;
+    gap:6px 10px!important;
+    padding-top:6px!important;
+    padding-bottom:6px!important;
+  }
+  .site-header .nav:has(#v1341-mobile-menu) .brand{
+    grid-column:1!important;
+    grid-row:1!important;
+    min-width:0!important;
+    max-width:100%!important;
+    overflow-wrap:anywhere;
+  }
+  .site-header .nav #v1341-mobile-menu{
+    grid-column:2!important;
+    grid-row:1!important;
+    justify-self:end!important;
+    min-height:44px;
+  }
+  .site-header .nav:has(#v1341-mobile-menu) .fe-header-tools{
+    grid-column:1/-1!important;
+    grid-row:2!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px!important;
+    width:100%!important;
+    margin:0!important;
+    min-width:0!important;
+  }
+  .site-header .nav:has(#v1341-mobile-menu) .fe-header-tools :is(.fe-command-button,.fe-notify-button){
+    min-height:44px!important;
+  }
+}
