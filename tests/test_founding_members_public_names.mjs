@@ -59,6 +59,9 @@ const internal=JSON.parse(read('data/founding600-terms-v014170.json'));
 assert.equal(internal.capacity,600,'Founder seat limit unchanged internally');
 assert.deepEqual([internal.plans.FOUNDING_30.recurringCents,internal.plans.FOUNDING_60.recurringCents],[4999,5999]);
 assert.deepEqual([internal.plans.FOUNDING_30.foundingDiscountBps,internal.plans.FOUNDING_60.foundingDiscountBps],[1000,1500]);
+const publicMembershipPage=read('membership.html');
+assert.doesNotMatch(publicMembershipPage,/replay-only-membership|Historical Replay Learning — Monthly/,
+ 'Unpublished standalone memberships must not appear in the public offer comparison');
 const membershipMatrix=read('assets/js/membership-platform.js');
 assert(membershipMatrix.includes("['FREE','FOUNDING_14','FOUNDING_30','FOUNDING_60']"),
  'The public matrix must show only approved membership tiers');
