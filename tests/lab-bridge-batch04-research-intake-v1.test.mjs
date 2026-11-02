@@ -48,10 +48,13 @@ test('Batch04 primary evidence has 20 accurate Lab subjects, two valid source ca
   }
  }
 });
-test('Batch04 excludes existing ID-only canonical titles rather than assigning invented subjects',()=>{
+test('Batch04 historical exclusions remain absent after authoritative title recovery and later authoring',()=>{
  for(const id of ledger.excludedAmbiguousCanonTitles){
-  assert.equal(canonical.get(id),id,'Exclusion only for currently uninformative canonical label');
+  assert.notEqual(canonical.get(id),id,'Recovered canonical title must no longer be an ID-only label');
   assert(!ledger.entries.some(e=>e.labId===id));
+  assert.equal(bridges.entries[id].title,canonical.get(id),'Later bridge must preserve the recovered canonical title');
+  assert.equal(bridges.entries[id].instructionSource,'ORIGINAL_SUBJECT_SPECIFIC_BATCH11_20261102');
+  assert.equal(bridges.entries[id].taliaContext.mayRevealProtectedAnswerKey,false);
  }
  assert.equal(ledger.externalReferencesObserved.length,6);
  assert(ledger.externalReferencesObserved.every(x=>x.startsWith('https://chartschool.stockcharts.com/')));
