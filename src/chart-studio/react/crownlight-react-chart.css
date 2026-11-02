@@ -1,0 +1,10 @@
+.cl-react-chart{color:#dcecf4;background:linear-gradient(150deg,#081a29,#122c40);border:1px solid #45687e;border-radius:18px;padding:16px;box-shadow:0 18px 40px #03101b55;min-width:0}
+.cl-react-chart__canvas{width:100%;min-width:0;touch-action:pan-y}
+.cl-react-chart__evidence{font-size:.875rem;color:#b9d6e4;padding:8px 4px}
+.cl-react-chart__accessible-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.8rem}
+.cl-react-chart__accessible-table th,.cl-react-chart__accessible-table td{padding:8px;border-bottom:1px solid #3b5669;text-align:right}
+.cl-react-chart__accessible-table th:first-child{text-align:left}
+.cl-react-chart__accessible-table caption{text-align:left;margin:8px 0}
+.cl-react-chart__accessible-table:focus-within{outline:2px solid #8edaf0}
+@media(max-width:700px){.cl-react-chart{padding:8px;border-radius:10px}.cl-react-chart__accessible-table{display:block;overflow-x:auto;white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.cl-react-chart *{animation:none!important;transition:none!important}}
