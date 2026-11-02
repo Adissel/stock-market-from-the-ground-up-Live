@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.9 / 2026-11-01 |
+| Version / prepared | 1.10 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -222,6 +222,27 @@ This section updates the factual release evidence without changing the **2,190 o
 
 Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, v1.5. GitHub is the source of record; Google Drive document ID not assigned.
 
+## Claim mathematical execution and Batch 14 sequenced scope — v1.10
+
+**November 1, 2026 — Source-only reconciliation.** This is part of the controlling `SMFGU-WEB-ROADMAP-RECON-20261101-001` and does not alter 2,190 original authenticated Owner Roadmap items, saved progress, existing member purchases, private assessments or premium release approvals.
+
+| Source milestone | Current progress | Completion boundary |
+|---|---:|---|
+| One canonical curriculum evidence register | 1,366/1,366 (100%) | Target identities, **not** individual lesson release approval |
+| Foundation source-authored explanations | **280/600 = 46.67%** | Concurrent Batch14 source drafting added 20; 320 remain. Batch14 0/20 independent editorial approvals and Batch13 retains acceptance requirements |
+| Forty claims 101–140 | 40/40 source dispositions; 35/35 numeric cases have independent Python+JS tests configured; 5 interpretation-only cases preserved | Await actual CI result for new tests and remaining independent source/legal/publication review. 104, 129, 133 remain notable corrections/mismatches |
+| Claim-specific source correction research | Three additional precise research references for 129, 135 and 139 | Portfolio HHI, EBIT coverage and debt/book equity source precision; no imported vendor media or rights approval |
+| Indicator research and numerical examples | 73/73 studied; 71/73 individual math case fixtures | VIX and SCTR rights/methodology held; ECharts currently has 13 distinct presentation toggles rather than 73 certified live indicators |
+| Labs / Academy | 419/419 Lab and 274/274 day identities | Curriculum inventory only |
+| Basic Learning / Basic Lab | v3.3 / v3.2 source retained | Engine-wide independent completion % not measured |
+| Advanced, Professional, Enterprise engines | 0% premium independent release acceptance | Retain server authorization and no unapproved checkout grants |
+
+**Order and inconsistency:** Owner previously directed Batch13 independent editorial acceptance before explanation drafting 261–280. A concurrent developer source commit created Batch14 anyway and added source-only member Tutor retrieval. Preserve these original ungraded drafts as provisional source work, flag sequencing conflict, and do not treat source accessibility as formal independent editorial approval, protected competence or commercial release.
+
+**Next ten gates:** Retain verified Gate1; resolve individual Gate2 source mathematics and corrective language; verify Gate3 member ECharts implementations/settings and vendor holds; run Gate4 signed-in Tutor conversations; verify Gate5 authoritative learning prerequisites and completed-bar coaching; obtain Gate6 all-mandatory Github Actions statuses; execute Gate7 genuine Free/Founder/Owner, mobile and screen-reader checks; freeze/deploy one SHA Gate8; release only independently accepted Gate9 functionality; and Gate10 continue source authoring only under recorded editorial prerequisites. Strict overall gate completion **1/10 = 10%**. No defensible overall website completion percentage yet.
+
+**Evidence:** `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md` (v1.6), `data/talia-claim-source-remediation-129-135-139-v1.json`, `scripts/qa/talia_claims101_140_independent_python_v1.py`, `tests/talia-claims101-140-python-js-editorial-v1.test.mjs`, `tests/talia-source-remediation-specificity-v1.test.mjs`. Cloudflare and GitHub exact-SHA acceptance must be independently confirmed; pending runs do not count.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -236,5 +257,6 @@ Detailed QA evidence: `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v
 | 1.7 | 2026-11-01 | Reconcile 60 studied subjects / 59 independent numeric fixtures, 260 authored explanations, source review identity fix and continued ten-gate controls | Source QA only; exact-head GitHub Actions, rights and real sessions open |
 | 1.8 | 2026-11-01 | Add 61–73 subject QA, 12 cross-implementation fixtures, official Cboe VIX and StockCharts SCTR restricted exceptions, 71/73 configured math denominator | Internal source QA only; all genuine publication, account, legal and release acceptance open |
 | 1.9 | 2026-11-01 | Verify actual 13-control ECharts UX vs 73 guide research, add CI crosswalk and live Supabase seven-table RLS/grants/policy audit | Production/member/rights acceptance still open |
+| 1.10 | 2026-11-01 | 280/600 authored drafts with Batch14 held; claim-specific Python/JS 35-number audit; three source remediation references; unchanged ten release gates | Full CI, genuine auth, rights and editorial acceptance open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.9 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.10 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
