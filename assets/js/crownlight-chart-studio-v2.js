@@ -64,18 +64,18 @@
    '<div class="crownlight-identity"><span class="crownlight-mark">C</span><span><strong>CROWNLIGHT</strong><small>CHART STUDIO <em>3.0</em></small></span></div>'+
    '<div class="crownlight-toolbar-actions" role="toolbar" aria-label="Chart controls">'+
    '<button type="button" data-cl="interaction" aria-pressed="false" title="Toggle inspection mode without dragging or zooming">Inspect mode</button>'+ 
-   '<button type="button" data-cl="zoom-in" title="Zoom in">＋<span class="sr-only">Zoom in</span></button>'+
-   '<button type="button" data-cl="zoom-out" title="Zoom out">−<span class="sr-only">Zoom out</span></button>'+
+   '<button type="button" data-cl="zoom-in" title="Zoom in on revealed candles" aria-label="Zoom in on revealed candles">＋<span class="sr-only">Zoom in</span></button>'+
+   '<button type="button" data-cl="zoom-out" title="Zoom out on revealed candles" aria-label="Zoom out on revealed candles">−<span class="sr-only">Zoom out</span></button>'+
    '<button type="button" data-cl="pan-earlier" aria-label="Pan chart to earlier revealed candles" title="View earlier completed candles">← Earlier</button>'+
    '<button type="button" data-cl="pan-later" aria-label="Pan chart toward latest revealed candle" title="View later completed candles">Later →</button>'+
    '<button type="button" data-cl="inspect-prev" aria-label="Inspect previous completed candle" title="Read the preceding revealed candle">Previous candle</button>'+
    '<button type="button" data-cl="inspect-next" aria-label="Inspect next completed candle" title="Read the next revealed candle">Next candle</button>'+
-   '<button type="button" data-cl="reset" title="Fit revealed history">Fit</button>'+
-   '<button type="button" data-cl="follow" title="Follow the latest revealed candle">Follow</button>'+
-   '<button type="button" data-cl="studies">Indicators <span class="cl-dot">●</span></button>'+
-   '<button type="button" data-cl="appearance">Colors & spacing</button>'+
+   '<button type="button" data-cl="reset" title="Fit all currently revealed candles" aria-label="Fit revealed candles">Fit</button>'+
+   '<button type="button" data-cl="follow" title="Follow the latest revealed candle" aria-label="Follow latest revealed candle">Follow</button>'+
+   '<button type="button" data-cl="studies" aria-label="Configure chart indicators">Indicators <span class="cl-dot">●</span></button>'+
+   '<button type="button" data-cl="appearance" aria-label="Configure candle colors and spacing">Colors & spacing</button>'+
    '<button type="button" data-cl="level">＋ Level</button>'+
-   '<button type="button" data-cl="source">Source</button>'+ 
+   '<button type="button" data-cl="source" aria-label="View current chart data source">Source</button>'+ 
    '<button type="button" data-cl="coach">Talia · Chart Lab</button>'+
    '<button type="button" data-cl="fullscreen">⛶ <span class="cl-text">Expand</span></button></div></div>'+
    '<div class="crownlight-legend" aria-label="Selected indicators"></div>'+
