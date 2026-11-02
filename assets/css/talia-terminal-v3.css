@@ -2,7 +2,7 @@
 .tc-body .tc-terminal-controls{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:#081624;border:1px solid #416178;padding:16px 22px;border-radius:14px;margin:0 0 15px}
 .tc-terminal-identity{display:flex;flex-direction:column;gap:6px}.tc-terminal-identity strong{color:#eac88e;letter-spacing:.12em;font-size:.76rem}.tc-terminal-identity span{color:#97b5c7;font-size:.75rem}
 .tc-terminal-switches{display:flex;gap:8px;flex-wrap:wrap}.tc-body .tc-terminal-switches button{padding:11px 16px;border:1px solid #547084;background:#142d42;color:#e8f4fb;cursor:pointer;border-radius:9px}.tc-body .tc-terminal-switches button[aria-pressed=true]{background:#d7b878;border-color:#d7b878;color:#102336}
-.tc-body .tc-terminal-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,400px);gap:14px;align-items:start}
+.tc-body .tc-terminal-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,var(--tc-instructor-width,400px));gap:14px;align-items:start}
 .tc-body .tc-terminal-grid>.tc-chart-panel{grid-column:1;grid-row:1;min-width:0;position:relative}
 .tc-body .tc-terminal-grid>.tc-chat{grid-column:2;grid-row:1;min-width:0;position:relative}
 .tc-body .tc-terminal-grid .tc-chart{height:clamp(520px,52vw,780px);min-height:520px}
@@ -22,3 +22,5 @@
 .tc-body .tc-terminal-tutor .tc-chipbar{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:1050px){.tc-body .tc-terminal-grid{grid-template-columns:minmax(0,1fr)}.tc-body .tc-terminal-grid>.tc-chart-panel{grid-column:1;grid-row:1}.tc-body .tc-terminal-grid>.tc-chat{grid-column:1;grid-row:2}.tc-body .tc-terminal-grid .tc-chipbar{grid-template-columns:repeat(2,minmax(0,1fr))}.tc-body .tc-terminal-tutor>.tc-chat{grid-row:1}.tc-body .tc-terminal-tutor>.tc-chart-panel{grid-row:2}.tc-body .tc-terminal-chart>.tc-chat{max-height:none;padding:18px}.tc-body .tc-terminal-chart>.tc-chat>*{display:block}.tc-body .tc-terminal-chart>.tc-chat>.tc-chat-top>div{display:block}.tc-body .tc-terminal-chart .tc-pill{font-size:.7rem;display:inline-block;width:auto;height:auto;padding:6px 9px;background:#143f37;margin:0}}
 @media(max-width:550px){.tc-body .tc-terminal-grid .tc-chart{height:400px;min-height:400px}.tc-body .tc-terminal-grid .tc-chipbar,.tc-body .tc-terminal-tutor .tc-chipbar{grid-template-columns:1fr}.tc-terminal-switches{width:100%}.tc-body .tc-terminal-switches button{flex:1;font-size:.76rem;padding:10px 6px}}
+
+.tc-terminal-size{display:flex;align-items:center;gap:8px;color:#b3d1de;font-size:.75rem}.tc-terminal-size input{accent-color:#e6c27c;width:105px;cursor:ew-resize}@media(max-width:1050px){.tc-terminal-size{display:none}}
