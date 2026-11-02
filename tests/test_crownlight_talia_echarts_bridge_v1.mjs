@@ -37,6 +37,7 @@ const document={getElementById:id=>id==='crownlight-talia-echarts-visual'?host:n
 const authListeners=[];
 let userId='member-A';
 const auth={
+ getSession:async()=>userId?{data:{session:{user:{id:userId}}}}:{data:{session:null}},
  getUser:async()=>userId?{data:{user:{id:userId}}}:{data:{user:null},error:{message:'signed out'}},
  onAuthStateChange:fn=>{authListeners.push(fn);return {data:{subscription:{unsubscribe(){}}}}}
 };
@@ -95,6 +96,11 @@ assert.equal(api.getStatus().visibleCount,0,'Signed-out member must not display 
 userId='member-B';
 notify({source:'fictional',bars:bars.slice(0,9)});await flush();
 assert.equal(api.getStatus().visibleCount,9);
+// Exercise a switch where a delayed Auth callback has not yet fired.
+userId='member-C';
+notify({source:'fictional',bars:bars.slice(0,6)});await flush();
+assert.equal(api.getStatus().visibleCount,6);
+assert.equal(api.getStatus().memberVerified,true);
 listeners.get('crownlight:member-changed')();
 assert.equal(api.getStatus().visibleCount,0);
 assert.equal(api.getStatus().memberVerified,false);
