@@ -5,6 +5,7 @@
 (function(root){
  'use strict';
  const validId=/^[A-Za-z0-9_-]{3,90}$/;
+ const validMemberUUID=/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i;
  const bool=v=>v===true;
  const bounded=(v,max=1500)=>String(v??'').slice(0,max);
  const integer=v=>Number.isSafeInteger(v)&&v>=0&&v<=999?v:0;
@@ -30,7 +31,7 @@
  }
  function create({sb,userId,labId,mode,alive}={}){
   if(!sb?.from||!sb?.rpc||!validId.test(String(labId||''))||
-    !/^[0-9a-f-]{36}$/i.test(String(userId||''))||!['guided','practice'].includes(mode))
+    !validMemberUUID.test(String(userId||''))||!['guided','practice'].includes(mode))
    return null;
   const valid=()=>typeof alive==='function'?alive()===true:true;
   let queue=Promise.resolve(),revision=0,ready=false;
