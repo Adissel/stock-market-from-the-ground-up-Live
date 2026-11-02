@@ -1,0 +1,531 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 19,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original fictional financial-statement teaching 361–380; broad SEC EDGAR reference only for discovery, not claim verified.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_REVENUE_RECOGNITION_VERSUS_CASH_COLLECTION",
+      "title": "Revenue recognition versus cash collection",
+      "concept": "Revenue recognized in a reporting period does not require customer cash to arrive in that same period.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: A fictional business records $10,000 of qualifying credit sales, collects $6,000 and records $4,000 gross receivable before adjustments.",
+      "limit": "Revenue and receivable policies and preexisting balances must be aligned.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Revenue and receivable policies and preexisting balances must be aligned.",
+      "commonError": "Investing mistake: Adding all recognized revenue to cash overstates liquidity. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Revenue recognized in a reporting period does not require customer cash to arrive in that same period. Work the stated fictional calculation: A fictional business records $10,000 of qualifying credit sales, collects $6,000 and records $4,000 gross receivable before adjustments. Avoid this misconception: Adding all recognized revenue to cash overstates liquidity. The uncertainty is: Revenue and receivable policies and preexisting balances must be aligned. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: If $8,000 revenue is recognized and $5,000 collected on those sales, what receivable arises before adjustments? Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_RECEIVABLES_VERSUS_ALLOWANCE_FOR_CREDIT_LOSSES",
+      "title": "Gross receivables versus allowance for credit losses",
+      "concept": "A receivable balance before expected-credit-loss allowance is not necessarily the net carrying value.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Gross receivables $20,000 less allowance $1,500 produce net receivables $18,500.",
+      "limit": "Policies differ and loss allowances are estimates, not definite defaults.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Policies differ and loss allowances are estimates, not definite defaults.",
+      "commonError": "Investing mistake: Treating all credit sales as guaranteed collectible cash hides credit risk. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: A receivable balance before expected-credit-loss allowance is not necessarily the net carrying value. Work the stated fictional calculation: Gross receivables $20,000 less allowance $1,500 produce net receivables $18,500. Avoid this misconception: Treating all credit sales as guaranteed collectible cash hides credit risk. The uncertainty is: Policies differ and loss allowances are estimates, not definite defaults. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Gross receivable $9,000 and allowance $600: calculate net amount. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INVENTORY_COST_VERSUS_SALE_PRICE",
+      "title": "Inventory cost versus sale price",
+      "concept": "Balance-sheet inventory ordinarily reflects applicable cost accounting rather than expected retail sales value.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Fictional ten units recorded at $8 cost each yield $80 gross inventory cost, although listed sale price is $15 each.",
+      "limit": "Actual reporting measurement requires applicable accounting standards and write-downs.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Actual reporting measurement requires applicable accounting standards and write-downs.",
+      "commonError": "Investing mistake: Marking inventory at selling price can overstate assets. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Balance-sheet inventory ordinarily reflects applicable cost accounting rather than expected retail sales value. Work the stated fictional calculation: Fictional ten units recorded at $8 cost each yield $80 gross inventory cost, although listed sale price is $15 each. Avoid this misconception: Marking inventory at selling price can overstate assets. The uncertainty is: Actual reporting measurement requires applicable accounting standards and write-downs. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Twelve units at $7 cost: calculate cost balance before impairments. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEPRECIATION_IS_EXPENSE_ALLOCATION_RATHER_THAN_CASH_PAYMENT",
+      "title": "Depreciation is expense allocation rather than cash payment",
+      "concept": "Depreciation allocates qualifying asset cost over useful life, while purchase cash outflow occurs separately.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Equipment cost $12,000, residual $2,000, life five years: straight-line annual expense $2,000.",
+      "limit": "Asset capitalization rules and depreciation methods must be declared.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Asset capitalization rules and depreciation methods must be declared.",
+      "commonError": "Investing mistake: Subtracting the purchase price and annual depreciation as two same-period cash payments double counts. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Depreciation allocates qualifying asset cost over useful life, while purchase cash outflow occurs separately. Work the stated fictional calculation: Equipment cost $12,000, residual $2,000, life five years: straight-line annual expense $2,000. Avoid this misconception: Subtracting the purchase price and annual depreciation as two same-period cash payments double counts. The uncertainty is: Asset capitalization rules and depreciation methods must be declared. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Cost $9,000, residual $1,000, life four years: compute annual straight-line expense. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEPRECIATION_BOOK_VALUE_AFTER_ELAPSED_YEARS",
+      "title": "Depreciation book value after elapsed years",
+      "concept": "Straight-line carrying value subtracts cumulative depreciation, subject to residual and impairment limitations.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Asset initially $10,000, annual straight-line depreciation $1,500: after three full years before impairment, carrying value $5,500.",
+      "limit": "Disposals, revaluation, impairment and partial periods complicate the illustration.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Disposals, revaluation, impairment and partial periods complicate the illustration.",
+      "commonError": "Investing mistake: Assuming book value equals resale market price confuses accounting and valuation. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Straight-line carrying value subtracts cumulative depreciation, subject to residual and impairment limitations. Work the stated fictional calculation: Asset initially $10,000, annual straight-line depreciation $1,500: after three full years before impairment, carrying value $5,500. Avoid this misconception: Assuming book value equals resale market price confuses accounting and valuation. The uncertainty is: Disposals, revaluation, impairment and partial periods complicate the illustration. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Cost $8,000 and yearly depreciation $1,000: find carrying value after two years. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ACCOUNTS_PAYABLE_VERSUS_CASH_EXPENSE_TIMING",
+      "title": "Accounts payable versus cash expense timing",
+      "concept": "Purchases on supplier credit create a liability even before cash is paid.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: A company receives $4,000 of eligible goods on account and pays $1,500: remaining payable $2,500, absent other movements.",
+      "limit": "Expense recognition versus inventory capitalization is a separate accounting decision.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Expense recognition versus inventory capitalization is a separate accounting decision.",
+      "commonError": "Investing mistake: Calling unpaid purchases already settled hides payment obligations. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Purchases on supplier credit create a liability even before cash is paid. Work the stated fictional calculation: A company receives $4,000 of eligible goods on account and pays $1,500: remaining payable $2,500, absent other movements. Avoid this misconception: Calling unpaid purchases already settled hides payment obligations. The uncertainty is: Expense recognition versus inventory capitalization is a separate accounting decision. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Acquire $3,000 on credit then pay $800: compute remaining payable. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CURRENT_ASSETS_MINUS_CURRENT_LIABILITIES_AS_WORKING_CAPITAL",
+      "title": "Current assets minus current liabilities as working capital",
+      "concept": "Working capital is a balance-sheet dollar difference, distinct from the dimensionless current ratio.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Current assets $30,000 and current liabilities $18,000 yield working capital $12,000 and current ratio 1.667.",
+      "limit": "Classification dates and restricted cash affect interpretation.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Classification dates and restricted cash affect interpretation.",
+      "commonError": "Investing mistake: Comparing working capital in dollars directly to a current-ratio target is a unit error. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Working capital is a balance-sheet dollar difference, distinct from the dimensionless current ratio. Work the stated fictional calculation: Current assets $30,000 and current liabilities $18,000 yield working capital $12,000 and current ratio 1.667. Avoid this misconception: Comparing working capital in dollars directly to a current-ratio target is a unit error. The uncertainty is: Classification dates and restricted cash affect interpretation. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Current assets $14,000, current liabilities $10,000: find working capital and ratio. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_QUICK_RATIO_EXCLUDING_INVENTORY_AND_PREPAYMENTS",
+      "title": "Quick ratio excluding inventory and prepayments",
+      "concept": "One conventional quick ratio excludes less liquid current assets and divides eligible liquid assets by current liabilities.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Cash $5,000, marketable securities $2,000, eligible net receivables $3,000, current liabilities $8,000: quick ratio 1.25.",
+      "limit": "Some published definitions differ; source accounting must be declared.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Some published definitions differ; source accounting must be declared.",
+      "commonError": "Investing mistake: Counting all inventory as immediately liquid inflates this measure. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: One conventional quick ratio excludes less liquid current assets and divides eligible liquid assets by current liabilities. Work the stated fictional calculation: Cash $5,000, marketable securities $2,000, eligible net receivables $3,000, current liabilities $8,000: quick ratio 1.25. Avoid this misconception: Counting all inventory as immediately liquid inflates this measure. The uncertainty is: Some published definitions differ; source accounting must be declared. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Cash $2,000 and receivables $4,000, liabilities $3,000: find simplified quick ratio. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EQUITY_BOOK_VALUE_FROM_THE_ACCOUNTING_EQUATION",
+      "title": "Equity book value from the accounting equation",
+      "concept": "Reported shareholders' equity equals recorded assets minus recorded liabilities under the relevant statement basis.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Fictional total assets $100,000 less total liabilities $65,000 yields reported equity $35,000.",
+      "limit": "Intangibles, accounting basis and timing matter.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Intangibles, accounting basis and timing matter.",
+      "commonError": "Investing mistake: Calling book equity market capitalization confuses accounting values with exchange prices. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Reported shareholders' equity equals recorded assets minus recorded liabilities under the relevant statement basis. Work the stated fictional calculation: Fictional total assets $100,000 less total liabilities $65,000 yields reported equity $35,000. Avoid this misconception: Calling book equity market capitalization confuses accounting values with exchange prices. The uncertainty is: Intangibles, accounting basis and timing matter. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Assets $80,000 and liabilities $55,000: find book equity. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BOOK_VALUE_PER_COMMON_SHARE",
+      "title": "Book value per common share",
+      "concept": "Per-share common book value uses equity attributable to common holders over matching outstanding common shares.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Common equity $900,000 and 300,000 common shares imply $3 book value per share.",
+      "limit": "Treasury stock, share classes and reporting dates must align.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Treasury stock, share classes and reporting dates must align.",
+      "commonError": "Investing mistake: Using preferred equity in the numerator can distort the common-share claim. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Per-share common book value uses equity attributable to common holders over matching outstanding common shares. Work the stated fictional calculation: Common equity $900,000 and 300,000 common shares imply $3 book value per share. Avoid this misconception: Using preferred equity in the numerator can distort the common-share claim. The uncertainty is: Treasury stock, share classes and reporting dates must align. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Common equity $500,000 and 100,000 shares: compute amount. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_TO_BOOK_RATIO",
+      "title": "Price-to-book ratio",
+      "concept": "P/B compares current share price with matching common book value per share.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Price $18 and common book value per share $6 imply P/B of 3.",
+      "limit": "Negative book equity makes interpretation especially difficult.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Negative book equity makes interpretation especially difficult.",
+      "commonError": "Investing mistake: Treating P/B 3 as three times annual earnings confuses different denominators. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: P/B compares current share price with matching common book value per share. Work the stated fictional calculation: Price $18 and common book value per share $6 imply P/B of 3. Avoid this misconception: Treating P/B 3 as three times annual earnings confuses different denominators. The uncertainty is: Negative book equity makes interpretation especially difficult. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Price $24 and book value per common share $8: compute P/B. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPERATING_CASH_FLOW_BEFORE_CAPITAL_EXPENDITURES",
+      "title": "Operating cash flow before capital expenditures",
+      "concept": "Operating cash flow is not identical to free cash flow once cash capital investment is considered.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Cash from operations $50,000, capital purchases $15,000: simplified FCF $35,000.",
+      "limit": "Lease payments, acquisitions and definition variants must be disclosed.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Lease payments, acquisitions and definition variants must be disclosed.",
+      "commonError": "Investing mistake: Subtracting accounting depreciation instead of cash capital spending misstates this approximation. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Operating cash flow is not identical to free cash flow once cash capital investment is considered. Work the stated fictional calculation: Cash from operations $50,000, capital purchases $15,000: simplified FCF $35,000. Avoid this misconception: Subtracting accounting depreciation instead of cash capital spending misstates this approximation. The uncertainty is: Lease payments, acquisitions and definition variants must be disclosed. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: CFO $80,000 and capital spending $30,000: compute simplified FCF. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPERATING_CASH_CONVERSION_RATIO",
+      "title": "Operating cash conversion ratio",
+      "concept": "A cash conversion ratio must declare which earnings denominator is being compared with operating cash flow.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: CFO $75,000 and net income $50,000 imply 1.5 times CFO-to-income ratio.",
+      "limit": "Negative or zero income changes or invalidates conventional ratio interpretation.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Negative or zero income changes or invalidates conventional ratio interpretation.",
+      "commonError": "Investing mistake: Calling this a cash margin uses sales rather than profit as denominator. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: A cash conversion ratio must declare which earnings denominator is being compared with operating cash flow. Work the stated fictional calculation: CFO $75,000 and net income $50,000 imply 1.5 times CFO-to-income ratio. Avoid this misconception: Calling this a cash margin uses sales rather than profit as denominator. The uncertainty is: Negative or zero income changes or invalidates conventional ratio interpretation. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: CFO $40,000 and net income $80,000: compute CFO/net-income ratio. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INTEREST_EXPENSE_VERSUS_PRINCIPAL_REPAYMENT",
+      "title": "Interest expense versus principal repayment",
+      "concept": "Loan interest is borrowing cost; scheduled principal reduction changes the outstanding liability.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: A payment of $600 comprising $100 interest and $500 principal reduces debt by $500.",
+      "limit": "Accrual timing and additional fees require reconciliation.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Accrual timing and additional fees require reconciliation.",
+      "commonError": "Investing mistake: Treating all loan payments as interest expense overstates income-statement costs. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Loan interest is borrowing cost; scheduled principal reduction changes the outstanding liability. Work the stated fictional calculation: A payment of $600 comprising $100 interest and $500 principal reduces debt by $500. Avoid this misconception: Treating all loan payments as interest expense overstates income-statement costs. The uncertainty is: Accrual timing and additional fees require reconciliation. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: A $350 payment has $75 interest: calculate principal portion. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHARE_COUNT_IN_EPS_DENOMINATOR",
+      "title": "Share count in EPS denominator",
+      "concept": "Weighted-average basic common shares, not just end-of-period outstanding shares, determine basic EPS.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Fictional $1.2m income available to common and 600,000 weighted-average shares imply EPS $2.",
+      "limit": "Stock splits, dilutive instruments and share classes need separate treatment.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Stock splits, dilutive instruments and share classes need separate treatment.",
+      "commonError": "Investing mistake: Using year-end share count without considering issuance timing distorts reported per-share results. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Weighted-average basic common shares, not just end-of-period outstanding shares, determine basic EPS. Work the stated fictional calculation: Fictional $1.2m income available to common and 600,000 weighted-average shares imply EPS $2. Avoid this misconception: Using year-end share count without considering issuance timing distorts reported per-share results. The uncertainty is: Stock splits, dilutive instruments and share classes need separate treatment. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: $900,000 attributable income and 300,000 weighted shares: compute EPS. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_QUARTERLY_ANNUALIZATION_VERSUS_TRAILING_TWELVE_MONTHS",
+      "title": "Quarterly annualization versus trailing twelve months",
+      "concept": "Multiplying one quarter by four is an annualization assumption, not the actual trailing-year sum.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: A fictional $2m quarter annualizes to $8m, while four observed quarters $2m,$3m,$2m,$4m total $11m.",
+      "limit": "Fiscal quarters, restatements and continuing operations must match.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Fiscal quarters, restatements and continuing operations must match.",
+      "commonError": "Investing mistake: Treating a run rate as realized trailing results overlooks seasonality. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Multiplying one quarter by four is an annualization assumption, not the actual trailing-year sum. Work the stated fictional calculation: A fictional $2m quarter annualizes to $8m, while four observed quarters $2m,$3m,$2m,$4m total $11m. Avoid this misconception: Treating a run rate as realized trailing results overlooks seasonality. The uncertainty is: Fiscal quarters, restatements and continuing operations must match. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Current quarter $5m and previous three quarters $4m,$6m,$3m: compute TTM and annualized current run rate. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REVENUE_GROWTH_WITH_A_NEGATIVE_BASE",
+      "title": "Revenue growth with a negative base",
+      "concept": "Standard percentage growth may be unhelpful when the prior reference is zero or negative.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Revenue $100 to $120 means 20% growth, but a base of zero cannot be used as a percentage-growth denominator.",
+      "limit": "Revenue comparisons require identical period durations and accounting scope.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Revenue comparisons require identical period durations and accounting scope.",
+      "commonError": "Investing mistake: Reporting a mathematically infinite growth rate from zero base is misleading. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Standard percentage growth may be unhelpful when the prior reference is zero or negative. Work the stated fictional calculation: Revenue $100 to $120 means 20% growth, but a base of zero cannot be used as a percentage-growth denominator. Avoid this misconception: Reporting a mathematically infinite growth rate from zero base is misleading. The uncertainty is: Revenue comparisons require identical period durations and accounting scope. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Revenue $80 to $60: calculate signed year-over-year rate. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CAPITAL_EXPENDITURE_VERSUS_ACQUISITION_SPENDING",
+      "title": "Capital expenditure versus acquisition spending",
+      "concept": "Cash invested in ordinary fixed assets may be separate from cash spent to acquire a business.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Fictional $25,000 equipment capex plus $100,000 business acquisition are distinct categories, not automatically $125,000 maintenance capex.",
+      "limit": "Company cash flow classifications and supplemental notes govern.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Company cash flow classifications and supplemental notes govern.",
+      "commonError": "Investing mistake: Combining acquisitions with maintenance capex changes free-cash-flow definitions. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: Cash invested in ordinary fixed assets may be separate from cash spent to acquire a business. Work the stated fictional calculation: Fictional $25,000 equipment capex plus $100,000 business acquisition are distinct categories, not automatically $125,000 maintenance capex. Avoid this misconception: Combining acquisitions with maintenance capex changes free-cash-flow definitions. The uncertainty is: Company cash flow classifications and supplemental notes govern. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Equipment purchases $40,000 and acquisitions $60,000: state which is core equipment capex. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEBT_MATURITY_SCHEDULE_VERSUS_INTEREST_COVERAGE",
+      "title": "Debt maturity schedule versus interest coverage",
+      "concept": "A company can show ample interest coverage but still face a large contractual principal due soon.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Fictional EBIT $500,000 and interest $100,000 give 5× coverage; separately, $2m principal due next quarter.",
+      "limit": "Debt covenants, refinancing and actual available cash require separate evidence.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Debt covenants, refinancing and actual available cash require separate evidence.",
+      "commonError": "Investing mistake: Using coverage alone to infer cash sufficient for principal repayment ignores liquidity. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: A company can show ample interest coverage but still face a large contractual principal due soon. Work the stated fictional calculation: Fictional EBIT $500,000 and interest $100,000 give 5× coverage; separately, $2m principal due next quarter. Avoid this misconception: Using coverage alone to infer cash sufficient for principal repayment ignores liquidity. The uncertainty is: Debt covenants, refinancing and actual available cash require separate evidence. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: EBIT $300,000, interest $75,000 and principal $1m due in 30 days: find coverage and identify other risk. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DILUTION_MEASURED_WITH_UNCHANGED_INVESTOR_SHARES",
+      "title": "Dilution measured with unchanged investor shares",
+      "concept": "A fixed holding's ownership fraction falls when outstanding common shares increase without participation.",
+      "procedure": "Prerequisites: know the applicable statement, reporting interval, currency units and distinction between cash, accrual and market valuation. Identify the proper numerator and denominator from the completed fictional record, calculate in consistent units, and state what the ratio or balance does not establish.",
+      "workedCase": "FICTIONAL: Investor owns 100 of 1,000 shares=10%; issuance of 250 shares makes 100/1,250=8%.",
+      "limit": "Treasury shares, conversion and voting classes alter relevant denominators.",
+      "invalidation": "HOLD if the reporting date, measurement basis, necessary inputs, accounting convention or denominators are not comparable. Treasury shares, conversion and voting classes alter relevant denominators.",
+      "commonError": "Investing mistake: Assuming issuance is automatically a loss of cash wealth confuses proportional claim and stock valuation. Correct by tracing the financial-statement definition and its source period.",
+      "selfCheck": "What is measured in dollars, what is a ratio, and what missing financial statement detail would change the conclusion?",
+      "reviewExplanation": "Ungraded Talia example: A fixed holding's ownership fraction falls when outstanding common shares increase without participation. Work the stated fictional calculation: Investor owns 100 of 1,000 shares=10%; issuance of 250 shares makes 100/1,250=8%. Avoid this misconception: Assuming issuance is automatically a loss of cash wealth confuses proportional claim and stock valuation. The uncertainty is: Treasury shares, conversion and voting classes alter relevant denominators. This is educational, not a recommendation or protected graded item.",
+      "transferQuestion": "FICTIONAL independent transfer: Investor holds 50 of 500 shares; new issue adds 500: compute resulting fraction. Identify the statement line item or period that must be corroborated.",
+      "sourceUrls": [
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_pointer_not_claim_verified",
+      "editorSourceReview": {
+        "result": "INTERNAL_DRAFT_PENDING_ACCOUNTING_AND_PRIMARY_SOURCE_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
