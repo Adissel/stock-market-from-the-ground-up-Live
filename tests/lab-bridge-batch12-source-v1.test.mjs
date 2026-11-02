@@ -5,7 +5,7 @@ const data=JSON.parse(readFileSync(new URL('../data/lab-teaching-bridges-v014168
 const rows=Object.values(data.entries).filter(x=>x.instructionSource==='ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102');
 const authored=Object.values(data.entries).filter(x=>Boolean(x.instructionSource));
 test('Batch12 contributes twenty new canonical Day Trading bridges for 240/419',()=>{
- assert.equal(rows.length,20);assert.equal(authored.length,240);assert.equal(new Set(rows.map(x=>x.labId)).size,20);
+ assert.equal(rows.length,20);assert(authored.length>=240);assert.equal(new Set(rows.map(x=>x.labId)).size,20);
  assert.deepEqual(rows.map(x=>x.labId),['DT-C43-L01','DT-C43-L02','DT-C43-L03','DT-C44-L01','DT-C44-L02','DT-C44-L03','DT-C45-L01','DT-C45-L02','DT-C45-L03','DT-C46-L01','DT-C46-L02','DT-C46-L03','DT-C47-L01','DT-C47-L02','DT-C48-L01','DT-C48-L02','DT-C49-L01','DT-C49-L02','DT-C50-L01','DT-C50-L02']);
 });
 test('Batch12 is distinct, calculation-explicit, ungraded, no-lookahead and provenance-safe',()=>{

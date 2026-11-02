@@ -17115,43 +17115,100 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Your Historical-Replay Day-Trading Training Program — Stage 1 - observation.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Observation-stage replay records only evidence visible through each cutoff and forbids entries, outcomes, or later-candle explanations.",
+          "This lesson preserves the canonical topic Your Historical-Replay Day-Trading Training Program — Stage 1 - observation and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Your Historical-Replay Day-Trading Training Program — Stage 1 - observation from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL replay exposes bars through 09:45; the learner records range $10.00-$10.25 and withholds the 09:50 bar.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Your Historical-Replay Day-Trading Training Program — Stage 1 - observation using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL replay exposes bars through 09:45; the learner records range $10.00-$10.25 and withholds the 09:50 bar.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Your Historical-Replay Day-Trading Training Program — Stage 1 - observation: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Turning an observation-only stage into a simulated trade.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Your Historical-Replay Day-Trading Training Program — Stage 1 - observation cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Observation-stage replay records only evidence visible through each cutoff and forbids entries, outcomes, or later-candle explanations.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Your Historical-Replay Day-Trading Training Program — Stage 1 - observation calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Your Historical-Replay Day-Trading Training Program — Stage 1 - observation",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Observe a new five-bar packet one cutoff at a time and record only visible facts."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C50-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C51-L01",
+          "topic:Your Historical-Replay Day-Trading Training Program — Stage 1 - observation",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C51-L02": {
@@ -17162,43 +17219,100 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Observation-only training separates noticing from acting: quote, structure, liquidity, and uncertainty are logged without an order decision.",
+          "This lesson preserves the canonical topic Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL snapshot shows bid $7.98, ask $8.02, range $7.80-$8.10; spread is $0.04, while direction remains unknown.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL snapshot shows bid $7.98, ask $8.02, range $7.80-$8.10; spread is $0.04, while direction remains unknown.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Scoring observation practice by hypothetical profit.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Observation-only training separates noticing from acting: quote, structure, liquidity, and uncertainty are logged without an order decision.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Create a fact-only log for a new snapshot and mark every inference separately."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C51-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C51-L02",
+          "topic:Your Historical-Replay Day-Trading Training Program — Stage 1 — Observation Only",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C52-L01": {
@@ -17209,43 +17323,100 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Day-Trading Readiness Assessment — Knowledge gate.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "A knowledge gate checks defined concepts and calculations with new evidence; opening a lesson or recalling an answer is not mastery.",
+          "This lesson preserves the canonical topic Day-Trading Readiness Assessment — Knowledge gate and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Day-Trading Readiness Assessment — Knowledge gate from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL item: entry $20, invalidation $19.60, 100 shares gives $40 planned risk; the learner must show $0.40×100.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Day-Trading Readiness Assessment — Knowledge gate using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Worked example — FICTIONAL item: entry $20, invalidation $19.60, 100 shares gives $40 planned risk; the learner must show $0.40×100.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Day-Trading Readiness Assessment — Knowledge gate: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Awarding readiness for lesson completion without demonstrated reasoning.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Day-Trading Readiness Assessment — Knowledge gate cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A knowledge gate checks defined concepts and calculations with new evidence; opening a lesson or recalling an answer is not mastery.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Day-Trading Readiness Assessment — Knowledge gate calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
-        "topic": "Day-Trading Readiness Assessment — Knowledge gate",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Solve a new risk case and explain one limitation without using a stored answer."
+      },
+      "competencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "prerequisites": [
+        "DT-C51-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C52-L01",
+          "topic:Day-Trading Readiness Assessment — Knowledge gate",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C52-L02": {
@@ -17256,43 +17427,100 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Day-Trading Readiness Assessment — Graduation standard.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "A graduation standard requires repeated transfer under declared safety, process, and evidence criteria; one favorable result is insufficient.",
+          "This lesson preserves the canonical topic Day-Trading Readiness Assessment — Graduation standard and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Day-Trading Readiness Assessment — Graduation standard from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL record has 4 of 5 process demonstrations; an 80% threshold is met only if every mandatory safety item also passes.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Day-Trading Readiness Assessment — Graduation standard using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Worked example — FICTIONAL record has 4 of 5 process demonstrations; an 80% threshold is met only if every mandatory safety item also passes.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Day-Trading Readiness Assessment — Graduation standard: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Graduating a learner because a fictional trade made money.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Day-Trading Readiness Assessment — Graduation standard cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A graduation standard requires repeated transfer under declared safety, process, and evidence criteria; one favorable result is insufficient.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Day-Trading Readiness Assessment — Graduation standard calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
-        "topic": "Day-Trading Readiness Assessment — Graduation standard",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new multi-case record against a stated threshold and mandatory safety rule."
+      },
+      "competencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "prerequisites": [
+        "DT-C52-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C52-L02",
+          "topic:Day-Trading Readiness Assessment — Graduation standard",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C01-L01": {
@@ -17303,43 +17531,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Tape Reading Is - and What It Is Not — Start with evidence, not a story.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Tape reading organizes observed quotes, prints, depth, and context; it does not convert activity into a certain story about intent.",
+          "This lesson preserves the canonical topic What Tape Reading Is - and What It Is Not — Start with evidence, not a story and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Tape Reading Is - and What It Is Not — Start with evidence, not a story from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL quote $10.00×$10.04 and print $10.04 for 200 shares: the report is observable; buyer identity and future direction are not.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice What Tape Reading Is - and What It Is Not — Start with evidence, not a story using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL quote $10.00×$10.04 and print $10.04 for 200 shares: the report is observable; buyer identity and future direction are not.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with What Tape Reading Is - and What It Is Not — Start with evidence, not a story: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Explaining one print with an invented participant motive.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What What Tape Reading Is - and What It Is Not — Start with evidence, not a story cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Tape reading organizes observed quotes, prints, depth, and context; it does not convert activity into a certain story about intent.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the What Tape Reading Is - and What It Is Not — Start with evidence, not a story calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "What Tape Reading Is - and What It Is Not — Start with evidence, not a story",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Separate facts, inferences, and unknowns for a new quote and print."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "DT-C52-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C01-L01",
+          "topic:What Tape Reading Is - and What It Is Not — Start with evidence, not a story",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C01-L02": {
@@ -17350,43 +17635,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Tape Reading Is - and What It Is Not — Four evidence layers.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "The four evidence layers are price/structure, best quote, displayed depth, and reported transactions, each with its own timestamp and limits.",
+          "This lesson preserves the canonical topic What Tape Reading Is - and What It Is Not — Four evidence layers and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Tape Reading Is - and What It Is Not — Four evidence layers from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL snapshot: structure high $12.50; bid/ask $12.40/$12.44; depth 500/300; last print 100@$12.44. These are four distinct observations.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice What Tape Reading Is - and What It Is Not — Four evidence layers using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL snapshot: structure high $12.50; bid/ask $12.40/$12.44; depth 500/300; last print 100@$12.44. These are four distinct observations.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with What Tape Reading Is - and What It Is Not — Four evidence layers: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Combining mismatched timestamps as if they were one synchronized event.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What What Tape Reading Is - and What It Is Not — Four evidence layers cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "The four evidence layers are price/structure, best quote, displayed depth, and reported transactions, each with its own timestamp and limits.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the What Tape Reading Is - and What It Is Not — Four evidence layers calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "What Tape Reading Is - and What It Is Not — Four evidence layers",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Label four layers in a new time-stamped packet and reject stale observations."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C01-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C01-L02",
+          "topic:What Tape Reading Is - and What It Is Not — Four evidence layers",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C01-L03": {
@@ -17397,43 +17739,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about What Tape Reading Is - and What It Is Not — What tape reading cannot give you.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Tape evidence cannot guarantee hidden liquidity, participant identity, intent, future prints, fills, or profitability.",
+          "This lesson preserves the canonical topic What Tape Reading Is - and What It Is Not — What tape reading cannot give you and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize What Tape Reading Is - and What It Is Not — What tape reading cannot give you from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 2,000-share bid displays at $5.00; only 300 shares print before it changes, so remaining intent and fillability are unknown.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice What Tape Reading Is - and What It Is Not — What tape reading cannot give you using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL 2,000-share bid displays at $5.00; only 300 shares print before it changes, so remaining intent and fillability are unknown.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with What Tape Reading Is - and What It Is Not — What tape reading cannot give you: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling displayed size a promise that it will remain.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What What Tape Reading Is - and What It Is Not — What tape reading cannot give you cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Tape evidence cannot guarantee hidden liquidity, participant identity, intent, future prints, fills, or profitability.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the What Tape Reading Is - and What It Is Not — What tape reading cannot give you calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "What Tape Reading Is - and What It Is Not — What tape reading cannot give you",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "List what a new depth snapshot supports and five things it cannot establish."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C01-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C01-L03",
+          "topic:What Tape Reading Is - and What It Is Not — What tape reading cannot give you",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C02-L01": {
@@ -17444,43 +17843,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A readable three-panel workspace aligns chart context, quote/depth, and time-and-sales with visible labels and a shared symbol.",
+          "This lesson preserves the canonical topic Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL workspace labels XYZ, 1-minute completed chart, depth timestamp 10:02:01, and print timestamp 10:02:01; shared identity is explicit.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL workspace labels XYZ, 1-minute completed chart, depth timestamp 10:02:01, and print timestamp 10:02:01; shared identity is explicit.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using panels with different symbols or undocumented delays.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A readable three-panel workspace aligns chart context, quote/depth, and time-and-sales with visible labels and a shared symbol.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Audit a new three-panel layout for symbol, timeframe, timestamp, and accessible text."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C01-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C02-L01",
+          "topic:Build Your Tape-Reading Laboratory: the Platform and Practice Modes — First build a readable three-panel workspace",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C02-L02": {
@@ -17491,43 +17947,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Each panel needs one declared job so the learner can distinguish structure, available quote/depth, and reported executions.",
+          "This lesson preserves the canonical topic Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL chart answers where price has been; quote panel answers current displayed invitations; tape lists reports. None alone proves intent.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL chart answers where price has been; quote panel answers current displayed invitations; tape lists reports. None alone proves intent.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using time and sales as a substitute for chart structure.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Each panel needs one declared job so the learner can distinguish structure, available quote/depth, and reported executions.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Assign one question to each panel in a new workspace and identify overlap."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C02-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C02-L02",
+          "topic:Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Give every panel one job",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C02-L03": {
@@ -17539,43 +18052,101 @@
         "TAPE_READING",
         "LEVEL2_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Depth rows show displayed price and size at a moment; color is a presentation aid whose legend must be read, not a universal market meaning.",
+          "This lesson preserves the canonical topic Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL legend marks bids blue and asks orange; 4 means 400 shares only if the feed declares 100-share lots.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL legend marks bids blue and asks orange; 4 means 400 shares only if the feed declares 100-share lots.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Assuming every platform color and size unit means the same thing.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Depth rows show displayed price and size at a moment; color is a presentation aid whose legend must be read, not a universal market meaning.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Interpret a new labeled depth row and state the feed-dependent unknowns."
+      },
+      "competencies": [
+        "TAPE_READING",
+        "LEVEL2_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C02-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C02-L03",
+          "topic:Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C03-L01": {
@@ -17586,43 +18157,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Auction Behind Every Print — Start with a share, not a flashing number.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A transaction begins with shares exchanged at a reported price; flashing display changes that do not print are not transactions.",
+          "This lesson preserves the canonical topic The Auction Behind Every Print — Start with a share, not a flashing number and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize The Auction Behind Every Print — Start with a share, not a flashing number from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL ask changes $9.10 to $9.12 without a print; later 100@$9.12 is reported. Only the latter is an observed trade.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice The Auction Behind Every Print — Start with a share, not a flashing number using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL ask changes $9.10 to $9.12 without a print; later 100@$9.12 is reported. Only the latter is an observed trade.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with The Auction Behind Every Print — Start with a share, not a flashing number: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Counting quote updates as executed volume.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What The Auction Behind Every Print — Start with a share, not a flashing number cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A transaction begins with shares exchanged at a reported price; flashing display changes that do not print are not transactions.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the The Auction Behind Every Print — Start with a share, not a flashing number calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "The Auction Behind Every Print — Start with a share, not a flashing number",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new event stream into quote changes and reported trades."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C02-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C03-L01",
+          "topic:The Auction Behind Every Print — Start with a share, not a flashing number",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C03-L02": {
@@ -17633,43 +18261,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Auction Behind Every Print — Waiting versus accepting an available price.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "A resting order waits at a price while a marketable order accepts available contra liquidity, subject to feed and venue limitations.",
+          "This lesson preserves the canonical topic The Auction Behind Every Print — Waiting versus accepting an available price and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize The Auction Behind Every Print — Waiting versus accepting an available price from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid $15.00, ask $15.05; a reported print at $15.05 is consistent with ask-side execution but does not reveal participant identity.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice The Auction Behind Every Print — Waiting versus accepting an available price using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL bid $15.00, ask $15.05; a reported print at $15.05 is consistent with ask-side execution but does not reveal participant identity.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with The Auction Behind Every Print — Waiting versus accepting an available price: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Treating aggressor inference as proof of who traded or why.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What The Auction Behind Every Print — Waiting versus accepting an available price cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A resting order waits at a price while a marketable order accepts available contra liquidity, subject to feed and venue limitations.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the The Auction Behind Every Print — Waiting versus accepting an available price calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "The Auction Behind Every Print — Waiting versus accepting an available price",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify new prints relative to time-matched quotes and preserve uncertainty."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C03-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C03-L02",
+          "topic:The Auction Behind Every Print — Waiting versus accepting an available price",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C03-L03": {
@@ -17680,43 +18365,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Auction Behind Every Print — What tape reading tries to answer.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Tape reading asks whether observed transaction pace and quote response support, contradict, or leave a setup hypothesis unresolved.",
+          "This lesson preserves the canonical topic The Auction Behind Every Print — What tape reading tries to answer and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize The Auction Behind Every Print — What tape reading tries to answer from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL five ask-side prints total 900 shares while ask remains $20.10; activity is observed, but absorption or continuation requires subsequent evidence.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice The Auction Behind Every Print — What tape reading tries to answer using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL five ask-side prints total 900 shares while ask remains $20.10; activity is observed, but absorption or continuation requires subsequent evidence.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with The Auction Behind Every Print — What tape reading tries to answer: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Concluding direction from print count without quote response.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What The Auction Behind Every Print — What tape reading tries to answer cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Tape reading asks whether observed transaction pace and quote response support, contradict, or leave a setup hypothesis unresolved.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the The Auction Behind Every Print — What tape reading tries to answer calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "The Auction Behind Every Print — What tape reading tries to answer",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new print-and-response sequence as support, contradiction, or unresolved."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C03-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C03-L03",
+          "topic:The Auction Behind Every Print — What tape reading tries to answer",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C04-L01": {
@@ -17728,43 +18470,101 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read the Quote Before the Tape — The quote is a pair of invitations.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "The best bid and ask are displayed invitations to transact, not guarantees of persistence, complete liquidity, or execution.",
+          "This lesson preserves the canonical topic Read the Quote Before the Tape — The quote is a pair of invitations and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read the Quote Before the Tape — The quote is a pair of invitations from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid 300@$6.00 and ask 200@$6.04 summarize displayed best prices; midpoint is ($6.00+$6.04)/2=$6.02.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read the Quote Before the Tape — The quote is a pair of invitations using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL bid 300@$6.00 and ask 200@$6.04 summarize displayed best prices; midpoint is ($6.00+$6.04)/2=$6.02.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read the Quote Before the Tape — The quote is a pair of invitations: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling the midpoint an executable price.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read the Quote Before the Tape — The quote is a pair of invitations cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "The best bid and ask are displayed invitations to transact, not guarantees of persistence, complete liquidity, or execution.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read the Quote Before the Tape — The quote is a pair of invitations calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Read the Quote Before the Tape — The quote is a pair of invitations",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Read a new quote, calculate midpoint, and state which prices are displayed invitations."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C03-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C04-L01",
+          "topic:Read the Quote Before the Tape — The quote is a pair of invitations",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C04-L02": {
@@ -17776,43 +18576,101 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read the Quote Before the Tape — The spread measures a gap, not a forecast.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Spread equals ask minus bid and can be expressed in dollars or relative to a declared reference; it is not a directional forecast.",
+          "This lesson preserves the canonical topic Read the Quote Before the Tape — The spread measures a gap, not a forecast and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read the Quote Before the Tape — The spread measures a gap, not a forecast from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid $25.00 and ask $25.08 produce $0.08 spread, or 0.32% of bid.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read the Quote Before the Tape — The spread measures a gap, not a forecast using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL bid $25.00 and ask $25.08 produce $0.08 spread, or 0.32% of bid.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read the Quote Before the Tape — The spread measures a gap, not a forecast: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling a wider spread bullish or bearish by itself.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read the Quote Before the Tape — The spread measures a gap, not a forecast cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Spread equals ask minus bid and can be expressed in dollars or relative to a declared reference; it is not a directional forecast.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read the Quote Before the Tape — The spread measures a gap, not a forecast calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Read the Quote Before the Tape — The spread measures a gap, not a forecast",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate dollar and percentage spread for a new quote and name two execution limits."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C04-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C04-L02",
+          "topic:Read the Quote Before the Tape — The spread measures a gap, not a forecast",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C04-L03": {
@@ -17824,43 +18682,101 @@
         "SLIPPAGE_SPREAD",
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read the Quote Before the Tape — Read changes on both sides.",
-          "The quoted spread is ask minus bid; slippage compares planned with modeled/actual execution.",
-          "Label the bid, ask, displayed shares and time; compute quoted spread as ask minus bid, but do not infer that all desired shares can fill at those quotes."
+          "Quote reading compares time-ordered changes on both sides, including price, size, and duration, without inventing hidden intent.",
+          "This lesson preserves the canonical topic Read the Quote Before the Tape — Read changes on both sides and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read the Quote Before the Tape — Read changes on both sides from the source evidence.",
-          "Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid moves $10.00→$10.02 while ask stays $10.05; spread narrows $0.05→$0.03, but the next print remains unknown.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read the Quote Before the Tape — Read changes on both sides using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Step 3 — Check the alternative or invalidation: Quotes are stale, crossed, missing or refer to different timestamps."
+          "Worked example — FICTIONAL bid moves $10.00→$10.02 while ask stays $10.05; spread narrows $0.05→$0.03, but the next print remains unknown.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read the Quote Before the Tape — Read changes on both sides: Presenting OHLCV candles as Level II depth evidence.",
-          "Correct it by returning to the actual observation. Calculate quoted spread from same-timestamp quotes and show adverse slippage as a separate estimate.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Watching only bid size while ignoring price and ask changes.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read the Quote Before the Tape — Read changes on both sides cannot establish:",
-          "Displayed quotes do not reveal full market depth or guaranteed execution.",
-          "An interpretation is invalidated or unproven when: Quotes are stale, crossed, missing or refer to different timestamps."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Quote reading compares time-ordered changes on both sides, including price, size, and duration, without inventing hidden intent.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support spread and slippage, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read the Quote Before the Tape — Read changes on both sides calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional bids $5.00 and asks $5.08 with 20 shares displayed, assess a 100-share proposed order and identify unconfirmed fill prices.",
-        "topic": "Read the Quote Before the Tape — Read changes on both sides",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Describe both sides of a new three-snapshot sequence and preserve unknown outcomes."
+      },
+      "competencies": [
+        "SLIPPAGE_SPREAD",
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C04-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C04-L03",
+          "topic:Read the Quote Before the Tape — Read changes on both sides",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C05-L01": {
@@ -17871,43 +18787,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read a Time & Sales Row — A ledger of reports.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Time and sales is a feed-defined ledger of reported transactions containing timestamp, price, size, and optional condition—not a complete participant narrative.",
+          "This lesson preserves the canonical topic Read a Time & Sales Row — A ledger of reports and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read a Time & Sales Row — A ledger of reports from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL rows 10:01:00 100@$8.00 and 10:01:01 200@$8.02 total 300 reported shares and $2,404 notional.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read a Time & Sales Row — A ledger of reports using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL rows 10:01:00 100@$8.00 and 10:01:01 200@$8.02 total 300 reported shares and $2,404 notional.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read a Time & Sales Row — A ledger of reports: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Assuming the feed necessarily includes every venue and correction.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read a Time & Sales Row — A ledger of reports cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Time and sales is a feed-defined ledger of reported transactions containing timestamp, price, size, and optional condition—not a complete participant narrative.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read a Time & Sales Row — A ledger of reports calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read a Time & Sales Row — A ledger of reports",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Total size and notional for a new ledger, then state coverage unknowns."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C04-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C05-L01",
+          "topic:Read a Time & Sales Row — A ledger of reports",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C05-L02": {
@@ -17918,43 +18891,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read a Time & Sales Row — Read one row aloud.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Reading one row aloud means naming timestamp, reported price, reported size/unit, and condition before interpreting its relation to a quote.",
+          "This lesson preserves the canonical topic Read a Time & Sales Row — Read one row aloud and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read a Time & Sales Row — Read one row aloud from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL row 10:03:02.150, $14.22, 50 shares, condition regular: it reports 50 shares at $14.22 at that feed timestamp.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read a Time & Sales Row — Read one row aloud using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL row 10:03:02.150, $14.22, 50 shares, condition regular: it reports 50 shares at $14.22 at that feed timestamp.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read a Time & Sales Row — Read one row aloud: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Skipping the condition or size unit when describing a row.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read a Time & Sales Row — Read one row aloud cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Reading one row aloud means naming timestamp, reported price, reported size/unit, and condition before interpreting its relation to a quote.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read a Time & Sales Row — Read one row aloud calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read a Time & Sales Row — Read one row aloud",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Read a new row literally, then add a separately labeled inference using its matched quote."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C05-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C05-L02",
+          "topic:Read a Time & Sales Row — Read one row aloud",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C05-L03": {
@@ -17965,43 +18995,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Read a Time & Sales Row — Filters change the story you can tell.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Tape filters change the observed sample; minimum size, venue, condition, and time window must be disclosed before comparing activity.",
+          "This lesson preserves the canonical topic Read a Time & Sales Row — Filters change the story you can tell and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Read a Time & Sales Row — Filters change the story you can tell from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL rows sizes 50,100,500 total 650; a ≥100 filter retains 600 shares, or 92.31% of observed size.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Read a Time & Sales Row — Filters change the story you can tell using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL rows sizes 50,100,500 total 650; a ≥100 filter retains 600 shares, or 92.31% of observed size.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Read a Time & Sales Row — Filters change the story you can tell: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Comparing filtered and unfiltered tape without disclosing the filter.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Read a Time & Sales Row — Filters change the story you can tell cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Tape filters change the observed sample; minimum size, venue, condition, and time window must be disclosed before comparing activity.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Read a Time & Sales Row — Filters change the story you can tell calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Read a Time & Sales Row — Filters change the story you can tell",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply a new size filter, compute retained share percentage, and disclose exclusions."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C05-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C05-L03",
+          "topic:Read a Time & Sales Row — Filters change the story you can tell",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C06-L01": {
@@ -18012,43 +19099,100 @@
       "relatedCompetencies": [
         "TAPE_READING"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Infer Aggressor Side Carefully — Two participants, different urgency.",
-          "Time & Sales records prints, prices, size and timestamps; it is not a complete order book.",
-          "Record bid, ask, timestamp, trade price and reported size separately; a print does not reveal the participants’ identities."
+          "Aggressor-side inference compares a print with the time-matched bid/ask: at ask is ask-side, at bid is bid-side, and inside-spread evidence may be indeterminate.",
+          "This lesson preserves the canonical topic Infer Aggressor Side Carefully — Two participants, different urgency and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Infer Aggressor Side Carefully — Two participants, different urgency from the source evidence.",
-          "Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL bid $30.00, ask $30.06: print $30.06 is ask-side, $30.00 bid-side, and $30.03 inside-spread under this rule.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Infer Aggressor Side Carefully — Two participants, different urgency using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Step 3 — Check the alternative or invalidation: Print timestamps, venue flags or condition codes are unavailable."
+          "Worked example — FICTIONAL bid $30.00, ask $30.06: print $30.06 is ask-side, $30.00 bid-side, and $30.03 inside-spread under this rule.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Infer Aggressor Side Carefully — Two participants, different urgency: Interpreting invented Time & Sales numbers as real exchange records.",
-          "Correct it by returning to the actual observation. Distinguish the observed prints from an inferred aggressor or unexecuted quote.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Classifying a print against a later quote snapshot.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Infer Aggressor Side Carefully — Two participants, different urgency cannot establish:",
-          "A block of prints alone does not identify a single actor or hidden intent.",
-          "An interpretation is invalidated or unproven when: Print timestamps, venue flags or condition codes are unavailable."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Aggressor-side inference compares a print with the time-matched bid/ask: at ask is ask-side, at bid is bid-side, and inside-spread evidence may be indeterminate.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support time and sales, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Infer Aggressor Side Carefully — Two participants, different urgency calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given fictional prints at the ask, bid and midpoint, label each observation with its quote snapshot and list alternative explanations; do not infer hidden intent.",
-        "topic": "Infer Aggressor Side Carefully — Two participants, different urgency",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify three new prints with the contemporaneous quote and mark ambiguous cases."
+      },
+      "competencies": [
+        "TAPE_READING"
+      ],
+      "prerequisites": [
+        "TAPE-C05-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH13_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:TAPE-C06-L01",
+          "topic:Infer Aggressor Side Carefully — Two participants, different urgency",
+          "source_status:BATCH13_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "TAPE-C06-L02": {
