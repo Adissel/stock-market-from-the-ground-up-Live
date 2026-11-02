@@ -38,7 +38,14 @@ function mount({target,studyId,mode,context}={}){
  shell.append(chart,table);
  const fields=[],grid=node('div');grid.className='gu-quant-grid';
  def.keys.forEach(label=>{const l=node('label',label),inp=node('input');inp.type='text';inp.inputMode='decimal';inp.autocomplete='off';inp.maxLength=24;l.append(inp);grid.append(l);fields.push(inp)});
- shell.append(node('h4','Show all three intermediate calculations'),grid);
+ const worked=node('button','Show worked values in practice fields');worked.type='button';worked.className='secondary';
+ worked.setAttribute('aria-label','Populate practice inputs with this fictional worked example');
+ worked.addEventListener('click',()=>{
+  def.keys.forEach((_,i)=>{fields[i].value=String(base.values[i]);});
+  feedback.replaceChildren(node('p','Worked values populated for inspection. These are fictional teaching results, not a grade. Use Clear and retry to attempt independently.'));
+  fields[0].focus();
+ });
+ shell.append(node('h4','Show all three intermediate calculations'),grid,worked);
  const feedback=node('div');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
  const check=node('button','Check ungraded method'),btn=node('button','Clear and retry');check.type='button';btn.type='button';btn.className='secondary';
  check.addEventListener('click',()=>{
