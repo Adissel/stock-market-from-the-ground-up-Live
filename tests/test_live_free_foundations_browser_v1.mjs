@@ -6,13 +6,23 @@
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {createRequire} from 'node:module';
+import {createHmac} from 'node:crypto';
 const axePath=createRequire(import.meta.url).resolve('axe-core/axe.min.js');
 import {mkdirSync,writeFileSync} from 'node:fs';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const email=process.env.LAB_QA_EMAIL||'';
 const password=process.env.LAB_QA_PASSWORD||'';
-const secondEmail=process.env.LAB_QA_SECOND_EMAIL||'';
-const secondPassword=process.env.LAB_QA_SECOND_PASSWORD||'';
+// QA_Secondary was created through normal GoTrue signup by the approved
+// tests/setup-secondary-noncommercial-qa-v1.mjs onboarding program. Reuse its
+// separately derived credential when optional second-account secrets are absent.
+// This never logs or persists the password, changes Auth, or bypasses confirmation.
+const qaSecondaryFallback=!process.env.LAB_QA_SECOND_EMAIL&&
+ !process.env.LAB_QA_SECOND_PASSWORD&&!!password;
+const secondEmail=process.env.LAB_QA_SECOND_EMAIL||
+ (qaSecondaryFallback?'stockmarketfromthegroundup+smfgu-qa2v1@gmail.com':'');
+const secondPassword=process.env.LAB_QA_SECOND_PASSWORD||
+ (qaSecondaryFallback?createHmac('sha256',password)
+  .update('smfgu:isolated-second-qa:2026-10-31:v1').digest('hex')+'Qa2!':'');
 const expectedQaId=process.env.LAB_QA_EXPECTED_USER_ID||'f42f9301-18e6-43a3-8531-32d371fd22c1';
 const report={scope:'Real production Chromium, signed-in Free Foundations Days 1–5',
  checkedAt:new Date().toISOString(),checks:[],blocked:[],failures:[],completed:false,
@@ -456,6 +466,8 @@ if(!email||!password){
    const secondPage=await anotherContext.newPage();
    const other=await authenticate(secondPage,secondEmail,secondPassword);
    assert.notEqual(other.id,signed.id,'Second QA credentials must identify a different member');
+   if(qaSecondaryFallback)assert.equal(other.id,'bf3d5823-946d-4478-8d0f-cbea33495e5b',
+    'Derived secondary credential must resolve to the existing verified QA_Secondary member');
    const their=await progress(secondPage.request,other.access);
    assert.equal(their.status,200,'Second QA member needs eligible Free learning access');
    assert(!(their.body.progress||[]).some(x=>x.reflection===reflection),
