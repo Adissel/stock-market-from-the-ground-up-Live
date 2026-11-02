@@ -406,7 +406,7 @@ function Classroom(){
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
       </div>
-      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
+      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
         <div className="tp-instruction-header"><div><strong>Guided lesson pathway</strong><p>Instructor-directed practice, not a grade or verified mastery record.</p></div><span>{attempts} Tutor exchanges in this session</span></div>
         <div className="tp-instruction-controls">
           <label>Current study focus<input value={sessionTopic} maxLength={90} onChange={e=>setSessionTopic(e.target.value)} aria-label="Current study focus"/></label>
@@ -433,7 +433,7 @@ function Classroom(){
         </div>
         <p className="tc-muted">Current instructional lens: {dimension}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
-      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
+      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
         <section className="tp-followup" aria-label="Continue the current learning session">
           <strong>Continue this lesson</strong>
           <p className="tc-muted">Choose how Talia should build on the conversation. You can edit the question before submitting it.</p>
@@ -444,7 +444,7 @@ function Classroom(){
           </div>
           <p className="tc-muted">For verified server-side follow-up context, create or select an authorized private conversation and enable saving.</p>
         </section>}
-      {window.location.pathname.endsWith('/talia-tutor-prototype.html')&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
+      {(window.location.pathname.endsWith('/talia-tutor-prototype.html')||window.location.pathname.endsWith('/talia-classroom.html'))&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
         <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
         <div className="tp-teaching-loop-actions">
           <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');safeSuggest('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.')}}>1 · Explain & demonstrate</button>
