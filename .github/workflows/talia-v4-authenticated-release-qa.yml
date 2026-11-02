@@ -1,4 +1,4 @@
-name: Crownlight V4 Exact-SHA Authenticated Browser Acceptance
+name: Crownlight V4 Actual-SHA Production Browser Acceptance
 on:
   push:
     branches: [main]
@@ -21,7 +21,10 @@ jobs:
       LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
       CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
       CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
-      V4_ACCEPTANCE_ORIGIN: 'https://0cc3c815.stock-market-from-the-ground-up-d1r.pages.dev'
+      # Canonical production is accepted only when live release-manifest.json
+      # equals GITHUB_SHA at both start and end of the real browser QA.
+      V4_ACCEPTANCE_ORIGIN: 'https://stock-market-from-the-ground-up-d1r.pages.dev'
+      V4_ACCEPTANCE_SHA: ${{ github.sha }}
       QA_ARTIFACT_DIR: 'artifacts/talia-v4-oat'
     steps:
       - uses: actions/checkout@v4
