@@ -11,9 +11,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-concurrency:
-  group: beta-major-release-01-${{ github.ref }}
-  cancel-in-progress: false
+# Release-cut executions are not serialized: earlier pending beta jobs must not
+# block a subsequent reviewed release. Seven required job conclusions remain mandatory.
 jobs:
   learning:
     runs-on: ubuntu-latest
