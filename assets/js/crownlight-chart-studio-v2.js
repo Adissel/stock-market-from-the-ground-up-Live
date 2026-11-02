@@ -63,6 +63,7 @@
   shell.innerHTML='<div class="crownlight-toolbar">'+
    '<div class="crownlight-identity"><span class="crownlight-mark">C</span><span><strong>CROWNLIGHT</strong><small>CHART STUDIO <em>3.0</em></small></span></div>'+
    '<div class="crownlight-toolbar-actions" role="toolbar" aria-label="Chart controls">'+
+   '<button type="button" data-cl="interaction" aria-pressed="false" title="Toggle inspection mode without dragging or zooming">Inspect mode</button>'+ 
    '<button type="button" data-cl="zoom-in" title="Zoom in">＋<span class="sr-only">Zoom in</span></button>'+
    '<button type="button" data-cl="zoom-out" title="Zoom out">−<span class="sr-only">Zoom out</span></button>'+
    '<button type="button" data-cl="pan-earlier" aria-label="Pan chart to earlier revealed candles" title="View earlier completed candles">← Earlier</button>'+
@@ -116,6 +117,12 @@
   actions.addEventListener('click',event=>{
    const button=event.target.closest('[data-cl]');if(!button)return;
    const cmd=button.dataset.cl,scale=chart.timeScale();
+   if(cmd==='interaction'){
+    state.inspectMode=!state.inspectMode;
+    button.setAttribute('aria-pressed',String(state.inspectMode));
+    button.textContent=state.inspectMode?'Return to pan/zoom':'Inspect mode';
+    chart.applyOptions({handleScroll:{pressedMouseMove:!state.inspectMode,mouseWheel:false,horzTouchDrag:!state.inspectMode,vertTouchDrag:!state.inspectMode},handleScale:{axisPressedMouseMove:!state.inspectMode,mouseWheel:!state.inspectMode,pinch:!state.inspectMode},kineticScroll:{mouse:false,touch:false}});
+   }
    if(cmd==='zoom-in'||cmd==='zoom-out'){
     // Logical-range zoom survives a chart resize/follow update. Updating
     // barSpacing alone can be overridden by the existing visible range.
@@ -139,7 +146,7 @@
      // the configured empty right-side buffer is visible, never future OHLCV.
      const latest=state.count-1;
      const maxFrom=latest+safeAppearance(prefs.appearance).rightBuffer-span;
-     const minFrom=Math.min(-1,maxFrom,range.from);
+     const minFrom=Math.min(-1,maxFrom);
      const from=cmd==='pan-earlier'?Math.max(minFrom,range.from-step):Math.min(maxFrom,range.from+step);
      if(Math.abs(from-range.from)>.01){
       state.follow=false;updateFollow();save();
