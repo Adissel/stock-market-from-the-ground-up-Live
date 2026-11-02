@@ -32,3 +32,16 @@ test('Prototype sign-in returns staff to the prototype route without bypassing s
  assert.match(gate,/\/api\/admin\?action=context/);
  assert.match(gate,/control_panel\.access/);
 });
+
+
+test('Redesigned instructor workstation preserves actual Tutor API and protects staff entry',()=>{
+ const page=read('talia-tutor-prototype.html');
+ const css=read('assets/css/talia-prototype-v1.css');
+ const gate=read('assets/js/talia-prototype-gate-v1.js');
+ for(const token of ['id="talia-classroom-root"','id="tp-connection"','tp-operational-bar','tp-instructor','data-route-access="staff"','data-tp-view="split"','data-tp-view="chart"','data-tp-view="tutor"'])
+  assert.ok(page.includes(token),'Required real classroom integration '+token);
+ assert.ok(gate.includes("connection.textContent='Authorized staff session'"));
+ assert.ok(gate.includes("connection.textContent='Access not verified'"));
+ assert.ok(css.includes('.tp-console-heading')&&css.includes('.tp-workspace-summary'));
+ assert.doesNotMatch(page,/onclick=|fakeResponse|mockTutorResponse/);
+});
