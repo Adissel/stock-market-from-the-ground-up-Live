@@ -1,20 +1,12 @@
 # Source-only release batch. Passing does not authorize LIVE commerce or certify real-user / editorial acceptance.
-name: Beta Major Release 01 - 60 Evidence Gates
+# Release-cut workflow: deliberately triggered by changes to this file or manual dispatch.
+# Feature and source commits continue to use their dedicated workflows; this prevents
+# rapid main commits from endlessly replacing a single pending 86-command acceptance run.
+name: Beta Major Release 01 - 86 Source Evidence Commands
 on:
   push:
     branches: [main]
     paths:
-      - 'assets/**'
-      - 'functions/**'
-      - 'data/**'
-      - 'tests/**'
-      - 'src/**'
-      - 'scripts/**'
-      - 'talia-tutor-prototype.html'
-      - 'talia-classroom.html'
-      - 'prototype.html'
-      - 'lab-player.html'
-      - 'bootcamp-academy.html'
       - '.github/workflows/beta-major-release-01-60-gates.yml'
   workflow_dispatch:
 permissions:
