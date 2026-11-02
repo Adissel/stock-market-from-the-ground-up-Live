@@ -163,8 +163,10 @@ test('Explicitly invalid bearer session never falls back to anonymous Free silen
    return original(url,opts);
   };
   const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
-  assert.equal(response.status,503);
-  assert.equal((await response.json()).ok,false);
+  assert.equal(response.status,401);
+  const payload=await response.json();
+  assert.equal(payload.ok,false);
+  assert.equal(payload.error,'Invalid member session');
  }finally{m.restore()}
 });
 test('Unknown subscription state cannot select paid-plan versions',async()=>{
@@ -185,5 +187,18 @@ test('Anonymous request cannot produce premium member versions',async()=>{
   assert.equal(payload.planCode,'FREE');
   assert.deepEqual(payload.versions,FREE);
   assert.equal(payload.tutorEdition.premiumFeaturesAvailable,false);
+ }finally{m.restore()}
+});
+
+test('Auth provider outage remains a 503 rather than falsely asserting invalid credentials',async()=>{
+ const m=setup();
+ try{
+  const original=globalThis.fetch;
+  globalThis.fetch=async(url,opts={})=>String(url).includes('/auth/v1/user')
+   ?new Response(JSON.stringify({error:'temporary outage'}),{status:500,headers:{'content-type':'application/json'}})
+   :original(url,opts);
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,503);
+  assert.equal((await response.json()).ok,false);
  }finally{m.restore()}
 });
