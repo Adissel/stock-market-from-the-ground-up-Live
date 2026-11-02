@@ -18,6 +18,7 @@ node tests/talia-upload5-and-claims-v1.test.mjs
 node tests/talia-indicator-16-20-python-js-crosscheck-v1.test.mjs
 node tests/talia-indicators21-30-source-math-v1.test.mjs
 node tests/talia-indicators21-30-crosslanguage-v1.test.mjs
+node tests/talia-indicator46-73-python-js-v1.test.mjs
 node --check functions/api/credentials.js
 node --check functions/api/market-tutor-v01492.js
 node --check assets/js/member-tutor-version-loader-v1.js
