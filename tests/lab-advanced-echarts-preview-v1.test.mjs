@@ -62,9 +62,16 @@ test('Full 419-Lab/61-indicator registry is preserved; only approved topical Lab
  assert.equal(catalog.guides.length,61);
  for(const code of ['STUDY_RSI','STUDY_MACD','STUDY_ATR','STUDY_BOLLINGER_BANDS'])
   assert(catalog.guides.some(x=>x.code===code));
+ const canonicalTopic={
+  'F3-C07-L01':'RSI overbought is not a reversal command',
+  'F3-C07-L02':'RSI oversold is not an automatic buy',
+  'F3-C07-L03':'MACD lag after a fast price impulse',
+  'DT-C19-L03':'Measuring Price, Gap, Volume, Dollar Volume, and Relative Volume — Range and Volatility',
+  'F3-C07-L04':'Momentum whipsaw in a narrow price window'
+ };
  for(const [labId,id] of Object.entries(math.approved)){
   assert(registry[labId],'Canonical Lab not found '+labId);
-  assert.equal(math.select({labId,topic:id==='rsi'?'RSI independent interpretation':'MACD interpretation'}),id);
+  assert.equal(math.select({labId,topic:canonicalTopic[labId]}),id);
  }
  assert.equal(math.select({labId:'F1-C01-L01',topic:'RSI'}),null);
 });
