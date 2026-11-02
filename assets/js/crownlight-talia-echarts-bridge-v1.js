@@ -165,6 +165,7 @@
    chart.resize();
   }catch{
    if(seq===revision){
+    observer?.disconnect();observer=null;chart?.dispose();chart=null;
     plot.hidden=true;status.textContent+=' Interactive chart unavailable; factual table and guidance remain.';
    }
   }
