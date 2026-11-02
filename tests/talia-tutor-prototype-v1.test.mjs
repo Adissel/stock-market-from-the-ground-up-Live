@@ -103,3 +103,102 @@ test('Starting new Tutor topic aborts outstanding requests and resets all ungrad
  for(const token of ['pending.current?.abort()','epoch.current++',"setQuestion('')","setReasoning('')","setPhase('Observe')",'setAttempts(0)',"setMisconception('observation')","setConfidence('unsure')",'setConversationId(null)','setSave(false)'])
   assert.ok(action.includes(token),'Topic reset must include '+token);
 });
+
+// Consolidated source-presence regression inventory. These are NOT authenticated browser tests.
+test('Talia major release: 79 individually identified integration and safety contracts remain present',()=>{
+ const contracts={
+ "src/tutor/TaliaClassroom.tsx": [
+  "getSupabaseClient",
+  "getSession()",
+  "getUser()",
+  "onAuthStateChange",
+  "pending.current?.abort()",
+  "epoch.current++",
+  "identity.current",
+  "/api/member-tool-access?tool=MARKET_TUTOR",
+  "/api/market-tutor",
+  "allowModel:false",
+  "saveHistory:currentSave",
+  "conversationId:thread",
+  "/api/member-tutor-history",
+  "/api/member-tutor-conversations",
+  "getToken",
+  "source-grounded",
+  "REPLAY.slice(0,visible)",
+  "CrownlightECharts",
+  "dataZoom",
+  "candlestick",
+  "showVolume",
+  "vwap",
+  "ema200",
+  "ema20",
+  "ema9",
+  "showStructure",
+  "fictional",
+  "Observe",
+  "Explain",
+  "Attempt",
+  "Correct",
+  "Retry",
+  "Transfer",
+  "Knowledge",
+  "Recognition",
+  "Decision",
+  "Process",
+  "misconception",
+  "confidence",
+  "preparePhase",
+  "requestCorrection",
+  "requestRecommendation",
+  "save",
+  "reasoning",
+  "aria-label",
+  "role=\"log\"",
+  "setQuestion('')",
+  "setReasoning('')",
+  "setMember(null)",
+  "setConversationId(null)",
+  "setSave(false)",
+  "setBusy(false)",
+  "setPhase('Observe')",
+  "setAttempts(0)",
+  "setMisconception('observation')",
+  "setConfidence('unsure')",
+  "setDimension('Recognition')"
+ ],
+ "assets/js/talia-prototype-gate-v1.js": [
+  "getSession()",
+  "getUser()",
+  "/api/admin?action=context",
+  "SHOWCASE_VIEWER",
+  "control_panel.access",
+  "workspace.hidden=true",
+  "cache:'no-store'",
+  "OWNER",
+  "ADMIN",
+  "TECH_ADMIN",
+  "talia-classroom-v1.bundle.js"
+ ],
+ "talia-tutor-prototype.html": [
+  "data-route-access=\"staff\"",
+  "id=\"talia-classroom-root\"",
+  "data-tp-view=\"split\"",
+  "data-tp-view=\"chart\"",
+  "data-tp-view=\"tutor\"",
+  "id=\"tp-connection\"",
+  "crownlight-echarts-loader-v1.js"
+ ],
+ "assets/css/talia-prototype-v1.css": [
+  ".tp-instruction-steps",
+  ".tp-followup",
+  "@media(max-width:600px)",
+  "prefers-reduced-motion"
+ ]
+};
+ let checked=0;
+ for(const [path,tokens] of Object.entries(contracts)){
+  const source=read(path);
+  for(const token of tokens){assert.ok(source.includes(token),path+' missing release contract '+token);checked++}
+ }
+ assert.equal(checked,79);
+});
