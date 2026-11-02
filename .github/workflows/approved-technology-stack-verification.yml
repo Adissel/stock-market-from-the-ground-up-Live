@@ -1,0 +1,63 @@
+name: Approved Technology Stack Verification
+# Manual, non-deploying verification. Existing release workflows remain authoritative.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-toolchain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out current source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Configure JavaScript / Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Configure Java JDK (development and future Java checks only)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Verify installed interpreters and compilers
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --version
+          npm --version
+          python --version
+          python3 --version
+          java -version
+          javac -version
+      - name: Verify existing Python mathematical classroom regression
+        run: python3 scripts/qa/talia_classroom_fictional_ohlc_v1.py
+      - name: Verify source assets and production build contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s talia-classroom.html
+          test -s assets/css/talia-classroom-v1.css
+          test -s src/tutor/TaliaClassroom.tsx
+          test -s scripts/build-pages.sh
+          node tests/talia-classroom-source-v1.test.mjs
+          node tests/talia-membership-only-v1.test.mjs
+      - name: Build production assets using pinned existing dependencies
+        run: bash scripts/build-pages.sh
+      - name: Verify built HTML5, CSS3, React, ECharts entrypoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s public/talia-classroom.html
+          test -s public/assets/css/talia-classroom-v1.css
+          test -s public/assets/js/talia-classroom-v1.bundle.js
+          test -s public/assets/vendor/echarts/6.1.0/echarts.min.js
+          test ! -e public/supabase
+          test ! -d public/functions
+          test ! -d public/tests
