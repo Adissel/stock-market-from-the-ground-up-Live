@@ -188,9 +188,18 @@ function synchronize(source,event,type){
    // realTo is a BAR INDEX, not a timestamp. Resolve through the actual revealed list.
    const index=Math.min(data.length-1,Math.max(0,Math.ceil(range.realTo)-1));
    const stamp=data[index]?.timestamp;
-   if(type==='onZoom'&&typeof source.chart.getBarSpace==='function'&&typeof target.chart.setBarSpace==='function'){
-    const space=source.chart.getBarSpace();
-    if(Number.isFinite(space))target.chart.setBarSpace(Math.max(1,Math.min(50,space)));
+   if(type==='onZoom'&&typeof target.chart.setBarSpace==='function'){
+    // KLineChart 10 returns a BarSpace OBJECT, unlike v9's numeric return.
+    // Measure the actual pixel distance of two revealed adjacent bars;
+    // this works across the documented v10 return shape and avoids guessing.
+    const a=Math.max(0,Math.min(data.length-2,index-1));
+    if(data.length>=2){
+     const first=source.chart.convertToPixel({timestamp:data[a].timestamp},{paneId:'candle_pane'});
+     const second=source.chart.convertToPixel({timestamp:data[a+1].timestamp},{paneId:'candle_pane'});
+     const spacing=Math.abs(Number(second?.x)-Number(first?.x));
+     if(Number.isFinite(spacing)&&spacing>=1&&spacing<=50)
+      target.chart.setBarSpace(spacing);
+    }
    }
    if(Number.isSafeInteger(stamp)&&
       (target.chart.getDataList?.()||[]).some(b=>b.timestamp===stamp))
