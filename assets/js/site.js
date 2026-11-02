@@ -260,3 +260,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 
 (()=>{if(document.querySelector('link[data-gu-nav-entrypoints]'))return;const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/css/nav-entrypoints-v1.css?v=1';l.dataset.guNavEntrypoints='1';document.head.append(l)})();
+
+/* Sitewide user appearance choice. Labs and Boot Camps retain locked original layouts. */
+(()=>{const page=location.pathname.split('/').pop()||'index.html';if(/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/i.test(page))return;
+const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/css/appearance-controls-v1.css?v=1';document.head.append(css);
+const js=document.createElement('script');js.defer=true;js.src='/assets/js/appearance-controls-v1.js?v=1';document.head.append(js);
+})();
