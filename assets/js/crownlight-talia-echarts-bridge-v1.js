@@ -18,7 +18,7 @@
  const MAX_BARS=2500;
  const finite=v=>typeof v==='number'&&Number.isFinite(v);
  const fmt=v=>finite(v)?v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'Warm-up / unavailable';
- const note='The visual uses only the completed candles currently revealed by the chart. EMA requires its full seed; HLC3-volume VWAP is an estimate, not trade-print VWAP. This is ungraded teaching, not a signal, score or official Talia AI conversation.';
+ const note='The visual uses only the completed candles currently revealed by the chart. No future candle is used. EMA requires its full seed; HLC3-volume VWAP is an estimate, not trade-print VWAP. This is ungraded teaching, not a signal, score or official Talia AI conversation.';
  const add=(type,text)=>{const node=document.createElement(type);node.textContent=text;return node};
  function clear(reason){
   revision++;visibleCount=0;chart?.dispose();chart=null;
@@ -56,11 +56,12 @@
      }
     });
    }
+   if(verified&&memberId&&checkedAt&&Date.now()-checkedAt<15000)return true;
    const result=await authClient.getUser();
    const uid=result?.data?.user?.id||null;
    if(result?.error||!uid)return false;
    if(memberId&&memberId!==uid)clear('Member changed. Previous teaching view cleared.');
-   memberId=uid;verified=true;
+   memberId=uid;verified=true;checkedAt=Date.now();
    return true;
   }catch{return false}
  }
@@ -170,7 +171,8 @@
  }
  root.addEventListener('crownlight:revealed-bars',event=>{void show(event)});
  root.addEventListener('crownlight:member-changed',()=>{
-  memberId=null;verified=false;clear('Member context changed. Teaching view cleared.');
+  memberId=null;verified=false;checkedAt=0;
+  clear('Member context changed. Teaching view cleared.');
  });
  root.addEventListener('pagehide',()=>clear('Page hidden.'));
  clear('Awaiting authorized revealed candles from the active chart.');
