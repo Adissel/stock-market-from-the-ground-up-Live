@@ -30,4 +30,23 @@ assert ema(values, 9)[9] == Decimal(6)
 bars = [(Decimal(11),Decimal(9),Decimal(10),Decimal(100)),(Decimal(13),Decimal(11),Decimal(12),Decimal(300))]
 assert vwap(bars) == [Decimal(10),Decimal(Decimal(46)/Decimal(4))]
 assert vwap([(Decimal(1),Decimal(1),Decimal(1),Decimal(0))]) == [None]
+# Each market session starts a new accumulation. The caller supplies its exchange calendar.
+session_bars = [
+  ('2026-11-02', (Decimal(11),Decimal(9),Decimal(10),Decimal(100))),
+  ('2026-11-02', (Decimal(13),Decimal(11),Decimal(12),Decimal(300))),
+  ('2026-11-03', (Decimal(22),Decimal(18),Decimal(20),Decimal(200))),
+]
+session_out = []
+current = None
+acc = []
+for session, bar in session_bars:
+    if session != current:
+        current, acc = session, []
+    acc.append(bar)
+    session_out.append(vwap(acc)[-1])
+assert session_out == [Decimal(10), Decimal('11.5'), Decimal(20)]
+# Zero-volume first bar is missing, not fabricated as zero VWAP.
+assert vwap([(Decimal(1),Decimal(1),Decimal(1),Decimal(0)),
+             (Decimal(4),Decimal(2),Decimal(3),Decimal(2))]) == [None,Decimal(3)]
+
 print('PASS Decimal EMA initialization and HLC3 volume-weighted proxy')
