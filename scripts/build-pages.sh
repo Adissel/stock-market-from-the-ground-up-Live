@@ -14,6 +14,7 @@ node tests/test_site_shell_acceptance_v1.cjs
 node --test tests/atelier-sitewide-theme-v1.test.mjs
 node --test tests/studio-spectrum-theme-v1.test.mjs
 node --test tests/talia-spectrum-theme-v1.test.mjs
+node --test tests/crownlight-integrated-40-gates-v1.test.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 node tests/basic-quant-worked-inspection-v1.test.mjs
 node tests/academy-member-day-restoration-v1.test.mjs
