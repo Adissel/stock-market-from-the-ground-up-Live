@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/crownlight-visual-kit-contract-v1.yml'
       - 'assets/js/crownlight-visual-kit-v1.js'
       - 'assets/js/free-foundations-echarts-v1.js'
       - 'assets/js/learning-progress-echarts-v1.js'
