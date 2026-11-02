@@ -1,0 +1,50 @@
+name: Crownlight V4 Exact-SHA Authenticated Browser Acceptance
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/talia-v4-authenticated-release-qa.mjs'
+      - '.github/workflows/talia-v4-authenticated-release-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+# Explicit acceptance attempts must not be invalidated by unrelated main pushes.
+concurrency:
+  group: talia-v4-oat-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  genuine-browser-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+      LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+      CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
+      CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
+      V4_ACCEPTANCE_ORIGIN: 'https://0cc3c815.stock-market-from-the-ground-up-d1r.pages.dev'
+      QA_ARTIFACT_DIR: 'artifacts/talia-v4-oat'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated pinned Chromium runner
+        run: |
+          mkdir -p "$RUNNER_TEMP/talia-qa"
+          npm install --prefix "$RUNNER_TEMP/talia-qa" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.56.0
+          "$RUNNER_TEMP/talia-qa/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Run no-charge, read-only exact-deployment acceptance
+        run: |
+          node --check tests/talia-v4-authenticated-release-qa.mjs
+          cp tests/talia-v4-authenticated-release-qa.mjs "$RUNNER_TEMP/talia-qa/qa.mjs"
+          node "$RUNNER_TEMP/talia-qa/qa.mjs"
+      - name: Upload redacted QA evidence, even when blocked
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: talia-v4-oat-evidence
+          path: artifacts/talia-v4-oat/
+          if-no-files-found: warn
+          retention-days: 14
