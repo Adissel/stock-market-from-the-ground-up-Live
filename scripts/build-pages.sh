@@ -15,6 +15,7 @@ node --test tests/atelier-sitewide-theme-v1.test.mjs
 node --test tests/studio-spectrum-theme-v1.test.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 node tests/basic-quant-worked-inspection-v1.test.mjs
+node tests/academy-member-day-restoration-v1.test.mjs
 node tests/basic-five-indicator-parity-v1.test.mjs
 node tests/basic-engine-six-gate-closeout-v1.test.mjs
 node tests/talia-classroom-source-v1.test.mjs
