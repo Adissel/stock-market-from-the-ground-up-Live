@@ -462,7 +462,7 @@
       "code": "TALIA_TOPIC_QUOTE_DEPTH_NOT_EXECUTED_VOLUME",
       "title": "Displayed order-book depth is not evidence that those shares traded",
       "concept": "A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum displayed fictional share quantities only within the clearly labeled order-book side; do not add them to executed interval volume. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Did 500 displayed bid shares trade merely by appearing in Level II?",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Sum displayed fictional share quantities only within the clearly labeled order-book side; do not add them to executed interval volume. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Did 500 displayed bid shares trade merely by appearing in Level II? Original platform research pointer retained in internal provenance only; source-specific exchange terms and permissions require separate review.",
       "workedCase": "FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot.",
       "limit": "Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity.",
@@ -471,7 +471,7 @@
       "reviewExplanation": "Ungraded correction: A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval. Work through this example: FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot. Check the critical limitation: Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Distinguish outstanding displayed orders from actual executed prints. Boundary: Hidden/cancelled orders and feed snapshots are not fills.",
       "transferQuestion": "FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
-        "https://www.nasdaqtrader.com/"
+        "https://www.sec.gov/data-research/market-structure-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -496,14 +496,16 @@
         "transferPrompt": "FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Explain the relevant units, what is only assumed, and what would invalidate your result.",
         "sourceCandidate": "https://www.nasdaqtrader.com/",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "additionalResearchCandidate": "https://www.nasdaqtrader.com/",
+        "sourceScopeQualification": "Source is SEC market structure summary, corroborates quote depth and activity as distinct measured series; exact order-book feed rights and details require platform data source review."
       }
     },
     {
       "code": "TALIA_TOPIC_NUMBER_OF_ORDERS_VS_SHARE_DEPTH",
       "title": "Order count and displayed share quantity are separate market-depth measurements",
       "concept": "One resting order can represent many shares, and several orders can together represent the same displayed quantity.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the fictional quantity of each displayed order and count distinct orders as a separate unit before drawing comparisons. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does six displayed orders automatically mean six shares?",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Add the fictional quantity of each displayed order and count distinct orders as a separate unit before drawing comparisons. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does six displayed orders automatically mean six shares? Original platform research pointer retained in internal provenance only; source-specific exchange terms and permissions require separate review.",
       "workedCase": "FICTIONAL: One displayed bid order has 500 shares while five others each have 100; six orders together show 1,000 shares.",
       "limit": "Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders.",
@@ -512,7 +514,7 @@
       "reviewExplanation": "Ungraded correction: One resting order can represent many shares, and several orders can together represent the same displayed quantity. Work through this example: FICTIONAL: One displayed bid order has 500 shares while five others each have 100; six orders together show 1,000 shares. Check the critical limitation: Some feeds aggregate by price level and do not reveal individual order counts, so a level aggregate cannot be reverse engineered into orders. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Count the six orders and separately sum their 1,000 displayed shares. Boundary: Aggregated-by-price depth may omit underlying order count.",
       "transferQuestion": "FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
-        "https://www.nasdaqtrader.com/"
+        "https://www.sec.gov/data-research/market-structure-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -537,7 +539,9 @@
         "transferPrompt": "FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Explain the relevant units, what is only assumed, and what would invalidate your result.",
         "sourceCandidate": "https://www.nasdaqtrader.com/",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "additionalResearchCandidate": "https://www.nasdaqtrader.com/",
+        "sourceScopeQualification": "SEC primary source supports market depth as its own data concept; the six-order versus 1000-share case is original arithmetic, not detailed SEC order-by-order documentation."
       }
     },
     {
@@ -585,7 +589,7 @@
       "code": "TALIA_TOPIC_TRADING_HALT_QUOTE_NOT_REOPEN_FILL",
       "title": "A pre-halt last price does not determine the price of a later reopening fill",
       "concept": "When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record the fictional pre-halt print and the separately supplied reopening fill; compute a gap only after the second event actually becomes available. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a pre-halt $20 quote determine the reopening execution price?",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Record the fictional pre-halt print and the separately supplied reopening fill; compute a gap only after the second event actually becomes available. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Can a pre-halt $20 quote determine the reopening execution price? Original platform research pointer retained in internal provenance only; source-specific exchange terms and permissions require separate review.",
       "workedCase": "FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change.",
       "limit": "Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill.",
@@ -594,7 +598,7 @@
       "reviewExplanation": "Ungraded correction: When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening. Work through this example: FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change. Check the critical limitation: Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Only an actual later reopening print documents a retrospective $18.40 price. Boundary: Before the reopening, its price is future information.",
       "transferQuestion": "FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
-        "https://www.nasdaqtrader.com/"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -619,14 +623,16 @@
         "transferPrompt": "FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Explain the relevant units, what is only assumed, and what would invalidate your result.",
         "sourceCandidate": "https://www.nasdaqtrader.com/",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "additionalResearchCandidate": "https://www.nasdaqtrader.com/",
+        "sourceScopeQualification": "SEC Investor.gov explains exchange halt mechanics, not an exact reopening fill or guaranteed price."
       }
     },
     {
       "code": "TALIA_TOPIC_TRADE_PRINT_LIQUIDITY_NOT_BUYER_ID",
       "title": "Time-and-sales prints cannot identify the actual beneficial buyer by color",
       "concept": "A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity.",
-      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare the fictional executed print with its separately timestamped quotes; describe only the observable print and classification uncertainty. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a red or green Time & Sales print reveal buyer identity?",
+      "procedure": "Step 1 — Confirm that each input is fictional and was available at the stated decision time. Step 2 — Compare the fictional executed print with its separately timestamped quotes; describe only the observable print and classification uncertainty. Step 3 — Recheck each measurement's units, and distinguish an observed fact from a hypothetical assumption. Talia ungraded diagnostic question: Does a red or green Time & Sales print reveal buyer identity? Original platform research pointer retained in internal provenance only; source-specific exchange terms and permissions require separate review.",
       "workedCase": "FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers.",
       "limit": "Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable.",
       "invalidation": "Do not draw the stated conclusion when necessary timestamps, eligible units or definitions are missing or incompatible. Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable.",
@@ -635,7 +641,7 @@
       "reviewExplanation": "Ungraded correction: A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity. Work through this example: FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers. Check the critical limitation: Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable. This response is not a protected assessment answer or mastery award. Specific corrective instruction: Observe print quantity and price; infer aggressor side only cautiously with matched quotes. Boundary: Color never proves beneficial ownership or count of counterparties.",
       "transferQuestion": "FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "sourceUrls": [
-        "https://www.nasdaqtrader.com/"
+        "https://www.sec.gov/data-research/market-structure-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -660,7 +666,9 @@
         "transferPrompt": "FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Explain the relevant units, what is only assumed, and what would invalidate your result.",
         "sourceCandidate": "https://www.nasdaqtrader.com/",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "additionalResearchCandidate": "https://www.nasdaqtrader.com/",
+        "sourceScopeQualification": "SEC market activity data distinguishes transactions/quotes; it does not certify a print color's beneficial owner, so the exact ownership claim remains limited."
       }
     },
     {
