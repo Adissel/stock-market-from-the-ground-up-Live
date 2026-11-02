@@ -1,6 +1,7 @@
 let PLAYER={lab:null,access:null,mode:'guided',locked:false,revealIndex:0,attemptGeneration:0,savingAttempt:false,reflectionSaved:false};
 let labPlayerSessionEpoch=0,labPlayerAccountId='',labPlayerAuthSubscribed=false;
 function scrubLabPlayerOnIdentityChange(nextUserId){
+ globalThis.CrownlightEditionExercisePanelV1?.scrub?.();
  globalThis.CrownlightMemberLayoutsV1?.resetLab?.();
  const id=typeof nextUserId==='string'?nextUserId:'';
  if(id===labPlayerAccountId)return;
@@ -688,7 +689,16 @@ async function initPlayer(){let loadEpoch=null;try{const params=new URLSearchPar
   syncPlayerMode();
  });
  if(!memberUnchanged())return;
- renderPlayer()}catch(e){
+ renderPlayer();
+ // The premium supplement is optional: its independent API requires a
+ // server-verified edition grant AND release flag. Never gate Basic instruction.
+ if(session?.access_token&&PLAYER.access?.isMember===true&&memberUnchanged()){
+  void globalThis.CrownlightEditionExercisePanelV1?.mount?.({
+   host:q('player-edition-exercise'),userId:memberId,
+   token:session.access_token,alive:memberUnchanged
+  });
+ }
+ }catch(e){
  if(loadEpoch!==null&&loadEpoch!==labPlayerSessionEpoch)return;
  const gate=q('lab-player-gate');
  gate.replaceChildren();
