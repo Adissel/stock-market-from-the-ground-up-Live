@@ -183,7 +183,7 @@
    series:[
     {name:'Revealed OHLC',type:'candlestick',data:last.map(b=>[b.o,b.c,b.l,b.h]),
      itemStyle:{color:'#36d5ae',color0:'#ff648b',borderColor:'#36d5ae',borderColor0:'#ff648b'},xAxisIndex:0,yAxisIndex:0,markPoint:{symbol:'pin',symbolSize:36,data:marks}},
-    {name:'Observed volume',type:'bar',data:last.map(b=>b.v),itemStyle:{color:'#74abd5'},xAxisIndex:1,yAxisIndex:1},...overlays,...lower
+    {name:'Observed volume',type:'bar',data:last.map(b=>({value:b.v,itemStyle:{color:b.c>b.o?'#36d5ae':b.c<b.o?'#ff648b':'#b2bbce'}})),xAxisIndex:1,yAxisIndex:1},...overlays,...lower
    ],
    dataZoom:[
     {type:'inside',xAxisIndex:grids.map((_,i)=>i),filterMode:'none'},
