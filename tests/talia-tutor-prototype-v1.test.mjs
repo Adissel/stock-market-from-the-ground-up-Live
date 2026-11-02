@@ -45,3 +45,12 @@ test('Redesigned instructor workstation preserves actual Tutor API and protects 
  assert.ok(css.includes('.tp-console-heading')&&css.includes('.tp-workspace-summary'));
  assert.doesNotMatch(page,/onclick=|fakeResponse|mockTutorResponse/);
 });
+
+test('Prototype educational cycle is ungraded, contextual and available only in the staff preview',()=>{
+ const classroom=read('src/tutor/TaliaClassroom.tsx');
+ for(const label of ['1 · Explain & demonstrate','2 · Diagnose understanding','3 · Correct reasoning','4 · Independent transfer'])assert.ok(classroom.includes(label),label);
+ assert.match(classroom,/setMode\('review'\)/);
+ assert.match(classroom,/setMode\('question'\)/);
+ assert.match(classroom,/Do not grade it/);
+ assert.match(classroom,/pathname\.endsWith\('\/talia-tutor-prototype\.html'\)&&<section className="tp-teaching-loop"/);
+});
