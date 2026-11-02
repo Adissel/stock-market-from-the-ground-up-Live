@@ -10,7 +10,9 @@ const ctx={env:{PUBLIC_SITE_ORIGIN:site},request:new Request(site+'/sitemap.xml'
 let response=sitemap(ctx),xml=await response.text();
 assert.equal(response.status,200);assert(xml.startsWith('<?xml version="1.0"'));
 assert.equal((xml.match(/<loc>/g)||[]).length,PUBLIC_PAGES.length);
-assert(xml.includes(site+'/books.html')&&xml.includes(site+'/store.html'));
+assert(xml.includes(site+'/books</loc>')&&xml.includes(site+'/store</loc>'));
+assert.equal(PUBLIC_PAGES.length,19,'Compatibility sitemap must mirror the 19 public static canonicals');
+assert(!/<loc>[^<]*\.html<\/loc>/.test(xml),'Do not publish redirecting HTML paths in sitemap');
 for(const banned of ['/admin','/api/','/dashboard','/journal','/owner-roadmap',
  '/market-tutor','/privacy.html','/terms.html','/training-editor']){
  assert(!xml.includes(site+banned),'Must not index private or unpublished shell route: '+banned);
