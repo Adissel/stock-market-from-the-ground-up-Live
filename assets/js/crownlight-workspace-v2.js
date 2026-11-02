@@ -76,7 +76,14 @@ function applyLayout(){
  const control=ui?.querySelector('[data-cl-layout]');
  if(control){control.value=layout;control.disabled=!eligible}
  const container=document.getElementById('cl-chart-tier-switcher');
- if(container)container.dataset.clLayout=eligible?layout:'SIDE_BY_SIDE';
+ if(container){
+  container.dataset.clLayout=eligible?layout:'SIDE_BY_SIDE';
+  const ratio=eligible&&Number.isInteger(workspace.panelRatio)?Math.max(25,Math.min(75,workspace.panelRatio)):50;
+  container.style.setProperty('--cl-pro-primary',ratio+'fr');
+  container.style.setProperty('--cl-pro-secondary',(100-ratio)+'fr');
+  const handle=container.querySelector('[data-cl-panel-divider]');
+  if(handle){handle.hidden=!eligible||layout==='STACKED';handle.setAttribute('aria-valuenow',String(ratio));}
+ }
  window.requestAnimationFrame(()=>Tier()?.balancePanels?.());
 }
 function sessionToken(){
@@ -215,6 +222,7 @@ async function persist(){
  const status=Tier()?.getStatus?.()||{};
  draft.selected=status.selected||'STANDARD';
  draft.sync=syncEnabled;
+ draft.panelRatio=Number.isInteger(workspace.panelRatio)?Math.max(25,Math.min(75,workspace.panelRatio)):50;
  const picked=ui?.querySelector('[data-cl-layout]')?.value;
  draft.layout=draft.selected==='PROFESSIONAL'&&VALID_LAYOUTS.has(picked)?
   picked:'SIDE_BY_SIDE';
@@ -274,6 +282,7 @@ async function restore(){
   const r=await endpoint('GET');
   if(epoch!==permissionEpoch||!Tier()?.getStatus().verified)return;
   workspace=r.workspace;workspaceRevision=r.updatedAt||null;storeAvailable=true;syncEnabled=workspace.sync!==false;
+  workspace.panelRatio=Number.isInteger(workspace.panelRatio)?workspace.panelRatio:50;
   if(ui){
    const toggle=ui.querySelector('[data-cl-sync]');if(toggle)toggle.checked=syncEnabled;
    const indicators=ui.querySelector('[data-cl-studies]');if(indicators)indicators.value=(workspace.studies||[]).join(', ');
@@ -330,6 +339,45 @@ async function removeSavedSource(){
   else msg('Annotations were not removed: '+e.message);
  }finally{savingWorkspace=false}
 }
+function installDivider(){
+ const container=document.getElementById('cl-chart-tier-switcher');
+ const grid=container?.querySelector('[data-cl-tier-panels]');
+ if(!grid||grid.querySelector('[data-cl-panel-divider]'))return;
+ const handle=document.createElement('div');
+ handle.className='cl-professional-divider';
+ handle.dataset.clPanelDivider='';
+ handle.setAttribute('role','slider');
+ handle.setAttribute('aria-label','Resize Professional chart columns');
+ handle.setAttribute('aria-valuemin','25');handle.setAttribute('aria-valuemax','75');
+ handle.tabIndex=0;
+ let dragging=false;
+ const update=ratio=>{
+  workspace.panelRatio=Math.max(25,Math.min(75,Math.round(ratio)));
+  applyLayout();msg('Chart columns resized. Save workspace to retain these proportions.');
+ };
+ handle.addEventListener('pointerdown',e=>{
+  if(e.button!==0||container.dataset.clLayout==='STACKED'||window.matchMedia('(max-width: 1000px)').matches)return;
+  dragging=true;handle.setPointerCapture(e.pointerId);e.preventDefault();
+ });
+ handle.addEventListener('pointermove',e=>{
+  if(!dragging)return;
+  const bounds=grid.getBoundingClientRect();
+  if(bounds.width>0)update((e.clientX-bounds.left)/bounds.width*100);
+ });
+ const stop=()=>{dragging=false};
+ handle.addEventListener('pointerup',stop);handle.addEventListener('pointercancel',stop);
+ handle.addEventListener('keydown',e=>{
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+  e.preventDefault();
+  const n=workspace.panelRatio||50;
+  update(e.key==='Home'?25:e.key==='End'?75:n+(e.key==='ArrowLeft'?-5:5));
+ });
+ grid.append(handle);
+ applyLayout();
+}
+window.addEventListener('crownlight:tier-mounted',e=>{
+ if(e.detail?.tier==='PROFESSIONAL')installDivider();
+});
 function controls(){
  const parent=document.getElementById('cl-chart-tier-switcher');
  if(!parent||ui)return;
