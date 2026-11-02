@@ -127,7 +127,7 @@
       "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
       "title": "A share repurchase and a cash dividend distribute value through different mechanisms",
       "concept": "A cash dividend pays eligible holders directly, while a repurchase trades issuer cash for outstanding shares; effects depend on price, treasury treatment and later share count.",
-      "procedure": "Record dividend dollars or actual shares repurchased, price paid and any new issuance. Distinguish per-share cash received from indirect proportional ownership changes. Talia diagnostic: If 100 of 1,000 issuer shares are retired, does an unchanged 90-share holder receive cash?",
+      "procedure": "Record dividend dollars or actual shares repurchased, price paid and any new issuance. Distinguish per-share cash received from indirect proportional ownership changes. Talia diagnostic: If 100 of 1,000 issuer shares are retired, does an unchanged 90-share holder receive cash? Verified supporting editorial reference (not licensed to reproduce): https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
       "workedCase": "FICTIONAL: A company has 1,000 shares and buys back 100 at $10 each for $1,000. If retired with no new shares, outstanding shares become 900; an unchanged holder with 90 shares moves from 9.00% to 10.00% ownership, but receives no dividend cash from that repurchase.",
       "limit": "Accounting, dilution, retained shares, price paid and company value can alter the economic outcome; ownership percentage alone is not shareholder wealth.",
       "invalidation": "If retirement or actual share-count change is unverified, do not claim an ownership increase or EPS benefit.",
@@ -136,8 +136,7 @@
       "reviewExplanation": "Correct review identifies the recipients, the confirmed post-transaction share denominator and the limits of mechanical ownership arithmetic. Correction for learner reasoning: Their proportional share increases from 9% to 10% but they receive no dividend directly; firm value and retained-stock terms are separate. Research limitation: The SEC May 2023 repurchase-disclosure modernization rule was vacated effective December 19, 2023. The archived SEC speech is history, not currently effective reporting requirements.",
       "transferQuestion": "FICTIONAL TRANSFER: With 2,000 shares outstanding, 200 are retired while a holder retains 100. Compute ownership before and after, without predicting price.",
       "sourceUrls": [
-        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323",
-        "https://www.sec.gov/rules-regulations/2024/03/s7-21-21"
+        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -172,7 +171,10 @@
         "limitation": "The SEC May 2023 repurchase-disclosure modernization rule was vacated effective December 19, 2023. The archived SEC speech is history, not currently effective reporting requirements.",
         "sourceVerified": "https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
         "independentPublicationApproved": false,
-        "rightsCleared": false
+        "rightsCleared": false,
+        "additionalSourceReferences": [
+          "https://www.sec.gov/rules-regulations/2024/03/s7-21-21"
+        ]
       }
     },
     {
