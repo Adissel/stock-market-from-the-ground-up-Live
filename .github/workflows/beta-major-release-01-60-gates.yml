@@ -306,3 +306,4 @@ jobs:
               sys.exit('NO-GO: at least one of seven source jobs failed or was cancelled')
           print('PASS: 86 source test commands; member/browser, editorial, licensing, security and deployment require independent acceptance')
           PY
+# RELEASE-CUT 2026-11-02: Owner-accepted Academy regression and final exact-SHA CI requested.
