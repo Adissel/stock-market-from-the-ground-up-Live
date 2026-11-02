@@ -37,6 +37,8 @@ const seventeenth=read('data/talia-foundation-explanations-batch17-v1.json').gui
 const eighteenth=read('data/talia-foundation-explanations-batch18-v1.json').guides;
 const nineteenth=read('data/talia-foundation-explanations-batch19-v1.json').guides;
 const twentieth=read('data/talia-foundation-explanations-batch20-v1.json').guides;
+const twentyfirst=read('data/talia-foundation-explanations-batch21-v1.json').guides;
+const twentysecond=read('data/talia-foundation-explanations-batch22-v1.json').guides;
 assert.equal(labs.totalCanonicalLabs,419);
 assert.equal(Object.keys(labs.byLab).length,419);
 assert.equal(labs.mappedLabs,419);
@@ -45,12 +47,12 @@ assert.equal(academyPrograms.length,10);
 assert.equal(academyPrograms.reduce((n,p)=>n+p.curriculum.length,0),274);
 assert.equal(baseline.length,61);assert.equal(extensions.length,12);
 assert.equal(guided.length,134);assert.equal(guidedMore.length,12);
-assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);assert.equal(fourth.length,20);assert.equal(fifth.length,20);assert.equal(sixth.length,20);assert.equal(seventh.length,20);assert.equal(eighth.length,20);assert.equal(ninth.length,20);assert.equal(tenth.length,20);assert.equal(eleventh.length,20);assert.equal(twelfth.length,20);assert.equal(thirteenth.length,20);assert.equal(fourteenth.length,20);assert.equal(fifteenth.length,20);assert.equal(sixteenth.length,20);assert.equal(seventeenth.length,20);assert.equal(eighteenth.length,20);assert.equal(nineteenth.length,20);assert.equal(twentieth.length,20);
+assert.equal(first.length,20);assert.equal(second.length,20);assert.equal(third.length,20);assert.equal(fourth.length,20);assert.equal(fifth.length,20);assert.equal(sixth.length,20);assert.equal(seventh.length,20);assert.equal(eighth.length,20);assert.equal(ninth.length,20);assert.equal(tenth.length,20);assert.equal(eleventh.length,20);assert.equal(twelfth.length,20);assert.equal(thirteenth.length,20);assert.equal(fourteenth.length,20);assert.equal(fifteenth.length,20);assert.equal(sixteenth.length,20);assert.equal(seventeenth.length,20);assert.equal(eighteenth.length,20);assert.equal(nineteenth.length,20);assert.equal(twentieth.length,20);assert.equal(twentyfirst.length,20);assert.equal(twentysecond.length,20);
 assert.equal(FOUNDATION_WORKED_MATH_CODES.length,13);
 assert.equal(FOUNDATION_QUANT_TOPICS.length,9);
-const topics=[...first,...second,...third,...fourth,...fifth,...sixth,...seventh,...eighth,...ninth,...tenth,...eleventh,...twelfth,...thirteenth,...fourteenth,...fifteenth,...sixteenth,...seventeenth,...eighteenth,...nineteenth,...twentieth];
-assert.equal(new Set(topics.map(g=>g.code)).size,400);
-assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,400);
+const topics=[...first,...second,...third,...fourth,...fifth,...sixth,...seventh,...eighth,...ninth,...tenth,...eleventh,...twelfth,...thirteenth,...fourteenth,...fifteenth,...sixteenth,...seventeenth,...eighteenth,...nineteenth,...twentieth,...twentyfirst,...twentysecond];
+assert.equal(new Set(topics.map(g=>g.code)).size,440);
+assert.equal(new Set(topics.map(g=>g.title.toLowerCase())).size,440);
 assert.equal(FOUNDATION_RISK_MATH_TOPICS.length,9);assert.equal(TALIA_RESEARCH_MATH_CODES.length,14);
 assert.equal(TALIA_STUDY_CALCULATED.length,8);
 const grades=new Set(core.map(x=>x.code));
@@ -105,7 +107,7 @@ const metrics={
  candidateBootCampMatches:crosswalk.reduce((n,x)=>n+x.candidateBootCampDays.length,0)
 };
 const result={documentId:'SMFGU-TALIA-COVERAGE-001',version:'1.0',status:'ungraded_public_source_only_not_editorially_accepted',metrics,
- note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 400 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
+ note:'Keyword overlap is ONLY a possible editor cross-reference. Neither 440 drafted topics nor 419/274 IDs establish independently accepted Tutor instruction; no protected answer data or future replay events were opened.',crosswalk};
 mkdirSync('artifacts',{recursive:true});
 writeFileSync('artifacts/talia-foundation-coverage-v1.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({documentId:result.documentId,metrics,warning:result.note}));
