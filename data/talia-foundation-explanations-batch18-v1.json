@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 18,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Fictional risk, structure and market-microstructure lessons 341–360. Do not treat broad research pointers as claim verification.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_ATR_BASED_STOP_DISTANCE_VERSUS_MONETARY_RISK",
+      "title": "ATR-based stop distance versus monetary risk",
+      "concept": "ATR is price volatility, so multiply an ATR multiple by the share count to express planned dollars.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: ATR 0.80, multiple 2, 50 shares imply $1.60 planned distance and $80 price-only planned risk.",
+      "limit": "ATR and entry information must come from the completed decision-time window.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. ATR and entry information must come from the completed decision-time window.",
+      "commonError": "Live-trading mistake: Calling an ATR multiple a guaranteed loss limit confuses volatility and execution. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: ATR is price volatility, so multiply an ATR multiple by the share count to express planned dollars. The calculation or evidence sequence is: ATR 0.80, multiple 2, 50 shares imply $1.60 planned distance and $80 price-only planned risk. The live-trading interpretation error to avoid is: Calling an ATR multiple a guaranteed loss limit confuses volatility and execution. The boundary is: ATR and entry information must come from the completed decision-time window. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: ATR 1.25, multiple 1.5, 40 shares: calculate distance and planned dollars. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_POSITION_SHARES_CONSTRAINED_BY_ATR_STOP",
+      "title": "Position shares constrained by ATR stop",
+      "concept": "Risk-budget share count uses floor(risk dollars divided by ATR-multiple price distance).",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Budget $100 and 2×ATR of $0.60 imply distance $1.20 and floor(100/1.2)=83 shares.",
+      "limit": "Broker notional and margin caps may lower the actual permissible quantity.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Broker notional and margin caps may lower the actual permissible quantity.",
+      "commonError": "Live-trading mistake: Rounding upward can exceed the risk budget. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Risk-budget share count uses floor(risk dollars divided by ATR-multiple price distance). The calculation or evidence sequence is: Budget $100 and 2×ATR of $0.60 imply distance $1.20 and floor(100/1.2)=83 shares. The live-trading interpretation error to avoid is: Rounding upward can exceed the risk budget. The boundary is: Broker notional and margin caps may lower the actual permissible quantity. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Budget $75, ATR $0.50 and multiple 3: compute maximum integer shares. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EMA_CROSSOVER_ONLY_AFTER_A_COMPLETED_BAR",
+      "title": "EMA crossover only after a completed bar",
+      "concept": "A crossover event must compare consecutive completed fast/slow observations, not tentative intrabar drawings.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Prior fast EMA 9.8 below slow 10.0; completed fast 10.2 above slow 10.1 implies a completed bullish cross.",
+      "limit": "Data latency, seed conventions and execution price remain separate.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Data latency, seed conventions and execution price remain separate.",
+      "commonError": "Live-trading mistake: Using the forming candle's temporary EMA as completed evidence introduces lookahead. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A crossover event must compare consecutive completed fast/slow observations, not tentative intrabar drawings. The calculation or evidence sequence is: Prior fast EMA 9.8 below slow 10.0; completed fast 10.2 above slow 10.1 implies a completed bullish cross. The live-trading interpretation error to avoid is: Using the forming candle's temporary EMA as completed evidence introduces lookahead. The boundary is: Data latency, seed conventions and execution price remain separate. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Previous fast 20.2 slow 20; current fast 19.9 slow 20.1: classify directional crossover. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VWAP_DISTANCE_IN_BASIS_POINTS",
+      "title": "VWAP distance in basis points",
+      "concept": "A price's percentage separation from VWAP depends on which reference value is the denominator.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Price 20.10 and VWAP 20.00 imply (20.10-20)/20×10000=50 basis points.",
+      "limit": "VWAP proxy versus trade-print computation must not be silently conflated.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. VWAP proxy versus trade-print computation must not be silently conflated.",
+      "commonError": "Live-trading mistake: Reporting $0.10 as 10 basis points ignores the $20 denominator. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A price's percentage separation from VWAP depends on which reference value is the denominator. The calculation or evidence sequence is: Price 20.10 and VWAP 20.00 imply (20.10-20)/20×10000=50 basis points. The live-trading interpretation error to avoid is: Reporting $0.10 as 10 basis points ignores the $20 denominator. The boundary is: VWAP proxy versus trade-print computation must not be silently conflated. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Price 49.75 and VWAP 50: compute signed basis-point distance. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RELATIVE_VOLUME_USING_MATCHING_ELAPSED_TIME",
+      "title": "Relative volume using matching elapsed time",
+      "concept": "Cumulative volume so far should be compared with historical volumes observed through the same intraday cutoff.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: At 10:30, today's cumulative volume 120,000 versus 20-session average 80,000 to 10:30 gives RVOL 1.5.",
+      "limit": "Holiday schedules and missing historical observations require adjustment.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Holiday schedules and missing historical observations require adjustment.",
+      "commonError": "Live-trading mistake: Comparing partial-day volume with full-day averages creates timing bias. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Cumulative volume so far should be compared with historical volumes observed through the same intraday cutoff. The calculation or evidence sequence is: At 10:30, today's cumulative volume 120,000 versus 20-session average 80,000 to 10:30 gives RVOL 1.5. The live-trading interpretation error to avoid is: Comparing partial-day volume with full-day averages creates timing bias. The boundary is: Holiday schedules and missing historical observations require adjustment. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Current 9:45 cumulative 60,000 versus comparable average 40,000: compute RVOL. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPENING_RANGE_WIDTH_NORMALIZED_TO_PRICE",
+      "title": "Opening range width normalized to price",
+      "concept": "Opening-range high minus low measures dollar width and may be normalized by a declared price.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Opening high 50.60, low 50.00, prior close 50 gives range $0.60 or 1.2% of close.",
+      "limit": "Opening window boundaries and completed candles must be explicit.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Opening window boundaries and completed candles must be explicit.",
+      "commonError": "Live-trading mistake: Assuming a wide opening range implies a profitable breakout is unsupported. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Opening-range high minus low measures dollar width and may be normalized by a declared price. The calculation or evidence sequence is: Opening high 50.60, low 50.00, prior close 50 gives range $0.60 or 1.2% of close. The live-trading interpretation error to avoid is: Assuming a wide opening range implies a profitable breakout is unsupported. The boundary is: Opening window boundaries and completed candles must be explicit. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: High 25.40, low 25, reference 25: determine range percent. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CONFIRMED_PIVOT_HIGH_WITH_RIGHT_HAND_DELAY",
+      "title": "Confirmed pivot high with right-hand delay",
+      "concept": "A pivot requiring later bars can only be labeled after enough later bars have completed.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: With one bar each side, highs [10,13,11] confirm middle high 13 only when final bar finishes.",
+      "limit": "Different pivot strengths impose different confirmation delays.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Different pivot strengths impose different confirmation delays.",
+      "commonError": "Live-trading mistake: Plotting the pivot at its center and treating that label as contemporaneous knowledge leaks future bars. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A pivot requiring later bars can only be labeled after enough later bars have completed. The calculation or evidence sequence is: With one bar each side, highs [10,13,11] confirm middle high 13 only when final bar finishes. The live-trading interpretation error to avoid is: Plotting the pivot at its center and treating that label as contemporaneous knowledge leaks future bars. The boundary is: Different pivot strengths impose different confirmation delays. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Highs [8,12,9], one right-side confirmation bar: when is pivot known? State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SUPPORT_ZONE_WIDTH_VERSUS_SINGLE_PRICE",
+      "title": "Support-zone width versus single price",
+      "concept": "A support zone needs explicit upper and lower boundaries rather than one infinitely precise level.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: A declared zone $19.80–$20.10 has width $0.30, and a close $20.00 is inside.",
+      "limit": "Zone construction and break criteria require prior evidence and timestamp.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Zone construction and break criteria require prior evidence and timestamp.",
+      "commonError": "Live-trading mistake: Describing any touch as guaranteed support turns a descriptive zone into a prediction. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A support zone needs explicit upper and lower boundaries rather than one infinitely precise level. The calculation or evidence sequence is: A declared zone $19.80–$20.10 has width $0.30, and a close $20.00 is inside. The live-trading interpretation error to avoid is: Describing any touch as guaranteed support turns a descriptive zone into a prediction. The boundary is: Zone construction and break criteria require prior evidence and timestamp. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Zone $35.20–$35.60 and close $35.70: classify whether inside. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAKOUT_CLEARANCE_RELATIVE_TO_RESISTANCE",
+      "title": "Breakout clearance relative to resistance",
+      "concept": "Breakout clearance measures observed separation from a predefined boundary, not future follow-through.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Resistance 30.00 and completed close 30.30 show 1% clearance.",
+      "limit": "A positive clearance does not establish execution or continuation.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. A positive clearance does not establish execution or continuation.",
+      "commonError": "Live-trading mistake: Using a high wick instead of the declared closing criterion changes the classification. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Breakout clearance measures observed separation from a predefined boundary, not future follow-through. The calculation or evidence sequence is: Resistance 30.00 and completed close 30.30 show 1% clearance. The live-trading interpretation error to avoid is: Using a high wick instead of the declared closing criterion changes the classification. The boundary is: A positive clearance does not establish execution or continuation. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Resistance 40 and completed close 40.20: calculate percent clearance. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FAILED_BREAKOUT_THRESHOLD_AND_COMPLETED_RETURN",
+      "title": "Failed breakout threshold and completed return",
+      "concept": "A failed-breakout rule can compare a post-break completed close against the prior boundary.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Boundary $25; first completed close above at $25.20; next completed close $24.90: return below boundary.",
+      "limit": "A failed pattern label is retrospective and requires defined confirmation.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. A failed pattern label is retrospective and requires defined confirmation.",
+      "commonError": "Live-trading mistake: Calling the breakout failed before the next candle closes uses unavailable evidence. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A failed-breakout rule can compare a post-break completed close against the prior boundary. The calculation or evidence sequence is: Boundary $25; first completed close above at $25.20; next completed close $24.90: return below boundary. The live-trading interpretation error to avoid is: Calling the breakout failed before the next candle closes uses unavailable evidence. The boundary is: A failed pattern label is retrospective and requires defined confirmation. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Boundary $60 and completed closes $60.40 then $59.80: classify the state. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RELATIVE_CANDLE_BODY_VERSUS_FULL_CANDLE_RANGE",
+      "title": "Relative candle body versus full candle range",
+      "concept": "Candle body fraction uses absolute open-close movement divided by high-low range.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Open 10, close 10.60, high 11, low 9: body fraction 0.60/2=30%.",
+      "limit": "Zero-range candles require a separate convention; completed OHLC validation applies.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Zero-range candles require a separate convention; completed OHLC validation applies.",
+      "commonError": "Live-trading mistake: A large body percentage does not disclose aggressive buyer identity. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Candle body fraction uses absolute open-close movement divided by high-low range. The calculation or evidence sequence is: Open 10, close 10.60, high 11, low 9: body fraction 0.60/2=30%. The live-trading interpretation error to avoid is: A large body percentage does not disclose aggressive buyer identity. The boundary is: Zero-range candles require a separate convention; completed OHLC validation applies. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Open 20, close 19.60, high 20.50, low 19.50: compute body fraction. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_UPPER_WICK_FRACTION_OF_A_COMPLETED_CANDLE",
+      "title": "Upper-wick fraction of a completed candle",
+      "concept": "Upper wick extends from high to larger of open and close, normalized against total range if needed.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: O 10, C 11, H 12, L 9: upper wick 1 and upper-wick fraction 1/3.",
+      "limit": "Quotes, order flow and auction activity cannot be inferred from OHLC alone.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Quotes, order flow and auction activity cannot be inferred from OHLC alone.",
+      "commonError": "Live-trading mistake: Interpreting upper wick as proof of institutional selling exceeds observable facts. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Upper wick extends from high to larger of open and close, normalized against total range if needed. The calculation or evidence sequence is: O 10, C 11, H 12, L 9: upper wick 1 and upper-wick fraction 1/3. The live-trading interpretation error to avoid is: Interpreting upper wick as proof of institutional selling exceeds observable facts. The boundary is: Quotes, order flow and auction activity cannot be inferred from OHLC alone. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: O 20, C 19, H 21, L 18: upper wick and fraction? State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LOWER_WICK_FRACTION_OF_A_COMPLETED_CANDLE",
+      "title": "Lower-wick fraction of a completed candle",
+      "concept": "Lower wick runs from the low to the lesser of open and close.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: O 10, C 11, H 12, L 9: lower wick 1 on range 3, or 1/3.",
+      "limit": "Use same-session and completed OHLC values only.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Use same-session and completed OHLC values only.",
+      "commonError": "Live-trading mistake: Lower-wick length does not confirm a profitable reversal. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Lower wick runs from the low to the lesser of open and close. The calculation or evidence sequence is: O 10, C 11, H 12, L 9: lower wick 1 on range 3, or 1/3. The live-trading interpretation error to avoid is: Lower-wick length does not confirm a profitable reversal. The boundary is: Use same-session and completed OHLC values only. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: O 30, C 29, H 31, L 28: compute lower-wick fraction. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_PER_RANGE_RATIO_AS_DESCRIPTIVE_STATISTIC",
+      "title": "Volume-per-range ratio as descriptive statistic",
+      "concept": "Volume divided by the observed high-low range is a descriptive density ratio with units shares per price unit.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: 10,000 shares over $0.50 range yields 20,000 shares per dollar.",
+      "limit": "Zero range makes ratio undefined; timeframe, tick and feed scope matter.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Zero range makes ratio undefined; timeframe, tick and feed scope matter.",
+      "commonError": "Live-trading mistake: Calling it true order-book liquidity misrepresents what aggregate bars reveal. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Volume divided by the observed high-low range is a descriptive density ratio with units shares per price unit. The calculation or evidence sequence is: 10,000 shares over $0.50 range yields 20,000 shares per dollar. The live-trading interpretation error to avoid is: Calling it true order-book liquidity misrepresents what aggregate bars reveal. The boundary is: Zero range makes ratio undefined; timeframe, tick and feed scope matter. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: 8,000 shares over a $0.40 range: compute shares per dollar. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHORT_SALE_PROCEEDS_VERSUS_ACCOUNT_EQUITY",
+      "title": "Short sale proceeds versus account equity",
+      "concept": "Receiving gross short-sale proceeds does not automatically create freely withdrawable investment wealth.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Short 100 shares at $30 produces $3,000 gross proceeds but leaves a 100-share short liability.",
+      "limit": "Margin and collateral rules differ by account and broker.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Margin and collateral rules differ by account and broker.",
+      "commonError": "Live-trading mistake: Adding short proceeds as profit ignores the offsetting liability. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Receiving gross short-sale proceeds does not automatically create freely withdrawable investment wealth. The calculation or evidence sequence is: Short 100 shares at $30 produces $3,000 gross proceeds but leaves a 100-share short liability. The live-trading interpretation error to avoid is: Adding short proceeds as profit ignores the offsetting liability. The boundary is: Margin and collateral rules differ by account and broker. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Short 50 shares at $20: identify gross proceeds and outstanding share liability. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHORT_COVERING_GAIN_BEFORE_FEES",
+      "title": "Short covering gain before fees",
+      "concept": "For a fully closed short, gross profit is shares times sale price minus cover price.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Short 40 at $30 and cover at $29: gross profit $40 before fees.",
+      "limit": "Borrow charges, distributions and trading costs change net result.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Borrow charges, distributions and trading costs change net result.",
+      "commonError": "Live-trading mistake: Treating a higher cover price as positive profit reverses direction. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: For a fully closed short, gross profit is shares times sale price minus cover price. The calculation or evidence sequence is: Short 40 at $30 and cover at $29: gross profit $40 before fees. The live-trading interpretation error to avoid is: Treating a higher cover price as positive profit reverses direction. The boundary is: Borrow charges, distributions and trading costs change net result. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Short 60 at $18, cover at $18.50: calculate signed gross outcome. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ORDER_BOOK_IMBALANCE_ON_DISPLAYED_QUANTITIES",
+      "title": "Order book imbalance on displayed quantities",
+      "concept": "A simple displayed imbalance ratio compares bid and ask quantity at a declared scope/time.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Displayed bid 3000 and ask 1000 shares: (3000-1000)/(3000+1000)=+0.5.",
+      "limit": "Hidden interest, spoofing, cancellations and feed scope limit interpretation.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Hidden interest, spoofing, cancellations and feed scope limit interpretation.",
+      "commonError": "Live-trading mistake: Treating ratio as executed buying pressure confuses orders with trades. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: A simple displayed imbalance ratio compares bid and ask quantity at a declared scope/time. The calculation or evidence sequence is: Displayed bid 3000 and ask 1000 shares: (3000-1000)/(3000+1000)=+0.5. The live-trading interpretation error to avoid is: Treating ratio as executed buying pressure confuses orders with trades. The boundary is: Hidden interest, spoofing, cancellations and feed scope limit interpretation. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Bid 1000 and ask 3000: compute signed ratio. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TOP_OF_BOOK_DEPTH_COVERAGE_ESTIMATE",
+      "title": "Top-of-book depth coverage estimate",
+      "concept": "Displayed size at a quote can be compared arithmetically with the proposed order, but not promised as a fill.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Displayed ask 300 shares; intended buy 500 shares: shown size covers 60% of quantity at snapshot.",
+      "limit": "Snapshot size may cancel, refresh or execute before the learner order arrives.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Snapshot size may cancel, refresh or execute before the learner order arrives.",
+      "commonError": "Live-trading mistake: Assuming all displayed liquidity survives routing overstates available fill quality. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Displayed size at a quote can be compared arithmetically with the proposed order, but not promised as a fill. The calculation or evidence sequence is: Displayed ask 300 shares; intended buy 500 shares: shown size covers 60% of quantity at snapshot. The live-trading interpretation error to avoid is: Assuming all displayed liquidity survives routing overstates available fill quality. The boundary is: Snapshot size may cancel, refresh or execute before the learner order arrives. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Ask 150 shares and intended buy 600: compute displayed coverage fraction. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_TIME_AND_SALES_AVERAGE_PRINT_SIZE",
+      "title": "Time and Sales average print size",
+      "concept": "Average print size divides reported executed shares by number of eligible tape prints, not by quote updates.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Four eligible prints of 50,100,150,100 shares total 400 and average 100 shares.",
+      "limit": "Corrections, late reports, venue inclusion and odd lots need a policy.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. Corrections, late reports, venue inclusion and odd lots need a policy.",
+      "commonError": "Live-trading mistake: Averages obscure distribution and may reflect aggregation of underlying executions. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Average print size divides reported executed shares by number of eligible tape prints, not by quote updates. The calculation or evidence sequence is: Four eligible prints of 50,100,150,100 shares total 400 and average 100 shares. The live-trading interpretation error to avoid is: Averages obscure distribution and may reflect aggregation of underlying executions. The boundary is: Corrections, late reports, venue inclusion and odd lots need a policy. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Prints 25,75,50 total 150: calculate average print size. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CONSECUTIVE_CLOSES_AND_WIN_RATE_MISCONCEPTION",
+      "title": "Consecutive closes and win-rate misconception",
+      "concept": "Three consecutive upward closes are a historical pattern count, not an independently estimated future winning probability.",
+      "procedure": "Prerequisites: a declared instrument, observation interval, consistent units and the distinction between confirmed evidence and planned execution. Identify the appropriate numerator and denominator, use the formula stated in the example, verify chronological availability, and label the outcome as descriptive rather than predictive.",
+      "workedCase": "FICTIONAL: Closes 10,11,12,13 have three positive close-to-close changes, but no inferred probability of a fourth increase.",
+      "limit": "The sampling window, independence and strategy outcome definition remain unspecified.",
+      "invalidation": "HOLD the conclusion if the required quotes or candles, eligible session, observation cutoff, units or denominator are missing. The sampling window, independence and strategy outcome definition remain unspecified.",
+      "commonError": "Live-trading mistake: Reporting 2 of 3 positive changes as a validated 66.7% success forecast overstates sample evidence. Correct the mistaken inference without claiming unobserved order flow or future outcomes.",
+      "selfCheck": "What information is already confirmed, which number is an assumption, and what cannot be inferred from this result?",
+      "reviewExplanation": "Ungraded Talia coaching: Three consecutive upward closes are a historical pattern count, not an independently estimated future winning probability. The calculation or evidence sequence is: Closes 10,11,12,13 have three positive close-to-close changes, but no inferred probability of a fourth increase. The live-trading interpretation error to avoid is: Reporting 2 of 3 positive changes as a validated 66.7% success forecast overstates sample evidence. The boundary is: The sampling window, independence and strategy outcome definition remain unspecified. No official score, mastery claim, or protected assessment answer is generated.",
+      "transferQuestion": "FICTIONAL independent transfer: Closes 20,21,20,22: count positive observed changes. State the exact cutoff, result units, and an invalidation condition.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "unverified_research_pointer_original_instruction_only",
+      "editorSourceReview": {
+        "result": "INTERNAL_AUTHOR_DRAFT_PENDING_CLAIM_SPECIFIC_VERIFICATION",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    }
+  ]
+}
