@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.5 / November 1, 2026 |
+| Version / date | 1.6 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -145,6 +145,20 @@ All seven rows were inspected from PostgreSQL system catalogs and `pg_policies`.
 
 Cloudflare successfully deployed the previously queued commit `48268413d477a8ebd02515044a257fe022aa46e7`. This closes **that commit's** Pages deployment status. A subsequently authored crosswalk test has a newer SHA and requires its own successful build. No full GitHub Actions matrix was independently established at one frozen SHA. Ten-gate **strict completion stays 1/10 = 10%** pending complete gate-specific acceptance. Current authoring remains 260/600, and Basic v3.3/v3.2 unchanged. Premium Advanced/Professional/Enterprise Learning, Lab and Tutor engine releases remain restricted.
 
+## Accelerated batch — independent mathematics and source corrections, v1.6
+
+**Source-control and date:** GitHub `main`, `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, document ID `SMFGU-TALIA-EVIDENCE-BATCH-016`, 2026-11-01. Google Drive document ID remains unassigned. This is internal development QA; not a commercial publication or legal approval.
+
+**Gate 2 new executable QA.** Added original independent `scripts/qa/talia_claims101_140_independent_python_v1.py` and `tests/talia-claims101-140-python-js-editorial-v1.test.mjs`, wired into Pages and the existing Learning Tutor Actions workflow. They separately recompute 35 original fictional arithmetic examples across claims 101–140, preserve five qualitative cases (105, 119, 131, 132 and 133), and refuse automatic publication status. The previously established 40/40 source-disposition and SEC vacatur/EDGAR first-public-availability holds remain controlling. Numerical correctness of fictional cases **does not** prove source rights, actual contracts, future results, securities-law compliance or official mastery.
+
+**Claim-specific source remediation.** New `data/talia-claim-source-remediation-129-135-139-v1.json` records primary/specific sources for weight-squared portfolio concentration (State Street Global Advisors; secondary DOJ market-HHI analogy, not identical units), interest coverage EBIT/interest expense (NYU Stern Damodaran), and debt-to-book-equity definition (NYU Stern accounting primer). `tests/talia-source-remediation-specificity-v1.test.mjs` checks the distinct formulas and maintains all third-party rights/editorial holds. The original claim 129's generic Investor.gov asset-allocation reference remains a **documented source mismatch**; a better supplementary definition is not evidence of complete publication acceptance. Topic 104 must not teach the vacated 2023 repurchase disclosure rule as current; topic 133 must not treat an EDGAR acceptance timestamp as first public availability.
+
+**Gate 10 updated authored inventory.** Concurrent source authoring added `data/talia-foundation-explanations-batch14-v1.json` with twenty distinct, original, ungraded source-only topics and extended the existing authenticated Tutor retrieval. The live source inventory is now **280/600 = 46.67% drafted, 320/600 = 53.33% not yet authored**; all twenty new Batch 14 guides have `independentEditorialApproved=false`, source rights **not cleared** and final publication acceptance **0/20**. This is a **sequencing exception** to the previously stated prerequisite that Batch 13 receive independent editorial signoff before the next source batch. Retain the source drafts and the existing protected grading boundary, but do **not** count Batch 13 or 14 as approved, or promote them to official assessments. Independent review must evaluate source precision and teaching before commercial publication.
+
+**Other unchanged denominators.** One canonical 1,366-target identity register, 73/73 indicator research subjects, 71/73 targeted numerical fixtures, two vendor-defined exceptions (StockCharts SCTR and Cboe VIX), 419 Lab IDs, 274 Academy study days, and 13 existing ECharts presentation controls. Basic Shared Learning v3.3 and Basic Shared Lab v3.2 remain unchanged. Advanced/Professional/Enterprise independent engine-edition acceptance stays 0%. Real Free/Founding/Owner browser acceptance, full mandated GitHub Actions and exact-final-SHA Cloudflare synchronization remain OPEN.
+
+**CI state:** The new source changes and tests were committed on `main`. A queued/running Cloudflare build is not a completed same-commit acceptance; only a verified success log may promote mathematical fixture status to CI passed. No paid API, private grade mutation, new checkout, or unrestricted vendor-data calculation was introduced.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -155,5 +169,6 @@ Cloudflare successfully deployed the previously queued commit `48268413d477a8ebd
 | 1.3 | 2026-11-01 | 46–60 volume/breadth QA: 14 independent numeric cases, SCTR proprietary hold, source-status identity reconciliation, 260 authored explanations preserved | Development-only QA; CI, rights, publication and genuine member acceptance remain open |
 | 1.4 | 2026-11-01 | Complete 73/73 subject review; add 12 original math tests for 61–73, preserve Cboe VIX and StockCharts SCTR restrictions, maintain exact-head deployment hold | Internal development QA, not independent chart, rights, legal or member release signoff |
 | 1.5 | 2026-11-01 | Verify real 13-option ECharts crosswalk, live seven-table Supabase RLS/grants/policies, latest prior SHA Pages deploy, retain authenticated release holds | Development and live metadata review only; genuine identities and complete Actions release remain open |
+| 1.6 | 2026-11-01 | Add independently constructed Python/JS checks for 35 Foundation claim calculations; three source remediations; record 280/600 drafted with Batch14 editorial hold | No full Actions, individual editorial, genuine auth, licensing, legal or premium release acceptance |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.5 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.6 · Source record `main` · No unauthorized premium release or paid API calls.
