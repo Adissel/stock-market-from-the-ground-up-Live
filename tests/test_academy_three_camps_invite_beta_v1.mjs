@@ -42,6 +42,13 @@ const req=(path,method='GET',body)=>new Request('https://member.example'+path,{
 try{
  assert(academyBetaTester(env,user));
  assert(!academyBetaTester(env,nonTester));
+ assert(academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester},nonTester),
+  'Only the explicitly designated QA identity receives supplemental invite-only instruction');
+ assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:'malformed'},nonTester));
+ assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester,
+  ACADEMY_THREE_CAMPS_BETA_ENABLED:'false'},nonTester));
+ assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_QA_USER:nonTester,
+  ACADEMY_THREE_CAMPS_ENABLED:'true'},nonTester));
  assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_USERS:user+',bad'},user));
  assert(!academyBetaTester({...env,ACADEMY_THREE_CAMPS_BETA_ENABLED:'false'},user));
  const c=await academy({request:req('/api/bootcamp-academy?action=catalog'),env});

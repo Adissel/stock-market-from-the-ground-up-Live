@@ -13,7 +13,12 @@ export function academyBetaTester(env,userId){
  if(typeof binding!=='string'||binding.length>4000)return false;
  const ids=binding.split(',').map(x=>x.trim().toLowerCase());
  if(ids.length<1||ids.length>30||ids.some(x=>!uuid.test(x)))return false;
- return ids.includes(userId.toLowerCase());
+ if(ids.includes(userId.toLowerCase()))return true;
+ // One revocable, server-only, explicitly designated noncommercial QA tester.
+ // Preserve the existing encrypted allowlist and never treat QA access as a
+ // paid tool entitlement, general course release or protected grading approval.
+ const qa=env?.ACADEMY_THREE_CAMPS_BETA_QA_USER;
+ return typeof qa==='string'&&uuid.test(qa)&&qa.toLowerCase()===userId.toLowerCase();
 }
 export const academyBetaCourse=(env,code,userId)=>newAcademyPrograms.has(code)&&academyBetaTester(env,userId);
 export const academyCourseAvailable=(env,code,userId)=>!newAcademyPrograms.has(code)||
