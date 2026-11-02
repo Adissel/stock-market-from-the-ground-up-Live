@@ -40,7 +40,9 @@ try{
    if(width<=900){
     assert.equal(state.canonicalMenuCount,1,'One canonical mobile menu DOM node');
     assert.equal(state.menuButtons.length,1,'Exactly one visible functional mobile Menu control');
-    assert(state.headerHeight<250,'Mobile header must not swallow educational content');
+    assert(state.headerHeight<(width<=390?175:145),'Mobile header should remain compact without hiding educational content');
+    assert(state.buttons.some(b=>b.className.includes('fe-command-button')),'Search control must remain visible');
+    assert(state.buttons.some(b=>b.className.includes('fe-notify-button')),'Alerts control must remain visible');
     const btn=page.locator('#v1341-mobile-menu');
     await btn.focus();
     assert.equal(await btn.getAttribute('aria-expanded'),'false');
