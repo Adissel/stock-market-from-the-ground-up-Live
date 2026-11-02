@@ -9,3 +9,14 @@
 .cl-react-bottom{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:11px 15px;border-top:1px solid #2f4e61;font-size:.69rem;color:#9cb8ca}
 .cl-react-bottom a{color:#e6cb91;font-weight:700;text-decoration:none}.cl-react-bottom a:hover{text-decoration:underline}
 @media(max-width:650px){.cl-react-toolbar{gap:7px;padding:12px}.cl-react-title{width:100%}.cl-react-plot{height:315px}.cl-react-toolbar label{flex:1}.cl-react-toolbar select{max-width:120px}}
+
+/* Compact, readable OHLCV inspection for the public fictional training chart. */
+.cl-market-tooltip{min-width:168px;max-width:228px;font:500 12px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;color:#e9f5ff;white-space:normal}
+.cl-market-tooltip-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 0 7px;margin-bottom:5px;border-bottom:1px solid #3a586b;font-weight:800;letter-spacing:.02em}
+.cl-market-tooltip-row{display:flex;justify-content:space-between;align-items:baseline;gap:22px;padding:2px 0}
+.cl-market-tooltip-row span{color:#b5cedb}
+.cl-market-tooltip-row strong{font-weight:700;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cl-market-tooltip-study{border-top:1px solid #3a586b;margin-top:5px;padding-top:7px}
+.cl-react-toolbar select:focus-visible,.cl-react-bottom a:focus-visible{outline:3px solid #ffe39a;outline-offset:3px}
+.cl-react-toolbar select{min-height:38px}
+@media(max-width:650px){.cl-react-toolbar select{min-height:44px}.cl-market-tooltip{font-size:12px;max-width:200px}}
