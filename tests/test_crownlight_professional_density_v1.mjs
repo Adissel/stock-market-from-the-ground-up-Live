@@ -32,8 +32,11 @@ match(workspace,/if\(!permissionReady\|\|Tier\(\)\?\.getStatus/,'Divider updates
 match(css,/\.cl-chart-tier-panels:has\(>\.cl-tier-chart-frame ~ \.cl-tier-chart-frame\)/,'Two chart frames must remain a grid even when a divider is inserted between siblings');
 assert.doesNotMatch(css,/\.cl-tier-chart-frame \+ \.cl-tier-chart-frame/,'Avoid brittle immediately-adjacent Professional chart selectors');
 match(css,/\.cl-tier-quote-item strong/,'OHLCV data should retain a readable hierarchy');
-match(workspace,/KLineChart 10 returns a BarSpace OBJECT/,'Use v10 chart-space contract');
-match(workspace,/Math\.abs\(Number\(second\?\.x\)-Number\(first\?\.x\)\)/,'Zoom sync must measure actual revealed-bar spacing');
+match(workspace,/KLineChart 10 may return a BarSpace object/,'Document the v10 chart-space contract');
+match(workspace,/typeof reported==='number'&&Number\.isFinite\(reported\)\?reported:NaN/,
+ 'Only a legacy numeric bar-space value may be used directly');
+match(workspace,/Number\.isFinite\(first\?\.x\)&&Number\.isFinite\(second\?\.x\)[\s\S]{0,80}Math\.abs\(second\.x-first\.x\)/,
+ 'Zoom sync must validate and measure actual revealed-bar spacing');
 match(workspace,/target\.chart\.setBarSpace\(spacing\)/,'Zoom sync must apply measured spacing');
 assert.doesNotMatch(workspace,/const space=source\.chart\.getBarSpace\(\);[\s\S]{0,80}Number\.isFinite\(space\)/,
  'Do not treat KLineChart 10 BarSpace object as a number');
