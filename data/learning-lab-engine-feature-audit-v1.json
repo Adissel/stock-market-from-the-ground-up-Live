@@ -198,13 +198,13 @@
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Genuine learners maintain prerequisite and stage progress across courses.",
       "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
-      "real_member_accepted": true,
+      "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
       "owner_editorial_accepted_at": "2026-11-02",
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
-      "technical_release_acceptance": "OPEN",
+      "technical_release_acceptance": "INDEPENDENT_REPRODUCIBLE_EVIDENCE_PENDING",
       "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
       "real_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied",
       "real_member_acceptance_date": "2026-11-02",
@@ -212,7 +212,9 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "owner_authenticated_member_accepted": true,
+      "owner_authenticated_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied"
     },
     {
       "id": "LE-BAS-08",
