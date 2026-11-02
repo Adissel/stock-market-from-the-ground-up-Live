@@ -52,7 +52,14 @@ try{
    const response=await page.goto(origin+'/bootcamp-academy.html?program='+code,{waitUntil:'domcontentloaded',timeout:30000});
    assert.equal(response.status(),200);
    await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
-   await page.locator('.academy-guided-ten').waitFor({timeout:15000});
+   // The shared Lab Engine is primary. Advanced day-specific practice is an
+   // explicit supplementary <details> panel; its collapsed state is intended.
+   // Open it as a member would before evaluating the optional guided stages.
+   const supplement=page.locator('#academy-legacy-guide');
+   await supplement.waitFor({state:'attached',timeout:15000});
+   if(!(await supplement.evaluate(node=>node.open)))
+    await supplement.locator('summary').click();
+   await page.locator('.academy-guided-ten').waitFor({state:'visible',timeout:15000});
    assert.equal(await page.locator('#academy-days .gu-bc-day').count(),academyByCode[code].days);
    assert.match(await page.locator('#academy-course-title').innerText(),new RegExp(code==='tape10'?'Tape':code==='indicators10'?'VWAP':'SEC Filings'));
    await page.locator('.academy-evidence-event').first().waitFor({timeout:12000});
