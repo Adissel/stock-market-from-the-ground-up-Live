@@ -10,6 +10,7 @@ node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
 node tests/prototype-indicator-workbench-v2.test.mjs
 node tests/test_crownlight_chart_workspace_v2.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
+node tests/test_site_shell_acceptance_v1.cjs
 node tests/talia-classroom-source-v1.test.mjs
 node tests/talia-tutor-prototype-v1.test.mjs
 node tests/talia-prototype-professional-chart-v1.test.mjs
