@@ -5,8 +5,8 @@ import assert from 'node:assert/strict';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {chromium} from 'playwright';
 
-const ORIGIN=process.env.V4_ACCEPTANCE_ORIGIN||'https://0cc3c815.stock-market-from-the-ground-up-d1r.pages.dev';
-const SHA='fec3dd62746c0164bd6bf10c4e19b6fe1e16d4c9';
+const ORIGIN=process.env.V4_ACCEPTANCE_ORIGIN||'https://ce574a77.stock-market-from-the-ground-up-d1r.pages.dev';
+const SHA='53e8073f755be7d301ce1f1cf210bcf73c7573ca';
 const EXPECTED_ID='f42f9301-18e6-43a3-8531-32d371fd22c1'; // Existing James_Test QA identity
 const DIR=process.env.QA_ARTIFACT_DIR||'artifacts/talia-v4-oat';
 mkdirSync(DIR,{recursive:true});
@@ -26,7 +26,7 @@ const dataFor=async page=>page.evaluate(()=>{
 let browser;
 try{
  assert(ORIGIN.startsWith('https://'),'Immutable release URL must use HTTPS');
- for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4']){
+ for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4-route2']){
   const res=await fetch(ORIGIN+path,{signal:AbortSignal.timeout(25000)});
   assert.equal(res.status,200,'Release asset status '+res.status+' for '+path);
   const body=await res.text();
@@ -70,6 +70,16 @@ try{
  assert(session.hasSession&&session.id===EXPECTED_ID,'James_Test browser identity does not match expected QA identity');
  mark('James_Test real browser sign-in','PASS','Verified Supabase identity and website login');
  await page.goto(ORIGIN+'/talia-classroom.html',{waitUntil:'domcontentloaded',timeout:35000});
+ try{
+  await page.waitForFunction(async()=>{
+   if(typeof window.getSupabaseClient!=='function')return false;
+   const client=await window.getSupabaseClient();
+   const result=await client.auth.getSession();
+   return !!result?.data?.session?.access_token;
+  },null,{timeout:18000});
+ }catch{
+  console.error('TALIA_SESSION_SETTLE_TIMEOUT '+new URL(page.url()).pathname);
+ }
  const accessProbe=await page.evaluate(async()=>{
   const result={route:location.pathname,session:false,toolHttp:0,toolOk:false,authorized:false,freeEligible:false,rootPresent:!!document.getElementById('talia-classroom-root')};
   try{
