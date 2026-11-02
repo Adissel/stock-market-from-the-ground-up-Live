@@ -1,0 +1,36 @@
+name: Optional React ECharts Adapter - Source Evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/chart-studio/react/**'
+      - 'scripts/qa/chart_completed_bar_reference_v2.py'
+      - '.github/workflows/optional-react-echarts-source-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  python-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently verify numerical references
+        run: python3 scripts/qa/chart_completed_bar_reference_v2.py
+  adapter-source-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check optional adapter and documented restrictions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          adapter=Path('src/chart-studio/react/CrownlightECharts.tsx').read_text()
+          options=Path('src/chart-studio/react/completedBarOptions.ts').read_text()
+          css=Path('src/chart-studio/react/crownlight-react-chart.css').read_text()
+          assert 'ResizeObserver' in adapter and 'instance.dispose()' in adapter
+          assert 'completedBars' in adapter and 'onBarInspect' in adapter
+          assert 'aria-label' in adapter and '<table' in adapter
+          assert 'Bar HLC3 VWAP (approx.)' in options and 'connectNulls: false' in options
+          assert "prefers-reduced-motion" in css
+          print('Source controls passed; TS compile, browser and production integration remain unverified')
+          PY
