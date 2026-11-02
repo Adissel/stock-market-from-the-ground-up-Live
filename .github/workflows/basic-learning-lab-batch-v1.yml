@@ -1,0 +1,57 @@
+# Combined Basic engine regression batch. Passing synthetic tests is not production signoff.
+name: Basic Learning + Lab Combined Acceptance Batch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/learning-*.js'
+      - 'assets/js/lab-*.js'
+      - 'assets/js/bootcamp-academy-v014168.js'
+      - 'functions/_lib/learning-*.js'
+      - 'functions/_lib/engine-classroom-contract-v1.js'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'data/learning-lab-engine-feature-audit-v1.json'
+      - 'tests/*learning*.mjs'
+      - 'tests/*lab*.mjs'
+      - 'tests/*academy*.mjs'
+      - 'tests/basic-atr-bollinger-lessons-v1.test.mjs'
+      - '.github/workflows/basic-learning-lab-batch-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  math-and-topic-parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Gate 1 - indicator and evidence-led instruction
+        run: |
+          node --test tests/learning-indicators-v1.test.mjs tests/basic-atr-bollinger-lessons-v1.test.mjs tests/learning-quant-studies-v1.test.mjs tests/learning-evidence-diagnostic-v1.test.mjs
+      - name: Independent numerical reference checks
+        run: |
+          python3 scripts/qa/learning_indicator_decimal_reference_v1.py
+          python3 scripts/qa/learning_quant_decimal_reference_v1.py
+  curriculum-and-progression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Gates 2, 3, and 4 - academy and curriculum source
+        run: |
+          node --test tests/academy-member-day-restoration-v1.test.mjs tests/lab-bridge-batches15-21-source-v1.test.mjs tests/learning-lab-engine-feature-audit-v1.test.mjs
+  boundary-and-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Gates 5 and 6 - Lab boundary and engine editions
+        run: |
+          node --test tests/engine-classroom-contract-v1.test.mjs tests/learning-lab-formative-editions-v1.test.mjs
+          node tests/test_v33_member_checkpoint_resume.mjs
