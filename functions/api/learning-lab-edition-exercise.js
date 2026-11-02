@@ -77,12 +77,7 @@ export async function onRequest({request,env}){
      !['learning','lab'].includes(body.family)||!EDITIONS.includes(body.edition)||
      !body.payload||typeof body.payload!=='object'||Array.isArray(body.payload))
    throw err('Unsupported edition or exercise.',400);
-  const access=await toolAccess(env,request,FAMILY_TO_TOOL[body.family]);
-  if(!access?.userId||access.freeEligible!==true||access.authorized!==true)
-   throw err('Verified member tool access required.',403);
-  const rights=await records(env,access.userId);
-  const authorized=entitlement(rights,access.userId,body.family,body.edition,env);
-  if(!authorized)throw err('An active, released engine edition grant is required.',403);
+  await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
   // Original exercises from caller-provided fictional bars ONLY. A client
   // cannot label an indicator as verified or assert licensed market rights.
   const evidence=body.payload.evidence;
