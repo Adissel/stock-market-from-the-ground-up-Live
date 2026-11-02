@@ -190,6 +190,7 @@ function Classroom(){
   const [member,setMember]=useState<Member|null>(null);
   const [ready,setReady]=useState(false);
   const [chat,setChat]=useState<ChatLine[]>(DEFAULT);
+  const [dock,setDock]=useState<'split'|'chart'|'tutor'>('split');
   const [question,setQuestion]=useState(initialQuestion);
   const [reasoning,setReasoning]=useState('');
   const [mode,setMode]=useState<Mode>('explain');
@@ -392,7 +393,7 @@ function Classroom(){
   return <main className="tc-main">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / TUTOR</p><h1>Talia Interactive Classroom</h1><p>Talk through a concept. Inspect a fictional chart. Practice your reasoning. Learn from reviewed explanations.</p></div><div className="tc-row"><a href="/market-tutor.html">Classic Tutor</a><a href="/labs.html">Labs</a><a href="/bootcamp-academy.html">Boot Camps</a></div></div>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
-    <div className="tc-grid"><section className="tc-chat" aria-labelledby="tc-chat-title">
+    <div className="tc-terminal-controls" role="toolbar" aria-label="Workspace layout"><div className="tc-terminal-identity"><strong>CROWNLIGHT / MARKET LEARNING TERMINAL</strong><span>Completed-candle training · private instructor dock</span></div><div className="tc-terminal-switches"><button type="button" onClick={()=>setDock('split')} aria-pressed={dock==='split'}>Split workspace</button><button type="button" onClick={()=>setDock('chart')} aria-pressed={dock==='chart'}>Chart focus</button><button type="button" onClick={()=>setDock('tutor')} aria-pressed={dock==='tutor'}>Instructor focus</button></div></div><div className={'tc-grid tc-terminal-grid tc-terminal-'+dock}><section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
         {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong><p>{m.text}</p>{m.label&&<small>{m.label}</small>}</li>)}
