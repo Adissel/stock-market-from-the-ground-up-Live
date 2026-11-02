@@ -1,4 +1,4 @@
-/* D09 v0.14.0.149: service-only private conversation management.
+/* D09 v0.14.0.149: service-only private conversation management for eligible members, including Basic Free.
  * Client never supplies an authoritative user ID. No private answer keys.
  */
 import {toolAccess} from './member-tool-access.js';
@@ -42,7 +42,7 @@ export async function onRequest({request,env}){
  try{
   if(!['GET','POST','PATCH','DELETE'].includes(request.method))return json({ok:false,error:'Method not allowed.'},405);
   const auth=await toolAccess(env,request,'MARKET_TUTOR');
-  if(!auth.authorized||!UUID.test(auth.userId))return json({ok:false,error:'Market Tutor entitlement required.'},403);
+  if(auth.freeEligible!==true||!UUID.test(auth.userId))return json({ok:false,error:'Eligible member account required.'},403);
   const url=new URL(request.url);
   if(request.method!=='GET'){
    const origin=request.headers.get('origin'),site=request.headers.get('sec-fetch-site');
