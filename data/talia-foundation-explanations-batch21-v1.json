@@ -1,0 +1,531 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 21,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Original fictional derivatives mechanics 401–420; candidate references, not authorized quote data.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_DELTA_SENSITIVITY_AS_A_LOCAL_APPROXIMATION",
+      "title": "Delta sensitivity as a local approximation",
+      "concept": "Delta approximates the option price change for a small underlying price move with other assumptions held constant.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: A call delta +0.40 and an underlying move +$0.50 suggest about +$0.20 option premium per share locally.",
+      "limit": "Delta changes with spot, time and volatility; local linear estimates are not exact.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Delta changes with spot, time and volatility; local linear estimates are not exact.",
+      "commonError": "Live-options mistake: Calling delta a guaranteed probability of profit confuses distinct interpretations. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Delta approximates the option price change for a small underlying price move with other assumptions held constant. Example: A call delta +0.40 and an underlying move +$0.50 suggest about +$0.20 option premium per share locally. Correct the common error: Calling delta a guaranteed probability of profit confuses distinct interpretations. Limitation: Delta changes with spot, time and volatility; local linear estimates are not exact. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: A hypothetical delta +0.60 and +$0.25 move: estimate premium change. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GAMMA_AND_THE_CHANGE_IN_DELTA",
+      "title": "Gamma and the change in delta",
+      "concept": "Gamma measures how rapidly an option's delta can change for an incremental underlying move.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Gamma 0.05 per dollar and a +$2 underlying change suggest a +0.10 delta change locally.",
+      "limit": "Higher-order cross-effects and changes in other variables require care.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Higher-order cross-effects and changes in other variables require care.",
+      "commonError": "Live-options mistake: Using a constant delta over a large move can omit curvature. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Gamma measures how rapidly an option's delta can change for an incremental underlying move. Example: Gamma 0.05 per dollar and a +$2 underlying change suggest a +0.10 delta change locally. Correct the common error: Using a constant delta over a large move can omit curvature. Limitation: Higher-order cross-effects and changes in other variables require care. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Gamma 0.03 and a -$1 move: estimate first-order delta change. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VEGA_PER_VOLATILITY_POINT_VERSUS_PER_DECIMAL",
+      "title": "Vega per volatility point versus per decimal",
+      "concept": "Option vega conventions specify the premium change per one percentage-point volatility move or per unit decimal volatility.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Vega $0.12 per percentage point and a +2-point IV change imply about +$0.24 option premium per share.",
+      "limit": "Vega is local, contract-size scaling is separate and premium need not move independently of spot.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Vega is local, contract-size scaling is separate and premium need not move independently of spot.",
+      "commonError": "Live-options mistake: Treating a two-point change as a 200% IV move creates a factor-of-100 mistake. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Option vega conventions specify the premium change per one percentage-point volatility move or per unit decimal volatility. Example: Vega $0.12 per percentage point and a +2-point IV change imply about +$0.24 option premium per share. Correct the common error: Treating a two-point change as a 200% IV move creates a factor-of-100 mistake. Limitation: Vega is local, contract-size scaling is separate and premium need not move independently of spot. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Vega $0.08 per IV point, IV rises 3 points: estimate change. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_THETA_INTERPRETATION_UNDER_STATED_TIME_UNITS",
+      "title": "Theta interpretation under stated time units",
+      "concept": "Theta is sensitivity to passing time under a specified time increment and otherwise fixed modeled assumptions.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Theta -$0.04 per day suggests a -$0.12 local premium change over three assumed unchanged days.",
+      "limit": "Theta is nonlinear and changes with underlying price, volatility and expiration.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Theta is nonlinear and changes with underlying price, volatility and expiration.",
+      "commonError": "Live-options mistake: Promising that daily decay will equal the quoted theta every day is incorrect. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Theta is sensitivity to passing time under a specified time increment and otherwise fixed modeled assumptions. Example: Theta -$0.04 per day suggests a -$0.12 local premium change over three assumed unchanged days. Correct the common error: Promising that daily decay will equal the quoted theta every day is incorrect. Limitation: Theta is nonlinear and changes with underlying price, volatility and expiration. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Theta -$0.02 per day for two days: compute modeled change. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RHO_AND_INTEREST_RATE_SENSITIVITY",
+      "title": "Rho and interest-rate sensitivity",
+      "concept": "Rho measures local theoretical premium sensitivity to a defined risk-free-rate increment.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Rho +$0.05 per one-percentage-point rate rise implies about +$0.10 for a hypothetical two-point rise.",
+      "limit": "Dividend assumptions, model choice and contract expiry alter rho.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Dividend assumptions, model choice and contract expiry alter rho.",
+      "commonError": "Live-options mistake: Mistaking a rate change measured in basis points for percentage points exaggerates effect. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Rho measures local theoretical premium sensitivity to a defined risk-free-rate increment. Example: Rho +$0.05 per one-percentage-point rate rise implies about +$0.10 for a hypothetical two-point rise. Correct the common error: Mistaking a rate change measured in basis points for percentage points exaggerates effect. Limitation: Dividend assumptions, model choice and contract expiry alter rho. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Rho -$0.03 per one-rate-point; rates rise three points: estimate effect. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_OPEN_INTEREST_VERSUS_DAILY_VOLUME",
+      "title": "Option open interest versus daily volume",
+      "concept": "Open interest counts outstanding eligible contracts, while daily trading volume counts contracts traded during the observed period.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Open interest 2,000 contracts and day volume 600 contracts do not mean 2,600 contracts remain open.",
+      "limit": "Changes in OI depend on whether counterparties open or close and on clearing updates.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Changes in OI depend on whether counterparties open or close and on clearing updates.",
+      "commonError": "Live-options mistake: Assuming every daily trade opens a new position is false. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Open interest counts outstanding eligible contracts, while daily trading volume counts contracts traded during the observed period. Example: Open interest 2,000 contracts and day volume 600 contracts do not mean 2,600 contracts remain open. Correct the common error: Assuming every daily trade opens a new position is false. Limitation: Changes in OI depend on whether counterparties open or close and on clearing updates. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: A contract series has OI 500 and day volume 300: explain whether next OI is determined. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PREMIUM_BID_ASK_SPREAD_IN_DOLLARS",
+      "title": "Option premium bid ask spread in dollars",
+      "concept": "A contract's quoted option premium spread must be multiplied by its actual deliverable multiplier when converted to a notional premium difference.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Option bid $1.20, ask $1.30 with 100-share multiplier: spread equivalent is $10 per contract.",
+      "limit": "Actual fills, commissions and adjusted deliverables can differ.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Actual fills, commissions and adjusted deliverables can differ.",
+      "commonError": "Live-options mistake: Calling a 10-cent premium spread ten dollars without declaring multiplier is ambiguous. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A contract's quoted option premium spread must be multiplied by its actual deliverable multiplier when converted to a notional premium difference. Example: Option bid $1.20, ask $1.30 with 100-share multiplier: spread equivalent is $10 per contract. Correct the common error: Calling a 10-cent premium spread ten dollars without declaring multiplier is ambiguous. Limitation: Actual fills, commissions and adjusted deliverables can differ. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Bid $2.00, ask $2.15 and multiplier 100: compute quoted spread equivalent. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CASH_SECURED_SHORT_PUT_COLLATERAL_ILLUSTRATION",
+      "title": "Cash-secured short put collateral illustration",
+      "concept": "A cash-secured put may reserve enough cash for contractual exercise purchase, with precise broker requirements varying.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: One fictional short put strike $25 with multiplier 100 represents $2,500 stock purchase obligation before premium and fees.",
+      "limit": "Assignment, early exercise, fees and broker cash requirements need explicit terms.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Assignment, early exercise, fees and broker cash requirements need explicit terms.",
+      "commonError": "Live-options mistake: Treating the premium received as the maximum amount at risk ignores the stock purchase exposure. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A cash-secured put may reserve enough cash for contractual exercise purchase, with precise broker requirements varying. Example: One fictional short put strike $25 with multiplier 100 represents $2,500 stock purchase obligation before premium and fees. Correct the common error: Treating the premium received as the maximum amount at risk ignores the stock purchase exposure. Limitation: Assignment, early exercise, fees and broker cash requirements need explicit terms. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: One put at strike $18, multiplier 100: calculate notional exercise purchase. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COVERED_CALL_SHARES_PER_CONTRACT",
+      "title": "Covered call shares per contract",
+      "concept": "A traditional covered call ordinarily pairs the short call with sufficient owned shares for the actual deliverable.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Fictional 200 owned eligible shares cover two standard 100-share-deliverable calls.",
+      "limit": "Adjusted option contracts and security restrictions change coverage.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Adjusted option contracts and security restrictions change coverage.",
+      "commonError": "Live-options mistake: Using contract count as share count creates a delivery deficit. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A traditional covered call ordinarily pairs the short call with sufficient owned shares for the actual deliverable. Example: Fictional 200 owned eligible shares cover two standard 100-share-deliverable calls. Correct the common error: Using contract count as share count creates a delivery deficit. Limitation: Adjusted option contracts and security restrictions change coverage. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: An investor owns 300 eligible shares, standard call deliverable 100: how many shares per two contracts? Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CREDIT_VERTICAL_SPREAD_MAXIMUM_LOSS_AT_EXPIRATION",
+      "title": "Credit vertical spread maximum loss at expiration",
+      "concept": "For a fully defined one-lot same-expiry vertical credit spread, expiry worst loss is strike width minus net credit before costs.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Fictional credit spread width $5 and received net premium $1.20 yields maximum expiry loss $3.80 per share, or $380 per 100 multiplier.",
+      "limit": "Early assignment and execution costs may create cash-flow and operational risks.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Early assignment and execution costs may create cash-flow and operational risks.",
+      "commonError": "Live-options mistake: Describing the collected credit as the entire downside cap is wrong. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: For a fully defined one-lot same-expiry vertical credit spread, expiry worst loss is strike width minus net credit before costs. Example: Fictional credit spread width $5 and received net premium $1.20 yields maximum expiry loss $3.80 per share, or $380 per 100 multiplier. Correct the common error: Describing the collected credit as the entire downside cap is wrong. Limitation: Early assignment and execution costs may create cash-flow and operational risks. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Width $4 with net credit $0.75: compute maximum expiry loss for multiplier 100. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DEBIT_VERTICAL_SPREAD_EXPIRATION_GAIN_CAP",
+      "title": "Debit vertical spread expiration gain cap",
+      "concept": "A fully defined long vertical debit spread has maximum expiration gain equal to strike width less debit before costs.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Width $5 and net debit $1.50 imply expiry maximum profit $3.50/share, $350 per standard 100-share multiplier.",
+      "limit": "Expiration settlement and exercise mechanics remain separate.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Expiration settlement and exercise mechanics remain separate.",
+      "commonError": "Live-options mistake: Using the entire strike width as net profit ignores initial premium paid. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A fully defined long vertical debit spread has maximum expiration gain equal to strike width less debit before costs. Example: Width $5 and net debit $1.50 imply expiry maximum profit $3.50/share, $350 per standard 100-share multiplier. Correct the common error: Using the entire strike width as net profit ignores initial premium paid. Limitation: Expiration settlement and exercise mechanics remain separate. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Width $3, debit $0.80, multiplier 100: find expiry maximum gain. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_PARITY_UNDER_ZERO_DIVIDEND_SIMPLIFICATION",
+      "title": "Option parity under zero dividend simplification",
+      "concept": "A simple European-option put–call parity identity requires matching strike and expiration and assumptions about discounting.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: With no dividends, S=100, discounted strike PV(K)=98, call=7, parity implies put=5 via C-P=S-PV(K).",
+      "limit": "Rates, discrete distributions and arbitrage bounds require correct contracts and market conventions.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Rates, discrete distributions and arbitrage bounds require correct contracts and market conventions.",
+      "commonError": "Live-options mistake: Applying simplified parity to American early-exercise terms without adjusting assumptions is unsafe. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A simple European-option put–call parity identity requires matching strike and expiration and assumptions about discounting. Example: With no dividends, S=100, discounted strike PV(K)=98, call=7, parity implies put=5 via C-P=S-PV(K). Correct the common error: Applying simplified parity to American early-exercise terms without adjusting assumptions is unsafe. Limitation: Rates, discrete distributions and arbitrage bounds require correct contracts and market conventions. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Given S=50, PV(K)=49 and call 4, derive put under parity. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INTRINSIC_VERSUS_EXTRINSIC_VALUE_BEFORE_EXPIRATION",
+      "title": "Intrinsic versus extrinsic value before expiration",
+      "concept": "Extrinsic premium is observed option premium less positive intrinsic value under the declared pricing basis.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Call strike $20, underlying $23, premium $4.50: intrinsic $3 and extrinsic $1.50 per underlying share.",
+      "limit": "Bid/ask side and contract settlement can change observable option value.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Bid/ask side and contract settlement can change observable option value.",
+      "commonError": "Live-options mistake: Counting the full premium as intrinsic falsely erases time value. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Extrinsic premium is observed option premium less positive intrinsic value under the declared pricing basis. Example: Call strike $20, underlying $23, premium $4.50: intrinsic $3 and extrinsic $1.50 per underlying share. Correct the common error: Counting the full premium as intrinsic falsely erases time value. Limitation: Bid/ask side and contract settlement can change observable option value. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Call strike $30, stock $32, premium $3: find intrinsic and extrinsic. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CALENDAR_DAY_AND_TRADING_DAY_COUNTS_TO_EXPIRATION",
+      "title": "Calendar day and trading day counts to expiration",
+      "concept": "Time-to-expiry depends on whether the chosen model uses calendar time, trading sessions or exact time fractions.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: A fictional option expires in 14 calendar days but only ten remaining regular sessions: two distinct counts, not interchangeable.",
+      "limit": "Holiday calendars and intraday expiration times matter.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Holiday calendars and intraday expiration times matter.",
+      "commonError": "Live-options mistake: Assuming all 14 calendar days are 14 exchange sessions changes inputs. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Time-to-expiry depends on whether the chosen model uses calendar time, trading sessions or exact time fractions. Example: A fictional option expires in 14 calendar days but only ten remaining regular sessions: two distinct counts, not interchangeable. Correct the common error: Assuming all 14 calendar days are 14 exchange sessions changes inputs. Limitation: Holiday calendars and intraday expiration times matter. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: A theoretical model needs years while quote says 30 calendar days: identify a possible 365-day fraction. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CONTRACT_MULTIPLIER_FOLLOWING_ADJUSTED_DELIVERABLES",
+      "title": "Contract multiplier following adjusted deliverables",
+      "concept": "Corporate actions can alter contract deliverables so the generic 100-share assumption is not sufficient.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: A fictional adjusted contract deliverable of 150 shares with quoted premium $2 represents $300 premium value before fees.",
+      "limit": "Only the official contract adjustment memorandum establishes actual terms.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Only the official contract adjustment memorandum establishes actual terms.",
+      "commonError": "Live-options mistake: Using 100 on every adjusted contract misstates notional exposure. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Corporate actions can alter contract deliverables so the generic 100-share assumption is not sufficient. Example: A fictional adjusted contract deliverable of 150 shares with quoted premium $2 represents $300 premium value before fees. Correct the common error: Using 100 on every adjusted contract misstates notional exposure. Limitation: Only the official contract adjustment memorandum establishes actual terms. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: An adjusted contract delivers 50 shares and premium quote $1.60: compute quoted value. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAK_EVEN_SHORT_PUT_AT_EXPIRATION",
+      "title": "Break-even short put at expiration",
+      "concept": "For a short put sold for premium, simplified expiration stock purchase breakeven equals strike minus premium per share.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Sell put strike $30 for $2.00 credit: simplified expiration breakeven is $28 per underlying share.",
+      "limit": "Before expiration, market value and assignment mechanics differ from expiry payoff.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Before expiration, market value and assignment mechanics differ from expiry payoff.",
+      "commonError": "Live-options mistake: Ignoring fees and assignment exposures overstates how safe a credit is. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: For a short put sold for premium, simplified expiration stock purchase breakeven equals strike minus premium per share. Example: Sell put strike $30 for $2.00 credit: simplified expiration breakeven is $28 per underlying share. Correct the common error: Ignoring fees and assignment exposures overstates how safe a credit is. Limitation: Before expiration, market value and assignment mechanics differ from expiry payoff. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Short put strike $25, premium $1.50: find expiration breakeven. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREAK_EVEN_SHORT_CALL_AT_EXPIRATION",
+      "title": "Break-even short call at expiration",
+      "concept": "A short call's simple expiration payoff crosses zero when the underlying exceeds strike plus received premium.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Sell unhedged call strike $20 for $1.50 credit: simplified expiration breakeven $21.50 per share.",
+      "limit": "Unhedged short call may have very large loss exposure.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Unhedged short call may have very large loss exposure.",
+      "commonError": "Live-options mistake: Treating $21.50 as a guaranteed stop-fill level is not a hedge. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: A short call's simple expiration payoff crosses zero when the underlying exceeds strike plus received premium. Example: Sell unhedged call strike $20 for $1.50 credit: simplified expiration breakeven $21.50 per share. Correct the common error: Treating $21.50 as a guaranteed stop-fill level is not a hedge. Limitation: Unhedged short call may have very large loss exposure. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Short call strike $40 credit $2: find break-even price. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHORT_OPTION_PREMIUM_CREDIT_IS_NOT_EARNED_PROFIT",
+      "title": "Short option premium credit is not earned profit",
+      "concept": "Receiving option premium at opening simultaneously creates a short-option obligation or liability.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: One fictional option sold for $1.20 on a 100-share multiplier credits $120 cash before costs while the option position remains open.",
+      "limit": "Settlement, collateral, early assignment and market conditions govern actual outcome.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Settlement, collateral, early assignment and market conditions govern actual outcome.",
+      "commonError": "Live-options mistake: Calling the opening credit realized profit ignores mark-to-market and closure. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Receiving option premium at opening simultaneously creates a short-option obligation or liability. Example: One fictional option sold for $1.20 on a 100-share multiplier credits $120 cash before costs while the option position remains open. Correct the common error: Calling the opening credit realized profit ignores mark-to-market and closure. Limitation: Settlement, collateral, early assignment and market conditions govern actual outcome. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: Sell one option for $0.70 with multiplier 100: state gross credit and remaining obligation. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPTION_ASSIGNMENT_CASH_AND_STOCK_MECHANICS",
+      "title": "Option assignment cash and stock mechanics",
+      "concept": "Physical-delivery option exercise can exchange shares and cash according to strike and deliverable.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: A standard exercised call at $25 delivers 100 shares against $2,500 strike cash, apart from premium and fees.",
+      "limit": "Cash-settled contracts and adjusted deliverables use different mechanics.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Cash-settled contracts and adjusted deliverables use different mechanics.",
+      "commonError": "Live-options mistake: Confusing strike cash with the option's upfront premium misstates obligations. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Physical-delivery option exercise can exchange shares and cash according to strike and deliverable. Example: A standard exercised call at $25 delivers 100 shares against $2,500 strike cash, apart from premium and fees. Correct the common error: Confusing strike cash with the option's upfront premium misstates obligations. Limitation: Cash-settled contracts and adjusted deliverables use different mechanics. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: A standard put at strike $18 exercises 100 shares: compute strike cash exchange amount. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_IMPLIED_VOLATILITY_IS_MODEL_INFERRED_NOT_A_PRICE_FORECAST",
+      "title": "Implied volatility is model-inferred not a price forecast",
+      "concept": "Implied volatility is the volatility parameter consistent with a quoted option price under a specified pricing model.",
+      "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
+      "workedCase": "FICTIONAL: Two fictional option quotations fed through the same model may imply 20% and 30% IV; this is not a guaranteed 20% or 30% realized move.",
+      "limit": "Model selection, quote quality, skew and future realized returns differ.",
+      "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Model selection, quote quality, skew and future realized returns differ.",
+      "commonError": "Live-options mistake: Interpreting IV as probability that a stock rises is incorrect. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
+      "selfCheck": "Which contract multiplier, timeframe and exercise assumption control this calculation?",
+      "reviewExplanation": "Ungraded Talia coaching: Implied volatility is the volatility parameter consistent with a quoted option price under a specified pricing model. Example: Two fictional option quotations fed through the same model may imply 20% and 30% IV; this is not a guaranteed 20% or 30% realized move. Correct the common error: Interpreting IV as probability that a stock rises is incorrect. Limitation: Model selection, quote quality, skew and future realized returns differ. No official score or trading signal is implied.",
+      "transferQuestion": "FICTIONAL transfer: An option model reports 25% annualized IV: identify whether it guarantees next year's price range. Explain why your answer is not a guaranteed execution outcome.",
+      "sourceUrls": [
+        "https://www.optionseducation.org/optionsoverview"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "candidate_primary_source_not_verified_by_claim",
+      "editorSourceReview": {
+        "result": "DRAFT_HOLD_OPTION_RIGHTS_TERMS_AND_MATH",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
