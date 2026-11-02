@@ -195,6 +195,26 @@ function Classroom(){
   const [phase,setPhase]=useState<Phase>('Observe');
   const [attempts,setAttempts]=useState(0);
   const [sessionTopic,setSessionTopic]=useState('Reading completed candles');
+  const [misconception,setMisconception]=useState('observation');
+  const [confidence,setConfidence]=useState('unsure');
+  const misconceptionPrompts:Record<string,string>={
+    observation:'I may be confusing what a completed candle shows with what I expect the market to do next. Separate observation from prediction.',
+    structure:'I may be treating one higher high as proof of a confirmed trend. Show how multiple swing points and invalidation change that conclusion.',
+    indicator:'I may be treating an indicator crossover as a guaranteed signal. Explain lag, warmup, context and cases in which NO TRADE is reasonable.',
+    risk:'I may be choosing a trade without an invalidation point. Walk me through an ungraded risk-first fictional decision.',
+    lookahead:'I may be using candles not yet revealed to justify a past decision. Reconstruct the decision from the visible historical prefix only.'
+  };
+  const requestCorrection=()=>{
+    setPhase('Correct');setMode('review');
+    setQuestion(('Current topic: '+sessionTopic+'. '+misconceptionPrompts[misconception]+' Ask me what evidence supports my reasoning, then correct it using only approved ungraded instruction.').slice(0,450));
+    setStatus('Misconception review prepared. Explain your own reasoning in the review field before sending.');
+  };
+  const requestRecommendation=()=>{
+    setPhase('Retry');setMode('question');
+    const basis=confidence==='unsure'?'Start with a simpler observation and worked example.':confidence==='developing'?'Ask a new comparison that tests the distinction.':'Ask a more difficult independent transfer question.';
+    setQuestion(('Practice '+dimension+' for '+sessionTopic+'. '+basis+' Focus on '+misconceptionPrompts[misconception]+' Do not grade this response.').slice(0,450));
+    setStatus('Practice recommendation prepared from your selected needs, not inferred mastery or private grades.');
+  };
   const [dimension,setDimension]=useState<'Knowledge'|'Recognition'|'Decision'|'Process'>('Recognition');
   const phaseInstructions:Record<Phase,{mode:Mode;prompt:string}>={
     Observe:{mode:'question',prompt:'Ask me to identify two observable facts from the current completed candle or concept. Do not interpret for me yet.'},
@@ -381,6 +401,20 @@ function Classroom(){
             <option>Knowledge</option><option>Recognition</option><option>Decision</option><option>Process</option>
           </select></label>
         </div>
+        <div className="tp-instruction-controls" aria-label="Personalized instructional support">
+          <label>Where are you getting stuck?<select value={misconception} onChange={e=>setMisconception(e.target.value)}>
+            <option value="observation">Observation versus prediction</option>
+            <option value="structure">Market structure confirmation</option>
+            <option value="indicator">Indicator signals and lag</option>
+            <option value="risk">Risk and invalidation</option>
+            <option value="lookahead">Historical replay look-ahead</option>
+          </select></label>
+          <label>How confident do you feel?<select value={confidence} onChange={e=>setConfidence(e.target.value)}>
+            <option value="unsure">Not confident yet</option><option value="developing">Developing confidence</option><option value="confident">Ready for a harder case</option>
+          </select></label>
+        </div>
+        <div className="tc-row"><button type="button" className="tc-secondary" onClick={requestCorrection} disabled={busy}>Help me correct this</button>
+          <button type="button" className="tc-secondary" onClick={requestRecommendation} disabled={busy}>Recommend my next practice</button></div>
         <div className="tp-instruction-steps" role="group" aria-label="Instruction phases">
           {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>preparePhase(p)} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
         </div>
