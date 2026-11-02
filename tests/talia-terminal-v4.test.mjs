@@ -22,7 +22,7 @@ test('pan controls and pointer release are provided with the existing security b
 });
 
 test('independent quantitative validation of generated OHLC and grouped completed intervals',()=>{
- const m=s.match(/const REPLAY:number\\[\\]\\[\\]=\\[([\\s\\S]*?)\\];/);
+ const m=s.match(/const REPLAY:number\[\]\[\]=\[([\s\S]*?)\];/);
  assert.ok(m,'original reviewed candle fixture');
  const base=JSON.parse('['+m[1]+']');
  assert.equal(base.length,12);
