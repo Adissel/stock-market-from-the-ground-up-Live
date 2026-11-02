@@ -141,6 +141,26 @@ try{
   return x.lineStyle;
  });
  assert.equal(style.color,'#ffcc00');assert.equal(style.type,'dashed');
+
+ const savedPalette=await page.evaluate(()=>window.CrownlightEChartsStudio.getPreferences());
+ assert.equal(savedPalette.colors.macd,'#1234ab');
+ assert.equal(savedPalette.lineStyles.macd,'dotted');
+ assert.equal(savedPalette.paneSizes.macd,230);
+ assert.equal(savedPalette.enabled.macd,true);
+ await page.evaluate(()=>window.CrownlightEChartsStudio.unmount());
+ assert.equal(await page.evaluate(async data=>
+  window.CrownlightEChartsStudio.mount(document.querySelector('#slot'),data,'FICTION','1-minute'),bars),true);
+ assert.equal(await page.evaluate(p=>
+  window.CrownlightEChartsStudio.restorePreferences(p),savedPalette),true);
+ const restoredStyle=await page.evaluate(()=>{
+  const graph=document.querySelector('[data-cl-echarts-chart]');
+  const opt=window.echarts.getInstanceByDom(graph).getOption();
+  return {line:opt.series.find(x=>x.name==='MACD 12/26').lineStyle,
+   pane:opt.grid[3].height};
+ });
+ assert.equal(restoredStyle.line.color,'#1234ab');
+ assert.equal(restoredStyle.line.type,'dotted');
+ assert.equal(restoredStyle.pane,230);
  await page.evaluate(data=>window.CrownlightEChartsStudio.update(data,'FICTION','1-minute'),bars.slice(0,50));
  const prefix=await read();
  assert.equal(prefix.status.barCount,50);
