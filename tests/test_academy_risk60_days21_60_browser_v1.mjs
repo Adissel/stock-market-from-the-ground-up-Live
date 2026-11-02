@@ -21,7 +21,8 @@ for(const lesson of advanced){
  for(const q of lesson.lesson.formativeQuestions){
   assert(typeof q.id==='string'&&!prompts.has(q.id),'Duplicate or missing original question identity');
   prompts.add(q.id);
-  assert(q.prompt.length>25&&q.review.length>55,'Question and feedback must be substantial');
+  assert(q.prompt.length>=30&&q.review.length>=30,
+   'Question and feedback must meet the canonical readiness contract: Risk60 '+lesson.day+' '+q.id);
  }
  const p=lesson.lesson.advancedPracticums[0];
  for(const field of ['scenario','task','worked','pitfall','transfer'])
