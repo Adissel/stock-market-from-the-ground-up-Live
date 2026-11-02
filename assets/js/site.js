@@ -266,3 +266,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/css/appearance-controls-v1.css?v=1';document.head.append(css);
 const js=document.createElement('script');js.defer=true;js.src='/assets/js/appearance-controls-v1.js?v=1';document.head.append(js);
 })();
+
+/* Mount the integrated, progressive site shell outside interactive curricula. */
+(()=>{const page=location.pathname.split('/').pop()||'index.html';if(/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/i.test(page))return;
+const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='/assets/css/site-shell-v1.css?v=1';document.head.append(stylesheet);
+const script=document.createElement('script');script.src='/assets/js/site-shell-v1.js?v=1';script.defer=true;document.head.append(script);
+})();
