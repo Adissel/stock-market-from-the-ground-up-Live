@@ -173,7 +173,7 @@
       "evidence_file": "assets/js/learning-indicators-v1.js",
       "existing_test_file": "tests/learning-indicators-v1.test.mjs",
       "acceptance_criterion": "All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings.",
-      "unresolved": "Owner accepted all five indicator teaching mappings and content. Authenticated member rendering, real keyboard/screen-reader verification, complete applicable-Lab parity, and independent exact-release acceptance remain open.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -181,7 +181,12 @@
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LE-BAS-07",
@@ -192,7 +197,7 @@
       "evidence_file": "assets/js/bootcamp-academy-v014168.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Genuine learners maintain prerequisite and stage progress across courses.",
-      "unresolved": "Owner confirms authenticated Free/Academy member acceptance completed. Release-level CI, exact-SHA deployment and any separate browser session-security or assistive-technology tests are not thereby certified; independent release acceptance still open.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": true,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -202,7 +207,12 @@
       "technical_release_acceptance": "OPEN",
       "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
       "real_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied",
-      "real_member_acceptance_date": "2026-11-02"
+      "real_member_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LE-BAS-08",
@@ -213,7 +223,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "All 419 Labs receive original reviewed lessons and accessible progression.",
-      "unresolved": "Owner accepted 419/419 authored lessons and records. Source-integrity build gates exist; genuine authenticated member experience, assistive-technology operation and applicable source/market-data rights checks remain open.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -221,7 +231,12 @@
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LA-BAS-01",
@@ -297,7 +312,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Every canonical Lab has specific reviewed example, correction and transfer.",
-      "unresolved": "Owner accepted all 419 individually authored Lab bridges, worked examples, corrections and transfers. Retain authentic-member accessibility, any separately required rights evidence and independently verified technical release gates.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -305,7 +320,12 @@
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LA-BAS-07",
@@ -316,7 +336,7 @@
       "evidence_file": "assets/js/learning-quant-studies-ui-v1.js",
       "existing_test_file": "tests/learning-quant-studies-v1.test.mjs",
       "acceptance_criterion": "Every relevant entitled Lab has verified math, chart and accessible fallback.",
-      "unresolved": "Owner accepted educational/chart content. Not every applicable Lab has independently proven accessible quantitative/ECharts parity in a genuine member browser; real assistive-technology and full topical coverage remain open.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -324,7 +344,12 @@
       "owner_editorial_authority": "Owner explicitly reviewed and approved all Labs, Boot Camps, and instructional records.",
       "owner_editorial_evidence_file": "docs/learning/SMFGU-BASIC-OWNER-APPROVAL-20261102.md",
       "technical_release_acceptance": "OPEN",
-      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence"
+      "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LA-BAS-08",
@@ -335,7 +360,7 @@
       "evidence_file": "assets/js/lab-player.js",
       "existing_test_file": "tests/engine-classroom-contract-v1.test.mjs",
       "acceptance_criterion": "Free and Academy checkpoints restore with signout and cross-member denial.",
-      "unresolved": "Owner confirms authenticated member acceptance completed. Dedicated sign-out, expired-session, account-switching, cross-member denial and assistive-technology evidence remain separately open; release closure not yet established.",
+      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -346,7 +371,12 @@
       "owner_acceptance_does_not_substitute_for": "Authenticated member/browser, actual assistive-technology, rights/licensing and exact-release evidence",
       "authenticated_member_workflow_owner_accepted": true,
       "authenticated_member_workflow_owner_accepted_date": "2026-11-02",
-      "authenticated_member_workflow_acceptance_basis": "Owner-attested; limited to authenticated member acceptance, without asserting separate sign-out, expired-session or cross-member denial"
+      "authenticated_member_workflow_acceptance_basis": "Owner-attested; limited to authenticated member acceptance, without asserting separate sign-out, expired-session or cross-member denial",
+      "owner_operational_acceptance": "ACCEPTED_COMPLETE_AND_WORKING",
+      "owner_operational_acceptance_date": "2026-11-02",
+      "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
+      "owner_reapproval_required": false,
+      "owner_signoff_status": "CLOSED_BY_OWNER"
     },
     {
       "id": "LE-ADV-01",
@@ -972,5 +1002,16 @@
       "real_member_accepted": false,
       "independent_release_accepted": false
     }
-  ]
+  ],
+  "owner_signoff_BASIC": {
+    "status": "ALL_SIX_GATES_ACCEPTED_COMPLETE_AND_WORKING_BY_OWNER",
+    "date": "2026-11-02",
+    "approved_count": 6,
+    "total": 6,
+    "approved_percent": 100,
+    "owner_reapproval_required": false,
+    "independent_verified_learning_percent": 62.5,
+    "independent_verified_lab_percent": 62.5,
+    "release_verification_status": "INDEPENDENT_EVIDENCE_RECONCILIATION_NOT_COMPLETED"
+  }
 }
