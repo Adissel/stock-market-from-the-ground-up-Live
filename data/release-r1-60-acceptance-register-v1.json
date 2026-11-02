@@ -1,0 +1,492 @@
+{
+  "schema": "smfgu.major-release.acceptance.v1",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "release": "R1",
+  "targetBranch": "main",
+  "targetDomain": "stock-market-from-the-ground-up-d1r.pages.dev",
+  "version": "1.0",
+  "status": "DRAFT_ACCEPTANCE_REGISTER",
+  "note": "60 acceptance criteria; not 60 claims of implementation or authorization. No editing of frozen engine acceptance counts without individual evidence.",
+  "requirements": [
+    {
+      "id": "R1-01",
+      "workstream": "Basic Learning",
+      "requirement": "Indicator mapping audit",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-02",
+      "workstream": "Basic Learning",
+      "requirement": "ATR editorial review",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-03",
+      "workstream": "Basic Learning",
+      "requirement": "Bollinger editorial review",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-04",
+      "workstream": "Basic Learning",
+      "requirement": "Five-study browser parity",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-05",
+      "workstream": "Basic Learning",
+      "requirement": "Free Foundations routing",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-06",
+      "workstream": "Basic Learning",
+      "requirement": "Academy stage restoration",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-07",
+      "workstream": "Basic Learning",
+      "requirement": "Cross-course progress integrity",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-08",
+      "workstream": "Basic Learning",
+      "requirement": "419 Lab instructional review",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-09",
+      "workstream": "Basic Learning",
+      "requirement": "Accessible lesson alternatives",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-10",
+      "workstream": "Basic Learning",
+      "requirement": "Basic Learning acceptance reconciliation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-11",
+      "workstream": "Basic Lab",
+      "requirement": "419 Lab ID routing",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-12",
+      "workstream": "Basic Lab",
+      "requirement": "419 authored bridge evidence",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-13",
+      "workstream": "Basic Lab",
+      "requirement": "419 editorial approval tracking",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-14",
+      "workstream": "Basic Lab",
+      "requirement": "Protected answer separation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-15",
+      "workstream": "Basic Lab",
+      "requirement": "Ungraded retry security",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-16",
+      "workstream": "Basic Lab",
+      "requirement": "Chart topic parity",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-17",
+      "workstream": "Basic Lab",
+      "requirement": "Quantitative math parity",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-18",
+      "workstream": "Basic Lab",
+      "requirement": "Checkpoint CAS integrity",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-19",
+      "workstream": "Basic Lab",
+      "requirement": "Sign-out restoration",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-20",
+      "workstream": "Basic Lab",
+      "requirement": "Basic Lab acceptance reconciliation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-21",
+      "workstream": "Talia Tutor",
+      "requirement": "Owner auth",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-22",
+      "workstream": "Talia Tutor",
+      "requirement": "Admin auth",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-23",
+      "workstream": "Talia Tutor",
+      "requirement": "Unauthorized denial",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-24",
+      "workstream": "Talia Tutor",
+      "requirement": "Session expiry",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-25",
+      "workstream": "Talia Tutor",
+      "requirement": "Six-phase teaching",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-26",
+      "workstream": "Talia Tutor",
+      "requirement": "Misconception correction",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-27",
+      "workstream": "Talia Tutor",
+      "requirement": "Guided retries",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-28",
+      "workstream": "Talia Tutor",
+      "requirement": "Transfer scenarios",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-29",
+      "workstream": "Talia Tutor",
+      "requirement": "Private conversation restoration",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-30",
+      "workstream": "Talia Tutor",
+      "requirement": "Account switch isolation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-31",
+      "workstream": "Chart Studio",
+      "requirement": "ECharts initialization",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-32",
+      "workstream": "Chart Studio",
+      "requirement": "Completed-prefix correctness",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-33",
+      "workstream": "Chart Studio",
+      "requirement": "EMA 9 warmup",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-34",
+      "workstream": "Chart Studio",
+      "requirement": "EMA 20 warmup",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-35",
+      "workstream": "Chart Studio",
+      "requirement": "EMA 200 warmup",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-36",
+      "workstream": "Chart Studio",
+      "requirement": "VWAP proxy disclosure",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-37",
+      "workstream": "Chart Studio",
+      "requirement": "Volume proxy disclosure",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-38",
+      "workstream": "Chart Studio",
+      "requirement": "Pan and zoom",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-39",
+      "workstream": "Chart Studio",
+      "requirement": "Accessible candle ledger",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-40",
+      "workstream": "Chart Studio",
+      "requirement": "Workspace persistence",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-41",
+      "workstream": "Academy and Membership",
+      "requirement": "Free tier restrictions",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-42",
+      "workstream": "Academy and Membership",
+      "requirement": "Founding 14-day grants",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-43",
+      "workstream": "Academy and Membership",
+      "requirement": "Founding 30-day grants",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-44",
+      "workstream": "Academy and Membership",
+      "requirement": "Founding 60-day grants",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-45",
+      "workstream": "Academy and Membership",
+      "requirement": "Free Foundations days",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-46",
+      "workstream": "Academy and Membership",
+      "requirement": "Academy prerequisites",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-47",
+      "workstream": "Academy and Membership",
+      "requirement": "Academy day restoration",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-48",
+      "workstream": "Academy and Membership",
+      "requirement": "Lab lesson handoff",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-49",
+      "workstream": "Academy and Membership",
+      "requirement": "Entitlement revocation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-50",
+      "workstream": "Academy and Membership",
+      "requirement": "Cross-member progress isolation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-51",
+      "workstream": "Security and Release",
+      "requirement": "No paid provider calls",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-52",
+      "workstream": "Security and Release",
+      "requirement": "No live charges",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-53",
+      "workstream": "Security and Release",
+      "requirement": "Role-based isolation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-54",
+      "workstream": "Security and Release",
+      "requirement": "Grading-key isolation",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-55",
+      "workstream": "Security and Release",
+      "requirement": "Keyboard acceptance",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-56",
+      "workstream": "Security and Release",
+      "requirement": "Screen-reader acceptance",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-57",
+      "workstream": "Security and Release",
+      "requirement": "Mobile responsive acceptance",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-58",
+      "workstream": "Security and Release",
+      "requirement": "Mandatory CI matrix",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-59",
+      "workstream": "Security and Release",
+      "requirement": "Cloudflare matching SHA",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    },
+    {
+      "id": "R1-60",
+      "workstream": "Security and Release",
+      "requirement": "Final independent sign-off",
+      "status": "PENDING_ACCEPTANCE",
+      "evidence": "Not independently signed off; assess existing source and tests",
+      "approval": false
+    }
+  ]
+}
