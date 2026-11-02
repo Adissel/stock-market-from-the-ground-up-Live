@@ -342,4 +342,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.22 / 2026-11-02 / Added twenty original Batch11 bridges for 220/419 source-authored and source-tested, including all thirteen recovered Foundation records and seven Day Trading records. Completed individual Batch10 AI editorial preflight without claiming independent human approval. Genuine authenticated continuity/accessibility, independent editorial acceptance, publication rights and 199 unauthored Labs remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.22 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Revision-history addition:** v1.23 / 2026-11-02 / Added twenty original Batch12 Day Trading bridges (`DT-C43-L01`–`DT-C50-L02`) for 240/419 source-authored and source-tested. Named-security replay lessons use explicitly fictional analogues and retain rights holds. Corrected the mandatory research-rights contract after authoritative Foundation title recovery; independent human editorial, authenticated continuity/accessibility, publication rights and 179 unauthored Labs remain open.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.23 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

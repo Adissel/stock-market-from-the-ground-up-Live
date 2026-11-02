@@ -15015,43 +15015,100 @@
       "relatedCompetencies": [
         "RISK_REWARD"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Profit Targets and Exits — Structural targets.",
-          "Planned reward-to-risk is prospective distance to a target divided by prospective stop distance.",
-          "Define entry, planned invalidation, target and fees; calculate reward-to-risk using hypothetical distances without implying either exit will fill."
+          "A structural target is a predeclared completed-price reference derived from visible market structure; it is an exit-planning input, not a promised fill.",
+          "This lesson preserves the canonical topic Profit Targets and Exits — Structural targets and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Profit Targets and Exits — Structural targets from the source evidence.",
-          "Document proposed entry, stop and target before using future data.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL entry $20.00, invalidation $19.60, and prior resistance $20.80: risk is $0.40 and the structural target is 2R away because ($20.80-$20.00)/$0.40=2.00.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Profit Targets and Exits — Structural targets using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document proposed entry, stop and target before using future data.",
-          "Step 3 — Check the alternative or invalidation: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "Worked example — FICTIONAL entry $20.00, invalidation $19.60, and prior resistance $20.80: risk is $0.40 and the structural target is 2R away because ($20.80-$20.00)/$0.40=2.00.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Profit Targets and Exits — Structural targets: Treating a stated target as a realized profit.",
-          "Correct it by returning to the actual observation. Document proposed entry, stop and target before using future data.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Choosing a target only because it produces an attractive reward-to-risk ratio.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Profit Targets and Exits — Structural targets cannot establish:",
-          "A large hypothetical ratio does not establish execution odds or win rate.",
-          "An interpretation is invalidated or unproven when: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A structural target is a predeclared completed-price reference derived from visible market structure; it is an exit-planning input, not a promised fill.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support risk/reward planning, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Profit Targets and Exits — Structural targets calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $10, stop reference $9.75 and target $10.50, compute 2:1 planned reward/risk and explain slippage caveats.",
-        "topic": "Profit Targets and Exits — Structural targets",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Given a new entry, invalidation, and completed resistance, calculate target distance in dollars and R."
+      },
+      "competencies": [
+        "RISK_REWARD"
+      ],
+      "prerequisites": [
+        "DT-C42-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C43-L01",
+          "topic:Profit Targets and Exits — Structural targets",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C43-L02": {
@@ -15063,43 +15120,101 @@
         "RISK_REWARD",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Profit Targets and Exits — Trailing logic.",
-          "Planned reward-to-risk is prospective distance to a target divided by prospective stop distance.",
-          "Define entry, planned invalidation, target and fees; calculate reward-to-risk using hypothetical distances without implying either exit will fill."
+          "Trailing logic changes an exit reference only after a predeclared completed-bar event; it must not use the current unfinished bar or later highs.",
+          "This lesson preserves the canonical topic Profit Targets and Exits — Trailing logic and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Profit Targets and Exits — Trailing logic from the source evidence.",
-          "Document proposed entry, stop and target before using future data.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL completed highs are $30.40, $30.70, $30.65 and the rule trails $0.30 below the highest completed high: $30.70-$0.30=$30.40.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Profit Targets and Exits — Trailing logic using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document proposed entry, stop and target before using future data.",
-          "Step 3 — Check the alternative or invalidation: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "Worked example — FICTIONAL completed highs are $30.40, $30.70, $30.65 and the rule trails $0.30 below the highest completed high: $30.70-$0.30=$30.40.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Profit Targets and Exits — Trailing logic: Treating a stated target as a realized profit.",
-          "Correct it by returning to the actual observation. Document proposed entry, stop and target before using future data.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Moving a trailing reference intrabar whenever price flashes a new high.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Profit Targets and Exits — Trailing logic cannot establish:",
-          "A large hypothetical ratio does not establish execution odds or win rate.",
-          "An interpretation is invalidated or unproven when: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Trailing logic changes an exit reference only after a predeclared completed-bar event; it must not use the current unfinished bar or later highs.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support risk/reward planning, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Profit Targets and Exits — Trailing logic calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $10, stop reference $9.75 and target $10.50, compute 2:1 planned reward/risk and explain slippage caveats.",
-        "topic": "Profit Targets and Exits — Trailing logic",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply a stated completed-high trail to a new four-bar sequence and identify the cutoff."
+      },
+      "competencies": [
+        "RISK_REWARD",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C43-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C43-L02",
+          "topic:Profit Targets and Exits — Trailing logic",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C43-L03": {
@@ -15111,43 +15226,101 @@
         "RISK_REWARD",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Profit Targets and Exits — Fixed-R Multiple Targets.",
-          "Planned reward-to-risk is prospective distance to a target divided by prospective stop distance.",
-          "Define entry, planned invalidation, target and fees; calculate reward-to-risk using hypothetical distances without implying either exit will fill."
+          "An R-multiple target measures planned reward relative to initial per-share risk: target price for a long is entry plus target-R times initial risk.",
+          "This lesson preserves the canonical topic Profit Targets and Exits — Fixed-R Multiple Targets and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Profit Targets and Exits — Fixed-R Multiple Targets from the source evidence.",
-          "Document proposed entry, stop and target before using future data.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL long entry $12.50, invalidation $12.20, initial risk $0.30; a 2.5R target is $12.50+(2.5×$0.30)=$13.25.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Profit Targets and Exits — Fixed-R Multiple Targets using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document proposed entry, stop and target before using future data.",
-          "Step 3 — Check the alternative or invalidation: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "Worked example — FICTIONAL long entry $12.50, invalidation $12.20, initial risk $0.30; a 2.5R target is $12.50+(2.5×$0.30)=$13.25.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Profit Targets and Exits — Fixed-R Multiple Targets: Treating a stated target as a realized profit.",
-          "Correct it by returning to the actual observation. Document proposed entry, stop and target before using future data.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Recalculating initial R after moving the stop so every result looks larger.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Profit Targets and Exits — Fixed-R Multiple Targets cannot establish:",
-          "A large hypothetical ratio does not establish execution odds or win rate.",
-          "An interpretation is invalidated or unproven when: A nonpositive stop distance or target on the wrong side invalidates the setup."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "An R-multiple target measures planned reward relative to initial per-share risk: target price for a long is entry plus target-R times initial risk.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support risk/reward planning, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Profit Targets and Exits — Fixed-R Multiple Targets calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "For fictional entry $10, stop reference $9.75 and target $10.50, compute 2:1 planned reward/risk and explain slippage caveats.",
-        "topic": "Profit Targets and Exits — Fixed-R Multiple Targets",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Calculate 1.5R and 3R prices from a new entry and fixed initial risk."
+      },
+      "competencies": [
+        "RISK_REWARD",
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C43-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C43-L03",
+          "topic:Profit Targets and Exits — Fixed-R Multiple Targets",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C44-L01": {
@@ -15158,43 +15331,100 @@
       "relatedCompetencies": [
         "INVALIDATION_DISCIPLINE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Managing an Open Day Trade — Protect the original risk.",
-          "An invalidation describes observations that would refute a setup under a predefined rule.",
-          "Define invalidation in observable completed data before the trade, and explain why a stop reference is not a guaranteed execution price."
+          "Protecting original risk means keeping exposure within the predeclared loss boundary while recognizing gaps and slippage can exceed it.",
+          "This lesson preserves the canonical topic Managing an Open Day Trade — Protect the original risk and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Managing an Open Day Trade — Protect the original risk from the source evidence.",
-          "Write an observable condition and timing window before advancing replay.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 200 shares with $0.25 initial risk plan $50; reducing to 120 shares leaves $30 planned price risk at the same invalidation.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Managing an Open Day Trade — Protect the original risk using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write an observable condition and timing window before advancing replay.",
-          "Step 3 — Check the alternative or invalidation: The setup no longer holds under the recorded condition."
+          "Worked example — FICTIONAL 200 shares with $0.25 initial risk plan $50; reducing to 120 shares leaves $30 planned price risk at the same invalidation.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Managing an Open Day Trade — Protect the original risk: Using arbitrary losses as a substitute for a reasoned invalidation.",
-          "Correct it by returning to the actual observation. Write an observable condition and timing window before advancing replay.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Saying risk is eliminated after moving a stop to entry.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Managing an Open Day Trade — Protect the original risk cannot establish:",
-          "Changing the rule after an adverse move corrupts evaluation.",
-          "An interpretation is invalidated or unproven when: The setup no longer holds under the recorded condition."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Protecting original risk means keeping exposure within the predeclared loss boundary while recognizing gaps and slippage can exceed it.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support precommitted invalidation, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Managing an Open Day Trade — Protect the original risk calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional scenario, test whether the price or volume observation has violated the plan and state the resulting action.",
-        "topic": "Managing an Open Day Trade — Protect the original risk",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Recalculate remaining planned risk after a new partial reduction."
+      },
+      "competencies": [
+        "INVALIDATION_DISCIPLINE"
+      ],
+      "prerequisites": [
+        "DT-C43-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C44-L01",
+          "topic:Managing an Open Day Trade — Protect the original risk",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C44-L02": {
@@ -15205,43 +15435,100 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Managing an Open Day Trade — Add, reduce, hold, or exit.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Add, reduce, hold, and exit are separate decisions that require current thesis evidence, total risk after the action, and an authorized rule.",
+          "This lesson preserves the canonical topic Managing an Open Day Trade — Add, reduce, hold, or exit and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Managing an Open Day Trade — Add, reduce, hold, or exit from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 100 shares risk $0.30=$30; adding 50 shares with $0.20 risk adds $10, producing $40 planned risk before fees and slippage.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Managing an Open Day Trade — Add, reduce, hold, or exit using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Worked example — FICTIONAL 100 shares risk $0.30=$30; adding 50 shares with $0.20 risk adds $10, producing $40 planned risk before fees and slippage.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Managing an Open Day Trade — Add, reduce, hold, or exit: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Evaluating an add only by the new shares while ignoring combined exposure.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Managing an Open Day Trade — Add, reduce, hold, or exit cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Add, reduce, hold, and exit are separate decisions that require current thesis evidence, total risk after the action, and an authorized rule.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Managing an Open Day Trade — Add, reduce, hold, or exit calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
-        "topic": "Managing an Open Day Trade — Add, reduce, hold, or exit",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute combined risk for a new existing lot and proposed add, then state whether a $45 cap is exceeded."
+      },
+      "competencies": [
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C44-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C44-L02",
+          "topic:Managing an Open Day Trade — Add, reduce, hold, or exit",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C44-L03": {
@@ -15252,43 +15539,100 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Managing an Open Day Trade — Distinguish Noise From Thesis Change.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "Noise is variation that remains inside the predeclared thesis boundaries; a thesis change is a completed observation that violates a named condition.",
+          "This lesson preserves the canonical topic Managing an Open Day Trade — Distinguish Noise From Thesis Change and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Managing an Open Day Trade — Distinguish Noise From Thesis Change from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL support boundary $8.90; lows $8.96 and $8.92 remain inside, while a completed close $8.84 violates a close-below-$8.90 rule by $0.06.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Managing an Open Day Trade — Distinguish Noise From Thesis Change using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL support boundary $8.90; lows $8.96 and $8.92 remain inside, while a completed close $8.84 violates a close-below-$8.90 rule by $0.06.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Managing an Open Day Trade — Distinguish Noise From Thesis Change: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling any red candle a thesis change without a declared condition.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Managing an Open Day Trade — Distinguish Noise From Thesis Change cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Noise is variation that remains inside the predeclared thesis boundaries; a thesis change is a completed observation that violates a named condition.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Managing an Open Day Trade — Distinguish Noise From Thesis Change calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Managing an Open Day Trade — Distinguish Noise From Thesis Change",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify three new completed observations under a stated boundary rule."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C44-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C44-L03",
+          "topic:Managing an Open Day Trade — Distinguish Noise From Thesis Change",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C45-L01": {
@@ -15301,43 +15645,102 @@
         "ENTER_WATCH_NO_TRADE",
         "BREAKOUT_RECOGNITION"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Failed Trades, Failed Moves, and No Trade — Failed breakout.",
-          "A failed breakout occurs when price cannot sustain the specified break within the chosen observation window.",
-          "State the pre-breakout reference, crossing bar, acceptance test and specific condition that demonstrates failure; avoid labeling by hindsight alone."
+          "A failed breakout first meets the declared breakout condition and later returns inside the prior range within the observation window.",
+          "This lesson preserves the canonical topic Failed Trades, Failed Moves, and No Trade — Failed breakout and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Failed Trades, Failed Moves, and No Trade — Failed breakout from the source evidence.",
-          "Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL range high $15.00; close $15.18 confirms the rule, then close $14.92 re-enters by $0.08.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Failed Trades, Failed Moves, and No Trade — Failed breakout using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Step 3 — Check the alternative or invalidation: The observation window ends without the required return below the break."
+          "Worked example — FICTIONAL range high $15.00; close $15.18 confirms the rule, then close $14.92 re-enters by $0.08.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Failed Trades, Failed Moves, and No Trade — Failed breakout: Calling every intrabar pullback a confirmed failed breakout.",
-          "Correct it by returning to the actual observation. Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling an intrabar probe that never confirmed a failed breakout.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Failed Trades, Failed Moves, and No Trade — Failed breakout cannot establish:",
-          "A return to the range is an observation, not proof that every subsequent candle must decline.",
-          "An interpretation is invalidated or unproven when: The observation window ends without the required return below the break."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A failed breakout first meets the declared breakout condition and later returns inside the prior range within the observation window.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support failed-breakout analysis, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Failed Trades, Failed Moves, and No Trade — Failed breakout calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional sequence, classify a breakout attempt at the decision pause and reevaluate only after the next bar is revealed.",
-        "topic": "Failed Trades, Failed Moves, and No Trade — Failed breakout",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Distinguish an unconfirmed probe from a confirmed-then-failed breakout in a new sequence."
+      },
+      "competencies": [
+        "FAILED_BREAKOUT",
+        "ENTER_WATCH_NO_TRADE",
+        "BREAKOUT_RECOGNITION"
+      ],
+      "prerequisites": [
+        "DT-C44-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C45-L01",
+          "topic:Failed Trades, Failed Moves, and No Trade — Failed breakout",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C45-L02": {
@@ -15349,43 +15752,101 @@
         "FAILED_BREAKOUT",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Failed Trades, Failed Moves, and No Trade — No trigger.",
-          "A failed breakout occurs when price cannot sustain the specified break within the chosen observation window.",
-          "State the pre-breakout reference, crossing bar, acceptance test and specific condition that demonstrates failure; avoid labeling by hindsight alone."
+          "No trigger means the predeclared entry condition never became true on eligible completed evidence; not trading is a valid process outcome.",
+          "This lesson preserves the canonical topic Failed Trades, Failed Moves, and No Trade — No trigger and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Failed Trades, Failed Moves, and No Trade — No trigger from the source evidence.",
-          "Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL trigger requires close above $9.50 with volume at least 40,000; close is $9.56 but volume is 31,000, so the conjunction is false.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Failed Trades, Failed Moves, and No Trade — No trigger using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Step 3 — Check the alternative or invalidation: The observation window ends without the required return below the break."
+          "Worked example — FICTIONAL trigger requires close above $9.50 with volume at least 40,000; close is $9.56 but volume is 31,000, so the conjunction is false.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Failed Trades, Failed Moves, and No Trade — No trigger: Calling every intrabar pullback a confirmed failed breakout.",
-          "Correct it by returning to the actual observation. Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Entering because one of two required trigger conditions occurred.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Failed Trades, Failed Moves, and No Trade — No trigger cannot establish:",
-          "A return to the range is an observation, not proof that every subsequent candle must decline.",
-          "An interpretation is invalidated or unproven when: The observation window ends without the required return below the break."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "No trigger means the predeclared entry condition never became true on eligible completed evidence; not trading is a valid process outcome.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support failed-breakout analysis, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Failed Trades, Failed Moves, and No Trade — No trigger calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional sequence, classify a breakout attempt at the decision pause and reevaluate only after the next bar is revealed.",
-        "topic": "Failed Trades, Failed Moves, and No Trade — No trigger",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new two-condition trigger and document a no-trade result when either condition fails."
+      },
+      "competencies": [
+        "FAILED_BREAKOUT",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C45-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C45-L02",
+          "topic:Failed Trades, Failed Moves, and No Trade — No trigger",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C45-L03": {
@@ -15398,43 +15859,102 @@
         "ENTER_WATCH_NO_TRADE",
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Failed Trades, Failed Moves, and No Trade — Failed Reclaim.",
-          "A failed breakout occurs when price cannot sustain the specified break within the chosen observation window.",
-          "State the pre-breakout reference, crossing bar, acceptance test and specific condition that demonstrates failure; avoid labeling by hindsight alone."
+          "A failed reclaim first closes back above the declared reference after approaching from below, then closes below it again.",
+          "This lesson preserves the canonical topic Failed Trades, Failed Moves, and No Trade — Failed Reclaim and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Failed Trades, Failed Moves, and No Trade — Failed Reclaim from the source evidence.",
-          "Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL reference $25.00; closes $24.80, $25.12, $24.91. The reclaim confirmed, then failed by $0.09.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Failed Trades, Failed Moves, and No Trade — Failed Reclaim using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Step 3 — Check the alternative or invalidation: The observation window ends without the required return below the break."
+          "Worked example — FICTIONAL reference $25.00; closes $24.80, $25.12, $24.91. The reclaim confirmed, then failed by $0.09.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Failed Trades, Failed Moves, and No Trade — Failed Reclaim: Calling every intrabar pullback a confirmed failed breakout.",
-          "Correct it by returning to the actual observation. Document the original level and rule for recognizing a failure before revealing later bars.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling every rejection from below a failed reclaim.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Failed Trades, Failed Moves, and No Trade — Failed Reclaim cannot establish:",
-          "A return to the range is an observation, not proof that every subsequent candle must decline.",
-          "An interpretation is invalidated or unproven when: The observation window ends without the required return below the break."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A failed reclaim first closes back above the declared reference after approaching from below, then closes below it again.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support failed-breakout analysis, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Failed Trades, Failed Moves, and No Trade — Failed Reclaim calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "On a fresh fictional sequence, classify a breakout attempt at the decision pause and reevaluate only after the next bar is revealed.",
-        "topic": "Failed Trades, Failed Moves, and No Trade — Failed Reclaim",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify rejection, reclaim, and failed reclaim from a new completed-close sequence."
+      },
+      "competencies": [
+        "FAILED_BREAKOUT",
+        "ENTER_WATCH_NO_TRADE",
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C45-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C45-L03",
+          "topic:Failed Trades, Failed Moves, and No Trade — Failed Reclaim",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C46-L01": {
@@ -15445,43 +15965,100 @@
       "relatedCompetencies": [
         "INDEPENDENT_PLAN"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade.",
-          "A documented plan integrates evidence, alternatives, risk, triggers, and reasons to abstain.",
-          "Write an observation, a conditional trigger, an invalidation, a size/risk assumption and a deliberate NO TRADE condition before viewing the outcome."
+          "A re-entry is a new trade decision with a new trigger, invalidation, size, and risk authorization; the prior loss does not justify it.",
+          "This lesson preserves the canonical topic Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade from the source evidence.",
-          "Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL first trade loses $30. A later setup risks $0.20 on 100 shares=$20; its authorization is based on the new $20 risk, not a goal to recover $30.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Step 3 — Check the alternative or invalidation: The proposed plan contains assumptions that cannot be observed or afforded."
+          "Worked example — FICTIONAL first trade loses $30. A later setup risks $0.20 on 100 shares=$20; its authorization is based on the new $20 risk, not a goal to recover $30.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade: Confusing a plan's existence with evidence that it succeeded.",
-          "Correct it by returning to the actual observation. Write the premise, invalidation, size limit and no-trade branch before opening later candles.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Increasing re-entry size to win back the previous loss.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade cannot establish:",
-          "A written plan improves auditability but cannot guarantee profit.",
-          "An interpretation is invalidated or unproven when: The proposed plan contains assumptions that cannot be observed or afforded."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A re-entry is a new trade decision with a new trigger, invalidation, size, and risk authorization; the prior loss does not justify it.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support independent trade plan, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Evaluate a separate fictional scenario with one missing input and determine whether the plan permits WATCH or NO TRADE.",
-        "topic": "Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Write a new-entry ticket from changed fictional evidence and compute its independent risk."
+      },
+      "competencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "prerequisites": [
+        "DT-C45-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C46-L01",
+          "topic:Re-Entries, Scaling, Missed Trades, and When Not to Try Again — A Re-Entry Is a New Trade",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C46-L02": {
@@ -15492,43 +16069,100 @@
       "relatedCompetencies": [
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "Scaling in changes weighted average price and total exposure; every planned tranche must fit the risk cap under one invalidation.",
+          "This lesson preserves the canonical topic Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL 100@$10.00 plus 50@$10.20 gives weighted average (1000+510)/150=$10.0667; invalidation $9.80 gives about $40 total price risk.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Worked example — FICTIONAL 100@$10.00 plus 50@$10.20 gives weighted average (1000+510)/150=$10.0667; invalidation $9.80 gives about $40 total price risk.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Averaging only the entry prices without weighting by share count.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Scaling in changes weighted average price and total exposure; every planned tranche must fit the risk cap under one invalidation.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
-        "topic": "Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute weighted average and invalidation risk for two new tranches."
+      },
+      "competencies": [
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C46-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C46-L02",
+          "topic:Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Scaling In",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C46-L03": {
@@ -15539,43 +16173,100 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "A second-chance setup requires fresh qualifying evidence after the first opportunity; a missed trade alone is not a setup.",
+          "This lesson preserves the canonical topic Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL first trigger at $6.10 is missed; later a new range $6.18-$6.30 forms and a completed $6.34 close supplies a distinct rule-based trigger.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL first trigger at $6.10 is missed; later a new range $6.18-$6.30 forms and a completed $6.34 close supplies a distinct rule-based trigger.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Treating any higher price after a miss as a second chance.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A second-chance setup requires fresh qualifying evidence after the first opportunity; a missed trade alone is not a setup.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Decide whether a new sequence contains fresh structure and a completed trigger."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C46-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C46-L03",
+          "topic:Re-Entries, Scaling, Missed Trades, and When Not to Try Again — Second-Chance Setups",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C47-L01": {
@@ -15586,43 +16277,100 @@
       "relatedCompetencies": [
         "CHASE_FOMO_DISCIPLINE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Mistakes That Damage Day Traders — Chasing and FOMO.",
-          "Chasing occurs when decisions bypass a prior plan in response to perceived urgency.",
-          "List the prewritten entry condition, maximum acceptable spread and no-trade rule; entering after the move without the evidence is a process deviation."
+          "Chasing is entering materially beyond the planned trigger without recomputing invalidation distance, size, liquidity, and reward space.",
+          "This lesson preserves the canonical topic The Mistakes That Damage Day Traders — Chasing and FOMO and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize The Mistakes That Damage Day Traders — Chasing and FOMO from the source evidence.",
-          "Record whether the proposed action was allowed by the prewritten plan.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL plan entry $14.00, invalidation $13.70 gives $0.30 risk; entry at $14.45 with same invalidation raises risk to $0.75, 2.5 times the plan.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice The Mistakes That Damage Day Traders — Chasing and FOMO using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record whether the proposed action was allowed by the prewritten plan.",
-          "Step 3 — Check the alternative or invalidation: Entry assumptions or risk bounds differ from the locked plan."
+          "Worked example — FICTIONAL plan entry $14.00, invalidation $13.70 gives $0.30 risk; entry at $14.45 with same invalidation raises risk to $0.75, 2.5 times the plan.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with The Mistakes That Damage Day Traders — Chasing and FOMO: Rewriting the plan after seeing price accelerate.",
-          "Correct it by returning to the actual observation. Record whether the proposed action was allowed by the prewritten plan.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Keeping original share size after the per-share risk expands.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What The Mistakes That Damage Day Traders — Chasing and FOMO cannot establish:",
-          "The fear of missing a move is an emotion, not an evidence source.",
-          "An interpretation is invalidated or unproven when: Entry assumptions or risk bounds differ from the locked plan."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Chasing is entering materially beyond the planned trigger without recomputing invalidation distance, size, liquidity, and reward space.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support chase and fomo discipline, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the The Mistakes That Damage Day Traders — Chasing and FOMO calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional late chase against a documented NO TRADE, and evaluate process adherence rather than subsequent profit.",
-        "topic": "The Mistakes That Damage Day Traders — Chasing and FOMO",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare planned and late-entry risk for a new case and recompute capped size."
+      },
+      "competencies": [
+        "CHASE_FOMO_DISCIPLINE"
+      ],
+      "prerequisites": [
+        "DT-C46-L03"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C47-L01",
+          "topic:The Mistakes That Damage Day Traders — Chasing and FOMO",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C47-L02": {
@@ -15633,43 +16381,100 @@
       "relatedCompetencies": [
         "CHASE_FOMO_DISCIPLINE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about The Mistakes That Damage Day Traders — Revenge Trading.",
-          "Chasing occurs when decisions bypass a prior plan in response to perceived urgency.",
-          "List the prewritten entry condition, maximum acceptable spread and no-trade rule; entering after the move without the evidence is a process deviation."
+          "Revenge trading is decision-making driven by recouping a prior loss rather than a separately valid setup and fixed risk process.",
+          "This lesson preserves the canonical topic The Mistakes That Damage Day Traders — Revenge Trading and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize The Mistakes That Damage Day Traders — Revenge Trading from the source evidence.",
-          "Record whether the proposed action was allowed by the prewritten plan.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL loss is $60; doubling next risk from $30 to $60 solely to recover it changes exposure but supplies no setup evidence.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice The Mistakes That Damage Day Traders — Revenge Trading using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record whether the proposed action was allowed by the prewritten plan.",
-          "Step 3 — Check the alternative or invalidation: Entry assumptions or risk bounds differ from the locked plan."
+          "Worked example — FICTIONAL loss is $60; doubling next risk from $30 to $60 solely to recover it changes exposure but supplies no setup evidence.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with The Mistakes That Damage Day Traders — Revenge Trading: Rewriting the plan after seeing price accelerate.",
-          "Correct it by returning to the actual observation. Record whether the proposed action was allowed by the prewritten plan.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Calling larger risk disciplined because it equals the previous loss.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What The Mistakes That Damage Day Traders — Revenge Trading cannot establish:",
-          "The fear of missing a move is an emotion, not an evidence source.",
-          "An interpretation is invalidated or unproven when: Entry assumptions or risk bounds differ from the locked plan."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Revenge trading is decision-making driven by recouping a prior loss rather than a separately valid setup and fixed risk process.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support chase and fomo discipline, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the The Mistakes That Damage Day Traders — Revenge Trading calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Compare a fictional late chase against a documented NO TRADE, and evaluate process adherence rather than subsequent profit.",
-        "topic": "The Mistakes That Damage Day Traders — Revenge Trading",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Evaluate a new post-loss ticket using only trigger, invalidation, size, and daily-risk rules."
+      },
+      "competencies": [
+        "CHASE_FOMO_DISCIPLINE"
+      ],
+      "prerequisites": [
+        "DT-C47-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C47-L02",
+          "topic:The Mistakes That Damage Day Traders — Revenge Trading",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C48-L01": {
@@ -15681,43 +16486,101 @@
         "MARKET_REGIME",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "A market regime is an observation-window classification based on declared features such as directional persistence, range overlap, volatility, and liquidity.",
+          "This lesson preserves the canonical topic Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL five completed closes 20.00,20.04,19.98,20.03,20.01 remain inside a $0.06 band; under a $0.10 minimum expansion rule this is range-like, not trending.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — FICTIONAL five completed closes 20.00,20.04,19.98,20.03,20.01 remain inside a $0.06 band; under a $0.10 minimum expansion rule this is range-like, not trending.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Assigning a regime from one candle or from the desired strategy.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A market regime is an observation-window classification based on declared features such as directional persistence, range overlap, volatility, and liquidity.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Classify a new completed sequence under explicit overlap and expansion thresholds."
+      },
+      "competencies": [
+        "MARKET_REGIME",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C47-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C48-L01",
+          "topic:Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C48-L02": {
@@ -15729,43 +16592,101 @@
         "ENTER_WATCH_NO_TRADE",
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition.",
-          "ENTER, WATCH and NO TRADE are explicit process choices, not measures of bravery or profitability.",
-          "Write the specific evidence that would permit ENTER, the missing evidence that requires WATCH, and the disqualifier for NO TRADE."
+          "A second leg or re-ignition requires renewed completed expansion after a pause; it is not established by naming the earlier move.",
+          "This lesson preserves the canonical topic Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition from the source evidence.",
-          "Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL first move $10.00 to $10.60, pause $10.50-$10.62, then completed close $10.74 exceeds the pause high by $0.12.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Step 3 — Check the alternative or invalidation: The planned rule requires an unseen future price before a decision is allowed."
+          "Worked example — FICTIONAL first move $10.00 to $10.60, pause $10.50-$10.62, then completed close $10.74 exceeds the pause high by $0.12.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition: Calling no-trade an incorrect answer just because price later rose.",
-          "Correct it by returning to the actual observation. Separate available evidence, missing evidence and planned invalidation for each choice.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using the later high before its bar completes to declare re-ignition.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition cannot establish:",
-          "Waiting is a valid response when the evidence standard is not met.",
-          "An interpretation is invalidated or unproven when: The planned rule requires an unseen future price before a decision is allowed."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A second leg or re-ignition requires renewed completed expansion after a pause; it is not established by naming the earlier move.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support decision framework, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Given a separate fictional case with insufficient liquidity evidence, choose WATCH or NO TRADE and explain the decision boundary.",
-        "topic": "Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Apply a pause-break rule to a new sequence using completed bars only."
+      },
+      "competencies": [
+        "ENTER_WATCH_NO_TRADE",
+        "MARKET_REGIME"
+      ],
+      "prerequisites": [
+        "DT-C48-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C48-L02",
+          "topic:Advanced Intraday Decision-Making and Market Regimes — Second Legs and Re-Ignition",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C49-L01": {
@@ -15777,43 +16698,101 @@
         "MFE_MAE_REVIEW",
         "ENTER_WATCH_NO_TRADE"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "A decision log records information, rule, action, and uncertainty available at the decision time; a P/L log records outcomes and cannot reconstruct missing process evidence.",
+          "This lesson preserves the canonical topic Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL ticket records trigger $18.20, invalidation $17.90, 100 shares and $30 planned risk before entry; later +$40 P/L does not prove the decision was valid.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL ticket records trigger $18.20, invalidation $17.90, 100 shares and $30 planned risk before entry; later +$40 P/L does not prove the decision was valid.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Grading decision quality solely by whether the trade made money.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A decision log records information, rule, action, and uncertainty available at the decision time; a P/L log records outcomes and cannot reconstruct missing process evidence.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compare two fictional records and identify which has auditable decision-time evidence."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "prerequisites": [
+        "DT-C48-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C49-L01",
+          "topic:Journaling, MFE/MAE, Expectancy, and Strategy Validation — Decision Log Versus P/L Log",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C49-L02": {
@@ -15824,43 +16803,100 @@
       "relatedCompetencies": [
         "MFE_MAE_REVIEW"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment.",
-          "Maximum favorable/adverse excursion are retrospective ranges from a defined entry, not guaranteed executions.",
-          "Specify a hypothetical position direction, entry timestamp, entry reference, observation window and extrema before calculating maximum favorable or adverse excursion."
+          "MFE and MAE measure favorable and adverse excursion from entry over a declared observation window; expectancy averages outcome per trade across a defined sample.",
+          "This lesson preserves the canonical topic Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment from the source evidence.",
-          "State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "FICTIONAL long entry $20.00, window high $20.60 and low $19.75: MFE=$0.60, MAE=$0.25. Outcomes +1R,-1R,+0.5R average (1-1+0.5)/3=0.1667R.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Step 3 — Check the alternative or invalidation: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "Worked example — FICTIONAL long entry $20.00, window high $20.60 and low $19.75: MFE=$0.60, MAE=$0.25. Outcomes +1R,-1R,+0.5R average (1-1+0.5)/3=0.1667R.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment: Claiming best-bar extreme was the trader's actual realized fill.",
-          "Correct it by returning to the actual observation. State hypothetical entry, direction and measurement window before measuring excursions.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Selecting only winning trades when estimating expectancy.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment cannot establish:",
-          "MFE/MAE can describe a path without proving an executable exit.",
-          "An interpretation is invalidated or unproven when: The needed interval includes unseen bars or entry assumptions are ambiguous."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "MFE and MAE measure favorable and adverse excursion from entry over a declared observation window; expectancy averages outcome per trade across a defined sample.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support mfe and mae review, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Using a different fictional price path, record which completed bars were visible at decision time and distinguish retrospective excursions from executable gains.",
-        "topic": "Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Compute MFE, MAE, and mean R for a new complete fictional sample."
+      },
+      "competencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "prerequisites": [
+        "DT-C49-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C49-L02",
+          "topic:Journaling, MFE/MAE, Expectancy, and Strategy Validation — Applied Assessment",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C50-L01": {
@@ -15871,43 +16907,100 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "A historical-session lesson must separate a rights-cleared evidence packet from a fictional analogue and must not invent prices, fills, motives, or outcomes for the named security.",
+          "This lesson preserves the canonical topic Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "No rights-cleared GRML record is supplied here. FICTIONAL analogue: early range $4.80-$5.00, completed close $5.12; expansion is $0.12 above the range, with no claimed fill or later result.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — No rights-cleared GRML record is supplied here. FICTIONAL analogue: early range $4.80-$5.00, completed close $5.12; expansion is $0.12 above the range, with no claimed fill or later result.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Presenting fictional analogue values as GRML historical facts.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "A historical-session lesson must separate a rights-cleared evidence packet from a fictional analogue and must not invent prices, fills, motives, or outcomes for the named security.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Audit a new evidence packet: label sourced facts, fictional practice values, and unavailable claims separately."
+      },
+      "competencies": [
+        "MARKET_REGIME"
+      ],
+      "prerequisites": [
+        "DT-C49-L02"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C50-L01",
+          "topic:Complete Historical Day-Trading Sessions — Case A - GRML: expansion after early instability",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C50-L02": {
@@ -15918,43 +17011,100 @@
       "relatedCompetencies": [
         "MARKET_REGIME"
       ],
-      "sourceStatus": "CANONICAL_TITLE_PLUS_PROVISIONAL_COMPETENCY_GUIDE_NO_VERIFIED_INTRADAY_DATA",
+      "sourceStatus": "BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING",
       "tabs": {
         "understand": [
-          "We will learn about Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion.",
-          "A regime label should be based on defined observable breadth, volatility and trend inputs.",
-          "Define the session, volatility interval, volume comparison and spread conditions before calling a market trending, ranging or unstable."
+          "Historical replay must expose only observations available through the replay cutoff and preserve provenance for every security-specific statement.",
+          "This lesson preserves the canonical topic Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion and uses completed fictional evidence.",
+          "It is ungraded and cannot disclose protected answers or promise an outcome."
         ],
         "recognize": [
-          "Here is how to recognize Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion from the source evidence.",
-          "Record what index, interval and regime criteria you used at the observation time.",
-          "Find the time, labels and comparable measurements before interpreting the result."
+          "Declare source, cutoff, units, parameters, and completion rule.",
+          "No rights-cleared GRML prices are asserted. FICTIONAL replay analogue shows cutoff bars through 10:05 only; a 10:10 candle is withheld until the next step.",
+          "Separate calculation from inference, recommendation, and later outcome."
         ],
         "apply": [
-          "Let us practice Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion using actual provided inputs.",
-          "Step 1 — Identify the source and available observations.",
-          "Step 2 — Follow the demonstrated procedure: Record what index, interval and regime criteria you used at the observation time.",
-          "Step 3 — Check the alternative or invalidation: The chosen context data is missing, misaligned or stale."
+          "Worked example — No rights-cleared GRML prices are asserted. FICTIONAL replay analogue shows cutoff bars through 10:05 only; a 10:10 candle is withheld until the next step.",
+          "Show intermediate quantities and withhold conclusions when an input is missing.",
+          "Change one fictional input and recompute or reclassify the evidence."
         ],
         "mistake": [
-          "A common error with Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion: Explaining a past trade using later news or market close data.",
-          "Correct it by returning to the actual observation. Record what index, interval and regime criteria you used at the observation time.",
-          "Do not invent an unseen candle or trade fill."
+          "Common misconception — Using a later candle to explain an earlier decision as if it were known.",
+          "Correction — return to the declared formula, cutoff, units, and rule.",
+          "Guided retry uses a different case and creates no official grade or mastery claim."
         ],
         "limits": [
-          "What Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion cannot establish:",
-          "An intraday market label can change, and an index may not reflect one security.",
-          "An interpretation is invalidated or unproven when: The chosen context data is missing, misaligned or stale."
+          "The example cannot prove a future return, fill, motive, or recommendation.",
+          "Historical replay must expose only observations available through the replay cutoff and preserve provenance for every security-specific statement.",
+          "Stop when timestamps, parameters, source identity, or required observations conflict."
         ]
       },
-      "selfCheck": "Before revealing any later observation, which specific facts support market context and regime, what remains unknown, and what could invalidate your reading?",
+      "selfCheck": "Reproduce the Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion calculation or classification, correct the misconception, and name one unknown.",
       "transfer": {
         "type": "ungraded_independent_practice",
-        "prompt": "Contrast fictional open and midday intervals; identify why the same chart pattern can have different liquidity implications.",
-        "topic": "Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion",
-        "requiresNewEvidence": true,
+        "graded": false,
         "noLookahead": true,
-        "graded": false
+        "requiresNewEvidence": true,
+        "prompt": "Review a new fictional replay snapshot and reject every fact beyond its stated cutoff."
+      },
+      "competencies": [
+        "MARKET_REGIME"
+      ],
+      "prerequisites": [
+        "DT-C50-L01"
+      ],
+      "instructionSource": "ORIGINAL_SUBJECT_SPECIFIC_BATCH12_20261102",
+      "instructionalArchitecture": {
+        "stages": [
+          "Start",
+          "Learn",
+          "Experiment",
+          "Predict",
+          "Practice",
+          "Assess",
+          "Review",
+          "Transfer",
+          "Results"
+        ],
+        "visibleSteps": [
+          "Start",
+          "Learn",
+          "Calculate",
+          "Experiment",
+          "Predict",
+          "Replay / Practice",
+          "Assess",
+          "Review & Retry",
+          "Transfer Challenge",
+          "Results"
+        ]
+      },
+      "taliaContext": {
+        "mode": "source_grounded_instruction",
+        "saveHistory": false,
+        "mayCoachUngradedRetry": true,
+        "mayRevealProtectedAnswerKey": false,
+        "context": [
+          "canonical_lab_id:DT-C50-L02",
+          "topic:Complete Historical Day-Trading Sessions — Case A — GRML: Opening Instability to Major Expansion",
+          "source_status:BATCH12_ORIGINAL_AI_EDITORIAL_PREFLIGHT_PENDING"
+        ]
+      },
+      "provenance": {
+        "registry": "SMFGU-MASTER-RESEARCH-SOURCE-001",
+        "candidateSourceIds": [
+          "SEC-INV",
+          "FINRA-EDU",
+          "NASDAQ-TRADER",
+          "EDGAR-SEARCH"
+        ],
+        "researchUseOnly": true,
+        "fictionalExamples": true,
+        "publicationRights": "NOT_APPROVED",
+        "dataIngestionRights": "NOT_APPROVED",
+        "aiEditorialPreflight": false,
+        "independentEditorialAcceptance": false,
+        "memberAcceptance": false
       }
     },
     "DT-C51-L01": {
