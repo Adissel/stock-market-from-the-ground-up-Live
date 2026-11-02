@@ -5,6 +5,13 @@ on:
     branches: [main]
     paths:
       - 'tests/test_crownlight_phase40_source_integrity_v1.mjs'
+      - 'tests/test_crownlight_chart_math_20_independent_v1.mjs'
+      - 'assets/js/crownlight-indicator-math-v2.js'
+      - 'assets/js/historical-replay-classroom-v1.js'
+      - 'tests/test_chart_quant_crosslanguage_v1.mjs'
+      - 'scripts/chart-independent-quant-reference-v1.py'
+      - 'tests/test_section_c_indicator_edge_crosslanguage_v1.mjs'
+      - 'scripts/qa/section_c_indicator_edge_reference_v1.py'
       - '.github/workflows/crownlight-phase40-source-integrity.yml'
 permissions:
   contents: read
@@ -28,3 +35,8 @@ jobs:
           node tests/test_crownlight_professional_density_v1.mjs
           node tests/test_crownlight_chart_workspace_v2.mjs
           node tests/test_crownlight_lab_handoff_v2.mjs
+      - name: Run twenty real indicator, Python comparison and no-lookahead regressions
+        run: |
+          node tests/test_crownlight_chart_math_20_independent_v1.mjs
+          node tests/test_chart_quant_crosslanguage_v1.mjs
+          node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
