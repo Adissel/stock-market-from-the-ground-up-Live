@@ -11,7 +11,7 @@ async function maybeUser(env,req){const h=req.headers.get('authorization')||'';i
 async function accessCode(env,req,uid){
  if(!uid)return 'SIGNED_OUT';
  const bearer=String(req.headers.get('authorization')||'');
- if(!/^Bearer\\s+\\S+$/i.test(bearer))return 'UNVERIFIED';
+ if(!/^Bearer\s+\S+$/i.test(bearer))return 'UNVERIFIED';
  try{
   const {url,pub}=cfg(env);
   const resolved=await raw(url+'/rest/v1/rpc/my_platform_access',{
