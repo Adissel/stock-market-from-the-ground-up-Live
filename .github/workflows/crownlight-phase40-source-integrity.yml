@@ -6,6 +6,8 @@ on:
     paths:
       - 'tests/test_crownlight_phase40_source_integrity_v1.mjs'
       - 'tests/test_crownlight_chart_math_20_independent_v1.mjs'
+      - 'tests/test_crownlight_workspace_projection_20_v1.mjs'
+      - 'functions/api/chart-workspace.js'
       - 'assets/js/crownlight-indicator-math-v2.js'
       - 'assets/js/historical-replay-classroom-v1.js'
       - 'tests/test_chart_quant_crosslanguage_v1.mjs'
@@ -40,3 +42,5 @@ jobs:
           node tests/test_crownlight_chart_math_20_independent_v1.mjs
           node tests/test_chart_quant_crosslanguage_v1.mjs
           node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
+      - name: Validate twenty workspace tier and injection boundaries
+        run: node tests/test_crownlight_workspace_projection_20_v1.mjs
