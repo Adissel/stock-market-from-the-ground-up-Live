@@ -6,6 +6,10 @@ on:
     paths:
       - 'assets/js/crownlight-visual-kit-v1.js'
       - 'assets/js/free-foundations-echarts-v1.js'
+      - 'assets/js/learning-progress-echarts-v1.js'
+      - 'lab-player.html'
+      - 'bootcamp-academy.html'
+      - 'tests/test_learning_progress_echarts_v1.mjs'
       - 'tests/crownlight-visual-kit-v1.test.mjs'
       - 'tests/test_free_foundations_echarts_v1.mjs'
       - 'dashboard.html'
@@ -31,6 +35,7 @@ jobs:
         run: |
           node --check assets/js/crownlight-visual-kit-v1.js
           node --check assets/js/free-foundations-echarts-v1.js
+          node --check assets/js/learning-progress-echarts-v1.js
           node --check assets/js/crownlight-echarts-admin-v1.js
           node --check tests/crownlight-visual-kit-v1.test.mjs
           node tests/crownlight-visual-kit-v1.test.mjs
