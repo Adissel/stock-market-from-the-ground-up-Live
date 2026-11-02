@@ -130,3 +130,26 @@ test('Showcase-only access cannot inherit member version selection',async()=>{
   assert.equal(response.status,403);
  }finally{m.restore()}
 });
+
+test('Expired active paid subscription cannot select current premium engine editions',async()=>{
+ const m=setup({sub:{plan_code:'FULL_MONTHLY',status:'active',current_period_end:'2026-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,200);
+  const result=await response.json();
+  assert.equal(result.planCode,'FREE');
+  assert.deepEqual(result.versions,FREE);
+ }finally{m.restore()}
+});
+test('Valid trialing member resolves currently assigned plan without granting premium features',async()=>{
+ const m=setup({sub:{plan_code:'FULL_MONTHLY',status:'trialing',current_period_end:'2099-01-01T00:00:00Z'}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,200);
+  const result=await response.json();
+  assert.equal(result.planCode,'FULL_MONTHLY');
+  assert.deepEqual(result.versions,CURRENT);
+  assert.equal(result.engineTierPolicy.premiumFeaturesReleased,false);
+  assert.equal(result.tutorEdition.premiumFeaturesAvailable,false);
+ }finally{m.restore()}
+});
