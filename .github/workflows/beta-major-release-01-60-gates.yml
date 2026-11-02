@@ -92,8 +92,12 @@ jobs:
         run: node tests/test_academy_foundations_batch03_v1.mjs
       - name: ACADEMY 07 - test_academy_charts45_batch04_v1.mjs
         run: node tests/test_academy_charts45_batch04_v1.mjs
-      - name: ACADEMY 08 - test_academy_risk60_batch01_v1.mjs
-        run: node tests/test_academy_risk60_batch01_v1.mjs
+      - name: ACADEMY 08 - Risk60 canonical and 40 day-specific advanced source regressions
+        run: |
+          node tests/test_academy_risk60_batch01_v1.mjs
+          node tests/academy-risk60-d25-d44-execution-register-v1.test.mjs
+          node tests/academy-risk60-d45-d60-execution-register-v1.test.mjs
+          node scripts/academy-274-advanced-readiness-preflight-v1.mjs
       - name: ACADEMY 09 - test_academy_practicum90_all90_v1.mjs
         run: node tests/test_academy_practicum90_all90_v1.mjs
       - name: ACADEMY 10 - test_academy_shared_lab_parity_v1.mjs
