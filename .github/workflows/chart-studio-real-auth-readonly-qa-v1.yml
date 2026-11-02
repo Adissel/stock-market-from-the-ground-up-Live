@@ -8,6 +8,8 @@ on:
       - 'tests/live-chart-studio-browser-readonly-qa-v1.mjs'
       - 'tests/live-chart-studio-25-case-auth-qa-v1.mjs'
       - 'functions/api/chart-workspace.js'
+      - 'functions/api/member-sparks-chart.js'
+      - 'tests/crownlight-sparks-pass-20-behavior-v1.test.mjs'
       - 'assets/js/crownlight-workspace-v2.js'
       - '.github/workflows/chart-studio-real-auth-readonly-qa-v1.yml'
 permissions:
@@ -29,6 +31,8 @@ jobs:
           node-version: '22'
       - name: Verify read-only authenticated QA script syntax
         run: node --check tests/live-chart-studio-api-readonly-qa-v1.mjs
+      - name: Test Chart Pass request security without charges
+        run: node --test tests/crownlight-sparks-pass-20-behavior-v1.test.mjs
       - name: Test actual signed-in Chart Studio Advanced API and saved workspace
         id: member_api
         continue-on-error: true
