@@ -14,6 +14,8 @@ export interface CrownlightChartProps {
   completedBars: readonly CompletedBar[];
   symbol: string;
   interval: string;
+  /** Market-calendar session key supplied by the authorized data controller. */
+  sessionKey?: (bar: CompletedBar) => string;
   onBarInspect?: (bar: CompletedBar) => void;
   height?: number;
   className?: string;
@@ -23,7 +25,7 @@ export interface CrownlightChartProps {
 /** Optional React adapter. Existing JavaScript Studio remains the production controller.
  * This component never fetches data or grants permissions. */
 export function CrownlightECharts({
-  completedBars, symbol, interval, onBarInspect, height = 480,
+  completedBars, symbol, interval, sessionKey, onBarInspect, height = 480,
   className = '', ariaLabel = 'Completed-candle market chart'
 }: CrownlightChartProps) {
   const node = useRef<HTMLDivElement>(null);
@@ -64,10 +66,10 @@ export function CrownlightECharts({
   }, []);
 
   useEffect(() => {
-    const option: EChartsOption = buildCandleOptions(completedBars, symbol, interval);
+    const option: EChartsOption = buildCandleOptions(completedBars, symbol, interval, sessionKey);
     chart.current?.setOption(option, { notMerge: true, lazyUpdate: false });
     setSelected(null);
-  }, [completedBars, symbol, interval]);
+  }, [completedBars, symbol, interval, sessionKey]);
 
   return <section className={`cl-react-chart ${className}`} aria-label={ariaLabel}>
     <div ref={node} className="cl-react-chart__canvas" style={{ height: Math.max(240, height) }} role="img" aria-label={ariaLabel} />
