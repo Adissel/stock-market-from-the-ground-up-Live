@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.2 / November 1, 2026 |
+| Version / date | 1.3 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -90,6 +90,18 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 
 **Document disposition:** Internal owner-delegated source development review only. No third-party redistribution rights, licensed professional certification, monetary payment authorization, premium feature release or official mastery award.
 
+## Continuing accelerated execution: studies 46–60 (internal QA v1.3)
+
+**Authoritative denominator:** Exactly 73 indicator study-guide IDs and 600 Foundation explanation target slots. Completed editorial/source drafts and published products are different populations. Existing 419 Lab identities, 274 Academy days, shared Learning Engine v3.3 and Shared Lab Engine v3.2 remain controlling.
+
+- **Indicator 46–60 numerical research:** `scripts/qa/talia_indicators46_60_python_v1.py` and `tests/talia-indicators46-60-python-js-v1.test.mjs` independently calculate 14 original fictional financial-volume and breadth cases. Coverage includes OBV, A/D, CMF, MFI, Chaikin Oscillator, PVO, Force Index, illustrative price-binned volume proxy, price-relative ratio, breadth net advances, new highs/lows, ratio-adjusted McClellan, moving-average universe coverage and put/call contract-volume ratio. Programmatic fixtures are **configured with automatic CI gates**; current-main exact-SHA release acceptance remains open.
+- **Proprietary exception:** SCTR study 55 is recorded but **no numeric vendor score is invented or accepted**. StockCharts ranks securities relative to peer universes. Member-facing reproduction requires independently approved methodology, comprehensive same-time universe data, commercial-use/licensing review and test evidence. For now SCTR is **research-only**.
+- **Math denominator:** 15+15+15+14 = **59/73 = 80.82%** of studies have at least one targeted independent numerical fixture; **60/73 = 82.19%** have first-four-batch subject-level research coverage including restricted SCTR. This is **not** 59 independently market-data-correct production studies or 59 commercially publishable products; full setting, seeding, variance, timeframe and vendor-algorithm audits remain open.
+- **Key source distinctions:** MFI uses 14-period positive and negative typical-price money flows, not raw trade-aggressor identity (ChartSchool and Fidelity). The ratio-adjusted McClellan reference uses 19-/39-day EMAs of breadth adjusted to the eligible trading universe rather than raw net advances; vendor scaling varies. Price-binned close/volume is a fictional pedagogical **proxy**, not volume-at-price reconstruction, depth or actual trade prints. Market-data redistribution and vendor code rights remain **NOT APPROVED**.
+- **Source and QA identity correction:** The 40-claim acceptance test originally counted one literal status and failed after some source notes were upgraded to a more precise status. The test and master register were corrected to reconcile original 19 and subsequent 21 review IDs by immutable topic number; no primary-source approval or evidence was fabricated to silence a failure.
+- **Foundation Batch 13:** 20 authored source-only topics are present, giving **260/600 = 43.33%** drafts; `tests/talia-foundation-batch13-gates-v1.test.mjs` already tests 20 distinct guides, independent fictional numerics, answer-key isolation, protected official competencies and the current source-only loader. None of the twenty is individually independently release-approved. Draft topics 261–280 are deferred until source/editorial gates, not silently added.
+- **Release:** Premium Advanced/Professional/Enterprise acceptance **0%** for both shared engine editions; Basic retains v3.3/v3.2 without an independently measured full release percentage. Genuine Free/Founding/Owner sessions, WCAG, screening, exact-head GitHub Actions and Cloudflare production matching all remain open. No paid service, changed membership SKU or unrestricted feed enabled.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
@@ -97,5 +109,6 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 | 1.0 | 2026-11-01 | 1,366 identity generator; 40 claim-level scope records; 35 original arithmetic checks; 15 Python/JS studies; prior STT provenance boundary | Internal development QA only; publication, licensing, financial, security and production signoff not granted |
 | 1.1 | 2026-11-01 | 19/40 claim scopes, 15 additional individual study source records and independent Python/JS component arithmetic QA | Internal source-only acceptance; full indicator, member and release approvals pending |
 | 1.2 | 2026-11-01 | 40/40 source dispositions, 260/600 source-authored topics, 45 indicator math QA fixtures, three-source URL reconciliations, Tutor correction tests | Internal source-only acceptance; commercial, authenticated and release review open |
+| 1.3 | 2026-11-01 | 46–60 volume/breadth QA: 14 independent numeric cases, SCTR proprietary hold, source-status identity reconciliation, 260 authored explanations preserved | Development-only QA; CI, rights, publication and genuine member acceptance remain open |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.2 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.3 · Source record `main` · No unauthorized premium release or paid API calls.
