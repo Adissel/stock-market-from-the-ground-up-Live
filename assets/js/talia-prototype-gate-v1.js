@@ -1,7 +1,8 @@
 /* Staff-only Talia prototype boot. All Tutor operations remain authenticated by existing APIs. */
 (()=>{'use strict';
 const status=document.getElementById('tp-auth'),workspace=document.getElementById('tp-workspace');
-const fail=message=>{workspace.hidden=true;status.hidden=false;status.textContent=message;};
+const connection=document.getElementById('tp-connection');
+const fail=message=>{workspace.hidden=true;status.hidden=false;status.textContent=message;if(connection)connection.textContent='Access not verified';};
 let mounted=false,checking=false;
 async function verify(){
  if(checking)return;checking=true;
@@ -23,6 +24,7 @@ async function verify(){
    script.onerror=()=>fail('The Tutor application could not load.');document.head.append(script);
   }
   status.hidden=true;workspace.hidden=false;
+  if(connection)connection.textContent='Authorized staff session';
  }catch(error){fail(error?.message||'Prototype access unavailable.')}
  finally{checking=false;}
 }
