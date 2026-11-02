@@ -136,3 +136,11 @@
 | 1.5 | 2026-11-02 | Align ECharts Chromium regression with directional volume rendering; record next 40 acceptance boundaries | Source correction committed; 40-gate release NOT ACCEPTED |
 
 **Footer:** SMFGU-CHART-PRO-TERMINAL-001 · v1.5 · No unverified CI, browser, member, or deployment sign-off.
+
+
+## Owner authorization / acceptance acknowledgement — November 2, 2026
+The Owner explicitly states: “I reviewed, accepted and sign off on everything continue.” This is **Owner approval of the work presented and authorization to continue execution**, including outstanding chart quality work on `main`. It is not a substitute for objective acceptance evidence for tests that have not been run or retrieved, or for deployment and security checks.
+
+**Current QA control:** Preserve the distinction between (a) Owner approval, (b) source committed, (c) passing exact-SHA CI, (d) independent browser and authenticated RLS acceptance, and (e) Cloudflare production verified. All previously OPEN objective gates remain OPEN until independently evidenced. No live payment, irreversible data mutation or entitlement changes are authorized by this sign-off.
+
+**Version:** 1.6 / 2026-11-02. **Status:** Owner approved continuation; technical release acceptance outstanding.
