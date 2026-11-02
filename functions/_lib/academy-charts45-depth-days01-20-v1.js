@@ -77,7 +77,7 @@ function create(index){
   transfer:'FRESH FICTIONAL TRANSFER — '+base.transfer+' State which new facts are needed before any hypothetical trading conclusion.'
  })]);
  return Object.freeze({topicSourceDay:sourceDay,phase:base.phase,
-  formativeQuestions,advancedPracticums,numericChecks:Object.freeze([check]),
+  formativeQuestions,advancedPracticums,advancedNumericChecks:Object.freeze([check]),
   instructionalFocus:evidence,supplementarySourceStatus:'ORIGINAL_CHARTS45_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING'});
 }
 export const charts45DepthDays01to20=Object.freeze(Object.fromEntries(
