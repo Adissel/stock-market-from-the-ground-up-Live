@@ -1,0 +1,78 @@
+/* Member Chart Studio 3.0: source clarity and chart-first empty state. */
+body.simulator-page #sim-content .sim-dataset-status{
+ display:grid;grid-template-columns:minmax(180px,1.6fr) repeat(4,minmax(95px,1fr));
+ gap:1px;margin:8px 0 12px;overflow:hidden;border:1px solid #355470;
+ border-radius:10px;background:#355470;box-shadow:0 8px 22px #02091438
+}
+body.simulator-page #sim-content .sim-dataset-status>span{
+ display:flex;min-width:0;flex-direction:column;justify-content:center;gap:3px;
+ padding:10px 13px;background:#0c2033
+}
+body.simulator-page #sim-content .sim-dataset-status small{
+ color:#a9c4da;font-size:.68rem;font-weight:750;letter-spacing:.09em;text-transform:uppercase
+}
+body.simulator-page #sim-content .sim-dataset-status strong{
+ overflow-wrap:anywhere;color:#f2f8ff;font-size:.86rem;line-height:1.3
+}
+body.simulator-page #sim-content .sim-dataset-status[data-source="fictional"]>span:first-child{
+ background:#163348;border-left:4px solid #f3c870
+}
+body.simulator-page #sim-content .sim-dataset-status[data-source="personal"]>span:first-child{
+ background:#103b3c;border-left:4px solid #63e3bd
+}
+body.simulator-page #sim-content .sim-dataset-status[data-source="csv"]>span:first-child{
+ background:#2c3150;border-left:4px solid #a8a1ff
+}
+body.simulator-page #sim-content .sim-awaiting-data-message{
+ padding:clamp(19px,4vw,38px)!important;border:1px solid #436581;
+ border-radius:12px;background:radial-gradient(circle at 95% 10%,#214863 0,transparent 45%),
+  linear-gradient(135deg,#0b2439,#111c32);color:#e7f3ff
+}
+body.simulator-page #sim-content .sim-awaiting-data-message strong{
+ display:block;font-size:clamp(1.12rem,2vw,1.5rem);color:#fff
+}
+body.simulator-page #sim-content .sim-awaiting-data-message p{
+ max-width:62ch;line-height:1.55;color:#c0d5e7;margin:9px 0 17px
+}
+body.simulator-page #sim-content .sim-empty-actions{display:flex;flex-wrap:wrap;gap:9px}
+body.simulator-page #sim-content .sim-empty-actions .btn{
+ min-height:42px;border-radius:8px;font-weight:750
+}
+body.simulator-page #sim-content .sim-empty-actions .btn:first-child{
+ background:#eac77c;border-color:#f5d798;color:#10253a
+}
+body.simulator-page #sim-content .sim-empty-actions .btn:first-child:hover{background:#ffe1a0}
+body.simulator-page #sim-content .sim-empty-actions .btn:focus-visible{
+ outline:3px solid #8ae6ff;outline-offset:2px
+}
+body.simulator-page #sim-content .sim-empty-actions .btn:disabled{opacity:.55;cursor:not-allowed}
+body.simulator-page #sim-content .sim-chart-tutor-action{
+ display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;
+ margin:0 0 8px;padding:8px 10px;border:1px solid #34556f;
+ border-radius:8px;background:#0e2638
+}
+body.simulator-page #sim-content .sim-chart-tutor-action .btn{
+ min-height:36px;border-color:#72b4c6;background:#19465b;color:#effdff;font-weight:750
+}
+body.simulator-page #sim-content .sim-chart-tutor-action .btn:disabled{opacity:.55;cursor:not-allowed}
+body.simulator-page #sim-content .sim-chart-tutor-action .btn:focus-visible{
+ outline:3px solid #8ae6ff;outline-offset:2px
+}
+body.simulator-page #sim-content .sim-chart-tutor-action span{
+ flex:1 1 230px;color:#bdd7e6;font-size:.75rem;line-height:1.4
+}
+body.simulator-page #sim-content .cl-chart-tier-access-line{
+ margin:7px 0 3px;padding:7px 10px;border-left:3px solid #5cd9bc;
+ background:#102d3b;color:#e4f6f3;font-size:.79rem;line-height:1.45
+}
+@media(max-width:900px){
+ body.simulator-page #sim-content .sim-dataset-status{
+  grid-template-columns:repeat(3,minmax(0,1fr))
+ }
+ body.simulator-page #sim-content .sim-dataset-status>span:first-child{grid-column:span 2}
+}
+@media(max-width:520px){
+ body.simulator-page #sim-content .sim-dataset-status{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.simulator-page #sim-content .sim-dataset-status>span:first-child{grid-column:span 2}
+ body.simulator-page #sim-content .sim-empty-actions .btn{width:100%}
+}

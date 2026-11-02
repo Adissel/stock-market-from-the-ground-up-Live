@@ -47,7 +47,8 @@ assert(sim.includes("if(!SIM.hasPremium){")&&
 assert(sim.includes("sourceProvider='csv_upload'"),'existing journal source enum must be preserved');
 assert(sim.includes("if(SIM.journalId||SIM.linkedJournalId||SIM.planLocked||SIM.position)"),'do not overwrite existing member journal-backed practice');
 assert(sim.includes('window.GroundUpFreePracticeRequested=false'),'consume startup request once');
-assert(sim.includes("SIM.startIndex=Math.min(4"),'on first launch only opening candles shown');
+assert(sim.includes("SIM.startIndex=Math.min(Number($('sim-start-context')?.value)||0"),
+ 'fictional practice must honor the selected initial completed-bar context');
 assert(read('functions/_lib/verified-historical-dataset-v014143.js').includes('m.original_synthetic===true'),'private verified-historical route excludes all fictional examples');
 assert(read('functions/api/learning-replay-v01492.js').includes('replayAvailableToEntitlement'),'paid server replay must retain entitlement checks');
 console.log('PASS Free Simulator: 36 reproducible FICTIONAL candles, accessible CTA, Free CSV path, paid-only connected provider, protected verified replay, existing quota schema compatibility.');

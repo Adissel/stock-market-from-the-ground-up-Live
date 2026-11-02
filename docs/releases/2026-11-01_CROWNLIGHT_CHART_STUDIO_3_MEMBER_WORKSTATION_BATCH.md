@@ -1,0 +1,30 @@
+# Crownlight Chart Studio 3.0 — member workstation source batch
+
+**Release status:** Source batch implemented and locally tested. Exact-commit GitHub Actions, matching Cloudflare deployment, and genuine signed-in member acceptance are separate gates. No payment, database migration, grading, or market-data rights changed.
+
+## Change and requirement register
+
+| Batch requirement | Existing evidence and defect | API / role impact | Change | Verified status |
+|---|---|---|---|---|
+| CST3-G1-DATA | Browser chart could be empty while a separate server replay or personal-provider verification was active; the fictional starter opened at a hardcoded five bars despite the selected 21-bar context. | Existing `/api/member-tool-access?tool=MARKET_SIMULATOR` remains authoritative for personal provider import. No new API. | Added a chart-level fictional load action, explicit source/symbol/interval/session/replay status, and selected initial completed-bar context. Kept personal-provider import an explicit, rechecked, ungraded action. | Local Free, restricted, guest, and provider-fixture Chromium paths pass. Genuine provider account pending. |
+| CST3-G1-VIEW | Sparse replay redraws could clamp a preserved logical range to the three-bar window; color/spacing changes did not refit the chosen spacing. | Member-scoped local preference and existing private workspace schema retained. | Derived initial logical range from chart width and configured candle spacing/right buffer; preserved inspected ranges after redraw; corrected keyboard pan bounds. | Pinned Lightweight Charts 5.2.1 Chromium pan/release/wheel/indicator tests pass at 390, 768, 1440 px. |
+| CST3-G1-LAYOUT | Optional verification form appeared ahead of the actual workstation and pushed the chart down. | Same protected verification APIs and account clear behavior. | Moved the existing verification panel after chart/source controls, and added a page-scoped dataset strip and prominent empty state. | Fixture screenshots inspected at 1440 and 390 px; genuine member visual acceptance pending. |
+| CST3-G2-TIER | Professional entitlement and a saved/active STANDARD view could be read as the same status. | Existing server tier verification and workspace authorization unchanged. | Displayed verified maximum access separately from the active selected chart view. No automatic promotion. | Real KLineChart 10.1.0 fixture tests render two Professional panels and synchronized saved views; genuine Owner account pending. |
+| SMFGU-VIS-INT-005 | Tutor handoff existed below the chart in a metrics panel. | Same-origin popup, nonce, exact account/source, fresh Tutor entitlement, and editable question remain in the one existing handoff controller. | Added a chart-level Ask Talia action sharing that controller; both entry buttons clear on account change. | Same-member, mismatch, and denied-entitlement Chromium/Node handoff tests pass with mocked identities; genuine two-account acceptance pending. |
+
+## Local evidence
+
+- `node tests/test_free_simulator_browser.mjs`: Free desktop/mobile, empty-state load, restricted, guest, and session isolation passed with mocked authentication and the pinned real chart engine.
+- `node tests/test_crownlight_chart_browser_v2.mjs`: real chart panning, release, wheel zoom, keyboard navigation, indicator and responsive paths passed.
+- `node tests/test_crownlight_chart_preferences_v16_browser.mjs`, `node tests/test_crownlight_chart_tiers_browser_v1.mjs`, `node tests/test_crownlight_kline_real_v7_browser.mjs`, `node tests/test_crownlight_workspace_sync_v6_browser.mjs`, `node tests/test_crownlight_workspace_sources_v7_browser.mjs`: tier, preference, Professional multi-chart, private workspace and source-scope fixtures passed.
+- `node tests/test_crownlight_source_to_chart_v5_browser.mjs`: explicit personal-provider import, reauthorization, no second provider request, and plan protection passed with a three-bar synthetic fixture.
+- `node --test tests/talia-echarts-independent-python-js-v1.test.mjs`: 18 complete series and every warmup index independently matched Python; prefix invariance and zero-volume proxy behavior passed. Windows test runner now selects the installed `python` executable instead of the Microsoft Store `python3` alias.
+- `node tests/test_crownlight_tutor_chart_handoff_browser_v1.mjs` and `node tests/test_crownlight_tutor_chart_handoff_v1.mjs`: editable same-account handoff; mismatched/denied accounts rejected; no auto-submit.
+- `scripts/build-pages.sh` completed locally through Git Bash with the installed Python 3.13 executable exposed as `python3`; it generated 953 static Pages files. The Free Simulator CI install now includes pinned Lightweight Charts 5.2.1 for its real-chart Chromium checks.
+- [1440 px member-page fixture](../qa/chart-studio-v3/fixture-member-1440.png) and [390 px member-page fixture](../qa/chart-studio-v3/fixture-member-390.png) show the actual `simulator.html` rendered with mocked authentication. These images are not genuine authenticated production screenshots.
+
+## Remaining release gates and rollback
+
+Genuine signed-in Free, Founding, Professional Owner, restricted, and two-account tests remain open. Personal Tiingo/Alpaca import must be verified with authorized provider access and rights; official historical replay must keep its server cutoff. Keyboard and screen-reader manual acceptance, actual performance, sitewide CI, Cloudflare matching-SHA deployment, and consolidated Owner acceptance remain open. The 73 Tutor indicator guides remain source research; they are not 73 released live chart controls.
+
+Rollback is the previous `main` SHA recorded in this batch's commit parent. Revert this source commit through normal protected `main` workflow if the new UI or chart range fails production verification. No schema/data rollback is needed. Preserve account-specific workspaces and member records.

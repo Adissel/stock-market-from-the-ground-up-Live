@@ -303,6 +303,11 @@ function renderChoices(){
  if(!state.view)return;
  const select=state.view.querySelector('select');
  if(!select)return;
+ const accessLine=state.view.querySelector('[data-cl-tier-access-line]');
+ if(accessLine)accessLine.textContent=state.verified
+  ?'Verified access: '+state.tier+' · Active chart view: '+state.selected+
+   (state.selected==='STANDARD'&&state.tier!=='STANDARD'?' · Select an included enhanced view above when you want to use it.':'')
+  :'Enhanced chart access has not been verified.';
  // Server-administered visibility never grants membership authorization.
  select.replaceChildren();
  for(const tier of ['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS']){
@@ -507,7 +512,7 @@ async function choose(tier){
  if(!state.visible.includes(tier)){status('This Studio is hidden from the menu.');renderChoices();return}
  if(!isEntitled(tier)){status('This engine is not included in your verified membership.');renderChoices();return}
  state.selected=tier;stopCharts();renderChoices();
- if(tier==='STANDARD'){status('Standard Crownlight chart is active.');window.dispatchEvent(new CustomEvent('crownlight:tier-mounted',{detail:{tier}}));return}
+ if(tier==='STANDARD'){status('Standard chart view is active. Verified access: '+state.tier+'.');window.dispatchEvent(new CustomEvent('crownlight:tier-mounted',{detail:{tier}}));return}
  const request=++state.version;
  if(tier==='ECHARTS'){
   status('Loading Apache ECharts revealed candlesticks and volume…');
@@ -563,7 +568,9 @@ function createControls(){
  const dialog=el('dialog','cl-chart-price-dialog');dialog.id='cl-chart-tier-purchase-dialog';
  dialog.setAttribute('aria-label','Review locked Chart Studio Lumens cost');
  document.body.append(dialog);
- header.append(label,locked,state.notice);panel.append(header,timer);
+ const accessLine=el('p','cl-chart-tier-access-line','Checking chart access and selected view…');
+ accessLine.dataset.clTierAccessLine='';
+ header.append(label,locked,state.notice);panel.append(header,accessLine,timer);
 
  const enhanced=el('div','cl-chart-tier-enhanced');enhanced.dataset.clTierAdvanced='';enhanced.hidden=true;
  const tools=el('div','cl-chart-tier-tools');

@@ -29,7 +29,8 @@ function calculated(source){
  };
 }
 test('independent Python and production JS match all chart study series, including every warmup index',()=>{
- const r=spawnSync('python3',['scripts/qa/talia_echarts_member_math_python_v1.py'],{encoding:'utf8',timeout:10000});
+ const r=spawnSync(process.platform==='win32'?'python':'python3',
+  ['scripts/qa/talia_echarts_member_math_python_v1.py'],{encoding:'utf8',timeout:10000});
  assert.equal(r.status,0,r.stderr);
  const reference=JSON.parse(r.stdout),actual=calculated(bars);
  assert.equal(reference.bars,N);assert.equal(reference.studyCount,18);

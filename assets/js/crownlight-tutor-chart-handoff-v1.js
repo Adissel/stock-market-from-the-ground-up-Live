@@ -16,6 +16,7 @@
  const validNonce=x=>typeof x==='string'&&/^[a-f0-9]{32}$/.test(x);
  const feedback=senderHost?.querySelector('[data-talia-handoff-status]');
  const sendButton=senderHost?.querySelector('[data-talia-tutor-handoff]');
+ const chartButton=document.getElementById('sim-ask-talia');
  const status=message=>{if(feedback)feedback.textContent=message};
  const fail=message=>{status(message);pending=null};
  async function member(){
@@ -33,6 +34,7 @@
  function clear(){
   context=null;pending=null;receiverId=null;
   if(sendButton)sendButton.disabled=true;
+  if(chartButton)chartButton.disabled=true;
   status('Chart context cleared. Reveal an authorized candle to prepare a new question.');
  }
  function setContext(item){
@@ -40,6 +42,7 @@
   if(!senderHost||!item||!cleanText(item.question))return false;
   context=item.question.trim().slice(0,450);
   if(sendButton)sendButton.disabled=false;
+  if(chartButton)chartButton.disabled=false;
   status('Chart evidence ready. Opening Talia is optional; the question remains editable.');
   return true;
  }
@@ -64,6 +67,7 @@
   return true;
  }
  if(sendButton)sendButton.addEventListener('click',openTutor);
+ if(chartButton)chartButton.addEventListener('click',openTutor);
  root.addEventListener('message',async event=>{
   const data=event?.data;
   if(event.origin!==root.location.origin||!data||data.type!==TYPE||data.v!==VERSION)return;

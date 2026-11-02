@@ -2,10 +2,10 @@
  * No changes to browser zoom, market data, account, or paid entitlements. */
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
-import {join,dirname,extname} from 'node:path';
+import {join,dirname,extname,resolve,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
-const root=join(dirname(fileURLToPath(import.meta.url)),'..');
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const origin='https://sim-density.test';
 const html=[
 '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1">',
@@ -41,7 +41,7 @@ try{
   if(u.origin!==origin)return route.abort();
   if(u.pathname==='/')return route.fulfill({status:200,contentType:'text/html',body:html});
   const path=join(root,u.pathname.slice(1)),ext=extname(path);
-  assert(path.startsWith(root+'/'),'No traversal outside fixture');
+  assert(path.startsWith(root+sep),'No traversal outside fixture');
   if(!existsSync(path))return route.fulfill({status:404,body:'Not found'});
   return route.fulfill({status:200,contentType:ext==='.css'?'text/css':'application/javascript',body:readFileSync(path)});
  });

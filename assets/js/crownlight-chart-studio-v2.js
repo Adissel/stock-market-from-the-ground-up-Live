@@ -61,7 +61,7 @@
   const lib=root.LightweightCharts;
   const shell=h('div','crownlight-shell');
   shell.innerHTML='<div class="crownlight-toolbar">'+
-   '<div class="crownlight-identity"><span class="crownlight-mark">C</span><span><strong>CROWNLIGHT</strong><small>CHART STUDIO <em>2.0</em></small></span></div>'+
+   '<div class="crownlight-identity"><span class="crownlight-mark">C</span><span><strong>CROWNLIGHT</strong><small>CHART STUDIO <em>3.0</em></small></span></div>'+
    '<div class="crownlight-toolbar-actions" role="toolbar" aria-label="Chart controls">'+
    '<button type="button" data-cl="zoom-in" title="Zoom in">＋<span class="sr-only">Zoom in</span></button>'+
    '<button type="button" data-cl="zoom-out" title="Zoom out">−<span class="sr-only">Zoom out</span></button>'+
@@ -138,8 +138,9 @@
      // Position bounds reference only the already-revealed bars; at most
      // the configured empty right-side buffer is visible, never future OHLCV.
      const latest=state.count-1;
-     const maxFrom=Math.max(-1,latest+safeAppearance(prefs.appearance).rightBuffer-span);
-     const from=cmd==='pan-earlier'?Math.max(-1,range.from-step):Math.min(maxFrom,range.from+step);
+     const maxFrom=latest+safeAppearance(prefs.appearance).rightBuffer-span;
+     const minFrom=Math.min(-1,maxFrom,range.from);
+     const from=cmd==='pan-earlier'?Math.max(minFrom,range.from-step):Math.min(maxFrom,range.from+step);
      if(Math.abs(from-range.from)>.01){
       state.follow=false;updateFollow();save();
       scale.setVisibleLogicalRange({from,to:from+span});
@@ -147,7 +148,7 @@
     }
    }
    if(cmd==='inspect-prev'||cmd==='inspect-next')inspectCompletedCandle(cmd==='inspect-prev'?-1:1);
-   if(cmd==='reset'){state.follow=true;fitVisible();save()}
+   if(cmd==='reset'){state.follow=true;fitVisible(true);save()}
    if(cmd==='follow'){state.follow=!state.follow;updateFollow();save();if(state.follow)scale.scrollToRealTime()}
    if(cmd==='studies')openStudies();
    if(cmd==='appearance')openAppearance();
@@ -170,15 +171,17 @@
   state.chart.applyOptions({grid:{vertLines:{color:a.grid+'35'},horzLines:{color:a.grid+'45'}}});
   state.chart.timeScale().applyOptions({barSpacing:a.barSpacing,rightOffset:a.rightBuffer});
  }
- function fitVisible(){
+ function fitVisible(includeAll=false){
   if(!state.chart||!state.count)return;
   const scale=state.chart.timeScale();
-  const count=state.count;
-  // Maintain an approximately constant candle width while a sparse replay fills.
-   // Earlier logic enlarged the first few candles until more bars were revealed.
-   const visibleBars=80,rightPadding=safeAppearance(prefs.appearance).rightBuffer;
-   const from=Math.max(-1,count-visibleBars);
-   scale.setVisibleLogicalRange({from,to:from+visibleBars+rightPadding});
+  const appearance=safeAppearance(prefs.appearance);
+  const width=state.shell?.querySelector('.crownlight-plot')?.clientWidth||800;
+  // Logical range is derived from the member's spacing preference. A short
+  // revealed prefix keeps normal candle width and the requested right buffer.
+  const span=Math.max(includeAll?state.count+appearance.rightBuffer:8,
+   width/appearance.barSpacing);
+  const to=state.count-1+appearance.rightBuffer;
+  scale.setVisibleLogicalRange({from:to-span,to});
  }
  function updateFollow(){
   const button=state.shell?.querySelector('[data-cl="follow"]');
@@ -292,7 +295,7 @@
   }
   if(reset||!prior)fitVisible();
   else if(state.follow)state.chart.timeScale().scrollToRealTime();
-  else state.chart.timeScale().setVisibleLogicalRange({from:Math.max(0,prior.from),to:Math.min(data.length+2,prior.to)});
+  else state.chart.timeScale().setVisibleLogicalRange(prior);
   state.hover=data[data.length-1]||null;showHover(state.hover);renderLegend();
   if(!state.shell.querySelector('.crownlight-source').hidden)showSource();
   // Shared read-only chart adapter: emit only revealed OHLCV data. Never send
@@ -474,7 +477,7 @@
   }
   for(const [key,label,min,max] of [['barSpacing','Candle spacing',3,28],['rightBuffer','Empty right buffer',0,40]]){
    const row=h('label','crownlight-study-settings',label),input=h('input');input.type='number';input.min=String(min);input.max=String(max);input.step='1';input.value=String(current[key]);input.setAttribute('aria-label',label);
-   input.onchange=()=>{const v=Number(input.value);if(!Number.isInteger(v)||v<min||v>max){input.value=String(safeAppearance(prefs.appearance)[key]);return}prefs.appearance={...safeAppearance(prefs.appearance),[key]:v};save();applyAppearance();if(state.sim)redraw(state.sim)};row.append(input);group.append(row);
+   input.onchange=()=>{const v=Number(input.value);if(!Number.isInteger(v)||v<min||v>max){input.value=String(safeAppearance(prefs.appearance)[key]);return}prefs.appearance={...safeAppearance(prefs.appearance),[key]:v};save();applyAppearance();if(state.sim){redraw(state.sim);fitVisible()}};row.append(input);group.append(row);
   }
   const foot=h('footer'),reset=h('button','','Reset colors'),close=h('button','','Done');reset.type='button';reset.onclick=()=>{prefs.appearance={...APPEARANCE_DEFAULTS};save();applyAppearance();if(state.sim)redraw(state.sim);dialog.close()};close.type='button';close.onclick=()=>dialog.close();
   foot.append(reset,close);dialog.append(group,foot);document.body.append(dialog);

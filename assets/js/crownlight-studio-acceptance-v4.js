@@ -93,7 +93,9 @@
  controls.append(refresh);
  sourceControls.append(label('Personal provider',provider),label('Ticker',ticker),label('Trading date',day),sample,importSample);
  panel.append(h,disclaimer,controls,status,results,sourceTitle,warning,sourceControls,sourceResult);
- section.parentNode.insertBefore(panel,section);
+ // Keep the chart as the first member task. Optional readiness and personal
+ // source verification follow the workstation, without changing their gates.
+ section.after(panel);
  let memberId=null,active=true,epoch=0,client=null,inFlight=false,verifiedSources=[],lastSample=null;
  const invalidateSample=()=>{lastSample=null;importSample.hidden=true};
  provider.addEventListener('change',invalidateSample);

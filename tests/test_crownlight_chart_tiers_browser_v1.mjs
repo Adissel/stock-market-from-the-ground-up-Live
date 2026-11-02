@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {join,dirname,extname} from 'node:path';
+import {join,dirname,extname,resolve,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
-const root=join(dirname(fileURLToPath(import.meta.url)),'..');
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const kline=join(root,'node_modules/klinecharts/dist/umd/klinecharts.min.js');
 assert(existsSync(kline),'Pinned real KLineChart must be installed');
 const origin='https://tier-fixture.test';
@@ -47,7 +47,7 @@ body:JSON.stringify({ok:true,eligible:true,sparksChartPasses:{enabled:true},tier
 temporaryAccess:grantedTier==='PROFESSIONAL'?{kind:'SPARKS',tier:'PROFESSIONAL',expiresAt:new Date(Date.now()+3600000).toISOString()}:undefined})});
 if(u.pathname==='/')return route.fulfill({status:200,contentType:'text/html',body:html});
 const f=join(root,u.pathname.slice(1)),ext=extname(f);
-if(!f.startsWith(root+'/')||!existsSync(f))return route.fulfill({status:404,body:''});
+if(!f.startsWith(root+sep)||!existsSync(f))return route.fulfill({status:404,body:''});
 return route.fulfill({status:200,contentType:ext==='.css'?'text/css':'application/javascript',body:readFileSync(f)});});
 try{await page.goto(origin+'/',{waitUntil:'domcontentloaded'});
 await page.waitForFunction(t=>window.CrownlightChartTiers?.getStatus().tier===t,tier);

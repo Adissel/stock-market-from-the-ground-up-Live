@@ -112,6 +112,8 @@ try{
  assert.equal(await page.evaluate(()=>SIM.sourceProvider),'tiingo_byo');
  assert.equal(await page.evaluate(()=>SIM.index),2);
  assert.equal(await page.evaluate(()=>SIM.originalFictional),false);
+ assert.match(await page.locator('#sim-dataset-source').innerText(),/Validated personal provider · ungraded/);
+ assert.match(await page.locator('#sim-dataset-position').innerText(),/3 revealed \/ 3 locally loaded/);
  assert.equal(await page.evaluate(()=>document.querySelector('.sim-chart-panel')
    .classList.contains('sim-awaiting-data')),false);
  assert.equal(marketCalls,1,'Imported preview must reuse previously authorized private response');

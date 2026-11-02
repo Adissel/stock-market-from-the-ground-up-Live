@@ -32,7 +32,8 @@ const fixture=async(receiverUser='MemberA',allowed=true)=>{
   body:'<!doctype html><html><head>'+shell+'</head><body>'+
    '<section id="crownlight-talia-echarts-visual">'+
    '<button data-talia-tutor-handoff disabled>Ask Talia</button>'+
-   '<p role="status" data-talia-handoff-status></p></section></body></html>'}));
+   '<p role="status" data-talia-handoff-status></p></section>'+
+   '<button id="sim-ask-talia" disabled>Ask Talia About This Chart</button></body></html>'}));
  await context.route('**/market-tutor.html?chartHandoff=*',route=>
   route.fulfill({status:200,contentType:'text/html',
    body:'<!doctype html><html><head>'+shell+'</head><body>'+
@@ -46,8 +47,9 @@ const fixture=async(receiverUser='MemberA',allowed=true)=>{
  const opened=await source.evaluate(()=>window.CrownlightTutorChartHandoffV1.setContext({
   question:'Explain the revealed EMA 9 and HLC3 bar-VWAP without future candles.'}));
  assert.equal(opened,true);
+ assert.equal(await source.locator('#sim-ask-talia').isEnabled(),true);
  const popupEvent=source.waitForEvent('popup');
- await source.locator('[data-talia-tutor-handoff]').click();
+ await source.locator('#sim-ask-talia').click();
  const receiver=await popupEvent;
  receiver.on('pageerror',e=>failures.push('Receiver: '+e.message));
  await receiver.waitForLoadState('domcontentloaded');

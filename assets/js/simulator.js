@@ -59,14 +59,30 @@ function parseCSV(text){
 function splitCSVLine(line){const out=[];let cur='',q=false;for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(q&&line[i+1]==='"'){cur+='"';i++}else q=!q}else if(c===','&&!q){out.push(cur);cur=''}else cur+=c}out.push(cur);return out}
 function current(){return SIM.candles[SIM.index]||null}
 function etParts(d){const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d);const o=Object.fromEntries(parts.map(p=>[p.type,p.value]));return {date:`${o.year}-${o.month}-${o.day}`,time:`${o.hour}:${o.minute}:00`,label:`${o.month}/${o.day}/${o.year} ${o.hour}:${o.minute} ET`}}
-function setEnabled(){const loaded=SIM.candles.length>0,locked=SIM.planLocked,open=!!SIM.position?.open,closed=!!SIM.position?.closed,advanced=SIM.maxIndexSeen>SIM.startIndex;$('sim-reset').disabled=!loaded||open||locked||advanced;$('sim-prev').disabled=!loaded||!closed||SIM.index<=0;$('sim-next').disabled=!loaded||SIM.index>=SIM.candles.length-1||!!SIM.ambiguous||closed;$('sim-play').disabled=!loaded||SIM.index>=SIM.candles.length-1||!!SIM.ambiguous||closed;$('sim-lock-plan').disabled=!loaded||locked||closed;$('sim-enter').disabled=!loaded||!locked||open||closed;$('sim-exit').disabled=!open||!!SIM.ambiguous;$('load-csv').disabled=(locked&&loaded)||open||closed;if($('load-provider'))$('load-provider').disabled=(locked&&loaded)||open||closed;if($('sim-load-fictional'))$('sim-load-fictional').disabled=(locked&&loaded)||open||closed;$('sim-csv').disabled=(locked&&loaded)||open||closed;['sim-source','sim-start-date','sim-end-date','sim-resample'].forEach(id=>{const e=$(id);if(e)e.disabled=(locked&&loaded)||open||closed});['sim-direction','sim-shares','sim-stop','sim-target','sim-thesis','sim-entry-reason','sim-trigger','sim-invalidation'].forEach(id=>{const e=$(id);if(e)e.disabled=locked})}
+function setEnabled(){const loaded=SIM.candles.length>0,locked=SIM.planLocked,open=!!SIM.position?.open,closed=!!SIM.position?.closed,advanced=SIM.maxIndexSeen>SIM.startIndex;$('sim-reset').disabled=!loaded||open||locked||advanced;$('sim-prev').disabled=!loaded||!closed||SIM.index<=0;$('sim-next').disabled=!loaded||SIM.index>=SIM.candles.length-1||!!SIM.ambiguous||closed;$('sim-play').disabled=!loaded||SIM.index>=SIM.candles.length-1||!!SIM.ambiguous||closed;$('sim-lock-plan').disabled=!loaded||locked||closed;$('sim-enter').disabled=!loaded||!locked||open||closed;$('sim-exit').disabled=!open||!!SIM.ambiguous;$('load-csv').disabled=(locked&&loaded)||open||closed;if($('load-provider'))$('load-provider').disabled=(locked&&loaded)||open||closed;for(const id of ['sim-load-fictional','sim-chart-load-fictional'])if($(id))$(id).disabled=(locked&&loaded)||open||closed;$('sim-csv').disabled=(locked&&loaded)||open||closed;['sim-source','sim-start-date','sim-end-date','sim-resample'].forEach(id=>{const e=$(id);if(e)e.disabled=(locked&&loaded)||open||closed});['sim-direction','sim-shares','sim-stop','sim-target','sim-thesis','sim-entry-reason','sim-trigger','sim-invalidation'].forEach(id=>{const e=$(id);if(e)e.disabled=locked})}
 function resetReplay(){if(SIM.planLocked||SIM.maxIndexSeen>SIM.startIndex){smsg('sim-replay-msg','Reset is disabled after future bars have been revealed or the plan is locked. This preserves no-look-ahead integrity.','error');return}pause();SIM.ambiguous=null;$('sim-ambiguous').hidden=true;SIM.index=SIM.startIndex;SIM.maxIndexSeen=SIM.startIndex;SIM.position=null;renderAll();smsg('sim-replay-msg',`Replay reset to bar ${SIM.index+1} of ${SIM.candles.length}.`,'success')}
 function renderAll(){
  const chartPanel=document.querySelector('.sim-chart-panel');
  const waiting=SIM.candles.length===0;
  if(chartPanel)chartPanel.classList.toggle('sim-awaiting-data',waiting);
  if($('sim-awaiting-data'))$('sim-awaiting-data').hidden=!waiting;
- renderChart();renderState();renderAccessibleBars();setEnabled();
+ renderChart();renderState();renderDatasetStatus();renderAccessibleBars();setEnabled();
+}
+function renderDatasetStatus(){
+ const status=$('sim-dataset-status');if(!status)return;
+ const loaded=SIM.candles.length>0,bar=loaded?current():null;
+ const provider=['tiingo_byo','alpaca_byo'].includes(SIM.sourceProvider);
+ const source=SIM.originalFictional?'Original fictional · ungraded':
+  provider?'Validated personal provider · ungraded':loaded?'User CSV · unverified, ungraded':'No dataset loaded';
+ status.dataset.source=SIM.originalFictional?'fictional':provider?'personal':loaded?'csv':'empty';
+ const fields={
+  'sim-dataset-source':source,
+  'sim-dataset-symbol':loaded?$('sim-ticker')?.value.trim().toUpperCase()||'Unlabeled':'—',
+  'sim-dataset-interval':loaded?$('sim-timeframe')?.value.trim()||'Unlabeled':'—',
+  'sim-dataset-session':bar?sessionInfo(bar.time).name:'—',
+  'sim-dataset-position':loaded?(SIM.index+1)+' revealed / '+SIM.candles.length+' locally loaded':'0 bars'
+ };
+ for(const [id,value] of Object.entries(fields))if($(id))$(id).textContent=value;
 }
 function renderAccessibleBars(){
  const summary=$('sim-candle-accessible'),body=$('sim-visible-bars'),caption=$('sim-candle-table-caption');
@@ -117,10 +133,10 @@ function loadFictionalPractice(){
   smsg('sim-load-msg','Your existing journal-backed practice must be preserved. Open a new Simulator session to load the fictional starter.','error');return;
  }
  pause();
- SIM.candles=starter.generate();SIM.sourceName=starter.source;SIM.originalFictional=true;
+ SIM.candles=starter.generate();SIM.sourceName=starter.source;SIM.sourceNote=starter.note;SIM.originalFictional=true;
  // Existing private Journal schema recognizes csv_upload as local browser replay.
  // The visible source label explicitly marks this scenario as ORIGINAL FICTIONAL.
- SIM.sourceProvider='csv_upload';SIM.startIndex=Math.min(4,SIM.candles.length-1);
+ SIM.sourceProvider='csv_upload';SIM.startIndex=Math.min(Number($('sim-start-context')?.value)||0,SIM.candles.length-1);
  SIM.index=SIM.startIndex;SIM.maxIndexSeen=SIM.startIndex;
  SIM.ambiguous=null;SIM.position=null;SIM.contextEnvelope=null;
  SIM.journalId=null;SIM.planLocked=false;
@@ -307,7 +323,9 @@ async function init(){const gate=$('sim-gate');try{SIM.sb=await window.getSupaba
  try{SIM.sb.auth.onAuthStateChange?.((event,session)=>{
   if(event==='SIGNED_OUT'||(session?.user?.id&&SIM.user&&session.user.id!==SIM.user.id))clearSimulatorOnSessionLoss();
  })}catch(e){console.warn('Optional live-auth monitoring failed',e)}
- $('load-csv').onclick=loadCSV;if($('sim-load-fictional'))$('sim-load-fictional').onclick=loadFictionalPractice;if($('load-provider'))$('load-provider').onclick=loadProvider;$('load-demo-template').onclick=downloadTemplate;if($('sim-source'))$('sim-source').onchange=()=>{
+ $('load-csv').onclick=loadCSV;for(const id of ['sim-load-fictional','sim-chart-load-fictional'])if($(id))$(id).onclick=loadFictionalPractice;
+ if($('sim-open-import'))$('sim-open-import').onclick=()=>{const details=document.querySelector('#cl-replay-import details.cl-workbench-import');if(details)details.open=true;($('sim-csv')||$('sim-source'))?.focus();$('cl-replay-import')?.scrollIntoView({block:'start'});};
+ if($('load-provider'))$('load-provider').onclick=loadProvider;$('load-demo-template').onclick=downloadTemplate;if($('sim-source'))$('sim-source').onchange=()=>{
  const connected=['tiingo','alpaca'].includes($('sim-source').value);
  if($('sim-csv-wrap'))$('sim-csv-wrap').hidden=connected;
  $('load-csv').hidden=connected;

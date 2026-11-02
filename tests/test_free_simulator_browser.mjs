@@ -3,12 +3,13 @@
  * network dependencies are simulated, never a genuine member acceptance claim.
  */
 import assert from 'node:assert/strict';
-import {readFileSync,existsSync} from 'node:fs';
+import {readFileSync,existsSync,mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {join,dirname,extname} from 'node:path';
+import {join,dirname,extname,resolve,sep} from 'node:path';
 import {chromium} from 'playwright';
 
-const root=join(dirname(fileURLToPath(import.meta.url)),'..');
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const chartEngine=join(root,'node_modules/lightweight-charts/dist/lightweight-charts.standalone.production.js');
 const origin='https://simulator-fixture.test';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 async function scenario(width,kind='free'){
@@ -30,11 +31,13 @@ async function scenario(width,kind='free'){
  page.on('pageerror',e=>faults.push(String(e.message||e)));
  await page.route('**/*',async route=>{
   const request=route.request(),url=new URL(request.url()),p=url.pathname;
+  if(url.hostname==='cdn.jsdelivr.net'&&p.includes('/lightweight-charts@5.2.1/'))
+   return route.fulfill({status:200,contentType:'application/javascript',body:readFileSync(chartEngine)});
   if(p==='/api/member-tool-access'){
    const reason=kind==='restricted'?'Account access is restricted. Contact support.':
     'An active plan or matching individual tool entitlement is required.';
    return route.fulfill({status:200,contentType:'application/json',
-    body:JSON.stringify({ok:true,authorized:false,freeEligible:kind==='free'||kind==='studio',tool:'MARKET_SIMULATOR',reason})});
+    body:JSON.stringify({ok:true,authorized:false,freeEligible:['free','studio','empty'].includes(kind),tool:'MARKET_SIMULATOR',reason})});
   }
   if(p==='/api/chart-tier-access')
    return route.fulfill({status:200,contentType:'application/json',
@@ -46,13 +49,23 @@ async function scenario(width,kind='free'){
    return route.fulfill({status:200,contentType:'application/javascript',body:'// mocked outside the Simulator for deterministic browser QA'});
   if(p==='/favicon.ico')return route.fulfill({status:404,body:''});
   const file=join(root,p.replace(/^\//,''));
-  if(!file.startsWith(root+'/')||!existsSync(file))return route.fulfill({status:404,body:''});
+  if(!file.startsWith(root+sep)||!existsSync(file))return route.fulfill({status:404,body:''});
   const ext=extname(file);
   return route.fulfill({status:200,contentType:ext==='.js'?'application/javascript':ext==='.css'?'text/css':ext==='.html'?'text/html':'text/plain',
    body:readFileSync(file)});
  });
  try{
-  await page.goto(origin+'/simulator.html?'+(kind==='studio'?'studio=standard':'practice=free'),{waitUntil:'domcontentloaded',timeout:20000});
+  await page.goto(origin+'/simulator.html?'+(kind==='studio'?'studio=standard':kind==='empty'?'mode=csv':'practice=free'),{waitUntil:'domcontentloaded',timeout:20000});
+  if(kind==='empty'){
+   await page.waitForFunction(()=>window.GroundUpSimulatorMemberReadyV1===true&&
+    document.querySelector('#sim-content')?.hidden===false);
+   assert.equal(await page.locator('#sim-dataset-source').innerText(),'No dataset loaded');
+   assert.equal(await page.locator('#sim-chart-load-fictional').isVisible(),true);
+   await page.locator('#sim-chart-load-fictional').click();
+   assert.match(await page.locator('#sim-dataset-position').innerText(),/21 revealed \/ 36 locally loaded/);
+   assert.equal(await page.locator('.crownlight-plot canvas').count()>0,true);
+   console.log('PASS '+width+'px empty-state action loads and renders fictional candles');
+  }
   if(kind==='free'||kind==='studio'){
    await page.waitForFunction(()=>document.querySelector('#sim-load-msg')?.textContent.includes('Loaded 36'),null,{timeout:8000}).catch(async error=>{
     const details=await page.evaluate(()=>({
@@ -97,8 +110,15 @@ async function scenario(width,kind='free'){
    const currentSummary=page.locator('#sim-candle-accessible');
    assert.match(await currentSummary.innerText(),/ORIGINAL FICTIONAL/);
    assert.match(await currentSummary.innerText(),/Open .*High .*Low .*Close .*Volume /);
-   assert.match(await currentSummary.innerText(),/Revealed candle 5 of 36/);
-   assert.equal(await page.locator('#sim-visible-bars tr').count(),5,'only the first five visible bars in text table');
+   assert.match(await currentSummary.innerText(),/Revealed candle 21 of 36/);
+   assert.equal(await page.locator('#sim-visible-bars tr').count(),21,'only the selected 21 completed bars appear in the table');
+   assert.match(await page.locator('#sim-dataset-source').innerText(),/Original fictional/);
+   assert.match(await page.locator('#sim-dataset-position').innerText(),/21 revealed \/ 36 locally loaded/);
+   assert.equal(await page.locator('.crownlight-plot canvas').count()>0,true,'real chart renders authorized fictional candles');
+   if(process.env.CHART_STUDIO_SCREENSHOT_DIR&&[390,1440].includes(width)&&kind==='free'){
+    const dir=resolve(process.env.CHART_STUDIO_SCREENSHOT_DIR);mkdirSync(dir,{recursive:true});
+    await page.screenshot({path:join(dir,'fixture-member-'+width+'.png'),fullPage:true});
+   }
    assert.equal(await page.locator('#sim-chart').getAttribute('aria-describedby'),'sim-candle-accessible');
    const initial=await page.locator('#sim-bar-time').innerText();
    assert(!/—/.test(initial),'fictional chart must render a timestamp');
@@ -106,8 +126,8 @@ async function scenario(width,kind='free'){
    assert.equal(await next.isEnabled(),true,'next bar must be actionable in Free membership');
    await next.click();
    assert.notEqual(await page.locator('#sim-bar-time').innerText(),initial,'Next Bar must actually advance chart');
-   assert.match(await currentSummary.innerText(),/Revealed candle 6 of 36/);
-   assert.equal(await page.locator('#sim-visible-bars tr').count(),6,'newly revealed candle appears in table');
+   assert.match(await currentSummary.innerText(),/Revealed candle 22 of 36/);
+   assert.equal(await page.locator('#sim-visible-bars tr').count(),22,'newly revealed candle appears in table');
    assert.equal(await page.locator('#sim-visible-bars tr').last().locator('td').count(),5,'OHLCV table includes all accessible numerical fields');
    assert.match(await page.locator('#sim-context-note').innerText(),/NOT actual market history|Not actual market history/i);
    await page.locator('#sim-mode-server').click();
@@ -137,6 +157,7 @@ async function scenario(width,kind='free'){
 }
 try{
  for(const width of [390,900,1280,1440])await scenario(width,'free');
+ await scenario(1440,'empty');
  await scenario(1280,'studio');
  await scenario(1280,'restricted');
  await scenario(390,'guest');

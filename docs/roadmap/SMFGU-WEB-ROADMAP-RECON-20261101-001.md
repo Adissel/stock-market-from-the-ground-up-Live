@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.13 / 2026-11-01 |
+| Version / prepared | 1.14 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -298,4 +298,12 @@ Cloudflare Pages production `release-manifest.json` reported the same `gitCommit
 
 **Revision history addition:** v1.13 / 2026-11-01 / Recorded all 27 exact-SHA workflow successes, the two focused handoff gates, and Cloudflare production manifest plus served-asset parity; genuine member and consolidated release acceptance remain open.
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.13 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+## Chart Studio 3.0 member workstation source batch
+
+The actual `simulator.html` browser workspace now offers a chart-level fictional load action, explicitly classified dataset status and 21-bar selected fictional context. Its Lightweight Charts viewport retains configurable candle spacing/right buffer through redraws and keyboard panning. The optional provider verification panel follows the chart. The active Standard/Advanced/Professional view is identified separately from the server-verified maximum tier. A chart-level Ask Talia action reuses the existing nonce/account-verified, editable handoff. The separate server-controlled replay and its private decision boundary were not reclassified as local browser history.
+
+Local fixture-authenticated Chromium tests cover 390/768/1440 px chart interaction, Free/guest/restricted paths, personal-provider import authorization, real Professional KLineChart rendering and workspace synchronization, and same-account/mismatched Tutor handoff. Independent Python and JavaScript tests agree across 18 full chart-study series and their warmups. [Detailed change and test register](../releases/2026-11-01_CROWNLIGHT_CHART_STUDIO_3_MEMBER_WORKSTATION_BATCH.md) and two labeled fixture screenshots are retained in this repository. These results do not constitute genuine member, provider, production, or accessibility acceptance. Existing 3/14 strict Chart Studio acceptance gates and all other website/engine denominators remain unchanged pending individual signoff.
+
+**Revision history addition:** v1.14 / 2026-11-01 / Advanced the live member Chart Studio source and local desktop/mobile QA; exact-commit CI, deployment parity, genuine account/provider tests, rights, and consolidated release acceptance remain separate gates.
+
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.14 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.

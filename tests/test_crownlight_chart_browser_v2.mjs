@@ -1,10 +1,10 @@
 /* Actual no-cost Chromium smoke test: real pinned chart package, fictional data only. */
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync,mkdirSync} from 'node:fs';
-import {join,dirname,extname} from 'node:path';
+import {join,dirname,extname,resolve,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
-const root=join(dirname(fileURLToPath(import.meta.url)),'..');
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const lib=join(root,'node_modules/lightweight-charts/dist/lightweight-charts.standalone.production.js');
 assert(existsSync(lib),'Pinned real chart library must be installed');
 const origin='https://crownlight-fixture.test';
@@ -35,7 +35,7 @@ try{
    if(url.origin!==origin)return route.abort();
    if(url.pathname==='/fixture.html')return route.fulfill({status:200,contentType:'text/html',body:fixture});
    const p=url.pathname==='/chart-engine.js'?lib:join(root,url.pathname.slice(1));
-   if(!p.startsWith(root+'/')||!existsSync(p))return route.fulfill({status:404,body:''});
+   if(!p.startsWith(root+sep)||!existsSync(p))return route.fulfill({status:404,body:''});
    const type=extname(p)==='.js'?'application/javascript':extname(p)==='.css'?'text/css':'text/plain';
    return route.fulfill({status:200,contentType:type,body:readFileSync(p)});
   });
@@ -96,7 +96,8 @@ try{
     await page.waitForTimeout(180);
     const rangeEarlier=await getRange();
     assert(rangeEarlier.from<=rangeBeforeButtons.from+.05,'Earlier button never moves forward');
-    assert(rangeEarlier.from>=-1.1,'Earlier button cannot pan beyond observed starting candles');
+    assert(rangeEarlier.from>=Math.min(-1,rangeBeforeButtons.from)-.1,
+      'Earlier button cannot pan beyond the existing sparse-context margin');
     await later.focus();await page.keyboard.press('Space');
     await page.waitForTimeout(180);
     const rangeLater=await getRange();
@@ -107,6 +108,14 @@ try{
     assert(rangeLater.to<=maxTo+.1,'Explicit pan cannot exceed the configured empty right buffer');
     assert.equal(await page.evaluate(()=>window.CrownlightStudio.getStatus().revealed),65,
       'Navigation does not change replay progression or grant mastery');
+    await page.locator('[data-cl="reset"]').click();
+    await page.waitForFunction(()=>{
+      const range=window.CrownlightStudio.getStatus().visibleLogicalRange;
+      return range&&range.from<=0&&range.to>=64;
+    },null,{timeout:2000});
+    const fitted=await getRange();
+    assert(fitted.from<=0&&fitted.to>=64,
+      'Fit must include every completed candle while preserving sparse-data spacing: '+JSON.stringify(fitted));
     console.log('PASS actual held-button chart pan, release-to-stop, and keyboard accessible Earlier/Later in pinned Chromium');
    }
    if(width===390){
