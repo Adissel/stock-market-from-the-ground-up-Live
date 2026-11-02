@@ -6,6 +6,13 @@ const catalog=read('assets/js/bootcamp-academy-v014168.js');
 const record=read('assets/js/skills.js');
 const css=read('assets/css/member-learning-rails-and-skills-v1.css');
 const adJS=read('assets/js/ad-slots-v014229.js'),adAPI=read('functions/api/ad-slot.js');
+const legacyAdAPI=read('functions/api/ads.js');
+assert(legacyAdAPI.includes("rpc/my_platform_access'")&&
+ legacyAdAPI.includes("authorization:bearer")&&
+ legacyAdAPI.includes("'UNVERIFIED'"),
+ 'Legacy sponsor endpoint must use caller-bound access and fail closed');
+assert(!legacyAdAPI.includes("my_platform_access_for_user"),
+ 'Legacy sponsor endpoint cannot consult stale arbitrary-user plan summaries');
 const ownerAPI=read('functions/api/ad-sales.js'),admin=read('assets/js/admin-ad-sales-v014228.js');
 const migration=read('supabase/migrations/20261028_member_learning_ad_rails_v1.sql');
 assert.match(boot,/class="navlinks"/,'Academy must mount canonical signed-in profile/Sparks navigation');
