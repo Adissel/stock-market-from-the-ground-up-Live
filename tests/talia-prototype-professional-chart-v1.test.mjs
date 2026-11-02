@@ -22,3 +22,11 @@ test('Member-scoped chart preferences validate stored values and do not persist 
  assert.match(ts,/memberId=\{member\.id\}/);
  assert.match(ts,/Private browsing may disable storage/);
 });
+
+test('Accessible prototype ledger exposes only completed bars with keyboard Tutor actions',()=>{
+ assert.match(ts,/Accessible completed-candle ledger/);
+ assert.match(ts,/REPLAY\.slice\(0,visible\)\.map/);
+ assert.match(ts,/scope="row"/);
+ assert.match(ts,/Explain bar \{i\+1\}/);
+ assert.match(ts,/Use only the visible preceding candles/);
+});
