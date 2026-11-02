@@ -911,11 +911,12 @@
    program=data.program;days=loaded;
    progressAvailable=data.progressAvailable===true;enrolled=data.enrolled===true;
    progress.clear();for(const x of data.progress||[])progress.set(x.day,x);
-   if(code==='free5'){
-    const desired=Number(new URL(location.href).searchParams.get('day'));
-    const firstUnsaved=days.find(d=>progress.get(d.day)?.status!=='reflection_saved')?.day||5;
-    dayIndex=Number.isSafeInteger(desired)&&desired>=1&&desired<=5?desired:firstUnsaved;
-   }
+   // Restore the member to the requested or first unfinished study day for
+   // both Free Foundations and Academy. Previously Academy always reopened on
+   // Day 1 even when the authenticated progress response showed later work.
+   const desired=Number(new URL(location.href).searchParams.get('day'));
+   const firstUnsaved=days.find(d=>progress.get(d.day)?.status!=='reflection_saved')?.day||days.length;
+   dayIndex=Number.isSafeInteger(desired)&&desired>=1&&desired<=days.length?desired:firstUnsaved;
    get('academy-course-title').textContent=program.title;
    get('academy-length').textContent=program.days+(code==='free5'?' free beginner lessons · ':'-day Boot Camp · ')+program.level+
     (data.betaStudy===true?' · INVITE-ONLY INSTRUCTIONAL BETA — NO OFFICIAL GRADE':'');

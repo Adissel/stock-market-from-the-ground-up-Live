@@ -1,0 +1,51 @@
+{
+  "schema": "SMFGU-LAB-AI-EDITORIAL-PREFLIGHT-V1",
+  "batch": "BATCH07",
+  "reviewedAt": "2026-11-02",
+  "reviewKind": "AI_ASSISTED_INTERNAL_PREFLIGHT",
+  "reviewScope": "Twenty Batch07 authored teaching bridges; content and metadata inspection only",
+  "independentHumanEditorialAcceptance": false,
+  "authenticatedMemberAcceptance": false,
+  "publicationRightsApproved": false,
+  "result": "20_AI_PREFLIGHTS_COMPLETE_WITH_RELEASE_GATES_OPEN",
+  "rubric": [
+    "formula_accuracy",
+    "originality_and_scenario_distinction",
+    "canonical_topic_consistency",
+    "educational_clarity",
+    "practical_misconception_and_correction",
+    "explanation_correctness",
+    "transfer_task_independence",
+    "research_provenance_boundaries",
+    "accessible_text_alternative"
+  ],
+  "reviews": [
+    {"labId":"DT-C14-L01","outcome":"AI_PREFLIGHT_PASS","note":"Equal-window range and share-volume compression are correctly separated from any forecast; transfer changes the window length.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C14-L02","outcome":"AI_PREFLIGHT_PASS","note":"270000 divided by 180000 is correctly stated as 1.5; direction and liquidity are explicitly left unresolved.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C14-L03","outcome":"AI_PREFLIGHT_PASS","note":"Range and volume expansion are treated as completed-window observations rather than predicted continuation.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C15-L01","outcome":"AI_PREFLIGHT_PASS","note":"The halt timeline correctly distinguishes a last trade from an executable reopening quote and withholds an unknown reopen price.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C15-L02","outcome":"AI_PREFLIGHT_PASS","note":"Stale and venue-scoped quote evidence is handled without asserting an executable arbitrage opportunity.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C15-L03","outcome":"AI_PREFLIGHT_PASS","note":"One hundred shares times fifty cents correctly yields fifty dollars of planned risk; the lesson does not mislabel it realized loss.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C16-L01","outcome":"AI_PREFLIGHT_PASS","note":"The six-percent move is correct and is taught alongside spread and interval limitations instead of as a tradability verdict.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C16-L02","outcome":"AI_PREFLIGHT_PASS","note":"Only completed pivots support the higher-high and higher-low classification; a new sequence is required for transfer.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C16-L03","outcome":"AI_PREFLIGHT_PASS","note":"Both average-shares-per-trade calculations are correct and the text avoids inferring participant identity or motive.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C17-L01","outcome":"AI_PREFLIGHT_PASS","note":"Availability before the decision cutoff is correctly separated from proof of market causation.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C17-L02","outcome":"AI_PREFLIGHT_PASS","note":"A negative cutoff search is described as an unresolved catalyst rather than proof that no catalyst exists.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C17-L03","outcome":"AI_PREFLIGHT_PASS","note":"Three-point-two minus two yields 1.2 percentage points; matched intervals and alternative explanations are required.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C18-L01","outcome":"AI_PREFLIGHT_PASS","note":"Eighty minus twelve minus eight correctly yields sixty, with exclusions fixed before candidate scoring.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C18-L02","outcome":"AI_PREFLIGHT_PASS","note":"The 09:19:59 cutoff correctly excludes a later 09:25 print and reinforces timestamped no-lookahead scanning.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C18-L03","outcome":"AI_PREFLIGHT_PASS","note":"Zero qualifying records is preserved as a valid result; revised thresholds must be versioned as a different scan.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C19-L01","outcome":"AI_PREFLIGHT_PASS","note":"The percentage-change formula uses the eight-dollar reference denominator and correctly produces 7.5 percent.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C19-L02","outcome":"AI_PREFLIGHT_PASS","note":"Twenty thousand shares times five dollars correctly produces approximately one hundred thousand dollars and retains execution limitations.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C19-L03","outcome":"AI_PREFLIGHT_PASS","note":"Twenty-one minus nineteen yields a two-dollar range and two divided by twenty yields ten percent; one bar is correctly distinguished from ATR.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C20-L01","outcome":"AI_PREFLIGHT_PASS","note":"Security type is established before comparing supply fields, and common stock is not conflated with a warrant.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true},
+    {"labId":"DT-C20-L02","outcome":"AI_PREFLIGHT_PASS","note":"Eighteen million divided by fifty million correctly yields thirty-six percent; as-of date and stale-data gates remain explicit.","formulaAccuracy":true,"topicConsistency":true,"misconceptionCorrection":true,"transferIndependent":true}
+  ],
+  "commonChecks": {
+    "originalityStructuralCheck": "PASS: all twenty worked examples and transfer prompts are distinct within Batch07",
+    "provenanceBoundary": "PASS: research candidates remain research-only; publication and ingestion rights remain NOT_APPROVED",
+    "accessibilityPreflight": "PASS_SOURCE: instruction, misconception, correction, and transfer are available as text without chart-only meaning",
+    "independentEditorialDecision": "OPEN",
+    "authenticatedScreenReaderAcceptance": "OPEN"
+  }
+}
