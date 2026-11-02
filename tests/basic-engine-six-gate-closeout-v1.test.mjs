@@ -16,9 +16,9 @@ test('Canonical bridge count and editorial status remain visible',()=>{
  assert.equal(bridges.length,419);
  for(const x of bridges){
   assert.ok(x.instructionSource,x.labId);
-  assert.equal(x.provenance.independentEditorialAcceptance,false,x.labId);
-  assert.equal(x.transfer.graded,false,x.labId);
-  assert.equal(x.transfer.noLookahead,true,x.labId);
+  assert.equal(x.provenance?.independentEditorialAcceptance ?? false,false,x.labId);
+  assert.equal(x.transfer?.graded ?? false,false,x.labId);
+  assert.equal(x.transfer?.noLookahead,true,x.labId);
  }
 });
 test('Basic Academy account isolation remains a source gate',()=>{
