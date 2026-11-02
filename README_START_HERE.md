@@ -1,5 +1,7 @@
 # START HERE — CURRENT REPOSITORY GUIDANCE
 
+**CURRENT RELEASE CONTROL — NOVEMBER 2, 2026:** [One twenty-gate execution queue (Issue #159)](https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/issues/159) and [Master Execution / No-Repeat Register](docs/qa/2026-11-02_MASTER_EXECUTION_AND_RELEASE_COORDINATION_v1.md). Preserve accepted owner decisions and historic test evidence. Only the designated primary execution conversation should modify main or production services; other conversations should do read-only research until coordinated. This is a procedural instruction, not a GitHub-enforced lock. Always recheck latest HEAD before edits and exact-SHA CI/Cloudflare before release.
+
 **This repository's authoritative release source is the current `main` branch, not the historical v0.14.0.40 overlay described below.** The older instructions are retained only for provenance and must **not** be used as a deployment baseline, migration order, payment-activation checklist or current product-status report.
 
 Before changing or deploying the site, read `AGENTS.md`, `PROJECT_SITEWIDE_RULES.md`, `PROJECT_ADVANCED_ENGINEERING_RULES.md`, `PROJECT_INSTRUCTIONS_FOR_CHATGPT.txt` and the complete source requirements under `docs/sitewide/`. Verify the latest `main` commit against Yahoo Cloudflare production and inspect the corresponding GitHub Actions runs. For learning releases, consult `docs/releases/2026-10-25_TRUTH5_AND_LAB_BATCH01_GATE.md` and current Supabase readiness evidence rather than assuming a version prefix proves acceptance.
