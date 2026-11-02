@@ -54,3 +54,19 @@ test('Prototype educational cycle is ungraded, contextual and available only in 
  assert.match(classroom,/Do not grade it/);
  assert.match(classroom,/pathname\.endsWith\('\/talia-tutor-prototype\.html'\)&&<section className="tp-teaching-loop"/);
 });
+
+test('Advanced Tutor continues actual lessons and supplies only revealed chart evidence',()=>{
+ const source=read('src/tutor/TaliaClassroom.tsx');
+ const css=read('assets/css/talia-prototype-v1.css');
+ assert.match(source,/const latestExchange=chat\.length>=3/);
+ assert.match(source,/chat\[chat\.length-1\]\?\.who==='talia'/);
+ assert.match(source,/continueLesson\('clarify'\)/);
+ assert.match(source,/continueLesson\('challenge'\)/);
+ assert.match(source,/continueLesson\('transfer'\)/);
+ assert.match(source,/bar\[0\]\.toFixed\(2\)/);
+ assert.match(source,/bar\[3\]\.toFixed\(2\)/);
+ assert.match(source,/Only '\+visible\+' bars have been revealed/);
+ assert.match(source,/no automatic paid retry/);
+ assert.match(source,/saveHistory:currentSave,conversationId:thread/);
+ assert.ok(css.includes('.tp-followup'));
+});
