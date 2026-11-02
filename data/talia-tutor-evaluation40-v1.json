@@ -1,6 +1,6 @@
 {
   "id": "SMFGU-TALIA-EVAL-040",
-  "version": "1.0",
+  "version": "1.1",
   "date": "2026-11-01",
   "methodology": "40 tests of actual source-only answerFromGuide responses; 10 each foundation, indicator math, misconception/followup, history/risk/transfer; source tests do not simulate authenticated memory or full chart ECharts sessions",
   "counts": {
@@ -9,7 +9,7 @@
     "misconceptionFollowup": 10,
     "historicalRiskTransfer": 10
   },
-  "resultsStatus": "NOT_EXECUTED_AWAITING_CI",
+  "resultsStatus": "TEST_EXECUTED_SOURCE_ONLY_REQUIRES_AUTHENTICATED_INDEPENDENT_ACCEPTANCE",
   "publisherAcceptance": false,
   "scenarios": [
     {
@@ -21,9 +21,11 @@
       "expectedLimitation": "HLC3 bar approximation cannot substitute for exact print notional.",
       "expectedTransfer": "FICTIONAL TRANSFER: 100 shares at $9 and 200 at $10 imply 300 shares and $2,900 notional; identify the separate units. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-002",
@@ -34,9 +36,11 @@
       "expectedLimitation": "Market capitalization can change without cash entering the firm.",
       "expectedTransfer": "FICTIONAL TRANSFER: Three million common shares at a $40 quote imply a $120 million market capitalization; identify what is not measured. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-003",
@@ -47,9 +51,11 @@
       "expectedLimitation": "Float differs by vendor and cannot prove immediately available liquidity.",
       "expectedTransfer": "FICTIONAL TRANSFER: Of 15 million outstanding shares, 4 million are assumed excluded under a declared rule; estimate modeled float and name one unknown. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-004",
@@ -60,9 +66,11 @@
       "expectedLimitation": "Quoted spread is not actual effective spread.",
       "expectedTransfer": "FICTIONAL TRANSFER: A $20.00 bid and $20.20 ask imply midpoint $20.10 and relative quoted spread about 0.995%. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-005",
@@ -73,9 +81,11 @@
       "expectedLimitation": "Equal absolute moves differ in relative return.",
       "expectedTransfer": "FICTIONAL TRANSFER: Compare a $0.02 rise from $10.00 with a $0.02 rise from $100.00 as percentages. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-006",
@@ -86,9 +96,11 @@
       "expectedLimitation": "Price bp are not yield bp.",
       "expectedTransfer": "FICTIONAL TRANSFER: A price falls from $80 to $79.60; express the signed percentage change and basis points. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-007",
@@ -99,9 +111,11 @@
       "expectedLimitation": "Fee-adjusted cost basis can differ.",
       "expectedTransfer": "FICTIONAL TRANSFER: Buy 10 shares at $8 and 15 at $9; compute the quantity-weighted average without fees. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-008",
@@ -112,9 +126,11 @@
       "expectedLimitation": "Market-order fills need not match a stale quote.",
       "expectedTransfer": "FICTIONAL TRANSFER: With $125 cash and a $9.40 assumed execution, calculate the maximum whole shares and unused cash. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-009",
@@ -125,9 +141,11 @@
       "expectedLimitation": "Theoretical quantity does not establish execution.",
       "expectedTransfer": "FICTIONAL TRANSFER: Compute the theoretical shares for a $30 notional purchase at $48 per share and note broker availability. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-010",
@@ -138,9 +156,11 @@
       "expectedLimitation": "Actual repricing and distribution terms can differ.",
       "expectedTransfer": "FICTIONAL TRANSFER: Convert 25 shares at $80 through a hypothetical 2-for-1 split and compare modeled position values. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "explain",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-011",
@@ -151,9 +171,11 @@
       "expectedLimitation": "Cash in lieu and market repricing can change outcomes.",
       "expectedTransfer": "FICTIONAL TRANSFER: Convert 80 shares at $3 through a hypothetical 1-for-4 reverse split and compare values. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-012",
@@ -164,9 +186,11 @@
       "expectedLimitation": "Never mix adjustment states across timestamps.",
       "expectedTransfer": "FICTIONAL TRANSFER: After a 4-for-1 split, compare a previous $120 close with a next $31 comparable close as adjusted price return. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-013",
@@ -177,9 +201,11 @@
       "expectedLimitation": "A quote is not a trade confirmation.",
       "expectedTransfer": "FICTIONAL TRANSFER: The earlier ask is $8.00 and 50 shares fill at $8.12; calculate the difference from the earlier quote reference. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-014",
@@ -190,9 +216,11 @@
       "expectedLimitation": "A prior quoted offer cannot prove a fill or zero fills.",
       "expectedTransfer": "FICTIONAL TRANSFER: A $15.00 buy limit sits below a $15.25 offer; identify the missing information needed to establish a fill. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-015",
@@ -203,9 +231,11 @@
       "expectedLimitation": "Future fills may alter the average.",
       "expectedTransfer": "FICTIONAL TRANSFER: Thirty shares fill at $5.10 and twenty fill at $5.20; calculate the average price for 50 executed shares. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-016",
@@ -216,9 +246,11 @@
       "expectedLimitation": "Body ratio does not encode intrabar sequence.",
       "expectedTransfer": "FICTIONAL TRANSFER: Open $30, close $29.40, high $30.40, low $29; calculate body percentage of full range. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-017",
@@ -229,9 +261,11 @@
       "expectedLimitation": "Wick cannot prove order sequencing or reversal.",
       "expectedTransfer": "FICTIONAL TRANSFER: Open $20, close $19.50, high $20.50, low $19.00; compute upper and lower wicks separately. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-018",
@@ -242,9 +276,11 @@
       "expectedLimitation": "Corporate adjustments and opening eligibility affect gaps.",
       "expectedTransfer": "FICTIONAL TRANSFER: Compare a $24.00 prior regular-session close with a $23.40 next regular-session open as dollars and percent. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-019",
@@ -255,9 +291,11 @@
       "expectedLimitation": "Replay cutoff must use actual observation availability.",
       "expectedTransfer": "FICTIONAL TRANSFER: At 10:02 during a bar labeled 10:00, identify which five-minute bars are fully completed and which high is unknown. Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-020",
@@ -268,9 +306,11 @@
       "expectedLimitation": "Mismatched windows can manufacture a false high ratio.",
       "expectedTransfer": "FICTIONAL TRANSFER: Six thousand shares in the first completed fifteen minutes versus a historical 8,000-share matched-window baseline yields what ratio? Explain the calculation and what a previously unavailable price or document would change.",
       "mode": "deep",
-      "status": "NOT_EXECUTED",
+      "status": "PASS",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Passed only source-formatter and fictional example, not live auth, source rights or publication"
     },
     {
       "id": "TALIA-QA-20261101-021",
@@ -281,9 +321,11 @@
       "expectedLimitation": "Same-time valuations and included account liabilities must be defined.",
       "expectedTransfer": "FICTIONAL TRANSFER: 30 shares at $18 in a $3,600 portfolio represent what percentage of marked value? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-022",
@@ -294,9 +336,11 @@
       "expectedLimitation": "Cash weight is not necessarily withdrawable or available-to-trade cash.",
       "expectedTransfer": "FICTIONAL TRANSFER: A $7,500 stock position and $2,500 cash create what cash weight, ignoring fees and borrowing? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-023",
@@ -307,9 +351,11 @@
       "expectedLimitation": "Contribution is an external flow, not a generated trading gain.",
       "expectedTransfer": "FICTIONAL TRANSFER: $3,000 stock plus $1,000 cash receives an extra $2,000 contribution; find the new stock weight. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-024",
@@ -320,9 +366,11 @@
       "expectedLimitation": "Net liquidation and cash balances may differ.",
       "expectedTransfer": "FICTIONAL TRANSFER: Starting equity of $4,500 falls $225 in marked securities value with no transfers; what is current equity? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-025",
@@ -333,9 +381,11 @@
       "expectedLimitation": "A percentage-point difference is not automatically risk-adjusted alpha.",
       "expectedTransfer": "FICTIONAL TRANSFER: A portfolio returns −2% while the benchmark returns +1% over the same dates; what is the percentage-point gap? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-026",
@@ -346,9 +396,11 @@
       "expectedLimitation": "Fee, dividend and cash-flow assumptions must be stated.",
       "expectedTransfer": "FICTIONAL TRANSFER: A fictional holding rises 20% in one completed period and falls 10% in the next; find its total return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-027",
@@ -359,9 +411,11 @@
       "expectedLimitation": "Match dates and control for external deposits.",
       "expectedTransfer": "FICTIONAL TRANSFER: A $600 invested holding earns $30 while $2,400 remains in cash; compute holding return and total-account return. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-028",
@@ -372,9 +426,11 @@
       "expectedLimitation": "Sales proceeds and capital gain require different denominators.",
       "expectedTransfer": "FICTIONAL TRANSFER: Sell 25 shares at $12.50 with a $1.50 selling fee; calculate gross and net proceeds. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-029",
@@ -385,9 +441,11 @@
       "expectedLimitation": "Tax rules cannot be inferred from an invented rate.",
       "expectedTransfer": "FICTIONAL TRANSFER: Assume 80 entitled shares, $0.25 per share and a hypothetical 5% withholding; find gross and net amounts. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-030",
@@ -398,9 +456,11 @@
       "expectedLimitation": "Asset class, holidays, special terms can change dates.",
       "expectedTransfer": "FICTIONAL TRANSFER: Under the same no-holiday T+1 example, what day follows a Thursday trade for settlement? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "multiturn",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-031",
@@ -411,9 +471,11 @@
       "expectedLimitation": "Settlement date is not evidence of when the fill was known.",
       "expectedTransfer": "FICTIONAL TRANSFER: A completed Thursday fill at 2:00 p.m. with no intervening holiday has what assumed T+1 settlement date, and when was the fill? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-032",
@@ -424,9 +486,11 @@
       "expectedLimitation": "Hidden/cancelled orders and feed snapshots are not fills.",
       "expectedTransfer": "FICTIONAL TRANSFER: A displayed ask shows 150 plus 250 shares; find displayed ask depth and explain whether a print occurred. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-033",
@@ -437,9 +501,11 @@
       "expectedLimitation": "Aggregated-by-price depth may omit underlying order count.",
       "expectedTransfer": "FICTIONAL TRANSFER: Four bid orders each display 75 shares; state the order count and aggregate displayed share quantity. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-034",
@@ -450,9 +516,11 @@
       "expectedLimitation": "Time-in-force expiration is not an execution record.",
       "expectedTransfer": "FICTIONAL TRANSFER: A 50-share day limit shows 20 shares filled before session end; how many actually executed, and what remains unfilled? Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-035",
@@ -463,9 +531,11 @@
       "expectedLimitation": "Before the reopening, its price is future information.",
       "expectedTransfer": "FICTIONAL TRANSFER: The pre-halt last print is $30 and an observed reopening fill is $31.50; calculate the historical change without claiming a guaranteed price. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-036",
@@ -476,9 +546,11 @@
       "expectedLimitation": "Color never proves beneficial ownership or count of counterparties.",
       "expectedTransfer": "FICTIONAL TRANSFER: An observed 200-share print occurs at a displayed bid of $9.95; state the known execution quantity and what the color cannot prove. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-037",
@@ -489,9 +561,11 @@
       "expectedLimitation": "Do not backdate late reports into earlier learning decisions.",
       "expectedTransfer": "FICTIONAL TRANSFER: A print executed at 09:35:00 reaches a feed at 09:35:12; calculate report latency and identify whether it was known at 09:35:05. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-038",
@@ -502,9 +576,11 @@
       "expectedLimitation": "Feed eligibility and corrections may modify aggregates.",
       "expectedTransfer": "FICTIONAL TRANSFER: Four executions of 80, 120, 100 and 200 shares occur within one completed interval; compute its share-volume bar. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-039",
@@ -515,9 +591,11 @@
       "expectedLimitation": "Nonpositive prices cannot be represented by ordinary log scale.",
       "expectedTransfer": "FICTIONAL TRANSFER: Compare moves from $5 to $10 and $10 to $20 under a logarithmic axis and report each percentage change. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     },
     {
       "id": "TALIA-QA-20261101-040",
@@ -528,9 +606,24 @@
       "expectedLimitation": "Explicit zero differs from missing observations and excluded venues.",
       "expectedTransfer": "FICTIONAL TRANSFER: Three completed buckets report 0, 150 and 250 shares; calculate reported share volume and identify what remains unknown. Explain the relevant units, what is only assumed, and what would invalidate your result.",
       "mode": "historical",
-      "status": "NOT_EXECUTED",
+      "status": "PARTIAL",
       "sourceReviewStatus": "INTERNAL_REVISED_INDEPENDENT_HOLD",
-      "independentValidation": false
+      "independentValidation": false,
+      "evidence": "Cloudflare Pages built and deployed original Tutor source-only test at SHA 2e3173045c496c9edc53b2bab612a2d7cb96eb36; exact EVAL40 line and test pass in build logs",
+      "missingAcceptance": "Real authorized member conversation history and/or historical chart event cutoff not tested"
     }
-  ]
+  ],
+  "resultCounts": {
+    "PASS": 20,
+    "FAIL": 0,
+    "PARTIAL": 20,
+    "BLOCKED": 0,
+    "NOT_EXECUTED": 0
+  },
+  "evidence": {
+    "deploymentSHA": "2e3173045c496c9edc53b2bab612a2d7cb96eb36",
+    "cloudflareDeploymentId": "b9d0b26a-e9cf-4224-b926-a0b5508b753c",
+    "sourceCodeRun": "tests/talia-training45-evaluation40-v1.test.mjs",
+    "evidenceDescription": "40 EVAL40 lines, all script assertions passed"
+  }
 }
