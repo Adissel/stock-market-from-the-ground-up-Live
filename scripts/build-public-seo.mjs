@@ -5,6 +5,7 @@
 import {readFileSync,readdirSync,writeFileSync,existsSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
+import {buildPublicSitemapV2} from './build-public-sitemap-v2.mjs';
 const output=resolve(process.env.GU_SITE_BUILD_DIR||'public');
 const rawOrigin=process.env.GU_PUBLIC_SITE_ORIGIN||'https://stock-market-from-the-ground-up-d1r.pages.dev';
 let origin;
@@ -193,11 +194,10 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html'))){
  }
 }
 const xmlEntities=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
-const sitemap='<?xml version="1.0" encoding="UTF-8"?>\n'+
- '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+
- [...indexable].map(path=>'  <url><loc>'+xmlEntities(origin+path)+'</loc></url>').join('\n')+
- '\n</urlset>\n';
-writeFileSync(join(output,'sitemap.xml'),sitemap);
+// V2 sitemap uses the exact generated public HTML and canonical tags.
+// It rejects missing/noindex content, duplicate URLs and any private route.
+const sitemapV2=buildPublicSitemapV2({root:output,origin,pages:report.pages});
+if(sitemapV2.count!==indexable.size)throw Error('Sitemap V2 inventory mismatch');
 // Free Learning RSS Feed V2: editorially selected public guides only.
 // These items describe existing educational pages; no invented publishing dates.
 const feedSlugs=['free-foundations-challenge','candle-practice',
