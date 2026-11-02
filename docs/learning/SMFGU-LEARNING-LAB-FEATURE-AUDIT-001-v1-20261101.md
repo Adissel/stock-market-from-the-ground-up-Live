@@ -85,10 +85,10 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LE-ENT-02 | Chronological holdout and embargo methods | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Separate test data and prevent training contamination. | No integrated enterprise research course. |
 | LE-ENT-03 | Sensitivity and validation-bias instruction | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Prevent test-set winner selection or unwarranted predictive claims. | Only source utility. |
 | LE-ENT-04 | Versioned provenance and rights manifest | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Require source rights, time, method version and reference. | Manifest unpublished, not user workflow. |
-| LE-ENT-05 | Governed cross-course research learning path | not implemented | No member implementation | Connect research tasks to existing authorized curriculum. | Not integrated. |
+| LE-ENT-05 | Governed cross-course research learning path | not implemented | No member implementation | Connect research tasks to existing authorized curriculum. | No authenticated cross-course Enterprise research learning path is integrated. |
 | LE-ENT-06 | Entitled research citation and source rights | not implemented | No member implementation | Validate as-of citations and rights for each member data source. | No enterprise source-rights acceptance. |
 | LE-ENT-07 | Enterprise grants, revocation, downgrade | not implemented | `functions/_lib/learning-engine-tier-policy-v1.js` · `tests/learning-engine-tier-policy-v1.test.mjs` | Server must deny revoked and cross-member research access. | Owner policy only. |
-| LE-ENT-08 | Independent Enterprise Learning release | not implemented | No member implementation | Pass real entitlement, data-rights, research QA and accessibility. | Unreleased. |
+| LE-ENT-08 | Independent Enterprise Learning release | not implemented | No member implementation | Pass real entitlement, data-rights, research QA and accessibility. | Enterprise Learning has no independently accepted member production release. |
 
 ## Shared Lab Engine — detailed feature-by-feature findings
 
@@ -138,11 +138,11 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LA-ENT-01 | Governed research evidence manifests | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Bind rights-approved source metadata into Enterprise Lab. | Pure source helper. |
 | LA-ENT-02 | Research-method sensitivity comparisons | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Use valid assumptions and preserve held-out evaluation data. | Source-only quantitative comparison. |
 | LA-ENT-03 | Chronological source holdout laboratory | prototype | `functions/_lib/learning-lab-research-evidence-v1.js` · `tests/learning-lab-research-evidence-v1.test.mjs` | Implement correct embargo and no future leakage in member stage. | Not an authorized Lab experience. |
-| LA-ENT-04 | Enterprise cross-course research stage journey | not implemented | No member implementation | Map actual entitled research lessons into progression. | No member path. |
+| LA-ENT-04 | Enterprise cross-course research stage journey | not implemented | No member implementation | Map actual entitled research lessons into progression. | No authorized Enterprise Lab research stage journey exists for members. |
 | LA-ENT-05 | Multi-source research Lab workbench | not implemented | No member implementation | Save member-owned approved source cases with audit history. | No released workstation. |
 | LA-ENT-06 | Enterprise dataset rights controls | not implemented | No member implementation | Reject missing provider rights before delivering any data. | No independently signed rights workflow. |
 | LA-ENT-07 | Enterprise Lab entitlement and revocation | not implemented | `functions/_lib/learning-engine-tier-policy-v1.js` · `tests/learning-engine-tier-policy-v1.test.mjs` | Verify server grant, renewal, downgrade and isolation. | No effective edition entitlement. |
-| LA-ENT-08 | Independent Enterprise Lab acceptance | not implemented | No member implementation | Pass genuine member, no-lookahead, screen-reader and CI. | Unreleased. |
+| LA-ENT-08 | Independent Enterprise Lab acceptance | not implemented | No member implementation | Pass genuine member, no-lookahead, screen-reader and CI. | Enterprise Lab has no independently accepted member production release. |
 
 ## Release controls and evidence gaps
 
