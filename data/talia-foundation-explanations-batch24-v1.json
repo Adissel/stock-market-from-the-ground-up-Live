@@ -1,0 +1,551 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 24,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Distinct fictional screening and watchlist concepts 461–480. Source/rights and independent numerical review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_SCANNER_THRESHOLD_AND_ELIGIBLE_OBSERVATION_TIME",
+      "title": "Scanner threshold and eligible observation time",
+      "concept": "A price scanner threshold can only use the values known when its query actually ran.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional 10:00 scan requires last completed close above $20; 09:59 completed close is $20.10, so criterion passes at 10:00.",
+      "limit": "Scan latency and data freshness must be disclosed.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Scan latency and data freshness must be disclosed.",
+      "commonError": "Live-trading mistake: Testing the threshold on a future close introduces lookahead. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A price scanner threshold can only use the values known when its query actually ran. Worked fictional evidence: Fictional 10:00 scan requires last completed close above $20; 09:59 completed close is $20.10, so criterion passes at 10:00. Error correction: Testing the threshold on a future close introduces lookahead. Boundary: Scan latency and data freshness must be disclosed. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: A scanner requires close above $30; completed close $29.90: classify eligibility. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MINIMUM_DOLLAR_VOLUME_FILTER",
+      "title": "Minimum dollar volume filter",
+      "concept": "Dollar-volume filters require a stated price and volume aggregation methodology.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional completed daily volume 100,000 shares × reference price $20 implies $2 million price-proxy dollar volume.",
+      "limit": "Trade-level price×size sums differ from closing-price proxy.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Trade-level price×size sums differ from closing-price proxy.",
+      "commonError": "Live-trading mistake: Treating this approximation as exact transaction notional ignores variable trade prices. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: Dollar-volume filters require a stated price and volume aggregation methodology. Worked fictional evidence: Fictional completed daily volume 100,000 shares × reference price $20 implies $2 million price-proxy dollar volume. Error correction: Treating this approximation as exact transaction notional ignores variable trade prices. Boundary: Trade-level price×size sums differ from closing-price proxy. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Volume 50,000 and declared price $30: compute proxy notional. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SHARE_FLOAT_VERSUS_TOTAL_SHARES_SCREEN",
+      "title": "Share-float versus total-shares screen",
+      "concept": "A float filter needs estimated shares available to trade, not merely shares outstanding.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional outstanding shares 10 million, restricted holdings 3 million imply illustrative float 7 million.",
+      "limit": "Actual float requires current primary source ownership classification.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Actual float requires current primary source ownership classification.",
+      "commonError": "Live-trading mistake: Calling float 10 million without removing restricted holdings misclassifies liquidity. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A float filter needs estimated shares available to trade, not merely shares outstanding. Worked fictional evidence: Fictional outstanding shares 10 million, restricted holdings 3 million imply illustrative float 7 million. Error correction: Calling float 10 million without removing restricted holdings misclassifies liquidity. Boundary: Actual float requires current primary source ownership classification. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Outstanding 20 million, restricted 8 million: estimate simplified float. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_CAP_FILTER_AND_QUOTED_PRICE_TIMING",
+      "title": "Market cap filter and quoted-price timing",
+      "concept": "A capitalization screen requires matching shares outstanding and market quote timestamps.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional 5 million shares outstanding × $12 quote gives $60 million cap at the stated time.",
+      "limit": "Dilution, multiple classes and corporate actions affect the numerator.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Dilution, multiple classes and corporate actions affect the numerator.",
+      "commonError": "Live-trading mistake: Using year-old share count with current quote may distort classification. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A capitalization screen requires matching shares outstanding and market quote timestamps. Worked fictional evidence: Fictional 5 million shares outstanding × $12 quote gives $60 million cap at the stated time. Error correction: Using year-old share count with current quote may distort classification. Boundary: Dilution, multiple classes and corporate actions affect the numerator. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: 10 million shares at $8: compute market capitalization. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RELATIVE_STRENGTH_RATIO_VERSUS_BENCHMARK",
+      "title": "Relative-strength ratio versus benchmark",
+      "concept": "A stock-to-benchmark price ratio must use compatible adjusted values and is not guaranteed future outperformance.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional stock adjusted index 110 and benchmark index 100 give relative ratio 1.10.",
+      "limit": "Normalization base dates and distribution adjustments matter.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Normalization base dates and distribution adjustments matter.",
+      "commonError": "Live-trading mistake: Using nominal prices from differently scaled securities yields meaningless comparative strength. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A stock-to-benchmark price ratio must use compatible adjusted values and is not guaranteed future outperformance. Worked fictional evidence: Fictional stock adjusted index 110 and benchmark index 100 give relative ratio 1.10. Error correction: Using nominal prices from differently scaled securities yields meaningless comparative strength. Boundary: Normalization base dates and distribution adjustments matter. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Stock indexed 105 and benchmark indexed 120: compute relative ratio. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SECTOR_CONCENTRATION_IN_A_WATCHLIST",
+      "title": "Sector concentration in a watchlist",
+      "concept": "A watchlist full of different symbols may still be concentrated in one economic sector.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional watchlist has 8 symbols, 6 in one sector: count share is 75%.",
+      "limit": "Sector labeling and capital weight are different measures.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Sector labeling and capital weight are different measures.",
+      "commonError": "Live-trading mistake: Counting ticker variety as diversification hides shared exposures. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A watchlist full of different symbols may still be concentrated in one economic sector. Worked fictional evidence: Fictional watchlist has 8 symbols, 6 in one sector: count share is 75%. Error correction: Counting ticker variety as diversification hides shared exposures. Boundary: Sector labeling and capital weight are different measures. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Of 12 candidates, 9 belong to the same sector: compute percentage. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_FILTER_AND_LOW_PRICED_STOCKS",
+      "title": "Volume filter and low-priced stocks",
+      "concept": "A high share-volume count need not imply high dollar liquidity when share prices differ.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional A trades 1 million shares at $1 proxy=$1m, B 200,000 shares at $20 proxy=$4m.",
+      "limit": "Actual spreads and depth must also be reviewed.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Actual spreads and depth must also be reviewed.",
+      "commonError": "Live-trading mistake: Ranking volume shares alone as executable dollar liquidity is unsound. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A high share-volume count need not imply high dollar liquidity when share prices differ. Worked fictional evidence: Fictional A trades 1 million shares at $1 proxy=$1m, B 200,000 shares at $20 proxy=$4m. Error correction: Ranking volume shares alone as executable dollar liquidity is unsound. Boundary: Actual spreads and depth must also be reviewed. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: A trades 500,000 at $2 and B 100,000 at $25: compare proxy dollar volume. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BID_ASK_SPREAD_SCREEN_AND_MINIMUM_TICK",
+      "title": "Bid ask spread screen and minimum tick",
+      "concept": "A spread screen must distinguish cents and percentage impact at different stock prices.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: A $0.01 spread at a $1 midpoint is 1%; at a $100 midpoint it is 0.01%.",
+      "limit": "Price tiers, market rules and quote eligibility affect observed spreads.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Price tiers, market rules and quote eligibility affect observed spreads.",
+      "commonError": "Live-trading mistake: Treating one cent as equally cheap across prices ignores relative friction. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A spread screen must distinguish cents and percentage impact at different stock prices. Worked fictional evidence: A $0.01 spread at a $1 midpoint is 1%; at a $100 midpoint it is 0.01%. Error correction: Treating one cent as equally cheap across prices ignores relative friction. Boundary: Price tiers, market rules and quote eligibility affect observed spreads. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Compare a one-cent spread at $2 and $50 in basis points. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PRICE_GAP_SCREENER_WITH_CORPORATE_ACTIONS",
+      "title": "Price gap screener with corporate actions",
+      "concept": "A large unadjusted overnight move may reflect a split rather than pure trading repricing.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional stock closes $100 before a 2-for-1 split and opens at $50, a raw -50% change without wealth collapse.",
+      "limit": "Use correct effective date and raw versus adjusted comparison.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Use correct effective date and raw versus adjusted comparison.",
+      "commonError": "Live-trading mistake: Flagging split effects as crashes fabricates scanner signals. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A large unadjusted overnight move may reflect a split rather than pure trading repricing. Worked fictional evidence: Fictional stock closes $100 before a 2-for-1 split and opens at $50, a raw -50% change without wealth collapse. Error correction: Flagging split effects as crashes fabricates scanner signals. Boundary: Use correct effective date and raw versus adjusted comparison. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Before a 4-for-1 split, close is $80; find comparable theoretical post-split share price. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PREMARKET_VOLUME_VERSUS_REGULAR_SESSION_BENCHMARK",
+      "title": "Premarket volume versus regular-session benchmark",
+      "concept": "An early-session share count should not be compared directly with a full regular-session total.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional premarket 10,000 shares and prior regular-session 1 million: different windows, not a matched RVOL.",
+      "limit": "Venue coverage and early-session liquidity differ.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Venue coverage and early-session liquidity differ.",
+      "commonError": "Live-trading mistake: Treating premarket-to-full-day fraction as an ordinary relative-volume signal misstates conditions. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: An early-session share count should not be compared directly with a full regular-session total. Worked fictional evidence: Fictional premarket 10,000 shares and prior regular-session 1 million: different windows, not a matched RVOL. Error correction: Treating premarket-to-full-day fraction as an ordinary relative-volume signal misstates conditions. Boundary: Venue coverage and early-session liquidity differ. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: If the prior five comparable premarket intervals average 8,000 and today reports 12,000, compute matched RVOL. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WATCHLIST_CANDIDATE_VERSUS_EXECUTABLE_TRADE",
+      "title": "Watchlist candidate versus executable trade",
+      "concept": "A candidate passing several screening rules is not proof of fill, safe stop, or positive expectancy.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional watchlist symbol passes price>$10 and volume>100,000 but no valid ask quote exists; no executable buy price is established.",
+      "limit": "Separate discovery, evidence, risk, and execution.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Separate discovery, evidence, risk, and execution.",
+      "commonError": "Live-trading mistake: Auto-labeling scan matches 'buy now' skips critical market verification. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A candidate passing several screening rules is not proof of fill, safe stop, or positive expectancy. Worked fictional evidence: Fictional watchlist symbol passes price>$10 and volume>100,000 but no valid ask quote exists; no executable buy price is established. Error correction: Auto-labeling scan matches 'buy now' skips critical market verification. Boundary: Separate discovery, evidence, risk, and execution. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Candidate passes scanner but quote is stale: state the appropriate execution decision. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SCANNER_FALSE_POSITIVES_FROM_DELAYED_FEEDS",
+      "title": "Scanner false positives from delayed feeds",
+      "concept": "A delayed quote can satisfy a rule that the real-time market no longer meets.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional last accepted quote at 10:00 is $20.20 but screener runs at 10:20 without refresh; freshness is unverified.",
+      "limit": "Provider delay disclosures and timezones are required.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Provider delay disclosures and timezones are required.",
+      "commonError": "Live-trading mistake: Presenting outdated data as current information misleads decisions. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A delayed quote can satisfy a rule that the real-time market no longer meets. Worked fictional evidence: Fictional last accepted quote at 10:00 is $20.20 but screener runs at 10:20 without refresh; freshness is unverified. Error correction: Presenting outdated data as current information misleads decisions. Boundary: Provider delay disclosures and timezones are required. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: A 15-minute-old quote is used for a current breakout screen: should it be treated as live? Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WATCHLIST_RANKING_BY_COMPOSITE_SCORE",
+      "title": "Watchlist ranking by composite score",
+      "concept": "An original weighted screening score requires declared factor weights, scales, and treatment of missing data.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional quality 80/100 weight 60%, liquidity 50/100 weight 40% yields 68/100 composite.",
+      "limit": "An original score is not an official proprietary rank or trading recommendation.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. An original score is not an official proprietary rank or trading recommendation.",
+      "commonError": "Live-trading mistake: Using unnormalized factors makes the weighted total meaningless. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: An original weighted screening score requires declared factor weights, scales, and treatment of missing data. Worked fictional evidence: Fictional quality 80/100 weight 60%, liquidity 50/100 weight 40% yields 68/100 composite. Error correction: Using unnormalized factors makes the weighted total meaningless. Boundary: An original score is not an official proprietary rank or trading recommendation. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Scores 70 and 90 with weights 25% and 75%: compute composite. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MISSING_DATA_EXCLUSION_FROM_CANDIDATE_SCORE",
+      "title": "Missing-data exclusion from candidate score",
+      "concept": "A scoring model must not silently substitute favorable data for unavailable observations.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional candidate lacks liquidity factor; under a complete-case policy its score is HOLD rather than assigning 100.",
+      "limit": "Policy may allow weighted rescaling only if explicitly defined.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Policy may allow weighted rescaling only if explicitly defined.",
+      "commonError": "Live-trading mistake: Assigning a perfect score to missing input biases ranking upward. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A scoring model must not silently substitute favorable data for unavailable observations. Worked fictional evidence: Fictional candidate lacks liquidity factor; under a complete-case policy its score is HOLD rather than assigning 100. Error correction: Assigning a perfect score to missing input biases ranking upward. Boundary: Policy may allow weighted rescaling only if explicitly defined. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Candidate has quality score 80 but missing required volatility: classify. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WATCHLIST_REFRESH_VERSUS_PRICE_ALERT_TRIGGER",
+      "title": "Watchlist refresh versus price-alert trigger",
+      "concept": "Refreshing a table is distinct from meeting a persistent alert's exact threshold and event timing.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Alert condition is completed close above $30; a 10:05 intrabar quote $30.20 does not satisfy it before close.",
+      "limit": "Deduplication, delivery failure and time alignment are separate.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Deduplication, delivery failure and time alignment are separate.",
+      "commonError": "Live-trading mistake: Firing close-based alerts on forming bar highs changes the contract. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: Refreshing a table is distinct from meeting a persistent alert's exact threshold and event timing. Worked fictional evidence: Alert condition is completed close above $30; a 10:05 intrabar quote $30.20 does not satisfy it before close. Error correction: Firing close-based alerts on forming bar highs changes the contract. Boundary: Deduplication, delivery failure and time alignment are separate. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: An alert requires high≥$25 on reported completed candle; high $24.90: decide trigger. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLUME_ACCELERATION_VERSUS_RAW_VOLUME_INCREASE",
+      "title": "Volume acceleration versus raw volume increase",
+      "concept": "A higher bar volume may reflect longer aggregation, not genuinely accelerated activity.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional 1-minute bar trades 1,000 shares while 5-minute bar trades 3,000; normalized per minute 1,000 versus 600.",
+      "limit": "Volume/time is not a substitute for market-depth liquidity.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Volume/time is not a substitute for market-depth liquidity.",
+      "commonError": "Live-trading mistake: Calling larger raw volume in longer intervals acceleration is incorrect. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A higher bar volume may reflect longer aggregation, not genuinely accelerated activity. Worked fictional evidence: Fictional 1-minute bar trades 1,000 shares while 5-minute bar trades 3,000; normalized per minute 1,000 versus 600. Error correction: Calling larger raw volume in longer intervals acceleration is incorrect. Boundary: Volume/time is not a substitute for market-depth liquidity. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: A 2-minute bar has 800 shares and 4-minute bar 1,200: compare shares per minute. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREADTH_ADVANCE_DECLINE_RATIO_AND_ZERO_DECLINES",
+      "title": "Breadth advance decline ratio and zero declines",
+      "concept": "A breadth ratio needs matched eligible universe counts and a zero-denominator policy.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional 300 advancing and 200 declining constituents imply ratio 1.5.",
+      "limit": "If declining count is zero, ordinary A/D ratio is undefined.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. If declining count is zero, ordinary A/D ratio is undefined.",
+      "commonError": "Live-trading mistake: Treating unchanged stocks as advancing distorts the numerator. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: A breadth ratio needs matched eligible universe counts and a zero-denominator policy. Worked fictional evidence: Fictional 300 advancing and 200 declining constituents imply ratio 1.5. Error correction: Treating unchanged stocks as advancing distorts the numerator. Boundary: If declining count is zero, ordinary A/D ratio is undefined. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: 400 advances, 100 declines: compute ratio. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BREADTH_NET_ADVANCES_VERSUS_PERCENTAGE",
+      "title": "Breadth net advances versus percentage",
+      "concept": "Net advances measure an absolute difference while advance percentage requires an eligible denominator.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional 300 advances and 200 declines among 600 members: net +100; advance share 50%.",
+      "limit": "Corporate actions and missing components alter universe counts.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Corporate actions and missing components alter universe counts.",
+      "commonError": "Live-trading mistake: Interchanging count and percent units makes cross-market comparison invalid. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: Net advances measure an absolute difference while advance percentage requires an eligible denominator. Worked fictional evidence: Fictional 300 advances and 200 declines among 600 members: net +100; advance share 50%. Error correction: Interchanging count and percent units makes cross-market comparison invalid. Boundary: Corporate actions and missing components alter universe counts. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: 200 advances, 150 declines and 50 unchanged: compute net and advance fraction. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARKET_SESSION_FILTER_AND_EARLY_CLOSE",
+      "title": "Market session filter and early close",
+      "concept": "Screening hours must use a published exchange calendar, including early closes, not a fixed local clock assumption.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional early close at 13:00 Eastern means a 14:00 Eastern regular-session filter is ineligible that day.",
+      "limit": "Timezones, holidays and halts still require evidence.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Timezones, holidays and halts still require evidence.",
+      "commonError": "Live-trading mistake: Assuming regular 16:00 close on all days can mislabel after-hours signals. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: Screening hours must use a published exchange calendar, including early closes, not a fixed local clock assumption. Worked fictional evidence: Fictional early close at 13:00 Eastern means a 14:00 Eastern regular-session filter is ineligible that day. Error correction: Assuming regular 16:00 close on all days can mislabel after-hours signals. Boundary: Timezones, holidays and halts still require evidence. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: A session ends at 13:00 and an event is at 12:50 Eastern: classify relative to cutoff. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DUPLICATE_TICKER_OBSERVATIONS_IN_SCANNER_RESULTS",
+      "title": "Duplicate ticker observations in scanner results",
+      "concept": "Duplicate market-data rows cannot be treated as separate independent securities or score observations.",
+      "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
+      "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
+      "workedCase": "FICTIONAL: Fictional scanner lists symbol ABC twice and DEF once: unique ticker count is 2, not 3.",
+      "limit": "Exchange, share class and symbol change mappings require canonical identifiers.",
+      "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. Exchange, share class and symbol change mappings require canonical identifiers.",
+      "commonError": "Live-trading mistake: Counting duplicate rows inflates breadth and apparent diversification. Correct by separating screen detection from independent validation and execution.",
+      "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
+      "reviewExplanation": "Ungraded Talia walkthrough: Duplicate market-data rows cannot be treated as separate independent securities or score observations. Worked fictional evidence: Fictional scanner lists symbol ABC twice and DEF once: unique ticker count is 2, not 3. Error correction: Counting duplicate rows inflates breadth and apparent diversification. Boundary: Exchange, share class and symbol change mappings require canonical identifiers. No protected assessment or trade order is created.",
+      "transferQuestion": "FICTIONAL independent transfer: Rows ABC,ABC,XYZ,XYZ,QQQ: count unique identifiers. Identify a market-data or timing defect that could invalidate the result.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      }
+    }
+  ]
+}
