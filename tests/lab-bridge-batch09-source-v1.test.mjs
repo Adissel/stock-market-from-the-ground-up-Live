@@ -29,7 +29,7 @@ test('Batch09 retains the nine-stage engine and ten visible-step contract',()=>{
 test('Batch09 teaching is original, complete, distinct, Talia-ready, and ungraded',()=>{
  const transfers=new Set(),worked=new Set(),selfChecks=new Set();
  for(const row of rows){
-  assert.match(row.sourceStatus,/AI_EDITORIAL_PREFLIGHT_PENDING/);
+  assert.match(row.sourceStatus,/AI_EDITORIAL_PREFLIGHT_COMPLETE_HUMAN_REVIEW_PENDING/);
   for(const key of ['understand','recognize','apply','mistake','limits']){
    assert.equal(row.tabs[key].length,3,row.labId+' '+key);
    assert(row.tabs[key].every(x=>x.length>80),row.labId+' '+key);
@@ -40,7 +40,7 @@ test('Batch09 teaching is original, complete, distinct, Talia-ready, and ungrade
   assert.equal(row.transfer.graded,false);assert.equal(row.transfer.noLookahead,true);assert.equal(row.transfer.requiresNewEvidence,true);
   assert.equal(row.taliaContext.saveHistory,false);assert.equal(row.taliaContext.mayRevealProtectedAnswerKey,false);
   assert.equal(row.provenance.fictionalExamples,true);assert.equal(row.provenance.publicationRights,'NOT_APPROVED');
-  assert.equal(row.provenance.dataIngestionRights,'NOT_APPROVED');assert.equal(row.provenance.aiEditorialPreflight,false);
+  assert.equal(row.provenance.dataIngestionRights,'NOT_APPROVED');assert.equal(row.provenance.aiEditorialPreflight,true);
   assert.equal(row.provenance.independentEditorialAcceptance,false);assert.equal(row.provenance.memberAcceptance,false);
  }
 });

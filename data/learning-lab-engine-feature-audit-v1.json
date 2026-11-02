@@ -199,7 +199,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "All 419 Labs receive original reviewed lessons and accessible progression.",
-      "unresolved": "Seven batches now record 140/419 source-tested authored bridges; 279 remain and none of the 20 Batch07 bridges has independent editorial or member acceptance.",
+      "unresolved": "Ten batches now record 200/419 source-tested authored bridges; 219 remain. Batches08-09 have individual AI preflight only; independent human editorial and member acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -277,7 +277,7 @@
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Every canonical Lab has specific reviewed example, correction and transfer.",
-      "unresolved": "Seven batch contracts verify 140/419 individually authored bridges; 279 remain and editorial/member acceptance is separate.",
+      "unresolved": "Ten batch contracts verify 200/419 individually authored bridges; 219 remain and editorial/member acceptance is separate.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

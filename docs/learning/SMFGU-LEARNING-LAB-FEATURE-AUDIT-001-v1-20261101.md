@@ -13,7 +13,7 @@ This is a focused Basic reliability/security correction. It does not increase th
 | Filename / type | `SMFGU-LEARNING-LAB-FEATURE-AUDIT-001-v1-20261101.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/learning/` |
 | Google Drive location / document ID | Not created / unassigned |
-| Version / preparation date | 1.4 / November 2, 2026 |
+| Version / preparation date | 1.5 / November 2, 2026 |
 | Status | SOURCE INVENTORY AUDITED; production and independent release approval OPEN |
 | Data source | `data/learning-lab-engine-feature-audit-v1.json` |
 | Calculator | `scripts/qa/learning-lab-engine-feature-audit-v1.mjs` |
@@ -56,7 +56,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | Shared Lab | PROFESSIONAL | 0/8 | 0.00% | 0 | 4 | Not independently released |
 | Shared Lab | ENTERPRISE | 0/8 | 0.00% | 0 | 3 | Not independently released |
 
-**Related curriculum denominator:** the latest source-tested seven-batch register contains **140/419 (33.41%) individually authored Lab teaching bridges**; 279 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 140/419 curriculum statistic is NOT included in these engine integration percentages.
+**Related curriculum denominator:** the latest source-tested ten-batch register contains **200/419 (47.73%) individually authored Lab teaching bridges**; 219 still require original subject-specific instruction. The 419 registered IDs and the 274 Academy study-day identities do **not** represent independent full teaching acceptance. The 200/419 curriculum statistic is NOT included in these engine integration percentages.
 
 ## Shared Learning Engine — detailed feature-by-feature findings
 
@@ -70,8 +70,8 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LE-BAS-04 | Prerequisite review from existing evidence | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/engine-classroom-contract-v1.test.mjs` | Show only authorized prerequisite suggestions without changing stored competency. | Cross-account member evaluation open. |
 | LE-BAS-05 | Independent practice, retries and transfer | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/learning-lab-formative-editions-v1.test.mjs` | Distinct ungraded transfer must not disclose answers before an attempt. | Protected grade and accessibility acceptance open. |
 | LE-BAS-06 | Complete indicator-topic teaching parity | partial | `assets/js/learning-indicators-v1.js` · `tests/learning-indicators-v1.test.mjs` · `tests/basic-atr-bollinger-lessons-v1.test.mjs` | All released EMA, RSI, MACD, ATR and Bollinger lessons have approved mappings. | 5/5 named studies have canonical source mappings; ATR/Bollinger editorial approval and authenticated accessible acceptance remain open. |
-| LE-BAS-07 | Free Foundations and Academy progression parity | partial | `assets/js/bootcamp-academy-v014168.js` · `tests/test_v014099_curriculum_contract.mjs` | Genuine learners maintain prerequisite and stage progress across courses. | End-to-end Academy member proof incomplete. |
-| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/test_v014099_curriculum_contract.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Seven batches record 140/419 authored; 279 remain. |
+| LE-BAS-07 | Free Foundations and Academy progression parity | partial | `assets/js/bootcamp-academy-v014168.js` · `tests/academy-member-day-restoration-v1.test.mjs` | Genuine learners maintain prerequisite and stage progress across courses. | Valid requested-day and first-unfinished restoration are source-tested; authenticated cross-course accessibility acceptance remains open. |
+| LE-BAS-08 | Individually reviewed and accessible whole-catalogue instruction | partial | `assets/js/lab-v33-instructor.js` · `tests/lab-bridge-batch10-source-v1.test.mjs` | All 419 Labs receive original reviewed lessons and accessible progression. | Ten batches record 200/419 authored; 219 remain. |
 
 ### ADVANCED
 
@@ -125,7 +125,7 @@ Each of the eight combinations (two independent engines × four editions) has **
 | LA-BAS-05 | Ungraded retries and independent transfer | integrated | `assets/js/lab-engine-v32-universal.js` · `tests/learning-evidence-diagnostic-v1.test.mjs` | Transfer practice cannot award mastery or show protected grading keys. | Authentic browser assessment isolation pending. |
 | LA-BAS-06 | 419 original individually authored Lab cases | partial | `assets/js/lab-v33-instructor.js` · `tests/test_v014099_curriculum_contract.mjs` | Every canonical Lab has specific reviewed example, correction and transfer. | 120/419 individually authored; 299 remain. |
 | LA-BAS-07 | ECharts and quantitative study parity for all topical Labs | partial | `assets/js/learning-quant-studies-ui-v1.js` · `tests/learning-quant-studies-v1.test.mjs` | Every relevant entitled Lab has verified math, chart and accessible fallback. | Selective initial studies only; not universal parity. |
-| LA-BAS-08 | Authenticated Academy and Free stage continuity | partial | `assets/js/lab-player.js` · `tests/engine-classroom-contract-v1.test.mjs` | Free and Academy checkpoints restore with signout and cross-member denial. | Real member browser and accessibility acceptance incomplete. |
+| LA-BAS-08 | Authenticated Academy and Free stage continuity | partial | `assets/js/lab-player.js` · `tests/academy-member-day-restoration-v1.test.mjs` | Free and Academy checkpoints restore with signout and cross-member denial. | Restoration order and authenticated write gates are source-tested; real member signout/account-switch/session-expiry and accessibility acceptance remain open. |
 
 ### ADVANCED
 
@@ -197,5 +197,6 @@ Each of the eight combinations (two independent engines × four editions) has **
 | v1.2 | 2026-11-01 | Reverified 120/419 authored bridges and required canonical mapping revalidation at the member quantitative UI boundary | Source hardening tested; six Basic parity rows remain partial and release acceptance unchanged |
 | v1.3 | 2026-11-02 | Added and source-tested 20 distinct Day Trading bridges for a verified 140/419 authored denominator | Editorial, accessibility, authenticated member and publication acceptance remain open |
 | v1.4 | 2026-11-02 | Added fail-closed canonical ATR and Bollinger source mappings without replacing existing authored lessons; verified 5/5 named studies at the source boundary | ATR/Bollinger editorial approval, authenticated accessibility, exact-SHA CI/deployment and full Lab parity remain open |
+| v1.5 | 2026-11-02 | Recovered 13 canonical Foundation titles from two matching existing companion registries; recorded 40 Batch08-09 AI preflights; added Batch10 for 200/419 authored; reconciled Academy restoration evidence | Independent human editorial, authenticated continuity/accessibility, 219 Labs and complete topical-chart parity remain open |
 
-**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.4 · GitHub `main` controlling · No payment, grade or premium grant.
+**Footer:** SMFGU-LEARNING-LAB-FEATURE-AUDIT-001 · 2026-11-02 · v1.5 · GitHub `main` controlling · No payment, grade or premium grant.
