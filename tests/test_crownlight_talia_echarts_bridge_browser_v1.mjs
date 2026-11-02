@@ -29,6 +29,7 @@ try{
    window.__testUser='member-A';
    window.__testAuth=null;
    window.getSupabaseClient=async()=>({auth:{
+    getSession:async()=>window.__testUser?{data:{session:{user:{id:window.__testUser}}}}:{data:{session:null}},
     getUser:async()=>window.__testUser?{data:{user:{id:window.__testUser}}}:
      {data:{user:null},error:{message:'signed out'}},
     onAuthStateChange:cb=>(window.__testAuth=cb,{data:{subscription:{unsubscribe(){}}}})
