@@ -13,6 +13,7 @@
     "/favicon.ico",
     "/robots.txt",
     "/sitemap.xml",
+    "/sitemap-v2.xml",
     "/images/*",
     "/img/*",
     "/fonts/*",
