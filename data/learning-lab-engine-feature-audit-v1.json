@@ -784,7 +784,7 @@
       "evidence_file": null,
       "existing_test_file": null,
       "acceptance_criterion": "Connect research tasks to existing authorized curriculum.",
-      "unresolved": "Not integrated.",
+      "unresolved": "No authenticated cross-course Enterprise research learning path is integrated.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -823,7 +823,7 @@
       "evidence_file": null,
       "existing_test_file": null,
       "acceptance_criterion": "Pass real entitlement, data-rights, research QA and accessibility.",
-      "unresolved": "Unreleased.",
+      "unresolved": "Enterprise Learning has no independently accepted member production release.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -875,7 +875,7 @@
       "evidence_file": null,
       "existing_test_file": null,
       "acceptance_criterion": "Map actual entitled research lessons into progression.",
-      "unresolved": "No member path.",
+      "unresolved": "No authorized Enterprise Lab research stage journey exists for members.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -927,7 +927,7 @@
       "evidence_file": null,
       "existing_test_file": null,
       "acceptance_criterion": "Pass genuine member, no-lookahead, screen-reader and CI.",
-      "unresolved": "Unreleased.",
+      "unresolved": "Enterprise Lab has no independently accepted member production release.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     }
