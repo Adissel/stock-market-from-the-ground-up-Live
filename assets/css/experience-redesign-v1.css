@@ -1,0 +1,39 @@
+/* SMFGU public/member redesign v1 — progressive enhancement over existing pages. */
+:root{--gu-ink:#edf4fb;--gu-muted:#a8b8cb;--gu-panel:#112035;--gu-edge:rgba(158,189,220,.19);--gu-accent:#d7b56c;--gu-teal:#55d6be}
+body.gu-visual-v1{background:#07111e;color:var(--gu-ink);font-feature-settings:"tnum" 1}
+.gu-visual-v1 .site-header{background:rgba(7,17,30,.96);border-bottom:1px solid rgba(173,195,219,.16);box-shadow:0 12px 30px rgba(0,0,0,.19)}
+.gu-visual-v1 .site-header .wrap.nav{max-width:1480px;gap:20px;min-height:78px;flex-wrap:wrap}
+.gu-visual-v1 .site-header .brand{color:#f4f7fd;letter-spacing:.025em;text-wrap:balance}
+.gu-visual-v1 .navlinks{display:flex;align-items:center;gap:clamp(7px,1vw,16px);flex-wrap:wrap}
+.gu-visual-v1 .navlinks>a{border-radius:9px;transition:color .18s,background .18s,transform .18s}
+.gu-visual-v1 .navlinks>a:hover{color:white;background:rgba(140,184,225,.10)}
+.gu-visual-v1 .navlinks .gu-nav-signin{padding:10px 14px;border:1px solid rgba(195,211,231,.28);color:#e6eef8;font-weight:650}
+.gu-visual-v1 .navlinks .gu-nav-register{padding:11px 16px;background:linear-gradient(135deg,#f0d59a,#b78c44);color:#101a2b!important;font-weight:800;box-shadow:0 5px 22px rgba(204,163,84,.19)}
+.gu-visual-v1 .navlinks .gu-nav-register:hover{background:#f5dfa9;transform:translateY(-1px)}
+.gu-visual-v1 h1,.gu-visual-v1 h2,.gu-visual-v1 h3{letter-spacing:-.025em;text-wrap:balance}
+.gu-visual-v1 h1{line-height:1.08}
+.gu-visual-v1 .eyebrow{letter-spacing:.17em;color:var(--gu-accent);font-weight:750}
+.gu-visual-v1 :is(.card,.auth-card,.gu-member-lumen-widget){border:1px solid var(--gu-edge);border-radius:17px;box-shadow:0 14px 35px rgba(0,0,0,.12)}
+.gu-visual-v1 :is(.btn,button.btn){border-radius:10px;font-weight:750;transition:transform .18s,filter .18s,box-shadow .18s}
+.gu-visual-v1 :is(.btn,button.btn):hover{transform:translateY(-1px);filter:brightness(1.08)}
+.gu-visual-v1 :is(a,button,input,select,textarea):focus-visible{outline:3px solid #68d6e4;outline-offset:3px}
+.gu-visual-v1 :is(input,select,textarea){border-radius:9px;min-height:43px}
+.gu-visual-v1 .gu-home-stage{background:radial-gradient(ellipse at 80% 30%,rgba(34,111,145,.23),transparent 51%),radial-gradient(ellipse at 10% 0%,rgba(194,157,91,.12),transparent 45%),#091629}
+.gu-visual-v1 .gu-home-stage .wrap{padding-top:clamp(42px,6vw,94px);padding-bottom:clamp(42px,6vw,90px)}
+.gu-visual-v1 .gu-home-message h1{font-size:clamp(2.6rem,5.1vw,5.3rem);max-width:920px}
+.gu-visual-v1 .gu-home-message .lead{max-width:730px;line-height:1.7}
+.gu-visual-v1 .gu-redesign-store{background:radial-gradient(ellipse at 50% 0%,rgba(48,96,142,.22),transparent 48%),#081422}
+.gu-visual-v1 .gu-redesign-store h1{font-size:clamp(2.35rem,4vw,4.1rem)}
+.gu-visual-v1 .gu-store-trustline{color:#e1c68c;font-weight:650;line-height:1.7}
+.gu-visual-v1 .gu-store-catalog-discovery{margin:25px 0}
+.gu-visual-v1 .gu-member-dashboard-shell{background:linear-gradient(145deg,#081625,#0b1b30 70%,#081525)}
+.gu-visual-v1 .gu-member-side-menu{border-right:1px solid var(--gu-edge)}
+.gu-visual-v1 .gu-dashboard-intro{padding:20px 0 28px;border-bottom:1px solid var(--gu-edge);margin-bottom:24px;gap:20px}
+.gu-visual-v1 .gu-dashboard-intro h1{font-size:clamp(2.25rem,3.5vw,3.5rem)}
+.gu-visual-v1 .gu-signin-page,.gu-visual-v1 .gu-signup-page{background:radial-gradient(ellipse at 18% 15%,rgba(31,111,139,.23),transparent 43%),radial-gradient(ellipse at 85% 65%,rgba(199,160,88,.12),transparent 45%),#081422!important}
+.gu-visual-v1 .gu-signin-card,.gu-visual-v1 .gu-signup-page .card{box-shadow:0 20px 65px rgba(0,0,0,.26);border:1px solid rgba(170,201,228,.23)}
+.gu-visual-v1 .gu-auth-assurance{color:#aec2d4;font-size:.9rem;line-height:1.6;margin:14px 0 0}
+.gu-visual-v1 .gu-signup-page .auth-page{max-width:1040px}
+@media(max-width:840px){.gu-visual-v1 .site-header .wrap.nav{align-items:flex-start;padding-top:14px;padding-bottom:14px}.gu-visual-v1 .navlinks{gap:7px}.gu-visual-v1 .navlinks>a{font-size:.87rem}.gu-visual-v1 .gu-home-message h1{font-size:clamp(2.35rem,8vw,3.5rem)}}
+@media(max-width:540px){.gu-visual-v1 .navlinks .gu-nav-signin,.gu-visual-v1 .navlinks .gu-nav-register{flex:1;text-align:center;white-space:nowrap}.gu-visual-v1 .site-header .brand{font-size:.87rem}}
+@media(prefers-reduced-motion:reduce){.gu-visual-v1 *{transition-duration:.01ms!important;animation-duration:.01ms!important}}
