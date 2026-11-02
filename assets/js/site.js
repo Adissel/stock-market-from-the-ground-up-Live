@@ -272,3 +272,12 @@ const js=document.createElement('script');js.defer=true;js.src='/assets/js/appea
 const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='/assets/css/site-shell-v1.css?v=1';document.head.append(stylesheet);
 const script=document.createElement('script');script.src='/assets/js/site-shell-v1.js?v=1';script.defer=true;document.head.append(script);
 })();
+
+/* Crownlight Atelier: opt-in page scheme for non-interactive general website routes. */
+(()=>{const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+const publicPages=new Set(['index.html','store.html','dashboard.html','signin.html','create-account.html','books.html','membership.html','about.html','corrections.html','market-commons.html','founding600.html','learn.html','privacy.html','terms.html','advertise.html','contact.html','support.html','faq.html','account.html','profile.html','journal.html','watchlist.html','my-learning.html','help.html','tools.html','philosophy.html','free-foundations-challenge.html','how-stock-market-works.html','how-to-read-candlestick-charts.html','vwap-explained.html','bid-ask-spread-explained.html','stock-trading-risk-management.html','market-vs-limit-orders.html','support-resistance-basics.html','talia-classroom.html','market-tutor.html']);
+if(!publicPages.has(page))return;
+const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='/assets/css/crownlight-atelier-v1.css?v=1';document.head.append(stylesheet);
+const sync=()=>document.body?.classList.toggle('cl-atelier',(document.documentElement.dataset.smfguTheme||'atelier')==='atelier');
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();
+})();
