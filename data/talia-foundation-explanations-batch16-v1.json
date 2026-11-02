@@ -1,0 +1,571 @@
+{
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 16,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Unique fictional lessons 301–320; pending separate numerical and source-scope review.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_MONEY_WEIGHTED_VERSUS_TIME_WEIGHTED_RETURN",
+      "title": "Money-weighted versus time-weighted return",
+      "concept": "Investor cash-flow timing changes money-weighted results, whereas time-weighted returns chain subperiod performance.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Partition at external flows; compute each holding-period return before the flow and compound them. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: An account moves $100 to $110, then receives $90 and moves from $200 to $220: two 10% subperiod returns compound to 21%.",
+      "limit": "The chosen flow timestamp and valuation precision are essential.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. The chosen flow timestamp and valuation precision are essential.",
+      "commonError": "Practical market interpretation error: Treating the $90 deposit as trading profit. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Investor cash-flow timing changes money-weighted results, whereas time-weighted returns chain subperiod performance. Partition at external flows; compute each holding-period return before the flow and compound them. Worked fictional reasoning: An account moves $100 to $110, then receives $90 and moves from $200 to $220: two 10% subperiod returns compound to 21%. Common misconception: Treating the $90 deposit as trading profit. The chosen flow timestamp and valuation precision are essential. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Two subperiod returns of +5% and -5%: calculate linked time-weighted return. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ANNUALIZED_VOLATILITY_REQUIRES_A_SAMPLE_FREQUENCY_CONVENTION",
+      "title": "Annualized volatility requires a sample-frequency convention",
+      "concept": "A daily standard deviation cannot be described as annual without defining the trading-day multiplier.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. For an independent-return convention, multiply daily standard deviation by square root of 252. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: A hypothetical 1% daily standard deviation corresponds to about 15.87% annualized using 252 sessions.",
+      "limit": "Autocorrelation and nonstationarity can invalidate square-root scaling.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Autocorrelation and nonstationarity can invalidate square-root scaling.",
+      "commonError": "Practical market interpretation error: Multiplying the daily standard deviation by 252 gives a false volatility scale. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: A daily standard deviation cannot be described as annual without defining the trading-day multiplier. For an independent-return convention, multiply daily standard deviation by square root of 252. Worked fictional reasoning: A hypothetical 1% daily standard deviation corresponds to about 15.87% annualized using 252 sessions. Common misconception: Multiplying the daily standard deviation by 252 gives a false volatility scale. Autocorrelation and nonstationarity can invalidate square-root scaling. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A 2% daily deviation and 252 sessions: compute annualized hypothetical deviation. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LOG_RETURNS_ADD_ACROSS_ADJACENT_PERIODS",
+      "title": "Log returns add across adjacent periods",
+      "concept": "Natural-log gross returns can sum across completed intervals to match the log of the full price ratio.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Compute ln(P1/P0) and ln(P2/P1); add them to obtain ln(P2/P0). Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Fictional close $100 to $110 to $121: each log return ln(1.1); combined ln(1.21).",
+      "limit": "All reference prices must be positive and chronologically aligned.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. All reference prices must be positive and chronologically aligned.",
+      "commonError": "Practical market interpretation error: Adding simple percentage returns of 10% and 10% as a compounded 20% is incorrect. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Natural-log gross returns can sum across completed intervals to match the log of the full price ratio. Compute ln(P1/P0) and ln(P2/P1); add them to obtain ln(P2/P0). Worked fictional reasoning: Fictional close $100 to $110 to $121: each log return ln(1.1); combined ln(1.21). Common misconception: Adding simple percentage returns of 10% and 10% as a compounded 20% is incorrect. All reference prices must be positive and chronologically aligned. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Prices $50 to $60 to $54: derive cumulative log return. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RETURN_STANDARD_DEVIATION_VERSUS_STANDARD_ERROR",
+      "title": "Return standard deviation versus standard error",
+      "concept": "Dispersion of returns differs from precision of a sample mean estimate.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Calculate sample standard deviation s and divide by sqrt(n) for conventional sample-mean standard error. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Four independent returns with sample standard deviation 4 percentage points have mean standard error 2 points.",
+      "limit": "Serial correlation reduces the validity of simple independent-observation inference.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Serial correlation reduces the validity of simple independent-observation inference.",
+      "commonError": "Practical market interpretation error: Treating the standard error as the expected daily market movement. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Dispersion of returns differs from precision of a sample mean estimate. Calculate sample standard deviation s and divide by sqrt(n) for conventional sample-mean standard error. Worked fictional reasoning: Four independent returns with sample standard deviation 4 percentage points have mean standard error 2 points. Common misconception: Treating the standard error as the expected daily market movement. Serial correlation reduces the validity of simple independent-observation inference. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Nine observations with sample s=6 percentage points: calculate conventional standard error. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_POPULATION_VARIANCE_VERSUS_SAMPLE_VARIANCE",
+      "title": "Population variance versus sample variance",
+      "concept": "Different denominators answer distinct descriptive and estimation questions.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Calculate squared deviations from arithmetic mean; divide by n for population variance or n-1 for sample variance. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Values 2,4,6 have mean 4, squared deviation sum 8: population variance 8/3; sample variance 4.",
+      "limit": "Sample variance requires at least two observations.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Sample variance requires at least two observations.",
+      "commonError": "Practical market interpretation error: Interchanging n and n-1 creates a mismatch between reference implementations. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Different denominators answer distinct descriptive and estimation questions. Calculate squared deviations from arithmetic mean; divide by n for population variance or n-1 for sample variance. Worked fictional reasoning: Values 2,4,6 have mean 4, squared deviation sum 8: population variance 8/3; sample variance 4. Common misconception: Interchanging n and n-1 creates a mismatch between reference implementations. Sample variance requires at least two observations. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Values 1,3,5: compute both variances. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COVARIANCE_SIGN_BETWEEN_TWO_RETURN_SEQUENCES",
+      "title": "Covariance sign between two return sequences",
+      "concept": "Covariance captures whether matched return deviations tend to move in the same or opposite directions.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Subtract each series mean, multiply same-period deviations and divide by the declared n or n-1. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Series A [1,2,3] and B [3,2,1] have sample covariance -1 in squared numeric units.",
+      "limit": "Units are products of return units; covariance is not normalized correlation.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Units are products of return units; covariance is not normalized correlation.",
+      "commonError": "Practical market interpretation error: Using different observation dates creates a meaningless estimate. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Covariance captures whether matched return deviations tend to move in the same or opposite directions. Subtract each series mean, multiply same-period deviations and divide by the declared n or n-1. Worked fictional reasoning: Series A [1,2,3] and B [3,2,1] have sample covariance -1 in squared numeric units. Common misconception: Using different observation dates creates a meaningless estimate. Units are products of return units; covariance is not normalized correlation. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A [1,2,3], B [2,4,6]: compute sample covariance. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CORRELATION_REQUIRES_NONZERO_VARIATION_IN_BOTH_SERIES",
+      "title": "Correlation requires nonzero variation in both series",
+      "concept": "Pearson correlation normalizes covariance by the product of standard deviations.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Divide covariance by the corresponding nonzero standard deviations using aligned observations. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: A [1,2,3] and B [2,4,6] have correlation +1.",
+      "limit": "Correlation measures linear association, not causality or stability.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Correlation measures linear association, not causality or stability.",
+      "commonError": "Practical market interpretation error: Claiming correlation can be calculated for a constant series hides division by zero. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Pearson correlation normalizes covariance by the product of standard deviations. Divide covariance by the corresponding nonzero standard deviations using aligned observations. Worked fictional reasoning: A [1,2,3] and B [2,4,6] have correlation +1. Common misconception: Claiming correlation can be calculated for a constant series hides division by zero. Correlation measures linear association, not causality or stability. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A [1,2,3] and B [3,2,1]: find correlation. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BETA_RELATIVE_TO_A_BENCHMARK",
+      "title": "Beta relative to a benchmark",
+      "concept": "Beta is a covariance-to-benchmark-variance ratio, not the same as correlation.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Compute matched-period covariance of asset and benchmark returns; divide by benchmark variance. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Asset returns [2,4,6], benchmark [1,2,3]: sample covariance 2, benchmark sample variance 1; beta 2.",
+      "limit": "Benchmark definition, sample period and zero variance require scrutiny.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Benchmark definition, sample period and zero variance require scrutiny.",
+      "commonError": "Practical market interpretation error: Calling beta 2 a guaranteed twofold future return. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Beta is a covariance-to-benchmark-variance ratio, not the same as correlation. Compute matched-period covariance of asset and benchmark returns; divide by benchmark variance. Worked fictional reasoning: Asset returns [2,4,6], benchmark [1,2,3]: sample covariance 2, benchmark sample variance 1; beta 2. Common misconception: Calling beta 2 a guaranteed twofold future return. Benchmark definition, sample period and zero variance require scrutiny. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: If covariance is 0.0003 and benchmark variance is 0.0002, calculate beta. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SIMPLE_BOND_PRICE_PER_HUNDRED_OF_PAR",
+      "title": "Simple bond price per hundred of par",
+      "concept": "A quoted bond price in percent of par must be converted to currency for the chosen face amount.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Multiply the price-per-$100 quotation by total face value/100. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: A bond with $5,000 par quoted 98.50 has clean price $4,925 before accrued interest.",
+      "limit": "Actual invoice may include accrued interest and brokerage charges.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Actual invoice may include accrued interest and brokerage charges.",
+      "commonError": "Practical market interpretation error: Mistaking 98.50 for $98.50 on any bond size. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: A quoted bond price in percent of par must be converted to currency for the chosen face amount. Multiply the price-per-$100 quotation by total face value/100. Worked fictional reasoning: A bond with $5,000 par quoted 98.50 has clean price $4,925 before accrued interest. Common misconception: Mistaking 98.50 for $98.50 on any bond size. Actual invoice may include accrued interest and brokerage charges. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A $2,000 par security quoted 102.25: find clean dollar price. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_COUPON_FREQUENCY_AND_PERIODIC_COUPON_AMOUNT",
+      "title": "Coupon frequency and periodic coupon amount",
+      "concept": "Stated annual coupon cash must be divided by scheduled annual payment frequency.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Multiply face by stated annual coupon rate, then divide by payments per year. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: A $1,000 par bond with 6% coupon and semiannual pay sends $30 each scheduled period.",
+      "limit": "Actual payment schedules, accrual and default risk matter.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Actual payment schedules, accrual and default risk matter.",
+      "commonError": "Practical market interpretation error: Treating 6% as a per-payment coupon rate. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Stated annual coupon cash must be divided by scheduled annual payment frequency. Multiply face by stated annual coupon rate, then divide by payments per year. Worked fictional reasoning: A $1,000 par bond with 6% coupon and semiannual pay sends $30 each scheduled period. Common misconception: Treating 6% as a per-payment coupon rate. Actual payment schedules, accrual and default risk matter. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A $2,000 face 4% bond paying quarterly: compute each scheduled coupon. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ACCRUED_INTEREST_FRACTION_UNDER_A_DECLARED_BASIS",
+      "title": "Accrued-interest fraction under a declared basis",
+      "concept": "Between coupon dates, dirty bond value includes convention-dependent accrued coupon.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Multiply period coupon by elapsed fraction of coupon interval under the chosen day-count rule. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: A fictional $30 coupon with exactly half of the specified period elapsed implies $15 accrued.",
+      "limit": "Day-count and ex-coupon conventions must be established before real use.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Day-count and ex-coupon conventions must be established before real use.",
+      "commonError": "Practical market interpretation error: Assuming all bonds use calendar days divided by 365 is incorrect. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Between coupon dates, dirty bond value includes convention-dependent accrued coupon. Multiply period coupon by elapsed fraction of coupon interval under the chosen day-count rule. Worked fictional reasoning: A fictional $30 coupon with exactly half of the specified period elapsed implies $15 accrued. Common misconception: Assuming all bonds use calendar days divided by 365 is incorrect. Day-count and ex-coupon conventions must be established before real use. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: A fictional $40 period coupon at 25% elapsed: compute accrued amount. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_BOND_CLEAN_PRICE_VERSUS_DIRTY_PRICE",
+      "title": "Bond clean price versus dirty price",
+      "concept": "A clean market quotation can exclude accrued interest that is included in settlement consideration.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Add accrued interest in dollars to clean price for the same face amount. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Clean price $980 plus accrued interest $12 produces dirty price $992.",
+      "limit": "Fees, trade terms and quote conventions can add other components.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Fees, trade terms and quote conventions can add other components.",
+      "commonError": "Practical market interpretation error: Equating clean quote with settlement cash understates the invoice. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: A clean market quotation can exclude accrued interest that is included in settlement consideration. Add accrued interest in dollars to clean price for the same face amount. Worked fictional reasoning: Clean price $980 plus accrued interest $12 produces dirty price $992. Common misconception: Equating clean quote with settlement cash understates the invoice. Fees, trade terms and quote conventions can add other components. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Clean $1,024 and accrued $8: find dirty price. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SIMPLIFIED_DURATION_PRICE_SENSITIVITY",
+      "title": "Simplified duration price sensitivity",
+      "concept": "Modified duration gives a first-order small-yield-change price approximation.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Multiply negative modified duration by the yield change in decimal form. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Modified duration 5 and yield rise 0.002 imply approximate -1% price change.",
+      "limit": "Convexity, spread shifts and cash-flow changes are excluded.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Convexity, spread shifts and cash-flow changes are excluded.",
+      "commonError": "Practical market interpretation error: Treating duration approximation as an exact valuation for large yield shocks. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Modified duration gives a first-order small-yield-change price approximation. Multiply negative modified duration by the yield change in decimal form. Worked fictional reasoning: Modified duration 5 and yield rise 0.002 imply approximate -1% price change. Common misconception: Treating duration approximation as an exact valuation for large yield shocks. Convexity, spread shifts and cash-flow changes are excluded. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Duration 4 and yield fall 0.005: estimate percent price effect. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WEIGHTED_AVERAGE_MATURITY",
+      "title": "Weighted average maturity",
+      "concept": "Portfolio maturity average must weight each holding by a defined value rather than count securities equally.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Multiply each maturity in years by its portfolio value weight and add. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: 70% allocated to a 2-year bond and 30% to an 8-year bond gives 3.8 years.",
+      "limit": "Weighted maturity is not duration or a cash-flow risk estimate.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Weighted maturity is not duration or a cash-flow risk estimate.",
+      "commonError": "Practical market interpretation error: Using 5 years as an equal-weight average ignores position sizes. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Portfolio maturity average must weight each holding by a defined value rather than count securities equally. Multiply each maturity in years by its portfolio value weight and add. Worked fictional reasoning: 70% allocated to a 2-year bond and 30% to an 8-year bond gives 3.8 years. Common misconception: Using 5 years as an equal-weight average ignores position sizes. Weighted maturity is not duration or a cash-flow risk estimate. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: 40% at 1 year and 60% at 6 years: compute weighted maturity. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CASH_CONVERSION_CYCLE_FROM_COMPONENTS",
+      "title": "Cash conversion cycle from components",
+      "concept": "Cash conversion cycle combines inventory and collection days, net of supplier-payment days.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Add days inventory outstanding and days sales outstanding; subtract days payable outstanding. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: DIO 50 days + DSO 40 days - DPO 30 days = 60 days.",
+      "limit": "Financial-statement averaging and business seasonality affect estimates.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Financial-statement averaging and business seasonality affect estimates.",
+      "commonError": "Practical market interpretation error: Adding payable days instead of subtracting them reverses financing effects. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Cash conversion cycle combines inventory and collection days, net of supplier-payment days. Add days inventory outstanding and days sales outstanding; subtract days payable outstanding. Worked fictional reasoning: DIO 50 days + DSO 40 days - DPO 30 days = 60 days. Common misconception: Adding payable days instead of subtracting them reverses financing effects. Financial-statement averaging and business seasonality affect estimates. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: DIO 35, DSO 25, DPO 20: compute days. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_MARGIN_VERSUS_OPERATING_MARGIN_GAP",
+      "title": "Gross margin versus operating margin gap",
+      "concept": "Operating margin differs from gross margin because other operating costs are deducted.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Divide gross profit and operating income separately by same-period revenue. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Revenue $1,000; cost of sales $600; operating expenses $250: gross margin 40%, operating margin 15%.",
+      "limit": "Accounting classification and nonrecurring charges complicate cross-company comparisons.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Accounting classification and nonrecurring charges complicate cross-company comparisons.",
+      "commonError": "Practical market interpretation error: Treating gross profit as earnings after all operating expenses. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Operating margin differs from gross margin because other operating costs are deducted. Divide gross profit and operating income separately by same-period revenue. Worked fictional reasoning: Revenue $1,000; cost of sales $600; operating expenses $250: gross margin 40%, operating margin 15%. Common misconception: Treating gross profit as earnings after all operating expenses. Accounting classification and nonrecurring charges complicate cross-company comparisons. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Revenue $2,000, COGS $1,200, operating expenses $500: compare margins. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FREE_CASH_FLOW_YIELD_ON_MARKET_CAPITALIZATION",
+      "title": "Free cash flow yield on market capitalization",
+      "concept": "An equity FCF yield relates a specifically defined cash-flow amount to a point-in-time equity market value.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Divide selected equity-relevant annual free cash flow by same-date equity market capitalization. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Fictional equity FCF $5 million and market cap $100 million imply 5% yield.",
+      "limit": "Cash-flow sign, period and equity versus enterprise definitions must be consistent.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Cash-flow sign, period and equity versus enterprise definitions must be consistent.",
+      "commonError": "Practical market interpretation error: Mixing firm-level FCFF with equity market cap creates mismatched cash-flow and capital claims. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: An equity FCF yield relates a specifically defined cash-flow amount to a point-in-time equity market value. Divide selected equity-relevant annual free cash flow by same-date equity market capitalization. Worked fictional reasoning: Fictional equity FCF $5 million and market cap $100 million imply 5% yield. Common misconception: Mixing firm-level FCFF with equity market cap creates mismatched cash-flow and capital claims. Cash-flow sign, period and equity versus enterprise definitions must be consistent. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Equity FCF $3m and market cap $60m: compute yield. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_INVENTORY_TURNOVER_AND_INVENTORY_DAYS_INVERSION",
+      "title": "Inventory turnover and inventory-days inversion",
+      "concept": "Inventory turnover and days inventory outstanding are related only with matching inputs and period convention.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Divide annual cost of goods sold by average inventory; divide assumed 365 days by turnover. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Cost of sales $1,200 and average inventory $300 imply turnover 4 and DIO 91.25 days.",
+      "limit": "Negative or zero inventories and incomplete periods require holds.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Negative or zero inventories and incomplete periods require holds.",
+      "commonError": "Practical market interpretation error: Dividing revenue by inventory instead of COGS changes the measure. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: Inventory turnover and days inventory outstanding are related only with matching inputs and period convention. Divide annual cost of goods sold by average inventory; divide assumed 365 days by turnover. Worked fictional reasoning: Cost of sales $1,200 and average inventory $300 imply turnover 4 and DIO 91.25 days. Common misconception: Dividing revenue by inventory instead of COGS changes the measure. Negative or zero inventories and incomplete periods require holds. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: COGS $900 and average inventory $150: find turnover and DIO. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MARGIN_LOAN_INTEREST_SIMPLE_DAY_COUNT",
+      "title": "Margin loan interest simple day count",
+      "concept": "A quoted annual borrowing rate requires principal, actual days and declared denominator.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Under an explicit simple Actual/365 illustrative rule, multiply balance by annual decimal rate and days/365. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: $10,000 loan at 7.3% for 10 days: $20 interest under Actual/365.",
+      "limit": "Broker accrual, compounding, floating rates and debit changes affect actual charges.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Broker accrual, compounding, floating rates and debit changes affect actual charges.",
+      "commonError": "Practical market interpretation error: Charging a full 7.3% for ten days confuses annual and period rates. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: A quoted annual borrowing rate requires principal, actual days and declared denominator. Under an explicit simple Actual/365 illustrative rule, multiply balance by annual decimal rate and days/365. Worked fictional reasoning: $10,000 loan at 7.3% for 10 days: $20 interest under Actual/365. Common misconception: Charging a full 7.3% for ten days confuses annual and period rates. Broker accrual, compounding, floating rates and debit changes affect actual charges. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: Loan $5,000 at 7.3% for 20 days using Actual/365: calculate interest. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DIVIDEND_PAYOUT_RATIO_FROM_MATCHING_EARNINGS",
+      "title": "Dividend payout ratio from matching earnings",
+      "concept": "A payout ratio compares dividends with matching-period earnings on a consistent per-share or aggregate basis.",
+      "procedure": "Prerequisites: matched observed periods, defined variables and the difference between a formula and an executed market event. Divide ordinary dividends per share by earnings per share for matching units and period. Use only eligible completed observations and state the unit of the result.",
+      "workedCase": "FICTIONAL: Dividend per share $1 and EPS $4 imply a 25% payout ratio.",
+      "limit": "Negative or zero EPS makes conventional ratio misleading or undefined.",
+      "invalidation": "Do not use this conclusion when required observations, comparable periods, denominators or conventions are absent. Negative or zero EPS makes conventional ratio misleading or undefined.",
+      "commonError": "Practical market interpretation error: Using dividend yield against stock price as though it were the payout ratio. Correct by matching definitions, periods and units before computing.",
+      "selfCheck": "What inputs and assumptions distinguish this calculation from similar-looking alternatives?",
+      "reviewExplanation": "Ungraded first-principles coaching: A payout ratio compares dividends with matching-period earnings on a consistent per-share or aggregate basis. Divide ordinary dividends per share by earnings per share for matching units and period. Worked fictional reasoning: Dividend per share $1 and EPS $4 imply a 25% payout ratio. Common misconception: Using dividend yield against stock price as though it were the payout ratio. Negative or zero EPS makes conventional ratio misleading or undefined. Never use this result as a protected grade, official quote or forward-looking prediction.",
+      "transferQuestion": "FICTIONAL transfer without an answer key: DPS $0.60 and EPS $3: find payout ratio. Explain the assumptions and when the calculation would become invalid.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "original_instruction_reference_candidate_not_republication_license",
+      "editorSourceReview": {
+        "reviewer": "internal development author",
+        "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
+        "independentPublicationAccepted": false,
+        "referenceCheckedDate": null
+      }
+    }
+  ]
+}
