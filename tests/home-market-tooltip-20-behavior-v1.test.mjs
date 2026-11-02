@@ -54,3 +54,12 @@ test('21 finite upper candle uses gain color',()=>assert.match(call(0),/#37d7ad/
 test('22 finite lower candle uses loss color',()=>assert.match(call(1),/#fb7b90/));
 test('23 tooltip explicitly labels fictional observations',()=>assert.match(call(),/>Fictional<\/span>/));
 test('24 untrusted chart pointer text is never rendered',()=>assert.doesNotMatch(call(),/<script>|onerror/));
+
+test('25 homepage deploy uses updated OHLCV chart bundle URL',()=>{
+ const html=readFileSync('index.html','utf8');
+ assert.ok(html.includes('home-market-terminal-v1.bundle.js?v=20261102-ohlcv2'));
+});
+test('26 homepage deploy uses updated OHLCV chart stylesheet URL',()=>{
+ const html=readFileSync('index.html','utf8');
+ assert.ok(html.includes('home-market-terminal-v1.css?v=20261102-ohlcv2'));
+});
