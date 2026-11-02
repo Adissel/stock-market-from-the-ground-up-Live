@@ -70,3 +70,20 @@ test('Advanced Tutor continues actual lessons and supplies only revealed chart e
  assert.match(source,/saveHistory:currentSave,conversationId:thread/);
  assert.ok(css.includes('.tp-followup'));
 });
+
+test('Talia advanced six-phase pathway stays ungraded and uses existing authenticated API',()=>{
+ const tsx=read('src/tutor/TaliaClassroom.tsx');
+ const css=read('assets/css/talia-prototype-v1.css');
+ for(const phase of ['Observe','Explain','Attempt','Correct','Retry','Transfer'])
+  assert.ok(tsx.includes(phase),'Missing instructional phase '+phase);
+ for(const dimension of ['Knowledge','Recognition','Decision','Process'])
+  assert.ok(tsx.includes('<option>'+dimension+'</option>'),'Missing practice dimension '+dimension);
+ assert.match(tsx,/phaseInstructions:Record<Phase/);
+ assert.match(tsx,/const preparePhase=/);
+ assert.match(tsx,/setQuestion\(\(sessionTopic/);
+ assert.match(tsx,/role="group" aria-label="Instruction phases"/);
+ assert.match(tsx,/requestId:crypto.randomUUID\(\),allowModel:false/);
+ assert.match(tsx,/saveHistory:currentSave,conversationId:thread/);
+ assert.match(css,/\.tp-instruction-steps button\[aria-pressed=true\]/);
+ assert.doesNotMatch(tsx,/awardMastery|giveGrade|privateAnswerKey/);
+});
