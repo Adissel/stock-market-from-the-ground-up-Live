@@ -355,6 +355,32 @@ node scripts/build-site-accessibility.mjs
 node scripts/build-site-brand-academy-v1.mjs
 node tests/test_site_brand_academy_v1.mjs
 node scripts/build-public-seo.mjs
+# Deployment-blocking, zero-network SEO artifact gate: verify published output,
+# never merely the source generator. A bad sitemap stops Cloudflare publication.
+node --input-type=module <<'SITEMAP_GATE'
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {join} from 'node:path';
+const root=process.env.GU_SITE_BUILD_DIR||'public';
+const sitemapPath=join(root,'sitemap.xml');
+const robotsPath=join(root,'robots.txt');
+assert.ok(existsSync(sitemapPath),'Missing generated public/sitemap.xml');
+assert.ok(existsSync(robotsPath),'Missing generated public/robots.txt');
+const xml=readFileSync(sitemapPath,'utf8');
+const robots=readFileSync(robotsPath,'utf8');
+const origin=new URL(process.env.GU_PUBLIC_SITE_ORIGIN||'https://stock-market-from-the-ground-up-d1r.pages.dev').origin;
+assert.match(xml,/^<\\?xml version="1\\.0" encoding="UTF-8"\\?>\\s*<urlset xmlns="http:\/\/www\\.sitemaps\\.org\/schemas\/sitemap\/0\\.9">/);
+assert.match(xml,/<\\/urlset>\\s*$/);
+assert.doesNotMatch(xml,/<html\\b|<!DOCTYPE|<script\\b/i);
+const entries=[...xml.matchAll(/<url>\\s*<loc>([^<]+)<\\/loc>\\s*<\\/url>/g)].map(x=>x[1]);
+assert.ok(entries.length>0&&entries.includes(origin+'/'),'Sitemap must include canonical homepage');
+assert.equal((xml.match(/<url>/g)||[]).length,entries.length,'Malformed sitemap url entries');
+assert.equal((xml.match(/<loc>/g)||[]).length,entries.length,'Malformed sitemap loc entries');
+assert.equal(new Set(entries).size,entries.length,'Duplicate sitemap URL');
+for(const item of entries){const url=new URL(item);assert.equal(url.origin,origin,'Noncanonical sitemap URL');assert.equal(url.protocol,'https:');assert.equal(url.search,'');assert.equal(url.hash,'');}
+assert.deepEqual(robots.split(/\\r?\\n/).filter(s=>/^Sitemap:/i.test(s.trim())),['Sitemap: '+origin+'/sitemap.xml'],'robots.txt sitemap reference mismatch');
+console.log('PASS: generated sitemap.xml + robots.txt production build gate, '+entries.length+' canonical URLs');
+SITEMAP_GATE
 # Require the public-only GA4 and SEO fixture acceptance on every production build.
 # This is entirely local; no Google requests, member data or paid operations.
 node tests/test_v014157_public_seo.mjs
