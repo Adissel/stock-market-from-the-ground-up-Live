@@ -47,6 +47,12 @@ GitHub migration: `supabase/migrations/20261102_filings7_d01_issuer_cik_draft_co
 - [ ] Execute genuine eligible member grading, ensure the official bridge creates exactly one immutable evidence/outbox item, then verify controlled once-only award and balance reconciliation under separate release authorization.
 - [ ] Confirm duplicate-submit prevention, processor-retry idempotence, guest/member permission denial, no Lumen grant from ungraded reflection, and zero third-party wallet leakage.
 
+## Full protected-case mechanical preflight (54 cases, 216 questions)
+
+A read-only production registry audit also tested all 54 currently stored protected assessment cases, each containing four questions (216 total). The following **mechanical** conditions passed with zero findings: prompts and rubric text are present and exceed minimal length; each question uses one of the four known assessment dimensions; there are at least three options; answer-key references exist; the keyed option is present; option codes are distinct; and exactly one option's corrective feedback uses an accepted `Correct.` or `Correct:` prefix, matching the protected key. **No answer-key content or option identifier was published.**
+
+An initial prefix-only check incorrectly reported 26 inconsistencies because `Correct:` is a valid existing format. Repeating the audit with `^Correct[.:]` produced **zero** correct-feedback mismatches and zero duplicate option codes. This is structural acceptance only: it does **not** establish factual truth, absence of ambiguity, protected grading eligibility, review independence, public publication or any Lumen entitlement.
+
 ## Verified QA evidence, not an approval
 
 A service-role, rollback-only submission attempt for this unpublished candidate was correctly denied as `case_not_published` after the content revision. No attempt, reviewed-grade outbox entry, Lumen award, gift, or permission switch was created. Source-contract regression resides in `tests/test_filings7_issuer_cik_draft_v2.mjs` and the `crownlight-member-lumens-v1.yml` GitHub Actions workflow.
