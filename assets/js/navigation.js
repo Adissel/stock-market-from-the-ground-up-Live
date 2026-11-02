@@ -237,6 +237,30 @@
     btn.innerHTML='<span aria-hidden="true" class="v1341-menu-icon">☰</span><span>Menu</span>';
     nav.appendChild(btn);
 
+    // Chromium/Google Inspection reproduced a second, late-injected shell
+    // toggle with class .sm-shell-menu. This is a competing menu controller,
+    // not the approved member-aware v1341 drawer. Fail closed on duplicates
+    // even when Google omits optional CSS during its resource-limited render.
+    const retireDuplicateShellMenu=()=>{
+      if(innerWidth>900||!q('#v1341-mobile-menu',nav))return;
+      qa('.sm-shell-menu',header).forEach(other=>{
+        if(other===btn||other.dataset.v1341Retired==='1')return;
+        other.dataset.v1341Retired='1';
+        other.hidden=true;
+        other.setAttribute('aria-hidden','true');
+        other.setAttribute('tabindex','-1');
+        if(other.tagName==='BUTTON')other.disabled=true;
+        other.style.setProperty('display','none','important');
+      });
+    };
+    retireDuplicateShellMenu();
+    // A separate shell can mount after the navigation bundle, so one
+    // initial cleanup is insufficient. Monitor insertions only, not attributes.
+    new MutationObserver(retireDuplicateShellMenu).observe(header,{
+      childList:true,subtree:true
+    });
+    addEventListener('resize',retireDuplicateShellMenu,{passive:true});
+
     const drawer=ensureDrawer();
     let opening=false;
     btn.addEventListener('click',async()=>{
