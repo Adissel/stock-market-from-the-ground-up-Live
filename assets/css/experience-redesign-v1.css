@@ -80,3 +80,31 @@ body.gu-visual-v1{background:#07111e;color:var(--gu-ink);font-feature-settings:"
 @media(max-width:1070px){.gu-x-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:790px){.gu-x-auth-layout{display:block!important}.gu-x-auth-sidebar{position:static;padding:15px 0 25px}.gu-x-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gu-x-progress-visual{grid-template-columns:1fr}.gu-x-chart{min-height:260px}.gu-visual-v1 .gu-signup-page .auth-page>*{grid-column:auto!important}}
 @media(max-width:540px){.gu-x-feature-grid{grid-template-columns:1fr}.gu-x-feature{min-height:210px}.gu-x-store-search{align-items:stretch;flex-direction:column}.gu-x-store-search input{min-width:0;width:100%}.gu-x-command{padding:17px}.gu-x-command-link{width:100%}}
+
+/* v3 structural correction: account pages are two true columns, never floating overlays */
+html body.gu-visual-v1 main.gu-signin-page .gu-signin-ad-layout{grid-template-columns:minmax(0,1fr)!important;max-width:1200px!important;display:block!important}
+html body.gu-visual-v1 main.gu-signin-page .gu-signin-ad-layout>.gu-signin-ad-rail{display:none!important}
+html body.gu-visual-v1 main.gu-signin-page .gu-signin-ad-layout>#gu-signin-center{display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;gap:clamp(24px,5vw,70px)!important;max-width:1040px!important;width:100%!important;margin:0 auto!important;align-items:center!important;min-height:510px!important}
+html body.gu-visual-v1 .gu-x-auth-sidebar{position:static!important;top:auto!important;grid-column:1!important;grid-row:1!important;max-width:440px!important;min-width:0!important}
+html body.gu-visual-v1 .gu-x-auth-content{grid-column:2!important;grid-row:1!important;min-width:0!important;width:100%!important}
+html body.gu-visual-v1 main.gu-signin-page #gu-signin-center>.gu-x-auth-content>.gu-signin-form-column{width:100%!important;max-width:460px!important}
+html body.gu-visual-v1 .gu-signup-page .auth-page.gu-x-auth-layout{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:clamp(22px,5vw,72px)!important;align-items:start!important;max-width:1120px!important}
+html body.gu-visual-v1 .gu-signup-page .auth-page.gu-x-auth-layout>.gu-x-auth-content{display:block!important;max-width:660px!important}
+html body.gu-visual-v1 .gu-signup-page .gu-x-auth-content>h1{font-size:clamp(2.2rem,3vw,3.3rem)!important;line-height:1.13!important;margin:0 0 16px!important}
+html body.gu-visual-v1 .gu-signup-page .gu-x-auth-content>.section-intro,html body.gu-visual-v1 .gu-signup-page .gu-x-auth-content>.small{margin:0 0 16px!important;line-height:1.6!important}
+html body.gu-visual-v1 .gu-signup-page #create-account-card{margin:20px 0!important;width:100%!important;max-width:100%!important;box-sizing:border-box}
+html body.gu-visual-v1 .gu-signin-page .gu-x-auth-sidebar,html body.gu-visual-v1 .gu-signup-page .gu-x-auth-sidebar{padding:22px 10px 22px 0!important}
+html body.gu-visual-v1 .gu-x-auth-sidebar h2{font-size:clamp(1.85rem,2.8vw,2.85rem)!important;line-height:1.16!important}
+html body.gu-visual-v1 .gu-x-assurance{margin:19px 0!important}
+html body.gu-visual-v1 .gu-x-assurance li{padding:10px 0 10px 24px!important}
+html body.gu-visual-v1 .gu-home-message .gu-home-brand-subtitle{display:none!important}
+html body.gu-visual-v1 .gu-home-message>.eyebrow{margin-bottom:14px}
+html body.gu-visual-v1 .gu-home-message h1{font-weight:650!important;line-height:1.1!important}
+html body.gu-visual-v1 .gu-x-auth-alt{display:inline-block;margin:14px 0}
+@media(max-width:760px){
+html body.gu-visual-v1 main.gu-signin-page .gu-signin-ad-layout>#gu-signin-center,html body.gu-visual-v1 .gu-signup-page .auth-page.gu-x-auth-layout{display:flex!important;flex-direction:column!important;gap:14px!important;align-items:stretch!important;min-height:auto!important}
+html body.gu-visual-v1 .gu-x-auth-sidebar{width:100%!important;max-width:none!important;padding:8px 0!important}
+html body.gu-visual-v1 .gu-x-auth-content{width:100%!important;max-width:none!important}
+html body.gu-visual-v1 .gu-x-assurance{display:none!important}
+html body.gu-visual-v1 .gu-x-auth-sidebar h2{font-size:1.8rem!important}
+}
