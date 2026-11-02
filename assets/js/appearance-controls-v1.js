@@ -4,7 +4,7 @@ const excluded=/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/i;
 const current=location.pathname.split('/').pop()||'index.html';
 if(excluded.test(current))return;
 const key='smfgu:appearance:v3',themes=['spectrum','ultraviolet','solar'];
-function apply(v){const theme=themes.includes(v)?v:'spectrum';document.documentElement.dataset.smfguTheme=theme;if(document.body)document.body.classList.toggle('cl-spectrum',true);document.body.classList.remove('cl-atelier');try{localStorage.setItem(key,theme)}catch(_){ }document.querySelectorAll('[data-smfgu-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.smfguTheme===theme)))}
+function apply(v){const theme=themes.includes(v)?v:'spectrum';document.documentElement.dataset.smfguTheme=theme;if(document.body)document.body.classList.toggle('cl-spectrum',true);document.body.classList.remove('cl-atelier');try{localStorage.setItem(key,theme)}catch(_){ }document.querySelectorAll('button[data-smfgu-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.smfguTheme===theme)))}
 let start='spectrum';try{start=localStorage.getItem(key)||start}catch(_){}apply(start);
 function init(){
 const nav=document.querySelector('.site-header .navlinks');if(!nav)return;

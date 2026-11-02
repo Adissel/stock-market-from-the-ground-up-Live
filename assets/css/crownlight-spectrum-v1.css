@@ -9,7 +9,7 @@ html body.cl-spectrum a{color:var(--sp-accent)}
 html body.cl-spectrum .site-header{position:relative!important;background:#0a1021!important;border-bottom:1px solid var(--sp-edge)!important;box-shadow:0 10px 40px #0006!important}
 html body.cl-spectrum .site-header :is(.brand,.navlinks a){color:var(--sp-ink)!important}
 html body.cl-spectrum .site-header .navlinks a:hover{color:var(--sp-accent)!important;background:var(--sp-panel2)!important}
-html body.cl-spectrum .site-header .gu-nav-register{background:var(--sp-accent)!important;color:#06111c!important;border:1px solid var(--sp-accent)!important}
+html body.cl-spectrum .site-header .navlinks .gu-nav-register{background:var(--sp-accent)!important;color:#06111c!important;border:1px solid var(--sp-accent)!important}
 html body.cl-spectrum .site-header .gu-nav-signin{border:1px solid var(--sp-secondary)!important;color:var(--sp-ink)!important}
 html body.cl-spectrum .sm-shell-menu{background:var(--sp-accent)!important;color:#08111f!important;border:0}
 html body.cl-spectrum :is(main,.section,.gu-premium-home,.gu-redesign-store,.gu-member-dashboard-shell){background:var(--sp-bg)!important;color:var(--sp-ink)!important}
