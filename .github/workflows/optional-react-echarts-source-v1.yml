@@ -30,6 +30,9 @@ jobs:
           assert 'ResizeObserver' in adapter and 'instance.dispose()' in adapter
           assert 'completedBars' in adapter and 'onBarInspect' in adapter
           assert 'aria-label' in adapter and '<table' in adapter
+          assert 'aria-pressed={selected === i}' in adapter and 'onClick={() => inspect(i)}' in adapter
+          assert 'cl-react-chart__inspect:focus-visible' in css
+          assert 'cl-react-chart__inspect[aria-pressed="true"]' in css
           assert 'Bar HLC3 VWAP (approx.)' in options and 'connectNulls: false' in options
           assert 'Invalid close' in options and 'if (values.length < period)' in options
           assert options.index("if (!Number.isFinite(n))") < options.index("if (values.length < period)")
