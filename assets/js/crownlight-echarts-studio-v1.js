@@ -17,6 +17,35 @@
   for(const k of Object.keys(enabled))enabled[k]=['ema9','ema20','vwap','volma20'].includes(k);
  }
  const paneSizes={rsi14:155,macd:185,atr14:155};
+ const defaultPaneSizes={...paneSizes};
+ const getPreferences=()=>({enabled:{...enabled},colors:{...colors},
+  lineStyles:{...lineStyles},paneSizes:{...paneSizes},stroke});
+ function restorePreferences(prefs){
+  if(!prefs||typeof prefs!=='object'||Array.isArray(prefs))return false;
+  for(const [key,value] of Object.entries(prefs.enabled||{}))
+   if(Object.hasOwn(enabled,key)&&typeof value==='boolean')enabled[key]=value;
+  for(const [key,value] of Object.entries(prefs.colors||{}))
+   if(Object.hasOwn(colors,key)&&typeof value==='string'&&/^#[a-f0-9]{6}$/i.test(value))
+    colors[key]=value.toLowerCase();
+  for(const [key,value] of Object.entries(prefs.lineStyles||{}))
+   if(Object.hasOwn(colors,key)&&['solid','dashed','dotted'].includes(value))lineStyles[key]=value;
+  for(const [key,value] of Object.entries(prefs.paneSizes||{}))
+   if(Object.hasOwn(paneSizes,key)&&Number.isInteger(value)&&value>=110&&value<=285)paneSizes[key]=value;
+  if(['solid','dashed','dotted'].includes(prefs.stroke))stroke=prefs.stroke;
+  if(view){
+   for(const el of view.querySelectorAll('[data-study]'))el.checked=enabled[el.dataset.study];
+   for(const el of view.querySelectorAll('[data-indicator-color]'))el.value=colors[el.dataset.indicatorColor];
+   for(const el of view.querySelectorAll('[data-indicator-stroke]'))
+    el.value=lineStyles[el.dataset.indicatorStroke]||'default';
+   for(const el of view.querySelectorAll('[data-pane-height]'))el.value=String(paneSizes[el.dataset.paneHeight]);
+   const color=view.querySelector('input[aria-label="EMA 9 line color"]');
+   if(color)color.value=colors.ema9;
+   const style=view.querySelector('select[aria-label="Indicator line style"]');
+   if(style)style.value=stroke;
+   render();
+  }
+  return true;
+ }
  const NUM=(v)=>typeof v==='number'&&Number.isFinite(v);
  function clean(input){
   const out=[];let prev=-Infinity;
@@ -273,9 +302,9 @@
    render();return true;
   }catch(e){if(serial===request)unmount();throw e}
  }
- root.addEventListener('crownlight:member-changed',()=>{unmount();resetMemberPresentation()});
+ root.addEventListener('crownlight:member-changed',()=>{unmount();resetMemberPresentation();Object.assign(paneSizes,defaultPaneSizes)});
  root.CrownlightEChartsStudio={
-  mount,unmount,update,
+  mount,unmount,update,getPreferences,restorePreferences,
   getStatus:()=>({ready:!!chart,barCount:last.length,symbol}),
   getObserved:()=>last.map(b=>({timestamp:b.t,open:b.o,high:b.h,low:b.l,close:b.c,volume:b.v}))
  };
