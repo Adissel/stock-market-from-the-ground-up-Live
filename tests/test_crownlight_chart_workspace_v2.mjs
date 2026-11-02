@@ -9,6 +9,21 @@ assert.equal(normalizeWorkspace({selected:'PROFESSIONAL'}, {tier:'STANDARD',allo
 assert.equal(normalizeWorkspace({selected:'STANDARD'}, entitlement).selected,'STANDARD','Explicit Standard preferences remain Standard');
 assert.equal(normalized.layout,'SIDE_BY_SIDE','Advanced member cannot persist a Professional layout');
 const pro={tier:'PROFESSIONAL',allowed:['STANDARD','ADVANCED','PROFESSIONAL']};
+const ratioProbes=[
+ [25,25],[50,50],[75,75],[24,50],[76,50],[49.5,50],
+ ['50',50],[null,50],[-500,50],[999999,50]
+];
+for(const [incoming,expected] of ratioProbes){
+ const result=normalizeWorkspace({selected:'PROFESSIONAL',layout:'SIDE_BY_SIDE',panelRatio:incoming},
+  {tier:'PROFESSIONAL',allowed:['STANDARD','ADVANCED','PROFESSIONAL']});
+ assert.equal(result.panelRatio,expected,'Professional ratio must be an authorized 25–75 integer');
+}
+assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',panelRatio:65},entitlement).panelRatio,50,
+ 'Professional ratio must not leak into downgraded Advanced projection');
+assert.equal(normalizeWorkspace({selected:'PROFESSIONAL',panelRatio:65},
+ {tier:'STANDARD',allowed:['STANDARD']}).panelRatio,50,
+ 'Professional ratio must not leak into downgraded Standard projection');
+
 const standard={tier:'STANDARD',allowed:['STANDARD']};
 const matrix=[
  ['STANDARD',standard,'STANDARD','SIDE_BY_SIDE'],
