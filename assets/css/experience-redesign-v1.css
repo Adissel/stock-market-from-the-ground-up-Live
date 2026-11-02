@@ -108,3 +108,35 @@ html body.gu-visual-v1 .gu-x-auth-content{width:100%!important;max-width:none!im
 html body.gu-visual-v1 .gu-x-assurance{display:none!important}
 html body.gu-visual-v1 .gu-x-auth-sidebar h2{font-size:1.8rem!important}
 }
+
+/* Dashboard V2 — deliberate design replacement, not additive tiles */
+html body.gu-visual-v1 .gu-member-dashboard-shell{background:#071320!important;color:#edf3fa;min-height:100vh}
+html body.gu-visual-v1 .gu-member-dashboard-shell>main{min-width:0}
+html body.gu-visual-v1 .gu-member-dashboard-shell .wrap{max-width:1400px}
+html body.gu-visual-v1 .gu-member-side-menu{background:#0b1b2d!important;border-right:1px solid #243b51!important;box-shadow:8px 0 32px rgba(0,0,0,.16);position:static!important;align-self:stretch}
+html body.gu-visual-v1 .gu-member-side-menu>a,html body.gu-visual-v1 .gu-member-side-menu details a{border-radius:9px}
+html body.gu-visual-v1 .gu-dash-v2-hero{display:grid!important;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:34px;align-items:center;background:radial-gradient(ellipse at 82% 0%,rgba(60,166,168,.22),transparent 62%),linear-gradient(125deg,#142c43,#0d2034)!important;padding:clamp(28px,4vw,54px)!important;border:1px solid #35556b!important;border-radius:22px!important;margin:12px 0 26px!important;min-height:300px}
+html body.gu-visual-v1 .gu-dash-v2-hero h1{font-size:clamp(2.4rem,4vw,4.4rem)!important;line-height:1.1!important;margin:9px 0 16px!important;color:#f2f8ff}
+html body.gu-visual-v1 .gu-dash-v2-hero .gu-dash-v2-lead{max-width:680px;color:#bfd0df;font-size:1.05rem;line-height:1.7}
+html body.gu-visual-v1 .gu-dash-v2-hero .gu-dashboard-quick{display:flex;gap:11px;flex-wrap:wrap;margin-top:23px}
+html body.gu-visual-v1 .gu-dash-v2-hero-art{background:rgba(5,18,33,.75);padding:26px;border:1px solid #365971;border-radius:16px;min-width:0}
+html body.gu-visual-v1 .gu-dash-v2-mark{display:grid;grid-template-columns:1fr 1fr;gap:13px;color:#b6cbdd;font-size:.68rem;font-weight:750;letter-spacing:.09em}
+html body.gu-visual-v1 .gu-dash-v2-mark span:before{content:'◆';color:#55d6be;margin-right:7px}
+html body.gu-visual-v1 .gu-dash-v2-track{display:flex;height:94px;gap:9px;align-items:end;justify-content:space-between;margin:21px 0}
+html body.gu-visual-v1 .gu-dash-v2-track i{display:block;width:7%;height:30%;background:#42c5a8;border-radius:3px 3px 0 0}
+html body.gu-visual-v1 .gu-dash-v2-track i:nth-child(3n){height:65%;background:#d6b66f}
+html body.gu-visual-v1 .gu-dash-v2-track i:nth-child(4n){height:47%}
+html body.gu-visual-v1 .gu-dash-v2-track i:nth-child(5n){height:82%}
+html body.gu-visual-v1 .gu-dash-v2-track i:nth-child(7n){height:58%}
+html body.gu-visual-v1 .gu-dash-v2-hero-art small{font-size:.64rem;color:#8faac2;letter-spacing:.1em}
+html body.gu-visual-v1 .gu-dash-v2-data .member-header{background:linear-gradient(110deg,#1a3349,#142a3c)!important;border:1px solid #34546a;border-radius:18px;padding:22px 26px}
+html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0!important}
+html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid .dashboard-stat{padding:23px 20px!important;border:1px solid #304a63!important;background:#12273d!important;border-radius:16px!important;min-width:0}
+html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid .dashboard-stat strong{font-size:clamp(1.7rem,3vw,2.7rem)!important;color:#f6f8ff}
+html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid .dashboard-stat-primary{background:#143e49!important;border-color:#398978!important}
+html body.gu-visual-v1 .gu-dash-v2-data .dashboard-grid{gap:18px}
+html body.gu-visual-v1 .gu-dash-v2-data .card{border-radius:16px!important;background:linear-gradient(145deg,#13273a,#0d2032)!important;border:1px solid #2b4860!important}
+html body.gu-visual-v1 .gu-dash-v2-analytics{margin:24px 0 30px!important}
+@media(max-width:1080px){html body.gu-visual-v1 .gu-dash-v2-hero{grid-template-columns:1fr!important}html body.gu-visual-v1 .gu-dash-v2-hero-art{display:none!important}}
+@media(max-width:740px){html body.gu-visual-v1 .gu-dash-v2-hero{padding:23px!important}html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}html body.gu-visual-v1 .gu-dash-v2-hero h1{font-size:2.3rem!important}}
+@media(max-width:430px){html body.gu-visual-v1 .gu-dash-v2-data>.dashboard-stat-grid{grid-template-columns:1fr!important}}
