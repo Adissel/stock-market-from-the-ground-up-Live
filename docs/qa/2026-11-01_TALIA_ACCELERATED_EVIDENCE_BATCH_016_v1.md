@@ -9,7 +9,7 @@
 | File type | Markdown |
 | Location | GitHub `cybernexuspublishing/stock-market-from-the-ground-up`, `main`, `docs/qa/` |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.1 / November 1, 2026 |
+| Version / date | 1.2 / November 1, 2026 |
 | Status | Source batch implemented; QA and current exact-head release acceptance pending |
 | Purpose | One canonical identity-based curriculum evidence ledger, forty item-level claim reviews, fifteen Python/JavaScript indicator crosschecks and secure follow-up QA |
 | Dependencies | Master Research Source Directory; nine-level `docs/research/master/master-source-registry-v1.json`; Learning v3.3; Lab v3.2; protected data boundaries; Tutor original guides; GitHub Actions; Cloudflare production |
@@ -76,11 +76,26 @@ The original `STT.zip` binary and `StocksToTrade-Browser-Research` ZIPs were **n
 9. Freeze the final main SHA, run full CI, match Cloudflare, verify authenticated browser and rollback.
 10. Independently accept features eligible for publication; only then author the next Foundation 20-topic batch without violating beginner-versus-advanced specialist placement.
 
+## November 1 accelerated execution continuation — source QA v1.2
+
+**Source truth and blockers** — The 1,366-item identity register remains a target-slot inventory: 600 Foundation explanations, 73 distinct indicator study guides, 419 Lab IDs, and 274 Academy study days. The register now dynamically discovers 20-topic batches in canonical sequence; with source-authored Batch 13 added on main, **260/600 = 43.33% are source authored** and **340/600 remain unauthored**. None of this authorizes protected grade awards or final publication.
+
+**Gate 2, forty individual claims:** Original 19 individual source reviews plus the next 21 source-scope dispositions now have distinct ID records and automated uniqueness/rights-hold assertions. Review records: `data/talia-claims-101-140-evidence-batch-v1.json` and `data/talia-claims-remaining21-source-review-v1.json`. This is **40/40 (100%) recorded dispositions, 0/40 independently publication-accepted**. The dedicated critical corrections are Rule 605-unrelated: the SEC 2023 share-repurchase disclosure rule was vacated, and EDGAR acceptance alone does not prove the exact first publicly available timestamp. `data/talia-claim-regulatory-risk-104-133-v1.json` records them, and the original source-only Tutor now displays both cautions. Topic 129 still needs a claim-specific Herfindahl concentration source before editorial acceptance. Topics 135, 139, and 140 had concurrent URL revisions; the evidence register was reconciled to current source URLs with previous references preserved.
+
+**Gate 3, mathematics:** Independent JS and Python calculated 15 initial indicator studies, followed by 15 component cases (16–30); ADX, SAR, Wilder ATR, Supertrend, and Ichimoku then received entire completed-bar-path crosschecks and explicit forming/future-bar rejections. The next fifteen (31–45) now have `scripts/qa/talia_indicators31_45_python_v1.py` and `tests/talia-indicators31-45-python-js-v1.test.mjs`, comparing original fictional EMA/ATR channels, completed prior-window breakout/channel calculations, matched-period risk/volatility, exact trade VWAP, separately labeled bar-based proxy, anchored VWAP, RVOL and notional values. **45/73 = 61.64% have targeted mathematical QA; 0/73 final individually publication-approved.** Python and JS matching on one artificial dataset does not prove all platform settings, data-feed rights, warmups, or member-facing parity.
+
+**Gate 4, instruction:** 40 topic cases cover initial/deeper explanation, misconception remediation, ungraded reasoning and independent transfer. Initial CI revealed a QA false positive that mistook a risk warning “not guaranteed profit” for promising profit; the test was corrected. A separate regulatory/EDGAR teaching test initially loaded the wrong batch and was corrected. Verified source-only behavior does not establish authenticated multi-turn use or screen-reader acceptance.
+
+**CI/deployment record:** Cloudflare reported successful production deployment of `bd167122ec34af78fac6c3b89bfb0d5b07af99ee`, which contains the 31–45 Pages build regression; the dedicated `learning-tutor-v01492.yml` workflow was subsequently updated to run the same regression (commit `1851f2d8fa2085a3b17d672e018c697afc3a64d2`). Later commits on main require a new exact-SHA CI/deployment check. A successful Pages build is not proof of 26/26 GitHub Actions, genuine user sessions, data rights, ECharts deployment acceptance, or full platform readiness.
+
+**Document disposition:** Internal owner-delegated source development review only. No third-party redistribution rights, licensed professional certification, monetary payment authorization, premium feature release or official mastery award.
+
 ## Revision history
 
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.0 | 2026-11-01 | 1,366 identity generator; 40 claim-level scope records; 35 original arithmetic checks; 15 Python/JS studies; prior STT provenance boundary | Internal development QA only; publication, licensing, financial, security and production signoff not granted |
 | 1.1 | 2026-11-01 | 19/40 claim scopes, 15 additional individual study source records and independent Python/JS component arithmetic QA | Internal source-only acceptance; full indicator, member and release approvals pending |
+| 1.2 | 2026-11-01 | 40/40 source dispositions, 260/600 source-authored topics, 45 indicator math QA fixtures, three-source URL reconciliations, Tutor correction tests | Internal source-only acceptance; commercial, authenticated and release review open |
 
-**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.0 · Source record `main` · No unauthorized premium release or paid API calls.
+**Footer:** SMFGU-TALIA-EVIDENCE-BATCH-016 · v1.2 · Source record `main` · No unauthorized premium release or paid API calls.
