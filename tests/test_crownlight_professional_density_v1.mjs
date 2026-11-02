@@ -25,4 +25,9 @@ match(workspace,/draft.panelRatio=/,'Panel ratio must be sent through existing w
 match(workspace,/--cl-pro-handle/,'Divider handle must track current split');
 match(api,/raw.panelRatio>=25&&raw.panelRatio<=75/,'Server must bound saved panel ratio');
 match(api,/layout,panelRatio,drawingContext/,'Existing normalized workspace must return safe ratio');
+match(workspace,/e.pointerId!==activePointer/,'Unrelated pointer events must not resize columns');
+match(workspace,/lostpointercapture/,'Pointer release and cancellation must clear drag state');
+match(workspace,/aria-orientation','horizontal'/,'Split control must state orientation');
+match(workspace,/permissionReady\|\|Tier\(\)\?\.getStatus/,'Divider updates must be membership gated');
+match(css,/\.cl-tier-quote-item strong/,'OHLCV data should retain a readable hierarchy');
 console.log('PASS Professional density source contracts: bounded slider, linked charts, remount, privacy reset, responsive styling, existing workspace layouts');
