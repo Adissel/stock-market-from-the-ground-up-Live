@@ -147,7 +147,11 @@
      const latest=state.count-1;
      const maxFrom=latest+safeAppearance(prefs.appearance).rightBuffer-span;
      const minFrom=Math.min(-1,maxFrom);
-     const from=cmd==='pan-earlier'?Math.max(minFrom,range.from-step):Math.min(maxFrom,range.from+step);
+     // A bounded pan must never jump in the opposite direction when a drag
+     // has already left the viewport outside its preferred empty margin.
+     const from=cmd==='pan-earlier'
+      ?Math.min(range.from,Math.max(minFrom,range.from-step))
+      :Math.max(range.from,Math.min(maxFrom,range.from+step));
      if(Math.abs(from-range.from)>.01){
       state.follow=false;updateFollow();save();
       scale.setVisibleLogicalRange({from,to:from+span});
