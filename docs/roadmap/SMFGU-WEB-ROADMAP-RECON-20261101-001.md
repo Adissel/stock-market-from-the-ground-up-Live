@@ -8,7 +8,7 @@
 | Filename / file type | `SMFGU-WEB-ROADMAP-RECON-20261101-001.md` / Markdown |
 | GitHub location | `cybernexuspublishing/stock-market-from-the-ground-up` / `main` / `docs/roadmap/` |
 | Google Drive location / document ID | Not assigned / not created. GitHub is the current source of record. |
-| Version / prepared | 1.6 / 2026-11-01 |
+| Version / prepared | 1.7 / 2026-11-01 |
 | Status | Source implemented; exact-head CI, Cloudflare matching deployment, genuine Owner browser and consolidated release acceptance tracked independently |
 | Owner | Delegated project/editor/QA authority for source scope; only genuine authenticated OWNER may save roadmap completion or authorize private edits |
 | Purpose | Bring the actual private /owner-roadmap.html forward from its Oct 28 audit snapshot without changing preserved project commitments or treating staged authoring, source code or CI as blanket production certification |
@@ -170,6 +170,22 @@ Source changes: `assets/js/prototype-indicator-workbench-v2.js`, `tests/prototyp
 
 No changes to chart backend pricing, member identity grants, saved grades, market feed licenses, or Stripe were included in this batch.
 
+## Curriculum QA Batch 46–60 — read-only development reconciliation
+
+The controlled source-of-record is `docs/qa/2026-11-01_TALIA_ACCELERATED_EVIDENCE_BATCH_016_v1.md`, version 1.3. This update is documentary only; it does **not** change the authenticated Owner Roadmap's 2,190 original requirement IDs or any stored progress, entitlement, price, published curriculum or private API output.
+
+| Stream | Updated verified source count | Release meaning |
+|---|---:|---|
+| Evidence target registry | 1,366/1,366 | 600 explanation slots + 73 studies + 419 Lab IDs + 274 Academy study days, one canonical identity each |
+| Tutor Foundation source authoring | 260/600 = 43.33% | Twenty Batch-13 source-only lessons present; protected grading and independent release review remain open |
+| Foundation claims 101–140 | 40/40 have individual source dispositions | 0/40 final publication-accepted; two historical-regulatory/timestamp corrections retained |
+| Indicator research batch | 60/73 = 82.19% | Includes SCTR source research without numerical vendor emulation |
+| Independent numerical example fixtures | 59/73 = 80.82% | Fourteen new original Python/JS tests for study IDs 46–60, excluding proprietary SCTR; **not** 59 accepted production indicator implementations |
+| All 73 final formula/platform/data-rights approvals | 0/73 | Commercial reuse, live feed access, ECharts parity and platform-specific formula settings require review |
+| Advanced/Professional/Enterprise Learning and Lab releases | 0% independently released per edition | Underlying source implementation may be more advanced; do not invent engineering-completion percentages |
+
+**Execution order:** (1) preserve canonical IDs and source math; (2) complete 40 individual claim publication-ready mathematical/editorial remediation; (3) resolve 60–73 and SCTR restrictions; (4) authenticated multi-turn Tutor QA; (5) integrate completed-bar-only ECharts with server privileges; (6) full mandatory Actions matrix; (7) genuine member/staff/mobile/assistive QA; (8) exact-SHA Cloudflare production match; (9) independently accept only eligible functions; (10) start topics 261–280 when editorial prerequisites are accepted. The strict ten-gate completion is **1/10 = 10%** until each gate's stated complete requirements are actually satisfied. Overall website completion remains unassigned.
+
 ## Revision history
 
 | Version | Date | Change | Owner disposition |
@@ -181,5 +197,6 @@ No changes to chart backend pricing, member identity grants, saved grades, marke
 | 1.4 | 2026-11-01 | Add synchronized RSI/MACD/ATR panes, editable panel heights, strict OHLCV input control, independent Decimal edge fixtures, and expanded browser CI | Source committed; independent final release acceptance open |
 | 1.5 | 2026-11-01 | Connect per-indicator ECharts settings to the existing authenticated versioned workspace, add server allowlist and client privacy/restore tests; preserve non-release mathematical and editorial denominators | Source committed; independent exact-main, Cloudflare and signed-in acceptance open |
 | 1.6 | 2026-11-01 | Repair 16-study prototype session calculations and derived VWAP; expand multi-session and proxy-integrity regression tests | Source committed; workflow/external acceptance open |
+| 1.7 | 2026-11-01 | Reconcile 60 studied subjects / 59 independent numeric fixtures, 260 authored explanations, source review identity fix and continued ten-gate controls | Source QA only; exact-head GitHub Actions, rights and real sessions open |
 
-**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.6 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
+**Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.7 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
