@@ -99,6 +99,8 @@ assert.equal(api.getStatus().visibleCount,9);
 // Exercise a switch where a delayed Auth callback has not yet fired.
 userId='member-C';
 notify({source:'fictional',bars:bars.slice(0,6)});await flush();
+assert.equal(api.getStatus().visibleCount,0,'Cross-account transition clears prior visual before display');
+notify({source:'fictional',bars:bars.slice(0,6)});await flush();
 assert.equal(api.getStatus().visibleCount,6);
 assert.equal(api.getStatus().memberVerified,true);
 listeners.get('crownlight:member-changed')();
