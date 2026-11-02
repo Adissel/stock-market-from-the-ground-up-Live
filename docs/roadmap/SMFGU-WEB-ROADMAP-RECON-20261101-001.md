@@ -348,4 +348,6 @@ This advances source/CI/deployment parity only. Genuine Free, Founding, Professi
 
 **Revision-history addition:** v1.25 / 2026-11-02 / Added twenty original Batch14 tape-reading bridges for 280/419 source-authored and source-tested. New instruction preserves unknown aggressor volume, compatible denominators, partial-depth limits, synchronized liquidity sequences and completed aftermath. Independent human editorial, authenticated continuity/accessibility, publication rights and 139 unauthored Labs remain open.
 
+**Revision-history addition:** v1.26 / 2026-11-02 / Added the remaining 139 canonical bridges as controlled Batches15-21: 39 Reading-the-Tape and 100 Site-Exclusive Labs. Source authoring and source contracts now cover 419/419, while independent human editorial, rights, authenticated accessibility/member acceptance, exact-SHA CI and deployment remain open.
+
 **Footer:** SMFGU-WEB-ROADMAP-RECON-20261101-001 · v1.25 · Private Owner evidence snapshot · No payment, independent editorial, legal, graded-assessment or full website release certification.
