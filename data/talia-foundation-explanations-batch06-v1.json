@@ -55,7 +55,7 @@
       "reviewExplanation": "Correct reasoning tracks cash and price separately; no inference that the dividend offsets all volatility or execution costs is justified.",
       "transferQuestion": "FICTIONAL TRANSFER: Entry $25, exit $24, eligible dividend $0.20. Compute price-only and cash-inclusive returns separately.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and"
+        "https://www.investor.gov/introduction-investing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -72,6 +72,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "claimSpecificScope": "Scope: Investor.gov confirms returns may arise from price changes and cash distributions, but ex-dividend eligibility alone does not measure total return.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing",
+        "primaryPageScopeChecked": true,
+        "editorialStatus": "ON_HOLD",
+        "mathIndependentlyAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
@@ -410,6 +419,15 @@
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
         "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+      },
+      "sourceScopeReview": {
+        "date": "2026-11-01",
+        "claimSpecificScope": "Scope: The bond risk FAQ separately describes credit/default and interest-rate exposure; neither implies a guaranteed price.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "primaryPageScopeChecked": true,
+        "editorialStatus": "ON_HOLD",
+        "mathIndependentlyAccepted": false,
+        "independentPublicationAccepted": false
       }
     },
     {
