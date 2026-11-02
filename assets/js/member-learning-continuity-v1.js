@@ -1,0 +1,10 @@
+/* Learning Continuity Hub — read-only member navigation, no assessment or entitlement changes. */
+(()=>{'use strict';
+const ready=fn=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn,{once:true}):fn();
+function init(){const content=document.getElementById('dashboard-content');if(!content||document.getElementById('cl-continuity-hub'))return;
+ const section=document.createElement('section');section.id='cl-continuity-hub';section.className='cl-continuity-hub card dashboard-space';section.setAttribute('aria-labelledby','cl-continuity-title');section.innerHTML='<div class="cl-continuity-top"><div><p class="eyebrow">LEARNING CONTINUITY</p><h2 id="cl-continuity-title">Resume where you left off</h2><p>Choose your next activity. Your existing learning, journals and private Tutor history stay in their protected systems.</p></div><div class="cl-continuity-metric" aria-label="Self-tracked progress"><strong data-cl-progress>—</strong><small>Self-tracked progress</small></div></div><div class="cl-continuity-links"><a href="/learn.html"><b>01 · Curriculum</b><span>Review foundations and learning pathways</span></a><a href="/labs.html"><b>02 · Guided Labs</b><span>Continue protected practice and feedback</span></a><a href="/simulator.html"><b>03 · Chart Studio</b><span>Analyze only permitted market-data scenarios</span></a><a href="/talia-classroom.html"><b>04 · Talia classroom</b><span>Ask questions and review guided lessons</span></a><a href="/journal.html"><b>05 · Learning journal</b><span>Review your recorded observations</span></a><a href="/market-tutor.html"><b>06 · Tutor history</b><span>Open authenticated teaching conversations</span></a></div>';
+ content.prepend(section);
+ const stat=document.getElementById('overall-progress'),target=section.querySelector('[data-cl-progress]');if(stat&&target){const sync=()=>{const value=stat.textContent?.trim()||'—';target.textContent=/^\d{1,3}%$/.test(value)?value:'—'};sync();new MutationObserver(sync).observe(stat,{childList:true,characterData:true,subtree:true})}
+}
+ready(init);
+})();
