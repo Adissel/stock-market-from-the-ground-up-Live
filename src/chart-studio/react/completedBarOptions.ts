@@ -42,7 +42,7 @@ export function barVwap(bars: readonly CompletedBar[], sessionKey: (bar: Complet
   });
 }
 
-export function buildCandleOptions(bars: readonly CompletedBar[], symbol: string, interval: string): EChartsOption {
+export function buildCandleOptions(bars: readonly CompletedBar[], symbol: string, interval: string, sessionKey?: (bar: CompletedBar) => string): EChartsOption {
   for (let i = 0; i < bars.length; i++) {
     const b = bars[i];
     if (typeof b.time !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(b.time) ||
@@ -70,7 +70,7 @@ export function buildCandleOptions(bars: readonly CompletedBar[], symbol: string
         itemStyle: { color: '#27c6b0', color0: '#ef7281', borderColor: '#27c6b0', borderColor0: '#ef7281' } },
       { name: 'EMA 9', type: 'line', data: ema(closes,9), showSymbol: false, smooth: false, connectNulls: false, lineStyle: { color: '#76d9ff', width: 1.6 } },
       { name: 'EMA 20', type: 'line', data: ema(closes,20), showSymbol: false, smooth: false, connectNulls: false, lineStyle: { color: '#e9c985', width: 1.6 } },
-      { name: 'Bar HLC3 VWAP (approx.)', type: 'line', data: barVwap(bars), showSymbol: false, smooth: false, connectNulls: false, lineStyle: { color: '#b6a2ff', width: 1.6 } },
+      { name: 'Bar HLC3 VWAP (approx.)', type: 'line', data: barVwap(bars, sessionKey), showSymbol: false, smooth: false, connectNulls: false, lineStyle: { color: '#b6a2ff', width: 1.6 } },
       { name: 'Volume', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: bars.map(b => ({ value: b.volume, itemStyle: { color: b.close >= b.open ? '#27c6b0' : '#ef7281' } })) }
     ]
   };
