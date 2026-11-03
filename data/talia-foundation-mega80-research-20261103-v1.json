@@ -49,7 +49,7 @@
       "lesson": 568,
       "topicId": "TALIA_TOPIC_SCALE_OUT_REALIZED_AND_OPEN_QUANTITY",
       "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order",
-      "after": "https://www.irs.gov/publications/p550"
+      "after": "https://syndication.finra.org/content/tax-time-topics-cost-basis-what-you-need-know"
     },
     {
       "lesson": 569,
@@ -972,9 +972,9 @@
       "topicId": "TALIA_TOPIC_SCALE_OUT_REALIZED_AND_OPEN_QUANTITY",
       "title": "Scale-out realized and open quantity",
       "candidateSources": [
-        "https://www.irs.gov/publications/p550"
+        "https://syndication.finra.org/content/tax-time-topics-cost-basis-what-you-need-know"
       ],
-      "sourceScope": "Scale-out realized and open quantity: IRS explains sold-share basis and tax lots; the single-cost hypothetical is simplified. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceScope": "Scale-out realized and open quantity: FINRA explains sold-share basis and FIFO/specific identification; the single-cost hypothetical is simplified. This is a contextual reference for original fictional instruction, not endorsement of its example.",
       "sourceLimitations": "Tax-lot and broker cost-basis rules may differ from the simplified single-basis example. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
       "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "fictional": true,

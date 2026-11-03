@@ -16,7 +16,7 @@
 
 Included lessons: 441–480 and 561–600 (four batches of 20). The existing 23–24 triages are preserved. Forty previously missing 29–30 review triages now distinguish scoped candidate references from context-only pages. The original worked scenarios remain fictional and their independent acceptance remains pending.
 
-Primary public material was consulted from SEC Investor.gov's order-type/stop guidance, fees, diversification and halts, SEC financial-statement and EDGAR instructions, IRS Pub 550 and NYSE calendars, together with QuantConnect statistical definitions. The observed link corrections are recorded individually in the JSON source-change manifest. A resolved link is not proof that a source independently corroborates a complete claim, authorizes redistribution or validates a specific numerical convention.
+Primary public material was consulted from SEC Investor.gov's order-type/stop guidance, fees, diversification and halts, SEC financial-statement and EDGAR instructions, FINRA's published cost-basis explainer (with an IRS Publication 550 reference) and NYSE calendars, together with QuantConnect statistical definitions. The observed link corrections are recorded individually in the JSON source-change manifest. A resolved link is not proof that a source independently corroborates a complete claim, authorizes redistribution or validates a specific numerical convention.
 
 ## Verification and release controls
 
