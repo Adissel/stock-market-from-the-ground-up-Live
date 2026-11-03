@@ -21,7 +21,7 @@ for(const x of guards)assert(api.includes(x),'RC13 scoped QA beta safety conditi
 for(const id of ['f42f9301-18e6-43a3-8531-32d371fd22c1','bf3d5823-946d-4478-8d0f-cbea33495e5b'])
  assert.equal((api.match(new RegExp(id,'g'))||[]).length,1,'Only two exact enrolled QA users may be admitted');
 assert(api.includes("new Set(['tape10','indicators10','filings7'])"));
-assert(api.includes('competencyMasteryAwarded:false'),'Mastery must remain absent');
+assert(api.includes('result.competencyMasteryAwarded!==false'),'Stored Academy progress must fail closed on unexpected mastery');
 assert(runner.includes("if(probe.status===200){qaRouteReady=true;break;}"));
 assert(runner.includes("assert.equal(stale.status,409"));
 assert(runner.includes("NOT six genuine 30–45 minute browser study journeys"));
