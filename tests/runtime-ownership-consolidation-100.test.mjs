@@ -132,7 +132,7 @@ test('Dashboard maintains keyboard-accessible section ordering',()=>{
 });
 test('chart canvas does not inherit always-on HTML drag behavior',()=>{
  assert.doesNotMatch(front,/x\.draggable=layout\.classList/);
- assert.match(front,/\.sim-layout > \*/);
+ assert.match(front,/qsa\(':scope > \*',layout\)/);
 });
 test('Cloudflare build enforces consolidated source contracts',()=>{
  assert.match(build,/node --test tests\/runtime-ownership-consolidation-100\.test\.mjs/);
