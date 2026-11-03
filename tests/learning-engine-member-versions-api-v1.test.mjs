@@ -13,7 +13,7 @@ const flexPlan={plan_code:'PICK_WHAT_YOU_WANT',name:'Pick What You Want',active:
  metadata:{learning_engines_v1:{...FREE,revision:1}}};
 const fullPlan={plan_code:'FULL_MONTHLY',name:'Full Platform',active:true,public_visible:false,metadata:{}};
 const allPlans=[freePlan,flexPlan,fullPlan];
-function setup({role='OWNER',flag='',sub=null}={}){
+function setup({role='OWNER',flag='',sub=null,planGrant=null}={}){
  const calls=[],saved=[];const original=globalThis.fetch;
  globalThis.fetch=async(url,opts={})=>{
   const u=new URL(String(url)),path=u.pathname;
@@ -25,6 +25,7 @@ function setup({role='OWNER',flag='',sub=null}={}){
    return result(['OWNER','SHOWCASE_VIEWER'].includes(role)?[{role_code:role,expires_at:null}]:[]);
   if(path.endsWith('/rest/v1/admin_user_flags'))return result(flag?[{status:flag}]:[]);
   if(path.endsWith('/rest/v1/site_subscriptions'))return result(sub?[sub]:[]);
+  if(path.endsWith('/rest/v1/user_plan_grants'))return result(planGrant?[planGrant]:[]);
   if(path.endsWith('/rest/v1/platform_plans')){
    const code=/plan_code=eq\.([A-Z_0-9]+)/.exec(u.search);
    return result(code?allPlans.filter(p=>p.plan_code===code[1]):allPlans);
@@ -200,5 +201,44 @@ test('Auth provider outage remains a 503 rather than falsely asserting invalid c
   const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
   assert.equal(response.status,503);
   assert.equal((await response.json()).ok,false);
+ }finally{m.restore()}
+});
+
+test('Active canonical plan grant selects member edition versions without granting premium',async()=>{
+ const m=setup({planGrant:{plan_code:'FULL_MONTHLY',status:'active',
+  starts_at:'2026-01-01T00:00:00Z',ends_at:'2099-01-01T00:00:00Z'}});
+ try{
+  const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(r.status,200);const x=await r.json();
+  assert.equal(x.planCode,'FULL_MONTHLY');assert.deepEqual(x.versions,CURRENT);
+  assert.equal(x.engineTierPolicy.premiumFeaturesReleased,false);
+  assert.equal(x.classroom.engines.learning.effectiveEdition,'BASIC');
+  assert(m.calls.some(c=>c.path.endsWith('/rest/v1/user_plan_grants')));
+  assert(m.calls.every(c=>c.method==='GET'));
+ }finally{m.restore()}
+});
+test('Cancelled, future-started and expired canonical plan grants select safe Free versions',async()=>{
+ for(const grant of [
+  {status:'canceled',starts_at:'2026-01-01T00:00:00Z',ends_at:'2099-01-01T00:00:00Z'},
+  {status:'active',starts_at:'2099-01-01T00:00:00Z',ends_at:'2099-02-01T00:00:00Z'},
+  {status:'active',starts_at:'2026-01-01T00:00:00Z',ends_at:'2026-02-01T00:00:00Z'}
+ ]){
+  const m=setup({planGrant:{plan_code:'FULL_MONTHLY',...grant}});
+  try{
+   const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+   assert.equal(r.status,200);
+   assert.equal((await r.json()).planCode,'FREE');
+  }finally{m.restore()}
+ }
+});
+test('Owner-controlled active lifetime grant keeps plan label but does not grant Enterprise',async()=>{
+ const m=setup({planGrant:{plan_code:'LIFETIME',status:'active',
+  starts_at:'2026-01-01T00:00:00Z',ends_at:null}});
+ try{
+  const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(r.status,200);
+  const x=await r.json();
+  // No registered LIFETIME plan in this fixture: unrecognized plans fail closed.
+  assert.equal(x.planCode,'FREE');assert.equal(x.engineTierPolicy.premiumFeaturesReleased,false);
  }finally{m.restore()}
 });
