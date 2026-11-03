@@ -13,6 +13,7 @@ const front=read('assets/js/frontend-complete.js');
 const production=read('assets/js/production.js');
 const runtime=read('assets/js/sitewide-runtime.js');
 const css=read('assets/css/frontend-complete.css');
+const teachingCss=read('assets/css/teaching-full-width-v1.css');
 const build=read('scripts/build-pages.sh');
 const start=mw.indexOf('const LEGACY_COPY_FIX_ROUTES=');
 const stop=mw.indexOf('const JSON_HEADERS=',start);
@@ -135,4 +136,20 @@ test('chart canvas does not inherit always-on HTML drag behavior',()=>{
 });
 test('Cloudflare build enforces consolidated source contracts',()=>{
  assert.match(build,/node --test tests\/runtime-ownership-consolidation-100\.test\.mjs/);
+});
+
+test('mobile teaching shells do not clip chart menus or overlays',()=>{
+ const mobile=teachingCss.slice(teachingCss.indexOf('/* Mobile chart and instructional overlay access.'));
+ assert(mobile.startsWith('/* Mobile chart and instructional overlay access.'));
+ assert.match(mobile,/@media\(max-width:640px\)/);
+ assert.match(mobile,/body\.gu-teaching-wide main\.section>/);
+ assert.match(mobile,/body\.gu-lab-member\.gu-teaching-wide #app/);
+ assert.match(mobile,/body\.gu-bc-learning\.gu-teaching-wide \.academy-study-grid/);
+ assert.match(mobile,/overflow-x:visible!important/);
+ assert.match(mobile,/overflow-y:visible!important/);
+ assert.doesNotMatch(mobile,/overflow-x:hidden/);
+});
+test('horizontal instructional controls remain scrollable on mobile',()=>{
+ assert.match(teachingCss,/\.gu-learning-top-nav\{[\s\S]*?overflow-x:auto!important/);
+ assert.match(teachingCss,/:is\(pre,table\)\{[\s\S]*?overflow-x:auto!important/);
 });
