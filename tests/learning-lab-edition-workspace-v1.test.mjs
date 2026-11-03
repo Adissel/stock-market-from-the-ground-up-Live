@@ -30,8 +30,12 @@ function setup({grant=true,revoked=false,expired=false,suspended=false,
   if(loc.pathname==='/rest/v1/admin_user_roles')return ok([]);
   if(loc.pathname==='/rest/v1/rpc/user_has_tool_access')return ok(true);
   if(loc.pathname==='/rest/v1/gu_product_access_config_v1')return ok([]);
-  if(loc.pathname==='/rest/v1/user_plan_grants')return ok([]);
-  if(loc.pathname==='/rest/v1/site_subscriptions')return ok([{plan_code:'FOUNDING_30',
+  if(loc.pathname==='/rest/v1/user_plan_grants')return ok(enterprise?[{
+   plan_code:'LIFETIME',status:'active',starts_at:'2026-01-01T00:00:00Z',
+   ends_at:'2099-01-01T00:00:00Z',metadata:{engine_edition_grants_v1:{lab:{
+    active:true,revoked,edition:'ENTERPRISE',expiresAt:'2098-01-01T00:00:00Z'}}}
+  }]:[]);
+  if(loc.pathname==='/rest/v1/site_subscriptions')return ok(enterprise?[]:[{plan_code:'FOUNDING_30',
    status:'active',current_period_end:'2099-01-01T00:00:00Z',
    metadata:{engine_edition_grants_v1:grant?{lab:{active:true,edition:enterprise?'ENTERPRISE':'ADVANCED',
     expiresAt:expired?'2020-01-01T00:00:00Z':'2098-01-01T00:00:00Z',revoked}}:{}}}]);
