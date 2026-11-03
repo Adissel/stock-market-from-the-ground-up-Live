@@ -4,6 +4,7 @@
 import assert from 'node:assert/strict';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {chromium} from 'playwright';
+import {createHmac} from 'node:crypto';
 
 // The build writes its Cloudflare commit SHA to public/release-manifest.json.
 // Verify the production domain before AND after browser acceptance: a green
@@ -252,7 +253,16 @@ try{
     'Distinct authenticated staff identity, permission API and real prototype toolbar verified');
   }finally{await sc.close()}
  }
- const secondEmail=process.env.CROWN_QA_FREE_EMAIL||'',secondPwd=process.env.CROWN_QA_FREE_PASSWORD||'';
+ // Reuse the independently authenticated second noncommercial member account
+ // already established by Academy privacy QA; no synthetic session or paid grant.
+ const directSecondary=!!(process.env.CROWN_QA_FREE_EMAIL&&process.env.CROWN_QA_FREE_PASSWORD);
+ const explicitSecondary=!!(process.env.LAB_QA_SECOND_EMAIL&&process.env.LAB_QA_SECOND_PASSWORD);
+ const secondEmail=directSecondary?process.env.CROWN_QA_FREE_EMAIL:
+  explicitSecondary?process.env.LAB_QA_SECOND_EMAIL:
+  'stockmarketfromthegroundup+smfgu-qa2v1@gmail.com';
+ const secondPwd=directSecondary?process.env.CROWN_QA_FREE_PASSWORD:
+  explicitSecondary?process.env.LAB_QA_SECOND_PASSWORD:
+  (pwd?createHmac('sha256',pwd).update('smfgu:isolated-second-qa:2026-10-31:v1').digest('hex')+'Qa2!':'');
  if(!secondEmail||!secondPwd){
   output.twoAccount='BLOCKED_SECOND_ACCOUNT_SECRETS';
   mark('Cross-member Tutor privacy','BLOCKED','Independent QA_Secondary credentials were not configured; no impersonation attempted');
