@@ -93,7 +93,7 @@ BEGIN
   RAISE EXCEPTION 'Duplicate article slug in batch' USING ERRCODE='23505'; END IF;
  FOR d IN SELECT value FROM jsonb_array_elements(p_docs) LOOP
   v_slug:=coalesce(d->>'slug','');
-  IF v_slug !~ '^knowledge-b002-[a-z0-9]+(-[a-z0-9]+)*$' OR length(v_slug)>100
+  IF v_slug !~ '^knowledge-b003-[a-z0-9]+(-[a-z0-9]+)*$' OR length(v_slug)>100
     OR EXISTS(SELECT 1 FROM public.gu_knowledge_articles_v1 WHERE slug=v_slug)
   THEN RAISE EXCEPTION 'Duplicate/invalid or already published slug: %',v_slug USING ERRCODE='23505'; END IF;
   IF d->>'learning_level' NOT IN ('beginner','intermediate','advanced','professional','institutional_quantitative')
