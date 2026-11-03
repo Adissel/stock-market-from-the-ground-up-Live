@@ -6,7 +6,7 @@ import {answerFromGuide,originalGuides} from '../functions/_lib/original-compete
 const read=(name)=>JSON.parse(readFileSync(new URL('../data/'+name,import.meta.url),'utf8'));
 const batches=[6,7,8,9].map(n=>read('talia-foundation-explanations-batch0'+n+'-v1.json'));
 const topics=batches.flatMap(x=>x.guides);
-test('80 structurally unique Foundation topics have single usable source and individual HOLD statuses',()=>{
+test('80 structurally unique Foundation topics have bounded sources and individual HOLD statuses',()=>{
  assert.deepEqual(batches.map(b=>b.guides.length),[20,20,20,20]);
  assert.equal(topics.length,80);
  assert.equal(new Set(topics.map(g=>g.code)).size,80);
@@ -15,8 +15,15 @@ test('80 structurally unique Foundation topics have single usable source and ind
   assert.equal(g.officialCompetency,false,g.code);
   assert.equal(g.independentEditorialApproved,false,g.code);
   assert.equal(g.editorSourceReview.independentPublicationAccepted,false,g.code);
-  assert.equal(g.sourceUrls.length,1,g.code+' must not silently disable its 20-topic batch');
-  const u=new URL(g.sourceUrls[0]);assert.equal(u.protocol,'https:',g.code);
+  assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2,g.code+' source count must remain bounded');
+  for(const source of g.sourceUrls){const u=new URL(source);assert.equal(u.protocol,'https:',g.code);}
+  if(g.sourceUrls.length===2){
+   assert.equal(g.code,'TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN');
+   assert.equal(g.previousGenericSourceUrl,'https://www.investor.gov/introduction-investing');
+   assert.ok(g.sourceUrls.every(url=>url.startsWith('https://www.quantconnect.com/docs/')));
+   assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }
   assert.match(g.workedCase,/^FICTIONAL:/,g.code);
   for(const field of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']){
    assert.ok(g[field]?.length>=70 || field==='title',g.code+' incomplete '+field);
