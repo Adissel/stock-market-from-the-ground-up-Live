@@ -124,7 +124,17 @@ with sync_playwright() as p:
    context,page=open_page(route,width,signed=False)
    assert page.locator('#gu-workspace-sidebar,#gu-workspace-toggle').count()==0
    if route=='signin.html':
-    assert page.locator('#gu-signin-center>.gu-signin-form-column').count()==1,'Sign-in fields must share one column'
+    # Navigation/ad enhancers may reparent presentation wrappers, but the two
+    # credentials must remain inside one canonical form and one vertical field
+    # column. Assert actual user-facing geometry, not a specific parent class.
+    form=page.locator('#gu-signin-center form')
+    assert form.count()==1,(width,'Sign-in must have exactly one canonical form')
+    ident=form.locator('#login-identifier');password=form.locator('#login-password')
+    assert ident.count()==1 and password.count()==1,(width,'Sign-in identifiers missing or duplicated')
+    i_box,p_box=ident.bounding_box(),password.bounding_box()
+    assert i_box and p_box,(width,'Sign-in credential fields must be visible')
+    assert p_box['y']>=i_box['y']+i_box['height']-3,(width,'Password should be below identifier',i_box,p_box)
+    assert abs(p_box['x']-i_box['x'])<=6,(width,'Credential fields must share one left alignment',i_box,p_box)
     assert page.locator('.gu-auth-primary-actions button').count()==2,'Sign In and Create Account buttons required'
     bounds=page.locator('#gu-signin-center').bounding_box()
     form_width=page.locator('#gu-signin-center form').bounding_box()['width']
