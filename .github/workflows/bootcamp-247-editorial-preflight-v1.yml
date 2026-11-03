@@ -89,7 +89,8 @@ jobs:
             echo "Coverage: 247-day canonical length, 20 Risk60 authored/unique fictional cases and transfer scenarios, independently recalculated example math, protected grading=false, Charts45 and first-22 regressions, nonapproving review-register export."
             echo "Does NOT constitute 247-day editorial approval, protected grading, human independent assessment, authentic member browser acceptance or proof of historical market-data rights."
           } > /tmp/risk60-ci.md
-          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci.md ||
+            echo "::warning::Issue #157 is unavailable in this repository; passing source evidence remains in this exact-SHA workflow and artifact."
       - name: Record failed 247-day authoring regression without masking failure
         if: failure()
         env:
@@ -101,4 +102,5 @@ jobs:
             echo "Inspect failing job logs: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo "The source/deployment and curriculum acceptance must remain separate. No official grades, 247-day editorial approval or historical replay licensing is implied."
           } > /tmp/risk60-ci-failed.md
-          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci-failed.md
+          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/risk60-ci-failed.md ||
+            echo "::warning::Issue #157 is unavailable in this repository; the original failing step and logs remain authoritative."
