@@ -72,8 +72,114 @@
     list.append(li);
    }
    section.append(list);
+   const bookmark=element('div');bookmark.className='gu-academy-enterprise-bookmark';
+   bookmark.append(element('h5','Private study bookmark'));
+   bookmark.append(element('p','Choose where to resume. Saving a bookmark does not complete an Academy day, record an assessment, or award mastery.'));
+   const chooser=element('select');chooser.id='academy-enterprise-bookmark-stage';
+   for(const stage of journey.stages){
+    const option=element('option','Stage '+stage.number+': '+stage.phase);
+    option.value=String(stage.number);chooser.append(option);
+   }
+   const stageLabel=element('label','Research stage to resume');
+   stageLabel.htmlFor=chooser.id;
+   bookmark.append(stageLabel,chooser);
+   const actions=element('div');actions.className='gu-academy-enterprise-bookmark-actions';
+   const save=element('button','Save private study bookmark');
+   const restore=element('button','Restore private study bookmark');
+   save.type='button';restore.type='button';
+   actions.append(save,restore);bookmark.append(actions);
+   const status=element('p','Loading your private bookmark…');
+   status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+   bookmark.append(status);section.append(bookmark);
+   let revision=0,loaded=false,busy=false;
+   const endpoint='/api/learning-lab-edition-workspace';
+   const key='ACADEMY_ENTERPRISE_PATH_V1';
+   const activity='enterprise_academy_bookmark';
+   const updateDisabled=()=>{
+    save.disabled=restore.disabled=busy||!current();
+    chooser.disabled=busy||!current();
+   };
+   const token=async()=>{
+    if(!current())return null;
+    const refreshed=await client.auth.getSession();
+    if(!current())return null;
+    const active=refreshed?.data?.session;
+    if(active?.user?.id!==userId||!active.access_token){
+     reset();return null;
+    }
+    return active.access_token;
+   };
+   const validStored=data=>data?.workspace?.summary?.schema===
+    'smfgu.learning.enterprise-path-bookmark.v1'&&
+    data.workspace.summary.researchActivity===activity&&
+    Number.isSafeInteger(data.workspace.revision)&&data.workspace.revision>0&&
+    Number.isSafeInteger(data.workspace.summary.stageNumber)&&
+    data.workspace.summary.stageNumber>=1&&data.workspace.summary.stageNumber<=7&&
+    data.workspace.summary.officialGrade===false&&
+    data.workspace.summary.independentCompletionRecorded===false;
+   const reload=async()=>{
+    if(busy||!current())return;
+    busy=true;updateDisabled();
+    try{
+     const access=await token();if(!access)return;
+     const uri=endpoint+'?'+new URLSearchParams({
+      family:'learning',edition:'ENTERPRISE',caseKey:key,activity
+     });
+     const response=await fetch(uri,{method:'GET',cache:'no-store',
+      credentials:'same-origin',signal,headers:{authorization:'Bearer '+access}});
+     const data=await response.json().catch(()=>null);
+     if(!current())return;
+     if(!response.ok||data?.ok!==true||typeof data.found!=='boolean')
+      throw Error('Private research bookmark unavailable.');
+     if(data.found){
+      if(!validStored(data))throw Error('Stored research bookmark is not recognized.');
+      revision=data.workspace.revision;
+      chooser.value=String(data.workspace.summary.stageNumber);
+      status.textContent='Restored stage '+chooser.value+'. This is a private study position, not course completion.';
+     }else{
+      revision=0;
+      status.textContent='No saved research bookmark. Select a stage and save to resume later.';
+     }
+     loaded=true;
+    }catch{
+     if(current()){loaded=false;status.textContent='Unable to restore the private bookmark. Academy study links remain available.';}
+    }finally{busy=false;updateDisabled();}
+   };
+   const saveBookmark=async()=>{
+    if(busy||!current())return;
+    if(!loaded){status.textContent='Restore your current bookmark before saving to avoid overwriting another session.';return;}
+    const stageNumber=Number(chooser.value);
+    if(!Number.isSafeInteger(stageNumber)||stageNumber<1||stageNumber>7)return;
+    busy=true;updateDisabled();
+    try{
+     const access=await token();if(!access)return;
+     const response=await fetch(endpoint,{method:'POST',cache:'no-store',
+      credentials:'same-origin',signal,
+      headers:{authorization:'Bearer '+access,'content-type':'application/json'},
+      body:JSON.stringify({family:'learning',edition:'ENTERPRISE',caseKey:key,activity,
+       expectedRevision:revision,payload:{stageNumber}})
+     });
+     const data=await response.json().catch(()=>null);
+     if(!current())return;
+     if(response.status===409){
+      loaded=false;
+      status.textContent='Bookmark changed in another session. Restore the latest revision before saving.';
+      return;
+     }
+     if(!response.ok||data?.ok!==true||
+       !Number.isSafeInteger(data.workspace?.revision)||
+       data.workspace.revision!==revision+1)throw Error('Save unavailable.');
+     revision=data.workspace.revision;
+     status.textContent='Saved private stage '+stageNumber+'. No completion or mastery was recorded.';
+    }catch{
+     if(current())status.textContent='Private bookmark could not be saved. Your Academy study remains available.';
+    }finally{busy=false;updateDisabled();}
+   };
+   restore.addEventListener('click',reload);
+   save.addEventListener('click',saveBookmark);
    if(!current())return;
    host.replaceChildren(section);host.hidden=false;
+   await reload();
   }catch{/* Denied, unavailable and interrupted research never block Basic study. */}
  }
  root.CrownlightAcademyEnterpriseResearchV1=Object.freeze({mount,scrub:reset});
