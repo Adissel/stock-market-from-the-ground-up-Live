@@ -1,3 +1,4 @@
+import {mountConstellationGalaxy} from './prototype-constellation-galaxy-v2.js';
 /* Owner-only Learning Constellation. Read-only public source metadata.
    Never loads grades, secrets, member progress, market feeds or order APIs. */
 const STAGES=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
@@ -26,7 +27,7 @@ const pretty=x=>String(x).replace(/_/g,' ').toLowerCase().replace(/\b[a-z]/g,c=>
 export function mountLearningConstellation(host){
  if(!host)throw Error('Owner/Admin prototype host required');
  const root=document.createElement('section');root.className='lc-app';
- root.innerHTML='<div class="lc-head"><div><span class="lc-eyebrow">CROWNLIGHT · VISUAL LEARNING SYSTEM / PROTOTYPE 01</span>'+
+ root.innerHTML='<div class="lc-head"><div><span class="lc-eyebrow">CROWNLIGHT · VOLUMETRIC LEARNING GALAXY / PROTOTYPE V4</span>'+
  '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Stop looking at lists. Orbit a dimensional learning galaxy: nine stages, 419 Labs, ten Boot Camps and source-backed Tutor guides.</p></div>'+
  '<div class="lc-head-side"><strong class="lc-live"><i></i>INTERACTIVE / OWNER PREVIEW</strong>'+
  '<a href="/prototype.html?view=classic">Open Classic Builder</a><a href="/prototype.html?experience=a">Return to Chart Studio</a></div></div>'+
@@ -45,12 +46,12 @@ export function mountLearningConstellation(host){
  '<div class="lc-item-list" data-lc="list"></div>'+
  '<div class="lc-guard"><b>FICTIONAL / INSTRUCTIONAL</b><p>No member records, protected answers or brokerage trades.</p></div></aside>'+
  '<section class="lc-center"><div class="lc-map-head"><div><strong data-lc="map-title">One system. Nine stages.</strong>'+
- '<span>Orbit the learning galaxy, inspect a node, or switch to the accessible flat view.</span></div>'+
+ '<span>Spatial curriculum exploration · source-linked nodes · full keyboard and 2D fallback.</span></div>'+
  '<div class="lc-map-tools"><button data-lc="minus" type="button" aria-label="Zoom out">−</button>'+
  '<span data-lc="scale">100%</span><button data-lc="plus" type="button" aria-label="Zoom in">+</button>'+
- '<button data-lc="orbit-left" type="button" aria-label="Orbit left">↶</button>'+'<button data-lc="orbit-right" type="button" aria-label="Orbit right">↷</button>'+'<button data-lc="pitch-up" type="button" aria-label="Tilt map upward">↑</button>'+'<button data-lc="pitch-down" type="button" aria-label="Tilt map downward">↓</button>'+'<label class="lc-depth-label" for="lc-depth">Depth <input id="lc-depth" data-lc="depth" type="range" min="0" max="100" value="68" aria-label="3D depth intensity"></label>'+'<button data-lc="interaction" type="button" aria-pressed="true">Orbit drag</button>'+'<button data-lc="flatten" type="button" aria-pressed="false">2D view</button>'+'<button data-lc="reset" type="button">Reset</button></div></div>'+
+ '<button data-lc="orbit-left" type="button" aria-label="Orbit left">↶</button>'+'<button data-lc="orbit-right" type="button" aria-label="Orbit right">↷</button>'+'<button data-lc="pitch-up" type="button" aria-label="Tilt map upward">↑</button>'+'<button data-lc="pitch-down" type="button" aria-label="Tilt map downward">↓</button>'+'<label class="lc-depth-label" for="lc-depth">Depth <input id="lc-depth" data-lc="depth" type="range" min="0" max="100" value="68" aria-label="3D depth intensity"></label>'+'<button data-lc="focus" type="button">Focus node</button>'+'<button data-lc="stars-toggle" type="button" aria-pressed="true" aria-label="Toggle dimensional starfield">Stars on</button>'+'<button data-lc="interaction" type="button" aria-pressed="true">Orbit drag</button>'+'<button data-lc="flatten" type="button" aria-pressed="false">2D view</button>'+'<button data-lc="reset" type="button">Reset</button></div></div>'+
  '<div class="lc-canvas" data-lc="canvas" tabindex="0" role="group" aria-label="Interactive perspective 3D curriculum map. Arrow keys orbit, plus or minus zoom. A 2D view is available.">'+
- '<div class="lc-stars" aria-hidden="true"></div><div class="lc-world" data-lc="world">'+
+ '<canvas class="lc-galaxy-layer" data-lc="galaxy" aria-hidden="true"></canvas>'+'<div class="lc-stars" aria-hidden="true"></div><div class="lc-world" data-lc="world">'+
  '<svg viewBox="0 0 1000 650" class="lc-edges" aria-hidden="true"></svg>'+
  '<div class="lc-points" data-lc="points"></div></div>'+
  '<span class="lc-map-tip">DRAG NODES TO REARRANGE · ORBIT / PAN BACKGROUND · ARROW KEYS TO ROTATE · FLAT VIEW AVAILABLE</span></div>'+
@@ -65,10 +66,11 @@ export function mountLearningConstellation(host){
  '<p>Uses real curriculum indexes; no key exposure or future candle data.</p></footer></aside></div>';
  host.replaceChildren(root);
  const q=n=>root.querySelector('[data-lc="'+n+'"]');
- const canvas=q('canvas'),world=q('world'),points=q('points'),svg=root.querySelector('.lc-edges');
+ const canvas=q('canvas'),world=q('world'),points=q('points'),svg=root.querySelector('.lc-edges'),galaxyCanvas=q('galaxy');
  const source={labs:null,guides:[]};
  const state={mode:'journey',selected:'hub',items:[],edges:[],positions:new Map(),zoom:1,x:0,y:0,drag:null,yaw:.27,pitch:.16,depth:.68,flat:false,interaction:'orbit'};
  const abort=new AbortController();let closed=false;
+ const galaxy=mountConstellationGalaxy(galaxyCanvas,()=>state);
  const node=(id,title,meta,x,y,kind,description,evidence)=>({id,title,meta,x,y,kind,description,evidence});
  function makeModel(){
   const items=[],edges=[];
@@ -175,6 +177,7 @@ export function mountLearningConstellation(host){
    btn.style.transform='translate(-50%,-50%) scale('+p.scale.toFixed(3)+')';
    btn.style.zIndex=String(Math.round(50+p.depth/8)+(state.selected===n.id?100:0));
   });
+  galaxy.render();
  }
 
  function choose(id){
@@ -232,7 +235,7 @@ export function mountLearningConstellation(host){
   choose('hub');renderList();
  }
  function transform(){world.style.transform='translate('+state.x+'px,'+state.y+'px) scale('+state.zoom+')';
-  q('scale').textContent=Math.round(state.zoom*100)+'%';}
+  q('scale').textContent=Math.round(state.zoom*100)+'%';galaxy.render();}
  function fit(){const w=canvas.clientWidth,h=canvas.clientHeight;if(w<10)return;
   state.zoom=clamp(Math.min((w-20)/1000,(h-20)/650),.35,1.25);
   state.x=(w-1000*state.zoom)/2;state.y=(h-650*state.zoom)/2;transform();}
@@ -256,10 +259,12 @@ export function mountLearningConstellation(host){
    else{state.x=d.x+dx;state.y=d.y+dy;transform();}
  });
  const release=e=>{const d=state.drag;if(!d||d.id!==e.pointerId)return;
-  // Pointer capture retargets click to the canvas. Select on pointerup so
-  // a node remains clickable by mouse/touch after the pan/drag guard.
-  if(d.n){if(d.moved)d.btn.dataset.dragged='1';choose(d.n.id)}
-  state.drag=null;try{canvas.releasePointerCapture(e.pointerId)}catch{}};
+  // Release capture from the element that owns it; never leave chart motion latched.
+  if(e.type==='pointerup'&&d.n){if(d.moved)d.btn.dataset.dragged='1';choose(d.n.id)}
+  state.drag=null;
+  const owner=d.btn&&d.btn.hasPointerCapture?.(e.pointerId)?d.btn:canvas;
+  try{if(owner.hasPointerCapture?.(e.pointerId))owner.releasePointerCapture(e.pointerId)}catch{}
+ };
  canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);
  canvas.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?1.09:.92)},{passive:false});
  q('plus').addEventListener('click',()=>zoom(1.2));
@@ -270,6 +275,20 @@ export function mountLearningConstellation(host){
   q('flatten').setAttribute('aria-pressed','false');
   q('flatten').textContent='2D view';drawEdges();
  }
+ q('focus').addEventListener('click',()=>{
+  const n=state.items.find(n=>n.id===state.selected);
+  if(!n)return;
+  const p=project(n);
+  state.x=canvas.clientWidth/2-p.x*state.zoom;
+  state.y=canvas.clientHeight/2-p.y*state.zoom;
+  transform();
+ });
+ q('stars-toggle').addEventListener('click',()=>{
+  galaxyCanvas.hidden=!galaxyCanvas.hidden;
+  q('stars-toggle').textContent=galaxyCanvas.hidden?'Stars off':'Stars on';
+  q('stars-toggle').setAttribute('aria-pressed',String(!galaxyCanvas.hidden));
+  if(!galaxyCanvas.hidden)galaxy.render();
+ });
  q('orbit-left').addEventListener('click',()=>orbit(-.16,0));
  q('orbit-right').addEventListener('click',()=>orbit(.16,0));
  q('pitch-up').addEventListener('click',()=>orbit(0,.12));
@@ -316,5 +335,5 @@ export function mountLearningConstellation(host){
   if(source.guides.length)q('tutor-num').textContent=String(source.guides.length);
   layout();fit();
  }).catch(()=>{});
- return()=>{closed=true;abort.abort();observer.disconnect();root.remove()};
+ return()=>{closed=true;abort.abort();observer.disconnect();galaxy.dispose();root.remove()};
 }

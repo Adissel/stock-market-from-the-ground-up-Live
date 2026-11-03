@@ -164,3 +164,35 @@
 #pt-experiences-root .lc-canvas:focus-visible{outline:3px solid #ffc87c;outline-offset:-4px}
 @media(max-width:700px){#pt-experiences-root .lc-map-tools{justify-content:flex-start}#pt-experiences-root .lc-depth-label input{width:60px}}
 @media(prefers-reduced-motion:reduce){#pt-experiences-root .lc-point{will-change:auto}#pt-experiences-root .lc-map-tools button{transition:none}}
+
+
+/* V4 rendered-depth galaxy: decorative WebGL layer, semantic nodes remain HTML. */
+#pt-experiences-root .lc-head{position:relative;isolation:isolate;border:1px solid #3b697b;border-radius:18px;padding:clamp(16px,2vw,30px);background:radial-gradient(circle at 78% 35%,#45339477,transparent 45%),linear-gradient(120deg,#061a2d,#0b2933 56%,#090f21);box-shadow:inset 0 0 1px #83fff9,0 15px 38px #0009}
+#pt-experiences-root .lc-head:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 18% 43% at 74% 40%,#73ffed44,transparent 88%),radial-gradient(ellipse 28% 50% at 88% 70%,#a67aff33,transparent 88%)}
+#pt-experiences-root .lc-head h1{font-size:clamp(33px,4vw,69px);letter-spacing:-.065em;max-width:850px;text-shadow:0 6px 15px #000c}
+#pt-experiences-root .lc-head h1 em{background:linear-gradient(95deg,#78ffe9,#79d5ff,#ca8bff);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 0 9px #4bf3ec85)}
+#pt-experiences-root .lc-head-side{position:relative;z-index:1}
+#pt-experiences-root .lc-metrics>div{position:relative;overflow:hidden;border:1px solid #426982;background:linear-gradient(135deg,#193c4c,#101e3c 53%,#0b1830);box-shadow:inset 1px 1px #91f7ff20,0 9px 16px #0007}
+#pt-experiences-root .lc-metrics>div:before{content:"";position:absolute;top:-50px;right:-30px;width:94px;height:94px;transform:rotate(45deg);background:#5bdff327;filter:blur(28px)}
+#pt-experiences-root .lc-metrics strong{color:#c3a3ff;text-shadow:0 0 18px #a569ff44}
+#pt-experiences-root .lc-center{border:1px solid #43839a;box-shadow:0 21px 55px #01060ae6,0 0 30px #39ffdf20,inset 0 1px #91fff145}
+#pt-experiences-root .lc-map-head{background:linear-gradient(110deg,#0d3440,#111b38 68%,#2a2045)}
+#pt-experiences-root .lc-canvas{background:radial-gradient(ellipse 27% 38% at 48% 53%,#2576a368,transparent 92%),radial-gradient(ellipse 45% 47% at 53% 46%,#302f826b,transparent 95%),radial-gradient(ellipse 40% 33% at 23% 83%,#8b386a4d,transparent 91%),#030814}
+#pt-experiences-root .lc-galaxy-layer{position:absolute;inset:0;display:block;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.94;mix-blend-mode:screen;contain:layout paint}
+#pt-experiences-root .lc-galaxy-layer[hidden]{display:none}
+#pt-experiences-root .lc-galaxy-layer[data-renderer="css-fallback"]{background:radial-gradient(circle at 47% 38%,#69edeb99 0 1px,transparent 2px),radial-gradient(circle at 66% 64%,#b99aff 0 2px,transparent 3px),radial-gradient(circle at 22% 83%,#78e8ff 0 1px,transparent 2px);background-size:67px 71px,107px 89px,133px 147px;opacity:.47}
+#pt-experiences-root .lc-stars{z-index:0;opacity:.18}
+#pt-experiences-root .lc-world{z-index:1}
+#pt-experiences-root .lc-map-tip{z-index:3;background:#061827de;border:1px solid #477083;border-radius:999px;padding:8px 14px;color:#c6faff;box-shadow:0 3px 15px #0009}
+#pt-experiences-root .lc-point{transition:box-shadow .17s,border-color .17s;filter:drop-shadow(0 8px 11px #0009)}
+#pt-experiences-root .lc-point.is-picked{outline:2px solid #dcfff7;outline-offset:3px;filter:drop-shadow(0 0 16px #70fff2a3)}
+#pt-experiences-root .lc-point-hub{background:radial-gradient(circle at 38% 20%,#a6ffedbb,#39899f 30%,#19345c 69%,#070c20 100%);border:2px solid #91ffee;box-shadow:inset 0 10px 18px #bafff53d,inset 0 -22px 30px #000b,0 0 50px #3cffd077,0 0 100px #a05dfc48,0 26px 28px #000e}
+#pt-experiences-root .lc-map-tools button:focus-visible{outline:3px solid #ffe2a3;outline-offset:2px}
+@media(max-width:700px){
+ #pt-experiences-root .lc-head{border-radius:14px;gap:12px}
+ #pt-experiences-root .lc-head h1{font-size:clamp(30px,7vw,46px)}
+ #pt-experiences-root .lc-map-tools{gap:4px}
+ #pt-experiences-root .lc-map-tools button{padding:7px 8px;font-size:11px;min-height:38px}
+ #pt-experiences-root .lc-map-tip{max-width:88%;text-align:center;white-space:normal;border-radius:9px}
+}
+@media(prefers-reduced-motion:reduce){#pt-experiences-root .lc-point{transition:none!important}}

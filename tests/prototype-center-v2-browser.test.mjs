@@ -257,6 +257,11 @@ try{
   await page.locator('#pt-content .pt-v3-modes button:has-text("Lab")').click();
 
   assert.equal(await page.locator('.pt-v3-hero').count(),1,'One integrated classroom shell');
+  assert.equal(await page.locator('.pt-v4-orbit').count(),1,'Classic Builder must render the integrated 3D orbital teaching overview');
+  assert.equal(await page.locator('.pt-v4-orbit-total').count(),4,'Learning stage, Labs, Boot Camp and competency totals must remain visible');
+  assert.equal(await page.locator('.pt-v4-orbit-ring').count(),3,'Three dimensional instructional rings must appear without an extra engine');
+  assert.equal(await page.locator('.pt-v4-orbit-nexus').count(),1,'Single shared Learning Engine hub');
+
   await page.locator('.pt-v3-stage-button').last().click();
   assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Results/);
   assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Preview position only/,'Preview cannot imply completion');

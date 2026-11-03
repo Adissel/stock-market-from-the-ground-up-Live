@@ -114,6 +114,18 @@ function classroom(root){
   note('Source inspector opened. Content is derived from existing curriculum indexes, not invented.');
  });
  navLinks.append(inspect);
+ const orbit=create('div',undefined,'pt-v4-orbit');
+ orbit.setAttribute('aria-label','The existing shared teaching system connects nine stages, 419 Labs, ten Boot Camps and source-backed Talia guides.');
+ const art=create('div',undefined,'pt-v4-orbit-art');art.setAttribute('aria-hidden','true');
+ for(let i=0;i<3;i++)art.append(create('div',undefined,'pt-v4-orbit-ring pt-v4-orbit-ring-'+i));
+ const nexus=create('div',undefined,'pt-v4-orbit-nexus');
+ nexus.append(create('strong','CROWNLIGHT'),create('small','SHARED LEARNING ENGINE 3.3'));art.append(nexus);
+ const totals=create('div',undefined,'pt-v4-orbit-totals');
+ [['09','Learning stages'],['419','Canonical Labs'],['10','Boot Camp paths'],['30','Competencies']].forEach(([quantity,title])=>{
+  const item=create('div',undefined,'pt-v4-orbit-total');
+  item.append(create('strong',quantity),create('span',title));totals.append(item);
+ });
+ orbit.append(art,totals);hero.append(orbit);
  hero.append(navLinks);root.append(hero);
  const choices=section('Lab and Boot Camp learning workspace','pt-card pt-v3-modes');
  choices.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;state.stage=0;draw()}));
@@ -139,6 +151,7 @@ function classroom(root){
  root.append(layout);
  window.CrownlightClassroomMemberships?.render?.(root);
  const stage=section('Shared Learning Engine v3.3 · Nine approved stages','pt-card pt-v3-stage');
+ stage.dataset.stage=String(state.stage);
  const names=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
  const explanations=[
   'Establish objectives and the evidence needed before interpreting price.',

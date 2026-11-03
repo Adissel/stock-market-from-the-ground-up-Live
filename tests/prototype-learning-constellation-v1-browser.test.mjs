@@ -23,7 +23,7 @@ const server=createServer((req,res)=>{
    '<script type="module">import {mountLearningConstellation} from "/assets/js/prototype-learning-constellation-v1.js";'+
    'window.__stop=mountLearningConstellation(document.getElementById("pt-experiences-root"));</script>');
  }
- if(!/^\/(?:assets\/(?:js|css)\/prototype-learning-constellation-v1\.(?:js|css)|data\/(?:competency-lab-paths-v01499|tutor-indicator-study-v1|tutor-indicator-expansion-v1)\.json)$/.test(pathname)){
+ if(!/^\/(?:assets\/(?:js\/prototype-constellation-galaxy-v2\.js|(?:js|css)\/prototype-learning-constellation-v1\.(?:js|css))|data\/(?:competency-lab-paths-v01499|tutor-indicator-study-v1|tutor-indicator-expansion-v1)\.json)$/.test(pathname)){
   res.writeHead(404);return res.end('Not found');
  }
  const file=resolve(origin,'.'+pathname);if(!file.startsWith(origin+'/')||!existsSync(file)){
@@ -45,6 +45,14 @@ try{
   await page.goto(address,{waitUntil:'networkidle',timeout:30000});
   await page.locator('.lc-point').first().waitFor();
   assert.equal(await page.locator('.lc-point').count(),10,'Initial nine stages plus central engine');
+  assert.equal(await page.locator('[data-lc="galaxy"]').count(),1,'Volumetric galaxy canvas must mount');
+  assert.match(await page.locator('[data-lc="galaxy"]').getAttribute('data-renderer'),/webgl|css-fallback/,'WebGL or accessible CSS fallback must render');
+  await page.locator('[data-lc="stars-toggle"]').click();
+  assert.equal(await page.locator('[data-lc="stars-toggle"]').getAttribute('aria-pressed'),'false','Stars must switch off');
+  assert.equal(await page.locator('[data-lc="galaxy"]').isHidden(),true,'Decorative starfield must hide');
+  await page.locator('[data-lc="stars-toggle"]').click();
+  assert.equal(await page.locator('[data-lc="galaxy"]').isHidden(),false,'Decorative starfield must restore');
+
   assert.equal((await page.locator('[data-lc="labs-num"]').innerText()).trim(),'419');
   assert.equal((await page.locator('[data-lc="tutor-num"]').innerText()).trim(),'73');
   assert(await page.locator('h1').innerText().then(s=>s.includes('CONSTELLATION')));
@@ -71,6 +79,8 @@ try{
   assert.equal(await page.locator('.lc-orbit-ring').count(),0,'Flat view must remove 3D orbit guides');
   await page.locator('[data-lc="flatten"]').click();
   assert.equal(await page.locator('.lc-orbit-ring').count(),3,'3D depth guides must return');
+  await page.locator('[data-lc="focus"]').click();
+  assert.equal(await page.locator('[data-lc="flatten"]').count(),1,'2D view remains available after focus');
   await page.locator('[data-lc="reset"]').click();
   assert.equal(await page.locator('[data-lc="depth"]').inputValue(),'68','Reset restores depth');
   await page.locator('[data-lc="canvas"]').focus();
@@ -105,6 +115,13 @@ try{
   console.log('CONSTELLATION_DRAG '+JSON.stringify({width,before,after,trace}));
   await page.screenshot({path:'artifacts/learning-constellation/drag-diagnostic-'+width+'.png',fullPage:true});
   assert.notEqual(before,after,'Node must be draggable');
+  const afterRelease=await page.evaluate(()=>{
+   const canvas=document.querySelector('[data-lc="canvas"]');
+   const x=canvas.getBoundingClientRect();
+   return {width:x.width,height:x.height,active:document.querySelectorAll('.lc-point.is-picked').length};
+  });
+  assert(afterRelease.width>100&&afterRelease.height>100,'Map remains interactive after drag release');
+
   assert.deepEqual(jsErrors,[],'No JavaScript exceptions');
   await page.screenshot({path:'artifacts/learning-constellation/map-'+width+'.png',fullPage:true});
   details.push({width,sourceLabs:419,tutorBriefs:73,academyPaths:10,zoom:true,drag:true,jsErrors:0});
