@@ -50,6 +50,12 @@ on:
       - 'assets/js/prototype-bootstrap-v3.js'
       - 'tests/prototype-private-document-v3.test.mjs'
       - '.github/workflows/prototype-center-v1.yml'
+  pull_request:
+    paths:
+      - 'assets/js/prototype-center-v1.js'
+      - 'assets/css/prototype-center-v7.css'
+      - 'tests/prototype-center-v2-browser.test.mjs'
+      - '.github/workflows/prototype-center-v1.yml'
   workflow_dispatch:
 permissions:
   contents: read
