@@ -213,7 +213,7 @@
       "invalidation": "HOLD when valuation time, contract terms, units, source rights, denominator, or required price cannot be verified. True portfolio risk contribution requires covariance structure.",
       "commonError": "Trading misconception: Adding these products as exact portfolio volatility assumes independence without evidence. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
       "selfCheck": "Reproduce the fictional calculation, correct the misconception, and identify one term or market fact that invalidates a trading conclusion.",
-      "reviewExplanation": "Ungraded lesson: 0.30 multiplied by 0.20 equals 0.06, or six percentage points. It is a standalone weighted-volatility exposure proxy; real portfolio component or marginal risk contribution requires return covariance. No official grading or trading recommendation.",
+      "reviewExplanation": "Ungraded Talia walkthrough: 0.30 multiplied by 0.20 equals 0.06, or six percentage points. It is a standalone weighted-volatility exposure proxy; real portfolio component or marginal risk contribution requires return covariance. No official grading or trading recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Weight 25% and volatility 16%: compute simplified exposure and name omission.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -720,7 +720,7 @@
       "invalidation": "HOLD when valuation time, contract terms, units, source rights, denominator, or required price cannot be verified. Before expiration, option value depends on time and volatility; exercise is not advice.",
       "commonError": "Trading misconception: Calling $53 a guaranteed exit target confuses payoff arithmetic with prediction. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
       "selfCheck": "Reproduce the fictional calculation, correct the misconception, and identify one term or market fact that invalidates a trading conclusion.",
-      "reviewExplanation": "Ungraded lesson: For a standard long call at expiration, strike plus paid premium per underlying share gives the break-even reference. Fictional $50+$3=$53 before costs. Written calls and puts require other formulas. No protected answer or individualized recommendation.",
+      "reviewExplanation": "Ungraded Talia walkthrough: For a standard long call at expiration, strike plus paid premium per underlying share gives the break-even reference. Fictional $50+$3=$53 before costs. Written calls and puts require other formulas. No protected answer or individualized recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Call strike $30, premium $1.50: compute simple expiration breakeven.",
       "sourceUrls": [
         "https://www.optionseducation.org/referencelibrary/faq/basics"
