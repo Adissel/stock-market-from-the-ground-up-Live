@@ -64,7 +64,7 @@ try{
   await page.locator('[data-lc="orbit-right"]').click();
   const projectedPoint=await page.locator('.lc-point').nth(1).evaluate(el=>({x:el.style.left,y:el.style.top}));
   assert.notDeepEqual(projectedPoint,basePoint,'3D orbit must reproject node coordinates');
-  await page.locator('[data-lc="depth"]').fill('28');
+  await page.locator('[data-lc="depth"]').evaluate(el=>{el.value='28';el.dispatchEvent(new Event('input',{bubbles:true}))});
   assert.equal(await page.locator('[data-lc="depth"]').inputValue(),'28','Depth setting must update');
   await page.locator('[data-lc="flatten"]').click();
   assert.equal(await page.locator('[data-lc="flatten"]').getAttribute('aria-pressed'),'true','2D fallback must activate');
