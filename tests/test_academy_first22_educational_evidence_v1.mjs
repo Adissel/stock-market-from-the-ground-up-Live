@@ -46,10 +46,20 @@ for(const code of ['watchlist7','scanners10']){
  for(let i=0;i<authored.length;i++){
   const lesson=authored[i],day=program.curriculum[i],id=code+':'+(i+1);
   assert.equal(day.title,lesson.title,'Canonical day identity drift: '+id);
-  assert.equal(day.lesson,lesson,'Academy runtime must use this original case: '+id);
+  if(code==='watchlist7'){
+   // Keep every frozen original field, with no promotion of the additive ungraded overlay.
+   for(const [key,value] of Object.entries(lesson))
+    assert.strictEqual(day.lesson[key],value,'Original first-22 case field changed: '+id+' '+key);
+   assert.equal(day.lesson.supplementarySourceStatus,
+    'ORIGINAL_WATCHLIST7_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
+  }else{
+   assert.strictEqual(day.lesson,lesson,'Academy runtime must use this original case: '+id);
+  }
   assert.equal(day.officiallyGraded,false);
   assert.equal(day.masteryAwarded,false);
-  assert.equal(day.sourceStatus,'original_day_specific_ungraded_independent_review_pending');
+  assert.equal(day.sourceStatus,code==='watchlist7'
+   ?'original_watchlist7_advanced_source_authored_technical_acceptance_pending'
+   :'original_day_specific_ungraded_independent_review_pending');
   for(const key of ['explanation','workedExample','reviewGuide','transfer','investigation','selfCheck','whenNot']){
    assert.equal(typeof lesson[key],'string','Missing '+key+' in '+id);
    assert(lesson[key].length>=45,'Trivial '+key+' in '+id);
