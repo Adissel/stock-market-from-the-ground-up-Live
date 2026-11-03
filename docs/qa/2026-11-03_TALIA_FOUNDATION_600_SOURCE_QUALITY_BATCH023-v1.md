@@ -7,7 +7,7 @@
 | Document ID | SMFGU-TALIA-SOURCE-QUALITY-023 |
 | Filename / type | docs/qa/2026-11-03_TALIA_FOUNDATION_600_SOURCE_QUALITY_BATCH023-v1.md / Markdown |
 | Google Drive / ID | Not created / unassigned |
-| Version / date | 1.1 / 2026-11-03 |
+| Version / date | 1.2 / 2026-11-03 |
 | Status | Internal QA; exact-SHA CI pending; independent publication HOLD |
 | Dependencies | Owner seven-priority approval, 30 source batches, existing Tutor CI |
 | Purpose | Identify claim-specific source review work across all 600 drafted lessons without asserting release acceptance. |
@@ -29,3 +29,11 @@ The automated audit now fails if any of the 600 lessons lacks an explicit source
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.1 | 2026-11-03 | Added 100 explicit NOT_REVIEWED objects, 80 unverified rights statuses, and CI field-presence assertions | Internal metadata remediation only; publication HOLD |
+
+## Version 1.2 — six claim-specific source replacements
+
+The six broad Batch 02 references for EMA9, EMA20, EMA200, population/sample standard deviation, annualization, and prior-high drawdown were replaced with specifically relevant StockCharts, NIST and CFA Institute primary educational references. Research triage was recorded per lesson, including limits on seed parity, completed-bar inference, n vs n−1, annualization assumptions, and rolling versus all-time drawdown. No independent formula, publication or rights approval was granted. The total generic reference count should decline from 187 to **181**; independently published lessons remain **0/600**. Details and tests: `data/talia-foundation-explanations-batch02-v1.json` and `tests/talia-foundation-explanations-batch02-v1.test.mjs`.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.2 | 2026-11-03 | Six direct source-pointer and limitation checks in Batch 02 | Internal research only; independent release HOLD |

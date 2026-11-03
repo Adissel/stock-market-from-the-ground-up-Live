@@ -22,7 +22,7 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "Replace the tenth completed close with $9.75, and recompute the next EMA9 with the unchanged seed.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -39,6 +39,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "SMA seed and EMA multiplier 2/(n+1) supported; fictional 9-period arithmetic remains original.",
+        "remainingLimitations": "Does not validate external platform seed parity or market-price inputs.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {
@@ -54,7 +64,7 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "A fictional bar moves above EMA20 at midbar but closes below it; state the observable final relationship.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -71,6 +81,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "EMA uses closing-price observations and weighting; 20-period weight 2/21 documented.",
+        "remainingLimitations": "Intrabar-versus-completed candle is an educational time-boundary interpretation, not independently certified by the article.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {
@@ -86,7 +106,7 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "Explain when the EMA200 first exists for a fictional 199-bar chart versus a 201-bar chart.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -103,6 +123,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "StockCharts discusses long EMA warmup and SMA initial seeding.",
+        "remainingLimitations": "First computable value at 200 bars is this implementation's declared seed rule, not a universal exact vendor match.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {
@@ -150,7 +180,8 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "Compute sample and population dispersion for hypothetical returns of [2%,2%,5%].",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/standard-deviation-volatility",
+        "https://www.itl.nist.gov/div898/strd/univ/certmethdef/numacc4.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +198,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "StockCharts documents population n denominator; NIST independently documents sample n-1 denominator.",
+        "remainingLimitations": "Source formulas do not independently approve fictional return units, numerical rounding, or chart parity.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {
@@ -182,7 +223,7 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "Recalculate using a fictional 2% daily standard deviation and state the model's limitations.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://rpc.cfainstitute.org/blogs/enterprising-investor/2023/is-the-60-40-portfolio-still-relevant"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -199,6 +240,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "CFA Institute shows sqrt-period-count annualization using monthly SD × sqrt(12); fictional daily × sqrt(252) follows the analogous modeling convention.",
+        "remainingLimitations": "Daily 252-session factor and independence/constant-volatility assumptions are illustrative; not a realized annual volatility forecast.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {
@@ -246,7 +297,7 @@
       "reviewExplanation": "Check data scope, timing, assumptions, arithmetic and uncertainty. This is a formative ungraded review and does not award official competency or live-trading validation.",
       "transferQuestion": "For hypothetical [100,110,105,120,108], calculate each drawdown without future bars.",
       "sourceUrls": [
-        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -263,6 +314,16 @@
         "formulaAndNumericReleaseAccepted": false,
         "rights": "not_cleared_for_third_party_republication",
         "independentPublicationAccepted": false
+      },
+      "priorBroadSourceUrl": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "sourceResearchTriage": {
+        "checkedDate": "2026-11-03",
+        "sourceScopeStatus": "INTERNAL_CLAIM_SPECIFIC_REFERENCE_MATCH_PENDING_INDEPENDENT_EDITORIAL",
+        "supportedScope": "StockCharts defines percentage drawdown from prior price highs within a lookback and explains downside risk.",
+        "remainingLimitations": "Ulcer Index rolling-high methodology does not independently validate an inception-to-date portfolio running-maximum series.",
+        "independentMathApproved": false,
+        "independentPublicationApproved": false,
+        "thirdPartyRightsApproved": false
       }
     },
     {

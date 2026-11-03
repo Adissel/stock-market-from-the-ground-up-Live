@@ -58,3 +58,28 @@ test('Optional failure of second topic asset preserves first twenty and official
  const api=read('functions/api/market-tutor-v01492.js');
  assert.match(api,/guide\.foundationTopic===true\?\{text:null,reason:'foundation_supplementary_source_only'/);
 });
+
+test('Six Batch02 source-specific pointers stay scoped and publication-locked',()=>{
+ const expected=new Map([["TALIA_TOPIC_EMA9_ALPHA","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"],["TALIA_TOPIC_EMA20_CLOSE_CONFIRMATION","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"],["TALIA_TOPIC_EMA200_WARMUP","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"],["TALIA_TOPIC_POPULATION_SAMPLE_SD","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/standard-deviation-volatility"],["TALIA_TOPIC_DAILY_ANNUAL_VOL","https://rpc.cfainstitute.org/blogs/enterprising-investor/2023/is-the-60-40-portfolio-still-relevant"],["TALIA_TOPIC_RUNNING_MAX_DRAWDOWN","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index"]]);
+ assert.equal(expected.size,6);
+ for(const [code,url] of expected){
+  const g=two.guides.find(x=>x.code===code);
+  assert.equal(g.sourceUrls[0],url,code);
+  assert.ok(g.sourceResearchTriage?.supportedScope?.length>35);
+  assert.ok(g.sourceResearchTriage?.remainingLimitations?.length>35);
+  assert.equal(g.sourceResearchTriage.independentMathApproved,false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+  assert.equal(g.sourceResearchTriage.thirdPartyRightsApproved,false);
+  assert.equal(g.independentEditorialApproved,false);
+  assert.equal(g.editorSourceReview.independentPublicationAccepted,false);
+ }
+ assert.equal(two.guides.filter(g=>g.sourceUrls.some(u=>u==='https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators')).length,0);
+ const std=two.guides.find(g=>g.code==='TALIA_TOPIC_POPULATION_SAMPLE_SD');
+ assert.equal(std.sourceUrls.length,2);
+ assert.ok(std.sourceUrls[1].startsWith('https://www.itl.nist.gov/'));
+ const ema=2/(9+1)*10.5+(1-2/(9+1))*10;
+ assert.ok(Math.abs(ema-10.1)<1e-12);
+ assert.ok(Math.abs(Math.sqrt(2/3)-0.816496580927726)<1e-10);
+ assert.ok(Math.abs(Math.sqrt(2/(3-1))-1)<1e-12);
+ assert.ok(Math.abs(Math.sqrt(252)*.01-.15874507866387544)<1e-9);
+});
