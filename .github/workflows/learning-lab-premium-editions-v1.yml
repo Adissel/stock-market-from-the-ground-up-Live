@@ -16,6 +16,8 @@ on:
       - 'lab-player.html'
       - 'functions/api/learning-lab-edition-workspace.js'
       - 'tests/learning-lab-edition-workspace-v1.test.mjs'
+      - 'functions/_lib/learning-lab-enterprise-journey-v1.js'
+      - 'tests/learning-lab-enterprise-journey-v1.test.mjs'
       - 'tests/learning-lab-edition-two-account-contract-v1.test.mjs'
       - 'tests/advanced-learning-lab-source-closeout-v1.test.mjs'
       - 'tests/advanced-learning-lab-member-surface-browser-v1.mjs'
@@ -50,10 +52,13 @@ jobs:
       - name: Verify premium function syntax
         run: |
           node --check functions/_lib/learning-lab-edition-exercises-v1.js
+          node --check functions/_lib/learning-lab-enterprise-journey-v1.js
           node --check functions/api/learning-lab-edition-exercise.js
           node --check functions/api/learning-lab-edition-workspace.js
       - name: Verify source safety and chronology
         run: node --test tests/learning-lab-edition-exercises-v1.test.mjs
+      - name: Verify governed Enterprise research stages from canonical Academy data
+        run: node --test tests/learning-lab-enterprise-journey-v1.test.mjs
       - name: Verify member UI source integration and accessibility fallbacks
         run: node --test tests/learning-lab-edition-member-surface-v1.test.mjs
       - name: Install pinned Chromium test runtime

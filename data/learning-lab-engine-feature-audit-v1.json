@@ -2,8 +2,8 @@
   "schema": "smfgu.learning-lab.audit.v1",
   "documentId": "SMFGU-LEARNING-LAB-FEATURE-AUDIT-001",
   "project": "THE STOCK MARKET: FROM THE GROUND UP",
-  "date": "2026-11-01",
-  "version": "1.0",
+  "date": "2026-11-03",
+  "version": "1.1",
   "sourceRepository": "Adissel/stock-market-from-the-ground-up-Live",
   "branch": "main",
   "status": "SOURCE_EVIDENCE_ONLY_NO_PREMIUM_RELEASE",
@@ -51,11 +51,11 @@
       "total": 8,
       "integrated": 0,
       "partial": 0,
-      "prototype": 6,
-      "not_implemented": 2,
+      "prototype": 7,
+      "not_implemented": 1,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 6
+      "automation_file_references": 7
     },
     "lab_BASIC": {
       "total": 8,
@@ -91,11 +91,11 @@
       "total": 8,
       "integrated": 0,
       "partial": 0,
-      "prototype": 5,
-      "not_implemented": 3,
+      "prototype": 6,
+      "not_implemented": 2,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 5
+      "automation_file_references": 6
     }
   },
   "features": [
@@ -865,11 +865,11 @@
       "engine": "learning",
       "edition": "ENTERPRISE",
       "title": "Governed cross-course research learning path",
-      "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "source_status": "prototype",
+      "evidence_file": "functions/_lib/learning-lab-enterprise-journey-v1.js",
+      "existing_test_file": "tests/learning-lab-enterprise-journey-v1.test.mjs",
       "acceptance_criterion": "Connect research tasks to existing authorized curriculum.",
-      "unresolved": "No authenticated cross-course Enterprise research learning path is integrated.",
+      "unresolved": "Owner-approved original source candidate composing seven canonical Academy program/day references, separately verified training and Lab visibility, and no inferred book entitlement. Read-only source only; genuine member, independent research rights, accessibility and production release acceptance are open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -956,11 +956,11 @@
       "engine": "lab",
       "edition": "ENTERPRISE",
       "title": "Enterprise cross-course research stage journey",
-      "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "source_status": "prototype",
+      "evidence_file": "functions/_lib/learning-lab-enterprise-journey-v1.js",
+      "existing_test_file": "tests/learning-lab-enterprise-journey-v1.test.mjs",
       "acceptance_criterion": "Map actual entitled research lessons into progression.",
-      "unresolved": "No authorized Enterprise Lab research stage journey exists for members.",
+      "unresolved": "Owner-approved original source candidate composing seven canonical Academy program/day references, separately verified training and Lab visibility, and no inferred book entitlement. Read-only source only; genuine member, independent research rights, accessibility and production release acceptance are open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -1029,5 +1029,9 @@
     "owner_reaffirmation": "I accept everything and approve it",
     "owner_reaffirmed_at": "2026-11-03",
     "release_verification_status": "INDEPENDENT_EVIDENCE_RECONCILIATION_NOT_COMPLETED"
+  },
+  "ownerBatchApproval": {
+    "date": "2026-11-03",
+    "scope": "Continue joint Learning and Lab source work; Basic baselines and 419 Lab IDs preserved; independent security, member, rights and release acceptance remain separate."
   }
 }
