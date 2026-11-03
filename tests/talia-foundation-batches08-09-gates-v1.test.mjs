@@ -67,3 +67,15 @@ test('Missing ninth batch does not block earlier topics or the eighth optional b
  assert.equal(new8[0]?.code,newer[0].code);
  assert.notEqual(new9[0]?.code,newer[39].code);
 });
+
+test('specific State Street formula source retains all Batch07 lessons and exact member title retrieval',async()=>{
+ const batch7=all[6];
+ const amended=batch7.guides.find(g=>g.code==='TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION');
+ assert.ok(amended);
+ assert.equal(new URL(amended.sourceUrls[0]).hostname,'www.ssga.com');
+ const env={ASSETS:fn()},request=new Request('https://tutor.example/api/market-tutor-v01492');
+ for(const guide of [amended,batch7.guides.at(-1)]){
+  const result=await originalGuides(env,request,'Explain '+guide.title);
+  assert.equal(result[0]?.code,guide.code,'Exact title should resolve from source-gated Batch07');
+ }
+});

@@ -229,7 +229,7 @@ const FOUNDATION_TOPIC_SOURCE=url=>{
  try{
   const parsed=new URL(url);
   return parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.port&&
-   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org','syndication.finra.org','pages.stern.nyu.edu','www.optionseducation.org','optionseducation.org','www.bls.gov','bls.gov','fred.stlouisfed.org','www.nyse.com','www.quantconnect.com','quantconnect.com'].includes(parsed.hostname);
+   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org','syndication.finra.org','pages.stern.nyu.edu','www.ssga.com','ssga.com','www.optionseducation.org','optionseducation.org','www.bls.gov','bls.gov','fred.stlouisfed.org','www.nyse.com','www.quantconnect.com','quantconnect.com'].includes(parsed.hostname);
  }catch{return false}
 };
 async function loadFoundationTopicExplanations(env,request){
