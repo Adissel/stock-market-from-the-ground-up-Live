@@ -1,0 +1,35 @@
+name: Knowledge Library V1 — Membership + Admin
+on:
+  push:
+    branches: [main, feature/knowledge-library-membership-admin-v1]
+    paths:
+      - 'functions/api/knowledge-library.js'
+      - 'admin-knowledge.html'
+      - 'knowledge-database.html'
+      - 'admin.html'
+      - 'assets/js/admin-knowledge-v1.js'
+      - 'assets/js/knowledge-article-library-v1.js'
+      - 'assets/css/admin-knowledge-v1.css'
+      - 'assets/css/knowledge-article-library-v1.css'
+      - 'supabase/migrations/20261102_knowledge_library_membership_admin_v1.sql'
+      - 'tests/test_knowledge_library_membership_admin_v1.mjs'
+      - '.github/workflows/knowledge-library-membership-admin-v1.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  verified-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Validate Cloudflare and browser JavaScript syntax
+        run: |
+          node --check functions/api/knowledge-library.js
+          node --check assets/js/knowledge-article-library-v1.js
+          node --check assets/js/admin-knowledge-v1.js
+      - name: Verify security and curriculum nonregression
+        run: |
+          node tests/test_knowledge_library_membership_admin_v1.mjs
+          node tests/test_knowledge_database_store_v1.mjs
+          node tests/test_knowledge_database_expansion_v2.mjs
