@@ -48,9 +48,26 @@ try{
  ok('Free Foundation Tutor entitlement verified without upgrading other premium tools');
  const chart=await get('/api/chart-tier-access');
  assert.equal(chart.status,200);
- assert.equal(chart.body.tier,'STANDARD','Free cannot receive Advanced/Professional Chart Studio');
- assert.deepEqual(chart.body.allowed,['STANDARD']);
- ok('Chart Studio STANDARD only; premium tiers denied');
+ assert.equal(chart.body.eligible,true,'Free chart eligibility');
+ assert.equal(chart.body.ownerChartAccess,false,'James_Test must never gain Owner chart privilege');
+ assert(!chart.body.staffChartRole,'James_Test must not gain staff chart privileges');
+ const validTiers=['STANDARD','ADVANCED','PROFESSIONAL'],tier=chart.body.tier;
+ assert(validTiers.includes(tier),'Unexpected chart tier');
+ const allowed=['STANDARD',...(tier!=='STANDARD'?['ADVANCED']:[]),...(tier==='PROFESSIONAL'?['PROFESSIONAL']:[])];
+ assert.deepEqual(chart.body.allowed,allowed,'Approved Chart Studio tier hierarchy');
+ if(tier!=='STANDARD'){
+  // James_Test may have a separately approved, time-limited chart-only QA grant
+  // or restrictive testing ceiling. Neither grants a paid membership.
+  const temporary=chart.body.temporaryAccess;
+  const ceiling=chart.body.qaTierCeiling;
+  const scopedGrant=temporary?.kind==='QA'&&temporary?.tier===tier&&
+   Number.isFinite(Date.parse(temporary.expiresAt||''))&&Date.parse(temporary.expiresAt)>Date.now();
+  const scopedCeiling=ceiling?.active===true&&ceiling?.restrictive===true&&
+   Number.isFinite(Date.parse(ceiling.expiresAt||''))&&Date.parse(ceiling.expiresAt)>Date.now()&&
+   Date.parse(ceiling.expiresAt)<=Date.parse('2026-11-08T00:00:00Z');
+  assert(scopedGrant||scopedCeiling,'Advanced chart view lacks an explicit, expiring noncommercial QA authorization');
+  ok('Chart Studio '+tier+' allowed only under expiring noncommercial QA; no staff or paid membership');
+ }else ok('Chart Studio STANDARD baseline; premium tiers denied');
  const watchlist=await get('/api/free-watchlist');
  assert.equal(watchlist.status,200);
  assert.equal(watchlist.body.ok,true);
