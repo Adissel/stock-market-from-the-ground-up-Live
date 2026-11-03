@@ -47,6 +47,16 @@ with sync_playwright() as pw:
                                   'market-commons.html','simulator.html','journal.html','admin.html'}
                 final=urlparse(page.url)
                 signin_redirect=route in protected_routes and final.path.rstrip('/') in ['/signin','/signin.html']
+                if route in protected_routes and not signin_redirect and page.locator('body').get_attribute('data-gu-layout-route') == 'signin':
+                    # Authentication navigation can finish after sign-in markup first appears.
+                    # Do not accept sign-in content served at a protected URL as a successful redirect.
+                    page.wait_for_url(
+                        lambda destination: urlparse(str(destination)).path.rstrip('/') in ['/signin', '/signin.html'],
+                        timeout=8000,
+                        wait_until='domcontentloaded'
+                    )
+                    final=urlparse(page.url)
+                    signin_redirect=final.path.rstrip('/') in ['/signin','/signin.html']
                 if signin_redirect:
                     assert final.netloc==urlparse(BASE).netloc,'Cross-origin authentication redirect'
                     return_paths=parse_qs(final.query).get('next',[])
