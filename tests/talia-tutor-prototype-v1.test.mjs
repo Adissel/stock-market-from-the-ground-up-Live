@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(path,'utf8');
 test('Dedicated Talia prototype is linked and loads existing React Tutor rather than a duplicate engine',()=>{
@@ -224,4 +225,117 @@ test('Staff prototype revokes visibility while revalidating and rejects session 
  assert.match(gate,/cache:'no-store'/);
  assert.match(gate,/control_panel.access/);
  assert.doesNotMatch(gate,/localStorage|sessionStorage|service_role/);
+});
+
+/** Real gate script in a deterministic browser-API harness. No production credentials or staff writes. */
+function gateHarness(roles=['OWNER'],permissions=['control_panel.access']){
+ const status={hidden:false,textContent:''},workspace={hidden:true},connection={textContent:''};
+ const listeners={doc:new Map(),win:new Map()},scripts=[],requests=[];
+ let user='staff-A',token='token-A',authCallback=null,subscriptions=0,interval=null,intervalMs=0,reloads=0,cleared=false,policy={ok:true,roles,permissions},deferred=null;
+ const auth={
+  getSession:async()=>({data:{session:user?{access_token:token,user:{id:user}}:null}}),
+  getUser:async()=>({data:{user:user?{id:user}:null}}),
+  onAuthStateChange:cb=>{authCallback=cb;subscriptions++;return {data:{subscription:{unsubscribe(){}}}}}
+ };
+ const client={auth};
+ const doc={hidden:false,getElementById:id=>({'tp-auth':status,'tp-workspace':workspace,'tp-connection':connection}[id]||null),
+  addEventListener:(event,cb)=>listeners.doc.set(event,cb),
+  createElement:tag=>({tagName:tag,src:'',type:'',onerror:null}),
+  head:{append:script=>scripts.push(script)}};
+ const win={getSupabaseClient:async()=>client,addEventListener:(event,cb)=>listeners.win.set(event,cb),
+  setInterval:(cb,ms)=>{interval=cb;intervalMs=ms;return 123},
+  clearInterval:id=>{if(id===123){interval=null;cleared=true}},
+  location:{reload:()=>{reloads++}}};
+ const fetch=async(url,options)=>{requests.push({url,options});if(deferred){const d=deferred;deferred=null;return d}return {ok:true,json:async()=>policy}};
+ vm.runInNewContext(read('assets/js/talia-prototype-gate-v1.js'),{window:win,document:doc,fetch,queueMicrotask,Promise});
+ const settle=async()=>{for(let i=0;i<35;i++)await Promise.resolve()};
+ return {status,workspace,connection,doc,scripts,requests,settle,
+  start:async()=>{listeners.doc.get('DOMContentLoaded')();await settle()},
+  tick:async()=>{interval?.();await settle()},
+  focus:async()=>{listeners.win.get('focus')?.();await settle()},
+  event:async ev=>{listeners.doc.get(ev)?.();listeners.win.get(ev)?.();await settle()},
+  authEvent:async ev=>{authCallback?.(ev);await settle()},
+  setPolicy:p=>{policy=p},setUser:(u,t)=>{user=u;token=t||null},
+  defer:()=>{let resolve;deferred=new Promise(r=>{resolve=r});return p=>resolve({ok:true,json:async()=>p})},
+  stats:()=>({subscriptions,intervalMs,reloads,cleared})};
+}
+test('Staff prototype refreshes a verified owner session every 30 seconds, without mounting twice',async()=>{
+ const h=gateHarness();await h.start();await h.tick();
+ assert.equal(h.workspace.hidden,false);assert.equal(h.scripts.length,1);
+ assert.equal(h.requests.length,2);assert.equal(h.stats().subscriptions,1);
+ assert.equal(h.stats().intervalMs,30000);
+ for(const q of h.requests){assert.equal(q.url,'/api/admin?action=context');assert.equal(q.options.cache,'no-store');assert.equal(q.options.headers.authorization,'Bearer token-A')}
+});
+for(const [label,roles,permissions,expected] of [
+ ['owner authorized',['OWNER'],['control_panel.access'],true],
+ ['admin authorized',['ADMIN'],['control_panel.access'],true],
+ ['technical administrator authorized',['TECH_ADMIN'],['control_panel.access'],true],
+ ['nonstaff denied',[],[],false],
+ ['member denied',['MEMBER'],['control_panel.access'],false],
+ ['owner missing permission denied',['OWNER'],[],false],
+ ['admin missing permission denied',['ADMIN'],['dashboard.view'],false],
+ ['mixed showcase owner denied',['OWNER','SHOWCASE_VIEWER'],['control_panel.access'],false],
+ ['showcase alone denied',['SHOWCASE_VIEWER'],['control_panel.access'],false]
+]){
+ test('Staff prototype context: '+label,async()=>{
+  const h=gateHarness(roles,permissions);await h.start();
+  assert.equal(h.workspace.hidden,!expected);
+  assert.equal(h.scripts.length,expected?1:0);
+ });
+}
+test('Role revocation while tab remains focused conceals the existing workstation',async()=>{
+ const h=gateHarness();await h.start();
+ h.setPolicy({ok:true,roles:[],permissions:[]});await h.tick();
+ assert.equal(h.workspace.hidden,true);assert.equal(h.status.hidden,false);
+ assert.equal(h.connection.textContent,'Access not verified');
+});
+test('Server context failure closes already visible staff workspace',async()=>{
+ const h=gateHarness();await h.start();
+ h.setPolicy({ok:false,roles:['OWNER'],permissions:['control_panel.access']});await h.tick();
+ assert.equal(h.workspace.hidden,true);
+});
+test('Signout hides private workspace synchronously and does not regrant without a session',async()=>{
+ const h=gateHarness();await h.start();h.setUser(null);const finished=h.authEvent('SIGNED_OUT');
+ assert.equal(h.workspace.hidden,true);await finished;assert.equal(h.workspace.hidden,true);
+});
+test('Token refresh hides stale state and requires new server authorization',async()=>{
+ const h=gateHarness();await h.start();h.setUser('staff-A','fresh-token');
+ await h.authEvent('TOKEN_REFRESHED');
+ assert.equal(h.workspace.hidden,false);assert.equal(h.requests.at(-1).options.headers.authorization,'Bearer fresh-token');
+});
+test('Account switch reloads the app before retaining previously mounted member-private state',async()=>{
+ const h=gateHarness();await h.start();h.setUser('staff-B','token-B');
+ await h.authEvent('SIGNED_IN');
+ assert.equal(h.workspace.hidden,true);assert.equal(h.stats().reloads,1);assert.equal(h.scripts.length,1);
+});
+test('User metadata changes trigger independent role revalidation',async()=>{
+ const h=gateHarness();await h.start();let before=h.requests.length;
+ await h.authEvent('USER_UPDATED');assert.equal(h.requests.length,before+1);
+});
+test('Hidden tab is concealed and does not poll while inactive',async()=>{
+ const h=gateHarness();await h.start();h.doc.hidden=true;
+ await h.event('visibilitychange');const before=h.requests.length;await h.tick();
+ assert.equal(h.workspace.hidden,true);assert.equal(h.requests.length,before);
+ h.doc.hidden=false;await h.event('visibilitychange');assert.equal(h.workspace.hidden,false);
+});
+test('Window focus triggers a fresh check rather than trusting a cached staff grant',async()=>{
+ const h=gateHarness();await h.start();const before=h.requests.length;await h.focus();
+ assert.equal(h.requests.length,before+1);
+});
+test('Old delayed server response cannot reauthorize a signed-out staff session',async()=>{
+ const h=gateHarness();await h.start();const release=h.defer();await h.tick();
+ h.setUser(null);await h.authEvent('SIGNED_OUT');
+ release({ok:true,roles:['OWNER'],permissions:['control_panel.access']});
+ await h.settle();assert.equal(h.workspace.hidden,true);
+});
+test('Pagehide clears the periodic poll without changing user roles',async()=>{
+ const h=gateHarness();await h.start();await h.event('pagehide');
+ assert.equal(h.stats().cleared,true);let before=h.requests.length;await h.tick();
+ assert.equal(h.requests.length,before);
+});
+test('Backend revocation remains effective until a new affirmative permission response',async()=>{
+ const h=gateHarness();await h.start();h.setPolicy({ok:true,roles:[],permissions:[]});
+ await h.tick();await h.tick();assert.equal(h.workspace.hidden,true);
+ h.setPolicy({ok:true,roles:['OWNER'],permissions:['control_panel.access']});
+ await h.tick();assert.equal(h.workspace.hidden,false);
 });
