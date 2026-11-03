@@ -1,0 +1,32 @@
+name: Research Lab Wave 3 — 227 Canonical Source and SITE Evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/lab-227-remaining-source-internal-evidence-v1.json'
+      - 'docs/qa/2026-11-03_419_LAB_SOURCE_TRIAGE_CLOSEOUT_V1.md'
+      - 'tests/lab-227-remaining-source-evidence-v1.test.mjs'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab-227-final-source-research-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/lab-227-remaining-source-internal-evidence-v1.json'
+      - 'docs/qa/2026-11-03_419_LAB_SOURCE_TRIAGE_CLOSEOUT_V1.md'
+      - 'tests/lab-227-remaining-source-evidence-v1.test.mjs'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab-227-final-source-research-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical-227-source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require 227 canonical identity source and rights/QA holds
+        run: node --test tests/lab-227-remaining-source-evidence-v1.test.mjs
