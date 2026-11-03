@@ -7,13 +7,16 @@
 <meta name="robots" content="noindex,follow">
 <title>Knowledge Article | The Stock Market: From the Ground Up</title>
 <link rel="stylesheet" href="/assets/css/styles.css">
-<link rel="stylesheet" href="/assets/css/knowledge-article-page-v1.css?v=1">
+<link rel="stylesheet" href="/assets/css/display-preferences.css?v=20261026">
+<link rel="stylesheet" href="/assets/css/knowledge-article-page-v1.css?v=2">
 <script src="/config.js"></script>
 <script defer src="/assets/js/supabase-client.js"></script>
-<script defer src="/assets/js/site.js?v=page-styles-v4"></script>
-<script defer src="/assets/js/knowledge-article-page-v1.js?v=1"></script>
+<!-- Dedicated article pages exclude the sitewide floating layout editor and injectors. -->
+<script defer src="/assets/js/display-preferences.js?v=20261026"></script>
+<script defer src="/assets/js/knowledge-article-page-v1.js?v=2"></script>
 </head>
-<body>
+<body data-gu-article-page="standalone">
+<a class="kal-skip-link" href="#kal-article-content">Skip to article</a>
 <header class="site-header"><div class="wrap nav">
 <a class="brand" href="/index.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a>
 <nav class="navlinks" aria-label="Article navigation">
@@ -21,8 +24,8 @@
 </nav></div></header>
 <main id="kal-article-main" class="kal-page wrap">
 <nav class="kal-breadcrumbs" aria-label="Breadcrumb"><a href="/knowledge-database.html">Knowledge Database</a><span aria-hidden="true"> / </span><span id="kal-breadcrumb-title">Article</span></nav>
-<p class="kal-notice">Member education reference · Original educational synthesis · Not individualized investment advice</p>
-<p id="kal-page-status" role="status" aria-live="polite">Loading article…</p>
+<p class="kal-notice">KNOWLEDGE LIBRARY <span aria-hidden="true">·</span> Member education <span aria-hidden="true">·</span> Research-based learning</p>
+<p id="kal-page-status" class="kal-screen-reader-status" role="status" aria-live="polite">Loading article…</p>
 <div class="kal-layout">
 <article id="kal-document" class="kal-document" aria-labelledby="kal-article-title" aria-busy="true">
 <header class="kal-document-header">
@@ -40,11 +43,15 @@
 <h2 id="kal-sources-title">Research sources</h2><ul id="kal-source-list"></ul>
 </section></article>
 <aside class="kal-sidebar" aria-label="Article tools">
-<section class="kal-panel" id="kal-access-panel"><h2>Article access</h2>
+<section class="kal-panel kal-outline-panel" id="kal-outline-panel" hidden>
+<h2>On this page</h2>
+<nav id="kal-outline" aria-label="Article headings"></nav>
+</section>
+<details class="kal-panel kal-access-panel" id="kal-access-panel">
+<summary>Membership access</summary>
 <p id="kal-access-status">Membership eligibility is checked before the full article is delivered.</p>
-<p id="kal-access-plans"></p></section>
-<section class="kal-panel" id="kal-outline-panel" hidden><h2>In this article</h2>
-<nav id="kal-outline" aria-label="Article headings"></nav></section></aside>
+<p id="kal-access-plans"></p>
+</details></aside>
 </div>
 <p class="kal-endnote">Market data and examples may be fictional or illustrative. Historical observations and indicators do not guarantee future results.</p>
 </main></body></html>
