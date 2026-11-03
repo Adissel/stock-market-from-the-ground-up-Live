@@ -45,7 +45,8 @@ test('newly dispositioned primary pages specify supported or held scope, not rel
  const changed=register.rows.filter(r=>r.sourceStatus==='CLAIM_SCOPE_DISPOSITION_REVIEWED_2026_11_01');
  assert.equal(changed.length,10);
  assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('SOURCE_SCOPE_SUPPORTED')).length,6);
- assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('HOLD_')).length,4);
+ assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('HOLD_')).length,3);
+ assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('HISTORICAL_DISCUSSION_AND_SEC_VACATUR')).length,1);
  for(const r of changed){
   assert.ok(r.sourceFactScope.length>=90,r.code);
   assert.match(r.source,/^https:\/\//);
