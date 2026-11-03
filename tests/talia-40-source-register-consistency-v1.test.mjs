@@ -14,7 +14,7 @@ test('all 40 numbered primary source claims have a reviewed disposition but zero
  assert.equal(register.rows.length,40);
  assert.deepEqual(register.rows.map(r=>r.number),Array.from({length:40},(_,i)=>i+101));
  assert.equal(register.rows.filter(r=>r.sourceStatus==='CANONICAL_URL_AND_CONCEPT_MAPPED').length,0);
- assert.equal(register.rows.filter(r=>r.sourceStatus==='CLAIM_SCOPE_DISPOSITION_REVIEWED_2026_11_01').length,12);
+ assert.equal(register.rows.filter(r=>r.sourceStatus==='CLAIM_SCOPE_DISPOSITION_REVIEWED_2026_11_01').length,11);
  assert.equal(register.rows.filter(r=>r.independentPublicationApproved===true).length,0);
  assert.equal(guides.length,40);
  for(let i=0;i<40;i++){
@@ -43,13 +43,26 @@ test('earlier independent 21-row source register remains intact and regulation r
 });
 test('newly dispositioned primary pages specify supported or held scope, not release rights',()=>{
  const changed=register.rows.filter(r=>r.sourceStatus==='CLAIM_SCOPE_DISPOSITION_REVIEWED_2026_11_01');
- assert.equal(changed.length,12);
+ assert.equal(changed.length,11);
  assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('SOURCE_SCOPE_SUPPORTED')).length,6);
- assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('HOLD_')).length,6);
+ assert.equal(changed.filter(r=>r.internalScopeVerification.decision.startsWith('HOLD_')).length,5);
  for(const r of changed){
   assert.ok(r.sourceFactScope.length>=90,r.code);
   assert.match(r.source,/^https:\/\//);
   assert.equal(r.internalScopeVerification.independentPublicationAccepted,false);
   assert.equal(r.internalScopeVerification.formulaAndNumericReleaseAccepted,false);
+ }
+});
+
+test('November 3 targeted P2 revisions have distinct source states and remain unapproved',()=>{
+ const targets=[103,122].map(number=>register.rows.find(r=>r.number===number));
+ assert.equal(register.rows.filter(r=>r.sourceStatus==='PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_03').length,2);
+ for(const row of targets){
+  assert.equal(row.sourceStatus,'PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_03');
+  assert.ok(row.source.startsWith('https://syndication.finra.org/content/'));
+  assert.equal(row.independentPublicationApproved,false);
+  assert.equal(row.internalEditorial,'SOURCE_SCOPE_REVIEWED');
+  assert.equal(guides[row.number-101].independentEditorialApproved,false);
+  assert.equal(guides[row.number-101].sourceUrls[0],row.source);
  }
 });
