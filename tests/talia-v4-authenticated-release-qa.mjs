@@ -183,12 +183,75 @@ try{
  await page.locator('.tc-chart-panel').screenshot({path:DIR+'/chart-mobile.png'});
  mark('Responsive / reduced-motion surface','PASS','Mobile plot remains within 390px viewport; reduced motion requested');
  await page.setViewportSize({width:1440,height:900});
+ // Ordinary QA members must NEVER be able to reach the Owner/Admin prototype.
+ // Staff-positive acceptance is an independent identity/entitlement test.
+ const memberToken=await page.evaluate(async()=>{
+  const sb=await window.getSupabaseClient();
+  const {data}=await sb.auth.getSession();
+  return data?.session?.access_token||null;
+ });
+ assert(memberToken,'Member token unavailable before staff negative-path check');
+ const memberStaff=await page.request.get(ORIGIN+'/api/admin?action=context',{
+  headers:{authorization:'Bearer '+memberToken},timeout:20000
+ });
+ const memberStaffJson=await memberStaff.json().catch(()=>({}));
+ const memberHasStaffRights=memberStaffJson?.ok===true&&
+  Array.isArray(memberStaffJson?.roles)&&
+  memberStaffJson.roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))&&
+  Array.isArray(memberStaffJson?.permissions)&&memberStaffJson.permissions.includes('control_panel.access');
+ assert(!memberHasStaffRights,'Designated ordinary QA member unexpectedly has staff permissions');
  await page.goto(ORIGIN+'/talia-tutor-prototype.html',{waitUntil:'domcontentloaded',timeout:35000});
- await page.locator('#tp-workspace').waitFor({state:'visible',timeout:30000});
- assert((await page.locator('#tp-connection').innerText()).includes('Authorized staff session'),'Staff permissions were not confirmed');
- await page.locator('.tp-chart-tools').waitFor({state:'visible',timeout:30000});
- output.staff='PASS';
- mark('Owner/Admin prototype gate','PASS','Real QA staff permission, authorized workspace and V4 toolbar');
+ await page.waitForFunction(()=>{
+  const a=document.getElementById('tp-auth'),w=document.getElementById('tp-workspace');
+  return !!a&&!!w&&!a.hidden&&w.hidden&&
+   /staff|owner|administrator|authorized|permission|sign in|session/i.test(a.textContent||'');
+ },null,{timeout:20000});
+ assert.equal(await page.locator('#tp-workspace').isVisible(),false,
+  'Ordinary member opened the restricted staff workspace');
+ assert.equal(await page.locator('#tp-connection').innerText(),'Access not verified',
+  'Staff prototype did not retain denied session status');
+ mark('Ordinary member prototype deny','PASS',
+  'Authenticated member lacks Owner/Admin rights; prototype workspace remains hidden');
+ const staffEmail=process.env.CROWN_QA_STAFF_EMAIL||'',staffPassword=process.env.CROWN_QA_STAFF_PASSWORD||'';
+ if(!staffEmail||!staffPassword){
+  output.staff='BLOCKED_AUTHORIZED_STAFF_CREDENTIALS';
+  mark('Owner/Admin prototype positive','BLOCKED',
+   'No genuine authorized staff QA credentials; member was not elevated or impersonated');
+ }else{
+  const sc=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'});
+  try{
+   const sp=await sc.newPage();
+   await sp.goto(ORIGIN+'/signin.html?next=%2Fdashboard.html',{waitUntil:'domcontentloaded',timeout:35000});
+   await sp.locator('#login-identifier').fill(staffEmail);
+   await sp.locator('#login-password').fill(staffPassword);
+   await sp.locator('.auth-card button[type="submit"]').click();
+   await sp.waitForURL(u=>u.pathname==='/dashboard.html',{timeout:30000});
+   const verified=await sp.evaluate(async()=>{
+    const sb=await window.getSupabaseClient();
+    const [{data:u},{data:s}]=await Promise.all([sb.auth.getUser(),sb.auth.getSession()]);
+    return {id:u?.user?.id||null,token:s?.session?.access_token||null};
+   });
+   assert(verified.id&&verified.id!==EXPECTED_ID&&verified.token,
+    'Positive staff QA must use a genuinely distinct authenticated identity');
+   const staffResponse=await sp.request.get(ORIGIN+'/api/admin?action=context',{
+    headers:{authorization:'Bearer '+verified.token},timeout:20000
+   });
+   assert.equal(staffResponse.status(),200,'Real staff session denied by admin context API');
+   const staff=await staffResponse.json();
+   assert(staff?.ok===true&&Array.isArray(staff.roles)&&
+    staff.roles.some(role=>['OWNER','ADMIN','TECH_ADMIN'].includes(role))&&
+    Array.isArray(staff.permissions)&&staff.permissions.includes('control_panel.access'),
+    'Authenticated account lacks legitimate staff role and control-panel permission');
+   await sp.goto(ORIGIN+'/talia-tutor-prototype.html',{waitUntil:'domcontentloaded',timeout:35000});
+   await sp.locator('#tp-workspace').waitFor({state:'visible',timeout:30000});
+   assert((await sp.locator('#tp-connection').innerText()).includes('Authorized staff session'),
+    'Positive staff session not confirmed in UI');
+   await sp.locator('.tp-chart-tools').waitFor({state:'visible',timeout:30000});
+   output.staff='PASS';
+   mark('Owner/Admin prototype positive','PASS',
+    'Distinct authenticated staff identity, permission API and real prototype toolbar verified');
+  }finally{await sc.close()}
+ }
  const secondEmail=process.env.CROWN_QA_FREE_EMAIL||'',secondPwd=process.env.CROWN_QA_FREE_PASSWORD||'';
  if(!secondEmail||!secondPwd){
   output.twoAccount='BLOCKED_SECOND_ACCOUNT_SECRETS';
