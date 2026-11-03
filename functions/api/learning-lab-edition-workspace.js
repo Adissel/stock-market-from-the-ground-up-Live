@@ -82,6 +82,10 @@ export async function onRequest({request,env}){
   }
   if(!body||!validFamily(body.family)||!validEdition(body.edition)||!validCase(body.caseKey))
    throw fail('Invalid workspace identity.',400);
+  // A caller cannot address an internal persisted key by pretending it is a
+  // separate ordinary exercise. Reserved namespace keys are server-generated.
+  if(body.caseKey.endsWith(PAIR_SUFFIX)||body.caseKey.endsWith(ACADEMY_SUFFIX))
+   throw fail('Reserved workspace identity.',400);
   const isPair=body.activity===PAIR_ACTIVITY;
   const isAcademy=body.activity===ACADEMY_ACTIVITY;
   if((request.method==='GET'&&body.activity&&!isPair&&!isAcademy)||
