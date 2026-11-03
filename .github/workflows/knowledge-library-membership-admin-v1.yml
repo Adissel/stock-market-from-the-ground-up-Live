@@ -1,11 +1,15 @@
 name: Knowledge Library V1 — Membership + Admin
 on:
   push:
-    branches: [main, feature/knowledge-library-membership-admin-v1]
+    branches: [main, feature/knowledge-library-membership-admin-v1, feature/knowledge-standalone-article-pages-v1]
     paths:
       - 'functions/api/knowledge-library.js'
       - 'admin-knowledge.html'
       - 'knowledge-database.html'
+      - 'knowledge-article.html'
+      - 'assets/js/knowledge-article-page-v1.js'
+      - 'assets/css/knowledge-article-page-v1.css'
+      - 'tests/test_knowledge_article_standalone_v1.mjs'
       - 'admin.html'
       - 'assets/js/admin-knowledge-v1.js'
       - 'assets/js/knowledge-article-library-v1.js'
@@ -28,10 +32,12 @@ jobs:
         run: |
           node --check functions/api/knowledge-library.js
           node --check assets/js/knowledge-article-library-v1.js
+          node --check assets/js/knowledge-article-page-v1.js
           node --check assets/js/admin-knowledge-v1.js
       - name: Verify security and curriculum nonregression
         run: |
           node tests/test_knowledge_library_membership_admin_v1.mjs
+          node tests/test_knowledge_article_standalone_v1.mjs
           node tests/test_knowledge_library_runtime_auth_v1.mjs
           node tests/test_knowledge_database_store_v1.mjs
           node tests/test_knowledge_database_expansion_v2.mjs

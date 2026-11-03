@@ -4,7 +4,8 @@ import {onRequest} from '../functions/api/knowledge-library.js';
 const uid='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 const aid='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const env={SUPABASE_URL:'https://test-project.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_test',SUPABASE_SECRET_KEY:'sb_secret_test'};
-let paid=false, restricted=false, showcase=false, manager=false, founder=false, launch=false;
+let paid=false, restricted=false, showcase=false, manager=false, ownerAdmin=false, founder=false, launch=false;
+let usedSlugSelector=false;
 const live={id:aid,title:'Original Market Structure Study',slug:'market-structure-original',summary:'Original research lesson',
  subject:'Market Microstructure',learning_level:'professional',access_plans:['FOUNDING_60','FULL_MONTHLY','LIFETIME'],
  tags:['market-structure'],sort_order:100,updated_at:'2026-11-02T00:00:00Z',status:'published',
@@ -22,6 +23,8 @@ globalThis.fetch=async (raw,options={})=>{
   if(t==='admin_user_flags')return json(restricted?[{status:'suspended'}]:[]);
   if(t==='admin_user_roles')return json(url.searchParams.get('role_code')==='eq.SHOWCASE_VIEWER'?
    (showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:[]):
+   url.searchParams.get('role_code')==='in.(OWNER,ADMIN)'?
+    (ownerAdmin?[{role_code:'OWNER',expires_at:null}]:[]):
    (showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:manager?[{role_code:'CONTENT_MANAGER',expires_at:null}]:[]));
   if(t==='admin_role_permissions')return json(manager?[{role_code:'CONTENT_MANAGER',permission_code:'content.manage'}]:[]);
   if(t==='user_plan_grants')return json(paid?[{plan_code:'FULL_MONTHLY',status:'active',starts_at:'2026-10-01',ends_at:'2027-01-01'}]:[]);
@@ -29,6 +32,7 @@ globalThis.fetch=async (raw,options={})=>{
   if(t==='gu_founder_members_v014173')return json(founder?[{earned_plan_code:'FOUNDING_14',revoked_at:null}]:[]);
   if(t==='gu_founder_release_v014173')return json([{public_launch_open:launch}]);
   if(t==='gu_knowledge_articles_v1'){
+   if(url.searchParams.get('slug')==='eq.market-structure-original')usedSlugSelector=true;
    if(url.searchParams.get('status')==='eq.published'||url.searchParams.get('is_visible')==='eq.true')
     return json([adminQuery.includes('body_markdown')?live:Object.fromEntries(Object.entries(live).filter(([k])=>!['body_markdown','sources','status','review_state','deleted_at','is_visible'].includes(k)))]);
    return json([live]);
@@ -55,6 +59,16 @@ x=await call('read',{auth:true});assert.equal(x.status,403,'Free account cannot 
 assert.equal(JSON.stringify(x.data).includes('PROTECTED PAYWALL CONTENT'),false);
 paid=true;
 x=await call('read',{auth:true});assert.equal(x.status,200);assert.equal(x.data.article.body_markdown,live.body_markdown);
+const bySlug=await onRequest({request:new Request('https://website.example/api/knowledge-library?action=read&slug=market-structure-original',{headers:{authorization:'Bearer active-session'}}),env});
+assert.equal(bySlug.status,200,'Authenticated member can read published article through stable slug');
+assert.equal(usedSlugSelector,true,'Slug read must use the server-side slug lookup');
+paid=false;ownerAdmin=true;
+x=await call('read',{auth:true});assert.equal(x.status,200,'Verified Owner may review published article without a paid membership');
+ownerAdmin=false;
+x=await call('read',{auth:true});assert.equal(x.status,403,'Ordinary Free member must not bypass paid article access');
+paid=true;
+const malformed=await onRequest({request:new Request('https://website.example/api/knowledge-library?action=read&slug=../other'),env});
+assert.equal(malformed.status,400,'Unsafe slug must be rejected without leaking body');
 restricted=true;
 x=await call('read',{auth:true});assert.equal(x.status,403,'Suspended member must be denied');
 restricted=false;paid=false;showcase=true;

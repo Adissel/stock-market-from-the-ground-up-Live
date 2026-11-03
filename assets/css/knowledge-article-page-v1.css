@@ -1,0 +1,43 @@
+/* Knowledge Article V1: a readable, standalone, member-gated education page. */
+.kal-page{max-width:1320px;margin:auto;padding:clamp(18px,3vw,38px) 18px 72px;color:#e5f3fb}
+.kal-breadcrumbs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;color:#c6dce8;font-size:.92rem}
+.kal-breadcrumbs a,.kal-page a{color:#93ddff}
+.kal-notice{font-size:.87rem;color:#c0d9e7;border-left:3px solid #59c1bd;padding:7px 13px;margin:0 0 17px;background:#0b2739}
+.kal-layout{display:grid;grid-template-columns:minmax(0,1fr) 282px;gap:22px;align-items:start}
+.kal-document{background:linear-gradient(155deg,#0d2335,#102d40);border:1px solid #4d7689;border-radius:16px;min-width:0;padding:clamp(18px,3.6vw,44px);box-shadow:0 14px 34px rgba(0,0,0,.2)}
+.kal-document-header{padding-bottom:21px;border-bottom:1px solid #486679}
+.kal-meta{color:#8de2e8;font-size:.88rem;font-weight:650;letter-spacing:.025em}
+.kal-document h1{font-size:clamp(1.85rem,3.25vw,2.75rem);line-height:1.22;margin:12px 0 15px;overflow-wrap:anywhere;color:#f2fbff}
+.kal-summary{color:#d5e5f0;line-height:1.7;font-size:1.08rem;max-width:84ch;margin:0 0 17px}
+.kal-tags{display:flex;gap:8px;flex-wrap:wrap}.kal-tags span{font-size:.78rem;padding:3px 9px;border:1px solid #447e8a;border-radius:999px;background:#103e4b}
+.kal-document-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.kal-action,.kal-document-actions button{background:#153b53;border:1px solid #68a0b6;border-radius:9px;color:#e6fbff;text-decoration:none;cursor:pointer;font:inherit;font-weight:600;padding:10px 15px;min-height:43px}
+.kal-action:hover,.kal-document-actions button:hover{background:#205a76}
+.kal-panel{border:1px solid #496f86;border-radius:12px;background:#0e293a;padding:18px;margin-bottom:15px;overflow-wrap:anywhere}
+.kal-panel h2{font-size:1.08rem;color:#d5f7f2;margin:0 0 10px}
+.kal-panel p{font-size:.89rem;line-height:1.6;color:#cddde8;margin:8px 0}
+.kal-outline-link{display:block;padding:7px 4px;text-decoration:none;border-bottom:1px solid #2a4a59;font-size:.9rem;line-height:1.4}
+.kal-outline-sub{padding-left:14px;font-size:.83rem}
+.kal-article-content{font-size:1rem;line-height:1.79;max-width:90ch;overflow-wrap:anywhere}
+.kal-article-content h2{font-size:1.48rem;margin:36px 0 13px;color:#adebef;line-height:1.32;border-bottom:1px solid #4b6c78;padding-bottom:8px;scroll-margin-top:22px}
+.kal-article-content h3{font-size:1.2rem;margin:27px 0 10px;color:#f1fafc;scroll-margin-top:22px}
+.kal-article-content h4,.kal-article-content h5{font-size:1.07rem;margin:20px 0 8px;color:#e2f4f7;scroll-margin-top:22px}
+.kal-article-content p{margin:0 0 17px;white-space:pre-wrap;overflow-wrap:anywhere}
+.kal-article-content ul,.kal-article-content ol{margin:8px 0 22px;padding-left:27px}
+.kal-article-content li{margin:7px 0}
+.kal-article-content blockquote{margin:15px 0;padding:11px 17px;border-left:3px solid #7bc5c0;background:#102d3d;color:#d3e7ec}
+.kal-article-content pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#051727;border:1px solid #486576;border-radius:8px;padding:16px;overflow-x:auto;font-size:.9rem}
+.kal-article-content code{padding:1px 4px;background:#0c293a;border-radius:4px}
+.kal-article-content hr{border:0;border-top:1px solid #526d79;margin:26px 0}
+.kal-references{margin-top:35px;padding-top:20px;border-top:1px solid #527783;overflow-wrap:anywhere}
+.kal-references h2{font-size:1.35rem;color:#a8e7ea}
+.kal-references li{margin:10px 0;line-height:1.6}
+.kal-message{background:#173b4c;border:1px solid #80a7af;border-radius:10px;padding:18px;margin:20px 0}
+.kal-message h2{font-size:1.3rem;margin:0 0 10px}.kal-message p{margin:9px 0 14px;line-height:1.6}
+.kal-message .kal-action{display:inline-block;margin:5px 8px 5px 0}
+.kal-endnote{font-size:.84rem;color:#c2d2dc;margin-top:26px;line-height:1.5}
+.kal-page :focus-visible{outline:3px solid #f0da91;outline-offset:3px}
+@media(min-width:980px){.kal-sidebar{position:sticky;top:22px}}
+@media(max-width:979px){.kal-layout{grid-template-columns:1fr}.kal-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:12px}.kal-panel{margin-bottom:0}}
+@media(max-width:620px){.kal-sidebar{grid-template-columns:1fr}.kal-document{padding:18px}.kal-document-actions{flex-direction:column;align-items:stretch}.kal-action,.kal-document-actions button{text-align:center}}
+@media print{.site-header,.kal-breadcrumbs,.kal-sidebar,.kal-document-actions,.kal-notice,#kal-page-status{display:none!important}.kal-layout{display:block}.kal-document{box-shadow:none;border:0;padding:0;background:white;color:black}.kal-page,.kal-document h1,.kal-article-content h2,.kal-article-content h3{color:black!important}.kal-article-content,.kal-references{color:black}.kal-document a{color:#000}}
