@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A current historical table may contain facts revised after a past decision date. Use the fictional case: Fictional report initially announces GDP growth 1.5% on May 1 and revises it to 2.0% on June 1; May 10 research must use 1.5%. The critical misconception is Using revised data as if contemporaneously observable introduces hindsight. Limit: Release times, vendor propagation and revision history must be validated. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A report changes 3% to 2.5% two weeks later; which vintage belongs at the earlier decision? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -31,6 +31,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Federal Reserve real-time periods identify when revised economic observations became available to researchers.",
+        "limitationsAndOpenQuestions": "This source is about economic vintages, not a blanket license to use FRED series in automated AI or commercial products.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -46,7 +56,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: An exchange event timestamp and the time a client receives a report are different observations. Use the fictional case: Fictional trade occurred 10:00:00.100 and vendor delivered it 10:00:00.300; reporting delay is 200 milliseconds. The critical misconception is Treating receipt time as trade time misorders replay decisions. Limit: Clock synchronization and timestamp accuracy affect conclusions. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Event at 09:30:01.200, receipt at 09:30:01.950: calculate latency. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -57,6 +67,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "SEC Rule 605 guidance distinguishes dissemination timestamps, receipt times and execution times.",
+        "limitationsAndOpenQuestions": "Regulated order-receipt timestamps are not equivalent to the hypothetical feed latency; provider clock-sync and transport require verification.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -72,7 +92,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A venue-only trade feed need not represent total shares traded across all reporting venues. Use the fictional case: A fictional feed reports 30,000 shares while an authorized consolidated reference reports 100,000: observed coverage 30%. The critical misconception is Presenting partial-feed volume as the total market denominator misstates participation. Limit: The feed and reference must cover the same symbol, interval and corrections. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A feed shows 25,000 and reference 80,000: compute share coverage. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/data-research/market-structure-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -83,6 +103,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "SEC market-structure datasets separate security, venue and consolidated activity metrics and trade volumes.",
+        "limitationsAndOpenQuestions": "An exchange-only feed and an authorized consolidated feed may have differing eligibility, odd-lot or timing rules; 30% is fictional.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -98,7 +128,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: Unavailable data and an observed numeric zero are different states and must not be represented interchangeably. Use the fictional case: Fictional quote stream omits 10:03 while 10:02 bid is $12.50; a fabricated $0 bid at 10:03 is not valid. The critical misconception is Replacing missing quotes with zero can manufacture crashes and signals. Limit: A stale last-known quote requires visible freshness labeling. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: At an unreported time, what state must a quote chart represent? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -109,6 +139,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect documents missing data intervals and causes such as market holidays, halts and no reported activity.",
+        "limitationsAndOpenQuestions": "A missing quote cannot be substituted with an artificial zero; this is a data-integrity teaching rule, not an exchange quote specification.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -124,7 +164,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A deterministic replay must sort eligible events by event time and stable tie-break conventions. Use the fictional case: Fictional prints at 10:00:02,10:00:01,10:00:03 need chronological ordering 01,02,03 before sequential interpretation. The critical misconception is Treating raw arrival order as exchange chronology may distort sequence. Limit: Equal timestamps and feed corrections require a declared secondary ordering policy. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Sort timestamps 09:30:05,09:30:03,09:30:04 and identify first observed event. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -135,6 +175,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect's research guide describes point-in-time information and avoidance of look-ahead in backtests.",
+        "limitationsAndOpenQuestions": "Chronological sorting also needs stable sequence and correction policies; this page does not endorse a specific event ordering algorithm.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -150,7 +200,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A split adjustment must apply only when corporate-action information and effective timing permit. Use the fictional case: Fictional 2-for-1 split changes raw price $100 to $50 and quantity 10 to 20 shares without changing $1,000 notional. The critical misconception is Applying future split factors to decision-time raw execution quotes can create false fills. Limit: Historical adjusted charts and actual raw historical transaction prices are distinct. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A 4-for-1 split on 5 shares at $80: compute after-split count and comparable price. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -161,6 +211,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect documents the timing, split factor and raw-versus-adjusted data behavior for stock splits.",
+        "limitationsAndOpenQuestions": "The 2-for-1 synthetic notional illustration ignores rounding, cash-in-lieu, derivative adjustments and effective-date vendor differences.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -176,7 +236,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A dividend-reinvestment index represents an explicit reinvestment model rather than raw price alone. Use the fictional case: Price begins $100, ends $101, and eligible cash distribution is $2: simplified gross holding-period total return is 3%. The critical misconception is Reporting only price decline ignores qualifying cash distributions. Limit: Actual index reinvestment timing, withholding and adjustment rules differ. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Price $50 to $49, cash distribution $2: compute simple holding-period total return. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -187,6 +247,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect distinguishes raw, adjusted and total-return handling of dividends and corporate actions.",
+        "limitationsAndOpenQuestions": "A one-period price-plus-distribution return is not the same as a multi-period reinvested index and ignores withholding or reinvestment timing.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -202,7 +272,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A benchmark built from trades needs price and size weights rather than one vote per print. Use the fictional case: Trades 10 shares at $20 and 90 at $21 produce VWAP $20.90, simple two-print mean $20.50. The critical misconception is Treating two prints as equal-volume can misstate execution quality. Limit: Odd-lot coverage, corrections and feed rights constrain real reconstruction. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Trades 25 shares at $30 and 75 at $32: compute trade-weighted price. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -213,6 +283,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "StockCharts explicitly contrasts volume-weighted averaging and other price averaging using intraday inputs.",
+        "limitationsAndOpenQuestions": "Exact trade-print VWAP cannot be reconstructed from HLC3 bar proxies; this lesson uses two synthetic trades with known sizes.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -228,7 +308,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: The displayed two-sided spread and the difference between a last trade and midpoint are separate statistics. Use the fictional case: Bid $10.00, ask $10.10 imply spread $0.10; last trade $10.30 is $0.25 above midpoint $10.05. The critical misconception is Assuming a last trade must lie inside current quotes mixes timestamps and venues. Limit: Ensure quotes are valid at the relevant execution event. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Bid $20 and ask $20.20, last print $20.30: compute spread and print-midpoint displacement. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -239,6 +319,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "SEC Rule 605 uses NBBO, midpoint benchmarks and spread-related execution measures.",
+        "limitationsAndOpenQuestions": "A last trade above midpoint may be delayed, off-market or outside the displayed snapshot; it is not a substitute for effective spread.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -254,7 +344,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A corrected or canceled tape print can change previously aggregated eligible reported volume. Use the fictional case: Fictional prints 100 and 200 shares yield 300; canceling erroneous 200-share print revises eligible total to 100. The critical misconception is Counting both original and replacement reports double counts shares. Limit: Feeds define correction identifiers and update semantics. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A 500-share print canceled from a 1,500-share aggregate: compute revised total. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -265,6 +355,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "SEC Rule 605 discusses adjusted or voided order executions and the need for consistent execution metrics.",
+        "limitationsAndOpenQuestions": "The SEC guidance is not a market-feed cancellation-message parser; the 200-share cancellation is a fictional data aggregation rule.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -280,7 +380,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: An indicator may need pre-start historical observations to produce valid outputs without showing future decisions. Use the fictional case: Fictional 20-period SMA at replay bar 0 is computed from 19 earlier completed pre-start closes plus first completed replay close. The critical misconception is Starting EMA or SMA without prior bars may produce false signals or huge zoom artifacts. Limit: A decision at first bar open cannot access the completed first-bar close. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: With SMA5, how many completed earlier closes are needed before the first replay close? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -291,6 +391,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "StockCharts defines a moving average by a stated number of prior price observations.",
+        "limitationsAndOpenQuestions": "A 20-close warmup is method-specific and cannot contain future bars; indicator seeding and completed-bar cutoff need implementation checks.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -306,7 +416,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: Changing zoom or pan should alter only the visible projection, not the underlying calculation history. Use the fictional case: A fictional SMA value of 10.50 at index 100 remains 10.50 when only indices 80–120 are displayed. The critical misconception is Recomputing indicator seeds from only visible bars creates unstable values. Limit: Rendering optimization must preserve chronological source data. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: If a user zooms from 100 bars to 20 bars, should a correctly computed historical EMA at the same index change? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -317,6 +427,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect documents how adjusted and raw series can diverge and cause apparent data issues.",
+        "limitationsAndOpenQuestions": "Viewport-only pan or zoom must not mutate source prices or indicators; that property requires independent application-level tests.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -332,7 +452,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: Synthetic OHLCV needs clear labeling so learners cannot mistake it for an exchange-recorded period. Use the fictional case: A fabricated $10/$11/$9/$10.50 candle is labeled FICTIONAL even if its shape resembles a real chart. The critical misconception is Advertising invented candles as actual ticker history misrepresents evidence. Limit: Historical datasets require origin, timezone, adjustments and usage rights. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: What provenance label belongs on a made-up $20 open and $22 high? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/misconceptions"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -343,6 +463,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect explains adjusted data, vendor data issues and the differences among raw market-data conventions.",
+        "limitationsAndOpenQuestions": "A fictional candle is not historical evidence; no exchange feed, image, license or vendor market-data redistribution is authorized.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -358,7 +488,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A study that retains only currently listed stocks can exclude failures that existed during the past window. Use the fictional case: Fictional original universe has 100 members; only 80 survive to present: current-only testing excludes 20%. The critical misconception is Using current constituents in a 2020 backtest can inflate apparent performance. Limit: Universe membership and delisting returns must be point-in-time sourced. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Original list 200 securities with 30 delisted: compute excluded fraction. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -369,6 +499,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect directly explains survivorship bias from dropping delisted historical constituents.",
+        "limitationsAndOpenQuestions": "The 80-of-100 surviving-symbol example is arithmetic, not a measured or generalizable survivorship performance effect.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -384,7 +524,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: Choosing the best performing model on a test set turns that set into part of development. Use the fictional case: Fictional 20 strategies tried on a 'holdout'; selecting the winner contaminates the holdout for acceptance. The critical misconception is Calling repeated test-set optimization independent validation is incorrect. Limit: Frozen model choice, costs and separate future evaluation remain necessary. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: If ten variants are compared on the declared test year, may the same year remain untouched out-of-sample evidence? Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -395,6 +535,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect documents overfitting, training/validation leakage and out-of-sample research design.",
+        "limitationsAndOpenQuestions": "Trying 20 strategies on a holdout consumes its independent status; no statistical significance or future returns are inferred.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -410,7 +560,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A simulator cost assumption is not evidence of what a live order would have achieved. Use the fictional case: Fictional 100-share buy at $20 reference with assumed 0.02/share slippage adds $2 modeled cost. The critical misconception is Treating modeled slippage as a verified broker fill hides uncertainty. Limit: Liquidity, spread, routing and volatility affect actual execution. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A 50-share hypothetical order with $0.03/share slip: compute modeled cost. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v1/live-trading/live-reconciliation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -421,6 +571,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect live reconciliation explains how modeled fees and live execution can differ.",
+        "limitationsAndOpenQuestions": "Illustrative $0.02-per-share slippage is an assumption, not an empirical estimate, guarantee or broker fill record.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -436,7 +596,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: Costs can erase a narrow hypothetical gross trading advantage. Use the fictional case: Hypothetical gross gain $15 less $8 total fees and $10 modeled slippage yields net -$3. The critical misconception is Assuming the gross backtest outcome survives realistic friction overstates viability. Limit: Costs are scenario inputs and need sensitivity testing. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: Gross gain $30, fees $5 and slip $12: compute modeled net. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v1/live-trading/live-reconciliation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -447,6 +607,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect discusses live-versus-backtest reconciliation and omitted borrowing and trading costs.",
+        "limitationsAndOpenQuestions": "Net expected gain after fees and slippage is an authored scenario; spread, liquidity, adverse selection and market impact can differ.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -462,7 +632,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A sample mean outcome has uncertainty that depends on variability and sample size. Use the fictional case: Fictional 25 independent outcomes with mean $4 and sample SD $20 imply conventional standard error $4. The critical misconception is Describing a positive sample mean as a guaranteed positive population expectancy ignores uncertainty. Limit: Heavy tails and dependence make simple confidence approximations unreliable. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A sample mean $3 with SD $12 across 16 independent outcomes: compute SE. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -473,6 +643,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect describes strategy risk and performance summary statistics used in quantitative research.",
+        "limitationsAndOpenQuestions": "The standard-error expression assumes independent observations and a meaningful sample SD; 25 trials do not establish normality or a CI.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -488,7 +668,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A recovery comparison must isolate the original account path from injected capital. Use the fictional case: Account falls $1000 to $800, then receives $200 deposit; marked $1000 is not an earned 25% recovery. The critical misconception is Calling a deposit-induced balance restoration an investment gain is misleading. Limit: Midperiod cash-flow allocation requires an explicit performance method. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: An $800 account gets a $100 deposit and marks $900: distinguish deposit from return. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -499,6 +679,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect research guidance explains performance bias, testing validity and use of correct historical evidence.",
+        "limitationsAndOpenQuestions": "An account deposit cannot be counted as earned drawdown recovery; formal time-weighted performance treatment remains separate.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -514,7 +704,7 @@
       "reviewExplanation": "Ungraded Talia reasoning: A forming bar can temporarily exceed a threshold before its completed close changes the conclusion. Use the fictional case: Fictional threshold $30, forming bar prints $30.50, then completes $29.80: closing breakout criterion is not met. The critical misconception is Concluding a confirmed close-based breakout at the intrabar high uses the wrong temporal rule. Limit: An exchange print at the level is not a guarantee of executable liquidity. No future candle or protected official answer can be used.",
       "transferQuestion": "FICTIONAL independent transfer: A bar touches $40.20 intrabar but closes $39.90 against $40 resistance: classify using closes. Identify the earliest decision time at which evidence permits your conclusion.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search/"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -525,6 +715,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_SOURCE_DATE_AND_DATA_RIGHTS_REVIEW_PENDING",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.sec.gov/edgar/search/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "StockCharts describes overlay calculations from prices and their effect on chart interpretation.",
+        "limitationsAndOpenQuestions": "An intrabar threshold touch is not a completed closing breakout; the source is contextual, not proof of a predictive breakout rule.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]
