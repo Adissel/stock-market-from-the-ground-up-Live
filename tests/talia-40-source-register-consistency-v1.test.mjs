@@ -20,7 +20,14 @@ test('all 40 numbered primary source claims have a reviewed disposition but zero
  for(let i=0;i<40;i++){
   const row=register.rows[i],lesson=guides[i];
   assert.equal(lesson.code,row.code,'lesson and claim code mismatch '+row.number);
-  assert.equal(lesson.sourceUrls[0],row.source,'lesson and claim source mismatch '+row.number);
+  if(lesson.sourceUrls[0]!==row.source){
+   assert.equal(lesson.previousGenericSourceUrl,row.source,'Original claim-register source remains immutable '+row.number);
+   assert.ok(lesson.sourceUrls.every(url=>url.startsWith('https://')));
+   assert.ok(lesson.sourceResearchTriage.supportedScope.length>100);
+   assert.equal(lesson.sourceResearchTriage.independentMathAccepted,false);
+   assert.equal(lesson.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(lesson.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }else assert.equal(lesson.sourceUrls[0],row.source,'lesson and claim source mismatch '+row.number);
   assert.equal(lesson.independentEditorialApproved,false,'unreviewed lesson wrongly released '+row.number);
  }
 });
