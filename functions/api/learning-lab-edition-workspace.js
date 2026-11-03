@@ -6,6 +6,9 @@
  */
 import {authorizeEditionRequest,onRequest as calculateEdition} from './learning-lab-edition-exercise.js';
 import {toolAccess} from './member-tool-access.js';
+import {compareOriginalFictionalCases} from '../_lib/learning-lab-enterprise-case-workbench-v1.js';
+const PAIR_ACTIVITY='enterprise_fictional_comparison';
+const PAIR_SUFFIX='__PAIR';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'vary':'Authorization','x-content-type-options':'nosniff'};
 const reply=(obj,status=200)=>new Response(JSON.stringify(obj),{status,headers:H});
@@ -65,7 +68,7 @@ export async function onRequest({request,env}){
   let body;
   if(request.method==='GET'){
    body={family:url.searchParams.get('family'),edition:url.searchParams.get('edition'),
-    caseKey:url.searchParams.get('caseKey')};
+    caseKey:url.searchParams.get('caseKey'),activity:url.searchParams.get('activity')};
   }else{
    if(Number(request.headers.get('content-length')||0)>24000)
     throw fail('Request too large.',413);
@@ -75,10 +78,15 @@ export async function onRequest({request,env}){
   }
   if(!body||!validFamily(body.family)||!validEdition(body.edition)||!validCase(body.caseKey))
    throw fail('Invalid workspace identity.',400);
+  const isPair=body.activity===PAIR_ACTIVITY;
+  if((request.method==='GET'&&body.activity&&!isPair)||
+     (isPair&&(body.edition!=='ENTERPRISE'||body.caseKey.length>80-PAIR_SUFFIX.length)))
+   throw fail('Unsupported Enterprise research workspace.',400);
+  const storedBody=isPair?{...body,caseKey:body.caseKey+PAIR_SUFFIX}:body;
   const rights=await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
   const config=db(env);
   if(body.family==='lab')await verifyPublishedLab(config,env,request,body.caseKey,rights.memberId);
-  const target=sourceUrl(config,rights.memberId,body);
+  const target=sourceUrl(config,rights.memberId,storedBody);
   if(request.method==='GET'){
    const rows=await dbRead(config,target);
    return reply({ok:true,found:rows.length===1,workspace:rows[0]||null,
@@ -86,16 +94,23 @@ export async function onRequest({request,env}){
   }
   if(!Number.isSafeInteger(body.expectedRevision)||body.expectedRevision<0||
      body.expectedRevision>2147483646)throw fail('Expected revision required.',400);
-  const clean={family:body.family,edition:body.edition,activity:body.activity,payload:body.payload};
-  const calculateRequest=new Request(request.url,{method:'POST',headers:{
-   'authorization':request.headers.get('authorization')||'',
-   'content-type':'application/json','origin':new URL(request.url).origin},
-   body:JSON.stringify(clean)});
-  const computed=await calculateEdition({request:calculateRequest,env});
-  if(!computed.ok){const error=await computed.json().catch(()=>({}));
-   throw fail(error.error||'Study validation failed.',computed.status);}
-  const result=await computed.json();
-  const summary=result.result;
+  let summary;
+  if(isPair){
+   const compared=compareOriginalFictionalCases(body.payload);
+   if(!compared)throw fail('Invalid completed fictional research comparison.',400);
+   summary={...compared,persisted:true,memberOwned:true,researchActivity:PAIR_ACTIVITY};
+  }else{
+   const clean={family:body.family,edition:body.edition,activity:body.activity,payload:body.payload};
+   const calculateRequest=new Request(request.url,{method:'POST',headers:{
+    'authorization':request.headers.get('authorization')||'',
+    'content-type':'application/json','origin':new URL(request.url).origin},
+    body:JSON.stringify(clean)});
+   const computed=await calculateEdition({request:calculateRequest,env});
+   if(!computed.ok){const error=await computed.json().catch(()=>({}));
+    throw fail(error.error||'Study validation failed.',computed.status);}
+   const result=await computed.json();
+   summary=result.result;
+  }
   if(!summary||JSON.stringify(summary).length>15000)throw fail('Study evidence too large.',400);
   let write,expected=body.expectedRevision;
   if(expected===0){
@@ -103,15 +118,15 @@ export async function onRequest({request,env}){
      new URLSearchParams({select:'id,revision,updated_at'}).toString(),{
     method:'POST',cache:'no-store',headers:{...config.headers,
      prefer:'resolution=ignore-duplicates,return=representation'},
-    body:JSON.stringify({user_id:rights.memberId,case_key:body.caseKey,
-     family:body.family,edition:body.edition,activity:body.activity,
+    body:JSON.stringify({user_id:rights.memberId,case_key:storedBody.caseKey,
+     family:body.family,edition:body.edition,activity:isPair?'chronological_validation':body.activity,
      summary,revision:1})
    });
   }else{
-   write=await fetch(sourceUrl(config,rights.memberId,body,String(expected)),{
+   write=await fetch(sourceUrl(config,rights.memberId,storedBody,String(expected)),{
     method:'PATCH',cache:'no-store',
     headers:{...config.headers,prefer:'return=representation'},
-    body:JSON.stringify({activity:body.activity,summary,revision:expected+1,
+    body:JSON.stringify({activity:isPair?'chronological_validation':body.activity,summary,revision:expected+1,
      updated_at:new Date().toISOString()})
    });
   }
