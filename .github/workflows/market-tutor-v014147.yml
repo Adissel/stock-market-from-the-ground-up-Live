@@ -20,6 +20,7 @@ jobs:
       - name: Legacy Tutor source/consent/quality and D07 authenticated boundaries
         run: |
           node tests/talia-master-capability-inventory-v1.test.mjs
+          node --test tests/talia-owner-draft-and-edition-audit-v1.test.mjs
           node --test tests/talia-seven-priority-batch-v1.test.mjs
           node --test tests/talia-foundation-batch17-source-research-v1.test.mjs
           node --test tests/talia-foundation-batch18-source-research-v1.test.mjs
@@ -127,5 +128,8 @@ jobs:
             artifacts/dev-program-source-verification-d09.json
             artifacts/d09-tutor-source-evidence.json
             artifacts/talia-foundation-source-quality-v1.json
+            artifacts/talia-owner-600-draft-acceptance-v1.json
+            artifacts/talia-four-edition-source-evidence-v1.json
+            artifacts/talia-indicator-73-methodology-holds-v1.json
           if-no-files-found: warn
           retention-days: 30

@@ -1,0 +1,328 @@
+{
+  "schema": "smfgu.talia.four-edition.source-evidence.v1",
+  "documentId": "SMFGU-TALIA-EDITION-15-001",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "project": "The Stock Market: From the Ground Up",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "baseSpecification": "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md",
+  "status": "SOURCE_EVIDENCE_AUDIT_ONLY__NOT_FULL_FEATURE_ACCEPTANCE",
+  "scoring": "15 fixed specification rows: Foundation six, Advanced three, Professional three, Enterprise three. Count only traceable source components or unreleased source prototypes; absence is not counted. These are NOT feature implementation or release completion percentages.",
+  "membershipPolicy": "Founding 30 targets Advanced, Founding 60 and Full Monthly Professional, Lifetime Enterprise; effective premium tier remains Foundation until independently released.",
+  "tiers": [
+    "FOUNDATION",
+    "ADVANCED",
+    "PROFESSIONAL",
+    "ENTERPRISE"
+  ],
+  "featureEvidence": [
+    {
+      "id": "F01",
+      "edition": "FOUNDATION",
+      "capability": "30-guide and source-grounded companion retrieval",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/original-competency-tutor-v014100.js",
+          "anchors": [
+            "sourceUrls"
+          ]
+        },
+        {
+          "path": "tests/test_v014100_free_competency_tutor.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "F02",
+      "edition": "FOUNDATION",
+      "capability": "First-principles and reusable Explain/Deeper/Another actions",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/tutor-foundation-worked-math-v1.js",
+          "anchors": [
+            "CANDLE_READING"
+          ]
+        },
+        {
+          "path": "assets/js/market-tutor.js",
+          "anchors": [
+            "Try another"
+          ]
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "F03",
+      "edition": "FOUNDATION",
+      "capability": "Original fictional calculations for seven core areas",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/tutor-foundation-worked-math-v1.js",
+          "anchors": [
+            "VWAP_CONTEXT",
+            "EMA_CONTEXT"
+          ]
+        },
+        {
+          "path": "tests/talia-foundation-worked-math-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "F04",
+      "edition": "FOUNDATION",
+      "capability": "Stepwise inputs, mistakes, limitations and transfer",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "data/talia-foundation-explanations-batch01-v1.json",
+          "anchors": [
+            "reviewExplanation",
+            "transferQuestion"
+          ]
+        },
+        {
+          "path": "functions/_lib/talia-foundation-reflection-coach-v1.js",
+          "anchors": [
+            "coachFoundationReflection"
+          ]
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "F05",
+      "edition": "FOUNDATION",
+      "capability": "Ungraded self-check, correction, retry and optional private history",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-foundation-reflection-coach-v1.js",
+          "anchors": [
+            "ungraded"
+          ]
+        },
+        {
+          "path": "tests/test_v014102_member_tutor_history.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "F06",
+      "edition": "FOUNDATION",
+      "capability": "61 original indicator guide access with source-vs-overlay distinction",
+      "sourceStage": "FOUNDATION_SOURCE_EVIDENCED",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "data/tutor-indicator-study-v1.json",
+          "anchors": [
+            "\"count\": 61"
+          ]
+        },
+        {
+          "path": "tests/talia-foundation-indicator-expansion-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "A01",
+      "edition": "ADVANCED",
+      "capability": "Verified prerequisite graph and member-specific progression",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-research-contracts-v1.js",
+          "anchors": [
+            "draftAdvancedPrerequisites"
+          ]
+        },
+        {
+          "path": "tests/talia-tier-research-contracts-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "A02",
+      "edition": "ADVANCED",
+      "capability": "Edition-specific adaptive explanations and misconception correction",
+      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
+      "hasSourceEvidence": false,
+      "evidence": [],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "A03",
+      "edition": "ADVANCED",
+      "capability": "Skill-gap study recommendations and ordered pathways",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-research-contracts-v1.js",
+          "anchors": [
+            "draftAdvancedGapSequence"
+          ]
+        },
+        {
+          "path": "tests/talia-premium-prototypes-batch18-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "P01",
+      "edition": "PROFESSIONAL",
+      "capability": "ECharts completed-bar contextual multi-indicator instruction",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "src/tutor/TaliaClassroom.tsx",
+          "anchors": [
+            "echarts",
+            "FictionalChart"
+          ]
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "P02",
+      "edition": "PROFESSIONAL",
+      "capability": "Server-bounded replay evidence with future-bar denial",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-research-contracts-v1.js",
+          "anchors": [
+            "draftProfessionalEvidence"
+          ]
+        },
+        {
+          "path": "tests/talia-tier-research-contracts-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "P03",
+      "edition": "PROFESSIONAL",
+      "capability": "Evidence provenance and decision-point debrief",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-research-contracts-v1.js",
+          "anchors": [
+            "draftProfessionalCloseDebrief"
+          ]
+        },
+        {
+          "path": "tests/talia-premium-prototypes-batch18-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "E01",
+      "edition": "ENTERPRISE",
+      "capability": "Cross-course verified research orchestration",
+      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
+      "hasSourceEvidence": false,
+      "evidence": [],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "E02",
+      "edition": "ENTERPRISE",
+      "capability": "Governed multi-source citation and comparison input prototype",
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-research-contracts-v1.js",
+          "anchors": [
+            "draftEnterpriseProvenance",
+            "draftEnterpriseClaimCitationIndex"
+          ]
+        },
+        {
+          "path": "tests/talia-premium-prototypes-batch18-v1.test.mjs",
+          "anchors": []
+        }
+      ],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    },
+    {
+      "id": "E03",
+      "edition": "ENTERPRISE",
+      "capability": "Member-authorized evidence/learning workbench reporting",
+      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
+      "hasSourceEvidence": false,
+      "evidence": [],
+      "productionFeatureAccepted": false,
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false
+    }
+  ],
+  "heldExternal": [
+    "all final licensed/editorial acceptances",
+    "premium entitlement release",
+    "exact-commit Cloudflare+full CI",
+    "genuine member and Owner browser",
+    "privacy and accessibility"
+  ]
+}

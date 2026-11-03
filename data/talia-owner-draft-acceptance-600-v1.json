@@ -1,0 +1,269 @@
+{
+  "schema": "smfgu.talia.owner-draft-authoring-acceptance.v1",
+  "documentId": "SMFGU-TALIA-OWNER-DRAFT-600-001",
+  "project": "The Stock Market: From the Ground Up",
+  "tutor": "Talia Mercer / Talia Market Tutor",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "date": "2026-11-03",
+  "version": "1.0",
+  "ownerDecision": "OWNER_ACCEPTED_AUTHORING_COMPLETENESS_ONLY",
+  "scope": "600 original supplemental Foundation drafts in 30 immutable topic-ID batches",
+  "decisionBasis": "Owner explicitly accepted the 600/600 authored-draft milestone during the current project execution.",
+  "baselineCommit": "8c1d95d6886fd7c6ec53e4bc79680768525806d0",
+  "acceptedDraftCount": 600,
+  "acceptedBatchCount": 30,
+  "acceptedMeaning": "Authoring deliverables exist and the owner accepts completion of that drafting milestone. This is not member release or final content accuracy approval.",
+  "notGranted": [
+    "independent mathematics signoff",
+    "independent financial subject-matter editorial approval",
+    "third-party source-rights clearance",
+    "licensed market-data redistribution",
+    "official competency recognition or protected grading",
+    "premium edition release or paid inference",
+    "authenticated full V4 acceptance",
+    "site-wide production publication"
+  ],
+  "sourceSnapshot": [
+    {
+      "batch": 1,
+      "path": "data/talia-foundation-explanations-batch01-v1.json",
+      "blobSha": "bac656d73bcdaa0e70fb501504483831b91672d9",
+      "expectedLessons": 20,
+      "firstOrdinal": 1,
+      "lastOrdinal": 20
+    },
+    {
+      "batch": 2,
+      "path": "data/talia-foundation-explanations-batch02-v1.json",
+      "blobSha": "d3b8576710c5d92e02750a600e61bf56b26facd9",
+      "expectedLessons": 20,
+      "firstOrdinal": 21,
+      "lastOrdinal": 40
+    },
+    {
+      "batch": 3,
+      "path": "data/talia-foundation-explanations-batch03-v1.json",
+      "blobSha": "c9f97c2fdaa0fc886506aa18b58de5c07eeac4c7",
+      "expectedLessons": 20,
+      "firstOrdinal": 41,
+      "lastOrdinal": 60
+    },
+    {
+      "batch": 4,
+      "path": "data/talia-foundation-explanations-batch04-v1.json",
+      "blobSha": "1346426f4bb4fdd692d629c36e6bf9c3cc277ad1",
+      "expectedLessons": 20,
+      "firstOrdinal": 61,
+      "lastOrdinal": 80
+    },
+    {
+      "batch": 5,
+      "path": "data/talia-foundation-explanations-batch05-v1.json",
+      "blobSha": "d5aa00e9f009636f76fb54f80608382231df60ec",
+      "expectedLessons": 20,
+      "firstOrdinal": 81,
+      "lastOrdinal": 100
+    },
+    {
+      "batch": 6,
+      "path": "data/talia-foundation-explanations-batch06-v1.json",
+      "blobSha": "e645dab76cc2082422c8d8b0931c6f600e32859e",
+      "expectedLessons": 20,
+      "firstOrdinal": 101,
+      "lastOrdinal": 120
+    },
+    {
+      "batch": 7,
+      "path": "data/talia-foundation-explanations-batch07-v1.json",
+      "blobSha": "f7953476bd62eb7628fb7c397e25ecf785c42fd0",
+      "expectedLessons": 20,
+      "firstOrdinal": 121,
+      "lastOrdinal": 140
+    },
+    {
+      "batch": 8,
+      "path": "data/talia-foundation-explanations-batch08-v1.json",
+      "blobSha": "463634cb1ce5d6f93e80233cae3dc97b7dfd8ddd",
+      "expectedLessons": 20,
+      "firstOrdinal": 141,
+      "lastOrdinal": 160
+    },
+    {
+      "batch": 9,
+      "path": "data/talia-foundation-explanations-batch09-v1.json",
+      "blobSha": "4c0eb6c62b3ade0d0554a6acb39f87c3011bd318",
+      "expectedLessons": 20,
+      "firstOrdinal": 161,
+      "lastOrdinal": 180
+    },
+    {
+      "batch": 10,
+      "path": "data/talia-foundation-explanations-batch10-v1.json",
+      "blobSha": "951d4a28a1fc58696bbeaf6fb5948c015bba2078",
+      "expectedLessons": 20,
+      "firstOrdinal": 181,
+      "lastOrdinal": 200
+    },
+    {
+      "batch": 11,
+      "path": "data/talia-foundation-explanations-batch11-v1.json",
+      "blobSha": "94a88c782b21317e66d6234c905854486263f61b",
+      "expectedLessons": 20,
+      "firstOrdinal": 201,
+      "lastOrdinal": 220
+    },
+    {
+      "batch": 12,
+      "path": "data/talia-foundation-explanations-batch12-v1.json",
+      "blobSha": "6db4357a11f615f265c360e6b202d7b1769e1dee",
+      "expectedLessons": 20,
+      "firstOrdinal": 221,
+      "lastOrdinal": 240
+    },
+    {
+      "batch": 13,
+      "path": "data/talia-foundation-explanations-batch13-v1.json",
+      "blobSha": "d9b3446e63ea01d43f007aba1e875daa6f608613",
+      "expectedLessons": 20,
+      "firstOrdinal": 241,
+      "lastOrdinal": 260
+    },
+    {
+      "batch": 14,
+      "path": "data/talia-foundation-explanations-batch14-v1.json",
+      "blobSha": "d75764d2398f380c88111e335a0e9e99228a887c",
+      "expectedLessons": 20,
+      "firstOrdinal": 261,
+      "lastOrdinal": 280
+    },
+    {
+      "batch": 15,
+      "path": "data/talia-foundation-explanations-batch15-v1.json",
+      "blobSha": "6012dd755641e66decc209ca51ec899940df62db",
+      "expectedLessons": 20,
+      "firstOrdinal": 281,
+      "lastOrdinal": 300
+    },
+    {
+      "batch": 16,
+      "path": "data/talia-foundation-explanations-batch16-v1.json",
+      "blobSha": "259b5828bcc61f51a411517ac8cd13cfc675fbc5",
+      "expectedLessons": 20,
+      "firstOrdinal": 301,
+      "lastOrdinal": 320
+    },
+    {
+      "batch": 17,
+      "path": "data/talia-foundation-explanations-batch17-v1.json",
+      "blobSha": "27dda137cda33e195265dc16016a5adffe2ae9e6",
+      "expectedLessons": 20,
+      "firstOrdinal": 321,
+      "lastOrdinal": 340
+    },
+    {
+      "batch": 18,
+      "path": "data/talia-foundation-explanations-batch18-v1.json",
+      "blobSha": "b65a554bdd73f421f8f1d7144cf88a30731afe8d",
+      "expectedLessons": 20,
+      "firstOrdinal": 341,
+      "lastOrdinal": 360
+    },
+    {
+      "batch": 19,
+      "path": "data/talia-foundation-explanations-batch19-v1.json",
+      "blobSha": "b0e5c6f7165dfea6abe76d414b7447b0a88d6a62",
+      "expectedLessons": 20,
+      "firstOrdinal": 361,
+      "lastOrdinal": 380
+    },
+    {
+      "batch": 20,
+      "path": "data/talia-foundation-explanations-batch20-v1.json",
+      "blobSha": "3f2e992cf5bacdbea1abbbe16daf0b3c722ee526",
+      "expectedLessons": 20,
+      "firstOrdinal": 381,
+      "lastOrdinal": 400
+    },
+    {
+      "batch": 21,
+      "path": "data/talia-foundation-explanations-batch21-v1.json",
+      "blobSha": "2f0c9aa21af23217dd6e7f7cd5db168f37184c5a",
+      "expectedLessons": 20,
+      "firstOrdinal": 401,
+      "lastOrdinal": 420
+    },
+    {
+      "batch": 22,
+      "path": "data/talia-foundation-explanations-batch22-v1.json",
+      "blobSha": "0db821adbae28d29d2db6d1e057aa7a20bb76cff",
+      "expectedLessons": 20,
+      "firstOrdinal": 421,
+      "lastOrdinal": 440
+    },
+    {
+      "batch": 23,
+      "path": "data/talia-foundation-explanations-batch23-v1.json",
+      "blobSha": "386a6c38aca235808ddc2e77cd2a16b85c827127",
+      "expectedLessons": 20,
+      "firstOrdinal": 441,
+      "lastOrdinal": 460
+    },
+    {
+      "batch": 24,
+      "path": "data/talia-foundation-explanations-batch24-v1.json",
+      "blobSha": "1424e79076aff7842640ea92c2051f5160a01485",
+      "expectedLessons": 20,
+      "firstOrdinal": 461,
+      "lastOrdinal": 480
+    },
+    {
+      "batch": 25,
+      "path": "data/talia-foundation-explanations-batch25-v1.json",
+      "blobSha": "6e97f225cc1de9bf6d5909fd956e7a0af781091f",
+      "expectedLessons": 20,
+      "firstOrdinal": 481,
+      "lastOrdinal": 500
+    },
+    {
+      "batch": 26,
+      "path": "data/talia-foundation-explanations-batch26-v1.json",
+      "blobSha": "90f189d15e087661730adbef2663031ae741802b",
+      "expectedLessons": 20,
+      "firstOrdinal": 501,
+      "lastOrdinal": 520
+    },
+    {
+      "batch": 27,
+      "path": "data/talia-foundation-explanations-batch27-v1.json",
+      "blobSha": "8486a620fc2d89b26ca1fe46453179eb1c64f463",
+      "expectedLessons": 20,
+      "firstOrdinal": 521,
+      "lastOrdinal": 540
+    },
+    {
+      "batch": 28,
+      "path": "data/talia-foundation-explanations-batch28-v1.json",
+      "blobSha": "62fd176a377493866e3061c7ad2fac5aba752bd6",
+      "expectedLessons": 20,
+      "firstOrdinal": 541,
+      "lastOrdinal": 560
+    },
+    {
+      "batch": 29,
+      "path": "data/talia-foundation-explanations-batch29-v1.json",
+      "blobSha": "2b9a75000228e73e014d2a3783fe5023e0dc3ab9",
+      "expectedLessons": 20,
+      "firstOrdinal": 561,
+      "lastOrdinal": 580
+    },
+    {
+      "batch": 30,
+      "path": "data/talia-foundation-explanations-batch30-v1.json",
+      "blobSha": "0b1a17f0b0f433af80a4977616264d2df3b258c8",
+      "expectedLessons": 20,
+      "firstOrdinal": 581,
+      "lastOrdinal": 600
+    }
+  ],
+  "decisionStatus": "APPROVED_OWNER_DRAFT_MILESTONE_WITH_INDEPENDENT_RELEASE_HOLDS"
+}
