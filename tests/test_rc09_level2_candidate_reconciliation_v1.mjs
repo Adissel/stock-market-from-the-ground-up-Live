@@ -13,7 +13,8 @@ assert.match(forward,/BEGIN;[\s\S]*DO \$rc09\$[\s\S]*END \$rc09\$;[\s\S]*COMMIT;
 assert.match(rollback,/BEGIN;[\s\S]*DO \$rc09rollback\$[\s\S]*END \$rc09rollback\$;[\s\S]*COMMIT;/);
 for(const sql of [forward,rollback]){
  assert.equal((sql.match(/UPDATE public\.gu_lab_competency_knowledge_map_v014105/g)||[]).length,1,'Exactly one scoped UPDATE');
- assert.equal((sql.match(/WHERE lab_id='TAPE-C09-L02'/g)||[]).length,2,'Exact prior/current candidate restrictions');
+ assert((sql.match(/WHERE lab_id='TAPE-C09-L02'/g)||[]).length>=2,'All source and update clauses must remain scoped to exact target Lab');
+ assert(/UPDATE public\.gu_lab_competency_knowledge_map_v014105[\s\S]*?WHERE lab_id='TAPE-C09-L02'/.test(sql),'Mutation must remain restricted to exact target Lab');
  assert(!/\b(?:DROP|TRUNCATE|ALTER|CREATE|GRANT|REVOKE|DELETE|INSERT)\s/i.test(sql),'Never alter schema or invent access, accounts, rows or grading');
  assert(!/SET\s+(?:review_state|rubric_version|reviewed_by|reviewed_at)\s*=/i.test(sql),'Protected approval fields must not be changed');
  assert(sql.includes("lab_training_attempts_v014")&&sql.includes("competency_evidence"),'Abort when real learning evidence exists');
