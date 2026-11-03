@@ -1,0 +1,729 @@
+{
+  "schema": "smfgu.talia.chatmode.package2.p0-review-packets.v1",
+  "documentId": "SMFGU-TALIA-CHAT-P2-P0-021-001",
+  "date": "2026-11-03",
+  "status": "INDEPENDENT_REVIEW_PENDING",
+  "count": 21,
+  "packets": [
+    {
+      "queueId": "TALIA-P2-001",
+      "ordinal": 241,
+      "topicId": "TALIA_TOPIC_SHARE_COUNT_VS_NOTIONAL_TRADE_VOLUME",
+      "title": "Share volume and dollar notional trade volume are different measurements",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "Share volume counts shares; dollar notional multiplies each executed quantity by its own matched trade price.",
+      "workedExampleForIndependentCheck": "FICTIONAL: 600 shares printed at $12.00 and 400 at $12.50 imply 1,000 traded shares but $7,200+$5,000=$12,200 of total print notional.",
+      "limits": "A single OHLC candle and its share volume alone do not reconstruct exact transaction-level notional when individual prices are missing.",
+      "candidateReferences": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "HLC3 bar approximation cannot substitute for exact print notional.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-012",
+      "ordinal": 252,
+      "topicId": "TALIA_TOPIC_SPLIT_ADJUSTED_PERCENTAGE_COMPARISON",
+      "title": "Split-adjusted and unadjusted prices cannot be mixed in a simple return comparison",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "A split can change the nominal quote scale without a comparable change in the economic value of an existing share position.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A prior $80 close is $40 on a 2-for-1 adjusted basis; an adjusted next $42 close represents +5%, not an unadjusted −47.5%.",
+      "limits": "Real vendor adjusted-price histories may also reflect distributions and corrections; always declare adjustment mode and point-in-time availability.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Never mix adjustment states across timestamps.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-031",
+      "ordinal": 271,
+      "topicId": "TALIA_TOPIC_TRADE_TIME_NOT_SETTLEMENT_TIME",
+      "title": "Execution time and settlement time describe different stages of a transaction",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A recorded trade execution and subsequent securities/cash settlement are separate operational events.",
+      "workedExampleForIndependentCheck": "FICTIONAL: An order fills on Tuesday at 10:15 a.m.; assuming no holiday and standard T+1, settlement is Wednesday, but the execution remains Tuesday at 10:15.",
+      "limits": "The example assumes an eligible regular-way U.S. equity; other products and account rules can operate differently.",
+      "candidateReferences": [
+        "https://www.finra.org/investors/investing/investment-products/stocks/settling-securities-transactions"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Settlement date is not evidence of when the fill was known.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-035",
+      "ordinal": 275,
+      "topicId": "TALIA_TOPIC_TRADING_HALT_QUOTE_NOT_REOPEN_FILL",
+      "title": "A pre-halt last price does not determine the price of a later reopening fill",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "When trading is halted, a previously reported last price is historical context, not a guaranteed executable quote at reopening.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A stock last printed at $20.00 before a halt and a later documented reopening print is $18.40, a −8% print-to-print change.",
+      "limits": "Different trading halts, venue rules and opening auctions govern real outcomes; a chart's projected price is not a fill.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Before the reopening, its price is future information.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-036",
+      "ordinal": 276,
+      "topicId": "TALIA_TOPIC_TRADE_PRINT_LIQUIDITY_NOT_BUYER_ID",
+      "title": "Time-and-sales prints cannot identify the actual beneficial buyer by color",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A transaction print reports executed quantity and price, but chart colors or bid/ask classifiers do not provide personal trader identity.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A 500-share print at $12.10 appears while the quoted ask is $12.10; 500 traded shares are observed, but the print does not name 500 different buyers.",
+      "limits": "Exchange reporting delays, off-exchange prints and quote timing can make aggressor-side heuristics unreliable.",
+      "candidateReferences": [
+        "https://www.sec.gov/data-research/market-structure-data"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Color never proves beneficial ownership or count of counterparties.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-040",
+      "ordinal": 280,
+      "topicId": "TALIA_TOPIC_ZERO_VOLUME_NO_PRINT_ASSERTION",
+      "title": "A reported zero-volume interval is not evidence that price never moved in every venue",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A zero in a specific feed's time bucket means no eligible counted executions were recorded there under that feed's inclusion rules.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A chart feed records 0 eligible shares in one completed one-minute window and 600 in the next; the two buckets sum to 600 reported shares, not 600 trades.",
+      "limits": "Missing data, stale quote updates, excluded venues and reporting delays differ from an explicit measured zero.",
+      "candidateReferences": [
+        "https://www.nyse.com/market-data/historical"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Explicit zero differs from missing observations and excluded venues.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-041",
+      "ordinal": 104,
+      "topicId": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
+      "title": "A share repurchase and a cash dividend distribute value through different mechanisms",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch06-v1.json",
+      "claimToVerify": "A cash dividend pays eligible holders directly, while a repurchase trades issuer cash for outstanding shares; effects depend on price, treasury treatment and later share count.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A company has 1,000 shares and buys back 100 at $10 each for $1,000. If retired with no new shares, outstanding shares become 900; an unchanged holder with 90 shares moves from 9.00% to 10.00% ownership, but receives no dividend cash from that repurchase.",
+      "limits": "Non-selling shareholders receive no direct repurchase cash. Retired shares, treasury treatment, dilution, issuer value, taxes and repurchase price affect outcomes. Do not present the vacated 2023 disclosure rule as currently binding.",
+      "candidateReferences": [
+        "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "The SEC May 2023 repurchase-disclosure modernization rule was vacated effective December 19, 2023. The archived SEC speech is history, not currently effective reporting requirements.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-043",
+      "ordinal": 119,
+      "topicId": "TALIA_TOPIC_BOND_MATURITY_VS_DURATION",
+      "title": "A bond's stated maturity and its sensitivity to yield changes are different measurements",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch06-v1.json",
+      "claimToVerify": "Maturity is a contractual calendar date; duration is an analytical measure of weighted cash-flow timing or yield sensitivity, with definitions that must be declared.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Two securities each mature in five years, but one pays annual coupons and one pays no coupon. Their principal dates match; the coupon bond returns some cash earlier, so their Macaulay durations need not match five years.",
+      "limits": "Yield curve shocks, embedded options and changing cash-flow assumptions can defeat simple duration approximations.",
+      "candidateReferences": [
+        "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "A bond's modified-duration estimate requires yield, convention and potentially option treatment; not a guaranteed rate-price forecast.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-007",
+      "ordinal": 247,
+      "topicId": "TALIA_TOPIC_QUANTITY_WEIGHTED_ENTRY_PRICE",
+      "title": "Average entry price must weight each partial purchase by its share count",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "A simple arithmetic average of different execution prices is wrong when share quantities differ.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Buying 20 shares at $10 and 30 at $11 produces (200+330)/50=$10.60 per share, not an unweighted $10.50.",
+      "limits": "Transaction fees, fractional shares, execution corrections and account-specific cost-basis rules are outside this raw fill-price calculation.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Fee-adjusted cost basis can differ.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-008",
+      "ordinal": 248,
+      "topicId": "TALIA_TOPIC_WHOLE_SHARE_CASH_PURCHASE_LIMIT",
+      "title": "Cash available and purchase price place an arithmetic ceiling on whole-share quantity",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "Cash-funded whole-share quantity is limited by affordable purchase cost when fees and trading restrictions are separately addressed.",
+      "workedExampleForIndependentCheck": "FICTIONAL: With $500 cash and a hypothetical $12.30 per-share execution price, 40 whole shares cost $492, leaving $8 before any charges.",
+      "limits": "Actual orders can fill at different prices or incur fees; available-to-trade balances may differ from displayed account cash.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Market-order fills need not match a stale quote.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-009",
+      "ordinal": 249,
+      "topicId": "TALIA_TOPIC_FRACTIONAL_SHARE_NOTIONAL_QUANTITY",
+      "title": "Fractional-share quantity is not automatically rounded to a whole share",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "When a broker supports it, a notional-dollar order can correspond to part of a share rather than a full integer quantity.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A $25 notional purchase at an assumed $40-per-share fill would buy 0.625 shares before any account restrictions or charges.",
+      "limits": "Broker policy determines eligibility, supported symbols, fractional order execution and any rounding; arithmetic is not an order guarantee.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Theoretical quantity does not establish execution.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-011",
+      "ordinal": 251,
+      "topicId": "TALIA_TOPIC_REVERSE_SPLIT_POSITION_SCALE",
+      "title": "A reverse split changes share quantity and the comparable price scale",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "In a simplified reverse split, shares decrease by a stated ratio while an adjusted reference price increases correspondingly.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A holder of 120 shares at $2.00 has $240 of position value; a 1-for-10 reverse split implies 12 shares at an adjusted $20.00 reference.",
+      "limits": "Cash in lieu, fractions, event terms and subsequent market repricing can produce differences from this purely mechanical model.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Cash in lieu and market repricing can change outcomes.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-013",
+      "ordinal": 253,
+      "topicId": "TALIA_TOPIC_CHANGING_QUOTE_MARKET_ORDER_FILL",
+      "title": "An earlier displayed ask is not a confirmed market-order purchase price",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "An observed quote and a subsequent execution can differ because displayed liquidity and market conditions change.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A quote showed ask $10.50, but a later 100-share market buy filled at $10.70; paid notional was $1,070, $20 above the earlier ask-based estimate.",
+      "limits": "Last trade, stale quotes and displayed liquidity do not ensure execution; this is an execution arithmetic example, not a broker simulation.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "A quote is not a trade confirmation.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-014",
+      "ordinal": 254,
+      "topicId": "TALIA_TOPIC_BUY_LIMIT_CANNOT_ASSUME_EXECUTION",
+      "title": "A buy limit places a price boundary without guaranteeing an execution",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "An eligible buy-limit order can execute at its limit price or better, but the order may remain unfilled.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A $20.00 buy limit is below the visible $20.30 offer; the displayed quote alone establishes neither a fill nor a no-fill result for the order even if a later candle trades $19.90.",
+      "limits": "Displayed low prices do not prove order priority, matching liquidity, market session eligibility or that a particular order executed.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "A prior quoted offer cannot prove a fill or zero fills.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-015",
+      "ordinal": 255,
+      "topicId": "TALIA_TOPIC_PARTIAL_EXECUTION_WEIGHTED_PRICE",
+      "title": "Multiple partial executions require a weighted average fill price",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch13-v1.json",
+      "claimToVerify": "A single submitted order can receive different partial fills and the average is based on actual executed share quantities.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Forty shares filled at $10.00 and sixty at $10.20; 100 shares executed at a weighted $10.12 average.",
+      "limits": "An unfinished order can have additional later fills; a partial-fill average is not necessarily the final complete order result.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Future fills may alter the average.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-026",
+      "ordinal": 266,
+      "topicId": "TALIA_TOPIC_PERIOD_RETURN_COMPOUND_NOT_ADD",
+      "title": "Sequential percentage changes compound rather than simply adding together",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A later percentage return applies to the already changed value, so the base for each period can differ.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A $100 holding rises 10% to $110 and then falls 10% to $99; the two-period net change is −1%, not zero.",
+      "limits": "Withdrawals, fees, distributions and currencies alter actual investment performance; these examples contain none.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Fee, dividend and cash-flow assumptions must be stated.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-028",
+      "ordinal": 268,
+      "topicId": "TALIA_TOPIC_CASH_PROCEEDS_AFTER_SALE_FEE",
+      "title": "Gross sales proceeds and deposited net proceeds are different amounts",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "The dollars generated by shares multiplied by execution price can exceed the account's after-fee sales proceeds.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Selling 30 shares at $18 generates $540 gross proceeds; a fictional $2 selling fee makes $538 net proceeds before tax.",
+      "limits": "Sales proceeds do not alone reveal profit because acquisition cost, taxes, other fees and unsettled balances are separate.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Sales proceeds and capital gain require different denominators.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "FORMULA_OR_DENOMINATOR_MISMATCH",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-032",
+      "ordinal": 272,
+      "topicId": "TALIA_TOPIC_QUOTE_DEPTH_NOT_EXECUTED_VOLUME",
+      "title": "Displayed order-book depth is not evidence that those shares traded",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A book snapshot displays resting quoted interest, whereas traded volume reflects actual executed prints over a defined interval.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Two displayed bid levels show 300 and 200 shares, totaling 500 displayed bid shares; no traded share volume is established by this snapshot.",
+      "limits": "Quotes may cancel, refresh, be hidden, or move; displayed depth is not a guarantee of available execution quantity.",
+      "candidateReferences": [
+        "https://www.sec.gov/data-research/market-structure-data"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Hidden/cancelled orders and feed snapshots are not fills.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-034",
+      "ordinal": 274,
+      "topicId": "TALIA_TOPIC_ORDER_DAY_DURATION_NOT_FILL",
+      "title": "A day-order duration does not establish whether an order executed",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A day order's designated active interval and any completed execution are independent facts about order handling.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A 100-share day limit order submitted at 3:45 p.m. has zero reported fills by the assumed 4:00 p.m. regular-session end; its executed share count remains 0.",
+      "limits": "Broker and venue definitions of eligible sessions, extensions and cancellations differ, so the actual order status controls.",
+      "candidateReferences": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Time-in-force expiration is not an execution record.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "FORMULA_OR_DENOMINATOR_MISMATCH"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-037",
+      "ordinal": 277,
+      "topicId": "TALIA_TOPIC_OUT_OF_SEQUENCE_PRINT_CONTEXT",
+      "title": "Historical print reports can arrive later than the underlying execution time",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A reported arrival timestamp and the actual trade timestamp can differ, especially after corrections or delayed reporting.",
+      "workedExampleForIndependentCheck": "FICTIONAL: A trade executed at 10:01:10 is reported at 10:01:25, fifteen seconds later; its availability to a 10:01:15 decision is not established by the later report.",
+      "limits": "Different feed entitlements and rules change which clock is authoritative; never reconstruct earlier knowledge from late-arriving messages.",
+      "candidateReferences": [
+        "https://www.finra.org/finra-data"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Do not backdate late reports into earlier learning decisions.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    },
+    {
+      "queueId": "TALIA-P2-038",
+      "ordinal": 278,
+      "topicId": "TALIA_TOPIC_MARKET_DATA_AGGREGATION_INTERVAL",
+      "title": "Market-data aggregation changes what an interval-volume bar represents",
+      "reviewPriority": "P0_HIGH",
+      "sourcePath": "data/talia-foundation-explanations-batch14-v1.json",
+      "claimToVerify": "A volume histogram bar aggregates prints attributed to a particular time interval, not individual order submissions.",
+      "workedExampleForIndependentCheck": "FICTIONAL: Three prints of 100, 250 and 150 shares within a completed one-minute window produce a 500-share volume bar.",
+      "limits": "Vendor corrections, odd-lot inclusion and interval boundary conventions can change actual historical aggregates.",
+      "candidateReferences": [
+        "https://www.nyse.com/market-data/historical"
+      ],
+      "internalReviewerOutcome": "REVISED_INTERNAL_REVIEW_COMPLETE_PENDING_INDEPENDENT_ACCEPTANCE",
+      "misinterpretationBoundary": "Feed eligibility and corrections may modify aggregates.",
+      "priorityReasons": [
+        "REGULATORY_OR_EXECUTION_BOUNDARY",
+        "TIME_CUTOFF_OR_DATA_PROVENANCE",
+        "COST_LIQUIDITY_OR_BROKER_DEPENDENCE"
+      ],
+      "independentEvidenceRequired": [
+        "Exact claim-to-primary-source passage, dated scope and applicability",
+        "Recompute fictional example with units, rounding, inputs and counterexample",
+        "Check omission, false certainty, trading/financial advice and point-in-time context",
+        "Record original vs reproduced content, data rights, licensing and AI processing",
+        "Independent reviewer identity, findings, disposition, citation and evidence date"
+      ],
+      "approvals": {
+        "sourceClaim": false,
+        "math": false,
+        "rights": false,
+        "publication": false
+      }
+    }
+  ]
+}
