@@ -36,10 +36,18 @@ test('Exactly forty distinct topical explanations in two new optional batches; 1
   assert.match(g.workedCase,/^FICTIONAL:/);
   for(const key of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])
     assert.ok(typeof g[key]==='string'&&g[key].length>=28,g.code+' '+key);
-  assert.equal(g.sourceUrls.length,1);
-  const u=new URL(g.sourceUrls[0]);
-  assert.equal(u.protocol,'https:');assert.equal(u.username,'');assert.equal(u.search,'');
-  assert.ok(canonicalSources.has(u.hostname),g.code+' unexpected source');
+  assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2,g.code+' bounded source count');
+  for(const url of g.sourceUrls){
+   const u=new URL(url);
+   assert.equal(u.protocol,'https:');assert.equal(u.username,'');assert.equal(u.search,'');
+   assert.ok(canonicalSources.has(u.hostname)||u.hostname==='www.quantconnect.com'&&g.code==='TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN',g.code+' unexpected source');
+  }
+  if(g.sourceUrls.length===2){
+   assert.equal(g.code,'TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN');
+   assert.equal(g.previousGenericSourceUrl,'https://www.investor.gov/introduction-investing');
+   assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }
   assert.match(g.sourceRightsStatus,/not_third_party_content_republication/);
  }
 });
