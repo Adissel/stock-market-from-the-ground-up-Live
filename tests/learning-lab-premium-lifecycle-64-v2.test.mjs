@@ -26,7 +26,7 @@ const scenarios=[
  ['valid',200],['release_disabled',403],['missing_grant',403],
  ['revoked',403],['expired_edition_grant',403],['cancelled_plan',403],
  ['tool_denied',403],['future_plan',403],['expired_plan',403],
- ['wrong_edition_grant',403],['basic_plan',403],['foreign_origin',403],
+ ['insufficient_edition_grant',403],['basic_plan',403],['foreign_origin',403],
  ['unsupported_activity',400],['unlicensed_market_data',400],
  ['release_flag_unset',403],['forged_indicator_ignored',200]
 ];
@@ -65,8 +65,8 @@ function mockBackend(spec,scenario){
   if(u.pathname==='/rest/v1/site_subscriptions')return response([]);
   if(u.pathname==='/rest/v1/user_plan_grants'){
    const plan=scenario==='basic_plan'?'FOUNDING_14':spec.plan;
-   const edition=scenario==='wrong_edition_grant'?
-    (spec.edition==='ADVANCED'?'PROFESSIONAL':'ADVANCED'):spec.edition;
+   const edition=scenario==='insufficient_edition_grant'?
+    (spec.edition==='ADVANCED'?'BASIC':'ADVANCED'):spec.edition;
    const metadata={engine_edition_grants_v1:
     scenario==='missing_grant'?{}:{[spec.family]:{
      active:true,edition,
