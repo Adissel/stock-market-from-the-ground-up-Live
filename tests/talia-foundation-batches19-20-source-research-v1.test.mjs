@@ -43,12 +43,21 @@ test('Batch20 vintage chronology, mixed executions and model assumptions have ex
  assert.equal((100-80)/100,0.2);
 });
 
-test('The all-600 scanner recognizes broad SEC EDGAR search links excluded by the legacy counter',()=>{
+test('The all-600 scanner recognizes EDGAR links and enforces completed Batch10/26 replacements',()=>{
  const scanner=readFileSync(new URL('../scripts/qa/talia-foundation-source-quality-v1.mjs',import.meta.url),'utf8');
  assert.match(scanner,/edgarGeneric/);
  assert.ok(scanner.includes("https://www.sec.gov/edgar/search/"));
  assert.match(scanner,/genericEdgarSearchReferences/);
  assert.equal(batches.flat().filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0);
  const remaining=JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch26-v1.json',import.meta.url),'utf8')).guides;
- assert.ok(remaining.some(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')),'Known remaining EDGAR index citations must remain included in QA scope until corrected');
+ assert.equal(remaining.filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0,'All Batch26 broad EDGAR citations must now be replaced');
+ const replay=JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch10-v1.json',import.meta.url),'utf8')).guides;
+ const original=['TALIA_TOPIC_REPLAY_SPLIT_ADJUSTMENT','TALIA_TOPIC_REPLAY_CORPORATE_EVENT_TIMING'];
+ for(const code of original){
+  const g=replay.find(item=>item.code===code);
+  assert.ok(g);
+  assert.equal(g.previousGenericSourceUrl,'https://www.sec.gov/edgar/search/');
+  assert.equal(g.sourceUrls.some(url=>url==='https://www.sec.gov/edgar/search/'),false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+ }
 });
