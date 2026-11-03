@@ -13,7 +13,8 @@ for(let i=20;i<30;i++){
  const row=bootcampCurriculumV014144.days[i],d=p.curriculum[i],l=d.lesson;
  assert.equal(row.day,i+1);assert.equal(d.day,i+1);
  assert.equal(d.title,row.title);assert.equal(d.objective,row.objective);assert.equal(d.practice,row.practice);
- assert.equal(d.lesson,row.lesson);
+ for(const [field,value] of Object.entries(row.lesson))
+  assert.strictEqual(d.lesson[field],value,'Original Foundations30 field changed day '+(i+1)+' '+field);
  assert(l.explanation.length>90&&l.workedExample.length>120&&l.sourceProcedure.length>=3);
  assert(l.reviewGuide.length>40&&l.error.length>30&&l.transfer.length>40);
  assert(l.status==='ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
