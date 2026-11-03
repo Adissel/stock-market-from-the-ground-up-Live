@@ -1,0 +1,46 @@
+name: Crownlight Learning Constellation Chromium (Free)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/prototype-learning-constellation-v1.yml'
+      - 'prototype.html'
+      - 'assets/js/prototype-experiences-boot-v1.js'
+      - 'assets/js/prototype-learning-constellation-v1.js'
+      - 'assets/css/prototype-learning-constellation-v1.css'
+      - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
+permissions:
+  contents: read
+jobs:
+  constellation-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record exact prototype SHA
+        run: echo "CONSTELLATION_SOURCE_SHA=${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Validate JavaScript modules
+        run: |
+          node --check assets/js/prototype-learning-constellation-v1.js
+          node --check assets/js/prototype-experiences-boot-v1.js
+          node --check tests/prototype-learning-constellation-v1-browser.test.mjs
+      - name: Install pinned open-source Chromium testing
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify new distinct four-mode diagram, drag, zoom and no leaked grades
+        run: node tests/prototype-learning-constellation-v1-browser.test.mjs
+      - name: Preserve visual comparison screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: learning-constellation-visual-proof
+          path: artifacts/learning-constellation/
+          if-no-files-found: ignore
+          retention-days: 7
