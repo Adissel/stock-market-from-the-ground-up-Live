@@ -71,23 +71,32 @@ export function advancedFormativeStudy({competencies,observations,evidence,indic
   evidence:studySummary(prefix,studies),remediation:freeze(path),graded:false,masteryAwarded:false,
   limitation:'Reviewed formative observations recommend practice, not a grade or a trade.'});
 }
-export function professionalDecisionStudy({evidence,indicators,riskCases,frames}={}){
+export function professionalDecisionStudy({evidence,indicators,riskCases,frames,competencies,observations}={}){
  const prefix=asOfPrefix(evidence);
  if(!prefix)return null;
  const studies=normalizeIndicators(indicators,prefix.completedThrough);
  const risks=compareFictionalRiskCases(riskCases);
- if(!studies||!risks||!Array.isArray(frames)||frames.length>6)return null;
+ if(!studies||!risks||!Array.isArray(frames)||frames.length<2||frames.length>6)return null;
  const used=new Set(),frameRows=[];
  for(const frame of frames){
   if(!frame||!text(frame.label,40)||used.has(frame.label)||!fin(frame.completedThrough)||
     frame.completedThrough>prefix.completedThrough||frame.completedThrough<=0||
     !fin(frame.close)||frame.close<=0||frame.sourceVerified!==true)return null;
   used.add(frame.label);
+  const prior=frameRows.at(-1);
   frameRows.push(freeze({label:text(frame.label,40),close:frame.close,
-   completedThrough:frame.completedThrough}));
+   completedThrough:frame.completedThrough,changeFromPrior:prior?frame.close-prior.close:null,
+   interpretation:'A completed frame is context evidence, not a future-price signal.'}));
  }
+ const remediation=recommendFormativeRoute({competencies,observations}).slice(0,12);
  return freeze({schema:EDITION_SCHEMA,edition:'PROFESSIONAL',activity:'decision_replay_review',
   evidence:studySummary(prefix,studies),frames:freeze(frameRows),hypotheticalRisk:freeze(risks),
+  remediation:freeze(remediation),
+  uncertaintyEvidence:freeze([
+   'Completed fictional observations do not reveal the next outcome.',
+   'Planned stop risk excludes gaps, slippage, fees and uncertain execution.',
+   'Indicator agreement is descriptive evidence, not independent confirmation of a trade.'
+  ]),
   noLookahead:true,graded:false,masteryAwarded:false,
   limitation:'Fictional risk amounts exclude slippage, fees and uncertain execution; no order is placed.'});
 }

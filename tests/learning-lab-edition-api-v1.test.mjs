@@ -87,6 +87,9 @@ test('Approved Professional source returns ungraded risk and aligned completed f
  try{const r=await onRequest({request:request(form('PROFESSIONAL','lab')),env});assert.equal(r.status,200);
  const result=(await r.json()).result;assert.equal(result.hypotheticalRisk[0].shares,25);
  assert.equal(result.frames.length,2);assert.equal(result.noLookahead,true);
+ assert.equal(result.frames[1].changeFromPrior,5);
+ assert.deepEqual(result.remediation[0].sequence,['CANDLE_READING','EMA_CONTEXT']);
+ assert.equal(result.graded,false);assert.equal(result.masteryAwarded,false);
  }finally{f.restore()}
 });
 test('Premium endpoints forbid browser-asserted market data rights, even with an entitlement',async()=>{

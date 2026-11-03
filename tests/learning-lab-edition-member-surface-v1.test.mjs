@@ -42,6 +42,15 @@ test('Keyboard reachable forms and data table remain accessible',()=>{
  assert.match(css,/gu-edition-linked-charts/);
 });
 
+test('Professional member surface exposes completed-frame reasoning and uncertainty boundaries',()=>{
+ assert.match(ui,/Completed timeframe decision evidence/);
+ assert.match(ui,/Change from prior/);
+ assert.match(ui,/Reviewed prerequisite practice route/);
+ assert.match(ui,/Professional uncertainty evidence/);
+ assert.match(ui,/What this evidence cannot establish/);
+ assert.doesNotMatch(ui,/future outcome is known|guaranteed execution|official mastery awarded/i);
+});
+
 test('Enterprise member source is enabled only after explicit release grant',()=>{
  assert.match(ui,/for\(const edition of \['ENTERPRISE','PROFESSIONAL','ADVANCED'\]\)/);
  assert.match(ui,/edition==='ENTERPRISE'\?'chronological_validation'/);

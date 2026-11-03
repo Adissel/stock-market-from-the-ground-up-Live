@@ -50,14 +50,21 @@ test('Advanced denies future indication, unverified math and unauthorized histor
  assert.equal(advancedFormativeStudy({competencies,observations,evidence:{...fictional(),provenance:'licensed_historical'},indicators:indicators()}),null);
 });
 test('Professional fictional risk analysis validates bounded whole shares and synchronized completed frames',()=>{
- const x=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames});
+ const second={label:'15m completed frame',completedThrough:5000,close:104,sourceVerified:true};
+ const x=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[...frames,second],competencies,observations});
  assert.equal(x.edition,'PROFESSIONAL');assert.equal(x.hypotheticalRisk[0].shares,25);
  assert.equal(x.noLookahead,true);assert.equal(x.frames[0].completedThrough,5000);
+ assert.equal(x.frames[1].changeFromPrior,2);assert.equal(x.remediation[0].competencyId,'EMA');
+ assert.equal(x.frames[0].interpretation.includes('not a future-price signal'),true);
+ assert.equal(x.uncertaintyEvidence.length,3);
+ assert.equal(x.uncertaintyEvidence.some(v=>v.includes('slippage')),true);
 });
 test('Professional denies invalid risk cases and lookahead in timeframe comparison',()=>{
- assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases:[{...riskCases[0],stop:40}],frames}),null);
- assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[{...frames[0],completedThrough:6000}]}),null);
- assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[{...frames[0],sourceVerified:false}]}),null);
+ const valid=[...frames,{label:'15m completed frame',completedThrough:5000,close:104,sourceVerified:true}];
+ assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases:[{...riskCases[0],stop:40}],frames:valid}),null);
+ assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[...frames,{...valid[1],completedThrough:6000}]}),null);
+ assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[...frames,{...valid[1],sourceVerified:false}]}),null);
+ assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames}),null,'one frame cannot establish a comparison');
 });
 const manifest=[{id:'source-A',methodVersion:'v1',reference:'Approved original fictional research file',asOf:15000,
  rights:'verified_for_requested_use',serverRightsVerified:true}];
@@ -89,7 +96,7 @@ test('Dispatcher refuses cross-edition actions and falsified premium authorizati
  assert.equal(x.edition,'ADVANCED');
 });
 test('Returned structures are immutable and contain no official grades or private keys',()=>{
- const x=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames});
+ const x=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,frames:[...frames,{label:'15m completed frame',completedThrough:5000,close:104,sourceVerified:true}]});
  assert.equal(Object.isFrozen(x),true);assert.equal(Object.isFrozen(x.hypotheticalRisk),true);
  assert.equal(Object.isFrozen(x.evidence.indicators),true);
  assert.equal(JSON.stringify(x).includes('correctAnswer'),false);

@@ -46,6 +46,30 @@
     build('td',entry.method));body.append(row);
   }
   table.append(cap,head,body);host.append(table);
+  if(result.edition==='PROFESSIONAL'&&result.frames?.length){
+   const frames=build('table'),caption=build('caption','Completed timeframe decision evidence');
+   const frameHead=build('thead'),frameHeader=build('tr');
+   for(const label of ['Completed frame','Close','Change from prior','Instructional boundary'])frameHeader.append(build('th',label));
+   frameHead.append(frameHeader);const frameBody=build('tbody');
+   result.frames.forEach(frame=>{const tr=build('tr');tr.append(build('th',frame.label),
+    build('td',Number(frame.close).toFixed(4)),
+    build('td',frame.changeFromPrior===null?'First completed frame':Number(frame.changeFromPrior).toFixed(4)),
+    build('td',frame.interpretation));frameBody.append(tr)});
+   frames.append(caption,frameHead,frameBody);host.append(frames);
+  }
+  if(result.remediation?.length){
+   const route=build('section');route.setAttribute('aria-label','Reviewed prerequisite practice route');
+   route.append(build('h3','Practice before the next decision replay'));
+   const list=build('ol');
+   result.remediation.forEach(item=>list.append(build('li',item.sequence.join(' → ')+' — ungraded practice only.')));
+   route.append(list);host.append(route);
+  }
+  if(result.edition==='PROFESSIONAL'&&result.uncertaintyEvidence?.length){
+   const boundary=build('section');boundary.setAttribute('aria-label','Professional uncertainty evidence');
+   boundary.append(build('h3','What this evidence cannot establish'));
+   const list=build('ul');result.uncertaintyEvidence.forEach(item=>list.append(build('li',item)));
+   boundary.append(list);host.append(boundary);
+  }
   const series=result.evidence.completedSeries||[];
   if(series.length){
    const observations=build('table'),obsCaption=build('caption','Completed fictional observations used by the server');

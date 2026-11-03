@@ -137,10 +137,12 @@ export async function onRequest({request,env}){
    answer=advancedFormativeStudy({competencies:route.competencies,observations:route.observations,
     evidence:derived.evidence,indicators:derived.indicators});
   }else if(body.edition==='PROFESSIONAL'&&body.activity==='decision_replay_review'){
+   const route=await reviewedRoute(env,rights.memberId);
    const frames=deriveFictionalCompletedFrames({
     evidence:derived.evidence,frameSize:body.payload.frameSize??5});
    if(frames)answer=professionalDecisionStudy({evidence:derived.evidence,
-    indicators:derived.indicators,riskCases:body.payload.riskCases,frames});
+    indicators:derived.indicators,riskCases:body.payload.riskCases,frames,
+    competencies:route.competencies,observations:route.observations});
   }else if(body.edition==='ENTERPRISE'&&body.activity==='chronological_validation'){
    // Original MEMBER-LABELED FICTIONAL observations only. Do not accept a
    // client-asserted provider rights manifest, license, held-out test selection
