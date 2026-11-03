@@ -20,7 +20,9 @@ globalThis.fetch=async (raw,options={})=>{
   const t=url.pathname.split('/').at(-1),adminQuery=url.searchParams.get('select')||'';
   if(t==='profiles')return json([{account_kind:'member',deleted_at:null}]);
   if(t==='admin_user_flags')return json(restricted?[{status:'suspended'}]:[]);
-  if(t==='admin_user_roles')return json(showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:manager?[{role_code:'CONTENT_MANAGER',expires_at:null}]:[]);
+  if(t==='admin_user_roles')return json(url.searchParams.get('role_code')==='eq.SHOWCASE_VIEWER'?
+   (showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:[]):
+   (showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:manager?[{role_code:'CONTENT_MANAGER',expires_at:null}]:[]));
   if(t==='admin_role_permissions')return json(manager?[{role_code:'CONTENT_MANAGER',permission_code:'content.manage'}]:[]);
   if(t==='user_plan_grants')return json(paid?[{plan_code:'FULL_MONTHLY',status:'active',starts_at:'2026-10-01',ends_at:'2027-01-01'}]:[]);
   if(t==='site_subscriptions')return json([]);
