@@ -98,14 +98,15 @@ test('unverified version does not overwrite verified release metadata',()=>{
  assert.match(runtime,/if\(version\)/);
  assert.doesNotMatch(runtime,/m\.content='unverified'/);
 });
-test('Simulator must use a dedicated drag handle, not an entire panel',()=>{
+test('Simulator preserves teaching sequence and disables arbitrary panel reorder',()=>{
  const x=front.slice(front.indexOf('function simulatorEnhance(){'),front.indexOf('function membershipCompare(){'));
  assert.match(x,/panel\.draggable=false/);
- assert.match(x,/fe-sim-move-handle/);
- assert.match(x,/data-shift="-1"/);
- assert.match(x,/data-shift="1"/);
- assert.match(x,/handle\.addEventListener\('dragstart'/);
- assert.doesNotMatch(x,/x\.draggable=layout\.classList/);
+ assert.match(x,/local\.del\('sim-layout-order'\)/);
+ assert.match(x,/layout\.classList\.remove\('fe-sortable'\)/);
+ assert.match(x,/savePref\('simulator',\{preset:sel\.value\}\)/);
+ assert.doesNotMatch(x,/insertBefore\(dragged/);
+ assert.doesNotMatch(x,/fe-sim-move-handle/);
+ assert.doesNotMatch(x,/dragstart/);
 });
 test('Dashboard must not make every widget draggable',()=>{
  const x=front.slice(front.indexOf('function customizeDashboard(ov){'),front.indexOf('async function renderBilling(host){'));
@@ -123,12 +124,10 @@ test('specific save shortcuts still exist for approved Admin dialogs',()=>{
  const x=front.slice(front.indexOf('function globalShortcuts(){'),front.indexOf('function showShortcuts(){'));
  assert.match(x,/#admin-dialog-save,#v11-modal-save/);
 });
-test('drag controls preserve keyboard-accessible Up/Down controls and focus rings',()=>{
- assert.match(front,/aria-label="Move simulator panel earlier"/);
- assert.match(front,/aria-label="Move simulator panel later"/);
+test('Dashboard maintains keyboard-accessible section ordering',()=>{
  assert.match(front,/aria-label="Move dashboard section earlier"/);
  assert.match(front,/aria-label="Move dashboard section later"/);
- assert.match(css,/\.fe-sim-move-controls button:focus-visible/);
+ assert.match(css,/\.fe-widget-sort-controls button:focus-visible/);
 });
 test('chart canvas does not inherit always-on HTML drag behavior',()=>{
  assert.doesNotMatch(front,/x\.draggable=layout\.classList/);
