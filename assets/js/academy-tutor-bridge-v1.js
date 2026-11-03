@@ -18,7 +18,8 @@ function topicFor(day){
  return TOPICS.find(([r])=>r.test(s))?.[1]||'observed market evidence, uncertainty and no-trade decisions';
 }
 function create({client,userId,day,isCurrent}={}){
- if(!client?.auth?.getSession||!userId||!day||typeof isCurrent!=='function')return null;
+ if(!client?.auth?.getSession||!userId||!day||typeof isCurrent!=='function'||
+   !/^[a-z0-9]{3,24}$/.test(String(day.programCode||''))||!Number.isSafeInteger(day.day)||day.day<1||day.day>999)return null;
  const topic=topicFor(day);
  return async ({signal,stage='Learn',reason='explanation'}={})=>{
   const validStages=new Set(['Start','Learn','Calculate / Analyze','Experiment','Predict',
@@ -34,7 +35,8 @@ function create({client,userId,day,isCurrent}={}){
   // A click is intentional; the API separately checks entitlements, profile
   // opt-in and AI quota. Source-grounded teaching is the safe default.
   const body={
-   question:'Teach the general topic of '+topic+' for the '+safeStage+
+   question:'Academy program: '+day.programCode+'. Study day: '+day.day+'. Instructional stage: '+safeStage+
+    '. Teach the general topic of '+topic+' for the '+safeStage+
     ' learning stage. Educational need: '+safeReason+
     '. Explain from first principles, show a new original fictional worked example, identify a likely misunderstanding, describe evidence limits, and pose an ungraded transfer question. Never infer the learner\'s actual answer or grade.',
    mode:'explain',allowModel:session.user?.user_metadata?.market_tutor_ai_enabled===true,

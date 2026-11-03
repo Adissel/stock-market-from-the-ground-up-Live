@@ -8,7 +8,7 @@ const read=p=>JSON.parse(readFileSync('data/'+p,'utf8'));
 const cases=read('talia-tutor-evaluation40-v1.json').scenarios;
 const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222';
 const dataAsset='/data/competency-study-guides-v01499.json';
-let requests=0,providerCalls=0;
+let requests=0,providerCalls=0,academyAllowed=true;
 const env={SUPABASE_URL:'https://fixture.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_fixture',
  SUPABASE_SECRET_KEY:'sb_secret_fixture',AI_SERVICE_ENABLED:'false',
  ASSETS:{fetch:async request=>{
@@ -25,8 +25,8 @@ globalThis.fetch=async (url,opts={})=>{
  if(path.includes('/rest/v1/admin_user_flags?'))return Response.json(blocked?[{status:'suspended'}]:[]);
  if(path.includes('/rest/v1/admin_user_roles?'))return Response.json([]);
  if(path.includes('/rest/v1/rpc/user_has_tool_access')){
-  assert.equal(JSON.parse(opts.body).target_user,active);
-  return Response.json(true);
+  const access=JSON.parse(opts.body);assert.equal(access.target_user,active);
+  return Response.json(access.target_tool==='ONDEMAND_TRAINING'?academyAllowed:true);
  }
  if(path.includes('/rest/v1/gu_product_access_config_v1?'))return Response.json([]);
  if(path.includes('/rest/v1/rpc/gu_v014107_take_tutor_request')){
@@ -76,6 +76,25 @@ try{
   }
   assert.equal(requests,40);
   assert.equal(providerCalls,0);
+ });
+ test('actual Tutor route independently authorizes and resolves canonical Academy context',async()=>{
+  active=A;academyAllowed=true;
+  const guide=read('talia-foundation-explanations-batch13-v1.json').guides[0];
+  const question='Academy program: risk60. Study day: 12. Instructional stage: Practice. Explain the authorized day topic.';
+  const allowed=await send(guide,'explain',question);
+  assert.equal(allowed.http,200);
+  assert.equal(allowed.body.academyContext.programCode,'risk60');
+  assert.equal(allowed.body.academyContext.day,12);
+  assert.equal(allowed.body.academyContext.requestedStage,'Practice');
+  assert.equal(allowed.body.academyContext.prerequisiteDay,11);
+  assert.equal(allowed.body.academyContext.progressVerified,false);
+  assert.equal('query' in allowed.body.academyContext,false);
+  assert.doesNotMatch(JSON.stringify(allowed.body.academyContext),/reflection|rubric|answer|workedExample/i);
+  academyAllowed=false;
+  const denied=await send(guide,'explain',question);
+  assert.equal(denied.http,403);
+  assert.equal('academyContext' in denied.body,false);
+  academyAllowed=true;
  });
  test('actual authenticated Tutor route honors all five gradual-release methods without provider inference',async()=>{
   active=A;

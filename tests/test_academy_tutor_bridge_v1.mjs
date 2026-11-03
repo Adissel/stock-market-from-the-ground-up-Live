@@ -18,12 +18,13 @@ vm.runInNewContext(source,context);
 const api=context.window.GroundUpAcademyTutorBridgeV1;
 assert(api&&typeof api.create==='function');
 assert.equal(api.topicFor({title:'VWAP Review'}),'VWAP mathematics and source limitations');
-const day={title:'VWAP Review',objective:'Confidential lesson PRIVATE_ANSWER_7789'};
+const day={programCode:'risk60',day:12,title:'VWAP Review',objective:'Confidential lesson PRIVATE_ANSWER_7789'};
 const client={auth:{getSession:async()=>({data:{session:{
  access_token:'test-token',user:{id:account,user_metadata:{market_tutor_ai_enabled:optIn}}}}})}};
 const request=api.create({client,userId:'learner-one',day,isCurrent:()=>current});
 assert.equal((await request()).answer,'Fictional practice and a source limitation.');
 assert.equal(sent[0].allowModel,false);
+assert.match(sent[0].question,/^Academy program: risk60\. Study day: 12\. Instructional stage: Learn\./);
 optIn=true;await request();assert.equal(sent[1].allowModel,true);
 account='learner-two';await assert.rejects(request(),/current member account/);
 assert.equal(sent.length,2);

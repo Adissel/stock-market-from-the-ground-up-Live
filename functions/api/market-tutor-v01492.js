@@ -20,6 +20,7 @@ import {ownedConversation,attachTutorExchange} from './member-tutor-conversation
 import {recordTutorGap} from '../_lib/tutor-gaps-v014149.js';
 import {getApprovedLabContext,labGuidance} from '../_lib/tutor-lab-context-v014149.js';
 import {isContextualTutorFollowup,getVerifiedPriorTutorQuestion} from '../_lib/tutor-conversation-context-v014159.js';
+import {parseAcademyTutorRequest,resolveAcademyTutorContext} from '../_lib/tutor-academy-context-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const reply=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
@@ -181,10 +182,18 @@ export async function onRequest({request,env}){
   }
   if(!throttle.verified)safeTutorMetric('status',{reason:'general_rate_meter_unavailable'});
   const q=body.question,mode=body.mode,answer=body.learnerAnswer;
+  let academyContext=null,academyQuery='';
+  if(parseAcademyTutorRequest(q)){
+   const academyAccess=await toolAccess(env,request,'ONDEMAND_TRAINING');
+   const resolved=resolveAcademyTutorContext({question:q,academyAccess,env,userId:auth.userId});
+   academyQuery=resolved.query;
+   academyContext=Object.fromEntries(Object.entries(resolved).filter(([key])=>key!=='query'));
+  }
   let verifiedFollowupContext=false;
   if(body.priorTurnsSupplied)safeTutorMetric('safety',{reason:'unverified_prior_turns_ignored'});
   async function finish(data){
    data.verifiedFollowupContext=verifiedFollowupContext;
+   if(academyContext)data.academyContext=academyContext;
    if(body.saveHistory===true){
     const id=await saveVerifiedTutorExchange(env,auth.userId,{
      requestId:body.requestId,question:q,learnerAnswer:answer,mode,generation:data.generation,
@@ -221,7 +230,7 @@ export async function onRequest({request,env}){
   verifiedFollowupContext=!!previous;
   const contextualQuestion=previous
    ?'Earlier member question (topic context only): '+previous+' Current question: '+q:q;
-  const expanded=expandTutorQuery(contextualQuestion);
+  const expanded=expandTutorQuery(academyQuery||contextualQuestion);
   // Always evaluate BOTH public-source catalogs. Glossary hits cannot mask
   // deeper procedures, limits and invalidation in the original 30 guides.
   const source=rank(expanded),sources=publicMatches(source);
