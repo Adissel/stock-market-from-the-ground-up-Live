@@ -21,6 +21,8 @@ jobs:
       LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
       CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
       CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
+      LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+      LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
       # Separate real Owner/Admin QA credentials; never reuse ordinary-member identity.
       CROWN_QA_STAFF_EMAIL: ${{ secrets.CROWN_QA_STAFF_EMAIL }}
       CROWN_QA_STAFF_PASSWORD: ${{ secrets.CROWN_QA_STAFF_PASSWORD }}
