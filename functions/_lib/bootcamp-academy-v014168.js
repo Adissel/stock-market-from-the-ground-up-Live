@@ -31,6 +31,7 @@ import {practicum90DepthDays21to40} from './academy-practicum90-depth-days21-40-
 import {practicum90DepthDays41to60} from './academy-practicum90-depth-days41-60-v1.js';
 import {practicum90DepthDays61to80} from './academy-practicum90-depth-days61-80-v1.js';
 import {practicum90DepthDays81to90} from './academy-practicum90-depth-days81-90-v1.js';
+import {truth5Depth} from './academy-truth5-depth-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
 import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
@@ -128,7 +129,7 @@ const researchFor=(...texts)=>{
 // Truth Behind the Ticker: original five-day course, one discrete instructional
 // journey. All worked examples are fictional and cannot be called market history.
 // Sample answers are ungraded coaching, not protected assessment keys.
-const truth5Lessons=Object.freeze([
+export const truth5Lessons=Object.freeze([
  Object.freeze({
   explanation:'Every market statement has a claimant, a source, a time and a testable meaning. An issuer release can establish what the company publicly said; it does not establish that the statement is complete, accurate, or a cause of subsequent trading. A repost is evidence of a repost, not independent corroboration.',
   workedExample:'FICTIONAL: Account A posts “North Harbor Robotics doubled revenue” without a source. Its own linked screenshot lacks a reporting period. A company PDF, if independently located on the issuer’s domain, would let you check whether the figure describes quarterly revenue, annual revenue, guidance, or a percentage comparison. Without the original dated document, classify the claim as unverified.',
@@ -415,7 +416,7 @@ function dayFor(d,i){
    sourceStatus:risk60AdvancedDayPacks[day]?'original_risk60_advanced_package_owner_beta_review_20261031':'original_risk60_day_specific_ungraded_editorial_review_pending'
   }:{}),
   ...(d.code==='truth5'?{
-   lesson:truth5Lessons[i],
+   lesson:Object.freeze({...truth5Lessons[i],...truth5Depth(truth5Lessons[i],i+1)}),
    approvedSupplement:approvedB01Supplements[day]||null,
    method:[...truth5Lessons[i].sourceProcedure],
    limitation:source.caution+' '+truth5Lessons[i].error+' No independent graded mastery or verified historical feed is inferred.',
