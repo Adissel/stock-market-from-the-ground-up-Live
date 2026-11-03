@@ -82,6 +82,8 @@ function autoStartRequestedStudio(){
 }
 function isEntitled(t){return state.verified&&state.allowed.includes(t==='ECHARTS'?'STANDARD':t)}
 function stopCharts(){
+ // Invalidate all pending renderer loads on a tier change or access revocation.
+ state.version++;
  state.resizeObserver?.disconnect();state.resizeObserver=null;
  if(state.resizeFrame)cancelAnimationFrame(state.resizeFrame);
  state.resizeFrame=0;
@@ -517,18 +519,17 @@ async function loadEngine(){
 async function choose(tier){
  if(!state.visible.includes(tier)){status('This Studio is hidden from the menu.');renderChoices();return}
  if(!isEntitled(tier)){status('This engine is not included in your verified membership.');renderChoices();return}
- state.selected=tier;stopCharts();renderChoices();
+ state.selected=tier;stopCharts();const request=state.version;renderChoices();
  if(tier==='STANDARD'){status('Standard chart view is active. Verified access: '+state.tier+'.');window.dispatchEvent(new CustomEvent('crownlight:tier-mounted',{detail:{tier}}));return}
- const request=++state.version;
  if(tier==='ECHARTS'){
   status('Loading Apache ECharts revealed candlesticks and volume…');
   document.body.classList.add('cl-tier-enhanced');
   const enhanced=state.view.querySelector('[data-cl-tier-advanced]');enhanced.hidden=false;
   try{
-   await window.CrownlightEChartsStudio.mount(enhanced.querySelector('[data-cl-tier-panels]'),state.bars,state.symbol,state.timeframe);
-   if(request!==state.version||state.selected!=='ECHARTS'||!isEntitled('ECHARTS')){
-    window.CrownlightEChartsStudio.unmount();return;
-   }
+   const mounted=await window.CrownlightEChartsStudio.mount(enhanced.querySelector('[data-cl-tier-panels]'),state.bars,state.symbol,state.timeframe);
+   // The new selection already disposed the old chart: never unmount a newer view.
+   if(request!==state.version||state.selected!=='ECHARTS'||!isEntitled('ECHARTS'))return;
+   if(mounted!==true)throw Error('ECharts mount was cancelled or unavailable');
    status('Apache ECharts active · '+state.bars.length+' revealed candles only.');
    window.dispatchEvent(new CustomEvent('crownlight:tier-mounted',{detail:{tier:'ECHARTS'}}));
   }catch(e){if(request===state.version){state.selected='STANDARD';stopCharts();renderChoices();status('ECharts unavailable; Standard remains available. '+(e?.message||''))}}
@@ -539,7 +540,7 @@ async function choose(tier){
  enhanced.hidden=false;
  try{
   await loadEngine();
-  if(request!==state.version||!state.verified||!state.allowed.includes(tier)||!state.visible.includes(tier))return;
+  if(request!==state.version||state.selected!==tier||!state.verified||!state.allowed.includes(tier)||!state.visible.includes(tier))return;
   document.body.classList.add('cl-tier-enhanced');
   makeView('cl-tier-primary','Technical analysis');
   if(tier==='PROFESSIONAL')makeView('cl-tier-secondary','Indicator study');
@@ -564,7 +565,10 @@ async function choose(tier){
   status(state.bars.length?
    tier+' chart: '+state.bars.length+' revealed candles. All future candles remain hidden.':
    'Load fictional or authorized history to begin chart analysis.');
- }catch(e){stopCharts();state.selected='STANDARD';renderChoices();
+ }catch(e){
+  // Failure of an obsolete request cannot reset the current chart.
+  if(request!==state.version||state.selected!==tier)return;
+  stopCharts();state.selected='STANDARD';renderChoices();
   status('Enhanced chart unavailable; Standard remains active. '+(e?.message||''));
  }
 }
