@@ -47,10 +47,13 @@ function assess(response,symbol,at,config={}){
   if(!safeFilingUrl(f.sourceUrl,cik,f.accession)||!DATE.test(f.filedDate||'')){
    excluded.invalid++;continue;
   }
+  const filedDate=Date.parse(f.filedDate+'T00:00:00Z');
+  if(!Number.isFinite(filedDate)||new Date(filedDate).toISOString().slice(0,10)!==f.filedDate){excluded.invalid++;continue;}
   if(seen.has(f.accession))continue;seen.add(f.accession);
   const accepted=safeTime(f.acceptedAt);
   if(accepted===null){excluded.unknownTime++;continue;}
   if(accepted>now){excluded.future++;continue;}
+  if(Math.abs(accepted-filedDate)>2*86400000){excluded.invalid++;continue;}
   if(accepted<start){excluded.outsideWindow++;continue;}
   acceptedFilings.push({form:f.form,accession:f.accession,filedDate:f.filedDate,
    acceptedAt:new Date(accepted).toISOString(),sourceUrl:f.sourceUrl,
