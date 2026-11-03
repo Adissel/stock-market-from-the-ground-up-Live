@@ -26,16 +26,29 @@ function config(env){
   headers.authorization='Bearer '+secret;
  return {base,headers};
 }
+/* The production platform's canonical membership source is user_plan_grants.
+ * site_subscriptions is retained for signed Stripe subscription records.
+ * Neither source grants premium without explicit server-controlled edition metadata.
+ */
 async function records(env,memberId){
- const c=config(env);
- const url=c.base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,metadata'+
-  '&user_id=eq.'+encodeURIComponent(memberId)+'&order=updated_at.desc&limit=20';
- const r=await fetch(url,{headers:c.headers,cache:'no-store'});
- if(!r.ok)throw err('Member subscription verification unavailable.',503);
- const rows=await r.json().catch(()=>null);
- if(!Array.isArray(rows)||rows.length>20)throw err('Member subscription records invalid.',503);
- return rows;
+ const c=config(env),enc=encodeURIComponent(memberId);
+ const base=c.base+'/rest/v1/';
+ const sources=[
+  {table:'user_plan_grants',fields:'plan_code,status,starts_at,ends_at,metadata'},
+  {table:'site_subscriptions',fields:'plan_code,status,current_period_start,current_period_end,metadata'}
+ ];
+ const responses=await Promise.all(sources.map(async({table,fields})=>{
+  const url=base+table+'?select='+fields+'&user_id=eq.'+enc+
+   '&order=updated_at.desc&limit=100';
+  const r=await fetch(url,{headers:c.headers,cache:'no-store'});
+  if(!r.ok)throw err('Member entitlement verification unavailable.',503);
+  const rows=await r.json().catch(()=>null);
+  if(!Array.isArray(rows)||rows.length>100)throw err('Member entitlement records invalid.',503);
+  return rows.map(row=>({...row,entitlementSource:table}));
+ }));
+ return responses.flat();
 }
+
 async function reviewedRoute(env,memberId){
  const c=config(env),encode=encodeURIComponent;
  const definitionsUrl=c.base+'/rest/v1/competency_definitions?select=competency_code,metadata'+
@@ -76,24 +89,36 @@ function released(env,family,edition){
 }
 function entitlement(rows,actorId,family,edition,env){
  const now=Date.now();
- // Explicit, current, server-owned subscription metadata; no legacy target
- // can implicitly unlock a new engine.
+ // Both record sources are authoritative server-owned reads. A plan target alone
+ // never authorizes a premium edition, including on an active paid membership.
  for(const row of rows){
   if(!row||row.status!=='active'||typeof row.plan_code!=='string')continue;
-  const period=Date.parse(row.current_period_end||'');
-  if(!Number.isFinite(period)||period<=now)continue;
+  if(!['user_plan_grants','site_subscriptions'].includes(row.entitlementSource))continue;
+  const start=Date.parse(row.entitlementSource==='user_plan_grants'?
+   row.starts_at:row.current_period_start);
+  if(!Number.isFinite(start)||start>now)continue;
+  const endValue=row.entitlementSource==='user_plan_grants'?row.ends_at:row.current_period_end;
+  // Only lifetime plan grants may have no natural end date. All other records
+  // require a bounded membership period.
+  const indefinite=row.entitlementSource==='user_plan_grants'&&
+   row.plan_code==='LIFETIME'&&endValue==null;
+  const period=indefinite?Infinity:Date.parse(endValue||'');
+  if(!indefinite&&(!Number.isFinite(period)||period<=now))continue;
   const target=enginePolicyForPlan(row.plan_code).target[family];
   const saved=row.metadata?.engine_edition_grants_v1?.[family];
   if(!saved||saved.active!==true||typeof saved.expiresAt!=='string')continue;
   const expiration=Date.parse(saved.expiresAt);
+  if(!Number.isFinite(expiration)||expiration<=now)continue;
   const auth=verifyEditionAuthorization({actorId,family,requested:edition,
    planTarget:target,grant:{serverVerified:true,memberId:actorId,family,
-    edition:saved.edition,revoked:saved.revoked===true,expiresAt:Math.min(expiration,period)},
+    edition:saved.edition,revoked:saved.revoked===true,
+    expiresAt:Math.min(expiration,period)},
    releaseEnabled:released(env,family,edition),now});
   if(auth.ok)return auth;
  }
  return null;
 }
+
 export async function authorizeEditionRequest({request,env,family,edition}){
  if(!['learning','lab'].includes(family)||!EDITIONS.includes(edition))
   throw err('Unsupported edition or exercise.',400);
