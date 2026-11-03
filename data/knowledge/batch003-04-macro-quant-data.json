@@ -1,0 +1,371 @@
+{
+  "batch": "B003",
+  "part": 4,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b003-nber-business-cycle-dating",
+      "title": "NBER Business-Cycle Dates Versus Forecasts",
+      "summary": "Original intermediate lesson on nber business-cycle dates versus forecasts with reproducible calculations and source-specific research controls.",
+      "subject": "Macroeconomics / Economic Data and Releases",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "macro",
+        "intermediate"
+      ],
+      "definition": "NBER economic peak and trough dates are retrospective research determinations; publication of a recession call can lag the economic turning point and is not an automatic forward forecast.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. NBER economic peak and trough dates are retrospective research determinations; publication of a recession call can lag the economic turning point and is not an automatic forward forecast. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional research committee announces in November that a downturn began the preceding March. Which date represents the retrospectively identified start and which date represents when that determination became available?",
+      "solution": "March is the hypothetical dated onset; November is the public announcement time. An investment model as-of July cannot validly use the later committee announcement as observed July information.",
+      "counterexample": "Mistaking the announced recession date for a real-time publicly available signal introduces hindsight into historical backtests, regardless of later accuracy.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. Mistaking the announced recession date for a real-time publicly available signal introduces hindsight into historical backtests, regardless of later accuracy. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Construct a two-date timeline of an invented economic contraction, marking economic-event date, determination-release date and allowable model availability.",
+      "source_ids": [
+        "NBER"
+      ],
+      "sources": [
+        {
+          "title": "National Bureau of Economic Research",
+          "url": "https://www.nber.org/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-real-vs-nominal-gdp",
+      "title": "Nominal and Real GDP Growth",
+      "summary": "Original intermediate lesson on nominal and real gdp growth with reproducible calculations and source-specific research controls.",
+      "subject": "Macroeconomics / Economic Data and Releases",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "macro",
+        "intermediate"
+      ],
+      "definition": "Nominal GDP is measured at current prices while real GDP seeks to remove changes in the price level using a disclosed price-index convention; growth rates are not interchangeable.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. Nominal GDP is measured at current prices while real GDP seeks to remove changes in the price level using a disclosed price-index convention; growth rates are not interchangeable. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional economy's nominal output index rises from 100 to 110, while the corresponding output price index rises from 100 to 105. Under a simple single-period deflation approach, estimate real output growth.",
+      "solution": "Nominal increase is 10%. Relative real-volume factor is (110/100)/(105/100)=1.047619, or about 4.76% growth under the stylized assumptions. Real-world published GDP chain-weight methods may differ.",
+      "counterexample": "Subtracting 5% price growth from 10% nominal growth gives a rough approximation, not the same as the exact ratio or the agency's chain-weighted official estimate.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. Subtracting 5% price growth from 10% nominal growth gives a rough approximation, not the same as the exact ratio or the agency's chain-weighted official estimate. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Calculate a fictional nominal factor 1.08 and price factor 1.03, derive a real factor, and identify the release data needed for a proper current-vintage comparison.",
+      "source_ids": [
+        "BEA"
+      ],
+      "sources": [
+        {
+          "title": "Bureau of Economic Analysis",
+          "url": "https://www.bea.gov/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-sharpe-autocorrelation",
+      "title": "Sharpe Ratio Under Serial Dependence",
+      "summary": "Original professional lesson on sharpe ratio under serial dependence with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "professional"
+      ],
+      "definition": "A period Sharpe ratio divides the mean excess return by a consistent dispersion measure; square-root annualization requires careful assumptions about dependence, sampling and risk-free convention.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. A period Sharpe ratio divides the mean excess return by a consistent dispersion measure; square-root annualization requires careful assumptions about dependence, sampling and risk-free convention. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional study reports a mean daily excess return of 0.10% and a daily standard deviation of 0.20%. Compute the simple unannualized ratio before considering serial dependence.",
+      "solution": "The illustrative per-day ratio is 0.10/0.20=0.5. Multiplying by sqrt(252) would assume conditions that serial correlation, irregular trading and changing risk exposure can violate.",
+      "counterexample": "A high Sharpe from repeatedly smoothed or overlapping returns is not equivalent to an independently validated annual risk-adjusted outcome; confidence intervals matter.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. A high Sharpe from repeatedly smoothed or overlapping returns is not equivalent to an independently validated annual risk-adjusted outcome; confidence intervals matter. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Recompute the period ratio using average daily excess return 0.05% and dispersion 0.25%, then list two dependence-related reasons standard annualization could be misleading.",
+      "source_ids": [
+        "CFA-SHARPE-RESEARCH",
+        "BACKTRADER"
+      ],
+      "sources": [
+        {
+          "title": "CFA Institute Financial Analysts Journal: The Statistics of Sharpe Ratios (Andrew W. Lo)",
+          "url": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2002/the-statistics-of-sharpe-ratios"
+        },
+        {
+          "title": "Backtrader",
+          "url": "https://www.backtrader.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-multiple-hypothesis-testing",
+      "title": "Multiple Testing and False Discovery",
+      "summary": "Original institutional quantitative lesson on multiple testing and false discovery with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "Running many independent statistical hypotheses at a common false-positive threshold increases the expected count of apparently significant null results and creates selection risk.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. Running many independent statistical hypotheses at a common false-positive threshold increases the expected count of apparently significant null results and creates selection risk. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A toy researcher runs 100 genuinely null independent tests at a 5% nominal false-positive threshold. How many false flags are expected in the long-run average?",
+      "solution": "Expected false positives are 100*0.05=5, but actual count in any one collection may vary; independence is an explicit simplifying assumption. The best p-value among the tests is not automatically evidence of a reliable strategy.",
+      "counterexample": "Treating one impressive-looking result after 100 unreported trials as if it came from a single pre-registered hypothesis conceals multiple comparison effects.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. Treating one impressive-looking result after 100 unreported trials as if it came from a single pre-registered hypothesis conceals multiple comparison effects. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Design a pre-registration log with hypothesis family, trial count and testing threshold, and explain why the data-snooping adjustment depends on actual test dependence.",
+      "source_ids": [
+        "SCIPY",
+        "QSTRADER"
+      ],
+      "sources": [
+        {
+          "title": "SciPy Statistics",
+          "url": "https://docs.scipy.org/doc/scipy/reference/stats.html"
+        },
+        {
+          "title": "QSTrader",
+          "url": "https://github.com/mhallsmoore/qstrader"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-walk-forward-parameter-selection",
+      "title": "Walk-Forward Parameter Selection Without Peeking",
+      "summary": "Original institutional quantitative lesson on walk-forward parameter selection without peeking with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "A walk-forward design uses earlier observations to fit a candidate, separate later validation to select settings, and untouched forward observations for evaluation; timing must reflect all feature windows.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. A walk-forward design uses earlier observations to fit a candidate, separate later validation to select settings, and untouched forward observations for evaluation; timing must reflect all feature windows. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional study has 100 chronological daily records: 1-60 for fitting, 61-80 for tuning, and 81-100 for a one-time evaluation. Can the model change its parameter after seeing the final 20 outcomes and still call them untouched?",
+      "solution": "No. Once final outcomes drive further parameter choices, those same observations have become part of model selection. New untouched data or another adequately controlled evaluation is needed.",
+      "counterexample": "Data leakage can persist even with chronological blocks if feature calculations use the entire history or targets overlap across the split boundary.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. Data leakage can persist even with chronological blocks if feature calculations use the entire history or targets overlap across the split boundary. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Write a schedule of three chronological research windows and record which preprocessing steps must be fitted strictly inside each training window.",
+      "source_ids": [
+        "QC-LEAN",
+        "ARXIV"
+      ],
+      "sources": [
+        {
+          "title": "QuantConnect LEAN",
+          "url": "https://www.quantconnect.com/lean"
+        },
+        {
+          "title": "arXiv Quantitative Finance",
+          "url": "https://arxiv.org/archive/q-fin"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-monte-carlo-sequence-risk",
+      "title": "Monte Carlo Scenario and Sequence Risk",
+      "summary": "Original institutional quantitative lesson on monte carlo scenario and sequence risk with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "With interim withdrawals or deposits, the order of investment returns can change terminal wealth even when the list of percentage returns contains the same values; simulations must preserve cash-flow timing.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. With interim withdrawals or deposits, the order of investment returns can change terminal wealth even when the list of percentage returns contains the same values; simulations must preserve cash-flow timing. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional account starts at $100 and withdraws $10 after the first period. Scenario A has +20% then -20%; scenario B has -20% then +20%. Compute terminal balances.",
+      "solution": "Scenario A: 100*1.20=120, withdraw 10 gives 110, then *0.80 gives $88. Scenario B: 100*0.80=80, withdraw 10 gives 70, then *1.20 gives $84. Both have same two returns but different cash-flow ordering.",
+      "counterexample": "A simulation that randomizes independent daily observations may destroy volatility clustering and temporal structure; one scenario is not a probability estimate.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. A simulation that randomizes independent daily observations may destroy volatility clustering and temporal structure; one scenario is not a probability estimate. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Create three fictional two-period sequences, each with the same withdrawal timing, and compare their balances without assuming the sampled paths predict real future outcomes.",
+      "source_ids": [
+        "STATSMODELS",
+        "CFI-SHARPE"
+      ],
+      "sources": [
+        {
+          "title": "statsmodels",
+          "url": "https://www.statsmodels.org/"
+        },
+        {
+          "title": "Corporate Finance Institute: Sharpe ratio formula and interpretation",
+          "url": "https://corporatefinanceinstitute.com/resources/career-map/sell-side/risk-management/sharpe-ratio-definition-formula/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-covariance-estimate-shrinkage",
+      "title": "Covariance Estimation and Portfolio Weights",
+      "summary": "Original institutional quantitative lesson on covariance estimation and portfolio weights with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "A portfolio optimizer may place extreme weights on unstable sample covariance estimates; regularization or shrinkage changes the estimate but does not guarantee a better real-world portfolio.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. A portfolio optimizer may place extreme weights on unstable sample covariance estimates; regularization or shrinkage changes the estimate but does not guarantee a better real-world portfolio. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional portfolio uses only ten past observations to estimate pairwise correlations for 30 assets. The raw optimizer assigns 90% to one asset. What evidence should be checked before trusting that concentration?",
+      "solution": "Estimate dimensionality versus sample size, positive-definiteness, sensitivity to input perturbations, feasible weight constraints and out-of-sample results. A shrinkage estimator is a possible sensitivity case, not proof that 90% is correct.",
+      "counterexample": "A precise-looking efficient frontier computed on a poorly conditioned covariance matrix can be numerical artifact rather than stable risk information.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. A precise-looking efficient frontier computed on a poorly conditioned covariance matrix can be numerical artifact rather than stable risk information. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Compare a noisy sample covariance to a shrinkage-to-target covariance using transparent constraints and report how the portfolio weights change under small input perturbations.",
+      "source_ids": [
+        "PYPORT"
+      ],
+      "sources": [
+        {
+          "title": "PyPortfolioOpt",
+          "url": "https://pyportfolioopt.readthedocs.io/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-parameter-sweep-overfit",
+      "title": "Parameter Sweep Overfitting and Research Logs",
+      "summary": "Original institutional quantitative lesson on parameter sweep overfitting and research logs with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "Choosing strategy settings after searching many parameter combinations on the same backtest period can fit noise, especially when costs and discarded trials are hidden.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. Choosing strategy settings after searching many parameter combinations on the same backtest period can fit noise, especially when costs and discarded trials are hidden. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional analyst tests 500 lookback/threshold combinations on one calendar year and publishes only the best apparent return. How many distinct candidate trials should appear in the research log?",
+      "solution": "All 500 tested candidates are part of the effective search and should be documented, along with the objective and any follow-on tuning. One winning backtest does not establish 500 independent profitable effects.",
+      "counterexample": "Re-running backtests on the same period after each failed idea and labeling the final trial out-of-sample creates false validation evidence.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. Re-running backtests on the same period after each failed idea and labeling the final trial out-of-sample creates false validation evidence. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Create a parameter-trial register with run ID, model version, tested intervals, metrics, cost assumptions and declared prospective holdout period.",
+      "source_ids": [
+        "VECTORBT"
+      ],
+      "sources": [
+        {
+          "title": "vectorbt",
+          "url": "https://vectorbt.dev/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-reproducible-backtest-ledger",
+      "title": "Reproducible Backtests and Data Provenance",
+      "summary": "Original institutional quantitative lesson on reproducible backtests and data provenance with reproducible calculations and source-specific research controls.",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "quant",
+        "institutional_quantitative"
+      ],
+      "definition": "A reproducible research claim needs the exact code revision, source and adjustment versions, eligibility universe, temporal cutoff, seed, execution-cost convention and stored decision records.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. A reproducible research claim needs the exact code revision, source and adjustment versions, eligibility universe, temporal cutoff, seed, execution-cost convention and stored decision records. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "Two analysts run a fictional identical rule but one uses raw prices and the other split-adjusted prices, producing different returns. Can their reports be directly compared without adjustment metadata?",
+      "solution": "No. A common strategy name is insufficient: source data, corporate-action transforms, timestamps, slippage rules and code revision must be aligned before investigating the discrepancy.",
+      "counterexample": "A screenshot of final equity without its input feed, trade ledger and parameter history cannot support independent reproduction or valid audit of backtest errors.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. A screenshot of final equity without its input feed, trade ledger and parameter history cannot support independent reproduction or valid audit of backtest errors. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Design a versioned experiment manifest containing code SHA, data source, snapshot hash, universe, labels, execution assumptions, fees and statistical output.",
+      "source_ids": [
+        "PANDAS"
+      ],
+      "sources": [
+        {
+          "title": "pandas Time Series",
+          "url": "https://pandas.pydata.org/docs/user_guide/timeseries.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-sec-filings-data-entitlement",
+      "title": "SEC API Access and Filed Data Provenance",
+      "summary": "Original professional lesson on sec api access and filed data provenance with reproducible calculations and source-specific research controls.",
+      "subject": "Market Data / Rights and Provenance",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "professional"
+      ],
+      "definition": "SEC public filing APIs can provide company-submission and structured financial data, but data-use conditions, request limitations, re-publication claims and third-party rights must be reviewed independently.",
+      "procedure": "Specify the dataset, relevant timestamp, unit convention and methodological assumptions before reviewing any historical outcomes. SEC public filing APIs can provide company-submission and structured financial data, but data-use conditions, request limitations, re-publication claims and third-party rights must be reviewed independently. Apply the calculation in the fictional case, then write a counterexample and a decision about whether more evidence is necessary.",
+      "exercise": "A fictional application fetches issuer reports through an official API and proposes serving raw filing text and embedded illustrations to commercial subscribers. What distinct approvals must be checked?",
+      "solution": "Separate the right to access an API from any proposed copying of third-party material, automated request policies, issuer content rights and redistribution. The existence of a public endpoint alone does not grant all commercial republication rights.",
+      "counterexample": "An API's JSON response being accessible without a paid license does not mean every underlying document or logo can be incorporated freely in a new subscription product.",
+      "limitations": "This article teaches research controls and does not claim validated alpha, predictable returns, authorized market-data distribution, or personal suitability. An API's JSON response being accessible without a paid license does not mean every underlying document or logo can be incorporated freely in a new subscription product. Independent model risk, publication-rights, and statistical review remain required.",
+      "application": "Write a provenance and rights record distinguishing official issuer filing metadata, issuer-authored narrative and independently developed derived educational summaries.",
+      "source_ids": [
+        "SEC-DATA"
+      ],
+      "sources": [
+        {
+          "title": "SEC structured filings API",
+          "url": "https://data.sec.gov/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "batch": "B003",
+  "part": 2,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b003-volatility-bands-sigma-choice",
+      "title": "Bollinger-Style Bands and Standard-Deviation Convention",
+      "summary": "A complete professional research article on bollinger-style bands and standard-deviation convention with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Technical Analysis / Numerical Verification",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "professional"
+      ],
+      "definition": "Volatility bands built from a rolling mean and standard deviation depend on whether the dataset uses population or sample variance; the choice changes band width at small sample sizes.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Volatility bands built from a rolling mean and standard deviation depend on whether the dataset uses population or sample variance; the choice changes band width at small sample sizes. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "An illustrative three-close window is 10, 12, 14. Compute the mean, the population standard deviation and sample standard deviation, then a band pair at two standard deviations.",
+      "solution": "The mean is 12; deviations squared total 8. Population sigma is sqrt(8/3)=1.633 and bands are about 8.734 to 15.266. Sample sigma is sqrt(8/2)=2, giving bands 8 to 16.",
+      "counterexample": "A chart setting with a different lookback, degrees-of-freedom assumption or warmup history may show distinct bands with no calculation error; observed bands do not certify future volatility.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. A chart setting with a different lookback, degrees-of-freedom assumption or warmup history may show distinct bands with no calculation error; observed bands do not certify future volatility. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Build two separate synthetic windows with identical mean but different dispersion, record the denominator convention and recompute two-standard-deviation bounds.",
+      "source_ids": [
+        "TALIB-FUNC",
+        "CMT-ASSOC"
+      ],
+      "sources": [
+        {
+          "title": "TA-Lib documented functions",
+          "url": "https://ta-lib.org/functions/"
+        },
+        {
+          "title": "CMT Association",
+          "url": "https://cmtassociation.org/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trades-quotes-depth-distinction",
+      "title": "Trades, Quotes, and Depth Are Different Evidence",
+      "summary": "A complete advanced research article on trades, quotes, and depth are different evidence with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "advanced"
+      ],
+      "definition": "A trade print is a completed execution, a displayed quote is contemporaneous buying or selling interest, and depth-of-book is a set of resting intentions across price levels. They are not interchangeable evidence.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. A trade print is a completed execution, a displayed quote is contemporaneous buying or selling interest, and depth-of-book is a set of resting intentions across price levels. They are not interchangeable evidence. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional venue shows 100 shares offered at $10.10, then a cancellation reduces that offer to 20 shares without any trade print. Which datasets change and what transaction can be inferred?",
+      "solution": "The displayed ask-size and depth change by 80 shares, but the record describes cancellation rather than sale. Without a corresponding eligible execution message, no 80-share trade can be inferred.",
+      "counterexample": "Depth colors often classify order-side interest rather than aggressive buyer intent; a canceled order is not evidence of 80 shares executed.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. Depth colors often classify order-side interest rather than aggressive buyer intent; a canceled order is not evidence of 80 shares executed. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Create a five-event fictional tape with add, cancel, quote, execution and correction; label which records affect historical volume and which only revise resting interest.",
+      "source_ids": [
+        "SEC-MKT",
+        "SEC-605"
+      ],
+      "sources": [
+        {
+          "title": "SEC Market Structure",
+          "url": "https://www.sec.gov/marketstructure"
+        },
+        {
+          "title": "SEC Rule 605 guidance",
+          "url": "https://www.sec.gov/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-market-by-order-vs-level",
+      "title": "Market-by-Order Versus Aggregated Price Levels",
+      "summary": "A complete professional research article on market-by-order versus aggregated price levels with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "professional"
+      ],
+      "definition": "Market-by-order data may identify separate resting orders and their changes while market-by-price views aggregate total displayed quantity by price level; aggregation loses individual queue detail.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Market-by-order data may identify separate resting orders and their changes while market-by-price views aggregate total displayed quantity by price level; aggregation loses individual queue detail. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "At a fictional $10.00 bid, three resting orders contain 100, 200, and 50 shares. A market-by-price display reports 350 shares. One 200-share order is canceled.",
+      "solution": "The aggregate becomes 150 shares after the cancellation, but market-by-price alone cannot identify all individual order IDs or verify queue position. The market-by-order sequence carries additional information.",
+      "counterexample": "A 350-share level is not necessarily one order from one trader. Reconstructing queue age from aggregate quantities alone invents missing message history.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. A 350-share level is not necessarily one order from one trader. Reconstructing queue age from aggregate quantities alone invents missing message history. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Write a synthetic add/cancel/modify message ledger for three order identifiers and separately derive the market-by-price snapshot after each event.",
+      "source_ids": [
+        "LOBSTER",
+        "STT-RESEARCH"
+      ],
+      "sources": [
+        {
+          "title": "LOBSTER order-book samples",
+          "url": "https://lobsterdata.com/"
+        },
+        {
+          "title": "StocksToTrade public trading education",
+          "url": "https://stockstotrade.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-order-book-depth-changes",
+      "title": "Displayed Order-Book Depth and Cancellations",
+      "summary": "A complete advanced research article on displayed order-book depth and cancellations with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "advanced"
+      ],
+      "definition": "Visible order-book size can change by limit additions, partial executions, amendments or cancellations; the signed change alone does not reveal the cause.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Visible order-book size can change by limit additions, partial executions, amendments or cancellations; the signed change alone does not reveal the cause. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional best bid at $20.00 shows 500 shares. An update reduces displayed size to 200 shares without an accompanying eligible trade message. Is 300-share aggressive selling demonstrated?",
+      "solution": "No. The reduction is 300 displayed shares, but without event-level sequencing it could reflect cancellation, modification, venue aggregation or execution messages not yet verified.",
+      "counterexample": "Treating every negative bid-size change as a market sell creates false trade volume and distorts order-flow interpretation.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. Treating every negative bid-size change as a market sell creates false trade volume and distorts order-flow interpretation. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Construct two event sequences that both move displayed bid size from 500 to 200, one with a 300-share cancellation and one with a 300-share execution, and list the distinguishing messages.",
+      "source_ids": [
+        "NASDAQ-TRADER",
+        "STT-TERMS"
+      ],
+      "sources": [
+        {
+          "title": "Nasdaq Trader",
+          "url": "https://www.nasdaqtrader.com/"
+        },
+        {
+          "title": "StocksToTrade Terms of Service",
+          "url": "https://stockstotrade.com/terms-service-use-agreement/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-auction-indicative-vs-executed",
+      "title": "Auction Indicative Prices Versus Final Executions",
+      "summary": "A complete professional research article on auction indicative prices versus final executions with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "professional"
+      ],
+      "definition": "Auction imbalance indicates unmatched eligible buying or selling interest under a specified exchange methodology, while a preauction indicative match can change before the actual cross.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Auction imbalance indicates unmatched eligible buying or selling interest under a specified exchange methodology, while a preauction indicative match can change before the actual cross. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional closing auction receives eligible buy interest of 15,000 shares and eligible sell interest of 12,000 shares at a candidate price. Compute an illustrative net buy imbalance, assuming identical price eligibility.",
+      "solution": "Under the simplified assumptions, buy interest exceeds sell interest by 3,000 shares; it does not mean the final auction must execute at a higher price or that 3,000 shares will trade after the cross.",
+      "counterexample": "Exchanges employ different order types, constraints, indicative pricing and imbalance dissemination rules, so subtracting two totals is not an exact reconstruction of every auction algorithm.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. Exchanges employ different order types, constraints, indicative pricing and imbalance dissemination rules, so subtracting two totals is not an exact reconstruction of every auction algorithm. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Build two candidate-price cases with different executable volume and imbalance, and explain why a final match price requires the actual venue rules and order book.",
+      "source_ids": [
+        "NYSE-DATA"
+      ],
+      "sources": [
+        {
+          "title": "NYSE Market Data",
+          "url": "https://www.nyse.com/market-data"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ats-offexchange-reporting",
+      "title": "ATS and Off-Exchange Trade Reporting",
+      "summary": "A complete advanced research article on ats and off-exchange trade reporting with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "advanced"
+      ],
+      "definition": "An alternative trading system is a trading venue category, while off-exchange reporting describes how eligible transactions are reported; source and venue categories need to be reconciled carefully.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. An alternative trading system is a trading venue category, while off-exchange reporting describes how eligible transactions are reported; source and venue categories need to be reconciled carefully. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional consolidated record indicates 1,000 shares traded during a minute and a separate venue report indicates 250 shares associated with an ATS. What fraction is attributed under an explicitly aligned universe?",
+      "solution": "If both datasets cover the same symbol, time, correction rules and transaction universe, 250/1000 is 25%. Without that reconciliation the ratio is not a validated market-share measure.",
+      "counterexample": "An ATS trade can have reporting conventions different from a primary-exchange print, and duplicated corrected reports cannot be counted twice.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. An ATS trade can have reporting conventions different from a primary-exchange print, and duplicated corrected reports cannot be counted twice. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Specify a venue-normalized trade record with execution venue, reporting facility, execution timestamp, original/correction indicator and share quantity.",
+      "source_ids": [
+        "FINRA-DATA"
+      ],
+      "sources": [
+        {
+          "title": "FINRA Data",
+          "url": "https://www.finra.org/finra-data"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-clearing-netting-settlement",
+      "title": "Clearing, Netting, and Settlement Controls",
+      "summary": "A complete professional research article on clearing, netting, and settlement controls with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "microstructure",
+        "professional"
+      ],
+      "definition": "After execution, clearing organizations and settlement processes help match and net obligations; trade execution and the subsequent exchange of funds and securities are different lifecycle stages.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. After execution, clearing organizations and settlement processes help match and net obligations; trade execution and the subsequent exchange of funds and securities are different lifecycle stages. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional clearing participant has eligible purchases of 100 shares and sales of 60 shares in a single security for the same settlement cycle. Under a fully nettable simplified example, what is the net share obligation?",
+      "solution": "The illustrative net purchase obligation is 40 shares, subject to actual clearing rules, counterparties, membership arrangements and settlement mechanics. The gross 160 shares of transactions are not identical to a 160-share settlement delivery.",
+      "counterexample": "A trade confirmed by a venue does not by itself establish completed final settlement or entitlement to claim the clearinghouse directly.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. A trade confirmed by a venue does not by itself establish completed final settlement or entitlement to claim the clearinghouse directly. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Diagram execution, confirmation, clearing, net obligation and final securities/cash settlement for this fictional participant, marking which stage changes ownership records.",
+      "source_ids": [
+        "DTCC"
+      ],
+      "sources": [
+        {
+          "title": "DTCC clearing and settlement",
+          "url": "https://www.dtcc.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-enterprise-equity-bridge",
+      "title": "Enterprise Value to Equity Value Bridge",
+      "summary": "A complete advanced research article on enterprise value to equity value bridge with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Fundamental Analysis / Valuation",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "fundamentals",
+        "advanced"
+      ],
+      "definition": "A simplified enterprise-to-equity valuation bridge subtracts debt-like claims and adds nonoperating cash from business enterprise value; exact treatment of preferred stock and noncontrolling interests depends on definitions.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. A simplified enterprise-to-equity valuation bridge subtracts debt-like claims and adds nonoperating cash from business enterprise value; exact treatment of preferred stock and noncontrolling interests depends on definitions. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional company's enterprise value is $500 million, interest-bearing debt is $180 million and surplus cash is $40 million. Ignore other claims. Estimate equity value under this simplified bridge.",
+      "solution": "Equity value is 500 - 180 + 40 = $360 million under the stated assumptions. This is not the price of one share; dividing by a correctly measured diluted share count would be a separate step.",
+      "counterexample": "Combining a market capitalization that already reflects equity claims with an enterprise value formula without adjusting net debt double counts financing effects.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. Combining a market capitalization that already reflects equity claims with an enterprise value formula without adjusting net debt double counts financing effects. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Recalculate with enterprise value $700 million, debt $200 million and cash $75 million, naming at least two omitted items that could complicate a real transaction.",
+      "source_ids": [
+        "DAMODARAN",
+        "IRS-550"
+      ],
+      "sources": [
+        {
+          "title": "NYU Stern Damodaran valuation resources",
+          "url": "https://pages.stern.nyu.edu/~adamodar/"
+        },
+        {
+          "title": "IRS Publication 550",
+          "url": "https://www.irs.gov/publications/p550"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-accrual-and-cash-reconciliation",
+      "title": "Cash Earnings and Accrual Reconciliation",
+      "summary": "A complete intermediate research article on cash earnings and accrual reconciliation with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Fundamental Analysis / Valuation",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "fundamentals",
+        "intermediate"
+      ],
+      "definition": "Working-capital changes can make operating cash flow differ from accrual net income because revenue recognition and cash collection are not always contemporaneous.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Working-capital changes can make operating cash flow differ from accrual net income because revenue recognition and cash collection are not always contemporaneous. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "An illustrative issuer reports $120,000 net income, $25,000 depreciation, a $30,000 increase in receivables and a $10,000 increase in accounts payable. Assume no other adjustments.",
+      "solution": "A simplified reconciliation gives 120,000+25,000-30,000+10,000=$125,000 operating cash flow. The receivable increase uses cash relative to accrual profit, while payable growth delays a cash outflow.",
+      "counterexample": "Higher reported profits without examination of receivables, inventory and accruals can disguise cash-conversion weakness; one period does not establish fraud.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. Higher reported profits without examination of receivables, inventory and accruals can disguise cash-conversion weakness; one period does not establish fraud. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Use an invented income statement and balance-sheet change table to build a transparent operating cash bridge and identify every assumption.",
+      "source_ids": [
+        "EDGAR-SEARCH"
+      ],
+      "sources": [
+        {
+          "title": "SEC EDGAR company filings",
+          "url": "https://www.sec.gov/edgar/search/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-filing-availability-timeline",
+      "title": "Filing Publication Versus Reporting Period",
+      "summary": "A complete advanced research article on filing publication versus reporting period with first-party worked evidence and explicit invalidation conditions.",
+      "subject": "Fundamental Analysis / Valuation",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "fundamentals",
+        "advanced"
+      ],
+      "definition": "Financial reporting periods, issuer press releases, SEC acceptance timestamps and vendor ingestion timestamps are distinct. A point-in-time research process must use only data actually released by its cutoff.",
+      "procedure": "Define the chosen security or data population and verify its time reference, units and method before calculating. Financial reporting periods, issuer press releases, SEC acceptance timestamps and vendor ingestion timestamps are distinct. A point-in-time research process must use only data actually released by its cutoff. Record every assumption and test an alternative explanation before drawing a conclusion.",
+      "exercise": "A fictional issuer's annual fiscal period closes December 31, a report becomes public February 18 at 4:15 p.m., and a vendor ingests figures February 19 at 2:00 a.m. Could a model using this vendor retrieve the facts on January 15?",
+      "solution": "No. Fiscal period end does not make the contents public. January 15 predates both February events; the model cannot include those figures. As-of availability must match the information channel actually relied upon.",
+      "counterexample": "A downloaded spreadsheet that labels a row 2025-12-31 may leak a February filing into a December or January decision model if release timestamps are discarded.",
+      "limitations": "A modeled example is not a real market print, venue execution report, financial statement, or verified quantitative edge. A downloaded spreadsheet that labels a row 2025-12-31 may leak a February filing into a December or January decision model if release timestamps are discarded. Regulatory requirements, exchange rules and data permissions must be checked against current authoritative notices.",
+      "application": "Create a three-column example showing event period, first public release, and vendor arrival; derive valid feature availability on an intraday decision cutoff.",
+      "source_ids": [
+        "EDGAR-API"
+      ],
+      "sources": [
+        {
+          "title": "SEC EDGAR Application Programming Interfaces",
+          "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+        }
+      ]
+    }
+  ]
+}

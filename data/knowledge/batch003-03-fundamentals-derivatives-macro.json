@@ -1,0 +1,386 @@
+{
+  "batch": "B003",
+  "part": 3,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b003-discounted-cash-flow-scenarios",
+      "title": "Discounted Cash Flow Sensitivity Scenarios",
+      "summary": "An original professional article about discounted cash flow sensitivity scenarios, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Fundamental Analysis / Fixed Income and Valuation",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "fundamentals",
+        "professional"
+      ],
+      "definition": "Discounted cash flow converts specified future cash amounts into present-value estimates using a stated discount rate and terminal assumption; varying assumptions produces a range rather than a guaranteed share price.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. Discounted cash flow converts specified future cash amounts into present-value estimates using a stated discount rate and terminal assumption; varying assumptions produces a range rather than a guaranteed share price. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional project is expected to pay $100 in year one and $100 in year two with no additional payments. At an illustrative 10% annual discount rate, compute the present value.",
+      "solution": "The present value is 100/1.10 + 100/(1.10 squared), or approximately 90.91 + 82.64 = $173.55. The no-terminal-value assumption is intentionally artificial.",
+      "counterexample": "A small increase in long-run growth or decrease in discount rate can dramatically change a going-concern DCF; precise decimals do not remove uncertainty in forecasts.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. A small increase in long-run growth or decrease in discount rate can dramatically change a going-concern DCF; precise decimals do not remove uncertainty in forecasts. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Recalculate the two-payment example using a 5% annual rate, document cash-flow timing and identify why real enterprise valuations require further scenarios.",
+      "source_ids": [
+        "CFA"
+      ],
+      "sources": [
+        {
+          "title": "CFA Institute",
+          "url": "https://www.cfainstitute.org/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-municipal-bond-documentation",
+      "title": "Municipal Bond Disclosure and Credit Research",
+      "summary": "An original intermediate article about municipal bond disclosure and credit research, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Fundamental Analysis / Fixed Income and Valuation",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "fundamentals",
+        "intermediate"
+      ],
+      "definition": "Municipal debt research should identify the issuer, official statement, repayment sources, security pledge, maturity, ratings and later disclosures; quoted yield cannot substitute for the actual indenture terms.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. Municipal debt research should identify the issuer, official statement, repayment sources, security pledge, maturity, ratings and later disclosures; quoted yield cannot substitute for the actual indenture terms. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional city issues a $1,000 bond promising annual coupon payments of $40, but its project cash flows later fall short. Is the bond automatically guaranteed by the city’s full taxing power?",
+      "solution": "No. A stated $40 annual coupon is 4% of $1,000 face, but the actual payment security depends on the disclosed obligation, such as a revenue pledge or general obligation, plus credit conditions.",
+      "counterexample": "A high nominal tax-exempt yield is not proof of safety or attractive after-tax return; tax treatment and investor domicile may matter.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. A high nominal tax-exempt yield is not proof of safety or attractive after-tax return; tax treatment and investor domicile may matter. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Develop a municipal-bond evidence card with CUSIP, issuer, official statement, maturity, security source, continuing disclosures and unresolved credit risk.",
+      "source_ids": [
+        "MSRB-EMMA"
+      ],
+      "sources": [
+        {
+          "title": "MSRB EMMA",
+          "url": "https://emma.msrb.org/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-call-intrinsic-extrinsic",
+      "title": "Call Intrinsic Value Versus Time Value",
+      "summary": "An original intermediate article about call intrinsic value versus time value, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "derivatives",
+        "intermediate"
+      ],
+      "definition": "The intrinsic value of a standard call at a given observation is max(spot minus strike, zero); the remainder of a quoted option premium, if nonnegative, is time or extrinsic value.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. The intrinsic value of a standard call at a given observation is max(spot minus strike, zero); the remainder of a quoted option premium, if nonnegative, is time or extrinsic value. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A hypothetical call has strike $50, underlying stock price $54 and option premium $6 per underlying share. Find intrinsic and extrinsic components at that observation.",
+      "solution": "Intrinsic value is max(54-50,0)=$4. Extrinsic value is $6-$4=$2 per underlying share. Exercise style, contract multiplier and transaction costs are separate details.",
+      "counterexample": "The $2 extrinsic portion is not a guaranteed profit; it can decline with time and other changes even if underlying prices are unchanged.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. The $2 extrinsic portion is not a guaranteed profit; it can decline with time and other changes even if underlying prices are unchanged. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Recompute intrinsic and time value for a fictional call with strike $80, spot $77, and premium $3, then state the exercise convention needed.",
+      "source_ids": [
+        "OIC",
+        "CFTC"
+      ],
+      "sources": [
+        {
+          "title": "Options Industry Council",
+          "url": "https://www.optionseducation.org/"
+        },
+        {
+          "title": "CFTC Learn and Protect",
+          "url": "https://www.cftc.gov/LearnAndProtect/index.htm"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-put-expiration-payoff",
+      "title": "Long Put Payoff and Premium at Expiration",
+      "summary": "An original intermediate article about long put payoff and premium at expiration, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "derivatives",
+        "intermediate"
+      ],
+      "definition": "A standard long put’s expiration intrinsic payoff per unit is max(strike minus terminal underlying price, zero); investor profit also subtracts the paid premium and any costs.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. A standard long put’s expiration intrinsic payoff per unit is max(strike minus terminal underlying price, zero); investor profit also subtracts the paid premium and any costs. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional put has strike $60 and was purchased for $7 per underlying unit. At expiration the underlying is $55. Determine intrinsic payoff and premium-adjusted profit before fees.",
+      "solution": "Intrinsic payoff is max(60-55,0)=$5. Relative to the $7 paid, the result is -$2 per underlying unit before fees. A full loss of $7 is possible if it expires worthless.",
+      "counterexample": "A purchased put does not guarantee a positive net profit simply because the terminal stock price falls below strike; the premium can exceed intrinsic payout.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. A purchased put does not guarantee a positive net profit simply because the terminal stock price falls below strike; the premium can exceed intrinsic payout. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Calculate the break-even expiration price for a put with strike $60 and premium $7, then evaluate the result if stock finishes at $51.",
+      "source_ids": [
+        "OCC",
+        "QUANTLIB"
+      ],
+      "sources": [
+        {
+          "title": "Options Clearing Corporation",
+          "url": "https://www.theocc.com/"
+        },
+        {
+          "title": "QuantLib",
+          "url": "https://www.quantlib.org/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-greeks-local-approximation",
+      "title": "Options Greeks as Local Sensitivities",
+      "summary": "An original advanced article about options greeks as local sensitivities, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "derivatives",
+        "advanced"
+      ],
+      "definition": "Option delta and other Greeks approximate local sensitivity to specified variables; they do not give an exact full-price forecast over large stock moves or simultaneous volatility and time changes.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. Option delta and other Greeks approximate local sensitivity to specified variables; they do not give an exact full-price forecast over large stock moves or simultaneous volatility and time changes. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional option has modeled delta 0.55 per underlying price dollar. If underlying rises by $1, approximate option premium movement while holding all other inputs locally constant.",
+      "solution": "A first-order approximation is +$0.55 per underlying unit, not a confirmed fill. Gamma, changing volatility, time passage and model convention can alter the actual premium change.",
+      "counterexample": "Treating delta as a guaranteed fixed future price difference for a $20 move neglects curvature and exposure changes.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. Treating delta as a guaranteed fixed future price difference for a $20 move neglects curvature and exposure changes. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Record how delta, gamma, theta and vega conceptually differ, and identify at least two factors preventing an exact change in option premium.",
+      "source_ids": [
+        "CBOE-OPTIONS"
+      ],
+      "sources": [
+        {
+          "title": "Cboe Options Institute",
+          "url": "https://www.cboe.com/optionsinstitute/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-futures-tick-margin",
+      "title": "Futures Tick Value Versus Performance Bond",
+      "summary": "An original professional article about futures tick value versus performance bond, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "derivatives",
+        "professional"
+      ],
+      "definition": "A futures contract’s minimum price increment and tick dollar value define notional profit or loss for a specified move; performance bond or margin is collateral, not a limit on losses.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. A futures contract’s minimum price increment and tick dollar value define notional profit or loss for a specified move; performance bond or margin is collateral, not a limit on losses. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional contract moves in 0.25-point ticks worth $12.50 each. A one-contract long position experiences a 1-point price decline. Compute the illustrative gross P/L.",
+      "solution": "One point is four ticks. Four adverse ticks times $12.50 gives -$50 per contract before commissions. Posted margin is not the maximum loss on the leveraged exposure.",
+      "counterexample": "Calling a $1,000 initial margin requirement the amount an investor can lose is unsafe; a volatile contract can incur losses greater than posted funds.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. Calling a $1,000 initial margin requirement the amount an investor can lose is unsafe; a volatile contract can incur losses greater than posted funds. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Evaluate a 2.5-point favorable move for two identical fictional contracts, stating number of ticks and excluded transaction costs.",
+      "source_ids": [
+        "CME-EDU"
+      ],
+      "sources": [
+        {
+          "title": "CME Education",
+          "url": "https://www.cmegroup.com/education.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-options-assignment-obligation",
+      "title": "Exercise, Assignment, and Option Contract Obligations",
+      "summary": "An original intermediate article about exercise, assignment, and option contract obligations, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "derivatives",
+        "intermediate"
+      ],
+      "definition": "A standard listed option buyer has an exercise right; the writer takes a contingent contractual obligation if assigned. Settlement, dividend exposure and contract terms require current disclosure.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. A standard listed option buyer has an exercise right; the writer takes a contingent contractual obligation if assigned. Settlement, dividend exposure and contract terms require current disclosure. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional investor writes one physically settled call with a $100 strike and receives a $3 premium per underlying unit. Later the option becomes exercisable. What obligation could assignment create?",
+      "solution": "Under the simplified physically settled call terms, the writer could be required to deliver underlying shares at $100 per share if assigned. Receiving $3 does not eliminate the obligation or cap adverse exposure.",
+      "counterexample": "An option writer who sees the premium credited to cash must not confuse that receipt with risk-free income; assignment and margin outcomes remain possible.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. An option writer who sees the premium credited to cash must not confuse that receipt with risk-free income; assignment and margin outcomes remain possible. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Describe the difference between exercising a long call and being assigned on a short call, and list the product terms and broker rules needed for a real contract.",
+      "source_ids": [
+        "NFA"
+      ],
+      "sources": [
+        {
+          "title": "NFA Investor Education",
+          "url": "https://www.nfa.futures.org/investors/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-cpi-pce-inflation-comparison",
+      "title": "CPI and PCE Inflation Measures",
+      "summary": "An original intermediate article about cpi and pce inflation measures, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "macro",
+        "intermediate"
+      ],
+      "definition": "Consumer price index and personal consumption expenditure price measures use different concepts, coverage, expenditure weights and revision conventions, so they need explicit series labels.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. Consumer price index and personal consumption expenditure price measures use different concepts, coverage, expenditure weights and revision conventions, so they need explicit series labels. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "A fictional release reports CPI twelve-month inflation of 3.2% and a PCE price-index twelve-month change of 2.7%. What is the numeric difference and what cannot be concluded from it?",
+      "solution": "The reported rates differ by 0.5 percentage points, or 50 basis points. This does not show that one statistical agency made an error; methodology and measurement scope may differ.",
+      "counterexample": "A headline rate alone cannot establish whether it is seasonally adjusted, core or all-items, monthly or yearly, or the revision vintage.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. A headline rate alone cannot establish whether it is seasonally adjusted, core or all-items, monthly or yearly, or the revision vintage. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Record source agency, series identifier, population scope, seasonal treatment, comparison period and initial-release timestamp for two fictional inflation readings.",
+      "source_ids": [
+        "BLS",
+        "FRED-TERMS"
+      ],
+      "sources": [
+        {
+          "title": "Bureau of Labor Statistics",
+          "url": "https://www.bls.gov/"
+        },
+        {
+          "title": "FRED terms and copyright restrictions",
+          "url": "https://fred.stlouisfed.org/legal/terms/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-economic-revisions-vintages",
+      "title": "Economic Release Revisions and Data Vintages",
+      "summary": "An original advanced article about economic release revisions and data vintages, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "macro",
+        "advanced"
+      ],
+      "definition": "Economic indicators can be revised after first release; historical research must distinguish the value available at the decision date from a later current-vintage database value.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. Economic indicators can be revised after first release; historical research must distinguish the value available at the decision date from a later current-vintage database value. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "An invented unemployment statistic is first released at 4.1% on day A and later revised to 4.0% on day B. Which value may a model using day-A information legitimately reference?",
+      "solution": "The original 4.1% release can be used as-of day A. The later 4.0% value may be used only after its revision became public, with the same series and relevant source timing.",
+      "counterexample": "Joining today's final revised series backward to historic decision times can introduce lookahead even without an obviously future-dated row.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. Joining today's final revised series backward to historic decision times can introduce lookahead even without an obviously future-dated row. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Build a table with observation month, release date, revision date and vintage-specific value, then show an as-of filter for day A.",
+      "source_ids": [
+        "FRED-DATA",
+        "FRB"
+      ],
+      "sources": [
+        {
+          "title": "FRED and ALFRED economic data",
+          "url": "https://fred.stlouisfed.org/"
+        },
+        {
+          "title": "Federal Reserve Board",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-yield-curve-tenor",
+      "title": "Yield Curves and Maturity Comparisons",
+      "summary": "An original intermediate article about yield curves and maturity comparisons, using a fully worked fictional case, independent application, and source-specific limitations.",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "macro",
+        "intermediate"
+      ],
+      "definition": "A nominal Treasury yield curve compares annualized yields for instruments of different maturities and conventions; the difference between two rates can be expressed in basis points.",
+      "procedure": "Identify the contract, reporting instrument or economic series and its valid publication cutoff before reasoning. A nominal Treasury yield curve compares annualized yields for instruments of different maturities and conventions; the difference between two rates can be expressed in basis points. Apply only the fictional figures and assumptions provided; independently check formulas, units and the stated risk boundaries.",
+      "exercise": "In a made-up Treasury snapshot, a two-year reference yield is 4.0% and a ten-year reference yield is 4.5%. Calculate the simple ten-minus-two-year slope.",
+      "solution": "The difference is 4.5%-4.0%=0.5 percentage points, or +50 basis points. It is a contemporary comparison of two yields, not a guaranteed future return or a forecast of policy.",
+      "counterexample": "Mixing yields from different dates, inflation-linked securities, or different instrument definitions invalidates a direct slope comparison.",
+      "limitations": "The instructional calculation does not demonstrate suitability, actual exchange liquidity, current legal or tax treatment, or a future market result. Mixing yields from different dates, inflation-linked securities, or different instrument definitions invalidates a direct slope comparison. Review the controlling issuer, agency, venue or product terms before any real-world reliance.",
+      "application": "Construct a fictional inverted curve with 2-year yield 4.8% and 10-year yield 4.2%, calculate the slope and state the data convention.",
+      "source_ids": [
+        "TREASURY",
+        "BIS"
+      ],
+      "sources": [
+        {
+          "title": "US Treasury Data",
+          "url": "https://fiscaldata.treasury.gov/"
+        },
+        {
+          "title": "Bank for International Settlements",
+          "url": "https://www.bis.org/"
+        }
+      ]
+    }
+  ]
+}
