@@ -20,6 +20,11 @@ on:
       - 'functions/api/learning-lab-enterprise-journey.js'
       - 'tests/learning-lab-enterprise-journey-api-v1.test.mjs'
       - 'tests/enterprise-learning-lab-journey-browser-v1.mjs'
+      - 'tests/enterprise-learning-member-journey-browser-v1.mjs'
+      - 'assets/js/academy-enterprise-journey-v1.js'
+      - 'assets/css/academy-enterprise-journey-v1.css'
+      - 'assets/js/bootcamp-academy-v014168.js'
+      - 'bootcamp-academy.html'
       - 'tests/enterprise-learning-lab-source-closeout-v1.test.mjs'
       - 'tests/learning-lab-enterprise-journey-v1.test.mjs'
       - 'tests/learning-lab-edition-two-account-contract-v1.test.mjs'
@@ -82,8 +87,12 @@ jobs:
         run: node tests/professional-learning-lab-workspace-browser-v1.mjs
       - name: Verify Enterprise governed seven-stage navigator in Chromium
         run: node tests/enterprise-learning-lab-journey-browser-v1.mjs
+      - name: Verify authenticated Academy Enterprise Learning navigator in Chromium
+        run: node tests/enterprise-learning-member-journey-browser-v1.mjs
       - name: Verify browser workbench syntax
-        run: node --check assets/js/learning-lab-edition-panel-v1.js
+        run: |
+          node --check assets/js/learning-lab-edition-panel-v1.js
+          node --check assets/js/academy-enterprise-journey-v1.js
   grant-revocation-security:
     runs-on: ubuntu-latest
     timeout-minutes: 12

@@ -142,6 +142,7 @@
   return element;
  }
  function clean(){
+  globalThis.CrownlightAcademyEnterpriseResearchV1?.scrub?.();
   academySupplementChart?.dispose?.();academySupplementChart=null;
   globalThis.CrownlightMemberLayoutsV1?.resetAcademy?.();
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
@@ -948,6 +949,17 @@
    globalThis.CrownlightMemberLayoutsV1?.activateAcademy?.(code);
    globalThis.CrownlightLearningProgress?.mount?.('academy-learning-progress');
    updateProgress();renderDay();
+   // Enterprise research is a separate optional, read-only authorization.
+   // It must not block any Basic lesson, journal, progress or assessment stage.
+   if(code!=='free5'){
+    const researchHost=get('academy-enterprise-research');
+    const actingUser=userId,actingEpoch=sessionSerial;
+    void globalThis.CrownlightAcademyEnterpriseResearchV1?.mount?.({
+     host:researchHost,client,userId:actingUser,
+     alive:()=>userId===actingUser&&sessionSerial===actingEpoch&&
+      !get('academy-workspace').hidden&&activeCode===code
+    });
+   }
    // Deep links should enter the selected lesson, not leave members looking
    // at the Academy storefront while their workspace appears far below.
    if(document.body.classList.contains('academy-direct-route')){

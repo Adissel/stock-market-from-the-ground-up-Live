@@ -50,12 +50,12 @@
     "learning_ENTERPRISE": {
       "total": 8,
       "integrated": 0,
-      "partial": 0,
-      "prototype": 7,
+      "partial": 1,
+      "prototype": 6,
       "not_implemented": 1,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 7
+      "automation_file_references": 8
     },
     "lab_BASIC": {
       "total": 8,
@@ -865,11 +865,11 @@
       "engine": "learning",
       "edition": "ENTERPRISE",
       "title": "Governed cross-course research learning path",
-      "source_status": "prototype",
-      "evidence_file": "functions/_lib/learning-lab-enterprise-journey-v1.js",
-      "existing_test_file": "tests/learning-lab-enterprise-journey-v1.test.mjs",
+      "source_status": "partial",
+      "evidence_file": "assets/js/academy-enterprise-journey-v1.js",
+      "existing_test_file": "tests/enterprise-learning-member-journey-browser-v1.mjs",
       "acceptance_criterion": "Connect research tasks to existing authorized curriculum.",
-      "unresolved": "Owner-approved original source candidate composing seven canonical Academy program/day references, separately verified training and Lab visibility, and no inferred book entitlement. Read-only source only; genuine member, independent research rights, accessibility and production release acceptance are open.",
+      "unresolved": "Owner-approved source Learning member UI now attaches an independently grant-gated, server-authorized seven-stage Enterprise pathway to the authenticated Academy classroom. Cross-account scrub, no implicit book rights, mobile keyboard and mocked-browser source evidence are tested. Genuine two-member authentication, paid data rights, screen reader evaluation, exact deployed SHA and independent production acceptance remain open; no general Enterprise release.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

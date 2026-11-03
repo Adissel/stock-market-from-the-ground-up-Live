@@ -1,0 +1,11 @@
+/* Enterprise Learning navigator: hidden unless the independent API verifies access. */
+#academy-enterprise-research[hidden]{display:none!important}
+.gu-academy-enterprise-research{margin:18px 0;padding:18px;background:#092438;color:#e5f6ff;border:1px solid #4a809b;border-radius:12px;line-height:1.6}
+.gu-academy-enterprise-research h4{margin:0 0 8px;color:#f1faff}
+.gu-academy-enterprise-research ol{padding-left:1.6rem}
+.gu-academy-enterprise-research li{padding:10px 8px;border-bottom:1px solid #3f6b83}
+.gu-academy-enterprise-research li:last-child{border-bottom:none}
+.gu-academy-enterprise-research a{display:block;width:fit-content;max-width:100%;margin:5px 0;color:#a9e2ff;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.gu-academy-enterprise-research a:focus-visible{outline:3px solid #f2cf87;outline-offset:4px;border-radius:4px}
+@media(max-width:620px){.gu-academy-enterprise-research{padding:12px}.gu-academy-enterprise-research ol{padding-left:1.25rem}}
+@media(prefers-reduced-motion:reduce){.gu-academy-enterprise-research *{animation:none!important;transition:none!important}}

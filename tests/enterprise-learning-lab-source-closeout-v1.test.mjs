@@ -4,13 +4,14 @@ import {readFileSync} from 'node:fs';
 import {validateFeatureLedger} from '../scripts/qa/learning-lab-engine-feature-audit-v1.mjs';
 const read=p=>readFileSync(p,'utf8');
 const audit=JSON.parse(read('data/learning-lab-engine-feature-audit-v1.json'));
-test('Enterprise research stage work advances only the visible Lab source; Learning remains a non-member source prototype',()=>{
+test('Enterprise research stage work advances only member-gated source candidates, without independent release',()=>{
  const rows=validateFeatureLedger(audit);
  assert.equal(rows.learning_ENTERPRISE.length,8);
  assert.equal(rows.lab_ENTERPRISE.length,8);
- assert.equal(rows.learning_ENTERPRISE.find(x=>x.id==='LE-ENT-05').source_status,'prototype');
+ assert.equal(rows.learning_ENTERPRISE.find(x=>x.id==='LE-ENT-05').source_status,'partial');
  assert.equal(rows.lab_ENTERPRISE.find(x=>x.id==='LA-ENT-04').source_status,'partial');
  assert.equal(rows.lab_ENTERPRISE.filter(x=>x.source_status==='partial').length,1);
+ assert.equal(rows.learning_ENTERPRISE.filter(x=>x.source_status==='partial').length,1);
  assert.equal(rows.learning_ENTERPRISE.filter(x=>x.source_status==='integrated').length,0);
  assert.equal(rows.lab_ENTERPRISE.filter(x=>x.source_status==='integrated').length,0);
  assert.equal(rows.learning_BASIC.filter(x=>x.source_status==='integrated').length,8);
@@ -37,4 +38,18 @@ test('Enterprise preview requires independent server authorizations and scrubbed
  assert.match(curriculum,/marketDataLicensed:false/);
  assert.match(curriculum,/matchingBookEntitlementStillRequired:true/);
  assert.doesNotMatch(ui,/localStorage|sessionStorage|payment_intent|officialGrade:true|masteryAwarded:true/);
+});
+
+test('Academy Enterprise Learning UI requires an authenticated member and scrubs on account change without breaking Basic',()=>{
+ const html=read('bootcamp-academy.html'),academy=read('assets/js/bootcamp-academy-v014168.js');
+ const supplement=read('assets/js/academy-enterprise-journey-v1.js');
+ assert.match(html,/id="academy-enterprise-research"[^>]*hidden/);
+ assert.match(html,/academy-enterprise-journey-v1\.js/);
+ assert.match(academy,/CrownlightAcademyEnterpriseResearchV1\?\.scrub/);
+ assert.match(academy,/CrownlightAcademyEnterpriseResearchV1\?\.mount/);
+ assert.match(supplement,/family=learning/);
+ assert.match(supplement,/getSession/);
+ assert.match(supplement,/session\?\.user\?\.id!==userId/);
+ assert.match(supplement,/!current\(\)/);
+ assert.doesNotMatch(supplement,/localStorage|sessionStorage|payment_intent|officialGrade:true|masteryAwarded:true/);
 });
