@@ -55,7 +55,8 @@
       "reviewExplanation": "Correct reasoning tracks cash and price separately; no inference that the dividend offsets all volatility or execution costs is justified.",
       "transferQuestion": "FICTIONAL TRANSFER: Entry $25, exit $24, eligible dividend $0.20. Compute price-only and cash-inclusive returns separately.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions",
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/requesting-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -74,13 +75,23 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "date": "2026-11-01",
-        "claimSpecificScope": "Scope: Investor.gov confirms returns may arise from price changes and cash distributions, but ex-dividend eligibility alone does not measure total return.",
-        "sourceCandidate": "https://www.investor.gov/introduction-investing",
-        "primaryPageScopeChecked": true,
+        "date": "2026-11-03",
+        "claimSpecificScope": "The official QuantConnect corporate-action and data normalization references distinguish a cash dividend paid on a raw-price position from a dividend already incorporated in adjusted or total-return historical price data. Independent re-review pending.",
+        "sourceCandidate": "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions",
+        "primaryPageScopeChecked": false,
         "editorialStatus": "ON_HOLD",
         "mathIndependentlyAccepted": false,
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The official QuantConnect corporate-action and data normalization references distinguish a cash dividend paid on a raw-price position from a dividend already incorporated in adjusted or total-return historical price data.",
+        "limitationsAndOpenQuestions": "The price-plus-cash $0.50 gain on $40 basis equals 1.25% only for the confirmed dividend received and comparable unadjusted purchase/sale prices. Do not count cash a second time after using total-return-adjusted prices; exclude or separately disclose taxes, fees and reinvestment assumptions.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {

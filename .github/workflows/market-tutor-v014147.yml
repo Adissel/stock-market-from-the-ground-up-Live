@@ -27,6 +27,7 @@ jobs:
           node --test tests/talia-foundation-batches23-24-source-research-v1.test.mjs
           node --test tests/talia-foundation-batches25-26-source-research-v1.test.mjs
           node --test tests/talia-foundation-batches27-28-source-research-v1.test.mjs
+          node --test tests/talia-foundation-final-three-source-research-v1.test.mjs
           node scripts/qa/talia-foundation-source-quality-v1.mjs
           node --test tests/talia-historical-filing-availability-v1.test.mjs
           node tests/talia-classroom-instructional-methods-v1.test.mjs
