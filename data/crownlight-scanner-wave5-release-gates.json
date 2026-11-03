@@ -1,0 +1,65 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-W5-GATES-20261103",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "date": "2026-11-03",
+    "fileName": "data/crownlight-scanner-wave5-release-gates.json",
+    "version": "1.0",
+    "status": "CI PENDING; LIVE BLOCKED",
+    "googleDriveLocation": "Not created"
+  },
+  "gates": [
+    {
+      "id": "W5-G01",
+      "name": "Strict source CSV",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G02",
+      "name": "50 cutoff no-lookahead",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G03",
+      "name": "Python cross-language numeric parity",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G04",
+      "name": "Wilder and SMA seeded indicators",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G05",
+      "name": "Entitlement and page loader",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G06",
+      "name": "Existing scanner regression",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G07",
+      "name": "Existing SEC and Watchlist source tests",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G08",
+      "name": "Private data exclusion and static Pages build",
+      "status": "PENDING"
+    },
+    {
+      "id": "W5-G09",
+      "name": "Real member two-account acceptance",
+      "status": "BLOCKED"
+    },
+    {
+      "id": "W5-G10",
+      "name": "Exact-SHA Cloudflare LIVE OAT",
+      "status": "BLOCKED"
+    }
+  ],
+  "liveTierActivation": false,
+  "acceptedProgressCredit": 0
+}
