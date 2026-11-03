@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
 const B=n=>JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch'+n+'-v1.json',import.meta.url),'utf8')).guides;
 const batches=[B('19'),B('20')],all=batches.flat();
 test('Foundation batches 19 and 20: forty claim-scoped primary/methodology citations with no publication approvals',()=>{
@@ -49,6 +50,19 @@ test('The all-600 scanner recognizes broad SEC EDGAR search links excluded by th
  assert.ok(scanner.includes("https://www.sec.gov/edgar/search/"));
  assert.match(scanner,/genericEdgarSearchReferences/);
  assert.equal(batches.flat().filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0);
- const remaining=JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch26-v1.json',import.meta.url),'utf8')).guides;
- assert.ok(remaining.some(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')),'Known remaining EDGAR index citations must remain included in QA scope until corrected');
+ // Inventory is dynamic: Batch 26's formerly generic EDGAR link was
+ // replaced by a scoped primary source. Do not demand that a bad URL persist.
+ // Verify all 600 actual sources against the scanner's executed result.
+ const all600=Array.from({length:30},(_,i)=>B(String(i+1).padStart(2,'0'))).flat();
+ assert.equal(all600.length,600,'All thirty original batches must remain present');
+ assert.equal(new Set(all600.map(g=>g.code)).size,600,'All lessons must retain unique codes');
+ const outstanding=all600.flatMap(g=>g.sourceUrls.filter(uri=>uri==='https://www.sec.gov/edgar/search/'));
+ const scan=JSON.parse(execFileSync(process.execPath,[new URL('../scripts/qa/talia-foundation-source-quality-v1.mjs',import.meta.url).pathname],{encoding:'utf8'}).trim());
+ assert.equal(scan.counts.lessons,600);
+ assert.equal(scan.counts.genericEdgarSearchReferences,outstanding.length,
+  'The executed all-600 scanner must count every still-generic EDGAR source');
+ assert.equal(scan.counts.independentApprovals,0,
+  'Source updates cannot silently approve publication');
+ assert.equal(scan.counts.missingRightsMetadata,0,
+  'Source updates must retain explicit rights-hold metadata');
 });
