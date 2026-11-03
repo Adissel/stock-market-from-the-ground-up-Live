@@ -129,6 +129,7 @@
       credentials:'same-origin',signal,headers:{authorization:'Bearer '+access}});
      const data=await response.json().catch(()=>null);
      if(!current())return;
+     if([401,403].includes(response.status)){reset();return;}
      if(!response.ok||data?.ok!==true||typeof data.found!=='boolean')
       throw Error('Private research bookmark unavailable.');
      if(data.found){
@@ -161,6 +162,7 @@
      });
      const data=await response.json().catch(()=>null);
      if(!current())return;
+     if([401,403].includes(response.status)){reset();return;}
      if(response.status===409){
       loaded=false;
       status.textContent='Bookmark changed in another session. Restore the latest revision before saving.';
