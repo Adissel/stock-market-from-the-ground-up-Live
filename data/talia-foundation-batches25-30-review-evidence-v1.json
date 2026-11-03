@@ -33,8 +33,8 @@
     "foundationDrafts": 120,
     "syntheticWorkedExamples": 120,
     "sourcePointersPresent": 120,
-    "sourceResearchTriageObjects": 80,
-    "sourceResearchTriageMissing": 40,
+    "sourceResearchTriageObjects": 120,
+    "sourceResearchTriageMissing": 0,
     "plannedDeterministicScenarioRegressionCases": 120,
     "independentEditorialApproved": 0,
     "sourceRightsCleared": 0
@@ -46,7 +46,7 @@
     "Source redistribution/licensing and intellectual-property permissions",
     "Authenticated real-member tier/entitlement/regression acceptance",
     "Exact-commit GitHub CI and Cloudflare production verification",
-    "Batches 29–30 lack structured claim-triage objects in the source as of this register"
+    "Structured triage for Batches 29–30 is now present; claim-by-claim verification and independent publication approval remain open"
   ],
   "records": [
     {
@@ -1178,7 +1178,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1189,10 +1189,10 @@
       "title": "Cumulative partial-fill reconciliation",
       "fictionalWorkedCase": "FICTIONAL: A 500-share order fills 180 shares; 500−180=320 shares remain only if the order is still open.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1206,7 +1206,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1217,10 +1217,10 @@
       "title": "Stop trigger versus fill price",
       "fictionalWorkedCase": "FICTIONAL: A sell stop triggers at $15.00 after a gap and fills at $14.72; 100 shares realize $28 more loss than a $15.00 assumption.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1231,10 +1231,10 @@
       "title": "Position size from risk budget",
       "fictionalWorkedCase": "FICTIONAL: $120 risk budget and $0.75 planned risk per share give floor(120/0.75)=160 shares before costs.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1245,10 +1245,10 @@
       "title": "Portfolio heat from open planned risk",
       "fictionalWorkedCase": "FICTIONAL: Open risks of $90, $140, and $70 total $300; against $20,000 equity, planned heat is 1.5%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1259,10 +1259,10 @@
       "title": "Scale-in weighted average cost",
       "fictionalWorkedCase": "FICTIONAL: 100 shares at $12 and 50 at $13 produce ($1,200+$650)/150=$12.3333 average before fees.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1273,10 +1273,10 @@
       "title": "Scale-out realized and open quantity",
       "fictionalWorkedCase": "FICTIONAL: From 300 shares at $10, selling 120 at $10.80 realizes $96 before costs and leaves 180 shares open.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
+        "https://syndication.finra.org/content/tax-time-topics-cost-basis-what-you-need-know"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1287,10 +1287,10 @@
       "title": "Break-even with round-trip costs",
       "fictionalWorkedCase": "FICTIONAL: 200 shares entered at $25 with $8 declared round-trip costs require $25.04 per share to break even before omitted costs.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/understanding-fees"
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1301,10 +1301,10 @@
       "title": "R-multiple realized outcome",
       "fictionalWorkedCase": "FICTIONAL: Initial risk $150 and realized net profit $225 produce +1.5R.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1315,10 +1315,10 @@
       "title": "Maximum adverse excursion",
       "fictionalWorkedCase": "FICTIONAL: Long entry $30; lowest eligible trade before exit is $29.25, so price MAE is $0.75 or 2.5% of entry.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1329,10 +1329,10 @@
       "title": "Maximum favorable excursion",
       "fictionalWorkedCase": "FICTIONAL: Long entry $12.50; highest eligible trade is $13.40, so price MFE is $0.90 or 7.2%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1343,10 +1343,10 @@
       "title": "Time stop and elapsed market minutes",
       "fictionalWorkedCase": "FICTIONAL: Entry 10:05, rule 30 wall minutes, evaluation 10:35: the time condition is met, but exit still requires an executable order.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+        "https://www.nyse.com/trade/hours-calendars"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1357,10 +1357,10 @@
       "title": "Trailing reference without lookahead",
       "fictionalWorkedCase": "FICTIONAL: Completed lows are $20.10, $20.25, $20.40; a rule using the lowest of those references $20.10 before the next bar.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1371,10 +1371,10 @@
       "title": "Gap risk and position loss",
       "fictionalWorkedCase": "FICTIONAL: 150-share long enters $22 with planned exit $21.50 but fills after a gap at $20.90; gross loss=(22−20.90)×150=$165.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1385,10 +1385,10 @@
       "title": "Halt exposure in an open position",
       "fictionalWorkedCase": "FICTIONAL: 200 shares remain long when trading halts after a $9.60 last trade; no reopen quote is supplied, so current executable value is unknown.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halt"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1402,7 +1402,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1416,7 +1416,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1427,10 +1427,10 @@
       "title": "Correlated positions and shared risk",
       "fictionalWorkedCase": "FICTIONAL: Three equal long positions all lose 4% when a shared sector shock occurs; three tickers did not create three independent outcomes.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation-diversification"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1441,10 +1441,10 @@
       "title": "Daily loss-limit state",
       "fictionalWorkedCase": "FICTIONAL: Realized −$180, declared included fees −$20, and limit −$200 place the account exactly at its limit.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1455,10 +1455,10 @@
       "title": "Risk-of-ruin model limits",
       "fictionalWorkedCase": "FICTIONAL: Equal +1R/−1R outcomes yield +0.10R expectancy at 55% wins but −0.04R at 48%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1469,10 +1469,10 @@
       "title": "Expectancy from an outcome distribution",
       "fictionalWorkedCase": "FICTIONAL: 40% at +2R, 50% at −1R, and 10% at 0R gives 0.4×2−0.5=+0.3R.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1483,10 +1483,10 @@
       "title": "Win rate and sample size",
       "fictionalWorkedCase": "FICTIONAL: 18 wins among 30 eligible completed cases produce 60%; three open cases are excluded.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/role-risk"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1497,10 +1497,10 @@
       "title": "Profit factor denominator",
       "fictionalWorkedCase": "FICTIONAL: Gross profits $900 and gross losses −$600 produce profit factor 900/600=1.5.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1511,10 +1511,10 @@
       "title": "Maximum drawdown from an equity path",
       "fictionalWorkedCase": "FICTIONAL: Equity peaks at $12,000 then reaches $10,800; drawdown is $1,200 or 10% of that peak.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1525,10 +1525,10 @@
       "title": "Return with external cash flow",
       "fictionalWorkedCase": "FICTIONAL: Account starts $10,000, receives $2,000 immediately, and ends $12,600; simple return on $12,000 invested is 5%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/understanding-fees"
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1539,10 +1539,10 @@
       "title": "Arithmetic versus geometric return",
       "fictionalWorkedCase": "FICTIONAL: +50% then −50% has arithmetic mean 0%, but $100 becomes $75 and geometric return is about −13.4% per period.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/compound-interest-calculator"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1553,10 +1553,10 @@
       "title": "Volatility annualization assumption",
       "fictionalWorkedCase": "FICTIONAL: Daily volatility 1.2% annualized with √252 is about 19.0% under the stated convention.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1567,10 +1567,10 @@
       "title": "Survivorship bias in a sample",
       "fictionalWorkedCase": "FICTIONAL: Ten stocks start; two delist after large losses. Measuring only eight survivors excludes 20% of the starting names.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1581,10 +1581,10 @@
       "title": "Lookahead bias and filing availability",
       "fictionalWorkedCase": "FICTIONAL: Quarter ends March 31, filing appears May 8; an April 15 screen cannot use the filed value.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search-and-access"
+        "https://www.sec.gov/search-filings"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1595,10 +1595,10 @@
       "title": "Revenue growth with comparable periods",
       "fictionalWorkedCase": "FICTIONAL: Comparable quarterly revenue rises from $40m to $46m; growth=(46−40)/40=15%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements"
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1609,10 +1609,10 @@
       "title": "Gross margin and consistent units",
       "fictionalWorkedCase": "FICTIONAL: Revenue $80m and cost of revenue $52m give gross profit $28m and margin 35%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements"
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1623,10 +1623,10 @@
       "title": "Operating cash flow versus net income",
       "fictionalWorkedCase": "FICTIONAL: Net income is $12m and operating cash flow $7m; the $5m difference requires reconciliation, not automatic fraud inference.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements"
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1637,10 +1637,10 @@
       "title": "Current ratio and classification",
       "fictionalWorkedCase": "FICTIONAL: Current assets $30m and current liabilities $20m give a current ratio of 1.5.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements"
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1651,10 +1651,10 @@
       "title": "Diluted EPS and share count",
       "fictionalWorkedCase": "FICTIONAL: $10m available income divided by 5m diluted weighted-average shares gives $2.00 diluted EPS.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements"
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1668,7 +1668,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1682,7 +1682,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1693,10 +1693,10 @@
       "title": "Rights offering and dilution context",
       "fictionalWorkedCase": "FICTIONAL: One new share per four old shares could add 2.5m shares to 10m outstanding if fully exercised, a 25% increase.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search-and-access"
+        "https://www.sec.gov/search-filings"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1710,7 +1710,7 @@
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
@@ -1721,13 +1721,14 @@
       "title": "Filing amendment and version control",
       "fictionalWorkedCase": "FICTIONAL: Original filing May 1 reports 12 units; amendment May 10 reports 10. A May 5 decision must retain 12 as then-known.",
       "sourceUrls": [
-        "https://www.sec.gov/edgar/search-and-access"
+        "https://www.sec.gov/search-filings"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "NOT_YET_REGISTERED",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
       "sourceRightsCleared": false
     }
-  ]
+  ],
+  "reconciledSourceHead": "8cec5e287541a21b551bc568b736db60e763d9db"
 }

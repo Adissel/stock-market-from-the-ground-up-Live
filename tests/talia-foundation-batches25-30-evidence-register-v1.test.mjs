@@ -34,13 +34,13 @@ test('Evidence register tracks exactly 120 current fictional source lessons and 
   assert.ok(guards.includes(e.syntheticMathScenarioGuard));
  }
 });
-test('Evidence register discloses unresolved claim triage for final 40 and no fake source or membership approvals',()=>{
+test('Evidence register reconciles 120 scoped but independently unapproved source references',()=>{
  const withTriage=current.filter(x=>!!x.sourceResearchTriage).length;
  const noTriage=current.length-withTriage;
  assert.equal(audit.counts.sourceResearchTriageObjects,withTriage);
  assert.equal(audit.counts.sourceResearchTriageMissing,noTriage);
- assert.equal(withTriage,80);
- assert.equal(noTriage,40);
+ assert.equal(withTriage,120);
+ assert.equal(noTriage,0);
  assert.equal(audit.counts.independentEditorialApproved,0);
  assert.equal(audit.counts.sourceRightsCleared,0);
  assert.match(audit.status,/NOT_EDITORIAL_OR_COMMERCIAL_RELEASE/);
