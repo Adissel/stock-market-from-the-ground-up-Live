@@ -126,7 +126,7 @@ begin
    else
      select * into v_article from public.gu_knowledge_articles_v1 where id=p_id for update;
      if not found then raise exception 'Article not found' using errcode='P0002'; end if;
-     if v_article.version<>p_expected_version then
+     if v_article.version is distinct from p_expected_version then
        raise exception 'Article was changed by another editor; reload before saving' using errcode='40001';
      end if;
      if v_article.deleted_at is not null then
@@ -144,7 +144,7 @@ begin
    if p_id is null then raise exception 'Article ID required' using errcode='22023'; end if;
    select * into v_article from public.gu_knowledge_articles_v1 where id=p_id for update;
    if not found then raise exception 'Article not found' using errcode='P0002'; end if;
-   if v_article.version<>p_expected_version then
+   if v_article.version is distinct from p_expected_version then
      raise exception 'Article was changed by another editor; reload before saving' using errcode='40001';
    end if;
    if p_action='archive' then
