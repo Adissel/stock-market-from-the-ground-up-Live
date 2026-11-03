@@ -37,6 +37,8 @@ on:
       - 'tests/professional-learning-lab-member-surface-browser-v1.mjs'
       - 'tests/professional-learning-lab-workspace-browser-v1.mjs'
       - 'tests/professional-learning-lab-source-closeout-v1.test.mjs'
+      - 'tests/learning-lab-feature-evidence-64.test.mjs'
+      - 'docs/qa/2026-11-03_LEARNING_LAB_64_FEATURE_ACCEPTANCE_REGISTER_V1.md'
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
       - 'scripts/build-pages.sh'
@@ -76,6 +78,8 @@ on:
       - 'tests/professional-learning-lab-member-surface-browser-v1.mjs'
       - 'tests/professional-learning-lab-workspace-browser-v1.mjs'
       - 'tests/professional-learning-lab-source-closeout-v1.test.mjs'
+      - 'tests/learning-lab-feature-evidence-64.test.mjs'
+      - 'docs/qa/2026-11-03_LEARNING_LAB_64_FEATURE_ACCEPTANCE_REGISTER_V1.md'
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
       - 'scripts/build-pages.sh'
@@ -150,6 +154,8 @@ jobs:
         run: node --test tests/learning-lab-edition-workspace-v1.test.mjs
       - name: Verify two-account cross-engine downgrade and revision isolation
         run: node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
+      - name: Verify all 64 engine evidence pointers, tier counts and protected release holds
+        run: node --test tests/learning-lab-feature-evidence-64.test.mjs
       - name: Verify Advanced source closeout and release boundary
         run: node --test tests/advanced-learning-lab-source-closeout-v1.test.mjs
       - name: Verify Professional source closeout and release boundary
