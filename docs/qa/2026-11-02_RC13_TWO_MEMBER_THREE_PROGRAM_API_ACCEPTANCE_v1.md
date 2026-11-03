@@ -2,25 +2,33 @@
 
 **Project:** THE STOCK MARKET: FROM THE GROUND UP
 **Document ID:** SMFGU-RC13-AUTH-SIX-API-20261102
-**Filename:** docs/qa/2026-11-02_RC13_TWO_MEMBER_THREE_PROGRAM_API_ACCEPTANCE_v1.md
-**File type:** Markdown
-**Version:** 1.0
-**Date:** November 2, 2026 (America/Chicago)
-**Google Drive:** Not created, document ID not assigned
-**Status:** Authenticated integration pending CI and postflight
-**Purpose:** Test new multi-account study persistence beyond the accepted single-account B001 baseline
-**Dependencies:** Existing noncommercial GoTrue QA members, encrypted GitHub LAB_QA credentials, three-course controlled beta allowlist, expiring ONDEMAND_TRAINING grants, shared Academy engine v0.14.0.168.
+**File:** docs/qa/2026-11-02_RC13_TWO_MEMBER_THREE_PROGRAM_API_ACCEPTANCE_v1.md
+**Type:** Markdown
+**Version:** 1.1
+**Date:** 2026-11-02 America/Chicago / 2026-11-03 UTC
+**Google Drive:** Not created; no Drive ID assigned
+**Status:** SIX AUTHENTICATED API PATHS PASSED; HUMAN BROWSER/30–45 MINUTE JOURNEYS OPEN; TEMPORARY QA ACCESS REVOKED
+**Purpose:** Six distinct real-auth API learning saves across two members and three courses, without repeating the historically accepted single-account B001
+**Dependencies:** Supabase Auth, real nonstaff QA identities, server-controlled course beta flag, v0.14.0.168 shared Academy, temporary expiring test grants, evidence in GitHub run 41585492012
 
-## Six new exact interaction paths
-For James_Test and QA_Secondary separately, test tape10, indicators10, and filings7. Existing course enrollments and existing records are preserved. For each account/course choose an unused study day, write only a uniquely marked FICTIONAL QA reflection, verify saved revision and real GET persistence, reject stale save HTTP 409, ignore forged user_id selectors, establish distinct-account privacy, refuse a foreign Origin mutation, and complete a genuine GoTrue refresh token and reread. No official grades, Lumens, payments or live stock claims.
+## Tested and accepted API scope
+The first pass correctly failed at the controlled three-course beta allowlist despite both accounts proving real GoTrue credentials and active expiring training passes. The application did not permit a training pass to override a separate beta cohort restriction. One narrow, hard-expiring, two-exact-identity temporary beta allowance was released while the underlying beta flag and verified training entitlement both remained mandatory.
 
-## Classification
-Six API study/reflection paths are **not** six 30–45-minute genuine human browser journeys, and do not imply full nine-stage completion or independent editorial acceptance. Human/browser stage evidence and measured session lengths remain a separate pending RC13 gate. The Owner-approved 240 prompt source is not reopened, protected case grading is still 0/54, and the formal Academy ledger remains separately audited.
+**Successful run:** https://github.com/cybernexuspublishing/stock-market-from-the-ground-up/actions/runs/41585492012
 
-## Access controls and rollback
-Only the two already verified member QA identities may receive separately audited, 90-minute maximum, provider-null, noncommercial ONDEMAND_TRAINING temporary access. This control-plane act is Owner delegated through Chat; actor_user_id must be NULL rather than falsely impersonating an Owner browser session. Revoke all temporary rows after CI, verify no rights linger, and preserve prior member progress. Both ungraded test records and their exact control evidence remain auditable.
+- Two distinct genuine signed nonstaff QA member identities, each with positive temporary noncommercial ONDEMAND_TRAINING entitlement.
+- Each of tape10, indicators10, filings7: one new unused fictional day reflection saved by each member; six distinct interaction paths passed.
+- Reload/GET preserved each private reflection and revision, stale save returned HTTP 409, injected other-member user_id selectors did not switch records, opposite member token did not read private marker, foreign-origin changes and guest reads denied, GoTrue refresh-token resume preserved all six.
+- Stored result flags explicitly exclude official grading, claimed market outcomes and competency mastery. Observed runtime 19.2 seconds, which is **NOT** six genuine 30–45-minute human browser journeys or nine-stage learning completion.
+
+## Postflight and permanent-boundary restoration
+Temporary Supabase user_tool_passes entries 13 and 14 were canceled with ends_at set to the real revocation time. Two controlled delegated grant audit events and two delegated revoke events are present, all with actor_user_id NULL because these were connected management acts, not a signed-in Owner browser event. Zero active QA training passes, staff roles, billed QA passes, training attempts or Academy stage checkpoint rows remain. Prior reflections were not overwritten. The separately expiring source-only beta exception is rolled back to the original allowlist after test success; original general release flag stays disabled. Subsequent credentialed test workflow is manual-only, requiring a fresh authorized test grant.
+
+## Acceptance boundaries and dependencies
+The source-authored 240 guided prompts and Owner approval remain controlling. Formal Academy independent acceptance stays separately tracked at 93/380 unless review ledger changes. Protected grading remains 0/54. Six full-length genuine timed browser journeys remain 0/6 and must not be manufactured from this 19.2-second automated test. RC20 general release HOLD.
 
 ## Revision history
-v1.0 | 2026-11-02 | New targeted real QA Academy API acceptance evidence contract | Initial.
+v1.0 | 2026-11-02 | New controlled real-member integration scope | Source candidate
+v1.1 | 2026-11-03 UTC | Six-path authenticated API PASS, audited grant/revoke, postflight and immediate beta source rollback | API accepted; browser gate open
 
-**Footer:** SMFGU-RC13-AUTH-SIX-API-20261102 | Test evidence is not grading approval | Sitewide RC20 HOLD.
+**Footer:** SMFGU-RC13-AUTH-SIX-API-20261102 · no charges, protected grades or real market source publication.

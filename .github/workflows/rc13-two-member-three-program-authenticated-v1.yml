@@ -1,14 +1,8 @@
-# Targeted genuine GoTrue QA two-member ungraded Academy API acceptance.
-# This workflow neither grants rights nor creates official assessments.
+# Historical RC13 authenticated QA evidence is accepted at GitHub run 41585492012.
+# Never run automatically after the temporary access window closes. Manual reruns
+# require a separately authorized fresh temporary beta cohort and expiring grants.
 name: RC13 Two-Member Three-Program Authentic Academy API
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'tests/live-academy-two-member-three-programs-qa-v1.mjs'
-      - 'functions/api/bootcamp-academy.js'
-      - 'tests/test_rc13_expiring_qa_beta_source_v1.mjs'
-      - '.github/workflows/rc13-two-member-three-program-authenticated-v1.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,11 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate expiring QA beta source gates
-        run: node tests/test_rc13_expiring_qa_beta_source_v1.mjs
-      - name: Parse the dedicated production QA script
+      - name: Parse documented authenticated QA runner
         run: node --check tests/live-academy-two-member-three-programs-qa-v1.mjs
-      - name: Six new genuine signed two-user beta Academy API save/reload paths
+      - name: Manual-only six signed study API paths with separately authorized temporary rights
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
