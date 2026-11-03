@@ -9,7 +9,7 @@ try{
  await page.addStyleTag({path:'assets/css/academy-enterprise-journey-v1.css'});
  await page.addScriptTag({path:'assets/js/academy-enterprise-journey-v1.js'});
  await page.evaluate(()=>{
-  const s={permitted:true,sessionId:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',calls:[],delayed:false};
+  const s={permitted:true,sessionId:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',calls:[],delayed:false,bookmark:null};
   globalThis.__test=s;
   globalThis.__client={auth:{getSession:async()=>({data:{session:{
    user:{id:s.sessionId},access_token:'mock-session'}
@@ -18,6 +18,25 @@ try{
    s.calls.push({path:uri,method:opts.method,auth:opts.headers?.authorization});
    if(!s.permitted)return new Response(JSON.stringify({ok:false}),{status:403});
    if(s.delayed)await new Promise(resolve=>setTimeout(resolve,50));
+   if(uri.startsWith('/api/learning-lab-edition-workspace')){
+    if(opts.method==='GET')return new Response(JSON.stringify({
+     ok:true,found:s.bookmark!==null,workspace:s.bookmark
+    }),{status:200,headers:{'content-type':'application/json'}});
+    const incoming=JSON.parse(opts.body);
+    if(incoming.family!=='learning'||incoming.edition!=='ENTERPRISE'||
+       incoming.activity!=='enterprise_academy_bookmark'||
+       incoming.caseKey!=='ACADEMY_ENTERPRISE_PATH_V1')
+     throw Error('Unexpected private bookmark request');
+    if(incoming.expectedRevision!==(s.bookmark?.revision||0))
+     return new Response(JSON.stringify({ok:false,error:'Stale bookmark.'}),{status:409});
+    s.bookmark={revision:incoming.expectedRevision+1,
+     summary:{schema:'smfgu.learning.enterprise-path-bookmark.v1',
+      researchActivity:'enterprise_academy_bookmark',
+      stageNumber:incoming.payload.stageNumber,officialGrade:false,
+      independentCompletionRecorded:false}};
+    return new Response(JSON.stringify({ok:true,workspace:{revision:s.bookmark.revision}}),
+     {status:200,headers:{'content-type':'application/json'}});
+   }
    return new Response(JSON.stringify({ok:true,journey:{edition:'ENTERPRISE',
     family:'learning',readOnly:true,graded:false,boundary:'Separate course and book rights.',
     stages:Array.from({length:7},(_,i)=>({number:i+1,phase:'Original phase '+i,
@@ -38,6 +57,28 @@ try{
  await mount();
  await host.getByRole('heading',{name:'Enterprise research pathway — seven stages'}).waitFor();
  assert.equal(await host.locator('li').count(),7);
+ const chooser=host.locator('#academy-enterprise-bookmark-stage');
+ await host.getByText(/No saved research bookmark/).waitFor();
+ await chooser.selectOption('4');
+ await host.getByRole('button',{name:'Save private study bookmark'}).click();
+ await host.getByText(/Saved private stage 4/).waitFor();
+ assert.equal(await page.evaluate(()=>globalThis.__test.bookmark.summary.stageNumber),4);
+ await chooser.selectOption('1');
+ await host.getByRole('button',{name:'Restore private study bookmark'}).click();
+ await host.getByText(/Restored stage 4/).waitFor();
+ assert.equal(await chooser.inputValue(),'4');
+ // A second device updates the same revision. This tab MUST not overwrite it.
+ await page.evaluate(()=>{globalThis.__test.bookmark.revision+=1});
+ await chooser.selectOption('5');
+ await host.getByRole('button',{name:'Save private study bookmark'}).click();
+ await host.getByText(/changed in another session/).waitFor();
+ assert.equal(await page.evaluate(()=>globalThis.__test.bookmark.summary.stageNumber),4);
+ await host.getByRole('button',{name:'Restore private study bookmark'}).click();
+ await host.getByText(/Restored stage 4/).waitFor();
+ await chooser.selectOption('5');
+ await host.getByRole('button',{name:'Save private study bookmark'}).click();
+ await host.getByText(/Saved private stage 5/).waitFor();
+ assert.equal(await page.evaluate(()=>globalThis.__test.bookmark.summary.stageNumber),5);
  assert.equal(await host.getByText(/Training route locked/).count(),1);
  assert.equal(await host.getByText(/matching book entitlement required/i).count(),1);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),true);
@@ -61,8 +102,10 @@ try{
  await ongoing;assert.equal(await host.isHidden(),true);
  assert.equal(await host.locator('*').count(),0);
  assert.equal(await page.evaluate(()=>globalThis.__test.calls.every(x=>
-  x.method==='GET'&&x.auth==='Bearer mock-session')),true);
- console.log('PASS MOCKED Academy Enterprise Learning navigator: 7 stages, separately locked links, keyboard/mobile, denial, identity-scrub, stale response safety');
+  ['GET','POST'].includes(x.method)&&x.auth==='Bearer mock-session')),true);
+ assert.equal(await page.evaluate(()=>globalThis.__test.calls.some(x=>
+  x.method==='POST'&&x.path==='/api/learning-lab-edition-workspace')),true);
+ console.log('PASS MOCKED Academy Enterprise Learning navigator and private stage bookmarks: seven canonical stages, authenticated save/restore, stale CAS, keyboard/mobile, revocation, identity scrub');
  console.log('NOT_REAL_MEMBER_ACCEPTANCE=true');
  await context.close();
 }finally{await browser.close()}
