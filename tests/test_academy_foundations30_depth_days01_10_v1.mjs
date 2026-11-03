@@ -24,7 +24,7 @@ for(let i=0;i<30;i++){
  assert.equal(day.officiallyGraded,false);
  assert.equal(day.masteryAwarded,false);
  assert.equal(day.assessmentSource,'protected_lab_assessment_only');
- if(i>=10){assert(!day.lesson,'Unstarted days must not be fabricated');continue;}
+ if(i>=10){assert.strictEqual(day.lesson,original.lesson,'Later original lesson remains unchanged');continue;}
  const lesson=day.lesson;
  assert.equal(lesson.title,original.lesson.title,'Preserve original day-specific lesson title');
  assert.equal(lesson.supplementarySourceStatus,'ORIGINAL_FOUNDATIONS30_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
