@@ -227,10 +227,10 @@ fi
 output="public"
 rm -rf "$output"
 mkdir -p "$output"
-for must in index.html config.js sw.js release-manifest.json lab-catalog.json manifest.webmanifest _headers _redirects _routes.json; do
+for must in index.html config.js sw.js release-manifest.json lab-catalog.json manifest.webmanifest feed.xml _headers _redirects _routes.json; do
   test -f "$must" || { echo "Missing public asset: $must" >&2; exit 1; }
 done
-cp -- ./*.html config.js sw.js release-manifest.json manifest.webmanifest lab-catalog.json _headers _redirects _routes.json "$output"/
+cp -- ./*.html config.js sw.js release-manifest.json manifest.webmanifest lab-catalog.json feed.xml _headers _redirects _routes.json "$output"/
 # IndexNow proof is a public ownership-verification file, not an API secret.
 INDEXNOW_VERIFICATION_KEY="0f6a1a00e2945eb90d24e5c5b6e75946"
 test -f "$INDEXNOW_VERIFICATION_KEY.txt"
