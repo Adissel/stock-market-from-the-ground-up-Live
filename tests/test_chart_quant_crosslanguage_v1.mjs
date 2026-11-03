@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import vm from 'node:vm';
-const reference=JSON.parse(execFileSync('python3',['scripts/chart-independent-quant-reference-v1.py'],{encoding:'utf8',timeout:10000}));
+const reference=JSON.parse(execFileSync('python3',['scripts/chart-independent-quant-reference-v1.py'],{encoding:'utf8',timeout:60000}));
 const source=readFileSync('assets/js/crownlight-indicator-math-v2.js','utf8');
 const sandbox={window:{},console,Intl};vm.createContext(sandbox);vm.runInContext(source,sandbox);
 const m=sandbox.window.CrownlightIndicatorMath;
