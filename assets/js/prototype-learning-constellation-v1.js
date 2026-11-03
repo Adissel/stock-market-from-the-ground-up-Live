@@ -27,9 +27,9 @@ export function mountLearningConstellation(host){
  if(!host)throw Error('Owner/Admin prototype host required');
  const root=document.createElement('section');root.className='lc-app';
  root.innerHTML='<div class="lc-head"><div><span class="lc-eyebrow">CROWNLIGHT · VISUAL LEARNING SYSTEM / PROTOTYPE 01</span>'+
- '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Stop looking at lists. Explore how every Lab, Boot Camp and indicator connects.</p></div>'+
+ '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Stop looking at lists. Orbit a dimensional learning galaxy: nine stages, 419 Labs, ten Boot Camps and source-backed Tutor guides.</p></div>'+
  '<div class="lc-head-side"><strong class="lc-live"><i></i>INTERACTIVE / OWNER PREVIEW</strong>'+
- '<a href="/prototype.html?experience=a">Return to Chart Studio</a></div></div>'+
+ '<a href="/prototype.html?view=classic">Open Classic Builder</a><a href="/prototype.html?experience=a">Return to Chart Studio</a></div></div>'+
  '<div class="lc-metrics"><div><strong data-lc="labs-num">419</strong><span>CANONICAL LABS</span></div>'+
  '<div><strong>10</strong><span>BOOT CAMP PATHS</span></div><div><strong>9</strong><span>LEARNING STAGES</span></div>'+
  '<div><strong data-lc="tutor-num">73</strong><span>INDICATOR GUIDES</span></div></div>'+
@@ -45,15 +45,15 @@ export function mountLearningConstellation(host){
  '<div class="lc-item-list" data-lc="list"></div>'+
  '<div class="lc-guard"><b>FICTIONAL / INSTRUCTIONAL</b><p>No member records, protected answers or brokerage trades.</p></div></aside>'+
  '<section class="lc-center"><div class="lc-map-head"><div><strong data-lc="map-title">One system. Nine stages.</strong>'+
- '<span>Choose a glowing node. Drag it. Follow its connections.</span></div>'+
+ '<span>Orbit the learning galaxy, inspect a node, or switch to the accessible flat view.</span></div>'+
  '<div class="lc-map-tools"><button data-lc="minus" type="button" aria-label="Zoom out">−</button>'+
  '<span data-lc="scale">100%</span><button data-lc="plus" type="button" aria-label="Zoom in">+</button>'+
- '<button data-lc="reset" type="button">Reset</button></div></div>'+
- '<div class="lc-canvas" data-lc="canvas" aria-label="Draggable learning network">'+
+ '<button data-lc="orbit-left" type="button" aria-label="Orbit left">↶</button>'+'<button data-lc="orbit-right" type="button" aria-label="Orbit right">↷</button>'+'<button data-lc="pitch-up" type="button" aria-label="Tilt map upward">↑</button>'+'<button data-lc="pitch-down" type="button" aria-label="Tilt map downward">↓</button>'+'<label class="lc-depth-label" for="lc-depth">Depth <input id="lc-depth" data-lc="depth" type="range" min="0" max="100" value="68" aria-label="3D depth intensity"></label>'+'<button data-lc="interaction" type="button" aria-pressed="true">Orbit drag</button>'+'<button data-lc="flatten" type="button" aria-pressed="false">2D view</button>'+'<button data-lc="reset" type="button">Reset</button></div></div>'+
+ '<div class="lc-canvas" data-lc="canvas" tabindex="0" role="group" aria-label="Interactive perspective 3D curriculum map. Arrow keys orbit, plus or minus zoom. A 2D view is available.">'+
  '<div class="lc-stars" aria-hidden="true"></div><div class="lc-world" data-lc="world">'+
  '<svg viewBox="0 0 1000 650" class="lc-edges" aria-hidden="true"></svg>'+
  '<div class="lc-points" data-lc="points"></div></div>'+
- '<span class="lc-map-tip">DRAG NODES TO REARRANGE · DRAG BACKGROUND TO PAN · ZOOM + / −</span></div>'+
+ '<span class="lc-map-tip">DRAG NODES TO REARRANGE · ORBIT / PAN BACKGROUND · ARROW KEYS TO ROTATE · FLAT VIEW AVAILABLE</span></div>'+
  '<footer class="lc-legend"><span>◈ LEARNING</span><span>◈ LABS</span><span>◈ BOOT CAMPS</span>'+
  '<span>◈ TALIA</span><span>EDUCATIONAL · NO MARKET SIGNALS</span></footer></section>'+
  '<aside class="lc-detail"><div class="lc-talia"><span class="lc-avatar">T</span><div>'+
@@ -67,7 +67,7 @@ export function mountLearningConstellation(host){
  const q=n=>root.querySelector('[data-lc="'+n+'"]');
  const canvas=q('canvas'),world=q('world'),points=q('points'),svg=root.querySelector('.lc-edges');
  const source={labs:null,guides:[]};
- const state={mode:'journey',selected:'hub',items:[],edges:[],positions:new Map(),zoom:1,x:0,y:0,drag:null};
+ const state={mode:'journey',selected:'hub',items:[],edges:[],positions:new Map(),zoom:1,x:0,y:0,drag:null,yaw:.27,pitch:.16,depth:.68,flat:false,interaction:'orbit'};
  const abort=new AbortController();let closed=false;
  const node=(id,title,meta,x,y,kind,description,evidence)=>({id,title,meta,x,y,kind,description,evidence});
  function makeModel(){
@@ -131,17 +131,52 @@ export function mountLearningConstellation(host){
   return{items,edges};
  }
  function getPos(n){return state.positions.get(n.id)||{x:n.x,y:n.y};}
+ // Project the curriculum graph into an actual x/y/z camera coordinate system.
+ // DOM buttons stay keyboard accessible and the SVG edges use identical projection.
+ // Rendering is lightweight and local: no new paid 3D runtime or feed.
+ function projectXYZ(x,y,z){
+  const yaw=state.flat?0:state.yaw,pitch=state.flat?0:state.pitch;
+  const dx=x-500,dy=y-310;
+  const rx=dx*Math.cos(yaw)+z*Math.sin(yaw),rz=-dx*Math.sin(yaw)+z*Math.cos(yaw);
+  const ry=dy*Math.cos(pitch)-rz*Math.sin(pitch),depth=dy*Math.sin(pitch)+rz*Math.cos(pitch);
+  const scale=state.flat?1:clamp(860/(860-depth),.67,1.43);
+  return {x:500+rx*scale,y:310+ry*scale,scale,depth};
+ }
+ function project(n){
+  const p=getPos(n),i=state.items.indexOf(n);
+  const z=state.flat?0:(n.kind==='hub'?115:Math.sin((i+1)*2.399963229728653)*170)*state.depth;
+  return projectXYZ(p.x,p.y,z);
+ }
  function drawEdges(){
-  svg.replaceChildren();const map=new Map(state.items.map(n=>[n.id,n]));
+  svg.replaceChildren();
+  if(!state.flat){
+   for(const [rx,ry,z] of [[405,260,-70],[300,195,25],[185,120,85]]){
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path'),segments=[];
+    for(let i=0;i<=72;i++){
+     const a=i*Math.PI/36,p=projectXYZ(500+rx*Math.cos(a),310+ry*Math.sin(a),z*state.depth);
+     segments.push((i?'L':'M')+p.x.toFixed(2)+' '+p.y.toFixed(2));
+    }
+    path.setAttribute('d',segments.join(' ')+' Z');path.setAttribute('class','lc-orbit-ring');svg.append(path);
+   }
+  }
+  const map=new Map(state.items.map(n=>[n.id,n]));
   state.edges.forEach(([u,v])=>{
-    const a=map.get(u),b=map.get(v);if(!a||!b)return;
-    const p=getPos(a),r=getPos(b);
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    for(const [key,value] of Object.entries({x1:p.x,y1:p.y,x2:r.x,y2:r.y}))line.setAttribute(key,value);
-    line.setAttribute('class','lc-edge'+(state.selected===u||state.selected===v?' is-on':''));
-    svg.append(line);
+   const a=map.get(u),b=map.get(v);if(!a||!b)return;
+   const p=project(a),r=project(b);
+   const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+   for(const [key,value] of Object.entries({x1:p.x,y1:p.y,x2:r.x,y2:r.y}))line.setAttribute(key,value);
+   line.setAttribute('class','lc-edge'+(state.selected===u||state.selected===v?' is-on':''));
+   line.style.opacity=String(clamp(.42+(p.scale+r.scale-2)*.38,.25,1));svg.append(line);
+  });
+  points.querySelectorAll('.lc-point').forEach(btn=>{
+   const n=map.get(btn.dataset.nodeId);if(!n)return;
+   const p=project(n);
+   btn.style.left=p.x+'px';btn.style.top=p.y+'px';
+   btn.style.transform='translate(-50%,-50%) scale('+p.scale.toFixed(3)+')';
+   btn.style.zIndex=String(Math.round(50+p.depth/8)+(state.selected===n.id?100:0));
   });
  }
+
  function choose(id){
   const n=state.items.find(o=>o.id===id);if(!n)return;state.selected=id;
   q('kind').textContent=n.kind.toUpperCase()==='HUB'?'SYSTEM HUB':n.kind.toUpperCase()+' / SOURCE';
@@ -180,7 +215,7 @@ export function mountLearningConstellation(host){
     // a drag into background pan on transformed children.
     b.addEventListener('pointerdown',e=>{
       if(e.button!==0)return;
-      state.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:state.x,y:state.y,
+      state.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:state.x,y:state.y,yaw:state.yaw,pitch:state.pitch,
         n,btn:b,pos:{...getPos(n)},moved:false};
       e.stopPropagation();try{b.setPointerCapture(e.pointerId)}catch{}
     });
@@ -207,7 +242,7 @@ export function mountLearningConstellation(host){
  canvas.addEventListener('pointerdown',e=>{
   if(e.button!==0)return;
   const btn=e.target.closest('.lc-point'),n=btn&&state.items.find(x=>x.id===btn.dataset.nodeId);
-  state.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:state.x,y:state.y,
+  state.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:state.x,y:state.y,yaw:state.yaw,pitch:state.pitch,
     n,btn,pos:n?{...getPos(n)}:null,moved:false};
   try{canvas.setPointerCapture(e.pointerId)}catch{}
  });
@@ -216,8 +251,9 @@ export function mountLearningConstellation(host){
   const dx=e.clientX-d.startX,dy=e.clientY-d.startY;
   if(Math.abs(dx)+Math.abs(dy)>6)d.moved=true;
   if(d.n){const x=clamp(d.pos.x+dx/state.zoom,105,895),y=clamp(d.pos.y+dy/state.zoom,52,598);
-   state.positions.set(d.n.id,{x,y});d.btn.style.left=x+'px';d.btn.style.top=y+'px';drawEdges();
-  }else{state.x=d.x+dx;state.y=d.y+dy;transform();}
+   state.positions.set(d.n.id,{x,y});drawEdges();
+  }else if(state.interaction==='orbit'&&!state.flat){state.yaw=clamp(d.yaw+dx/310,-1.25,1.25);state.pitch=clamp(d.pitch-dy/310,-.85,.85);drawEdges();}
+   else{state.x=d.x+dx;state.y=d.y+dy;transform();}
  });
  const release=e=>{const d=state.drag;if(!d||d.id!==e.pointerId)return;
   // Pointer capture retargets click to the canvas. Select on pointerup so
@@ -228,7 +264,39 @@ export function mountLearningConstellation(host){
  canvas.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?1.09:.92)},{passive:false});
  q('plus').addEventListener('click',()=>zoom(1.2));
  q('minus').addEventListener('click',()=>zoom(1/1.2));
- q('reset').addEventListener('click',()=>{layout();fit()});
+ function orbit(dx,dy){
+  state.flat=false;state.yaw=clamp(state.yaw+dx,-1.25,1.25);
+  state.pitch=clamp(state.pitch+dy,-.85,.85);
+  q('flatten').setAttribute('aria-pressed','false');
+  q('flatten').textContent='2D view';drawEdges();
+ }
+ q('orbit-left').addEventListener('click',()=>orbit(-.16,0));
+ q('orbit-right').addEventListener('click',()=>orbit(.16,0));
+ q('pitch-up').addEventListener('click',()=>orbit(0,.12));
+ q('pitch-down').addEventListener('click',()=>orbit(0,-.12));
+ q('depth').addEventListener('input',e=>{state.depth=Number(e.target.value)/100;drawEdges()});
+ q('interaction').addEventListener('click',()=>{
+  state.interaction=state.interaction==='orbit'?'pan':'orbit';
+  q('interaction').textContent=state.interaction==='orbit'?'Orbit drag':'Pan drag';
+  q('interaction').setAttribute('aria-pressed',String(state.interaction==='orbit'));
+ });
+ q('flatten').addEventListener('click',()=>{
+  state.flat=!state.flat;q('flatten').setAttribute('aria-pressed',String(state.flat));
+  q('flatten').textContent=state.flat?'3D view':'2D view';drawEdges();
+ });
+ canvas.addEventListener('keydown',e=>{
+  if(e.target!==canvas)return;
+  const moves={ArrowLeft:[-.12,0],ArrowRight:[.12,0],ArrowUp:[0,.1],ArrowDown:[0,-.1]};
+  if(moves[e.key]){e.preventDefault();orbit(...moves[e.key])}
+  else if(e.key==='+'||e.key==='='){e.preventDefault();zoom(1.15)}
+  else if(e.key==='-'){e.preventDefault();zoom(1/1.15)}
+ });
+ q('reset').addEventListener('click',()=>{
+  state.yaw=.27;state.pitch=.16;state.depth=.68;state.flat=false;state.interaction='orbit';
+  q('depth').value='68';q('flatten').textContent='2D view';
+  q('flatten').setAttribute('aria-pressed','false');q('interaction').textContent='Orbit drag';
+  q('interaction').setAttribute('aria-pressed','true');layout();fit();
+ });
  root.querySelector('#lc-node-search').addEventListener('input',renderList);
  root.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
   state.mode=b.dataset.mode;root.querySelector('#lc-node-search').value='';layout();fit();

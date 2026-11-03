@@ -245,6 +245,25 @@ try{
   await page.locator('#pt-nav button:has-text("Classroom Builder")').click();
   await page.locator('.pt-options button:has-text("Chart-first")').click();
   assert.equal(await page.locator('.pt-classroom').getAttribute('data-layout'),'Chart-first');
+
+  assert.equal(await page.locator('.pt-v3-stage-button').count(),9,'Nine approved stage controls');
+  assert.equal(await page.locator('.pt-v3-facet').count(),5,'Exactly five teaching facets');
+  await page.locator('#pt-content button:has-text("Inspect canonical curriculum")').click();
+  assert.equal(await page.locator('#pt-curriculum-parity').evaluate(el=>el.open),true,'Canonical inspector must open');
+  await page.locator('#pt-curriculum-parity > summary').click();
+  await page.locator('#pt-content .pt-v3-modes button:has-text("Boot Camp")').click();
+  assert.equal(await page.locator('.pt-v3-course').count(),10,'Classic Builder uses ten curriculum paths');
+  assert.equal(await page.locator('.pt-v3-course small:has-text("Controlled beta draft")').count(),3,'Only three paths are draft-controlled beta');
+  await page.locator('#pt-content .pt-v3-modes button:has-text("Lab")').click();
+
+  assert.equal(await page.locator('.pt-v3-hero').count(),1,'One integrated classroom shell');
+  await page.locator('.pt-v3-stage-button').last().click();
+  assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Results/);
+  assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Preview position only/,'Preview cannot imply completion');
+  assert.equal(await page.locator('.pt-v3-stage-button[aria-current="step"]').count(),1);
+  await page.locator('.pt-v3-stage-button').first().click();
+  assert.equal(await page.locator('.pt-classroom').count(),1,'No duplicate classroom');
+
   await page.locator('#pt-device').selectOption('mobile');
   assert.equal(await page.locator('#pt-content').getAttribute('data-device'),'mobile');
   const bounds=await page.evaluate(()=>({body:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));

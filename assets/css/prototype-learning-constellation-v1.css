@@ -141,3 +141,26 @@
 /* Prominent discovery from the existing approved chart-first landing page. */
 #pt-experiences-root .cx-top-actions .cx-constellation-cta{color:#07161b!important;background:linear-gradient(115deg,#6dffe4,#bf8dff)!important;border:1px solid #bcffe9!important;font-weight:900!important;box-shadow:0 0 25px #56fbe343!important;padding:10px 15px!important;border-radius:9px!important;text-decoration:none!important}
 #pt-experiences-root .cx-top-actions .cx-constellation-cta:hover{filter:brightness(1.1)}
+
+
+/* V3 dimensional Learning Constellation: accessible DOM/SVG camera projection */
+#pt-experiences-root .lc-map-head{flex-wrap:wrap;gap:12px}
+#pt-experiences-root .lc-map-tools{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+#pt-experiences-root .lc-map-tools button{min-width:38px;min-height:40px}
+#pt-experiences-root .lc-map-tools button[aria-pressed=true]{border-color:#80f9df;background:#17525b;color:#effffb;box-shadow:inset 0 0 12px #45fadd38}
+#pt-experiences-root .lc-depth-label{display:flex;align-items:center;gap:7px;padding:4px 8px;border:1px solid #365e70;border-radius:9px;background:#112536;color:#c5e6f5;font-size:11px;font-weight:700}
+#pt-experiences-root .lc-depth-label input{accent-color:#6df9e1;width:76px}
+#pt-experiences-root .lc-canvas{background:radial-gradient(ellipse 22% 31% at 52% 52%,#21bdab4d,transparent 90%),radial-gradient(ellipse 50% 48% at 53% 45%,#3047a447,transparent 84%),radial-gradient(ellipse 48% 37% at 17% 80%,#913e9c30,transparent 88%),repeating-linear-gradient(0deg,transparent 0 56px,#14455d26 57px 58px),repeating-linear-gradient(90deg,transparent 0 56px,#14455d26 57px 58px),#030b18}
+#pt-experiences-root .lc-orbit-ring{fill:none;stroke:#48f4d8;stroke-dasharray:5 12;stroke-width:1.2;opacity:.22;pointer-events:none}
+#pt-experiences-root .lc-edge{stroke:#6ab2c8;stroke-width:2;pointer-events:none;transition:none}
+#pt-experiences-root .lc-edge.is-on{stroke:#9dffe6;stroke-width:3;filter:drop-shadow(0 0 8px #45f5d7)}
+#pt-experiences-root .lc-point{backface-visibility:hidden;background:linear-gradient(150deg,#28465d,#112c46 49%,#071726);border:1px solid #64a3ad;box-shadow:inset 0 2px 4px #bcffff28,inset -3px -8px 15px #0007,0 15px 20px #000a,0 0 26px #3cf5e02e}
+#pt-experiences-root .lc-point:before{content:"";position:absolute;inset:3px;border-radius:inherit;border:1px solid #c5ffff20;pointer-events:none}
+#pt-experiences-root .lc-point-hub{width:185px;height:142px;border-radius:50%;border:2px solid #81ffe5;background:radial-gradient(circle at 40% 28%,#59e7c994 0,#1b8b9b9c 29%,#0a2847 70%,#020a18 100%);box-shadow:inset 0 8px 22px #aefeff3d,inset 0 -22px 28px #000a,0 0 43px #5dffe45d,0 0 83px #6548ec27,0 25px 25px #000b}
+#pt-experiences-root .lc-point-labs{background:linear-gradient(150deg,#564475,#1f254a 64%,#0f1625);border-color:#b6a0ff}
+#pt-experiences-root .lc-point-academy{background:linear-gradient(150deg,#67502f,#392b27 64%,#181720);border-color:#f5cd83}
+#pt-experiences-root .lc-point-tutor{background:linear-gradient(150deg,#71376b,#302252 66%,#161327);border-color:#f6a5d5}
+#pt-experiences-root .lc-point:hover,#pt-experiences-root .lc-point.is-picked{border-color:white;box-shadow:inset 0 2px 8px #9dffff30,0 0 30px #50ffe37a,0 21px 25px #000c}
+#pt-experiences-root .lc-canvas:focus-visible{outline:3px solid #ffc87c;outline-offset:-4px}
+@media(max-width:700px){#pt-experiences-root .lc-map-tools{justify-content:flex-start}#pt-experiences-root .lc-depth-label input{width:60px}}
+@media(prefers-reduced-motion:reduce){#pt-experiences-root .lc-point{will-change:auto}#pt-experiences-root .lc-map-tools button{transition:none}}
