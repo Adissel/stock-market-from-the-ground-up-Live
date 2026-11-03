@@ -13,7 +13,7 @@ const flexPlan={plan_code:'PICK_WHAT_YOU_WANT',name:'Pick What You Want',active:
  metadata:{learning_engines_v1:{...FREE,revision:1}}};
 const fullPlan={plan_code:'FULL_MONTHLY',name:'Full Platform',active:true,public_visible:false,metadata:{}};
 const allPlans=[freePlan,flexPlan,fullPlan];
-function setup({role='OWNER',flag='',sub=null,planGrant=null}={}){
+function setup({role='OWNER',flag='',sub=null,planGrant=null,malformedSubs,malformedGrants}={}){
  const calls=[],saved=[];const original=globalThis.fetch;
  globalThis.fetch=async(url,opts={})=>{
   const u=new URL(String(url)),path=u.pathname;
@@ -24,8 +24,8 @@ function setup({role='OWNER',flag='',sub=null,planGrant=null}={}){
   if(path.endsWith('/rest/v1/admin_user_roles'))
    return result(['OWNER','SHOWCASE_VIEWER'].includes(role)?[{role_code:role,expires_at:null}]:[]);
   if(path.endsWith('/rest/v1/admin_user_flags'))return result(flag?[{status:flag}]:[]);
-  if(path.endsWith('/rest/v1/site_subscriptions'))return result(sub?[sub]:[]);
-  if(path.endsWith('/rest/v1/user_plan_grants'))return result(planGrant?[planGrant]:[]);
+  if(path.endsWith('/rest/v1/site_subscriptions'))return result(malformedSubs===undefined?(sub?[sub]:[]):malformedSubs);
+  if(path.endsWith('/rest/v1/user_plan_grants'))return result(malformedGrants===undefined?(planGrant?[planGrant]:[]):malformedGrants);
   if(path.endsWith('/rest/v1/platform_plans')){
    const code=/plan_code=eq\.([A-Z_0-9]+)/.exec(u.search);
    return result(code?allPlans.filter(p=>p.plan_code===code[1]):allPlans);
@@ -231,4 +231,43 @@ test('Canceled, expired or future canonical grants cannot select paid member ver
    assert.equal((await response.json()).planCode,'FREE');
   }finally{m.restore()}
  }
+});
+
+test('Joint Learning and Lab canonical grant precedence is presentation only',async()=>{
+ const m=setup({sub:{plan_code:'PICK_WHAT_YOU_WANT',status:'active',current_period_end:'2099-01-01T00:00:00Z'},
+  planGrant:{plan_code:'FULL_MONTHLY',status:'active',starts_at:'2025-01-01T00:00:00Z',ends_at:null}});
+ try{
+  const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(r.status,200);const x=await r.json();
+  assert.equal(x.planCode,'FULL_MONTHLY');
+  assert.equal(x.versions.learning,CURRENT.learning);
+  assert.equal(x.versions.lab,CURRENT.lab);
+  assert.equal(x.classroom.engines.learning.effectiveEdition,'BASIC');
+  assert.equal(x.classroom.engines.lab.effectiveEdition,'BASIC');
+  assert.equal(x.engineTierPolicy.premiumFeaturesReleased,false);
+  assert(m.calls.every(c=>c.method==='GET'));
+ }finally{m.restore()}
+});
+test('Joint Learning and Lab malformed provider data denies version resolution',async()=>{
+ for(const invalid of [{malformedSubs:{error:'invalid response'}},
+                       {malformedGrants:{error:'invalid response'}},
+                       {malformedGrants:Array(31).fill({status:'inactive'})}]){
+  const m=setup(invalid);
+  try{
+   const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+   assert.equal(r.status,503);assert.equal((await r.json()).ok,false);
+  }finally{m.restore()}
+ }
+});
+test('Joint Learning and Lab unknown plan grant falls back to Basic, without unlock',async()=>{
+ const m=setup({planGrant:{plan_code:'UNKNOWN_PREMIUM',status:'active',
+   starts_at:'2025-01-01T00:00:00Z',ends_at:null}});
+ try{
+  const r=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(r.status,200);const x=await r.json();
+  assert.equal(x.planCode,'FREE');assert.deepEqual(x.versions,FREE);
+  assert.equal(x.classroom.engines.learning.effectiveEdition,'BASIC');
+  assert.equal(x.classroom.engines.lab.effectiveEdition,'BASIC');
+  assert.equal(x.engineTierPolicy.addOnCheckoutEnabled,false);
+ }finally{m.restore()}
 });

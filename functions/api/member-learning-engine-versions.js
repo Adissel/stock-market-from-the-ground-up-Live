@@ -31,6 +31,11 @@ export async function onRequest({request,env}){try{
    read(base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30',dbHeaders),
    read(base+'/rest/v1/user_plan_grants?select=plan_code,status,starts_at,ends_at,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30',dbHeaders)
   ]);
+  // Reject malformed provider collections rather than silently presenting Free.
+  // This shared member resolver controls both Learning and Lab display versions.
+  if(!Array.isArray(profiles)||!Array.isArray(flags)||!Array.isArray(roles)||
+     !Array.isArray(subs)||!Array.isArray(grants)||subs.length>30||grants.length>30)
+   throw bad('Membership version service unavailable',503);
   if(profiles[0]?.account_kind!=='member'||profiles[0].deleted_at!==null||
    ['suspended','restricted'].includes(String(flags[0]?.status||'').toLowerCase())||
    roles.some(r=>r.role_code==='SHOWCASE_VIEWER'&&(!r.expires_at||Date.parse(r.expires_at)>Date.now())))
