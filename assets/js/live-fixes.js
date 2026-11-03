@@ -1,5 +1,9 @@
 (() => {
   'use strict';
+  // Backstop for historical cached pages: even if a previous middleware release
+  // injected this file, it must not modify React, Lab, Boot Camp or simulator DOM.
+  const LEGACY_COPY_FIX_ROUTES = /^\/(?:$|(?:index|membership|store|dashboard|account|profile|settings|access|founding600|my-purchases|admin)(?:\.html)?$)/;
+  if (!LEGACY_COPY_FIX_ROUTES.test(location.pathname.toLowerCase())) return;
   const BUILD = 'v0.13.2.4';
   const normalize = (v) => String(v || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
@@ -24,6 +28,8 @@
   function removeDeletionRetentionCopy(root = document) {
     const nodes = root.querySelectorAll ? root.querySelectorAll('p,small,div') : [];
     nodes.forEach((el) => {
+      // A parent div inherits descendant text: never delete a container with children.
+      if (el.children?.length) return;
       const text = normalize(el.textContent);
       if (!text) return;
       if (text.includes('legally or operationally required records may be retained') ||

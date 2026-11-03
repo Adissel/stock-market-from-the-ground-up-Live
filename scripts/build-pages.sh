@@ -24,6 +24,8 @@ fi
 node --test tests/runtime-owned-talia-v1.test.mjs
 # Block stale async chart libraries from overriding the active Studio tier.
 node --test tests/chart-studio-runtime-ownership-v1.test.mjs
+# Legacy copy fixes must not delete learning workspaces or parent containers.
+node --test tests/legacy-copy-runtime-ownership-v1.test.mjs
 node --test tests/public-navigation-five-page-links-v1.test.mjs
 node --test tests/group1-public-copy-and-entitlements-v1.test.mjs
 # Section C release integrity: fail a deployment on mathematical or workspace defects.

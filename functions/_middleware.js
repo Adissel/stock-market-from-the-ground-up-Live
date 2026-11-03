@@ -10,6 +10,9 @@ const STANDALONE_VISUAL_ROUTES=new Set([
  '/talia-classroom','/talia-classroom.html',
  '/talia-tutor-prototype','/talia-tutor-prototype.html'
 ]);
+// v20261103: the v0.13 copy-removal patch is ONLY for historical commerce/account shells.
+// Learning engines, Labs, Boot Camps, Chart Studio and Tutor own their rendered content.
+const LEGACY_COPY_FIX_ROUTES=/^\/(?:$|(?:index|membership|store|dashboard|account|profile|settings|access|founding600|my-purchases|admin)(?:\.html)?$)/;
 const JSON_HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'no-store'};
 const reject=(message,status=403)=>new Response(JSON.stringify({ok:false,error:message}),{status,headers:JSON_HEADERS});
 const clean=s=>String(s||'').trim();
@@ -348,7 +351,11 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
           'frontend-complete.js','production-completion.js',
           'dashboard-ui-legacy.js','live-fixes.js',
           'frontend-freeze.js'
-        ])el.append('<script defer src="/assets/js/'+file+(file==='dashboard-ui-legacy.js'?'?v=books-download-dashboard-20261029':'')+'"></script>',{html:true});
+        ]){
+          // Never execute the destructive legacy copy-cleanup on modern teaching routes.
+          if(file==='live-fixes.js'&&!LEGACY_COPY_FIX_ROUTES.test(path))continue;
+          el.append('<script defer src="/assets/js/'+file+(file==='dashboard-ui-legacy.js'?'?v=books-download-dashboard-20261029':'')+'"></script>',{html:true});
+        }
         if(path==='/labs.html'||path==='/labs')el.append('<script defer src="/assets/js/lab-registry.js"></script>',{html:true});
         if(path==='/site-lab.html'||path==='/site-lab')el.append('<script defer src="/assets/js/lab-narrative.js"></script>',{html:true});
         if(path==='/site-lab.html'||path==='/site-lab')el.append('<script defer src="/assets/js/site-lab-experience.js"></script>',{html:true});
