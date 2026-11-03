@@ -13,7 +13,7 @@ const flexPlan={plan_code:'PICK_WHAT_YOU_WANT',name:'Pick What You Want',active:
  metadata:{learning_engines_v1:{...FREE,revision:1}}};
 const fullPlan={plan_code:'FULL_MONTHLY',name:'Full Platform',active:true,public_visible:false,metadata:{}};
 const allPlans=[freePlan,flexPlan,fullPlan];
-function setup({role='OWNER',flag='',sub=null}={}){
+function setup({role='OWNER',flag='',sub=null,planGrant=null}={}){
  const calls=[],saved=[];const original=globalThis.fetch;
  globalThis.fetch=async(url,opts={})=>{
   const u=new URL(String(url)),path=u.pathname;
@@ -25,6 +25,7 @@ function setup({role='OWNER',flag='',sub=null}={}){
    return result(['OWNER','SHOWCASE_VIEWER'].includes(role)?[{role_code:role,expires_at:null}]:[]);
   if(path.endsWith('/rest/v1/admin_user_flags'))return result(flag?[{status:flag}]:[]);
   if(path.endsWith('/rest/v1/site_subscriptions'))return result(sub?[sub]:[]);
+  if(path.endsWith('/rest/v1/user_plan_grants'))return result(planGrant?[planGrant]:[]);
   if(path.endsWith('/rest/v1/platform_plans')){
    const code=/plan_code=eq\.([A-Z_0-9]+)/.exec(u.search);
    return result(code?allPlans.filter(p=>p.plan_code===code[1]):allPlans);
@@ -201,4 +202,33 @@ test('Auth provider outage remains a 503 rather than falsely asserting invalid c
   assert.equal(response.status,503);
   assert.equal((await response.json()).ok,false);
  }finally{m.restore()}
+});
+
+test('Canonical active grant supplies member engine plan without a Stripe subscription',async()=>{
+ const m=setup({planGrant:{plan_code:'FULL_MONTHLY',status:'active',
+  starts_at:'2025-01-01T00:00:00Z',ends_at:null}});
+ try{
+  const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+  assert.equal(response.status,200);
+  const result=await response.json();
+  assert.equal(result.planCode,'FULL_MONTHLY');
+  assert.deepEqual(result.versions,CURRENT);
+  assert.equal(result.engineTierPolicy.premiumFeaturesReleased,false);
+  assert(m.calls.some(c=>c.path.endsWith('/rest/v1/user_plan_grants')));
+  assert(m.calls.every(c=>c.method==='GET'));
+ }finally{m.restore()}
+});
+test('Canceled, expired or future canonical grants cannot select paid member versions',async()=>{
+ for(const planGrant of [
+  {plan_code:'FULL_MONTHLY',status:'canceled',starts_at:'2025-01-01T00:00:00Z',ends_at:null},
+  {plan_code:'FULL_MONTHLY',status:'active',starts_at:'2025-01-01T00:00:00Z',ends_at:'2026-01-01T00:00:00Z'},
+  {plan_code:'FULL_MONTHLY',status:'active',starts_at:'2099-01-01T00:00:00Z',ends_at:null}
+ ]){
+  const m=setup({planGrant});
+  try{
+   const response=await memberEndpoint({request:make('/api/member-learning-engine-versions',{headers:auth}),env});
+   assert.equal(response.status,200);
+   assert.equal((await response.json()).planCode,'FREE');
+  }finally{m.restore()}
+ }
 });
