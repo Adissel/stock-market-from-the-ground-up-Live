@@ -869,7 +869,7 @@
       "evidence_file": "assets/js/academy-enterprise-journey-v1.js",
       "existing_test_file": "tests/enterprise-learning-member-journey-browser-v1.mjs",
       "acceptance_criterion": "Connect research tasks to existing authorized curriculum.",
-      "unresolved": "Owner-approved source Learning member UI now attaches an independently grant-gated, server-authorized seven-stage Enterprise pathway to the authenticated Academy classroom. Cross-account scrub, no implicit book rights, mobile keyboard and mocked-browser source evidence are tested. Genuine two-member authentication, paid data rights, screen reader evaluation, exact deployed SHA and independent production acceptance remain open; no general Enterprise release.",
+      "unresolved": "Enterprise Academy seven-stage source navigator is present under independent server entitlement. PR #15 adds a member-owned revisioned private study bookmark, server-selected canonical stages, stale-tab CAS conflict handling, revocation scrub and mocked mobile Chromium checks; release cut and QA remain pending. Genuine two-account authenticated browser, screen reader, data-rights, independent editorial and exact-SHA production acceptance are not complete. No official progress, mastery or grade is created.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -895,7 +895,7 @@
       "evidence_file": "functions/api/learning-lab-edition-exercise.js",
       "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
       "acceptance_criterion": "Server must deny revoked and cross-member research access.",
-      "unresolved": "Source candidate: signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Source and API tests are queued; genuine member, independent rights, accessibility, tier downgrade and exact-SHA deployment remain open. No premium capability is released or sold.",
+      "unresolved": "Member premium access is checked against server-owned grants, expiry, plan policy, release switch and tool entitlement. PR #15 adds reserved namespace protection, private Academy research bookmarks and stateful mocked two-identity cross-account/downgrade/revocation/CAS tests. Tests/CI are pending; no genuine independent member/device acceptance, rights acceptance or premium release.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -973,7 +973,7 @@
       "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
       "existing_test_file": "tests/enterprise-learning-lab-journey-browser-v1.mjs",
       "acceptance_criterion": "Save member-owned approved source cases with audit history.",
-      "unresolved": "Owner-approved Enterprise Lab source UI can request two server-grant-verified original fictional comparisons, using aligned completed training bars, embargo and undisclosed holdout values; mocked mobile Chromium and source/API checks cover denial and no grading. The member-owned audited research workspace, live two-account tests, screen reader QA, independent rights and exact-current-SHA production release remain open.",
+      "unresolved": "Original fictional multi-case Enterprise Lab comparison and separate member-owned CAS persistence source were merged through PR #13; Cloudflare production success and initial regression evidence obtained on a36c571. No licensed market feeds or held-out answer values are published. Genuine eligible and restricted member sessions, screen-reader, privacy, independent research rights, audit-history and final current-SHA release acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

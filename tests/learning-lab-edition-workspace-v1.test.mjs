@@ -18,7 +18,7 @@ const req=(body,headers={})=>new Request(base,{method:'POST',headers:{
 const readReq=(caseKey='F1-C02-L01')=>new Request(base+'?family=lab&edition=ADVANCED&caseKey='+caseKey,
  {headers:{authorization:'Bearer valid'}});
 function setup({grant=true,revoked=false,expired=false,suspended=false,
- existing=null,writeRevision=1,conflict=false,enterprise=false}={}){
+ existing=null,writeRevision=1,conflict=false,enterprise=false,academy=false}={}){
  const original=globalThis.fetch,logs=[];
  const ok=data=>new Response(JSON.stringify(data),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,opts={})=>{
@@ -30,12 +30,12 @@ function setup({grant=true,revoked=false,expired=false,suspended=false,
   if(loc.pathname==='/rest/v1/admin_user_roles')return ok([]);
   if(loc.pathname==='/rest/v1/rpc/user_has_tool_access')return ok(true);
   if(loc.pathname==='/rest/v1/gu_product_access_config_v1')return ok([]);
-  if(loc.pathname==='/rest/v1/user_plan_grants')return ok(enterprise?[{
+  if(loc.pathname==='/rest/v1/user_plan_grants')return ok((enterprise||academy)?[{
    plan_code:'LIFETIME',status:'active',starts_at:'2026-01-01T00:00:00Z',
-   ends_at:'2099-01-01T00:00:00Z',metadata:{engine_edition_grants_v1:{lab:{
+   ends_at:'2099-01-01T00:00:00Z',metadata:{engine_edition_grants_v1:{[academy?'learning':'lab']:{
     active:true,revoked,edition:'ENTERPRISE',expiresAt:'2098-01-01T00:00:00Z'}}}
   }]:[]);
-  if(loc.pathname==='/rest/v1/site_subscriptions')return ok(enterprise?[]:[{plan_code:'FOUNDING_30',
+  if(loc.pathname==='/rest/v1/site_subscriptions')return ok(enterprise||academy?[]:[{plan_code:'FOUNDING_30',
    status:'active',current_period_end:'2099-01-01T00:00:00Z',
    metadata:{engine_edition_grants_v1:grant?{lab:{active:true,edition:enterprise?'ENTERPRISE':'ADVANCED',
     expiresAt:expired?'2020-01-01T00:00:00Z':'2098-01-01T00:00:00Z',revoked}}:{}}}]);
@@ -188,5 +188,100 @@ test('Enterprise research storage refuses lower tier, revocation and nonfictiona
   const invalid=researchPair();invalid.payload.cases[0].evidence.provenance='licensed_feed';
   assert.equal((await onRequest({request:req(invalid),env:enterpriseEnv})).status,400);
   assert.equal(f.logs.some(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1')),false);
+ }finally{f.restore()}
+});
+
+const academyEnv={...env,ENGINE_LEARNING_ENTERPRISE_RELEASED:'true'};
+const academyKey='ACADEMY_ENTERPRISE_PATH_V1';
+const academyBookmark=(stageNumber=3,expectedRevision=0)=>({
+ family:'learning',edition:'ENTERPRISE',caseKey:academyKey,
+ activity:'enterprise_academy_bookmark',expectedRevision,
+ payload:{stageNumber}
+});
+const readAcademy=()=>new Request(base+
+ '?family=learning&edition=ENTERPRISE&caseKey='+academyKey+
+ '&activity=enterprise_academy_bookmark',
+ {headers:{authorization:'Bearer valid'}});
+test('Enterprise Academy Learning bookmark derives stage from canonical Academy and persists no grades',async()=>{
+ const f=setup({academy:true});try{
+  const r=await onRequest({request:req(academyBookmark(3)),env:academyEnv});
+  assert.equal(r.status,200);
+  const write=f.logs.find(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1'));
+  assert.ok(write);const record=JSON.parse(write.body);
+  assert.equal(record.case_key,academyKey+'__PATH');
+  assert.equal(record.family,'learning');
+  assert.equal(record.activity,'chronological_validation');
+  assert.equal(record.summary.schema,'smfgu.learning.enterprise-path-bookmark.v1');
+  assert.equal(record.summary.stageNumber,3);
+  assert.equal(record.summary.programCode,'risk60');
+  assert.equal(record.summary.day,15);
+  assert.equal(record.summary.officialGrade,false);
+  assert.equal(record.summary.masteryAwarded,false);
+  assert.equal(record.summary.independentCompletionRecorded,false);
+  assert.equal(JSON.stringify(record).includes('privateAnswerKey'),false);
+ }finally{f.restore()}
+});
+test('Enterprise Academy Learning bookmark recovery remains member and activity namespaced',async()=>{
+ const f=setup({academy:true,existing:{id:19,revision:5,
+  summary:{schema:'smfgu.learning.enterprise-path-bookmark.v1',stageNumber:6,
+   officialGrade:false,independentCompletionRecorded:false}}});try{
+  const r=await onRequest({request:readAcademy(),env:academyEnv});
+  assert.equal(r.status,200);assert.equal((await r.json()).workspace.revision,5);
+  const query=decodeURIComponent(f.logs.find(x=>x.pathname.includes('workspaces_v1')).search);
+  assert.match(query,/user_id=eq.11111111-1111-4111-8111-111111111111/);
+  assert.match(query,/family=eq.learning/);
+  assert.match(query,/case_key=eq.ACADEMY_ENTERPRISE_PATH_V1__PATH/);
+  assert.match(query,/edition=eq.ENTERPRISE/);
+ }finally{f.restore()}
+});
+test('Enterprise Academy bookmark rejects forged completion, stage and activity identity',async()=>{
+ const f=setup({academy:true});try{
+  for(const payload of [{stageNumber:0},{stageNumber:8},{stageNumber:3.5},
+   {stageNumber:2,completed:true},{stageNumber:1,officialGrade:100},
+   {stageNumber:2,privateAnswerKey:'secret'}, {stageNumber:'3'}]){
+   const r=await onRequest({request:req({...academyBookmark(),payload}),env:academyEnv});
+   assert.equal(r.status,400,JSON.stringify(payload));
+  }
+  for(const changes of [{family:'lab'},{edition:'PROFESSIONAL'},
+   {caseKey:'F1-C02-L01'}, {caseKey:'ACADEMY_ENTERPRISE_PATH_V1__PATH'}]){
+   const r=await onRequest({request:req({...academyBookmark(),...changes}),env:academyEnv});
+   assert.equal(r.status,400,JSON.stringify(changes));
+  }
+  assert.equal(f.logs.some(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1')),false);
+ }finally{f.restore()}
+});
+test('Enterprise Academy bookmark enforces fresh grant, revocation, release switch and stale CAS',async()=>{
+ for(const [args,environment] of [
+  [{academy:false},academyEnv],
+  [{academy:true,revoked:true},academyEnv],
+  [{academy:true},{...academyEnv,ENGINE_LEARNING_ENTERPRISE_RELEASED:'false'}]
+ ]){
+  const f=setup(args);try{
+   const r=await onRequest({request:req(academyBookmark()),env:environment});
+   assert.equal(r.status,403);
+   assert.equal(f.logs.some(x=>x.pathname.includes('workspaces_v1')),false);
+  }finally{f.restore()}
+ }
+ const f=setup({academy:true,conflict:true});try{
+  const r=await onRequest({request:req(academyBookmark(4,5)),env:academyEnv});
+  assert.equal(r.status,409);
+  const write=f.logs.find(x=>x.method==='PATCH');
+  assert.match(decodeURIComponent(write.search),/revision=eq.5/);
+  assert.equal(JSON.parse(write.body).revision,6);
+ }finally{f.restore()}
+});
+
+test('Reserved Academy and fictional-pair namespaces cannot be read or overwritten as ordinary exercises',async()=>{
+ const f=setup({academy:true});try{
+  for(const caseKey of ['ACADEMY_ENTERPRISE_PATH_V1__PATH',
+   'F1-C02-L01__PAIR']){
+   const body={...academyBookmark(),caseKey,activity:'chronological_validation',
+    payload:{evidence:evidence()}};
+   assert.equal((await onRequest({request:req(body),env:academyEnv})).status,400);
+   const read=new Request(base+'?family=learning&edition=ENTERPRISE&caseKey='+caseKey,
+    {headers:{authorization:'Bearer valid'}});
+   assert.equal((await onRequest({request:read,env:academyEnv})).status,400);
+  }
+  assert.equal(f.logs.some(x=>x.pathname.includes('workspaces_v1')),false);
  }finally{f.restore()}
 });

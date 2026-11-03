@@ -70,6 +70,8 @@ node tests/basic-indicator-20-negative-safety-gates-v1.test.mjs
 node tests/basic-five-indicator-parity-v1.test.mjs
 node tests/basic-engine-six-gate-closeout-v1.test.mjs
 node --test tests/learning-lab-edition-workspace-v1.test.mjs
+# Force private premium two-identity / Academy bookmark contract on every Pages build.
+node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
 node tests/talia-classroom-source-v1.test.mjs
 node --test tests/talia-classroom-professional-v2.test.mjs
 node --test tests/talia-terminal-v4.test.mjs
