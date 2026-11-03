@@ -36,6 +36,7 @@ import {watchlist7Depth} from './academy-watchlist7-depth-v1.js';
 import {scanners10Depth} from './academy-scanners10-depth-v1.js';
 import {foundations30DepthDays01to10} from './academy-foundations30-depth-days01-10-v1.js';
 import {foundations30DepthDays11to20} from './academy-foundations30-depth-days11-20-v1.js';
+import {foundations30DepthDays21to30} from './academy-foundations30-depth-days21-30-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
 import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
@@ -317,7 +318,7 @@ function dayFor(d,i){
    method:[originalDay.observe,originalDay.practice],limitation:originalDay.caution,
    officiallyGraded:false,masteryAwarded:false,
    assessmentSource:'protected_lab_assessment_only',
-   ...(day<=10?{lesson:foundations30DepthDays01to10(originalDay,day)}:day<=20?{lesson:foundations30DepthDays11to20(originalDay,day)}:{})});
+   ...(day<=10?{lesson:foundations30DepthDays01to10(originalDay,day)}:day<=20?{lesson:foundations30DepthDays11to20(originalDay,day)}:{lesson:foundations30DepthDays21to30(originalDay,day)})});
  }
  let sourceDay,topic,objective,practice,observe;
  if(d.metadata.modules){

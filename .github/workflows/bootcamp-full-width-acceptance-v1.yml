@@ -58,6 +58,8 @@ on:
       - 'tests/test_academy_foundations30_depth_days01_10_v1.mjs'
       - 'functions/_lib/academy-foundations30-depth-days11-20-v1.js'
       - 'tests/test_academy_foundations30_depth_days11_20_v1.mjs'
+      - 'functions/_lib/academy-foundations30-depth-days21-30-v1.js'
+      - 'tests/test_academy_foundations30_depth_days21_30_v1.mjs'
       - 'tests/test_academy_practicum90_depth_days01_20_v1.mjs'
       - 'tests/test_academy_practicum90_depth_days21_40_v1.mjs'
       - 'tests/test_academy_practicum90_depth_days41_60_v1.mjs'
@@ -188,6 +190,8 @@ jobs:
           node tests/test_academy_foundations30_depth_days01_10_v1.mjs
           node --check functions/_lib/academy-foundations30-depth-days11-20-v1.js
           node tests/test_academy_foundations30_depth_days11_20_v1.mjs
+          node --check functions/_lib/academy-foundations30-depth-days21-30-v1.js
+          node tests/test_academy_foundations30_depth_days21_30_v1.mjs
           node scripts/academy-274-advanced-readiness-preflight-v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_three_camps_completion_contract_v1.mjs
