@@ -18,7 +18,7 @@ const req=(body,headers={})=>new Request(base,{method:'POST',headers:{
 const readReq=(caseKey='F1-C02-L01')=>new Request(base+'?family=lab&edition=ADVANCED&caseKey='+caseKey,
  {headers:{authorization:'Bearer valid'}});
 function setup({grant=true,revoked=false,expired=false,suspended=false,
- existing=null,writeRevision=1,conflict=false}={}){
+ existing=null,writeRevision=1,conflict=false,enterprise=false}={}){
  const original=globalThis.fetch,logs=[];
  const ok=data=>new Response(JSON.stringify(data),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,opts={})=>{
@@ -33,7 +33,7 @@ function setup({grant=true,revoked=false,expired=false,suspended=false,
   if(loc.pathname==='/rest/v1/user_plan_grants')return ok([]);
   if(loc.pathname==='/rest/v1/site_subscriptions')return ok([{plan_code:'FOUNDING_30',
    status:'active',current_period_end:'2099-01-01T00:00:00Z',
-   metadata:{engine_edition_grants_v1:grant?{lab:{active:true,edition:'ADVANCED',
+   metadata:{engine_edition_grants_v1:grant?{lab:{active:true,edition:enterprise?'ENTERPRISE':'ADVANCED',
     expiresAt:expired?'2020-01-01T00:00:00Z':'2098-01-01T00:00:00Z',revoked}}:{}}}]);
   if(loc.pathname==='/rest/v1/competency_definitions')return ok([
    {competency_code:'EMA_CONTEXT',metadata:{prerequisites:['CANDLE_READING']}}
@@ -134,6 +134,55 @@ test('Premium Lab storage requires actual active canonical Lab identity',async()
  const f=setup();try{
   const r=await onRequest({request:req(exercise({caseKey:'NONCANONICAL_LAB'})),env});
   assert.equal(r.status,404);
+  assert.equal(f.logs.some(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1')),false);
+ }finally{f.restore()}
+});
+
+const enterpriseEnv={...env,ENGINE_LAB_ENTERPRISE_RELEASED:'true'};
+const originalCase=(caseId,offset=0)=>({caseId,evidence:{provenance:'fictional',
+ asOf:17000,completedIndex:16,bars:Array.from({length:17},(_,i)=>({
+ timestamp:(i+1)*1000,open:100+i+offset,high:102+i+offset,
+ low:99+i+offset,close:101+i+offset,volume:100+i*5}))}});
+const researchPair=(expectedRevision=0)=>({family:'lab',edition:'ENTERPRISE',
+ activity:'enterprise_fictional_comparison',caseKey:'F1-C02-L01',expectedRevision,
+ payload:{cases:[originalCase('ORIGINAL_A'),originalCase('ORIGINAL_B',1)],embargo:2}});
+test('Enterprise original fictional comparison saves separate member-owned CAS record without holdout leakage',async()=>{
+ const f=setup({enterprise:true});try{
+  const r=await onRequest({request:req(researchPair()),env:enterpriseEnv});
+  assert.equal(r.status,200);
+  const write=f.logs.find(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1'));
+  assert.ok(write);const record=JSON.parse(write.body);
+  assert.equal(record.case_key,'F1-C02-L01__PAIR');
+  assert.equal(record.activity,'chronological_validation');
+  assert.equal(record.summary.schema,'smfgu.enterprise.fictional-case-comparison.v1');
+  assert.equal(record.summary.persisted,true);
+  assert.equal(record.summary.holdoutValuesReturned,false);
+  assert.equal(record.summary.holdoutUsedForModelSelection,false);
+  assert(!JSON.stringify(record).includes('privateAnswerKey'));
+ }finally{f.restore()}
+});
+test('Enterprise recovery reads only namespaced revision and owner scope',async()=>{
+ const f=setup({enterprise:true,existing:{id:17,revision:4,
+  summary:{schema:'smfgu.enterprise.fictional-case-comparison.v1',graded:false,
+   holdoutValuesReturned:false,cases:[]}}});try{
+  const r=await onRequest({request:new Request(base+
+   '?family=lab&edition=ENTERPRISE&caseKey=F1-C02-L01&activity=enterprise_fictional_comparison',
+   {headers:{authorization:'Bearer valid'}}),env:enterpriseEnv});
+  assert.equal(r.status,200);assert.equal((await r.json()).workspace.revision,4);
+  const q=decodeURIComponent(f.logs.find(x=>x.pathname.includes('workspaces_v1')).search);
+  assert.match(q,/case_key=eq.F1-C02-L01__PAIR/);
+  assert.match(q,/user_id=eq./);
+ }finally{f.restore()}
+});
+test('Enterprise research storage refuses lower tier, revocation and nonfictional provenance',async()=>{
+ for(const args of [{enterprise:false},{enterprise:true,revoked:true}]){
+  const f=setup(args);try{
+   assert.equal((await onRequest({request:req(researchPair()),env:enterpriseEnv})).status,403);
+  }finally{f.restore()}
+ }
+ const f=setup({enterprise:true});try{
+  const invalid=researchPair();invalid.payload.cases[0].evidence.provenance='licensed_feed';
+  assert.equal((await onRequest({request:req(invalid),env:enterpriseEnv})).status,400);
   assert.equal(f.logs.some(x=>x.method==='POST'&&x.pathname.includes('workspaces_v1')),false);
  }finally{f.restore()}
 });

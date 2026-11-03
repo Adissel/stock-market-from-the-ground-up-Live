@@ -309,33 +309,27 @@
    workStatus.setAttribute('role','status');
    const workOutput=build('div');
    workOutput.className='gu-edition-exercise-output';
+   const pairSave=build('button','Save private fictional comparison');
+   const pairRestore=build('button','Restore private fictional comparison');
+   pairSave.type='button';pairRestore.type='button';
+   pairSave.disabled=true;pairRestore.disabled=!caseKey;
+   let pairRevision=0,pairFresh=false,pairConflict=false;
+   const pairPayload=()=>{
+    const first=demo();
+    const second={...first,bars:first.bars.map(b=>({
+     ...b,open:b.open*1.01,high:b.high*1.01,
+     low:b.low*1.01,close:b.close*1.01}))};
+    return {family:'lab',embargo:2,cases:[
+     {caseId:'ORIGINAL_CASE_A',evidence:first},
+     {caseId:'ORIGINAL_CASE_B',evidence:second}]};
+   };
    workbench.append(build('h3','Training-only fictional research workbench'),
     build('p','Compare aligned constructed OHLC series with an embargo and undisclosed evaluation values. No order, license, or mastery credit is involved.'),
-    compare,workStatus,workOutput);
-   compare.addEventListener('click',async()=>{
-    if(selected!=='ENTERPRISE'||serial!==epoch||!alive())return;
-    compare.disabled=true;workStatus.textContent='Checking current research rights and training-only chronology…';
-    try{
-     const first=demo();
-     const second={...first,bars:first.bars.map(b=>({
-      ...b,open:b.open*1.01,high:b.high*1.01,
-      low:b.low*1.01,close:b.close*1.01}))};
-     const response=await fetch('/api/learning-lab-enterprise-case-workbench',{
-      method:'POST',cache:'no-store',credentials:'same-origin',
-      signal:activeController.signal,
-      headers:{authorization:'Bearer '+token,'content-type':'application/json'},
-      body:JSON.stringify({family:'lab',embargo:2,cases:[
-       {caseId:'ORIGINAL_CASE_A',evidence:first},
-       {caseId:'ORIGINAL_CASE_B',evidence:second}
-      ]})
-     });
-     const data=await response.json().catch(()=>null);
-     if(serial!==epoch||!alive())return;
-     if(!response.ok||!data?.ok||data.result?.schema!=='smfgu.enterprise.fictional-case-comparison.v1'||
-        data.result?.graded!==false||data.result?.holdoutValuesReturned!==false||
-        !Array.isArray(data.result?.cases)||data.result.cases.length!==2){
-      host.replaceChildren();host.hidden=true;return;
-     }
+    compare,pairSave,pairRestore,workStatus,workOutput);
+   const renderComparison=result=>{
+    if(result?.schema!=='smfgu.enterprise.fictional-case-comparison.v1'||
+       result?.graded!==false||result?.holdoutValuesReturned!==false||
+       !Array.isArray(result.cases)||result.cases.length!==2)return false;
      const table=build('table'),caption=build('caption','Training-only original fictional case comparisons');
      const head=build('thead'),titles=build('tr');
      for(const s of ['Constructed case','Training bars','Mean close','EMA','VWAP','Embargo bars','Undisclosed holdout bars'])
@@ -343,14 +337,14 @@
      head.append(titles);
      const body=build('tbody');
      const fixed=n=>typeof n==='number'&&Number.isFinite(n)?n.toFixed(4):null;
-     for(const item of data.result.cases){
+     for(const item of result.cases){
       if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,59}$/.test(item.caseId)||
          !Number.isSafeInteger(item.trainingCount)||
          !Number.isSafeInteger(item.embargoCount)||
          !Number.isSafeInteger(item.heldOutEvaluationCount)||
          fixed(item.trainingMean)===null||fixed(item.trainingOnlyIndicators?.EMA)===null||
          fixed(item.trainingOnlyIndicators?.VWAP)===null){
-       host.replaceChildren();host.hidden=true;return;
+       return false;
       }
       const row=build('tr');
       row.append(build('th',item.caseId),build('td',item.trainingCount),
@@ -361,12 +355,78 @@
      }
      table.append(caption,head,body);
      workOutput.replaceChildren(table);
+    return true;
+   };
+   compare.addEventListener('click',async()=>{
+    if(selected!=='ENTERPRISE'||serial!==epoch||!alive())return;
+    compare.disabled=true;workStatus.textContent='Checking current research rights and training-only chronology…';
+    try{
+     const response=await fetch('/api/learning-lab-enterprise-case-workbench',{
+      method:'POST',cache:'no-store',credentials:'same-origin',
+      signal:activeController.signal,
+      headers:{authorization:'Bearer '+token,'content-type':'application/json'},
+      body:JSON.stringify(pairPayload())
+     });
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok||!renderComparison(data.result)){
+      host.replaceChildren();host.hidden=true;return;
+     }
+     pairFresh=true;pairConflict=false;pairSave.disabled=!caseKey;
      workStatus.textContent='Comparison complete: training-only descriptive values. No held-out outcome was displayed or used for model selection.';
     }catch{
      if(serial===epoch&&alive())workStatus.textContent='Fictional comparison unavailable. No progress or grade was changed.';
     }finally{
      if(serial===epoch&&alive())compare.disabled=false;
     }
+   });
+   const pairStorage='/api/learning-lab-edition-workspace';
+   const pairIdentity={family:'lab',edition:'ENTERPRISE',caseKey,
+    activity:'enterprise_fictional_comparison'};
+   pairSave.addEventListener('click',async()=>{
+    if(selected!=='ENTERPRISE'||serial!==epoch||!alive()||!caseKey||!pairFresh||pairConflict)return;
+    pairSave.disabled=true;workStatus.textContent='Saving member-owned fictional comparison…';
+    try{
+     const response=await fetch(pairStorage,{method:'POST',cache:'no-store',credentials:'same-origin',
+      signal:activeController.signal,headers:storageHeaders,
+      body:JSON.stringify({...pairIdentity,expectedRevision:pairRevision,payload:pairPayload()})});
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok){
+      if(response.status===409){pairConflict=true;pairFresh=false;}
+      workStatus.textContent=response.status===409?
+       'Comparison revision conflict. Restore the latest copy and compare again before saving.':
+       'Private comparison save unavailable. No grade or progress changed.';
+      return;
+     }
+     pairRevision=data.workspace.revision;
+     workStatus.textContent='Private fictional comparison saved at revision '+pairRevision+'. No official grade changed.';
+    }catch{if(serial===epoch&&alive())workStatus.textContent='Private comparison save unavailable.';}
+    finally{if(serial===epoch&&alive())pairSave.disabled=!pairFresh||pairConflict;}
+   });
+   pairRestore.addEventListener('click',async()=>{
+    if(selected!=='ENTERPRISE'||serial!==epoch||!alive()||!caseKey)return;
+    pairRestore.disabled=true;pairSave.disabled=true;
+    workStatus.textContent='Restoring member-owned fictional comparison…';
+    try{
+     const params=new URLSearchParams(pairIdentity);
+     const response=await fetch(pairStorage+'?'+params,{method:'GET',cache:'no-store',
+      credentials:'same-origin',signal:activeController.signal,headers:storageHeaders});
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok){host.replaceChildren();host.hidden=true;return;}
+     pairFresh=false;pairConflict=false;
+     if(!data.found){pairRevision=0;workOutput.replaceChildren();
+      workStatus.textContent='No saved private comparison. Compare before saving.';return;}
+     if(!Number.isSafeInteger(data.workspace?.revision)||
+        !renderComparison(data.workspace?.summary)){
+      host.replaceChildren();host.hidden=true;return;
+     }
+     pairRevision=data.workspace.revision;
+     workStatus.textContent='Restored private comparison revision '+pairRevision+
+      '. Recompare fictional observations before any new save. No official grade changed.';
+    }catch{if(serial===epoch&&alive())workStatus.textContent='Private comparison restore unavailable.';}
+    finally{if(serial===epoch&&alive())pairRestore.disabled=false;}
    });
    section.append(heading,intro,choices,output);
    if(selected==='ENTERPRISE')section.append(researchPath,workbench);
