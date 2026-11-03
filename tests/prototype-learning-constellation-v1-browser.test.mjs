@@ -65,6 +65,12 @@ try{
   assert.notEqual(original,changed,'Zoom must update world scale');
   await page.locator('[data-mode="journey"]').click();
   const node=page.locator('.lc-point-journey').first();
+  await page.evaluate(()=>{window.__lcPointerTrace=[];const stage=document.querySelector('.lc-canvas');
+    ['pointerdown','pointermove','pointerup','pointercancel'].forEach(name=>stage.addEventListener(name,e=>{
+      if(window.__lcPointerTrace.length<30)window.__lcPointerTrace.push({name,target:e.target.className?.baseVal||e.target.className,
+        x:e.clientX,y:e.clientY,id:e.pointerId,drag:e.target.closest?.('.lc-point')?.dataset.nodeId||null});
+    },true));
+  });
   const before=await node.evaluate(e=>e.style.left);
   const box=await node.boundingBox();
   assert(box,'Node is visible for interaction');
@@ -73,6 +79,9 @@ try{
   await page.mouse.move(box.x+box.width/2+35,box.y+box.height/2+15,{steps:5});
   await page.mouse.up();
   const after=await node.evaluate(e=>e.style.left);
+  const trace=await page.evaluate(()=>window.__lcPointerTrace||[]);
+  console.log('CONSTELLATION_DRAG '+JSON.stringify({width,before,after,trace}));
+  await page.screenshot({path:'artifacts/learning-constellation/drag-diagnostic-'+width+'.png',fullPage:true});
   assert.notEqual(before,after,'Node must be draggable');
   assert.deepEqual(jsErrors,[],'No JavaScript exceptions');
   await page.screenshot({path:'artifacts/learning-constellation/map-'+width+'.png',fullPage:true});
