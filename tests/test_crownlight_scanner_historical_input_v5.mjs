@@ -20,5 +20,5 @@ test('premarket and misaligned bars rejected without resampling',()=>{
  const first=bars[0],early={...first,time:new Date('2026-10-28T13:25:00Z')};
  assert.throws(()=>E.evaluate({...args,bars:[early,...bars]}),/regular-session/);
  const bad={...first,time:new Date('2026-10-28T13:31:00Z')};
- assert.throws(()=>E.evaluate({...args,bars:[bad,...bars.slice(1)]}),/five-minute boundary/);
+ assert.throws(()=>E.evaluate({...args,bars:[bad,...bars.slice(1)]}),/5-minute NYSE regular-session/);
 });

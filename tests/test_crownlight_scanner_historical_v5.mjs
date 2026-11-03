@@ -5,7 +5,7 @@ const E=C.CrownlightScannerHistoricalV5,near=(a,b)=>Math.abs(a-b)<1e-10*Math.max
 test('strict five-minute visible-only research and two prior full observed sessions',()=>{
  const r=E.evaluate(args),close=12.44,prev=12.42,twoDayBasis=10.77;
  assert.equal(r.available,true);assert.equal(r.observedBars,159);
- assert.equal(r.visibleCurrentBars,3);assert.equal(r.lastCompletedAt,args.asOf);
+ assert.equal(r.visibleCurrentBars,3);assert.equal(Date.parse(r.lastCompletedAt),Date.parse(args.asOf));
  assert.ok(near(r.row.price,close));
  assert.ok(near(r.row.change_5m_pct,(close/prev-1)*100));
  assert.ok(near(r.row.change_2d_pct,(close/twoDayBasis-1)*100));
