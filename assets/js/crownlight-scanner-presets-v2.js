@@ -86,7 +86,8 @@ const deepFreeze=x=>{
 function normalize(raw,index){
  const tree=C.validate(raw.rules),used=new Set();unroll(tree,used);
  const legacyItem=index<legacy.items.length;
- const category=legacyItem?'Foundations':raw.category;
+ const legacyCategories=Object.freeze({PRICE_VOLUME:'Foundations',NEGATIVE_5M:'Momentum',SUPPLIED_VWAP:'VWAP & levels',DAY_HIGH:'VWAP & levels',TWO_DAY_CHANGE:'Momentum'});
+ const category=legacyItem?legacyCategories[raw.id]:raw.category;
  const src=legacyItem?
   ['assets/js/crownlight-scanner-templates-v1.js','docs/research/scanner/2026-11-03_SCANNER_WAVE2_RESULTS_AND_TEACHING.md']:
   sources[category];

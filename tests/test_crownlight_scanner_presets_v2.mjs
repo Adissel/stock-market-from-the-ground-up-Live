@@ -8,6 +8,10 @@ const C=s.CrownlightScannerRulesV1,L=s.CrownlightScannerTemplatesV1,P=s.Crownlig
 test('48 distinct original source recipes, preserving five legacy templates',()=>{
  assert.equal(P.count,48);assert.equal(P.addedCount,43);assert.equal(P.originalCount,5);
  assert.equal(L.items.length,5);
+ assert.equal(P.lookup('NEGATIVE_5M').category,'Momentum');
+ assert.equal(P.lookup('TWO_DAY_CHANGE').category,'Momentum');
+ assert.equal(P.lookup('SUPPLIED_VWAP').category,'VWAP & levels');
+ assert.equal(P.lookup('DAY_HIGH').category,'VWAP & levels');
  assert.equal(new Set(Array.from(P.items,x=>x.id)).size,48);
  for(const old of L.items){
   const modern=P.lookup(old.id);
