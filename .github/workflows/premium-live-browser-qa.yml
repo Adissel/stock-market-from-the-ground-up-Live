@@ -35,6 +35,8 @@ on:
       - 'signin.html'
       - 'functions/_middleware.js'
       - 'assets/js/site.js'
+      - 'assets/js/experience-redesign-v1.js'
+      - 'tests/test_signin_experience_ownership_v1.mjs'
       - 'assets/js/navigation.js'
       - 'tests/test_workspace_layout_browser.py'
       - 'assets/js/premium-design-v014168.js'
@@ -93,6 +95,7 @@ jobs:
           node tests/test_academy_avatar_forum_beta_v1.mjs
           node tests/test_learning_programs_ads_and_progress_v1.mjs
           node tests/test_v014157_sitewide_skip_navigation.mjs
+          node tests/test_signin_experience_ownership_v1.mjs
           bash scripts/build-pages.sh
       - name: Install Chromium and Playwright
         run: |

@@ -127,6 +127,10 @@ with sync_playwright() as p:
     # Navigation/ad enhancers may reparent presentation wrappers, but the two
     # credentials must remain inside one canonical form and one vertical field
     # column. Assert actual user-facing geometry, not a specific parent class.
+    assert page.locator('#gu-signin-center>.gu-signin-form-column').count()==1,(
+     width,'Legacy experience builder must not move the canonical sign-in column')
+    assert page.locator('#gu-signin-center>.gu-x-auth-sidebar').count()==0,(
+     width,'Legacy sign-in assurance sidebar must not reappear inside the credential form')
     form=page.locator('#gu-signin-center form')
     assert form.count()==1,(width,'Sign-in must have exactly one canonical form')
     ident=form.locator('#login-identifier');password=form.locator('#login-password')

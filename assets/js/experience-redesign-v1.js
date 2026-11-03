@@ -33,6 +33,12 @@ let debounce=0;const schedule=()=>{clearTimeout(debounce);debounce=setTimeout(up
 function auth(){
 const signin=document.querySelector('.gu-signin-page'),signup=document.querySelector('.gu-signup-page');if(!signin&&!signup)return;
 const main=signin||signup,wrap=main.querySelector('.auth-page');if(!wrap)return;
+// The canonical sign-in page owns its two external promotion rails and one
+// central credential form. Do NOT inject the older inner assurance sidebar
+// into that compact form; it narrows and vertically displaces the inputs.
+// Signup retains its distinct original experience layout.
+if(signin&&signin.querySelector('.gu-signin-ad-layout')&&
+   signin.querySelector('#gu-signin-center>.gu-signin-form-column'))return;
 const sidebar=el('aside','gu-x-auth-sidebar');
 sidebar.append(el('p','gu-x-kicker','THE STOCK MARKET: FROM THE GROUND UP'),el('h2','',signup?'Learn it. Practice it. Build your skill.':'Your learning continues here.'),el('p','',signup?'Create an account to start your Foundations lessons and save eligible progress after email verification.':'Sign in to return to your Labs, Boot Camps, Journal and member learning workspace.'));
 const list=el('ul','gu-x-assurance');['Guided lessons and learning paths','Fictional chart practice','Structured progress tracking'].forEach(t=>list.append(el('li','',t)));
