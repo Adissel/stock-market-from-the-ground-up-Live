@@ -4,7 +4,7 @@
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {chromium} from 'playwright';
-const chrome='C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe';
+const chrome='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox'],
  ...(existsSync(chrome)?{executablePath:chrome}:{})});
 try{

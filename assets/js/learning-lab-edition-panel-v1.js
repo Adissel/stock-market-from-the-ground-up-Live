@@ -281,7 +281,7 @@
       li.append(build('p',stage.programTitle+' · Day '+stage.day+
        ': '+stage.dayTitle));
       if(typeof stage.trainingHref==='string'&&
-         /^bootcamp(?:-academy)?\\.html(?:\\?program=[a-z0-9]+&day=[0-9]+)?$/.test(stage.trainingHref)){
+         /^bootcamp(?:-academy)?\.html(?:\?program=[a-z0-9]+&day=[0-9]+)?$/.test(stage.trainingHref)){
        const link=build('a','Open authorized Academy course');
        link.href=stage.trainingHref;li.append(link);
       }else li.append(build('p','Academy training link locked; independent training entitlement required.'));
