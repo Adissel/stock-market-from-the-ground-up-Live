@@ -1,7 +1,7 @@
 name: Knowledge Library V1 — Membership + Admin
 on:
   push:
-    branches: [main, feature/knowledge-library-membership-admin-v1, feature/knowledge-standalone-article-pages-v1]
+    branches: [main, feature/knowledge-library-membership-admin-v1, feature/knowledge-standalone-article-pages-v1, fix/knowledge-article-responsive-layout-v2]
     paths:
       - 'functions/api/knowledge-library.js'
       - 'admin-knowledge.html'
