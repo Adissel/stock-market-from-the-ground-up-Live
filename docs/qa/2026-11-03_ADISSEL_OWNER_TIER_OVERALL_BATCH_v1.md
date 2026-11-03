@@ -20,7 +20,7 @@
 
 The deliberately conservative, explicit estimation rule is: `(22×1 + 158×0.5 + 103×0.25 + 30×0 + 62×0) / 375 = 33.8%`. These are **planning weights**, not measured engineering labor or latest production acceptance. Under different weights the number changes. The underlying source review dates to October 17–20 and does **not** reflect all subsequent November releases. It must never overwrite Supabase-saved Owner progress.
 
-**Observed historical stage ratios:** 22/375 = 5.87% narrowly verified at that review snapshot; 180/375 = 48.0% verified-or-source-delivered; 280/375 = 74.67% with an active or source/verified stage. None is a current complete-platform acceptance percentage.
+**Observed historical stage ratios:** 22/375 = 5.87% narrowly verified at that review snapshot; 180/375 = 48.0% verified-or-source-delivered; 283/375 = 75.47% with an active or source/verified stage. None is a current complete-platform acceptance percentage.
 
 ## Tier-engine source versus fully integrated
 

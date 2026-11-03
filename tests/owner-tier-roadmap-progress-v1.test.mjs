@@ -143,3 +143,11 @@ test('Historical overall score is never claimed as current universal website acc
   assert.equal(report.safety.membersModified,false);
   assert.equal(report.safety.officialGradingEnabledByThisBatch,false);
 });
+
+test('Active/started roadmap ratio is exact; archived trace references never count as completion',()=>{
+  const stage=report.roadmap.stageCounts;
+  const active=stage.deployed_verified+stage.source_implemented+stage.in_progress;
+  assert.equal(active,283);
+  assert.equal(Number((100*active/375).toFixed(2)),report.roadmap.activeOrSourcePercent);
+  assert.equal(report.roadmap.historicalTraceReferences,1815);
+});
