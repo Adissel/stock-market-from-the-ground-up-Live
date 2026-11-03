@@ -1,0 +1,355 @@
+{
+  "batch": "B003",
+  "part": 5,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b003-alpaca-coverage-feed-rights",
+      "title": "IEX Versus Consolidated Feed Coverage",
+      "summary": "An original advanced educational article explaining iex versus consolidated feed coverage through controlled fictional research, code or rights evidence.",
+      "subject": "Historical Data / Provenance and Rights",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "advanced"
+      ],
+      "definition": "Market-data providers may offer venue-specific or consolidated-feed coverage under separate entitlements; an IEX-only view cannot be treated as complete U.S. exchange-wide transaction history.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Market-data providers may offer venue-specific or consolidated-feed coverage under separate entitlements; an IEX-only view cannot be treated as complete U.S. exchange-wide transaction history. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A fictional learner obtains 100 eligible reported trades for a symbol on a hypothetical consolidated feed but sees only 12 in a venue-limited sample during the same interval. May the 12-trade sample be called the entire market?",
+      "solution": "No. The sample represents only the stated venue and selected coverage. A raw 12/100 ratio is meaningful only if timestamps, trade conditions, corrections and populations are aligned; other venues are absent.",
+      "counterexample": "Having an API token that successfully returns prices does not establish full exchange coverage, permission to republish data or authorization to share paid data with other members.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. Having an API token that successfully returns prices does not establish full exchange coverage, permission to republish data or authorization to share paid data with other members. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Create a source-scope table that records each feed's venue set, delay, entitlement, account owner, permitted use and redistribution status before a classroom chart is enabled.",
+      "source_ids": [
+        "ALPACA-DATA"
+      ],
+      "sources": [
+        {
+          "title": "Alpaca Market Data documentation",
+          "url": "https://docs.alpaca.markets/docs/about-market-data-api"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-tiingo-bring-your-own-key",
+      "title": "Member-Supplied Tiingo Tokens and Rights",
+      "summary": "An original advanced educational article explaining member-supplied tiingo tokens and rights through controlled fictional research, code or rights evidence.",
+      "subject": "Historical Data / Provenance and Rights",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "advanced"
+      ],
+      "definition": "A bring-your-own-provider-token integration uses the individual member's permitted credentials and must enforce account-specific access, secret handling and the provider's applicable data-use rights.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. A bring-your-own-provider-token integration uses the individual member's permitted credentials and must enforce account-specific access, secret handling and the provider's applicable data-use rights. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "Two fictional members each connect their own provider key. Member A has a limited historical-data subscription while member B has broader private access. May the server cache B's records and return them to A?",
+      "solution": "No. Entitlements and secrets are account-specific. A member-key request must stay within that member's provider rights, and shared cache keys must not cause cross-account data disclosure.",
+      "counterexample": "An API response appearing in a browser does not authorize redistribution of that vendor's full data history to every site visitor.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. An API response appearing in a browser does not authorize redistribution of that vendor's full data history to every site visitor. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Sketch an integration contract with encrypted token storage, account-bound proxy requests, TTL, secret redaction, rate limits and a no-redistribution default.",
+      "source_ids": [
+        "TIINGO-DATA"
+      ],
+      "sources": [
+        {
+          "title": "Tiingo data documentation",
+          "url": "https://www.tiingo.com/documentation/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-nyse-exchange-depth-rights",
+      "title": "Exchange Depth-of-Book Data Rights",
+      "summary": "An original professional educational article explaining exchange depth-of-book data rights through controlled fictional research, code or rights evidence.",
+      "subject": "Historical Data / Provenance and Rights",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "professional"
+      ],
+      "definition": "Exchange depth-of-book feeds, official auctions and licensed historical trade/quote products have distinct scope, update types and commercial redistribution conditions.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Exchange depth-of-book feeds, official auctions and licensed historical trade/quote products have distinct scope, update types and commercial redistribution conditions. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A proposed education site receives a quote-only data product but wishes to display ten levels of historical exchange order-book depth. Which evidence must be obtained before making that claim?",
+      "solution": "The product's actual venue, depth levels, history rights, user access and display/redistribution terms must be checked. Top-of-book quotes alone do not supply ten-level depth, and a paid feed is not automatically licensed for public teaching.",
+      "counterexample": "An exchange website's public product description is not a purchase, current entitlement, or grant to mirror its data to members.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. An exchange website's public product description is not a purchase, current entitlement, or grant to mirror its data to members. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Write a data-rights signoff sheet separating source feed, data fields, number of levels, derived values, retention and member display permissions.",
+      "source_ids": [
+        "NYSE-MARKETDATA"
+      ],
+      "sources": [
+        {
+          "title": "NYSE exchange data products",
+          "url": "https://www.nyse.com/data-products/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-fred-series-specific-rights",
+      "title": "FRED Series Rights and Economic Vintages",
+      "summary": "An original advanced educational article explaining fred series rights and economic vintages through controlled fictional research, code or rights evidence.",
+      "subject": "Historical Data / Provenance and Rights",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "advanced"
+      ],
+      "definition": "Economic series distributed through a portal can have differing underlying owners and use conditions; each series requires identifier, release timing, revision treatment and rights review.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Economic series distributed through a portal can have differing underlying owners and use conditions; each series requires identifier, release timing, revision treatment and rights review. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A fictional dashboard plans to chart ten FRED economic series from five original publishers, all copied via a public download link. Does a single portal URL establish reuse rights for all ten series?",
+      "solution": "No. Document the relevant publisher and series-level rights for each identifier, confirm any attribution and distribution restrictions, and distinguish research display from commercial redistribution.",
+      "counterexample": "The fact that an API is publicly reachable does not prove that a third-party licensed series inside it may be republished in a paid product.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. The fact that an API is publicly reachable does not prove that a third-party licensed series inside it may be republished in a paid product. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Create a five-column rights register with FRED series ID, originating agency, accessed vintage, redisplay permission and uncertainty status.",
+      "source_ids": [
+        "FRED-POLICY"
+      ],
+      "sources": [
+        {
+          "title": "FRED license/rights policy",
+          "url": "https://fred.stlouisfed.org/legal/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-split-dividend-data-provenance",
+      "title": "Corporate-Action Provenance for OHLCV Feeds",
+      "summary": "An original professional educational article explaining corporate-action provenance for ohlcv feeds through controlled fictional research, code or rights evidence.",
+      "subject": "Historical Data / Provenance and Rights",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "market_data",
+        "professional"
+      ],
+      "definition": "Adjusted OHLCV datasets need explicit treatment of stock splits, dividends, symbol changes, collection time and the vendor's adjusted-field convention before being combined.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Adjusted OHLCV datasets need explicit treatment of stock splits, dividends, symbol changes, collection time and the vendor's adjusted-field convention before being combined. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "An invented record has raw pre-split close $80 and a two-for-one split, while one vendor's historical adjusted close is $40. Another script divides the vendor-adjusted $40 by two again.",
+      "solution": "The second division creates a false $20 value; the original split-adjusted comparable close was $40. The error arises from applying a corporate-action factor twice, not a real extra price change.",
+      "counterexample": "A column merely named close or adjusted_close is insufficient evidence of the corporate-action basis, especially across vendors or after backfilled revisions.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A column merely named close or adjusted_close is insufficient evidence of the corporate-action basis, especially across vendors or after backfilled revisions. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Design an ingest schema with raw price, vendor adjusted price, split factor, dividend policy, event effective date and adjustment-applied flag.",
+      "source_ids": [
+        "MASSIVE-DATA"
+      ],
+      "sources": [
+        {
+          "title": "Massive market data products",
+          "url": "https://massive.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-chart-replay-time-sync",
+      "title": "Replay Candles, Indicator State, and Chart Synchronization",
+      "summary": "An original professional educational article explaining replay candles, indicator state, and chart synchronization through controlled fictional research, code or rights evidence.",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "engineering",
+        "professional"
+      ],
+      "definition": "An educational replay engine must advance chart bars, indicator calculations, tutor explanations and learning checkpoints from the same eligible completed-bar index rather than allowing future bars into one view.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. An educational replay engine must advance chart bars, indicator calculations, tutor explanations and learning checkpoints from the same eligible completed-bar index rather than allowing future bars into one view. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A fictional replay has 100 completed candles but is paused with 35 available to the learner. The chart draws 35 bars while the tutor cites the 40th bar's high. Is the teaching state synchronized?",
+      "solution": "No. The tutor has used five future bars not visible at the replay cutoff. Both components must derive observations from the same bar index and reject any future timestamp for that response.",
+      "counterexample": "A hidden indicator preload or tutor source citation can leak future candles even if the visible chart canvas correctly masks those bars.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A hidden indicator preload or tutor source citation can leak future candles even if the visible chart canvas correctly masks those bars. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Write a three-component replay-state contract for candles, indicator results and tutor evidence, including the exact cutoff index, version and cancellation behavior.",
+      "source_ids": [
+        "ECHARTS",
+        "REACT"
+      ],
+      "sources": [
+        {
+          "title": "Apache ECharts official docs",
+          "url": "https://echarts.apache.org/en/index.html"
+        },
+        {
+          "title": "React official documentation",
+          "url": "https://react.dev/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-row-security-member-isolation",
+      "title": "Supabase Row-Level Security and Member Isolation",
+      "summary": "An original professional educational article explaining supabase row-level security and member isolation through controlled fictional research, code or rights evidence.",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "engineering",
+        "professional"
+      ],
+      "definition": "Row-level security is a database authorization boundary controlling which member records may be accessed. Client-side hidden buttons cannot substitute for policies and server-verified identity.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Row-level security is a database authorization boundary controlling which member records may be accessed. Client-side hidden buttons cannot substitute for policies and server-verified identity. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "In a fictional progress database, member A is signed in and changes a URL query to request member B's journal record. The UI normally displays only A's records. What must the database do?",
+      "solution": "The unauthorized request must be rejected or return no B record under an appropriate user-bound SELECT policy. Visibility of a button or control in the browser cannot authorize the change.",
+      "counterexample": "A server using its privileged service key to proxy unvalidated user IDs can bypass intended row isolation despite apparently correct frontend checks.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A server using its privileged service key to proxy unvalidated user IDs can bypass intended row isolation despite apparently correct frontend checks. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Describe a pair of authenticated test users and verify create, read, update and deletion of private progress records cannot cross account boundaries.",
+      "source_ids": [
+        "SUPABASE-RLS"
+      ],
+      "sources": [
+        {
+          "title": "Supabase RLS docs",
+          "url": "https://supabase.com/docs/guides/database/postgres/row-level-security"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-typed-ohlcv-contracts",
+      "title": "Typed OHLCV Schema and Input Validation",
+      "summary": "An original professional educational article explaining typed ohlcv schema and input validation through controlled fictional research, code or rights evidence.",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "engineering",
+        "professional"
+      ],
+      "definition": "Typed data contracts for OHLCV bars should verify finite numbers, interval timestamps, chronological order, nonnegative volume and high/low relationships before chart or indicator computation.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. Typed data contracts for OHLCV bars should verify finite numbers, interval timestamps, chronological order, nonnegative volume and high/low relationships before chart or indicator computation. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A fictional OHLCV bar reports open $10, high $9, low $8, close $10.50 and volume -100. Identify at least two validation failures.",
+      "solution": "High $9 is below both the open $10 and close $10.50, violating bar bounds. Negative traded volume is invalid under the stated standard nonnegative-volume convention.",
+      "counterexample": "A permissive JSON schema that checks only field names but not value constraints can allow impossible candles into charts and tutoring examples.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A permissive JSON schema that checks only field names but not value constraints can allow impossible candles into charts and tutoring examples. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Draft a typed validator with open, high, low, close, volume, timeframe and timestamp fields; test valid bars, zero volume, missing values and out-of-order times.",
+      "source_ids": [
+        "TYPESCRIPT"
+      ],
+      "sources": [
+        {
+          "title": "TypeScript official docs",
+          "url": "https://www.typescriptlang.org/docs/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-screenreader-chart-evidence",
+      "title": "Accessible Chart Evidence and Keyboard Controls",
+      "summary": "An original professional educational article explaining accessible chart evidence and keyboard controls through controlled fictional research, code or rights evidence.",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "engineering",
+        "professional"
+      ],
+      "definition": "An interactive price chart should provide semantic descriptions of candle values, keyboard-focusable controls, predictable navigation and a nonvisual data alternative rather than relying only on color.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. An interactive price chart should provide semantic descriptions of candle values, keyboard-focusable controls, predictable navigation and a nonvisual data alternative rather than relying only on color. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A learner uses only a keyboard and screen reader on a fictional five-candle chart. The site changes candle color to red but provides no textual high, low or closing value. What information is missing?",
+      "solution": "The learner lacks equivalent accessible evidence for price movement and controls. A candle data table or accessible descriptions should communicate time, open, high, low, close, volume and indicator state.",
+      "counterexample": "A color-only green/red distinction is not enough to convey direction, and a non-focusable pan control cannot be operated by keyboard-only members.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A color-only green/red distinction is not enough to convey direction, and a non-focusable pan control cannot be operated by keyboard-only members. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Write an accessibility acceptance journey: tab to timeframe selector, change it, hear current bar summary, traverse a five-bar evidence table and resume playback.",
+      "source_ids": [
+        "MDN"
+      ],
+      "sources": [
+        {
+          "title": "MDN Web APIs",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-exact-sha-deploy-rollback",
+      "title": "Exact-Commit Release Gates and Rollback",
+      "summary": "An original professional educational article explaining exact-commit release gates and rollback through controlled fictional research, code or rights evidence.",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "engineering",
+        "professional"
+      ],
+      "definition": "A production release should identify the exact committed source revision, passing regression set, built artifact and active deployment; a successful earlier branch preview does not validate a newer production revision.",
+      "procedure": "Define the relevant data input or engineering boundary and keep version, source, timestamps and user permissions explicit before transforming or displaying anything. A production release should identify the exact committed source revision, passing regression set, built artifact and active deployment; a successful earlier branch preview does not validate a newer production revision. Evaluate the fictional exercise, reject unverifiable assumptions, and log the applicable limitation and acceptance evidence.",
+      "exercise": "A fictional team passes tests on commit A, changes source in commit B, and sees a green preview for A while deploying B. Which revision has production test evidence?",
+      "solution": "Only A has the stated test result. B needs matching regression and build records before signoff, or a documented risk exception. Confirming the production SHA prevents reporting a stale green run as approval.",
+      "counterexample": "A deployment queue entry marked active or skipped is not equivalent to a successful production rollout; rollback must identify the known-good deployment artifact.",
+      "limitations": "The example does not license provider data, verify actual user entitlements, claim legal compliance, or prove a production software release. A deployment queue entry marked active or skipped is not equivalent to a successful production rollout; rollback must identify the known-good deployment artifact. Real systems require authenticated end-to-end tests, applicable provider contracts and current security or access review.",
+      "application": "Construct a release ledger with source SHA, CI run ID and conclusion, Cloudflare deployment ID, schema version, smoke-test result and rollback target.",
+      "source_ids": [
+        "CLOUDFLARE-PAGES"
+      ],
+      "sources": [
+        {
+          "title": "Cloudflare Pages documentation",
+          "url": "https://developers.cloudflare.com/pages/"
+        }
+      ]
+    }
+  ]
+}
