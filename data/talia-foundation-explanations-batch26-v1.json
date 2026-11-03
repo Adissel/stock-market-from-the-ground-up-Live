@@ -21,8 +21,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Current ratio divides current assets by current liabilities for the same reporting date. Worked fictional evidence: Current assets $9 million / current liabilities $6 million = 1.50. Error correction: Calling 1.50 proof of solvency ignores cash quality and future obligations. Boundary: Classification choices and reporting-date seasonality limit comparison. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Assets $14m, liabilities $8m: compute ratio and name an omitted liquidity fact.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -33,6 +32,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Current ratio\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Current assets and obligations require consistent financial-statement dates. Existing instructional constraint: Classification choices and reporting-date seasonality limit comparison.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -49,8 +61,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Quick ratio narrows liquid assets by excluding inventory and other defined current items. Worked fictional evidence: Cash $3m + receivables $4m divided by $5m current liabilities = 1.40. Error correction: Including $2m inventory while calling the result a quick ratio changes the metric. Boundary: Receivable collectability and definition variants must be reviewed. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Cash $2m, receivables $3m, liabilities $4m: compute quick ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -61,6 +72,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Quick ratio\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Quick-asset inclusions vary; net receivables and prepayments require review. Existing instructional constraint: Receivable collectability and definition variants must be reviewed.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -77,8 +101,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Working capital subtracts current liabilities from current assets and remains a dollar amount. Worked fictional evidence: $12m current assets − $9m current liabilities = $3m working capital. Error correction: Reporting $3m as a ratio or as freely spendable cash misstates the measure. Boundary: Positive working capital does not reveal timing or asset quality. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Current assets $7m and liabilities $8.5m: compute working capital and interpret its sign cautiously.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -89,6 +112,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Working capital\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Working capital is not synonymous with immediately spendable cash. Existing instructional constraint: Positive working capital does not reveal timing or asset quality.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -105,8 +141,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Gross margin divides revenue minus cost of revenue by revenue for a stated period. Worked fictional evidence: Revenue $20m − cost $12m = $8m gross profit; $8m/$20m=40%. Error correction: Dividing gross profit by cost instead of revenue produces a different markup metric. Boundary: Classification policies and product mix affect comparability. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Revenue $15m and cost $9m: compute gross profit and margin.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -117,6 +152,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Gross margin\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Gross margin excludes operating, financing and income-tax expenses. Existing instructional constraint: Classification policies and product mix affect comparability.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -133,8 +181,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Operating margin divides operating income by revenue using consistent period and accounting definitions. Worked fictional evidence: Operating income $2.4m / revenue $16m = 15%. Error correction: Substituting net income while labeling operating margin mixes profit layers. Boundary: Nonrecurring items and segment mix can distort comparisons. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Operating income −$1m on $10m revenue: compute and interpret the margin.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -145,6 +192,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Operating margin\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Operating margin is distinct from net margin and EBITDA margin. Existing instructional constraint: Nonrecurring items and segment mix can distort comparisons.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -161,8 +221,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Net margin divides net income attributable under the chosen scope by revenue. Worked fictional evidence: Net income $1.2m / revenue $24m = 5%. Error correction: Using EPS numerator with consolidated revenue can mix scopes. Boundary: Tax, interest, noncontrolling interests, and one-time items matter. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Net loss $0.6m on $12m revenue: compute net margin.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -173,6 +232,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Net margin\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Accounting net profit is not free cash flow or available bank deposits. Existing instructional constraint: Tax, interest, noncontrolling interests, and one-time items matter.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -189,8 +261,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Period-over-period revenue growth uses the earlier comparable period as denominator. Worked fictional evidence: Revenue rises from $40m to $46m: ($6m/$40m)×100=15%. Error correction: Dividing the $6m change by current $46m understates the conventional rate. Boundary: Currency, acquisitions, and unequal periods can break comparability. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Revenue changes $25m to $30m: compute growth and identify the denominator.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -201,6 +272,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Revenue growth rate\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Percentage growth assumes a nonzero comparable base and consistent periods. Existing instructional constraint: Currency, acquisitions, and unequal periods can break comparability.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -217,8 +301,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Basic and diluted EPS use different weighted-average share denominators and must not be interchanged. Worked fictional evidence: $10m earnings / 5m basic shares=$2.00; /6m diluted shares=$1.67. Error correction: Using period-end shares instead of weighted-average shares misstates EPS. Boundary: Antidilutive securities and attribution rules affect the denominator. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: $8m earnings, 4m basic and 5m diluted shares: compute both.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -229,6 +312,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Basic versus diluted EPS\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Diluted EPS can require numerator adjustments, not only a share count change. Existing instructional constraint: Antidilutive securities and attribution rules affect the denominator.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -245,8 +341,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A common simplified free-cash-flow measure subtracts capital expenditures from operating cash flow. Worked fictional evidence: Operating cash flow $7m − capital expenditures $2m = $5m. Error correction: Subtracting depreciation instead of cash capital expenditure mixes accrual and cash items. Boundary: Definitions vary and acquisitions or financing are not included. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: OCF $4.5m and capex $1.2m: compute simplified FCF.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -257,6 +352,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses operating cash flow less capital expenditures and its non-GAAP limitations relevant to the general subject of \"Simplified free cash flow\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "The SEC says free cash flow lacks a uniform definition and is not discretionary cash. Existing instructional constraint: Definitions vary and acquisitions or financing are not included.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -273,8 +381,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple runway estimate divides available cash by a consistently measured periodic cash burn. Worked fictional evidence: Cash $12m / quarterly burn $3m = 4 quarters. Error correction: Mixing annual cash with monthly burn without unit conversion produces nonsense. Boundary: Burn can change and restricted cash or financing access may differ. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Cash $9m and monthly burn $1.5m: compute months of simple runway.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -285,6 +392,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Simple cash runway\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Cash runway assumes stable future cash consumption and no financing changes. Existing instructional constraint: Burn can change and restricted cash or financing access may differ.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -301,8 +421,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Debt-to-equity divides a defined debt measure by a consistently defined equity balance. Worked fictional evidence: Debt $18m / equity $12m = 1.50. Error correction: Using enterprise value as equity changes the accounting ratio. Boundary: Negative equity and lease classification can make the ratio misleading. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Debt $7m and equity $14m: compute ratio and state one limitation.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -313,6 +432,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Debt-to-equity ratio\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Debt-only versus total-liabilities numerator conventions must not be conflated. Existing instructional constraint: Negative equity and lease classification can make the ratio misleading.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -329,8 +461,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Interest coverage commonly divides operating earnings by interest expense for the same period. Worked fictional evidence: EBIT $6m / interest $2m = 3.0 times. Error correction: Calling 3× a guarantee of payment ignores cash timing and future rates. Boundary: Negative earnings and capitalized interest require care. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: EBIT $4m and interest $1.6m: compute coverage.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -341,6 +472,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Interest coverage\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "EBIT interest coverage does not prove principal payment capacity. Existing instructional constraint: Negative earnings and capitalized interest require care.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -357,8 +501,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Inventory turnover commonly divides period cost of goods sold by average inventory. Worked fictional evidence: COGS $24m / average inventory $6m = 4.0 turns. Error correction: Using ending inventory without disclosure can distort a seasonal business. Boundary: Seasonality and inventory accounting methods affect comparison. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: COGS $18m and average inventory $3m: compute turnover.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -369,6 +512,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Inventory turnover\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Turnover must align cost of sales and beginning/end inventory measures. Existing instructional constraint: Seasonality and inventory accounting methods affect comparison.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -385,8 +541,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Receivable days estimates collection time from average receivables divided by period credit sales times period days. Worked fictional evidence: Average receivables $5m / annual sales $50m ×365 = 36.5 days. Error correction: Treating all revenue as credit sales without disclosure weakens the estimate. Boundary: Credit-sales data may differ from total revenue. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Receivables $3m and annual credit sales $30m: compute approximate days.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -397,6 +552,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Receivable days\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Receivables days using all sales differs from an actual credit-sales convention. Existing instructional constraint: Credit-sales data may differ from total revenue.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -413,8 +581,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Book value per share divides applicable common equity by common shares outstanding at the same date. Worked fictional evidence: Common equity $45m / 15m shares = $3.00 per share. Error correction: Calling book value a guaranteed liquidation price ignores asset realizability. Boundary: Intangibles, preferred claims, and share-date mismatch matter. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Equity $28m and 8m shares: compute book value per share.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -425,6 +592,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses valuation ratios and multiples relevant to the general subject of \"Book value per share\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Common book equity must exclude preferred claims if applicable. Existing instructional constraint: Intangibles, preferred claims, and share-date mismatch matter.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -441,8 +621,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: P/E divides a stated share price by comparable earnings per share and requires period labeling. Worked fictional evidence: Price $30 / trailing EPS $2 = 15×. Error correction: Mixing forward price with trailing EPS without labeling the periods confuses comparison. Boundary: Negative EPS, cyclicality, and one-time earnings can make P/E uninformative. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Price $24 and EPS $1.50: compute P/E and state the earnings period needed.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -453,6 +632,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Price-to-earnings ratio\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Trailing per-share earnings need comparable reporting dates and class. Existing instructional constraint: Negative EPS, cyclicality, and one-time earnings can make P/E uninformative.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -469,8 +661,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Price-to-sales relates market capitalization to period revenue, or price per share to revenue per share. Worked fictional evidence: Market cap $120m / annual revenue $60m = 2.0×. Error correction: Calling a lower P/S automatically cheaper ignores profitability and growth differences. Boundary: Margins, dilution, and revenue quality remain unmeasured. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Market cap $75m and revenue $50m: compute P/S and name an omitted factor.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -481,6 +672,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses valuation ratios and multiples relevant to the general subject of \"Price-to-sales ratio\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Price-to-sales compares equity valuation with entire-firm revenues. Existing instructional constraint: Margins, dilution, and revenue quality remain unmeasured.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -497,8 +701,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Simplified enterprise value adds debt to equity value and subtracts cash under a declared scope. Worked fictional evidence: Market cap $100m + debt $30m − cash $20m = $110m. Error correction: Subtracting all reported cash without checking availability can understate EV. Boundary: Preferred stock, leases, minority interests, and restricted cash may be required. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Market cap $80m, debt $25m, cash $10m: compute simplified EV.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -509,6 +712,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses valuation ratios and multiples relevant to the general subject of \"Simplified enterprise value\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "EV approximation omits lease, minority, preferred and other financing claims. Existing instructional constraint: Preferred stock, leases, minority interests, and restricted cash may be required.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -525,8 +741,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: EV/sales divides consistently dated enterprise value by revenue for a declared period. Worked fictional evidence: EV $150m / annual revenue $75m = 2.0×. Error correction: Mixing current EV with an unlabeled quarterly revenue number exaggerates the ratio. Boundary: Capital structure scope and revenue comparability control usefulness. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: EV $90m and annual revenue $45m: compute ratio and label period.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://pages.stern.nyu.edu/adamodar/New_Home_Page/littlebook/multiples.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -537,6 +752,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses revenue and enterprise valuation multiples relevant to the general subject of \"Enterprise value to sales\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Enterprise value and sales must share period and business perimeter. Existing instructional constraint: Capital structure scope and revenue comparability control usefulness.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -553,8 +781,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Share-count dilution compares weighted-average or period-end shares on a consistent basis. Worked fictional evidence: Shares rise from 20m to 25m: (5m/20m)×100=25%. Error correction: Calling a split-adjusted increase economic dilution without reconciliation can be wrong. Boundary: Buybacks, splits, and denominator choice affect interpretation. No protected assessment, valuation conclusion, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Shares rise from 40m to 46m: compute percentage change and name one reconciliation item.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing",
-        "https://www.sec.gov/edgar/search/"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -565,6 +792,19 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing",
+        "https://www.sec.gov/edgar/search/"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The research page discusses financial statement categories and selected ratios relevant to the general subject of \"Share-count dilution rate\". It does not independently verify the exact hypothetical numerical method in this authored lesson.",
+        "limitationsAndOpenQuestions": "Share-count growth need not equal every continuing holder's dilution rate. Existing instructional constraint: Buybacks, splits, and denominator choice affect interpretation.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]
