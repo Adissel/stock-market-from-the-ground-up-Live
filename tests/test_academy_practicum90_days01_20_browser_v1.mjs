@@ -5,11 +5,11 @@ import {academyByCode,ACADEMY_VERSION} from '../functions/_lib/bootcamp-academy-
 const origin=(process.env.SITEWIDE_TEST_BASE||'http://127.0.0.1:8765').replace(/\/$/,'');
 assert(/^http:\/\/127\.0\.0\.1:\d+$/.test(origin));
 const course=academyByCode.practicum90,prompts=new Set();
-for(const day of course.curriculum.slice(0,80)){
+for(const day of course.curriculum.slice(0,90)){
  assert.equal(day.lesson.formativeQuestions.length,12);assert.equal(day.lesson.advancedPracticums.length,1);
  for(const q of day.lesson.formativeQuestions){assert(!prompts.has(q.id));prompts.add(q.id);}
 }
-assert.equal(prompts.size,960);
+assert.equal(prompts.size,1080);
 const auth="window.getSupabaseClient=async()=>({auth:{getUser:async()=>({data:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'}}}),getSession:async()=>({data:{session:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'},access_token:'synthetic'}}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}});";
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
@@ -25,7 +25,7 @@ try{
   await page.goto(origin+'/bootcamp-academy.html?program=practicum90',{waitUntil:'domcontentloaded'});
   await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
   assert.equal(await page.locator('#academy-days .gu-bc-day').count(),90);
-  for(let i=0;i<80;i++){
+  for(let i=0;i<90;i++){
    const control=page.locator('#academy-days .gu-bc-day').nth(i);await control.focus();await page.keyboard.press('Enter');
    await page.waitForFunction(title=>document.getElementById('academy-day-title')?.textContent===title,course.curriculum[i].title,{timeout:15000});
    const guide=page.locator('#academy-legacy-guide');await guide.locator(':scope > summary').click();
