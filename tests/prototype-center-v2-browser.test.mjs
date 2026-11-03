@@ -248,6 +248,14 @@ try{
 
   assert.equal(await page.locator('.pt-v3-stage-button').count(),9,'Nine approved stage controls');
   assert.equal(await page.locator('.pt-v3-facet').count(),5,'Exactly five teaching facets');
+  await page.locator('#pt-content button:has-text("Inspect canonical curriculum")').click();
+  assert.equal(await page.locator('#pt-curriculum-parity').evaluate(el=>el.open),true,'Canonical inspector must open');
+  await page.locator('#pt-curriculum-parity > summary').click();
+  await page.locator('#pt-content .pt-v3-modes button:has-text("Boot Camp")').click();
+  assert.equal(await page.locator('.pt-v3-course').count(),10,'Classic Builder uses ten curriculum paths');
+  assert.equal(await page.locator('.pt-v3-course small:has-text("Controlled beta draft")').count(),3,'Only three paths are draft-controlled beta');
+  await page.locator('#pt-content .pt-v3-modes button:has-text("Lab")').click();
+
   assert.equal(await page.locator('.pt-v3-hero').count(),1,'One integrated classroom shell');
   await page.locator('.pt-v3-stage-button').last().click();
   assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Results/);
