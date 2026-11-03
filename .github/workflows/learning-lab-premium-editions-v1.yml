@@ -23,6 +23,13 @@ on:
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functions/api/learning-lab-edition-exercise.js'
+      - 'tests/learning-lab-edition-api-v1.test.mjs'
+      - 'functions/api/learning-lab-edition-workspace.js'
+      - '.github/workflows/learning-lab-premium-editions-v1.yml'
   workflow_dispatch:
 permissions:
   contents: read
