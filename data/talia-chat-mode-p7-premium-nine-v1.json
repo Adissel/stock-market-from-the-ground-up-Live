@@ -1,0 +1,393 @@
+{
+  "schema": "smfgu.talia.chatmode.package7.premium-nine-runtime-stories.v1",
+  "documentId": "SMFGU-TALIA-CHAT-P7-PREMIUM-009-001",
+  "date": "2026-11-03",
+  "version": "1.0",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "status": "CHAT_MODE_RUNTIME_STORIES_SPECIFIED_PREMIUM_RUNTIME_NOT_ACCEPTED",
+  "existingEditionEvidence": "data/talia-four-edition-evidence-audit-v1.json",
+  "membershipMapping": [
+    {
+      "plan": "Free",
+      "target": "Foundation"
+    },
+    {
+      "plan": "Founding 14-Day",
+      "target": "Foundation"
+    },
+    {
+      "plan": "Pick What You Want",
+      "target": "Foundation + individually entitled add-ons"
+    },
+    {
+      "plan": "Founding 30-Day",
+      "target": "Advanced"
+    },
+    {
+      "plan": "Founding 60-Day",
+      "target": "Professional"
+    },
+    {
+      "plan": "Full Monthly",
+      "target": "Professional"
+    },
+    {
+      "plan": "Full Lifetime",
+      "target": "Enterprise"
+    },
+    {
+      "plan": "OnDemand Monthly",
+      "target": "Product-dependent"
+    },
+    {
+      "plan": "Full Annual & historic",
+      "target": "UNRESOLVED_TERMS_RECONCILIATION_REQUIRED"
+    }
+  ],
+  "featureCount": 9,
+  "capabilities": [
+    {
+      "id": "A01",
+      "edition": "ADVANCED",
+      "originalCapability": "Verified prerequisite graph and member-specific progression",
+      "relatedMasterRequirementIds": [
+        "TAL-01-09",
+        "TAL-01-16",
+        "TAL-03-06",
+        "TAL-03-08",
+        "TAL-14-02"
+      ],
+      "role": "Advanced entitled learner",
+      "story": "As a Advanced entitled learner, I need receive a prerequisite map from server-verified progression and the 30 official competency dimensions, so that Tutor identifies evidence-backed prerequisite gaps and clearly labels unknown status; no diagnosis from merely clicking a topic.",
+      "acceptanceCriteria": [
+        "Create distinct authorized prior-progress states for two genuine test members",
+        "Verify the server only retrieves own recorded competencies, not client-submitted score",
+        "Unknown prerequisite remains 'not verified' rather than complete",
+        "Refresh and downgrade cannot alter original learning-progress records"
+      ],
+      "securityAndRiskNegativeTests": [
+        "cross-account progress read",
+        "forged completed grade",
+        "feature released to Foundation without entitlement"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-research-contracts-v1.js",
+        "tests/talia-tier-research-contracts-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "A02",
+      "edition": "ADVANCED",
+      "originalCapability": "Edition-specific adaptive explanations and misconception correction",
+      "relatedMasterRequirementIds": [
+        "TAL-03-01",
+        "TAL-03-02",
+        "TAL-03-03",
+        "TAL-03-04",
+        "TAL-03-05",
+        "TAL-03-07",
+        "TAL-03-09",
+        "TAL-14-02"
+      ],
+      "role": "Advanced entitled learner",
+      "story": "As a Advanced entitled learner, I need obtain targeted explanation changes for verified misconception and source context, so that Explain misconception and offer another original example while inheriting free complete Foundation teaching.",
+      "acceptanceCriteria": [
+        "Real member submits math vs interpretation misconceptions and receives different specific correction",
+        "Follow-up uses same verified member-owned saved history only with consent",
+        "Evidence-absent answer remains generic Foundation-capable instruction",
+        "Cross-account switch discards stale adaptive context"
+      ],
+      "securityAndRiskNegativeTests": [
+        "infer medical/psychological traits from response",
+        "paid explanation gate",
+        "unverified private reasoning treated as server history"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-remaining3-source-v1.js",
+        "tests/talia-tier-remaining3-source-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "A03",
+      "edition": "ADVANCED",
+      "originalCapability": "Skill-gap study recommendations and ordered pathways",
+      "relatedMasterRequirementIds": [
+        "TAL-01-09",
+        "TAL-03-10",
+        "TAL-03-11",
+        "TAL-03-12",
+        "TAL-10-10",
+        "TAL-14-02"
+      ],
+      "role": "Advanced entitled learner",
+      "story": "As a Advanced entitled learner, I need receive entitled skill-gap Lab and Boot Camp recommendations, so that Server returns registered eligible routes with prerequisite reason, without changing grade, access or pricing.",
+      "acceptanceCriteria": [
+        "Mock verified gap for each of four competency dimensions",
+        "Return only registered entitled Lab/day identifiers",
+        "Downgrade hides premium adaptation without destroying saved progress",
+        "If missing verified gap, offer general eligible learning not personalized claim"
+      ],
+      "securityAndRiskNegativeTests": [
+        "unlock course by link",
+        "invent nonexistent canonical Lab",
+        "assert mastery from source-only practice"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-research-contracts-v1.js",
+        "tests/talia-premium-prototypes-batch18-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "P01",
+      "edition": "PROFESSIONAL",
+      "originalCapability": "ECharts completed-bar contextual multi-indicator instruction",
+      "relatedMasterRequirementIds": [
+        "TAL-09-06",
+        "TAL-14-03"
+      ],
+      "role": "Professional entitled learner",
+      "story": "As a Professional entitled learner, I need synchronize bounded chart, multiple indicators and Tutor explanation, so that Shows ECharts completed candle OHLCV and indicator values whose initialization and resets match documented method.",
+      "acceptanceCriteria": [
+        "Inspect 1/3/5 minute completed bar transforms, timestamp and number of bars",
+        "EMA9/20/200 only when full warmup; VWAP proxy labeled",
+        "Keyboard chart selection updates the same evidence cutoff used in Tutor",
+        "Responsive and reduced motion plus screen reader OHLC equivalent"
+      ],
+      "securityAndRiskNegativeTests": [
+        "future candle in response",
+        "close-based surrogate as trade-print VWAP",
+        "assume 200 EMA available from 40 bars"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "src/tutor/TaliaClassroom.tsx"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "P02",
+      "edition": "PROFESSIONAL",
+      "originalCapability": "Server-bounded replay evidence with future-bar denial",
+      "relatedMasterRequirementIds": [
+        "TAL-09-01",
+        "TAL-09-06",
+        "TAL-14-03"
+      ],
+      "role": "Professional entitled learner",
+      "story": "As a Professional entitled learner, I need receive server-owned historical replay coaching at decision cutoff, so that Only authorized point-in-time historical/replay prefix with provenance and completed-candle markers.",
+      "acceptanceCriteria": [
+        "Authorize member and replay-source rights at server",
+        "Advance reveal one candle and verify synchronized Tutor context",
+        "Use late trade report and hidden future candle counterexamples",
+        "Deny forged client timestamp/candle payload"
+      ],
+      "securityAndRiskNegativeTests": [
+        "future event displayed early",
+        "publish licensed feed",
+        "grant replay by UI-only tier switch"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-research-contracts-v1.js",
+        "tests/talia-tier-research-contracts-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "P03",
+      "edition": "PROFESSIONAL",
+      "originalCapability": "Evidence provenance and decision-point debrief",
+      "relatedMasterRequirementIds": [
+        "TAL-09-04",
+        "TAL-09-07",
+        "TAL-14-03"
+      ],
+      "role": "Professional entitled learner",
+      "story": "As a Professional entitled learner, I need debrief a decision against evidence available at time, so that Explicitly differentiate then-known facts, later outcomes, uncertainties and original alternate transfer.",
+      "acceptanceCriteria": [
+        "Store no official grade from debrief",
+        "Cite fact/replay cutoff and show later fact only after release",
+        "Distinguish planned stop and actual gap/slippage",
+        "Use different fictional transfer and reveal limitations"
+      ],
+      "securityAndRiskNegativeTests": [
+        "retrospective lookahead presented as ex-ante insight",
+        "personal trade advice",
+        "copy another member's journal"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-research-contracts-v1.js",
+        "tests/talia-premium-prototypes-batch18-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "E01",
+      "edition": "ENTERPRISE",
+      "originalCapability": "Cross-course verified research orchestration",
+      "relatedMasterRequirementIds": [
+        "TAL-14-04"
+      ],
+      "role": "Enterprise entitled learner",
+      "story": "As a Enterprise entitled learner, I need research across previously authorized course summaries, so that Cross-course source-verified synthesis with as-of provenance and no private answer/third-party data.",
+      "acceptanceCriteria": [
+        "Two entitled course contexts verified by server before comparison",
+        "No additional paid provider calls required",
+        "Reject later-published filing as contemporaneously known",
+        "Explain absence of rights or source scope"
+      ],
+      "securityAndRiskNegativeTests": [
+        "unentitled Boot Camp data",
+        "private rubric export",
+        "lookahead research claim"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-remaining3-source-v1.js",
+        "tests/talia-tier-remaining3-source-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "E02",
+      "edition": "ENTERPRISE",
+      "originalCapability": "Governed multi-source citation and comparison input prototype",
+      "relatedMasterRequirementIds": [
+        "TAL-11-09",
+        "TAL-14-04"
+      ],
+      "role": "Enterprise entitled researcher",
+      "story": "As a Enterprise entitled researcher, I need compare conflicting source evidence with configuration, so that Time-aligned independent original comparisons disclose definition differences, underlying rights, dataset date and uncertainty.",
+      "acceptanceCriteria": [
+        "Compare two permitted original/public-source concept summaries",
+        "Record variant differences such as EMA seed, RVOL denominator and VWAP exact vs proxy",
+        "Fail closed on source citation without evidence scope",
+        "Export no copyrighted vendor chart or licensed feed"
+      ],
+      "securityAndRiskNegativeTests": [
+        "unlicensed scraping and AI processing",
+        "invent quote timestamps",
+        "vendor parity invented"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-research-contracts-v1.js",
+        "tests/talia-premium-prototypes-batch18-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    },
+    {
+      "id": "E03",
+      "edition": "ENTERPRISE",
+      "originalCapability": "Member-authorized evidence/learning workbench reporting",
+      "relatedMasterRequirementIds": [
+        "TAL-13-11",
+        "TAL-14-04"
+      ],
+      "role": "Enterprise entitled learner",
+      "story": "As a Enterprise entitled learner, I need receive member-scoped learning evidence reports, so that Aggregate own authorized learning history and fictional study results, not scores belonging to others.",
+      "acceptanceCriteria": [
+        "Real owner of report retrieves only own aggregate across registered sources",
+        "Two-account negative read and write test",
+        "Downgrade removes premium report access but preserves source progress",
+        "Deletion/export respect consent and audit policy"
+      ],
+      "securityAndRiskNegativeTests": [
+        "include another member's ID",
+        "unreleased protected grades",
+        "report from non-authoritative client-provided data"
+      ],
+      "inherited": "Full source-grounded Foundation teaching, free ordinary Explain/Deeper and permitted 73 conceptual guides remain available",
+      "entitlement": "Resolved from server grants, active effective Tutor tier, addon verification, subscription state and release flag, never UI designation",
+      "dataRights": "No unapproved third-party data, chart/image/code license; use fictional or individually approved authorized sources",
+      "costBoundary": "Existing source-only service, no new paid provider without separate owner budget/consent approval",
+      "downgrade": "Target edition and effective edition are separate; revoke premium access promptly, keep accessible Foundation and preserved lawful progress",
+      "evidenceSource": [
+        "functions/_lib/talia-tier-remaining3-source-v1.js",
+        "tests/talia-tier-remaining3-source-v1.test.mjs"
+      ],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "authenticatedTierAccepted": false,
+      "independentEditorialAccepted": false,
+      "productionFeatureAccepted": false,
+      "releaseGate": "HOLD_UNTIL_REAL_MEMBER_ENTITLEMENT_PRIVACY_BROWSER_CI_AND_LEGAL_WHERE_NEEDED"
+    }
+  ],
+  "unresolved": [
+    "Full Annual and historical product mapping requires original contract/terms reconciliation, not guessed tier.",
+    "All nine premium capabilities source prototype only; none effective/released until real authenticated entitlement testing.",
+    "Consent and AI budget, commercial source rights, independent editorial and exact Cloudflare SHA remain controlled gates."
+  ],
+  "rollback": "Revert feature flag and effective tier with audited entitlement revision, preserve member progress and Foundation availability; do not modify Stripe products or existing memberships."
+}
