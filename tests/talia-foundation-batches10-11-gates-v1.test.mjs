@@ -25,7 +25,14 @@ test('220 distinct original topics, latest 40 require separate editorial hold an
   assert.match(g.status,/pending_independent_editorial_review/);
   assert.ok(!ids.has(g.code));assert.match(g.workedCase,/^FICTIONAL:/);
   for(const f of ['concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])assert.ok(g[f].length>=70,g.code+' '+f);
-  assert.equal(g.sourceUrls.length,1);assert.match(g.sourceUrls[0],/^https:\/\//);
+  assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2,g.code+' citation count');
+  for(const source of g.sourceUrls)assert.match(source,/^https:\/\//);
+  if(g.sourceUrls.length===2){
+   assert.equal(g.previousGenericSourceUrl,'https://www.sec.gov/edgar/search/');
+   assert.ok(g.sourceUrls.every(source=>source.startsWith('https://www.quantconnect.com/docs/')));
+   assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }
  }
 });
 test('new lessons independently separate normal, deep, mistake and ungraded review routes',()=>{
