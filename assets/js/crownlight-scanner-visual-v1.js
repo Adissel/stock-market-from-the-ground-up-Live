@@ -35,11 +35,19 @@
   const title=mk('h2','', 'Crownlight Visual Scanner · Technical Beta');
   const intro=mk('p','', 'Build and compare original research rules. Requires the dated member-supplied CSV in the existing form above. Values are not independently verified.');
   const toolbar=mk('div','cl-scr-toolbar'),editor=mk('div','cl-scr-editor'),results=mk('div','cl-scr-results');
+  const viewHost=mk('div','cl-scr-view-host');
+  const V=root.CrownlightScannerViewV2;
+  if(!V)throw Error('Source-aware result view unavailable.');
+  const templateLibrary=root.CrownlightScannerTemplatesV1;
+  if(!templateLibrary)throw Error('Original scanner templates unavailable.');
   const sortLabel=mk('label','','Sort matched results ');
   const sort=dropdown(Object.entries(C.FIELDS).map(([k,v])=>[k,v]),'change_pct',()=>{});
   sort.setAttribute('aria-label','Sort results by metric');sortLabel.append(sort);
   const direction=dropdown([['desc','Descending'],['asc','Ascending']],'desc',()=>{});
   direction.setAttribute('aria-label','Sort direction');
+  const viewControl=V.mount({host:viewHost,engine:C,primarySort:()=>sort.value});
+  function activeView(){return C.validateView({sort:sort.value,descending:direction.value==='desc',...viewControl.value()});}
+  function restoreView(saved){const value=C.validateView(saved);sort.value=value.sort;direction.value=value.descending?'desc':'asc';viewControl.restore(value);}
   function selectField(node){
    return dropdown(Object.entries(C.FIELDS).map(([k,v])=>[k,v]),node.field,v=>{node.field=v;});
   }
@@ -101,26 +109,53 @@
     value.rejections.missingEvidence+' incomplete and '+
     value.rejections.failedRule+' nonmatching.');
    results.append(summary);
-   const table=mk('table','cl-scr-table'),caption=mk('caption','','Unverified member snapshot; top 100 matching candidates. Not a recommendation.');
+   const table=mk('table','cl-scr-table'),caption=mk('caption','','Unverified member snapshot; top '+value.limit+' matching candidates. Not a recommendation.');
    const head=mk('thead'),tr=mk('tr');
-   const columns=[['symbol','Symbol'],['price','Last'],['change_pct','Daily %'],['volume','Volume'],
-    ['rvol','Supplied RVOL'],['float','Reported float'],['trades','Supplied trades'],['vwap_distance_pct','VWAP difference %']];
+   const columns=[['symbol','Symbol'],...value.columns.map(key=>[key,C.FIELDS[key]])];
    for(const [,label] of columns){const th=mk('th','',label);th.scope='col';tr.append(th);}
+   const whyHeader=mk('th','','Rule evidence');whyHeader.scope='col';tr.append(whyHeader);
    head.append(tr);table.append(caption,head);
    const tbody=mk('tbody');
    for(const record of value.rows){
-    const r=mk('tr');for(const [key] of columns){
+    const r=mk('tr');
+    for(const [key] of columns){
      const v=record[key];r.append(mk('td','',v===null?'Not supplied':String(v)));
-    }tbody.append(r);
+    }
+    const details=mk('details','cl-scr-explanation'),summary=mk('summary','','Explain criteria');
+    details.append(summary);
+    const intro=mk('p','','Educational scanner criteria on the supplied snapshot; not a market-data verification.');
+    details.append(intro);
+    const list=mk('ul');
+    for(const item of record.ruleTrail.details){
+     const label=item.path+' · '+C.FIELDS[item.field]+' ('+(item.observed===null?'Not supplied':item.observed)+
+      ') '+item.op+' '+(item.comparisonField?C.FIELDS[item.comparisonField]+' ('+(item.target===null?'Not supplied':item.target)+')':String(item.target))+
+      (item.upper===null?'':' to '+item.upper)+' — '+item.result;
+     list.append(mk('li','',label));
+    }
+    details.append(list);
+    const cell=mk('td');cell.append(details);r.append(cell);
+    tbody.append(r);
    }
    table.append(tbody);results.append(table);
   }
+  const templateLabel=mk('label','','Illustrative teaching template ');
+  const templateSelect=dropdown([['','Choose a template'],...templateLibrary.items.map(x=>[x.id,x.name])],'',()=>{});
+  templateSelect.setAttribute('aria-label','Choose original scanner teaching template');
+  templateLabel.append(templateSelect);toolbar.append(templateLabel);
+  toolbar.append(button('Apply template',()=>{
+   try{
+    const template=templateLibrary.lookup(templateSelect.value);
+    if(!template)throw Error('Select a template first.');
+    current=C.validate(template.rules);draw();results.replaceChildren();
+    report(template.description+' Required supplemental CSV fields: '+template.requiredFields.join(', ')+'. This is not a trade-entry recommendation.');
+   }catch(e){report(e.message);}
+  }));
   toolbar.append(sortLabel,direction);
   toolbar.append(button('Run visual scan',()=>{
    try{
     if(!getRows().length)throw Error('Import an authorized dated snapshot above first.');
     const p=provenance(),result=C.analyze(getRows(),current,
-      {sort:sort.value,descending:direction.value==='desc'});
+      activeView());
     renderResults(result);
     report('Calculated locally on unverified snapshot '+p.sourceNote+' at '+p.asOf+'. No quote freshness or provider permissions verified.');
    }catch(e){results.replaceChildren();report(e.message);}
@@ -128,7 +163,7 @@
   toolbar.append(button('Save private rules',async()=>{
    try{
     const p=provenance(),normalized=C.validate(current);
-    await savePreset({visualRules:normalized,ruleEngine:'CROWNLIGHT_SCANNER_V1',
+    await savePreset({visualRules:normalized,view:activeView(),ruleEngine:'CROWNLIGHT_SCANNER_V1',
       sourceNote:p.sourceNote,asOf:p.asOf,verified:false,liveFeed:false,
       kind:'UNVERIFIED_RESEARCH_CRITERIA'});
     report('Rules and source note saved in your authenticated private workspace; input market data not saved.');
@@ -139,13 +174,15 @@
     const records=await loadPresets();
     const found=records.find(x=>x.payload&&x.payload.visualRules);
     if(!found)throw Error('No private visual scanner rule set found.');
-    current=C.validate(found.payload.visualRules);draw();results.replaceChildren();
+    const loaded=C.validate(found.payload.visualRules);
+    const restored=found.payload.view?C.validateView(found.payload.view):null;
+    current=loaded;if(restored)restoreView(restored);draw();results.replaceChildren();
     report('Saved criteria restored. Market snapshot must be imported again; quotes are not stored.');
    }catch(e){report(e.message);}
   }));
   toolbar.append(button('Export criteria',()=>{
    try{
-    const blob=new Blob([JSON.stringify({format:'CROWNLIGHT_SCANNER_V1',rules:C.validate(current)},null,2)],{type:'application/json'});
+    const blob=new Blob([JSON.stringify({format:'CROWNLIGHT_SCANNER_V1',rules:C.validate(current),view:activeView()},null,2)],{type:'application/json'});
     const url=URL.createObjectURL(blob),a=mk('a');a.href=url;a.download='crownlight-scanner-rules.json';
     a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     report('Exported rules only, with no market data or credentials.');
@@ -158,11 +195,13 @@
     if(!f||f.size>24000)throw Error('Rule import must be 24 KB or less.');
     const input=JSON.parse(await f.text());
     if(input.format!=='CROWNLIGHT_SCANNER_V1')throw Error('Unknown import format.');
-    current=C.validate(input.rules);draw();results.replaceChildren();
+    const incoming=C.validate(input.rules);
+    const nextView=input.view?C.validateView(input.view):null;
+    current=incoming;if(nextView)restoreView(nextView);draw();results.replaceChildren();
     report('Rules imported locally. Verify their values and snapshot rights.');
    }catch(e){report(e.message);}finally{file.value='';}
   };
-  area.append(title,intro,toolbar,file,editor,status,results);
+  area.append(title,intro,toolbar,viewHost,file,editor,status,results);
   host.append(area);draw();
  }
  root.CrownlightScannerVisualV1=Object.freeze({mount});

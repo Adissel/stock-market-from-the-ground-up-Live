@@ -37,7 +37,7 @@ assert.deepEqual(JSON.parse(JSON.stringify(result.rejections)),{invalidInput:1,d
 assert.equal(result.liveFeed,false);
 assert.equal(result.tradeAuthorization,false);
 assert.equal(result.statisticalEdge,false);
-assert.throws(()=>E.analyze(rows,interval,{limit:101}),/Invalid sort/);
-assert.throws(()=>E.analyze(rows,interval,{sort:'bogus'}),/Invalid sort/);
+assert.throws(()=>E.analyze(rows,interval,{limit:101}),/Invalid scanner results columns or sort settings/);
+assert.throws(()=>E.analyze(rows,interval,{sort:'bogus'}),/Invalid scanner results columns or sort settings/);
 assert.throws(()=>E.analyze(Array.from({length:2001},()=>a),interval),/2,000/);
 console.log('PASS v1 Crownlight scanner: operator/field/range and tri-state logic, provenance limits');

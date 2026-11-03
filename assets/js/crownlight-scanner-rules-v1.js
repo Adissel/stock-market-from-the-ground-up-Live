@@ -106,14 +106,47 @@ function validRow(row){
  return read(row,'price')>0&&read(row,'volume')>=0&&read(row,'rvol')>=0&&
   read(row,'float')>0&&read(row,'spread_pct')>=0;
 }
-function analyze(rows,tree,opt={}){
- if(!Array.isArray(rows)||rows.length>2000||!obj(opt))throw err('Invalid input or >2,000 records.');
- const expression=validate(tree);
+const DEFAULT_COLUMNS=Object.freeze(['price','change_pct','volume','rvol','float','spread_pct','trades','vwap_distance_pct']);
+function validateView(opt={}){
+ if(!obj(opt))throw err('Invalid results view.');
  const sort=opt.sort===undefined?'change_pct':opt.sort;
  const descending=opt.descending===undefined?true:opt.descending;
+ const secondarySort=opt.secondarySort===undefined?null:opt.secondarySort;
+ const secondaryDescending=opt.secondaryDescending===undefined?true:opt.secondaryDescending;
  const limit=opt.limit===undefined?100:opt.limit;
+ const columns=opt.columns===undefined?Array.from(DEFAULT_COLUMNS):opt.columns;
  if(!Object.hasOwn(FIELDS,sort)||typeof descending!=='boolean'||
-    !Number.isInteger(limit)||limit<1||limit>100)throw err('Invalid sort or result limit.');
+    (secondarySort!==null&&(!Object.hasOwn(FIELDS,secondarySort)||secondarySort===sort))||
+    typeof secondaryDescending!=='boolean'||
+    !Number.isInteger(limit)||limit<1||limit>100||!Array.isArray(columns)||
+    columns.length<1||columns.length>12||
+    columns.some(x=>typeof x!=='string'||!Object.hasOwn(FIELDS,x))||
+    new Set(columns).size!==columns.length)
+  throw err('Invalid scanner results columns or sort settings.');
+ return {sort,descending,secondarySort,secondaryDescending,limit,columns:columns.slice()};
+}
+function explain(tree,row){
+ const expression=validate(tree);
+ const details=[];
+ function walk(n,path){
+  if(n.type==='rule'){
+   const left=read(row,n.field);
+   const right=n.compareField===undefined?n.value:read(row,n.compareField);
+   details.push({path,field:n.field,op:n.op,observed:left,
+    comparisonField:n.compareField||null,target:right,upper:n.op==='BETWEEN'?n.maxValue:null,
+    result:evaluate(n,row)===null?'UNKNOWN':evaluate(n,row)?'PASS':'FAIL'});
+   return;
+  }
+  if(n.type==='not'){walk(n.child,path+'/NOT');return;}
+  n.children.forEach((child,i)=>walk(child,path+'/'+n.op+'/'+(i+1)));
+ }
+ walk(expression,'root');
+ return {outcome:evaluate(expression,row)===null?'UNKNOWN':evaluate(expression,row)?'PASS':'FAIL',
+  details,liveMarketEvidence:false};
+}
+function analyze(rows,tree,opt={}){
+ if(!Array.isArray(rows)||rows.length>2000)throw err('Invalid input or >2,000 records.');
+ const expression=validate(tree),view=validateView(opt);
  const hits=[],seen=new Set(),reject={invalidInput:0,duplicateTicker:0,missingEvidence:0,failedRule:0};
  for(const row of rows){
   if(!validRow(row)){reject.invalidInput++;continue;}
@@ -124,20 +157,31 @@ function analyze(rows,tree,opt={}){
   if(match===false){reject.failedRule++;continue;}
   hits.push({symbol,row});
  }
+ function cmp(a,b,key,descending){
+  const x=read(a.row,key),y=read(b.row,key);
+  if(x===null&&y!==null)return 1;
+  if(y===null&&x!==null)return -1;
+  if(x!==null&&y!==null&&x!==y)return descending?y-x:x-y;
+  return 0;
+ }
  hits.sort((a,b)=>{
-  const x=read(a.row,sort),y=read(b.row,sort);
-  if(x===null)return y===null?a.symbol.localeCompare(b.symbol):1;
-  if(y===null)return -1;
-  return x!==y?(descending?y-x:x-y):a.symbol.localeCompare(b.symbol);
+  const primary=cmp(a,b,view.sort,view.descending);if(primary)return primary;
+  if(view.secondarySort){
+   const secondary=cmp(a,b,view.secondarySort,view.secondaryDescending);
+   if(secondary)return secondary;
+  }
+  return a.symbol.localeCompare(b.symbol);
  });
  return {inspected:rows.length,matched:hits.length,rejections:reject,
-  rows:hits.slice(0,limit).map(x=>({symbol:x.symbol,price:read(x.row,'price'),
-   change_pct:read(x.row,'change_pct'),volume:read(x.row,'volume'),
-   rvol:read(x.row,'rvol'),float:read(x.row,'float'),
-   spread_pct:read(x.row,'spread_pct'),trades:read(x.row,'trades'),
-   vwap_distance_pct:read(x.row,'vwap_distance_pct')})),
-  expression,sort,descending,limit,liveFeed:false,tradeAuthorization:false,
+  rows:hits.slice(0,view.limit).map(x=>{
+   const fields=[...new Set([...DEFAULT_COLUMNS,...view.columns])];
+   const result={symbol:x.symbol};
+   for(const field of fields)result[field]=read(x.row,field);
+   result.ruleTrail=explain(expression,x.row);
+   return result;
+  }),
+  expression,...view,liveFeed:false,tradeAuthorization:false,
   statisticalEdge:false,sourceStatus:'UNVERIFIED_MEMBER_IMPORTED_SNAPSHOT'};
 }
-root.CrownlightScannerRulesV1=Object.freeze({FIELDS,OPS,read,validate,evaluate,analyze});
+root.CrownlightScannerRulesV1=Object.freeze({FIELDS,OPS,DEFAULT_COLUMNS,read,validate,validateView,evaluate,explain,analyze});
 })(globalThis);

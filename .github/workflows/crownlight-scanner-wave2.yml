@@ -1,0 +1,45 @@
+name: Crownlight Scanner Wave 2 - Results, Templates and Source Integrity
+on:
+  pull_request:
+  push:
+    branches: [main, feature/crownlight-scanner-wave2-results-20261103]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scanner-results-and-education:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Engine, visual and research regressions
+        run: |
+          node --check assets/js/crownlight-scanner-rules-v1.js
+          node --check assets/js/crownlight-scanner-visual-v1.js
+          node --check assets/js/crownlight-scanner-view-v2.js
+          node --check assets/js/crownlight-scanner-templates-v1.js
+          node --check assets/js/advanced-tools.js
+          node tests/test_crownlight_scanner_rules_v1.mjs
+          node tests/test_crownlight_scanner_results_v2.mjs
+          node tests/test_crownlight_scanner_templates_v1.mjs
+          node tests/test_crownlight_scanner_visual_source_v1.mjs
+          node tests/test_crownlight_scanner_view_source_v2.mjs
+          node tests/test_crownlight_scanner_phase8_crosswalk_v1.mjs
+          node tests/test_v014145_research_scanner.mjs
+          node tests/test_v014150_scanner_filters.mjs
+          node tests/test_sec_issuer_research_v1.mjs
+      - name: Verify deployable static output and private data exclusion
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/assets/js/crownlight-scanner-rules-v1.js
+          test -f public/assets/js/crownlight-scanner-visual-v1.js
+          test -f public/assets/js/crownlight-scanner-view-v2.js
+          test -f public/assets/js/crownlight-scanner-templates-v1.js
+          test ! -d public/functions
+          test ! -d public/supabase
+          test ! -e public/tests/fixtures/crownlight-scanner-fictional-wave2.csv
