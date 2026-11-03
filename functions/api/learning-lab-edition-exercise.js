@@ -98,10 +98,9 @@ function entitlement(rows,actorId,family,edition,env){
    row.starts_at:row.current_period_start);
   if(!Number.isFinite(start)||start>now)continue;
   const endValue=row.entitlementSource==='user_plan_grants'?row.ends_at:row.current_period_end;
-  // Only lifetime plan grants may have no natural end date. All other records
-  // require a bounded membership period.
-  const indefinite=row.entitlementSource==='user_plan_grants'&&
-   row.plan_code==='LIFETIME'&&endValue==null;
+  // Canonical admin/owner plan grants can be open-ended across membership types.
+  // Explicit engine grants MUST still carry a finite expiry and remain revocable.
+  const indefinite=row.entitlementSource==='user_plan_grants'&&endValue==null;
   const period=indefinite?Infinity:Date.parse(endValue||'');
   if(!indefinite&&(!Number.isFinite(period)||period<=now))continue;
   const target=enginePolicyForPlan(row.plan_code).target[family];
