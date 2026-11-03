@@ -65,8 +65,18 @@ try{
   const scopedCeiling=ceiling?.active===true&&ceiling?.restrictive===true&&
    Number.isFinite(Date.parse(ceiling.expiresAt||''))&&Date.parse(ceiling.expiresAt)>Date.now()&&
    Date.parse(ceiling.expiresAt)<=Date.parse('2026-11-08T00:00:00Z');
-  assert(scopedGrant||scopedCeiling,'Advanced chart view lacks an explicit, expiring noncommercial QA authorization');
-  ok('Chart Studio '+tier+' allowed only under expiring noncommercial QA; no staff or paid membership');
+  // Free members can independently redeem Lumens chart passes or purchase
+  // a chart-only upgrade. Neither changes their Free membership or Lab grants.
+  // Preserve genuine already-paid/redeemed entitlements rather than
+  // misclassifying them as an unauthorized membership escalation.
+  const validExpiry=Number.isFinite(Date.parse(temporary?.expiresAt||''))&&
+   Date.parse(temporary.expiresAt)>Date.now();
+  const independentPass=validExpiry&&temporary?.tier===tier&&(
+   (temporary.kind==='SPARKS'&&chart.body.reason==='Active Crownlight Lumens Chart Studio pass')||
+   (temporary.kind==='CASH'&&chart.body.reason==='Verified 30-day Chart Studio cash upgrade'));
+  assert(scopedGrant||scopedCeiling||independentPass,
+   'Higher chart tier must have a verified current chart-only QA grant, ceiling, Lumens pass or cash upgrade');
+  ok('Chart Studio '+tier+' backed by expiring chart-only entitlement; no staff or premium Lab access');
  }else ok('Chart Studio STANDARD baseline; premium tiers denied');
  const watchlist=await get('/api/free-watchlist');
  assert.equal(watchlist.status,200);
