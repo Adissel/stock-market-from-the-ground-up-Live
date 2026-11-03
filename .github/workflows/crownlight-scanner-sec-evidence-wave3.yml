@@ -1,0 +1,32 @@
+name: Crownlight Scanner SEC Evidence Research - Wave 3
+on:
+  pull_request:
+  push:
+    branches: [main, feature/crownlight-scanner-wave3-sec-evidence-20261103]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Source controls and existing protected SEC API
+        run: |
+          node --check assets/js/crownlight-scanner-sec-evidence-v1.js
+          node tests/test_crownlight_scanner_sec_evidence_v1.mjs
+          node tests/test_sec_issuer_research_v1.mjs
+          node tests/test_v014145_research_scanner.mjs
+          node tests/test_crownlight_scanner_rules_v1.mjs
+      - name: Build and preserve private source boundaries
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/assets/js/crownlight-scanner-sec-evidence-v1.js
+          test ! -d public/supabase
+          test ! -d public/functions
