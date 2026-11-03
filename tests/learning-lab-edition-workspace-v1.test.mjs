@@ -270,3 +270,18 @@ test('Enterprise Academy bookmark enforces fresh grant, revocation, release swit
   assert.equal(JSON.parse(write.body).revision,6);
  }finally{f.restore()}
 });
+
+test('Reserved Academy and fictional-pair namespaces cannot be read or overwritten as ordinary exercises',async()=>{
+ const f=setup({academy:true});try{
+  for(const caseKey of ['ACADEMY_ENTERPRISE_PATH_V1__PATH',
+   'F1-C02-L01__PAIR']){
+   const body={...academyBookmark(),caseKey,activity:'chronological_validation',
+    payload:{evidence:evidence()}};
+   assert.equal((await onRequest({request:req(body),env:academyEnv})).status,400);
+   const read=new Request(base+'?family=learning&edition=ENTERPRISE&caseKey='+caseKey,
+    {headers:{authorization:'Bearer valid'}});
+   assert.equal((await onRequest({request:read,env:academyEnv})).status,400);
+  }
+  assert.equal(f.logs.some(x=>x.pathname.includes('workspaces_v1')),false);
+ }finally{f.restore()}
+});
