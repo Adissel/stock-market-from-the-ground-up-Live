@@ -91,11 +91,11 @@
       "total": 8,
       "integrated": 0,
       "partial": 1,
-      "prototype": 5,
-      "not_implemented": 2,
+      "prototype": 6,
+      "not_implemented": 1,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 7
+      "automation_file_references": 8
     }
   },
   "features": [
@@ -969,11 +969,11 @@
       "engine": "lab",
       "edition": "ENTERPRISE",
       "title": "Multi-source research Lab workbench",
-      "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "source_status": "prototype",
+      "evidence_file": "functions/_lib/learning-lab-enterprise-case-workbench-v1.js",
+      "existing_test_file": "tests/learning-lab-enterprise-case-workbench-v1.test.mjs",
       "acceptance_criterion": "Save member-owned approved source cases with audit history.",
-      "unresolved": "No released workstation.",
+      "unresolved": "Owner-approved, server-validated original-fictional multi-case source comparison uses aligned completed bars, training-only statistics, embargo and protected held-out values. Source API independently verifies signed-in edition/tool entitlement, with no external source, historical feed, trade, grade or member write. Authenticated member UI, saved audited research workspace, independent data-rights, accessibility and release acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
