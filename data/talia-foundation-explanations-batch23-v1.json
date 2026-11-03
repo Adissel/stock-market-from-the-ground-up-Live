@@ -21,7 +21,7 @@
       "reviewExplanation": "Ungraded coaching: A journal must separate a pretrade intended price from the subsequently confirmed execution. Apply this documented example: Plan to buy at $20; actual confirmed buy at $20.08 for 50 shares: entry slippage is $4 adverse. Correct this misconception: Rewriting the plan to the actual fill erases process evidence. Boundary: Requires a timestamped plan recorded before the fill. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: A planned $30 buy fills at $30.03 for 40 shares: calculate adverse price difference and dollars. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/slippage/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect defines execution slippage as the deviation between expected and actual fill prices.",
+        "limitationsAndOpenQuestions": "The journal's pretrade snapshot and confirmed fill must be independently timestamped; a model is not a broker execution receipt.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +58,7 @@
       "reviewExplanation": "Ungraded coaching: A profitable result is not proof that the information available when entering supported a sound decision. Apply this documented example: A fictional plan risks $20 on a documented setup and unexpectedly earns $30 despite entering outside its stated rule; profit does not erase the rule violation. Correct this misconception: Marking all winners as good decisions reinforces invalid process. Boundary: Decision rubrics must be evaluated with contemporaneous evidence, not future outcome. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: A recorded rule is violated but the trade gains $12: distinguish outcome and process quality. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +69,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect separates realized outcomes and return statistics from risk and performance estimates.",
+        "limitationsAndOpenQuestions": "The quality of a process cannot be inferred from a single profitable outcome; the rubric is original training methodology.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -75,7 +95,7 @@
       "reviewExplanation": "Ungraded coaching: Rule adherence is a proportion of eligible logged decisions meeting a predefined observable process standard. Apply this documented example: 18 of 24 eligible decisions follow a stated process: 18/24=75% adherence. Correct this misconception: Using profitable trades as numerator substitutes P&L for adherence. Boundary: The denominator must disclose skipped or ineligible observations. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Of 30 documented decisions, 21 comply: compute the rate. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +106,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect research guidance distinguishes model selection and evaluation from individual trade performance.",
+        "limitationsAndOpenQuestions": "The 18-of-24 checklist rate is an original hypothetical rubric, not a regulatory trading-quality benchmark.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -102,7 +132,7 @@
       "reviewExplanation": "Ungraded coaching: An incomplete journal cannot support the same conclusions as a fully observed record. Apply this documented example: 5 of 40 required entry-time fields are missing: missing-field rate =12.5%. Correct this misconception: Treating blanks as zero can fabricate risk and performance statistics. Boundary: Fields and eligibility criteria must be frozen before counting. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Eight missing fields out of 50 expected fields: calculate the rate. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +143,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect notes absent fundamental data and shows how missing values affect selection filters.",
+        "limitationsAndOpenQuestions": "Five absent fields out of forty is only a hypothetical record-completeness metric, not evidence of trade quality.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -129,7 +169,7 @@
       "reviewExplanation": "Ungraded coaching: An open position's quoted change is not the same as a gain recognized upon closure. Apply this documented example: Buy 20 shares at $10, current mark $10.50: $10 unrealized before charges until shares are sold. Correct this misconception: Counting a marked gain as confirmed sale proceeds creates a false execution. Boundary: Bid/ask, partial closure and fees affect realizability. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: 30 shares entered at $15 and marked at $14.80: compute unrealized change. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +180,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect distinguishes open holdings, unrealized profit and total net profit in portfolio accounting.",
+        "limitationsAndOpenQuestions": "Tax-lot realization, transaction fees and mark-to-market price timing require a documented accounting convention.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -156,7 +206,7 @@
       "reviewExplanation": "Ungraded coaching: Holding time needs actual confirmed entry and exit timestamps rather than candle count assumptions. Apply this documented example: Two complete trades last 20 and 40 minutes: average holding duration 30 minutes. Correct this misconception: Assuming three five-minute candles always mean precisely 15 minutes ignores actual event times. Boundary: Partial fills, weekends and paused sessions require explicit conventions. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Durations 15,25,50 minutes: compute arithmetic average. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/trading-and-orders/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +217,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect records order status and asynchronous fill times as separate trading observations.",
+        "limitationsAndOpenQuestions": "Holding time assumes consistent open and close timestamps and excludes still-open positions in this example.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -183,7 +243,7 @@
       "reviewExplanation": "Ungraded coaching: A strategy-level summary must aggregate records under a stable setup definition. Apply this documented example: A fictional breakout group has gains +$20,-$10,+$30: net +$40 from three records. Correct this misconception: Changing setup labels after outcomes creates selection bias. Boundary: Consistent tagging and immutable revision history are needed. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: A pullback group produces -$5,+$15,-$3: compute net outcome. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +254,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect defines trading statistics from eligible completed orders and returns.",
+        "limitationsAndOpenQuestions": "Grouping journal trades by authored setup names is a private taxonomy; none of these three outcomes verifies an edge.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -210,7 +280,7 @@
       "reviewExplanation": "Ungraded coaching: A small count of hypothetical wins does not establish predictive success probability. Apply this documented example: Four wins in five trades give an observed 80% sample win rate, not a guaranteed 80% future rate. Correct this misconception: Marketing an observed fraction as proven future performance ignores uncertainty. Boundary: Selection bias, trading costs and dependence must be examined. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Seven wins in ten recorded trades: state sample rate and what remains unknown. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +291,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect research principles address bias, underpowered samples and overfit strategy conclusions.",
+        "limitationsAndOpenQuestions": "Four wins in five hypothetical trades is descriptive sample frequency, never a future win probability guarantee.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -237,7 +317,7 @@
       "reviewExplanation": "Ungraded coaching: Net closed-trade outcome deducts all appropriate transaction charges and costs from gross outcome. Apply this documented example: Gross closed-trade gain $50, commissions $4 and other explicit fees $1: net $45. Correct this misconception: Leaving fee fields blank while reporting net creates unsupported results. Boundary: Borrow costs, dividends, taxes and currency conversion may also matter. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Gross gain $35, commissions $3, fees $2: compute net. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +328,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains why commissions and other charges change net investment returns.",
+        "limitationsAndOpenQuestions": "The illustrative $45 net gain omits spread, borrowing costs, tax basis and any charges not in the fictional record.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -264,7 +354,7 @@
       "reviewExplanation": "Ungraded coaching: Realized R uses a fixed initial documented risk unit, not a stop recalculated after seeing the outcome. Apply this documented example: Documented initial risk $25, closed net loss $50: realized -2R. Correct this misconception: Changing the denominator to the largest observed adverse excursion manipulates the score. Boundary: Initial risk and net P&L must use matching units and trade scope. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Initial risk $40, closed net gain $60: compute signed R. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +365,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect defines profit and loss metrics and trade-level expectancy conventions.",
+        "limitationsAndOpenQuestions": "Dividing an outcome by original planned risk is an authored R convention; missing costs or a zero denominator invalidate it.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -291,7 +391,7 @@
       "reviewExplanation": "Ungraded coaching: A missed market movement is not a booked trade loss. Apply this documented example: A fictional stock rises $2 after a trader correctly skips it; shares held remain zero and realized trading loss is $0. Correct this misconception: Punishing every valid no-trade decision encourages forced trades. Boundary: Hindsight price movement cannot justify the earlier decision. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Skip a trade and price later rises $3: distinguish missed hypothetical gain from realized P&L. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +402,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect separates actual portfolio positions and realized performance from potential alternative trades.",
+        "limitationsAndOpenQuestions": "A stock's subsequent hypothetical rise is not realized P&L for a trade never entered.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -318,7 +428,7 @@
       "reviewExplanation": "Ungraded coaching: A checklist measures whether documented criteria were met; it does not establish outcome certainty. Apply this documented example: Three of four mandatory conditions are true at the decision boundary: the setup fails a rule requiring all four. Correct this misconception: Treating a 75% checklist pass rate as 75% success probability confuses processes. Boundary: Conditions must use observations available before the decision. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Two of three mandatory conditions pass under an all-required rule: is entry authorized? Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +439,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect universe selection illustrates filtering eligible symbols by declared criteria.",
+        "limitationsAndOpenQuestions": "Three of four conditions passing does not satisfy an author-defined all-four rule; this is not a market forecast.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -345,7 +465,7 @@
       "reviewExplanation": "Ungraded coaching: A journal must distinguish the last reported price before a halt from a later executable reopening price. Apply this documented example: A fictional last print before a halt is $20, reopening fill occurs at $18: a planned $19.50 stop did not prove an exit. Correct this misconception: Entering the planned stop as a confirmed fill fabricates performance. Boundary: Halt status, actual trade confirmations and reopening conditions are necessary. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Pre-halt $30, reopening execution $27: calculate gap in dollars per share. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +476,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains trading halts and delayed resumption in volatile securities.",
+        "limitationsAndOpenQuestions": "Reopening executions can gap past planned stops; this single fictional fill is not a guarantee of any broker behavior.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -372,7 +502,7 @@
       "reviewExplanation": "Ungraded coaching: A no-trade entry can document valid reasoning without inventing an order or fill. Apply this documented example: Fictional scanner shows an unconfirmed breakout; the learner logs 'stand aside' at 10:05, zero shares and no realized P&L. Correct this misconception: Backfilling a hypothetical winner as executed inflates journal returns. Boundary: Preserve time-stamped evidence and distinguishing note from broker order. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: At 11:00 the quote is stale; describe a valid no-trade record. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +513,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov describes planning and decision checks before investing or executing transactions.",
+        "limitationsAndOpenQuestions": "A recorded no-trade choice is an authored journal process, not an externally scored market outcome.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -399,7 +539,7 @@
       "reviewExplanation": "Ungraded coaching: A falsifiable pretrade condition specifies which observable event would invalidate the thesis. Apply this documented example: Before entry, a learner records that a completed 5-minute close below $25 invalidates a long setup; an intrabar touch alone does not satisfy that chosen rule. Correct this misconception: Moving the invalidation line after a loss turns a rule into hindsight. Boundary: Rule must distinguish monitoring, order handling and executable exit. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: State what would invalidate a long idea if the declared completed-bar boundary is $40. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +550,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains stop and stop-limit triggers and how an execution can vary.",
+        "limitationsAndOpenQuestions": "The five-minute close invalidation rule is learner-declared, not an SEC-approved entry or sell signal.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -426,7 +576,7 @@
       "reviewExplanation": "Ungraded coaching: Individually small plans may combine into a larger aggregate initial risk budget. Apply this documented example: Three independent fictional planned exposures each risk $50; gross planned risk total is $150 before overlap. Correct this misconception: Treating a gross sum as proof of maximum portfolio loss ignores gaps and dependence. Boundary: Stop fills are not assured and correlated assets can move together. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Two positions plan $35 and $65 risk: add risk and note correlation uncertainty. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +587,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains investment concentration and correlated exposures in diversification.",
+        "limitationsAndOpenQuestions": "Summing three planned dollars measures stated gross budget only; overlapping market exposures may increase joint loss risk.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -453,7 +613,7 @@
       "reviewExplanation": "Ungraded coaching: A day's closed outcomes and unsettled/open marked outcomes are different quantities. Apply this documented example: Closed trades net -$40, open position marked +$25: realized daily P&L remains -$40 under the stated convention. Correct this misconception: Netting open hypothetical gains against actual closed losses without labels conceals risk. Boundary: Broker accounting, session boundary and cost conventions vary. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Closed trades +$75 and open mark -$30: report realized value separately. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +624,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect portfolio documentation distinguishes holdings, net profit, cash and unrealized marks.",
+        "limitationsAndOpenQuestions": "The -$40 realized result does not incorporate open-position profit; a total P&L metric requires a separate convention.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -480,7 +650,7 @@
       "reviewExplanation": "Ungraded coaching: An ungraded explanation retry changes practice experience but must not write an official mastery grade. Apply this documented example: Learner retries a fictional sizing example twice; official competency grade remains unchanged at its prior status. Correct this misconception: Awarding mastery for a revealed hint defeats protected assessment boundaries. Boundary: Private rubrics and entitlements must remain server-enforced. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: After three ungraded coaching attempts, should the official Skills score automatically increase? Explain. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +661,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov discusses the need to check transactions and learn before trading online.",
+        "limitationsAndOpenQuestions": "Learning retries and preservation of an official assessment score are internal SMFGU rules, not Investor.gov policy.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -507,7 +687,7 @@
       "reviewExplanation": "Ungraded coaching: A learner's confidence rating is subjective and cannot substitute for an independently assessed skill. Apply this documented example: A learner records confidence 9/10 but incorrectly handles a stop-limit example; 9/10 is not a 90% competency score. Correct this misconception: Calling confidence percent a verified trading ability exaggerates evidence. Boundary: Calibration requires repeated independent evaluation using accepted tasks. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Confidence 3 of 5 after a correct practice example: distinguish rating from grade. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +698,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov distinguishes preparation and informed investing from the speed of online transactions.",
+        "limitationsAndOpenQuestions": "A self-reported 9/10 confidence score is not a validated competency measure; the teaching rubric is internal.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -534,7 +724,7 @@
       "reviewExplanation": "Ungraded coaching: Improvement requires comparable measurements at two times rather than redefined criteria. Apply this documented example: A process rubric scored 6/10 before and 8/10 later under the same rubric: gain is two points, or 20 percentage points. Correct this misconception: Changing denominators without disclosure creates false improvement. Boundary: Editorially stable rubric, timing and task equivalence are required. There is no protected score or transaction recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: A rubric moves from 4/8 to 6/8: calculate change in percentage points. Identify a missing input or condition that would invalidate your answer.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +735,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_PENDING_INDEPENDENT_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect research methodology emphasizes consistent evaluation and avoiding selection distortions.",
+        "limitationsAndOpenQuestions": "Comparing 6/10 and 8/10 is valid only if both observations use the same original rubric and eligible records.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

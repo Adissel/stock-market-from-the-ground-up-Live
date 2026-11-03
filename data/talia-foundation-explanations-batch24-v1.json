@@ -21,7 +21,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A price scanner threshold can only use the values known when its query actually ran. Worked fictional evidence: Fictional 10:00 scan requires last completed close above $20; 09:59 completed close is $20.10, so criterion passes at 10:00. Error correction: Testing the threshold on a future close introduces lookahead. Boundary: Scan latency and data freshness must be disclosed. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: A scanner requires close above $30; completed close $29.90: classify eligibility. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect's universe-selection API applies eligibility rules to declared observations.",
+        "limitationsAndOpenQuestions": "A screening threshold must use the most recent completed eligible input, not a forming or future candle.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +58,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Dollar-volume filters require a stated price and volume aggregation methodology. Worked fictional evidence: Fictional completed daily volume 100,000 shares × reference price $20 implies $2 million price-proxy dollar volume. Error correction: Treating this approximation as exact transaction notional ignores variable trade prices. Boundary: Trade-level price×size sums differ from closing-price proxy. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Volume 50,000 and declared price $30: compute proxy notional. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +69,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect directly defines a dollar-volume liquidity universe and daily selection.",
+        "limitationsAndOpenQuestions": "Shares times a single reference price is a proxy, not exact sum of executed price-times-volume transaction notional.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -75,7 +95,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A float filter needs estimated shares available to trade, not merely shares outstanding. Worked fictional evidence: Fictional outstanding shares 10 million, restricted holdings 3 million imply illustrative float 7 million. Error correction: Calling float 10 million without removing restricted holdings misclassifies liquidity. Boundary: Actual float requires current primary source ownership classification. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Outstanding 20 million, restricted 8 million: estimate simplified float. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/resources-small-businesses/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +106,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "SEC glossary defines public float in value terms using nonaffiliate held shares.",
+        "limitationsAndOpenQuestions": "Subtracting an assumed restricted holding count is not the SEC public-float calculation; affiliates and timestamp matter.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -102,7 +132,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A capitalization screen requires matching shares outstanding and market quote timestamps. Worked fictional evidence: Fictional 5 million shares outstanding × $12 quote gives $60 million cap at the stated time. Error correction: Using year-old share count with current quote may distort classification. Boundary: Dilution, multiple classes and corporate actions affect the numerator. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: 10 million shares at $8: compute market capitalization. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +143,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect fundamental universe examples expose market capitalization and point-in-time fields.",
+        "limitationsAndOpenQuestions": "A five-million-share times twelve-dollar market cap assumes a matching outstanding-share count and quote timestamp.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -129,7 +169,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A stock-to-benchmark price ratio must use compatible adjusted values and is not guaranteed future outperformance. Worked fictional evidence: Fictional stock adjusted index 110 and benchmark index 100 give relative ratio 1.10. Error correction: Using nominal prices from differently scaled securities yields meaningless comparative strength. Boundary: Normalization base dates and distribution adjustments matter. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Stock indexed 105 and benchmark indexed 120: compute relative ratio. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +180,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect distinguishes benchmark-relative risk measures and ratios from absolute returns.",
+        "limitationsAndOpenQuestions": "The two-index level quotient is an original relative-strength measure, not proof of benchmark outperformance in all windows.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -156,7 +206,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A watchlist full of different symbols may still be concentrated in one economic sector. Worked fictional evidence: Fictional watchlist has 8 symbols, 6 in one sector: count share is 75%. Error correction: Counting ticker variety as diversification hides shared exposures. Boundary: Sector labeling and capital weight are different measures. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Of 12 candidates, 9 belong to the same sector: compute percentage. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +217,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov distinguishes diversified exposures and explains sector concentration risks.",
+        "limitationsAndOpenQuestions": "Six of eight symbols is a count proportion, not dollar-weighted sector concentration or proof of correlation.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -183,7 +243,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A high share-volume count need not imply high dollar liquidity when share prices differ. Worked fictional evidence: Fictional A trades 1 million shares at $1 proxy=$1m, B 200,000 shares at $20 proxy=$4m. Error correction: Ranking volume shares alone as executable dollar liquidity is unsound. Boundary: Actual spreads and depth must also be reviewed. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: A trades 500,000 at $2 and B 100,000 at $25: compare proxy dollar volume. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +254,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect uses dollar volume as a liquidity measure rather than shares alone.",
+        "limitationsAndOpenQuestions": "The priced-volume products are illustrative proxies and omit intraday trade prices, spread and executable depth.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -210,7 +280,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A spread screen must distinguish cents and percentage impact at different stock prices. Worked fictional evidence: A $0.01 spread at a $1 midpoint is 1%; at a $100 midpoint it is 0.01%. Error correction: Treating one cent as equally cheap across prices ignores relative friction. Boundary: Price tiers, market rules and quote eligibility affect observed spreads. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compare a one-cent spread at $2 and $50 in basis points. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +291,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov distinguishes bid, ask and market versus limit execution outcomes.",
+        "limitationsAndOpenQuestions": "A $0.01 quoted spread has different percentage impact at different price levels; tick regimes and quote quality vary.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -237,7 +317,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A large unadjusted overnight move may reflect a split rather than pure trading repricing. Worked fictional evidence: Fictional stock closes $100 before a 2-for-1 split and opens at $50, a raw -50% change without wealth collapse. Error correction: Flagging split effects as crashes fabricates scanner signals. Boundary: Use correct effective date and raw versus adjusted comparison. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Before a 4-for-1 split, close is $80; find comparable theoretical post-split share price. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +328,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains that two-for-one splits mechanically change raw price and share count.",
+        "limitationsAndOpenQuestions": "An unadjusted -50% raw gap is not automatically an economic return; corporate-action timing and adjustment basis must match.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -264,7 +354,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: An early-session share count should not be compared directly with a full regular-session total. Worked fictional evidence: Fictional premarket 10,000 shares and prior regular-session 1 million: different windows, not a matched RVOL. Error correction: Treating premarket-to-full-day fraction as an ordinary relative-volume signal misstates conditions. Boundary: Venue coverage and early-session liquidity differ. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: If the prior five comparable premarket intervals average 8,000 and today reports 12,000, compute matched RVOL. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/requesting-data"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +365,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect explicitly separates regular and extended-hours data subscriptions.",
+        "limitationsAndOpenQuestions": "Premarket shares and full-session shares have unlike time windows; a matched RVOL needs comparable intervals and venue coverage.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -291,7 +391,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A candidate passing several screening rules is not proof of fill, safe stop, or positive expectancy. Worked fictional evidence: Fictional watchlist symbol passes price>$10 and volume>100,000 but no valid ask quote exists; no executable buy price is established. Error correction: Auto-labeling scan matches 'buy now' skips critical market verification. Boundary: Separate discovery, evidence, risk, and execution. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Candidate passes scanner but quote is stale: state the appropriate execution decision. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +402,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov explains that a watchlist price is not a guaranteed executable fill.",
+        "limitationsAndOpenQuestions": "A passed price and volume screen is only a research candidate; a valid two-sided quote and eligible session are missing.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -318,7 +428,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A delayed quote can satisfy a rule that the real-time market no longer meets. Worked fictional evidence: Fictional last accepted quote at 10:00 is $20.20 but screener runs at 10:20 without refresh; freshness is unverified. Error correction: Presenting outdated data as current information misleads decisions. Boundary: Provider delay disclosures and timezones are required. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: A 15-minute-old quote is used for a current breakout screen: should it be treated as live? Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +439,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect describes missing and delayed vendor data and data-quality diagnostics.",
+        "limitationsAndOpenQuestions": "The retained 10:00 quote must not be represented as 10:20 fresh evidence; actual feed SLA must be checked.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -345,7 +465,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: An original weighted screening score requires declared factor weights, scales, and treatment of missing data. Worked fictional evidence: Fictional quality 80/100 weight 60%, liquidity 50/100 weight 40% yields 68/100 composite. Error correction: Using unnormalized factors makes the weighted total meaningless. Boundary: An original score is not an official proprietary rank or trading recommendation. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Scores 70 and 90 with weights 25% and 75%: compute composite. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +476,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect documents customizable symbol-selection filter and ranking functions.",
+        "limitationsAndOpenQuestions": "A weighted 68/100 score is an authored rubric; weights must be disclosed and are not a validated return prediction.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -372,7 +502,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A scoring model must not silently substitute favorable data for unavailable observations. Worked fictional evidence: Fictional candidate lacks liquidity factor; under a complete-case policy its score is HOLD rather than assigning 100. Error correction: Assigning a perfect score to missing input biases ranking upward. Boundary: Policy may allow weighted rescaling only if explicitly defined. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Candidate has quality score 80 but missing required volatility: classify. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +513,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect warns that missing fundamental values can appear as NaN and require explicit filtering.",
+        "limitationsAndOpenQuestions": "Imputing a perfect liquidity factor would bias ranking; the chosen complete-case HOLD is a disclosed internal rule.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -399,7 +539,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Refreshing a table is distinct from meeting a persistent alert's exact threshold and event timing. Worked fictional evidence: Alert condition is completed close above $30; a 10:05 intrabar quote $30.20 does not satisfy it before close. Error correction: Firing close-based alerts on forming bar highs changes the contract. Boundary: Deduplication, delivery failure and time alignment are separate. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: An alert requires high≥$25 on reported completed candle; high $24.90: decide trigger. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +550,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect describes the need to distinguish missing observations from valid price events.",
+        "limitationsAndOpenQuestions": "An intrabar $30.20 does not meet a close-confirmed rule before the bar completes; alerts depend on chosen data granularity.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -426,7 +576,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A higher bar volume may reflect longer aggregation, not genuinely accelerated activity. Worked fictional evidence: Fictional 1-minute bar trades 1,000 shares while 5-minute bar trades 3,000; normalized per minute 1,000 versus 600. Error correction: Calling larger raw volume in longer intervals acceleration is incorrect. Boundary: Volume/time is not a substitute for market-depth liquidity. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: A 2-minute bar has 800 shares and 4-minute bar 1,200: compare shares per minute. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +587,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect universe examples use volume alongside selection cadence.",
+        "limitationsAndOpenQuestions": "Compare volume after normalizing different bar durations; one-minute 1,000 and five-minute 3,000 are not matched periods.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -445,15 +605,15 @@
       "concept": "A breadth ratio needs matched eligible universe counts and a zero-denominator policy.",
       "prerequisites": "Understand observation timestamps, eligible universe, quote freshness, numeric units, and the difference between a scanner candidate and an order.",
       "procedure": "Define the filter, time cutoff, numerator, denominator and feed scope; apply the stated fictional method to completed eligible data; separately evaluate stale, duplicated and missing observations.",
-      "workedCase": "FICTIONAL: Fictional 300 advancing and 200 declining constituents imply ratio 1.5.",
+      "workedCase": "FICTIONAL: In one eligible market interval, 300 advances and 200 declines imply advances/declines=1.5. A second interval with 300 advances and 0 declines makes this quotient undefined; do not display infinity as a market signal.",
       "limit": "If declining count is zero, ordinary A/D ratio is undefined.",
       "invalidation": "HOLD when the source time, filter variant, eligible sample, feed rights or required denominator is unavailable. If declining count is zero, ordinary A/D ratio is undefined.",
-      "commonError": "Live-trading mistake: Treating unchanged stocks as advancing distorts the numerator. Correct by separating screen detection from independent validation and execution.",
+      "commonError": "Market-breadth error: Dividing by zero and reporting an infinite predictive signal, or silently omitting unchanged and missing members. Declare the denominator, coverage and eligibility cutoff.",
       "selfCheck": "Which assumption makes this scanner result valid, and can it be used as an execution instruction?",
-      "reviewExplanation": "Ungraded Talia walkthrough: A breadth ratio needs matched eligible universe counts and a zero-denominator policy. Worked fictional evidence: Fictional 300 advancing and 200 declining constituents imply ratio 1.5. Error correction: Treating unchanged stocks as advancing distorts the numerator. Boundary: If declining count is zero, ordinary A/D ratio is undefined. No protected assessment or trade order is created.",
+      "reviewExplanation": "Ungraded coaching: Advances-to-declines 300/200=1.5 when the denominator is positive. With 300 advancing and zero declining issues, the ratio is undefined and must be labeled HOLD or N/A, not an infinite market forecast. Both cases require the same eligible universe and completed observation window. This is not graded or a trading recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: 400 advances, 100 declines: compute ratio. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://chartschool.stockcharts.com/table-of-contents/market-indicators/advance-decline-line"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +624,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "StockCharts defines advances, declines and their difference in stock market breadth indicators.",
+        "limitationsAndOpenQuestions": "An advances-to-declines quotient is an authored derived ratio; zero declines makes division undefined.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -480,7 +650,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Net advances measure an absolute difference while advance percentage requires an eligible denominator. Worked fictional evidence: Fictional 300 advances and 200 declines among 600 members: net +100; advance share 50%. Error correction: Interchanging count and percent units makes cross-market comparison invalid. Boundary: Corporate actions and missing components alter universe counts. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: 200 advances, 150 declines and 50 unchanged: compute net and advance fraction. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://chartschool.stockcharts.com/table-of-contents/market-indicators/advance-decline-line"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +661,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "StockCharts defines net advances as advancing issues minus declining issues.",
+        "limitationsAndOpenQuestions": "Net +100 and a 50% advance count depend on a consistent 600-member universe including unchanged or missing constituents.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -507,7 +687,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Screening hours must use a published exchange calendar, including early closes, not a fixed local clock assumption. Worked fictional evidence: Fictional early close at 13:00 Eastern means a 14:00 Eastern regular-session filter is ineligible that day. Error correction: Assuming regular 16:00 close on all days can mislabel after-hours signals. Boundary: Timezones, holidays and halts still require evidence. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: A session ends at 13:00 and an event is at 12:50 Eastern: classify relative to cutoff. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.nyse.com/trade/hours-calendars"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +698,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "NYSE publishes regular and early-closing trading calendars with exchange-specific times.",
+        "limitationsAndOpenQuestions": "A 13:00 Eastern early close example applies to that announced venue and calendar; do not assume every market matches.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -534,7 +724,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Duplicate market-data rows cannot be treated as separate independent securities or score observations. Worked fictional evidence: Fictional scanner lists symbol ABC twice and DEF once: unique ticker count is 2, not 3. Error correction: Counting duplicate rows inflates breadth and apparent diversification. Boundary: Exchange, share class and symbol change mappings require canonical identifiers. No protected assessment or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Rows ABC,ABC,XYZ,XYZ,QQQ: count unique identifiers. Identify a market-data or timing defect that could invalidate the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +735,16 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "QuantConnect uses stable security identifiers for eligibility and universe membership.",
+        "limitationsAndOpenQuestions": "Duplicate raw tickers can represent distinct venues or instruments; deduplication must use the correct symbol identity and timestamp.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]
