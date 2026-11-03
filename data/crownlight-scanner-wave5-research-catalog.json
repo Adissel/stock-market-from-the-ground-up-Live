@@ -1,0 +1,119 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-W5-RESEARCH-20261103",
+    "fileName": "data/crownlight-scanner-wave5-research-catalog.json",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "status": "SOURCE ENGINEERING DRAFT; CI AND TWO-ACCOUNT RELEASE ACCEPTANCE PENDING",
+    "googleDriveLocation": "Not created",
+    "googleDriveDocumentId": null,
+    "repository": "Adissel/stock-market-from-the-ground-up-Live"
+  },
+  "approvedForLive": false,
+  "independentMarketDataRightsCleared": false,
+  "privateMemberDataStored": false,
+  "existingMilestonesAccepted": 7,
+  "proposedTechnicalMilestoneCredits": 0,
+  "features": [
+    {
+      "id": "W5-01",
+      "subject": "Existing validated 5-minute OHLCV parser",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-02",
+      "subject": "Five-minute as-of completed bar boundaries",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-03",
+      "subject": "50 no-lookahead cursor cutoffs",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-04",
+      "subject": "Two FULL observed sessions basis (not certified trading days)",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-05",
+      "subject": "Missing bar detection and source timestamp boundaries",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-06",
+      "subject": "EMA 9/20/200, Wilder RSI 14, ATR 14",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-07",
+      "subject": "HLC3 VWAP proxy not exact trade VWAP",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-08",
+      "subject": "Tri-state nested scanner research criteria",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-09",
+      "subject": "Existing authenticated SCANNER_BUILDER viewer",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-10",
+      "subject": "Optional accessible ECharts observed-only chart",
+      "status": "PENDING CI"
+    },
+    {
+      "id": "W5-11",
+      "subject": "Python-vs-JavaScript independent numeric comparison",
+      "status": "PENDING CI"
+    }
+  ],
+  "references": [
+    {
+      "title": "StockCharts VWAP",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap",
+      "purpose": "HLC3 bar method versus trades"
+    },
+    {
+      "title": "StockCharts Moving Averages",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential",
+      "purpose": "SMA-seeded EMA"
+    },
+    {
+      "title": "StockCharts RSI",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi",
+      "purpose": "Wilder RSI averages"
+    },
+    {
+      "title": "StockCharts True Range",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range",
+      "purpose": "ATR prior-close basis"
+    },
+    {
+      "title": "NYSE official trading hours",
+      "url": "https://www.nyse.com/trade/hours-calendars",
+      "purpose": "Regular 09:30–16:00 ET"
+    }
+  ],
+  "noChanges": [
+    "Stripe TEST/LIVE",
+    "Founding 600",
+    "Phase 8 Champion configurations",
+    "Supabase permissions",
+    "Provider redistribution",
+    "Real-time monitoring",
+    "Graded Academy and Lumens"
+  ],
+  "acceptanceHolds": [
+    "Member-supplied data provenance unverified",
+    "Exchange holiday and early close calendars",
+    "Two genuine authenticated members",
+    "Keyboard/screen-reader review",
+    "Exact Cloudflare production commit",
+    "Independent editorial acceptance"
+  ]
+}
