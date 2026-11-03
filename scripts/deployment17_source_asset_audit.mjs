@@ -13,7 +13,7 @@ const missing=new Set(),duplicates=new Set(),warnings=new Set(),links=new Set();
  * trusted TSX source and an explicit build output + nonempty check exist.
  * The production build independently fails if any compiled bundle is absent.
  */
-const buildScript=readFileSync('scripts/build-pages.sh','utf8');
+const buildScript=existsSync('scripts/build-pages.sh')?readFileSync('scripts/build-pages.sh','utf8'):'';
 const compiledBundles=new Map([
  ['assets/js/home-market-terminal-v1.bundle.js','src/experience/HomeMarketTerminal.tsx'],
  ['assets/js/member-progress-visual-v1.bundle.js','src/experience/MemberProgressVisual.tsx'],
