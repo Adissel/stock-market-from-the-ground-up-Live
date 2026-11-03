@@ -83,3 +83,11 @@ The extracted body source was previously reviewed via the GitHub blob API. The c
 | 1.0 | 2026-11-03 | Reconciled 419 canonical mapping, bridge structure, detected generic reuse, transfer, numeric evidence, legal/rights flags and zero-premature-approval regression | Research QA queue created; independent claim, member and LIVE acceptance pending |
 
 **Footer:** SMFGU-LAB419-BODY-RECON-20261103 · v1.0 · QA source only · No live trading, premium releases, billing or member data mutation.
+
+---
+
+## Version 1.1 controlling-current-source correction (November 3, 2026)
+
+This document's 413 reused-template and 419 missing-explicit-transfer numbers are **dated 2026-10-31 exported-QA observations**, not current source-body counts. Direct inspection of the present canonical GitHub blob for `data/lab-teaching-bridges-v014168.json` shows 419/419 explicit transfer prompts, 418/419 exceeding a 45-character prompt-length test, and 0/419 containing the previously repeated exact boilerplate sentence. The new controlling current-evidence document is `docs/qa/2026-11-03_LAB419_CURRENT_BODY_QUALITY_RECONCILIATION_V2.md`. This correction preserves prior owner approval while independent individual claim, rights, and genuine member acceptance remain open.
+
+**Revision history addendum:** v1.1 | 2026-11-03 | Supersession notice; dated CSV exports distinguished from current underlying source | Source QA only.

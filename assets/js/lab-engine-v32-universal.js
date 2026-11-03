@@ -974,6 +974,8 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     'Common error and its correction: '+(deeper?.misconception||guide.commonError),
     'Limit of the interpretation: '+(deeper?.limitation||guide.limit)
    ]);
+   // Already-authorized original Lab source teaching; no grading or access changes.
+   root.CrownlightLabFormativeBatch57V1?.mount?.({target:body,labId,stage:1,mode});
   }else if(stage===2){
    if(kind==='candle'){
     appendParagraph(body,'Change only the closing price in this illustrative example. Open $31.00, High $32.50, Low $30.50. Observe how the body, direction and body percentage change.');
@@ -1096,6 +1098,8 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    // unrelated weighted-groups illustration above the replay question.
    if(!(kind==='vwap'&&root.GroundUpLabV32SyntheticReplay?.create))showVisual(7,special?'transfer':'default');
    appendParagraph(body,'Apply the concept to an unfamiliar case. A study solution here never awards mastery or replaces the existing private assessment.');
+   // Supplemental distinct formative transfer; never shown by Predict or Assess paths.
+   root.CrownlightLabFormativeBatch57V1?.mount?.({target:body,labId,stage:7,mode});
    if(kind==='vwap'){
     appendParagraph(body,'For chronological candles, use the authenticated, rights-reviewed replay service. This page does not preload future bars or turn synthetic samples into historical evidence.');
     const link=el('a','Open controlled market replay');link.href='verified-replay.html';link.className='btn secondary';body.append(link);

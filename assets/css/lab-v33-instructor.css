@@ -226,3 +226,10 @@
 #gu-v32-teaching-slot .gu-v33-support-tab.gu-v33-wallet-tab[aria-selected="true"]{
  background-color:#eabb49!important;
 }
+
+/* Fifty source-based Lab teaching disclosures and seven priority corrections. */
+.gu-lab-formative-57{margin:1rem 0;padding:.85rem 1rem;border:1px solid rgba(78,220,139,.5);border-radius:.75rem;background:rgba(4,35,27,.78)}
+.gu-lab-formative-57 summary{cursor:pointer;font-weight:700;line-height:1.6;min-height:2.2rem}
+.gu-lab-formative-57 summary:focus-visible{outline:3px solid #7fffc0;outline-offset:3px}
+.gu-lab-formative-57 p{line-height:1.65;max-width:90ch;overflow-wrap:anywhere}
+.gu-lab-formative-57 a{color:#8fffd2;text-decoration:underline}
