@@ -27,6 +27,12 @@ on:
       - 'lab-player.html'
       - 'market-tutor.html'
       - 'admin.html'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functions/api/member-learning-engine-versions.js'
+      - 'tests/learning-engine-member-versions-api-v1.test.mjs'
+      - '.github/workflows/learning-engine-member-versions-v1.yml'
   workflow_dispatch:
 jobs:
   contracts:
