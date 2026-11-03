@@ -69,7 +69,8 @@ for(const [i,s] of scenarios.entries()){
   for(const token of s.tokens)assert.ok(g.workedCase.includes(token),s.code+' missing worked-example datum '+token);
   const actual=s.calculate(),expected=s.expected;
   if(typeof expected==='number')assert.ok(near(actual,expected),s.code+': numerical disagreement');
-  else assert.deepEqual(actual,expected,s.code+': chronological, multiple-value or boundary disagreement');
+  else if(Array.isArray(expected)){assert.equal(actual.length,expected.length,s.code);for(let j=0;j<expected.length;j++)assert.ok(typeof expected[j]==='number'?near(actual[j],expected[j]):Object.is(actual[j],expected[j]),s.code+': result '+j+' disagreement');}
+  else assert.deepEqual(actual,expected,s.code+': chronological or boundary disagreement');
   if(s.limit)assert.ok(g.limit.includes(s.limit),s.code+' missing limitation');
   assert.equal(g.independentEditorialApproved,false,s.code);
   assert.equal(g.officialCompetency,false,s.code);
