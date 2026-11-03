@@ -68,3 +68,12 @@ test('Enterprise Lab comparison remains read-only, member granted and held-out v
  assert.match(math,/holdoutValuesReturned:false/);
  assert.doesNotMatch(ui+api+math,/officialGrade:true|masteryAwarded:true|orders.insert|payment_intent/);
 });
+
+test('Independent Academy assessment courses conceal optional Enterprise research even when a grant exists',()=>{
+ const ui=read('assets/js/academy-enterprise-journey-v1.js');
+ const academy=read('assets/js/bootcamp-academy-v014168.js');
+ assert.match(ui,/academy-official-assessment/);
+ assert.match(ui,/protectedAssessment\?\.hidden===false/);
+ assert.match(ui,/protectedAssessment\?\.hidden!==false/);
+ assert.match(academy,/\['tape10','indicators10','filings7'\]\.includes\(code\)/);
+});

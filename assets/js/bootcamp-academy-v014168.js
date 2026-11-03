@@ -951,7 +951,7 @@
    updateProgress();renderDay();
    // Enterprise research is a separate optional, read-only authorization.
    // It must not block any Basic lesson, journal, progress or assessment stage.
-   if(code!=='free5'){
+   if(code!=='free5'&&!['tape10','indicators10','filings7'].includes(code)){
     const researchHost=get('academy-enterprise-research');
     const actingUser=userId,actingEpoch=sessionSerial;
     void globalThis.CrownlightAcademyEnterpriseResearchV1?.mount?.({

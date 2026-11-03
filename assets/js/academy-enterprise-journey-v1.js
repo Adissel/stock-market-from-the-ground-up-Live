@@ -20,11 +20,14 @@
  async function mount({host,client,userId,alive}={}){
   reset();
   const epoch=serial;
+  const protectedAssessment=document.getElementById('academy-official-assessment');
+  if(protectedAssessment?.hidden===false)return;
   if(!host||!client?.auth?.getSession||
      typeof userId!=='string'||!userId||typeof alive!=='function')return;
   controller=new AbortController();
   const signal=controller.signal;
-  const current=()=>!signal.aborted&&epoch===serial&&alive();
+  const current=()=>!signal.aborted&&epoch===serial&&alive()&&
+   protectedAssessment?.hidden!==false;
   try{
    const checked=await client.auth.getSession();
    if(!current())return;

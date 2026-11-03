@@ -5,7 +5,7 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try{
  const context=await browser.newContext({viewport:{width:390,height:844}});
  const page=await context.newPage();
- await page.setContent('<!doctype html><html lang="en"><body><main><section id="academy-enterprise-research" hidden></section></main></body></html>');
+ await page.setContent('<!doctype html><html lang="en"><body><main><section id="academy-enterprise-research" hidden></section><section id="academy-official-assessment" hidden></section></main></body></html>');
  await page.addStyleTag({path:'assets/css/academy-enterprise-journey-v1.css'});
  await page.addScriptTag({path:'assets/js/academy-enterprise-journey-v1.js'});
  await page.evaluate(()=>{
@@ -47,6 +47,9 @@ try{
  assert.equal(await host.isHidden(),true);assert.equal(await host.locator('*').count(),0);
  await page.evaluate(()=>{globalThis.__test.permitted=false});
  await mount();assert.equal(await host.isHidden(),true);
+ await page.evaluate(()=>{document.getElementById('academy-official-assessment').hidden=false;globalThis.__test.permitted=true});
+ await mount();assert.equal(await host.isHidden(),true,'Protected Assessment must hide optional premium teaching');
+ await page.evaluate(()=>{document.getElementById('academy-official-assessment').hidden=true});
  await page.evaluate(()=>{globalThis.__test.permitted=true;globalThis.__test.sessionId='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'});
  await mount();assert.equal(await host.isHidden(),true);
  await page.evaluate(()=>{globalThis.__test.sessionId='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'});
