@@ -50,5 +50,11 @@ test('The all-600 scanner recognizes broad SEC EDGAR search links excluded by th
  assert.match(scanner,/genericEdgarSearchReferences/);
  assert.equal(batches.flat().filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0);
  const remaining=JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch26-v1.json',import.meta.url),'utf8')).guides;
- assert.ok(remaining.some(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')),'Known remaining EDGAR index citations must remain included in QA scope until corrected');
+ // Batch 26's broad EDGAR index citations have been corrected. Preserve the
+ // independent all-600 scanner and prevent the corrected batch from regressing.
+ assert.equal(remaining.length,20);
+ assert.equal(remaining.filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0,
+  'Batch 26 must not regress to generic EDGAR index links');
+ assert.ok(remaining.every(g=>g.independentEditorialApproved===false),
+  'Source remediation is not independent editorial release approval');
 });
