@@ -46,7 +46,7 @@ try{
   await host.locator('#pt60-case').selectOption('ORIGINAL-RISK-10');
   await host.getByRole('button',{name:'Show method explanation'}).click();
   assert.match(await host.locator('.pt60-evidence').innerText(),/wholeShares/);
-  await host.getByRole('button',{name:'Show method explanation'}).click();
+  await host.getByRole('button',{name:'Hide method explanation'}).click();
   assert.equal(await host.locator('.pt60-evidence').isHidden(),true);
   const focused=host.getByRole('button',{name:'Next completed bar'});
   await focused.focus();
