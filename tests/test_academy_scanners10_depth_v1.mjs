@@ -10,7 +10,8 @@ const arithmetic=(x)=>{
  switch(x.operation){
   case 'ratio':return x.a/x.b*100;
   case 'multiple':return x.a/x.b;
-  case 'difference':return x.units.startsWith('new shares')?x.a/x.b:x.a-x.b;
+  case 'difference':return x.a-x.b;
+  case 'split':return x.a/x.b;
   case 'overlap':return x.a+x.b-x.c;
   case 'remaining':return x.a-(x.b+x.c-x.d);
   default:throw Error('Unsupported scanner exercise '+x.operation);
