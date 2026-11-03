@@ -144,6 +144,16 @@ with sync_playwright() as p:
     if width>1050:
      left=page.locator('.gu-signin-ad-rail').nth(0).bounding_box()
      right=page.locator('.gu-signin-ad-rail').nth(1).bounding_box()
+     grid=page.locator('.gu-signin-ad-layout')
+     geometry=grid.evaluate("""e=>({
+       template:getComputedStyle(e).gridTemplateColumns,
+       area:getComputedStyle(e).gridTemplateAreas,
+       justify:getComputedStyle(e).justifyContent,
+       width:e.getBoundingClientRect().width
+     })""")
+     if not left or not right or left['x']+left['width']>bounds['x']+1 or bounds['x']+bounds['width']>right['x']+1:
+      print('SIGNIN_AD_GEOMETRY '+json.dumps({'width':width,'center':bounds,'left':left,'right':right,'grid':geometry,'route':page.url}),flush=True)
+      page.screenshot(path=str(OUT/f'signin-overlap-{width}.png'),full_page=True)
      assert left and right and left['x']+left['width']<=bounds['x']+1,'Left ad overlaps form'
      assert bounds['x']+bounds['width']<=right['x']+1,'Right ad overlaps form'
      assert bounds['width']<=410,(width,'Sign-in form should be compact',bounds)
