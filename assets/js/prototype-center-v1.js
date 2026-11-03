@@ -111,7 +111,8 @@ function classroom(root){
  choices.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;state.stage=0;draw()}));
  choices.append(create('p','Mode selection changes only the synthetic presentation; it does not enroll members or modify graded attempts.','pt-note'));
  root.append(choices);
- const layout=section('Classic Builder · Membership design controls','pt-card pt-v3-configuration');
+ const layout=section('Classic Builder · Membership design controls','pt-card pt-v3-configuration pt-classroom');
+ layout.dataset.layout=state.layout;layout.dataset.density=state.density;layout.dataset.tutor=state.tutor;
  layout.append(create('p','Layout preset'));
  layout.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{
   if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('layout',v);
