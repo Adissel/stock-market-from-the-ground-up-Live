@@ -15,10 +15,14 @@ test('Account switching immediately removes private premium output',()=>{
  assert.match(ui,/activeController\?\.abort\(\)/);
  assert.match(ui,/host\.replaceChildren\(\);host\.hidden=true/);
 });
-test('Supplement cannot prevent ungraded baseline lesson',()=>{
- assert.match(player,/renderPlayer\(\);\s*\/\/ The premium supplement is optional/);
- assert.match(player,/if\(session\?\.access_token&&PLAYER\.access\?\.isMember===true&&memberUnchanged\(\)\)/);
- assert.match(player,/alive:memberUnchanged/);
+test('Supplement is optional and never exposes formative material in protected modes',()=>{
+ assert.match(player,/function renderPlayer\(\)\{globalThis\.CrownlightEditionExercisePanelV1\?\.scrub\?\.\(\)/);
+ assert.match(player,/mountOptionalPremiumEdition\(\)/);
+ assert.match(player,/!\['guided','practice'\]\.includes\(mode\)/);
+ assert.match(player,/if\(stage>=5\)globalThis\.CrownlightEditionExercisePanelV1\?\.scrub\?\.\(\)/);
+ assert.match(ui,/!\['guided','practice'\]\.includes\(mode\)/);
+ assert.match(player,/labPlayerSessionEpoch===epoch/);
+ assert.match(player,/session\?\.user\?\.id!==memberId/);
 });
 test('Educational examples never claim historical prices or mastery',()=>{
  assert.match(ui,/Original fictional prices only/);

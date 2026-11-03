@@ -81,6 +81,21 @@ try{
  }));
  assert.equal(await host.isHidden(),true,'Denied member response must not reveal premium UI');
  assert.equal(await host.locator('*').count(),0);
+ // Protected modes decline even direct mount attempts without API traffic.
+ await page.evaluate(()=>{globalThis.__fixture.allowed=true});
+ const beforeModes=await page.evaluate(()=>globalThis.__fixture.recalculations);
+ for(const mode of ['blind','assessment']){
+  await page.evaluate(mode=>globalThis.CrownlightEditionExercisePanelV1.mount({
+   host:document.getElementById('player-edition-exercise'),
+   userId:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+   token:'offline_advanced_fixture',alive:()=>true,
+   labId:'LAB-ADV-FICTIONAL',mode
+  }),mode);
+  assert.equal(await host.isHidden(),true,mode);
+  assert.equal(await host.locator('*').count(),0,mode);
+ }
+ assert.equal(await page.evaluate(()=>globalThis.__fixture.recalculations),beforeModes,
+  'Protected modes must not send premium exercise requests');
  allowed=false;recalculations=await page.evaluate(()=>globalThis.__fixture.recalculations);disposed=await page.evaluate(()=>globalThis.__fixture.disposed);
  await context.close();
  console.log(`PASS MOCKED Chromium Advanced member surface: six studies, ${series.length} completed observations, linked accessible charts, mobile layout, recalculation, denial, and identity scrub (requests=${recalculations}, disposed=${disposed}, allowed=${allowed})`);

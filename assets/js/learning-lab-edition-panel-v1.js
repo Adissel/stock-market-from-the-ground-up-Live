@@ -102,10 +102,13 @@
   }
   host.append(build('p',result.limitation||'No trading recommendation or official mastery is implied.'));
  };
- async function mount({host,userId,token,alive,labId}={}){
+ async function mount({host,userId,token,alive,labId,mode='guided'}={}){
   scrub();
   const epoch=serial;
-  if(!host||!userId||typeof token!=='string'||!token||typeof alive!=='function')return;
+  // Formative premium guidance is never presented in independent decision
+  // or protected Assessment mode, including direct mount attempts.
+  if(!['guided','practice'].includes(mode)||
+     !host||!userId||typeof token!=='string'||!token||typeof alive!=='function')return;
   let selected='ENTERPRISE',risk=100,emaPeriod=9,embargo=2,revision=0;
   const caseKey=typeof labId==='string'&&/^[A-Za-z0-9_-]{3,80}$/.test(labId)?labId:null;
   const source=demo();

@@ -109,7 +109,7 @@ test('server derives independently calculated multi-indicator context from compl
  assert.equal(derived.indicators[0].name,'EMA');
  assert.equal(derived.indicators[1].name,'VWAP');
  for(const name of ['RSI','MACD','ATR','BOLL'])assert.equal(derived.indicators.some(x=>x.name===name),true,name);
- assert.equal(derived.indicators[0].asOf,5000);
+ assert.equal(derived.indicators[0].asOf,7000);
  assert.equal(derived.evidence.bars.length,5);
  assert.equal(deriveFictionalCompletedStudies({evidence:{...fictional(),provenance:'licensed_historical'}}),null);
  assert.equal(deriveFictionalCompletedStudies({evidence:fictional(),emaPeriod:100}),null);
