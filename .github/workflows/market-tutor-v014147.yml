@@ -21,6 +21,7 @@ jobs:
         run: |
           node tests/talia-master-capability-inventory-v1.test.mjs
           node tests/talia-classroom-instructional-methods-v1.test.mjs
+          node tests/talia-instructional-directives-server-v1.test.mjs
           node tests/test_v014092_market_tutor_contract.mjs
           node tests/test_v014093_tutor_practice.mjs
           node tests/test_v014095_training_tutor_integration.mjs

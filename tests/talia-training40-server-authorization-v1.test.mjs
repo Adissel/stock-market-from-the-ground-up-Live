@@ -36,8 +36,8 @@ globalThis.fetch=async (url,opts={})=>{
  }
  throw Error('Unexpected private database endpoint '+path);
 };
-const send=async (guide,mode='explain')=>{
- const question=(mode==='explain'?'Explain ':mode==='review'?'Review ':'Explain ')+guide.title;
+const send=async (guide,mode='explain',questionOverride='')=>{
+ const question=questionOverride||(mode==='explain'?'Explain ':mode==='review'?'Review ':'Explain ')+guide.title;
  const req=new Request('https://tutor.fixture/api/market-tutor-v01492',{
   method:'POST',headers:{authorization:'Bearer synthetic-'+active,'content-type':'application/json'},
   body:JSON.stringify({question,mode,learnerAnswer:mode==='review'?'I thought the quote proves a fill.':'',
@@ -75,6 +75,29 @@ try{
    assert.doesNotMatch(JSON.stringify(result.body),/private.answer.key|masteryAwarded":true/i);
   }
   assert.equal(requests,40);
+  assert.equal(providerCalls,0);
+ });
+ test('actual authenticated Tutor route honors all five gradual-release methods without provider inference',async()=>{
+  active=A;
+  const guide=read('talia-foundation-explanations-batch13-v1.json').guides[0];
+  const expected={
+   'I DO':/watch the reasoning sequence/i,
+   'WE DO':/Hint before a solution/i,
+   'YOU DO':/complete an ungraded attempt before reviewing/i,
+   'REVIEW':/Likely misconception:/i,
+   'TRANSFER':/genuinely different fictional evidence/i
+  };
+  for(const [method,pattern] of Object.entries(expected)){
+   const question=`Instructional perspective: Understand. Method: ${method}. Teach ${guide.title}.`;
+   const result=await send(guide,method==='REVIEW'?'review':'explain',question);
+   assert.equal(result.http,200,method);
+   assert.equal(result.body.sources?.[0]?.id,guide.code,method+' exact reviewed guide');
+   assert.match(result.body.answer,pattern,method);
+   assert.notEqual(result.body.generation,'grounded-model-draft',method);
+   assert.notEqual(result.body.aiReason,'ai_generated',method);
+   assert.equal(result.body.graded,false,method);
+   assert.equal(result.body.masteryAwarded,false,method);
+  }
   assert.equal(providerCalls,0);
  });
  test('source-only Tutor must deny suspended membership before returning teaching content',async()=>{

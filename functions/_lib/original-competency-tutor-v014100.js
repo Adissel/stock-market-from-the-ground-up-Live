@@ -416,8 +416,47 @@ function researchCurrentnessForTopic(g){
  if(g?.code==='TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE')return 'Replay timing warning: EDGAR acceptance is not the precise first public availability instant; the SEC notes publication can lag. See https://www.sec.gov/about/webmaster-frequently-asked-questions.';
  return '';
 }
+const INSTRUCTIONAL_DIRECTIVE=/^Instructional perspective: (Understand|Recognize|Apply|Common Mistake|Limitations)\. Method: (I DO|WE DO|YOU DO|REVIEW|TRANSFER)\.\s*/i;
+function parseInstructionalDirective(question=''){
+ const text=String(question||'');
+ const match=text.match(INSTRUCTIONAL_DIRECTIVE);
+ if(!match)return null;
+ return {perspective:match[1].replace(/\b\w/g,c=>c.toUpperCase()),method:match[2].toUpperCase(),question:text.slice(match[0].length)};
+}
+function instructionalDirectiveResponse(g,mode,answer,directive){
+ if(!directive)return '';
+ const value=(key,fallback)=>typeof g?.[key]==='string'&&g[key].trim()?g[key].trim():fallback;
+ const concept=value('concept','Use the reviewed definition and identify what can be observed directly.');
+ const procedure=value('procedure','List the observable inputs, units, timestamps and calculation convention before interpreting them.');
+ const worked=value('workedCase','No reviewed worked case is available for this topic; do not invent one.');
+ const selfCheck=value('selfCheck','Explain which evidence supports the conclusion and which evidence remains unavailable.');
+ const correction=value('reviewExplanation','Recheck the inputs, units, assumptions and stated limitation before another attempt.');
+ const common=value('commonError','Do not treat an interpretation or indicator reading as a guaranteed outcome.');
+ const limit=value('limit','The available evidence cannot establish a future market outcome.');
+ const invalidation=value('invalidation','The conclusion must be reconsidered when its stated evidence condition no longer holds.');
+ const transfer=value('transferQuestion','Use a different fictional case and apply the same reasoning without future evidence.');
+ const focus={
+  'Understand':'Understand — first principle: '+concept,
+  'Recognize':'Recognize — observable evidence and process: '+procedure,
+  'Apply':'Apply — reviewed fictional demonstration: '+worked,
+  'Common Mistake':'Common Mistake — '+common+' Corrective check: '+correction,
+  'Limitations':'Limitations — '+limit+' Invalidation: '+invalidation
+ }[directive.perspective]||('Understand — first principle: '+concept);
+ const method={
+  'I DO':['I DO — watch the reasoning sequence.','First principle: '+concept,'Process: '+procedure,'Original fictional demonstration: '+worked],
+  'WE DO':['WE DO — work through the evidence with Talia.','Step 1: identify the inputs and units. '+procedure,'Step 2: state what the evidence can and cannot show. '+limit,'Guided prompt: '+selfCheck,'Hint before a solution: '+correction],
+  'YOU DO':['YOU DO — complete an ungraded attempt before reviewing a worked explanation.','Independent prompt: '+selfCheck,'Do not use a future observation, protected answer or the worked case above. State inputs, units, reasoning and uncertainty.'],
+  'REVIEW':['REVIEW — inspect the reasoning, not an official grade.','Likely misconception: '+common,'Subject-specific correction: '+correction,'Evidence limit: '+limit,...(mode==='review'?[ungradedResponseReview(answer)]:[])],
+  'TRANSFER':['TRANSFER — use genuinely different fictional evidence.','Independent transfer prompt: '+transfer,'Do not reuse the worked numbers, reveal future evidence or award mastery.']
+ }[directive.method]||[];
+ return ['Talia instructional focus — '+directive.perspective+' / '+directive.method,focus,...method,
+  'This is source-grounded educational practice. It does not disclose a protected answer, predict a trade, assign a score or certify mastery.'].join('\n\n');
+}
 function answerFromGuide(g,mode,answer,question=''){
  const note=researchCurrentnessForTopic(g);
+ const directive=parseInstructionalDirective(question);
+ const directed=instructionalDirectiveResponse(g,mode,answer,directive);
+ if(directed)return directed+(note?'\n\n'+note:'');
  if(mode==='explain'&&MISCONCEPTION_INTENT.test(String(question||'')))return sourceOnlyMisconception(g)+(note?'\n\n'+note:'');
  if(g.foundationTopic===true)return formatFoundationTopic(g,mode,answer,question)+(note?'\n\n'+note:'');
  // Reuse published canonical guide IDs; practice/review remain independently answered.
@@ -452,4 +491,4 @@ function answerFromGuide(g,mode,answer,question=''){
  if(mode==='review')return main+'\n\nUse this review criterion: '+g.reviewExplanation+' no rubric was graded or scored.\n\n'+ungradedResponseReview(answer);
  return main+'\n\nCommon error to avoid: '+g.commonError+(worked?'\n\n'+worked:'')+'\n\nPractice: '+g.selfCheck;
 }
-export {chooseGuides,originalGuides,answerFromGuide};
+export {chooseGuides,originalGuides,answerFromGuide,parseInstructionalDirective,instructionalDirectiveResponse};
