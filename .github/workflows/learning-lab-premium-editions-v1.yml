@@ -16,6 +16,7 @@ on:
       - 'lab-player.html'
       - 'functions/api/learning-lab-edition-workspace.js'
       - 'tests/learning-lab-edition-workspace-v1.test.mjs'
+      - 'tests/learning-lab-edition-two-account-contract-v1.test.mjs'
       - 'tests/advanced-learning-lab-source-closeout-v1.test.mjs'
       - 'tests/advanced-learning-lab-member-surface-browser-v1.mjs'
       - 'tests/professional-learning-lab-member-surface-browser-v1.mjs'
@@ -76,6 +77,8 @@ jobs:
         run: node --test tests/learning-lab-edition-api-v1.test.mjs
       - name: Verify private revisioned premium workspace authorization
         run: node --test tests/learning-lab-edition-workspace-v1.test.mjs
+      - name: Verify two-account cross-engine downgrade and revision isolation
+        run: node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
       - name: Verify Advanced source closeout and release boundary
         run: node --test tests/advanced-learning-lab-source-closeout-v1.test.mjs
       - name: Verify Professional source closeout and release boundary
