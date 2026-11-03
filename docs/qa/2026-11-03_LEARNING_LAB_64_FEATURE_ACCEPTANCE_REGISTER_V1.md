@@ -126,6 +126,8 @@ The following six entries are correctly classified `not_implemented`. Automated 
 
 Required evidence before any premium activation: genuine two-account (entitled and restricted) access using independently authenticated sessions; expiry, downgrade, revocation and account switching; server-enforced RLS and private workspace boundaries; keyboard, real-device and screen-reader accessibility; controlled assessment no-lookahead and grading isolation; market-data provenance, redistribution and source-rights review; independent editorial and quantitative review; and full CI plus exact main SHA Cloudflare deployment reconciliation.
 
+**Grading release hold:** Official grading remains disabled and unaccepted, separate from any source-tested teaching or simulated practice.
+
 **Protected release boundaries:** Premium feature flags and add-on checkout remain false. Official grades, mastery, Lumens awards, entitlements, charges, and licensed market-data publication must not be enabled by this register or by its automated tests. Basic v3.3 Learning, Basic v3.2 Lab, 419 distinct Lab IDs and 30 competencies remain frozen.
 
 ## Batch execution and QA
