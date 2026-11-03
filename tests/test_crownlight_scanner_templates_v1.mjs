@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
+const context={Math,Number,String,Array,Object,Set,RegExp};context.globalThis=context;
+runInNewContext(readFileSync('assets/js/crownlight-scanner-rules-v1.js','utf8'),context);
+runInNewContext(readFileSync('assets/js/crownlight-scanner-templates-v1.js','utf8'),context);
+const C=context.CrownlightScannerRulesV1,T=context.CrownlightScannerTemplatesV1;
+assert.equal(T.items.length,5);
+assert.equal(new Set(Array.from(T.items,x=>x.id)).size,5);
+assert.equal(T.lookup('NOT_REAL'),null);
+const csv=readFileSync('tests/fixtures/crownlight-scanner-fictional-wave2.csv','utf8');
+const headers=csv.trim().split('\n')[0].split(',');
+const rows=csv.trim().split('\n').slice(1).map(line=>Object.fromEntries(headers.map((h,i)=>[h,line.split(',')[i]])));
+for(const template of T.items){
+ const rule=C.validate(template.rules);
+ for(const field of template.requiredFields)assert(headers.includes(field));
+ const result=C.analyze(rows,rule);
+ assert.equal(result.liveFeed,false);
+ assert.equal(result.tradeAuthorization,false);
+ assert.equal(result.statisticalEdge,false);
+ assert.equal(result.inspected,5);
+ assert.equal(result.rejections.invalidInput,0);
+}
+const negative=C.analyze(rows,T.lookup('NEGATIVE_5M').rules);
+assert.deepEqual(Array.from(negative.rows,x=>x.symbol),['FICTA','FICTB','FICTD']);
+assert.equal(negative.rejections.missingEvidence,1);
+const near=C.analyze(rows,T.lookup('DAY_HIGH').rules);
+assert(near.rows.length>=1);
+assert.equal(T.lookup('DAY_HIGH').rules.children[0].maxValue,3);
+const price=C.analyze(rows,T.lookup('PRICE_VOLUME').rules);
+assert.deepEqual(Array.from(price.rows,x=>x.symbol),['FICTC','FICTA','FICTE','FICTB']);
+assert(!csv.includes('LIVE'));
+console.log('PASS original Crownlight scanner templates and fictional no-lookahead input rows');
