@@ -20,6 +20,8 @@ if [[ "${CF_PAGES:-0}" == "1" && "${SMFGU_PAGES_LOG_WRAPPED:-0}" != "1" ]]; then
   exit "$pages_build_status"
 fi
 # Validate public navigation before lengthy integration suites; surface broken-link diagnostics in retained build logs.
+# Dedicated React chart classrooms must not load legacy global DOM/CSS enhancers.
+node --test tests/runtime-owned-talia-v1.test.mjs
 node --test tests/public-navigation-five-page-links-v1.test.mjs
 node --test tests/group1-public-copy-and-entitlements-v1.test.mjs
 # Section C release integrity: fail a deployment on mathematical or workspace defects.

@@ -3,6 +3,13 @@
  * Retain historical application enhancers in their approved order. */
 import '../assets/js/route-policy.js';
 const POLICY=globalThis.GroundUpRoutePolicy;
+// Dedicated React chart classrooms own their own presentation assets.
+// Preserve the existing server authorization and shared session gate while
+// excluding historical sitewide DOM/CSS enhancers on these routes.
+const STANDALONE_VISUAL_ROUTES=new Set([
+ '/talia-classroom','/talia-classroom.html',
+ '/talia-tutor-prototype','/talia-tutor-prototype.html'
+]);
 const JSON_HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'no-store'};
 const reject=(message,status=403)=>new Response(JSON.stringify({ok:false,error:message}),{status,headers:JSON_HEADERS});
 const clean=s=>String(s||'').trim();
@@ -318,6 +325,14 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
         }
         if(path==='/labs.html'||path==='/labs')
           el.append('<style id="v011-lab-registry-gate">body{visibility:hidden}</style>',{html:true});
+        // React-owned Talia interfaces must not inherit old sitewide chart,
+        // dashboard, footer or visual enhancer scripts. The security and SW
+        // boundaries still execute, and existing member routes are unaffected.
+        if(STANDALONE_VISUAL_ROUTES.has(path)){
+          el.append('<script defer src="/assets/js/auth-boundary.js"></script>',{html:true});
+          el.append('<script defer src="/assets/js/service-worker.js"></script>',{html:true});
+          return;
+        }
         el.append('<meta name="application-version" content="v0.14.0.14">',{html:true});
         el.append('<meta name="theme-color" content="#061827">',{html:true});
         el.append('<link rel="stylesheet" href="/assets/css/display-preferences.css?v=20261026"><link rel="stylesheet" href="/assets/css/sitewide-surface-refinement.css?v=20261026b"><script defer src="/assets/js/display-preferences.js?v=20261026"></script>',{html:true});
