@@ -65,6 +65,9 @@ try{
   assert.notEqual(original,changed,'Zoom must update world scale');
   await page.locator('[data-mode="journey"]').click();
   const node=page.locator('.lc-point-journey').first();
+  // On a 390px phone the constellation sits below the explorer; mouse.move
+  // does not automatically scroll the viewport like locator.click does.
+  await node.scrollIntoViewIfNeeded();
   await page.evaluate(()=>{window.__lcPointerTrace=[];const stage=document.querySelector('.lc-canvas');
     ['pointerdown','pointermove','pointerup','pointercancel'].forEach(name=>stage.addEventListener(name,e=>{
       if(window.__lcPointerTrace.length<30)window.__lcPointerTrace.push({name,target:e.target.className?.baseVal||e.target.className,
