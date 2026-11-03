@@ -1,0 +1,30 @@
+name: Learning Lab 64 Feature Evidence Guard
+on:
+  push:
+    branches:
+      - main
+      - feature/20261103-premium-64-evidence-guard
+    paths:
+      - 'data/learning-lab-engine-feature-audit-v1.json'
+      - 'functions/_lib/learning-engine-tier-policy-v1.js'
+      - 'tests/learning-lab-premium-48-pending-guard-20261103.test.mjs'
+      - 'tests/learning-lab-engine-feature-audit-v1.test.mjs'
+      - '.github/workflows/learning-lab-64-feature-evidence-guard.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify complete 64-feature inventory and premium release holds
+        run: node --test tests/learning-lab-premium-48-pending-guard-20261103.test.mjs tests/learning-lab-engine-feature-audit-v1.test.mjs
