@@ -1,15 +1,15 @@
-/* Synthetic browser coverage for the ungraded Practicum90 D01-D40 layer. */
+/* Synthetic browser coverage for the ungraded Practicum90 D01-D60 layer. */
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {academyByCode,ACADEMY_VERSION} from '../functions/_lib/bootcamp-academy-v014168.js';
 const origin=(process.env.SITEWIDE_TEST_BASE||'http://127.0.0.1:8765').replace(/\/$/,'');
 assert(/^http:\/\/127\.0\.0\.1:\d+$/.test(origin));
 const course=academyByCode.practicum90,prompts=new Set();
-for(const day of course.curriculum.slice(0,40)){
+for(const day of course.curriculum.slice(0,60)){
  assert.equal(day.lesson.formativeQuestions.length,12);assert.equal(day.lesson.advancedPracticums.length,1);
  for(const q of day.lesson.formativeQuestions){assert(!prompts.has(q.id));prompts.add(q.id);}
 }
-assert.equal(prompts.size,480);
+assert.equal(prompts.size,720);
 const auth="window.getSupabaseClient=async()=>({auth:{getUser:async()=>({data:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'}}}),getSession:async()=>({data:{session:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'},access_token:'synthetic'}}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}});";
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
@@ -25,14 +25,14 @@ try{
   await page.goto(origin+'/bootcamp-academy.html?program=practicum90',{waitUntil:'domcontentloaded'});
   await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
   assert.equal(await page.locator('#academy-days .gu-bc-day').count(),90);
-  for(let i=0;i<40;i++){
+  for(let i=0;i<60;i++){
    const control=page.locator('#academy-days .gu-bc-day').nth(i);await control.focus();await page.keyboard.press('Enter');
    await page.waitForFunction(title=>document.getElementById('academy-day-title')?.textContent===title,course.curriculum[i].title,{timeout:15000});
    const guide=page.locator('#academy-legacy-guide');await guide.locator(':scope > summary').click();
    await page.locator('#academy-guided-host .academy-guided-ten').waitFor({state:'visible',timeout:10000});
    assert((await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth))<=5,'Horizontal overflow D'+(i+1));
   }
-  assert.deepEqual(errors,[]);console.log('PASS Practicum90 D01-D40 browser at '+width+'px');await ctx.close();
+  assert.deepEqual(errors,[]);console.log('PASS Practicum90 D01-D60 browser at '+width+'px');await ctx.close();
  }
- console.log('PASS Practicum90 D01-D40: 480 prompt identities and 120 responsive keyboard routes; synthetic, not authenticated acceptance.');
+ console.log('PASS Practicum90 D01-D60: 720 prompt identities and 180 responsive keyboard routes; synthetic, not authenticated acceptance.');
 }finally{await browser.close();}
