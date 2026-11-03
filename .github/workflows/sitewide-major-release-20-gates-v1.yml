@@ -17,10 +17,12 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+# Each new main SHA supersedes older branch-wide source checks. Keep
+# one current candidate rather than serializing a backlog of obsolete SHAs.
+# The final unchanged SHA must still complete all 20 source commands.
 concurrency:
   group: sitewide-20-${{ github.ref }}
-  cancel-in-progress: false
-  queue: max
+  cancel-in-progress: true
 jobs:
   site-and-journal:
     runs-on: ubuntu-latest
