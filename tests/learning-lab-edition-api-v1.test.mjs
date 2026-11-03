@@ -70,12 +70,13 @@ test('An Advanced grant cannot unlock Professional through plan claims',async()=
 test('Approved Advanced source works using server-computed fictional math, ignoring forged client indicator claims',async()=>{
  const f=fixture();try{const r=await onRequest({request:request(form()),env});assert.equal(r.status,200);
  const body=await r.json();assert.equal(body.ok,true);assert.equal(body.result.edition,'ADVANCED');
- const values=body.result.evidence.indicators;assert.equal(values.length,2);
+ const values=body.result.evidence.indicators;assert.equal(values.length,6);
  assert.equal(body.result.remediation.length,1);
  assert.deepEqual(body.result.remediation[0].sequence,['CANDLE_READING','EMA_CONTEXT']);
  const evidenceCall=f.calls.find(x=>x.pathname==='/rest/v1/competency_evidence');
  assert.ok(evidenceCall);assert.match(evidenceCall.search,/user_id=eq\.11111111-1111-4111-8111-111111111111/);
  assert(values.some(x=>x.name==='EMA'));assert(values.some(x=>x.name==='VWAP'));
+ for(const name of ['RSI','MACD','ATR','BOLL'])assert(values.some(x=>x.name===name),name);
  assert(values.every(x=>x.value!==99999));assert.equal(body.officialGrade,false);
  assert.equal(body.memberRecordsModified,false);
  assert(f.calls.every(x=>!['PATCH','PUT','DELETE'].includes(x.method)));

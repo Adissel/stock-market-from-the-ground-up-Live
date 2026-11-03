@@ -4,7 +4,7 @@
  * AND released edition confirm membership. No paid actions.
  */
 (function(root){'use strict';
- let serial=0,activeController=null;
+ let serial=0,activeController=null,activeCharts=[];
  const build=(tag,label)=>{const x=document.createElement(tag);if(label!==undefined)x.textContent=String(label);return x};
  const demo=()=>{
   const bars=Array.from({length:21},(_,i)=>{
@@ -14,6 +14,7 @@
   return{provenance:'fictional',asOf:21000,completedIndex:20,bars};
  };
  const explain=(result,host)=>{
+  activeCharts.forEach(chart=>chart.dispose?.());activeCharts=[];
   host.replaceChildren();
   if(!result)return;
   if(result.edition==='ENTERPRISE'){
@@ -45,6 +46,30 @@
     build('td',entry.method));body.append(row);
   }
   table.append(cap,head,body);host.append(table);
+  const series=result.evidence.completedSeries||[];
+  if(series.length){
+   const observations=build('table'),obsCaption=build('caption','Completed fictional observations used by the server');
+   const obsHead=build('thead'),obsHeader=build('tr');
+   for(const label of ['Completed observation','Close','Volume'])obsHeader.append(build('th',label));
+   obsHead.append(obsHeader);const obsBody=build('tbody');
+   series.forEach((row,index)=>{const tr=build('tr');tr.append(build('th','Observation '+(index+1)),
+    build('td',Number(row.close).toFixed(4)),build('td',String(row.volume)));obsBody.append(tr)});
+   observations.append(obsCaption,obsHead,obsBody);host.append(observations);
+   const charts=build('div');charts.className='gu-edition-linked-charts';
+   const price=build('div'),volume=build('div');price.setAttribute('aria-label','Completed fictional close chart');
+   volume.setAttribute('aria-label','Completed fictional volume chart');charts.append(price,volume);host.append(charts);
+   const chartEpoch=serial;
+   root.CrownlightECharts?.load?.().then(e=>{
+    if(chartEpoch!==serial||!price.isConnected)return;
+    const labels=series.map((_,i)=>'O'+(i+1)),close=series.map(x=>x.close),vol=series.map(x=>x.volume);
+    const common={animation:false,aria:{enabled:true},textStyle:{color:'#e5f0fa'},
+     grid:{left:55,right:20,top:35,bottom:45},xAxis:{type:'category',data:labels},
+     tooltip:{trigger:'axis'},dataZoom:[{type:'inside',start:0,end:100}]};
+    const a=e.init(price,null,{renderer:'svg'}),b=e.init(volume,null,{renderer:'svg'});activeCharts=[a,b];e.connect(activeCharts);
+    a.setOption({...common,yAxis:{type:'value',scale:true},series:[{name:'Close',type:'line',data:close}]});
+    b.setOption({...common,yAxis:{type:'value',min:0},series:[{name:'Volume',type:'bar',data:vol}]});
+   }).catch(()=>{});
+  }
   if(result.hypotheticalRisk?.length){
    const risk=build('p','Illustrative whole shares: '+result.hypotheticalRisk[0].shares+
     ' · planned stop risk: '+result.hypotheticalRisk[0].plannedRisk.toFixed(2)+
@@ -168,7 +193,7 @@
   }catch{if(serial===epoch){host.replaceChildren();host.hidden=true}}
  }
  function scrub(){
-  ++serial;activeController?.abort();activeController=null;
+  ++serial;activeController?.abort();activeController=null;activeCharts.forEach(chart=>chart.dispose?.());activeCharts=[];
   const h=document.getElementById('player-edition-exercise');
   if(h){h.replaceChildren();h.hidden=true}
  }

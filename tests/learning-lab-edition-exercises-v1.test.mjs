@@ -95,11 +95,12 @@ test('Returned structures are immutable and contain no official grades or privat
  assert.equal(JSON.stringify(x).includes('correctAnswer'),false);
 });
 
-test('server derives independently calculated EMA/VWAP from completed fictional prices',()=>{
+test('server derives independently calculated multi-indicator context from completed fictional prices',()=>{
  const derived=deriveFictionalCompletedStudies({evidence:fictional(),emaPeriod:3});
- assert.equal(derived.indicators.length,2);
+ assert.equal(derived.indicators.length,6);
  assert.equal(derived.indicators[0].name,'EMA');
  assert.equal(derived.indicators[1].name,'VWAP');
+ for(const name of ['RSI','MACD','ATR','BOLL'])assert.equal(derived.indicators.some(x=>x.name===name),true,name);
  assert.equal(derived.indicators[0].asOf,5000);
  assert.equal(derived.evidence.bars.length,5);
  assert.equal(deriveFictionalCompletedStudies({evidence:{...fictional(),provenance:'licensed_historical'}}),null);

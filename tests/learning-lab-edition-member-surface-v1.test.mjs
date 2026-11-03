@@ -35,6 +35,11 @@ test('Keyboard reachable forms and data table remain accessible',()=>{
  assert.match(ui,/Observations embargoed between training and holdout/);
  assert.match(css,/:focus-visible/);
  assert.match(css,/@media\(max-width:620px\)/);
+ assert.match(ui,/Completed fictional observations used by the server/);
+ assert.match(ui,/CrownlightECharts\?\.load/);
+ assert.match(ui,/e\.connect\(activeCharts\)/);
+ assert.match(ui,/activeCharts\.forEach\(chart=>chart\.dispose/);
+ assert.match(css,/gu-edition-linked-charts/);
 });
 
 test('Enterprise member source is enabled only after explicit release grant',()=>{

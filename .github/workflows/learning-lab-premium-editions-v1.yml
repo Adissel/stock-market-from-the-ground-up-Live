@@ -16,6 +16,8 @@ on:
       - 'lab-player.html'
       - 'functions/api/learning-lab-edition-workspace.js'
       - 'tests/learning-lab-edition-workspace-v1.test.mjs'
+      - 'tests/advanced-learning-lab-source-closeout-v1.test.mjs'
+      - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
   workflow_dispatch:
@@ -56,6 +58,8 @@ jobs:
         run: node --test tests/learning-lab-edition-api-v1.test.mjs
       - name: Verify private revisioned premium workspace authorization
         run: node --test tests/learning-lab-edition-workspace-v1.test.mjs
+      - name: Verify Advanced source closeout and release boundary
+        run: node --test tests/advanced-learning-lab-source-closeout-v1.test.mjs
   fail-closed-summary:
     runs-on: ubuntu-latest
     if: always()

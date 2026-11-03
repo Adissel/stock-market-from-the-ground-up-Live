@@ -14,5 +14,8 @@
 .gu-edition-exercise table caption{font-weight:650;padding:8px 0;text-align:left}
 .gu-edition-exercise th,.gu-edition-exercise td{text-align:left;vertical-align:top;padding:10px 9px;border-bottom:1px solid #395c79}
 .gu-edition-exercise th{font-weight:700}
+.gu-edition-linked-charts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.gu-edition-linked-charts>div{min-height:260px;border:1px solid #395c79;border-radius:8px}
 @media(max-width:620px){.gu-edition-exercise{padding:13px}.gu-edition-exercise-controls{align-items:stretch;flex-direction:column}.gu-edition-exercise-controls label,.gu-edition-exercise-controls select,.gu-edition-exercise-controls button{width:100%}}
+@media(max-width:620px){.gu-edition-linked-charts{grid-template-columns:1fr}.gu-edition-linked-charts>div{min-height:220px}}
 @media(prefers-reduced-motion:reduce){.gu-edition-exercise *{transition:none!important;animation:none!important}}

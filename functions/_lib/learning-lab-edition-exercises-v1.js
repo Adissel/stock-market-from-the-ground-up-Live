@@ -44,7 +44,8 @@ function studySummary(prefix,fields=[]){
  const move=last.close-first.open;
  return freeze({from:first.timestamp,through:last.timestamp,sampleSize:bars.length,
   latestClose:last.close,netChange:move,netChangePercent:first.open>0?move/first.open*100:null,
-  indicators:freeze(fields),barsVisible:bars.length,futureBarsIncluded:false});
+  indicators:freeze(fields),completedSeries:freeze(bars.map(b=>freeze({timestamp:b.timestamp,
+   close:b.close,volume:b.volume}))),barsVisible:bars.length,futureBarsIncluded:false});
 }
 function normalizeIndicators(indicators,cutoff){
  if(!Array.isArray(indicators)||indicators.length>12)return null;
@@ -153,6 +154,35 @@ export function deriveFictionalCompletedStudies({evidence,emaPeriod=9}={}){
    method:'SMA-seeded EMA '+emaPeriod+' on completed fictional closing prices',verified:true})];
  if(vwap!==null)result.push(freeze({name:'VWAP',value:vwap,asOf:at,
    method:'Typical-price volume-weighted mean of completed fictional candles',verified:true}));
+ const period=Math.min(5,closes.length-1);
+ let gain=0,loss=0;
+ for(let i=1;i<=period;i++){const d=closes[i]-closes[i-1];gain+=Math.max(d,0);loss+=Math.max(-d,0)}
+ gain/=period;loss/=period;
+ for(let i=period+1;i<closes.length;i++){
+  const d=closes[i]-closes[i-1];gain=(gain*(period-1)+Math.max(d,0))/period;
+  loss=(loss*(period-1)+Math.max(-d,0))/period;
+ }
+ const rsi=loss===0?(gain===0?50:100):100-100/(1+gain/loss);
+ result.push(freeze({name:'RSI',value:rsi,asOf:at,
+  method:'Wilder RSI '+period+' with simple average gain/loss seed on completed fictional closes',verified:true}));
+ const emaSeries=p=>{const values=Array(closes.length).fill(null);let value=closes.slice(0,p).reduce((a,b)=>a+b,0)/p;
+  values[p-1]=value;for(let i=p;i<closes.length;i++){value=closes[i]*2/(p+1)+value*(p-1)/(p+1);values[i]=value}return values};
+ const slow=Math.min(6,closes.length-2),fast=Math.max(2,slow-3),signalPeriod=2;
+ const fastSeries=emaSeries(fast),slowSeries=emaSeries(slow);
+ const macdLine=closes.map((_,i)=>slowSeries[i]===null?null:fastSeries[i]-slowSeries[i]);
+ const validMacd=macdLine.filter(x=>x!==null);let signal=validMacd.slice(0,signalPeriod).reduce((a,b)=>a+b,0)/signalPeriod;
+ for(let i=signalPeriod;i<validMacd.length;i++)signal=validMacd[i]*2/(signalPeriod+1)+signal*(signalPeriod-1)/(signalPeriod+1);
+ result.push(freeze({name:'MACD',value:macdLine.at(-1)-signal,asOf:at,
+  method:'MACD histogram using SMA-seeded EMA '+fast+'/'+slow+' and signal EMA '+signalPeriod+' on completed fictional closes',verified:true}));
+ const tr=bars.map((b,i)=>i===0?b.high-b.low:Math.max(b.high-b.low,Math.abs(b.high-bars[i-1].close),Math.abs(b.low-bars[i-1].close)));
+ let atr=tr.slice(0,period).reduce((a,b)=>a+b,0)/period;
+ for(let i=period;i<tr.length;i++)atr=(atr*(period-1)+tr[i])/period;
+ result.push(freeze({name:'ATR',value:atr,asOf:at,
+  method:'Wilder ATR '+period+' with gap-aware true range on completed fictional candles',verified:true}));
+ const window=closes.slice(-period),middle=window.reduce((a,b)=>a+b,0)/period;
+ const sigma=Math.sqrt(window.reduce((s,x)=>s+(x-middle)**2,0)/period);
+ result.push(freeze({name:'BOLL',value:sigma===0?0:(closes.at(-1)-middle)/sigma,asOf:at,
+  method:'Bollinger position in population-sigma units from SMA '+period+' on completed fictional closes',verified:true}));
  return freeze({evidence:freeze({provenance:'fictional',asOf:evidence.asOf,
    completedIndex:evidence.completedIndex,bars:prefix.bars}),
    indicators:freeze(result),graded:false,masteryAwarded:false});
