@@ -69,6 +69,6 @@ test('P2 claim-specific references #103 and #122 stay synchronized and unapprove
  }
  assert.ok(Math.abs(4*.3/24-.05)<1e-12,'Indicated yield is only hypothetical');
  assert.ok(Math.abs(1.1*.9-1+.01)<1e-12,'Compounded loss differs from zero');
- const shell=readFileSync('scripts/build-pages.sh','utf8');
- assert.ok(!shell.includes('\\r'),'Pages build script must remain LF-only');
+ const shell=readFileSync('scripts/build-pages.sh');
+ assert.equal(shell.includes(13),false,'Pages build script must remain LF-only');
 });
