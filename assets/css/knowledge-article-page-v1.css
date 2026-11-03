@@ -173,7 +173,9 @@ body[data-gu-article-page="standalone"] #kal-article-title {
 .kal-page .kal-panel h2 {
   margin:0 0 15px;
   color:#d7f4f0;
-  font:700 1.06rem/1.3 inherit;
+  font-size:1.06rem;
+  font-weight:700;
+  line-height:1.3;
   letter-spacing:0;
 }
 .kal-page .kal-outline-panel {
