@@ -5,7 +5,7 @@
 .gu-edition-exercise p{max-width:78ch}
 .gu-edition-exercise-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:12px 0}
 .gu-edition-exercise-controls label{display:grid;gap:5px;font-weight:650}
-.gu-edition-exercise-controls select,.gu-edition-exercise-controls button{min-height:42px;padding:8px 12px;font:inherit;border:1px solid #7dabc9;border-radius:8px;color:#f0f9ff;background:#123753}
+.gu-edition-exercise-controls select,.gu-edition-exercise-controls input,.gu-edition-exercise-controls button{min-height:42px;padding:8px 12px;font:inherit;border:1px solid #7dabc9;border-radius:8px;color:#f0f9ff;background:#123753}
 .gu-edition-exercise-controls button{cursor:pointer;background:#175371}
 .gu-edition-exercise-controls button:disabled{opacity:.65}
 .gu-edition-exercise-controls :focus-visible{outline:3px solid #f2cf87;outline-offset:3px}
@@ -16,6 +16,6 @@
 .gu-edition-exercise th{font-weight:700}
 .gu-edition-linked-charts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 .gu-edition-linked-charts>div{min-height:260px;border:1px solid #395c79;border-radius:8px}
-@media(max-width:620px){.gu-edition-exercise{padding:13px}.gu-edition-exercise-controls{align-items:stretch;flex-direction:column}.gu-edition-exercise-controls label,.gu-edition-exercise-controls select,.gu-edition-exercise-controls button{width:100%}}
+@media(max-width:620px){.gu-edition-exercise{padding:13px}.gu-edition-exercise-controls{align-items:stretch;flex-direction:column}.gu-edition-exercise-controls label,.gu-edition-exercise-controls select,.gu-edition-exercise-controls input,.gu-edition-exercise-controls button{width:100%}}
 @media(max-width:620px){.gu-edition-linked-charts{grid-template-columns:1fr}.gu-edition-linked-charts>div{min-height:220px}}
 @media(prefers-reduced-motion:reduce){.gu-edition-exercise *{transition:none!important;animation:none!important}}

@@ -162,3 +162,23 @@ test('Completed-bar mathematics ignores malformed future suffix but rejects it a
  withInvalidFuture.completedIndex=7;withInvalidFuture.asOf=8000;
  assert.equal(deriveFictionalCompletedStudies({evidence:withInvalidFuture,emaPeriod:3}),null);
 });
+
+test('Professional chronology permits synchronized completed frames but rejects reversed cutoffs',()=>{
+ const synchronized={label:'15m same-cutoff frame',completedThrough:5000,close:104,sourceVerified:true};
+ const ok=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,
+  frames:[...frames,synchronized]});
+ assert(ok);assert.equal(ok.frames[1].changeFromPrior,2);
+ assert.equal(professionalDecisionStudy({evidence:fictional(),indicators:indicators(),riskCases,
+  frames:[...frames,{...synchronized,completedThrough:4000}]}),null);
+});
+test('Professional studies retain distinct hypothetical stop-distance scenarios without grading',()=>{
+ const cases=[{entry:40,stop:38,riskBudget:100,availableCash:1000},
+  {entry:40,stop:39,riskBudget:100,availableCash:1000}];
+ const result=professionalDecisionStudy({evidence:fictional(),indicators:indicators(),
+  riskCases:cases,frames:[...frames,{label:'15m second frame',completedThrough:5000,close:104,sourceVerified:true}]});
+ assert(result);assert.equal(result.hypotheticalRisk.length,2);
+ assert.deepEqual(result.hypotheticalRisk.map(x=>x.shares),[25,25]);
+ assert.deepEqual(result.hypotheticalRisk.map(x=>x.plannedRisk),[50,25]);
+ assert(result.hypotheticalRisk.every(x=>x.limitation.includes('slip')));
+ assert.equal(result.graded,false);assert.equal(result.masteryAwarded,false);
+});

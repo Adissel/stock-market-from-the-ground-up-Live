@@ -18,7 +18,8 @@ const result={edition:'PROFESSIONAL',evidence:{indicators,completedSeries:series
   'Planned stop risk excludes gaps, slippage, fees and uncertain execution.',
   'Indicator agreement is descriptive evidence, not independent confirmation of a trade.'
  ],
- hypotheticalRisk:[{shares:25,plannedRisk:50}],
+ hypotheticalRisk:[{shares:25,perShareRisk:2,plannedRisk:50,exposure:1000,limitation:'A stop may slip.'},
+ {shares:25,perShareRisk:1,plannedRisk:25,exposure:1000,limitation:'A stop may slip.'}],
  limitation:'Fictional decision study only; no order is placed.'};
 const installedChrome='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox'],...(existsSync(installedChrome)?{executablePath:installedChrome}:{})});
@@ -28,7 +29,7 @@ try{
  await page.evaluate(result=>{
   globalThis.__pro={result,charts:[],requests:0};
   globalThis.CrownlightECharts={load:async()=>({init(element){const c={element,dispose(){},setOption(option){this.option=option}};globalThis.__pro.charts.push(c);return c},connect(){}})};
-  globalThis.fetch=async(_url,options)=>{globalThis.__pro.requests++;const body=JSON.parse(options.body);
+  globalThis.fetch=async(_url,options)=>{globalThis.__pro.requests++;const body=JSON.parse(options.body);globalThis.__pro.lastBody=body;
    if(body.edition!=='PROFESSIONAL')return new Response('{}',{status:403});
    return new Response(JSON.stringify({ok:true,edition:'PROFESSIONAL',result:globalThis.__pro.result}),{status:200,headers:{'content-type':'application/json'}})};
  },result);
@@ -43,10 +44,17 @@ try{
  assert.equal(await host.getByRole('region',{name:'Reviewed prerequisite practice route'}).getByText(/CANDLE_READING.*EMA_CONTEXT/).count(),1);
  assert.equal(await host.getByRole('region',{name:'Professional uncertainty evidence'}).locator('li').count(),3);
  assert.equal(await host.getByText(/Illustrative whole shares: 25/).count(),1);
+ assert.equal(await host.getByRole('table',{name:'Fictional stop-risk comparison'}).locator('tbody tr').count(),2);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),true);
+ await host.getByRole('spinbutton',{name:'Fictional risk budget in dollars'}).fill('120');
  await host.getByRole('button',{name:'Recalculate fictional example'}).click();
  await host.getByRole('status').filter({hasText:'Calculation completed'}).waitFor();
  assert.equal(await page.evaluate(()=>globalThis.__pro.requests),3,'Enterprise denial, Professional approval and Professional recalculation');
+ assert.deepEqual(await page.evaluate(()=>globalThis.__pro.lastBody.payload.riskCases.map(x=>x.riskBudget)),[120,120]);
+ await host.getByRole('spinbutton',{name:'Fictional risk budget in dollars'}).fill('0');
+ await host.getByRole('button',{name:'Recalculate fictional example'}).click();
+ await host.getByRole('status').filter({hasText:'Enter a fictional risk budget'}).waitFor();
+ assert.equal(await page.evaluate(()=>globalThis.__pro.requests),3,'Invalid budget must not generate an API call');
  await page.evaluate(()=>globalThis.CrownlightEditionExercisePanelV1.scrub());
  assert.equal(await host.isHidden(),true);assert.equal(await host.locator('*').count(),0);
  await context.close();

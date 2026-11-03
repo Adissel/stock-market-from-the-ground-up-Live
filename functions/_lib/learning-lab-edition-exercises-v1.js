@@ -84,6 +84,9 @@ export function professionalDecisionStudy({evidence,indicators,riskCases,frames,
     !fin(frame.close)||frame.close<=0||frame.sourceVerified!==true)return null;
   used.add(frame.label);
   const prior=frameRows.at(-1);
+  // Equal as-of timestamps may be synchronized frames, but backward
+  // timestamps must not invert the instructional sequence.
+  if(prior&&frame.completedThrough<prior.completedThrough)return null;
   frameRows.push(freeze({label:text(frame.label,40),close:frame.close,
    completedThrough:frame.completedThrough,changeFromPrior:prior?frame.close-prior.close:null,
    interpretation:'A completed frame is context evidence, not a future-price signal.'}));

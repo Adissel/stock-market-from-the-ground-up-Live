@@ -95,10 +95,23 @@
    }).catch(()=>{});
   }
   if(result.hypotheticalRisk?.length){
-   const risk=build('p','Illustrative whole shares: '+result.hypotheticalRisk[0].shares+
-    ' · planned stop risk: '+result.hypotheticalRisk[0].plannedRisk.toFixed(2)+
-    '. Stops may slip; losses may exceed planned risk.');
-   host.append(risk);
+   const first=result.hypotheticalRisk[0];
+   host.append(build('p','Illustrative whole shares: '+first.shares+
+    ' · planned stop risk: '+Number(first.plannedRisk).toFixed(2)+
+    '. Stops may slip; losses may exceed planned risk.'));
+   const table=build('table'),caption=build('caption','Fictional stop-risk comparison');
+   const head=build('thead'),titles=build('tr');
+   for(const name of ['Fictional case','Risk per share','Whole shares','Planned stop risk','Notional exposure','Limitations'])titles.append(build('th',name));
+   head.append(titles);
+   const body=build('tbody'),amount=x=>Number.isFinite(x)?x.toFixed(2):'Not available';
+   result.hypotheticalRisk.forEach((entry,i)=>{
+    const row=build('tr');row.append(build('th','Case '+(i+1)),
+     build('td',amount(entry.perShareRisk)),build('td',String(entry.shares)),
+     build('td',amount(entry.plannedRisk)),build('td',amount(entry.exposure)),
+     build('td',entry.limitation||'Stops can slip; planned loss is not guaranteed.'));
+    body.append(row);
+   });
+   table.append(caption,head,body);host.append(table);
   }
   host.append(build('p',result.limitation||'No trading recommendation or official mastery is implied.'));
  };
@@ -116,7 +129,8 @@
     activity:edition==='ENTERPRISE'?'chronological_validation':
      edition==='PROFESSIONAL'?'decision_replay_review':'advanced_formative_review',
     payload:{evidence:source,emaPeriod,embargo,frameSize:5,
-     riskCases:[{entry:40,stop:38,riskBudget:risk,availableCash:1000}]}});
+     riskCases:[{entry:40,stop:38,riskBudget:risk,availableCash:1000},
+      {entry:40,stop:39,riskBudget:risk,availableCash:1000}]}});
   const invoke=async(edition)=>{
    if(!alive()||serial!==epoch)return null;
    const body=exerciseBody(edition);
@@ -151,6 +165,11 @@
     option.selected=n===(selected==='ENTERPRISE'?embargo:emaPeriod);select.append(option)
    }
    label.append(select);choices.append(label);
+   const budgetLabel=build('label','Fictional risk budget (USD)');
+   const budgetInput=build('input');budgetInput.type='number';
+   budgetInput.min='1';budgetInput.max='100000';budgetInput.step='1';budgetInput.value='100';
+   budgetInput.setAttribute('aria-label','Fictional risk budget in dollars');
+   if(selected==='PROFESSIONAL'){budgetLabel.append(budgetInput);choices.append(budgetLabel)}
    const recalc=build('button','Recalculate fictional example');recalc.type='button';
    choices.append(recalc);
    const save=build('button','Save private study');
@@ -203,6 +222,14 @@
     if(serial!==epoch||!alive())return;
     if(selected==='ENTERPRISE')embargo=Number(select.value);
     else emaPeriod=Number(select.value);
+    if(selected==='PROFESSIONAL'){
+     const nextRisk=Number(budgetInput.value);
+     if(!Number.isSafeInteger(nextRisk)||nextRisk<1||nextRisk>100000){
+      status.textContent='Enter a fictional risk budget in whole dollars from 1 to 100000.';
+      return;
+     }
+     risk=nextRisk;
+    }
     recalc.disabled=true;
     status.textContent='Calculating verified fictional studies…';
     try{
