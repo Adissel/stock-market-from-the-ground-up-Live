@@ -12,6 +12,26 @@ const safe=(x,n=120)=>typeof x==='string'?x.replace(/[\u0000-\u001f\u007f<>]/g,'
 const code=x=>typeof x==='string'&&/^[A-Z][A-Z0-9_-]{2,49}$/.test(x);
 const uid=x=>typeof x==='string'&&/^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/i.test(x);
 const validTime=x=>typeof x==='number'&&Number.isSafeInteger(x)&&x>0;
+const exactly=(obj,names)=>!!obj&&typeof obj==='object'&&!Array.isArray(obj)&&
+ Object.keys(obj).every(key=>names.includes(key));
+const summaryFields=['code','status','independentAssessments'];
+const patternFields=['topicCode','misconceptionCode','sourceOnlyReviewedPattern','reviewId','correction','transferQuestion'];
+const progressFields=['courseCode','topicCode','completedAt','status','serverProgressVerified'];
+const caseFields=['memberId','courseCode','caseCode','completedAt','rights','serverRecordVerified','evidenceStatus'];
+const researchFields=['id','title','url','publishedAt','rights','independentlyRightsChecked'];
+// Closed reference-host inventory. A public URL is still NOT a reuse/license approval.
+const approvedHost=new Set(['www.sec.gov','sec.gov','www.investor.gov','investor.gov',
+ 'www.finra.org','finra.org','syndication.finra.org','chartschool.stockcharts.com',
+ 'www.cboe.com','www.nationalacademies.org','www.nist.gov',
+ 'www.quantconnect.com','quantconnect.com']);
+const safeCitationUrl=raw=>{
+ if(typeof raw!=='string'||raw.length>500)return false;
+ try{
+  const x=new URL(raw);
+  return x.protocol==='https:'&&!x.username&&!x.password&&!x.port&&
+   approvedHost.has(x.hostname)&&!['token','api_key','access_token','password'].some(k=>x.searchParams.has(k));
+ }catch{return false}
+};
 const EMPTY_CORRECTION=freeze({status:'source_prototype_not_released',accepted:false,feedback:null,
  officialGrade:false,masteryAwarded:false,premiumEntitlementGranted:false});
 const EMPTY_RESEARCH=freeze({status:'source_prototype_not_released',accepted:false,workItems:freeze([]),
@@ -25,8 +45,12 @@ const EMPTY_REPORT=freeze({status:'source_prototype_not_released',accepted:false
  */
 export function draftAdvancedMisconceptionCorrection({evidence,topicCode,misconceptionCode,patterns}={}){
  if(evidence?.ok!==true||evidence?.origin!=='authenticated_competency_summary'||
-    !Array.isArray(evidence.skills)||!code(topicCode)||!code(misconceptionCode)||
-    !Array.isArray(patterns)||patterns.length>80)return EMPTY_CORRECTION;
+    !exactly(evidence,['ok','origin','skills'])||
+    !Array.isArray(evidence.skills)||evidence.skills.length>40||
+    evidence.skills.some(row=>!exactly(row,summaryFields))||
+    !code(topicCode)||!code(misconceptionCode)||
+    !Array.isArray(patterns)||patterns.length>80||
+    patterns.some(row=>!exactly(row,patternFields)))return EMPTY_CORRECTION;
  const progress=evidence.skills.find(s=>s?.code===topicCode);
  if(!progress||!Number.isSafeInteger(progress.independentAssessments)||
     progress.independentAssessments<1||
@@ -38,8 +62,8 @@ export function draftAdvancedMisconceptionCorrection({evidence,topicCode,misconc
  if(!row)return EMPTY_CORRECTION;
  const feedback=freeze({topicCode,misconceptionCode,reviewId:row.reviewId,
   correction:safe(row.correction,260),transferQuestion:safe(row.transferQuestion,220),
-  observation:'This is ungraded formative support based on previously assessed learning evidence.',
-  factualPublicationApproved:false,answerKeyExposed:false});
+  observation:'This is an ungraded candidate self-check; prior learning status does not prove this specific misconception.',
+  specificMisconceptionVerified:false,factualPublicationApproved:false,answerKeyExposed:false});
  return freeze({...EMPTY_CORRECTION,accepted:true,feedback});
 }
 
@@ -48,8 +72,14 @@ export function draftAdvancedMisconceptionCorrection({evidence,topicCode,misconc
  */
 export function draftEnterpriseCrossCourseResearch({summary,allowedCourses,asOf,sources,requestedCitationIds}={}){
  if(summary?.ok!==true||summary?.origin!=='server_authorized_course_progress_summary'||
+    !exactly(summary,['ok','origin','courses'])||
     !Array.isArray(summary.courses)||!Array.isArray(allowedCourses)||allowedCourses.length>30||
-    !validTime(asOf)||!Array.isArray(requestedCitationIds))return EMPTY_RESEARCH;
+    allowedCourses.some(x=>!code(x))||
+    !validTime(asOf)||!Array.isArray(requestedCitationIds)||
+    requestedCitationIds.length>12||requestedCitationIds.some(x=>!code(x))||
+    !Array.isArray(sources)||sources.length>40||
+    sources.some(s=>!exactly(s,researchFields)||!safeCitationUrl(s.url))||
+    summary.courses.some(c=>!exactly(c,progressFields)))return EMPTY_RESEARCH;
  const allow=new Set(allowedCourses.filter(code));
  if(allow.size<2||summary.courses.length>100)return EMPTY_RESEARCH;
  const items=[],seen=new Set();
@@ -78,7 +108,9 @@ export function draftEnterpriseCrossCourseResearch({summary,allowedCourses,asOf,
  */
 export function draftEnterpriseEvidenceReport({scope,cases,asOf}={}){
  if(scope?.verified!==true||scope?.origin!=='server_authorized_member_scope'||
+    !exactly(scope,['origin','verified','memberId'])||
     !uid(scope.memberId)||!Array.isArray(cases)||cases.length<1||cases.length>500||
+    cases.some(row=>!exactly(row,caseFields))||
     !validTime(asOf))return EMPTY_REPORT;
  const byCourse=new Map(),seen=new Set();
  for(const row of cases){

@@ -6,6 +6,7 @@ on:
       - 'functions/_lib/talia-tier-remaining3-source-v1.js'
       - 'data/talia-four-edition-evidence-audit-v1.json'
       - 'tests/talia-tier-remaining3-source-v1.test.mjs'
+      - 'tests/talia-tier-remaining3-security-batch-v1.test.mjs'
       - 'tests/talia-owner-draft-and-edition-audit-v1.test.mjs'
       - 'scripts/qa/talia-owner-600-and-tiers-v1.mjs'
       - '.github/workflows/talia-15-edition-source-evidence-v1.yml'
@@ -28,6 +29,6 @@ jobs:
       - name: Check source syntax and release policy
         run: |
           node --check functions/_lib/talia-tier-remaining3-source-v1.js
-          node --test tests/talia-tier-remaining3-source-v1.test.mjs tests/talia-tier-research-contracts-v1.test.mjs tests/talia-owner-draft-and-edition-audit-v1.test.mjs
+          node --test tests/talia-tier-remaining3-source-v1.test.mjs tests/talia-tier-research-contracts-v1.test.mjs tests/talia-owner-draft-and-edition-audit-v1.test.mjs tests/talia-tier-remaining3-security-batch-v1.test.mjs
       - name: Repeat evidence compilation with independent hold flags
         run: node scripts/qa/talia-owner-600-and-tiers-v1.mjs
