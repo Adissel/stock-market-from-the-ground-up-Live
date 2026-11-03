@@ -1,0 +1,405 @@
+{
+  "batch": "B003",
+  "part": 1,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b003-sipc-custody-vs-market-loss",
+      "title": "SIPC Custody Protection Versus Market Losses",
+      "summary": "Original beginner education on sipc custody protection versus market losses, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Foundations / Research and Risk",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "foundations",
+        "beginner"
+      ],
+      "definition": "SIPC addresses qualifying missing customer securities and cash when a member brokerage fails; it does not reimburse a stockholder simply because prices fall or an investment decision loses money.",
+      "procedure": "For sipc custody protection versus market losses, first record the source, observation time, data units, completion status and stated definition. SIPC addresses qualifying missing customer securities and cash when a member brokerage fails; it does not reimburse a stockholder simply because prices fall or an investment decision loses money. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional brokerage liquidates while a member holds 20 shares worth $30 each in its records. In another account 20 shares decline from $30 to $18 while the broker remains solvent. Which problem belongs in a custody-protection inquiry?",
+      "solution": "The failed-broker scenario calls for checking records, SIPC membership, missing property and the applicable liquidation process. The market-price decline is $240 across 20 shares and is an investment loss, not a SIPC reimbursement claim.",
+      "counterexample": "Assuming a customer brokerage logo guarantees every financial loss is protected conflates custody failure, unauthorized transactions, issuer failure and market volatility.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Assuming a customer brokerage logo guarantees every financial loss is protected conflates custody failure, unauthorized transactions, issuer failure and market volatility. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Draft two sentences distinguishing replacement of missing customer property from reimbursement of market losses; identify the official resource that describes current coverage exclusions.",
+      "source_ids": [
+        "SIPC",
+        "SCHWAB-EDU"
+      ],
+      "sources": [
+        {
+          "title": "SIPC consumer protection",
+          "url": "https://www.sipc.org/"
+        },
+        {
+          "title": "Schwab Learn",
+          "url": "https://www.schwab.com/learn"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-margin-interest-and-maintenance",
+      "title": "Margin Interest and Maintenance Obligations",
+      "summary": "Original beginner education on margin interest and maintenance obligations, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Foundations / Research and Risk",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "foundations",
+        "beginner"
+      ],
+      "definition": "Buying on margin introduces a loan and financing charges, so the investor can lose equity more quickly than the underlying stock percentage declines; maintenance and forced sales depend on broker terms.",
+      "procedure": "For margin interest and maintenance obligations, first record the source, observation time, data units, completion status and stated definition. Buying on margin introduces a loan and financing charges, so the investor can lose equity more quickly than the underlying stock percentage declines; maintenance and forced sales depend on broker terms. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional margin account buys $5,000 of shares using $2,500 equity and a $2,500 outstanding loan. The shares later fall to $4,000 before any interest or fees. Find the remaining equity and equity percentage.",
+      "solution": "Equity is market value minus loan, $4,000-$2,500=$1,500. Equity is 37.5% of the $4,000 holding. The stock fell 20%, but the investor's $2,500 equity fell 40% before interest or margin calls.",
+      "counterexample": "A broker may demand additional collateral or liquidate positions under its agreement; an illustration cannot establish that 37.5% meets every firm's maintenance requirement.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. A broker may demand additional collateral or liquidate positions under its agreement; an illustration cannot establish that 37.5% meets every firm's maintenance requirement. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Repeat using a $3,600 ending market value and separately list the loan balance, initial margin, hypothetical equity and unknown brokerage thresholds.",
+      "source_ids": [
+        "FINRA-EDU",
+        "TOS-LRN"
+      ],
+      "sources": [
+        {
+          "title": "FINRA Investor Education",
+          "url": "https://www.finra.org/investors"
+        },
+        {
+          "title": "thinkorswim Learning Center",
+          "url": "https://toslc.thinkorswim.com/center"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-broker-check-registration",
+      "title": "Verifying Brokers, Licenses, and Disclosures",
+      "summary": "Original beginner education on verifying brokers, licenses, and disclosures, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Foundations / Research and Risk",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "foundations",
+        "beginner"
+      ],
+      "definition": "A potential brokerage relationship should be researched using the firm's and professional's exact legal identity, registration status, disclosures, and regulator records rather than advertising alone.",
+      "procedure": "For verifying brokers, licenses, and disclosures, first record the source, observation time, data units, completion status and stated definition. A potential brokerage relationship should be researched using the firm's and professional's exact legal identity, registration status, disclosures, and regulator records rather than advertising alone. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "Two fictional advisers display the same marketing name, but only one has a matching identifier in a regulator search. What should the investor verify before sending money?",
+      "solution": "Record the legal entity name, identifier, current registration and disciplinary disclosures, and compare account-opening documents with regulator records. A similar brand name does not verify the actual recipient.",
+      "counterexample": "A financial professional's credential or website badge is not independently sufficient evidence of authorization; absence of a familiar complaint does not guarantee competence or safety.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. A financial professional's credential or website badge is not independently sufficient evidence of authorization; absence of a familiar complaint does not guarantee competence or safety. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Prepare a verification checklist distinguishing a broker-dealer, an investment adviser, and a publisher of educational articles, including what the investor should confirm in official records.",
+      "source_ids": [
+        "SEC-INV",
+        "INVESTOPEDIA"
+      ],
+      "sources": [
+        {
+          "title": "SEC Investor.gov",
+          "url": "https://www.investor.gov/"
+        },
+        {
+          "title": "Investopedia",
+          "url": "https://www.investopedia.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ex-dividend-entitlement-timeline",
+      "title": "Ex-Dividend, Record, and Payment Dates",
+      "summary": "Original intermediate education on ex-dividend, record, and payment dates, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Foundations / Research and Risk",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "foundations",
+        "intermediate"
+      ],
+      "definition": "The ex-dividend date is a corporate-action entitlement boundary; the declaration, record and payment dates describe different events. Current issuer and exchange notices control the specific dates.",
+      "procedure": "For ex-dividend, record, and payment dates, first record the source, observation time, data units, completion status and stated definition. The ex-dividend date is a corporate-action entitlement boundary; the declaration, record and payment dates describe different events. Current issuer and exchange notices control the specific dates. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional issuer announces a $0.40 dividend and lists an ex-date of June 12 and payment date July 1. Learner A buys on June 11; learner B buys on June 12. Under an ordinary ex-dividend entitlement convention, who generally buys with the announced dividend right?",
+      "solution": "The earlier purchase generally occurs before the ex-date and is associated with the upcoming dividend entitlement under the stated simplifying assumptions; the on-ex-date purchase generally excludes it. This is not a guarantee of broker settlement or dividend processing.",
+      "counterexample": "A holder who buys on ex-date cannot assume the payment belongs to that transaction; special dividends, due bills, market holidays and corporate-action terms can alter timing.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. A holder who buys on ex-date cannot assume the payment belongs to that transaction; special dividends, due bills, market holidays and corporate-action terms can alter timing. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Construct a fictional timeline with declaration, ex, record and payment dates; label the date each represents and note where issuer-specific exceptions require verification.",
+      "source_ids": [
+        "NASDAQ"
+      ],
+      "sources": [
+        {
+          "title": "Nasdaq market education",
+          "url": "https://www.nasdaq.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trading-session-auction-primer",
+      "title": "NYSE Opening and Closing Auction Orientation",
+      "summary": "Original intermediate education on nyse opening and closing auction orientation, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Foundations / Research and Risk",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "foundations",
+        "intermediate"
+      ],
+      "definition": "A primary-listing exchange's opening or closing auction aggregates eligible orders using its published imbalance and price-discovery rules; an indicative price before execution is provisional.",
+      "procedure": "For nyse opening and closing auction orientation, first record the source, observation time, data units, completion status and stated definition. A primary-listing exchange's opening or closing auction aggregates eligible orders using its published imbalance and price-discovery rules; an indicative price before execution is provisional. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional closing auction displays an indicative match price of $25.20 at 3:55 p.m. while late order changes eventually produce an auction execution at $25.35. Which price should the final historical auction print report?",
+      "solution": "The actual matched auction execution at $25.35 is the completed observation; $25.20 was only a provisional indication at an earlier point. Neither proves the price of every separate transaction.",
+      "counterexample": "Treating an indication as guaranteed execution erases cancellation and order-modification effects; an exchange's rules must be checked for its own freeze and cut-off periods.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Treating an indication as guaranteed execution erases cancellation and order-modification effects; an exchange's rules must be checked for its own freeze and cut-off periods. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Compare an illustrative pre-close imbalance snapshot with a later official auction print, recording separate timestamps and explaining why the values need not agree.",
+      "source_ids": [
+        "NYSE"
+      ],
+      "sources": [
+        {
+          "title": "NYSE market education",
+          "url": "https://www.nyse.com/"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trade-vwap-vs-proxy",
+      "title": "Trade-Print VWAP Versus HLC3 Bar Proxy",
+      "summary": "Original intermediate education on trade-print vwap versus hlc3 bar proxy, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Technical Analysis / Verification",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "intermediate"
+      ],
+      "definition": "Exact transaction VWAP sums eligible individual trade prices multiplied by trade sizes and divides by total trade size. Bar HLC3-weighted VWAP uses only bar high, low, close and volume as a proxy.",
+      "procedure": "For trade-print vwap versus hlc3 bar proxy, first record the source, observation time, data units, completion status and stated definition. Exact transaction VWAP sums eligible individual trade prices multiplied by trade sizes and divides by total trade size. Bar HLC3-weighted VWAP uses only bar high, low, close and volume as a proxy. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "Two fictional trades occur within one bar: 100 shares at $10 and 300 at $12. The completed bar reports H=$12, L=$10, C=$12 and V=400. Calculate exact trade VWAP and one-bar HLC3 proxy.",
+      "solution": "Trade VWAP = (1000+3600)/400 = $11.50. The bar proxy = (12+10+12)/3 = approximately $11.3333. The results differ because OHLCV bars do not preserve the distribution of traded prices.",
+      "counterexample": "Teaching a bar-proxy VWAP as the exact trade-weighted result misrepresents data fidelity and may make an otherwise correct platform implementation appear inaccurate.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Teaching a bar-proxy VWAP as the exact trade-weighted result misrepresents data fidelity and may make an otherwise correct platform implementation appear inaccurate. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Make a three-trade fictional interval with unequal volumes, reconstruct its actual transaction VWAP and compare it to a proxy computed after reducing the interval to a single OHLCV bar.",
+      "source_ids": [
+        "TOS-VWAP",
+        "CHARTSCHOOL-OVER"
+      ],
+      "sources": [
+        {
+          "title": "thinkorswim VWAP methodology",
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP"
+        },
+        {
+          "title": "StockCharts technical overlays",
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ema-seed-convergence",
+      "title": "EMA Seed and Warmup Convergence",
+      "summary": "Original intermediate education on ema seed and warmup convergence, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Technical Analysis / Verification",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "intermediate"
+      ],
+      "definition": "The recursive EMA uses a disclosed alpha and prior EMA seed; early values differ when software starts at the first observation versus initializing from an earlier simple average.",
+      "procedure": "For ema seed and warmup convergence, first record the source, observation time, data units, completion status and stated definition. The recursive EMA uses a disclosed alpha and prior EMA seed; early values differ when software starts at the first observation versus initializing from an earlier simple average. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "For a three-period illustrative EMA, alpha=2/(3+1)=0.5. Seed the first result at the first close $10, then observe closes $12 and $14. Compute three recursive outputs.",
+      "solution": "With first-observation seeding, EMA values are 10, then 0.5*12+0.5*10=11, then 0.5*14+0.5*11=12.5. A three-observation SMA seed at the third close would start at 12 instead.",
+      "counterexample": "Comparing early values from two platforms without recording their historical warmup and seed rules can wrongly imply that one formula is incorrect.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Comparing early values from two platforms without recording their historical warmup and seed rules can wrongly imply that one formula is incorrect. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Calculate the next EMA value after a hypothetical fourth close of $13 using the 12.5 seed; explain why both implementations can converge over a longer observation history.",
+      "source_ids": [
+        "TOS-EMA",
+        "TOS-STUDIES"
+      ],
+      "sources": [
+        {
+          "title": "thinkorswim EMA methodology",
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MovAvgExponential"
+        },
+        {
+          "title": "thinkorswim technical indicators",
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-bar-close-vs-repainting",
+      "title": "Completed-Bar Confirmation and Repainting",
+      "summary": "Original advanced education on completed-bar confirmation and repainting, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Technical Analysis / Verification",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "advanced"
+      ],
+      "definition": "An intrabar indicator can fluctuate while its current bar is incomplete. A teaching rule based on confirmed candle closes cannot use an interim value as though it were the final recorded close.",
+      "procedure": "For completed-bar confirmation and repainting, first record the source, observation time, data units, completion status and stated definition. An intrabar indicator can fluctuate while its current bar is incomplete. A teaching rule based on confirmed candle closes cannot use an interim value as though it were the final recorded close. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional five-minute bar from 10:00 to 10:05 temporarily crosses a study threshold at 10:03 but closes below the threshold at 10:05. Was a completed-bar cross confirmed?",
+      "solution": "No. At 10:03 the bar was still evolving and the threshold observation was provisional. The completed 10:05 state did not satisfy the rule; no completed-bar crossing can be asserted.",
+      "counterexample": "A chart that backfills completed indicators may conceal earlier transient intrabar states; screenshot-only study can create hindsight errors.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. A chart that backfills completed indicators may conceal earlier transient intrabar states; screenshot-only study can create hindsight errors. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Write separate conditions for live provisional alerts and completed-bar education checkpoints, and specify the exact timestamp each rule is allowed to evaluate.",
+      "source_ids": [
+        "PINE-DOCS",
+        "TALIB-PY"
+      ],
+      "sources": [
+        {
+          "title": "TradingView Pine Script",
+          "url": "https://www.tradingview.com/pine-script-docs/"
+        },
+        {
+          "title": "TA-Lib Python",
+          "url": "https://github.com/TA-Lib/ta-lib-python"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-multiple-timeframe-bar-alignment",
+      "title": "Multi-Timeframe Indicator Alignment",
+      "summary": "Original advanced education on multi-timeframe indicator alignment, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Technical Analysis / Verification",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "advanced"
+      ],
+      "definition": "Higher-timeframe indicators evaluated during lower-timeframe replay must honor higher-bar completion; joining a final five-minute high to an earlier one-minute observation introduces lookahead.",
+      "procedure": "For multi-timeframe indicator alignment, first record the source, observation time, data units, completion status and stated definition. Higher-timeframe indicators evaluated during lower-timeframe replay must honor higher-bar completion; joining a final five-minute high to an earlier one-minute observation introduces lookahead. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "During a five-minute interval ending at 10:05, a one-minute learner observation occurs at 10:02. A new five-minute high is reached at 10:04. Can that future high enter the 10:02 feature?",
+      "solution": "No. The high at 10:04 was not observable at 10:02. For a completed higher-timeframe feature, use the last higher bar that closed by 10:02; a live partial high must be labeled provisional.",
+      "counterexample": "Simply forward filling a finalized higher-bar value into all lower bars of that same interval leaks the end-of-bar future into earlier replay states.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Simply forward filling a finalized higher-bar value into all lower bars of that same interval leaks the end-of-bar future into earlier replay states. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Create a two-column timeline of one-minute cutoffs and five-minute completion events, showing which higher-bar indicator reading is valid at each cutoff.",
+      "source_ids": [
+        "TRADINGVIEW-HELP",
+        "PANDAS-TA"
+      ],
+      "sources": [
+        {
+          "title": "TradingView Help Center",
+          "url": "https://www.tradingview.com/support/"
+        },
+        {
+          "title": "pandas-ta-classic project",
+          "url": "https://github.com/xgboosted/pandas-ta-classic"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b003-oscillator-signal-regime",
+      "title": "Oscillator Divergence and Regime Limits",
+      "summary": "Original intermediate education on oscillator divergence and regime limits, with explicit assumptions, reproducible fictional evidence, a worked answer, and limitations.",
+      "subject": "Technical Analysis / Verification",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-003",
+        "technical",
+        "intermediate"
+      ],
+      "definition": "Oscillators transform past observations into bounded or scaled conditions; their thresholds are descriptions rather than guarantees of price reversal, and market regimes matter.",
+      "procedure": "For oscillator divergence and regime limits, first record the source, observation time, data units, completion status and stated definition. Oscillators transform past observations into bounded or scaled conditions; their thresholds are descriptions rather than guarantees of price reversal, and market regimes matter. Reproduce the result without information unavailable at the chosen cutoff, then identify what would invalidate the interpretation.",
+      "exercise": "A fictional momentum oscillator remains above a nominal overbought threshold for four completed bars while price continues upward each bar. Does the first crossing prove a reversal must occur?",
+      "solution": "No. The threshold indicates a condition under the chosen formula, but trend continuation is compatible with repeated elevated readings. A trading inference requires separately defined confirmation and risk conditions.",
+      "counterexample": "Calling an overbought reading an immediate automatic sell signal confuses a historical transformation with a validated decision rule.",
+      "limitations": "The stated exercise is fictional and limited to its explicit inputs. Calling an overbought reading an immediate automatic sell signal confuses a historical transformation with a validated decision rule. Current rule interpretations, licensing terms, broker or exchange procedures, and real-world financial suitability require independent source verification.",
+      "application": "Prepare a trend and range example with identical oscillator thresholds, then state what extra independent evidence is required before claiming they imply the same future outcome.",
+      "source_ids": [
+        "CHARTSCHOOL-IND",
+        "QC-IND"
+      ],
+      "sources": [
+        {
+          "title": "StockCharts technical indicators",
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators"
+        },
+        {
+          "title": "QuantConnect Indicators",
+          "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators"
+        }
+      ]
+    }
+  ]
+}
