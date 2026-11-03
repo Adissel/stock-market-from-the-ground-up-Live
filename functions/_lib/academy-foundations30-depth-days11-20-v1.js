@@ -1,3 +1,4 @@
+import { foundations30Guided240 } from './academy-foundations30-guided-240-v1.js';
 /* Original Foundations30 D11–D20 advanced fictional instruction. Additive only; no grading, actual fills, or historical-bar rights. */
 const cases=Object.freeze([
   {
@@ -123,20 +124,6 @@ const cases=Object.freeze([
     "transfer": "Compare fresh fictional volume and dated short-interest snapshots without attributing price moves to an unverified covering motive."
   }
 ].map(x=>Object.freeze(x)));
-const actionSteps=Object.freeze([
- ['Identify the decision-time evidence and cutoff.',(s,b)=>s.evidence+' Preserve the originally observed source time.'],
- ['Explain the objective without claiming a future result.',(s,b)=>b.objective+' '+b.observe],
- ['State the mathematical inputs and unit conventions.',s=>s.formula+' Use a consistent denominator and declared measurement window.'],
- ['Independently calculate the worked measure.',s=>s.formula+' = '+s.expected+' using only the fictional data provided.'],
- ['Explain what the number measures and what it cannot prove.',s=>s.pitfall+' This number is descriptive rather than a performance forecast.'],
- ['Diagnose the most likely learner misconception.',s=>s.pitfall+' Correct this inference before proceeding.'],
- ['Reapply the original verification procedure.',(s,b)=>b.observe+' Document source, time, session and uncertainty.'],
- ['Attempt the existing canonical practice case.',(s,b)=>b.practice+' No invented order or unverified market print.'],
- ['Write a mandatory WAIT or NO TRADE trigger.',s=>s.pitfall+' If core evidence is missing, retain WAIT.'],
- ['Identify absent information and alternate explanations.',(s,b)=>b.caution+' The fictional case is not a causal proof.'],
- ['Apply the method independently to different evidence.',s=>s.transfer+' Use new fictional inputs and an explicit cutoff.'],
- ['Review process separately from any later outcome.',s=>'Preserve the first decision before future prices are seen. '+s.pitfall]
-]);
 export function foundations30DepthDays11to20(base,day) {
  const spec=cases[day-11];
  if(!spec||day<11||day>20||base.day!==day)throw Error('Foundations30 day identity mismatch: '+day);
@@ -165,11 +152,7 @@ export function foundations30DepthDays11to20(base,day) {
    url:day===1||day===10?'https://www.finra.org/investors/insights/understanding-new-intraday-margin-requirements':'https://www.investor.gov/',
    scope:'General official investor-education context; the fictional price, quantity, and outcome are not source-verified market data.'
   }),
-  formativeQuestions:Object.freeze(actionSteps.map(([action,correct],i)=>Object.freeze({
-   id:prefix+'Q'+String(i+1).padStart(2,'0'),
-   prompt:'Foundations30 day '+day+' — '+base.title+': '+action+' FICTIONAL EVIDENCE: '+spec.evidence,
-   review:'Day '+day+' guided review: '+correct(spec,base)+' Ungraded teaching; no protected answer key.'
-  }))),
+  formativeQuestions:foundations30Guided240(base,day,spec),
   advancedPracticums:Object.freeze([Object.freeze({
    id:prefix+'CASE',
    scenario:'FICTIONAL ADVANCED FOUNDATIONS CASE — '+spec.evidence,
