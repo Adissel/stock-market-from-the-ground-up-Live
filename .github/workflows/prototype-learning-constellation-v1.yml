@@ -1,6 +1,16 @@
 name: Crownlight Learning Constellation Chromium (Free)
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'assets/js/prototype-learning-constellation-v1.js'
+      - 'assets/js/prototype-constellation-galaxy-v2.js'
+      - 'tests/prototype-constellation-galaxy-v2.test.mjs'
+      - 'assets/js/prototype-constellation-galaxy-v2.js'
+      - 'assets/css/prototype-learning-constellation-v1.css'
+      - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
+      - 'tests/prototype-constellation-galaxy-v2.test.mjs'
+      - '.github/workflows/prototype-learning-constellation-v1.yml'
   push:
     branches: [main]
     paths:
@@ -28,6 +38,8 @@ jobs:
       - name: Validate JavaScript modules
         run: |
           node --check assets/js/prototype-learning-constellation-v1.js
+          node --check assets/js/prototype-constellation-galaxy-v2.js
+          node tests/prototype-constellation-galaxy-v2.test.mjs
           node --check assets/js/prototype-experiences-boot-v1.js
           node --check tests/prototype-learning-constellation-v1-browser.test.mjs
       - name: Install pinned open-source Chromium testing
