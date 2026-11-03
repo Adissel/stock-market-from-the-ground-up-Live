@@ -13,7 +13,10 @@ const FIELDS=Object.freeze({
  day_high:'Day high',day_low:'Day low',
  dollar_volume_proxy:'Last × volume research proxy',
  vwap_distance_pct:'Signed percent above supplied VWAP',
- price_below_high_pct:'Percent distance below supplied day high'
+ price_below_high_pct:'Percent distance below supplied day high',
+ bar_vwap_proxy:'HLC3 bar VWAP proxy (not trade VWAP)',
+ ema_9:'SMA-seeded 9-bar EMA',ema_20:'SMA-seeded 20-bar EMA',
+ ema_200:'SMA-seeded 200-bar EMA',rsi_14:'Wilder RSI 14',atr_14:'Wilder ATR 14'
 });
 const OPS=Object.freeze(['GT','GTE','LT','LTE','EQ','NE','BETWEEN']);
 const required=['price','change_pct','volume','rvol','float','spread_pct'];
