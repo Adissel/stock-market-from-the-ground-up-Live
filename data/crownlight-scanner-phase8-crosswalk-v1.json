@@ -1,0 +1,373 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-PHASE8-CROSSWALK-001",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "status": "RESEARCH-ONLY; no production implementation approval",
+    "githubPath": "data/crownlight-scanner-phase8-crosswalk-v1.json",
+    "googleDriveLocation": "Not created",
+    "googleDriveId": null,
+    "sourceDocumentId": "STK-P8-SR-0100-DATA"
+  },
+  "phase8": {
+    "featureCount": 44,
+    "championBaselines": 98,
+    "challengersPromoted": 0,
+    "statisticallyValidatedStrategies": 0
+  },
+  "features": [
+    {
+      "id": "P8-F-001",
+      "family": "Identity & Time",
+      "name": "Security identity / symbol history",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-002",
+      "family": "Identity & Time",
+      "name": "Exact detection timestamp",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-003",
+      "family": "Identity & Time",
+      "name": "Quote age / data freshness",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-004",
+      "family": "Price Structure",
+      "name": "Gap / session return",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "gap_pct",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-005",
+      "family": "Price Structure",
+      "name": "Distance to controlling level",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-006",
+      "family": "Price Structure",
+      "name": "Opening range state",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-007",
+      "family": "Price Structure",
+      "name": "VWAP / AVWAP quality",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "vwap",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-008",
+      "family": "Price Structure",
+      "name": "HH/HL or LH/LL structure",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-009",
+      "family": "Price Structure",
+      "name": "Range Consumption",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-010",
+      "family": "Liquidity",
+      "name": "Absolute spread",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-011",
+      "family": "Liquidity",
+      "name": "Spread percentage",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "spread_pct",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-012",
+      "family": "Liquidity",
+      "name": "Quote / trade continuity",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-013",
+      "family": "Liquidity",
+      "name": "Exit liquidity / capacity",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-014",
+      "family": "Participation",
+      "name": "Share volume",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "volume",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-015",
+      "family": "Participation",
+      "name": "Dollar volume",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "dollar_volume_proxy",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-016",
+      "family": "Participation",
+      "name": "Same-Time Relative Volume",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "rvol",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-017",
+      "family": "Participation",
+      "name": "Volume Acceleration",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-018",
+      "family": "Participation",
+      "name": "Impulse vs pullback volume",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-019",
+      "family": "Supply",
+      "name": "Verified public float / effective float",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "float",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-020",
+      "family": "Supply",
+      "name": "Float Rotation",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-021",
+      "family": "Supply",
+      "name": "Fully Diluted Turnover",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-022",
+      "family": "Trend Quality",
+      "name": "Trend Efficiency",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-023",
+      "family": "Candle Quality",
+      "name": "Close Location Value",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-024",
+      "family": "Volatility & Path",
+      "name": "ATR-Normalized Move",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-025",
+      "family": "Volatility & Path",
+      "name": "1m/5m/10m price velocity",
+      "scannerState": "PARTIAL_FROM_MEMBER_SNAPSHOT",
+      "implementationField": "change_5m_pct",
+      "verification": "UNVERIFIED_SUPPLIED_INPUT_OR_APPROXIMATION"
+    },
+    {
+      "id": "P8-F-026",
+      "family": "Volatility & Path",
+      "name": "Halt proximity / halt risk",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-027",
+      "family": "Catalyst",
+      "name": "Catalyst quality / novelty / materiality",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-028",
+      "family": "Catalyst",
+      "name": "Price-before-news / information timing",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-029",
+      "family": "Capital Structure",
+      "name": "Dilution / financing risk",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-030",
+      "family": "Capital Structure",
+      "name": "Reverse split / ADS / corporate action state",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-031",
+      "family": "Context",
+      "name": "Former Runner Strength",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-032",
+      "family": "Context",
+      "name": "Market / sector regime alignment",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-033",
+      "family": "Execution",
+      "name": "Execution Quality",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-034",
+      "family": "Setup",
+      "name": "Setup Maturity",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-035",
+      "family": "Setup",
+      "name": "Squeeze Pressure",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-036",
+      "family": "Setup",
+      "name": "Breakout Quality",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-037",
+      "family": "Setup",
+      "name": "Momentum Saturation / Exhaustion",
+      "scannerState": "RESEARCH_NOT_IMPLEMENTED",
+      "implementationField": null,
+      "verification": "REQUIRES_FUTURE_SOURCE_AND_FORMULA_ACCEPTANCE"
+    },
+    {
+      "id": "P8-F-038",
+      "family": "Model",
+      "name": "Runner Probability Score",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-039",
+      "family": "Model",
+      "name": "Trade Quality Score",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-040",
+      "family": "Experimental",
+      "name": "Signed Volume Shock",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-041",
+      "family": "Outcome",
+      "name": "MFE",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-042",
+      "family": "Outcome",
+      "name": "MAE",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-043",
+      "family": "Outcome",
+      "name": "Session Retention",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    },
+    {
+      "id": "P8-F-044",
+      "family": "Outcome",
+      "name": "Target-before-stop order",
+      "scannerState": "OUTCOME_OR_UNVALIDATED_MODEL_BLOCKED",
+      "implementationField": null,
+      "verification": "NOT_AUTHORIZED_AS_LIVE_DISCOVERY_SCORE"
+    }
+  ]
+}

@@ -49,6 +49,7 @@
    line.append(dropdown(C.OPS.map(x=>[x,x]),node.op,v=>{
     node.op=v;
     if(v==='BETWEEN'){delete node.compareField;node.value=Number(node.value)||0;node.maxValue=Number(node.value)+1;}
+    else{delete node.maxValue;}
     draw();
    }));
    const mode=dropdown([['value','Compare to number'],['field','Compare to field']],
