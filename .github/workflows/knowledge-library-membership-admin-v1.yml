@@ -13,6 +13,7 @@ on:
       - 'assets/css/knowledge-article-library-v1.css'
       - 'supabase/migrations/20261102_knowledge_library_membership_admin_v1.sql'
       - 'tests/test_knowledge_library_membership_admin_v1.mjs'
+      - 'tests/test_knowledge_library_runtime_auth_v1.mjs'
       - '.github/workflows/knowledge-library-membership-admin-v1.yml'
   workflow_dispatch:
 permissions: {contents: read}
@@ -31,5 +32,6 @@ jobs:
       - name: Verify security and curriculum nonregression
         run: |
           node tests/test_knowledge_library_membership_admin_v1.mjs
+          node tests/test_knowledge_library_runtime_auth_v1.mjs
           node tests/test_knowledge_database_store_v1.mjs
           node tests/test_knowledge_database_expansion_v2.mjs
