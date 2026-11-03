@@ -1,0 +1,44 @@
+name: Learning Lab Advanced Professional 64 Lifecycle Wave 2
+on:
+  push:
+    branches: [main, feature/learning-lab-advanced-professional-64-lifecycle-20261103]
+    paths:
+      - 'scripts/learning-lab-progress-scorecard-v2.mjs'
+      - 'tests/learning-lab-progress-scorecard-v2.test.mjs'
+      - 'tests/learning-lab-premium-lifecycle-64-v2.test.mjs'
+      - '.github/workflows/learning-lab-advanced-professional-lifecycle-v2.yml'
+      - 'functions/api/learning-lab-edition-exercise.js'
+      - 'functions/_lib/learning-lab-edition-exercises-v1.js'
+      - 'functions/_lib/learning-engine-tier-policy-v1.js'
+      - 'data/learning-lab-engine-feature-audit-v1.json'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scored-source-and-authorization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check all new module syntax
+        run: |
+          node --check scripts/learning-lab-progress-scorecard-v2.mjs
+          node --check tests/learning-lab-progress-scorecard-v2.test.mjs
+          node --check tests/learning-lab-premium-lifecycle-64-v2.test.mjs
+      - name: Reconstruct progress without fixed numerators
+        run: node --test tests/learning-lab-progress-scorecard-v2.test.mjs
+      - name: Execute 64 Advanced and Professional authorization journeys
+        run: node --test tests/learning-lab-premium-lifecycle-64-v2.test.mjs
+      - name: Guard existing edition contracts and frozen Basic
+        run: |
+          node --test tests/learning-lab-edition-api-v1.test.mjs tests/learning-lab-edition-workspace-v1.test.mjs
+          node --test tests/learning-lab-feature-evidence-64.test.mjs
+      - name: Print evidence-limited scorecard
+        run: node scripts/learning-lab-progress-scorecard-v2.mjs
