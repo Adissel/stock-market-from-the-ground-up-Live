@@ -6,7 +6,7 @@ import {readFileSync} from 'node:fs';
 const data=JSON.parse(readFileSync(new URL('../data/lab-64-topic-source-triage-v1.json',import.meta.url),'utf8'));
 const raw=readFileSync(new URL('../docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv',import.meta.url),'utf8');
 const memo=readFileSync(new URL('../docs/qa/2026-11-03_LAB_64_TOPIC_SOURCE_TRIAGE_V1.md',import.meta.url),'utf8');
-const lines=raw.trim().split(/\\r?\\n/);
+const lines=raw.trim().split(/\r?\n/);
 const unquote=(s)=>[...s.matchAll(/"((?:[^"]|"")*)"|([^,]+)/g)].map(m=>(m[1]??m[2]).replaceAll('""','"'));
 const fields=unquote(lines[0]);const canonical=lines.slice(1).map(line=>Object.fromEntries(unquote(line).map((v,i)=>[fields[i],v])));
 const catalog=new Map(canonical.map(x=>[x.lab_id,x]));
