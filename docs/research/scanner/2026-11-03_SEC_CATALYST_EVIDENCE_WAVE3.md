@@ -36,3 +36,13 @@ Run source tests, SEC budget regressions, exact build check, authenticated two-a
 
 Revision history: v1.0 / November 3, 2026 / created read-only SEC acceptance-time evidence and research mapping.
 Footer: Not an investment recommendation, data license, editorial acceptance or billing authorization.
+
+## Revision 1.1 — secured SEC / Watchlist / Talia handoff
+- Evidence after the server's SEC observation time is excluded, even where earlier than a client-side decision timestamp.
+- SEC acceptance-time evaluation is displayed only after the existing authenticated single-issuer API succeeds; user selects 24 or 72 hours without new requests.
+- Scanner results navigate by symbol to the existing entitled Watchlist Workbench; navigation never automatically retrieves records or grants tool access.
+- Original Talia RESEARCH teaching prompts support evidence evaluation; graded content remains protected.
+- Official references reviewed 2026-11-03: https://www.sec.gov/search-filings/edgar-application-programming-interfaces ; https://www.sec.gov/about/webmaster-frequently-asked-questions ; https://www.sec.gov/about/developer-resources .
+- Two-account and screen-reader browser QA, independent release acceptance and exact Cloudflare SHA remain pending. Source engineering only.
+
+Revision history: v1.1 / 2026-11-03 / chronology hardening and protected issuer research UI.
