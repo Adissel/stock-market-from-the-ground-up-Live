@@ -8,7 +8,8 @@ const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_SECRET_KEY:'sb_secre
  ENGINE_LAB_PROFESSIONAL_RELEASED:'true',ENGINE_LEARNING_ENTERPRISE_RELEASED:'true'};
 const until='2099-01-01T00:00:00.000Z';
 function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',edition='ADVANCED',
- family='learning',expiresAt=until,revoked=false,grant=true}={}){
+ family='learning',expiresAt=until,revoked=false,grant=true,source='site_subscriptions',
+ planEndsAt=until,planStartsAt='2025-01-01T00:00:00.000Z'}={}){
  const original=globalThis.fetch,calls=[];
  const res=x=>new Response(JSON.stringify(x),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,options={})=>{
@@ -18,8 +19,12 @@ function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',editio
   if(u.pathname==='/rest/v1/admin_user_flags'||u.pathname==='/rest/v1/admin_user_roles')return res([]);
   if(u.pathname==='/rest/v1/rpc/user_has_tool_access')return res(tool);
   if(u.pathname==='/rest/v1/gu_product_access_config_v1')return res([]);
-  if(u.pathname==='/rest/v1/site_subscriptions')return res([{
-   plan_code:plan,status:active?'active':'canceled',current_period_end:until,
+  if(u.pathname==='/rest/v1/user_plan_grants'&&source!=='user_plan_grants')return res([]);
+  if(u.pathname==='/rest/v1/site_subscriptions'&&source!=='site_subscriptions')return res([]);
+  if(u.pathname==='/rest/v1/user_plan_grants'||u.pathname==='/rest/v1/site_subscriptions')return res([{
+   plan_code:plan,status:active?'active':'canceled',
+   starts_at:planStartsAt,ends_at:planEndsAt,
+   current_period_start:planStartsAt,current_period_end:planEndsAt,
    metadata:{engine_edition_grants_v1:grant?{
      [family]:{active:true,edition,expiresAt,revoked}
    }:{}}
@@ -131,5 +136,58 @@ test('Malformed body and GET are rejected without membership service calls',asyn
  assert.equal(bad.status,400);
  const get=await onRequest({request:new Request('https://local.test/api/learning-lab-edition-exercise'),env});
  assert.equal(get.status,405);assert.equal(f.calls.length,0);
+ }finally{f.restore()}
+});
+
+test('Canonical user_plan_grants source grants Advanced only with explicit member metadata',async()=>{
+ const f=fixture({source:'user_plan_grants'});
+ try{
+  const r=await onRequest({request:request(form()),env});
+  assert.equal(r.status,200);
+  const body=await r.json();
+  assert.equal(body.result.edition,'ADVANCED');
+  assert.equal(body.memberRecordsModified,false);
+  assert(f.calls.some(x=>x.pathname==='/rest/v1/user_plan_grants'));
+  assert(f.calls.some(x=>x.pathname==='/rest/v1/site_subscriptions'));
+  assert(f.calls.every(x=>!['PATCH','PUT','DELETE'].includes(x.method)));
+ }finally{f.restore()}
+});
+test('Canonical plan grants fail closed without explicit edition metadata',async()=>{
+ const f=fixture({source:'user_plan_grants',grant:false});
+ try{
+  const r=await onRequest({request:request(form()),env});
+  assert.equal(r.status,403);
+ }finally{f.restore()}
+});
+test('Canonical plan grants deny revoked, expired, canceled, future-start and inadequate tiers',async()=>{
+ const cases=[
+  {source:'user_plan_grants',revoked:true},
+  {source:'user_plan_grants',expiresAt:'2020-01-01T00:00:00Z'},
+  {source:'user_plan_grants',active:false},
+  {source:'user_plan_grants',planEndsAt:'2020-01-01T00:00:00Z'},
+  {source:'user_plan_grants',planStartsAt:'2099-01-01T00:00:00Z'},
+  {source:'user_plan_grants',plan:'FOUNDING_14'},
+  {source:'user_plan_grants',plan:'FOUNDING_60',edition:'ADVANCED',family:'lab',grant:false}
+ ];
+ for(const opts of cases){
+  const f=fixture(opts);
+  try{
+   const r=await onRequest({request:request(form()),env});
+   assert.equal(r.status,403,JSON.stringify(opts));
+  }finally{f.restore()}
+ }
+});
+test('Lifetime plan grant requires a bounded explicit edition expiry',async()=>{
+ const f=fixture({source:'user_plan_grants',plan:'LIFETIME',planEndsAt:null,edition:'PROFESSIONAL',family:'lab'});
+ try{
+  const r=await onRequest({request:request(form('PROFESSIONAL','lab')),env});
+  assert.equal(r.status,200);
+ }finally{f.restore()}
+});
+test('Canonical grant cannot bypass missing edition switch',async()=>{
+ const f=fixture({source:'user_plan_grants'});
+ try{
+  const r=await onRequest({request:request(form()),env:{...env,ENGINE_LEARNING_ADVANCED_RELEASED:'false'}});
+  assert.equal(r.status,403);
  }finally{f.restore()}
 });
