@@ -1,3 +1,4 @@
+# Final SHA-coordinated Premium browser rerun after verified sign-in redirect race correction.
 name: Premium Release — Live Browser QA
 on:
   push:
