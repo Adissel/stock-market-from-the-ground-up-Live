@@ -45,3 +45,11 @@ Claim-specific references exposed a legitimate loader restriction: every Foundat
 | Version | Date | Change | Acceptance |
 |---|---|---|---|
 | 1.3 | 2026-11-03 | Hardened two-citation allowlist, preserved fail-closed behavior and added source-loader regression | Internal technical; release HOLD |
+
+## Version 1.4 — inherited tests honor bounded two-source contract
+
+The Batch 04 and Batch 05 legacy aggregate tests assumed every one of the first 100 supplemental lessons contains exactly one research citation. That fixture assumption prevented valid two-source population/sample standard deviation evidence from passing. The tests now accept **one or two HTTPS sources** while the production loader independently enforces the restricted research-host list, zero URL credentials and zero custom ports. No lesson is published or graded; exact lesson title lookup and fail-closed untrusted host tests remain required.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.4 | 2026-11-03 | Reconciled legacy 80/100 lesson source-count tests with bounded validated two-citation contract | CI and editorial release separate |

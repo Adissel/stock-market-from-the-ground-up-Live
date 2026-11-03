@@ -24,7 +24,8 @@ test('Fifth batch delivers exactly 100 distinct Foundation topics without diluti
   assert.equal(g.supplemental,true);assert.equal(g.independentEditorialApproved,false);
   assert.ok(!official.has(g.code));
   assert.match(g.workedCase,/^FICTIONAL:/);
-  assert.equal(g.sourceUrls.length,1);
+  assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2,g.code+' citation count');
+  assert.ok(g.sourceUrls.every(u=>u.startsWith('https://')),g.code+' source scheme');
   for(const name of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])
    assert.ok(typeof g[name]==='string'&&g[name].length>=28,g.code+' '+name);
  }

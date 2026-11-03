@@ -25,7 +25,8 @@ test('80 unique Foundation drafts preserve 30 official competency IDs and non-ap
   assert.equal(g.status,'original_source_authored_ungraded_pending_independent_editorial_review');
   assert.ok(!official.has(g.code));
   assert.match(g.workedCase,/^FICTIONAL:/);
-  assert.equal(g.sourceUrls.length,1);
+  assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2,g.code+' citation count');
+  assert.ok(g.sourceUrls.every(u=>u.startsWith('https://')),g.code+' source scheme');
   for(const field of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])
    assert.ok(typeof g[field]==='string'&&g[field].length>=28,g.code+' '+field);
  }
