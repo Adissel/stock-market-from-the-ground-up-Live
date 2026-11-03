@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A simple moving average needs n completed closing observations; earlier indices cannot produce a complete-window value. Worked calculation: For n=3 and zero-based indexing, first result is at index 2; closes 10,12,14 average 12. Correct the common mistake: Putting a full-window SMA at index zero introduces unavailable history. Critical limitation: At least n valid same-unit closes are required. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: For closes 20,22,24,26 and n=3, identify first valid index and first mean. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "SMA requires n completed closes, with the first zero-based full-window output at n minus one.",
+        "limitationsAndOpenQuestions": "This is a window/indexing convention; it does not prove future prices or platform implementation parity.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -47,7 +57,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A rolling average drops the oldest observation when the window advances; an expanding average retains all previous valid observations. Worked calculation: Closes 10,20,30,40: three-bar rolling mean at fourth bar is 30, expanding mean is 25. Correct the common mistake: Calling the expanding statistic SMA2 hides incompatible denominators. Critical limitation: Missing bars and session policies change which observations qualify. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: For 2,4,6,8 with a two-bar rolling window, compare final rolling and expanding averages. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +69,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "The rolling n-period SMA uses the last n closes; expanding mean uses all available closes.",
+        "limitationsAndOpenQuestions": "Expanding mean is original arithmetic; the reference primarily defines fixed-window moving averages.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -74,7 +94,7 @@
       "reviewExplanation": "Ungraded guided reasoning: The standard period-n EMA recursion weights each new completed close by alpha=2/(n+1). Worked calculation: For n=9, alpha 0.2; previous EMA 100 and close 105 give next EMA 101. Correct the common mistake: Using n instead of n+1 creates a different smoothing rule. Critical limitation: Declare initialization and warmup; seed choice affects startup outputs. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: With n=19, prior EMA 40 and completed close 50, calculate alpha and next EMA. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +106,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "EMA smoothing factor is 2 divided by period plus one and updates from a prior EMA.",
+        "limitationsAndOpenQuestions": "EMA prior history, seed and warmup can differ across platforms, so this does not certify numeric parity.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -101,7 +131,7 @@
       "reviewExplanation": "Ungraded guided reasoning: An SMA-seeded EMA begins after n valid closes rather than assuming an invented earlier recursive value. Worked calculation: For n=3, closes 10,12,14 seed EMA=12 at index 2; next close 16 yields EMA 14. Correct the common mistake: Seeding at the first raw close while claiming an SMA seed changes early outcomes. Critical limitation: The official study variant and handling of incomplete history must be declared. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: For n=3, closes 8,10,12,14 find first seed and following EMA. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +143,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "A declared EMA may use a simple moving average as the initial seed.",
+        "limitationsAndOpenQuestions": "Other vendors may seed differently; the three-bar fictional case is not validated against a live feed.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -128,7 +168,7 @@
       "reviewExplanation": "Ungraded guided reasoning: True range takes the largest of bar range and movements relative to the preceding close. Worked calculation: Prior close 100; bar high 106 and low 104: max(2,6,4)=6. Correct the common mistake: Using high minus low alone misses overnight gap magnitude. Critical limitation: The prior completed close and consistent adjusted-price treatment are mandatory. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Prior close 50, high 48, low 46: find true range. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +180,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "True range includes current range and the change from the eligible previous close.",
+        "limitationsAndOpenQuestions": "A completed prior close is necessary; the formula does not guarantee stops or future volatility.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -155,7 +205,7 @@
       "reviewExplanation": "Ungraded guided reasoning: ATR typically seeds as the arithmetic mean of n true ranges and then applies Wilder recursion. Worked calculation: With n=3, true ranges 2,4,6 seed ATR=4; next TR=10 gives (4×2+10)/3=6. Correct the common mistake: Treating the first true range as the seed while claiming a three-range mean misaligns outputs. Critical limitation: Variants differ on first-bar TR and indexing. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: With n=3, true ranges 1,2,3 followed by 6, calculate seed and next ATR. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-true-range-atr"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +217,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Wilder ATR uses a starting TR mean and recursive smoothing of successive true ranges.",
+        "limitationsAndOpenQuestions": "The full warmup, adjustment convention and source data must be specified before independent acceptance.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -182,7 +242,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A Bollinger-style band needs explicit lookback and population or sample deviation definition. Worked calculation: Closes 8,10,12: mean 10 and population sigma=sqrt(8/3); at k=2, upper band about 13.266. Correct the common mistake: Switching silently to sample sigma enlarges the bands. Critical limitation: Band output before warmup and flat standard deviation need explicit handling. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: For closes 3,5,7 and k=2, compute mean and upper population band. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +254,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Bollinger bands use a moving average and a declared multiple of standard deviation.",
+        "limitationsAndOpenQuestions": "Population-versus-sample denominator and platform warmup can vary; this is original fictional arithmetic.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -209,7 +279,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A channel upper bound is the highest valid completed high within the chosen observation window. Worked calculation: Highs 10,13,11,12 and n=3 produce final upper channel 13. Correct the common mistake: Including an unfinished next candle introduces lookahead. Critical limitation: Window length and whether current bar is included must be declared. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Highs 7,9,8,10 with n=2: find final upper bound. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/price-channels"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +291,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "A price channel uses the rolling highest highs and lowest lows.",
+        "limitationsAndOpenQuestions": "The channel may include or exclude the current bar; that distinction matters for no-lookahead tests.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -236,7 +316,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A signal against prior completed channel highs must exclude the decision bar when defining the threshold. Worked calculation: Previous three highs 10,11,12 set prior upper boundary 12; current completed close 12.50 crosses it. Correct the common mistake: Including the decision candle high in the prior boundary can change the test. Critical limitation: An observed crossing does not guarantee continuation or fill. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Previous highs 20,22,21; current close 21.50: is it above the prior three-bar high? Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/price-channels"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +328,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "A prior highest-high window can be compared to a newly completed close.",
+        "limitationsAndOpenQuestions": "No source proves a breakout succeeds or that a market order would fill at the displayed level.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -263,7 +353,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A weighted price ratio cannot be computed when cumulative eligible volume is zero. Worked calculation: Two completed bars with HLC3 values 10 and 12 and volumes 100 and 300 give bar-proxy VWAP 11.50. Correct the common mistake: Dividing by bar count instead of volume makes an unweighted mean. Critical limitation: This HLC3 calculation is not trade-print VWAP and sessions must be aligned. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Fictional HLC3 prices 20 and 24 weighted by volume 200 and 200: calculate proxy. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +365,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "VWAP weights eligible trade prices by their associated quantities within a selected session.",
+        "limitationsAndOpenQuestions": "The lesson uses HLC3 proxy values per bar, NOT exact trade-print VWAP; true parity remains unverified.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -290,7 +390,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A session-dependent VWAP starts a new numerator and denominator at the declared session boundary. Worked calculation: Prior session total price-volume 1000 and volume 100; new session first trade at 20 for volume 50 has VWAP 20, not 1200/150. Correct the common mistake: Carrying yesterday's totals into today's VWAP corrupts the new-session average. Critical limitation: Session templates and extended-hours inclusion vary by provider. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: At a fresh session, trades 10×10 shares and 12×30 shares: compute session VWAP. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +402,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Session VWAP accumulations are defined within an eligible current-day session.",
+        "limitationsAndOpenQuestions": "The reset interval depends on the declared market session; do not merge prior-session observations.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -317,7 +427,7 @@
       "reviewExplanation": "Ungraded guided reasoning: Wilder RSI computes initial average gains and average losses from a declared number of consecutive price changes. Worked calculation: For n=3, changes +2,-1,+3 yield mean gain 5/3, mean loss 1/3 and RSI 83.333. Correct the common mistake: Using only two changes for RSI3 shifts the first valid index. Critical limitation: Zero-loss and all-flat conventions require explicit bounded outputs. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: For n=3, changes +1,-2,+1: compute initial RSI. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +439,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Wilder RSI is based on averaged positive and negative completed close changes.",
+        "limitationsAndOpenQuestions": "A three-change initial example is not a fully initialized standard fourteen-period RSI.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -344,7 +464,7 @@
       "reviewExplanation": "Ungraded guided reasoning: When average loss is zero and gain is positive, conventional RSI is at its upper bound rather than an arithmetic division failure. Worked calculation: Average gain 2 and average loss 0 imply RSI 100 under the declared convention. Correct the common mistake: Dividing by zero and emitting NaN damages chart interpretation. Critical limitation: Flat gain and flat loss simultaneously must use a separately declared neutral rule. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Average gain 0 and average loss 1: calculate RSI and justify its bound. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +476,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Positive average gains and zero losses produce an RSI of one hundred in the selected convention.",
+        "limitationsAndOpenQuestions": "When both gains and losses are zero the mathematical expression is indeterminate; platform handling varies.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -371,7 +501,7 @@
       "reviewExplanation": "Ungraded guided reasoning: MACD histogram is a difference between the MACD line and its signal average, retaining price units. Worked calculation: A MACD line 1.40 with signal line 1.10 yields histogram +0.30 price units. Correct the common mistake: Displaying price-unit histogram as a percentage is a unit error. Critical limitation: Both lines require their declared EMA seed and warmup history. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: A MACD line -0.20 and signal 0.15: calculate histogram. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-histogram"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +513,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "MACD histogram equals the MACD line minus its signal line.",
+        "limitationsAndOpenQuestions": "EMA initialization, parameters, units and completed observation time require independent checks.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -398,7 +538,7 @@
       "reviewExplanation": "Ungraded guided reasoning: On-balance volume adds volume on higher closes, subtracts it on lower closes, and leaves the cumulative value unchanged on ties. Worked calculation: Previous OBV 500; completed close unchanged with volume 1000 leaves OBV 500. Correct the common mistake: Assuming every high-volume bar increases OBV regardless of close direction. Critical limitation: The starting OBV seed is conventional and does not imply money flow. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Previous OBV 200 and close rises on volume 80: find next OBV. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/on-balance-volume-obv"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +550,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "OBV adds or subtracts volume only when the completed close changes direction.",
+        "limitationsAndOpenQuestions": "Unchanged close leaves OBV unchanged, but initial OBV and adjusted volume conventions vary.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -425,7 +575,7 @@
       "reviewExplanation": "Ungraded guided reasoning: Chaikin money flow multipliers are undefined on a high-equals-low candle unless a safe policy is defined. Worked calculation: If high=low=close=10 on volume 500, a declared zero multiplier contributes 0 to CMF numerator. Correct the common mistake: Dividing by zero or silently treating unknown volume as zero. Critical limitation: Define zero-range handling and require nonzero aggregate volume. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: A zero-range bar on volume 100 followed by a valid +1 multiplier bar on volume 300: calculate CMF. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/chaikin-money-flow-cmf"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +587,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Chaikin Money Flow uses candle location within the high-low range weighted by volume.",
+        "limitationsAndOpenQuestions": "When high equals low the multiplier denominator is zero; assigning zero is an explicit original convention, not universal.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -452,7 +612,7 @@
       "reviewExplanation": "Ungraded guided reasoning: The stochastic oscillator locates close within a rolling high-low interval. Worked calculation: Window high 15, low 10, close 12: %K =40. Correct the common mistake: Using a candle body range rather than the highest-high/lowest-low window gives a different statistic. Critical limitation: If highest high equals lowest low, the result requires a defined fallback. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Window high 25, low 20, close 24: calculate %K. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/stochastic-oscillator-fast-slow-and-full"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +624,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Stochastic percent K uses the completed close relative to the lookback range.",
+        "limitationsAndOpenQuestions": "The formula is undefined if the lookback high equals the low; this example deliberately uses a nonflat range.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -479,7 +649,7 @@
       "reviewExplanation": "Ungraded guided reasoning: Comparing fast and slow average volume requires a declared denominator and consistent eligible bars. Worked calculation: Fast mean volume 1200; slow mean 1000: (1200-1000)/1000=20%. Correct the common mistake: Mistaking absolute shares difference for a percent masks scale. Critical limitation: Slow volume average zero makes the percent undefined. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Fast average 800 and slow average 1000: compute oscillator. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/percentage-volume-oscillator-pvo"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +661,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPICALLY_RELATED_VARIANT_NOT_EQUIVALENT_RELEASE_HOLD",
+        "supportedScope": "The cited PVO is based on the ratio of fast and slow exponentially averaged volumes.",
+        "limitationsAndOpenQuestions": "HOLD: the fictional lesson supplies simple volume means instead; PVO does not independently establish this variant.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -506,7 +686,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A gap can be normalized to the prior completed close in basis points. Worked calculation: Prior close 50, next open 50.25: gap 0.5%=50 basis points. Correct the common mistake: Computing a gap with the same bar close uses future information at the open. Critical limitation: Corporate actions and adjusted versus raw prices can change the valid comparison. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Previous close 25, next open 24.90: calculate signed gap basis points. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/chart-analysis/gaps-and-gap-analysis"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +698,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "An open-versus-previous-close move can be described as an arithmetic price change.",
+        "limitationsAndOpenQuestions": "An opening change alone is not necessarily a full-price-chart gap under prior high-low definitions.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -533,7 +723,7 @@
       "reviewExplanation": "Ungraded guided reasoning: A sequence of identical valid closes has zero measured return dispersion, not missing observations. Worked calculation: Closes 10,10,10,10 imply three zero simple returns and zero sample standard deviation. Correct the common mistake: Confusing verified zero variance with no market data hides important input quality distinctions. Critical limitation: At least two returns are required for sample standard deviation; stale quotes need separate review. This does not assess official mastery.",
       "transferQuestion": "FICTIONAL independent transfer: Closes 20,20,20,20: compute period returns and sample dispersion. Explain the warmup boundary and why a missing earlier value cannot be invented.",
       "sourceUrls": [
-        "https://school.stockcharts.com/doku.php?id=technical_indicators"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/standard-deviation-volatility"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +735,16 @@
         "result": "INTERNAL_DRAFT_HOLD_EXTERNAL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://school.stockcharts.com/doku.php?id=technical_indicators",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Identical valid returns have zero population or sample dispersion under the declared convention.",
+        "limitationsAndOpenQuestions": "Three returns support sample deviation, but stale or missing market observations cannot be replaced with zeros.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

@@ -1,9 +1,10 @@
 // SMFGU-TALIA-SOURCE-QUALITY-023: internal source triage, not editorial acceptance.
 import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
-const generic=new Set(['https://www.investor.gov/introduction-investing','https://www.investor.gov/introduction-investing/','https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators']);
+const legacyGeneric='https://school.stockcharts.com/doku.php?id=technical_indicators';
+const generic=new Set(['https://www.investor.gov/introduction-investing','https://www.investor.gov/introduction-investing/','https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators',legacyGeneric]);
 const batches=[],issues=[],codes=new Set(),titles=new Set();
-const stats={lessons:0,fictionalWorkedExamples:0,independentApprovals:0,missingSources:0,broadReferences:0,missingRightsMetadata:0,missingReviewObject:0,explicitNotReviewed:0,invalidLinks:0};
+const stats={lessons:0,fictionalWorkedExamples:0,independentApprovals:0,missingSources:0,broadReferences:0,missingRightsMetadata:0,missingReviewObject:0,explicitNotReviewed:0,legacyGenericReferences:0,invalidLinks:0};
 for(let n=1;n<=30;n++){
  const name='talia-foundation-explanations-batch'+String(n).padStart(2,'0')+'-v1.json';
  const guides=JSON.parse(readFileSync(new URL('../../data/'+name,import.meta.url),'utf8')).guides;
@@ -22,6 +23,7 @@ for(let n=1;n<=30;n++){
   if(!Array.isArray(g.sourceUrls)||g.sourceUrls.length===0){stats.missingSources++;issues.push({batch:n,code:g.code,type:'missing_source'});continue;}
   for(const uri of g.sourceUrls){
    if(generic.has(uri)){stats.broadReferences++;row.broadReferences++;issues.push({batch:n,code:g.code,type:'generic_reference'});}
+   if(uri===legacyGeneric)stats.legacyGenericReferences++;
    try{const u=new URL(uri);if(u.protocol!=='https:'||u.username||u.password)throw Error('unsafe');}
    catch{stats.invalidLinks++;issues.push({batch:n,code:g.code,type:'invalid_source_url'});}
   }
