@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 const B=n=>JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch'+n+'-v1.json',import.meta.url),'utf8')).guides;
 const batches=[B('19'),B('20')],all=batches.flat();
 test('Foundation batches 19 and 20: forty claim-scoped primary/methodology citations with no publication approvals',()=>{
@@ -43,12 +45,21 @@ test('Batch20 vintage chronology, mixed executions and model assumptions have ex
  assert.equal((100-80)/100,0.2);
 });
 
-test('The all-600 scanner recognizes broad SEC EDGAR search links excluded by the legacy counter',()=>{
- const scanner=readFileSync(new URL('../scripts/qa/talia-foundation-source-quality-v1.mjs',import.meta.url),'utf8');
+test('The all-600 scanner tracks generic SEC EDGAR references in the current inventory',()=>{
+ const scannerUrl=new URL('../scripts/qa/talia-foundation-source-quality-v1.mjs',import.meta.url);
+ const scanner=readFileSync(scannerUrl,'utf8');
+ const genericEdgar='https://www.sec.gov/edgar/search/';
  assert.match(scanner,/edgarGeneric/);
- assert.ok(scanner.includes("https://www.sec.gov/edgar/search/"));
+ assert.ok(scanner.includes(genericEdgar));
  assert.match(scanner,/genericEdgarSearchReferences/);
- assert.equal(batches.flat().filter(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')).length,0);
- const remaining=JSON.parse(readFileSync(new URL('../data/talia-foundation-explanations-batch26-v1.json',import.meta.url),'utf8')).guides;
- assert.ok(remaining.some(g=>g.sourceUrls.includes('https://www.sec.gov/edgar/search/')),'Known remaining EDGAR index citations must remain included in QA scope until corrected');
+ assert.match(scanner,/if\(uri===edgarGeneric\)stats\.genericEdgarSearchReferences\+\+/);
+ assert.equal(batches.flat().filter(g=>g.sourceUrls.includes(genericEdgar)).length,0);
+ const expected=Array.from({length:30},(_,i)=>B(String(i+1).padStart(2,'0')))
+  .flat().reduce((count,g)=>count+g.sourceUrls.filter(url=>url===genericEdgar).length,0);
+ const output=execFileSync(process.execPath,[fileURLToPath(scannerUrl)],{encoding:'utf8'});
+ const report=JSON.parse(output.trim().split('\n').at(-1));
+ assert.equal(report.counts.lessons,600);
+ assert.equal(report.counts.genericEdgarSearchReferences,expected,'Scanner EDGAR count must match all 600 current lessons');
+ assert.ok(report.counts.broadReferences>=expected,'EDGAR references must be included in broad-source backlog');
+ assert.equal(report.counts.independentApprovals,0,'Publication holds must remain in force');
 });

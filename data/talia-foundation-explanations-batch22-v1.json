@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded coaching: Realized return volatility summarizes measured dispersion over completed observations and is not an options-market implied parameter. Worked scenario: Fictional two completed daily returns +1% and -1% have population standard deviation 1 percentage point. Misconception correction: Substituting historical return SD for official VIX is methodologically invalid. Limit: Data sampling, volatility estimator and corporate adjustments change outputs. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Returns +2% and -2%: compute population volatility and identify measurement frequency. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -31,6 +31,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Historical realized volatility of simple returns\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Data sampling, volatility estimator and corporate adjustments change outputs. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -46,7 +56,7 @@
       "reviewExplanation": "Ungraded coaching: Variance scales with time under simplifying independence assumptions while standard deviation scales with its square root. Worked scenario: Daily return variance 0.0001 with 252 sessions gives annualized variance 0.0252, and standard deviation sqrt(0.0252). Misconception correction: Multiplying standard deviation by 252 confuses square and original units. Limit: Dependence and volatility clustering violate simple scaling assumptions. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Daily variance 0.0004 and 252-day convention: compute annual variance. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -57,6 +67,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Annualized variance versus annualized standard deviation\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Dependence and volatility clustering violate simple scaling assumptions. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -72,7 +92,7 @@
       "reviewExplanation": "Ungraded coaching: Different expirations can have different model-implied volatility, so the volatility term structure is not a flat constant. Worked scenario: A fictional 30-day IV 25% and 90-day IV 30% differ by 5 percentage points. Misconception correction: Calling a difference in implied levels a realized future direction forecast is unjustified. Limit: Different strikes and quote times confound expiry comparisons. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: A 20-day IV 40% and 60-day IV 34%: identify which expiry has the higher quote. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/advancedconcepts/volatility-the-greeks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -83,6 +103,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Implied volatility term structure\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Different strikes and quote times confound expiry comparisons. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -98,7 +128,7 @@
       "reviewExplanation": "Ungraded coaching: Options with matching expiration but different strikes may imply different volatility due to pricing and risk preferences. Worked scenario: Fictional 90%-moneyness put IV 35% and at-the-money IV 25% show 10 percentage-point skew. Misconception correction: Treating all options on one underlying as having a single IV ignores strike dependence. Limit: Different strikes, option types and liquidity must be matched. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Same expiry put IV 32% and ATM IV 28%: compute the gap. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/advancedconcepts/volatility-the-greeks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -109,6 +139,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Volatility skew across strikes\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Different strikes, option types and liquidity must be matched. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -135,6 +175,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Variance versus volatility quote units\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Estimators, windows and annualization are convention-dependent. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -150,7 +200,7 @@
       "reviewExplanation": "Ungraded coaching: An option position's first-order delta exposure can be offset by an opposite stock quantity under stated multiplier assumptions. Worked scenario: One long call delta +0.60 with 100-share multiplier has +60 share-equivalent delta, modeled offset by short 60 shares. Misconception correction: Calling a delta hedge risk-free ignores gamma, gap and hedge rebalancing. Limit: Delta is dynamic and short stock may involve borrow and margin constraints. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Two calls delta +0.25 and multiplier 100: find combined approximate share-equivalent delta. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/advancedconcepts/understanding-options-greeks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -161,6 +211,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Delta-neutral hedge approximation\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Delta is dynamic and short stock may involve borrow and margin constraints. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -176,7 +236,7 @@
       "reviewExplanation": "Ungraded coaching: Gamma can be scaled by contract multiplier and a declared underlying move to estimate nonlinear option response. Worked scenario: Call gamma 0.02 per $1, multiplier 100, and $1 move imply approximately 2 share-equivalents change in total delta. Misconception correction: Treating a gamma ratio as dollars of guaranteed profit confuses derivative and P&L. Limit: Strike, volatility, large moves and higher-order terms matter. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Gamma .03, multiplier 100, two contracts: compute delta-share change for a $1 move. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/advancedconcepts/understanding-options-greeks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -187,6 +247,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Gamma-dollar exposure convention\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Strike, volatility, large moves and higher-order terms matter. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -202,7 +272,7 @@
       "reviewExplanation": "Ungraded coaching: A long strangle buys different-strike put and call and its breakevens include both premiums under simplified expiration payoff. Worked scenario: Long put strike 90 and call strike 110, combined debit $5: simple expiration breakevens 85 and 115. Misconception correction: Using each leg premium alone understates the combined cost. Limit: Assignment, liquidity, multiplier, expiry alignment and costs apply. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Put strike 40, call strike 50, combined premium $3: find both expiration breakevens. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/news/february-office-hours-faqs-option-pricing-strategies-and-market-mechanics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -213,6 +283,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Simple strangle expiration breakevens\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Assignment, liquidity, multiplier, expiry alignment and costs apply. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -228,7 +308,7 @@
       "reviewExplanation": "Ungraded coaching: A straddle uses a common strike while a strangle typically uses different strikes; total premium is the sum of both purchased legs. Worked scenario: Fictional call $3 and put $4 produce $7 per underlying share total debit, regardless of whether called a straddle by strike. Misconception correction: Describing distinct strike contracts as a same-strike straddle is a classification error. Limit: Premium costs alone do not establish the shape of the expiration payoff. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Call $2 and put $1.50 with 100-share multiplier: compute total debit. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/news/february-office-hours-faqs-option-pricing-strategies-and-market-mechanics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -239,6 +319,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Long straddle versus long strangle initial cost\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Premium costs alone do not establish the shape of the expiration payoff. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -254,7 +344,7 @@
       "reviewExplanation": "Ungraded coaching: A conventional four-leg net-credit iron condor has maximum simple expiration profit equal to the net credit before fees. Worked scenario: One 100-share-multiplier condor receives $1.25 credit/share, implying $125 theoretical maximum profit. Misconception correction: Counting both sold legs' gross credits without subtracting purchased hedges is incorrect. Limit: Wing width, assignment and fees govern risk. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Net condor credit $.80 per share, multiplier 100: find maximum gross profit. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/videolibrary/delta-gamma-theta-and-vega-in-multi-leg-trades"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -265,6 +355,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Iron condor expiration maximum profit\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Wing width, assignment and fees govern risk. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -280,7 +380,7 @@
       "reviewExplanation": "Ungraded coaching: For equal-width wings under ideal expiration settlement, the max loss per share equals wing width minus received credit. Worked scenario: Fictional width $5 and net credit $1.20 imply max expiration loss $3.80/share. Misconception correction: Using max possible credit as the worst-case loss ignores short wing exposure. Limit: Unequal widths require the larger exposed wing to be evaluated. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Equal wing width $4, net credit $.90: calculate ideal expiration maximum loss. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/videolibrary/delta-gamma-theta-and-vega-in-multi-leg-trades"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -291,6 +391,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Iron condor wing width and loss cap\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Unequal widths require the larger exposed wing to be evaluated. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -306,7 +416,7 @@
       "reviewExplanation": "Ungraded coaching: A calendar spread holds legs with different expirations; payoff cannot be reduced to a single same-expiry vertical formula. Worked scenario: A fictional near-term option expires in seven days and far-term option in 35 days, leaving 28 calendar days between expiries. Misconception correction: Applying the vertical strike-width maximum gain formula to a calendar spread is invalid. Limit: Early assignment and volatility changes create complex interim risk. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Short leg expires in 10 days and long leg in 40 days: compute calendar separation. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/news/february-office-hours-faqs-option-pricing-strategies-and-market-mechanics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -317,6 +427,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Calendar spread expiration mismatch risk\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Early assignment and volatility changes create complex interim risk. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -332,7 +452,7 @@
       "reviewExplanation": "Ungraded coaching: Cash settlement pays an amount under contract rules; physical settlement exchanges the specified underlying or deliverable. Worked scenario: Fictional cash-settled index option with $3 exercise value and multiplier 100 pays $300 under modeled settlement. Misconception correction: Assuming every in-the-money option delivers common shares is false. Limit: Settlement values and exercise style must be checked with the official contract. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Cash-settled intrinsic $1.75 and multiplier 100: compute theoretical cash settlement. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/optionsoverview"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -343,6 +463,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Options contract settlement mode distinction\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Settlement values and exercise style must be checked with the official contract. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -358,7 +488,7 @@
       "reviewExplanation": "Ungraded coaching: American-style contracts generally allow exercise before expiration; European-style ones generally restrict exercise to prescribed expiry rules. Worked scenario: A fictional American-style holder may request early exercise under contract rules, but European-style exercise is restricted. Misconception correction: Calling all index options European or all stock options American without contract verification is unsafe. Limit: Exercise and settlement terms depend on actual listing. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: For two identical-looking strikes with different exercise styles, identify which permits early exercise. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/optionsoverview"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -369,6 +499,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"American versus European exercise style\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Exercise and settlement terms depend on actual listing. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -384,7 +524,7 @@
       "reviewExplanation": "Ungraded coaching: Exercising before expiration may forfeit remaining extrinsic value that could have been realized by selling the option. Worked scenario: Fictional call premium $5.00 and intrinsic $4.00 leaves $1.00 extrinsic value/share potentially sacrificed by exercise. Misconception correction: Treating early exercise as automatically financially superior ignores residual time value. Limit: Dividends, tax and transaction constraints can change practical choices. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Premium $3.50 with intrinsic $3: calculate extrinsic amount. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/optionsoverview/options-pricing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -395,6 +535,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Early exercise and remaining extrinsic premium\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Dividends, tax and transaction constraints can change practical choices. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -410,7 +560,7 @@
       "reviewExplanation": "Ungraded coaching: A displayed options bid and ask are conditional trading interests, not proof of a market maker's position or motive. Worked scenario: Fictional call bid 1.10 and ask 1.30 have $0.20 spread; that alone reveals no dealer net inventory. Misconception correction: Inferring a dealer is net short from the quoted spread exceeds the observation. Limit: Routing, exchange depth and quote cancellation matter. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Given quotes $2.05/$2.30, calculate spread and explain what inventory cannot be known. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/news/july-office-hours-faqs-implied-volatility-position-greeks-and-market-maker-order-flow"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -421,6 +571,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Options market maker quote inventory uncertainty\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Routing, exchange depth and quote cancellation matter. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -436,7 +596,7 @@
       "reviewExplanation": "Ungraded coaching: Delta-adjusted share-equivalent exposure is option count times multiplier times delta under a declared sign convention. Worked scenario: Three long calls at delta +0.40 and multiplier 100 imply +120 share-equivalent exposure. Misconception correction: Equating delta exposure with maximum possible loss misunderstands nonlinear options risk. Limit: Delta changes with market state; long option loss is constrained by premium plus costs under standard assumptions. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Four long puts delta -0.30, multiplier 100: compute signed share-equivalent exposure. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/advancedconcepts/understanding-options-greeks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -447,6 +607,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Option contract notional delta exposure\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Delta changes with market state; long option loss is constrained by premium plus costs under standard assumptions. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -462,7 +632,7 @@
       "reviewExplanation": "Ungraded coaching: Broker and clearing rules may automatically exercise eligible options at expiration subject to exceptions and account instructions. Worked scenario: A fictional option $0.02 in the money may fall within a default exercise threshold, but actual handling requires the controlling contract and broker instructions. Misconception correction: Assuming a position always expires harmlessly without exercise or assignment review is risky. Limit: Actual OCC/clearing rules, cutoff times and special instructions govern. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: An option is $0.01 ITM at expiration: explain why brokerage policy must still be checked. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/optionsoverview"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -473,6 +643,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Exercise by exception versus explicit instructions\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Actual OCC/clearing rules, cutoff times and special instructions govern. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -488,7 +668,7 @@
       "reviewExplanation": "Ungraded coaching: Expiration intrinsic payoff is not the same as a premium quotation while time value remains. Worked scenario: A call at strike $50 with stock at $52 has $2 intrinsic; a quoted option premium $2.80 before expiry includes $0.80 extrinsic. Misconception correction: Using an expiration payoff graph as today's guaranteed exit quote is incorrect. Limit: Liquidity, volatility, rates and remaining time determine actual marks. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Strike 40, stock 43, option premium 4.20: separate intrinsic and extrinsic. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.optionseducation.org/optionsoverview/options-pricing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -499,6 +679,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Option expiration payoff versus pre-expiration mark\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "Liquidity, volatility, rates and remaining time determine actual marks. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -525,6 +715,16 @@
       "editorSourceReview": {
         "result": "INTERNAL_DRAFT_HOLD_CLAIM_SPECIFIC_VOLATILITY_METHOD",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.cboe.com/tradable_products/vix/",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
+        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Official volatility index versus educational approximation\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "limitationsAndOpenQuestions": "The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

@@ -21,7 +21,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Position size divides permitted dollar risk by per-share entry-to-stop distance. Worked fictional evidence: Entry $25.00, stop $24.50: distance $0.50; $100 risk / $0.50 = 200 shares. Error correction: Using account balance instead of permitted trade risk can oversize the position. Boundary: Position size ignores slippage, fees, gaps, and whether the stop can execute. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Risk $90 with $0.30 distance: compute shares and state an execution defect.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Position size from fixed dollar risk. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Position size ignores slippage, fees, gaps, and whether the stop can execute. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +60,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A risk-based share calculation is rounded down to a tradable whole quantity so the stated cap is not exceeded. Worked fictional evidence: $75 / $0.40 = 187.5 shares; round down to 187, producing $74.80 planned price risk. Error correction: Rounding 187.5 up to 188 exceeds the stated $75 cap before costs. Boundary: Broker lot rules and transaction costs can require further reduction. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Risk $65 with $0.28 distance: calculate and round conservatively.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +71,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Position-size rounding down. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Broker lot rules and transaction costs can require further reduction. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -75,7 +99,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A stop defines an intended trigger, not a guaranteed exit price when the next executable market is beyond it. Worked fictional evidence: 100 shares entered $20 with $19.50 stop imply $50 planned risk; a hypothetical $19.10 fill implies $90 price loss. Error correction: Reporting $50 as the maximum possible loss confuses planned distance with realized execution. Boundary: The fill is fictional; actual liquidity and order type determine execution. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: For 80 shares, $30 entry, $29.60 stop, and $29.20 fictional fill, compare planned and realized price loss.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +110,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Gap risk beyond a stop. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. The fill is fictional; actual liquidity and order type determine execution. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -102,7 +138,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Portfolio heat adds the planned dollar risk of concurrently open positions rather than their market values. Worked fictional evidence: Three planned risks of $60, $80, and $40 sum to $180 portfolio heat. Error correction: Adding notional values instead of stop-based risks misstates the planned loss budget. Boundary: Correlations and gap risk can make aggregate realized loss larger. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Add planned risks $45, $55, and $70; name a factor the sum omits.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +149,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Portfolio heat sum. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Correlations and gap risk can make aggregate realized loss larger. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -129,7 +177,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Trade-risk percentage divides planned dollar risk by current account equity and states both timestamps. Worked fictional evidence: $120 planned risk / $24,000 equity = 0.005 = 0.5%. Error correction: Dividing by buying power instead of stated equity changes the metric. Boundary: Equity can change and planned risk is not guaranteed realized loss. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compute $75 risk as a percentage of $15,000 equity and identify the denominator.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +188,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Risk as percent of equity. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Equity can change and planned risk is not guaranteed realized loss. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -156,7 +216,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Planned reward-to-risk divides target distance by stop distance using the same entry reference. Worked fictional evidence: Entry $40, stop $39.20 gives $0.80 risk; target $41.60 gives $1.60 reward; ratio=2.0. Error correction: Calling a 2:1 geometry a 67% win probability invents information. Boundary: Targets and stops are plans, not fill guarantees or probabilities. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Entry $18, stop $17.70, target $18.75: compute the planned ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +227,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Planned reward-to-risk ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Targets and stops are plans, not fill guarantees or probabilities. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -183,7 +255,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: For constant average win and loss sizes, breakeven win rate is average loss divided by their sum. Worked fictional evidence: Average win $150 and loss $100: $100/($150+$100)=40%. Error correction: Using 1/reward-risk without defining average realized outcomes can mislead. Boundary: Variable outcomes, costs, slippage, and fat tails alter realized breakeven. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Average win $90 and loss $60: compute pre-cost breakeven rate.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +266,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Breakeven win rate before costs. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Variable outcomes, costs, slippage, and fat tails alter realized breakeven. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -210,7 +294,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Arithmetic expectancy weights average wins and losses by their observed probabilities. Worked fictional evidence: 45% wins×$120 minus 55% losses×$70 = $54−$38.50=$15.50. Error correction: Averaging $120 and −$70 without outcome frequencies produces the wrong expectancy. Boundary: A small historical sample does not establish a stable future distribution. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: With 40% wins of $140 and 60% losses of $80, compute arithmetic expectancy.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +305,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Arithmetic expectancy per trade. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. A small historical sample does not establish a stable future distribution. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -237,7 +333,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Maximum drawdown measures the largest peak-to-later-trough decline before a new peak. Worked fictional evidence: Equity peaks at $10,500 then troughs at $9,450: decline $1,050, or 10%. Error correction: Measuring from starting equity instead of the relevant prior peak understates drawdown. Boundary: Sampling frequency and cash flows can change the measured path. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Peak $12,000 and later trough $10,800: calculate dollar and percentage drawdown.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +344,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Maximum drawdown from equity peaks. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Sampling frequency and cash flows can change the measured path. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -264,7 +372,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: The gain required to recover a loss uses the reduced equity as its denominator. Worked fictional evidence: $10,000 falls 20% to $8,000; recovering $2,000 requires $2,000/$8,000=25%. Error correction: Assuming a 20% loss needs only a 20% gain ignores the changed base. Boundary: Deposits and withdrawals must be separated from trading recovery. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: After a 25% decline from $8,000, compute the percentage gain needed to recover.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +383,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Recovery percentage after a loss. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Deposits and withdrawals must be separated from trading recovery. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -291,7 +411,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A buy limit sets the highest acceptable price and a sell limit sets the lowest, but neither guarantees execution. Worked fictional evidence: A $15.00 buy limit may fill at $14.98 or $15.00, not above $15.00 under ordinary handling. Error correction: Treating a displayed touch at $15.00 as proof the order executed ignores queue priority. Boundary: Queue position, venue rules, and fast markets affect whether it fills. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: For a $22 sell limit, state allowable price direction and one reason for no fill.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +422,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Limit-order price boundary. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Queue position, venue rules, and fast markets affect whether it fills. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -318,7 +450,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A market order prioritizes immediacy over price certainty and interacts with available liquidity. Worked fictional evidence: A fictional buy consumes 100 shares at $10.00 and 50 at $10.08: average=(1000+504)/150=$10.0267. Error correction: Assuming the last trade is the guaranteed market-order fill ignores spread and depth. Boundary: Displayed liquidity can change before arrival; the book is fictional. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compute average fill for 80 shares at $5.00 and 20 at $5.10.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +461,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Market-order execution uncertainty. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Displayed liquidity can change before arrival; the book is fictional. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -345,7 +489,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Crossing the spread creates an immediate mark-to-mid difference that depends on direction and size. Worked fictional evidence: Bid $30.00, ask $30.10, midpoint $30.05; a buy at ask is $0.05 above midpoint, or $5 on 100 shares. Error correction: Calling the full $0.10 spread the one-way midpoint cost doubles this stated measure. Boundary: Midpoint is a reference, not an executable guarantee. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Bid $12.40 and ask $12.48: compute spread and buy-to-mid distance.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +500,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Bid-ask spread cost. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Midpoint is a reference, not an executable guarantee. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -372,7 +528,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Slippage basis points divides execution-price difference by the chosen benchmark and multiplies by 10,000. Worked fictional evidence: Expected buy $50.00, fill $50.10: $0.10/$50×10,000=20 bps adverse. Error correction: Dividing by fill price while labeling the benchmark arrival price makes results inconsistent. Boundary: Benchmark choice and sign convention must be declared. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Expected $25.00 and buy fill $25.04: compute adverse basis points.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/understanding-fees"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +539,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Slippage in basis points. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Benchmark choice and sign convention must be declared. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -399,7 +567,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: An average fill weights each price by executed share quantity, not by the number of partial fills. Worked fictional evidence: 50 shares at $9.90 and 150 at $10.10: (495+1515)/200=$10.05. Error correction: Averaging $9.90 and $10.10 to $10.00 ignores unequal sizes. Boundary: Fees and unfilled quantity are outside this price-only average. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compute the average for 25 shares at $20 and 75 at $20.20.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +578,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Volume-weighted average fill. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Fees and unfilled quantity are outside this price-only average. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -426,7 +606,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Remaining order quantity equals submitted quantity minus confirmed executions without counting canceled shares as fills. Worked fictional evidence: Order 500 shares; executions 120 and 180 total 300; remaining quantity is 200. Error correction: Subtracting only the latest partial fill leaves an incorrect open quantity. Boundary: Late execution reports or replace requests require order-state reconciliation. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Order 350 with fills 100 and 75: calculate filled and remaining quantities.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +617,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Partial fill and remaining quantity. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Late execution reports or replace requests require order-state reconciliation. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -453,7 +645,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A stop-limit order activates a limit order at the stop; price can move beyond the limit without execution. Worked fictional evidence: Sell stop $19.50, limit $19.40; a jump from $19.60 to $19.20 triggers but is below the acceptable sell limit. Error correction: Assuming activation guarantees a sale confuses trigger logic with limit eligibility. Boundary: Venue rules and quote conditions govern triggers; this is not execution advice. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: For sell stop $30 and limit $29.80 with next market $29.60, classify trigger and fill eligibility.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +656,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Stop-limit trigger and limit. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Venue rules and quote conditions govern triggers; this is not execution advice. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -480,7 +684,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A trailing amount follows its defined favorable reference and does not move backward when price retreats. Worked fictional evidence: A $1 trail from a high of $25 gives $24 stop reference; new high $26.20 raises it to $25.20. Error correction: Recalculating the trail downward after a retreat defeats the one-way reference rule. Boundary: Broker definitions, gaps, and trigger sources vary. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: With $0.75 trail and highs $18 then $19.10, calculate both stop references.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +695,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Trailing-stop reference path. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Broker definitions, gaps, and trigger sources vary. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -507,7 +723,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A cancel request is not a confirmed cancellation; an execution may occur before the venue accepts the cancel. Worked fictional evidence: A 200-share order receives a 50-share fill, then cancel is requested; a later 30-share fill leaves 120 only after cancel confirmation. Error correction: Treating cancel-click time as the end of exposure can omit valid late fills. Boundary: Message ordering and venue acknowledgments must be preserved. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: Submitted 300, filled 100, cancel pending, then 40 fill: compute exposure before confirmation.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +734,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Order-cancellation race. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Message ordering and venue acknowledgments must be preserved. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -534,7 +762,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Time in force controls order duration, not whether a valid price will be available. Worked fictional evidence: A day limit remains eligible during its broker-defined session and expires unfilled with 0 of 100 shares executed. Error correction: Assuming DAY always includes extended hours ignores broker and venue rules. Boundary: Broker session definitions and extended-hours eligibility vary. No protected assessment, personalized order, or future outcome is created.",
       "transferQuestion": "FICTIONAL independent transfer: For an unfilled 250-share DAY order, state expiration effect and a definition to verify.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +773,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "Risk, order types, fees, chart VWAP and first-party research conventions provide bounded context for the defined hypothetical risk and order-state example. Lesson: Time-in-force boundary. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Order execution, position size and portfolio risk have broker-specific rules, price gaps, fees, and fill uncertainty. Broker session definitions and extended-hours eligibility vary. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

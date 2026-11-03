@@ -29,11 +29,11 @@
       "code": "TALIA_TOPIC_DIVIDEND_CASH_VS_RETURN",
       "title": "Cash dividends and share-price changes must both enter a holding-period return",
       "category": "dividend",
-      "source": "https://www.investor.gov/introduction-investing",
+      "source": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
       "secondResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and",
       "originalWorkedCase": "FICTIONAL: Buy at $40.00, sell at $39.00 and receive $1.50 cash dividend per share. Total price-plus-cash return = (39 − 40 + 1.50)/40 = 1.25%, although price alone fell 2.50%.",
       "originalReviewCaveat": "The calculation omits transaction costs, taxes, reinvestment dates and any corporate actions; ex-date adjustments alone are not a free return.",
-      "sourceFactScope": "Investor.gov states investment return can arise from changes in asset value or dividend and interest payments; the ex-dividend eligibility reference does not on its own establish total investment return or price-only performance. Fictional price-plus-cash math still needs independent review.",
+      "sourceFactScope": "Investor.gov stock education describes capital appreciation, dividends and downside stock-price exposure. For this fictional holding-period calculation, check eligible distribution dates, unadjusted share prices and independently calculated return. A stocks overview is not a claim-specific calculation endorsement.",
       "sourceStatus": "PRIMARY_PAGE_CONTENT_SCOPED_TARGETED_2026_11_01",
       "structureValid": true,
       "mathStatus": "FULL_REFERENCE_AND_IMPLEMENTATION_CROSSCHECK_PENDING",
@@ -41,13 +41,15 @@
       "internalEditorial": "SOURCE_SCOPE_REVIEWED",
       "independentPublicationApproved": false,
       "internalScopeVerification": {
-        "basis": "current SEC Investor.gov publicly accessible source article, reviewed for claim-specific scope",
-        "sourcePage": "https://www.investor.gov/introduction-investing",
-        "sourceScopeChecked": true,
+        "basis": "Earlier original Investor.gov introduction context was internally checked; replacement narrowed stocks reference requires source-specific independent claim recheck. No formula, rights or publication acceptance.",
+        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+        "sourceScopeChecked": false,
         "mathIndependentlyAccepted": false,
         "rightsSeparatelyAccepted": false,
-        "publicationAccepted": false
-      }
+        "publicationAccepted": false,
+        "previousSourcePage": "https://www.investor.gov/introduction-investing"
+      },
+      "previousGeneralSource": "https://www.investor.gov/introduction-investing"
     },
     {
       "number": 103,
