@@ -3,14 +3,23 @@
  */
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
 const flags=['GU_PAYMENT_LIVE_LAUNCH_APPROVED','GU58_LIVE_CHECKOUT_ENABLED',
  'GU58_LIVE_DB_CONTRACT_APPROVED','GU58_LIVE_FULFILLMENT_APPROVED',
  'GU58_LIVE_WEBHOOK_ENABLED','GU72_ZERO_MONTHLY_FULFILLMENT_ENABLED',
  'GU72_ZERO_MONTHLY_QA_ENABLED','GU_F600_LIVE_CHECKOUT_ENABLED',
  'GU_F600_LIVE_FULFILLMENT_APPROVED','GU_F600_LIVE_WEBHOOK_ENABLED'];
 const initial=Object.fromEntries(flags.map(x=>[x,'false']));
-const run=flags=>spawnSync('bash',['scripts/build-pages.sh'],{
- encoding:'utf8',timeout:30000,
+const guardFile='scripts/qa/prelive-live-build-flag-guard.sh';
+const build=readFileSync('scripts/build-pages.sh','utf8');
+const call='bash '+guardFile;
+assert.ok(build.includes(call),'Every Pages build must execute the canonical LIVE security guard');
+assert.ok(build.indexOf(call)<build.indexOf('node --test tests/runtime-owned-talia-v1.test.mjs'),
+ 'Reject unsafe LIVE checkout before lengthy Pages build and test suites');
+// Test the exact guard invoked by the build rather than spawning ten full
+// npm/TypeScript builds; process timeouts must never masquerade as approval.
+const run=flags=>spawnSync('bash',[guardFile],{
+ encoding:'utf8',timeout:3000,
  env:{...process.env,...initial,CF_PAGES_BRANCH:'main',...flags}
 });
 for(const checkout of ['GU58_LIVE_CHECKOUT_ENABLED','GU_F600_LIVE_CHECKOUT_ENABLED']){
