@@ -1,3 +1,5 @@
+# Owner-reviewed source release cut 2026-11-02: rerun source gates for same SHA;
+# technical regression acceptance only; grading, awards and V2 gifting stay disabled.
 # Source-only release batch. Passing does not authorize LIVE commerce or certify real-user / editorial acceptance.
 # Release-cut workflow: deliberately triggered by changes to this file or manual dispatch.
 # Feature and source commits continue to use their dedicated workflows; this prevents

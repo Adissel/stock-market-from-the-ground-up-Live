@@ -1,3 +1,5 @@
+# Owner-reviewed source release cut 2026-11-02: rerun source gates for same SHA;
+# technical regression acceptance only; grading, awards and V2 gifting stay disabled.
 # Sitewide source regression batch. Passing does NOT establish production, billing, accessibility or authenticated acceptance.
 name: Sitewide Major Release - 20 Source Gates
 on:
