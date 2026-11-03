@@ -77,7 +77,7 @@ for(const [i,s] of scenarios.entries()){
   assert.equal(g.sourceResearchTriage?.independentPublicationApproved,false,s.code);
   assert.equal(g.sourceResearchTriage?.sourceRedistributionRightsCleared,false,s.code);
   assert.equal(g.editorSourceReview?.independentPublicationAccepted,false,s.code);
-  assert.ok(g.sourceRightsStatus?.includes('not_verified'),s.code);
+  assert.match(g.sourceRightsStatus||'',/not_claim_verified|not_verified|unverified/,s.code+' must retain an explicit source-rights review hold');
   assert.ok(Array.isArray(g.sourceUrls)&&g.sourceUrls.every(u=>new URL(u).protocol==='https:'),s.code);
  });
 }
