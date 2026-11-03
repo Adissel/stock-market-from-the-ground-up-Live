@@ -7,7 +7,7 @@ const plans={FREE:'Free',FOUNDING_14:'Founding 14-Day',FOUNDING_30:'Founding 30-
  LIFETIME:'Lifetime',ONDEMAND_MONTHLY:'On-Demand',PICK_WHAT_YOU_WANT:'Pick What You Want'};
 const field=['title','slug','summary','subject','body','sources','tags','order','level','review','publication'];
 const asText=v=>String(v==null?'':v),e=(tag,text)=>{const node=document.createElement(tag);if(text!=null)node.textContent=text;return node};
-const state={id:null,version:null,rows:[],page:0,hasMore:false};
+const state={id:null,version:null,rows:[],page:0,hasMore:false,selected:new Set(),visibleIds:[]};
 function msg(s,problem=false){$('ak-status').textContent=s;$('ak-status').style.color=problem?'#ffc5ad':'#a5e0d6'}
 async function token(){
  const sb=await window.getSupabaseClient();const {data,error}=await sb.auth.getSession();
@@ -80,14 +80,18 @@ function drawList(){
  const q=get('ak-search').trim().toLowerCase(),lvl=get('ak-filter-level'),status=get('ak-filter-status');
  const rows=state.rows.filter(a=>(!q||[a.title,a.subject,a.summary,a.slug].join(' ').toLowerCase().includes(q))&&
   (!lvl||a.learning_level===lvl)&&(!status||a.status===status));
- const host=$('ak-list');host.replaceChildren();
- $('ak-count').textContent=rows.length+' matching records ('+state.rows.length+' loaded).';
+ const host=$('ak-list');host.replaceChildren();state.visibleIds=rows.map(a=>a.id);
+ $('ak-count').textContent=rows.length+' matching records ('+state.rows.length+' loaded; '+state.selected.size+' selected).';
  for(const a of rows){
+  const group=e('div');group.className='ak-list-row';
+  const checkbox=e('input');checkbox.type='checkbox';checkbox.checked=state.selected.has(a.id);
+  checkbox.setAttribute('aria-label','Select '+a.title+' for bulk placement');
+  checkbox.addEventListener('change',()=>{if(checkbox.checked)state.selected.add(a.id);else state.selected.delete(a.id);drawList()});
   const btn=e('button');btn.type='button';btn.className='ak-list-item';
   btn.setAttribute('aria-current',String(a.id===state.id));
   const head=e('strong',a.title),more=e('small',a.subject+' · '+a.learning_level+' · '+a.status+
    (a.is_visible?' · Visible':' · Hidden')+' · v'+a.version);
-  btn.append(head,more);btn.addEventListener('click',()=>open(a.id));host.append(btn);
+  btn.append(head,more);btn.addEventListener('click',()=>open(a.id));group.append(checkbox,btn);host.append(group);
  }
  $('ak-more').hidden=!state.hasMore;
 }
@@ -185,6 +189,38 @@ async function upload(ev){
   await load();msg('Imported '+success+' hidden draft articles. Review each before publication.');
  }catch(err){msg('Import stopped: '+err.message+'. Earlier successfully imported drafts remain in the library.',true)}
 }
+const groupPlans={
+ FREE:['FREE'],
+ FOUNDING_14:['FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME'],
+ FOUNDING_30:['FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME'],
+ FOUNDING_60:['FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME'],
+ LIFETIME:['LIFETIME'],ONDEMAND_MONTHLY:['ONDEMAND_MONTHLY']
+};
+async function bulkAssign(){
+ const ids=[...state.selected],code=get('ak-bulk-plan');if(!ids.length){msg('Select one or more articles first.',true);return}
+ const access=groupPlans[code];if(!access)return;
+ if(ids.length>100){msg('Bulk placement is limited to 100 selected articles per batch.',true);return}
+ if(!confirm('Assign '+ids.length+' articles to '+code+' eligibility? Existing visibility and editorial statuses will be preserved.'))return;
+ let done=0;
+ try{
+  $('ak-bulk-apply').disabled=true;
+  for(const id of ids){
+   const item=(await api('admin/get',{params:{id}})).article;
+   await api('save',{method:'POST',data:{id:item.id,version:item.version,article:{...item,access_plans:access}}});
+   done++;msg('Moved '+done+' of '+ids.length+' articles to the selected membership grouping…');
+  }
+  state.selected.clear();await load();
+  if(state.id)await open(state.id);
+  msg('Bulk membership placement confirmed for '+done+' article(s).');
+ }catch(err){msg('Bulk update stopped after '+done+' of '+ids.length+': '+err.message,true)}
+ finally{$('ak-bulk-apply').disabled=false}
+}
+$('ak-select-visible').addEventListener('click',()=>{
+ for(const id of state.visibleIds)state.selected.add(id);
+ if(state.selected.size>100){msg('Please select at most 100 articles per batch.',true)}
+ drawList();
+});
+$('ak-bulk-apply').addEventListener('click',bulkAssign);
 $('ak-new').addEventListener('click',newDoc);
 $('ak-reload').addEventListener('click',()=>load());
 $('ak-export').addEventListener('click',exportJson);
