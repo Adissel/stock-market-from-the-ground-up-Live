@@ -28,7 +28,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_WICK_PRICE_REJECTION",
@@ -49,7 +60,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_DOJI_SPREAD_CONDITIONS",
@@ -70,7 +92,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_ENGULFING_CONTEXT_LIMITS",
@@ -91,7 +124,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_PRICE_GAP_VS_FAIR_VALUE",
@@ -112,7 +156,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_INSIDE_BAR_COMPLETION",
@@ -133,7 +188,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_SWING_PIVOT_RIGHT_BARS",
@@ -154,7 +220,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_HH_HL_CONFIRMATION",
@@ -175,7 +252,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_SUPPORT_ZONE_VS_POINT",
@@ -196,7 +284,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_BREAKOUT_FALSE_START",
@@ -217,7 +316,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_RSI14_WILDER_SEED",
@@ -238,7 +348,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_RSI50_NEUTRAL_CONVENTION",
@@ -259,7 +380,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_ATR14_WILDER_RECURSION",
@@ -280,7 +412,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_BOLLINGER_POP_STD",
@@ -301,7 +444,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_MACD_WARMUP_CHAIN",
@@ -322,7 +476,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_OBV_EQUAL_CLOSE",
@@ -343,7 +508,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_CMF_ZERO_RANGE",
@@ -364,7 +540,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_STOCHASTIC_RANGE_BOUND",
@@ -385,7 +572,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_VWAP_PROXY_VS_TRADES",
@@ -406,7 +604,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     },
     {
       "code": "TALIA_TOPIC_OHLCV_VOLUME_NOT_AGGRESSOR",
@@ -427,7 +636,18 @@
       "foundationTopic": true,
       "officialCompetency": false,
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
-      "independentEditorialApproved": false
+      "independentEditorialApproved": false,
+      "sourceRightsStatus": "not_verified_original_instruction_only_no_third_party_content_republication",
+      "editorSourceReview": {
+        "reviewer": null,
+        "reviewedAt": null,
+        "reviewStatus": "NOT_REVIEWED",
+        "result": "claim_specific_source_formula_and_math_review_pending",
+        "sourceScopeIndependentlyVerified": false,
+        "formulaAndNumericReleaseAccepted": false,
+        "rights": "not_cleared_for_third_party_republication",
+        "independentPublicationAccepted": false
+      }
     }
   ]
 }

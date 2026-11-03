@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 const generic=new Set(['https://www.investor.gov/introduction-investing','https://www.investor.gov/introduction-investing/','https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators']);
 const batches=[],issues=[],codes=new Set(),titles=new Set();
-const stats={lessons:0,fictionalWorkedExamples:0,independentApprovals:0,missingSources:0,broadReferences:0,missingRightsMetadata:0,missingReviewObject:0,invalidLinks:0};
+const stats={lessons:0,fictionalWorkedExamples:0,independentApprovals:0,missingSources:0,broadReferences:0,missingRightsMetadata:0,missingReviewObject:0,explicitNotReviewed:0,invalidLinks:0};
 for(let n=1;n<=30;n++){
  const name='talia-foundation-explanations-batch'+String(n).padStart(2,'0')+'-v1.json';
  const guides=JSON.parse(readFileSync(new URL('../../data/'+name,import.meta.url),'utf8')).guides;
@@ -15,6 +15,7 @@ for(let n=1;n<=30;n++){
   const title=g.title.trim().toLowerCase();assert.ok(!titles.has(title),'duplicate title '+title);titles.add(title);
   assert.equal(g.officialCompetency,false,g.code);
   if(g.independentEditorialApproved){stats.independentApprovals++;row.independentApprovals++;}
+  if(g.editorSourceReview?.reviewStatus==='NOT_REVIEWED') {stats.explicitNotReviewed++;issues.push({batch:n,code:g.code,type:'pending_independent_source_and_math_review'});}
   if(/^FICTIONAL:/i.test(g.workedCase||''))stats.fictionalWorkedExamples++;
   if(!g.sourceRightsStatus){stats.missingRightsMetadata++;row.missingRightsMetadata++;}
   if(!g.editorSourceReview){stats.missingReviewObject++;issues.push({batch:n,code:g.code,type:'review_object_missing'});}
@@ -29,6 +30,8 @@ for(let n=1;n<=30;n++){
 }
 assert.equal(stats.lessons,600);assert.equal(codes.size,600);assert.equal(titles.size,600);
 assert.equal(stats.independentApprovals,0,'Independently approved topics need a reviewed acceptance update');
-const report={documentId:'SMFGU-TALIA-SOURCE-QUALITY-023',version:'1.0',status:'internal_automated_triage_only',counts:stats,batches,issues,limits:['Source link is not proof that the page supports a lesson','No source or third-party publication rights were individually approved','No live member authorization, protected answers, or paid inference accessed']};
+assert.equal(stats.missingRightsMetadata,0,'All topics require explicit source-rights hold metadata');
+assert.equal(stats.missingReviewObject,0,'All topics require an explicit review state (not an approval)');
+const report={documentId:'SMFGU-TALIA-SOURCE-QUALITY-023',version:'1.1',status:'internal_automated_triage_only',counts:stats,batches,issues,limits:['Source link is not proof that the page supports a lesson','No source or third-party publication rights were individually approved','No live member authorization, protected answers, or paid inference accessed']};
 mkdirSync('artifacts',{recursive:true});writeFileSync('artifacts/talia-foundation-source-quality-v1.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({documentId:report.documentId,counts:stats,triageCount:issues.length}));
