@@ -1,0 +1,48 @@
+name: Canonical Labs — Live 419 Source and 57 Formative Case Gate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/lab-419-current-body-quality-evidence-v2.json'
+      - 'data/lab-57-formative-case-supplements-v1.json'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'assets/js/lab-57-formative-case-supplements-v1.js'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'lab-player.html'
+      - 'assets/css/lab-v33-instructor.css'
+      - 'tests/lab-419-current-body-quality-v2.test.mjs'
+      - 'tests/lab-57-formative-case-supplements-v1.test.mjs'
+      - '.github/workflows/lab419-live-57-formative-gate-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/lab-419-current-body-quality-evidence-v2.json'
+      - 'data/lab-57-formative-case-supplements-v1.json'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'assets/js/lab-57-formative-case-supplements-v1.js'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'lab-player.html'
+      - 'assets/css/lab-v33-instructor.css'
+      - 'tests/lab-419-current-body-quality-v2.test.mjs'
+      - 'tests/lab-57-formative-case-supplements-v1.test.mjs'
+      - '.github/workflows/lab419-live-57-formative-gate-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-formative-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Static syntax and source-boundary guard
+        run: |
+          node --check assets/js/lab-57-formative-case-supplements-v1.js
+          node --check assets/js/lab-engine-v32-universal.js
+      - name: Recompute current 419 source bodies from checked-out canonical source
+        run: node --test tests/lab-419-current-body-quality-v2.test.mjs
+      - name: Verify 57 source-specific cases and seven P0 disclosures
+        run: node --test tests/lab-57-formative-case-supplements-v1.test.mjs
