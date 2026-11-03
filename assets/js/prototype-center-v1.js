@@ -94,32 +94,104 @@ function card(name,desc){const div=create('article',undefined,'pt-tile');div.app
 function grid(items){const div=create('div',undefined,'pt-grid');for(const [title,desc] of items)div.append(card(title,desc));return div;}
 function nav(query=''){const host=$('pt-nav');host.replaceChildren();for(const [group,items] of groups){const list=items.filter(([,name])=>(group+' '+name).toLowerCase().includes(query.toLowerCase()));if(!list.length)continue;const section=create('section');section.append(create('h3',group));for(const [id,name] of list){const action=b(name,()=>{location.hash=id;select(id,true)});action.setAttribute('aria-current',id===state.id?'page':'false');section.append(action);}host.append(section);}}
 function classroom(root){
- const area=create('section',undefined,'pt-card');area.append(create('h3','Classroom mode'));
- area.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;draw()}));
- const options=create('section',undefined,'pt-card');options.append(create('h3','Classroom layout designer'));
-options.append(create('p','Layout preset'));options.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('layout',v);else {state.layout=v;draw()}}));
-options.append(create('p','Content density'));options.append(buttons(['Comfortable','Compact'],state.density,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('density',v);else {state.density=v;draw()}}));
-options.append(create('p','Instructor placement'));options.append(buttons(['Right','Bottom'],state.tutor,v=>{if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('tutor',v);else {state.tutor=v;draw()}}));
-const panes=grid([['Teaching pane','First-principles lesson content, numerical worked examples and guided practice.'],['Talia Mercer','Free explanations, contextual guidance, diagnostic feedback and instructional retries.'],['Chart laboratory','Fictional candlesticks, indicators and instructor annotations.']]);
-panes.classList.add('pt-classroom');panes.dataset.layout=state.layout;panes.dataset.density=state.density;panes.dataset.tutor=state.tutor;
-root.append(area,options,panes);
+ // One integrated workspace. The existing authenticated case player and ECharts
+ // remain mounted in pt-case-host and pt-chart; do not add a second chart or engine.
+ const section=(name,css)=>{const el=create('section',undefined,css||'pt-card');el.append(create('h3',name));return el};
+ const hero=section('Crownlight Classroom · Integrated Teaching','pt-card pt-v3-hero');
+ hero.append(create('p','One teaching workspace connects the approved nine-stage Learning Engine, protected fictional case viewer, Chart Studio canvas and Talia context. This is an ungraded Owner/Admin preview.','pt-note'));
+ const navLinks=create('div',undefined,'pt-v3-links');
+ const destinations=[
+  ['/prototype.html?experience=map','Learning Constellation 3D'],
+  ['/prototype.html?experience=a','Advanced Chart Studio'],
+  ['/talia-tutor-prototype.html','Talia Tutor Studio']
+ ];
+ for(const [url,title] of destinations){const a=create('a',title,'pt-v3-link');a.href=url;navLinks.append(a)}
+ hero.append(navLinks);root.append(hero);
+ const choices=section('Lab and Boot Camp learning workspace','pt-card pt-v3-modes');
+ choices.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;state.stage=0;draw()}));
+ choices.append(create('p','Mode selection changes only the synthetic presentation; it does not enroll members or modify graded attempts.','pt-note'));
+ root.append(choices);
+ const layout=section('Classic Builder · Membership design controls','pt-card pt-v3-configuration');
+ layout.append(create('p','Layout preset'));
+ layout.append(buttons(['Balanced','Reading-first','Chart-first'],state.layout,v=>{
+  if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('layout',v);
+  else{state.layout=v;draw()}
+ }));
+ layout.append(create('p','Content density'));
+ layout.append(buttons(['Comfortable','Compact'],state.density,v=>{
+  if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('density',v);
+  else{state.density=v;draw()}
+ }));
+ layout.append(create('p','Talia docking'));
+ layout.append(buttons(['Right','Bottom'],state.tutor,v=>{
+  if(window.CrownlightClassroomMemberships)window.CrownlightClassroomMemberships.adjust('tutor',v);
+  else{state.tutor=v;draw()}
+ }));
+ root.append(layout);
  window.CrownlightClassroomMemberships?.render?.(root);
- const stage=create('section',undefined,'pt-card');stage.append(create('h3','Shared nine-stage learning sequence'));
- const box=create('div',undefined,'pt-stage');box.append(create('strong','Stage '+(state.stage+1)+' / 9 — '+stages[state.stage]));
- const explain=[
- 'Identify objectives and prerequisites before introducing technical terms.',
- 'Define all terms, chart axes and units before asking for decisions.',
- 'Show each calculation, its inputs, units and intermediate steps.',
- 'Reveal the fictional chart with a guided instructor walkthrough.',
- 'Ask a focused conceptual question; explain why alternatives fail.',
- 'Let the student practice with guidance and diagnostic feedback.',
- 'Preview the protected assessment shell; do not expose private answer keys.',
- 'Apply the concept to a distinct, unseen fictional scenario.',
- 'Review errors, provide remediation and assess readiness for another attempt.'
- ];box.append(create('p',explain[state.stage]));stage.append(box);
- const row=create('div',undefined,'pt-row'),prev=b('Previous stage',()=>{state.stage--;draw()}),next=b('Next stage',()=>{state.stage++;draw()});prev.disabled=state.stage<=0;next.disabled=state.stage>=8;row.append(prev,next);stage.append(row);
- if(state.mode==='Boot Camp')stage.append(card('Boot Camp day structure','Day-level navigation, distinct case sets and completion evidence use the same protected engine.'));
- root.append(stage,create('p','Synthetic teaching shell only. No assessment answer keys or member progress are loaded.','pt-note'));
+ const stage=section('Shared Learning Engine v3.3 · Nine approved stages','pt-card pt-v3-stage');
+ const names=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
+ const explanations=[
+  'Establish objectives and the evidence needed before interpreting price.',
+  'Define the concept, calculation, examples, counterexamples and limitations.',
+  'Reveal completed fictional price bars chronologically, without lookahead.',
+  'Record a falsifiable expectation before viewing new price evidence.',
+  'Rehearse the method using guided, unlimited, ungraded practice.',
+  'Assessment remains protected and unavailable inside this design preview.',
+  'Review reasoning and mistakes; the actual first graded attempt remains protected.',
+  'Transfer the concept to a distinct scenario, context or timeframe.',
+  'Explain the evidence and current learning status without asserting mastery.'
+ ];
+ const gridNav=create('nav',undefined,'pt-v3-stage-grid');
+ gridNav.setAttribute('aria-label','Nine approved classroom stages');
+ names.forEach((name,i)=>{
+  const btn=b(String(i+1).padStart(2,'0')+' · '+name,()=>{state.stage=i;draw()},state.stage===i);
+  btn.className='pt-v3-stage-button';btn.setAttribute('aria-current',state.stage===i?'step':'false');
+  btn.title='Preview stage '+(i+1)+'. This does not complete the stage.';
+  gridNav.append(btn);
+ });
+ stage.append(gridNav);
+ const selected=create('div',undefined,'pt-v3-stage-context');
+ selected.append(create('strong','Stage '+(state.stage+1)+' / 9 — '+names[state.stage]),
+  create('p',explanations[state.stage]),
+  create('p','Preview position only · actual lesson completion and mode locks are enforced by the authenticated shared learning engine.','pt-note'));
+ const navigation=create('div',undefined,'pt-row');
+ const prev=b('Previous stage',()=>{state.stage=Math.max(0,state.stage-1);draw()});
+ const next=b('Next stage',()=>{state.stage=Math.min(8,state.stage+1);draw()});
+ prev.disabled=state.stage===0;next.disabled=state.stage===8;
+ navigation.append(prev,next);selected.append(navigation);stage.append(selected);
+ root.append(stage);
+ const facets=section('Learn from the evidence · Talia Mercer','pt-card pt-v3-tutor');
+ const concepts=[
+  ['Understand','Define the subject in original language and establish the chart units and context.'],
+  ['Recognize','Identify completed evidence such as candle structure, VWAP location and volume.'],
+  ['Apply','Work a calculation, practice an interpretation and compare alternate explanations.'],
+  ['Common mistake','Explain what price movement or one indicator alone cannot establish.'],
+  ['Limitations','Review historical-data rights, incomplete evidence, uncertainty and lookahead bias.']
+ ];
+ const cards=create('div',undefined,'pt-v3-facet-grid');
+ for(const [heading,description] of concepts){const c=create('article',undefined,'pt-v3-facet');c.append(create('strong',heading),create('p',description));cards.append(c)}
+ facets.append(cards);
+ facets.append(create('p','Explain/Teach remains free. This panel offers source-aware teaching prompts; it does not invent live Tutor responses or reveal assessment answers.','pt-note'));
+ const actions=create('div',undefined,'pt-v3-links');
+ for(const [name,detail] of [
+  ['Explore a candle','Use the protected fictional case below to inspect the actual OHLCV observations.'],
+  ['Show indicator mathematics','Inspect the existing ECharts chart, its numerical facts and proxy calculations.'],
+  ['Ask Talia','Open the dedicated Tutor Studio without claiming this preview is an authenticated Tutor response.']
+ ]){const button=b(name,()=>note(detail));actions.append(button)}
+ facets.append(actions);root.append(facets);
+ if(state.mode==='Boot Camp'){
+  const camp=section('Boot Camp learning pathway','pt-card pt-v3-academy');
+  camp.append(create('p','The ten source-authored Boot Camp paths include three controlled draft-beta paths. Authorized day navigation remains in the existing Academy player.','pt-note'));
+  const link=create('a','Open the authorized Boot Camp Academy','pt-v3-link');
+  link.href='/bootcamp.html';camp.append(link);
+  camp.append(create('p','No unpublished assessments, awards, member records or course-day completion are fabricated by this preview.','pt-note'));
+  root.append(camp);
+ }else{
+  const lab=section('Lab Studio · Connected fictional evidence','pt-card pt-v3-labs');
+  lab.append(create('p','The existing single protected case component and ECharts canvas below provide the OHLCV chart and sequential candle disclosure. They are reused here rather than replaced by decorative rectangles.','pt-note'));
+  root.append(lab);
+ }
 }
 function admin(root){root.append(create('h3','Approved eight-group Admin taxonomy'));root.append(buttons(adminGroups,state.adminGroup,v=>{state.adminGroup=v;draw()}));root.append(grid([[state.adminGroup,'Read-only layout experiment; changes must use the established authorized Admin workflow.'],['Authority','No role, entitlement, price, payment, security or membership write is permitted from this page.']]));}
 function feature(root){root.append(grid(features[state.id]||[]));
