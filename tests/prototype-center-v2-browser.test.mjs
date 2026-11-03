@@ -245,6 +245,17 @@ try{
   await page.locator('#pt-nav button:has-text("Classroom Builder")').click();
   await page.locator('.pt-options button:has-text("Chart-first")').click();
   assert.equal(await page.locator('.pt-classroom').getAttribute('data-layout'),'Chart-first');
+
+  assert.equal(await page.locator('.pt-v3-stage-button').count(),9,'Nine approved stage controls');
+  assert.equal(await page.locator('.pt-v3-facet').count(),5,'Exactly five teaching facets');
+  assert.equal(await page.locator('.pt-v3-hero').count(),1,'One integrated classroom shell');
+  await page.locator('.pt-v3-stage-button').last().click();
+  assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Results/);
+  assert.match(await page.locator('.pt-v3-stage-context').innerText(),/Preview position only/,'Preview cannot imply completion');
+  assert.equal(await page.locator('.pt-v3-stage-button[aria-current="step"]').count(),1);
+  await page.locator('.pt-v3-stage-button').first().click();
+  assert.equal(await page.locator('.pt-classroom').count(),1,'No duplicate classroom');
+
   await page.locator('#pt-device').selectOption('mobile');
   assert.equal(await page.locator('#pt-content').getAttribute('data-device'),'mobile');
   const bounds=await page.evaluate(()=>({body:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
