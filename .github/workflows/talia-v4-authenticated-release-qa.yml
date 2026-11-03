@@ -21,6 +21,9 @@ jobs:
       LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
       CROWN_QA_FREE_EMAIL: ${{ secrets.CROWN_QA_FREE_EMAIL }}
       CROWN_QA_FREE_PASSWORD: ${{ secrets.CROWN_QA_FREE_PASSWORD }}
+      # Separate real Owner/Admin QA credentials; never reuse ordinary-member identity.
+      CROWN_QA_STAFF_EMAIL: ${{ secrets.CROWN_QA_STAFF_EMAIL }}
+      CROWN_QA_STAFF_PASSWORD: ${{ secrets.CROWN_QA_STAFF_PASSWORD }}
       # Exact successful Pages build containing the reviewed V4 route correction.
       # This remains distinct from the workflow's own runner/source SHA.
       V4_ACCEPTANCE_ORIGIN: 'https://befe582b.stock-market-from-the-ground-up-d1r.pages.dev'
