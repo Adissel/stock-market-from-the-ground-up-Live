@@ -1,9 +1,9 @@
 {
   "documentId": "SMFGU-TALIA-CLAIMS-REMAINING21-017",
-  "version": "1.0",
-  "reviewDate": "2026-11-01",
+  "version": "1.1",
+  "reviewDate": "2026-11-03",
   "count": 21,
-  "status": "ITEM_SOURCE_SCOPE_REVIEW_RELEASE_HOLD",
+  "status": "RECONCILED_SOURCE_SCOPE_RELEASE_HOLD",
   "items": [
     {
       "number": 102,
@@ -17,9 +17,11 @@
       "number": 103,
       "code": "TALIA_TOPIC_INDICATED_YIELD_NOT_GUARANTEE",
       "review": "PARTIAL",
-      "scope": "indicated annual dividend is not guaranteed",
-      "source": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
-      "independentPublicationAccepted": false
+      "scope": "FINRA defines dividend yield as yearly dividend rate divided by current share price. Estimated annualized dividends remain conditional, not guaranteed.",
+      "source": "https://syndication.finra.org/content/defining-value-investment",
+      "independentPublicationAccepted": false,
+      "priorSourceResearchCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "latestSourceScopeReview": "2026-11-03 FINRA source scope checked; independent publication and rights HOLD"
     },
     {
       "number": 104,
@@ -81,9 +83,11 @@
       "number": 122,
       "code": "TALIA_TOPIC_COMPOUND_RETURNS_PATH",
       "review": "MATH_INDEPENDENT",
-      "scope": "multiplicative gross holding returns; original reference broad",
-      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2003/geometric-or-arithmetic-mean-a-reconsideration",
-      "independentPublicationAccepted": false
+      "scope": "FINRA explains compounded returns, which cannot generally be replaced with simple averaging. The fictional return path is no-flow educational arithmetic only.",
+      "source": "https://syndication.finra.org/content/how-are-your-investments-doing-returns-explained",
+      "independentPublicationAccepted": false,
+      "priorSourceResearchCandidate": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2003/geometric-or-arithmetic-mean-a-reconsideration",
+      "latestSourceScopeReview": "2026-11-03 FINRA source scope checked; independent publication and rights HOLD"
     },
     {
       "number": 123,

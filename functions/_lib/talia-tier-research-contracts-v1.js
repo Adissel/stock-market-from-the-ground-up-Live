@@ -55,14 +55,16 @@ export function draftEnterpriseProvenance({asOf,sources}={}){
  const empty=frozen({status:'source_prototype_not_released',citations:frozen([]),
   licensedDataImported:false,modelTrained:false,officialGrade:false});
  if(!Number.isFinite(asOf)||!Array.isArray(sources)||sources.length>40)return empty;
- const out=[];
+ const out=[],seenIds=new Set();
  for(const s of sources){
   if(!s||typeof s!=='object'||!Number.isFinite(s.publishedAt)||s.publishedAt>asOf)continue;
   if(s.rights!=='public_reference_only'||s.independentlyRightsChecked!==true)continue;
   const title=safe(s.title,100),uri=safe(s.url,300),id=safe(s.id,72);
+  if(!/^[-A-Za-z0-9_]{3,72}$/.test(id)||seenIds.has(id))continue;
   try{
    const u=new URL(uri);
    if(u.protocol!=='https:'||u.username||u.password||!title||!id)continue;
+   seenIds.add(id);
    out.push(frozen({id,title,url:u.href,publishedAt:s.publishedAt,rights:'citation_only_not_redistribution'}));
   }catch{continue}
  }
