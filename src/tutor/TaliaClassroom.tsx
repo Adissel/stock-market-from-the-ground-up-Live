@@ -268,6 +268,12 @@ function Classroom(){
   const [sessionTopic,setSessionTopic]=useState('Reading completed candles');
   const [misconception,setMisconception]=useState('observation');
   const [confidence,setConfidence]=useState('unsure');
+  const perspectives=['Understand','Recognize','Apply','Common Mistake','Limitations'] as const;
+  type Perspective=typeof perspectives[number];
+  const methods=['I DO','WE DO','YOU DO','REVIEW','TRANSFER'] as const;
+  type Method=typeof methods[number];
+  const [perspective,setPerspective]=useState<Perspective>('Understand');
+  const [method,setMethod]=useState<Method>('I DO');
   const misconceptionPrompts:Record<string,string>={
     observation:'I may be confusing what a completed candle shows with what I expect the market to do next. Separate observation from prediction.',
     structure:'I may be treating one higher high as proof of a confirmed trend. Show how multiple swing points and invalidation change that conclusion.',
@@ -301,6 +307,8 @@ function Classroom(){
     setQuestion((sessionTopic+'. '+phaseInstructions[next].prompt).slice(0,450));
     setStatus('Instruction prepared for '+next+'. Review the question and send it to Talia.');
   };
+  const instructionalQuestion=(q:string)=>advancedExperience?
+    ('Instructional perspective: '+perspective+'. Method: '+method+'. '+q).slice(0,450):q;
   const [status,setStatus]=useState('Verifying member sign-in...');
   const epoch=useRef(0),pending=useRef<AbortController|null>(null);
   const log=useRef<HTMLOListElement|null>(null);
@@ -311,7 +319,7 @@ function Classroom(){
     identity.current=id;setMember(null);setChat(DEFAULT);
     setConversationId(null);setConversationLabel('');setSave(false);
     setQuestion('');setReasoning('');setMode('explain');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');
-    setMisconception('observation');setConfidence('unsure');setDimension('Recognition');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
+    setMisconception('observation');setConfidence('unsure');setDimension('Recognition');setPerspective('Understand');setMethod('I DO');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
   },[]);
   useEffect(()=>{
     let live=true,unsubscribe:(()=>void)|null=null;
@@ -380,7 +388,7 @@ function Classroom(){
       const access=await getToken();if(!access)throw Error('Member session expired. Please sign in.');
       const res=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-        body:JSON.stringify({question:labQuestion(q),mode,learnerAnswer:reasoning.trim().slice(0,1800),
+        body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode,learnerAnswer:reasoning.trim().slice(0,1800),
           requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread})});
       const result=await res.json().catch(()=>null);
       if(controller.signal.aborted||version!==epoch.current||identity.current!==targetId)return;
@@ -477,6 +485,14 @@ function Classroom(){
             <option>Knowledge</option><option>Recognition</option><option>Decision</option><option>Process</option>
           </select></label>
         </div>
+        <div className="tp-instruction-controls" aria-label="Instructional method and perspective">
+          <label>Teaching perspective<select value={perspective} onChange={e=>setPerspective(e.target.value as Perspective)}>
+            {perspectives.map(item=><option key={item}>{item}</option>)}
+          </select></label>
+          <label>Teaching method<select value={method} onChange={e=>setMethod(e.target.value as Method)}>
+            {methods.map(item=><option key={item}>{item}</option>)}
+          </select></label>
+        </div>
         <div className="tp-instruction-controls" aria-label="Personalized instructional support">
           <label>Where are you getting stuck?<select value={misconception} onChange={e=>setMisconception(e.target.value)}>
             <option value="observation">Observation versus prediction</option>
@@ -494,7 +510,7 @@ function Classroom(){
         <div className="tp-instruction-steps" role="group" aria-label="Instruction phases">
           {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>preparePhase(p)} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
         </div>
-        <p className="tc-muted">Current instructional lens: {dimension}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
+        <p className="tc-muted">Current instructional lens: {dimension} · {perspective} · {method}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
       {advancedExperience&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
         <section className="tp-followup" aria-label="Continue the current learning session">
@@ -536,7 +552,7 @@ function Classroom(){
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
-        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
+        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>

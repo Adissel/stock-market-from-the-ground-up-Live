@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Legacy Tutor source/consent/quality and D07 authenticated boundaries
         run: |
+          node tests/talia-master-capability-inventory-v1.test.mjs
+          node tests/talia-classroom-instructional-methods-v1.test.mjs
           node tests/test_v014092_market_tutor_contract.mjs
           node tests/test_v014093_tutor_practice.mjs
           node tests/test_v014095_training_tutor_integration.mjs

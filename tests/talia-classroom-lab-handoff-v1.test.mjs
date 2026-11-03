@@ -12,7 +12,7 @@ test('classroom validates canonical Lab IDs and known Learning Journey stages',(
  assert.match(source,/stages\.includes\(stage\)\?stage:'Learn'/);
 });
 test('server-routed context retains original member question and a Lab return link',()=>{
- assert.match(source,/question:labQuestion\(q\)/);
+ assert.match(source,/question:labQuestion\(instructionalQuestion\(q\)\)/);
  assert.match(source,/Learning Journey stage:/);
  assert.match(source,/Return to Lab/);
  assert.match(source,/\/api\/market-tutor/);
