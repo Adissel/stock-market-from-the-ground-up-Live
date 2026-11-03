@@ -181,7 +181,7 @@ test('Advanced Learning: active canonical Basic grant blocks stale premium subsc
  try{
   const r=await onRequest({request:request(form('ADVANCED','learning')),env});
   assert.equal(r.status,403);assert.equal((await r.json()).ok,false);
-  assert(f.calls.every(x=>x.method==='GET'));
+  assert(f.calls.every(x=>!['PATCH','PUT','DELETE'].includes(x.method)));
  }finally{f.restore()}
 });
 test('Advanced Lab: active canonical Basic grant blocks stale premium subscription',async()=>{

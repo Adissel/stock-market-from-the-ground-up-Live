@@ -103,7 +103,8 @@ test('Returned structures are immutable and contain no official grades or privat
 });
 
 test('server derives independently calculated multi-indicator context from completed fictional prices',()=>{
- const derived=deriveFictionalCompletedStudies({evidence:fictional(),emaPeriod:3});
+ const source=fictional();source.completedIndex=6;source.asOf=7000;
+ const derived=deriveFictionalCompletedStudies({evidence:source,emaPeriod:3});
  assert.equal(derived.indicators.length,6);
  assert.equal(derived.indicators[0].name,'EMA');
  assert.equal(derived.indicators[1].name,'VWAP');
@@ -152,12 +153,12 @@ test('Advanced and Lab study calculations cannot invent VWAP without trades or a
  assert.equal(deriveFictionalCompletedStudies({evidence:overflow,emaPeriod:3}),null);
 });
 test('Completed-bar mathematics ignores malformed future suffix but rejects it after reveal',()=>{
- const visible=fictional();
+ const visible=fictional();visible.completedIndex=6;visible.asOf=7000;
  const baseline=deriveFictionalCompletedStudies({evidence:visible,emaPeriod:3});
  assert(baseline);
- const withInvalidFuture=fictional();
- withInvalidFuture.bars[6]={...withInvalidFuture.bars[6],low:999999};
+ const withInvalidFuture=structuredClone(visible);
+ withInvalidFuture.bars.push({timestamp:8000,open:107,high:109,low:999999,close:108,volume:100});
  assert.deepEqual(deriveFictionalCompletedStudies({evidence:withInvalidFuture,emaPeriod:3}),baseline);
- withInvalidFuture.completedIndex=6;withInvalidFuture.asOf=7000;
+ withInvalidFuture.completedIndex=7;withInvalidFuture.asOf=8000;
  assert.equal(deriveFictionalCompletedStudies({evidence:withInvalidFuture,emaPeriod:3}),null);
 });
