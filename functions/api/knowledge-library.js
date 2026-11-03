@@ -117,7 +117,15 @@ export async function onRequest({request,env}){
    if(found.length!==1)throw fault('Article is unavailable.',404);
    const plans=await memberships(c,user);
    const row=found[0];
-   if(!row.access_plans.some(x=>plans.includes(x)))return reply({ok:false,error:'Your membership does not include this article.',requiredPlans:row.access_plans},403);
+   if(!row.access_plans.some(x=>plans.includes(x))){
+    // Verified Owner/Admin roles may review published articles without a paid plan.
+    // Content Manager alone does not bypass membership, nor do metadata claims.
+    const staff=await rows(c,'admin_user_roles',
+      'select=role_code,expires_at&user_id=eq.'+user+'&role_code=in.(OWNER,ADMIN)&limit=10');
+    const privileged=staff.some(x=>(x.role_code==='OWNER'||x.role_code==='ADMIN')&&
+      (!x.expires_at||Date.parse(x.expires_at)>Date.now()));
+    if(!privileged)return reply({ok:false,error:'Your membership does not include this article.',requiredPlans:row.access_plans},403);
+   }
    return reply({ok:true,article:{...slim(row),body_markdown:row.body_markdown,sources:row.sources},memberPlans:plans});
   }
   if(request.method==='GET'&&(a==='admin/list'||a==='admin/get'||a==='admin/history')){
