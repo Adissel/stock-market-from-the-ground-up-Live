@@ -1,7 +1,7 @@
 name: Knowledge Library V1 — Membership + Admin
 on:
   push:
-    branches: [main, feature/knowledge-library-membership-admin-v1, feature/knowledge-standalone-article-pages-v1, fix/knowledge-article-responsive-layout-v2, feature/knowledge-articles-batch002-50-20261103]
+    branches: [main, feature/knowledge-library-membership-admin-v1, feature/knowledge-standalone-article-pages-v1, fix/knowledge-article-responsive-layout-v2, feature/knowledge-articles-batch002-50-20261103, feature/knowledge-batch003-50-all-sources-20261103]
     paths:
       - 'functions/api/knowledge-library.js'
       - 'admin-knowledge.html'
@@ -12,6 +12,10 @@ on:
       - 'tests/test_knowledge_article_standalone_v1.mjs'
       - 'tests/test_knowledge_article_batch002_v1.mjs'
       - 'data/knowledge/batch002-*.json'
+      - 'data/knowledge/batch003-*.json'
+      - 'tests/test_knowledge_article_batch003_v1.mjs'
+      - 'docs/knowledge/SMFGU-KDB-BATCH003-050-20261103.md'
+      - 'supabase/migrations/20261103_knowledge_batch003_full_registry_v1.sql'
       - 'docs/knowledge/SMFGU-KDB-BATCH002-050-20261103.md'
       - 'supabase/migrations/20261103_knowledge_article_batch002_authoring_v1.sql'
       - 'admin.html'
@@ -43,6 +47,7 @@ jobs:
           node tests/test_knowledge_library_membership_admin_v1.mjs
           node tests/test_knowledge_article_standalone_v1.mjs
           node tests/test_knowledge_article_batch002_v1.mjs
+          node tests/test_knowledge_article_batch003_v1.mjs
           node tests/test_knowledge_library_runtime_auth_v1.mjs
           node tests/test_knowledge_database_store_v1.mjs
           node tests/test_knowledge_database_expansion_v2.mjs
