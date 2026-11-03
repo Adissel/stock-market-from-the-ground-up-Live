@@ -425,14 +425,27 @@
   }
 
   function removeLegacy(){
+    // Retire only exact obsolete destinations, never active Book Purchase
+    // Verification or future correction/verification subpages.
     document.querySelectorAll('div,section,aside,p').forEach(el=>{
+      // textContent of a parent includes descendants; never remove a workspace.
+      if(el.children?.length)return;
       const t=(el.textContent||'').trim();
       if(t.startsWith('Digital-sales control:')&&t.length<700)el.remove();
     });
-    document.querySelectorAll('a[href*="corrections.html"],a[href*="verification.html"]').forEach(a=>a.remove());
+    const obsolete=new Set(['/corrections.html','/verification.html']);
+    document.querySelectorAll('a[href]').forEach(a=>{
+      try{
+        const dest=new URL(a.getAttribute('href')||'',location.href);
+        if(dest.origin===location.origin&&obsolete.has(dest.pathname.toLowerCase()))a.remove();
+      }catch{/* Malformed links are not a reason to delete an element. */}
+    });
   }
 
   function removeLearningIdentityCopy(){
+    // Account-registration copy only. Never erase the Dashboard's legitimate
+    // "Learning identity" heading or newly authored educational headings.
+    if(!/\/(?:signin|create-account)(?:\.html)?$/.test(path))return;
     const exact=/^your username is also your permanent display name and forum identity\.?$/i;
     document.querySelectorAll('p,small,div').forEach(el=>{
       if(el.children.length===0&&exact.test((el.textContent||'').trim()))el.remove();

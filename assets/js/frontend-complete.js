@@ -126,7 +126,12 @@ function productModal(card){let d=qs('#fe-product-modal');if(!d){d=document.crea
 
 function checkoutEnhance(){if(!/\/checkout(\.html)?$/.test(path))return;const main=qs('main .wrap,main');if(!main||qs('.fe-checkout-steps'))return;const steps=document.createElement('div');steps.className='fe-checkout-steps';steps.innerHTML='<div class="fe-checkout-step active">1. Review</div><div class="fe-checkout-step">2. Secure payment</div><div class="fe-checkout-step">3. Access activated</div>';const h=qs('h1',main);h?.insertAdjacentElement('afterend',steps);const note=document.createElement('div');note.className='v13-card';note.innerHTML='<strong>Secure payment handoff</strong><p class="fe-muted">The platform prepares your order and access. Payment credentials are entered only through the configured PCI-compliant payment provider.</p>';qs('#v13-checkout',main)?.prepend(note)}
 
-function membershipEnhance(){if(!/\/membership(\.html)?$/.test(path))return;const matrix=qs('#membership-matrix');if(!matrix)return;const stopLinks=()=>qsa('a',matrix).forEach(a=>{const s=document.createElement('span');s.innerHTML=a.innerHTML;a.replaceWith(s)});stopLinks();new MutationObserver(stopLinks).observe(matrix,{childList:true,subtree:true})}
+function membershipEnhance(){
+ // Retired legacy link stripper. The canonical membership catalog renders
+ // descriptive content with checkout actions explicitly disabled until launch;
+ // never replace new authorized comparison links with inert span elements.
+ // The secure backend remains authoritative for payment and entitlement access.
+}
 
 function forumEnhance(){if(!/\/market-commons(\.html)?$/.test(path))return;document.body.classList.add('fe-forum-page');const main=qs('main .wrap,main');if(!main)return;const h=qs('h1',main);if(h&&!qs('.fe-forum-breadcrumb',main)){const b=document.createElement('div');b.className='fe-breadcrumbs fe-forum-breadcrumb';b.innerHTML='<a href="/">Home</a><span class="sep">/</span><span>Market Commons</span>';h.before(b)}qsa('.v13-post,.topic,.forum-topic').forEach(p=>{const author=qs('[data-author],.author,.username',p);if(author&&!qs('.fe-avatar',p)){const a=document.createElement('span');a.className='fe-avatar';a.textContent=(author.textContent.trim()[0]||'?').toUpperCase();author.parentNode?.insertBefore(a,author)}})}
 
