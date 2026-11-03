@@ -22,7 +22,7 @@ function rig(){
  const panels={replaceChildren(){}},enhanced={hidden:true,querySelector:()=>panels};
  const state={visible:['STANDARD','ADVANCED','PROFESSIONAL','ECHARTS'],
   allowed:['STANDARD','ADVANCED','PROFESSIONAL'],verified:true,
-  tier:'PROFESSIONAL',selected:'STANDARD',version:0,charts:[],
+  tier:'PROFESSIONAL',selected:'STANDARD',version:0,charts:[],bars:[],
   resizeFrame:0,resizeObserver:null,
   view:{querySelector:key=>key==='[data-cl-tier-advanced]'?enhanced:panels}};
  const scope={state,document:{body:{classList:{add(){},remove(){}}}},
