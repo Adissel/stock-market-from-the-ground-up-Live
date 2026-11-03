@@ -97,3 +97,37 @@ test('Nine scoped Foundation Batch15 references remain ungraded and publication-
  near((10*20+1+1)/10,20.2);
  near(1200000*20,24000000);
 });
+
+test('Remaining eleven Batch15 lessons have scoped research and mathematical holds',()=>{
+ const expected=new Map([["TALIA_TOPIC_PORTFOLIO_TURNOVER_AS_THE_LESSER_FLOW_CONVENTION","https://www.sec.gov/Archives/edgar/data/2062986/000119312525068685/d940677dn1a.htm"],["TALIA_TOPIC_RETURN_CONTRIBUTION_IN_PERCENTAGE_POINTS","https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-performance-evaluation"],["TALIA_TOPIC_PERCENTAGE_CHANGE_IN_ACCOUNT_EQUITY_EXCLUDING_DEPOSITS","https://www.investor.gov/better-understanding-your-brokerage-account-statement"],["TALIA_TOPIC_PORTFOLIO_CASH_WITHDRAWAL_AND_CONCENTRATION","https://www.investor.gov/better-understanding-your-brokerage-account-statement"],["TALIA_TOPIC_AVERAGE_DOLLAR_LOSS_PER_LOSING_TRADE","https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],["TALIA_TOPIC_PROFIT_FACTOR_FROM_CLOSED_TRADES","https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],["TALIA_TOPIC_MAXIMUM_FAVORABLE_EXCURSION_FOR_A_SHORT","https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/trades"],["TALIA_TOPIC_MAXIMUM_ADVERSE_EXCURSION_FOR_A_SHORT","https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/trades"],["TALIA_TOPIC_MAXIMUM_WHOLE_SHARES_WITH_FIXED_PER_ORDER_CHARGES","https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"],["TALIA_TOPIC_BREAK_EVEN_FRACTION_WITH_UNEQUAL_WIN_AND_LOSS","https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],["TALIA_TOPIC_PARTICIPATION_FRACTION_OF_ELIGIBLE_INTERVAL_VOLUME","https://www.sec.gov/reports/report-practice-preferencing"]]);
+ assert.equal(expected.size,11);
+ assert.equal(first.guides.filter(g=>g.sourceResearchTriage).length,20);
+ assert.equal(first.guides.filter(g=>g.sourceUrls[0]==='https://www.investor.gov/introduction-investing').length,0);
+ for(const [code,url] of expected){
+  const g=first.guides.find(z=>z.code===code);
+  assert.ok(g,code);
+  assert.deepEqual(g.sourceUrls,[url]);
+  assert.equal(g.previousGenericSourceUrl,'https://www.investor.gov/introduction-investing');
+  assert.equal(g.independentEditorialApproved,false);
+  assert.equal(g.editorSourceReview.independentPublicationAccepted,false);
+  assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+  assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  assert.ok(g.sourceResearchTriage.supportedScope.length>45);
+  assert.ok(g.sourceResearchTriage.limitationsAndOpenQuestions.length>45);
+ }
+ const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10);
+ near(Math.min(8000,6000)/40000,.15);
+ near(.25*.08,.02);
+ near((12400-10000-2000)/10000,.04);
+ near(3000/(3000+1000),.75);
+ near((40+60+80)/3,60);
+ near((300+100)/(150+50),2);
+ near(30-28.5,1.5);
+ near(31.2-30,1.2);
+ near(Math.floor((505-5)/24),20);
+ near(25/(75+25),.25);
+ near(1000/50000,.02);
+ const helper=readFileSync(new URL('../functions/_lib/original-competency-tutor-v014100.js',import.meta.url),'utf8');
+ assert.match(helper,/\'www\.cfainstitute\.org\'/);
+});

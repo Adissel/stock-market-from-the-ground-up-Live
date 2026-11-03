@@ -65,3 +65,15 @@ A new nine-topic source and arithmetic regression is included in `tests/talia-fo
 | Version | Date | Change | Acceptance |
 |---|---|---|---|
 | 1.5 | 2026-11-03 | Nine sourced Batch 15 research candidates and arithmetic boundaries; identified title mismatch | Internal source-triage only; editorial release HOLD |
+
+## Version 1.6 — Complete Batch 15 public source triage
+
+The remaining eleven topics (positions 285–299) now point to narrower public sources: a fund's SEC-filed turnover convention; CFA Institute performance attribution; Investor.gov cash-flow and account-statement guidance; QuantConnect closed-trade and risk-statistic definitions; SEC transactional-fee education; and historical SEC specialist volume participation. Every item includes explicit limitations distinguishing the cited concept from the original fictional worked case.
+
+**Batch 15 source replacement status:** 20/20 previously generic introductory citations replaced with claim-relevant research pointers; 0/20 individually independent approvals and 0/20 third-party rights clearances. The broader all-600 audit is expected to decline from 181 to **161** broad-link occurrences, subject to CI. This is an internal research triage milestone, not an independently fact-checked or published collection. In particular, the incomplete-round-trip naming mismatch, and the non-identical SEC specialist vs per-interval participation conventions, remain **HOLD**.
+
+The production Tutor source validator now recognizes the official `www.cfainstitute.org` domain while continuing to deny arbitrary domains, non-HTTPS links, embedded credentials or unapproved ports. No external provider, billing, member access or assessment behavior was changed.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.6 | 2026-11-03 | Eleven more scoped references, entire Batch 15 triaged, one additional trusted publication host, arithmetic and publication-hold tests | Independent editorial and license review HOLD |

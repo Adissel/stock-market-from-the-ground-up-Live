@@ -172,7 +172,7 @@
       "reviewExplanation": "Ungraded guided correction: One portfolio turnover convention uses the lesser of gross purchases and gross sales over average assets. Choose matched-period purchases and sales, take the lesser, divide by average assets. Work the fictional example: Purchases $8,000, sales $6,000, average portfolio value $40,000: turnover 15%. The misconception is: Adding purchases and sales and dividing by the same denominator is a different convention. Limitation: Cash flows and published fund conventions can alter reported ratios. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Purchases $4,000, sales $7,000, average assets $20,000: compute lesser-flow turnover. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/Archives/edgar/data/2062986/000119312525068685/d940677dn1a.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -185,6 +185,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "An SEC-filed fund disclosure explains annual purchases/sales: lesser of the two, divided by monthly-average portfolio securities value.",
+        "limitationsAndOpenQuestions": "The filed text is one fund's regulatory disclosure, not a universal individual-account ratio. Short-maturity exclusions, trade convention and denominator must be documented.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -200,7 +210,7 @@
       "reviewExplanation": "Ungraded guided correction: Contribution measures how many percentage points of account performance a holding produced. Multiply beginning portfolio weight by holding return, then convert to percentage points. Work the fictional example: A 25% opening weight rising 8% contributes +2 percentage points. The misconception is: Calling +2 percentage points a 2% return on the holding is incorrect. Limitation: Assumes matched no-flow buy-and-hold return measurement. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: A 40% starting weight loses 5%: calculate contribution in points. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-performance-evaluation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -213,6 +223,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "CFA Institute explains holdings-based performance attribution and contributions of individual securities and asset allocations.",
+        "limitationsAndOpenQuestions": "The simple 25% x 8%=2 percentage point example assumes a single-period fixed opening weight without external flows; benchmark-relative attribution is a different calculation.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -228,7 +248,7 @@
       "reviewExplanation": "Ungraded guided correction: External deposits must be removed before measuring simple dollar trading gain. Subtract starting equity and net external contributions from ending equity; divide result by starting equity. Work the fictional example: Start $10,000; add $2,000; end $12,400: simplified gain $400 or 4%. The misconception is: Reporting 24% account growth as investing return includes the contribution. Limitation: Midperiod flows require time- or money-weighted methodology for precise performance. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Start $8,000; add $1,000; end $9,320: compute simplified return. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/better-understanding-your-brokerage-account-statement"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -241,6 +261,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov distinguishes account valuation changes from the contributions and withdrawals shown in brokerage statements.",
+        "limitationsAndOpenQuestions": "The simplified $400/$10,000 calculation assumes the $2,000 deposit can be separated without timing ambiguity; it is not a time-weighted or money-weighted return.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -294,7 +324,7 @@
       "reviewExplanation": "Ungraded guided correction: Removing cash increases the share of the remaining investment in the account. Subtract the withdrawal from cash and total equity; then divide holding value by new total. Work the fictional example: Stock $3,000 and cash $2,000; withdraw $1,000 cash: stock share rises from 60% to 75%. The misconception is: Mistaking the increase in weight for stock appreciation. Limitation: Cash withdrawal must be feasible and separate from investment return. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Stock $2,000 and cash $3,000; withdraw $1,000: recompute stock weight. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/better-understanding-your-brokerage-account-statement"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -307,6 +337,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov identifies account cash holdings, percent-of-account allocation, and deposit/withdrawal activity.",
+        "limitationsAndOpenQuestions": "The 60% to 75% example is original arithmetic conditioned on a fully executed $1,000 cash withdrawal and unchanged investment prices.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -360,7 +400,7 @@
       "reviewExplanation": "Ungraded guided correction: A mean loss describes realized losses, not a guaranteed maximum loss. Divide the total positive magnitudes of losing outcomes by the losing-trade count. Work the fictional example: Losses $40, $60 and $80 average $60 per losing trade. The misconception is: Including winning trades in the loss-only denominator understates the result. Limitation: Sample definitions, commissions and outliers change interpretation. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Losses $25 and $75: calculate average loss. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -373,6 +413,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "QuantConnect documents average losses and closed-trade loss statistics for backtesting.",
+        "limitationsAndOpenQuestions": "The $60 sample mean uses three completed fictional losses only; actual closed-trade matching, costs and data integrity may change reported values.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -388,7 +438,7 @@
       "reviewExplanation": "Ungraded guided correction: Profit factor compares gross gains on winners against absolute gross losses on losers. Add gains separately; divide by the positive magnitude of losses. Work the fictional example: Wins $300 and $100; losses $150 and $50: profit factor $400/$200 = 2. The misconception is: Using net profit in the numerator is not gross profit factor. Limitation: Zero gross losses make the conventional ratio undefined or infinite by convention. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Wins total $240; losses total $160: compute profit factor. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -401,6 +451,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "QuantConnect defines profit factor as total profit divided by total loss in closed-trade statistics.",
+        "limitationsAndOpenQuestions": "Loss totals use absolute magnitude; if gross losses are zero the ratio is not a finite validated numerical indicator, and reported net returns may include costs.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -416,7 +476,7 @@
       "reviewExplanation": "Ungraded guided correction: Short-position MFE uses the most advantageous lower price after entry within the eligible observation window. For a short, subtract the lowest eligible traded low from entry, then multiply by shares if desired. Work the fictional example: Short entry $30; subsequent eligible low $28.50: favorable excursion $1.50/share. The misconception is: Using later bars after the measured exit gives false MFE. Limitation: MFE is retrospective and cannot justify the earlier entry. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Short $42, eligible low $40.80: compute per-share MFE. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/trades"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -429,6 +489,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "QuantConnect lists closed-trade direction, entry price, and maximum favorable excursion (MFE) fields.",
+        "limitationsAndOpenQuestions": "The $1.50/share short example relies on an eligible $28.50 low during the open trade, not future candles, and does not prove an executable exit.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -444,7 +514,7 @@
       "reviewExplanation": "Ungraded guided correction: Short-position MAE captures the highest adverse high while the short remains open. For a short, subtract entry from the highest eligible price and floor at zero. Work the fictional example: Short $30; eligible high $31.20: MAE $1.20/share. The misconception is: Recording only the closing price hides intratrade adverse travel. Limitation: Quote versus executed-price basis and interval alignment must be declared. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Short $18, eligible high $18.75: compute MAE. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/trades"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -457,6 +527,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "QuantConnect lists closed-trade direction, entry price, and maximum adverse excursion (MAE) fields.",
+        "limitationsAndOpenQuestions": "The $1.20/share short example requires an eligible $31.20 high during the open trade; quote versus trade-bar measurement and rounding are independent review items.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -510,7 +590,7 @@
       "reviewExplanation": "Ungraded guided correction: An upfront order charge reduces the cash available for whole-share purchases. Subtract estimated buy fee from available cash; divide by share price and floor. Work the fictional example: Cash $505, fee $5, price $24: floor(500/24)=20 shares. The misconception is: Ignoring fees can cause an order to exceed allocated cash. Limitation: Broker fractional permissions and variable fees change this ceiling. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Cash $203, fee $3, price $25: compute whole shares. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -523,6 +603,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "The SEC fee bulletin describes fixed and variable transaction charges on securities purchases.",
+        "limitationsAndOpenQuestions": "Whole-share floor((cash-upfront fee)/share price) is independent fictional arithmetic; no fractional orders, tax costs or slippage are modeled.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -538,7 +628,7 @@
       "reviewExplanation": "Ungraded guided correction: The zero-expectancy win fraction depends on average win and average loss magnitudes. Divide absolute average loss by sum of average win and absolute average loss. Work the fictional example: Average win $75 and loss $25: break-even win share 25%. The misconception is: Claiming a 50% win rate is always needed ignores payoff asymmetry. Limitation: Costs and correlated outcomes alter real expectancy. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Average win $40, loss $60: compute break-even fraction. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -551,6 +641,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "QuantConnect documents winning/losing trade rates and average gain/loss statistics used in trade-performance evaluation.",
+        "limitationsAndOpenQuestions": "The zero-expectancy win fraction 25/(75+25) assumes only two fixed outcomes and zero fees; the source is contextual, not direct independent certification of that equation.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -604,7 +704,7 @@
       "reviewExplanation": "Ungraded guided correction: A volume participation percentage compares executed size with observed same-interval total reported volume. Divide filled shares by total relevant interval reported shares and multiply by 100. Work the fictional example: Filled 1,000 shares during an interval reporting 50,000 shares: 2% participation. The misconception is: Equating 2% with a guaranteed executable liquidity share is unjustified. Limitation: Feed scope, odd lots and reporting delays may affect comparability. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Filled 500 shares with 20,000 reported during the interval: compute fraction. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/reports/report-practice-preferencing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -617,6 +717,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "An SEC market-structure report discusses volume-based specialist participation ratios and the importance of the counted execution sides.",
+        "limitationsAndOpenQuestions": "The historical specialist-participation reporting is not identical to one actor's matched-interval 1,000/50,000 participation; single versus double counting and feed rights remain under review.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
