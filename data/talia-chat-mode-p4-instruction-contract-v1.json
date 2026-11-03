@@ -1,0 +1,595 @@
+{
+  "id": "SMFGU-TALIA-CHAT-P4-INSTRUCTION-001",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "status": "CHAT_MODE_INSTRUCTIONAL_CONTRACT_COMPLETE_RUNTIME_ACCEPTANCE_HOLD",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "repo": "Adissel/stock-market-from-the-ground-up-Live",
+  "sourceOfTruth": [
+    "src/tutor/TaliaClassroom.tsx",
+    "functions/_lib/original-competency-tutor-v014100.js",
+    "functions/_lib/talia-instructional-evaluation-v1.js",
+    "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md"
+  ],
+  "productPolicy": {
+    "editions": [
+      "Foundation",
+      "Advanced",
+      "Professional",
+      "Enterprise"
+    ],
+    "foundationTeachingFree": true,
+    "providerAllowModelDefault": false,
+    "saveHistoryDefault": false,
+    "ungradedRetries": "unlimited",
+    "assess": "do not disclose protected rubrics, correct answers, unseen events or official grade",
+    "inference": "No unsaved-history personalization; no model call without explicit consent and budget if available, member never supplies AI keys",
+    "eligibleSources": "Only registered and entitled lessons, Labs, Boot Camp contexts, permitted fictional/authorized historical sources"
+  },
+  "modes": [
+    {
+      "label": "Explain",
+      "apiMode": "explain",
+      "prompts": "Define the term from first principles, show original fictional mathematics where relevant, label evidence versus inference",
+      "expectedEvidence": [
+        "definition",
+        "declared inputs and units",
+        "worked case or explicit unavailable reason",
+        "limitations",
+        "source provenance"
+      ],
+      "notAllowed": [
+        "pay-per-explanation",
+        "trade signal",
+        "fabricated current market price"
+      ]
+    },
+    {
+      "label": "Guided Self-Check",
+      "apiMode": "question",
+      "prompts": "Ask a single ungraded diagnostic question based on eligible source, withhold answer until member submits reasoning",
+      "expectedEvidence": [
+        "one diagnostic question",
+        "member attempt boundary",
+        "hint before correction",
+        "independent retry"
+      ],
+      "notAllowed": [
+        "official grade",
+        "private rubric reveal",
+        "early answer"
+      ]
+    },
+    {
+      "label": "Review Reasoning",
+      "apiMode": "review",
+      "prompts": "Evaluate the member's submitted reasoning against verified source and numerical method without claiming mastery",
+      "expectedEvidence": [
+        "misconception type",
+        "specific error identified",
+        "correction and calculation where applicable",
+        "new transfer"
+      ],
+      "notAllowed": [
+        "rubric exposure",
+        "fabricated assessment status",
+        "grading entitlement escalation"
+      ]
+    },
+    {
+      "label": "Recommend Practice",
+      "apiMode": "practice",
+      "prompts": "Recommend entitled registered Lab/Boot Camp or fresh fictional ungraded exercise using only verified member signals",
+      "expectedEvidence": [
+        "eligible target or explicitly unavailable",
+        "reason drawn from permitted context",
+        "member controls next action",
+        "no grade/write"
+      ],
+      "notAllowed": [
+        "unentitled content unlocked",
+        "inferred diagnosis from unsaved chat",
+        "autonomous execution"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "phase": "Observe",
+      "apiMode": "question",
+      "goal": "Identify completed point-in-time observations and declare unknowns without premature interpretation",
+      "must": [
+        "ask for exactly observable facts",
+        "withhold conclusion and any unrevealed evidence"
+      ]
+    },
+    {
+      "phase": "Explain",
+      "apiMode": "explain",
+      "goal": "Teach from first principles using one original fictional worked case",
+      "must": [
+        "definition, inputs, formula and units",
+        "example, limits and an observable alternative"
+      ]
+    },
+    {
+      "phase": "Attempt",
+      "apiMode": "question",
+      "goal": "Ask a formative diagnostic question and wait for learner reasoning",
+      "must": [
+        "one independent ungraded question",
+        "no answer before learner attempt"
+      ]
+    },
+    {
+      "phase": "Correct",
+      "apiMode": "review",
+      "goal": "Classify a specific misconception and repair reasoning using evidence",
+      "must": [
+        "specific wrong assumption and why it fails",
+        "targeted correction without protected grading"
+      ]
+    },
+    {
+      "phase": "Retry",
+      "apiMode": "question",
+      "goal": "Test the corrected concept on genuinely different permitted evidence",
+      "must": [
+        "fresh quantities, candle or scenario",
+        "unlimited ungraded retries; no fake mastery"
+      ]
+    },
+    {
+      "phase": "Transfer",
+      "apiMode": "practice",
+      "goal": "Apply the concept to a separate fictional situation, including no-action option",
+      "must": [
+        "different evidence and uncertainty",
+        "transfer without forecasts, official score or live order"
+      ]
+    }
+  ],
+  "perspectives": [
+    {
+      "label": "Understand",
+      "expect": "Define and explain why, in plain language before jargon"
+    },
+    {
+      "label": "Recognize",
+      "expect": "Identify named observations and distinguish them from speculation"
+    },
+    {
+      "label": "Apply",
+      "expect": "Use declared data in a worked calculation or bounded action-free example"
+    },
+    {
+      "label": "Common Mistake",
+      "expect": "Name misconception, correction, and a counterexample"
+    },
+    {
+      "label": "Limitations",
+      "expect": "Explain invalidation, unknowns, source restrictions, and no-trade possibility"
+    }
+  ],
+  "methods": [
+    {
+      "label": "I DO",
+      "expect": "Tutor models the method step by step using reviewed fictional evidence"
+    },
+    {
+      "label": "WE DO",
+      "expect": "Tutor scaffolds and asks for one input/step before supplying a hint"
+    },
+    {
+      "label": "YOU DO",
+      "expect": "Tutor poses independent task and withholds worked answer until attempt"
+    },
+    {
+      "label": "REVIEW",
+      "expect": "Tutor critiques reasoning without grade or protected rubric"
+    },
+    {
+      "label": "TRANSFER",
+      "expect": "Tutor supplies a genuinely different fictional independent application"
+    }
+  ],
+  "compatibilityMatrix": [
+    {
+      "id": "TP-UNDERSTAND-IDO",
+      "lens": "Understand",
+      "method": "I DO",
+      "expectedBehavior": "Define and explain why, in plain language before jargon; Tutor models the method step by step using reviewed fictional evidence.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-UNDERSTAND-WEDO",
+      "lens": "Understand",
+      "method": "WE DO",
+      "expectedBehavior": "Define and explain why, in plain language before jargon; Tutor scaffolds and asks for one input/step before supplying a hint.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-UNDERSTAND-YOUDO",
+      "lens": "Understand",
+      "method": "YOU DO",
+      "expectedBehavior": "Define and explain why, in plain language before jargon; Tutor poses independent task and withholds worked answer until attempt.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-UNDERSTAND-REVIEW",
+      "lens": "Understand",
+      "method": "REVIEW",
+      "expectedBehavior": "Define and explain why, in plain language before jargon; Tutor critiques reasoning without grade or protected rubric.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-UNDERSTAND-TRANSFER",
+      "lens": "Understand",
+      "method": "TRANSFER",
+      "expectedBehavior": "Define and explain why, in plain language before jargon; Tutor supplies a genuinely different fictional independent application.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-RECOGNIZE-IDO",
+      "lens": "Recognize",
+      "method": "I DO",
+      "expectedBehavior": "Identify named observations and distinguish them from speculation; Tutor models the method step by step using reviewed fictional evidence.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-RECOGNIZE-WEDO",
+      "lens": "Recognize",
+      "method": "WE DO",
+      "expectedBehavior": "Identify named observations and distinguish them from speculation; Tutor scaffolds and asks for one input/step before supplying a hint.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-RECOGNIZE-YOUDO",
+      "lens": "Recognize",
+      "method": "YOU DO",
+      "expectedBehavior": "Identify named observations and distinguish them from speculation; Tutor poses independent task and withholds worked answer until attempt.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-RECOGNIZE-REVIEW",
+      "lens": "Recognize",
+      "method": "REVIEW",
+      "expectedBehavior": "Identify named observations and distinguish them from speculation; Tutor critiques reasoning without grade or protected rubric.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-RECOGNIZE-TRANSFER",
+      "lens": "Recognize",
+      "method": "TRANSFER",
+      "expectedBehavior": "Identify named observations and distinguish them from speculation; Tutor supplies a genuinely different fictional independent application.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-APPLY-IDO",
+      "lens": "Apply",
+      "method": "I DO",
+      "expectedBehavior": "Use declared data in a worked calculation or bounded action-free example; Tutor models the method step by step using reviewed fictional evidence.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-APPLY-WEDO",
+      "lens": "Apply",
+      "method": "WE DO",
+      "expectedBehavior": "Use declared data in a worked calculation or bounded action-free example; Tutor scaffolds and asks for one input/step before supplying a hint.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-APPLY-YOUDO",
+      "lens": "Apply",
+      "method": "YOU DO",
+      "expectedBehavior": "Use declared data in a worked calculation or bounded action-free example; Tutor poses independent task and withholds worked answer until attempt.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-APPLY-REVIEW",
+      "lens": "Apply",
+      "method": "REVIEW",
+      "expectedBehavior": "Use declared data in a worked calculation or bounded action-free example; Tutor critiques reasoning without grade or protected rubric.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-APPLY-TRANSFER",
+      "lens": "Apply",
+      "method": "TRANSFER",
+      "expectedBehavior": "Use declared data in a worked calculation or bounded action-free example; Tutor supplies a genuinely different fictional independent application.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-COMMONMISTAKE-IDO",
+      "lens": "Common Mistake",
+      "method": "I DO",
+      "expectedBehavior": "Name misconception, correction, and a counterexample; Tutor models the method step by step using reviewed fictional evidence.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-COMMONMISTAKE-WEDO",
+      "lens": "Common Mistake",
+      "method": "WE DO",
+      "expectedBehavior": "Name misconception, correction, and a counterexample; Tutor scaffolds and asks for one input/step before supplying a hint.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-COMMONMISTAKE-YOUDO",
+      "lens": "Common Mistake",
+      "method": "YOU DO",
+      "expectedBehavior": "Name misconception, correction, and a counterexample; Tutor poses independent task and withholds worked answer until attempt.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-COMMONMISTAKE-REVIEW",
+      "lens": "Common Mistake",
+      "method": "REVIEW",
+      "expectedBehavior": "Name misconception, correction, and a counterexample; Tutor critiques reasoning without grade or protected rubric.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-COMMONMISTAKE-TRANSFER",
+      "lens": "Common Mistake",
+      "method": "TRANSFER",
+      "expectedBehavior": "Name misconception, correction, and a counterexample; Tutor supplies a genuinely different fictional independent application.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-LIMITATIONS-IDO",
+      "lens": "Limitations",
+      "method": "I DO",
+      "expectedBehavior": "Explain invalidation, unknowns, source restrictions, and no-trade possibility; Tutor models the method step by step using reviewed fictional evidence.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-LIMITATIONS-WEDO",
+      "lens": "Limitations",
+      "method": "WE DO",
+      "expectedBehavior": "Explain invalidation, unknowns, source restrictions, and no-trade possibility; Tutor scaffolds and asks for one input/step before supplying a hint.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-LIMITATIONS-YOUDO",
+      "lens": "Limitations",
+      "method": "YOU DO",
+      "expectedBehavior": "Explain invalidation, unknowns, source restrictions, and no-trade possibility; Tutor poses independent task and withholds worked answer until attempt.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-LIMITATIONS-REVIEW",
+      "lens": "Limitations",
+      "method": "REVIEW",
+      "expectedBehavior": "Explain invalidation, unknowns, source restrictions, and no-trade possibility; Tutor critiques reasoning without grade or protected rubric.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    },
+    {
+      "id": "TP-LIMITATIONS-TRANSFER",
+      "lens": "Limitations",
+      "method": "TRANSFER",
+      "expectedBehavior": "Explain invalidation, unknowns, source restrictions, and no-trade possibility; Tutor supplies a genuinely different fictional independent application.",
+      "requiredNegativeEvidence": [
+        "no future candles",
+        "no protected answer keys",
+        "no claimed official grade",
+        "no trading signal"
+      ]
+    }
+  ],
+  "realisticDialogueExamples": [
+    {
+      "id": "D1_VWAP_TWO_INPUT_METHODS",
+      "mode": "Explain",
+      "teachingLens": "Apply",
+      "method": "I DO",
+      "turns": [
+        {
+          "speaker": "learner",
+          "text": "Two fictional trades occurred: 100 shares at $10 and 300 shares at $12. Is their VWAP $11.33?"
+        },
+        {
+          "speaker": "talia",
+          "expected": "Individual print-based VWAP=(100×10+300×12)/400=$11.50. If aggregated in one H=12, L=10, C=12 bar, HLC3 proxy=(12+10+12)/3=$11.333333. Distinguish the two methods explicitly; they are not interchangeable."
+        },
+        {
+          "speaker": "learner",
+          "text": "Then which one should I show from an OHLCV-only chart?"
+        },
+        {
+          "speaker": "talia",
+          "expected": "Label the OHLCV HLC3 proxy and declare session and volume source; do not claim exact transaction VWAP without eligible trades."
+        }
+      ]
+    },
+    {
+      "id": "D2_CONFLICTED_REASONING_CANDLE",
+      "mode": "Review Reasoning",
+      "teachingLens": "Common Mistake",
+      "method": "REVIEW",
+      "turns": [
+        {
+          "speaker": "learner",
+          "text": "The incomplete five-minute candle has a green body, so I know the final close and the next trade direction."
+        },
+        {
+          "speaker": "talia",
+          "expected": "Classify incomplete-bar lookahead and outcome overclaim; explain only completed evidence is confirmed; final close is unknown until completion; propose a different fictional completed-candle self-check without awarding a grade."
+        }
+      ]
+    },
+    {
+      "id": "D3_RISK_NO_GUARANTEED_STOP",
+      "mode": "Guided Self-Check",
+      "teachingLens": "Limitations",
+      "method": "WE DO",
+      "turns": [
+        {
+          "speaker": "learner",
+          "text": "I have a fictional $100 planned price-risk budget, a $25.00 entry reference and $24.50 stop reference. Do I have a guaranteed $100 maximum loss?"
+        },
+        {
+          "speaker": "talia",
+          "expected": "Ask learner to find $0.50 planned risk per share and 200-share arithmetic ceiling, then explain gaps, slippage, fees, nonexecution and stop risk make realized loss uncertain; not a trade recommendation."
+        }
+      ]
+    },
+    {
+      "id": "D4_CONSENT_BOUNDARY",
+      "mode": "Explain",
+      "teachingLens": "Understand",
+      "method": "TRANSFER",
+      "turns": [
+        {
+          "speaker": "learner",
+          "text": "Continue my reasoning from last week. I did not save any conversation."
+        },
+        {
+          "speaker": "talia",
+          "expected": "State no verified saved conversation is available; request a fresh description, offer to continue within authorized active context only and do not reconstruct private or cross-account history."
+        }
+      ]
+    }
+  ],
+  "globalProhibitedResponsePatterns": [
+    "guaranteed future trade direction",
+    "recommend a member buy/sell or size a real order",
+    "invent current bid, ask, trade or chart history",
+    "claim historical candle was complete before its close",
+    "reconstruct protected assessment answers or unseen replay candles",
+    "claim verified mastery from formative tutoring",
+    "pretend a guest has a paid entitlement",
+    "reuse another member's conversation or unsaved reasoning",
+    "charge Lumens for routine explanation",
+    "reuse vendor graphics/text/quotes/data without adequate rights",
+    "expose provider secrets or accept user Tutor AI keys"
+  ],
+  "evidenceToAccept": [
+    "Authorized member mode selection maps to existing Tutor API and relevant existing source",
+    "Each six phase persists only allowed context and produces distinct instruction",
+    "All 25 lens/method combinations tested with source/no-grade and misconception-specific evidence",
+    "Ungraded retries never alter first official Assess attempt and no answer key leak",
+    "Different initial and transfer examples, source dates, units and no prediction claims",
+    "Verified saved-history opt-in, identity switch clearing and revocation",
+    "Genuine browser keyboard/mobile and screen-reader behavior",
+    "Independent editorial and release signoffs separate"
+  ]
+}
