@@ -133,6 +133,10 @@
      list.append(mk('li','',label));
     }
     details.append(list);
+    const research=mk('a','cl-scr-btn','Research issuer with Watchlist and Talia');
+    research.href='advanced-tool.html?tool=WATCHLIST_WORKBENCH&symbol='+encodeURIComponent(record.symbol);
+    research.setAttribute('aria-label','Open entitled issuer research for '+record.symbol);
+    details.append(research);
     const cell=mk('td');cell.append(details);r.append(cell);
     tbody.append(r);
    }

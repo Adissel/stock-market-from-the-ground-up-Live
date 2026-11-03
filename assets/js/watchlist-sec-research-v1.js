@@ -27,6 +27,9 @@
   const cleanupChart=()=>{chartObserver?.disconnect();chartObserver=null;
    if(fundamentalsChart){fundamentalsChart.dispose();fundamentalsChart=null}};
   panel.append(title,desc,label,input,modeLabel,select,button,status,result);host.append(panel);
+  // Symbol handoff is only a prefill. Entitlement and manual retrieval remain separate.
+  const requested=new URLSearchParams(location.search).get('symbol');
+  if(requested&&/^[A-Z][A-Z0-9.-]{0,11}$/.test(requested.toUpperCase()))input.value=requested.toUpperCase();
   let sequence=0;
   button.onclick=async()=>{
    const symbol=input.value.trim().toUpperCase();
@@ -52,6 +55,12 @@
      item.append(link);list.append(item);
     }
     result.append(make('h3','Recent filings'),list);
+    window.CrownlightScannerSecResearchViewV1?.mount?.({
+     host:result,response:data,symbol,sessionValid:async()=>{
+      const current=(await sb.auth.getSession()).data?.session;
+      return current?.user?.id===uid&&!!current?.access_token&&!gate.hidden;
+     }
+    });
     if(Array.isArray(data.fundamentals)){
      result.append(make('h3','Reported financial data (not estimates)'));
      const table=make('table'),head=make('tr');

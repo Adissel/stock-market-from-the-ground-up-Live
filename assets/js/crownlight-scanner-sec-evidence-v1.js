@@ -52,7 +52,7 @@ function assess(response,symbol,at,config={}){
   if(seen.has(f.accession))continue;seen.add(f.accession);
   const accepted=safeTime(f.acceptedAt);
   if(accepted===null){excluded.unknownTime++;continue;}
-  if(accepted>now){excluded.future++;continue;}
+  if(accepted>now||accepted>observed){excluded.future++;continue;}
   if(Math.abs(accepted-filedDate)>2*86400000){excluded.invalid++;continue;}
   if(accepted<start){excluded.outsideWindow++;continue;}
   acceptedFilings.push({form:f.form,accession:f.accession,filedDate:f.filedDate,

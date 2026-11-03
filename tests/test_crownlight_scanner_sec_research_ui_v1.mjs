@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+const source=p=>readFileSync(p,'utf8');
+const html=source('advanced-tool.html'),app=source('assets/js/watchlist-sec-research-v1.js');
+const visual=source('assets/js/crownlight-scanner-visual-v1.js');
+const view=source('assets/js/crownlight-scanner-sec-research-view-v1.js');
+const model=source('assets/js/crownlight-scanner-sec-evidence-v1.js');
+for(const p of ['assets/js/crownlight-scanner-sec-evidence-v1.js',
+ 'assets/js/crownlight-scanner-sec-research-view-v1.js','assets/js/watchlist-sec-research-v1.js'])
+ execFileSync(process.execPath,['--check',p]);
+const files=['crownlight-scanner-sec-evidence-v1.js','crownlight-scanner-sec-research-view-v1.js','watchlist-sec-research-v1.js'];
+assert(files.every((p,i)=>html.includes(p)&&(i===0||html.indexOf(files[i-1])<html.indexOf(p))));
+assert(app.includes('CrownlightScannerSecResearchViewV1?.mount?.('));
+assert(app.includes('sessionValid:async()=>')&&app.includes('current?.user?.id===uid'));
+assert(app.includes("get('symbol')")&&!app.includes('localStorage'));
+assert(visual.includes('Research issuer with Watchlist and Talia'));
+assert(visual.includes('encodeURIComponent(record.symbol)'));
+assert(view.includes('engine.assess(response,symbol,new Date().toISOString()'));
+assert(view.includes('await sessionValid()')&&view.includes('host.isConnected'));
+assert(view.includes("forStage?.('RESEARCH')"));
+assert(view.includes('noopener noreferrer'));
+assert(view.includes("setAttribute('role','status')"));
+assert(!view.includes('fetch(')&&!view.includes('localStorage'));
+assert(model.includes('accepted>now||accepted>observed'));
+const s=JSON.parse(source('data/crownlight-scanner-tier-milestones-v1.json'));
+assert.equal(s.tiers.Plus.passed,3);assert.equal(s.tiers.Advanced.passed,3);
+assert.equal(s.overall.passed,8);assert.equal(s.overall.total,32);
+assert.equal(s.tiers.Plus.technicalSourceGates.find(x=>x.id==='P-04').passed,true);
+assert.equal(s.livePaidTierReleaseAcceptancePercent,0);
+console.log('PASS protected SEC issuer chronology, Watchlist/Talia handoff and scanner scorecard');

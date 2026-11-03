@@ -1,13 +1,13 @@
 {
   "documentControl": {
     "id": "SMFGU-SCANNER-TIER-SCORECARD-001",
-    "version": "1.0",
+    "version": "1.1",
     "date": "2026-11-03",
-    "status": "SOURCE-LEVEL ENGINEERING SCORECARD; NOT MEMBER-READY",
+    "status": "SOURCE-LEVEL SEC RESEARCH INTEGRATION; MEMBER ACCEPTANCE NOT VERIFIED",
     "githubPath": "data/crownlight-scanner-tier-milestones-v1.json",
     "googleDriveLocation": "Not created"
   },
-  "scoringRule": "Eight explicitly named engineering milestones per tier. Only existing tested code or the dedicated Wave 1 CI-covered sources count. A source-pass is not a live entitlement, browser acceptance or commercial release. A-05 is source-implemented when the new results/visual CI workflow passes; still not authenticated UI acceptance.",
+  "scoringRule": "Eight explicitly named engineering milestones per tier. Only existing tested code or the dedicated Wave 1 CI-covered sources count. A source-pass is not a live entitlement, browser acceptance or commercial release. A-05 is source-implemented when the new results/visual CI workflow passes; still not authenticated UI acceptance. P-04 counts only the protected manual issuer SEC source-time integration on passing Wave 4 CI, not automatic scanning or paid release.",
   "tiers": {
     "Basic": {
       "technicalSourceGates": [
@@ -76,7 +76,7 @@
         {
           "id": "P-04",
           "description": "SEC catalyst and source-time integration",
-          "passed": false
+          "passed": true
         },
         {
           "id": "P-05",
@@ -99,9 +99,9 @@
           "passed": false
         }
       ],
-      "passed": 2,
+      "passed": 3,
       "total": 8,
-      "percentage": 25
+      "percentage": 37.5
     },
     "Advanced": {
       "technicalSourceGates": [
@@ -199,9 +199,9 @@
     }
   },
   "overall": {
-    "passed": 7,
+    "passed": 8,
     "total": 32,
-    "percentage": 21.875
+    "percentage": 25
   },
   "livePaidTierReleaseAcceptancePercent": 0
 }

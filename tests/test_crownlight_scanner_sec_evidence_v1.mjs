@@ -17,6 +17,12 @@ const r=E.assess(payload,'TEST',time);
 assert.equal(r.match,'SEC_ACCEPTED_IN_WINDOW');
 assert.deepEqual(Array.from(r.acceptedFilings,x=>x.accession),[f1.accession]);
 assert.equal(r.excluded.future,1);
+const tooLateForSnapshot={...payload,observedAt:'2026-11-03T16:30:00Z'};
+assert.equal(E.assess(tooLateForSnapshot,'TEST',time).acceptedFilings.length,0,
+ 'Do not count SEC acceptances after the underlying source observation.');
+assert.equal(E.assess(tooLateForSnapshot,'TEST',time).excluded.future,2);
+assert.equal(E.assess({...payload,filings:[{...f1,acceptedAt:time}],observedAt:time},'TEST',time).acceptedFilings.length,1,
+ 'Acceptance exactly at observed cutoff can be used.');
 assert.equal(r.excluded.unknownTime,1);
 assert.equal(r.excluded.outsideWindow,1);
 assert.equal(r.firstPublicDisseminationKnown,false);
