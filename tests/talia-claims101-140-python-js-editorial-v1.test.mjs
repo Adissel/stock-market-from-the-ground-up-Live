@@ -54,3 +54,21 @@ test('all 40 have distinct math or qualitative dispositions and retain release h
   assert.match(guides[id-101].workedCase,new RegExp(phrase,'i'));
  }
 });
+
+test('P2 claim-specific references #103 and #122 stay synchronized and unapproved',()=>{
+ const pointers=new Map([[103,'https://syndication.finra.org/content/defining-value-investment'],[122,'https://syndication.finra.org/content/how-are-your-investments-doing-returns-explained']]);
+ for(const [id,url] of pointers){
+  const guide=guides[id-101],row=claim.rows[id-101];
+  assert.equal(guide.sourceUrls.length,1);
+  assert.equal(guide.sourceUrls[0],url);
+  assert.equal(row.source,url);
+  assert.equal(guide.independentEditorialApproved,false);
+  assert.equal(row.independentPublicationApproved,false);
+  assert.equal(row.thirdPartyRights,'NOT_APPROVED');
+  assert.match(row.sourceStatus,/PRIMARY_PAGE_CONTENT_SCOPED_TARGETED/);
+ }
+ assert.ok(Math.abs(4*.3/24-.05)<1e-12,'Indicated yield is only hypothetical');
+ assert.ok(Math.abs(1.1*.9-1+.01)<1e-12,'Compounded loss differs from zero');
+ const shell=readFileSync('scripts/build-pages.sh','utf8');
+ assert.ok(!shell.includes('\\r'),'Pages build script must remain LF-only');
+});

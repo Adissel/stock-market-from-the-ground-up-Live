@@ -55,7 +55,7 @@
       "reviewExplanation": "Check $100 → $110 → $99; the mistaken zero-sum percentage shortcut hides the $11 second-period decline. This is formative guidance, not a protected grading decision.",
       "transferQuestion": "FICTIONAL TRANSFER: A $200 account grows 20% and then falls 25%; find its terminal value and compound return.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/how-are-your-investments-doing-returns-explained"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -63,15 +63,15 @@
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
-      "researchReferenceVerifiedOn": "2026-11-01",
+      "researchReferenceVerifiedOn": "2026-11-03",
       "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
       "editorSourceReview": {
-        "reviewedAt": "2026-11-01",
+        "reviewedAt": "2026-11-03",
         "reviewer": "owner-delegated internal editorial reviewer",
         "result": "development_reference_checked_claim_level_crosscheck_pending",
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
-        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+        "referenceAction": "replace_broad_investing_overview_with_FINRA_period_return_compounding_education"
       }
     },
     {

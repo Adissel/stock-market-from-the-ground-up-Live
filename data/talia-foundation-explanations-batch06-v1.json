@@ -96,7 +96,7 @@
       "reviewExplanation": "Correct review multiplies the declared recurring cash frequency explicitly and warns that the denominator and future numerator are uncertain.",
       "transferQuestion": "FICTIONAL TRANSFER: Assume a $0.18 quarterly amount continues at a $12 quote. Compute indicated annual yield and name two things that could invalidate it.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        "https://syndication.finra.org/content/defining-value-investment"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -104,20 +104,20 @@
       "status": "original_source_authored_ungraded_pending_independent_editorial_review",
       "independentEditorialApproved": false,
       "sourceResearchCategory": "research_reference",
-      "researchReferenceVerifiedOn": "2026-11-01",
+      "researchReferenceVerifiedOn": "2026-11-03",
       "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
       "editorSourceReview": {
-        "reviewedAt": "2026-11-01",
+        "reviewedAt": "2026-11-03",
         "reviewer": "owner-delegated internal editorial reviewer",
         "result": "development_reference_checked_claim_level_crosscheck_pending",
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
-        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+        "referenceAction": "replace_broad_stock_overview_with_FINRA_direct_dividend_yield_definition"
       },
       "sourceScopeReview": {
-        "date": "2026-11-01",
-        "sourcePage": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
-        "claimSpecificScope": "SEC Investors.gov Stocks FAQ supports dividends as a possible income source and market-price variability but does NOT establish the specific indicated forward-dividend-yield calculation or any future payout assurance. Obtain a direct formula reference; keep original hypothetical arithmetic explicitly non-guaranteed.",
+        "date": "2026-11-03",
+        "sourcePage": "https://syndication.finra.org/content/defining-value-investment",
+        "claimSpecificScope": "FINRA defines yearly-dividend-rate divided by current price as dividend yield and distinguishes changes in dividends and market price; original 0.30 x 4 / 24 = 5% example is hypothetical. Publication and rights remain on HOLD.",
         "decision": "HOLD_EXACT_FORMULA",
         "formulaAndNumericReleaseAccepted": false,
         "independentPublicationAccepted": false
