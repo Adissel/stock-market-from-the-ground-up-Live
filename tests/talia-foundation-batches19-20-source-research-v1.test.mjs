@@ -24,8 +24,8 @@ test('Foundation batches 19 and 20: forty claim-scoped primary/methodology citat
 test('Batch19 negative-base revenue comparison remains explanatory rather than misleading',()=>{
  const g=batches[0][16];
  assert.equal(g.code,'TALIA_TOPIC_REVENUE_GROWTH_WITH_A_NEGATIVE_BASE');
- assert.match(g.workedCase,/Prior-period net revenue is -\\$100/);
- assert.match(g.workedCase,/\\+\\$120/);
+ assert.match(g.workedCase,/Prior-period net revenue is -\$100/);
+ assert.match(g.workedCase,/\+\$120/);
  assert.match(g.workedCase,/-120%/);
  assert.match(g.reviewExplanation,/not a meaningful ordinary growth rate/);
  assert.equal(20-(-100),120);
@@ -34,7 +34,7 @@ test('Batch19 negative-base revenue comparison remains explanatory rather than m
  assert.equal(g.independentEditorialApproved,false);
 });
 test('Batch20 vintage chronology, mixed executions and model assumptions have explicit limits',()=>{
- assert.match(batches[1][0].sourceUrls[0],/fred\\.stlouisfed\\.org/);
+ assert.match(batches[1][0].sourceUrls[0],/fred\.stlouisfed\.org/);
  assert.match(batches[1][7].sourceUrls[0],/volume-weighted-average-price-vwap/);
  assert.match(batches[1][13].sourceResearchTriage.limitationsAndOpenQuestions,/survivorship/);
  assert.match(batches[1][16].sourceResearchTriage.limitationsAndOpenQuestions,/fees and slippage/);
