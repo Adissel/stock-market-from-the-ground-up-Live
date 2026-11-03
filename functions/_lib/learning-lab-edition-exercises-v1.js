@@ -152,16 +152,25 @@ export function deriveFictionalCompletedStudies({evidence,emaPeriod=9}={}){
  if(evidence?.provenance!=='fictional'||!Number.isInteger(emaPeriod)||
     emaPeriod<2||emaPeriod>100)return null;
  const prefix=asOfPrefix(evidence);
- if(!prefix||prefix.bars.length<emaPeriod)return null;
+ // The compact fictional MACD uses a slow EMA plus a two-value signal
+ // seed; fewer than seven completed bars cannot support both windows.
+ if(!prefix||prefix.bars.length<Math.max(7,emaPeriod))return null;
  const closes=prefix.bars.map(b=>b.close),bars=prefix.bars;
+ // A no-trade series cannot establish VWAP; nonpositive prices and
+ // numerical overflow are invalid, never silent charting placeholders.
+ if(bars.some(b=>b.open<=0||b.high<=0||b.low<=0||b.close<=0))return null;
  let ema=closes.slice(0,emaPeriod).reduce((a,b)=>a+b,0)/emaPeriod;
  for(let i=emaPeriod;i<closes.length;i++)ema=closes[i]*2/(emaPeriod+1)+ema*(emaPeriod-1)/(emaPeriod+1);
  const volume=bars.reduce((s,b)=>s+b.volume,0);
- const vwap=volume>0?bars.reduce((s,b)=>s+(b.high+b.low+b.close)/3*b.volume,0)/volume:null;
+ if(!fin(volume)||volume<=0)return null;
+ const numerator=bars.reduce((s,b)=>s+(b.high+b.low+b.close)/3*b.volume,0);
+ if(!fin(numerator))return null;
+ const vwap=numerator/volume;
+ if(!fin(vwap))return null;
  const at=prefix.completedThrough;
  const result=[freeze({name:'EMA',value:ema,asOf:at,
    method:'SMA-seeded EMA '+emaPeriod+' on completed fictional closing prices',verified:true})];
- if(vwap!==null)result.push(freeze({name:'VWAP',value:vwap,asOf:at,
+ result.push(freeze({name:'VWAP',value:vwap,asOf:at,
    method:'Typical-price volume-weighted mean of completed fictional candles',verified:true}));
  const period=Math.min(5,closes.length-1);
  let gain=0,loss=0;

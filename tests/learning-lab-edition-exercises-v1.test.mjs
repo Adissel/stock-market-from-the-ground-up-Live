@@ -119,3 +119,45 @@ test('server derives only fully completed frames and refuses forged sources',()=
  assert.equal(x[1].completedThrough,4000);
  assert.equal(deriveFictionalCompletedFrames({evidence:{...fictional(),provenance:'licensed_historical'}}),null);
 });
+
+test('Advanced six-study mathematics refuses insufficient MACD seed bars',()=>{
+ for(let n=2;n<7;n++){
+  const source=fictional();
+  source.bars=source.bars.slice(0,n);
+  source.completedIndex=n-1;
+  source.asOf=source.bars.at(-1).timestamp;
+  assert.equal(deriveFictionalCompletedStudies({evidence:source,emaPeriod:2}),null,'n='+n);
+ }
+});
+test('Advanced six-study math checks flat-price independent EMA VWAP RSI MACD ATR Bollinger reference',()=>{
+ const flat={provenance:'fictional',asOf:9000,completedIndex:8,
+  bars:Array.from({length:9},(_,i)=>({timestamp:(i+1)*1000,open:100,high:101,
+   low:99,close:100,volume:100}))};
+ const result=deriveFictionalCompletedStudies({evidence:flat,emaPeriod:3});
+ assert(result);assert.equal(result.indicators.length,6);
+ const m=Object.fromEntries(result.indicators.map(x=>[x.name,x.value]));
+ assert.equal(m.EMA,100);assert.equal(m.VWAP,100);assert.equal(m.RSI,50);
+ assert.equal(m.MACD,0);assert.equal(m.ATR,2);assert.equal(m.BOLL,0);
+ assert(Object.values(m).every(Number.isFinite));
+});
+test('Advanced and Lab study calculations cannot invent VWAP without trades or accept nonpositive prices',()=>{
+ const blank=fictional();
+ blank.bars=blank.bars.map(x=>({...x,volume:0}));
+ assert.equal(deriveFictionalCompletedStudies({evidence:blank,emaPeriod:3}),null);
+ const negative=fictional();
+ negative.bars[2]={...negative.bars[2],low:-1,open:1,high:102,close:101};
+ assert.equal(deriveFictionalCompletedStudies({evidence:negative,emaPeriod:3}),null);
+ const overflow=fictional();
+ overflow.bars=overflow.bars.map(x=>({...x,volume:1e308}));
+ assert.equal(deriveFictionalCompletedStudies({evidence:overflow,emaPeriod:3}),null);
+});
+test('Completed-bar mathematics ignores malformed future suffix but rejects it after reveal',()=>{
+ const visible=fictional();
+ const baseline=deriveFictionalCompletedStudies({evidence:visible,emaPeriod:3});
+ assert(baseline);
+ const withInvalidFuture=fictional();
+ withInvalidFuture.bars[6]={...withInvalidFuture.bars[6],low:999999};
+ assert.deepEqual(deriveFictionalCompletedStudies({evidence:withInvalidFuture,emaPeriod:3}),baseline);
+ withInvalidFuture.completedIndex=6;withInvalidFuture.asOf=7000;
+ assert.equal(deriveFictionalCompletedStudies({evidence:withInvalidFuture,emaPeriod:3}),null);
+});

@@ -10,7 +10,7 @@ const until='2099-01-01T00:00:00.000Z';
 function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',edition='ADVANCED',
  family='learning',expiresAt=until,revoked=false,grant=true,
  store='site_subscriptions',startsAt='2026-01-01T00:00:00Z',
- endsAt=until}={}){
+ endsAt=until,siteRow=null,canonicalRow=null}={}){
  const original=globalThis.fetch,calls=[];
  const res=x=>new Response(JSON.stringify(x),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,options={})=>{
@@ -25,11 +25,11 @@ function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',editio
      [family]:{active:true,edition,expiresAt,revoked}
    }:{}}};
   if(u.pathname==='/rest/v1/site_subscriptions')
-   return res(store==='site_subscriptions'?[{...row,
-    current_period_start:startsAt,current_period_end:endsAt}]:[]);
+   return res(['site_subscriptions','both'].includes(store)?[{...row,
+    current_period_start:startsAt,current_period_end:endsAt,...(siteRow||{})}]:[]);
   if(u.pathname==='/rest/v1/user_plan_grants')
-   return res(store==='user_plan_grants'?[{...row,
-    starts_at:startsAt,ends_at:endsAt}]:[]);
+   return res(['user_plan_grants','both'].includes(store)?[{...row,
+    starts_at:startsAt,ends_at:endsAt,...(canonicalRow||{})}]:[]);
   if(u.pathname==='/rest/v1/competency_definitions')return res([
    {competency_code:'EMA_CONTEXT',metadata:{prerequisites:['CANDLE_READING']}},
    {competency_code:'CANDLE_READING',metadata:{prerequisites:[]}}
@@ -173,4 +173,50 @@ test('Lifetime user-plan grant requires explicit unexpired engine grant even wit
   const r=await onRequest({request:request(form('ENTERPRISE','learning')),env});
   assert.equal(r.status,200);
  }finally{f.restore()}
+});
+
+test('Advanced Learning: active canonical Basic grant blocks stale premium subscription',async()=>{
+ const f=fixture({store:'both',family:'learning',plan:'FOUNDING_30',edition:'ADVANCED',
+  canonicalRow:{plan_code:'FOUNDING_14',metadata:{}}});
+ try{
+  const r=await onRequest({request:request(form('ADVANCED','learning')),env});
+  assert.equal(r.status,403);assert.equal((await r.json()).ok,false);
+  assert(f.calls.every(x=>x.method==='GET'));
+ }finally{f.restore()}
+});
+test('Advanced Lab: active canonical Basic grant blocks stale premium subscription',async()=>{
+ const f=fixture({store:'both',family:'lab',plan:'FOUNDING_30',edition:'ADVANCED',
+  canonicalRow:{plan_code:'FOUNDING_14',metadata:{}}});
+ try{
+  const r=await onRequest({request:request(form('ADVANCED','lab')),env});
+  assert.equal(r.status,403);assert.equal((await r.json()).ok,false);
+ }finally{f.restore()}
+});
+test('Advanced Learning and Lab: valid canonical paid grant can serve both requested families',async()=>{
+ for(const family of ['learning','lab']){
+  const f=fixture({store:'both',family,plan:'FOUNDING_30',edition:'ADVANCED',
+   siteRow:{plan_code:'FOUNDING_14',metadata:{}},
+   canonicalRow:{plan_code:'FOUNDING_30'}});
+  try{
+   const r=await onRequest({request:request(form('ADVANCED',family)),env});
+   assert.equal(r.status,200,family);
+   const x=await r.json();assert.equal(x.result.edition,'ADVANCED');
+   assert.equal(x.officialGrade,false);assert.equal(x.memberRecordsModified,false);
+  }finally{f.restore()}
+ }
+});
+test('Premium grant denies a future, expired, or malformed canonical plan and cannot revive stale site metadata',async()=>{
+ for(const canonicalRow of [
+  {starts_at:'2099-01-01T00:00:00Z',metadata:{}},
+  {ends_at:'2020-01-01T00:00:00Z',metadata:{}},
+  {starts_at:'invalid date',metadata:{}}
+ ]){
+  const f=fixture({store:'both',family:'learning',canonicalRow});
+  try{
+   const r=await onRequest({request:request(form()),env});
+   // Past/future/malformed canonical rows are not currently effective; a
+   // separately active and valid legacy site subscription remains eligible.
+   assert.equal(r.status,200);
+  }finally{f.restore()}
+ }
 });

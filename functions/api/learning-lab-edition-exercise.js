@@ -94,12 +94,24 @@ function released(env,family,edition){
 }
 function entitlement(rows,actorId,family,edition,env){
  const now=Date.now();
- // Explicit, current, server-owned subscription metadata; no legacy target
- // can implicitly unlock a new engine.
- for(const row of rows){
-  if(!row||row.status!=='active'||typeof row.plan_code!=='string')continue;
+ // Current canonical user-plan grants control premium selection when present.
+ // Never revive a legacy subscription's edition grant behind an active plan
+ // grant that carries no approved premium release metadata.
+ const current=row=>{
+  if(!row||row.status!=='active'||typeof row.plan_code!=='string')return false;
   const start=row.current_period_start==null?null:Date.parse(row.current_period_start);
-  if(start!==null&&(!Number.isFinite(start)||start>now))continue;
+  if(row.source==='user_plan_grants'&&start===null)return false;
+  if(start!==null&&(!Number.isFinite(start)||start>now))return false;
+  if(row.current_period_end!=null){
+   const end=Date.parse(row.current_period_end);
+   if(!Number.isFinite(end)||end<=now)return false;
+  }
+  return true;
+ };
+ const canonical=rows.filter(row=>row?.source==='user_plan_grants'&&current(row));
+ const candidates=canonical.length?canonical:
+  rows.filter(row=>row?.source==='site_subscriptions'&&current(row));
+ for(const row of candidates){
   const target=enginePolicyForPlan(row.plan_code).target[family];
   const saved=row.metadata?.engine_edition_grants_v1?.[family];
   if(!saved||saved.active!==true||typeof saved.expiresAt!=='string')continue;
