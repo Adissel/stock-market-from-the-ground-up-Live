@@ -1,0 +1,40 @@
+name: Crownlight Scanner Presets v2 - 48 Original Rules and Source Evidence
+on:
+  pull_request:
+  push:
+    branches: [main, feature/crownlight-scanner-presets-source-audit-20261103]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-presets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Legacy, new source presets and original scanner integration
+        run: |
+          node --check assets/js/crownlight-scanner-presets-v2.js
+          node --check assets/js/crownlight-scanner-visual-v1.js
+          node tests/test_crownlight_scanner_templates_v1.mjs
+          node tests/test_crownlight_scanner_rules_v1.mjs
+          node tests/test_crownlight_scanner_visual_source_v1.mjs
+          node tests/test_crownlight_scanner_results_v2.mjs
+          node --test tests/test_crownlight_scanner_presets_v2.mjs tests/test_crownlight_scanner_presets_ui_source_v2.mjs
+          node tests/test_crownlight_scanner_handoff_v4.mjs
+          node tests/test_crownlight_scanner_integration_v4.mjs
+          node tests/test_crownlight_scanner_sec_evidence_v1.mjs
+      - name: Pages build and no private source leak
+        run: |
+          bash scripts/build-pages.sh
+          test -s public/assets/js/crownlight-scanner-presets-v2.js
+          test -s public/assets/css/crownlight-scanner-presets-v2.css
+          test ! -e public/data/crownlight-scanner-presets-source-audit-v2.json
+          test ! -e public/data/crownlight-scanner-preset-strategy-holds-v2.json
+          test ! -d public/functions
+          test ! -d public/supabase
