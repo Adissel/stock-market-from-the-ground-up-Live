@@ -11,7 +11,7 @@
 <header class="site-header"><div class="wrap nav"><a class="brand" href="/index.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a><nav class="navlinks" aria-label="Administration navigation"><a href="/admin.html">Admin Control Center</a><a href="/knowledge-database.html">Public Knowledge Database</a><a href="/account.html">Account</a></nav></div></header>
 <main class="ak-shell">
 <div class="ak-heading"><div><p class="eyebrow">Private publishing operations</p><h1>Knowledge Article Manager</h1><p>Organize original learning content by subject, experience, member eligibility and publication status. Existing Free references are preserved. All writes require a verified administrative session.</p></div>
-<div class="ak-actions"><button type="button" id="ak-new" class="btn">New article</button><button type="button" id="ak-reload" class="btn secondary">Refresh</button><button type="button" id="ak-export" class="btn secondary">Export JSON</button><label class="ak-upload btn secondary">Import .json, .md or .txt<input id="ak-upload" type="file" accept=".json,.md,.txt,application/json,text/plain,text/markdown" hidden></label></div></div>
+<div class="ak-actions"><button type="button" id="ak-new" class="btn">New article</button><button type="button" id="ak-reload" class="btn secondary">Refresh</button><button type="button" id="ak-export" class="btn secondary">Export JSON</button><label class="ak-upload btn secondary">Import .json, .csv, .md or .txt<input id="ak-upload" type="file" accept=".json,.csv,.md,.txt,application/json,text/csv,text/plain,text/markdown" hidden></label></div></div>
 <p id="ak-status" role="status" aria-live="polite">Verifying content permissions…</p>
 <section class="ak-columns" id="ak-app" hidden>
 <aside class="ak-list"><h2>Article inventory</h2><p id="ak-count"></p>
@@ -24,7 +24,7 @@
 <option value="FOUNDING_30">Founding 30-Day and above</option><option value="FOUNDING_60">Founding 60-Day / Full</option>
 <option value="LIFETIME">Lifetime only</option><option value="ONDEMAND_MONTHLY">On-Demand only</option>
 </select></label>
-<button type="button" id="ak-bulk-apply" class="btn secondary">Assign selected articles</button></div>
+<button type="button" id="ak-bulk-apply" class="btn secondary">Assign selected articles</button><button type="button" id="ak-clear-selection" class="btn secondary">Clear selection</button></div>
 <div id="ak-list" class="ak-list-items"></div><button type="button" id="ak-more" class="btn secondary" hidden>Load more</button></aside>
 <section class="ak-editor" aria-labelledby="ak-editor-title">
 <h2 id="ak-editor-title">Create a new article</h2>
