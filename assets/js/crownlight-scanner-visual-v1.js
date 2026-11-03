@@ -38,7 +38,7 @@
   const viewHost=mk('div','cl-scr-view-host');
   const V=root.CrownlightScannerViewV2;
   if(!V)throw Error('Source-aware result view unavailable.');
-  const templateLibrary=root.CrownlightScannerTemplatesV1;
+  const templateLibrary=root.CrownlightScannerPresetsV2||root.CrownlightScannerTemplatesV1;
   if(!templateLibrary)throw Error('Original scanner templates unavailable.');
   const sortLabel=mk('label','','Sort matched results ');
   const sort=dropdown(Object.entries(C.FIELDS).map(([k,v])=>[k,v]),'change_pct',()=>{});
@@ -141,16 +141,43 @@
    }
    table.append(tbody);results.append(table);
   }
-  const templateLabel=mk('label','','Illustrative teaching template ');
-  const templateSelect=dropdown([['','Choose a template'],...templateLibrary.items.map(x=>[x.id,x.name])],'',()=>{});
-  templateSelect.setAttribute('aria-label','Choose original scanner teaching template');
-  templateLabel.append(templateSelect);toolbar.append(templateLabel);
-  toolbar.append(button('Apply template',()=>{
+  const templateLabel=mk('label','cl-scr-preset-label','Research preset ');
+  const templateSelect=dropdown([['','Choose one of the source-based presets'],...templateLibrary.items.map(x=>[x.id,x.name])],'',()=>{});
+  templateSelect.setAttribute('aria-label','Choose Crownlight scanner research preset');
+  templateLabel.append(templateSelect);
+  if(templateLibrary.filter&&Array.isArray(templateLibrary.categories)){
+   const categoryLabel=mk('label','cl-scr-preset-label','Preset category ');
+   const category=dropdown([['','All categories'],...templateLibrary.categories.map(x=>[x,x])],'',()=>refreshPresets());
+   category.setAttribute('aria-label','Filter presets by category');
+   categoryLabel.append(category);
+   const searchLabel=mk('label','cl-scr-preset-label','Find preset ');
+   const search=mk('input','cl-scr-preset-search');
+   search.type='search';search.maxLength=120;search.placeholder='Price, gap, VWAP, volume…';
+   search.setAttribute('aria-label','Find scanner preset by topic or required field');
+   search.oninput=()=>refreshPresets();searchLabel.append(search);
+   const counter=mk('p','cl-scr-preset-counter',templateLibrary.count+' source-only presets. Imported snapshots are unverified.');
+   counter.setAttribute('role','status');
+   function refreshPresets(){
+    const matches=templateLibrary.filter({category:category.value,query:search.value});
+    const previouslySelected=templateSelect.value;
+    templateSelect.replaceChildren();
+    option(templateSelect,'','Choose a research preset');
+    for(const item of matches)option(templateSelect,item.id,item.name);
+    templateSelect.value=matches.some(x=>x.id===previouslySelected)?previouslySelected:'';
+    counter.textContent=matches.length+' of '+templateLibrary.count+' presets available in this view; data and signal validity not certified.';
+   }
+   toolbar.append(categoryLabel,searchLabel,counter);
+  }
+  toolbar.append(templateLabel);
+  toolbar.append(button('Apply preset',()=>{
    try{
     const template=templateLibrary.lookup(templateSelect.value);
-    if(!template)throw Error('Select a template first.');
+    if(!template)throw Error('Select a preset first.');
     current=C.validate(template.rules);draw();results.replaceChildren();
-    report(template.description+' Required supplemental CSV fields: '+template.requiredFields.join(', ')+'. This is not a trade-entry recommendation.');
+    const sourcePaths=template.sourceFiles?.length?template.sourceFiles.slice(0,2).join(' · '):'Original scanner research files';
+    report(template.name+': '+template.description+' Required supplied CSV fields: '+
+      template.requiredFields.join(', ')+'. Source basis: '+sourcePaths+
+      '. These are editable research criteria, not verified trade entries.');
    }catch(e){report(e.message);}
   }));
   toolbar.append(sortLabel,direction);
