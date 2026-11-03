@@ -57,7 +57,7 @@ test('The all-600 scanner tracks generic SEC EDGAR references in the current inv
  const expected=Array.from({length:30},(_,i)=>B(String(i+1).padStart(2,'0')))
   .flat().reduce((count,g)=>count+g.sourceUrls.filter(url=>url===genericEdgar).length,0);
  const output=execFileSync(process.execPath,[fileURLToPath(scannerUrl)],{encoding:'utf8'});
- const report=JSON.parse(output.trim().split('\\n').at(-1));
+ const report=JSON.parse(output.trim().split('\n').at(-1));
  assert.equal(report.counts.lessons,600);
  assert.equal(report.counts.genericEdgarSearchReferences,expected,'Scanner EDGAR count must match all 600 current lessons');
  assert.ok(report.counts.broadReferences>=expected,'EDGAR references must be included in broad-source backlog');
