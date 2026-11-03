@@ -254,8 +254,54 @@
     }finally{if(serial===epoch&&alive())recalc.disabled=false}
    });
    explain(reply.result,output);
-   section.append(heading,intro,choices,output,status);
+   const researchPath=build('section');
+   researchPath.className='gu-enterprise-research-path';
+   researchPath.setAttribute('aria-label','Enterprise cross-course research stages');
+   const loadResearchPath=async()=>{
+    if(selected!=='ENTERPRISE'||serial!==epoch||!alive())return;
+    try{
+     const response=await fetch('/api/learning-lab-enterprise-journey?family=lab',{
+      method:'GET',cache:'no-store',credentials:'same-origin',
+      signal:activeController.signal,headers:{authorization:'Bearer '+token}
+     });
+     const data=await response.json().catch(()=>null);
+     if(!response.ok||!data?.ok||serial!==epoch||!alive()||
+        data.journey?.edition!=='ENTERPRISE'||
+        !Array.isArray(data.journey.stages)||data.journey.stages.length!==7)return;
+     const h=build('h3','Seven governed cross-course research stages');
+     const boundary=build('p',data.journey.boundary||
+      'All linked courses and Labs retain their own entitlement checks.');
+     const list=build('ol');
+     for(const stage of data.journey.stages){
+      if(!Number.isInteger(stage.number)||stage.number<1||stage.number>7||
+         typeof stage.phase!=='string'||typeof stage.dayTitle!=='string'||
+         typeof stage.programTitle!=='string')return;
+      const li=build('li');
+      li.append(build('strong','Stage '+stage.number+' — '+stage.phase));
+      li.append(build('p',stage.programTitle+' · Day '+stage.day+
+       ': '+stage.dayTitle));
+      if(typeof stage.trainingHref==='string'&&
+         /^bootcamp(?:-academy)?\\.html(?:\\?program=[a-z0-9]+&day=[0-9]+)?$/.test(stage.trainingHref)){
+       const link=build('a','Open authorized Academy course');
+       link.href=stage.trainingHref;li.append(link);
+      }else li.append(build('p','Academy training link locked; independent training entitlement required.'));
+      for(const lab of stage.optionalPublishedLabs||[]){
+       if(!/^(?:(?:F[123]|DT|TAPE)-C[0-9]+-L[0-9]+|SITE-[0-9]+)$/.test(lab?.labId)||
+          lab.matchingBookEntitlementStillRequired!==true)continue;
+       const link=build('a','Optional Lab '+lab.labId+' — separate book entitlement required');
+       link.href='labs.html?open='+encodeURIComponent(lab.labId);
+       li.append(link);
+      }
+      list.append(li);
+     }
+     researchPath.replaceChildren(h,boundary,list);
+    }catch{/* The gated research navigator is optional to original Basic instruction. */}
+   };
+   section.append(heading,intro,choices,output);
+   if(selected==='ENTERPRISE')section.append(researchPath);
+   section.append(status);
    host.replaceChildren(section);host.hidden=false;
+   if(selected==='ENTERPRISE')void loadResearchPath();
   }catch{if(serial===epoch){host.replaceChildren();host.hidden=true}}
  }
  function scrub(){

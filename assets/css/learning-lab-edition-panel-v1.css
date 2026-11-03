@@ -19,3 +19,13 @@
 @media(max-width:620px){.gu-edition-exercise{padding:13px}.gu-edition-exercise-controls{align-items:stretch;flex-direction:column}.gu-edition-exercise-controls label,.gu-edition-exercise-controls select,.gu-edition-exercise-controls input,.gu-edition-exercise-controls button{width:100%}}
 @media(max-width:620px){.gu-edition-linked-charts{grid-template-columns:1fr}.gu-edition-linked-charts>div{min-height:220px}}
 @media(prefers-reduced-motion:reduce){.gu-edition-exercise *{transition:none!important;animation:none!important}}
+
+/* Gated Enterprise research navigation uses source-approved course metadata only. */
+.gu-enterprise-research-path{margin-top:16px;border:1px solid #4d8096;border-radius:10px;padding:16px;background:#0b2840}
+.gu-enterprise-research-path h3{color:#e9f9ff;margin:0 0 8px}
+.gu-enterprise-research-path ol{margin:10px 0 0;padding-left:1.5rem}
+.gu-enterprise-research-path li{padding:12px 8px;border-bottom:1px solid #42647a}
+.gu-enterprise-research-path li:last-child{border-bottom:0}
+.gu-enterprise-research-path a{display:inline-block;margin:6px 12px 4px 0;color:#9bdbff;text-decoration:underline;text-underline-offset:3px}
+.gu-enterprise-research-path a:focus-visible{outline:3px solid #f2cf87;outline-offset:4px;border-radius:3px}
+@media(max-width:620px){.gu-enterprise-research-path{padding:11px}.gu-enterprise-research-path a{display:block;width:fit-content;max-width:100%;overflow-wrap:anywhere}}
