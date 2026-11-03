@@ -21,7 +21,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Arithmetic mean return adds periodic returns and divides by the number of observations. Worked fictional evidence: Returns 2%, −1%, and 3% sum to 4%; 4%/3 = 1.33%. Error correction: Using arithmetic mean as compounded return ignores sequence and multiplication. Boundary: It does not represent compounded wealth growth. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Returns 4%, −2%, 1%, 3%: calculate arithmetic mean and name its limitation.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Arithmetic mean return. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. It does not represent compounded wealth growth. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +60,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Geometric mean compounds periodic growth factors and converts the product back to an average rate. Worked fictional evidence: Returns +10% then −10% give factors 1.10×0.90=0.99; two-period geometric mean is sqrt(0.99)−1≈−0.50%. Error correction: Averaging +10% and −10% to zero hides the 1% wealth decline. Boundary: Taxes, flows, and unequal periods require separate treatment. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: For +20% then −10%, calculate total factor and two-period geometric mean.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +71,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Geometric mean return. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Taxes, flows, and unequal periods require separate treatment. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -75,7 +99,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Cumulative return multiplies successive one-plus-return factors rather than adding percentage changes. Worked fictional evidence: +5%, +4%, −2% gives 1.05×1.04×0.98=1.07016, or 7.016%. Error correction: Adding returns to 7% omits compounding interaction. Boundary: External cash flows require time-weighted handling. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compound +3%, −1%, +2% and compare with their sum.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +110,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Compound cumulative return. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. External cash flows require time-weighted handling. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -102,7 +138,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Log return is the natural logarithm of ending price divided by beginning price for positive prices. Worked fictional evidence: Price $50 to $52 gives ln(52/50)=ln(1.04)≈3.922%. Error correction: Labeling 3.922% log return as exactly the 4% simple return conflates measures. Boundary: Log returns are not simple percentage returns and require positive values. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Price $80 to $76: calculate the log-return expression and sign.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/log-return"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +149,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Log return. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Log returns are not simple percentage returns and require positive values. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -129,7 +177,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Sample variance averages squared deviations using n−1 when observations estimate a broader distribution. Worked fictional evidence: Values 2,4,6 have mean 4; squared deviations 4+0+4=8; sample variance=8/(3−1)=4. Error correction: Dividing by n while labeling sample variance changes the estimator. Boundary: Small samples and unstable distributions limit inference. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: For 1,3,5,7 compute mean, squared deviations, and sample variance.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +188,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Sample variance. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Small samples and unstable distributions limit inference. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -156,7 +216,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Standard deviation is the square root of variance and retains the return unit. Worked fictional evidence: If sample variance is 0.0004, standard deviation=sqrt(0.0004)=0.02=2%. Error correction: Calling two standard deviations the maximum possible move assumes unsupported bounds. Boundary: It measures dispersion, not worst-case loss or direction. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Given variance 0.0009, compute standard deviation and state what it cannot guarantee.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/standard-deviation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +227,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Standard deviation of returns. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. It measures dispersion, not worst-case loss or direction. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -183,7 +255,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Downside deviation measures shortfalls below a declared target rather than all dispersion. Worked fictional evidence: Target 0%; returns 2%, −3%, −1% have shortfalls 0, −3%, −1%; squared sum=0.001; declared divisor 3 gives sqrt(0.001/3)=1.826%. Error correction: Removing non-shortfall periods from the divisor without disclosure changes the metric. Boundary: Divisor and target conventions must be disclosed. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Using target 0%, calculate declared-population downside deviation for −2%, 1%, −4%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/target-downside-deviation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +266,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Downside deviation. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Divisor and target conventions must be disclosed. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -210,7 +294,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Covariance measures whether paired deviations tend to share direction and scale. Worked fictional evidence: Paired deviations A: +2%,−2%; B:+1%,−1%; products 0.0002 and 0.0002; population covariance=0.0002. Error correction: Comparing raw covariance across differently volatile assets can mislead. Boundary: Magnitude depends on units and does not prove causation. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compute population covariance for paired deviations +1%,−1% and +3%,−3%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +305,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Return covariance. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Magnitude depends on units and does not prove causation. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -237,7 +333,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Correlation normalizes covariance by the product of standard deviations and ranges from −1 to +1 when defined. Worked fictional evidence: Covariance 0.00015, standard deviations 0.02 and 0.01: correlation=0.00015/0.0002=0.75. Error correction: Treating 0.75 as 75% of one asset’s move caused by the other is incorrect. Boundary: Correlation can change and does not establish causal or tail dependence. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Covariance −0.0001 with deviations 0.02 and 0.01: compute correlation.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +344,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Correlation coefficient. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Correlation can change and does not establish causal or tail dependence. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -264,7 +372,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple beta estimate divides asset-market covariance by market variance using matched observations. Worked fictional evidence: Covariance 0.0003 / market variance 0.0002 = beta 1.5. Error correction: Calling beta 1.5 a forecast of a 1.5% move tomorrow invents certainty. Boundary: Historical beta depends on window, benchmark, frequency, and adjustments. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Covariance 0.00012 and market variance 0.00016: compute beta and name one dependency.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +383,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Beta from covariance. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Historical beta depends on window, benchmark, frequency, and adjustments. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -291,7 +411,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Regression alpha is the intercept after accounting for estimated benchmark sensitivity over a specified sample. Worked fictional evidence: Mean asset return 1.2%, beta 1.1, mean market return 0.8%: alpha=1.2%−1.1×0.8%=0.32%. Error correction: Calling sample alpha a future excess return ignores estimation error. Boundary: The intercept is sample-dependent and not guaranteed skill. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Asset mean 0.9%, beta 0.8, market mean 0.7%: compute simple alpha.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/alpha"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +422,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Simple regression alpha. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. The intercept is sample-dependent and not guaranteed skill. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -318,7 +450,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple Sharpe ratio divides average excess return by return standard deviation for matching periods. Worked fictional evidence: Mean return 1.0%, risk-free 0.2%, deviation 2.0%: (1.0−0.2)/2.0=0.40. Error correction: Using total return instead of average periodic excess return mixes units. Boundary: Annualization, non-normal returns, and changing rates matter. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Mean 0.7%, risk-free 0.1%, deviation 1.5%: compute period Sharpe.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/sharpe-ratio"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +461,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Simple Sharpe ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Annualization, non-normal returns, and changing rates matter. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -345,7 +489,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple Sortino ratio divides average excess return by downside deviation relative to a declared target. Worked fictional evidence: Mean 0.9%, target 0.1%, downside deviation 1.6%: 0.8/1.6=0.50. Error correction: Substituting total standard deviation while calling it Sortino changes the measure. Boundary: Target and downside-deviation conventions control comparison. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Mean 0.6%, target 0%, downside deviation 1.2%: compute ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/sortino-ratio"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +500,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Simple Sortino ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Target and downside-deviation conventions control comparison. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -372,7 +528,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple Calmar ratio divides an annualized return measure by absolute maximum drawdown over a stated window. Worked fictional evidence: Annual return 12% / 20% maximum drawdown = 0.60. Error correction: Using current drawdown instead of maximum historical drawdown inflates the ratio. Boundary: Window selection and annualization can dominate the result. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Annual return 9% and maximum drawdown 15%: compute ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +539,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Simple Calmar ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Window selection and annualization can dominate the result. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -399,7 +567,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Historical VaR selects a loss quantile from an ordered sample under a declared convention. Worked fictional evidence: Twenty fictional daily returns sorted worst to best; the chosen 5% convention selects the single worst, −4%, so reported loss threshold is 4%. Error correction: Calling 4% the maximum possible loss confuses a quantile with a bound. Boundary: Small samples and unseen tail losses make VaR incomplete. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: For 100 ordered observations, identify the observation position under a stated nearest-rank 5% convention.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/value-at-risk"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +578,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Historical-quantile value at risk. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Small samples and unseen tail losses make VaR incomplete. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -426,7 +606,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Expected shortfall averages losses beyond a declared VaR cutoff under a consistent tail convention. Worked fictional evidence: Worst three returns are −6%, −4%, −2%; their average is −4%. Error correction: Averaging all returns instead of tail observations is not expected shortfall. Boundary: Tail sample size and method must be disclosed. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Tail losses −8%, −5%, −3%, −2%: compute their simple average.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +617,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Simple expected shortfall. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Tail sample size and method must be disclosed. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -453,7 +645,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Tracking error is the standard deviation of periodic active returns against a specified benchmark. Worked fictional evidence: Active returns 1%, −1%, 0%; mean 0%; sample deviation=sqrt((0.0001+0.0001)/(3−1))=1%. Error correction: Using the standard deviation of portfolio returns alone omits the benchmark. Boundary: Benchmark fit and observation frequency matter. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Compute sample tracking error for active returns 2%, 0%, −2%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +656,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Tracking error. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Benchmark fit and observation frequency matter. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -480,7 +684,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Information ratio divides average active return by tracking error for matching periods. Worked fictional evidence: Average active return 0.4% / tracking error 1.0% = 0.40. Error correction: Dividing total cumulative active return by periodic tracking error mixes horizons. Boundary: Short histories and benchmark choice limit inference. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Average active return 0.3% and tracking error 1.5%: compute ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +695,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Information ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Short histories and benchmark choice limit inference. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -507,7 +723,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Upside capture compares portfolio return with benchmark return during benchmark-up periods under a declared aggregation method. Worked fictional evidence: Across selected up periods portfolio totals 12% and benchmark totals 10%; simple ratio=120%. Error correction: Including benchmark-down periods changes the stated upside sample. Boundary: Compounded and arithmetic aggregation can differ. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Portfolio 9% versus benchmark 12% across declared up periods: compute simple capture.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +734,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Upside capture ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Compounded and arithmetic aggregation can differ.  Upside/downside capture formulas differ between geometric and arithmetic conventions and require benchmark-conditioned periods. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -534,7 +762,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Downside capture compares portfolio and benchmark returns during benchmark-down periods with an explicit sign convention. Worked fictional evidence: Portfolio totals −6%, benchmark −10%; magnitude ratio=60%, indicating smaller sampled decline. Error correction: Calling 60% guaranteed protection extrapolates beyond the sample. Boundary: Negative signs and compounding conventions must be disclosed. No protected assessment, forecast, or trade order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Portfolio −8%, benchmark −5%: compute magnitude capture and interpret cautiously.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +773,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "TOPIC_SCOPED_PUBLIC_REFERENCE_INTERNAL_TRIAGE_NOT_CLAIM_ACCEPTANCE",
+        "supportedScope": "QuantConnect public formula/method documentation and NIST descriptive statistics provide bounded statistical context for the named synthetic calculation. Lesson: Downside capture ratio. Public reference addresses the underlying category; exact fictional figures are original exercises, not directly evidenced provider results.",
+        "limitationsAndOpenQuestions": "Historical quantitative statistics depend on matching return frequency, sample convention, risk-free rate and benchmark chronology. Negative signs and compounding conventions must be disclosed.  Upside/downside capture formulas differ between geometric and arithmetic conventions and require benchmark-conditioned periods. Independent formula convention, arithmetic, rights, accessibility and suitability require separate reviewers before publication.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]
