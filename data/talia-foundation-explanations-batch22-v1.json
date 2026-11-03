@@ -164,7 +164,7 @@
       "reviewExplanation": "Ungraded coaching: Variance is the square of standard deviation and thus has squared-return units. Worked scenario: Annualized volatility 20%=0.20 implies annualized variance 0.04, not 0.20. Misconception correction: Treating 0.04 variance as 4% standard deviation understates volatility. Limit: Estimators, windows and annualization are convention-dependent. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Annualized volatility 30%: calculate annualized variance in decimal units. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -180,7 +180,7 @@
       "sourceResearchTriage": {
         "internalResearchDate": "2026-11-03",
         "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
-        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Variance versus volatility quote units\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "supportedScope": "NIST Measures of Scale defines variance in squared units and standard deviation as its square root, directly supporting \"Variance versus volatility quote units\". Annualization conventions and the fictional 20%-to-0.04 illustration require separate independent acceptance.",
         "limitationsAndOpenQuestions": "Estimators, windows and annualization are convention-dependent. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,
@@ -704,7 +704,7 @@
       "reviewExplanation": "Ungraded coaching: Published official index values require their formal constituent and quote-selection method rather than historical-stock-return shortcuts. Worked scenario: An educational 20% annualized stock-return dispersion is not the official Cboe VIX index level even if both use volatility units. Misconception correction: Comparing unrelated inputs under one label creates factual misrepresentation. Limit: The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights. This is not an official volatility value, profit prediction or graded result.",
       "transferQuestion": "FICTIONAL transfer: Given a stock historical-volatility calculation of 25%, can it be labeled official VIX? Explain. State the applicable contract, sign convention and evidence cutoff.",
       "sourceUrls": [
-        "https://www.cboe.com/tradable_products/vix/"
+        "https://www.cboe.com/tradable_products/vix/faqs"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -720,7 +720,7 @@
       "sourceResearchTriage": {
         "internalResearchDate": "2026-11-03",
         "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
-        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Official volatility index versus educational approximation\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "supportedScope": "Cboe's VIX FAQ explains SPX option quote inputs and the constant 30-day expected-volatility index, supporting the official-methodology distinction in \"Official volatility index versus educational approximation\". This does not authorize reconstruction or market-data redistribution.",
         "limitationsAndOpenQuestions": "The Cboe index requires authorized option chains, maturity and strike-selection rules, and exact methodology rights. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,

@@ -34,3 +34,28 @@ test('Methodology distinctions are explicit without a paid/live simulator',()=>{
  assert.ok(b21.every(g=>/^FICTIONAL:/.test(g.workedCase)));
  assert.ok(b22.every(g=>/^FICTIONAL:/.test(g.workedCase)));
 });
+
+
+test('Options and VIX source exceptions resolved; adjusted deliverable is not a premium multiplier',()=>{
+ const adjusted=b21[14],assigned=b21[18],variance=b22[4],official=b22[19];
+ assert.ok(adjusted.sourceUrls[0].endsWith('/splits-mergers-spinoffs-bankruptcies'));
+ assert.ok(assigned.sourceUrls[0].endsWith('/trading-options-understanding-assignment'));
+ assert.ok(variance.sourceUrls[0].endsWith('/eda356.htm'));
+ assert.ok(official.sourceUrls[0].endsWith('/vix/faqs'));
+ assert.match(adjusted.workedCase,/premium multiplier of 150/);
+ assert.match(adjusted.workedCase,/multiplier of 100/);
+ assert.match(adjusted.workedCase,/\$300 before fees/);
+ assert.match(adjusted.workedCase,/\$200/);
+ assert.equal(2*150,300);assert.equal(2*100,200);
+ assert.ok([...b21,...b22].every(g=>!g.sourceUrls.includes(g.previousGenericSourceUrl)));
+ for(const g of [adjusted,assigned,variance,official]){
+  assert.ok(g.sourceResearchTriage.supportedScope.includes(g.title));
+  assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+  assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  assert.equal(g.independentEditorialApproved,false);
+ }
+ const scanner=readFileSync(new URL('../scripts/qa/talia-foundation-source-quality-v1.mjs',import.meta.url),'utf8');
+ assert.match(scanner,/unreconciledPriorGenericReferences/);
+ assert.match(scanner,/unreconciled_prior_generic_reference/);
+});

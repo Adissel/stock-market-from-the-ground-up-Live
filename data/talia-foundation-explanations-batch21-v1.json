@@ -516,7 +516,7 @@
       "title": "Contract multiplier following adjusted deliverables",
       "concept": "Corporate actions can alter contract deliverables so the generic 100-share assumption is not sufficient.",
       "procedure": "Prerequisites: distinguish underlying stock from an option, recognize quoted premium per underlying share, actual multiplier, contract right or obligation, and expiration versus current mark. Use the specified sensitivity or payoff equation, retain units, and inspect which assumptions must remain fixed.",
-      "workedCase": "FICTIONAL: A fictional adjusted contract deliverable of 150 shares with quoted premium $2 represents $300 premium value before fees.",
+      "workedCase": "FICTIONAL: A fictional adjusted contract has a 150-share deliverable and a separately specified premium multiplier of 150. A quoted $2 premium then represents $300 before fees. If the official contract terms instead retain a multiplier of 100, that same quote represents $200. The specific OCC information memorandum, not the deliverable count alone, controls actual terms.",
       "limit": "Only the official contract adjustment memorandum establishes actual terms.",
       "invalidation": "HOLD if the contract specification, exercise style, multiplier, quote side, expiration, rate, model or contemporaneous inputs are missing. Only the official contract adjustment memorandum establishes actual terms.",
       "commonError": "Live-options mistake: Using 100 on every adjusted contract misstates notional exposure. Correct by calculating the full contractual exposure and distinguishing a model value from an executed fill.",
@@ -524,7 +524,7 @@
       "reviewExplanation": "Ungraded Talia coaching: Corporate actions can alter contract deliverables so the generic 100-share assumption is not sufficient. Example: A fictional adjusted contract deliverable of 150 shares with quoted premium $2 represents $300 premium value before fees. Correct the common error: Using 100 on every adjusted contract misstates notional exposure. Limitation: Only the official contract adjustment memorandum establishes actual terms. No official score or trading signal is implied.",
       "transferQuestion": "FICTIONAL transfer: An adjusted contract delivers 50 shares and premium quote $1.60: compute quoted value. Explain why your answer is not a guaranteed execution outcome.",
       "sourceUrls": [
-        "https://www.optionseducation.org/optionsoverview"
+        "https://www.optionseducation.org/referencelibrary/faq/splits-mergers-spinoffs-bankruptcies"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -540,8 +540,8 @@
       "sourceResearchTriage": {
         "internalResearchDate": "2026-11-03",
         "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
-        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Contract multiplier following adjusted deliverables\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
-        "limitationsAndOpenQuestions": "Only the official contract adjustment memorandum establishes actual terms. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
+        "supportedScope": "The OIC splits, mergers and spinoffs FAQ explains that corporate actions can alter option contract deliverables while the premium multiplier may remain unchanged. For \"Contract multiplier following adjusted deliverables\", the official OCC memo controls actual terms, not a generic 100-share assumption. Fictional numbers remain independently authored and unapproved.",
+        "limitationsAndOpenQuestions": "Only the official contract adjustment memorandum establishes actual terms. The share deliverable and premium multiplier are distinct contract terms. An adjusted deliverable does not automatically adjust the premium multiplier. Inspect the specific OCC adjustment memo; independent math, product terms, publication and source-rights reviews are pending.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,
         "sourceRedistributionRightsCleared": false
@@ -668,7 +668,7 @@
       "reviewExplanation": "Ungraded Talia coaching: Physical-delivery option exercise can exchange shares and cash according to strike and deliverable. Example: A standard exercised call at $25 delivers 100 shares against $2,500 strike cash, apart from premium and fees. Correct the common error: Confusing strike cash with the option's upfront premium misstates obligations. Limitation: Cash-settled contracts and adjusted deliverables use different mechanics. No official score or trading signal is implied.",
       "transferQuestion": "FICTIONAL transfer: A standard put at strike $18 exercises 100 shares: compute strike cash exchange amount. Explain why your answer is not a guaranteed execution outcome.",
       "sourceUrls": [
-        "https://www.optionseducation.org/optionsoverview"
+        "https://www.optionseducation.org/news/trading-options-understanding-assignment"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -684,7 +684,7 @@
       "sourceResearchTriage": {
         "internalResearchDate": "2026-11-03",
         "classification": "OPTIONS_AND_VOLATILITY_SOURCE_TRIAGE_UNGRADED_UNAPPROVED",
-        "supportedScope": "OIC options-education methods, Cboe published volatility-index definitions, or NIST/QuantConnect statistics provide a bounded explanation of the general mechanism in \"Option assignment cash and stock mechanics\". Synthetic input values, option deliverables, margin and pricing approximations are independently authored, not attributed to the publisher.",
+        "supportedScope": "The joint OIC and FINRA assignment primer explains the exercise-triggered duties of assigned short calls and puts and standard equity share/cash delivery relevant to \"Option assignment cash and stock mechanics\". Actual contract terms and non-equity settlement vary; publication remains unapproved.",
         "limitationsAndOpenQuestions": "Cash-settled contracts and adjusted deliverables use different mechanics. The cited public methodology may use different model inputs, interest-rate or dividend assumptions, adjustment events, volatility quoting conventions, contract settlement styles or strategy payoff definitions. Independent numerical, exchange-product, legal rights and claim-matching review is required; no live return or fill is implied.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,
