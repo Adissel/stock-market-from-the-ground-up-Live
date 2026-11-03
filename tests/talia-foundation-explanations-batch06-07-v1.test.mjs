@@ -9,7 +9,7 @@ const prior=all.slice(0,5).flatMap(x=>x.guides);
 const fresh=all.slice(5).flatMap(x=>x.guides);
 const allGuides=all.flatMap(x=>x.guides);
 const official=JSON.parse(read('data/competency-study-guides-v01499.json')).guides;
-const canonicalSources=new Set(['www.investor.gov','investor.gov','www.sec.gov','sec.gov','www.bls.gov','bls.gov','www.finra.org','finra.org','syndication.finra.org','chartschool.stockcharts.com','pages.stern.nyu.edu','www.optionseducation.org','optionseducation.org','fred.stlouisfed.org']);
+const canonicalSources=new Set(['www.investor.gov','investor.gov','www.sec.gov','sec.gov','www.bls.gov','bls.gov','www.finra.org','finra.org','syndication.finra.org','chartschool.stockcharts.com','pages.stern.nyu.edu','www.ssga.com','ssga.com','www.optionseducation.org','optionseducation.org','fred.stlouisfed.org']);
 function mockAssets(max=7){
  return {fetch:async request=>{
  const filename=new URL(request.url).pathname.split('/').at(-1);
