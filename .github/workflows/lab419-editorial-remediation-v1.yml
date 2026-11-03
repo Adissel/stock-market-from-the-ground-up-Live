@@ -1,0 +1,38 @@
+name: Lab 419 — Source, Body and Editorial Evidence Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/lab-419-editorial-reconciliation-register-v1.json'
+      - 'docs/qa/2026-11-03_LAB419_SOURCE_BODY_REMEDIATION_V1.md'
+      - 'tests/lab-419-editorial-reconciliation-v1.test.mjs'
+      - 'data/lab-*-source-*.json'
+      - 'data/lab-64-topic-source-triage-v1.json'
+      - 'docs/research/stockstotrade/419_*csv'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab419-editorial-remediation-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/lab-419-editorial-reconciliation-register-v1.json'
+      - 'docs/qa/2026-11-03_LAB419_SOURCE_BODY_REMEDIATION_V1.md'
+      - 'tests/lab-419-editorial-reconciliation-v1.test.mjs'
+      - 'data/lab-*-source-*.json'
+      - 'data/lab-64-topic-source-triage-v1.json'
+      - 'docs/research/stockstotrade/419_*csv'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab419-editorial-remediation-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical-reconciliation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify 419 evidence chains and anti-premature-release constraints
+        run: node --test tests/lab-419-editorial-reconciliation-v1.test.mjs
