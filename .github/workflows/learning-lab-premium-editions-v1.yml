@@ -20,6 +20,7 @@ on:
       - 'tests/advanced-learning-lab-source-closeout-v1.test.mjs'
       - 'tests/advanced-learning-lab-member-surface-browser-v1.mjs'
       - 'tests/professional-learning-lab-member-surface-browser-v1.mjs'
+      - 'tests/professional-learning-lab-workspace-browser-v1.mjs'
       - 'tests/professional-learning-lab-source-closeout-v1.test.mjs'
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
@@ -63,6 +64,8 @@ jobs:
         run: node tests/advanced-learning-lab-member-surface-browser-v1.mjs
       - name: Verify Professional member surface in Chromium
         run: node tests/professional-learning-lab-member-surface-browser-v1.mjs
+      - name: Verify Professional save restore conflicts and second-account denial in Chromium
+        run: node tests/professional-learning-lab-workspace-browser-v1.mjs
       - name: Verify browser workbench syntax
         run: node --check assets/js/learning-lab-edition-panel-v1.js
   grant-revocation-security:
