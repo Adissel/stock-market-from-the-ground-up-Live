@@ -1,0 +1,35 @@
+name: Owner Tier and Roadmap Progress V1
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/owner-tier-roadmap-progress-v1.json'
+      - 'data/learning-lab-engine-feature-audit-v1.json'
+      - 'functions/_lib/learning-engine-tier-policy-v1.js'
+      - 'functions/_lib/owner-roadmap-catalog.js'
+      - 'functions/_lib/owner-roadmap-engineering-review.js'
+      - 'functions/_lib/owner-roadmap-20261018-additions.js'
+      - 'functions/api/owner-roadmap.js'
+      - 'tests/owner-tier-roadmap-progress-v1.test.mjs'
+      - '.github/workflows/owner-tier-roadmap-progress-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/owner-tier-roadmap-progress-v1.json'
+      - 'tests/owner-tier-roadmap-progress-v1.test.mjs'
+      - '.github/workflows/owner-tier-roadmap-progress-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    name: 80+ offline feature, membership and roadmap checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source audit, tier mappings, no-commercial-release controls
+        run: node --test tests/owner-tier-roadmap-progress-v1.test.mjs
