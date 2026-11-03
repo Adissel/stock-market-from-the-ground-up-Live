@@ -7,6 +7,8 @@ on:
       - '.github/workflows/crownlight-member-lumens-v1.yml'
       - 'tests/test_member_lumen_wallet_progress_gifts_v1.mjs'
       - 'tests/test_filings7_issuer_cik_draft_v2.mjs'
+      - 'tests/test_lumen_immutable_grade_provenance_v1.mjs'
+      - 'supabase/migrations/20261102_lumen_immutable_grade_issuer_provenance_hardening_v1.sql'
       - 'supabase/migrations/20261102_filings7_d01_issuer_cik_draft_correction_v1.sql'
       - 'functions/api/member-lumen-gifts.js'
       - 'functions/api/learning-reward-preview.js'
@@ -47,3 +49,4 @@ jobs:
           node --check functions/api/member-learning-quick-view.js
           node tests/test_member_lumen_wallet_progress_gifts_v1.mjs
           node tests/test_filings7_issuer_cik_draft_v2.mjs
+          node tests/test_lumen_immutable_grade_provenance_v1.mjs
