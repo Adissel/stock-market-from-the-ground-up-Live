@@ -123,7 +123,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    grid=el('div',undefined,'academy-guided-grid'),evidence=el('section',undefined,'academy-guided-evidence'),
    instructor=el('section',undefined,'academy-guided-talia'),visual=el('div',undefined,'academy-guided-chart'),
    controls=el('div',undefined,'academy-guided-controls'),previous=el('button','Previous','btn secondary'),
-   next=el('button','Next','btn'),explain=el('button','Explain This Concept','btn secondary'),
+   next=el('button','Next','btn'),explain=el('button','Explain This Concept — Free','btn secondary'),
    depth=el('button','Teach This in More Depth','btn secondary'),
    feedback=el('p');feedback.className='academy-guided-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
  const tutorButton=el('button','Ask Market Tutor — optional','btn secondary'),tutorPanel=el('section',undefined,'academy-guided-tutor-response'),tutorOutput=el('p');
