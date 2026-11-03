@@ -4,11 +4,12 @@ import {readFileSync} from 'node:fs';
 const ledger=JSON.parse(readFileSync('data/learning-lab-engine-feature-audit-v1.json','utf8'));
 const bridges=Object.values(JSON.parse(readFileSync('data/lab-teaching-bridges-v014168.json','utf8')).entries);
 const open=['LE-BAS-06','LE-BAS-07','LE-BAS-08','LA-BAS-06','LA-BAS-07','LA-BAS-08'];
-test('Basic outstanding criteria remain independently tracked',()=>{
+test('Basic integration criteria are complete while independent release evidence remains tracked',()=>{
  for(const id of open){
   const f=ledger.features.find(x=>x.id===id);
   assert.ok(f,id);
-  assert.equal(f.source_status,['LE-BAS-06','LA-BAS-06'].includes(id)?'integrated':'partial',id);
+  assert.equal(f.source_status,'integrated',id);
+  assert.equal(f.source_integration_accepted,true,id);
   assert.equal(f.real_member_accepted,false,id);
   if(id==='LE-BAS-07'){
    assert.equal(f.owner_authenticated_member_accepted,true,id);
@@ -56,8 +57,9 @@ test('Basic progress save requires authenticated enrollment and current session'
 });
 
 
-test('Final owner sign-off is recorded for all six Basic gates without fabricating technical verification',()=>{
- assert.equal(ledger.owner_signoff_BASIC?.approved_count,6);
+test('Final owner sign-off covers all sixteen integrated Basic requirements without fabricating release verification',()=>{
+ assert.equal(ledger.owner_signoff_BASIC?.approved_count,16);
+ assert.equal(ledger.owner_signoff_BASIC?.total,16);
  assert.equal(ledger.owner_signoff_BASIC?.approved_percent,100);
  for(const id of open){
   const item=ledger.features.find(x=>x.id===id);
@@ -65,6 +67,7 @@ test('Final owner sign-off is recorded for all six Basic gates without fabricati
   assert.equal(item.owner_reapproval_required,false,id);
   assert.equal(item.owner_signoff_status,'CLOSED_BY_OWNER',id);
  }
- assert.equal(ledger.counts.learning_BASIC.integrated_percent,75);
- assert.equal(ledger.counts.lab_BASIC.integrated_percent,75);
+ assert.equal(ledger.counts.learning_BASIC.integrated_percent,100);
+ assert.equal(ledger.counts.lab_BASIC.integrated_percent,100);
+ assert.equal(ledger.owner_signoff_BASIC.release_verification_status,'INDEPENDENT_EVIDENCE_RECONCILIATION_NOT_COMPLETED');
 });

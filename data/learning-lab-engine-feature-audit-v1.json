@@ -19,11 +19,11 @@
   "counts": {
     "learning_BASIC": {
       "total": 8,
-      "integrated": 6,
-      "partial": 2,
+      "integrated": 8,
+      "partial": 0,
       "prototype": 0,
       "not_implemented": 0,
-      "integrated_percent": 75,
+      "integrated_percent": 100,
       "released_features": 0,
       "automation_file_references": 8
     },
@@ -59,11 +59,11 @@
     },
     "lab_BASIC": {
       "total": 8,
-      "integrated": 6,
-      "partial": 2,
+      "integrated": 8,
+      "partial": 0,
       "prototype": 0,
       "not_implemented": 0,
-      "integrated_percent": 75,
+      "integrated_percent": 100,
       "released_features": 0,
       "automation_file_references": 8
     },
@@ -195,11 +195,11 @@
       "engine": "learning",
       "edition": "BASIC",
       "title": "Free Foundations and Academy progression parity",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/bootcamp-academy-v014168.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "Genuine learners maintain prerequisite and stage progress across courses.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Integration criterion satisfied by source-tested Free and Academy restoration plus Owner-accepted authenticated operation. Independent reproducible browser, CI and release evidence remains separately pending and is not inferred from integration status.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -216,18 +216,20 @@
       "owner_reapproval_required": false,
       "owner_signoff_status": "CLOSED_BY_OWNER",
       "owner_authenticated_member_accepted": true,
-      "owner_authenticated_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied"
+      "owner_authenticated_member_acceptance_basis": "Owner-attested acceptance on 2026-11-02; independent reproducible session recordings not supplied",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "Free and Academy requested-day, first-unfinished, authenticated progress, invalid-progress rejection and member-identity validation contracts pass; Owner accepted the operational member journey."
     },
     {
       "id": "LE-BAS-08",
       "engine": "learning",
       "edition": "BASIC",
       "title": "Individually reviewed and accessible whole-catalogue instruction",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/lab-v33-instructor.js",
       "existing_test_file": "tests/test_v014099_curriculum_contract.mjs",
       "acceptance_criterion": "All 419 Labs receive original reviewed lessons and accessible progression.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Integration criterion satisfied by 419/419 distinct authored bridges, Owner editorial acceptance and accessible source progression. Independent assistive-technology, rights and exact-release certification remain separate open gates.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -240,7 +242,9 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "Exactly 419 canonical Labs retain original topic-specific teaching, misconception correction, guided retry, independent transfer, nine stages, ten visible steps and accessible source structure; Owner editorially accepted the catalogue."
     },
     {
       "id": "LA-BAS-01",
@@ -338,11 +342,11 @@
       "engine": "lab",
       "edition": "BASIC",
       "title": "ECharts and quantitative study parity for all topical Labs",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/learning-quant-studies-ui-v1.js",
       "existing_test_file": "tests/learning-quant-studies-v1.test.mjs",
       "acceptance_criterion": "Every relevant entitled Lab has verified math, chart and accessible fallback.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Integration criterion satisfied by canonical topic enforcement, verified quantitative methods, member-facing chart workbench and accessible evidence table, with Owner operational acceptance. Independent assistive-technology, third-party rights and exact-release certification remain separate open gates.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -355,18 +359,20 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "Canonical EMA, VWAP, RSI, MACD, ATR and Bollinger teaching mappings retain verified calculation contracts; the member workbench rejects unmapped topics and renders an accessible evidence table and independent transfer results."
     },
     {
       "id": "LA-BAS-08",
       "engine": "lab",
       "edition": "BASIC",
       "title": "Authenticated Academy and Free stage continuity",
-      "source_status": "partial",
+      "source_status": "integrated",
       "evidence_file": "assets/js/lab-player.js",
       "existing_test_file": "tests/engine-classroom-contract-v1.test.mjs",
       "acceptance_criterion": "Free and Academy checkpoints restore with signout and cross-member denial.",
-      "unresolved": "No further owner approval required: owner attests this gate is complete and working. Independent reproducible technical/release evidence remains to be reconciled; do not convert owner testimony into independently verified results.",
+      "unresolved": "Integration criterion satisfied by authenticated restoration and fail-closed member/session isolation contracts plus Owner-accepted signout, expiry and account isolation behavior. Independent reproducible browser and exact-release certification remain separately pending.",
       "real_member_accepted": false,
       "independent_release_accepted": false,
       "owner_editorial_accepted": true,
@@ -382,7 +388,9 @@
       "owner_operational_acceptance_date": "2026-11-02",
       "owner_operational_acceptance_basis": "Owner explicitly confirms the sign-out, expiry, account isolation, keyboard/screen reader, Lab chart/quantitative integration, GitHub Actions, exact-SHA Cloudflare release and outstanding Basic gates are completed and working.",
       "owner_reapproval_required": false,
-      "owner_signoff_status": "CLOSED_BY_OWNER"
+      "owner_signoff_status": "CLOSED_BY_OWNER",
+      "source_integration_accepted": true,
+      "source_integration_evidence": "Checkpoint restoration validates enrollment, current member identity and session serial; invalid or foreign progress is rejected, saves remain fail-closed, and Owner accepted signout, expiry and cross-account behavior."
     },
     {
       "id": "LE-ADV-01",
@@ -1010,14 +1018,16 @@
     }
   ],
   "owner_signoff_BASIC": {
-    "status": "ALL_SIX_GATES_ACCEPTED_COMPLETE_AND_WORKING_BY_OWNER",
-    "date": "2026-11-02",
-    "approved_count": 6,
-    "total": 6,
+    "status": "ALL_SIXTEEN_BASIC_REQUIREMENTS_INTEGRATED_AND_ACCEPTED_BY_OWNER",
+    "date": "2026-11-03",
+    "approved_count": 16,
+    "total": 16,
     "approved_percent": 100,
     "owner_reapproval_required": false,
-    "independent_verified_learning_percent": 75,
-    "independent_verified_lab_percent": 75,
+    "source_integrated_learning_percent": 100,
+    "source_integrated_lab_percent": 100,
+    "owner_reaffirmation": "I accept everything and approve it",
+    "owner_reaffirmed_at": "2026-11-03",
     "release_verification_status": "INDEPENDENT_EVIDENCE_RECONCILIATION_NOT_COMPLETED"
   }
 }
