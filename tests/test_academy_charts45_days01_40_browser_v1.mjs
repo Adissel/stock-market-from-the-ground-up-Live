@@ -1,4 +1,4 @@
-/* Original Charts45 days 01–40: responsive, keyboard-accessible member
+/* Original Charts45 days 01–45: responsive, keyboard-accessible member
  * instructional surface. Isolated synthetic browser fixture only: no real
  * member, payment, entitlement change, grading or Supabase persistence.
  */
@@ -10,8 +10,8 @@ assert(/^http:\/\/127\.0\.0\.1:\d+$/.test(origin),'Must use the isolated local f
 const course=academyByCode.charts45;
 assert.equal(course.days,45);
 assert.equal(course.curriculum.length,45);
-const advanced=course.curriculum.slice(0,40);
-assert.equal(advanced.length,40);
+const advanced=course.curriculum.slice(0,45);
+assert.equal(advanced.length,45);
 const prompts=new Set();
 for(const lesson of advanced){
  assert.equal(lesson.programCode,'charts45','Program identity must remain Charts45');
@@ -37,7 +37,7 @@ for(const lesson of advanced){
   assert(typeof p[field]==='string'&&p[field].length>60,
    'Charts45 day '+lesson.day+' is missing an advanced worked '+field);
 }
-assert.equal(prompts.size,480,'40 days x 12 distinct instructional prompts');
+assert.equal(prompts.size,540,'45 days x 12 distinct instructional prompts');
 const authScript="window.getSupabaseClient=async()=>({auth:{getUser:async()=>({data:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'}}}),getSession:async()=>({data:{session:{user:{id:'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'},access_token:'synthetic'}}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}});";
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
@@ -62,7 +62,7 @@ try{
   await page.goto(origin+'/bootcamp-academy.html?program=charts45',{waitUntil:'domcontentloaded',timeout:30000});
   await page.locator('#academy-workspace:not([hidden])').waitFor({timeout:20000});
   assert.equal(await page.locator('#academy-days .gu-bc-day').count(),45);
-  for(let index=0;index<40;index++){
+  for(let index=0;index<45;index++){
    const d=course.curriculum[index],control=page.locator('#academy-days .gu-bc-day').nth(index);
    await control.focus();
    await page.keyboard.press('Enter');
@@ -82,9 +82,9 @@ try{
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
    assert(overflow<=5,'Overflow '+overflow+'px at viewport '+width+', Charts45 day '+(index+1));
   }
-  assert.deepEqual(errors,[],'No script errors across Charts45 Days 21–60 at width '+width);
-  console.log('PASS: 40 distinct original Charts45 day routes, keyboard navigation, disclosure, source-integrity and responsive width '+width+'px');
+  assert.deepEqual(errors,[],'No script errors across Charts45 Days 01–45 at width '+width);
+  console.log('PASS: 45 distinct original Charts45 day routes, keyboard navigation, disclosure, source-integrity and responsive width '+width+'px');
   await ctx.close();
  }
- console.log('PASS: 40 original Charts45 days, 480 distinct questions, 120 responsive/keyboard checks. Synthetic only, not genuine authenticated member acceptance.');
+ console.log('PASS: 45 original Charts45 days, 540 distinct questions, 135 responsive/keyboard checks. Synthetic only, not genuine authenticated member acceptance.');
 }finally{await browser.close()}

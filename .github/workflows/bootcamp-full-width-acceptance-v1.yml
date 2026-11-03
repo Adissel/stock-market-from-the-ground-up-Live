@@ -41,6 +41,8 @@ on:
       - 'tests/test_academy_charts45_depth_days01_20_v1.mjs'
       - 'functions/_lib/academy-charts45-depth-days21-40-v1.js'
       - 'tests/test_academy_charts45_depth_days21_40_v1.mjs'
+      - 'functions/_lib/academy-charts45-depth-days41-45-v1.js'
+      - 'tests/test_academy_charts45_depth_days41_45_v1.mjs'
       - 'functions/_lib/academy-risk60-advanced-depth-days25-44-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days45-52-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days53-60-v1.js'
@@ -149,6 +151,7 @@ jobs:
           node --test tests/academy-risk60-d45-d60-execution-register-v1.test.mjs
           node tests/test_academy_charts45_depth_days01_20_v1.mjs
           node tests/test_academy_charts45_depth_days21_40_v1.mjs
+          node tests/test_academy_charts45_depth_days41_45_v1.mjs
           node scripts/academy-274-advanced-readiness-preflight-v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_three_camps_completion_contract_v1.mjs
@@ -190,7 +193,7 @@ jobs:
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
         run: node tests/test_academy_risk60_days21_60_browser_v1.mjs
-      - name: Browser-verify Charts45 original Days 01–40 across three viewport widths
+      - name: Browser-verify Charts45 original Days 01–45 across three viewport widths
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
         run: node tests/test_academy_charts45_days01_40_browser_v1.mjs
