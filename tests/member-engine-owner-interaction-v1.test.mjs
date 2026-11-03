@@ -21,7 +21,7 @@ const plans=()=>codes.map((code,i)=>({plan_code:code,name:code,active:true,publi
   ...(mappings[code]?{talia_market_tutor_v1:{tier:mappings[code],revision:1}}:{})
  }}));
 const response=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json'}});
-function stub({role='OWNER',restricted=false,subscription=null}={}){
+function stub({role='OWNER',restricted=false,subscription=null,planGrant=null}={}){
  const original=globalThis.fetch,records=plans(),audits=[],calls=[];
  globalThis.fetch=async(url,opts={})=>{
   const u=new URL(String(url)),path=u.pathname,method=opts.method||'GET';
@@ -31,6 +31,7 @@ function stub({role='OWNER',restricted=false,subscription=null}={}){
   if(path.endsWith('/admin_user_roles'))return response(role==='OWNER'?[{role_code:'OWNER',expires_at:null}]:[]);
   if(path.endsWith('/admin_user_flags'))return response(restricted?[{status:'restricted'}]:[]);
   if(path.endsWith('/site_subscriptions'))return response(subscription?[subscription]:[]);
+  if(path.endsWith('/user_plan_grants'))return response(planGrant?[planGrant]:[]);
   if(path.endsWith('/platform_plans')){
    const query=/plan_code=eq\.([A-Z_0-9]+)/.exec(u.search);
    return response(query?records.filter(x=>x.plan_code===query[1]):records);
