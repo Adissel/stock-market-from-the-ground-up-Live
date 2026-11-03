@@ -83,3 +83,21 @@ test('Six Batch02 source-specific pointers stay scoped and publication-locked',(
  assert.ok(Math.abs(Math.sqrt(2/(3-1))-1)<1e-12);
  assert.ok(Math.abs(Math.sqrt(252)*.01-.15874507866387544)<1e-9);
 });
+
+test('Batch02 multi-reference evidence loads, while untrusted source host fails closed',async()=>{
+ const env={ASSETS:getAssets()};
+ const req=new Request('https://tutor.test/api/market-tutor-v01492');
+ const match=await originalGuides(env,req,'Explain Population versus sample standard deviation denominators');
+ assert.equal(match[0]?.code,'TALIA_TOPIC_POPULATION_SAMPLE_SD');
+ const bad={...two,guides:two.guides.map((g,i)=>i===0?{...g,sourceUrls:['https://untrusted.example/target']}:g)};
+ const hostileAssets={fetch:async request=>{
+  const file=new URL(request.url).pathname.split('/').at(-1);
+  if(file==='talia-foundation-explanations-batch02-v1.json')
+    return Response.json(bad);
+  if(file==='competency-study-guides-v01499.json'||file==='talia-foundation-explanations-batch01-v1.json')
+    return Response.json(JSON.parse(read('data/'+file)));
+  return new Response('missing',{status:404});
+ }};
+ const denied=await originalGuides({ASSETS:hostileAssets},req,'Explain '+two.guides[0].title);
+ assert.notEqual(denied[0]?.code,two.guides[0].code);
+});

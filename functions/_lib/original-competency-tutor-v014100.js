@@ -229,7 +229,7 @@ const FOUNDATION_TOPIC_SOURCE=url=>{
  try{
   const parsed=new URL(url);
   return parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.port&&
-   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org','syndication.finra.org','pages.stern.nyu.edu','www.ssga.com','ssga.com','www.optionseducation.org','optionseducation.org','www.bls.gov','bls.gov','fred.stlouisfed.org','www.nyse.com','www.quantconnect.com','quantconnect.com'].includes(parsed.hostname);
+   ['www.investor.gov','investor.gov','www.sec.gov','sec.gov','chartschool.stockcharts.com','www.finra.org','finra.org','syndication.finra.org','pages.stern.nyu.edu','www.ssga.com','ssga.com','www.optionseducation.org','optionseducation.org','www.bls.gov','bls.gov','fred.stlouisfed.org','www.nyse.com','www.quantconnect.com','quantconnect.com','www.itl.nist.gov','itl.nist.gov','rpc.cfainstitute.org'].includes(parsed.hostname);
  }catch{return false}
 };
 async function loadFoundationTopicExplanations(env,request){
@@ -251,8 +251,8 @@ async function loadFoundationTopicExplanations(env,request){
        g.foundationTopic!==true||g.supplemental!==true||g.officialCompetency!==false||
        g.independentEditorialApproved!==false||
        g.status!=='original_source_authored_ungraded_pending_independent_editorial_review'||
-       !Array.isArray(g.sourceUrls)||g.sourceUrls.length!==1||
-       !FOUNDATION_TOPIC_SOURCE(g.sourceUrls[0])||
+       !Array.isArray(g.sourceUrls)||g.sourceUrls.length<1||g.sourceUrls.length>2||
+       !g.sourceUrls.every(FOUNDATION_TOPIC_SOURCE)||
        (typeof g.title!=='string'||g.title.length<12)||
        ['concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion']
          .some(k=>typeof g[k]!=='string'||g[k].length<28))return [];

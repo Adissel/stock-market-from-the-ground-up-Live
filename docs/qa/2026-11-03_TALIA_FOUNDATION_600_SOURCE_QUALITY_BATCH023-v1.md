@@ -37,3 +37,11 @@ The six broad Batch 02 references for EMA9, EMA20, EMA200, population/sample sta
 | Version | Date | Change | Acceptance |
 |---|---|---|---|
 | 1.2 | 2026-11-03 | Six direct source-pointer and limitation checks in Batch 02 | Internal research only; independent release HOLD |
+
+## Version 1.3 — production Tutor loading compatibility
+
+Claim-specific references exposed a legitimate loader restriction: every Foundation guide had previously been restricted to exactly one source URL and a closed list of research domains. Batch 02 now needs up to two safe HTTPS references for StockCharts population SD plus NIST sample SD, and CFA Institute for volatility annualization. The source-only loader retains strict URL host, protocol, credential and port validation and rejects batches containing untrusted references. New tests prove both an allowed multi-source lesson and blocked untrusted-host fallback. No third-party source copying or independent lesson publication is approved.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.3 | 2026-11-03 | Hardened two-citation allowlist, preserved fail-closed behavior and added source-loader regression | Internal technical; release HOLD |
