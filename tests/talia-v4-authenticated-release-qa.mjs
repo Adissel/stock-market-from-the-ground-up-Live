@@ -158,9 +158,9 @@ try{
  assert.equal((await dataFor(page)).barCount,40);
  await interval.selectOption('1'); await page.waitForFunction(()=>window.echarts?.getInstanceByDom?.(document.querySelector('.tc-chart'))?.getOption()?.series?.find(s=>s.type==='candlestick')?.data?.length===200,null,{timeout:15000});
  mark('One-, three-, five-minute aggregation','PASS','200 / 66 / 40 completed displayed bars');
- await page.getByRole('button',{name:'Pan left'}).click();await wait(350);
+ await page.getByRole('button',{name:'Pan to older completed candles'}).click();await wait(350);
  const left=await dataFor(page);assert(left.start<80,'Pan left did not move available viewport');
- await page.getByRole('button',{name:'Pan right'}).click();await wait(350);
+ await page.getByRole('button',{name:'Pan to newer completed candles'}).click();await wait(350);
  const right=await dataFor(page);assert(right.start>left.start,'Pan right did not move available viewport');
  mark('Pan left and right','PASS','ECharts viewport changes in both directions');
  const plot=page.locator('.tc-chart');const bounds=await plot.boundingBox();assert(bounds,'Chart bounding box unavailable');
@@ -174,7 +174,7 @@ try{
  await plot.screenshot({path:DIR+'/chart-desktop.png'});
  const chartControls=page.locator('.tp-chart-tools');
  assert(await chartControls.getByLabel('Completed interval').isVisible());
- const pan=page.getByRole('button',{name:'Pan left'});await pan.focus();assert(await pan.evaluate(el=>document.activeElement===el));
+ const pan=page.getByRole('button',{name:'Pan to older completed candles'});await pan.focus();assert(await pan.evaluate(el=>document.activeElement===el));
  await pan.press('Enter');
  mark('Keyboard control navigation','PASS','Focus, named controls, and Enter activation');
  await page.setViewportSize({width:390,height:844});
@@ -281,6 +281,7 @@ try{
   assert.equal(owned.status(),forged.status(),'Client-provided member override changes authorization status');
   if(owned.status()===200){
     const a=await owned.json(),b=await forged.json();
+    assert(a?.ok===true&&b?.ok===true&&Array.isArray(a.history)&&Array.isArray(b.history),'Tutor history must be a real member-owned array');
     assert.deepEqual(a.history,b.history,'Client user_id changed member-owned history');
   }else assert([401,403].includes(owned.status()),'Unexpected second-account Tutor history status');
   output.twoAccount='PASS';
