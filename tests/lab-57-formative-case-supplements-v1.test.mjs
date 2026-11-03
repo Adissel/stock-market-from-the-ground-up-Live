@@ -65,7 +65,7 @@ test('No direct mount during assessment or blind/practice denial; no HTML inject
   assert.equal(host.children.length,0);
  }
  assert.equal(live.get('NEVER_A_REAL_LAB'),null);
- assert.ok(!/innerHTML|eval\\s*\\(/.test(script));
+ assert.equal(script.includes('innerHTML'),false);assert.equal(script.includes('eval('),false);
  assert.ok(engine.includes("root.CrownlightLabFormativeBatch57V1?.mount?.({target:body,labId,stage:1,mode})"));
  assert.ok(engine.includes("root.CrownlightLabFormativeBatch57V1?.mount?.({target:body,labId,stage:7,mode})"));
  assert.ok(html.indexOf('lab-57-formative-case-supplements-v1.js')<html.indexOf('lab-engine-v32-universal.js'));
