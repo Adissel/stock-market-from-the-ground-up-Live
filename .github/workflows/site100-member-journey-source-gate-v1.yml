@@ -1,0 +1,34 @@
+name: SITE 100 — Member Journey Source and Acceptance Matrix
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/site100-member-journey-acceptance-matrix-v1.json'
+      - 'docs/qa/2026-11-03_SITE100_TWO_ACCOUNT_BROWSER_ACCEPTANCE_V1.md'
+      - 'tests/site100-authenticated-evidence-matrix-v1.test.mjs'
+      - 'data/lab-227-remaining-source-internal-evidence-v1.json'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/site100-member-journey-source-gate-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/site100-member-journey-acceptance-matrix-v1.json'
+      - 'docs/qa/2026-11-03_SITE100_TWO_ACCOUNT_BROWSER_ACCEPTANCE_V1.md'
+      - 'tests/site100-authenticated-evidence-matrix-v1.test.mjs'
+      - 'data/lab-227-remaining-source-internal-evidence-v1.json'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/site100-member-journey-source-gate-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify original 100 SITE Labs, 25 page contracts and source evidence
+        run: node --test tests/site100-authenticated-evidence-matrix-v1.test.mjs

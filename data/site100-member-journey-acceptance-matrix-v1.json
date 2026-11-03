@@ -1,0 +1,3478 @@
+{
+  "schema": "smfgu.site100.authenticated-acceptance-cases.v1",
+  "documentId": "SMFGU-SITE100-ACCESS-QA-20261103",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "prepared": "2026-11-03",
+  "status": "QA_SCENARIO_MATRIX_NOT_GENUINE_MEMBER_ACCEPTANCE",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "branch": "batch/site100-member-journey-qa-20261103",
+  "baseline": "3b774200b9234efc8ad86247fc1a40148347250c",
+  "googleDriveLocation": null,
+  "googleDriveFileId": null,
+  "canonicalLabCount": 419,
+  "siteLabCount": 100,
+  "source": [
+    "data/lab-227-remaining-source-internal-evidence-v1.json",
+    "docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv"
+  ],
+  "sourceCaseGroups": 25,
+  "representativeRoutes": [
+    "dashboard.html",
+    "labs.html",
+    "verified-replay.html",
+    "simulator.html",
+    "journal.html",
+    "market-tutor.html",
+    "advanced-tool.html",
+    "free-watchlist.html",
+    "journal-analytics.html"
+  ],
+  "protectedMembershipTargets": {
+    "basic": "v3.3 and v3.2",
+    "independentPremiumActivation": false,
+    "livePaymentChanges": false
+  },
+  "evidenceBoundaries": [
+    "File and HTML route checks do not prove feature operation, entitlement, RLS or accessibility.",
+    "Each 100-case acceptance scenario requires real authenticated browser evidence under two separate test identities.",
+    "James_Test_A and James_Test_B are illustrative QA labels, not credentials or verified database accounts."
+  ],
+  "counts": {
+    "caseRecords": 100,
+    "featureFamilies": 25,
+    "sourceJavascriptPointers": 50,
+    "distinctRepresentativeRoutes": 9,
+    "sourceOnlyTestCases": 100,
+    "authenticatedPassed": 0,
+    "independentlyReleased": 0
+  },
+  "records": [
+    {
+      "ordinal": 1,
+      "labId": "SITE-001",
+      "canonicalTitle": "Platform Navigation & Dashboard — What It Is",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_01",
+      "featureName": "Platform Navigation & Dashboard",
+      "sourceGroup": "navigation_dashboard",
+      "representativeExistingRoute": "dashboard.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "dashboard.html",
+        "assets/js/dashboard.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate the signed-in dashboard and verify feature-navigation route semantics",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 2,
+      "labId": "SITE-002",
+      "canonicalTitle": "Platform Navigation & Dashboard — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_01",
+      "featureName": "Platform Navigation & Dashboard",
+      "sourceGroup": "navigation_dashboard",
+      "representativeExistingRoute": "dashboard.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "dashboard.html",
+        "assets/js/dashboard.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Confirm a resumed member sees their own progress, not another member's",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 3,
+      "labId": "SITE-003",
+      "canonicalTitle": "Platform Navigation & Dashboard — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_01",
+      "featureName": "Platform Navigation & Dashboard",
+      "sourceGroup": "navigation_dashboard",
+      "representativeExistingRoute": "dashboard.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "dashboard.html",
+        "assets/js/dashboard.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Navigate from the dashboard to the Lab registry and back without losing session state",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 4,
+      "labId": "SITE-004",
+      "canonicalTitle": "Platform Navigation & Dashboard — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_01",
+      "featureName": "Platform Navigation & Dashboard",
+      "sourceGroup": "navigation_dashboard",
+      "representativeExistingRoute": "dashboard.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "dashboard.html",
+        "assets/js/dashboard.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Sign out and verify member progress, badges and identity are not revealed to a guest",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 5,
+      "labId": "SITE-005",
+      "canonicalTitle": "Book Access & Lab Registry — What It Is",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_02",
+      "featureName": "Book Access & Lab Registry",
+      "sourceGroup": "book_lab_registry",
+      "representativeExistingRoute": "labs.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "lab-player.html",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate a canonical Lab using its registry ID and exact title",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 6,
+      "labId": "SITE-006",
+      "canonicalTitle": "Book Access & Lab Registry — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_02",
+      "featureName": "Book Access & Lab Registry",
+      "sourceGroup": "book_lab_registry",
+      "representativeExistingRoute": "labs.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "lab-player.html",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Distinguish granted Labs from locked or unavailable Labs",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 7,
+      "labId": "SITE-007",
+      "canonicalTitle": "Book Access & Lab Registry — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_02",
+      "featureName": "Book Access & Lab Registry",
+      "sourceGroup": "book_lab_registry",
+      "representativeExistingRoute": "labs.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "lab-player.html",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Open a Lab, then return to the registry and reopen the same ID",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 8,
+      "labId": "SITE-008",
+      "canonicalTitle": "Book Access & Lab Registry — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_02",
+      "featureName": "Book Access & Lab Registry",
+      "sourceGroup": "book_lab_registry",
+      "representativeExistingRoute": "labs.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "lab-player.html",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject an unentitled direct deep-link without exposing protected exercises",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 9,
+      "labId": "SITE-009",
+      "canonicalTitle": "No-Look-Ahead Historical Replay — What It Is",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_03",
+      "featureName": "No-Look-Ahead Historical Replay",
+      "sourceGroup": "historical_replay",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/verified-replay-v01492.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Identify fictional versus authorized historical data labels",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 10,
+      "labId": "SITE-010",
+      "canonicalTitle": "No-Look-Ahead Historical Replay — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_03",
+      "featureName": "No-Look-Ahead Historical Replay",
+      "sourceGroup": "historical_replay",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/verified-replay-v01492.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why future candles cannot be included in current replay decisions",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 11,
+      "labId": "SITE-011",
+      "canonicalTitle": "No-Look-Ahead Historical Replay — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_03",
+      "featureName": "No-Look-Ahead Historical Replay",
+      "sourceGroup": "historical_replay",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/verified-replay-v01492.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Advance replay one completed candle and record source/timeframe context",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 12,
+      "labId": "SITE-012",
+      "canonicalTitle": "No-Look-Ahead Historical Replay — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_03",
+      "featureName": "No-Look-Ahead Historical Replay",
+      "sourceGroup": "historical_replay",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/verified-replay-v01492.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Resume after refresh without advancing to hidden future observations",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 13,
+      "labId": "SITE-013",
+      "canonicalTitle": "Advanced Market Simulator & Replay — What It Is",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_04",
+      "featureName": "Advanced Market Simulator & Replay",
+      "sourceGroup": "simulator_replay",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/simulator.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Identify fictional simulator controls and data disclosure",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 14,
+      "labId": "SITE-014",
+      "canonicalTitle": "Advanced Market Simulator & Replay — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_04",
+      "featureName": "Advanced Market Simulator & Replay",
+      "sourceGroup": "simulator_replay",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/simulator.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain the difference between educational position planning and broker execution",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 15,
+      "labId": "SITE-015",
+      "canonicalTitle": "Advanced Market Simulator & Replay — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_04",
+      "featureName": "Advanced Market Simulator & Replay",
+      "sourceGroup": "simulator_replay",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/simulator.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Save a simulated attempt under the active test account only",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 16,
+      "labId": "SITE-016",
+      "canonicalTitle": "Advanced Market Simulator & Replay — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_04",
+      "featureName": "Advanced Market Simulator & Replay",
+      "sourceGroup": "simulator_replay",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/simulator.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Block a second account from reading the first account's simulated attempts",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 17,
+      "labId": "SITE-017",
+      "canonicalTitle": "Trading Journal & Performance Analytics — What It Is",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_05",
+      "featureName": "Trading Journal & Performance Analytics",
+      "sourceGroup": "journal_analytics",
+      "representativeExistingRoute": "journal.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-v2-logic.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate private journal records and the weekly period indicator",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 18,
+      "labId": "SITE-018",
+      "canonicalTitle": "Trading Journal & Performance Analytics — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_05",
+      "featureName": "Trading Journal & Performance Analytics",
+      "sourceGroup": "journal_analytics",
+      "representativeExistingRoute": "journal.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-v2-logic.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why unrealized/planned returns differ from realized entries",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 19,
+      "labId": "SITE-019",
+      "canonicalTitle": "Trading Journal & Performance Analytics — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_05",
+      "featureName": "Trading Journal & Performance Analytics",
+      "sourceGroup": "journal_analytics",
+      "representativeExistingRoute": "journal.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-v2-logic.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Save, reload and verify the same authenticated journal entry",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 20,
+      "labId": "SITE-020",
+      "canonicalTitle": "Trading Journal & Performance Analytics — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_05",
+      "featureName": "Trading Journal & Performance Analytics",
+      "sourceGroup": "journal_analytics",
+      "representativeExistingRoute": "journal.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-v2-logic.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Enforce weekly limits, UTC reset, deletion/recreation and foreign-account denial",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 21,
+      "labId": "SITE-021",
+      "canonicalTitle": "Market Tutor — What It Is",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_06",
+      "featureName": "Market Tutor",
+      "sourceGroup": "market_tutor",
+      "representativeExistingRoute": "market-tutor.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-tutor.js",
+        "assets/js/tutor-guided-practice-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate the typed Talia teaching interface and its method citations",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 22,
+      "labId": "SITE-022",
+      "canonicalTitle": "Market Tutor — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_06",
+      "featureName": "Market Tutor",
+      "sourceGroup": "market_tutor",
+      "representativeExistingRoute": "market-tutor.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-tutor.js",
+        "assets/js/tutor-guided-practice-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain its source limitations and the protected assessment-answer boundary",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 23,
+      "labId": "SITE-023",
+      "canonicalTitle": "Market Tutor — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN"
+      ],
+      "featureId": "INTERNAL_SITE_06",
+      "featureName": "Market Tutor",
+      "sourceGroup": "market_tutor",
+      "representativeExistingRoute": "market-tutor.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-tutor.js",
+        "assets/js/tutor-guided-practice-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Request an original candlestick or VWAP explanation tied to observed chart evidence",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 24,
+      "labId": "SITE-024",
+      "canonicalTitle": "Market Tutor — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_06",
+      "featureName": "Market Tutor",
+      "sourceGroup": "market_tutor",
+      "representativeExistingRoute": "market-tutor.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-tutor.js",
+        "assets/js/tutor-guided-practice-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Deny access to another account's conversation and never reveal answer keys",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 25,
+      "labId": "SITE-025",
+      "canonicalTitle": "Market Discovery Lab — What It Is",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_07",
+      "featureName": "Market Discovery Lab",
+      "sourceGroup": "market_discovery",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-research-core-v2.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate candidate search inputs and timestamp labeling",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 26,
+      "labId": "SITE-026",
+      "canonicalTitle": "Market Discovery Lab — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_07",
+      "featureName": "Market Discovery Lab",
+      "sourceGroup": "market_discovery",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-research-core-v2.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why research candidates are not automatically tradable securities",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 27,
+      "labId": "SITE-027",
+      "canonicalTitle": "Market Discovery Lab — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_07",
+      "featureName": "Market Discovery Lab",
+      "sourceGroup": "market_discovery",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-research-core-v2.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Save and reopen a source-timestamped fictional discovery record",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 28,
+      "labId": "SITE-028",
+      "canonicalTitle": "Market Discovery Lab — Failure Modes & Review",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_07",
+      "featureName": "Market Discovery Lab",
+      "sourceGroup": "market_discovery",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-research-core-v2.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Preserve empty results and unknown source values without fabricated outcomes",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 29,
+      "labId": "SITE-029",
+      "canonicalTitle": "Scanner Builder & Historical Scanner Replay — What It Is",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_08",
+      "featureName": "Scanner Builder & Historical Scanner Replay",
+      "sourceGroup": "scanner_builder",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-scanner-rules-v1.js",
+        "assets/js/advanced-tools.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate AND/OR/NOT rule configuration in the scanner workspace",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 30,
+      "labId": "SITE-030",
+      "canonicalTitle": "Scanner Builder & Historical Scanner Replay — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_08",
+      "featureName": "Scanner Builder & Historical Scanner Replay",
+      "sourceGroup": "scanner_builder",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-scanner-rules-v1.js",
+        "assets/js/advanced-tools.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain missing-value UNKNOWN semantics and supplied-data limitations",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 31,
+      "labId": "SITE-031",
+      "canonicalTitle": "Scanner Builder & Historical Scanner Replay — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_08",
+      "featureName": "Scanner Builder & Historical Scanner Replay",
+      "sourceGroup": "scanner_builder",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-scanner-rules-v1.js",
+        "assets/js/advanced-tools.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Run a fictional nested-rule scan and inspect PASS/FAIL/UNKNOWN trace",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 32,
+      "labId": "SITE-032",
+      "canonicalTitle": "Scanner Builder & Historical Scanner Replay — Failure Modes & Review",
+      "officialCompetencies": [
+        "CANDIDATE_QUALITY",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_08",
+      "featureName": "Scanner Builder & Historical Scanner Replay",
+      "sourceGroup": "scanner_builder",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-scanner-rules-v1.js",
+        "assets/js/advanced-tools.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject protected Champion edits and cross-user saved-view access",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 33,
+      "labId": "SITE-033",
+      "canonicalTitle": "Watchlist & Trade-Plan Workbench — What It Is",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN",
+        "CANDIDATE_QUALITY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "featureId": "INTERNAL_SITE_09",
+      "featureName": "Watchlist & Trade-Plan Workbench",
+      "sourceGroup": "watchlist_trade_plan",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/free-watchlist-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate Free Watchlist and advisory membership limits",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 34,
+      "labId": "SITE-034",
+      "canonicalTitle": "Watchlist & Trade-Plan Workbench — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN",
+        "CANDIDATE_QUALITY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "featureId": "INTERNAL_SITE_09",
+      "featureName": "Watchlist & Trade-Plan Workbench",
+      "sourceGroup": "watchlist_trade_plan",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/free-watchlist-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why a watchlist entry is not an execution signal",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 35,
+      "labId": "SITE-035",
+      "canonicalTitle": "Watchlist & Trade-Plan Workbench — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN",
+        "CANDIDATE_QUALITY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "featureId": "INTERNAL_SITE_09",
+      "featureName": "Watchlist & Trade-Plan Workbench",
+      "sourceGroup": "watchlist_trade_plan",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/free-watchlist-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Save and reload a symbol within the 20-symbol Free entitlement",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 36,
+      "labId": "SITE-036",
+      "canonicalTitle": "Watchlist & Trade-Plan Workbench — Failure Modes & Review",
+      "officialCompetencies": [
+        "INDEPENDENT_PLAN",
+        "CANDIDATE_QUALITY",
+        "ENTER_WATCH_NO_TRADE"
+      ],
+      "featureId": "INTERNAL_SITE_09",
+      "featureName": "Watchlist & Trade-Plan Workbench",
+      "sourceGroup": "watchlist_trade_plan",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/free-watchlist-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Enforce account isolation, simultaneous limit checks and locked membership items",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 37,
+      "labId": "SITE-037",
+      "canonicalTitle": "Catalyst & Filing Research Lab — What It Is",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS",
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_10",
+      "featureName": "Catalyst & Filing Research Lab",
+      "sourceGroup": "catalyst_filings",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "functions/api/sec-issuer-research-v1.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate SEC issuer and filing-research entry points",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 38,
+      "labId": "SITE-038",
+      "canonicalTitle": "Catalyst & Filing Research Lab — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS",
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_10",
+      "featureName": "Catalyst & Filing Research Lab",
+      "sourceGroup": "catalyst_filings",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "functions/api/sec-issuer-research-v1.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain CIK and acceptance timestamp versus article publication time",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 39,
+      "labId": "SITE-039",
+      "canonicalTitle": "Catalyst & Filing Research Lab — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS",
+        "CANDIDATE_QUALITY"
+      ],
+      "featureId": "INTERNAL_SITE_10",
+      "featureName": "Catalyst & Filing Research Lab",
+      "sourceGroup": "catalyst_filings",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "functions/api/sec-issuer-research-v1.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Retrieve a candidate SEC filing with visible source and query timestamp",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 40,
+      "labId": "SITE-040",
+      "canonicalTitle": "Catalyst & Filing Research Lab — Failure Modes & Review",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS",
+        "CANDIDATE_QUALITY",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_10",
+      "featureName": "Catalyst & Filing Research Lab",
+      "sourceGroup": "catalyst_filings",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "functions/api/sec-issuer-research-v1.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject stale, unrelated or missing issuer evidence instead of inferring catalysts",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 41,
+      "labId": "SITE-041",
+      "canonicalTitle": "Float & Supply Lab — What It Is",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_11",
+      "featureName": "Float & Supply Lab",
+      "sourceGroup": "float_supply",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Identify float, issued shares and market-cap calculation inputs",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 42,
+      "labId": "SITE-042",
+      "canonicalTitle": "Float & Supply Lab — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_11",
+      "featureName": "Float & Supply Lab",
+      "sourceGroup": "float_supply",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why unavailable float or stale shares data cannot be substituted",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 43,
+      "labId": "SITE-043",
+      "canonicalTitle": "Float & Supply Lab — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_11",
+      "featureName": "Float & Supply Lab",
+      "sourceGroup": "float_supply",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Demonstrate fictional float-versus-market-cap reasoning with explicit units",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 44,
+      "labId": "SITE-044",
+      "canonicalTitle": "Float & Supply Lab — Failure Modes & Review",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_11",
+      "featureName": "Float & Supply Lab",
+      "sourceGroup": "float_supply",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject missing or unlicensed provider observations without invented figures",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 45,
+      "labId": "SITE-045",
+      "canonicalTitle": "Market Structure Lab — What It Is",
+      "officialCompetencies": [
+        "CHART_STRUCTURE"
+      ],
+      "featureId": "INTERNAL_SITE_12",
+      "featureName": "Market Structure Lab",
+      "sourceGroup": "market_structure",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate the chart's completed-candle structure overlays",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 46,
+      "labId": "SITE-046",
+      "canonicalTitle": "Market Structure Lab — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "CHART_STRUCTURE"
+      ],
+      "featureId": "INTERNAL_SITE_12",
+      "featureName": "Market Structure Lab",
+      "sourceGroup": "market_structure",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain higher-high/lower-low evidence and observation-window boundaries",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 47,
+      "labId": "SITE-047",
+      "canonicalTitle": "Market Structure Lab — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "CHART_STRUCTURE"
+      ],
+      "featureId": "INTERNAL_SITE_12",
+      "featureName": "Market Structure Lab",
+      "sourceGroup": "market_structure",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Compare a fictional four-swing HH/HL example against a mixed sequence",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 48,
+      "labId": "SITE-048",
+      "canonicalTitle": "Market Structure Lab — Failure Modes & Review",
+      "officialCompetencies": [
+        "CHART_STRUCTURE",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_12",
+      "featureName": "Market Structure Lab",
+      "sourceGroup": "market_structure",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Prevent a signal from using post-decision swing points or future candles",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 49,
+      "labId": "SITE-049",
+      "canonicalTitle": "Multi-Timeframe Synchronizer — What It Is",
+      "officialCompetencies": [
+        "MULTI_TIMEFRAME"
+      ],
+      "featureId": "INTERNAL_SITE_13",
+      "featureName": "Multi-Timeframe Synchronizer",
+      "sourceGroup": "multi_timeframe",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate interval/timeframe controls on a chart surface",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 50,
+      "labId": "SITE-050",
+      "canonicalTitle": "Multi-Timeframe Synchronizer — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MULTI_TIMEFRAME"
+      ],
+      "featureId": "INTERNAL_SITE_13",
+      "featureName": "Multi-Timeframe Synchronizer",
+      "sourceGroup": "multi_timeframe",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why one-minute compression does not preserve intrabar ordering",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 51,
+      "labId": "SITE-051",
+      "canonicalTitle": "Multi-Timeframe Synchronizer — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MULTI_TIMEFRAME"
+      ],
+      "featureId": "INTERNAL_SITE_13",
+      "featureName": "Multi-Timeframe Synchronizer",
+      "sourceGroup": "multi_timeframe",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Compare fictional 1-, 3- and 5-minute aggregation over the same history",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 52,
+      "labId": "SITE-052",
+      "canonicalTitle": "Multi-Timeframe Synchronizer — Failure Modes & Review",
+      "officialCompetencies": [
+        "MULTI_TIMEFRAME",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_13",
+      "featureName": "Multi-Timeframe Synchronizer",
+      "sourceGroup": "multi_timeframe",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/crownlight-echarts-replay-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Preserve timezone and right-hand blank future buffer without lookahead",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 53,
+      "labId": "SITE-053",
+      "canonicalTitle": "Risk & Position Sizing Laboratory — What It Is",
+      "officialCompetencies": [
+        "POSITION_SIZING"
+      ],
+      "featureId": "INTERNAL_SITE_14",
+      "featureName": "Risk & Position Sizing Laboratory",
+      "sourceGroup": "position_sizing",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/learning-quant-studies-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Identify entry, stop and intended risk-per-share inputs",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 54,
+      "labId": "SITE-054",
+      "canonicalTitle": "Risk & Position Sizing Laboratory — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "POSITION_SIZING"
+      ],
+      "featureId": "INTERNAL_SITE_14",
+      "featureName": "Risk & Position Sizing Laboratory",
+      "sourceGroup": "position_sizing",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/learning-quant-studies-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why stop distance is planned risk rather than realized fill risk",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 55,
+      "labId": "SITE-055",
+      "canonicalTitle": "Risk & Position Sizing Laboratory — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "POSITION_SIZING"
+      ],
+      "featureId": "INTERNAL_SITE_14",
+      "featureName": "Risk & Position Sizing Laboratory",
+      "sourceGroup": "position_sizing",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/learning-quant-studies-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Compute a fictional position size including slippage reserve",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 56,
+      "labId": "SITE-056",
+      "canonicalTitle": "Risk & Position Sizing Laboratory — Failure Modes & Review",
+      "officialCompetencies": [
+        "POSITION_SIZING",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_14",
+      "featureName": "Risk & Position Sizing Laboratory",
+      "sourceGroup": "position_sizing",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/learning-quant-studies-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Block invalid zero-distance stops, negative capital and unsafe cross-account writes",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 57,
+      "labId": "SITE-057",
+      "canonicalTitle": "Execution Laboratory — What It Is",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_15",
+      "featureName": "Execution Laboratory",
+      "sourceGroup": "execution_lab",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/simulator.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate simulated order-selection and execution controls",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 58,
+      "labId": "SITE-058",
+      "canonicalTitle": "Execution Laboratory — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_15",
+      "featureName": "Execution Laboratory",
+      "sourceGroup": "execution_lab",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/simulator.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain market/limit order uncertainty and potential partial fills",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 59,
+      "labId": "SITE-059",
+      "canonicalTitle": "Execution Laboratory — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_15",
+      "featureName": "Execution Laboratory",
+      "sourceGroup": "execution_lab",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/simulator.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Practice a fictional order-state transition without submitting live trade",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 60,
+      "labId": "SITE-060",
+      "canonicalTitle": "Execution Laboratory — Failure Modes & Review",
+      "officialCompetencies": [
+        "ORDER_SELECTION",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_15",
+      "featureName": "Execution Laboratory",
+      "sourceGroup": "execution_lab",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/simulator.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject stale unauthorized order updates and reconcile partial fills",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 61,
+      "labId": "SITE-061",
+      "canonicalTitle": "Liquidity & Spread Laboratory — What It Is",
+      "officialCompetencies": [
+        "SLIPPAGE_SPREAD"
+      ],
+      "featureId": "INTERNAL_SITE_16",
+      "featureName": "Liquidity & Spread Laboratory",
+      "sourceGroup": "liquidity_spread",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate displayed bid, ask, midpoint and spread definitions",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 62,
+      "labId": "SITE-062",
+      "canonicalTitle": "Liquidity & Spread Laboratory — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "SLIPPAGE_SPREAD"
+      ],
+      "featureId": "INTERNAL_SITE_16",
+      "featureName": "Liquidity & Spread Laboratory",
+      "sourceGroup": "liquidity_spread",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why a quote or displayed size is not guaranteed execution",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 63,
+      "labId": "SITE-063",
+      "canonicalTitle": "Liquidity & Spread Laboratory — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "SLIPPAGE_SPREAD"
+      ],
+      "featureId": "INTERNAL_SITE_16",
+      "featureName": "Liquidity & Spread Laboratory",
+      "sourceGroup": "liquidity_spread",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Compare two fictional quoted spreads with identical last-trade price",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 64,
+      "labId": "SITE-064",
+      "canonicalTitle": "Liquidity & Spread Laboratory — Failure Modes & Review",
+      "officialCompetencies": [
+        "SLIPPAGE_SPREAD",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_16",
+      "featureName": "Liquidity & Spread Laboratory",
+      "sourceGroup": "liquidity_spread",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Treat missing quotes or halted markets as UNKNOWN rather than guaranteed liquidity",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 65,
+      "labId": "SITE-065",
+      "canonicalTitle": "Order Flow & Tape Laboratory — What It Is",
+      "officialCompetencies": [
+        "TAPE_READING"
+      ],
+      "featureId": "INTERNAL_SITE_17",
+      "featureName": "Order Flow & Tape Laboratory",
+      "sourceGroup": "orderflow_tape",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate source labels for time-and-sales or order-flow teaching",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 66,
+      "labId": "SITE-066",
+      "canonicalTitle": "Order Flow & Tape Laboratory — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "TAPE_READING"
+      ],
+      "featureId": "INTERNAL_SITE_17",
+      "featureName": "Order Flow & Tape Laboratory",
+      "sourceGroup": "orderflow_tape",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain why quote depth cannot reveal a participant's identity or intent",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 67,
+      "labId": "SITE-067",
+      "canonicalTitle": "Order Flow & Tape Laboratory — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "TAPE_READING"
+      ],
+      "featureId": "INTERNAL_SITE_17",
+      "featureName": "Order Flow & Tape Laboratory",
+      "sourceGroup": "orderflow_tape",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Walk through a fictional order-book/tape snapshot with explicit venue scope",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 68,
+      "labId": "SITE-068",
+      "canonicalTitle": "Order Flow & Tape Laboratory — Failure Modes & Review",
+      "officialCompetencies": [
+        "TAPE_READING",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_17",
+      "featureName": "Order Flow & Tape Laboratory",
+      "sourceGroup": "orderflow_tape",
+      "representativeExistingRoute": "advanced-tool.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Do not display unlicensed Level II/trade-print data or raw provider credentials",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 69,
+      "labId": "SITE-069",
+      "canonicalTitle": "Strategy Validation — What It Is",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_18",
+      "featureName": "Strategy Validation",
+      "sourceGroup": "strategy_validation",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-evidence-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate research and journal performance summaries",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 70,
+      "labId": "SITE-070",
+      "canonicalTitle": "Strategy Validation — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_18",
+      "featureName": "Strategy Validation",
+      "sourceGroup": "strategy_validation",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-evidence-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain in-sample selection, overfitting and outcome uncertainty",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 71,
+      "labId": "SITE-071",
+      "canonicalTitle": "Strategy Validation — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_18",
+      "featureName": "Strategy Validation",
+      "sourceGroup": "strategy_validation",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-evidence-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Compare fictional train and embargo/holdout windows without data leakage",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 72,
+      "labId": "SITE-072",
+      "canonicalTitle": "Strategy Validation — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_18",
+      "featureName": "Strategy Validation",
+      "sourceGroup": "strategy_validation",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-evidence-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject made-up strategy performance and official grading from simulations",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 73,
+      "labId": "SITE-073",
+      "canonicalTitle": "News & Source Verification — What It Is",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS"
+      ],
+      "featureId": "INTERNAL_SITE_19",
+      "featureName": "News & Source Verification",
+      "sourceGroup": "source_verification",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/watchlist-sec-research-v1.js",
+        "functions/api/sec-issuer-research-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate SEC and source-verification entry points",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 74,
+      "labId": "SITE-074",
+      "canonicalTitle": "News & Source Verification — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS"
+      ],
+      "featureId": "INTERNAL_SITE_19",
+      "featureName": "News & Source Verification",
+      "sourceGroup": "source_verification",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/watchlist-sec-research-v1.js",
+        "functions/api/sec-issuer-research-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain source hierarchy and exact event timestamp requirements",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 75,
+      "labId": "SITE-075",
+      "canonicalTitle": "News & Source Verification — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS"
+      ],
+      "featureId": "INTERNAL_SITE_19",
+      "featureName": "News & Source Verification",
+      "sourceGroup": "source_verification",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/watchlist-sec-research-v1.js",
+        "functions/api/sec-issuer-research-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Open a fictional watchlist catalyst with a cited primary-source candidate",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 76,
+      "labId": "SITE-076",
+      "canonicalTitle": "News & Source Verification — Failure Modes & Review",
+      "officialCompetencies": [
+        "CATALYST_ANALYSIS",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_19",
+      "featureName": "News & Source Verification",
+      "sourceGroup": "source_verification",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/watchlist-sec-research-v1.js",
+        "functions/api/sec-issuer-research-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Mark conflicts unresolved instead of inventing a verified source",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 77,
+      "labId": "SITE-077",
+      "canonicalTitle": "Corporate Actions & Adjustments — What It Is",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_20",
+      "featureName": "Corporate Actions & Adjustments",
+      "sourceGroup": "corporate_actions",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate issuer filing and corporate-action research references",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 78,
+      "labId": "SITE-078",
+      "canonicalTitle": "Corporate Actions & Adjustments — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_20",
+      "featureName": "Corporate Actions & Adjustments",
+      "sourceGroup": "corporate_actions",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain split-adjusted versus unadjusted price/volume comparisons",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 79,
+      "labId": "SITE-079",
+      "canonicalTitle": "Corporate Actions & Adjustments — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "FLOAT_SUPPLY"
+      ],
+      "featureId": "INTERNAL_SITE_20",
+      "featureName": "Corporate Actions & Adjustments",
+      "sourceGroup": "corporate_actions",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Describe fictional reverse-split effects on price and share quantities",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 80,
+      "labId": "SITE-080",
+      "canonicalTitle": "Corporate Actions & Adjustments — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_20",
+      "featureName": "Corporate Actions & Adjustments",
+      "sourceGroup": "corporate_actions",
+      "representativeExistingRoute": "free-watchlist.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/market-research-engine-v014145.js",
+        "assets/js/watchlist-sec-research-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Reject unsupported float calculations with missing action-effective dates",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 81,
+      "labId": "SITE-081",
+      "canonicalTitle": "Extended-Hours Context — What It Is",
+      "officialCompetencies": [
+        "SQUEEZE_CONTEXT"
+      ],
+      "featureId": "INTERNAL_SITE_21",
+      "featureName": "Extended-Hours Context",
+      "sourceGroup": "extended_hours",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate premarket, regular and after-hours session labels",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 82,
+      "labId": "SITE-082",
+      "canonicalTitle": "Extended-Hours Context — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "SQUEEZE_CONTEXT"
+      ],
+      "featureId": "INTERNAL_SITE_21",
+      "featureName": "Extended-Hours Context",
+      "sourceGroup": "extended_hours",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain exchange hours versus broker-specific execution availability",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 83,
+      "labId": "SITE-083",
+      "canonicalTitle": "Extended-Hours Context — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "SQUEEZE_CONTEXT"
+      ],
+      "featureId": "INTERNAL_SITE_21",
+      "featureName": "Extended-Hours Context",
+      "sourceGroup": "extended_hours",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Replay a fictional premarket-to-regular transition with explicit timezone",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 84,
+      "labId": "SITE-084",
+      "canonicalTitle": "Extended-Hours Context — Failure Modes & Review",
+      "officialCompetencies": [
+        "SQUEEZE_CONTEXT",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_21",
+      "featureName": "Extended-Hours Context",
+      "sourceGroup": "extended_hours",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/historical-replay-classroom-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Handle missing extended-hours bars and events without retroactive insertion",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 85,
+      "labId": "SITE-085",
+      "canonicalTitle": "Halts & Limit Up-Limit Down — What It Is",
+      "officialCompetencies": [
+        "HALTS_LULD"
+      ],
+      "featureId": "INTERNAL_SITE_22",
+      "featureName": "Halts & Limit Up-Limit Down",
+      "sourceGroup": "luld_halts",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/historical-replay-classroom-v1.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate halt/LULD annotations or source warning states",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 86,
+      "labId": "SITE-086",
+      "canonicalTitle": "Halts & Limit Up-Limit Down — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "HALTS_LULD"
+      ],
+      "featureId": "INTERNAL_SITE_22",
+      "featureName": "Halts & Limit Up-Limit Down",
+      "sourceGroup": "luld_halts",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/historical-replay-classroom-v1.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain that halts affect order execution and reopening price discovery",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 87,
+      "labId": "SITE-087",
+      "canonicalTitle": "Halts & Limit Up-Limit Down — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "HALTS_LULD"
+      ],
+      "featureId": "INTERNAL_SITE_22",
+      "featureName": "Halts & Limit Up-Limit Down",
+      "sourceGroup": "luld_halts",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/historical-replay-classroom-v1.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Use a fictional halted/reopened sequence with no executable halted trades",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 88,
+      "labId": "SITE-088",
+      "canonicalTitle": "Halts & Limit Up-Limit Down — Failure Modes & Review",
+      "officialCompetencies": [
+        "HALTS_LULD",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_22",
+      "featureName": "Halts & Limit Up-Limit Down",
+      "sourceGroup": "luld_halts",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/historical-replay-classroom-v1.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Block fill or price assertions during unknown halt-status intervals",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 89,
+      "labId": "SITE-089",
+      "canonicalTitle": "Opening, Closing & Reopening Auctions — What It Is",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_23",
+      "featureName": "Opening, Closing & Reopening Auctions",
+      "sourceGroup": "auctions",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate opening/closing/reopening auction research displays",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 90,
+      "labId": "SITE-090",
+      "canonicalTitle": "Opening, Closing & Reopening Auctions — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_23",
+      "featureName": "Opening, Closing & Reopening Auctions",
+      "sourceGroup": "auctions",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain indicative auction information versus executed trade reports",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 91,
+      "labId": "SITE-091",
+      "canonicalTitle": "Opening, Closing & Reopening Auctions — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_23",
+      "featureName": "Opening, Closing & Reopening Auctions",
+      "sourceGroup": "auctions",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Review fictional auction updates against regular-trading observations",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 92,
+      "labId": "SITE-092",
+      "canonicalTitle": "Opening, Closing & Reopening Auctions — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_23",
+      "featureName": "Opening, Closing & Reopening Auctions",
+      "sourceGroup": "auctions",
+      "representativeExistingRoute": "verified-replay.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/crownlight-chart-studio-v2.js",
+        "assets/js/lab-player.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Do not convert indicative prices into guaranteed executions",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 93,
+      "labId": "SITE-093",
+      "canonicalTitle": "Order Types & Execution Control — What It Is",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_24",
+      "featureName": "Order Types & Execution Control",
+      "sourceGroup": "order_types_execution",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate market, limit and stop order instructions",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 94,
+      "labId": "SITE-094",
+      "canonicalTitle": "Order Types & Execution Control — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_24",
+      "featureName": "Order Types & Execution Control",
+      "sourceGroup": "order_types_execution",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain adverse selection, slippage and order validity/expiration",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 95,
+      "labId": "SITE-095",
+      "canonicalTitle": "Order Types & Execution Control — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "ORDER_SELECTION"
+      ],
+      "featureId": "INTERNAL_SITE_24",
+      "featureName": "Order Types & Execution Control",
+      "sourceGroup": "order_types_execution",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Practice a fictional partial fill, cancel and remaining-quantity reconciliation",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 96,
+      "labId": "SITE-096",
+      "canonicalTitle": "Order Types & Execution Control — Failure Modes & Review",
+      "officialCompetencies": [
+        "ORDER_SELECTION",
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_24",
+      "featureName": "Order Types & Execution Control",
+      "sourceGroup": "order_types_execution",
+      "representativeExistingRoute": "simulator.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/trade-plan-order-lifecycle-v1.js",
+        "assets/js/advanced-trade-plan-v1.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Prevent a cancelled/expired simulation from creating a live order",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 97,
+      "labId": "SITE-097",
+      "canonicalTitle": "Trade Review & Analytics — What It Is",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_25",
+      "featureName": "Trade Review & Analytics",
+      "sourceGroup": "trade_review",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-weekly-v2.js"
+      ],
+      "activityType": "Understand",
+      "genuineMemberAcceptanceScenario": "Locate trading journal and analytics review records",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 98,
+      "labId": "SITE-098",
+      "canonicalTitle": "Trade Review & Analytics — Why It Matters & When to Use It",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_25",
+      "featureName": "Trade Review & Analytics",
+      "sourceGroup": "trade_review",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-weekly-v2.js"
+      ],
+      "activityType": "Recognize",
+      "genuineMemberAcceptanceScenario": "Explain the difference between process quality, MFE/MAE and P/L",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 99,
+      "labId": "SITE-099",
+      "canonicalTitle": "Trade Review & Analytics — Step-by-Step Workflow",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_25",
+      "featureName": "Trade Review & Analytics",
+      "sourceGroup": "trade_review",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-weekly-v2.js"
+      ],
+      "activityType": "Apply",
+      "genuineMemberAcceptanceScenario": "Reopen a fictional record with consistent timestamps and fees",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    },
+    {
+      "ordinal": 100,
+      "labId": "SITE-100",
+      "canonicalTitle": "Trade Review & Analytics — Failure Modes & Review",
+      "officialCompetencies": [
+        "MFE_MAE_REVIEW"
+      ],
+      "featureId": "INTERNAL_SITE_25",
+      "featureName": "Trade Review & Analytics",
+      "sourceGroup": "trade_review",
+      "representativeExistingRoute": "journal-analytics.html",
+      "routeClassification": "EXISTING_CANDIDATE_PAGE_NOT_DEDICATED_FEATURE_PROOF",
+      "javascriptEvidencePaths": [
+        "assets/js/journal-analytics.js",
+        "assets/js/journal-weekly-v2.js"
+      ],
+      "activityType": "Failure Modes & Review",
+      "genuineMemberAcceptanceScenario": "Deny another account's review and avoid claiming predictive performance",
+      "requiredTestIdentities": [
+        "James_Test_A",
+        "James_Test_B"
+      ],
+      "identityNames": "QA_PLACEHOLDERS_NOT_ACTIVE_ACCOUNT_CREDENTIALS",
+      "requiresSavedProgress": true,
+      "requiresCrossAccountDeny": true,
+      "requiresKeyboardAndMobile": true,
+      "requiresScreenReader": true,
+      "sourceCodeOnlyValidated": false,
+      "genuineBrowserTestPassed": false,
+      "actualTwoAccountTestPassed": false,
+      "releaseAccepted": false,
+      "ownerAuthoredLessonsPreserved": true,
+      "rightsAndPrivateDataGate": "OPEN"
+    }
+  ]
+}
