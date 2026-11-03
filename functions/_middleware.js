@@ -13,6 +13,41 @@ const STANDALONE_VISUAL_ROUTES=new Set([
 // v20261103: the v0.13 copy-removal patch is ONLY for historical commerce/account shells.
 // Learning engines, Labs, Boot Camps, Chart Studio and Tutor own their rendered content.
 const LEGACY_COPY_FIX_ROUTES=/^\/(?:$|(?:index|membership|store|dashboard|account|profile|settings|access|founding600|my-purchases|admin)(?:\.html)?$)/;
+
+// Runtime ownership consolidation: maintain a single active renderer per page.
+// Keep authorization, navigation, presence, learning and service-worker gates.
+const TEACHING_RUNTIME_ROUTES=new Set([
+ '/labs','/lab-player','/site-lab','/lab-samples','/lab-v32-member',
+ '/lab-v32-reference','/bootcamp','/bootcamp-academy','/simulator',
+ '/journal','/journal-entry','/journal-analytics','/market-tutor',
+ '/ondemand-training','/verified-replay','/free-watchlist',
+ '/free-foundations-challenge','/chart-reveal-practice','/candle-practice',
+ '/assessments','/compare','/review-queue','/skills','/training-editor'
+]);
+const LEGACY_SHELL_ROUTES=new Set([
+ '/','/index','/store','/admin','/dashboard','/market-commons'
+]);
+const LEGACY_REDIRECT_ROUTES=new Set([
+ '/account','/access','/settings','/data-connections','/forum',
+ '/signin','/create-account'
+]);
+function canonicalRuntimeRoute(path){
+ const normalized=String(path||'/').toLowerCase().replace(/\.html$/,'').replace(/\/+$/,'');
+ return normalized||'/';
+}
+function shouldInjectLegacyModule(file,path){
+ const route=canonicalRuntimeRoute(path);
+ if(file==='live-fixes.js')return LEGACY_COPY_FIX_ROUTES.test(String(path||'/').toLowerCase());
+ if(file==='dashboard-ui-legacy.js')return route==='/dashboard';
+ if(file==='production.js')return LEGACY_REDIRECT_ROUTES.has(route);
+ if(file==='production-completion.js')return LEGACY_SHELL_ROUTES.has(route);
+ if(file==='frontend-freeze.js')return !TEACHING_RUNTIME_ROUTES.has(route);
+ return true;
+}
+function shouldInjectLegacyStylesheet(file,path){
+ if(file==='dashboard.css')return canonicalRuntimeRoute(path)==='/dashboard';
+ return true;
+}
 const JSON_HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'no-store'};
 const reject=(message,status=403)=>new Response(JSON.stringify({ok:false,error:message}),{status,headers:JSON_HEADERS});
 const clean=s=>String(s||'').trim();
@@ -344,7 +379,9 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
           'platform.css','production.css','frontend-complete.css',
           'production-completion.css','dashboard.css',
           'frontend-freeze.css','polish.css','mobile-auth.css','learning.css','layout-integrity.css'
-        ])el.append('<link rel="stylesheet" href="/assets/css/'+file+(file==='layout-integrity.css'?'?v=graphics-20261026':'')+'">',{html:true});
+        ]){if(!shouldInjectLegacyStylesheet(file,path))continue;
+          el.append('<link rel="stylesheet" href="/assets/css/'+file+(file==='layout-integrity.css'?'?v=graphics-20261026':'')+'">',{html:true});
+        }
         // Preserve application stack. New auth boundary owns final visibility, staff authorization, and logout.
         for(const file of [
           'navigation.js','production.js',
@@ -353,7 +390,7 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
           'frontend-freeze.js'
         ]){
           // Never execute the destructive legacy copy-cleanup on modern teaching routes.
-          if(file==='live-fixes.js'&&!LEGACY_COPY_FIX_ROUTES.test(path))continue;
+          if(!shouldInjectLegacyModule(file,path))continue;
           el.append('<script defer src="/assets/js/'+file+(file==='dashboard-ui-legacy.js'?'?v=books-download-dashboard-20261029':'')+'"></script>',{html:true});
         }
         if(path==='/labs.html'||path==='/labs')el.append('<script defer src="/assets/js/lab-registry.js"></script>',{html:true});

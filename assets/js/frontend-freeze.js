@@ -6,7 +6,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function sb(){for(let i=0;i<50;i++){if(typeof window.getSupabaseClient==='function'){try{return await window.getSupabaseClient()}catch{}}await sleep(80)}return null}
 async function session(){try{return (await (await sb())?.auth.getSession())?.data?.session||null}catch{return null}}
 function repairLegacyLinks(){
-  qa('a[href]').forEach(a=>{
+  qa('header a[href],footer a[href],.gu-member-side-menu a[href]').forEach(a=>{
     const raw=(a.getAttribute('href')||'').trim(),low=raw.toLowerCase();
     if(low==='forum.html'||low==='/forum.html'||low==='forum')a.setAttribute('href','market-commons.html');
     if(/^account(?:\.html)?(?:\?|$)/i.test(raw)){
@@ -22,6 +22,9 @@ function repairLegacyLinks(){
   });
 }
 async function stableFooter(){
+  // The session-aware canonical navigation module owns footer updates.
+  // This is a fallback only for pages that do not load that module.
+  if(q('script[src*="/assets/js/navigation.js"]'))return;
   const footer=q('footer.footer,footer');if(!footer)return;
   if(footer.dataset.v121==='1'&&footer.dataset.guLegalFooter==='1')return;
   const ses=await session(),signed=!!ses;
@@ -103,6 +106,16 @@ document.addEventListener('DOMContentLoaded',async()=>{
   acceptanceCleanup();
   await Promise.allSettled([stableFooter(),homeBooks(),adminGuideEditor()]);
   adminBuild();
-  new MutationObserver(acceptanceCleanup).observe(document.documentElement,{childList:true,subtree:true});
+  // Only navigation and alert insertions need a compatibility pass. A global
+  // full-document scan per candle, chart redraw or lesson update is unnecessary.
+  let pendingCleanup;
+  const relevant='header,footer,nav,a[href],.gu-member-side-menu,.fe-notify-count,[data-notification-count]';
+  new MutationObserver(records=>{
+    const changed=records.some(rec=>Array.from(rec.addedNodes||[]).some(node=>
+      node.nodeType===1&&(node.matches?.(relevant)||node.querySelector?.(relevant))));
+    if(!changed)return;
+    clearTimeout(pendingCleanup);
+    pendingCleanup=setTimeout(acceptanceCleanup,160);
+  }).observe(document.body,{childList:true,subtree:true});
 });
 })();

@@ -82,3 +82,14 @@ body[data-fe-sim-preset="review"] .sim-layout{gap:1.25rem}
 .gu-alerts-empty{color:#b9cede;font-size:.9rem}
 .gu-alerts-status{font-size:.82rem;color:#eac65e;margin:.5rem 0}
 
+
+
+/* Runtime ownership: layout drag is available only from an explicit handle.
+ * In particular, the chart surface must keep its normal mouse/pointer gestures. */
+.fe-sim-move-controls,.fe-widget-sort-controls{display:flex;align-items:center;justify-content:flex-end;gap:.35rem;padding:.35rem 0;flex-wrap:wrap}
+.fe-sim-move-controls[hidden],.fe-widget-sort-controls[hidden]{display:none!important}
+.fe-sim-move-controls button,.fe-widget-sort-controls button{font:inherit;font-size:.78rem;border:1px solid var(--fe-line,#36576a);color:var(--fe-text,#f5f8fb);background:var(--fe-panel,#0b2740);padding:.3rem .5rem;border-radius:6px;cursor:pointer}
+.fe-sim-move-handle,.fe-widget-move-handle{cursor:grab!important;touch-action:manipulation}
+.fe-sim-move-handle:active,.fe-widget-move-handle:active{cursor:grabbing!important}
+.sim-layout.fe-sortable>*{outline:1px dashed var(--fe-line2,#386c89);outline-offset:2px}
+.fe-sim-move-controls button:focus-visible,.fe-widget-sort-controls button:focus-visible{outline:2px solid var(--fe-info,#72b8ea);outline-offset:2px}

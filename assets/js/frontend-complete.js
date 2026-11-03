@@ -108,7 +108,41 @@ async function enhanceOverview(ov){if(qs('#fe-overview-extras',ov))return;const 
  const btn=qs('.fe-dashboard-customize',x);btn.onclick=()=>customizeDashboard(ov);restoreDashboardOrder(ov)}
 function widgetCandidates(ov){return qsa(':scope > section,:scope > article,:scope > div',ov).filter(x=>x.id!=='fe-overview-extras'&&!x.classList.contains('v13-member-tabs'))}
 function restoreDashboardOrder(ov){const order=local.get('dashboard-order',[]),items=widgetCandidates(ov);if(!order.length)return;const map=new Map(items.map((x,i)=>[x.dataset.feWidget||(x.dataset.feWidget=`w${i}-${(x.querySelector('h2,h3')?.textContent||'widget').trim().slice(0,30)}`),x]));order.forEach(k=>map.get(k)&&ov.appendChild(map.get(k)))}
-function customizeDashboard(ov){const items=widgetCandidates(ov);items.forEach((x,i)=>{x.classList.add('fe-dashboard-widget');x.draggable=true;x.dataset.feWidget=x.dataset.feWidget||`w${i}-${(x.querySelector('h2,h3')?.textContent||'widget').trim().slice(0,30)}`});ov.classList.add('fe-sortable');let drag=null;items.forEach(x=>{x.ondragstart=()=>{drag=x;x.classList.add('fe-dragging')};x.ondragend=()=>{x.classList.remove('fe-dragging');qsa('.fe-drop-target',ov).forEach(y=>y.classList.remove('fe-drop-target'));local.set('dashboard-order',widgetCandidates(ov).map(y=>y.dataset.feWidget));toast('Dashboard layout saved.','ok')};x.ondragover=e=>{e.preventDefault();if(x!==drag)x.classList.add('fe-drop-target')};x.ondragleave=()=>x.classList.remove('fe-drop-target');x.ondrop=e=>{e.preventDefault();x.classList.remove('fe-drop-target');if(drag&&x!==drag){const r=x.getBoundingClientRect();ov.insertBefore(drag,e.clientY<r.top+r.height/2?x:x.nextSibling)}}});toast('Customization mode: drag dashboard sections to reorder them.','info',6500)}
+function customizeDashboard(ov){
+ const items=widgetCandidates(ov);ov.classList.add('fe-sortable');
+ const save=()=>local.set('dashboard-order',widgetCandidates(ov).map(y=>y.dataset.feWidget));
+ let dragged=null;
+ items.forEach((panel,index)=>{
+  panel.classList.add('fe-dashboard-widget');
+  panel.draggable=false;
+  panel.dataset.feWidget=panel.dataset.feWidget||'w'+index+'-'+(panel.querySelector('h2,h3')?.textContent||'widget').trim().slice(0,30);
+  let controls=qs(':scope > .fe-widget-sort-controls',panel);
+  if(!controls){
+   controls=document.createElement('div');controls.className='fe-widget-sort-controls';
+   controls.innerHTML='<button type="button" class="fe-widget-move-handle" draggable="true" aria-label="Drag to reorder dashboard section">Move</button><button type="button" data-shift="-1" aria-label="Move dashboard section earlier">Up</button><button type="button" data-shift="1" aria-label="Move dashboard section later">Down</button>';
+   panel.prepend(controls);
+   const handle=qs('.fe-widget-move-handle',controls);
+   handle.addEventListener('dragstart',event=>{dragged=panel;event.dataTransfer?.setData('text/plain','dashboard-widget');});
+   handle.addEventListener('dragend',()=>{dragged=null;panel.classList.remove('fe-dragging');save()});
+   qsa('[data-shift]',controls).forEach(button=>button.onclick=()=>{
+    const siblings=widgetCandidates(ov),at=siblings.indexOf(panel),target=siblings[at+Number(button.dataset.shift)];
+    if(!target)return;
+    ov.insertBefore(panel,Number(button.dataset.shift)<0?target:target.nextSibling);
+    save();
+   });
+  }
+  // Existing controls, text selections and chart gestures never initiate sorting.
+  panel.ondragstart=event=>{if(event.target!==qs('.fe-widget-move-handle',panel)){event.preventDefault();return}dragged=panel;panel.classList.add('fe-dragging')};
+  panel.ondragend=()=>{dragged=null;panel.classList.remove('fe-dragging');qsa('.fe-drop-target',ov).forEach(el=>el.classList.remove('fe-drop-target'));save()};
+  panel.ondragover=event=>{if(!dragged)return;event.preventDefault();if(panel!==dragged)panel.classList.add('fe-drop-target')};
+  panel.ondragleave=()=>panel.classList.remove('fe-drop-target');
+  panel.ondrop=event=>{if(!dragged)return;event.preventDefault();panel.classList.remove('fe-drop-target');
+   if(panel!==dragged){const rect=panel.getBoundingClientRect();ov.insertBefore(dragged,event.clientY<rect.top+rect.height/2?panel:panel.nextSibling);save()}
+   dragged=null;
+  };
+ });
+ toast('Customization mode: use Move handles or Up/Down buttons.','info',6500);
+}
 async function renderBilling(host){if(!host||host.dataset.loaded)return;host.dataset.loaded='1';host.innerHTML='<div class="fe-state"><h3>Loading billing history…</h3></div>';try{const sb=await getSB(),ses=await getSession();if(!sb||!ses)throw new Error('Sign in required.');const [subs,orders]=await Promise.all([sb.from('site_subscriptions').select('*').eq('user_id',ses.user.id).order('created_at',{ascending:false}),sb.from('site_orders').select('*').eq('user_id',ses.user.id).order('created_at',{ascending:false}).limit(30)]);host.innerHTML=`<div class="v13-section-head"><div><div class="eyebrow">Billing</div><h2>Purchases & Billing</h2><p>Membership, renewal state, website orders, and receipts.</p></div><a class="btn secondary" href="membership.html">Change Membership</a></div><div class="fe-billing-grid"><article class="v13-card"><h3>Subscriptions</h3>${(subs.data||[]).length?(subs.data||[]).map(s=>`<div class="fe-invoice-row"><span><strong>${esc(s.plan_code||'Membership')}</strong><small style="display:block">${esc(s.status||'')}</small></span><span>${s.current_period_end?new Date(s.current_period_end).toLocaleDateString():'—'}</span></div>`).join(''):'<div class="fe-state">No direct-site subscription history.</div>'}</article><article class="v13-card"><h3>Orders & Receipts</h3>${(orders.data||[]).length?(orders.data||[]).map(o=>`<div class="fe-invoice-row"><span><strong>${esc(o.order_number||`Order ${o.id}`)}</strong><small style="display:block">${new Date(o.created_at).toLocaleDateString()}</small></span><span>${Number(o.total_cents||0)/100?`$${(Number(o.total_cents||0)/100).toFixed(2)}`:esc(o.status||'')}</span></div>`).join(''):'<div class="fe-state">No website purchases yet.</div>'}</article></div><article class="v13-card"><h3>Changing membership</h3><p>Before a plan change is confirmed, the checkout flow will show what features change, when the change takes effect, renewal terms, and any provider-calculated proration.</p><button class="btn secondary" id="fe-compare-plans">Compare membership options</button></article>`;qs('#fe-compare-plans',host).onclick=()=>location.href='membership.html'}catch(e){host.innerHTML=`<div class="fe-state error"><h3>Billing data unavailable</h3><p>${esc(e.message)}</p></div>`}}
 async function renderActivity(host){if(!host||host.dataset.loaded)return;host.dataset.loaded='1';host.innerHTML='<div class="fe-state">Loading activity…</div>';let rows=[];try{rows=(await uiApi('activity')).activity||[]}catch{rows=local.get('recent',[]).map(x=>({title:x.title,href:x.href,created_at:x.at,activity_type:'page_view'}))}host.innerHTML=`<div class="v13-section-head"><div><div class="eyebrow">History</div><h2>Activity</h2><p>Recent learning, navigation, and account activity.</p></div><div class="actions"><button class="btn secondary" data-activity-csv>Export CSV</button><button class="btn secondary" data-activity-json>Export JSON</button><button class="btn secondary" onclick="window.print()">Print / Save PDF</button></div></div><div class="v13-card fe-timeline">${rows.length?rows.slice(0,50).map(r=>`<div class="fe-timeline-item"><span class="fe-timeline-dot"></span><div class="fe-timeline-body"><strong>${esc(r.title||r.activity_type)}</strong>${r.href?`<div><a href="${esc(r.href)}">Open</a></div>`:''}<time>${new Date(r.created_at||r.at).toLocaleString()}</time></div></div>`).join(''):'<div class="fe-state">Activity will appear as you use the platform.</div>'}</div>`;qs('[data-activity-csv]',host)?.addEventListener('click',()=>exportRows(rows,'csv','account-activity'));qs('[data-activity-json]',host)?.addEventListener('click',()=>exportRows(rows,'json','account-activity'))}
 function exportRows(rows,format,name){const safe=(rows||[]).map(r=>({type:r.activity_type||'',title:r.title||'',href:r.href||'',created_at:r.created_at||r.at||''}));let blob,ext;if(format==='csv'){const escCsv=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const csv=['type,title,href,created_at',...safe.map(r=>[r.type,r.title,r.href,r.created_at].map(escCsv).join(','))].join('\n');blob=new Blob([csv],{type:'text/csv;charset=utf-8'});ext='csv'}else{blob=new Blob([JSON.stringify(safe,null,2)],{type:'application/json'});ext='json'}const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=`${name}-${new Date().toISOString().slice(0,10)}.${ext}`;a.click();setTimeout(()=>URL.revokeObjectURL(u),500)}
@@ -164,7 +198,17 @@ function statusShell(){let s=qs('#fe-service-status');if(s)return;const menu=qs(
 async function showStatus(){let d=qs('#fe-status-dialog');if(!d){d=document.createElement('dialog');d.id='fe-status-dialog';d.className='fe-dialog';d.innerHTML='<div class="fe-dialog-head"><h2>Platform Status</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><div class="fe-service-grid"></div></div>';document.body.appendChild(d);qs('.fe-dialog-close',d).onclick=()=>d.close()}const host=qs('.fe-service-grid',d);host.innerHTML='<div class="fe-service">Checking services…</div>';d.showModal();const tests=[['Website',Promise.resolve(true)],['Authentication',getSession().then(()=>true).catch(()=>false)],['Platform data',getAccess().then(()=>true).catch(()=>false)],['Checkout endpoint',fetch('/api/checkout?health=1',{cache:'no-store'}).then(r=>r.status<500).catch(()=>false)]];const vals=await Promise.all(tests.map(async([n,p])=>[n,await p]));host.innerHTML=vals.map(([n,ok])=>`<div class="fe-service"><span>${esc(n)}</span><strong><span class="fe-status-dot ${ok?'ok':'warn'}"></span> ${ok?'Available':'Check required'}</strong></div>`).join('')}
 
 function printExport(){qsa('[data-print],.print-button').forEach(b=>b.addEventListener('click',()=>window.print()))}
-function globalShortcuts(){document.addEventListener('keydown',e=>{if(e.key==='?'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))showShortcuts();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&/\/(journal-entry|admin|lab-player)/.test(path)){const b=qs('#admin-dialog-save,#v11-modal-save,[type="submit"],button[data-save]');if(b){e.preventDefault();b.click()}}})}
+function globalShortcuts(){document.addEventListener('keydown',e=>{
+ if(e.key==='?'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)&&!document.activeElement?.isContentEditable)showShortcuts();
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&/\/(journal-entry|admin|lab-player)(?:\.html)?$/.test(path)){
+  // An arbitrary form submit can publish a grade, purchase or irreversible action.
+  // Ctrl+S is enabled only for clearly designated save/draft controls.
+  const selector=/\/admin(?:\.html)?$/.test(path)
+   ?'#admin-dialog-save,#v11-modal-save,button[data-save]'
+   :'button[data-save][type="button"],button[data-draft-save]';
+  const b=qs(selector);if(b&&!b.disabled){e.preventDefault();b.click()}
+ }
+})}
 function showShortcuts(){let d=qs('#fe-shortcuts');if(!d){d=document.createElement('dialog');d.id='fe-shortcuts';d.className='fe-dialog';d.innerHTML='<div class="fe-dialog-head"><h2>Keyboard shortcuts</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><div class="fe-shortcuts"><span>Search / command palette</span><kbd>Ctrl / Cmd + K</kbd><span>Open shortcut help</span><kbd>?</kbd><span>Save current form where supported</span><kbd>Ctrl / Cmd + S</kbd><span>Close dialog</span><kbd>Esc</kbd></div></div>';document.body.appendChild(d);qs('.fe-dialog-close',d).onclick=()=>d.close()}d.showModal()}
 
 async function loadRemotePrefs(){const s=await getSession();if(!s)return;try{const j=await uiApi('preferences');(j.preferences||[]).forEach(p=>{if(p.pref_key==='display'&&p.pref_value&&!window.SiteDisplay){local.set('display-prefs',p.pref_value);applyPrefs(p.pref_value)}if(p.pref_key==='onboarding'&&p.pref_value?.completed)local.set('onboarding-complete',true)})}catch{}}
@@ -175,7 +219,66 @@ function inventoryAdvanced(){const host=qs('#v12-inventory');if(!host||host.data
  // drag-and-drop reorder inside each inventory card
  qsa('.admin-card',host).forEach(card=>{let drag=null;qsa('.admin-list-row',card).forEach(row=>{if(!row.dataset.feInvId)return;row.addEventListener('dragstart',()=>{drag=row;row.classList.add('fe-dragging')});row.addEventListener('dragend',()=>{row.classList.remove('fe-dragging');qsa('.fe-drop-target',card).forEach(x=>x.classList.remove('fe-drop-target'))});row.addEventListener('dragover',e=>{e.preventDefault();if(row!==drag)row.classList.add('fe-drop-target')});row.addEventListener('dragleave',()=>row.classList.remove('fe-drop-target'));row.addEventListener('drop',async e=>{e.preventDefault();row.classList.remove('fe-drop-target');if(!drag||drag===row)return;const rect=row.getBoundingClientRect();row.parentNode.insertBefore(drag,e.clientY<rect.top+rect.height/2?row:row.nextSibling);const rows=qsa('.admin-list-row',card).filter(x=>x.dataset.feInvId);const type=rows[0]?.dataset.feInvType;if(type){try{await adminApi('inventory_reorder',{entity_type:type,ids:rows.map(x=>x.dataset.feInvId)});toast('Display order saved.','ok')}catch(err){toast(err.message,'bad')}}})})})}
 function adminPreviewButton(d){const actions=qs('.admin-dialog-actions',d);if(!actions||qs('[data-fe-preview]',actions))return;const b=document.createElement('button');b.type='button';b.className='btn secondary';b.dataset.fePreview='1';b.textContent='Preview';b.onclick=()=>{const grid=qs('.v11-form-grid,#admin-dialog-body',d);const vals={};qsa('[data-k]',grid).forEach(el=>vals[el.dataset.k]=el.type==='checkbox'?el.checked:el.value);let p=qs('#fe-admin-preview');if(!p){p=document.createElement('dialog');p.id='fe-admin-preview';p.className='fe-dialog';document.body.appendChild(p)}p.innerHTML=`<div class="fe-dialog-head"><h2>Preview</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><div class="eyebrow">${esc(vals.publication_status||vals.status||'Preview')}</div><h1>${esc(vals.title||vals.name||vals.short_title||'Untitled')}</h1><p>${esc(vals.description||vals.summary||vals.body||'No description entered.')}</p><div class="fe-product-meta-list"><div><strong>Active</strong><br>${vals.active===false?'No':'Yes'}</div><div><strong>Public</strong><br>${vals.public_visible===false?'No':'Yes'}</div></div></div>`;qs('.fe-dialog-close',p).onclick=()=>p.close();p.showModal()};actions.insertBefore(b,actions.firstChild)}
-function simulatorEnhance(){if(!/\/simulator(\.html)?$/.test(path))return;const main=qs('main .wrap,main');if(!main||qs('#fe-sim-workspace'))return;const h=qs('h1',main);const bar=document.createElement('section');bar.id='fe-sim-workspace';bar.className='v13-card';bar.innerHTML='<div class="v13-section-head"><div><div class="eyebrow">Workspace</div><h3>Simulator Layout & Presets</h3><p>Save a preferred learning/replay workspace without changing the historical data.</p></div><div class="actions"><label>Preset <select id="fe-sim-preset"><option value="learning">Learning</option><option value="replay">Replay</option><option value="tape">Tape Study</option><option value="multi">Multi-Timeframe</option><option value="review">Review</option><option value="mobile">Mobile</option></select></label><button class="btn secondary" id="fe-sim-layout">Edit layout</button></div></div>';h?.parentNode.insertBefore(bar,h.nextSibling);const sel=qs('#fe-sim-preset',bar),saved=local.get('sim-preset','learning');sel.value=saved;document.body.dataset.feSimPreset=saved;sel.onchange=()=>{local.set('sim-preset',sel.value);document.body.dataset.feSimPreset=sel.value;savePref('simulator',{preset:sel.value});toast(`${sel.options[sel.selectedIndex].text} workspace selected.`,'ok')};qs('#fe-sim-layout',bar).onclick=()=>{const layout=qs('.sim-layout');if(!layout){toast('Simulator panels are not loaded yet.','warn');return}layout.classList.toggle('fe-sortable');qsa(':scope > *',layout).forEach(x=>x.draggable=layout.classList.contains('fe-sortable'));toast(layout.classList.contains('fe-sortable')?'Layout edit enabled. Drag major simulator panels to reorder.':'Layout edit closed.','info')};const layout=qs('.sim-layout');if(layout){let drag=null;qsa(':scope > *',layout).forEach(x=>{x.addEventListener('dragstart',()=>drag=x);x.addEventListener('dragover',e=>e.preventDefault());x.addEventListener('drop',e=>{e.preventDefault();if(drag&&drag!==x){const r=x.getBoundingClientRect();layout.insertBefore(drag,e.clientY<r.top+r.height/2?x:x.nextSibling);local.set('sim-layout-order',qsa(':scope > *',layout).map(y=>y.className))}})})}}
+function simulatorEnhance(){
+ if(!/\/simulator(\.html)?$/.test(path))return;
+ const main=qs('main .wrap,main');if(!main||qs('#fe-sim-workspace'))return;
+ const h=qs('h1',main),bar=document.createElement('section');bar.id='fe-sim-workspace';bar.className='v13-card';
+ bar.innerHTML='<div class="v13-section-head"><div><div class="eyebrow">Workspace</div><h3>Simulator Layout & Presets</h3><p>Save a preferred learning/replay workspace without changing historical data.</p></div><div class="actions"><label>Preset <select id="fe-sim-preset"><option value="learning">Learning</option><option value="replay">Replay</option><option value="tape">Tape Study</option><option value="multi">Multi-Timeframe</option><option value="review">Review</option><option value="mobile">Mobile</option></select></label><button class="btn secondary" type="button" id="fe-sim-layout">Edit layout</button></div></div>';
+ h?.parentNode?.insertBefore(bar,h.nextSibling);
+ const sel=qs('#fe-sim-preset',bar),saved=local.get('sim-preset','learning');
+ sel.value=saved;document.body.dataset.feSimPreset=saved;
+ sel.onchange=()=>{local.set('sim-preset',sel.value);document.body.dataset.feSimPreset=sel.value;savePref('simulator',{preset:sel.value});toast(sel.options[sel.selectedIndex].text+' workspace selected.','ok')};
+ const layout=qs('.sim-layout'),toggle=qs('#fe-sim-layout',bar);
+ if(!layout){toggle.onclick=()=>toast('Simulator panels are not loaded yet.','warn');return}
+ const panels=()=>qsa(':scope > *',layout);
+ const saveOrder=()=>local.set('sim-layout-order',panels().map(p=>p.className));
+ let dragged=null;
+ const setEditing=enabled=>{
+  layout.classList.toggle('fe-sortable',enabled);
+  for(const panel of panels()){
+   // Make the HANDLE draggable, never the chart or whole interactive panel.
+   panel.draggable=false;
+   let controls=qs(':scope > .fe-sim-move-controls',panel);
+   if(!controls){
+    controls=document.createElement('div');controls.className='fe-sim-move-controls';
+    controls.innerHTML='<button type="button" class="fe-sim-move-handle" draggable="true" aria-label="Drag to reorder simulator panel">Move</button><button type="button" data-shift="-1" aria-label="Move simulator panel earlier">Up</button><button type="button" data-shift="1" aria-label="Move simulator panel later">Down</button>';
+    panel.prepend(controls);
+    const handle=qs('.fe-sim-move-handle',controls);
+    handle.addEventListener('dragstart',event=>{
+     if(!layout.classList.contains('fe-sortable')){event.preventDefault();return}
+     dragged=panel;event.dataTransfer?.setData('text/plain','simulator-panel');
+    });
+    handle.addEventListener('dragend',()=>{dragged=null});
+    qsa('[data-shift]',controls).forEach(button=>button.onclick=()=>{
+     const siblings=panels(),index=siblings.indexOf(panel),next=siblings[index+Number(button.dataset.shift)];
+     if(!next)return;
+     layout.insertBefore(panel,Number(button.dataset.shift)<0?next:next.nextSibling);
+     saveOrder();
+    });
+   }
+   controls.hidden=!enabled;
+   const handle=qs('.fe-sim-move-handle',controls);if(handle)handle.draggable=enabled;
+  }
+ };
+ layout.addEventListener('dragover',event=>{
+  if(dragged&&layout.classList.contains('fe-sortable'))event.preventDefault();
+ });
+ layout.addEventListener('drop',event=>{
+  if(!dragged||!layout.classList.contains('fe-sortable'))return;
+  const panel=event.target?.closest?.('.sim-layout > *');
+  if(!panel||panel.parentElement!==layout||panel===dragged)return;
+  event.preventDefault();
+  const rect=panel.getBoundingClientRect();
+  layout.insertBefore(dragged,event.clientY<rect.top+rect.height/2?panel:panel.nextSibling);
+  dragged=null;saveOrder();
+ });
+ toggle.onclick=()=>{
+  const enabled=!layout.classList.contains('fe-sortable');
+  setEditing(enabled);
+  toggle.setAttribute('aria-pressed',String(enabled));
+  toast(enabled?'Layout edit enabled. Use Move handles or Up/Down buttons.':'Layout edit closed.','info');
+ };
+}
 function membershipCompare(){if(!/\/membership(\.html)?$/.test(path))return;const plans=qs('#membership-plans');if(!plans)return;const apply=()=>qsa('.v11-plan',plans).forEach(card=>{if(qs('[data-fe-compare]',card))return;const b=document.createElement('button');b.type='button';b.className='btn secondary';b.dataset.feCompare='1';b.textContent='Compare impact';b.onclick=()=>{const name=qs('.eyebrow',card)?.textContent||'Membership',price=qs('.v11-price',card)?.textContent||'';let d=qs('#fe-plan-compare');if(!d){d=document.createElement('dialog');d.id='fe-plan-compare';d.className='fe-dialog';document.body.appendChild(d)}d.innerHTML=`<div class="fe-dialog-head"><h2>${esc(name)}</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><p class="v13-price">${esc(price)}</p><p>Before checkout, the platform will show the exact features you gain or lose, renewal timing, cancellation state, and any payment-provider calculated proration or credit.</p><div class="fe-state"><strong>No membership change is applied from this preview.</strong></div></div>`;qs('.fe-dialog-close',d).onclick=()=>d.close();d.showModal()};card.appendChild(b)});apply();new MutationObserver(apply).observe(plans,{childList:true,subtree:true})}
 function shareExport(){const main=qs('main .wrap,main');if(!main||/\/(signin|create-account|checkout|admin)(\.html)?$/.test(path))return;const head=qs('.fe-page-actions',main);if(!head)return;if(!qs('[data-fe-share]',head)){const s=document.createElement('button');s.className='btn secondary';s.type='button';s.dataset.feShare='1';s.textContent='Share';s.onclick=async()=>{const data={title:document.title,url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);toast('Link copied.','ok')}}catch{}};head.appendChild(s)}if(/\/(journal|lab-player|dashboard)(\.html)?$/.test(path)&&!qs('[data-fe-print]',head)){const p=document.createElement('button');p.className='btn secondary';p.type='button';p.dataset.fePrint='1';p.textContent='Print / PDF';p.onclick=()=>window.print();head.appendChild(p)}}
 

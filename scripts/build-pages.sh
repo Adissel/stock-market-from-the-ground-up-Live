@@ -28,6 +28,8 @@ node --test tests/chart-studio-runtime-ownership-v1.test.mjs
 node --test tests/legacy-copy-runtime-ownership-v1.test.mjs
 # Preserve member verification links and future catalog links against legacy DOM removers.
 node --test tests/runtime-legacy-navigation-membership-v1.test.mjs
+# Route-safe runtime consolidation, input gesture ownership and source-level release contracts.
+node --test tests/runtime-ownership-consolidation-100.test.mjs
 node --test tests/public-navigation-five-page-links-v1.test.mjs
 node --test tests/group1-public-copy-and-entitlements-v1.test.mjs
 # Section C release integrity: fail a deployment on mathematical or workspace defects.

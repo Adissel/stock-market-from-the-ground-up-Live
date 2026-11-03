@@ -1,7 +1,9 @@
 /* v0.14.0.32 — accessible labels and actual canonical release metadata. */
 (()=>{'use strict';
  const raw=String(window.SITE_CONFIG?.VERSION||'');
- const version=/^\d+\.\d+\.\d+\.\d+$/.test(raw)?'v'+raw:'unverified';
+ const configured=/^\d+\.\d+\.\d+\.\d+$/.test(raw)?'v'+raw:null;
+ const prior=document.querySelector('meta[name="application-version"]')?.content||'';
+ const version=configured||(/^v\d+\.\d+\.\d+(?:\.\d+)?$/.test(prior)?prior:null);
  const labels={
    'admin-user-search':'Search accounts by email, username, or display name',
    'forum-search':'Search discussion title or ticker',
@@ -41,8 +43,11 @@
      if(link.parentElement!==document.body||document.body.firstElementChild!==link)
        document.body.insertBefore(link,document.body.firstChild);
    }
-   document.querySelectorAll('meta[name="application-version"]').forEach(m=>m.content=version);
-   if(document.body)document.body.dataset.build=version;
+   // An unavailable client config must not replace a verified release label.
+   if(version){
+     document.querySelectorAll('meta[name="application-version"]').forEach(m=>m.content=version);
+     if(document.body)document.body.dataset.build=version;
+   }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>patch(),{once:true});else patch();
  let delayed;
