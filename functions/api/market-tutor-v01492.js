@@ -22,6 +22,7 @@ import {getApprovedLabContext,labGuidance} from '../_lib/tutor-lab-context-v0141
 import {isContextualTutorFollowup,getVerifiedPriorTutorQuestion} from '../_lib/tutor-conversation-context-v014159.js';
 import {parseAcademyTutorRequest,resolveAcademyTutorContext} from '../_lib/tutor-academy-context-v1.js';
 import {diagnoseFoundationReflection} from '../_lib/talia-foundation-reflection-coach-v1.js';
+import {verifyTutorFormativePractice,formatTutorFormativePractice} from '../_lib/tutor-formative-practice-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const reply=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
@@ -183,6 +184,7 @@ export async function onRequest({request,env}){
   }
   if(!throttle.verified)safeTutorMetric('status',{reason:'general_rate_meter_unavailable'});
   const q=body.question,mode=body.mode,answer=body.learnerAnswer;
+  const verifiedPractice=verifyTutorFormativePractice(body.formativePractice,mode);
   let academyContext=null,academyQuery='';
   if(parseAcademyTutorRequest(q)){
    const academyAccess=await toolAccess(env,request,'ONDEMAND_TRAINING');
@@ -195,6 +197,11 @@ export async function onRequest({request,env}){
   async function finish(data){
    data.verifiedFollowupContext=verifiedFollowupContext;
    if(academyContext)data.academyContext=academyContext;
+   if(verifiedPractice){
+    data.formativePractice=verifiedPractice;
+    const teaching=formatTutorFormativePractice(verifiedPractice);
+    if(teaching)data.answer=String(data.answer||'')+'\n\n'+teaching;
+   }
    if(body.saveHistory===true){
     const id=await saveVerifiedTutorExchange(env,auth.userId,{
      requestId:body.requestId,question:q,learnerAnswer:answer,mode,generation:data.generation,

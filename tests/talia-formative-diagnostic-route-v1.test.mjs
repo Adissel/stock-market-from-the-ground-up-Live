@@ -53,3 +53,17 @@ test('signed-in Foundation review returns the selected category and no private r
  assert.doesNotMatch(JSON.stringify(data),new RegExp(privateMarker));
  assert.notEqual(data.generation,'grounded-model-draft');
 });
+
+test('authenticated route recomputes fictional math and returns guided transfer without a grade',async()=>{
+ const request=new Request('https://member.test/api/market-tutor-v01492',{method:'POST',headers:{
+  authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({
+   question:'Review my fictional volume weighted average price calculation.',mode:'review',
+   learnerAnswer:'I averaged the two prices and obtained nine dollars per share.',allowModel:false,saveHistory:false,
+   formativePractice:{caseId:'canonical_vwap_trade_groups',submitted:'9',labId:'TALIA_CLASSROOM'}
+  })});
+ const response=await onRequest({request,env}),data=await response.json();
+ assert.equal(response.status,200);assert.equal(data.formativePractice.status,'verified_misconception');
+ assert.equal(data.formativePractice.code,'unweighted_average');assert.equal(data.formativePractice.officialGrade,false);
+ assert.match(data.answer,/\$9\.00 is the simple mean/);assert.match(data.answer,/FICTIONAL transfer/);
+ assert.equal(data.historySaved,false);assert.notEqual(data.generation,'grounded-model-draft');
+});

@@ -170,6 +170,7 @@ node --test tests/talia-membership-history-matrix-v1.test.mjs
 node tests/talia-training40-server-authorization-v1.test.mjs
 node tests/talia-training-synthetic-followup-privacy-v1.test.mjs
 node tests/talia-foundation-adaptive-reflection-v1.test.mjs
+node --test tests/talia-formative-diagnostic-route-v1.test.mjs tests/talia-formative-practice-server-v1.test.mjs
 node tests/talia-echarts-independent-python-js-v1.test.mjs
 node tests/talia-source-remediation-specificity-v1.test.mjs
 node scripts/curriculum-evidence-master-register-v1.mjs --write

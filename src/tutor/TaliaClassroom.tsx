@@ -256,6 +256,8 @@ function Classroom(){
   const [dockWidth,setDockWidth]=useState(400);
   const [question,setQuestion]=useState(initialQuestion);
   const [reasoning,setReasoning]=useState('');
+  const [practiceCase,setPracticeCase]=useState<'none'|'canonical_candle_body_pct'|'canonical_vwap_trade_groups'>('none');
+  const [practiceValue,setPracticeValue]=useState('');
   const [mode,setMode]=useState<Mode>('explain');
   const [save,setSave]=useState(false);
   const [conversationId,setConversationId]=useState<string|null>(null);
@@ -379,6 +381,9 @@ function Classroom(){
     if(busy||!member||!ready)return;
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
     if(mode==='review'&&!reasoning.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
+    if(practiceCase!=='none'&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
+      setStatus('Enter one finite decimal result for the selected fictional calculation.');return;
+    }
     const targetId=member.id,version=epoch.current;
     const controller=new AbortController();pending.current=controller;setBusy(true);
     const currentSave=save,thread=save?conversationId:null;
@@ -389,7 +394,8 @@ function Classroom(){
       const res=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
         body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode,learnerAnswer:reasoning.trim().slice(0,1800),
-          requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread})});
+          requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread,
+          ...(practiceCase!=='none'?{formativePractice:{caseId:practiceCase,submitted:practiceValue.trim(),labId:labHandoff?.id||'TALIA_CLASSROOM'}}:{})})});
       const result=await res.json().catch(()=>null);
       if(controller.signal.aborted||version!==epoch.current||identity.current!==targetId)return;
       if(!res.ok||result?.ok!==true||typeof result.answer!=='string'||!result.answer.trim())
@@ -397,7 +403,7 @@ function Classroom(){
           res.status===403?'Tutor access could not be verified for this account.':
           res.status===401?'Member session expired.':result?.error||'No verified Tutor explanation is available.');
       setChat(x=>[...x,{id:crypto.randomUUID(),who:'talia',text:result.answer.slice(0,7000),label:result.generation||'source-grounded'}]);
-      setReasoning('');setAttempts(n=>n+1);
+      setReasoning('');setPracticeValue('');setAttempts(n=>n+1);
       setStatus(currentSave?(result.historySaved?'Saved to the existing private Tutor history.':'Response displayed, but private saving was not confirmed.'):
         'Response displayed in this tab only. No model request, grade or saved history was created by this interface.');
     }catch(err){
@@ -543,7 +549,22 @@ function Classroom(){
           </select><span className="tc-muted">{question.length}/450</span>
         </div>
         {mode==='review'&&<><label htmlFor="tc-reasoning">Your reasoning (ungraded)</label>
-          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/></>}
+          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/>
+          <fieldset><legend>Optional verified fictional calculation</legend>
+            <label htmlFor="tc-practice-case">Practice case</label>
+            <select id="tc-practice-case" value={practiceCase} onChange={e=>{
+              const next=e.target.value as typeof practiceCase;setPracticeCase(next);setPracticeValue('');
+              if(next==='canonical_candle_body_pct')setQuestion('Review my fictional candle body percentage calculation.');
+              if(next==='canonical_vwap_trade_groups')setQuestion('Review my fictional volume weighted average price calculation.');
+            }} disabled={!member||busy}>
+              <option value="none">No numerical verification</option>
+              <option value="canonical_candle_body_pct">Candle: O 31, H 32.50, L 30.50, C 32 — body % of range</option>
+              <option value="canonical_vwap_trade_groups">VWAP: 200 shares at $8, 100 shares at $10</option>
+            </select>
+            {practiceCase!=='none'&&<><label htmlFor="tc-practice-value">Your numerical result</label>
+              <input id="tc-practice-value" inputMode="decimal" value={practiceValue} onChange={e=>setPracticeValue(e.target.value.slice(0,24))} disabled={!member||busy}/>
+              <p className="tc-muted">Talia recomputes this public fictional case on the server, explains a verified known error when the number supports one, then gives a different transfer case. This is not an official grade.</p></>}
+          </fieldset></>}
         <div className="tc-row tc-row-between">
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
           <button type="submit" disabled={!member||busy||question.trim().length<4}>Ask Talia</button>
@@ -552,7 +573,7 @@ function Classroom(){
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
-        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
+        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>

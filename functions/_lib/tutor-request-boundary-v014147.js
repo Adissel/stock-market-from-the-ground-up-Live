@@ -23,6 +23,14 @@ export async function parseTutorRequest(request){
     (body.learnerAnswer!==undefined&&typeof body.learnerAnswer!=='string')||
     (body.allowModel!==undefined&&typeof body.allowModel!=='boolean')||
     (body.saveHistory!==undefined&&typeof body.saveHistory!=='boolean')||
+    (body.formativePractice!==undefined&&(
+      !body.formativePractice||typeof body.formativePractice!=='object'||Array.isArray(body.formativePractice)||
+      !Object.keys(body.formativePractice).every(k=>['caseId','submitted','labId'].includes(k))||
+      !['caseId','submitted'].every(k=>typeof body.formativePractice[k]==='string')||
+      (body.formativePractice.labId!==undefined&&typeof body.formativePractice.labId!=='string')||
+      !/^(?:canonical_candle_body_pct|canonical_vwap_trade_groups)$/.test(body.formativePractice.caseId)||
+      body.formativePractice.submitted.length>24||
+      (body.formativePractice.labId!==undefined&&!/^[A-Za-z0-9_-]{3,90}$/.test(body.formativePractice.labId))))||
     (body.conversationId!==undefined&&body.conversationId!==null&&
       (typeof body.conversationId!=='string'||!validId.test(body.conversationId)))||
     (body.requestId!==undefined&&(!validId.test(body.requestId)||typeof body.requestId!=='string')))
@@ -38,6 +46,9 @@ export async function parseTutorRequest(request){
   allowModel:body.allowModel===true,saveHistory:body.saveHistory===true,
   requestId:body.requestId||crypto.randomUUID(),
   conversationId:body.conversationId||null,
+  formativePractice:body.formativePractice?{
+   caseId:body.formativePractice.caseId,submitted:clean(body.formativePractice.submitted),
+   labId:body.formativePractice.labId||'TALIA_CLASSROOM'}:null,
   // Legacy untrusted priorTurns are ignored by the route, NEVER reintroduced
   // into provider input, current source evidence or saved Tutor replies.
   priorTurnsSupplied:body.priorTurns!==undefined};
