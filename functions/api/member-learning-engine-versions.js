@@ -24,19 +24,33 @@ export async function onRequest({request,env}){try{
   const user=await read(base+'/auth/v1/user',{apikey:pub,authorization:'Bearer '+token},true);
   if(!user?.id)throw bad('Invalid member session',401);
   const id=encodeURIComponent(user.id);
-  const [profiles,flags,roles,subs]=await Promise.all([
+  const [profiles,flags,roles,subs,planGrants]=await Promise.all([
    read(base+'/rest/v1/profiles?select=account_kind,deleted_at&id=eq.'+id+'&limit=1',dbHeaders),
    read(base+'/rest/v1/admin_user_flags?select=status&user_id=eq.'+id+'&limit=1',dbHeaders),
    read(base+'/rest/v1/admin_user_roles?select=role_code,expires_at&user_id=eq.'+id,dbHeaders),
-   read(base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30',dbHeaders)
+   read(base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30',dbHeaders),
+   // Existing provider-independent member grants are an authoritative plan
+   // source; site_subscriptions is often empty for Founder and test accounts.
+   read(base+'/rest/v1/user_plan_grants?select=plan_code,status,starts_at,ends_at,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30',dbHeaders)
   ]);
   if(profiles[0]?.account_kind!=='member'||profiles[0].deleted_at!==null||
    ['suspended','restricted'].includes(String(flags[0]?.status||'').toLowerCase())||
    roles.some(r=>r.role_code==='SHOWCASE_VIEWER'&&(!r.expires_at||Date.parse(r.expires_at)>Date.now())))
    throw bad('Account ineligible for member versions',403);
+  // Resolve plan presentation only. Release switches, specific edition grants
+  // and product-tool rights are independently enforced by the premium API.
+  const now=Date.now();
+  if(!Array.isArray(subs)||!Array.isArray(planGrants)||subs.length>30||planGrants.length>30)
+   throw bad('Membership version service unavailable',503);
   const chosen=subs.find(s=>['active','trialing'].includes(String(s.status||'').toLowerCase())&&
-   (!s.current_period_end||Date.parse(s.current_period_end)>Date.now()));
-  if(chosen&&/^[A-Z][A-Z0-9_]{1,63}$/.test(chosen.plan_code))planCode=chosen.plan_code;
+   (!s.current_period_end||Number.isFinite(Date.parse(s.current_period_end))&&
+     Date.parse(s.current_period_end)>now));
+  const planGrant=chosen?null:planGrants.find(g=>g.status==='active'&&
+   (g.starts_at==null||Number.isFinite(Date.parse(g.starts_at))&&Date.parse(g.starts_at)<=now)&&
+   (g.ends_at==null||Number.isFinite(Date.parse(g.ends_at))&&Date.parse(g.ends_at)>now));
+  const effectivePlan=chosen||planGrant;
+  if(effectivePlan&&/^[A-Z][A-Z0-9_]{1,63}$/.test(effectivePlan.plan_code))
+   planCode=effectivePlan.plan_code;
  }
  let plans=await read(base+'/rest/v1/platform_plans?select=plan_code,metadata&plan_code=eq.'+encodeURIComponent(planCode)+'&limit=1',dbHeaders);
  // A subscription code without a registered plan must never inherit CURRENT editions.
