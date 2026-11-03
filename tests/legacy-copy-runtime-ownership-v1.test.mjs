@@ -60,7 +60,8 @@ test('Approved legacy promotion correction remains available on membership',()=>
 });
 test('Middleware injects historical patch only on its approved routes',()=>{
   assert.match(middleware,/const LEGACY_COPY_FIX_ROUTES=/);
-  assert.match(middleware,/if\(file==='live-fixes\.js'&&!LEGACY_COPY_FIX_ROUTES\.test\(path\)\)continue/);
+  assert.match(middleware,/if\(!shouldInjectLegacyModule\(file,path\)\)continue/);
+  assert.match(middleware,/if\(file==='live-fixes\.js'\)return LEGACY_COPY_FIX_ROUTES\.test/);
   assert.match(middleware,/el\.append\('<script defer src="\/assets\/js\/auth-boundary\.js"/);
   assert.match(middleware,/el\.append\('<script defer src="\/assets\/js\/service-worker\.js"/);
   assert.match(middleware,/if\(STANDALONE_VISUAL_ROUTES\.has\(path\)\)/);
