@@ -17,7 +17,8 @@ const ENV=Object.freeze({
  SUPABASE_URL:'https://mock.supabase.co',SUPABASE_SECRET_KEY:'sb_secret_fixture',
  SUPABASE_PUBLISHABLE_KEY:'sb_publishable_fixture',
  ENGINE_LEARNING_ADVANCED_RELEASED:'true',ENGINE_LAB_ADVANCED_RELEASED:'true',
- ENGINE_LEARNING_PROFESSIONAL_RELEASED:'true',ENGINE_LAB_PROFESSIONAL_RELEASED:'true'
+ ENGINE_LEARNING_PROFESSIONAL_RELEASED:'true',ENGINE_LAB_PROFESSIONAL_RELEASED:'true',
+ ENGINE_LEARNING_ENTERPRISE_RELEASED:'true'
 });
 const bars=()=>({provenance:'fictional',asOf:12000,completedIndex:11,
  bars:Array.from({length:12},(_,i)=>({timestamp:1000*(i+1),
@@ -116,8 +117,9 @@ function harness(){
   'content-type':'application/json',origin:ORIGIN});
  const post=(id,body)=>work({request:new Request(ORIGIN+PATH,
   {method:'POST',headers:headers(id),body:JSON.stringify(body)}),env:ENV});
- const get=(id,family,edition='ADVANCED',caseKey='F1-C02-L01')=>{
+ const get=(id,family,edition='ADVANCED',caseKey='F1-C02-L01',activity=null)=>{
   const q=new URLSearchParams({family,edition,caseKey});
+  if(activity)q.set('activity',activity);
   return work({request:new Request(ORIGIN+PATH+'?'+q,
    {headers:headers(id)}),env:ENV});
  };
@@ -252,4 +254,62 @@ test('Server denies cross-user identity substitution and does not trust browser 
   f.setTokenOverride(null);
   assert.equal((await f.get(A,'learning')).status,200);
  }finally{f.restore()}
+});
+
+const ACADEMY_CASE='ACADEMY_ENTERPRISE_PATH_V1';
+const ACADEMY_ACTIVITY='enterprise_academy_bookmark';
+const academyBody=(stageNumber,expectedRevision=0)=>({
+ family:'learning',edition:'ENTERPRISE',caseKey:ACADEMY_CASE,
+ activity:ACADEMY_ACTIVITY,expectedRevision,payload:{stageNumber}
+});
+const readAcademy=(h,id)=>h.get(id,'learning','ENTERPRISE',ACADEMY_CASE,ACADEMY_ACTIVITY);
+test('Enterprise Academy bookmarks remain isolated across two signed identities and tier changes',async()=>{
+ const h=harness();try{
+  h.users.set(A,grant('LIFETIME','ENTERPRISE'));
+  const first=await h.post(A,academyBody(2));
+  assert.equal(first.status,200);
+  assert.equal((await first.json()).officialGrade,false);
+  const a=await (await readAcademy(h,A)).json();
+  assert.equal(a.workspace.revision,1);
+  assert.equal(a.workspace.summary.stageNumber,2);
+  assert.equal(a.workspace.summary.independentCompletionRecorded,false);
+  const before=h.calls.filter(c=>c.path.includes('workspaces_v1')).length;
+  assert.equal((await readAcademy(h,B)).status,403);
+  assert.equal((await h.post(B,academyBody(7))).status,403);
+  assert.equal(h.calls.filter(c=>c.path.includes('workspaces_v1')).length,before);
+
+  h.users.set(B,grant('LIFETIME','ENTERPRISE'));
+  assert.equal((await (await readAcademy(h,B)).json()).found,false);
+  assert.equal((await h.post(B,academyBody(6))).status,200);
+  assert.equal(h.rows.size,2);
+  const b=await (await readAcademy(h,B)).json();
+  assert.equal(b.workspace.user_id,B);
+  assert.equal(b.workspace.summary.stageNumber,6);
+  assert.equal((await h.post(A,academyBody(4,0))).status,409);
+  assert.equal((await h.post(A,academyBody(4,1))).status,200);
+  assert.equal((await h.post(A,academyBody(5,1))).status,409);
+  const a2=await (await readAcademy(h,A)).json();
+  assert.equal(a2.workspace.revision,2);
+  assert.equal(a2.workspace.summary.stageNumber,4);
+  assert.equal((await (await readAcademy(h,B)).json()).workspace.summary.stageNumber,6);
+
+  const prior=structuredClone(h.users.get(A));
+  const denied=structuredClone(prior);
+  denied.metadata.engine_edition_grants_v1.learning.revoked=true;
+  h.users.set(A,denied);
+  assert.equal((await readAcademy(h,A)).status,403);
+  assert.equal((await h.post(A,academyBody(7,2))).status,403);
+  assert.equal((await readAcademy(h,B)).status,200);
+  h.users.set(A,{...prior,plan:'FOUNDING_14',metadata:{}});
+  assert.equal((await readAcademy(h,A)).status,403);
+  h.users.set(A,prior);
+  assert.equal((await (await readAcademy(h,A)).json()).workspace.revision,2);
+  assert.equal(h.rows.size,2,'Downgrade hides but never erases existing member research positions');
+
+  const withGrade={...academyBody(3,2),payload:{stageNumber:3,officialGrade:100}};
+  assert.equal((await h.post(A,withGrade)).status,400);
+  assert.equal((await (await readAcademy(h,A)).json()).workspace.revision,2);
+  assert.equal([...h.rows.values()].every(row=>
+   row.summary.officialGrade===false&&row.summary.masteryAwarded===false),true);
+ }finally{h.restore()}
 });
