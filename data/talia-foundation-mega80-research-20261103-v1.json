@@ -1,0 +1,1499 @@
+{
+  "documentId": "SMFGU-TALIA-MEGA80-20261103",
+  "project": "The Stock Market: From the Ground Up",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "created": "2026-11-03",
+  "version": "1.0",
+  "status": "INTERNAL_CANDIDATE_SOURCE_TRIAGE_NOT_INDEPENDENT_APPROVAL",
+  "metrics": {
+    "lessons": 80,
+    "newReviewMetadata": 40,
+    "correctedSourcePointers": 33,
+    "fictionalExamples": 80,
+    "independentApprovals": 0,
+    "rightsCleared": 0
+  },
+  "description": "80-topic source crosswalk across Foundation batches 23,24,29,30. Research references are not redistribution rights, complete claim-specific evidence, mathematical publication acceptance, or live product release.",
+  "sourceChanges": [
+    {
+      "lesson": 562,
+      "topicId": "TALIA_TOPIC_CUMULATIVE_PARTIAL_FILL_RECONCILIATION",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+      "after": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+    },
+    {
+      "lesson": 564,
+      "topicId": "TALIA_TOPIC_STOP_TRIGGER_VERSUS_FILL_PRICE",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+      "after": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+    },
+    {
+      "lesson": 565,
+      "topicId": "TALIA_TOPIC_POSITION_SIZE_FROM_RISK_BUDGET",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+    },
+    {
+      "lesson": 566,
+      "topicId": "TALIA_TOPIC_PORTFOLIO_HEAT_OPEN_RISK",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+    },
+    {
+      "lesson": 567,
+      "topicId": "TALIA_TOPIC_SCALE_IN_WEIGHTED_AVERAGE_COST",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order",
+      "after": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+    },
+    {
+      "lesson": 568,
+      "topicId": "TALIA_TOPIC_SCALE_OUT_REALIZED_AND_OPEN_QUANTITY",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order",
+      "after": "https://www.irs.gov/publications/p550"
+    },
+    {
+      "lesson": 569,
+      "topicId": "TALIA_TOPIC_BREAK_EVEN_WITH_ROUND_TRIP_COSTS",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/understanding-fees",
+      "after": "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+    },
+    {
+      "lesson": 570,
+      "topicId": "TALIA_TOPIC_R_MULTIPLE_REALIZED_OUTCOME",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+    },
+    {
+      "lesson": 571,
+      "topicId": "TALIA_TOPIC_MAXIMUM_ADVERSE_EXCURSION",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work",
+      "after": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+    },
+    {
+      "lesson": 572,
+      "topicId": "TALIA_TOPIC_MAXIMUM_FAVORABLE_EXCURSION",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work",
+      "after": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+    },
+    {
+      "lesson": 573,
+      "topicId": "TALIA_TOPIC_TIME_STOP_ELAPSED_MARKET_MINUTES",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work",
+      "after": "https://www.nyse.com/trade/hours-calendars"
+    },
+    {
+      "lesson": 574,
+      "topicId": "TALIA_TOPIC_TRAILING_REFERENCE_NO_LOOKAHEAD",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+      "after": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+    },
+    {
+      "lesson": 575,
+      "topicId": "TALIA_TOPIC_GAP_RISK_POSITION_LOSS",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+      "after": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+    },
+    {
+      "lesson": 576,
+      "topicId": "TALIA_TOPIC_HALT_EXPOSURE_OPEN_POSITION",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halt",
+      "after": "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
+    },
+    {
+      "lesson": 579,
+      "topicId": "TALIA_TOPIC_CORRELATED_POSITIONS_SHARED_RISK",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation-diversification",
+      "after": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+    },
+    {
+      "lesson": 580,
+      "topicId": "TALIA_TOPIC_DAILY_LOSS_LIMIT_STATE",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+    },
+    {
+      "lesson": 581,
+      "topicId": "TALIA_TOPIC_RISK_OF_RUIN_MODEL_LIMIT",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+    },
+    {
+      "lesson": 582,
+      "topicId": "TALIA_TOPIC_EXPECTANCY_FROM_OUTCOME_DISTRIBUTION",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+    },
+    {
+      "lesson": 583,
+      "topicId": "TALIA_TOPIC_WIN_RATE_SAMPLE_SIZE",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/role-risk",
+      "after": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+    },
+    {
+      "lesson": 584,
+      "topicId": "TALIA_TOPIC_PROFIT_FACTOR_DENOMINATOR",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+    },
+    {
+      "lesson": 585,
+      "topicId": "TALIA_TOPIC_MAXIMUM_DRAWDOWN_PATH",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+    },
+    {
+      "lesson": 586,
+      "topicId": "TALIA_TOPIC_RETURN_WITH_EXTERNAL_CASH_FLOW",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/understanding-fees",
+      "after": "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+    },
+    {
+      "lesson": 587,
+      "topicId": "TALIA_TOPIC_ARITHMETIC_VERSUS_GEOMETRIC_RETURN",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/compound-interest-calculator",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+    },
+    {
+      "lesson": 588,
+      "topicId": "TALIA_TOPIC_VOLATILITY_ANNUALIZATION_ASSUMPTION",
+      "before": "https://www.investor.gov/introduction-investing/getting-started/assessing-your-risk-tolerance",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+    },
+    {
+      "lesson": 589,
+      "topicId": "TALIA_TOPIC_SURVIVORSHIP_BIAS_SAMPLE",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work",
+      "after": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+    },
+    {
+      "lesson": 590,
+      "topicId": "TALIA_TOPIC_LOOKAHEAD_BIAS_FILING_DATE",
+      "before": "https://www.sec.gov/edgar/search-and-access",
+      "after": "https://www.sec.gov/search-filings"
+    },
+    {
+      "lesson": 591,
+      "topicId": "TALIA_TOPIC_REVENUE_GROWTH_COMPARABLE_PERIODS",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements",
+      "after": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+    },
+    {
+      "lesson": 592,
+      "topicId": "TALIA_TOPIC_GROSS_MARGIN_UNITS",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements",
+      "after": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+    },
+    {
+      "lesson": 593,
+      "topicId": "TALIA_TOPIC_OPERATING_CASH_FLOW_VERSUS_NET_INCOME",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements",
+      "after": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+    },
+    {
+      "lesson": 594,
+      "topicId": "TALIA_TOPIC_CURRENT_RATIO_CLASSIFICATION",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements",
+      "after": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+    },
+    {
+      "lesson": 595,
+      "topicId": "TALIA_TOPIC_DILUTED_EPS_SHARE_COUNT",
+      "before": "https://www.investor.gov/introduction-investing/investing-basics/how-read-companys-financial-statements",
+      "after": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+    },
+    {
+      "lesson": 598,
+      "topicId": "TALIA_TOPIC_RIGHTS_OFFERING_DILUTION_CONTEXT",
+      "before": "https://www.sec.gov/edgar/search-and-access",
+      "after": "https://www.sec.gov/search-filings"
+    },
+    {
+      "lesson": 600,
+      "topicId": "TALIA_TOPIC_FILING_AMENDMENT_VERSION_CONTROL",
+      "before": "https://www.sec.gov/edgar/search-and-access",
+      "after": "https://www.sec.gov/search-filings"
+    }
+  ],
+  "records": [
+    {
+      "lessonId": 441,
+      "topicId": "TALIA_TOPIC_JOURNAL_PLANNED_ENTRY_VERSUS_ACTUAL_FILL",
+      "title": "Journal planned entry versus actual fill",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/slippage/key-concepts"
+      ],
+      "sourceScope": "QuantConnect defines execution slippage as the deviation between expected and actual fill prices.",
+      "sourceLimitations": "The journal's pretrade snapshot and confirmed fill must be independently timestamped; a model is not a broker execution receipt.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 442,
+      "topicId": "TALIA_TOPIC_JOURNAL_OUTCOME_VERSUS_DECISION_QUALITY",
+      "title": "Journal outcome versus decision quality",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "QuantConnect separates realized outcomes and return statistics from risk and performance estimates.",
+      "sourceLimitations": "The quality of a process cannot be inferred from a single profitable outcome; the rubric is original training methodology.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 443,
+      "topicId": "TALIA_TOPIC_JOURNAL_RULE_ADHERENCE_PERCENTAGE",
+      "title": "Journal rule adherence percentage",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "sourceScope": "QuantConnect research guidance distinguishes model selection and evaluation from individual trade performance.",
+      "sourceLimitations": "The 18-of-24 checklist rate is an original hypothetical rubric, not a regulatory trading-quality benchmark.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 444,
+      "topicId": "TALIA_TOPIC_JOURNAL_MISSING_DATA_RATE",
+      "title": "Journal missing-data rate",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
+      ],
+      "sourceScope": "QuantConnect notes absent fundamental data and shows how missing values affect selection filters.",
+      "sourceLimitations": "Five absent fields out of forty is only a hypothetical record-completeness metric, not evidence of trade quality.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 445,
+      "topicId": "TALIA_TOPIC_JOURNAL_REALIZED_VERSUS_UNREALIZED_P_L",
+      "title": "Journal realized versus unrealized P&L",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
+      ],
+      "sourceScope": "QuantConnect distinguishes open holdings, unrealized profit and total net profit in portfolio accounting.",
+      "sourceLimitations": "Tax-lot realization, transaction fees and mark-to-market price timing require a documented accounting convention.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 446,
+      "topicId": "TALIA_TOPIC_JOURNAL_AVERAGE_HOLDING_DURATION",
+      "title": "Journal average holding duration",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/trading-and-orders/key-concepts"
+      ],
+      "sourceScope": "QuantConnect records order status and asynchronous fill times as separate trading observations.",
+      "sourceLimitations": "Holding time assumes consistent open and close timestamps and excludes still-open positions in this example.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 447,
+      "topicId": "TALIA_TOPIC_JOURNAL_TRADE_GROUPING_BY_SETUP",
+      "title": "Journal trade grouping by setup",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "QuantConnect defines trading statistics from eligible completed orders and returns.",
+      "sourceLimitations": "Grouping journal trades by authored setup names is a private taxonomy; none of these three outcomes verifies an edge.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 448,
+      "topicId": "TALIA_TOPIC_JOURNAL_SAMPLE_SIZE_VERSUS_CLAIMED_EDGE",
+      "title": "Journal sample size versus claimed edge",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "sourceScope": "QuantConnect research principles address bias, underpowered samples and overfit strategy conclusions.",
+      "sourceLimitations": "Four wins in five hypothetical trades is descriptive sample frequency, never a future win probability guarantee.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 449,
+      "topicId": "TALIA_TOPIC_JOURNAL_GROSS_TO_NET_RECONCILIATION",
+      "title": "Journal gross to net reconciliation",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+      ],
+      "sourceScope": "Investor.gov explains why commissions and other charges change net investment returns.",
+      "sourceLimitations": "The illustrative $45 net gain omits spread, borrowing costs, tax basis and any charges not in the fictional record.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 450,
+      "topicId": "TALIA_TOPIC_JOURNAL_PLANNED_RISK_VERSUS_REALIZED_R",
+      "title": "Journal planned risk versus realized R",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "QuantConnect defines profit and loss metrics and trade-level expectancy conventions.",
+      "sourceLimitations": "Dividing an outcome by original planned risk is an authored R convention; missing costs or a zero denominator invalidate it.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 451,
+      "topicId": "TALIA_TOPIC_JOURNAL_OPPORTUNITY_COST_IS_NOT_REALIZED_LOSS",
+      "title": "Journal opportunity cost is not realized loss",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
+      ],
+      "sourceScope": "QuantConnect separates actual portfolio positions and realized performance from potential alternative trades.",
+      "sourceLimitations": "A stock's subsequent hypothetical rise is not realized P&L for a trade never entered.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 452,
+      "topicId": "TALIA_TOPIC_CHECKLIST_PASS_RATE_VERSUS_PREDICTION",
+      "title": "Checklist pass rate versus prediction",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
+      ],
+      "sourceScope": "QuantConnect universe selection illustrates filtering eligible symbols by declared criteria.",
+      "sourceLimitations": "Three of four conditions passing does not satisfy an author-defined all-four rule; this is not a market forecast.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 453,
+      "topicId": "TALIA_TOPIC_TRADING_HALT_JOURNAL_RECONSTRUCTION",
+      "title": "Trading halt journal reconstruction",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
+      ],
+      "sourceScope": "Investor.gov explains trading halts and delayed resumption in volatile securities.",
+      "sourceLimitations": "Reopening executions can gap past planned stops; this single fictional fill is not a guarantee of any broker behavior.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 454,
+      "topicId": "TALIA_TOPIC_NO_TRADE_DECISION_DOCUMENTATION",
+      "title": "No-trade decision documentation",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "sourceScope": "Investor.gov describes planning and decision checks before investing or executing transactions.",
+      "sourceLimitations": "A recorded no-trade choice is an authored journal process, not an externally scored market outcome.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 455,
+      "topicId": "TALIA_TOPIC_PRETRADE_INVALIDATION_CONDITION",
+      "title": "Pretrade invalidation condition",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "sourceScope": "Investor.gov explains stop and stop-limit triggers and how an execution can vary.",
+      "sourceLimitations": "The five-minute close invalidation rule is learner-declared, not an SEC-approved entry or sell signal.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 456,
+      "topicId": "TALIA_TOPIC_JOURNAL_RISK_CONCENTRATION_ACROSS_SIMULTANEOUS_PLANS",
+      "title": "Journal risk concentration across simultaneous plans",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "sourceScope": "Investor.gov explains investment concentration and correlated exposures in diversification.",
+      "sourceLimitations": "Summing three planned dollars measures stated gross budget only; overlapping market exposures may increase joint loss risk.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 457,
+      "topicId": "TALIA_TOPIC_DAILY_REALIZED_P_L_VERSUS_OPEN_EXPOSURE",
+      "title": "Daily realized P&L versus open exposure",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
+      ],
+      "sourceScope": "QuantConnect portfolio documentation distinguishes holdings, net profit, cash and unrealized marks.",
+      "sourceLimitations": "The -$40 realized result does not incorporate open-position profit; a total P&L metric requires a separate convention.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 458,
+      "topicId": "TALIA_TOPIC_LEARNING_RETRY_VERSUS_GRADED_RETAKE",
+      "title": "Learning retry versus graded retake",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "sourceScope": "Investor.gov discusses the need to check transactions and learn before trading online.",
+      "sourceLimitations": "Learning retries and preservation of an official assessment score are internal SMFGU rules, not Investor.gov policy.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 459,
+      "topicId": "TALIA_TOPIC_SELF_REPORTED_CONFIDENCE_VERSUS_DEMONSTRATED_COMPETENCY",
+      "title": "Self-reported confidence versus demonstrated competency",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "sourceScope": "Investor.gov distinguishes preparation and informed investing from the speed of online transactions.",
+      "sourceLimitations": "A self-reported 9/10 confidence score is not a validated competency measure; the teaching rubric is internal.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 460,
+      "topicId": "TALIA_TOPIC_PROCESS_IMPROVEMENT_MEASURED_WITH_CONSISTENT_RUBRICS",
+      "title": "Process improvement measured with consistent rubrics",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "sourceScope": "QuantConnect research methodology emphasizes consistent evaluation and avoiding selection distortions.",
+      "sourceLimitations": "Comparing 6/10 and 8/10 is valid only if both observations use the same original rubric and eligible records.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "original_instruction_source_reference_candidate_not_claim_verified",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 461,
+      "topicId": "TALIA_TOPIC_SCANNER_THRESHOLD_AND_ELIGIBLE_OBSERVATION_TIME",
+      "title": "Scanner threshold and eligible observation time",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
+      ],
+      "sourceScope": "QuantConnect's universe-selection API applies eligibility rules to declared observations.",
+      "sourceLimitations": "A screening threshold must use the most recent completed eligible input, not a forming or future candle.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 462,
+      "topicId": "TALIA_TOPIC_MINIMUM_DOLLAR_VOLUME_FILTER",
+      "title": "Minimum dollar volume filter",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
+      ],
+      "sourceScope": "QuantConnect directly defines a dollar-volume liquidity universe and daily selection.",
+      "sourceLimitations": "Shares times a single reference price is a proxy, not exact sum of executed price-times-volume transaction notional.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 463,
+      "topicId": "TALIA_TOPIC_SHARE_FLOAT_VERSUS_TOTAL_SHARES_SCREEN",
+      "title": "Share-float versus total-shares screen",
+      "candidateSources": [
+        "https://www.sec.gov/resources-small-businesses/glossary"
+      ],
+      "sourceScope": "SEC glossary defines public float in value terms using nonaffiliate held shares.",
+      "sourceLimitations": "Subtracting an assumed restricted holding count is not the SEC public-float calculation; affiliates and timestamp matter.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 464,
+      "topicId": "TALIA_TOPIC_MARKET_CAP_FILTER_AND_QUOTED_PRICE_TIMING",
+      "title": "Market cap filter and quoted-price timing",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
+      ],
+      "sourceScope": "QuantConnect fundamental universe examples expose market capitalization and point-in-time fields.",
+      "sourceLimitations": "A five-million-share times twelve-dollar market cap assumes a matching outstanding-share count and quote timestamp.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 465,
+      "topicId": "TALIA_TOPIC_RELATIVE_STRENGTH_RATIO_VERSUS_BENCHMARK",
+      "title": "Relative-strength ratio versus benchmark",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "QuantConnect distinguishes benchmark-relative risk measures and ratios from absolute returns.",
+      "sourceLimitations": "The two-index level quotient is an original relative-strength measure, not proof of benchmark outperformance in all windows.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 466,
+      "topicId": "TALIA_TOPIC_SECTOR_CONCENTRATION_IN_A_WATCHLIST",
+      "title": "Sector concentration in a watchlist",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "sourceScope": "Investor.gov distinguishes diversified exposures and explains sector concentration risks.",
+      "sourceLimitations": "Six of eight symbols is a count proportion, not dollar-weighted sector concentration or proof of correlation.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 467,
+      "topicId": "TALIA_TOPIC_VOLUME_FILTER_AND_LOW_PRICED_STOCKS",
+      "title": "Volume filter and low-priced stocks",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
+      ],
+      "sourceScope": "QuantConnect uses dollar volume as a liquidity measure rather than shares alone.",
+      "sourceLimitations": "The priced-volume products are illustrative proxies and omit intraday trade prices, spread and executable depth.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 468,
+      "topicId": "TALIA_TOPIC_BID_ASK_SPREAD_SCREEN_AND_MINIMUM_TICK",
+      "title": "Bid ask spread screen and minimum tick",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "sourceScope": "Investor.gov distinguishes bid, ask and market versus limit execution outcomes.",
+      "sourceLimitations": "A $0.01 quoted spread has different percentage impact at different price levels; tick regimes and quote quality vary.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 469,
+      "topicId": "TALIA_TOPIC_PRICE_GAP_SCREENER_WITH_CORPORATE_ACTIONS",
+      "title": "Price gap screener with corporate actions",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
+      ],
+      "sourceScope": "Investor.gov explains that two-for-one splits mechanically change raw price and share count.",
+      "sourceLimitations": "An unadjusted -50% raw gap is not automatically an economic return; corporate-action timing and adjustment basis must match.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 470,
+      "topicId": "TALIA_TOPIC_PREMARKET_VOLUME_VERSUS_REGULAR_SESSION_BENCHMARK",
+      "title": "Premarket volume versus regular-session benchmark",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/requesting-data"
+      ],
+      "sourceScope": "QuantConnect explicitly separates regular and extended-hours data subscriptions.",
+      "sourceLimitations": "Premarket shares and full-session shares have unlike time windows; a matched RVOL needs comparable intervals and venue coverage.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 471,
+      "topicId": "TALIA_TOPIC_WATCHLIST_CANDIDATE_VERSUS_EXECUTABLE_TRADE",
+      "title": "Watchlist candidate versus executable trade",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "sourceScope": "Investor.gov explains that a watchlist price is not a guaranteed executable fill.",
+      "sourceLimitations": "A passed price and volume screen is only a research candidate; a valid two-sided quote and eligible session are missing.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 472,
+      "topicId": "TALIA_TOPIC_SCANNER_FALSE_POSITIVES_FROM_DELAYED_FEEDS",
+      "title": "Scanner false positives from delayed feeds",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
+      ],
+      "sourceScope": "QuantConnect describes missing and delayed vendor data and data-quality diagnostics.",
+      "sourceLimitations": "The retained 10:00 quote must not be represented as 10:20 fresh evidence; actual feed SLA must be checked.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 473,
+      "topicId": "TALIA_TOPIC_WATCHLIST_RANKING_BY_COMPOSITE_SCORE",
+      "title": "Watchlist ranking by composite score",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
+      ],
+      "sourceScope": "QuantConnect documents customizable symbol-selection filter and ranking functions.",
+      "sourceLimitations": "A weighted 68/100 score is an authored rubric; weights must be disclosed and are not a validated return prediction.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 474,
+      "topicId": "TALIA_TOPIC_MISSING_DATA_EXCLUSION_FROM_CANDIDATE_SCORE",
+      "title": "Missing-data exclusion from candidate score",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/fundamental-universes"
+      ],
+      "sourceScope": "QuantConnect warns that missing fundamental values can appear as NaN and require explicit filtering.",
+      "sourceLimitations": "Imputing a perfect liquidity factor would bias ranking; the chosen complete-case HOLD is a disclosed internal rule.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 475,
+      "topicId": "TALIA_TOPIC_WATCHLIST_REFRESH_VERSUS_PRICE_ALERT_TRIGGER",
+      "title": "Watchlist refresh versus price-alert trigger",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/datasets/data-issues"
+      ],
+      "sourceScope": "QuantConnect describes the need to distinguish missing observations from valid price events.",
+      "sourceLimitations": "An intrabar $30.20 does not meet a close-confirmed rule before the bar completes; alerts depend on chosen data granularity.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 476,
+      "topicId": "TALIA_TOPIC_VOLUME_ACCELERATION_VERSUS_RAW_VOLUME_INCREASE",
+      "title": "Volume acceleration versus raw volume increase",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/equity/liquidity-universes"
+      ],
+      "sourceScope": "QuantConnect universe examples use volume alongside selection cadence.",
+      "sourceLimitations": "Compare volume after normalizing different bar durations; one-minute 1,000 and five-minute 3,000 are not matched periods.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 477,
+      "topicId": "TALIA_TOPIC_BREADTH_ADVANCE_DECLINE_RATIO_AND_ZERO_DECLINES",
+      "title": "Breadth advance decline ratio and zero declines",
+      "candidateSources": [
+        "https://chartschool.stockcharts.com/table-of-contents/market-indicators/advance-decline-line"
+      ],
+      "sourceScope": "StockCharts defines advances, declines and their difference in stock market breadth indicators.",
+      "sourceLimitations": "An advances-to-declines quotient is an authored derived ratio; zero declines makes division undefined.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 478,
+      "topicId": "TALIA_TOPIC_BREADTH_NET_ADVANCES_VERSUS_PERCENTAGE",
+      "title": "Breadth net advances versus percentage",
+      "candidateSources": [
+        "https://chartschool.stockcharts.com/table-of-contents/market-indicators/advance-decline-line"
+      ],
+      "sourceScope": "StockCharts defines net advances as advancing issues minus declining issues.",
+      "sourceLimitations": "Net +100 and a 50% advance count depend on a consistent 600-member universe including unchanged or missing constituents.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 479,
+      "topicId": "TALIA_TOPIC_MARKET_SESSION_FILTER_AND_EARLY_CLOSE",
+      "title": "Market session filter and early close",
+      "candidateSources": [
+        "https://www.nyse.com/trade/hours-calendars"
+      ],
+      "sourceScope": "NYSE publishes regular and early-closing trading calendars with exchange-specific times.",
+      "sourceLimitations": "A 13:00 Eastern early close example applies to that announced venue and calendar; do not assume every market matches.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 480,
+      "topicId": "TALIA_TOPIC_DUPLICATE_TICKER_OBSERVATIONS_IN_SCANNER_RESULTS",
+      "title": "Duplicate ticker observations in scanner results",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/universes/key-concepts"
+      ],
+      "sourceScope": "QuantConnect uses stable security identifiers for eligibility and universe membership.",
+      "sourceLimitations": "Duplicate raw tickers can represent distinct venues or instruments; deduplication must use the correct symbol identity and timestamp.",
+      "reviewClass": "CLAIM_RELEVANT_RESEARCH_POINTER_INTERNAL_TRIAGE_ONLY",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 561,
+      "topicId": "TALIA_TOPIC_ENTRY_PRICE_VERSUS_QUOTED_PRICE",
+      "title": "Entry price versus quoted price",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "sourceScope": "Entry price versus quoted price: SEC distinguishes quoted prices from weighted multi-price fills. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "The example excludes fees and does not claim the displayed quote was executable for all shares. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 562,
+      "topicId": "TALIA_TOPIC_CUMULATIVE_PARTIAL_FILL_RECONCILIATION",
+      "title": "Cumulative partial-fill reconciliation",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "sourceScope": "Cumulative partial-fill reconciliation: SEC explains partially executed orders and unfilled remainder. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "The remainder can change with later fills or cancellation acknowledgments. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 563,
+      "topicId": "TALIA_TOPIC_LIMIT_ORDER_PRICE_PROTECTION",
+      "title": "Limit-order price protection",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "sourceScope": "Limit-order price protection: SEC describes limit-price protection without fill guarantees. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Queue position, available size, venue rules, and later prices are unknown. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 564,
+      "topicId": "TALIA_TOPIC_STOP_TRIGGER_VERSUS_FILL_PRICE",
+      "title": "Stop trigger versus fill price",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "sourceScope": "Stop trigger versus fill price: SEC stop order bulletin distinguishes triggers from actual execution price. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Trigger and execution rules vary by order and venue; the example is not a universal broker rule. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 565,
+      "topicId": "TALIA_TOPIC_POSITION_SIZE_FROM_RISK_BUDGET",
+      "title": "Position size from risk budget",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "sourceScope": "Position size from risk budget: Risk tolerance is context only, not the formula for risk-based sizing. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "A planned stop cannot cap realized loss during gaps, halts, or failed execution. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 566,
+      "topicId": "TALIA_TOPIC_PORTFOLIO_HEAT_OPEN_RISK",
+      "title": "Portfolio heat from open planned risk",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "sourceScope": "Portfolio heat from open planned risk: Asset diversification is contextual, not a portfolio-heat calculation standard. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Correlation, gaps, slippage, and stop failures can make realized loss exceed summed planned risk. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 567,
+      "topicId": "TALIA_TOPIC_SCALE_IN_WEIGHTED_AVERAGE_COST",
+      "title": "Scale-in weighted average cost",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14"
+      ],
+      "sourceScope": "Scale-in weighted average cost: SEC documents partial fills at different prices, not a strategy endorsement. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Average cost says nothing about whether adding exposure improved the decision. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 568,
+      "topicId": "TALIA_TOPIC_SCALE_OUT_REALIZED_AND_OPEN_QUANTITY",
+      "title": "Scale-out realized and open quantity",
+      "candidateSources": [
+        "https://www.irs.gov/publications/p550"
+      ],
+      "sourceScope": "Scale-out realized and open quantity: IRS explains sold-share basis and tax lots; the single-cost hypothetical is simplified. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Tax-lot and broker cost-basis rules may differ from the simplified single-basis example. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 569,
+      "topicId": "TALIA_TOPIC_BREAK_EVEN_WITH_ROUND_TRIP_COSTS",
+      "title": "Break-even with round-trip costs",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+      ],
+      "sourceScope": "Break-even with round-trip costs: SEC investor fees resource explains transaction costs and break-even. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Future exit fees and slippage are estimates until the exit fills. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 570,
+      "topicId": "TALIA_TOPIC_R_MULTIPLE_REALIZED_OUTCOME",
+      "title": "R-multiple realized outcome",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "R-multiple realized outcome: Backtest glossary defines returns but R-multiple is a separately authored convention. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "R standardizes the stated trade result but does not establish strategy expectancy or skill. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 571,
+      "topicId": "TALIA_TOPIC_MAXIMUM_ADVERSE_EXCURSION",
+      "title": "Maximum adverse excursion",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceScope": "Maximum adverse excursion: QuantConnect backtest statistics describes maximum adverse excursion. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Bar lows can overstate executable adverse fills and omit intrabar path. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 572,
+      "topicId": "TALIA_TOPIC_MAXIMUM_FAVORABLE_EXCURSION",
+      "title": "Maximum favorable excursion",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceScope": "Maximum favorable excursion: QuantConnect backtest statistics describes maximum favorable excursion. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Observed extremes do not prove sufficient size was executable at that price. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 573,
+      "topicId": "TALIA_TOPIC_TIME_STOP_ELAPSED_MARKET_MINUTES",
+      "title": "Time stop and elapsed market minutes",
+      "candidateSources": [
+        "https://www.nyse.com/trade/hours-calendars"
+      ],
+      "sourceScope": "Time stop and elapsed market minutes: NYSE trading calendar identifies eligible sessions, not a time-stop strategy. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "A time condition does not guarantee an immediate fill and may require special handling for halts. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 574,
+      "topicId": "TALIA_TOPIC_TRAILING_REFERENCE_NO_LOOKAHEAD",
+      "title": "Trailing reference without lookahead",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "sourceScope": "Trailing reference without lookahead: SEC trailing stop bulletin supports stop mechanics; completed-bar logic is original. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "A reference level is not a guaranteed exit price. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 575,
+      "topicId": "TALIA_TOPIC_GAP_RISK_POSITION_LOSS",
+      "title": "Gap risk and position loss",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+      ],
+      "sourceScope": "Gap risk and position loss: SEC stop bulletin describes gap slippage and non-guaranteed fills. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "The example does not predict gap frequency or guarantee any particular execution sequence. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 576,
+      "topicId": "TALIA_TOPIC_HALT_EXPOSURE_OPEN_POSITION",
+      "title": "Halt exposure in an open position",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/trading-halts-and-delays"
+      ],
+      "sourceScope": "Halt exposure in an open position: Investor.gov explains trading halts and reopening uncertainty. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Halt reasons, reopening mechanisms, and order handling vary and require venue or broker confirmation. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 577,
+      "topicId": "TALIA_TOPIC_SHORT_POSITION_BORROW_COST",
+      "title": "Short-position borrow cost",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "sourceScope": "Short-position borrow cost: Short-sales glossary provides context, not a general borrow-fee schedule. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Rates can change, availability can disappear, and brokers may use different bases or minimums. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 578,
+      "topicId": "TALIA_TOPIC_SHORT_SQUEEZE_RISK_NOT_SIGNAL",
+      "title": "Short-squeeze risk is not a signal",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "sourceScope": "Short-squeeze risk is not a signal: Short-sales glossary provides risk context, not squeeze prediction. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Reporting lags, float uncertainty, derivatives, and intraperiod position changes limit inference. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 579,
+      "topicId": "TALIA_TOPIC_CORRELATED_POSITIONS_SHARED_RISK",
+      "title": "Correlated positions and shared risk",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "sourceScope": "Correlated positions and shared risk: Investor.gov explains diversification and correlated positions. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Historical correlation is unstable and does not specify future joint losses. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 580,
+      "topicId": "TALIA_TOPIC_DAILY_LOSS_LIMIT_STATE",
+      "title": "Daily loss-limit state",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "sourceScope": "Daily loss-limit state: Risk tolerance is context only and does not prescribe daily loss-limit policy. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Whether unrealized loss counts is a policy choice that must be fixed in advance. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 581,
+      "topicId": "TALIA_TOPIC_RISK_OF_RUIN_MODEL_LIMIT",
+      "title": "Risk-of-ruin model limits",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceScope": "Risk-of-ruin model limits: Historical backtest statistics do not establish risk-of-ruin probabilities. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Real outcomes can be dependent, fat-tailed, nonstationary, and worse than planned. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 582,
+      "topicId": "TALIA_TOPIC_EXPECTANCY_FROM_OUTCOME_DISTRIBUTION",
+      "title": "Expectancy from an outcome distribution",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "Expectancy from an outcome distribution: QuantConnect glossary defines expectation from conditional outcomes. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Estimated probabilities and payoffs may change and do not predict the next trade. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 583,
+      "topicId": "TALIA_TOPIC_WIN_RATE_SAMPLE_SIZE",
+      "title": "Win rate and sample size",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceScope": "Win rate and sample size: QuantConnect backtest statistics defines observed win rate, not future certainty. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Thirty observations do not establish a stable future probability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 584,
+      "topicId": "TALIA_TOPIC_PROFIT_FACTOR_DENOMINATOR",
+      "title": "Profit factor denominator",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceScope": "Profit factor denominator: QuantConnect backtest statistics identifies profit factor and its denominator. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Profit factor omits sequence, sample size, capital, and tail risk. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 585,
+      "topicId": "TALIA_TOPIC_MAXIMUM_DRAWDOWN_PATH",
+      "title": "Maximum drawdown from an equity path",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "Maximum drawdown from an equity path: QuantConnect glossary defines peak-to-trough drawdown. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Observation frequency can miss intraperiod drawdowns. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 586,
+      "topicId": "TALIA_TOPIC_RETURN_WITH_EXTERNAL_CASH_FLOW",
+      "title": "Return with external cash flow",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+      ],
+      "sourceScope": "Return with external cash flow: SEC fees guide does not validate external-cash-flow performance math. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Midperiod cash flows require time-weighted or money-weighted methods rather than this immediate-flow simplification. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 587,
+      "topicId": "TALIA_TOPIC_ARITHMETIC_VERSUS_GEOMETRIC_RETURN",
+      "title": "Arithmetic versus geometric return",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceScope": "Arithmetic versus geometric return: QuantConnect glossary explains compounding, not all geometric-return estimators. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Neither average alone describes risk, path, or future return. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 588,
+      "topicId": "TALIA_TOPIC_VOLATILITY_ANNUALIZATION_ASSUMPTION",
+      "title": "Volatility annualization assumption",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+      ],
+      "sourceScope": "Volatility annualization assumption: Algorithm statistics reference states day-count conventions; sqrt-time needs review. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Volatility clustering, jumps, and changing regimes weaken square-root scaling. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 589,
+      "topicId": "TALIA_TOPIC_SURVIVORSHIP_BIAS_SAMPLE",
+      "title": "Survivorship bias in a sample",
+      "candidateSources": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "sourceScope": "Survivorship bias in a sample: QuantConnect research guide is context for survivorship risks, not licensed delisting data. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Complete point-in-time constituent and delisting data may require licensed sources. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 590,
+      "topicId": "TALIA_TOPIC_LOOKAHEAD_BIAS_FILING_DATE",
+      "title": "Lookahead bias and filing availability",
+      "candidateSources": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "sourceScope": "Lookahead bias and filing availability: SEC filing search provides public filing access and timing metadata. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Vendor ingestion may lag the official public filing timestamp. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 591,
+      "topicId": "TALIA_TOPIC_REVENUE_GROWTH_COMPARABLE_PERIODS",
+      "title": "Revenue growth with comparable periods",
+      "candidateSources": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "sourceScope": "Revenue growth with comparable periods: SEC financial-statement guide explains comparable revenue reporting. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Acquisitions, currency translation, and recognition changes can reduce comparability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 592,
+      "topicId": "TALIA_TOPIC_GROSS_MARGIN_UNITS",
+      "title": "Gross margin and consistent units",
+      "candidateSources": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "sourceScope": "Gross margin and consistent units: SEC financial-statement guide identifies revenue and costs. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Gross margin excludes many operating, financing, and tax costs. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 593,
+      "topicId": "TALIA_TOPIC_OPERATING_CASH_FLOW_VERSUS_NET_INCOME",
+      "title": "Operating cash flow versus net income",
+      "candidateSources": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "sourceScope": "Operating cash flow versus net income: SEC financial-statement guide distinguishes operating cash flow and net income. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "One period may reflect legitimate working-capital timing or noncash adjustments. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 594,
+      "topicId": "TALIA_TOPIC_CURRENT_RATIO_CLASSIFICATION",
+      "title": "Current ratio and classification",
+      "candidateSources": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "sourceScope": "Current ratio and classification: SEC financial-statement guide distinguishes current assets and liabilities. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "The ratio does not reveal asset quality, cash timing, or covenant compliance. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 595,
+      "topicId": "TALIA_TOPIC_DILUTED_EPS_SHARE_COUNT",
+      "title": "Diluted EPS and share count",
+      "candidateSources": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "sourceScope": "Diluted EPS and share count: SEC financial-statement guide discusses earnings per share and share measures. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Potential shares and anti-dilutive treatment depend on accounting rules and period conditions. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 596,
+      "topicId": "TALIA_TOPIC_STOCK_SPLIT_PER_SHARE_COMPARABILITY",
+      "title": "Stock split and per-share comparability",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
+      ],
+      "sourceScope": "Stock split and per-share comparability: Investor.gov explains stock-split mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Actual opening price can move and fractional-share handling may differ. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 597,
+      "topicId": "TALIA_TOPIC_CASH_DIVIDEND_EX_DATE_ADJUSTMENT",
+      "title": "Cash dividend and ex-date interpretation",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates"
+      ],
+      "sourceScope": "Cash dividend and ex-date interpretation: Investor.gov ex-dividend resource describes dates and entitlements. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Market movement, taxes, currency, and reinvestment affect investor results. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 598,
+      "topicId": "TALIA_TOPIC_RIGHTS_OFFERING_DILUTION_CONTEXT",
+      "title": "Rights offering and dilution context",
+      "candidateSources": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "sourceScope": "Rights offering and dilution context: SEC filing directory is context, not a dedicated rights-offering dilution formula. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Proceeds, participation, expenses, and use of funds affect economic consequences. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 599,
+      "topicId": "TALIA_TOPIC_REVERSE_SPLIT_MECHANICS",
+      "title": "Reverse-split mechanics",
+      "candidateSources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
+      ],
+      "sourceScope": "Reverse-split mechanics: Investor.gov split reference describes inverse share/price mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "Rounding, cash in lieu, fees, and subsequent price movement can change actual value. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "lessonId": 600,
+      "topicId": "TALIA_TOPIC_FILING_AMENDMENT_VERSION_CONTROL",
+      "title": "Filing amendment and version control",
+      "candidateSources": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "sourceScope": "Filing amendment and version control: SEC filing directory provides version access, not independent amendment reconciliation. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+      "sourceLimitations": "An amendment may change only selected fields; full scope requires document comparison. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+      "reviewClass": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+      "fictional": true,
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "independentMathAccepted": false,
+      "independentPublicationApproved": false,
+      "sourceRightsCleared": false
+    }
+  ]
+}

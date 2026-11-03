@@ -132,6 +132,8 @@ on:
       - 'tests/talia-foundation-batches17-18-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches19-20-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches25-30-gates-v1.test.mjs'
+      - 'tests/talia-foundation-mega80-source-math-v1.test.mjs'
+      - 'data/talia-foundation-mega80-research-20261103-v1.json'
       - 'tests/talia-source-indicator8-python-js-v1.test.mjs'
       - 'scripts/qa/talia_source_indicator8_python_v1.py'
       - 'tests/talia-foundation-batch13-gates-v1.test.mjs'
@@ -424,6 +426,8 @@ on:
       - 'tests/talia-foundation-batches17-18-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches19-20-gates-v1.test.mjs'
       - 'tests/talia-foundation-batches25-30-gates-v1.test.mjs'
+      - 'tests/talia-foundation-mega80-source-math-v1.test.mjs'
+      - 'data/talia-foundation-mega80-research-20261103-v1.json'
       - 'tests/talia-source-indicator8-python-js-v1.test.mjs'
       - 'scripts/qa/talia_source_indicator8_python_v1.py'
       - 'tests/talia-foundation-batch13-gates-v1.test.mjs'
@@ -721,6 +725,7 @@ jobs:
           node tests/talia-foundation-explanations-batch05-v1.test.mjs
           node tests/talia-foundation-explanations-batch06-07-v1.test.mjs
           node --test tests/talia-foundation-batches25-30-gates-v1.test.mjs
+          node --test tests/talia-foundation-mega80-source-math-v1.test.mjs
           node --check functions/_lib/talia-indicator-worked-v1.js
           node tests/talia-indicator-worked-v1.test.mjs
           node scripts/talia-indicator-editorial-review-v1.mjs
