@@ -84,7 +84,8 @@ async function memberships(c,id){
   if(eligible.includes(x.plan_code)&&Number.isFinite(start)&&start<=now&&end>now)base.add(x.plan_code);
  }
  // Founding members retain beta educational access until site-wide LIVE.
- if(launch.length===1&&launch[0].public_launch_open===false&&founders.some(f=>!f.revoked_at)){
+ if(launch.length===1&&launch[0].public_launch_open===false&&
+   (founders.some(f=>!f.revoked_at)||['FOUNDING_14','FOUNDING_30','FOUNDING_60'].some(code=>base.has(code)))){
   for(const plan of eligible)base.add(plan);
  }
  return [...base];
