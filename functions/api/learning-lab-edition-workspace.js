@@ -7,8 +7,12 @@
 import {authorizeEditionRequest,onRequest as calculateEdition} from './learning-lab-edition-exercise.js';
 import {toolAccess} from './member-tool-access.js';
 import {compareOriginalFictionalCases} from '../_lib/learning-lab-enterprise-case-workbench-v1.js';
+import {buildEnterpriseResearchJourney} from '../_lib/learning-lab-enterprise-journey-v1.js';
 const PAIR_ACTIVITY='enterprise_fictional_comparison';
 const PAIR_SUFFIX='__PAIR';
+const ACADEMY_ACTIVITY='enterprise_academy_bookmark';
+const ACADEMY_KEY='ACADEMY_ENTERPRISE_PATH_V1';
+const ACADEMY_SUFFIX='__PATH';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'vary':'Authorization','x-content-type-options':'nosniff'};
 const reply=(obj,status=200)=>new Response(JSON.stringify(obj),{status,headers:H});
@@ -79,10 +83,15 @@ export async function onRequest({request,env}){
   if(!body||!validFamily(body.family)||!validEdition(body.edition)||!validCase(body.caseKey))
    throw fail('Invalid workspace identity.',400);
   const isPair=body.activity===PAIR_ACTIVITY;
-  if((request.method==='GET'&&body.activity&&!isPair)||
-     (isPair&&(body.edition!=='ENTERPRISE'||body.caseKey.length>80-PAIR_SUFFIX.length)))
+  const isAcademy=body.activity===ACADEMY_ACTIVITY;
+  if((request.method==='GET'&&body.activity&&!isPair&&!isAcademy)||
+     (isPair&&(body.family!=='lab'||body.edition!=='ENTERPRISE'||
+       body.caseKey.length>80-PAIR_SUFFIX.length))||
+     (isAcademy&&(body.family!=='learning'||body.edition!=='ENTERPRISE'||
+       body.caseKey!==ACADEMY_KEY)))
    throw fail('Unsupported Enterprise research workspace.',400);
-  const storedBody=isPair?{...body,caseKey:body.caseKey+PAIR_SUFFIX}:body;
+  const storedBody=(isPair||isAcademy)?{...body,caseKey:body.caseKey+
+   (isPair?PAIR_SUFFIX:ACADEMY_SUFFIX)}:body;
   const rights=await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
   const config=db(env);
   if(body.family==='lab')await verifyPublishedLab(config,env,request,body.caseKey,rights.memberId);
@@ -95,7 +104,26 @@ export async function onRequest({request,env}){
   if(!Number.isSafeInteger(body.expectedRevision)||body.expectedRevision<0||
      body.expectedRevision>2147483646)throw fail('Expected revision required.',400);
   let summary;
-  if(isPair){
+  if(isAcademy){
+   const payload=body.payload;
+   // The member chooses a bookmark only. No self-reported completion, grade,
+   // source documents, entitlement flags, or instructor assessment are stored.
+   if(!payload||typeof payload!=='object'||Array.isArray(payload)||
+      Object.keys(payload).length!==1||!Number.isSafeInteger(payload.stageNumber)||
+      payload.stageNumber<1||payload.stageNumber>7)
+    throw fail('Select one canonical research stage.',400);
+   const journey=buildEnterpriseResearchJourney({authorization:rights.authorization,
+    family:'learning',trainingAuthorized:true,labAuthorized:false,publishedLabs:[]});
+   const stage=journey?.stages?.[payload.stageNumber-1];
+   if(!stage||stage.number!==payload.stageNumber)
+    throw fail('Canonical Academy research stage unavailable.',503);
+   summary={schema:'smfgu.learning.enterprise-path-bookmark.v1',
+    researchActivity:ACADEMY_ACTIVITY,stageNumber:stage.number,
+    phase:stage.phase,programCode:stage.programCode,day:stage.day,
+    dayTitle:stage.dayTitle,memberOwned:true,persisted:true,
+    manuallySelectedBookmark:true,independentCompletionRecorded:false,
+    officialGrade:false,masteryAwarded:false};
+  }else if(isPair){
    const compared=compareOriginalFictionalCases(body.payload);
    if(!compared)throw fail('Invalid completed fictional research comparison.',400);
    summary={...compared,persisted:true,memberOwned:true,researchActivity:PAIR_ACTIVITY};
@@ -119,14 +147,14 @@ export async function onRequest({request,env}){
     method:'POST',cache:'no-store',headers:{...config.headers,
      prefer:'resolution=ignore-duplicates,return=representation'},
     body:JSON.stringify({user_id:rights.memberId,case_key:storedBody.caseKey,
-     family:body.family,edition:body.edition,activity:isPair?'chronological_validation':body.activity,
+     family:body.family,edition:body.edition,activity:(isPair||isAcademy)?'chronological_validation':body.activity,
      summary,revision:1})
    });
   }else{
    write=await fetch(sourceUrl(config,rights.memberId,storedBody,String(expected)),{
     method:'PATCH',cache:'no-store',
     headers:{...config.headers,prefer:'return=representation'},
-    body:JSON.stringify({activity:isPair?'chronological_validation':body.activity,summary,revision:expected+1,
+    body:JSON.stringify({activity:(isPair||isAcademy)?'chronological_validation':body.activity,summary,revision:expected+1,
      updated_at:new Date().toISOString()})
    });
   }
