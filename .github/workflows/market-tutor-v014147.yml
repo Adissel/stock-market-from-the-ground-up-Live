@@ -27,6 +27,10 @@ jobs:
           node --test tests/talia-foundation-batches19-20-math-boundary-v1.test.mjs
           node --test tests/talia-foundation-batches21-22-options-math-v1.test.mjs
           node --test tests/talia-foundation-batches23-24-journal-scanner-math-v1.test.mjs
+          node --test tests/talia-foundation-batches25-26-scenario-math-v1.test.mjs
+          node --test tests/talia-foundation-batches27-28-scenario-math-v1.test.mjs
+          node --test tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs
+          node --test tests/talia-foundation-batches25-30-evidence-register-v1.test.mjs
           node --test tests/talia-foundation-batches23-24-source-research-v1.test.mjs
           node --test tests/talia-foundation-batches25-28-source-research-v1.test.mjs
           node --test tests/talia-foundation-batches21-22-and10-source-research-v1.test.mjs
