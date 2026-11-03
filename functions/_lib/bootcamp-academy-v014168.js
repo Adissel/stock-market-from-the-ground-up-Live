@@ -26,6 +26,7 @@ import {chartCaseBySourcePhase} from './academy-charts45-batch04-v1.js';
 import {charts45DepthDays01to20} from './academy-charts45-depth-days01-20-v1.js';
 import {charts45DepthDays21to40} from './academy-charts45-depth-days21-40-v1.js';
 import {charts45DepthDays41to45} from './academy-charts45-depth-days41-45-v1.js';
+import {practicum90DepthDays01to20} from './academy-practicum90-depth-days01-20-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
 import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
@@ -374,6 +375,11 @@ function dayFor(d,i){
   ...(d.code==='practicum90'&&i<5&&practicum90LearnBatch01[i]?.topicSourceDay===sourceDay?{
    lesson:practicum90LearnBatch01[i],
    sourceStatus:'original_practicum90_learning_day_specific_ungraded_editorial_review_pending'
+  }:{}),
+  ...(d.code==='practicum90'&&practicum90DepthDays01to20[i+1]?{
+   lesson:Object.freeze({...(i<5?practicum90LearnBatch01[i]:practicum90LearnBatch02[i-5]),
+    ...practicum90DepthDays01to20[i+1]}),
+   sourceStatus:'original_practicum90_advanced_source_authored_technical_acceptance_pending'
   }:{}),
   ...(d.code==='risk60'&&i>=40&&risk60TransferBatch03[i-40]&&risk60TransferSourceDays[i-40]===sourceDay?{
    lesson:risk60TransferBatch03[i-40],

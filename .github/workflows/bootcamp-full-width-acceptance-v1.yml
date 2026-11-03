@@ -43,6 +43,9 @@ on:
       - 'tests/test_academy_charts45_depth_days21_40_v1.mjs'
       - 'functions/_lib/academy-charts45-depth-days41-45-v1.js'
       - 'tests/test_academy_charts45_depth_days41_45_v1.mjs'
+      - 'functions/_lib/academy-practicum90-depth-days01-20-v1.js'
+      - 'tests/test_academy_practicum90_depth_days01_20_v1.mjs'
+      - 'tests/test_academy_practicum90_days01_20_browser_v1.mjs'
       - 'functions/_lib/academy-risk60-advanced-depth-days25-44-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days45-52-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days53-60-v1.js'
@@ -152,6 +155,7 @@ jobs:
           node tests/test_academy_charts45_depth_days01_20_v1.mjs
           node tests/test_academy_charts45_depth_days21_40_v1.mjs
           node tests/test_academy_charts45_depth_days41_45_v1.mjs
+          node tests/test_academy_practicum90_depth_days01_20_v1.mjs
           node scripts/academy-274-advanced-readiness-preflight-v1.mjs
           node tests/test_academy_guided_v1.mjs
           node tests/test_academy_three_camps_completion_contract_v1.mjs
@@ -197,6 +201,10 @@ jobs:
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
         run: node tests/test_academy_charts45_days01_40_browser_v1.mjs
+      - name: Browser-verify Practicum90 advanced Days 01–20 across three viewport widths
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/test_academy_practicum90_days01_20_browser_v1.mjs
       - name: Browser-verify all three new Boot Camp routes at mobile and desktop widths
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765

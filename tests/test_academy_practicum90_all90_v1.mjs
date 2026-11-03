@@ -21,7 +21,12 @@ for(let i=0;i<90;i++){
  assert.equal(day.day,i+1,'Canonical day identifier');
  assert.equal(day.sourceDay,source,'Canonical thirty-source mapping');
  assert.equal(day.phase,phase,'Correct learning phase');
- assert.strictEqual(day.lesson,lesson,'One canonical source package per day');
+ if(i<20){
+  for(const [key,value] of Object.entries(lesson))
+   assert.strictEqual(day.lesson[key],value,'Frozen original Practicum90 field '+key+' day '+day.day);
+  assert.equal(day.lesson.supplementarySourceStatus,
+   'ORIGINAL_PRACTICUM90_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
+ }else assert.strictEqual(day.lesson,lesson,'One canonical source package per day');
  assert.equal(day.officiallyGraded,false,'No unapproved grading');
  assert.equal(day.masteryAwarded,false,'No unapproved mastery');
  assert.equal(lesson.day,i+1);
