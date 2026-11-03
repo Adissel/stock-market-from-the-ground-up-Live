@@ -34,6 +34,13 @@ function setup({grant=true,revoked=false,expired=false,suspended=false,
    status:'active',current_period_end:'2099-01-01T00:00:00Z',
    metadata:{engine_edition_grants_v1:grant?{lab:{active:true,edition:'ADVANCED',
     expiresAt:expired?'2020-01-01T00:00:00Z':'2098-01-01T00:00:00Z',revoked}}:{}}}]);
+  if(loc.pathname==='/rest/v1/competency_definitions')return ok([
+   {competency_code:'EMA_CONTEXT',metadata:{prerequisites:['CANDLE_READING']}}
+  ]);
+  if(loc.pathname==='/rest/v1/competency_evidence')return ok([
+   {competency_code:'EMA_CONTEXT',source_type:'quiz',passed:false,critical_error:false,
+    metadata:{mapping_individually_reviewed:true},assessed_at:'2026-11-03T12:00:00Z'}
+  ]);
   if(loc.pathname==='/rest/v1/platform_labs'){
    const match=(loc.searchParams.get('lab_id')||'').replace(/^eq\./,'');
    return ok(match==='F1-C02-L01'?[{lab_id:match,book_code:'FOUNDATION_BOOK_1',

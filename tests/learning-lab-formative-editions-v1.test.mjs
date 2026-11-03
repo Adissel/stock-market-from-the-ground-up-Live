@@ -25,6 +25,7 @@ test('only reviewed evidence changes a formative recommendation, never mastery',
  assert.equal(route.length,1);
  assert.equal(route[0].competencyId,'VWAP');
  assert.deepEqual(route[0].prerequisites,['CANDLE','VOLUME']);
+ assert.deepEqual(route[0].sequence,['CANDLE','VOLUME','VWAP']);
  assert.equal(route[0].changesMastery,false);
  assert.equal(route[0].changesAccess,false);
  assert.deepEqual(recommendFormativeRoute({competencies,observations:[]}),[]);

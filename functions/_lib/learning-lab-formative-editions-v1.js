@@ -43,8 +43,9 @@ export function recommendFormativeRoute({competencies,observations}={}){
      seen.has(c.id)||!verified.has(c.id))continue;
   seen.add(c.id);
   const deps=Array.isArray(c.prerequisites)?c.prerequisites.filter(x=>typeof x==='string'&&x.trim()&&x!==c.id).slice(0,20):[];
+  const sequence=Object.freeze([...new Set([...deps,c.id])]);
   result.push(Object.freeze({competencyId:c.id,route:'formative_remediation',
-   prerequisites:Object.freeze([...new Set(deps)]),
+   prerequisites:Object.freeze([...new Set(deps)]),sequence,
    rationale:'A reviewed formative observation requires another worked example and independent transfer.',
    changesMastery:false,changesAccess:false}));
  }

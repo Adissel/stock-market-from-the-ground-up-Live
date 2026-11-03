@@ -36,6 +36,41 @@ async function records(env,memberId){
  if(!Array.isArray(rows)||rows.length>20)throw err('Member subscription records invalid.',503);
  return rows;
 }
+async function reviewedRoute(env,memberId){
+ const c=config(env),encode=encodeURIComponent;
+ const definitionsUrl=c.base+'/rest/v1/competency_definitions?select=competency_code,metadata'+
+  '&active=eq.true&order=sort_order.asc&limit=100';
+ const evidenceUrl=c.base+'/rest/v1/competency_evidence?select=competency_code,source_type,passed,critical_error,metadata,assessed_at'+
+  '&user_id=eq.'+encode(memberId)+'&order=assessed_at.desc&limit=500';
+ const [definitionsResponse,evidenceResponse]=await Promise.all([
+  fetch(definitionsUrl,{headers:c.headers,cache:'no-store'}),
+  fetch(evidenceUrl,{headers:c.headers,cache:'no-store'})
+ ]);
+ if(!definitionsResponse.ok||!evidenceResponse.ok)
+  throw err('Reviewed learning evidence is unavailable.',503);
+ const definitions=await definitionsResponse.json().catch(()=>null);
+ const evidence=await evidenceResponse.json().catch(()=>null);
+ if(!Array.isArray(definitions)||definitions.length>100||
+    !Array.isArray(evidence)||evidence.length>500)
+  throw err('Reviewed learning evidence is invalid.',503);
+ const competencies=definitions.filter(x=>typeof x?.competency_code==='string').map(x=>({
+  id:x.competency_code,
+  prerequisites:Array.isArray(x.metadata?.prerequisites)?x.metadata.prerequisites:[]
+ }));
+ const observations=[];
+ const seen=new Set();
+ for(const row of evidence){
+  const code=row?.competency_code;
+  if(typeof code!=='string'||seen.has(code))continue;
+  const reviewed=row.metadata?.mapping_individually_reviewed===true||
+   row.metadata?.reviewed===true||['instructor_review','system_assessment','capstone'].includes(row.source_type);
+  if(!reviewed)continue;
+  seen.add(code);
+  observations.push({kind:'formative_observation',reviewed:true,competencyId:code,
+   outcome:row.passed===true&&row.critical_error!==true?'correct':'needs_review'});
+ }
+ return {competencies,observations};
+}
 function released(env,family,edition){
  return env?.['ENGINE_'+family.toUpperCase()+'_'+edition+'_RELEASED']==='true';
 }
@@ -89,7 +124,7 @@ export async function onRequest({request,env}){
      !['learning','lab'].includes(body.family)||!EDITIONS.includes(body.edition)||
      !body.payload||typeof body.payload!=='object'||Array.isArray(body.payload))
    throw err('Unsupported edition or exercise.',400);
-  await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
+  const rights=await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
   // Original exercises from caller-provided fictional bars ONLY. A client
   // cannot label an indicator as verified or assert licensed market rights.
   const evidence=body.payload.evidence;
@@ -98,7 +133,8 @@ export async function onRequest({request,env}){
   if(!derived)throw err('Valid completed fictional evidence required.',400);
   let answer=null;
   if(body.edition==='ADVANCED'&&body.activity==='advanced_formative_review'){
-   answer=advancedFormativeStudy({competencies:[],observations:[],
+   const route=await reviewedRoute(env,rights.memberId);
+   answer=advancedFormativeStudy({competencies:route.competencies,observations:route.observations,
     evidence:derived.evidence,indicators:derived.indicators});
   }else if(body.edition==='PROFESSIONAL'&&body.activity==='decision_replay_review'){
    const frames=deriveFictionalCompletedFrames({

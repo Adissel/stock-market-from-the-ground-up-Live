@@ -12,7 +12,7 @@ function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',editio
  const original=globalThis.fetch,calls=[];
  const res=x=>new Response(JSON.stringify(x),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,options={})=>{
-  const u=new URL(String(url));calls.push({pathname:u.pathname,method:options.method||'GET'});
+  const u=new URL(String(url));calls.push({pathname:u.pathname,search:u.search,method:options.method||'GET'});
   if(u.pathname==='/auth/v1/user')return res({id:memberId});
   if(u.pathname==='/rest/v1/profiles')return res([{account_kind:'member',deleted_at:null}]);
   if(u.pathname==='/rest/v1/admin_user_flags'||u.pathname==='/rest/v1/admin_user_roles')return res([]);
@@ -24,6 +24,14 @@ function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',editio
      [family]:{active:true,edition,expiresAt,revoked}
    }:{}}
   }]);
+  if(u.pathname==='/rest/v1/competency_definitions')return res([
+   {competency_code:'EMA_CONTEXT',metadata:{prerequisites:['CANDLE_READING']}},
+   {competency_code:'CANDLE_READING',metadata:{prerequisites:[]}}
+  ]);
+  if(u.pathname==='/rest/v1/competency_evidence')return res([
+   {competency_code:'EMA_CONTEXT',source_type:'quiz',passed:false,critical_error:false,
+    metadata:{mapping_individually_reviewed:true},assessed_at:'2026-11-03T12:00:00Z'}
+  ]);
   throw Error('Unexpected server-side fixture request '+u.pathname);
  };
  return {calls,restore:()=>globalThis.fetch=original};
@@ -63,6 +71,10 @@ test('Approved Advanced source works using server-computed fictional math, ignor
  const f=fixture();try{const r=await onRequest({request:request(form()),env});assert.equal(r.status,200);
  const body=await r.json();assert.equal(body.ok,true);assert.equal(body.result.edition,'ADVANCED');
  const values=body.result.evidence.indicators;assert.equal(values.length,2);
+ assert.equal(body.result.remediation.length,1);
+ assert.deepEqual(body.result.remediation[0].sequence,['CANDLE_READING','EMA_CONTEXT']);
+ const evidenceCall=f.calls.find(x=>x.pathname==='/rest/v1/competency_evidence');
+ assert.ok(evidenceCall);assert.match(evidenceCall.search,/user_id=eq\.11111111-1111-4111-8111-111111111111/);
  assert(values.some(x=>x.name==='EMA'));assert(values.some(x=>x.name==='VWAP'));
  assert(values.every(x=>x.value!==99999));assert.equal(body.officialGrade,false);
  assert.equal(body.memberRecordsModified,false);
