@@ -1,0 +1,327 @@
+{
+  "batch": "B002",
+  "part": 3,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b002-risk-tolerance-time-horizon",
+      "title": "Investment Time Horizon and Risk Tolerance",
+      "summary": "A complete original foundational research lesson about investment time horizon and risk tolerance with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Financial Decisions",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "beginner",
+        "intro"
+      ],
+      "definition": "An investor's time horizon describes when capital may be required, while risk tolerance includes both the capacity and willingness to withstand potential losses.",
+      "procedure": "Document every input and its effective date before performing the following analysis. An investor's time horizon describes when capital may be required, while risk tolerance includes both the capacity and willingness to withstand potential losses. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "Fictional Account A is earmarked for a known payment in six months and Account B is for a goal twenty years later. Compare required attention to liquidity and loss risk.",
+      "solution": "The near-term goal is less able to wait through a prolonged drawdown; the distant goal may allow a longer recovery window, but neither horizon by itself proves a suitable security allocation.",
+      "counterexample": "The statement that stocks always recover by a known date is an unsupported promise. Personal circumstances and risk capacity must be considered.",
+      "limitations": "Scope and falsification: The statement that stocks always recover by a known date is an unsupported promise. Personal circumstances and risk capacity must be considered. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Describe how an unexpected need for cash changes the assumptions underlying a hypothetical long-horizon investment plan.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov introduction to investing",
+          "url": "https://www.investor.gov/introduction-investing"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-income-statement-basic-arithmetic",
+      "title": "Revenue, Expenses, and Net Income",
+      "summary": "A complete original foundational research lesson about revenue, expenses, and net income with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Financial Statements",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "beginner",
+        "filing"
+      ],
+      "definition": "The income statement reports business performance over a defined period, and net income is not interchangeable with revenue or ending cash.",
+      "procedure": "Document every input and its effective date before performing the following analysis. The income statement reports business performance over a defined period, and net income is not interchangeable with revenue or ending cash. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "Fictional Company A reports $500,000 revenue, $320,000 total costs and expenses, and $30,000 of additional net charges. Compute the illustrative remaining income.",
+      "solution": "Under these deliberately simplified figures, $500,000 minus $320,000 minus $30,000 equals $150,000 net income, not $500,000 of profit.",
+      "counterexample": "Accounting profit can include noncash items and timing choices; cash generated during the same period can differ substantially.",
+      "limitations": "Scope and falsification: Accounting profit can include noncash items and timing choices; cash generated during the same period can differ substantially. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Explain why two firms with equal revenue but different costs may report different net income and why cash flows must be checked.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov how to read Form 10-K",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-balance-sheet-accounting-identity",
+      "title": "Assets, Liabilities, and Owners Equity",
+      "summary": "A complete original foundational research lesson about assets, liabilities, and owners equity with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Financial Statements",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "beginner",
+        "filing"
+      ],
+      "definition": "A balance sheet presents the accounting relationship assets equal liabilities plus equity at a specified reporting date.",
+      "procedure": "Document every input and its effective date before performing the following analysis. A balance sheet presents the accounting relationship assets equal liabilities plus equity at a specified reporting date. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "An imaginary issuer reports $900,000 in assets and $620,000 in liabilities. Calculate residual book equity under the basic accounting identity.",
+      "solution": "Book equity is $900,000 minus $620,000, or $280,000. It is a reported accounting residual and not automatically the stock market capitalization.",
+      "counterexample": "Historical-cost asset measurements and contingent obligations can cause book value to differ from realizable value or current equity quotation.",
+      "limitations": "Scope and falsification: Historical-cost asset measurements and contingent obligations can cause book value to differ from realizable value or current equity quotation. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Invent a small balance sheet with $1.2 million assets and $950,000 liabilities; reconcile the identity and name one missing disclosure.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov how to read Form 10-K",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-operating-cash-flow-versus-profit",
+      "title": "Operating Cash Flow Versus Reported Profit",
+      "summary": "A complete original foundational research lesson about operating cash flow versus reported profit with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Financial Statements",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "beginner",
+        "filing"
+      ],
+      "definition": "Net income is an accrual accounting measure, while operating cash flow adjusts for noncash items and changes in working-capital balances.",
+      "procedure": "Document every input and its effective date before performing the following analysis. Net income is an accrual accounting measure, while operating cash flow adjusts for noncash items and changes in working-capital balances. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A hypothetical business reports $100,000 net income, $20,000 depreciation and a $40,000 increase in receivables. Ignore other changes and estimate operating cash flow.",
+      "solution": "A simplified reconciliation gives $100,000 + $20,000 - $40,000 = $80,000. The receivable increase reduces collected cash relative to reported accrual income.",
+      "counterexample": "Positive earnings do not automatically imply the same dollar amount of operating cash flow; investing and financing activities must be classified separately.",
+      "limitations": "Scope and falsification: Positive earnings do not automatically imply the same dollar amount of operating cash flow; investing and financing activities must be classified separately. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Reconcile $70,000 net income, $10,000 depreciation and a $15,000 inventory increase under the same simplified assumptions.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov how to read Form 10-K",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-sec-edgar-filing-navigation",
+      "title": "Locating Company Reports in SEC EDGAR",
+      "summary": "A complete original foundational research lesson about locating company reports in sec edgar with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Regulatory Filings",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "beginner",
+        "edgar"
+      ],
+      "definition": "EDGAR is the SEC's public filing-retrieval system; research requires identifying the exact issuer, accession, form, filing date and reporting period.",
+      "procedure": "Document every input and its effective date before performing the following analysis. EDGAR is the SEC's public filing-retrieval system; research requires identifying the exact issuer, accession, form, filing date and reporting period. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A fictional firm has a Form 10-K filed for its annual reporting period and a later Form 10-Q. Which document generally covers annual business and risk disclosures?",
+      "solution": "The Form 10-K is an annual report with detailed business, risk and audited financial sections for covered issuers; Form 10-Q is a periodic quarterly reporting form.",
+      "counterexample": "A filing submitted in November may report an earlier financial period. Using period-end date as public availability date may introduce lookahead.",
+      "limitations": "Scope and falsification: A filing submitted in November may report an earlier financial period. Using period-end date as public availability date may introduce lookahead. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Write a source-control record with fictional form type, issuer identifier, accession and filing timestamp, and explain why the fields are distinct.",
+      "sources": [
+        {
+          "title": "SEC EDGAR official filing search",
+          "url": "https://www.sec.gov/search-filings"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-raw-vs-adjusted-price-series",
+      "title": "Raw and Adjusted Historical Price Series",
+      "summary": "A complete original institutional quantitative research lesson about raw and adjusted historical price series with documented assumptions, a worked case and limitations.",
+      "subject": "Quantitative Research / Data Governance",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "institutional_quantitative",
+        "leak"
+      ],
+      "definition": "A raw historical price represents reported trading units on the original date, while an adjusted series transforms past observations for chosen corporate actions.",
+      "procedure": "Document every input and its effective date before performing the following analysis. A raw historical price represents reported trading units on the original date, while an adjusted series transforms past observations for chosen corporate actions. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A made-up stock closed at $90 before a three-for-one split. Its post-split comparable price is $30. Compare an unadjusted $90 bar to a mechanically adjusted $30 bar.",
+      "solution": "Both displays may correspond to the same pre-split economic observation under a three-for-one adjustment, but their numerical units differ. Never merge without adjustment flags.",
+      "counterexample": "A vendor's adjusted series may include split and dividend conventions unlike another vendor. Assuming adjusted equals total return leads to incorrect arithmetic.",
+      "limitations": "Scope and falsification: A vendor's adjusted series may include split and dividend conventions unlike another vendor. Assuming adjusted equals total return leads to incorrect arithmetic. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "List explicit dataset fields for raw close, adjustment factor, effective date, and vendor convention before comparing split-era returns.",
+      "sources": [
+        {
+          "title": "scikit-learn common data-leakage pitfalls",
+          "url": "https://scikit-learn.org/stable/common_pitfalls"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-as-of-vintage-data-snapshots",
+      "title": "As-Of Timestamps and Source Data Vintages",
+      "summary": "A complete original institutional quantitative research lesson about as-of timestamps and source data vintages with documented assumptions, a worked case and limitations.",
+      "subject": "Quantitative Research / Temporal Integrity",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "institutional_quantitative",
+        "timesplit"
+      ],
+      "definition": "An as-of research snapshot must preserve when an observation was actually available, separately from when its economic period ended or when it was later revised.",
+      "procedure": "Document every input and its effective date before performing the following analysis. An as-of research snapshot must preserve when an observation was actually available, separately from when its economic period ended or when it was later revised. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A fictional company's quarter ends March 31, its statement is released May 10, and a data vendor revises a field May 20. Which value is available for an April 15 test?",
+      "solution": "The May 10 filing and May 20 revision were unavailable on April 15, so neither should enter that April 15 feature set. The correct feature may be missing.",
+      "counterexample": "Using a dataset downloaded today to simulate a decision made before its release date is forward-looking information leakage.",
+      "limitations": "Scope and falsification: Using a dataset downloaded today to simulate a decision made before its release date is forward-looking information leakage. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Specify observation time, publication time, ingestion time and revision time for an invented corporate ratio; select the proper as-of cutoff.",
+      "sources": [
+        {
+          "title": "scikit-learn TimeSeriesSplit",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-survivorship-bias-universe",
+      "title": "Survivorship Bias in Historical Security Universes",
+      "summary": "A complete original institutional quantitative research lesson about survivorship bias in historical security universes with documented assumptions, a worked case and limitations.",
+      "subject": "Quantitative Research / Data Governance",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "institutional_quantitative",
+        "leak"
+      ],
+      "definition": "A backtest using only securities that still exist at the end of the sample can exclude delisted or failed firms and distort the studied population.",
+      "procedure": "Document every input and its effective date before performing the following analysis. A backtest using only securities that still exist at the end of the sample can exclude delisted or failed firms and distort the studied population. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "In a fictional sector there were 100 eligible firms at a historical date, but only 70 remain listed years later. An analyst tests just those 70.",
+      "solution": "The sample omits 30 originally eligible securities, so it does not represent the historical universe. A point-in-time security master must restore eligibility and delisting history.",
+      "counterexample": "Survivor-only performance cannot establish the return of a strategy that would actually have faced extinct or delisted names.",
+      "limitations": "Scope and falsification: Survivor-only performance cannot establish the return of a strategy that would actually have faced extinct or delisted names. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Design a historical universe inclusion table carrying identifiers, effective membership dates and reasons for delisting.",
+      "sources": [
+        {
+          "title": "scikit-learn common data-leakage pitfalls",
+          "url": "https://scikit-learn.org/stable/common_pitfalls"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-point-in-time-fundamental-releases",
+      "title": "Point-in-Time Financial Statement Availability",
+      "summary": "A complete original institutional quantitative research lesson about point-in-time financial statement availability with documented assumptions, a worked case and limitations.",
+      "subject": "Foundations / Regulatory Filings",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "institutional_quantitative",
+        "edgar"
+      ],
+      "definition": "A research feature derived from statements must be timestamped by the filing's public release or a later verifiable availability cutoff, not merely by its reporting period.",
+      "procedure": "Document every input and its effective date before performing the following analysis. A research feature derived from statements must be timestamped by the filing's public release or a later verifiable availability cutoff, not merely by its reporting period. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A firm has December 31 year-end figures, filed on February 20. A model simulates signals on January 15 using those figures.",
+      "solution": "The year-end accounting period predates January 15, but the published filing did not exist until February 20. Those values cannot be used in the January 15 simulation.",
+      "counterexample": "A table with a period-end column but no filing date silently permits lookahead when analysts join it to daily market records.",
+      "limitations": "Scope and falsification: A table with a period-end column but no filing date silently permits lookahead when analysts join it to daily market records. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Given three fictional filings and a decision date, create an as-of join that uses only published statements available by that date.",
+      "sources": [
+        {
+          "title": "SEC EDGAR official filing search",
+          "url": "https://www.sec.gov/search-filings"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-double-application-of-split-factors",
+      "title": "Detecting Double-Adjusted Corporate Actions",
+      "summary": "A complete original institutional quantitative research lesson about detecting double-adjusted corporate actions with documented assumptions, a worked case and limitations.",
+      "subject": "Quantitative Research / Data Governance",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "institutional_quantitative",
+        "leak"
+      ],
+      "definition": "Reapplying a stock split factor to an already split-adjusted vendor series distorts returns and may fabricate a chart move.",
+      "procedure": "Document every input and its effective date before performing the following analysis. Reapplying a stock split factor to an already split-adjusted vendor series distorts returns and may fabricate a chart move. Verify source conventions, example arithmetic, and any change in historical availability.",
+      "exercise": "A pre-split raw close is $120 and an ordinary four-for-one split implies a comparable adjusted $30. A dataset already stores $30, but a script divides by four again.",
+      "solution": "The erroneous result becomes $7.50 rather than the correctly adjusted $30. The second division applied the same factor twice and creates a false change.",
+      "counterexample": "Corporate action libraries can disagree on split ratios, effective dates or fractional handling; do not infer adjustment state from price shape alone.",
+      "limitations": "Scope and falsification: Corporate action libraries can disagree on split ratios, effective dates or fractional handling; do not infer adjustment state from price shape alone. No fictional result constitutes a genuine trade, statistical validation or current compliance conclusion.",
+      "application": "Build a two-row dataset with raw close, vendor adjusted close, factor, and explicit adjustment status, then design a guard rejecting the second division.",
+      "sources": [
+        {
+          "title": "scikit-learn common data-leakage pitfalls",
+          "url": "https://scikit-learn.org/stable/common_pitfalls"
+        }
+      ]
+    }
+  ]
+}

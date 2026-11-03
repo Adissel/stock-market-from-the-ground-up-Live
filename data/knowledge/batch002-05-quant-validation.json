@@ -1,0 +1,317 @@
+{
+  "batch": "B002",
+  "part": 5,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b002-residual-autocorrelation-diagnostics",
+      "title": "Residual Autocorrelation and False Independence",
+      "summary": "A source-informed institutional quantitative education article covering residual autocorrelation and false independence through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Model Diagnostics",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "acf"
+      ],
+      "definition": "Serially correlated model residuals can violate independent-error assumptions and make some ordinary uncertainty estimates unreliable.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. Serially correlated model residuals can violate independent-error assumptions and make some ordinary uncertainty estimates unreliable. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional regression generates residuals that stay positive across several successive observations and then stay negative for several more. What diagnostic should be investigated?",
+      "solution": "Plot lagged residual relationships and an autocorrelation function, then assess whether the stated error model captures temporal structure. Repeated sign runs alone are a warning, not definitive proof.",
+      "counterexample": "Absence of a significant single-lag correlation does not demonstrate full randomness; changing model specification after inspecting residuals can also create selection bias.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Absence of a significant single-lag correlation does not demonstrate full randomness; changing model specification after inspecting residuals can also create selection bias. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Create an autocorrelation diagnostic for lags one through ten and explain when a time-aware residual model or robust uncertainty method may be needed.",
+      "sources": [
+        {
+          "title": "NIST — Autocorrelation Plot",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/autocopl.htm"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-chronological-train-test-split",
+      "title": "Chronological Training, Validation, and Test Splits",
+      "summary": "A source-informed institutional quantitative education article covering chronological training, validation, and test splits through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Walk-Forward Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "tss"
+      ],
+      "definition": "Time-ordered market observations must not be randomly divided across future and past when the evaluation is supposed to simulate prospective prediction.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. Time-ordered market observations must not be randomly divided across future and past when the evaluation is supposed to simulate prospective prediction. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional dataset contains daily observations 1 through 100. Allocate 1-60 for training, 61-80 for model selection, and 81-100 as untouched final test.",
+      "solution": "The proposed split preserves a forward time direction and reserves the final 20 observations for one independent evaluation. Training features and preprocessing must still respect each as-of time.",
+      "counterexample": "Selecting thresholds by repeatedly observing final-test results turns that set into additional validation and overstates independent evidence.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Selecting thresholds by repeatedly observing final-test results turns that set into additional validation and overstates independent evidence. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Define a walk-forward split for 200 daily records and distinguish model selection, tuning and final holdout reporting.",
+      "sources": [
+        {
+          "title": "scikit-learn — TimeSeriesSplit",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-time-series-gap-embargo",
+      "title": "Temporal Gaps Between Training and Test Windows",
+      "summary": "A source-informed institutional quantitative education article covering temporal gaps between training and test windows through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Walk-Forward Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "tss"
+      ],
+      "definition": "A deliberate gap may separate adjacent training and test samples when feature windows or outcome horizons would otherwise overlap across the split.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. A deliberate gap may separate adjacent training and test samples when feature windows or outcome horizons would otherwise overlap across the split. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional rolling study trains on days 1-60, holds out 61-65 as a gap, and tests on days 66-80. Classify each period.",
+      "solution": "Days 1-60 are training observations, 61-65 are excluded by design, and 66-80 are held out for evaluation. The adequacy of a five-day gap depends on feature and label horizons.",
+      "counterexample": "A gap parameter alone does not prevent data leakage if features contain later revisions or if labels overlap beyond the chosen exclusion.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. A gap parameter alone does not prevent data leakage if features contain later revisions or if labels overlap beyond the chosen exclusion. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Design an exclusion policy for labels spanning ten trading days; identify why a gap shorter than the exposure horizon may be inadequate.",
+      "sources": [
+        {
+          "title": "scikit-learn — TimeSeriesSplit",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-forward-label-leakage",
+      "title": "Preventing Future-Return Labels From Becoming Predictors",
+      "summary": "A source-informed institutional quantitative education article covering preventing future-return labels from becoming predictors through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Leakage Prevention",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "leak"
+      ],
+      "definition": "A target defined using future returns must never be inserted into the feature vector that would have been available at the prediction date.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. A target defined using future returns must never be inserted into the feature vector that would have been available at the prediction date. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional model predicts five-day forward return for day 20, using the closing price from day 25 as part of the outcome. Could that price also be an input feature on day 20?",
+      "solution": "No. The day-25 closing price is future information relative to day 20 and can only help calculate the later-observed label, not a day-20 predictor.",
+      "counterexample": "Fitting scalers, target encoders or feature selectors on full data before the temporal split can leak information even when target columns are excluded.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Fitting scalers, target encoders or feature selectors on full data before the temporal split can leak information even when target columns are excluded. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Write an as-of feature table with timestamps for features and targets; reject any feature whose available_at timestamp exceeds the prediction cutoff.",
+      "sources": [
+        {
+          "title": "scikit-learn — Common Data Leakage Pitfalls",
+          "url": "https://scikit-learn.org/stable/common_pitfalls"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-rolling-feature-window-boundaries",
+      "title": "Rolling Feature Windows and Right-Edge Cutoffs",
+      "summary": "A source-informed institutional quantitative education article covering rolling feature windows and right-edge cutoffs through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Numerical Features",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "window"
+      ],
+      "definition": "A trailing rolling statistic for time t should use only observations available by t; whether the bar at t is completed must be stated.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. A trailing rolling statistic for time t should use only observations available by t; whether the bar at t is completed must be stated. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "For fictional completed closes of 10, 12 and 14, calculate a trailing three-observation mean at t3. A later t4 close of 16 is subsequently reported.",
+      "solution": "The t3 mean is (10+12+14)/3 = 12. At completed t4 the trailing mean becomes (12+14+16)/3 = 14. The t4 value was not available at t3.",
+      "counterexample": "Center-aligned windows and hidden forward fills can incorporate future bars, especially when charts backfill or vendors adjust prior records.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Center-aligned windows and hidden forward fills can incorporate future bars, especially when charts backfill or vendors adjust prior records. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Compute an aligned trailing five-observation average and prove no timestamp beyond the score date entered the calculation.",
+      "sources": [
+        {
+          "title": "pandas — Windowing Operations",
+          "url": "https://pandas.pydata.org/docs/user_guide/window"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-bid-ask-cost-in-backtests",
+      "title": "Including Spread and Fees in a Fictional Backtest",
+      "summary": "A source-informed institutional quantitative education article covering including spread and fees in a fictional backtest through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Execution Costs",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "bid"
+      ],
+      "definition": "A research trade evaluated only at midpoint or last sale can overlook the difference between executable buy and sell indications and transaction charges.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. A research trade evaluated only at midpoint or last sale can overlook the difference between executable buy and sell indications and transaction charges. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A flat fictional midpoint is $10.00. The ask is $10.05, bid $9.95, and a round trip buys then sells 100 shares with $1 fee per side.",
+      "solution": "Purchase costs $1005 plus $1 fee. Sale returns $995 less $1 fee. Net cash change is -$12 despite an unchanged midpoint price.",
+      "counterexample": "Marking both entry and exit at a static midpoint would report zero change instead of the negative cost under these hypothetical quote assumptions.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Marking both entry and exit at a static midpoint would report zero change instead of the negative cost under these hypothetical quote assumptions. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Recompute the round trip with bid $19.90, ask $20.10 and a 50-share quantity, including $2 in combined fees.",
+      "sources": [
+        {
+          "title": "SEC — Bid and Ask Prices",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-slippage-stress-scenarios",
+      "title": "Stress-Testing Execution Slippage Assumptions",
+      "summary": "A source-informed institutional quantitative education article covering stress-testing execution slippage assumptions through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Execution Costs",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "bid"
+      ],
+      "definition": "Slippage is the difference between a modeled reference transaction price and an assumed or observed execution; studies should vary it explicitly.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. Slippage is the difference between a modeled reference transaction price and an assumed or observed execution; studies should vary it explicitly. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A research model assumes a buy at $10.00 for 100 fictional shares, but a stress scenario prices that buy at $10.08.",
+      "solution": "The hypothetical adverse difference is $0.08 per share or $8 for 100 shares, before fees and the later exit. This models cost, not an observed fill.",
+      "counterexample": "A backtest that treats every signal as filled exactly on a bar close may understate the effect of queues, delay and volatility.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. A backtest that treats every signal as filled exactly on a bar close may understate the effect of queues, delay and volatility. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Create three slippage scenarios of zero, five and fifteen cents per share and compare their effect on a 200-share fictional order.",
+      "sources": [
+        {
+          "title": "SEC — Bid and Ask Prices",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-portfolio-turnover-definitions",
+      "title": "Portfolio Turnover and Explicit Measurement Conventions",
+      "summary": "A source-informed institutional quantitative education article covering portfolio turnover and explicit measurement conventions through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Risk Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "scale"
+      ],
+      "definition": "Turnover estimates trade activity relative to portfolio size but different definitions use lesser-of purchases or sales versus their sum.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. Turnover estimates trade activity relative to portfolio size but different definitions use lesser-of purchases or sales versus their sum. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional portfolio begins with $1000 net asset value and executes $200 of purchases and $150 of sales. Apply lesser-of-buys-or-sells divided by opening NAV.",
+      "solution": "Under that declared convention, turnover is min($200,$150)/$1000 = 15 percent. The sum-of-flows measure would be ($200+$150)/$1000 = 35 percent and is not identical.",
+      "counterexample": "Publishing a turnover percentage without a denominator, accounting period and definition makes comparisons across studies misleading.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Publishing a turnover percentage without a denominator, accounting period and definition makes comparisons across studies misleading. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Repeat the lesser-of calculation for $400 purchases, $600 sales and $2000 average NAV, then state which definition was used.",
+      "sources": [
+        {
+          "title": "NIST — Measures of Scale",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-maximum-drawdown-peak-to-trough",
+      "title": "Maximum Drawdown Versus Volatility",
+      "summary": "A source-informed institutional quantitative education article covering maximum drawdown versus volatility through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Risk Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "scale"
+      ],
+      "definition": "Maximum drawdown measures the largest proportional fall from an earlier equity peak to a later trough over the selected path, while volatility measures dispersion of returns.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. Maximum drawdown measures the largest proportional fall from an earlier equity peak to a later trough over the selected path, while volatility measures dispersion of returns. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "A fictional equity curve starts at $1000, rises to $1200, falls to $900 and later ends at $1300. Find the peak-to-trough drawdown before the recovery.",
+      "solution": "From $1200 to $900, decline is $300/$1200 = 25 percent. A subsequent new high does not erase that historical drawdown measurement.",
+      "counterexample": "A strategy can have a modest standard deviation but a concentrated severe loss; neither annualized volatility nor average return is the same as peak-to-trough drawdown.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. A strategy can have a modest standard deviation but a concentrated severe loss; neither annualized volatility nor average return is the same as peak-to-trough drawdown. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Build a five-step equity series and compute the running peak and percentage drawdown at each observation.",
+      "sources": [
+        {
+          "title": "NIST — Measures of Scale",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-time-dependent-block-bootstrap",
+      "title": "Block Bootstrap and Dependent Time-Series Samples",
+      "summary": "A source-informed institutional quantitative education article covering block bootstrap and dependent time-series samples through explicit assumptions, a fictional study and falsification tests.",
+      "subject": "Quantitative Research / Model Diagnostics",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "acf"
+      ],
+      "definition": "A block bootstrap resamples contiguous chunks rather than single independent observations to preserve some local time dependence under declared assumptions.",
+      "procedure": "Define the measurement universe, timestamps, period and source conditions before applying the following method. A block bootstrap resamples contiguous chunks rather than single independent observations to preserve some local time dependence under declared assumptions. Retain complete input snapshots and evaluate results with an independent boundary case.",
+      "exercise": "Ten fictional daily residuals are arranged into overlapping three-day blocks. A learner proposes randomizing individual days instead while claiming the original serial structure remains intact.",
+      "solution": "Resampling single days destroys the within-block order by construction. Sampling three-day chunks retains local ordering inside each selected block but still changes cross-block relationships.",
+      "counterexample": "Block length, overlap, sample size and regime shifts can materially alter uncertainty intervals; block resampling is not a guaranteed model-validation cure.",
+      "limitations": "The illustrative research is not a verified profitable trading model or market-data license. Block length, overlap, sample size and regime shifts can materially alter uncertainty intervals; block resampling is not a guaranteed model-validation cure. In a genuine institutional setting, independent model validation and source-rights review remain separate.",
+      "application": "Design a fictional six-observation residual series, list two length-three blocks and explain one dependence pattern each preserves and one it may disrupt.",
+      "sources": [
+        {
+          "title": "NIST — Autocorrelation Plot",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/autocopl.htm"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "batch": "B002",
+  "part": 1,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b002-stock-ownership-versus-bonds",
+      "title": "Stock Ownership Versus Corporate Lending",
+      "summary": "An original beginner-level teaching article about stock ownership versus corporate lending, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Securities and Ownership",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A share is residual equity ownership whereas an ordinary bond is a debt claim with instrument-specific repayment obligations and possible default risk.",
+      "procedure": "For stock ownership versus corporate lending, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A share is residual equity ownership whereas an ordinary bond is a debt claim with instrument-specific repayment obligations and possible default risk. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "Fictional owner Pat buys five of a company's 100 shares at $20 each and later sees a $14 quote. Calculate the fraction owned and present holding value.",
+      "solution": "Pat owns 5 percent of the stated shares; at $14 each the five shares total $70, a $30 decline before fees. A bond would carry different documented creditor rights.",
+      "counterexample": "Bonds can default and fluctuate in price; shareholders are not promised a dividend. Neither title guarantees repayment of the buyer's purchase cost.",
+      "limitations": "This illustration is an educational simplification: Bonds can default and fluctuate in price; shareholders are not promised a dividend. Neither title guarantees repayment of the buyer's purchase cost. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Compare a preferred share and an unsecured note, then identify the documents needed to verify each one's seniority and contractual protections.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investment products",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-market-cap-versus-share-price",
+      "title": "Why Share Price Is Not Market Capitalization",
+      "summary": "An original beginner-level teaching article about why share price is not market capitalization, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Prices and Securities",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "Market capitalization uses a contemporaneous common share price multiplied by the corresponding outstanding share count, not share price alone.",
+      "procedure": "For why share price is not market capitalization, label the observed source data, relevant time and share or dollar units. Apply this definition in order: Market capitalization uses a contemporaneous common share price multiplied by the corresponding outstanding share count, not share price alone. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "Company A has two million common shares at $40, while company B has 20 million at $7. Calculate each simplified equity market capitalization.",
+      "solution": "A measures $80 million and B measures $140 million. The lower per-share quotation of B does not make its total quoted equity value smaller.",
+      "counterexample": "Corporate splits and multiple share classes can change how many shares are counted; equity market capitalization is also not the same as enterprise value.",
+      "limitations": "This illustration is an educational simplification: Corporate splits and multiple share classes can change how many shares are counted; equity market capitalization is also not the same as enterprise value. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Recompute two hypothetical companies with 12 million shares at $15 and three million at $48, checking as-of dates and share-class scope.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investor glossary",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-bid-ask-spread-and-midpoint",
+      "title": "Reading the Bid, Ask, Spread, and Midpoint",
+      "summary": "An original beginner-level teaching article about reading the bid, ask, spread, and midpoint, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Quotes and Market Data",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "The quoted bid is buying interest and the ask is selling interest for stated quantities at a specified time; the displayed spread is ask minus bid.",
+      "procedure": "For reading the bid, ask, spread, and midpoint, label the observed source data, relevant time and share or dollar units. Apply this definition in order: The quoted bid is buying interest and the ask is selling interest for stated quantities at a specified time; the displayed spread is ask minus bid. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "An invented quote displays $24.90 bid and $25.10 ask; compute the absolute spread, midpoint, and spread percentage of midpoint.",
+      "solution": "The spread is $0.20; midpoint is $25.00; spread divided by midpoint is 0.20/25.00 or 0.8 percent before other transaction costs.",
+      "counterexample": "A stale quote or a last-sale print is not the current best bid or ask, and the displayed quantity may not cover an entire intended order.",
+      "limitations": "This illustration is an educational simplification: A stale quote or a last-sale print is not the current best bid or ask, and the displayed quantity may not cover an entire intended order. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "For bid $8.42 and ask $8.58, recompute all three measures and explain why a last sale at $8.70 does not alter that quotation.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov bid and ask prices",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-last-trade-versus-live-quote",
+      "title": "Historical Last Trade Versus Current Bid and Ask",
+      "summary": "An original beginner-level teaching article about historical last trade versus current bid and ask, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Quotes and Market Data",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A reported last sale describes an executed trade in the past; a newer quotation shows indicated bids and asks that may themselves change or disappear.",
+      "procedure": "For historical last trade versus current bid and ask, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A reported last sale describes an executed trade in the past; a newer quotation shows indicated bids and asks that may themselves change or disappear. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "A trade prints at $30.00 at 10:02 while the subsequent 10:03 quote is bid $29.70 and ask $30.20. Can a buyer assume a $30 fill?",
+      "solution": "No. The last trade is historical at $30.00. The quote indicates an ask of $30.20 at 10:03 for a stated size, without promising execution.",
+      "counterexample": "Corrected prints, after-hours trades, stale timestamps and venue-specific quotes are not interchangeable with current available selling interest.",
+      "limitations": "This illustration is an educational simplification: Corrected prints, after-hours trades, stale timestamps and venue-specific quotes are not interchangeable with current available selling interest. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Create one fictional print and two later quotes with times and sizes; label the observation that best answers a current-price question.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov bid and ask prices",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-market-order-with-depth",
+      "title": "Market Orders and Multiple Available Price Levels",
+      "summary": "An original beginner-level teaching article about market orders and multiple available price levels, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Orders and Market Structure",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A market order requests execution under current market conditions but does not bind the broker or market to a specified last-sale price.",
+      "procedure": "For market orders and multiple available price levels, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A market order requests execution under current market conditions but does not bind the broker or market to a specified last-sale price. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "Fictional offers include 50 shares at $12.00 and another 100 at $12.05; calculate a possible 120-share market buy using just these offers.",
+      "solution": "Fifty times $12 is $600 and 70 times $12.05 is $843.50. Total $1443.50 divided by 120 equals about $12.0292 per share before fees.",
+      "counterexample": "Offers can cancel or move, routing can differ, and an immediate market instruction is not a promise of a complete favorable fill.",
+      "limitations": "This illustration is an educational simplification: Offers can cancel or move, routing can differ, and an immediate market instruction is not a promise of a complete favorable fill. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Use only the first fictional offer to estimate a 40-share trade and list the reasons it is still not guaranteed.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov types of orders",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-buy-and-sell-limit-orders",
+      "title": "Limit Order Price Conditions and Nonexecution",
+      "summary": "An original beginner-level teaching article about limit order price conditions and nonexecution, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Orders and Market Structure",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A buy limit specifies a maximum acceptable price and a sell limit specifies a minimum; meeting a price condition still does not promise a fill.",
+      "procedure": "For limit order price conditions and nonexecution, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A buy limit specifies a maximum acceptable price and a sell limit specifies a minimum; meeting a price condition still does not promise a fill. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "The displayed ask is $20.10 and a learner submits a buy limit for 100 shares at $20.00. Decide whether that displayed ask is eligible.",
+      "solution": "The $20.10 ask is above the $20.00 maximum; that particular ask cannot fill the order at its quoted price. A future offer might qualify.",
+      "counterexample": "A historical sale at $19.99 does not establish that 100 shares are currently available or that the limit order has queue priority.",
+      "limitations": "This illustration is an educational simplification: A historical sale at $19.99 does not establish that 100 shares are currently available or that the limit order has queue priority. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Compare buy limits of $20.00 and $20.20 against the same ask, separating price eligibility from execution certainty.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov types of orders",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-stop-order-trigger-versus-fill",
+      "title": "Stop Order Trigger Is Not a Guaranteed Exit Price",
+      "summary": "An original beginner-level teaching article about stop order trigger is not a guaranteed exit price, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Orders and Market Structure",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A plain sell stop ordinarily becomes a market sell when its specified stop condition is met; the trigger is separate from the resulting transaction price.",
+      "procedure": "For stop order trigger is not a guaranteed exit price, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A plain sell stop ordinarily becomes a market sell when its specified stop condition is met; the trigger is separate from the resulting transaction price. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "Hypothetical shares close at $50 and a sell stop is set at $47. If the first eligible market after a gap is near $42, is $47 guaranteed?",
+      "solution": "No. A sell market order activated by the stop could fill near $42 or elsewhere depending on the market; the chosen stop was a trigger only.",
+      "counterexample": "The term stop-loss can imply a nonexistent maximum-loss guarantee; stop-limit orders avoid fills below their limit but can remain unexecuted.",
+      "limitations": "This illustration is an educational simplification: The term stop-loss can imply a nonexistent maximum-loss guarantee; stop-limit orders avoid fills below their limit but can remain unexecuted. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Analyze a fictional stop-limit sell with stop $47 and limit $46 during a gap to $42. Explain potential nonexecution.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov types of orders",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-regular-vs-extended-hours",
+      "title": "Comparing Regular and Extended-Hours Prices",
+      "summary": "An original beginner-level teaching article about comparing regular and extended-hours prices, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Trading Sessions",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "Different trading sessions can have different liquidity, quote widths, available order types, auction mechanisms and reported trade sizes.",
+      "procedure": "For comparing regular and extended-hours prices, label the observed source data, relevant time and share or dollar units. Apply this definition in order: Different trading sessions can have different liquidity, quote widths, available order types, auction mechanisms and reported trade sizes. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "A company closes its regular session at $25; later, a five-share after-hours transaction prints at $27.10. Is tomorrow's opening auction certain to be at least $27.10?",
+      "solution": "No. The small after-hours trade records only that moment and session; later orders, information and opening-auction demand can produce a different price.",
+      "counterexample": "Using a five-share after-hours print as evidence of executable size for a much larger order ignores depth and potentially different broker session rules.",
+      "limitations": "This illustration is an educational simplification: Using a five-share after-hours print as evidence of executable size for a much larger order ignores depth and potentially different broker session rules. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Record time zone, session, timestamp, size and spread for two invented quotes, then explain why their prices alone are not directly comparable.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov online investing",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-forward-stock-split-mechanics",
+      "title": "Forward Stock Splits and Share-Count Reconciliation",
+      "summary": "An original beginner-level teaching article about forward stock splits and share-count reconciliation, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Prices and Securities",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A conventional three-for-one stock split triples the holder's share count and mechanically divides the per-share price reference by three before other market changes.",
+      "procedure": "For forward stock splits and share-count reconciliation, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A conventional three-for-one stock split triples the holder's share count and mechanically divides the per-share price reference by three before other market changes. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "A fictional holder has seven shares valued at $60 each when a three-for-one split takes effect. Estimate resulting share count and mechanical price.",
+      "solution": "Seven shares become 21 and the theoretical reference becomes $20, so both before and after holdings amount to $420 in this isolated example.",
+      "counterexample": "Reading only the price move from $60 to $20 incorrectly portrays a two-thirds loss without reconciling shares and adjustments.",
+      "limitations": "This illustration is an educational simplification: Reading only the price move from $60 to $20 incorrectly portrays a two-thirds loss without reconciling shares and adjustments. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Reconcile a five-for-one split of four hypothetical shares at $100 and explain how double-adjusted historical prices would mislead.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investor glossary",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-cash-dividend-holding-return",
+      "title": "Cash Dividends in Holding-Period Return",
+      "summary": "An original beginner-level teaching article about cash dividends in holding-period return, including a fictional worked example, evidence limits, and a reproducible independent application.",
+      "subject": "Foundations / Holding-Period Returns",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "foundations",
+        "beginner",
+        "batch-002"
+      ],
+      "definition": "A simple cash-inclusive holding-period return adds eligible distributions to the security's price change before dividing by the beginning value.",
+      "procedure": "For cash dividends in holding-period return, label the observed source data, relevant time and share or dollar units. Apply this definition in order: A simple cash-inclusive holding-period return adds eligible distributions to the security's price change before dividing by the beginning value. Preserve an independent calculation and check current issuer or broker documentation.",
+      "exercise": "An illustrative holding begins at $40, finishes at $39, and pays an eligible $1.50 cash dividend per share. Compute price-only and total simple return.",
+      "solution": "Price return is (39-40)/40 or minus 2.5 percent. Cash-inclusive return is (39-40+1.50)/40 or plus 1.25 percent, before fees and taxes.",
+      "counterexample": "A dividend does not necessarily create free wealth beyond the market price, and ex-dividend, tax and vendor price-adjustment conventions matter.",
+      "limitations": "This illustration is an educational simplification: A dividend does not necessarily create free wealth beyond the market price, and ex-dividend, tax and vendor price-adjustment conventions matter. Any current market, account, order or legal conclusion needs independently verified sources and eligibility.",
+      "application": "Calculate price and cash-inclusive return for fictional beginning $50, ending $48 and $0.80 dividend per share.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov introduction to investing",
+          "url": "https://www.investor.gov/introduction-investing"
+        }
+      ]
+    }
+  ]
+}

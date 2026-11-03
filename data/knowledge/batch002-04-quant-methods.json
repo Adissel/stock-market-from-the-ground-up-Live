@@ -1,0 +1,317 @@
+{
+  "batch": "B002",
+  "part": 4,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b002-stale-quote-timestamp-rules",
+      "title": "Stale-Quote Detection and Source Freshness",
+      "summary": "An original quantitative research lesson explaining stale-quote detection and source freshness with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Market Data Quality",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "bid"
+      ],
+      "definition": "A quote-quality check needs a declared maximum age, a trusted timestamp source and explicit treatment of unavailable or out-of-order observations.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A quote-quality check needs a declared maximum age, a trusted timestamp source and explicit treatment of unavailable or out-of-order observations. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "A fictional quote is timestamped 10:01 and evaluated at 10:06 under a maximum two-minute age rule. Should the quote pass freshness validation?",
+      "solution": "It is five minutes old, exceeding the two-minute rule, so it must be marked stale and excluded from any current-quote calculation.",
+      "counterexample": "System clock drift or network delay can obscure true age, and a stale observation cannot be reclassified as current because its price seems plausible.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. System clock drift or network delay can obscure true age, and a stale observation cannot be reclassified as current because its price seems plausible. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Create a validation rule for a two-source quote stream and test missing timestamps, reversed timestamps and exactly-on-threshold observations.",
+      "sources": [
+        {
+          "title": "SEC — Bid and Ask Quotations",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-missing-data-versus-zero-values",
+      "title": "Missing Observations Versus Genuine Numeric Zero",
+      "summary": "An original quantitative research lesson explaining missing observations versus genuine numeric zero with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Data Integrity",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "leak"
+      ],
+      "definition": "A zero observation is measured and meaningful; a missing field is unknown. Replacing missing values with zero can alter averages and conditional filters.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A zero observation is measured and meaningful; a missing field is unknown. Replacing missing values with zero can alter averages and conditional filters. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "Invented transaction volumes are 100, missing, and 200 shares for three intervals. Compare the average over observed intervals with an incorrect zero-filled average.",
+      "solution": "The observed-value mean is (100+200)/2 = 150. Treating missing as zero yields (100+0+200)/3 = 100 and falsely invents a zero-volume interval.",
+      "counterexample": "Data imputation must be explicitly chosen and fitted using eligible training data; it is not the same as proof that trading volume truly equaled zero.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. Data imputation must be explicitly chosen and fitted using eligible training data; it is not the same as proof that trading volume truly equaled zero. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Define a nullable table column and distinguish true zero, null, stale, invalid and not-applicable records in the same quality report.",
+      "sources": [
+        {
+          "title": "scikit-learn — Data Leakage and Preprocessing",
+          "url": "https://scikit-learn.org/stable/common_pitfalls"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-bar-aggregation-open-high-low-close",
+      "title": "OHLC Bar Aggregation and Completed Intervals",
+      "summary": "An original quantitative research lesson explaining ohlc bar aggregation and completed intervals with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Temporal Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "tss"
+      ],
+      "definition": "A candle represents the first, maximum, minimum and last eligible observed price in a declared nonempty interval, under explicit trade filtering rules.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A candle represents the first, maximum, minimum and last eligible observed price in a declared nonempty interval, under explicit trade filtering rules. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "Four fictional eligible trades in timestamp order are $10, $12, $9 and $11 during one defined bar. Calculate opening, high, low and closing prices.",
+      "solution": "Open is $10, high is $12, low is $9 and close is $11. The result relies on the order and eligibility of exactly these four observations.",
+      "counterexample": "An interval with no eligible trades cannot safely borrow a synthetic close unless an explicit gap-fill policy is disclosed.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. An interval with no eligible trades cannot safely borrow a synthetic close unless an explicit gap-fill policy is disclosed. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Create an example with out-of-sequence reports and show why sorting by the correct event timestamp matters before OHLC computation.",
+      "sources": [
+        {
+          "title": "scikit-learn — TimeSeriesSplit",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-timezone-session-boundary-integrity",
+      "title": "Time Zones, Session Boundaries, and Trading-Day Keys",
+      "summary": "An original quantitative research lesson explaining time zones, session boundaries, and trading-day keys with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Temporal Validation",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "tss"
+      ],
+      "definition": "Market-data event time must be stored with a timezone or unambiguous UTC offset; trading-day assignment depends on the defined venue session calendar.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. Market-data event time must be stored with a timezone or unambiguous UTC offset; trading-day assignment depends on the defined venue session calendar. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "A study joins two trades both labeled 09:30, but the first uses New York local time and the second uses UTC without conversion. Can they be assumed simultaneous?",
+      "solution": "No. Equal clock labels in different time zones do not identify one instant. Convert both to a common unambiguous time standard and use the intended session calendar.",
+      "counterexample": "Daylight saving changes make a fixed UTC offset unsafe year-round for a time zone that observes DST.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. Daylight saving changes make a fixed UTC offset unsafe year-round for a time zone that observes DST. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Design a canonical event schema with UTC timestamp, source timezone, exchange session, calendar version and original local time.",
+      "sources": [
+        {
+          "title": "scikit-learn — TimeSeriesSplit",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-exponential-smoothing-seed-policy",
+      "title": "Exponentially Weighted Average Seeds and Warmup",
+      "summary": "An original quantitative research lesson explaining exponentially weighted average seeds and warmup with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Numerical Indicators",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "ewm"
+      ],
+      "definition": "A recursive exponentially weighted mean depends on a specified smoothing coefficient, initial seed, missing-value policy and completed observation sequence.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A recursive exponentially weighted mean depends on a specified smoothing coefficient, initial seed, missing-value policy and completed observation sequence. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "Take an invented series 10, 14, 18 with alpha 0.5, seed the first mean at 10, and use the recursive update new = alpha*observation + (1-alpha)*old.",
+      "solution": "The first mean is 10; the next is 0.5*14+0.5*10=12; the third is 0.5*18+0.5*12=15. This is the declared recursive adjust-false-style convention.",
+      "counterexample": "A normalized weighted-window implementation or different seed can show different early values even with the same alpha.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. A normalized weighted-window implementation or different seed can show different early values even with the same alpha. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Recompute a series seeded at 20 then updated with values 24 and 16 using alpha 0.25, documenting all intermediate values.",
+      "sources": [
+        {
+          "title": "pandas — Exponentially Weighted Windows",
+          "url": "https://pandas.pydata.org/docs/user_guide/window"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-volatility-annualization-assumptions",
+      "title": "Annualizing Return Volatility With Unit Disclosure",
+      "summary": "An original quantitative research lesson explaining annualizing return volatility with unit disclosure with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Return Statistics",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "scale"
+      ],
+      "definition": "Annualized volatility commonly scales the standard deviation of periodic returns by the square root of the assumed number of comparable periods per year.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. Annualized volatility commonly scales the standard deviation of periodic returns by the square root of the assumed number of comparable periods per year. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "A fictional daily-return standard deviation is 2 percent. Use a stated assumption of 252 trading observations per year to estimate annualized volatility.",
+      "solution": "Annualized volatility is 0.02 times square root of 252, approximately 0.3175 or 31.75 percent. The quantity is dispersion, not expected annual performance.",
+      "counterexample": "Multiplying daily standard deviation by 252 instead of its square root yields the wrong unit and magnitude under the usual independence convention.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. Multiplying daily standard deviation by 252 instead of its square root yields the wrong unit and magnitude under the usual independence convention. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Recalculate using 1 percent daily dispersion and a declared 250-observation convention, then note conditions under which annualization fails.",
+      "sources": [
+        {
+          "title": "NIST — Measures of Scale",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-simple-return-vs-log-return",
+      "title": "Simple Returns Versus Logarithmic Returns",
+      "summary": "An original quantitative research lesson explaining simple returns versus logarithmic returns with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Return Statistics",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "pct"
+      ],
+      "definition": "A simple one-period return is ending divided by beginning minus one; the continuously compounded log return is the natural log of the price ratio.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A simple one-period return is ending divided by beginning minus one; the continuously compounded log return is the natural log of the price ratio. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "A purely fictional price changes from $100 to $110 in one interval. Compare simple and natural-log returns, with positive prices assumed.",
+      "solution": "Simple return is 110/100 minus one, or 10 percent. Log return is ln(1.10), approximately 0.09531, or 9.531 percent in log-return units.",
+      "counterexample": "The two return definitions differ outside tiny changes, and taking a logarithm of a nonpositive price ratio is invalid.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. The two return definitions differ outside tiny changes, and taking a logarithm of a nonpositive price ratio is invalid. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Calculate simple and log return for an illustrative move from $100 to $90 and state why the log figure is not a cash payout.",
+      "sources": [
+        {
+          "title": "pandas — Percentage Change Method",
+          "url": "https://pandas.pydata.org/pandas-docs/version/2.1/reference/api/pandas.Series.pct_change.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-multi-period-return-compounding",
+      "title": "Compounding Returns Across Sequential Periods",
+      "summary": "An original quantitative research lesson explaining compounding returns across sequential periods with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Return Statistics",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "pct"
+      ],
+      "definition": "Sequential returns compound multiplicatively: total gross growth equals the product of each one-plus-return factor, rather than the sum of simple percentages.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. Sequential returns compound multiplicatively: total gross growth equals the product of each one-plus-return factor, rather than the sum of simple percentages. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "A fictional portfolio gains 10 percent in period one then loses 10 percent in period two with no external cash flows.",
+      "solution": "The gross factors multiply to 1.10 times 0.90 = 0.99. Cumulative return is minus 1 percent, not zero, because the second move acts on a new base.",
+      "counterexample": "Arithmetic addition of periodic percentage changes can erase the effect of compounding and give a wrong total holding-period result.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. Arithmetic addition of periodic percentage changes can erase the effect of compounding and give a wrong total holding-period result. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Compute cumulative change for plus 20 percent followed by minus 25 percent, carefully naming the starting value and final factor.",
+      "sources": [
+        {
+          "title": "pandas — Percentage Change Method",
+          "url": "https://pandas.pydata.org/pandas-docs/version/2.1/reference/api/pandas.Series.pct_change.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-covariance-versus-correlation-units",
+      "title": "Covariance, Correlation, and Scaling",
+      "summary": "An original quantitative research lesson explaining covariance, correlation, and scaling with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Covariance and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "corr"
+      ],
+      "definition": "Covariance measures joint variation in the product of the two variables' units; correlation standardizes covariance by the product of standard deviations.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. Covariance measures joint variation in the product of the two variables' units; correlation standardizes covariance by the product of standard deviations. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "For two perfectly positively co-moving fictional nonconstant sequences, multiply every observation of the second series by a positive constant of ten.",
+      "solution": "Pearson correlation stays positive one under positive rescaling, but covariance becomes ten times as large. The scale of the second variable changed while direction of linear association did not.",
+      "counterexample": "Correlation does not measure causal influence or guarantee stability, and zero correlation does not rule out nonlinear dependence.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. Correlation does not measure causal influence or guarantee stability, and zero correlation does not rule out nonlinear dependence. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Invent two return series with a common direction and demonstrate that changing one series from decimals to percent changes covariance units.",
+      "sources": [
+        {
+          "title": "NumPy — Correlation Coefficients",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-portfolio-beta-covariance-ratio",
+      "title": "Portfolio Beta as a Covariance Ratio",
+      "summary": "An original quantitative research lesson explaining portfolio beta as a covariance ratio with transparent formulas or conditions, a fictional case, and reproducible validation.",
+      "subject": "Quantitative Research / Covariance and Risk",
+      "learning_level": "institutional_quantitative",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "batch-002",
+        "quantitative",
+        "corr"
+      ],
+      "definition": "A simplified historical market beta divides covariance of portfolio and benchmark returns by the variance of benchmark returns, when its variance is nonzero.",
+      "procedure": "Specify the event cutoff, data version, units and exact transformation in a reproducible notebook. A simplified historical market beta divides covariance of portfolio and benchmark returns by the variance of benchmark returns, when its variance is nonzero. Record numerical conventions and reject unsupported or future observations.",
+      "exercise": "Suppose a fictional sample has portfolio-benchmark covariance of 0.00030 and benchmark variance of 0.00020, using consistent return units.",
+      "solution": "The illustrative estimated beta is 0.00030 / 0.00020 = 1.5. It is a sample linear sensitivity measure, not a forecast or assured realized leverage.",
+      "counterexample": "A benchmark with zero measured variance makes the ratio undefined; different estimation windows and benchmarks can alter beta.",
+      "limitations": "The stated method is illustrative and depends on documented input quality and calculation assumptions. A benchmark with zero measured variance makes the ratio undefined; different estimation windows and benchmarks can alter beta. Statistical estimates cannot independently guarantee market outcomes.",
+      "application": "Construct a hypothetical covariance 0.00012 and benchmark variance 0.00008, calculate beta, and identify a reason to avoid causal interpretation.",
+      "sources": [
+        {
+          "title": "NumPy — Correlation Coefficients",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html"
+        }
+      ]
+    }
+  ]
+}

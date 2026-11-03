@@ -1,0 +1,337 @@
+{
+  "batch": "B002",
+  "part": 2,
+  "independent_approval": false,
+  "documents": [
+    {
+      "slug": "knowledge-b002-partial-fill-reconciliation",
+      "title": "Partial Fills and Remaining Order Quantity",
+      "summary": "An original beginner lesson on partial fills and remaining order quantity with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Trade Execution",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "orders"
+      ],
+      "definition": "A partially executed order has an executed quantity and an unfilled remainder; the displayed order status must be checked against actual fills.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. A partially executed order has an executed quantity and an unfilled remainder; the displayed order status must be checked against actual fills. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A fictional limit order requests 300 shares. It executes 80 shares at $15.00 and 70 shares at $15.02 before the remainder rests.",
+      "solution": "Executed quantity is 150 and remaining quantity is 150. The illustrative cost is $1200 + $1051.40 = $2251.40 before commissions.",
+      "counterexample": "A submitted order is not the same as a filled order, and canceling the unfilled portion does not retroactively undo executions.",
+      "limitations": "Illustrative research limits: A submitted order is not the same as a filled order, and canceling the unfilled portion does not retroactively undo executions. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Compute remaining size and weighted average execution cost after 60 shares at $9.00 and 40 at $9.10 on a 150-share order.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov types of orders",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-account-cash-versus-buying-power",
+      "title": "Available Cash Versus Account Buying Power",
+      "summary": "An original beginner lesson on available cash versus account buying power with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Accounts and Execution",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "online"
+      ],
+      "definition": "Available cash and permitted buying power are distinct brokerage-account measures that depend on balances, unsettled proceeds, margin status, and instrument eligibility.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. Available cash and permitted buying power are distinct brokerage-account measures that depend on balances, unsettled proceeds, margin status, and instrument eligibility. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "An example account shows $500 settled cash and an additional $300 in unsettled proceeds. Explain why a displayed $800 headline balance does not itself prove all funds can support every purchase.",
+      "solution": "The learner must read broker-specific available-to-trade and settlement fields; the two balances cannot be assumed immediately interchangeable without relevant rules.",
+      "counterexample": "Borrowing capacity is not free cash, and an account's displayed buying power is not proof of suitable risk or entitlement to use that capacity.",
+      "limitations": "Illustrative research limits: Borrowing capacity is not free cash, and an account's displayed buying power is not proof of suitable risk or entitlement to use that capacity. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "List three broker fields needed to decide whether a hypothetical $700 purchase could be submitted in a cash-only account.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov online investing",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-trade-profit-after-costs",
+      "title": "Trade Proceeds, Entry Cost, and Net Profit",
+      "summary": "An original beginner lesson on trade proceeds, entry cost, and net profit with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Investor Calculations",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "glossary"
+      ],
+      "definition": "A net trade result requires matching share quantities and subtracting applicable transaction costs from sale proceeds, rather than using chart prices alone.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. A net trade result requires matching share quantities and subtracting applicable transaction costs from sale proceeds, rather than using chart prices alone. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A fictional learner buys 20 shares at $10.00 with a $1 entry fee, then sells all 20 at $10.60 with a $1 exit fee.",
+      "solution": "Entry cash outflow is $201 and sale proceeds net of exit fee are $211; realized net gain is $10 before taxes, or about 4.98 percent on $201.",
+      "counterexample": "Ignoring fees or computing percentage return against gross proceeds instead of actual deployed capital creates an inconsistent performance measure.",
+      "limitations": "Illustrative research limits: Ignoring fees or computing percentage return against gross proceeds instead of actual deployed capital creates an inconsistent performance measure. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Use 10 shares purchased at $15 and sold at $15.50 with $1 per-side fees; compute entry cash, net proceeds and net gain.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investor glossary",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-simple-percent-return",
+      "title": "Simple Percentage Change and Return Denominators",
+      "summary": "An original beginner lesson on simple percentage change and return denominators with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Investment Arithmetic",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "intro"
+      ],
+      "definition": "Percentage price change is the price difference divided by the starting reference, not by the ending price, and its sign matters.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. Percentage price change is the price difference divided by the starting reference, not by the ending price, and its sign matters. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "The fictional price rises from $40 to $46 and subsequently declines from $46 to $40. Compute the percentage for each separate leg.",
+      "solution": "The increase is 6/40 = 15 percent; the decrease is -6/46 or approximately -13.04 percent. Equal dollar moves have unequal percentage denominators.",
+      "counterexample": "A 15 percent gain followed by a 15 percent loss does not restore the original value, because the second rate applies to a different base.",
+      "limitations": "Illustrative research limits: A 15 percent gain followed by a 15 percent loss does not restore the original value, because the second rate applies to a different base. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Compute simple percentage returns for a move from $100 to $80 followed by a move from $80 to $100 and explain the unequal percentages.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov introduction to investing",
+          "url": "https://www.investor.gov/introduction-investing"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-loss-recovery-asymmetry",
+      "title": "Why Recovering a Loss Requires a Larger Gain",
+      "summary": "An original beginner lesson on why recovering a loss requires a larger gain with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Investment Arithmetic",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "intro"
+      ],
+      "definition": "A percentage loss reduces the capital base; the percentage rebound needed to restore the original amount is measured relative to the smaller remaining base.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. A percentage loss reduces the capital base; the percentage rebound needed to restore the original amount is measured relative to the smaller remaining base. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A fictional account value falls from $100 to $80. Calculate the subsequent increase needed to regain $100.",
+      "solution": "The account must rise by $20 from a base of $80, which is 20/80 or 25 percent. A 20 percent loss requires a 25 percent rebound for exact recovery.",
+      "counterexample": "Adding loss and gain percentages as if each were measured on the same initial base obscures compounding and recovery asymmetry.",
+      "limitations": "Illustrative research limits: Adding loss and gain percentages as if each were measured on the same initial base obscures compounding and recovery asymmetry. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Repeat the calculation for an illustrative decline from $200 to $120 and determine the required percentage rebound.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov introduction to investing",
+          "url": "https://www.investor.gov/introduction-investing"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-fractional-share-exposure",
+      "title": "Fractional Shares, Quantity, and Economic Exposure",
+      "summary": "An original beginner lesson on fractional shares, quantity, and economic exposure with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Investment Products",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "products"
+      ],
+      "definition": "The market value of fractional equity ownership follows quantity times price; ownership fractions do not eliminate market losses or issuer risk.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. The market value of fractional equity ownership follows quantity times price; ownership fractions do not eliminate market losses or issuer risk. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A learner owns 0.25 of a share hypothetically priced at $80, then the quote falls to $68. Calculate the illustrative market value change.",
+      "solution": "The original notional value is $20; the later value is $17; the $3 difference is a 15 percent decline before fees or distributions.",
+      "counterexample": "Owning only one quarter of a share does not make that portion immune from the underlying security's percentage price changes.",
+      "limitations": "Illustrative research limits: Owning only one quarter of a share does not make that portion immune from the underlying security's percentage price changes. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Compare 0.5 of a $40 share with 2 shares of a $10 security. Explain why equal nominal value does not imply equal economic risk.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investment products",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-single-security-concentration",
+      "title": "Concentration Risk in a Single-Security Portfolio",
+      "summary": "An original beginner lesson on concentration risk in a single-security portfolio with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Portfolio Risk",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "allocation"
+      ],
+      "definition": "A portfolio invested entirely in one issuer depends heavily on that company and its industry, and gains or losses cannot be offset by unrelated holdings that are absent.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. A portfolio invested entirely in one issuer depends heavily on that company and its industry, and gains or losses cannot be offset by unrelated holdings that are absent. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A fictional $1000 portfolio holds only Company A shares. A company-specific event reduces their value by 30 percent. Compute the simplified portfolio effect.",
+      "solution": "The holdings decline to $700, a $300 or 30 percent loss, assuming no other portfolio assets. The example shows concentrated exposure rather than a forecast.",
+      "counterexample": "Having many shares of the same company does not diversify issuer risk; the number of shares is not the number of distinct risk sources.",
+      "limitations": "Illustrative research limits: Having many shares of the same company does not diversify issuer risk; the number of shares is not the number of distinct risk sources. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Compare 50 shares of one issuer against exposure to five distinct businesses and identify risks that still remain common.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov asset allocation and diversification",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-overlapping-funds-concentration",
+      "title": "Overlapping ETF Holdings and False Diversification",
+      "summary": "An original beginner lesson on overlapping etf holdings and false diversification with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Portfolio Risk",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "allocation"
+      ],
+      "definition": "Owning several pooled funds does not ensure distinct exposure if their largest issuers, sectors or factors overlap substantially.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. Owning several pooled funds does not ensure distinct exposure if their largest issuers, sectors or factors overlap substantially. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A fictional Fund A puts 20 percent of assets in Company X and Fund B puts 30 percent in X. A portfolio invests 50 percent in each fund.",
+      "solution": "The portfolio has 0.5 × 20 plus 0.5 × 30 = 25 percent indirect exposure to X before considering other holdings.",
+      "counterexample": "Counting two ETF tickers as two unrelated investments can hide concentration in the same issuer, industry or style factor.",
+      "limitations": "Illustrative research limits: Counting two ETF tickers as two unrelated investments can hide concentration in the same issuer, industry or style factor. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "For three funds weighted 40, 40 and 20 percent with a common stock weight of 10, 25 and 0 percent, calculate combined exposure.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov asset allocation and diversification",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-fund-expense-ratio-cost",
+      "title": "Annual Fund Expense Ratios and Cost Estimates",
+      "summary": "An original beginner lesson on annual fund expense ratios and cost estimates with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Investment Products",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "products"
+      ],
+      "definition": "An annual expense ratio expresses recurring fund operating costs relative to fund assets; it is not a guarantee of every investor's exact annual dollar deduction.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. An annual expense ratio expresses recurring fund operating costs relative to fund assets; it is not a guarantee of every investor's exact annual dollar deduction. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "A hypothetical investment averages $10,000 during a year and carries an annual expense ratio of 0.50 percent. Approximate cost before market moves.",
+      "solution": "The simplified estimate is $10,000 × 0.005 = $50 over the year. Real charges accrue in the fund and actual investor results depend on daily assets and fund terms.",
+      "counterexample": "A 0.50 percent fund ratio is not fifty percent, and expense ratios differ from commissions, bid-ask spreads and taxes.",
+      "limitations": "Illustrative research limits: A 0.50 percent fund ratio is not fifty percent, and expense ratios differ from commissions, bid-ask spreads and taxes. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Estimate the annual operating-cost difference on $20,000 between illustrative funds charging 0.15 percent and 0.75 percent.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov investment products",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products"
+        }
+      ]
+    },
+    {
+      "slug": "knowledge-b002-dollar-cost-averaging-quantity",
+      "title": "Dollar-Cost Averaging and Shares Acquired",
+      "summary": "An original beginner lesson on dollar-cost averaging and shares acquired with practical definitions, a worked calculation or classification, limitations and independent practice.",
+      "subject": "Foundations / Saving and Investing",
+      "learning_level": "beginner",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "tags": [
+        "beginner",
+        "batch-002",
+        "dca"
+      ],
+      "definition": "Investing equal dollar amounts at scheduled intervals purchases different share quantities as market prices vary; it does not guarantee a profit.",
+      "procedure": "For this topic, write down the starting observations and exact measurement conditions. Investing equal dollar amounts at scheduled intervals purchases different share quantities as market prices vary; it does not guarantee a profit. Verify the selected denominator, security or dataset and cutoff time before completing the exercise.",
+      "exercise": "An illustrative plan contributes $100 at $10 per share in period one and $100 at $20 per share in period two. Ignore fractions and trading costs.",
+      "solution": "The purchases are 10 and 5 shares respectively, totaling 15 shares bought with $200. Average cost per share is $200/15, approximately $13.33.",
+      "counterexample": "The arithmetic average of the two market prices is $15, but the dollar-weighted average purchase cost is not that number because quantities differ.",
+      "limitations": "Illustrative research limits: The arithmetic average of the two market prices is $15, but the dollar-weighted average purchase cost is not that number because quantities differ. The example does not assert a real broker execution, a regulatory entitlement, an investment recommendation, or a historical market event.",
+      "application": "Invest $120 at $12 and another $120 at $8, then compute quantity and average acquisition cost while stating ignored costs.",
+      "sources": [
+        {
+          "title": "SEC Investor.gov dollar cost averaging",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+        }
+      ]
+    }
+  ]
+}
