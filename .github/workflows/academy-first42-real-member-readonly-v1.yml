@@ -1,12 +1,11 @@
 name: Academy First-42 Genuine Member Read-Only Acceptance
+# Manual-only: this genuine QA workflow requires a deliberately active,
+# audited, expiring noncommercial ONDEMAND_TRAINING entitlement. After the
+# test is accepted the grant is revoked, so unrelated source pushes must not
+# claim a regression failure because access correctly expired.
+# Source-only Academy coverage remains on ordinary push workflows.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/academy-first42-real-member-readonly-v1.yml'
-      - 'tests/live-academy-first42-readonly-member-v1.mjs'
-      - 'functions/api/bootcamp-academy.js'
 permissions: {contents: read}
 concurrency:
   group: academy-first42-real-member-readonly-v1
