@@ -83,6 +83,8 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1 @axe-core/playwright@4.10.2
           npx playwright install --with-deps chromium
+      - name: Browser-verify staff-only 60 original fictional method exercises at three viewport sizes
+        run: node tests/test_prototype_60_fictional_browser_v1.mjs
       - name: Browser-verify grouped Admin navigation, role isolation and all five Store tabs
         run: node tests/test_admin_organized_browser_v1.mjs
       - name: Browser-measure Admin layout density and Founders field containment

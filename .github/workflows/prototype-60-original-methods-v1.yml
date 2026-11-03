@@ -1,0 +1,34 @@
+name: Staff Prototype 60 Original Mathematical Cases
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'prototype.html'
+      - 'assets/js/prototype-60-fictional-method-workbench-v1.js'
+      - 'assets/css/prototype-60-fictional-method-workbench-v1.css'
+      - 'tests/prototype-60-fictional-method-workbench-v1.test.mjs'
+      - '.github/workflows/prototype-60-original-methods-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'prototype.html'
+      - 'assets/js/prototype-60-fictional-method-workbench-v1.js'
+      - 'assets/css/prototype-60-fictional-method-workbench-v1.css'
+      - 'tests/prototype-60-fictional-method-workbench-v1.test.mjs'
+      - '.github/workflows/prototype-60-original-methods-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-fictitious-method-cases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax-check original mathematics module
+        run: node --check assets/js/prototype-60-fictional-method-workbench-v1.js
+      - name: Test 60 original cases, 60 as-of boundaries and no release side effects
+        run: node --test tests/prototype-60-fictional-method-workbench-v1.test.mjs
