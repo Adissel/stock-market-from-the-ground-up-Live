@@ -8,3 +8,10 @@
 .cl-scr-status{font-weight:600}.cl-scr-results{max-width:100%;overflow:auto}.cl-scr-table{width:100%;border-collapse:collapse;white-space:nowrap}
 .cl-scr-table th,.cl-scr-table td{padding:.55rem .65rem;border-bottom:1px solid #3d5972;text-align:left}.cl-scr-table th{color:#b4eaf8}
 @media(max-width:650px){.cl-scr-rule>*{flex:1 1 150px}.cl-scr-root{padding:.8rem}}
+
+.cl-scr-column-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.35rem .7rem;max-height:260px;overflow:auto;margin:.65rem 0}
+.cl-scr-col-label{display:flex;gap:.45rem;align-items:center;font-size:.9rem;cursor:pointer}
+.cl-scr-col-label input{width:18px;height:18px;flex-shrink:0}
+.cl-scr-explanation{max-width:350px;white-space:normal;min-width:150px}
+.cl-scr-explanation summary{cursor:pointer;color:#d6f5ff;text-decoration:underline}
+.cl-scr-explanation ul{margin:.4rem .1rem;padding-left:1.1rem;max-height:220px;overflow:auto;font-size:.85rem}

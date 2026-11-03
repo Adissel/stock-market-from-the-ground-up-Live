@@ -7,7 +7,7 @@
     "githubPath": "data/crownlight-scanner-tier-milestones-v1.json",
     "googleDriveLocation": "Not created"
   },
-  "scoringRule": "Eight explicitly named engineering milestones per tier. Only existing tested code or the dedicated Wave 1 CI-covered sources count. A source-pass is not a live entitlement, browser acceptance or commercial release.",
+  "scoringRule": "Eight explicitly named engineering milestones per tier. Only existing tested code or the dedicated Wave 1 CI-covered sources count. A source-pass is not a live entitlement, browser acceptance or commercial release. A-05 is source-implemented when the new results/visual CI workflow passes; still not authenticated UI acceptance.",
   "tiers": {
     "Basic": {
       "technicalSourceGates": [
@@ -128,7 +128,7 @@
         {
           "id": "A-05",
           "description": "Configurable results columns with persisted sorting",
-          "passed": false
+          "passed": true
         },
         {
           "id": "A-06",
@@ -146,9 +146,9 @@
           "passed": false
         }
       ],
-      "passed": 2,
+      "passed": 3,
       "total": 8,
-      "percentage": 25
+      "percentage": 37.5
     },
     "Professional": {
       "technicalSourceGates": [
@@ -199,9 +199,9 @@
     }
   },
   "overall": {
-    "passed": 6,
+    "passed": 7,
     "total": 32,
-    "percentage": 18.75
+    "percentage": 21.875
   },
   "livePaidTierReleaseAcceptancePercent": 0
 }
