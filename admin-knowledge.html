@@ -18,6 +18,13 @@
 <label>Search titles / subjects<input id="ak-search" type="search" placeholder="Search articles"></label>
 <div class="ak-list-filters"><label>Experience level<select id="ak-filter-level"><option value="">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option><option value="professional">Professional</option><option value="institutional_quantitative">Institutional / Quantitative</option></select></label>
 <label>Publication status<select id="ak-filter-status"><option value="">All statuses</option><option value="draft">Draft</option><option value="in_review">In review</option><option value="published">Published</option><option value="archived">Archived</option></select></label></div>
+<div class="ak-bulk"><button type="button" id="ak-select-visible" class="btn secondary">Select matching</button>
+<label>Bulk membership placement<select id="ak-bulk-plan">
+<option value="FREE">Free (all eligible members)</option><option value="FOUNDING_14">Founding 14-Day and above</option>
+<option value="FOUNDING_30">Founding 30-Day and above</option><option value="FOUNDING_60">Founding 60-Day / Full</option>
+<option value="LIFETIME">Lifetime only</option><option value="ONDEMAND_MONTHLY">On-Demand only</option>
+</select></label>
+<button type="button" id="ak-bulk-apply" class="btn secondary">Assign selected articles</button></div>
 <div id="ak-list" class="ak-list-items"></div><button type="button" id="ak-more" class="btn secondary" hidden>Load more</button></aside>
 <section class="ak-editor" aria-labelledby="ak-editor-title">
 <h2 id="ak-editor-title">Create a new article</h2>
