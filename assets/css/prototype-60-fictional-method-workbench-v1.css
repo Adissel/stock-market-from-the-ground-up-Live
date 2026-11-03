@@ -1,0 +1,19 @@
+/* Staff-only prototype; accessible stacked controls and scrollable tables. */
+#pt-methods60{margin:1rem 0;padding:1rem;border:1px solid #2c6683;border-radius:14px;background:linear-gradient(135deg,#071a2c,#10253b);color:#ecf9ff}
+#pt-methods60 summary{cursor:pointer;font-weight:700;font-size:1.05rem;line-height:1.5}
+#pt-methods60-body{padding-top:.85rem}
+.pt60-controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:end}
+.pt60-controls label{display:grid;gap:.3rem;flex:1 1 290px}
+.pt60-controls select,.pt60-controls button{min-height:44px;background:#12314b;color:#fff;border:1px solid #5590af;border-radius:8px;padding:.65rem}
+.pt60-controls button:disabled{opacity:.5;cursor:not-allowed}
+.pt60-controls :focus-visible,#pt-methods60 summary:focus-visible{outline:3px solid #f7d272;outline-offset:3px}
+.pt60-task{font-size:1.02rem;line-height:1.55}
+.pt60-table{overflow-x:auto;max-width:100%}
+.pt60-table table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums}
+.pt60-table th,.pt60-table td{text-align:left;border-bottom:1px solid #386179;padding:.5rem}
+.pt60-table caption{text-align:left;color:#d9f7ff;padding:.35rem 0;font-weight:600}
+.pt60-evidence{margin-top:.75rem;padding:.85rem;border-left:4px solid #83dff0;background:#092c3a}
+.pt60-evidence dl{display:grid;grid-template-columns:minmax(150px,1fr) minmax(120px,2fr);gap:.3rem .8rem}
+.pt60-evidence dt{font-weight:700;overflow-wrap:anywhere}
+.pt60-evidence dd{margin:0;overflow-wrap:anywhere}
+@media(max-width:600px){.pt60-controls{display:grid;grid-template-columns:1fr}.pt60-evidence dl{grid-template-columns:1fr}.pt60-evidence dd{padding-bottom:.6rem}}
