@@ -1,0 +1,37 @@
+name: Crownlight Scanner Research Wave 1 — guarded technical acceptance
+on:
+  pull_request:
+  push:
+    branches: [main, feature/crownlight-scanner-research-wave1-20261103]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-scanner-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Scanner source and calculations
+        run: |
+          node --check assets/js/crownlight-scanner-rules-v1.js
+          node --check assets/js/crownlight-scanner-visual-v1.js
+          node --check assets/js/advanced-tools.js
+          node tests/test_crownlight_scanner_rules_v1.mjs
+          node tests/test_crownlight_scanner_visual_source_v1.mjs
+          node tests/test_v014145_research_scanner.mjs
+          node tests/test_v014150_scanner_filters.mjs
+          node tests/test_sec_issuer_research_v1.mjs
+      - name: Verify deployable assets and private-source exclusion
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/assets/js/crownlight-scanner-rules-v1.js
+          test -f public/assets/js/crownlight-scanner-visual-v1.js
+          test -f public/assets/css/crownlight-scanner-visual-v1.css
+          test ! -d public/supabase
+          test ! -d public/functions
