@@ -401,7 +401,7 @@
       "evidence_file": "functions/api/learning-lab-edition-exercise.js",
       "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
       "acceptance_criterion": "Serve a personalized route only with verified Advanced Learning grant.",
-      "unresolved": "Server-authorized source now builds prerequisite-first remediation from the signed-in member's reviewed competency evidence only. Genuine entitled-member, accessibility, exact-SHA CI and deployed release acceptance remain open; Advanced is not released.",
+      "unresolved": "Server-authorized source builds prerequisite-first remediation from the signed-in member's reviewed competency evidence only. Exact-SHA source CI and Cloudflare deployment passed on 184105c487a179035549e6cbec3a72c9317e1489. Genuine entitled-member and assistive-technology acceptance remain open; Advanced is not released.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -427,7 +427,7 @@
       "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
       "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
       "acceptance_criterion": "Compare independently validated indicators in an Advanced lesson.",
-      "unresolved": "Edition-authorized server source compares EMA, VWAP, RSI, MACD, ATR and Bollinger context from completed fictional observations with explicit methods. Genuine member instructional evaluation and deployed release acceptance remain open.",
+      "unresolved": "Edition-authorized server source compares EMA, VWAP, RSI, MACD, ATR and Bollinger context from completed fictional observations with explicit methods. Exact-SHA source CI and deployment passed; genuine member instructional evaluation and feature-release acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -440,7 +440,7 @@
       "evidence_file": "functions/api/learning-lab-edition-exercise.js",
       "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
       "acceptance_criterion": "Enforce product grant, downgrade and denial server-side.",
-      "unresolved": "Source candidate: signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Source and API tests are queued; genuine member, independent rights, accessibility, tier downgrade and exact-SHA deployment remain open. No premium capability is released or sold.",
+      "unresolved": "Signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Grant, expiry, revocation, forgery and noncharging tests passed in exact-SHA CI; genuine member, independent rights, assistive-technology and tier-downgrade acceptance remain open. No premium capability is released or sold.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -453,7 +453,7 @@
       "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
       "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
       "acceptance_criterion": "Prove adaptive transitions retain approved course prerequisites.",
-      "unresolved": "Source sequencing now deduplicates reviewed prerequisites and places the target competency last without altering access or mastery. Genuine authenticated multi-lesson continuity and deployed acceptance remain open.",
+      "unresolved": "Source sequencing deduplicates reviewed prerequisites and places the target competency last without altering access or mastery. Exact-SHA source CI and deployment passed; genuine authenticated multi-lesson continuity and released-member acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -479,7 +479,7 @@
       "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
       "existing_test_file": "tests/learning-lab-edition-member-surface-v1.test.mjs",
       "acceptance_criterion": "Work on keyboard, touch and screen reader with server edition checks.",
-      "unresolved": "Keyboard-reachable responsive controls, live status, semantic tables, linked SVG charts, reduced-motion styling and chart-independent alternatives are implemented behind server edition checks. Real assistive-technology and released-member acceptance remain open.",
+      "unresolved": "Keyboard-reachable responsive controls, live status, semantic tables, linked SVG charts, reduced-motion styling and chart-independent alternatives are implemented behind server edition checks. Local and exact-SHA CI Chromium gates passed; real assistive-technology and released-member acceptance remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -489,10 +489,10 @@
       "edition": "ADVANCED",
       "title": "Independent Advanced Learning production acceptance",
       "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/advanced-learning-lab-source-closeout-v1.test.mjs",
       "acceptance_criterion": "Pass exact SHA, QA, rights, accessibility, member security signoff.",
-      "unresolved": "No independent feature release.",
+      "unresolved": "Exact-SHA Advanced source CI, fail-closed summary and Cloudflare production deployment passed on 184105c487a179035549e6cbec3a72c9317e1489. Independent rights, editorial, genuine entitled-member, assistive-technology and feature-release acceptance remain open; the premium release flag remains off.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -505,7 +505,7 @@
       "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
       "existing_test_file": "tests/learning-lab-edition-member-surface-v1.test.mjs",
       "acceptance_criterion": "Member-bound dual chart reflects only authorized completed evidence.",
-      "unresolved": "The member-gated panel now links completed-prefix close and volume ECharts and disposes stale charts on recalculation or identity change, with an accessible table fallback. Genuine entitled-member and deployment acceptance remain open.",
+      "unresolved": "The member-gated panel links completed-prefix close and volume ECharts and disposes stale charts on recalculation or identity change, with an accessible table fallback. Local and exact-SHA CI Chromium gates plus Cloudflare source deployment passed; genuine entitled-member feature acceptance remains open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -557,7 +557,7 @@
       "evidence_file": "functions/api/learning-lab-edition-exercise.js",
       "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
       "acceptance_criterion": "Prove member plan cannot be forged and expired grant is denied.",
-      "unresolved": "Source candidate: signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Source and API tests are queued; genuine member, independent rights, accessibility, tier downgrade and exact-SHA deployment remain open. No premium capability is released or sold.",
+      "unresolved": "Signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Grant, expiry, revocation, forgery and noncharging tests passed in exact-SHA CI; genuine member, independent rights, assistive-technology and tier-downgrade acceptance remain open. No premium capability is released or sold.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -570,7 +570,7 @@
       "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
       "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
       "acceptance_criterion": "Extra features never reveal keys or change authoritative grading.",
-      "unresolved": "Source candidate: signed member identity, positive tool entitlement, explicit server-owned product grant and release flag are required. Source and API tests are queued; genuine member, independent rights, accessibility, tier downgrade and exact-SHA deployment remain open. No premium capability is released or sold.",
+      "unresolved": "Ungraded Advanced calculations remain isolated from official grades, mastery and protected answer keys. Exact-SHA source/API tests passed; genuine member, independent editorial and protected-assessment acceptance remain open. No premium capability is released or sold.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
@@ -593,10 +593,10 @@
       "edition": "ADVANCED",
       "title": "Genuine Advanced mobile and assistive acceptance",
       "source_status": "not_implemented",
-      "evidence_file": null,
-      "existing_test_file": null,
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/advanced-learning-lab-member-surface-browser-v1.mjs",
       "acceptance_criterion": "Test real eligible/restricted members, responsive layouts and CI.",
-      "unresolved": "No premium release evidence.",
+      "unresolved": "Responsive Chromium, exact-SHA Advanced source CI and Cloudflare production deployment passed on 184105c487a179035549e6cbec3a72c9317e1489. Genuine eligible/restricted-member, real mobile device, assistive-technology, rights and independent editorial acceptance remain open; the premium release flag remains off.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
