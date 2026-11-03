@@ -60,7 +60,10 @@ try{
   // or restrictive testing ceiling. Neither grants a paid membership.
   const temporary=chart.body.temporaryAccess;
   const ceiling=chart.body.qaTierCeiling;
-  const scopedGrant=temporary?.kind==='QA'&&temporary?.tier===tier&&
+  // A Free membership can legitimately have a separately redeemed, server-
+  // verified Lumens pass, a scoped QA grant, or a paid TEST upgrade. None of
+  // these confers general premium tool rights or staff authority.
+  const scopedGrant=['QA','SPARKS','CASH'].includes(temporary?.kind)&&temporary?.tier===tier&&
    Number.isFinite(Date.parse(temporary.expiresAt||''))&&Date.parse(temporary.expiresAt)>Date.now();
   const scopedCeiling=ceiling?.active===true&&ceiling?.restrictive===true&&
    Number.isFinite(Date.parse(ceiling.expiresAt||''))&&Date.parse(ceiling.expiresAt)>Date.now()&&
