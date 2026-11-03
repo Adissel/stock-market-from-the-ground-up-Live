@@ -191,3 +191,15 @@ test('Canonical grant cannot bypass missing edition switch',async()=>{
   assert.equal(r.status,403);
  }finally{f.restore()}
 });
+
+test('Open-ended canonical Full Monthly plan does not waive finite Professional edition grant',async()=>{
+ const f=fixture({source:'user_plan_grants',plan:'FULL_MONTHLY',
+  planEndsAt:null,edition:'PROFESSIONAL',family:'learning'});
+ try{
+  const r=await onRequest({request:request(form('PROFESSIONAL','learning')),env:{
+   ...env,ENGINE_LEARNING_PROFESSIONAL_RELEASED:'true'}});
+  assert.equal(r.status,200);
+  const data=await r.json();
+  assert.equal(data.result.edition,'PROFESSIONAL');
+ }finally{f.restore()}
+});
