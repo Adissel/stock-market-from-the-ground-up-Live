@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'docs/research/master/**'
+      - 'data/lab-64-topic-source-triage-v1.json'
+      - 'docs/qa/2026-11-03_LAB_64_TOPIC_SOURCE_TRIAGE_V1.md'
+      - 'tests/lab-64-topic-source-triage-v1.test.mjs'
       - 'docs/learning/SMFGU-LAB-BATCH04-SOURCE-INTAKE-20261101.json'
       - 'docs/learning/SMFGU-LAB-BATCH05-SOURCE-INTAKE-20261101.json'
       - 'tests/lab-bridge-batch05-research-intake-v1.test.mjs'
@@ -18,6 +21,15 @@ on:
       - 'data/tutor-indicator-expansion-v1.json'
       - 'data/lab-teaching-bridges-v014168.json'
       - 'functions/_lib/bootcamp-academy-v014168.js'
+      - '.github/workflows/master-research-source-audit-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/research/master/**'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - 'data/lab-64-topic-source-triage-v1.json'
+      - 'docs/qa/2026-11-03_LAB_64_TOPIC_SOURCE_TRIAGE_V1.md'
+      - 'tests/lab-64-topic-source-triage-v1.test.mjs'
       - '.github/workflows/master-research-source-audit-v1.yml'
   workflow_dispatch:
 permissions:
@@ -39,6 +51,8 @@ jobs:
           node tests/test_master_formula_cases_v1.mjs
           python3 tests/test_master_formula_cases_v1.py
           node --test tests/talia-research-math-v1.test.mjs
+      - name: Validate 64 canonical Lab topic source candidates, approvals and rights holds
+        run: node --test tests/lab-64-topic-source-triage-v1.test.mjs
       - name: Retain source intake and rights findings (not commercial approval)
         if: always()
         uses: actions/upload-artifact@v4
