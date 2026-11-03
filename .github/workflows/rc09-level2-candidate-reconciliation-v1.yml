@@ -1,0 +1,24 @@
+# Narrow, no-charge, source-only RC09 regression. This is NOT editorial grading acceptance.
+name: RC09 Level II Candidate Mapping Source Guard
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/admin/20261103_RC09_LEVEL2_CANDIDATE_RECONCILIATION.sql'
+      - 'supabase/rollbacks/20261103_RC09_LEVEL2_CANDIDATE_RECONCILIATION_ROLLBACK.sql'
+      - 'tests/test_rc09_level2_candidate_reconciliation_v1.mjs'
+      - '.github/workflows/rc09-level2-candidate-reconciliation-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-candidate-and-rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Confirm one ungraded mapping, canonical 30 skills and reversible SQL
+        run: node tests/test_rc09_level2_candidate_reconciliation_v1.mjs
