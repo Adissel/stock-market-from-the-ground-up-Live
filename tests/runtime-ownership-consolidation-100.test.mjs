@@ -137,3 +137,51 @@ test('chart canvas does not inherit always-on HTML drag behavior',()=>{
 test('Cloudflare build enforces consolidated source contracts',()=>{
  assert.match(build,/node --test tests\/runtime-ownership-consolidation-100\.test\.mjs/);
 });
+
+
+// Release batch: environment provenance + extensionless learning-route contracts.
+// These are source/runtime contracts; they do not replace authenticated browser QA.
+const environmentSource=front.match(/function environment\(\)\{[^\n]*\}/)?.[0];
+test('Admin environment classifier exists and is isolated for test execution',()=>{
+ assert(environmentSource,'Missing Admin environment classifier');
+});
+const previewHosts=Array.from({length:25},(_,i)=>'preview-'+String(i+1).padStart(2,'0')+'.stock-market-from-the-ground-up.pages.dev');
+const productionHosts=[
+ 'stock-market-from-the-ground-up.pages.dev',
+ ...Array.from({length:24},(_,i)=>'release-'+String(i+1).padStart(2,'0')+'.example.org')
+];
+for(const host of previewHosts){
+ test('Cloudflare preview '+host+' is visually marked PREVIEW',()=>{
+  assert.equal(vm.runInNewContext(environmentSource+';environment()', {location:{hostname:host}},{timeout:1000}),'PREVIEW');
+ });
+}
+for(const host of productionHosts){
+ test('Production host '+host+' is not mislabeled as preview',()=>{
+  assert.equal(vm.runInNewContext(environmentSource+';environment()', {location:{hostname:host}},{timeout:1000}),'PRODUCTION');
+ });
+}
+for(const [host,expected] of [
+ ['localhost','DEVELOPMENT'],
+ ['127.0.0.1','DEVELOPMENT'],
+ ['::1','DEVELOPMENT'],
+ ['PREVIEW.STOCK-MARKET-FROM-THE-GROUND-UP.PAGES.DEV','PREVIEW']
+]){
+ test('Environment classifier special case '+host,()=>{
+  assert.equal(vm.runInNewContext(environmentSource+';environment()', {location:{hostname:host}},{timeout:1000}),expected);
+ });
+}
+for(const page of teaching){
+ const route='/'+page;
+ test('Extensionless learning route '+route+' excludes retired global completion script',()=>{
+  assert.equal(check('production-completion.js',route),false);
+ });
+ test('Extensionless learning route '+route+' excludes legacy global DOM observer',()=>{
+  assert.equal(check('frontend-freeze.js',route),false);
+ });
+}
+test('Existing Admin environment badge consumes classifier rather than a hardcoded release label',()=>{
+ assert.match(front,/fe-env-badge \$\{environment\(\)\.toLowerCase\(\)\}/);
+});
+test('Preview theme exists in the shared front-end stylesheet',()=>{
+ assert.match(css,/\.fe-env-badge\.preview/);
+});
