@@ -8,6 +8,24 @@ const files=readdirSync('.').filter(name=>/^[a-z0-9-]+\.html$/.test(name)).sort(
 const redirectLines=readFileSync('_redirects','utf8').split(/\r?\n/);
 const redirects=new Set(redirectLines.filter(row=>row.startsWith('/')).map(row=>row.trim().split(/\s+/)[0]));
 const missing=new Set(),duplicates=new Set(),warnings=new Set(),links=new Set();
+/* These bundled assets intentionally exist only after the Pages build.
+ * A missing bundle is acceptable in the raw source inventory ONLY when the
+ * trusted TSX source and an explicit build output + nonempty check exist.
+ * The production build independently fails if any compiled bundle is absent.
+ */
+const buildScript=existsSync('scripts/build-pages.sh')?readFileSync('scripts/build-pages.sh','utf8'):'';
+const compiledBundles=new Map([
+ ['assets/js/home-market-terminal-v1.bundle.js','src/experience/HomeMarketTerminal.tsx'],
+ ['assets/js/member-progress-visual-v1.bundle.js','src/experience/MemberProgressVisual.tsx'],
+ ['assets/js/talia-classroom-v1.bundle.js','src/tutor/TaliaClassroom.tsx']
+]);
+function verifiedGenerated(target){
+ const source=compiledBundles.get(target);
+ if(!source||!existsSync(source))return false;
+ const output='$output/'+target;
+ return buildScript.includes('--outfile="'+output+'"')&&
+  buildScript.includes('test -s "'+output+'"');
+}
 function relative(name,url){
  const value=String(url||'').trim();
  if(!value||value.startsWith('#')||value.startsWith('//')||/^[a-z]+:/i.test(value))return null;
@@ -29,7 +47,7 @@ for(const file of files){
   if(target==null)continue;
   if(target.startsWith('..')){warnings.add(file+': outside-root link '+raw.slice(0,100));continue}
   if(redirects.has('/'+target))continue;
-  if(existsSync(target)){links.add(target);continue}
+  if(existsSync(target)||verifiedGenerated(target)){links.add(target);continue}
   if(!extname(target)){
    if(existsSync(target+'.html')){links.add(target+'.html');continue}
    if(existsSync(join(target,'index.html'))){links.add(join(target,'index.html'));continue}

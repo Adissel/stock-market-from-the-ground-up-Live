@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>The Stock Market: From the Ground Up — Free Learning</title>
+    <link>https://stock-market-from-the-ground-up-d1r.pages.dev/learn.html</link>
+    <description>Original public stock-market education, fictional practice, and learning resources. Educational material only; not investment advice.</description>
+    <language>en-us</language>
+    <item>
+      <title>Free Foundations — Interactive Practice</title>
+      <link>https://stock-market-from-the-ground-up-d1r.pages.dev/free-foundations-challenge.html</link>
+      <guid isPermaLink="true">https://stock-market-from-the-ground-up-d1r.pages.dev/free-foundations-challenge.html</guid>
+      <description>Original fictional market-learning exercises with corrections and clear limitations.</description>
+    </item>
+    <item>
+      <title>Candlestick Practice</title>
+      <link>https://stock-market-from-the-ground-up-d1r.pages.dev/candle-practice.html</link>
+      <guid isPermaLink="true">https://stock-market-from-the-ground-up-d1r.pages.dev/candle-practice.html</guid>
+      <description>Explore candlestick observations and what historical price bars cannot predict.</description>
+    </item>
+    <item>
+      <title>Learning System Overview</title>
+      <link>https://stock-market-from-the-ground-up-d1r.pages.dev/learn.html</link>
+      <guid isPermaLink="true">https://stock-market-from-the-ground-up-d1r.pages.dev/learn.html</guid>
+      <description>An introduction to the educational learning paths and practice resources.</description>
+    </item>
+  </channel>
+</rss>
