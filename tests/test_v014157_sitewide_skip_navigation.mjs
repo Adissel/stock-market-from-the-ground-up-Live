@@ -7,6 +7,9 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 const directory=mkdtempSync(join(tmpdir(),'gu-accessibility-'));
+const runtime=readFileSync('assets/js/sitewide-runtime.js','utf8');
+assert.match(runtime,/document\.body\.insertBefore\(link,document\.body\.firstChild\)/,
+ 'Runtime must preserve the bypass link as the first keyboard stop');
 try{
  writeFileSync(join(directory,'index.html'),'<!doctype html><html><head><title>Public</title></head><body><main><h1>Lesson-free page</h1></main></body></html>');
  writeFileSync(join(directory,'admin.html'),'<!doctype html><html><head><title>Staff</title></head><body data-auth-required="true"><main id="admin-pane"><h1>Staff tools</h1></main></body></html>');

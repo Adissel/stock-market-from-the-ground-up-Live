@@ -35,6 +35,11 @@
      if(!link){link=document.createElement('a');link.className='gu-skip-link';link.textContent='Skip to main content';document.body.prepend(link)}
      link.id='gu-skip-link';
      if(link.getAttribute('href')!=='#'+main.id)link.setAttribute('href','#'+main.id);
+     // Preserve the first keyboard stop even when legacy headers or modals
+     // are prepended after the static Pages accessibility build. Moving the
+     // existing link never duplicates it or modifies member entitlement.
+     if(link.parentElement!==document.body||document.body.firstElementChild!==link)
+       document.body.insertBefore(link,document.body.firstChild);
    }
    document.querySelectorAll('meta[name="application-version"]').forEach(m=>m.content=version);
    if(document.body)document.body.dataset.build=version;

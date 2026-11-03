@@ -64,9 +64,11 @@ on:
       - 'tests/test_member_avatar_collection_v2.mjs'
       - '.github/workflows/premium-live-browser-qa.yml'
   workflow_dispatch:
+# Preserve deliberate/manual acceptance reruns; only supersede obsolete
+# routine push runs. Otherwise continuous main activity cancels release QA.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: premium-browser-${{ github.workflow }}-${{ github.ref }}-${{ (github.event_name == 'workflow_dispatch' || github.run_attempt > 1) && github.run_id || 'push' }}
+  cancel-in-progress: ${{ github.event_name == 'push' && github.run_attempt == 1 }}
 permissions:
   contents: read
 jobs:

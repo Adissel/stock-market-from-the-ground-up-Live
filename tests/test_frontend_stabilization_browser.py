@@ -30,8 +30,25 @@ with sync_playwright() as p:
             assert links.count()==1,(route,width,'duplicate bypass links',links.count())
             target=links.get_attribute('href')
             assert target and page.locator(target).count()==1,(route,'broken bypass target')
+            # The built bypass link must be the first DOM element and the
+            # first real keyboard Tab stop. Include focus state in failures.
+            before=page.evaluate("""() => ({
+              activeTag:document.activeElement?.tagName,
+              activeId:document.activeElement?.id,
+              firstElement:document.body?.firstElementChild?.outerHTML?.slice(0,200),
+              skipIndex:[...document.querySelectorAll('body *')].indexOf(document.querySelector('a.gu-skip-link')),
+              skipVisibility:getComputedStyle(document.querySelector('a.gu-skip-link')).visibility,
+              skipDisplay:getComputedStyle(document.querySelector('a.gu-skip-link')).display
+            })""")
+            assert links.evaluate('(e)=>document.body.firstElementChild===e'),(route,width,'skip link not first body element',before)
             page.keyboard.press('Tab')
-            assert links.evaluate('(e)=>document.activeElement===e'),(route,'skip link is not first keyboard stop')
+            first=page.evaluate("""() => ({
+              activeTag:document.activeElement?.tagName,
+              activeId:document.activeElement?.id,
+              activeHref:document.activeElement?.getAttribute?.('href'),
+              skipFocused:document.activeElement===document.querySelector('a.gu-skip-link')
+            })""")
+            assert first['skipFocused'],(route,width,'skip link is not first keyboard stop',before,first)
             # Admin controllers replace the initial static gate asynchronously.
             # Assert settled containment, rather than sampling that transition.
             page.wait_for_function('document.documentElement.scrollWidth <= innerWidth + 6',timeout=5000)
