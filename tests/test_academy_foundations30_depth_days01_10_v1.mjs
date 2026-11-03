@@ -26,7 +26,7 @@ for(let i=0;i<30;i++){
  assert.equal(day.assessmentSource,'protected_lab_assessment_only');
  if(i>=10){assert(!day.lesson,'Unstarted days must not be fabricated');continue;}
  const lesson=day.lesson;
- assert.equal(lesson.title,original.title);
+ assert.equal(lesson.title,original.lesson.title,'Preserve original day-specific lesson title');
  assert.equal(lesson.supplementarySourceStatus,'ORIGINAL_FOUNDATIONS30_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
  assert.equal(lesson.formativeQuestions.length,12);
  assert.equal(lesson.advancedPracticums.length,1);
