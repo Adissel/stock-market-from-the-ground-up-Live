@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded guided correction: The arithmetic midpoint averages simultaneous eligible bid and ask quotes. Add the bid and ask, then divide by two; both quotes must share a valid timestamp. Work the fictional example: Bid $20.10 and ask $20.30 give midpoint $20.20. The misconception is: A $20.20 midpoint is not an offered execution price. Limitation: Stale or crossed quotes invalidate naive midpoint interpretation. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Bid $31.20 and ask $31.60: determine midpoint. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -33,6 +33,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov defines bid and ask quotations and their difference, the spread.",
+        "limitationsAndOpenQuestions": "The midpoint is original arithmetic using simultaneous fictional quotes; no available execution price is guaranteed.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +58,7 @@
       "reviewExplanation": "Ungraded guided correction: Spread basis points normalize a two-sided price difference to a declared reference price. Subtract bid from ask; divide by midpoint and multiply by 10,000. Work the fictional example: Bid $49.90, ask $50.10: spread $0.20, midpoint $50; relative spread 40 basis points. The misconception is: Dividing spread by bid without naming the denominator changes the measure. Limitation: Quote validity, tick conventions and locked markets matter. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Bid $19.95 and ask $20.05: compute midpoint-normalized spread in basis points. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -61,6 +71,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "The SEC Rule 605 FAQ describes quote midpoints and quoted-spread reporting benchmarks.",
+        "limitationsAndOpenQuestions": "This single fictional basis-point calculation is not a complete or certified Rule 605 market-center statistic.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -76,7 +96,7 @@
       "reviewExplanation": "Ungraded guided correction: Arrival-price impact compares an executed fill against a predeclared decision benchmark. For a buy, subtract arrival benchmark from fill; multiply by filled shares. Work the fictional example: Fictional buy: 80 shares filled at $25.08 against $25.00 arrival benchmark: $6.40 adverse difference. The misconception is: Calling the entire price difference a broker fee confuses execution and explicit charges. Limitation: The observed difference does not identify its cause. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Buy 50 shares at $40.06 with $40.00 arrival benchmark: calculate adverse dollars. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -89,6 +109,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov explains that execution prices and costs may differ from prices observed when an order is placed.",
+        "limitationsAndOpenQuestions": "The page supports execution-price uncertainty, not independent formula certification for every implementation-shortfall or arrival-price convention.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -104,7 +134,7 @@
       "reviewExplanation": "Ungraded guided correction: A round trip must account for entry and exit fees separately. Multiply entry shares and price; subtract exit proceeds from cost only after subtracting eligible charges. Work the fictional example: Buy 100 at $10, sell 100 at $10.20, pay $2 at each side: gross $20; net $16. The misconception is: Counting only entry fees inflates net performance. Limitation: Partial exits and tax treatment require additional records. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Buy 30 at $15, sell at $15.50; each side costs $1: compute net. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -117,6 +147,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "The SEC fee bulletin distinguishes transaction fees charged when buying and selling, and their effect on net returns.",
+        "limitationsAndOpenQuestions": "The existing example describes a fully completed 100-share round trip despite the lesson title saying incomplete; terminology needs independent editorial correction. Neither fill nor final net return is guaranteed.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -216,7 +256,7 @@
       "reviewExplanation": "Ungraded guided correction: A falling holding can become a smaller percentage of a stable two-asset account. Revalue each asset and divide each by their new combined value. Work the fictional example: Stocks $700 decline 20% to $560; stable bonds $300; stock weight $560/$860 or 65.12%. The misconception is: Keeping 70% as the new weight ignores relative price changes. Limitation: Transaction fees and flows would change the denominator. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Stocks $400 decline 25%, cash $600 stays: compute current stock weight. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -229,6 +269,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov explains portfolio asset-weight drift and rebalancing as one asset class changes relative to another.",
+        "limitationsAndOpenQuestions": "The fictional 560/860 share is conditioned on unchanged bonds, no portfolio flows, and no costs; it is not a recommendation to rebalance.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -272,7 +322,7 @@
       "reviewExplanation": "Ungraded guided correction: A loss from the starting equity requires a larger percentage rebound on the reduced balance. Compute original minus reduced equity; divide required gain by current reduced equity. Work the fictional example: $1,000 declines to $750: $250/$750 = 33.33% gain required to recover. The misconception is: A 25% gain after a 25% loss does not restore the original level. Limitation: Fees, deposits and changing exposure invalidate an assumed direct recovery path. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: $500 declines to $400: what percentage gain restores $500? State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -285,6 +335,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "StockCharts explains percentage drawdown from an observed prior high and its relation to a recovery.",
+        "limitationsAndOpenQuestions": "The fictional 250/750 recovery gain is independently computed from the reduced capital base; the reference does not itself certify that example or define an all-time high.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -412,7 +472,7 @@
       "reviewExplanation": "Ungraded guided correction: An estimated fixed exit fee adds to price-distance risk for a defined share count. Multiply shares by absolute entry-to-stop distance and add the stated estimated exit fee. Work the fictional example: 40 shares, $0.50 planned distance, $2 estimated exit fee: planned $22. The misconception is: Ignoring the fee misstates the estimated loss budget. Limitation: Stops are not guaranteed fills; entry costs and slippage may raise realized losses. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: 50 shares, $0.30 distance and $1 exit fee: compute planned amount. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -425,6 +485,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "The SEC fee bulletin supports accounting for transaction fees in estimated trade costs.",
+        "limitationsAndOpenQuestions": "A planned price-to-stop loss plus estimated exit fee is not a maximum realized loss; gap/slippage and order execution remain unverified.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -496,7 +566,7 @@
       "reviewExplanation": "Ungraded guided correction: A flat sell fee raises the sale price required to recover total purchase and sell costs. Sum buy notional and both stated fees; divide by shares sold. Work the fictional example: Buy 10 shares at $20, $1 buy fee and $1 sell fee: break-even sale $20.20/share. The misconception is: Calling $20 the net break-even ignores commissions. Limitation: Bid-ask spread, partials and taxes are excluded. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: Buy 20 at $15; both fees $2: find break-even sale price. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -509,6 +579,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov specifically advises considering purchase and sale fees and how much price must rise to break even.",
+        "limitationsAndOpenQuestions": "The fictional example assumes ten shares sold at a single price and two exact one-dollar fees; taxes, spreads and market fills are omitted.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -552,7 +632,7 @@
       "reviewExplanation": "Ungraded guided correction: Total quoted equity capitalization can change with shares outstanding without equaling cash proceeds. Multiply new outstanding share count by same-time market quote, separating capitalization from issuer cash. Work the fictional example: 1 million shares at $20 imply $20 million; 200,000 new shares at unchanged $20 imply $24 million. The misconception is: Calling the entire $4 million capitalization change a realized shareholder gain. Limitation: Issuance changes supply, pricing and balance sheet; unchanged quote is only a fictional assumption. This is not a protected assessment or trading instruction.",
       "transferQuestion": "FICTIONAL independent transfer: 2 million shares at $12, then 100,000 new shares at unchanged quote: compute new capitalization. State assumptions and a condition that invalidates the result.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/market-capitalization"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -565,6 +645,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_AND_INDEPENDENT_MATH_CHECK",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
+        "supportedScope": "Investor.gov explicitly defines market capitalization as market price times total shares outstanding.",
+        "limitationsAndOpenQuestions": "Holding the $20 share price constant despite new issuance is fictional and not a forecast of actual issuance pricing or dilution effects.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

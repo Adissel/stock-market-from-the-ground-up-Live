@@ -69,3 +69,31 @@ test('independent fictional arithmetic spot-checks',()=>{
  near(10000*.073*10/365,20);
  near(1/4,.25);
 });
+
+test('Nine scoped Foundation Batch15 references remain ungraded and publication-held',()=>{
+ const expected=new Map([["TALIA_TOPIC_MIDPOINT_BETWEEN_TWO_QUOTES","https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price"],["TALIA_TOPIC_RELATIVE_QUOTED_SPREAD_IN_BASIS_POINTS","https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms"],["TALIA_TOPIC_PRICE_IMPACT_MEASURED_FROM_AN_ARRIVAL_BENCHMARK","https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order"],["TALIA_TOPIC_DOLLAR_COST_OF_AN_INCOMPLETE_ROUND_TRIP","https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"],["TALIA_TOPIC_ASSET_WEIGHT_DRIFT_AFTER_A_DECLINE","https://www.investor.gov/introduction-investing/getting-started/asset-allocation"],["TALIA_TOPIC_EQUITY_DRAWDOWN_RECOVERY_AMOUNT","https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ulcer-index"],["TALIA_TOPIC_DOLLAR_RISK_INCLUDING_A_FIXED_EXIT_FEE","https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"],["TALIA_TOPIC_FEE_ADJUSTED_BREAK_EVEN_SALE_PRICE","https://www.investor.gov/introduction-investing/getting-started/understanding-fees"],["TALIA_TOPIC_MARKET_CAPITALIZATION_AFTER_NEW_SHARE_ISSUANCE","https://www.investor.gov/introduction-investing/investing-basics/glossary/market-capitalization"]]);
+ assert.equal(expected.size,9);
+ for(const [code,url] of expected){
+  const g=first.guides.find(z=>z.code===code);
+  assert.ok(g,code+' must exist');
+  assert.deepEqual(g.sourceUrls,[url]);
+  assert.equal(g.previousGenericSourceUrl,'https://www.investor.gov/introduction-investing');
+  assert.ok(g.sourceResearchTriage.supportedScope.length>45);
+  assert.ok(g.sourceResearchTriage.limitationsAndOpenQuestions.length>45);
+  assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+  assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  assert.equal(g.independentEditorialApproved,false);
+  assert.equal(g.editorSourceReview.independentPublicationAccepted,false);
+ }
+ const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10);
+ near((20.1+20.3)/2,20.2);
+ near(((50.1-49.9)/50)*10000,40);
+ near((25.08-25)*80,6.4);
+ near((10.2-10)*100-4,16);
+ near(560/(560+300),0.6511627906976745);
+ near(250/750,1/3);
+ near(40*.5+2,22);
+ near((10*20+1+1)/10,20.2);
+ near(1200000*20,24000000);
+});

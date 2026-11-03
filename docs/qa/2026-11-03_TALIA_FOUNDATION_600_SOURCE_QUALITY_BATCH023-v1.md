@@ -53,3 +53,15 @@ The Batch 04 and Batch 05 legacy aggregate tests assumed every one of the first 
 | Version | Date | Change | Acceptance |
 |---|---|---|---|
 | 1.4 | 2026-11-03 | Reconciled legacy 80/100 lesson source-count tests with bounded validated two-citation contract | CI and editorial release separate |
+
+## Version 1.5 — Batch 15 source-specific research for nine topics
+
+Nine broad introductory source URLs in the original Foundation lesson positions 281–300 were replaced with narrower public SEC, Investor.gov and StockCharts pages: quote midpoint, relative spread, arrival-price impact, transaction fees, asset-weight drift, drawdown recovery, planned risk plus fee, fee-adjusted break-even and share-issuance market capitalization. The review explicitly distinguishes general source support from independent approval of the example's mathematics or trading assumptions.
+
+The article titled **Dollar cost of an incomplete round trip** currently gives a *completed* full-size fictional buy and sell example. This content-title mismatch remains **HOLD FOR EDITORIAL CORRECTION**; a source-pointer update does not clear it. No third-party material is copied. If the source audit is unchanged otherwise, broad introductory citation occurrences decrease from **181 to 172**, and independent publication remains **0/600**.
+
+A new nine-topic source and arithmetic regression is included in `tests/talia-foundation-batches15-16-gates-v1.test.mjs`. Every original grade, entitlement, rights and independent publication flag remains disabled.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.5 | 2026-11-03 | Nine sourced Batch 15 research candidates and arithmetic boundaries; identified title mismatch | Internal source-triage only; editorial release HOLD |
