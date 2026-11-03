@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
+const c={URL,encodeURIComponent,Math,Number,String,Array,Object,RegExp};c.globalThis=c;
+runInNewContext(readFileSync('assets/js/crownlight-scanner-handoff-v4.js','utf8'),c);
+const H=c.CrownlightScannerHandoffV4;
+assert.equal(H.normalize(' msft '),'MSFT');
+assert.equal(H.normalize('A-B.C'),'A-B.C');
+for(const bad of ['',null,'MSFT?redirect=https://evil.test','A/B','/path','A B','A'.repeat(13)])
+ assert.equal(H.normalize(bad),null,'reject malformed ticker');
+const route=H.links('MSFT');
+assert.equal(route.watchlist,'advanced-tool.html?tool=WATCHLIST_WORKBENCH&scanner_symbol=MSFT');
+assert.equal(route.talia,'talia-classroom.html');
+assert.equal(route.labs,'labs.html');
+assert.throws(()=>H.links('x<script>'),/valid research ticker/);
+const nodes=new Map();
+function el(){return {value:'',hidden:false,children:[],append(x){this.children.push(x)},setAttribute(){},insertAdjacentElement(p,x){this.children.push(x)}}}
+const gate=el(),input=el(),sec=el(),note=el();
+nodes.set('#tool-content',gate);nodes.set('#w-ticker',input);nodes.set('#cl-sec-symbol',sec);nodes.set('#w-free-bridge',note);
+const doc={querySelector:s=>nodes.get(s)||null,createElement:()=>el()};
+assert.equal(H.prefillAuthorizedWatchlist(doc,'https://example.com/advanced-tool.html?tool=WATCHLIST_WORKBENCH&scanner_symbol=MSFT'),true);
+assert.equal(input.value,'MSFT');
+assert.equal(sec.value,'MSFT');
+assert.equal(note.children.length,1);
+input.value='CUSTOM';
+assert.equal(H.prefillAuthorizedWatchlist(doc,'https://example.com/advanced-tool.html?tool=WATCHLIST_WORKBENCH&scanner_symbol=NVDA'),true);
+assert.equal(input.value,'CUSTOM','never overwrite member input');
+gate.hidden=true;assert.equal(H.prefillAuthorizedWatchlist(doc,'https://example.com/advanced-tool.html?tool=WATCHLIST_WORKBENCH&scanner_symbol=TSLA'),false);
+gate.hidden=false;input.value='';
+assert.equal(H.prefillAuthorizedWatchlist(doc,'https://example.com/advanced-tool.html?tool=SCANNER_BUILDER&scanner_symbol=TSLA'),false);
+assert.equal(H.prefillAuthorizedWatchlist(doc,'https://example.com/advanced-tool.html?tool=WATCHLIST_WORKBENCH&scanner_symbol=bad%3Fquery'),false);
+console.log('PASS scanner Wave4: allowlisted URLs, gated read-only ticker prefill, never overwrites member research');

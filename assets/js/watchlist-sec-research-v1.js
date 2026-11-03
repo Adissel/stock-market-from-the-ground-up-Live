@@ -52,6 +52,9 @@
      item.append(link);list.append(item);
     }
     result.append(make('h3','Recent filings'),list);
+    globalThis.CrownlightScannerSecBriefV4?.mount?.({
+     host:result,payload:data,symbol,asOf:new Date().toISOString()
+    });
     if(Array.isArray(data.fundamentals)){
      result.append(make('h3','Reported financial data (not estimates)'));
      const table=make('table'),head=make('tr');
