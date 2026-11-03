@@ -1,4 +1,4 @@
--- SMFGU Knowledge Database: Batch 002 source-informed original educational authoring pipeline.
+-- SMFGU Knowledge Database: Batch 003 source-informed original educational authoring pipeline.
 -- Records are original illustrative lessons; reference URLs are fact-check leads, not licensed source text.
 -- All publication is attributed to explicit Owner direction and logged as such; independent review NOT asserted.
 CREATE OR REPLACE FUNCTION public.gu_knowledge_batch003_render_v1(d jsonb)
@@ -129,4 +129,69 @@ END $publish$;
 REVOKE ALL ON FUNCTION public.gu_knowledge_batch003_render_v1(jsonb) FROM PUBLIC,anon,authenticated;
 REVOKE ALL ON FUNCTION public.gu_knowledge_batch003_publish_v1(uuid,jsonb) FROM PUBLIC,anon,authenticated;
 GRANT EXECUTE ON FUNCTION public.gu_knowledge_batch003_render_v1(jsonb) TO service_role;
+GRANT EXECUTE ON FUNCTION public.gu_knowledge_batch003_publish_v1(uuid,jsonb) TO service_role;
+
+
+-- Post-publication source provenance hardening: canonical deployed function.
+CREATE OR REPLACE FUNCTION public.gu_knowledge_batch003_publish_v1(p_actor uuid, p_docs jsonb)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SET search_path TO ''
+AS $function$
+DECLARE
+ d jsonb;v_body text;v_article jsonb;v_row public.gu_knowledge_articles_v1%rowtype;
+ v_id uuid;v_done integer:=0;v_unique integer;v_slug text;
+BEGIN
+ IF p_actor IS NULL OR NOT EXISTS (
+  SELECT 1 FROM public.admin_user_roles r JOIN public.profiles p ON p.id=r.user_id
+  WHERE r.user_id=p_actor AND r.role_code='OWNER' AND (r.expires_at IS NULL OR r.expires_at>now())
+  AND p.account_kind='member' AND p.deleted_at IS NULL
+ ) OR EXISTS (
+  SELECT 1 FROM public.admin_user_flags f WHERE f.user_id=p_actor AND f.status IN ('restricted','suspended')
+ ) OR EXISTS (
+  SELECT 1 FROM public.admin_user_roles r WHERE r.user_id=p_actor AND r.role_code='SHOWCASE_VIEWER'
+  AND (r.expires_at IS NULL OR r.expires_at>now())
+ ) THEN RAISE EXCEPTION 'Active Owner required' USING ERRCODE='42501';END IF;
+ IF jsonb_typeof(p_docs)<>'array' OR jsonb_array_length(p_docs)<1 OR jsonb_array_length(p_docs)>10
+ THEN RAISE EXCEPTION 'Batch must contain 1-10 articles' USING ERRCODE='22023';END IF;
+ SELECT count(DISTINCT x->>'slug') INTO v_unique FROM jsonb_array_elements(p_docs) x;
+ IF v_unique<>jsonb_array_length(p_docs) THEN RAISE EXCEPTION 'Duplicate slugs' USING ERRCODE='23505';END IF;
+ FOR d IN SELECT value FROM jsonb_array_elements(p_docs) LOOP
+  v_slug:=coalesce(d->>'slug','');
+  IF v_slug !~ '^knowledge-b003-[a-z0-9]+(-[a-z0-9]+)*$' OR length(v_slug)>100
+   OR EXISTS(SELECT 1 FROM public.gu_knowledge_articles_v1 WHERE slug=v_slug)
+  THEN RAISE EXCEPTION 'Invalid or existing slug %',v_slug USING ERRCODE='23505';END IF;
+  IF d->>'learning_level' NOT IN ('beginner','intermediate','advanced','professional','institutional_quantitative')
+   OR jsonb_typeof(d->'access_plans')<>'array'
+   OR (d->'access_plans') @> '["FREE"]'::jsonb
+   OR (d->'access_plans') @> '["PICK_WHAT_YOU_WANT"]'::jsonb
+   OR jsonb_array_length(d->'access_plans')<3
+  THEN RAISE EXCEPTION 'Unapproved access plans or level for %',v_slug USING ERRCODE='22023';END IF;
+  IF jsonb_typeof(d->'source_ids')<>'array' OR jsonb_array_length(d->'source_ids')<1
+   OR jsonb_typeof(d->'sources')<>'array' OR jsonb_array_length(d->'sources')<1
+  THEN RAISE EXCEPTION 'Source provenance missing for %',v_slug USING ERRCODE='23514';END IF;
+  v_body:=public.gu_knowledge_batch003_render_v1(d);
+ END LOOP;
+ FOR d IN SELECT value FROM jsonb_array_elements(p_docs) LOOP
+  v_body:=public.gu_knowledge_batch003_render_v1(d);
+  v_article:=public.gu_knowledge_mutate_v1(p_actor,'save',null,null,
+   d||jsonb_build_object('body_markdown',v_body,'status','draft','review_state','draft','is_visible',false,'sort_order',120));
+  v_id:=(v_article->>'id')::uuid;
+  SELECT * INTO v_row FROM public.gu_knowledge_articles_v1 WHERE id=v_id;
+  PERFORM public.gu_knowledge_complete_article_v2(p_actor,v_id,v_row.version,v_body);
+  SELECT * INTO v_row FROM public.gu_knowledge_articles_v1 WHERE id=v_id;
+  IF v_row.authoring_state<>'complete' THEN RAISE EXCEPTION 'Not author-complete: %',v_row.slug;END IF;
+  PERFORM public.gu_knowledge_mutate_v1(p_actor,'save',v_id,v_row.version,
+   to_jsonb(v_row)||jsonb_build_object('status','published','review_state','accepted','is_visible',true));
+  v_done:=v_done+1;
+ END LOOP;
+ INSERT INTO public.admin_audit_log(actor_user_id,action,target_type,target_id,details)
+ VALUES(p_actor,'knowledge.batch003.owner_directed_publish','knowledge_article_batch','B003-20261103',
+ jsonb_build_object('count',v_done,'basis','explicit Owner instruction, 50 complete source-referenced articles',
+ 'independent_editorial_review',false,'master_source_crosswalk','all 73 candidate sources assigned across batch',
+ 'third_party_content','no verbatim reproduction','membership_access','existing plans only'));
+ RETURN jsonb_build_object('created_and_published',v_done,'batch','B003-20261103');
+END $function$
+;
+REVOKE ALL ON FUNCTION public.gu_knowledge_batch003_publish_v1(uuid,jsonb) FROM PUBLIC,anon,authenticated;
 GRANT EXECUTE ON FUNCTION public.gu_knowledge_batch003_publish_v1(uuid,jsonb) TO service_role;
