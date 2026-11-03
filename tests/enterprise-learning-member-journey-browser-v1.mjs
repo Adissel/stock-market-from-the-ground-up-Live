@@ -79,6 +79,15 @@ try{
  await host.getByRole('button',{name:'Save private study bookmark'}).click();
  await host.getByText(/Saved private stage 5/).waitFor();
  assert.equal(await page.evaluate(()=>globalThis.__test.bookmark.summary.stageNumber),5);
+ // A live revocation during an already mounted Academy session must erase the
+ // premium panel rather than merely showing a failed persistence message.
+ await page.evaluate(()=>{globalThis.__test.permitted=false});
+ await host.getByRole('button',{name:'Restore private study bookmark'}).click();
+ assert.equal(await host.isHidden(),true);
+ assert.equal(await host.locator('*').count(),0);
+ await page.evaluate(()=>{globalThis.__test.permitted=true});
+ await mount();
+ await host.getByRole('heading',{name:'Enterprise research pathway — seven stages'}).waitFor();
  assert.equal(await host.getByText(/Training route locked/).count(),1);
  assert.equal(await host.getByText(/matching book entitlement required/i).count(),1);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),true);
