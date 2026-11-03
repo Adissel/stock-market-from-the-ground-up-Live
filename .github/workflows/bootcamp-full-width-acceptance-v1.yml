@@ -46,6 +46,8 @@ on:
       - 'functions/_lib/academy-practicum90-depth-days01-20-v1.js'
       - 'tests/test_academy_practicum90_depth_days01_20_v1.mjs'
       - 'tests/test_academy_practicum90_days01_20_browser_v1.mjs'
+      - 'tests/test_academy_practicum90_batch01_v1.mjs'
+      - 'tests/test_academy_practicum90_batch02_v1.mjs'
       - 'functions/_lib/academy-risk60-advanced-depth-days25-44-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days45-52-v1.js'
       - 'functions/_lib/academy-risk60-advanced-depth-days53-60-v1.js'
