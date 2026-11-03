@@ -42,7 +42,7 @@ try{
   await opts.nth(correctIndex).locator('input').check();
   await page.getByRole('button',{name:'Close & Next — Submit answer'}).click();
   assert.match(await page.locator('.academy-guided-content h4').innerText(),/4\. Experiment/);
-  await page.getByRole('button',{name:'Explain This Concept — Free'}).click();
+  await page.getByRole('button',{name:'Explain This Concept'}).click();
   assert.match(await page.locator('.academy-guided-feedback').innerText(),/Talia explains/);
  }
  await page.setViewportSize({width:540,height:900});
