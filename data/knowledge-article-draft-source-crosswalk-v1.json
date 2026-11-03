@@ -1,0 +1,2533 @@
+{
+  "schema": "smfgu-knowledge-article-crosswalk-v1",
+  "project": "The Stock Market: From the Ground Up",
+  "status": "provisional_hidden_drafts_not_approved_for_publication",
+  "notes": [
+    "145 authored Talia source guides transformed into article-format editorial drafts; no independent article acceptance.",
+    "Do not equate research guide conversion with 145 finished articles.",
+    "Existing 38 Free Knowledge Database references are unaffected.",
+    "Membership plan selections are a proposed V1 matrix; Owner can change individual article tiers in Admin."
+  ],
+  "records": [
+    {
+      "guide_code": "STUDY_SMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-sma",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_EMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-ema",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_WMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-wma",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_HMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-hma",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_DEMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-dema",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_TEMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-tema",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_KAMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-kama",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MOVING_AVERAGE_RIBBON",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-moving-average-ribbon",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MACD",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-macd",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MACD_HISTOGRAM",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-macd-histogram",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PPO",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-ppo",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_RSI",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-rsi",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_STOCHASTIC",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-stochastic",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_STOCH_RSI",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-stoch-rsi",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_CCI",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-cci",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_WILLIAMS_R",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-williams-r",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ROC",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-roc",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PRICE_MOMENTUM",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-price-momentum",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_TRIX",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-trix",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_KST",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-kst",
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_AROON",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-aroon",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_AROON_OSCILLATOR",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-aroon-oscillator",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ADX",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-adx",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_DIRECTIONAL_MOVEMENT",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-directional-movement",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PARABOLIC_SAR",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-parabolic-sar",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ICHIMOKU",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-ichimoku",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_SUPERTREND",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-supertrend",
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_BOLLINGER_BANDS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-bollinger-bands",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_BOLLINGER_PERCENT_B",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-bollinger-percent-b",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_BOLLINGER_BANDWIDTH",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-bollinger-bandwidth",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_KELTNER_CHANNELS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-keltner-channels",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_DONCHIAN_CHANNELS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-donchian-channels",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ATR",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-atr",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ATRP",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-atrp",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_HISTORICAL_VOLATILITY",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-historical-volatility",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_CHANDELIER_EXIT",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-chandelier-exit",
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PIVOT_POINTS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-pivot-points",
+      "subject": "Technical Indicators / Levels",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_FIBONACCI_RETRACEMENT",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-fibonacci-retracement",
+      "subject": "Technical Indicators / Levels",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VWAP",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-vwap",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ANCHORED_VWAP",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-anchored-vwap",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VWAP_BANDS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-vwap-bands",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VOLUME_SMA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-volume-sma",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_RVOL",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-rvol",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MATCHED_TIME_RVOL",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-matched-time-rvol",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_DOLLAR_VOLUME",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-dollar-volume",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_OBV",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-obv",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ACC_DIST_LINE",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-acc-dist-line",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_CMF",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-cmf",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MFI",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-mfi",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_CHAIKIN_OSCILLATOR",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-chaikin-oscillator",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PVO",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-pvo",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_FORCE_INDEX",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-force-index",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VOLUME_PROFILE",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-volume-profile",
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PRICE_RELATIVE",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-price-relative",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_SCTR",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-sctr",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ADVANCE_DECLINE",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-advance-decline",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_NEW_HIGHS_LOWS",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-new-highs-lows",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MCCLELLAN_OSC",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-mcclellan-osc",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PERCENT_ABOVE_MA",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-percent-above-ma",
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PUT_CALL_RATIO",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-put-call-ratio",
+      "subject": "Technical Indicators / Sentiment",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VIX_CONTEXT",
+      "source_path": "data/tutor-indicator-study-v1.json",
+      "slug": "research-study-vix-context",
+      "subject": "Technical Indicators / Sentiment",
+      "learning_level": "intermediate",
+      "access_plans": [
+        "FOUNDING_14",
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ELDER_RAY",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-elder-ray",
+      "subject": "Advanced Indicators / Trend",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_EMV",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-emv",
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_CHOPPINESS",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-choppiness",
+      "subject": "Advanced Indicators / Volatility",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_VORTEX",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-vortex",
+      "subject": "Advanced Indicators / Trend",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ULTIMATE_OSCILLATOR",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-ultimate-oscillator",
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_TSI",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-tsi",
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_ULCER_INDEX",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-ulcer-index",
+      "subject": "Advanced Indicators / Risk",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_MASS_INDEX",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-mass-index",
+      "subject": "Advanced Indicators / Volatility",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_NVI",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-nvi",
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_PVI",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-pvi",
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_DPO",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-dpo",
+      "subject": "Advanced Indicators / Cycles",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 2,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_FISHER_TRANSFORM",
+      "source_path": "data/tutor-indicator-expansion-v1.json",
+      "slug": "research-study-fisher-transform",
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 1,
+      "guide_kind": "indicator"
+    },
+    {
+      "guide_code": "STUDY_WATCH_WATCHLIST_PURPOSE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-watchlist-purpose",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_UNIVERSE_BUILD",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-universe-build",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_IDENTITY_CORPORATE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-identity-corporate",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_DATA_FRESHNESS",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-data-freshness",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_DISCOVERY_FILTERS",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-discovery-filters",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_CANDIDATE_STATE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-candidate-state",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_PREMARKET_SCAN",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-premarket-scan",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_RELATIVE_VOLUME_SCAN",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-relative-volume-scan",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_LIQUIDITY_SCAN",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-liquidity-scan",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_CATALYST_SCAN",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-catalyst-scan",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_HALT_SSR_BORROW",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-halt-ssr-borrow",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_LEVEL_MAP",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-level-map",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_MULTI_TIMEFRAME_WATCH",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-multi-timeframe-watch",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_STRATEGY_LANES",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-strategy-lanes",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_RISK_FIRST_SCORE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-risk-first-score",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_RANK_REVIEW_QUEUE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-rank-review-queue",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_ALERT_TRIGGER",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-alert-trigger",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_DYNAMIC_SNAPSHOT",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-dynamic-snapshot",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_EVENT_CALENDAR",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-event-calendar",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_SECTOR_RELATIVE",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-sector-relative",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_HISTORICAL_RUNNERS",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-historical-runners",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_WATCH_NO_TRADE_LEDGER",
+      "source_path": "data/tutor-watchlist-study-v1.json",
+      "slug": "research-study-watch-no-trade-ledger",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 4,
+      "guide_kind": "watchlist"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_RCT",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-rct",
+      "subject": "Strategy Research / Premarket Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_MORNING_FADER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-morning-fader",
+      "subject": "Strategy Research / Morning Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_DIP_AND_RIP",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-dip-and-rip",
+      "subject": "Strategy Research / Morning Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_DOLLAR_CROSS",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-dollar-cross",
+      "subject": "Strategy Research / Price Level",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_RED_TO_GREEN",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-red-to-green",
+      "subject": "Strategy Research / Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_FIRST_GREEN_DAY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-first-green-day",
+      "subject": "Strategy Research / Multi-Day",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_FIRST_GREEN_OVERNIGHT",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-first-green-overnight",
+      "subject": "Strategy Research / Multi-Day",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_MULTI_DAY_BREAKOUT",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-multi-day-breakout",
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_PANIC_DIP_BUY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-panic-dip-buy",
+      "subject": "Strategy Research / Panic Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SHORT_SQUEEZE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-short-squeeze",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_PANIC_POINT_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-panic-point-break",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_FRIDAY_SQUEEZE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-friday-squeeze",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_DAY_THREE_SQUEEZE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-day-three-squeeze",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_AFTERNOON_VWAP_HOLD",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-afternoon-vwap-hold",
+      "subject": "Strategy Research / Late-Day",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_VWAP_BOUNCE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-vwap-bounce",
+      "subject": "Strategy Research / Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_HOD_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-hod-break",
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_PMH_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-pmh-break",
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_PDH_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-pdh-break",
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_BLUE_SKY_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-blue-sky-break",
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_WHOLE_HALF_DOLLAR",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-whole-half-dollar",
+      "subject": "Strategy Research / Price Level",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_GAP_AND_FADE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-gap-and-fade",
+      "subject": "Strategy Research / Gap Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_BOUNCE_DAY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-bounce-day",
+      "subject": "Strategy Research / Multi-Day Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SUPERNOVA",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-supernova",
+      "subject": "Strategy Research / Penny Stock",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_ABCD",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-abcd",
+      "subject": "Strategy Research / Structure",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_FIRST_RED_DAY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-first-red-day",
+      "subject": "Strategy Research / Exhaustion",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SHORT_PROMOTION",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-short-promotion",
+      "subject": "Strategy Research / Exhaustion",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_BACKSIDE_SHORT",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-backside-short",
+      "subject": "Strategy Research / Trend Breakdown",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SUPPORT_BOUNCE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-support-bounce",
+      "subject": "Strategy Research / Technical Reversal",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_RESISTANCE_BREAKOUT",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-resistance-breakout",
+      "subject": "Strategy Research / Technical Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_TRENDLINE_BREAK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-trendline-break",
+      "subject": "Strategy Research / Technical Breakout",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_EMA21_PULLBACK",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-ema21-pullback",
+      "subject": "Strategy Research / Technical Pullback",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_THREE_TIMES_LADY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-three-times-lady",
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SHORT_DATED_OPTIONS",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-short-dated-options",
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_LONG_DATED_OPTIONS",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-long-dated-options",
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_CASH_NO_TRIGGER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-cash-no-trigger",
+      "subject": "Strategy Research / No Trade",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_ORACLE_SIGNAL",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-oracle-signal",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_ORACLE_DOUBLE_TAP",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-oracle-double-tap",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_FLUX_AFTERNOON",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-flux-afternoon",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_ALPHA_ANOMALY",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-alpha-anomaly",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_ALPHA_MANUAL",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-alpha-manual",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_IRIS_SCORE",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-iris-score",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional",
+      "access_plans": [
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SPACE_THEME",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-space-theme",
+      "subject": "Strategy Research / Theme Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_LOW_FLOAT_GAPPER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-low-float-gapper",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_DIP_RIP_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-dip-rip-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_AFTERNOON_VWAP_SCAN",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-afternoon-vwap-scan",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_HOD_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-hod-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_RED_GREEN_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-red-green-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_AFTER_HOURS_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-after-hours-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_SQUEEZE_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-squeeze-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    },
+    {
+      "guide_code": "STUDY_STRATEGY_HIGH_LOW_SCANNER",
+      "source_path": "data/tutor-strategy-study-v1.json",
+      "slug": "research-study-strategy-high-low-scanner",
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced",
+      "access_plans": [
+        "FOUNDING_30",
+        "FOUNDING_60",
+        "FULL_MONTHLY",
+        "FULL_ANNUAL",
+        "LIFETIME"
+      ],
+      "article_status": "hidden_draft",
+      "source_url_count": 3,
+      "guide_kind": "strategy"
+    }
+  ]
+}

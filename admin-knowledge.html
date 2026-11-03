@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Knowledge Articles | Admin Control Center</title>
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/admin-platform.css">
+<link rel="stylesheet" href="/assets/css/admin-knowledge-v1.css">
+<script src="/config.js"></script><script defer src="/assets/js/supabase-client.js"></script>
+<script defer src="/assets/js/admin-knowledge-v1.js"></script></head>
+<body data-auth-required="true">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="/index.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a><nav class="navlinks" aria-label="Administration navigation"><a href="/admin.html">Admin Control Center</a><a href="/knowledge-database.html">Public Knowledge Database</a><a href="/account.html">Account</a></nav></div></header>
+<main class="ak-shell">
+<div class="ak-heading"><div><p class="eyebrow">Private publishing operations</p><h1>Knowledge Article Manager</h1><p>Organize original learning content by subject, experience, member eligibility and publication status. Existing Free references are preserved. All writes require a verified administrative session.</p></div>
+<div class="ak-actions"><button type="button" id="ak-new" class="btn">New article</button><button type="button" id="ak-reload" class="btn secondary">Refresh</button><button type="button" id="ak-export" class="btn secondary">Export JSON</button><label class="ak-upload btn secondary">Import .json, .csv, .md or .txt<input id="ak-upload" type="file" accept=".json,.csv,.md,.txt,application/json,text/csv,text/plain,text/markdown" hidden></label></div></div>
+<p id="ak-status" role="status" aria-live="polite">Verifying content permissions…</p>
+<section class="ak-columns" id="ak-app" hidden>
+<aside class="ak-list"><h2>Article inventory</h2><p id="ak-count"></p>
+<label>Search titles / subjects<input id="ak-search" type="search" placeholder="Search articles"></label>
+<div class="ak-list-filters"><label>Experience level<select id="ak-filter-level"><option value="">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option><option value="professional">Professional</option><option value="institutional_quantitative">Institutional / Quantitative</option></select></label>
+<label>Publication status<select id="ak-filter-status"><option value="">All statuses</option><option value="draft">Draft</option><option value="in_review">In review</option><option value="published">Published</option><option value="archived">Archived</option></select></label></div>
+<div class="ak-bulk"><button type="button" id="ak-select-visible" class="btn secondary">Select matching</button>
+<label>Bulk membership placement<select id="ak-bulk-plan">
+<option value="FREE">Free (all eligible members)</option><option value="FOUNDING_14">Founding 14-Day and above</option>
+<option value="FOUNDING_30">Founding 30-Day and above</option><option value="FOUNDING_60">Founding 60-Day / Full</option>
+<option value="LIFETIME">Lifetime only</option><option value="ONDEMAND_MONTHLY">On-Demand only</option>
+</select></label>
+<button type="button" id="ak-bulk-apply" class="btn secondary">Assign selected articles</button><button type="button" id="ak-clear-selection" class="btn secondary">Clear selection</button></div>
+<div id="ak-list" class="ak-list-items"></div><button type="button" id="ak-more" class="btn secondary" hidden>Load more</button></aside>
+<section class="ak-editor" aria-labelledby="ak-editor-title">
+<h2 id="ak-editor-title">Create a new article</h2>
+<form id="ak-form">
+<div class="ak-grid">
+<label>Article title<input id="ak-title" name="title" required maxlength="180" placeholder="How to Calculate VWAP Step by Step"></label>
+<label>URL slug<input id="ak-slug" name="slug" required maxlength="120" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="calculating-vwap-step-by-step"></label>
+<label>Subject/category<input id="ak-subject" name="subject" required maxlength="100" placeholder="Technical Indicators"></label>
+<label>Experience level<select id="ak-level" name="learning_level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option><option value="professional">Professional</option><option value="institutional_quantitative">Institutional / Quantitative</option></select></label>
+<label>Publication status<select id="ak-publication" name="status"><option value="draft">Draft</option><option value="in_review">In review</option><option value="published">Published</option><option value="archived">Archived</option></select></label>
+<label>Editorial review<select id="ak-review" name="review_state"><option value="draft">Draft / not reviewed</option><option value="in_review">Editorial review</option><option value="accepted">Accepted for publication</option></select></label>
+<label>Sort order<input id="ak-order" name="sort_order" type="number" min="0" max="999999" value="100"></label>
+<label>Tags (comma-separated)<input id="ak-tags" name="tags" maxlength="1000" placeholder="VWAP, volume, calculation"></label>
+</div>
+<label>Short summary<textarea id="ak-summary" name="summary" rows="3" maxlength="700"></textarea></label>
+<fieldset><legend>Membership tiers permitted to read the full article</legend><div id="ak-plans" class="ak-plans"></div></fieldset>
+<label class="ak-check"><input type="checkbox" id="ak-visible">Show in public directory (requires Published + Accepted)</label>
+<label>Article text (Markdown source, safe plain-text reading presentation)
+<textarea id="ak-body" name="body_markdown" rows="19" maxlength="100000" spellcheck="true" placeholder="## Objective&#10;Explain..."></textarea></label>
+<label>Research sources (one per line: Title | https://example.org/page)
+<textarea id="ak-sources" name="sources" rows="5" placeholder="SEC Investor.gov | https://www.investor.gov/"></textarea></label>
+<div class="ak-actions">
+<button type="submit" id="ak-save" class="btn">Save article</button>
+<button type="button" id="ak-preview" class="btn secondary">Preview draft</button>
+<button type="button" id="ak-history" class="btn secondary" disabled>Revision history</button>
+<button type="button" id="ak-archive" class="btn secondary" disabled>Move to trash</button>
+<button type="button" id="ak-restore" class="btn secondary" disabled>Restore draft</button>
+</div></form>
+<p id="ak-record" class="ak-record">New article · Not yet saved</p>
+<section id="ak-preview-area" class="ak-preview" hidden aria-label="Article preview"></section>
+<section id="ak-history-area" class="ak-history" hidden aria-label="Revision history"></section>
+</section></section>
+</main></body></html>
