@@ -106,6 +106,14 @@ function classroom(root){
   ['/talia-tutor-prototype.html','Talia Tutor Studio']
  ];
  for(const [url,title] of destinations){const a=create('a',title,'pt-v3-link');a.href=url;navLinks.append(a)}
+ const inspect=b('Inspect canonical curriculum',()=>{
+  const inspector=$('pt-curriculum-parity');
+  if(!inspector)return note('Current source inspector unavailable.');
+  inspector.open=true;
+  inspector.scrollIntoView({block:'start',behavior:'auto'});
+  note('Source inspector opened. Content is derived from existing curriculum indexes, not invented.');
+ });
+ navLinks.append(inspect);
  hero.append(navLinks);root.append(hero);
  const choices=section('Lab and Boot Camp learning workspace','pt-card pt-v3-modes');
  choices.append(buttons(['Lab','Boot Camp'],state.mode,v=>{state.mode=v;state.stage=0;draw()}));
@@ -186,8 +194,27 @@ function classroom(root){
   camp.append(create('p','The ten source-authored Boot Camp paths include three controlled draft-beta paths. Authorized day navigation remains in the existing Academy player.','pt-note'));
   const link=create('a','Open the authorized Boot Camp Academy','pt-v3-link');
   link.href='/bootcamp.html';camp.append(link);
-  camp.append(create('p','No unpublished assessments, awards, member records or course-day completion are fabricated by this preview.','pt-note'));
-  root.append(camp);
+  const courses=[
+  ['The Truth Behind the Ticker',5,false],
+  ['Build Your Own Stock Watchlist',7,false],
+  ['Mastering Stock Scanners',10,false],
+  ['The Complete Trading Foundations Boot Camp',30,false],
+  ['Chart Reading and Trading Setups',45,false],
+  ['Risk, Execution, and Trading Discipline',60,false],
+  ['Advanced Simulated Trading Practicum',90,false],
+  ['Reading the Tape & Market Microstructure',10,true],
+  ['VWAP, EMA & Technical Indicator Mastery',10,true],
+  ['SEC Filings, Catalysts & Corporate Actions',7,true]
+ ];
+ const atlas=create('div',undefined,'pt-v3-courses');
+ courses.forEach(([title,days,draft])=>{
+  const article=create('article',undefined,'pt-v3-course');
+  article.append(create('strong',title),create('small',days+' authored days · '+(draft?'Controlled beta draft':'Original curriculum')));
+  atlas.append(article);
+ });
+ camp.append(atlas);
+ camp.append(create('p','Original published curriculum and invitation-only drafts are distinct. Course enrollment, lesson-level access, completion, and protected awards remain server-controlled.','pt-note'));
+ root.append(camp);
  }else{
   const lab=section('Lab Studio · Connected fictional evidence','pt-card pt-v3-labs');
   lab.append(create('p','The existing single protected case component and ECharts canvas below provide the OHLCV chart and sequential candle disclosure. They are reused here rather than replaced by decorative rectangles.','pt-note'));
