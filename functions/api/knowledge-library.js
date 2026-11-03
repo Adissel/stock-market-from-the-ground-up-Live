@@ -107,9 +107,13 @@ export async function onRequest({request,env}){
   }
   if(request.method==='GET'&&a==='read'){
    const id=u.searchParams.get('id')||'';
-   if(!uuid.test(id))throw fault('Valid article ID required.',400);
+   const slug=u.searchParams.get('slug')||'';
+   const slugValid=/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&slug.length<=120;
+   if((id&&!uuid.test(id))||(!id&&!slugValid))
+     throw fault('Valid article ID or slug required.',400);
    const user=await actor(c,request);
-   const found=await rows(c,'gu_knowledge_articles_v1','select='+editorSelect+'&id=eq.'+id+'&status=eq.published&is_visible=eq.true&deleted_at=is.null&limit=1');
+   const selector=id?'id=eq.'+id:'slug=eq.'+encodeURIComponent(slug);
+   const found=await rows(c,'gu_knowledge_articles_v1','select='+editorSelect+'&'+selector+'&status=eq.published&is_visible=eq.true&deleted_at=is.null&limit=1');
    if(found.length!==1)throw fault('Article is unavailable.',404);
    const plans=await memberships(c,user);
    const row=found[0];
