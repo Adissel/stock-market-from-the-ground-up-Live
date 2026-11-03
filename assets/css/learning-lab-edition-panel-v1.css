@@ -29,3 +29,11 @@
 .gu-enterprise-research-path a{display:inline-block;margin:6px 12px 4px 0;color:#9bdbff;text-decoration:underline;text-underline-offset:3px}
 .gu-enterprise-research-path a:focus-visible{outline:3px solid #f2cf87;outline-offset:4px;border-radius:3px}
 @media(max-width:620px){.gu-enterprise-research-path{padding:11px}.gu-enterprise-research-path a{display:block;width:fit-content;max-width:100%;overflow-wrap:anywhere}}
+
+/* Enterprise nontrading fictional case comparisons, visually separate from grades. */
+.gu-enterprise-case-workbench{margin-top:16px;padding:16px;border:1px solid #537f9b;border-radius:10px;background:#0b2840}
+.gu-enterprise-case-workbench h3{margin:0 0 8px;color:#eefaff}
+.gu-enterprise-case-workbench button{font:inherit;min-height:44px;padding:9px 15px;border:1px solid #a8d7ed;border-radius:8px;background:#145370;color:#f2faff;cursor:pointer}
+.gu-enterprise-case-workbench button:disabled{opacity:.65;cursor:default}
+.gu-enterprise-case-workbench button:focus-visible{outline:3px solid #f2cf87;outline-offset:4px}
+@media(max-width:620px){.gu-enterprise-case-workbench{padding:12px}.gu-enterprise-case-workbench button{width:100%}}

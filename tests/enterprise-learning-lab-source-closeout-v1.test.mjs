@@ -10,7 +10,8 @@ test('Enterprise research stage work advances only member-gated source candidate
  assert.equal(rows.lab_ENTERPRISE.length,8);
  assert.equal(rows.learning_ENTERPRISE.find(x=>x.id==='LE-ENT-05').source_status,'partial');
  assert.equal(rows.lab_ENTERPRISE.find(x=>x.id==='LA-ENT-04').source_status,'partial');
- assert.equal(rows.lab_ENTERPRISE.filter(x=>x.source_status==='partial').length,1);
+ assert.equal(rows.lab_ENTERPRISE.filter(x=>x.source_status==='partial').length,2);
+ assert.equal(rows.lab_ENTERPRISE.find(x=>x.id==='LA-ENT-05').source_status,'partial');
  assert.equal(rows.learning_ENTERPRISE.filter(x=>x.source_status==='partial').length,1);
  assert.equal(rows.learning_ENTERPRISE.filter(x=>x.source_status==='integrated').length,0);
  assert.equal(rows.lab_ENTERPRISE.filter(x=>x.source_status==='integrated').length,0);
@@ -52,4 +53,18 @@ test('Academy Enterprise Learning UI requires an authenticated member and scrubs
  assert.match(supplement,/session\?\.user\?\.id!==userId/);
  assert.match(supplement,/!current\(\)/);
  assert.doesNotMatch(supplement,/localStorage|sessionStorage|payment_intent|officialGrade:true|masteryAwarded:true/);
+});
+
+test('Enterprise Lab comparison remains read-only, member granted and held-out values undisclosed',()=>{
+ const ui=read('assets/js/learning-lab-edition-panel-v1.js');
+ const api=read('functions/api/learning-lab-enterprise-case-workbench.js');
+ const math=read('functions/_lib/learning-lab-enterprise-case-workbench-v1.js');
+ assert.match(ui,/Compare two original fictional cases/);
+ assert.match(ui,/holdoutValuesReturned!==false/);
+ assert.match(api,/authorizeEditionRequest/);
+ assert.match(api,/edition:'ENTERPRISE'/);
+ assert.match(math,/chronologicalHoldout/);
+ assert.match(math,/summarizeFictionalOutcomes/);
+ assert.match(math,/holdoutValuesReturned:false/);
+ assert.doesNotMatch(ui+api+math,/officialGrade:true|masteryAwarded:true|orders.insert|payment_intent/);
 });

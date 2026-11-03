@@ -297,8 +297,79 @@
      researchPath.replaceChildren(h,boundary,list);
     }catch{/* The gated research navigator is optional to original Basic instruction. */}
    };
+   // Formative multi-case research is a manually requested educational
+   // comparison. A valid Enterprise edition is required before exposing
+   // this control, and the API rechecks the signed-in grant on every click.
+   const workbench=build('section');
+   workbench.className='gu-enterprise-case-workbench';
+   workbench.setAttribute('aria-label','Enterprise original fictional case workbench');
+   const compare=build('button','Compare two original fictional cases');
+   compare.type='button';
+   const workStatus=build('p','Use constructed examples only. Held-out values stay hidden.');
+   workStatus.setAttribute('role','status');
+   const workOutput=build('div');
+   workOutput.className='gu-edition-exercise-output';
+   workbench.append(build('h3','Training-only fictional research workbench'),
+    build('p','Compare aligned constructed OHLC series with an embargo and undisclosed evaluation values. No order, license, or mastery credit is involved.'),
+    compare,workStatus,workOutput);
+   compare.addEventListener('click',async()=>{
+    if(selected!=='ENTERPRISE'||serial!==epoch||!alive())return;
+    compare.disabled=true;workStatus.textContent='Checking current research rights and training-only chronology…';
+    try{
+     const first=demo();
+     const second={...first,bars:first.bars.map(b=>({
+      ...b,open:b.open*1.01,high:b.high*1.01,
+      low:b.low*1.01,close:b.close*1.01}))};
+     const response=await fetch('/api/learning-lab-enterprise-case-workbench',{
+      method:'POST',cache:'no-store',credentials:'same-origin',
+      signal:activeController.signal,
+      headers:{authorization:'Bearer '+token,'content-type':'application/json'},
+      body:JSON.stringify({family:'lab',embargo:2,cases:[
+       {caseId:'ORIGINAL_CASE_A',evidence:first},
+       {caseId:'ORIGINAL_CASE_B',evidence:second}
+      ]})
+     });
+     const data=await response.json().catch(()=>null);
+     if(serial!==epoch||!alive())return;
+     if(!response.ok||!data?.ok||data.result?.schema!=='smfgu.enterprise.fictional-case-comparison.v1'||
+        data.result?.graded!==false||data.result?.holdoutValuesReturned!==false||
+        !Array.isArray(data.result?.cases)||data.result.cases.length!==2){
+      host.replaceChildren();host.hidden=true;return;
+     }
+     const table=build('table'),caption=build('caption','Training-only original fictional case comparisons');
+     const head=build('thead'),titles=build('tr');
+     for(const s of ['Constructed case','Training bars','Mean close','EMA','VWAP','Embargo bars','Undisclosed holdout bars'])
+      titles.append(build('th',s));
+     head.append(titles);
+     const body=build('tbody');
+     const fixed=n=>typeof n==='number'&&Number.isFinite(n)?n.toFixed(4):null;
+     for(const item of data.result.cases){
+      if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,59}$/.test(item.caseId)||
+         !Number.isSafeInteger(item.trainingCount)||
+         !Number.isSafeInteger(item.embargoCount)||
+         !Number.isSafeInteger(item.heldOutEvaluationCount)||
+         fixed(item.trainingMean)===null||fixed(item.trainingOnlyIndicators?.EMA)===null||
+         fixed(item.trainingOnlyIndicators?.VWAP)===null){
+       host.replaceChildren();host.hidden=true;return;
+      }
+      const row=build('tr');
+      row.append(build('th',item.caseId),build('td',item.trainingCount),
+       build('td',fixed(item.trainingMean)),build('td',fixed(item.trainingOnlyIndicators.EMA)),
+       build('td',fixed(item.trainingOnlyIndicators.VWAP)),build('td',item.embargoCount),
+       build('td',item.heldOutEvaluationCount));
+      body.append(row);
+     }
+     table.append(caption,head,body);
+     workOutput.replaceChildren(table);
+     workStatus.textContent='Comparison complete: training-only descriptive values. No held-out outcome was displayed or used for model selection.';
+    }catch{
+     if(serial===epoch&&alive())workStatus.textContent='Fictional comparison unavailable. No progress or grade was changed.';
+    }finally{
+     if(serial===epoch&&alive())compare.disabled=false;
+    }
+   });
    section.append(heading,intro,choices,output);
-   if(selected==='ENTERPRISE')section.append(researchPath);
+   if(selected==='ENTERPRISE')section.append(researchPath,workbench);
    section.append(status);
    host.replaceChildren(section);host.hidden=false;
    if(selected==='ENTERPRISE')void loadResearchPath();

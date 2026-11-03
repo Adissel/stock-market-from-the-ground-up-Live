@@ -40,6 +40,17 @@ try{
     return ok({ok:true,journey:{edition:'ENTERPRISE',stages,
      boundary:'Training links and optional book Labs require independent rights.'}});
    }
+   if(u.pathname==='/api/learning-lab-enterprise-case-workbench'){
+    const body=JSON.parse(init.body);
+    if(!Array.isArray(body.cases)||body.cases.length!==2||
+       body.cases.some(c=>c.evidence.provenance!=='fictional'))
+     return ok({ok:false},400);
+    return ok({ok:true,result:{schema:'smfgu.enterprise.fictional-case-comparison.v1',
+     edition:'ENTERPRISE',graded:false,holdoutValuesReturned:false,
+     cases:body.cases.map(c=>({caseId:c.caseId,trainingCount:12,
+      embargoCount:2,heldOutEvaluationCount:7,trainingMean:103.125,
+      trainingOnlyIndicators:{EMA:103.25,VWAP:103.5}}))}});
+   }
    throw Error('Unexpected mock route '+u.pathname);
   };
  });
@@ -58,6 +69,16 @@ try{
  assert.equal(await journey.locator('li').count(),7);
  assert.equal(await journey.locator('a').count(),5,'Three training links, one book link plus?');
  assert.equal(await journey.getByText(/separate book entitlement required/).count(),1);
+ const compare=host.getByRole('button',{name:'Compare two original fictional cases'});
+ await compare.click();
+ const comparison=host.getByRole('table',{name:'Training-only original fictional case comparisons'});
+ await comparison.waitFor();
+ assert.equal(await comparison.locator('tbody tr').count(),2);
+ assert.match(await host.getByRole('status').filter({hasText:'Comparison complete'}).textContent(),/No held-out outcome/);
+ const sent=await page.evaluate(()=>globalThis.__journeyFixture.attempts.filter(
+  x=>x.path==='/api/learning-lab-enterprise-case-workbench'));
+ assert.equal(sent.length,1);assert.equal(sent[0].method,'POST');
+
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),true);
  const links=await journey.locator('a').evaluateAll(xs=>xs.map(x=>x.getAttribute('href')));
  assert(links.every(h=>h?.startsWith('bootcamp')||h?.startsWith('labs.html?open=')));

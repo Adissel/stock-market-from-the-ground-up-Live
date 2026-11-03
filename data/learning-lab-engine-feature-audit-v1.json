@@ -90,12 +90,12 @@
     "lab_ENTERPRISE": {
       "total": 8,
       "integrated": 0,
-      "partial": 1,
-      "prototype": 6,
+      "partial": 2,
+      "prototype": 5,
       "not_implemented": 1,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 8
+      "automation_file_references": 9
     }
   },
   "features": [
@@ -969,11 +969,11 @@
       "engine": "lab",
       "edition": "ENTERPRISE",
       "title": "Multi-source research Lab workbench",
-      "source_status": "prototype",
-      "evidence_file": "functions/_lib/learning-lab-enterprise-case-workbench-v1.js",
-      "existing_test_file": "tests/learning-lab-enterprise-case-workbench-v1.test.mjs",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/enterprise-learning-lab-journey-browser-v1.mjs",
       "acceptance_criterion": "Save member-owned approved source cases with audit history.",
-      "unresolved": "Owner-approved, server-validated original-fictional multi-case source comparison uses aligned completed bars, training-only statistics, embargo and protected held-out values. Source API independently verifies signed-in edition/tool entitlement, with no external source, historical feed, trade, grade or member write. Authenticated member UI, saved audited research workspace, independent data-rights, accessibility and release acceptance remain open.",
+      "unresolved": "Owner-approved Enterprise Lab source UI can request two server-grant-verified original fictional comparisons, using aligned completed training bars, embargo and undisclosed holdout values; mocked mobile Chromium and source/API checks cover denial and no grading. The member-owned audited research workspace, live two-account tests, screen reader QA, independent rights and exact-current-SHA production release remain open.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },
