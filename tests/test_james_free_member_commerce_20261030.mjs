@@ -32,13 +32,20 @@ try{
    {headers:{authorization:'Bearer '+auth.token},timeout:30000});
   const b=await r.json().catch(()=>({}));
   return {status:r.status(),body:b}};
- for(const tool of ['MARKET_SIMULATOR','ONDEMAND_TRAINING','INTERACTIVE_LEARNING','JOURNAL_ANALYTICS','MARKET_TUTOR']){
+ // The Free tier has the approved Foundation/Basic Talia Tutor entitlement.
+ // Do not mistake that legitimate access for an unauthorized paid upgrade.
+ for(const tool of ['MARKET_SIMULATOR','ONDEMAND_TRAINING','INTERACTIVE_LEARNING','JOURNAL_ANALYTICS']){
   const r=await get('/api/member-tool-access?tool='+tool);
   assert.equal(r.status,200,tool+' service availability');
   assert.equal(r.body.freeEligible,true,tool+' Free eligibility');
   assert.equal(r.body.authorized,false,tool+' premium denial');
   ok(tool+' premium entitlement denied, Free eligibility preserved');
  }
+ const tutor=await get('/api/member-tool-access?tool=MARKET_TUTOR');
+ assert.equal(tutor.status,200,'Free Foundation Tutor service availability');
+ assert.equal(tutor.body.freeEligible,true,'Free Foundation Tutor member eligibility');
+ assert.equal(tutor.body.authorized,true,'Free Foundation Tutor entitlement must remain enabled');
+ ok('Free Foundation Tutor entitlement verified without upgrading other premium tools');
  const chart=await get('/api/chart-tier-access');
  assert.equal(chart.status,200);
  assert.equal(chart.body.tier,'STANDARD','Free cannot receive Advanced/Professional Chart Studio');
