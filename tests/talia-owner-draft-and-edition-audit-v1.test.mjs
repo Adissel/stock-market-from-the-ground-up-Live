@@ -59,8 +59,8 @@ test('Reproducible 600/73/15 artifact audit retains premium release holds',()=>{
  assert.equal(report.sourceRightsCleared,0);
  assert.equal(report.indicatorSourceGuides,73);
  assert.equal(report.independentlyAcceptedIndicatorOverlays,0);
- assert.deepEqual(Object.values(report.editionSourceEvidence).map(x=>x.evidenced),[6,2,3,1]);
- assert.equal(report.overallSourceEvidence.percent,80);
+ assert.deepEqual(Object.values(report.editionSourceEvidence).map(x=>x.evidenced),[6,3,3,3]);
+ assert.equal(report.overallSourceEvidence.percent,100);
  assert.equal(report.premiumFullyReleased,0);
  assert.equal(report.fullV4PreviouslyAcceptedGates,2);
 });

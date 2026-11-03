@@ -75,7 +75,7 @@ for(const edition of matrix.tiers){
  }
  editionStats[edition]={required,evidenced,sourceEvidencePercent:Number((100*evidenced/required).toFixed(1)),independentlyReleased:0,releaseHold:true};
 }
-assert.deepEqual(Object.values(editionStats).map(x=>x.evidenced),[6,2,3,1]);
+assert.deepEqual(Object.values(editionStats).map(x=>x.evidenced),[6,3,3,3]);
 const policy=readFileSync(new URL('functions/_lib/talia-tier-research-contracts-v1.js',root),'utf8');
 assert.match(policy,/TALIA_PREMIUM_RESEARCH_RELEASED=false/);
 
@@ -86,7 +86,7 @@ const result={
  independentEditorialApprovals:0,sourceRightsCleared:0,
  indicatorSourceGuides:indicators.length,sourceOnlyComputedExamples:computedCodes.size,
  independentlyAcceptedIndicatorOverlays:0,editionSourceEvidence:editionStats,
- overallSourceEvidence:{evidenced:12,required:15,percent:80},
+ overallSourceEvidence:{evidenced:Object.values(editionStats).reduce((n,x)=>n+x.evidenced,0),required:15,percent:Number((100*Object.values(editionStats).reduce((n,x)=>n+x.evidenced,0)/15).toFixed(1))},
  premiumFullyReleased:0,fullV4PreviouslyAcceptedGates:2,fullV4GateDenominator:5,
  warning:'Owner acceptance covers completed draft authoring only. Source evidence does not prove functional paid editions or release. This audit has NOT established independent mathematical, financial, IP, QA, accessibility or authenticated browser acceptance.'
 };

@@ -1,13 +1,13 @@
 {
   "schema": "smfgu.talia.four-edition.source-evidence.v1",
   "documentId": "SMFGU-TALIA-EDITION-15-001",
-  "version": "1.0",
+  "version": "1.1",
   "date": "2026-11-03",
   "project": "The Stock Market: From the Ground Up",
   "repository": "Adissel/stock-market-from-the-ground-up-Live",
   "baseSpecification": "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md",
-  "status": "SOURCE_EVIDENCE_AUDIT_ONLY__NOT_FULL_FEATURE_ACCEPTANCE",
-  "scoring": "15 fixed specification rows: Foundation six, Advanced three, Professional three, Enterprise three. Count only traceable source components or unreleased source prototypes; absence is not counted. These are NOT feature implementation or release completion percentages.",
+  "status": "SOURCE_EVIDENCE_AUDIT_ONLY__ALL_15_SOURCE_EVIDENCED__NOT_FULL_FEATURE_ACCEPTANCE",
+  "scoring": "15 fixed incremental specification rows: six Foundation, three Advanced, three Professional, three Enterprise. Each row is supported by source-tested teaching code or an unreleased prototype only. These are not actual tier-functional integration, entitlement, published curriculum or production completion percentages.",
   "membershipPolicy": "Founding 30 targets Advanced, Founding 60 and Full Monthly Professional, Lifetime Enterprise; effective premium tier remains Foundation until independently released.",
   "tiers": [
     "FOUNDATION",
@@ -180,9 +180,22 @@
       "id": "A02",
       "edition": "ADVANCED",
       "capability": "Edition-specific adaptive explanations and misconception correction",
-      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
-      "hasSourceEvidence": false,
-      "evidence": [],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-remaining3-source-v1.js",
+          "anchors": [
+            "draftAdvancedMisconceptionCorrection"
+          ]
+        },
+        {
+          "path": "tests/talia-tier-remaining3-source-v1.test.mjs",
+          "anchors": [
+            "draftAdvancedMisconceptionCorrection"
+          ]
+        }
+      ],
       "productionFeatureAccepted": false,
       "authenticatedTierAccepted": false,
       "independentEditorialAccepted": false
@@ -276,9 +289,22 @@
       "id": "E01",
       "edition": "ENTERPRISE",
       "capability": "Cross-course verified research orchestration",
-      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
-      "hasSourceEvidence": false,
-      "evidence": [],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-remaining3-source-v1.js",
+          "anchors": [
+            "draftEnterpriseCrossCourseResearch"
+          ]
+        },
+        {
+          "path": "tests/talia-tier-remaining3-source-v1.test.mjs",
+          "anchors": [
+            "draftEnterpriseCrossCourseResearch"
+          ]
+        }
+      ],
       "productionFeatureAccepted": false,
       "authenticatedTierAccepted": false,
       "independentEditorialAccepted": false
@@ -310,9 +336,22 @@
       "id": "E03",
       "edition": "ENTERPRISE",
       "capability": "Member-authorized evidence/learning workbench reporting",
-      "sourceStage": "NOT_YET_EDITION_SPECIFICALLY_EVIDENCED",
-      "hasSourceEvidence": false,
-      "evidence": [],
+      "sourceStage": "UNRELEASED_SOURCE_PROTOTYPE",
+      "hasSourceEvidence": true,
+      "evidence": [
+        {
+          "path": "functions/_lib/talia-tier-remaining3-source-v1.js",
+          "anchors": [
+            "draftEnterpriseEvidenceReport"
+          ]
+        },
+        {
+          "path": "tests/talia-tier-remaining3-source-v1.test.mjs",
+          "anchors": [
+            "draftEnterpriseEvidenceReport"
+          ]
+        }
+      ],
       "productionFeatureAccepted": false,
       "authenticatedTierAccepted": false,
       "independentEditorialAccepted": false
@@ -323,6 +362,8 @@
     "premium entitlement release",
     "exact-commit Cloudflare+full CI",
     "genuine member and Owner browser",
-    "privacy and accessibility"
+    "privacy and accessibility",
+    "independent real-member tests and tier authorization",
+    "independent primary-source claim validation and licensing"
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "documentId": "SMFGU-TALIA-PREMIUM-RESEARCH-GAPS-003",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "status": "UNRELEASED_SOURCE_PROTOTYPE_RESEARCH_ONLY",
+  "sourceEvidenceCapabilities": [
+    "A02",
+    "E01",
+    "E03"
+  ],
+  "referenceResearch": [
+    {
+      "capability": "A02",
+      "reference": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "use": "Trustworthy educational adaptation and validation context; no AI model acceptance implied.",
+      "rights": "research_reference_only"
+    },
+    {
+      "capability": "E01",
+      "reference": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+      "use": "Documented look-ahead-bias and point-in-time validation warning; original no-lookahead prototype.",
+      "rights": "research_reference_only"
+    },
+    {
+      "capability": "E03",
+      "reference": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "use": "Security requirement: verify member-scope and future server RLS; not an assertion that a prototype is protected by deployed RLS.",
+      "rights": "research_reference_only"
+    }
+  ],
+  "changePolicy": {
+    "lessonSourceEdits": 0,
+    "priceChanges": 0,
+    "databaseChanges": 0,
+    "newProductionRoutes": 0,
+    "releaseFlagsChanged": false
+  },
+  "operationalAcceptance": "HOLD",
+  "independentEditorialAccepted": false,
+  "licenseAccepted": false,
+  "authenticatedMemberAccepted": false
+}
