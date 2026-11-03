@@ -1,0 +1,1208 @@
+{
+  "batch": "B003",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "date": "2026-11-03",
+  "source_registry": "docs/research/master/master-source-registry-v1.json",
+  "uploaded_directory": "Master Research Source Directory.odt",
+  "source_policy": "73 first-party registered source candidates mapped once or more; links are research/fact-check leads not independently checked publication rights",
+  "archive_scope": "Existing 320-row/310-URL StocksToTrade historical register remains candidate evidence, not independently verified for this batch",
+  "editorial_state": "owner_directed_publication_without_independent_approval",
+  "article_count": 50,
+  "master_sources_count": 73,
+  "coverage_count": 73,
+  "category_article_counts": {
+    "foundations": 5,
+    "technical": 6,
+    "microstructure": 6,
+    "fundamentals": 5,
+    "derivatives": 5,
+    "macro": 5,
+    "quant": 7,
+    "market_data": 6,
+    "engineering": 5
+  },
+  "topics": [
+    {
+      "slug": "knowledge-b003-sipc-custody-vs-market-loss",
+      "title": "SIPC Custody Protection Versus Market Losses",
+      "category": "foundations",
+      "learning_level": "beginner",
+      "primary_source_id": "SIPC",
+      "source_ids": [
+        "SIPC",
+        "SCHWAB-EDU"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-margin-interest-and-maintenance",
+      "title": "Margin Interest and Maintenance Obligations",
+      "category": "foundations",
+      "learning_level": "beginner",
+      "primary_source_id": "FINRA-EDU",
+      "source_ids": [
+        "FINRA-EDU",
+        "TOS-LRN"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-broker-check-registration",
+      "title": "Verifying Brokers, Licenses, and Disclosures",
+      "category": "foundations",
+      "learning_level": "beginner",
+      "primary_source_id": "SEC-INV",
+      "source_ids": [
+        "SEC-INV",
+        "INVESTOPEDIA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ex-dividend-entitlement-timeline",
+      "title": "Ex-Dividend, Record, and Payment Dates",
+      "category": "foundations",
+      "learning_level": "intermediate",
+      "primary_source_id": "NASDAQ",
+      "source_ids": [
+        "NASDAQ"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trading-session-auction-primer",
+      "title": "NYSE Opening and Closing Auction Orientation",
+      "category": "foundations",
+      "learning_level": "intermediate",
+      "primary_source_id": "NYSE",
+      "source_ids": [
+        "NYSE"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trade-vwap-vs-proxy",
+      "title": "Trade-Print VWAP Versus HLC3 Bar Proxy",
+      "category": "technical",
+      "learning_level": "intermediate",
+      "primary_source_id": "TOS-VWAP",
+      "source_ids": [
+        "TOS-VWAP",
+        "CHARTSCHOOL-OVER"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ema-seed-convergence",
+      "title": "EMA Seed and Warmup Convergence",
+      "category": "technical",
+      "learning_level": "intermediate",
+      "primary_source_id": "TOS-EMA",
+      "source_ids": [
+        "TOS-EMA",
+        "TOS-STUDIES"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-bar-close-vs-repainting",
+      "title": "Completed-Bar Confirmation and Repainting",
+      "category": "technical",
+      "learning_level": "advanced",
+      "primary_source_id": "PINE-DOCS",
+      "source_ids": [
+        "PINE-DOCS",
+        "TALIB-PY"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-multiple-timeframe-bar-alignment",
+      "title": "Multi-Timeframe Indicator Alignment",
+      "category": "technical",
+      "learning_level": "advanced",
+      "primary_source_id": "TRADINGVIEW-HELP",
+      "source_ids": [
+        "TRADINGVIEW-HELP",
+        "PANDAS-TA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-oscillator-signal-regime",
+      "title": "Oscillator Divergence and Regime Limits",
+      "category": "technical",
+      "learning_level": "intermediate",
+      "primary_source_id": "CHARTSCHOOL-IND",
+      "source_ids": [
+        "CHARTSCHOOL-IND",
+        "QC-IND"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-volatility-bands-sigma-choice",
+      "title": "Bollinger-Style Bands and Standard-Deviation Convention",
+      "category": "technical",
+      "learning_level": "professional",
+      "primary_source_id": "TALIB-FUNC",
+      "source_ids": [
+        "TALIB-FUNC",
+        "CMT-ASSOC"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-trades-quotes-depth-distinction",
+      "title": "Trades, Quotes, and Depth Are Different Evidence",
+      "category": "microstructure",
+      "learning_level": "advanced",
+      "primary_source_id": "SEC-MKT",
+      "source_ids": [
+        "SEC-MKT",
+        "SEC-605"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-market-by-order-vs-level",
+      "title": "Market-by-Order Versus Aggregated Price Levels",
+      "category": "microstructure",
+      "learning_level": "professional",
+      "primary_source_id": "LOBSTER",
+      "source_ids": [
+        "LOBSTER",
+        "STT-RESEARCH"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-order-book-depth-changes",
+      "title": "Displayed Order-Book Depth and Cancellations",
+      "category": "microstructure",
+      "learning_level": "advanced",
+      "primary_source_id": "NASDAQ-TRADER",
+      "source_ids": [
+        "NASDAQ-TRADER",
+        "STT-TERMS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-auction-indicative-vs-executed",
+      "title": "Auction Indicative Prices Versus Final Executions",
+      "category": "microstructure",
+      "learning_level": "professional",
+      "primary_source_id": "NYSE-DATA",
+      "source_ids": [
+        "NYSE-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-ats-offexchange-reporting",
+      "title": "ATS and Off-Exchange Trade Reporting",
+      "category": "microstructure",
+      "learning_level": "advanced",
+      "primary_source_id": "FINRA-DATA",
+      "source_ids": [
+        "FINRA-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-clearing-netting-settlement",
+      "title": "Clearing, Netting, and Settlement Controls",
+      "category": "microstructure",
+      "learning_level": "professional",
+      "primary_source_id": "DTCC",
+      "source_ids": [
+        "DTCC"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-enterprise-equity-bridge",
+      "title": "Enterprise Value to Equity Value Bridge",
+      "category": "fundamentals",
+      "learning_level": "advanced",
+      "primary_source_id": "DAMODARAN",
+      "source_ids": [
+        "DAMODARAN",
+        "IRS-550"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-accrual-and-cash-reconciliation",
+      "title": "Cash Earnings and Accrual Reconciliation",
+      "category": "fundamentals",
+      "learning_level": "intermediate",
+      "primary_source_id": "EDGAR-SEARCH",
+      "source_ids": [
+        "EDGAR-SEARCH"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-filing-availability-timeline",
+      "title": "Filing Publication Versus Reporting Period",
+      "category": "fundamentals",
+      "learning_level": "advanced",
+      "primary_source_id": "EDGAR-API",
+      "source_ids": [
+        "EDGAR-API"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-discounted-cash-flow-scenarios",
+      "title": "Discounted Cash Flow Sensitivity Scenarios",
+      "category": "fundamentals",
+      "learning_level": "professional",
+      "primary_source_id": "CFA",
+      "source_ids": [
+        "CFA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-municipal-bond-documentation",
+      "title": "Municipal Bond Disclosure and Credit Research",
+      "category": "fundamentals",
+      "learning_level": "intermediate",
+      "primary_source_id": "MSRB-EMMA",
+      "source_ids": [
+        "MSRB-EMMA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-call-intrinsic-extrinsic",
+      "title": "Call Intrinsic Value Versus Time Value",
+      "category": "derivatives",
+      "learning_level": "intermediate",
+      "primary_source_id": "OIC",
+      "source_ids": [
+        "OIC",
+        "CFTC"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-put-expiration-payoff",
+      "title": "Long Put Payoff and Premium at Expiration",
+      "category": "derivatives",
+      "learning_level": "intermediate",
+      "primary_source_id": "OCC",
+      "source_ids": [
+        "OCC",
+        "QUANTLIB"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-greeks-local-approximation",
+      "title": "Options Greeks as Local Sensitivities",
+      "category": "derivatives",
+      "learning_level": "advanced",
+      "primary_source_id": "CBOE-OPTIONS",
+      "source_ids": [
+        "CBOE-OPTIONS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-futures-tick-margin",
+      "title": "Futures Tick Value Versus Performance Bond",
+      "category": "derivatives",
+      "learning_level": "professional",
+      "primary_source_id": "CME-EDU",
+      "source_ids": [
+        "CME-EDU"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-options-assignment-obligation",
+      "title": "Exercise, Assignment, and Option Contract Obligations",
+      "category": "derivatives",
+      "learning_level": "intermediate",
+      "primary_source_id": "NFA",
+      "source_ids": [
+        "NFA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-cpi-pce-inflation-comparison",
+      "title": "CPI and PCE Inflation Measures",
+      "category": "macro",
+      "learning_level": "intermediate",
+      "primary_source_id": "BLS",
+      "source_ids": [
+        "BLS",
+        "FRED-TERMS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-economic-revisions-vintages",
+      "title": "Economic Release Revisions and Data Vintages",
+      "category": "macro",
+      "learning_level": "advanced",
+      "primary_source_id": "FRED-DATA",
+      "source_ids": [
+        "FRED-DATA",
+        "FRB"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-yield-curve-tenor",
+      "title": "Yield Curves and Maturity Comparisons",
+      "category": "macro",
+      "learning_level": "intermediate",
+      "primary_source_id": "TREASURY",
+      "source_ids": [
+        "TREASURY",
+        "BIS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-nber-business-cycle-dating",
+      "title": "NBER Business-Cycle Dates Versus Forecasts",
+      "category": "macro",
+      "learning_level": "intermediate",
+      "primary_source_id": "NBER",
+      "source_ids": [
+        "NBER"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-real-vs-nominal-gdp",
+      "title": "Nominal and Real GDP Growth",
+      "category": "macro",
+      "learning_level": "intermediate",
+      "primary_source_id": "BEA",
+      "source_ids": [
+        "BEA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-sharpe-autocorrelation",
+      "title": "Sharpe Ratio Under Serial Dependence",
+      "category": "quant",
+      "learning_level": "professional",
+      "primary_source_id": "CFA-SHARPE-RESEARCH",
+      "source_ids": [
+        "CFA-SHARPE-RESEARCH",
+        "BACKTRADER"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-multiple-hypothesis-testing",
+      "title": "Multiple Testing and False Discovery",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "SCIPY",
+      "source_ids": [
+        "SCIPY",
+        "QSTRADER"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-walk-forward-parameter-selection",
+      "title": "Walk-Forward Parameter Selection Without Peeking",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "QC-LEAN",
+      "source_ids": [
+        "QC-LEAN",
+        "ARXIV"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-monte-carlo-sequence-risk",
+      "title": "Monte Carlo Scenario and Sequence Risk",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "STATSMODELS",
+      "source_ids": [
+        "STATSMODELS",
+        "CFI-SHARPE"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-covariance-estimate-shrinkage",
+      "title": "Covariance Estimation and Portfolio Weights",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "PYPORT",
+      "source_ids": [
+        "PYPORT"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-parameter-sweep-overfit",
+      "title": "Parameter Sweep Overfitting and Research Logs",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "VECTORBT",
+      "source_ids": [
+        "VECTORBT"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-reproducible-backtest-ledger",
+      "title": "Reproducible Backtests and Data Provenance",
+      "category": "quant",
+      "learning_level": "institutional_quantitative",
+      "primary_source_id": "PANDAS",
+      "source_ids": [
+        "PANDAS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-sec-filings-data-entitlement",
+      "title": "SEC API Access and Filed Data Provenance",
+      "category": "market_data",
+      "learning_level": "professional",
+      "primary_source_id": "SEC-DATA",
+      "source_ids": [
+        "SEC-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-alpaca-coverage-feed-rights",
+      "title": "IEX Versus Consolidated Feed Coverage",
+      "category": "market_data",
+      "learning_level": "advanced",
+      "primary_source_id": "ALPACA-DATA",
+      "source_ids": [
+        "ALPACA-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-tiingo-bring-your-own-key",
+      "title": "Member-Supplied Tiingo Tokens and Rights",
+      "category": "market_data",
+      "learning_level": "advanced",
+      "primary_source_id": "TIINGO-DATA",
+      "source_ids": [
+        "TIINGO-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-nyse-exchange-depth-rights",
+      "title": "Exchange Depth-of-Book Data Rights",
+      "category": "market_data",
+      "learning_level": "professional",
+      "primary_source_id": "NYSE-MARKETDATA",
+      "source_ids": [
+        "NYSE-MARKETDATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-fred-series-specific-rights",
+      "title": "FRED Series Rights and Economic Vintages",
+      "category": "market_data",
+      "learning_level": "advanced",
+      "primary_source_id": "FRED-POLICY",
+      "source_ids": [
+        "FRED-POLICY"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-split-dividend-data-provenance",
+      "title": "Corporate-Action Provenance for OHLCV Feeds",
+      "category": "market_data",
+      "learning_level": "professional",
+      "primary_source_id": "MASSIVE-DATA",
+      "source_ids": [
+        "MASSIVE-DATA"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-chart-replay-time-sync",
+      "title": "Replay Candles, Indicator State, and Chart Synchronization",
+      "category": "engineering",
+      "learning_level": "professional",
+      "primary_source_id": "ECHARTS",
+      "source_ids": [
+        "ECHARTS",
+        "REACT"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-row-security-member-isolation",
+      "title": "Supabase Row-Level Security and Member Isolation",
+      "category": "engineering",
+      "learning_level": "professional",
+      "primary_source_id": "SUPABASE-RLS",
+      "source_ids": [
+        "SUPABASE-RLS"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-typed-ohlcv-contracts",
+      "title": "Typed OHLCV Schema and Input Validation",
+      "category": "engineering",
+      "learning_level": "professional",
+      "primary_source_id": "TYPESCRIPT",
+      "source_ids": [
+        "TYPESCRIPT"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-screenreader-chart-evidence",
+      "title": "Accessible Chart Evidence and Keyboard Controls",
+      "category": "engineering",
+      "learning_level": "professional",
+      "primary_source_id": "MDN",
+      "source_ids": [
+        "MDN"
+      ]
+    },
+    {
+      "slug": "knowledge-b003-exact-sha-deploy-rollback",
+      "title": "Exact-Commit Release Gates and Rollback",
+      "category": "engineering",
+      "learning_level": "professional",
+      "primary_source_id": "CLOUDFLARE-PAGES",
+      "source_ids": [
+        "CLOUDFLARE-PAGES"
+      ]
+    }
+  ],
+  "source_crosswalk": [
+    {
+      "source_id": "SEC-INV",
+      "category": "foundations",
+      "url": "https://www.investor.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-broker-check-registration"
+      ]
+    },
+    {
+      "source_id": "FINRA-EDU",
+      "category": "foundations",
+      "url": "https://www.finra.org/investors",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-margin-interest-and-maintenance"
+      ]
+    },
+    {
+      "source_id": "SCHWAB-EDU",
+      "category": "foundations",
+      "url": "https://www.schwab.com/learn",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-sipc-custody-vs-market-loss"
+      ]
+    },
+    {
+      "source_id": "TOS-LRN",
+      "category": "foundations",
+      "url": "https://toslc.thinkorswim.com/center",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-margin-interest-and-maintenance"
+      ]
+    },
+    {
+      "source_id": "INVESTOPEDIA",
+      "category": "foundations",
+      "url": "https://www.investopedia.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-broker-check-registration"
+      ]
+    },
+    {
+      "source_id": "NASDAQ",
+      "category": "foundations",
+      "url": "https://www.nasdaq.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-ex-dividend-entitlement-timeline"
+      ]
+    },
+    {
+      "source_id": "NYSE",
+      "category": "foundations",
+      "url": "https://www.nyse.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-trading-session-auction-primer"
+      ]
+    },
+    {
+      "source_id": "SIPC",
+      "category": "foundations",
+      "url": "https://www.sipc.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-sipc-custody-vs-market-loss"
+      ]
+    },
+    {
+      "source_id": "CHARTSCHOOL-OVER",
+      "category": "technical",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-trade-vwap-vs-proxy"
+      ]
+    },
+    {
+      "source_id": "CHARTSCHOOL-IND",
+      "category": "technical",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-oscillator-signal-regime"
+      ]
+    },
+    {
+      "source_id": "TOS-STUDIES",
+      "category": "technical",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-ema-seed-convergence"
+      ]
+    },
+    {
+      "source_id": "TOS-EMA",
+      "category": "technical",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MovAvgExponential",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-ema-seed-convergence"
+      ]
+    },
+    {
+      "source_id": "TOS-VWAP",
+      "category": "technical",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-trade-vwap-vs-proxy"
+      ]
+    },
+    {
+      "source_id": "TRADINGVIEW-HELP",
+      "category": "technical",
+      "url": "https://www.tradingview.com/support/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-multiple-timeframe-bar-alignment"
+      ]
+    },
+    {
+      "source_id": "PINE-DOCS",
+      "category": "technical",
+      "url": "https://www.tradingview.com/pine-script-docs/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-bar-close-vs-repainting"
+      ]
+    },
+    {
+      "source_id": "TALIB-FUNC",
+      "category": "technical",
+      "url": "https://ta-lib.org/functions/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-volatility-bands-sigma-choice"
+      ]
+    },
+    {
+      "source_id": "TALIB-PY",
+      "category": "technical",
+      "url": "https://github.com/TA-Lib/ta-lib-python",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-bar-close-vs-repainting"
+      ]
+    },
+    {
+      "source_id": "PANDAS-TA",
+      "category": "technical",
+      "url": "https://github.com/xgboosted/pandas-ta-classic",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-multiple-timeframe-bar-alignment"
+      ]
+    },
+    {
+      "source_id": "QC-IND",
+      "category": "technical",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-oscillator-signal-regime"
+      ]
+    },
+    {
+      "source_id": "CMT-ASSOC",
+      "category": "technical",
+      "url": "https://cmtassociation.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-volatility-bands-sigma-choice"
+      ]
+    },
+    {
+      "source_id": "SEC-MKT",
+      "category": "microstructure",
+      "url": "https://www.sec.gov/marketstructure",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-trades-quotes-depth-distinction"
+      ]
+    },
+    {
+      "source_id": "SEC-605",
+      "category": "microstructure",
+      "url": "https://www.sec.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-trades-quotes-depth-distinction"
+      ]
+    },
+    {
+      "source_id": "FINRA-DATA",
+      "category": "microstructure",
+      "url": "https://www.finra.org/finra-data",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-ats-offexchange-reporting"
+      ]
+    },
+    {
+      "source_id": "NASDAQ-TRADER",
+      "category": "microstructure",
+      "url": "https://www.nasdaqtrader.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-order-book-depth-changes"
+      ]
+    },
+    {
+      "source_id": "NYSE-DATA",
+      "category": "microstructure",
+      "url": "https://www.nyse.com/market-data",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-auction-indicative-vs-executed"
+      ]
+    },
+    {
+      "source_id": "LOBSTER",
+      "category": "microstructure",
+      "url": "https://lobsterdata.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-market-by-order-vs-level"
+      ]
+    },
+    {
+      "source_id": "DTCC",
+      "category": "microstructure",
+      "url": "https://www.dtcc.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-clearing-netting-settlement"
+      ]
+    },
+    {
+      "source_id": "STT-RESEARCH",
+      "category": "microstructure",
+      "url": "https://stockstotrade.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-market-by-order-vs-level"
+      ]
+    },
+    {
+      "source_id": "STT-TERMS",
+      "category": "microstructure",
+      "url": "https://stockstotrade.com/terms-service-use-agreement/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-order-book-depth-changes"
+      ]
+    },
+    {
+      "source_id": "EDGAR-API",
+      "category": "fundamentals",
+      "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-filing-availability-timeline"
+      ]
+    },
+    {
+      "source_id": "EDGAR-SEARCH",
+      "category": "fundamentals",
+      "url": "https://www.sec.gov/edgar/search/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-accrual-and-cash-reconciliation"
+      ]
+    },
+    {
+      "source_id": "DAMODARAN",
+      "category": "fundamentals",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-enterprise-equity-bridge"
+      ]
+    },
+    {
+      "source_id": "CFA",
+      "category": "fundamentals",
+      "url": "https://www.cfainstitute.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-discounted-cash-flow-scenarios"
+      ]
+    },
+    {
+      "source_id": "MSRB-EMMA",
+      "category": "fundamentals",
+      "url": "https://emma.msrb.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-municipal-bond-documentation"
+      ]
+    },
+    {
+      "source_id": "IRS-550",
+      "category": "fundamentals",
+      "url": "https://www.irs.gov/publications/p550",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-enterprise-equity-bridge"
+      ]
+    },
+    {
+      "source_id": "OIC",
+      "category": "derivatives",
+      "url": "https://www.optionseducation.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-call-intrinsic-extrinsic"
+      ]
+    },
+    {
+      "source_id": "OCC",
+      "category": "derivatives",
+      "url": "https://www.theocc.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-put-expiration-payoff"
+      ]
+    },
+    {
+      "source_id": "CBOE-OPTIONS",
+      "category": "derivatives",
+      "url": "https://www.cboe.com/optionsinstitute/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-greeks-local-approximation"
+      ]
+    },
+    {
+      "source_id": "CME-EDU",
+      "category": "derivatives",
+      "url": "https://www.cmegroup.com/education.html",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-futures-tick-margin"
+      ]
+    },
+    {
+      "source_id": "CFTC",
+      "category": "derivatives",
+      "url": "https://www.cftc.gov/LearnAndProtect/index.htm",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-call-intrinsic-extrinsic"
+      ]
+    },
+    {
+      "source_id": "NFA",
+      "category": "derivatives",
+      "url": "https://www.nfa.futures.org/investors/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-options-assignment-obligation"
+      ]
+    },
+    {
+      "source_id": "QUANTLIB",
+      "category": "derivatives",
+      "url": "https://www.quantlib.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-put-expiration-payoff"
+      ]
+    },
+    {
+      "source_id": "FRED-TERMS",
+      "category": "macro",
+      "url": "https://fred.stlouisfed.org/legal/terms/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-cpi-pce-inflation-comparison"
+      ]
+    },
+    {
+      "source_id": "FRED-DATA",
+      "category": "macro",
+      "url": "https://fred.stlouisfed.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-economic-revisions-vintages"
+      ]
+    },
+    {
+      "source_id": "BLS",
+      "category": "macro",
+      "url": "https://www.bls.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-cpi-pce-inflation-comparison"
+      ]
+    },
+    {
+      "source_id": "BEA",
+      "category": "macro",
+      "url": "https://www.bea.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-real-vs-nominal-gdp"
+      ]
+    },
+    {
+      "source_id": "TREASURY",
+      "category": "macro",
+      "url": "https://fiscaldata.treasury.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-yield-curve-tenor"
+      ]
+    },
+    {
+      "source_id": "FRB",
+      "category": "macro",
+      "url": "https://www.federalreserve.gov/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-economic-revisions-vintages"
+      ]
+    },
+    {
+      "source_id": "BIS",
+      "category": "macro",
+      "url": "https://www.bis.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-yield-curve-tenor"
+      ]
+    },
+    {
+      "source_id": "NBER",
+      "category": "macro",
+      "url": "https://www.nber.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-nber-business-cycle-dating"
+      ]
+    },
+    {
+      "source_id": "QC-LEAN",
+      "category": "quant",
+      "url": "https://www.quantconnect.com/lean",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-walk-forward-parameter-selection"
+      ]
+    },
+    {
+      "source_id": "BACKTRADER",
+      "category": "quant",
+      "url": "https://www.backtrader.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-sharpe-autocorrelation"
+      ]
+    },
+    {
+      "source_id": "VECTORBT",
+      "category": "quant",
+      "url": "https://vectorbt.dev/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-parameter-sweep-overfit"
+      ]
+    },
+    {
+      "source_id": "QSTRADER",
+      "category": "quant",
+      "url": "https://github.com/mhallsmoore/qstrader",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-multiple-hypothesis-testing"
+      ]
+    },
+    {
+      "source_id": "STATSMODELS",
+      "category": "quant",
+      "url": "https://www.statsmodels.org/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-monte-carlo-sequence-risk"
+      ]
+    },
+    {
+      "source_id": "SCIPY",
+      "category": "quant",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-multiple-hypothesis-testing"
+      ]
+    },
+    {
+      "source_id": "PANDAS",
+      "category": "quant",
+      "url": "https://pandas.pydata.org/docs/user_guide/timeseries.html",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-reproducible-backtest-ledger"
+      ]
+    },
+    {
+      "source_id": "PYPORT",
+      "category": "quant",
+      "url": "https://pyportfolioopt.readthedocs.io/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-covariance-estimate-shrinkage"
+      ]
+    },
+    {
+      "source_id": "ARXIV",
+      "category": "quant",
+      "url": "https://arxiv.org/archive/q-fin",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-walk-forward-parameter-selection"
+      ]
+    },
+    {
+      "source_id": "SEC-DATA",
+      "category": "market_data",
+      "url": "https://data.sec.gov/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-sec-filings-data-entitlement"
+      ]
+    },
+    {
+      "source_id": "ALPACA-DATA",
+      "category": "market_data",
+      "url": "https://docs.alpaca.markets/docs/about-market-data-api",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-alpaca-coverage-feed-rights"
+      ]
+    },
+    {
+      "source_id": "TIINGO-DATA",
+      "category": "market_data",
+      "url": "https://www.tiingo.com/documentation/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-tiingo-bring-your-own-key"
+      ]
+    },
+    {
+      "source_id": "MASSIVE-DATA",
+      "category": "market_data",
+      "url": "https://massive.com/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-split-dividend-data-provenance"
+      ]
+    },
+    {
+      "source_id": "NYSE-MARKETDATA",
+      "category": "market_data",
+      "url": "https://www.nyse.com/data-products/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-nyse-exchange-depth-rights"
+      ]
+    },
+    {
+      "source_id": "FRED-POLICY",
+      "category": "market_data",
+      "url": "https://fred.stlouisfed.org/legal/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-fred-series-specific-rights"
+      ]
+    },
+    {
+      "source_id": "ECHARTS",
+      "category": "engineering",
+      "url": "https://echarts.apache.org/en/index.html",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-chart-replay-time-sync"
+      ]
+    },
+    {
+      "source_id": "REACT",
+      "category": "engineering",
+      "url": "https://react.dev/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-chart-replay-time-sync"
+      ]
+    },
+    {
+      "source_id": "TYPESCRIPT",
+      "category": "engineering",
+      "url": "https://www.typescriptlang.org/docs/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-typed-ohlcv-contracts"
+      ]
+    },
+    {
+      "source_id": "MDN",
+      "category": "engineering",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-screenreader-chart-evidence"
+      ]
+    },
+    {
+      "source_id": "CLOUDFLARE-PAGES",
+      "category": "engineering",
+      "url": "https://developers.cloudflare.com/pages/",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-exact-sha-deploy-rollback"
+      ]
+    },
+    {
+      "source_id": "SUPABASE-RLS",
+      "category": "engineering",
+      "url": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "source_status": "candidate_not_individually_checked",
+      "used_by": [
+        "knowledge-b003-row-security-member-isolation"
+      ]
+    },
+    {
+      "source_id": "CFA-SHARPE-RESEARCH",
+      "category": "quant",
+      "url": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2002/the-statistics-of-sharpe-ratios",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-sharpe-autocorrelation"
+      ]
+    },
+    {
+      "source_id": "CFI-SHARPE",
+      "category": "quant",
+      "url": "https://corporatefinanceinstitute.com/resources/career-map/sell-side/risk-management/sharpe-ratio-definition-formula/",
+      "source_status": "official_page_observed_2026-11-01",
+      "used_by": [
+        "knowledge-b003-monte-carlo-sequence-risk"
+      ]
+    }
+  ]
+}
