@@ -212,7 +212,9 @@ export function mountLearningConstellation(host){
   }else{state.x=d.x+dx;state.y=d.y+dy;transform();}
  });
  const release=e=>{const d=state.drag;if(!d||d.id!==e.pointerId)return;
-  if(d.n&&d.moved){d.btn.dataset.dragged='1';choose(d.n.id)}
+  // Pointer capture retargets click to the canvas. Select on pointerup so
+  // a node remains clickable by mouse/touch after the pan/drag guard.
+  if(d.n){if(d.moved)d.btn.dataset.dragged='1';choose(d.n.id)}
   state.drag=null;try{canvas.releasePointerCapture(e.pointerId)}catch{}};
  canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);
  canvas.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?1.09:.92)},{passive:false});
