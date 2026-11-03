@@ -1,16 +1,13 @@
-# Owner QA invocation October 27: rerun with existing repository secrets only; no credential changes or live billing.
+# Manual-only authenticated production acceptance. Unlike source-only tests,
+# this uses a real member and requires a separately Owner-authorized, active,
+# expiring noncommercial ONDEMAND_TRAINING QA grant before dispatch.
+# The accepted October 31 QA grant was intentionally revoked after its test.
+# Never make unrelated source pushes fail because the QA entitlement expired.
+# Authentication, entitlement and persistence checks remain fail-closed.
+# No credentials, payment, grading, or role changes occur in this workflow.
 name: Live Academy Persistence QA (authenticated, no billing)
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/live-academy-progress-qa.yml'
-      - 'tests/live-academy-progress-qa.mjs'
-      - 'functions/api/bootcamp-academy.js'
-      - 'functions/_lib/bootcamp-academy-v014168.js'
-      - 'assets/js/bootcamp-academy-v014168.js'
-      - 'functions/_lib/academy-risk60-transfer-batch03-v1.js'
 permissions:
   contents: read
 concurrency:
