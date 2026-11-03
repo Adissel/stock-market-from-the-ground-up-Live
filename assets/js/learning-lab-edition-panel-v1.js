@@ -94,7 +94,7 @@
     b.setOption({...common,yAxis:{type:'value',min:0},series:[{name:'Volume',type:'bar',data:vol}]});
    }).catch(()=>{});
   }
-  if(result.hypotheticalRisk?.length){
+  if(result.edition==='PROFESSIONAL'&&result.hypotheticalRisk?.length){
    const first=result.hypotheticalRisk[0];
    host.append(build('p','Illustrative whole shares: '+first.shares+
     ' · planned stop risk: '+Number(first.plannedRisk).toFixed(2)+
