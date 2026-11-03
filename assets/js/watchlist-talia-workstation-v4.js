@@ -61,7 +61,6 @@
     transcript=make('p',undefined,'cl-talia-transcript');
   transcript.className='cl-talia-sr';
   narration.setAttribute('aria-hidden','true');
-  transcript.setAttribute('aria-label','Full accessible Talia lesson explanation');
   lesson.append(indicator,heading,narration,transcript);
   const coachActions=make('div',undefined,'cl-talia-actions');
   const play=make('button','Play Talia’s written explanation','btn secondary');

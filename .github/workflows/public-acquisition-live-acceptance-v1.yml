@@ -1,6 +1,12 @@
 name: Public Acquisition V1 — Real Browser & Free Foundations QA
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tests/test_live_free_foundations_browser_v1.mjs'
+      - 'tests/test_public_15_page_browser_production_v1.mjs'
+      - '.github/workflows/public-acquisition-live-acceptance-v1.yml'
   push:
     branches: [main]
     paths:

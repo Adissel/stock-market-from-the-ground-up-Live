@@ -10,6 +10,10 @@ for(const id of ['free-learning-launchpad','free-learning-title','free-learning-
 assert(html.includes('id="free-learning-launchpad"')&&
  html.includes('aria-labelledby="free-learning-title" hidden'),'Free learning plan must not appear before session');
 assert(html.includes('simulator.html?practice=free'),'actual working fictional practice direct link');
+for(const selector of ['free-learning-skill-grid','free-learning-boundaries','free-learning-usage'])
+ assert(html.includes('class="'+selector+'" role="group" aria-label='),
+  'Accessible Free dashboard group needs an explicit role: '+selector);
+
 assert(html.includes('assets/css/free-member-launchpad.css'),'real responsive design stylesheet');
 assert(html.includes('class="free-learning-boundaries"'),'Community and upgrade explanations must be built in');
 assert(html.includes('market-commons.html?forum=START_HERE'),'Use actual available Start Here community board');
@@ -48,3 +52,38 @@ await unavailable.run();
 assert.equal(unavailable.nodes['free-learning-journal-usage'].textContent,'Unavailable');
 assert.match(unavailable.nodes['free-learning-usage-status'].textContent,/server-side weekly limits still apply/);
 console.log('PASS Free Dashboard: real linked simulator, account-scoped true 15/10 weekly meter, no cross-member IDs, fail-closed usage errors.');
+
+/* Source palette contrast guard: conservative endpoints of authored dark gradients.
+ * This does not certify all computed rendering or replace assistive-technology QA.
+ */
+const luminance=hex=>{
+ const channel=hex.replace('#','').match(/.{2}/g).map(x=>parseInt(x,16)/255);
+ const linear=channel.map(x=>x<=0.04045?x/12.92:((x+0.055)/1.055)**2.4);
+ return 0.2126*linear[0]+0.7152*linear[1]+0.0722*linear[2];
+};
+const contrast=(foreground,background)=>{
+ const a=luminance(foreground),b=luminance(background);
+ return (Math.max(a,b)+0.05)/(Math.min(a,b)+0.05);
+};
+const journalCss=src('assets/css/journal-v3.css'),taliaCss=src('assets/css/watchlist-talia-v4.css'),
+ launchpadCss=src('assets/css/free-member-launchpad.css'),globalCss=src('assets/css/styles.css');
+assert(globalCss.includes('--gold:#e3b64b')&&globalCss.includes('color:#101821'),
+ 'Free primary action source colors changed: review contrast manually');
+assert(launchpadCss.includes('linear-gradient(130deg,#102c38,#10202d 63%,#173139)'));
+for(const [label,foreground,background,source,token] of [
+ ['Free primary button','#101821','#e3b64b',globalCss,'.btn{'],
+ ['Talia heading','#ffffff','#102d43',taliaCss,'.cl-talia-v4 h2'],
+ ['Talia disclosure','#b9cddd','#102d43',taliaCss,'.cl-talia-disclosure'],
+ ['Journal heading','#f1f5f9','#0f2435',journalCss,'.gu-j3-panel h2'],
+ ['Journal hint','#93aabd','#0f2435',journalCss,'.gu-j3-hint'],
+ ['Journal metric label','#a3bdcd','#0f2435',journalCss,'.gu-j3-stat-title'],
+ ['Journal closed-market disabled label','#9db5c5','#0a1420',journalCss,'.gu-j3-market-closed']
+]){
+ assert(source.includes(token),'Source selector changed: '+label);
+ assert(contrast(foreground,background)>=4.5,
+  label+' fails conservative source-palette text contrast requirement');
+}
+assert(journalCss.includes('color:#9db5c5;')&&journalCss.includes('opacity:1;cursor:not-allowed'),
+ 'Market-closed dates must remain readable but non-actionable');
+console.log('PASS authored Free/Talia/Journal sample palettes: minimum AA contrast against conservative gradient stops; full manual review remains required.');
+

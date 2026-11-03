@@ -458,7 +458,8 @@ if(!email||!password){
    const scans=[
     ['/dashboard.html','#free-learning-launchpad','#free-learning-launchpad'],
     ['/free-watchlist.html','#free-watchlist-content','#free-watchlist-symbol'],
-    ['/journal.html','#journal-content','#new-journal-toggle']
+    ['/journal.html','#journal-content','#new-journal-toggle'],
+    ['/simulator.html','#sim-server-mode','#sim-server-title']
    ];
    for(const [route,region,ready] of scans){
     await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:30000});
@@ -476,8 +477,14 @@ if(!email||!password){
      id:v.id,impact:v.impact,count:v.nodes.length,
      sample:v.nodes.slice(0,2).map(n=>n.target.join(' '))
     }));
+    const manual=a.incomplete.map(v=>({id:v.id,impact:v.impact,nodeCount:v.nodes.length,
+     samples:v.nodes.slice(0,3).map(n=>({target:n.target,
+      review:(n.any||[]).concat(n.all||[],n.none||[]).map(x=>({id:x.id,message:x.message})).slice(0,3)}))}));
+    if(!report.accessibility)report.accessibility=[];
+    report.accessibility.push({route,region,checks:a.passes.length,violations:problems,incomplete:manual});
     note('checks','Axe WCAG audit executed for '+route+': '+a.passes.length+
      ' rules passed, '+a.violations.length+' violations, '+a.incomplete.length+' manual-review findings.');
+    for(const item of manual)console.log('ACCESSIBILITY_REVIEW_REQUIRED '+route+' '+JSON.stringify(item).slice(0,1100));
     if(problems.length)note('failures','Axe '+route+' violations: '+JSON.stringify(problems).slice(0,450));
    }
   }catch(e){note('failures','Authenticated axe-core Free accessibility audit: '+String(e.message||e).slice(0,450))}

@@ -68,6 +68,13 @@ assert(workspace.includes('root.navigator?.clipboard?.writeText'),'Research repo
 assert(!/localStorage|sessionStorage|indexedDB|supabase\.from|\/api\/stripe|wallet_spend|gradeAttempt/i.test(workspace+curriculum),
  'Research instruction cannot bypass entitlements, grade or touch money');
 assert(free.includes('id="free-watchlist-talia-v4-host"'));
+assert(free.includes('id="free-watchlist-talia-v4-host" role="region" aria-label='),
+ 'Research instructor landmark requires a valid accessible role');
+assert(!workspace.includes("transcript.setAttribute('aria-label'"),
+ 'Visually hidden full lesson transcript must expose its text, not use an invalid labelled paragraph');
+assert(workspace.includes("transcript.className='cl-talia-sr'"),
+ 'Full lesson transcript must remain available to assistive technology');
+
 assert(free.includes('assets/js/watchlist-talia-research-v4.js?v=1'));
 assert(free.includes('assets/js/watchlist-talia-workstation-v4.js?v=1'));
 assert(paid.includes('assets/js/watchlist-talia-research-v4.js?v=1'));

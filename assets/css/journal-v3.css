@@ -115,8 +115,8 @@ body:has(.gu-j3-story) #entry-content>h1{letter-spacing:-.04em}
 /* Closed U.S. equity market dates are visible, but never actionable. */
 .gu-j3-calendar .gu-j3-day.gu-j3-market-closed,
 .gu-j3-calendar .gu-j3-day.gu-j3-market-closed[disabled]{
- background:#0a1420;border:1px dashed #304354;color:#657d8f;
- opacity:.68;cursor:not-allowed;box-shadow:none;
+ background:#0a1420;border:1px dashed #304354;color:#9db5c5;
+ opacity:1;cursor:not-allowed;box-shadow:none;
 }
 .gu-j3-calendar .gu-j3-day.gu-j3-market-closed strong{color:#9d9aad}
 .gu-j3-calendar .gu-j3-day.gu-j3-market-closed:hover{border-color:#304354;background:#0a1420}
