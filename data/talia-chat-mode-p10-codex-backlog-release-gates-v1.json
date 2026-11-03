@@ -1,0 +1,1381 @@
+{
+  "schema": "smfgu.talia.chatmode.p10-handoff.v1",
+  "documentId": "SMFGU-TALIA-CHAT-P10-HANDOFF-001",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "status": "CHAT_MODE_HANDED_OFF__ENGINEERING_AND_RELEASE_HOLD",
+  "control": {
+    "chatModePackagesCompleted": 10,
+    "chatModePackages": 10,
+    "chatModePct": 100,
+    "originalV4OperationalAccepted": 2,
+    "originalV4OperationalTotal": 5,
+    "originalV4Pct": 40,
+    "masterRequirementsClassified": 229,
+    "masterRuntimeEngineeringPercent": null,
+    "sourceEval40Pass": 20,
+    "externalEval40Partial": 20,
+    "premiumPrototypesSpecified": 9,
+    "premiumAuthenticatedAccepted": 0,
+    "foundationOwnerAuthoredAccepted": 600,
+    "independentPublicationApprovals": 0
+  },
+  "docs": [
+    "data/talia-chat-mode-p1-requirements-229-v1.json",
+    "data/talia-chat-mode-p2-foundation600-review-register-v1.json",
+    "data/talia-chat-mode-p3-indicator73-standards-v1.json",
+    "data/talia-chat-mode-p4-instruction-contract-v1.json",
+    "data/talia-chat-mode-p5-eval40-acceptance-v1.json",
+    "data/talia-chat-mode-p6-curriculum-handoff-v1.json",
+    "data/talia-chat-mode-p7-premium-nine-v1.json",
+    "data/talia-chat-mode-p8-governance-v1.json",
+    "data/talia-chat-mode-p9-ux-accessibility-v1.json"
+  ],
+  "pr17": {
+    "url": "https://github.com/Adissel/stock-market-from-the-ground-up-Live/pull/17",
+    "status": "OPEN_DIVERGED_AND_NOT_MERGEABLE_AT_SCAN",
+    "files": 9,
+    "head": "445d6e8ff34f7cc0661f5f37099dfb3137772884",
+    "disposition": "Selective diff/cherry-pick review, no wholesale merge. Preserve newer main source references and independent hold flags; inspect Batch10 unique correction and historical claim test reconciliation."
+  },
+  "unresolved": [
+    "Full Annual/historical membership terms not assigned",
+    "genuine positive staff browser identity unavailable",
+    "independent editorial/math/legal/rights reviews not completed",
+    "independent screen reader and current exact-SHA Cloudflare acceptance not completed"
+  ],
+  "waves": [
+    {
+      "code": "A",
+      "title": "Core integration and canonical lesson context",
+      "depends": "Frozen Packages 1–9",
+      "taskCount": 12,
+      "taskIds": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12"
+      ]
+    },
+    {
+      "code": "B",
+      "title": "Advanced and Professional authenticated runtime",
+      "depends": "Wave A",
+      "taskCount": 12,
+      "taskIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11",
+        "B12"
+      ]
+    },
+    {
+      "code": "C",
+      "title": "Enterprise research and indicator controls",
+      "depends": "Waves A–B",
+      "taskCount": 12,
+      "taskIds": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ]
+    },
+    {
+      "code": "D",
+      "title": "Chat interface, chart usability and accessibility",
+      "depends": "Waves A–C",
+      "taskCount": 12,
+      "taskIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12"
+      ]
+    },
+    {
+      "code": "E",
+      "title": "Security, owner acceptance and exact-SHA release",
+      "depends": "Waves A–D and independent reviewers",
+      "taskCount": 12,
+      "taskIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "A01",
+      "order": 1,
+      "wave": "A",
+      "title": "Selective PR17 duplicate/conflict review",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Only unique changes to latest main identified; no stale source links restored",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A02",
+      "order": 2,
+      "wave": "A",
+      "title": "Typed Tutor input and server context validation",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Spoofed grades, roles, entitlements and source titles rejected",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A03",
+      "order": 3,
+      "wave": "A",
+      "title": "419 canonical Lab ID resolver",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "419 IDs resolve uniquely; forged Lab ID denied",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A04",
+      "order": 4,
+      "wave": "A",
+      "title": "274 Academy program/day resolver",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Ten programs and 274 day keys resolve; five free separate",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A05",
+      "order": 5,
+      "wave": "A",
+      "title": "Nine-stage Learning Journey router",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "All nine valid stages accepted, unknown stage rejected",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A06",
+      "order": 6,
+      "wave": "A",
+      "title": "Assess answer-key isolation",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Protected rubric, unseen cases and direct answer hints unavailable",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A07",
+      "order": 7,
+      "wave": "A",
+      "title": "Authenticated member tool authorization",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Guest/suspended/revoked/showcase requests denied server-side",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A08",
+      "order": 8,
+      "wave": "A",
+      "title": "Consented member-owned conversation persistence",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Consent off no save; on reload only same-member data",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A09",
+      "order": 9,
+      "wave": "A",
+      "title": "Account switch and request abort",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Stale request never renders under second identity",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A10",
+      "order": 10,
+      "wave": "A",
+      "title": "Progress record authority separation",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Tutor cannot award grade/Lumens or assert prerequisite completed",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A11",
+      "order": 11,
+      "wave": "A",
+      "title": "30-competency safe context mapping",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "All 30 IDs and four dimensions retained without fake mastery",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "A12",
+      "order": 12,
+      "wave": "A",
+      "title": "Free source-only fallback",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Frozen Packages 1–9",
+      "acceptance": "Basic/deeper explanations and retries produce no paid provider call",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B01",
+      "order": 13,
+      "wave": "B",
+      "title": "A01 verified prerequisite diagnostics",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Two genuine member histories give distinct authorized paths",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B02",
+      "order": 14,
+      "wave": "B",
+      "title": "Four-dimensional misconception classification",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Mathematical, conceptual, interpretive, process corrections differ",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B03",
+      "order": 15,
+      "wave": "B",
+      "title": "A02 source-grounded adaptive teaching",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Corrects identified misconception with fresh fictional inputs",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B04",
+      "order": 16,
+      "wave": "B",
+      "title": "A03 entitled study recommendations",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Only enrolled/entitled registered Lab/day routes offered",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B05",
+      "order": 17,
+      "wave": "B",
+      "title": "Advanced effective edition controls",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Founding30 target not active without authorized effective tier",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B06",
+      "order": 18,
+      "wave": "B",
+      "title": "Owner edition editor concurrency and audit",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Save/reload passes; stale revision rejected and audited",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B07",
+      "order": 19,
+      "wave": "B",
+      "title": "P01 completed-candle chart context",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Tutor and ECharts share identical completed cutoff",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B08",
+      "order": 20,
+      "wave": "B",
+      "title": "1/3/5 minute OHLCV aggregation",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "200 underlying one-minute bars yield 200/66/40 completed groups",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B09",
+      "order": 21,
+      "wave": "B",
+      "title": "EMA9/20/200 source warmup",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "EMA200 suppressed with less than 200 comparable completed bars",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B10",
+      "order": 22,
+      "wave": "B",
+      "title": "VWAP exact trade vs HLC3 proxy",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Original fictional 11.50 exact and 11.333333 proxy labeled separately",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B11",
+      "order": 23,
+      "wave": "B",
+      "title": "P02 server replay cutoff",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Future candles and late prints denied to earlier decision",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "B12",
+      "order": 24,
+      "wave": "B",
+      "title": "P03 point-in-time decision debrief",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Wave A",
+      "acceptance": "Separates prior evidence and later result without advice or grade",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C01",
+      "order": 25,
+      "wave": "C",
+      "title": "E01 cross-course source orchestration",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Only mutually authorized course contexts used",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C02",
+      "order": 26,
+      "wave": "C",
+      "title": "Cross-course as-of provenance",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Later published evidence not represented as then-known",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C03",
+      "order": 27,
+      "wave": "C",
+      "title": "E02 source/method comparison",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Differences in period, seed, denominator and rights explained",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C04",
+      "order": 28,
+      "wave": "C",
+      "title": "E02 restricted material exclusion",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "No vendor chart/code, licensed quote or raw feed in export",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C05",
+      "order": 29,
+      "wave": "C",
+      "title": "E03 own-learning reporting",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Aggregate only same-member authorized progress",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C06",
+      "order": 30,
+      "wave": "C",
+      "title": "E03 retention/export/deletion controls",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Explicit lawful retention and backup caveat; no false deletion",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C07",
+      "order": 31,
+      "wave": "C",
+      "title": "All 73 indicator method convention mapping",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Each study has defined source, warmup, missing data and rights status",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C08",
+      "order": 32,
+      "wave": "C",
+      "title": "Python/JS indicator numerical regression",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Independent fictional arithmetic and edge-case parity",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C09",
+      "order": 33,
+      "wave": "C",
+      "title": "StockCharts SCTR numerical hold",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "No fabricated vendor rank, only conceptual teaching",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C10",
+      "order": 34,
+      "wave": "C",
+      "title": "Cboe VIX official reconstruction hold",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "No close-volatility proxy represented as official VIX",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C11",
+      "order": 35,
+      "wave": "C",
+      "title": "Source provider and commercial-rights gates",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "FRED AI ingestion blocked; SEC fair access and per-data rights checked",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "C12",
+      "order": 36,
+      "wave": "C",
+      "title": "600-lesson editorial packet traceability",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–B",
+      "acceptance": "Reviewer results must be documented before publication flag changes",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D01",
+      "order": 37,
+      "wave": "D",
+      "title": "Classic and React Tutor backend parity",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Same effective entitlement and member-owned source context",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D02",
+      "order": 38,
+      "wave": "D",
+      "title": "Eight safe error states and copy",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Auth/access/source/cutoff/model/save/history/Assess errors truthful",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D03",
+      "order": 39,
+      "wave": "D",
+      "title": "Transcript live-region and speaker identity",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Screen reader announces correct speaker and turn once",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D04",
+      "order": 40,
+      "wave": "D",
+      "title": "Keyboard focus/stop/cancel behavior",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "All controls operable; aborted answer not rendered",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D05",
+      "order": 41,
+      "wave": "D",
+      "title": "Chart OHLC alternative table",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Selected completed candle nonvisually readable, time and units clear",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D06",
+      "order": 42,
+      "wave": "D",
+      "title": "Pan/zoom/drag-release regression",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "No sticky pan or unintended wheel/layout reload",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D07",
+      "order": 43,
+      "wave": "D",
+      "title": "Approved dark theme and contrast",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Noncolor cues and adequate actual rendered text/indicator contrast",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D08",
+      "order": 44,
+      "wave": "D",
+      "title": "Mobile stacking and responsive dock",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "390px/mobile/tablet/desktop no clipped focusable controls",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D09",
+      "order": 45,
+      "wave": "D",
+      "title": "Reduced-motion and animation fallback",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "No essential instruction depends on motion",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D10",
+      "order": 46,
+      "wave": "D",
+      "title": "Fictional/proxy/provenance badges in text",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Source category, HLC3 proxy, no future and assessment labels correct",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D11",
+      "order": 47,
+      "wave": "D",
+      "title": "Private conversation opt-in messaging",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Save disabled default, new unsaved topic not falsely deletion",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "D12",
+      "order": 48,
+      "wave": "D",
+      "title": "Independent screen reader and sign-in accessibility acceptance",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–C",
+      "acceptance": "Real assistive-technology evidence and first keyboard stop accepted",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E01",
+      "order": 49,
+      "wave": "E",
+      "title": "Freeze target main revision",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Single immutable commit and artifact manifest for all downstream tests",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E02",
+      "order": 50,
+      "wave": "E",
+      "title": "All required exact-SHA CI successful",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "No required failed/cancelled checks; reruns on same revision",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E03",
+      "order": 51,
+      "wave": "E",
+      "title": "Canonical Cloudflare manifest parity",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Before and after browser tests deployed SHA matches target",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E04",
+      "order": 52,
+      "wave": "E",
+      "title": "Genuine authorized Owner/Admin positive browser",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "No test-member privilege elevation; revocation checked",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E05",
+      "order": 53,
+      "wave": "E",
+      "title": "Two-account Tutor privacy and RLS",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Both separate member accounts isolated and forged IDs fail",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E06",
+      "order": 54,
+      "wave": "E",
+      "title": "Membership/tier/downgrade OAT",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Free/Founder30/60/Lifetime/OnDemand effective server policy honored",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E07",
+      "order": 55,
+      "wave": "E",
+      "title": "Full Annual/historical terms reconciliation",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Original contracts cited; unassigned plans remain blocked until decided",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E08",
+      "order": 56,
+      "wave": "E",
+      "title": "20 partial EVAL40 real follow-up tests",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Ten real auth and ten time-cutoff cases only PASS with evidence",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E09",
+      "order": 57,
+      "wave": "E",
+      "title": "Independent 600/73 editorial and source-rights review",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "No unreviewed lesson/official method published as approved",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E10",
+      "order": 58,
+      "wave": "E",
+      "title": "Privacy legal and independent accessibility review",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "Retention/export/deletion and actual screen reader review complete",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E11",
+      "order": 59,
+      "wave": "E",
+      "title": "Noncharging Stripe TEST and zero-cost Tutor regression",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "No live payments, Lumen basic teaching charge or paid inference",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    },
+    {
+      "id": "E12",
+      "order": 60,
+      "wave": "E",
+      "title": "Final V4 sitewide signoff or explicit HOLD",
+      "scope": "Implement or verify against the existing shared Learning/Lab/Tutor architecture and frozen Chat Mode package contract",
+      "dependencies": "Waves A–D and independent reviewers",
+      "acceptance": "All five V4 gates and exact SHA evidence support release; else HOLD",
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger",
+      "implementationStatus": "BACKLOG_NOT_IMPLEMENTED",
+      "releaseAccepted": false
+    }
+  ],
+  "releaseGates": [
+    {
+      "id": "G01",
+      "name": "V4 original CI consolidation",
+      "status": "ACCEPTED_HISTORICAL_PINNED",
+      "evidence": "Original 22/22 pass only on historical V4 SHA",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G02",
+      "name": "Genuine member and positive Owner/Admin browser",
+      "status": "PARTIAL_HOLD",
+      "evidence": "Historical 20 pass / 1 blocked; positive staff identity missing",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G03",
+      "name": "V4 chart gesture/indicator browser",
+      "status": "ACCEPTED_HISTORICAL_PINNED",
+      "evidence": "Completed-bar pinned-build chart evidence, not current release",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G04",
+      "name": "Tutor privacy and independent screen reader",
+      "status": "PARTIAL_HOLD",
+      "evidence": "Two-account evidence historical; screen reader still open",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G05",
+      "name": "Current exact-SHA production decision",
+      "status": "HOLD",
+      "evidence": "Current matching Cloudflare plus full suite not approved",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G06",
+      "name": "229 requirement-by-requirement operating evidence",
+      "status": "UNMEASURED",
+      "evidence": "229 classified; runtime percentage not independently measured",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G07",
+      "name": "600 Foundation independent claim/math/right review",
+      "status": "HOLD",
+      "evidence": "600 owner-authored and prepared, 0 independent approvals confirmed",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G08",
+      "name": "73 indicator math/right approval",
+      "status": "HOLD",
+      "evidence": "73 methodology records and official SCTR/VIX exceptions",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G09",
+      "name": "EVAL40 live external evidence",
+      "status": "PARTIAL_HOLD",
+      "evidence": "20 source PASS and 20 authenticated/chart PARTIAL",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G10",
+      "name": "Nine premium tier authenticated acceptance",
+      "status": "HOLD",
+      "evidence": "15/15 code/prototype evidence, 0/9 premium release",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G11",
+      "name": "Privacy/source/AI spend and legal signoff",
+      "status": "HOLD",
+      "evidence": "17 policies; independent retention/rights/legal review required",
+      "releaseAcceptance": false
+    },
+    {
+      "id": "G12",
+      "name": "Sitewide noncancelled CI, accessibility, Cloudflare and OAT",
+      "status": "HOLD",
+      "evidence": "Newest governance SHA 30 workflow runs nonterminal at scan",
+      "releaseAcceptance": false
+    }
+  ],
+  "finalDecision": "HOLD_UNTIL_EVIDENCE",
+  "rollbackContract": "All changes versioned, test and revert independently, preserve frozen v3.3/v3.2, members' progress, protected official grade, data rights, source-only no-charge tutor and existing payment state."
+}
