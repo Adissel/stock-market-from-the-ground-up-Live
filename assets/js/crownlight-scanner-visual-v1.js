@@ -114,6 +114,7 @@
    const columns=[['symbol','Symbol'],...value.columns.map(key=>[key,C.FIELDS[key]])];
    for(const [,label] of columns){const th=mk('th','',label);th.scope='col';tr.append(th);}
    const whyHeader=mk('th','','Rule evidence');whyHeader.scope='col';tr.append(whyHeader);
+   const handoffHeader=mk('th','','Continue research');handoffHeader.scope='col';tr.append(handoffHeader);
    head.append(tr);table.append(caption,head);
    const tbody=mk('tbody');
    for(const record of value.rows){
@@ -134,6 +135,8 @@
     }
     details.append(list);
     const cell=mk('td');cell.append(details);r.append(cell);
+    const researchCell=root.CrownlightScannerHandoffV4?.makeCell?.(document,record.symbol);
+    r.append(researchCell||mk('td','','Research unavailable'));
     tbody.append(r);
    }
    table.append(tbody);results.append(table);

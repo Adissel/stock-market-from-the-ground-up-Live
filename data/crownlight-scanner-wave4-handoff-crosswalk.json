@@ -1,0 +1,63 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-WAVE4-CROSSWALK-20261103",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "filename": "data/crownlight-scanner-wave4-handoff-crosswalk.json",
+    "fileType": "JSON",
+    "version": "1.0",
+    "status": "SOURCE-LEVEL WORK; AUTHENTICATED QA PENDING",
+    "date": "2026-11-03",
+    "githubRepository": "Adissel/stock-market-from-the-ground-up-Live",
+    "googleDriveLocation": "Not created",
+    "googleDriveDocumentId": null
+  },
+  "integration": [
+    {
+      "id": "SC-W4-01",
+      "feature": "Scanner result ticker to protected Watchlist",
+      "mode": "read-only URL prefill",
+      "access": "existing WATCHLIST_WORKBENCH server entitlement",
+      "verified": "CI tests pending"
+    },
+    {
+      "id": "SC-W4-02",
+      "feature": "Scanner to Talia",
+      "mode": "existing classroom navigation, no answer key",
+      "verified": "CI tests pending"
+    },
+    {
+      "id": "SC-W4-03",
+      "feature": "Scanner to canonical Labs",
+      "mode": "existing catalog navigation",
+      "verified": "CI tests pending"
+    },
+    {
+      "id": "SC-W4-04",
+      "feature": "SEC acceptance 24/72h research",
+      "mode": "existing protected issuer SEC fetch; no bulk query",
+      "verified": "CI tests pending"
+    },
+    {
+      "id": "SC-W4-05",
+      "feature": "SEC source time uncertainty",
+      "mode": "no inference of publication or trade decision",
+      "verified": "CI tests pending"
+    }
+  ],
+  "existingScorecard": {
+    "verifiedBeforeThisWave": 7,
+    "total": 32,
+    "percent": 21.875,
+    "proposedNewMilestoneCredits": 0
+  },
+  "holds": [
+    "No authenticated two-account browser QA",
+    "No paid tier activation",
+    "No SEC scanning filters",
+    "No automatic monitoring",
+    "No protected Champion modifications",
+    "No LIVE release acceptance",
+    "No market-data redistribution",
+    "No graded awards"
+  ]
+}

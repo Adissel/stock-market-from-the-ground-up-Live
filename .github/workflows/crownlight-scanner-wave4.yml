@@ -1,0 +1,45 @@
+name: Crownlight Scanner Wave 4 - Member Research Handoff and SEC Brief
+on:
+  pull_request:
+  push:
+    branches: [main, feature/crownlight-scanner-wave4-research-handoff-20261103]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scanner-research-bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Strict script checks and source-integrated evidence
+        run: |
+          node --check assets/js/crownlight-scanner-handoff-v4.js
+          node --check assets/js/crownlight-scanner-sec-brief-v4.js
+          node --check assets/js/crownlight-scanner-visual-v1.js
+          node --check assets/js/watchlist-sec-research-v1.js
+          node tests/test_crownlight_scanner_handoff_v4.mjs
+          node tests/test_crownlight_scanner_sec_brief_v4.mjs
+          node tests/test_crownlight_scanner_integration_v4.mjs
+          node tests/test_crownlight_talia_source_register_wave4.mjs
+          node tests/test_crownlight_scanner_sec_evidence_v1.mjs
+          node tests/test_crownlight_scanner_rules_v1.mjs
+          node tests/test_crownlight_scanner_results_v2.mjs
+          node tests/test_crownlight_scanner_view_source_v2.mjs
+          node tests/test_sec_issuer_research_v1.mjs
+          node tests/test_v014145_research_scanner.mjs
+          node tests/test_free_watchlist_v1.mjs
+      - name: Build and exclude private assets
+        run: |
+          bash scripts/build-pages.sh
+          test -f public/assets/js/crownlight-scanner-handoff-v4.js
+          test -f public/assets/js/crownlight-scanner-sec-brief-v4.js
+          test -f public/assets/css/crownlight-scanner-handoff-v4.css
+          test ! -d public/functions
+          test ! -d public/supabase
+          test ! -f public/tests/test_crownlight_scanner_handoff_v4.mjs
