@@ -122,7 +122,7 @@
   // or protected Assessment mode, including direct mount attempts.
   if(!['guided','practice'].includes(mode)||
      !host||!userId||typeof token!=='string'||!token||typeof alive!=='function')return;
-  let selected='ENTERPRISE',risk=100,emaPeriod=9,embargo=2,revision=0;
+  let selected='ENTERPRISE',risk=100,emaPeriod=9,embargo=2,revision=0,needsRecalculation=false;
   const caseKey=typeof labId==='string'&&/^[A-Za-z0-9_-]{3,80}$/.test(labId)?labId:null;
   const source=demo();
   const exerciseBody=edition=>({family:'lab',edition,
@@ -184,7 +184,7 @@
    const storageUrl='/api/learning-lab-edition-workspace';
    const storageHeaders={'authorization':'Bearer '+token,'content-type':'application/json'};
    save.addEventListener('click',async()=>{
-    if(serial!==epoch||!alive()||!caseKey)return;
+    if(serial!==epoch||!alive()||!caseKey||needsRecalculation)return;
     save.disabled=true;status.textContent='Saving private ungraded example…';
     try{
      const response=await fetch(storageUrl,{method:'POST',credentials:'same-origin',
@@ -192,13 +192,16 @@
       body:JSON.stringify({...exerciseBody(selected),caseKey,expectedRevision:revision})});
      const data=await response.json().catch(()=>null);
      if(serial!==epoch||!alive())return;
-     if(!response.ok||!data?.ok){status.textContent=response.status===409?
-      'This study changed in another session. Restore the latest revision before saving.':
-      'Study save unavailable. No official grade or mastery was changed.';return}
+     if(!response.ok||!data?.ok){
+      if(response.status===409)needsRecalculation=true;
+      status.textContent=response.status===409?
+       'This study changed in another session. Restore the latest revision before saving.':
+       'Study save unavailable. No official grade or mastery was changed.';return
+     }
      revision=data.workspace.revision;
      status.textContent='Saved private study revision '+revision+'. No official grade was changed.';
     }catch{if(serial===epoch&&alive())status.textContent='Study save unavailable.'}
-    finally{if(serial===epoch&&alive())save.disabled=false}
+    finally{if(serial===epoch&&alive())save.disabled=needsRecalculation}
    });
    restore.addEventListener('click',async()=>{
     if(serial!==epoch||!alive()||!caseKey)return;
@@ -212,9 +215,17 @@
      if(!response.ok||!data?.ok){
       host.replaceChildren();host.hidden=true;return
      }
-     if(!data.found){revision=0;status.textContent='No saved private study exists.';return}
+     if(!data.found){
+      revision=0;needsRecalculation=false;save.disabled=!caseKey;
+      status.textContent='No saved private study exists.';return
+     }
      revision=data.workspace.revision;explain(data.workspace.summary,output);
-     status.textContent='Restored private study revision '+revision+'. No official grade was changed.';
+     // Recovered calculations are authoritative snapshots. Inputs may differ
+     // from their historical values; require fresh, server-approved calculation
+     // before allowing a new save to avoid overwriting a recovered result.
+     needsRecalculation=true;save.disabled=true;
+     status.textContent='Restored private study revision '+revision+
+      '. Recalculate fictional inputs before saving a new version. No official grade was changed.';
     }catch{if(serial===epoch&&alive())status.textContent='Study restore unavailable.'}
     finally{if(serial===epoch&&alive())restore.disabled=false}
    });
@@ -236,7 +247,8 @@
      const update=await invoke(selected);
      if(serial!==epoch||!alive())return;
      if(!update){host.replaceChildren();host.hidden=true;return}
-     explain(update.result,output);status.textContent='Calculation completed using fictional observations only.';
+     explain(update.result,output);needsRecalculation=false;save.disabled=!caseKey;
+     status.textContent='Calculation completed using fictional observations only.';
     }catch{
      if(serial===epoch&&alive())status.textContent='Unable to verify this calculation. Your Lab progress was not changed.';
     }finally{if(serial===epoch&&alive())recalc.disabled=false}

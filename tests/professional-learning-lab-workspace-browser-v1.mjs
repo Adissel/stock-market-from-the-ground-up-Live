@@ -25,7 +25,7 @@ try {
   const response=(data,status=200)=>new Response(JSON.stringify(data),
    {status,headers:{'content-type':'application/json'}});
   globalThis.fetch=async(raw,opts={})=>{
-   const url=new URL(String(raw),location.origin);
+   const url=new URL(String(raw),'https://local.test');
    const method=opts?.method||'GET',token=String(opts?.headers?.authorization||'').replace('Bearer ','');
    const row=state.store[token],allowed=state.allowed[token];
    const body=method==='POST'?JSON.parse(opts.body):null;
@@ -99,10 +99,17 @@ try {
  });
  await host.getByRole('button',{name:'Save private study'}).click();
  await host.getByRole('status').filter({hasText:'This study changed in another session'}).waitFor();
+ assert.equal(await host.getByRole('button',{name:'Save private study'}).isDisabled(),true);
  assert.equal(await page.evaluate(()=>globalThis.__professionalWorkspaceFixture.store.session_a.revision),3);
  await host.getByRole('button',{name:'Restore private study'}).click();
  await host.getByRole('status').filter({hasText:'Restored private study revision 3'}).waitFor();
  assert.match(await host.locator('.gu-edition-exercise-output').textContent(),/Private risk budget 250/);
+ assert.equal(await host.getByRole('button',{name:'Save private study'}).isDisabled(),true,
+  'Restored summary and stale risk input may not be silently mixed');
+ await host.getByRole('button',{name:'Recalculate fictional example'}).click();
+ await host.getByRole('status').filter({hasText:'Calculation completed'}).waitFor();
+ assert.equal(await host.getByRole('button',{name:'Save private study'}).isEnabled(),true);
+ assert.match(await host.locator('.gu-edition-exercise-output').textContent(),/Private risk budget 140/);
  // Switching accounts scrubs all previous panel output before B can restore.
  await page.evaluate(()=>globalThis.CrownlightEditionExercisePanelV1.scrub());
  assert.equal(await host.isHidden(),true);
