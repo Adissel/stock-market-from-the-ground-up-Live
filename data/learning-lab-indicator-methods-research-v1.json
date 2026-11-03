@@ -1,0 +1,235 @@
+{
+  "schema": "smfgu.learning-lab.indicator-method-research.v1",
+  "documentId": "SMFGU-LELA-RESEARCH-007-20261103",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP (Crownlight)",
+  "version": "1.0",
+  "status": "RESEARCH_AND_EXECUTABLE_NUMERICAL_EVIDENCE_ONLY_NOT_A_PREMIUM_RELEASE",
+  "research_date": "2026-11-03",
+  "source_access_date": "2026-11-03",
+  "source_basis": "Authoritative and provider methodology references plus original fictional calculations; user-supplied Master Research Source Directory is a research index, not a grant of publication rights",
+  "scope": {
+    "methods": 7,
+    "existing_engine_methods": 5,
+    "independent_vwap_distinctions": 2,
+    "lab_catalogue": 419
+  },
+  "rights": {
+    "research_citation_allowed_subject_to_quote_limits": true,
+    "third_party_content_copied": false,
+    "provider_charts_reproduced": false,
+    "licensed_feeds_ingested": false,
+    "commercial_republication_cleared": false,
+    "legal_review": "OPEN"
+  },
+  "quality": {
+    "owner_editorial_decision": "PRESERVED",
+    "independent_math_execution": "CI_PENDING",
+    "authenticated_member_accepted": false,
+    "assistive_technology_accepted": false,
+    "market_data_rights_accepted": false,
+    "source_methodology_only": true
+  },
+  "records": [
+    {
+      "id": "EMA",
+      "source": "StockCharts ChartSchool",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential",
+      "method": "close EMA, alpha=2/(period+1), seed=SMA(first period closes)",
+      "inputs": "completed closing prices; period",
+      "warmup": "first value at index period-1; no earlier EMA",
+      "limitation": "EMA seed and warmup vary between providers; rising EMA does not predict the next close",
+      "example": {
+        "closes": [
+          10,
+          11,
+          13,
+          12
+        ],
+        "period": 3,
+        "expected_final": 11.666666666666666
+      },
+      "engineFunction": "ema",
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "RSI",
+      "source": "StockCharts ChartSchool",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi",
+      "method": "Wilder RSI, initial average gain/loss from first period price changes, then recursively smooth",
+      "inputs": "completed positive closing prices; period plus starting close",
+      "warmup": "first RSI at index period; both zero averages map to project-defined 50",
+      "limitation": "Momentum indicator, not a guaranteed next-bar entry signal; zero-average convention must be specified",
+      "example": {
+        "closes": [
+          10,
+          11,
+          12,
+          11,
+          13,
+          14
+        ],
+        "period": 3,
+        "expected_final": 87.87878787878788
+      },
+      "engineFunction": "rsi",
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "MACD",
+      "source": "StockCharts ChartSchool",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-moving-average-convergence-divergence-oscillator",
+      "method": "fast EMA minus slow EMA; signal EMA of valid MACD values; histogram=MACD-signal",
+      "inputs": "completed closes; fast, slow, signal periods",
+      "warmup": "SMA-seed both component EMAs and subsequent MACD signal; no premature lines",
+      "limitation": "Illustrative 3/5/3 differs from common 12/26/9; methods and seeding affect early values",
+      "example": {
+        "closes": [
+          10,
+          11,
+          12,
+          11,
+          13,
+          14,
+          15,
+          14
+        ],
+        "fast": 3,
+        "slow": 5,
+        "signal": 3,
+        "expected_line": 0.5481481481481482,
+        "expected_signal": 0.6333333333333333,
+        "expected_histogram": -0.08518518518518518
+      },
+      "engineFunction": "macd",
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "ATR",
+      "source": "StockCharts ChartSchool True Range",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/true-range",
+      "method": "True range=max(high-low,abs(high-priorClose),abs(low-priorClose)); Wilder smoothed ATR in project implementation",
+      "inputs": "completed H/L/C bars; prior close; period",
+      "warmup": "first TR=high-low, first ATR=SMA(period true ranges), then Wilder recursive smoothing",
+      "limitation": "ATR is an absolute volatility scale, not trade direction; providers can choose different first-bar TR initialization",
+      "example": {
+        "bars": [
+          {
+            "h": 11,
+            "l": 9,
+            "c": 10
+          },
+          {
+            "h": 12,
+            "l": 10,
+            "c": 11
+          },
+          {
+            "h": 13,
+            "l": 10,
+            "c": 12
+          },
+          {
+            "h": 14,
+            "l": 11,
+            "c": 13
+          },
+          {
+            "h": 15,
+            "l": 12,
+            "c": 14
+          }
+        ],
+        "period": 3,
+        "expected_final": 2.7037037037037037
+      },
+      "engineFunction": "atr",
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "BOLLINGER",
+      "source": "StockCharts ChartSchool",
+      "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands",
+      "method": "middle=SMA(period closes); upper/lower=middle ± multiplier × population standard deviation",
+      "inputs": "completed closes; window period and multiplier",
+      "warmup": "first bands at index period-1; project explicitly uses population divisor period",
+      "limitation": "Band contact alone does not establish reversal; sample-versus-population deviation must not be silently interchanged",
+      "example": {
+        "closes": [
+          10,
+          11,
+          12,
+          13,
+          12,
+          14
+        ],
+        "period": 3,
+        "k": 2,
+        "expected_middle": 13,
+        "expected_sigma": 0.816496580927726,
+        "expected_upper": 14.632993161855453
+      },
+      "engineFunction": "bollinger",
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "VWAP-TRADE",
+      "source": "Official thinkorswim VWAP study reference",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+      "method": "exact transaction VWAP=sum(tradePrice × tradeVolume)/sum(tradeVolume) over chosen reset interval",
+      "inputs": "individual executed trade prints and traded sizes, session or stated anchor",
+      "warmup": "requires positive cumulative traded volume; reset at stated session/anchor",
+      "limitation": "Cannot reconstruct exact trade-print VWAP from aggregate OHLCV; no exchange-feed redistribution rights inferred",
+      "example": {
+        "trades": [
+          {
+            "price": 10,
+            "volume": 100
+          },
+          {
+            "price": 12,
+            "volume": 300
+          }
+        ],
+        "expected_final": 11.5
+      },
+      "engineFunction": null,
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    },
+    {
+      "id": "VWAP-HLC3",
+      "source": "TradingView VWAP calculation guide",
+      "url": "https://www.tradingview.com/support/solutions/43000502018-volume-weighted-average-price-vwap/",
+      "method": "bar proxy=sum(((high+low+close)/3) × barVolume)/sum(barVolume) over stated reset interval",
+      "inputs": "completed OHLCV bars, known bar volume, session/anchor",
+      "warmup": "requires positive cumulative bar volume; proxy remains approximate from bar-level aggregates",
+      "limitation": "Bar-based HLC3 VWAP is NOT mathematically identical to exact transaction VWAP; label proxy prominently",
+      "example": {
+        "bars": [
+          {
+            "h": 12,
+            "l": 10,
+            "c": 12,
+            "v": 400
+          }
+        ],
+        "expected_final": 11.333333333333334
+      },
+      "engineFunction": null,
+      "accessDate": "2026-11-03",
+      "rightsStatus": "RESEARCH_REFERENCE_ONLY_NO_REPUBLICATION_CLEARANCE",
+      "sourceReview": "METHODOLOGY_REFERENCE_REVIEWED_NOT_INDEPENDENT_EDITORIAL_OR_LEGAL_ACCEPTANCE"
+    }
+  ]
+}
