@@ -83,7 +83,9 @@ try{
  // premium panel rather than merely showing a failed persistence message.
  await page.evaluate(()=>{globalThis.__test.permitted=false});
  await host.getByRole('button',{name:'Restore private study bookmark'}).click();
- assert.equal(await host.isHidden(),true);
+ // The event handler is async: wait for the server's 403 to be processed
+ // before verifying the revoked member's sensitive DOM was removed.
+ await host.waitFor({state:'hidden'});
  assert.equal(await host.locator('*').count(),0);
  await page.evaluate(()=>{globalThis.__test.permitted=true});
  await mount();
