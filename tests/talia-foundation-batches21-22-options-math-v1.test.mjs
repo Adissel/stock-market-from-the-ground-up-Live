@@ -22,7 +22,7 @@ const cases=[
  {code:'TALIA_TOPIC_OPTION_PARITY_UNDER_ZERO_DIVIDEND_SIMPLIFICATION',tokens:['S=100','PV(K)=98','call=7','put=5'],actual:()=>7-(100-98),expected:5},
  {code:'TALIA_TOPIC_INTRINSIC_VERSUS_EXTRINSIC_VALUE_BEFORE_EXPIRATION',tokens:['$20','$23','$4.50','$3','$1.50'],actual:()=>[Math.max(23-20,0),4.5-Math.max(23-20,0)],expected:[3,1.5]},
  {code:'TALIA_TOPIC_CALENDAR_DAY_AND_TRADING_DAY_COUNTS_TO_EXPIRATION',tokens:['14 calendar','ten remaining','not interchangeable'],actual:()=>14>10,expected:true},
- {code:'TALIA_TOPIC_CONTRACT_MULTIPLIER_FOLLOWING_ADJUSTED_DELIVERABLES',tokens:['150 shares','$2','$300'],actual:()=>150*2,expected:300},
+ {code:'TALIA_TOPIC_CONTRACT_MULTIPLIER_FOLLOWING_ADJUSTED_DELIVERABLES',tokens:['150-share deliverable','premium multiplier of 150','$2','$300','multiplier of 100','$200','OCC information memorandum'],actual:()=>[150*2,100*2],expected:[300,200]},
  {code:'TALIA_TOPIC_BREAK_EVEN_SHORT_PUT_AT_EXPIRATION',tokens:['$30','$2.00','$28'],actual:()=>30-2,expected:28},
  {code:'TALIA_TOPIC_BREAK_EVEN_SHORT_CALL_AT_EXPIRATION',tokens:['$20','$1.50','$21.50'],actual:()=>20+1.5,expected:21.5},
  {code:'TALIA_TOPIC_SHORT_OPTION_PREMIUM_CREDIT_IS_NOT_EARNED_PROFIT',tokens:['$1.20','100-share','$120','remains open'],actual:()=>1.2*100,expected:120},
