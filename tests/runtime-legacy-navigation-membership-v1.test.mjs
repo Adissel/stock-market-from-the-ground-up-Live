@@ -46,7 +46,7 @@ function navHarness(route){
  const location={origin:'https://example.test',href:'https://example.test'+route,pathname:route};
  const scope={document,location,URL,path:route};
  vm.runInNewContext(navRuntime,scope,{timeout:1000});
- return {...state,actions:scope.actions};
+ return {...state,anchor,actions:scope.actions};
 }
 test('retired correction links are distinguished from active receipt verification',()=>{
  const x=navHarness('/create-account.html');
