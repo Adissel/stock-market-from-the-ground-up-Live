@@ -1,0 +1,63 @@
+name: Crownlight Prototype Session & Role Revocation V4
+on:
+  pull_request:
+    paths:
+      - 'tests/prototype-session-revocation-v4.test.mjs'
+      - 'tests/prototype-live-member-denial-v3.mjs'
+      - '.github/workflows/prototype-session-revocation-v4.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/prototype-session-revocation-v4.test.mjs'
+      - 'tests/prototype-live-member-denial-v3.mjs'
+      - '.github/workflows/prototype-session-revocation-v4.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+# Exact-run isolation: do not cancel genuine access checks when other features push.
+concurrency:
+  group: prototype-revocation-v4-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  synthetic-staff-authorization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate synthetic role/session test and existing fail-closed document contract
+        run: |
+          node --check tests/prototype-session-revocation-v4.test.mjs
+          node --check tests/prototype-live-member-denial-v3.mjs
+          node tests/prototype-session-revocation-v4.test.mjs
+          node tests/prototype-private-document-v3.test.mjs
+      - name: Preserve precise scope of acceptance
+        run: |
+          echo "### Prototype V4 authorization: synthetic role and expiry contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "This job validates source-level Owner/Admin decisions, including expired grants and revoked roles; it is NOT proof of a real Owner session." >> "$GITHUB_STEP_SUMMARY"
+  genuine-nonstaff-production-denial:
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+    needs: synthetic-staff-authorization
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Genuinely authenticate existing noncommercial QA identity; deny staff APIs
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: |
+          node tests/prototype-live-member-denial-v3.mjs
+      - name: Record actual account-level gate
+        run: |
+          echo "### Prototype V4: genuine nonstaff production denial" >> "$GITHUB_STEP_SUMMARY"
+          echo "This verifies a Supabase-issued, nonprivileged QA token, both protected API denials and local-only sign-out. Genuine Owner/Admin positive acceptance remains an independent open gate." >> "$GITHUB_STEP_SUMMARY"

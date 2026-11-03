@@ -18,7 +18,7 @@ test('40/40 canonical topics retained, scoped source replacements traceable, ung
   if(x.source!==g.sourceUrls[0]){
    assert.equal(g.previousGenericSourceUrl,x.source,'Original recorded source remains traceable');
    assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2);
-   assert.ok(g.sourceUrls.every(url=>url.startsWith('https://www.quantconnect.com/docs/')));
+   assert.ok(g.sourceUrls.every(url=>url.startsWith('https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks')||url.startsWith('https://www.quantconnect.com/docs/')));
    assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
    assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
    assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);

@@ -19,6 +19,7 @@ const auth=await json(supabase+'/auth/v1/token?grant_type=password',{
 });
 if(auth.status!==200||!auth.body?.access_token)throw Error('BLOCKED: dedicated QA account could not complete genuine Supabase password grant (HTTP '+auth.status+')');
 const token=auth.body.access_token;
+try{
 const verified=await json(supabase+'/auth/v1/user',{headers:{apikey:publicKey,authorization:'Bearer '+token}});
 assert.equal(verified.status,200,'Supabase must verify real issued access token');
 assert.equal(verified.body?.id,auth.body.user?.id);
@@ -33,4 +34,12 @@ for(const path of ['/api/prototype-document','/api/prototype-training-cases']){
  assert.match(denied.cache,/no-store/);
  assert.equal(denied.body?.ok,false);
 }
-console.log('PASS: real Supabase-issued, non-admin QA member denied both protected Prototype APIs; 0 commerce, role or member-data writes.');
+}finally{
+ // Release only the new QA session: NEVER use Supabase's default global sign-out.
+ const result=await fetch(supabase+'/auth/v1/logout?scope=local',{
+  method:'POST',headers:{apikey:publicKey,authorization:'Bearer '+token},
+  signal:AbortSignal.timeout(22000),cache:'no-store'
+ });
+ assert([200,204].includes(result.status),'New QA session must be logged out locally (HTTP '+result.status+')');
+}
+console.log('PASS: genuine nonstaff denial plus local-only QA sign-out; no role, wallet, entitlement, data or payment writes.');

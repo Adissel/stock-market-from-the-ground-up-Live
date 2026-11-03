@@ -55,7 +55,7 @@
       "reviewExplanation": "Correct reasoning tracks cash and price separately; no inference that the dividend offsets all volatility or execution costs is justified.",
       "transferQuestion": "FICTIONAL TRANSFER: Entry $25, exit $24, eligible dividend $0.20. Compute price-only and cash-inclusive returns separately.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions"
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -74,9 +74,9 @@
         "referenceAction": "existing_specific_reference_held_for_claim_by_claim_verification"
       },
       "sourceScopeReview": {
-        "date": "2026-11-03",
-        "claimSpecificScope": "QuantConnect's official corporate action guidance distinguishes distributions added to a raw-price position's cashbook from cash dividends already included in adjusted or total-return historical prices; this provides contextual support for a price-plus-cash holding-period return calculation.",
-        "sourceCandidate": "https://www.quantconnect.com/docs/v2/writing-algorithms/securities/asset-classes/us-equity/corporate-actions",
+        "date": "2026-11-01",
+        "claimSpecificScope": "Investor.gov's stock investment-product material distinguishes capital appreciation and dividend income and warns that share prices can decline. The formula (exit−entry+eligible cash distribution)/entry is an independently authored fictional holding-period illustration, not a calculation approved by the SEC.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
         "primaryPageScopeChecked": false,
         "editorialStatus": "ON_HOLD",
         "mathIndependentlyAccepted": false,
@@ -85,9 +85,9 @@
       "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
       "sourceResearchTriage": {
         "internalResearchDate": "2026-11-03",
-        "classification": "CLAIM_RELEVANT_CORPORATE_ACTION_RESEARCH_TRIAGE_ONLY",
-        "supportedScope": "QuantConnect's official corporate action guidance distinguishes distributions added to a raw-price position's cashbook from cash dividends already included in adjusted or total-return historical prices; this provides contextual support for a price-plus-cash holding-period return calculation.",
-        "limitationsAndOpenQuestions": "A $40 purchase and $39 sale plus a confirmed eligible $1.50 cash dividend yield a 1.25% simple return only with comparable unadjusted prices. Adding a separately paid dividend to a total-return adjusted price can double count cash, and costs, taxes, record dates and reinvestment remain outside the hypothetical case.",
+        "classification": "DIVIDEND_AND_CAPITAL_RETURN_SOURCE_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov's stocks information explains investment return may involve capital appreciation and dividend distributions. This is conceptual context for a fictional return calculation, not independent endorsement of its exact denominators or entitlement timing.",
+        "limitationsAndOpenQuestions": "Stock ownership on the relevant ex-dividend/record date, actual cash entitlement, adjusted/unadjusted prices, fees, taxes and currency must be established separately. Independent calculation and actual public reference URL review remain pending.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,
         "sourceRedistributionRightsCleared": false
