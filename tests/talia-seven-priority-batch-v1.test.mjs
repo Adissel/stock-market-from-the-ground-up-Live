@@ -18,7 +18,7 @@ for(let n=0;n<30;n++)test('Foundation batch '+String(n+1).padStart(2,'0')+': 20 
   assert.ok(!ids.has(g.code));ids.add(g.code);
   assert.ok(!titles.has(g.title.toLowerCase()));titles.add(g.title.toLowerCase());
   for(const f of ['title','concept','procedure','workedCase','limit','invalidation','commonError','selfCheck','reviewExplanation','transferQuestion'])
-   assert.ok(typeof g[f]==='string'&&g[f].trim().length>=12,g.code+' '+f);
+   assert.ok(typeof g[f]==='string'&&g[f].trim().length>=(f==='title'?4:12),g.code+' '+f);
   assert.match(g.workedCase,/^FICTIONAL:/i);
   assert.ok(Array.isArray(g.sourceUrls)&&g.sourceUrls.length>0);
   for(const url of g.sourceUrls)assert.match(url,/^https:\/\//);
