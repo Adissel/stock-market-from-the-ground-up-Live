@@ -20,7 +20,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Investor cash-flow timing changes money-weighted results, whereas time-weighted returns chain subperiod performance. Partition at external flows; compute each holding-period return before the flow and compound them. Worked fictional reasoning: An account moves $100 to $110, then receives $90 and moves from $200 to $220: two 10% subperiod returns compound to 21%. Common misconception: Treating the $90 deposit as trading profit. The chosen flow timestamp and valuation precision are essential. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Two subperiod returns of +5% and -5%: calculate linked time-weighted return. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/how-are-your-investments-doing-returns-explained"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -33,6 +33,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "FINRA explains investment returns and the meaning of compounded performance.",
+        "limitationsAndOpenQuestions": "Two fictional 10% subperiods compound to 21% time-weighted, not necessarily 21% money-weighted after the interim contribution.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +58,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: A daily standard deviation cannot be described as annual without defining the trading-day multiplier. For an independent-return convention, multiply daily standard deviation by square root of 252. Worked fictional reasoning: A hypothetical 1% daily standard deviation corresponds to about 15.87% annualized using 252 sessions. Common misconception: Multiplying the daily standard deviation by 252 gives a false volatility scale. Autocorrelation and nonstationarity can invalidate square-root scaling. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A 2% daily deviation and 252 sessions: compute annualized hypothetical deviation. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/standard-deviation-volatility"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -61,6 +71,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "StockCharts explains observed standard deviation and volatility.",
+        "limitationsAndOpenQuestions": "Daily SD times sqrt(252) assumes a 252-session year and square-root-of-time scaling; not a forecast or universal convention.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -76,7 +96,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Natural-log gross returns can sum across completed intervals to match the log of the full price ratio. Compute ln(P1/P0) and ln(P2/P1); add them to obtain ln(P2/P0). Worked fictional reasoning: Fictional close $100 to $110 to $121: each log return ln(1.1); combined ln(1.21). Common misconception: Adding simple percentage returns of 10% and 10% as a compounded 20% is incorrect. All reference prices must be positive and chronologically aligned. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Prices $50 to $60 to $54: derive cumulative log return. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/indicators/supported-indicators/log-return"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -89,6 +109,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "QuantConnect defines log return as natural log of the ratio of observed prices.",
+        "limitationsAndOpenQuestions": "The telescoping sum requires positive prices and adjacent, nonoverlapping completed periods.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -104,7 +134,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Dispersion of returns differs from precision of a sample mean estimate. Calculate sample standard deviation s and divide by sqrt(n) for conventional sample-mean standard error. Worked fictional reasoning: Four independent returns with sample standard deviation 4 percentage points have mean standard error 2 points. Common misconception: Treating the standard error as the expected daily market movement. Serial correlation reduces the validity of simple independent-observation inference. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Nine observations with sample s=6 percentage points: calculate conventional standard error. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.itl.nist.gov/div898/handbook/eda/section3/autocopl.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -117,6 +147,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "NIST discusses the usual sample SD divided by sqrt(N) mean standard-error formula.",
+        "limitationsAndOpenQuestions": "The shortcut depends on randomness and suitable independence; correlated financial returns may invalidate naive inference.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -132,7 +172,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Different denominators answer distinct descriptive and estimation questions. Calculate squared deviations from arithmetic mean; divide by n for population variance or n-1 for sample variance. Worked fictional reasoning: Values 2,4,6 have mean 4, squared deviation sum 8: population variance 8/3; sample variance 4. Common misconception: Interchanging n and n-1 creates a mismatch between reference implementations. Sample variance requires at least two observations. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Values 1,3,5: compute both variances. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -145,6 +185,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "NIST defines sample variance with the N-1 denominator.",
+        "limitationsAndOpenQuestions": "The original population N denominator is a distinct convention; state explicitly which population/sample question is asked.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -160,7 +210,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Covariance captures whether matched return deviations tend to move in the same or opposite directions. Subtract each series mean, multiply same-period deviations and divide by the declared n or n-1. Worked fictional reasoning: Series A [1,2,3] and B [3,2,1] have sample covariance -1 in squared numeric units. Common misconception: Using different observation dates creates a meaningless estimate. Units are products of return units; covariance is not normalized correlation. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A [1,2,3], B [2,4,6]: compute sample covariance. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/correlat.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -173,6 +223,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "NIST defines correlation using centered paired cross-products.",
+        "limitationsAndOpenQuestions": "The sample covariance divides by N-1; observed negative covariance alone is not a predictive causal relationship.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -188,7 +248,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Pearson correlation normalizes covariance by the product of standard deviations. Divide covariance by the corresponding nonzero standard deviations using aligned observations. Worked fictional reasoning: A [1,2,3] and B [2,4,6] have correlation +1. Common misconception: Claiming correlation can be calculated for a constant series hides division by zero. Correlation measures linear association, not causality or stability. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A [1,2,3] and B [3,2,1]: find correlation. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/correlat.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -201,6 +261,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "NIST defines Pearson correlation with two centered sums-of-squares denominators.",
+        "limitationsAndOpenQuestions": "Zero variation makes correlation undefined, not zero; +1 is conditional on a true linear relation and observed data.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -216,7 +286,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Beta is a covariance-to-benchmark-variance ratio, not the same as correlation. Compute matched-period covariance of asset and benchmark returns; divide by benchmark variance. Worked fictional reasoning: Asset returns [2,4,6], benchmark [1,2,3]: sample covariance 2, benchmark sample variance 1; beta 2. Common misconception: Calling beta 2 a guaranteed twofold future return. Benchmark definition, sample period and zero variance require scrutiny. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: If covariance is 0.0003 and benchmark variance is 0.0002, calculate beta. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/variable.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -229,6 +299,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Damodaran describes benchmark regression beta estimation.",
+        "limitationsAndOpenQuestions": "OLS slope covariance/benchmark variance requires matched observations and nonzero benchmark variance; beta is not guaranteed predictive.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -244,7 +324,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: A quoted bond price in percent of par must be converted to currency for the chosen face amount. Multiply the price-per-$100 quotation by total face value/100. Worked fictional reasoning: A bond with $5,000 par quoted 98.50 has clean price $4,925 before accrued interest. Common misconception: Mistaking 98.50 for $98.50 on any bond size. Actual invoice may include accrued interest and brokerage charges. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A $2,000 par security quoted 102.25: find clean dollar price. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -257,6 +337,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Investor.gov explains bond prices quoted as a percentage of face value.",
+        "limitationsAndOpenQuestions": "98.50 percent of $5,000 par is $4,925 before accrued interest, fees and settlement conventions.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -272,7 +362,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Stated annual coupon cash must be divided by scheduled annual payment frequency. Multiply face by stated annual coupon rate, then divide by payments per year. Worked fictional reasoning: A $1,000 par bond with 6% coupon and semiannual pay sends $30 each scheduled period. Common misconception: Treating 6% as a per-payment coupon rate. Actual payment schedules, accrual and default risk matter. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A $2,000 face 4% bond paying quarterly: compute each scheduled coupon. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -285,6 +375,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Investor.gov explains annual bond coupon rates and common semiannual payments.",
+        "limitationsAndOpenQuestions": "The $30 example assumes fixed 6% annual coupon on $1,000 par with exactly two payments a year.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -300,7 +400,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Between coupon dates, dirty bond value includes convention-dependent accrued coupon. Multiply period coupon by elapsed fraction of coupon interval under the chosen day-count rule. Worked fictional reasoning: A fictional $30 coupon with exactly half of the specified period elapsed implies $15 accrued. Common misconception: Assuming all bonds use calendar days divided by 365 is incorrect. Day-count and ex-coupon conventions must be established before real use. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: A fictional $40 period coupon at 25% elapsed: compute accrued amount. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://accruedinterest.nga.finra.org/calculator/"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -313,6 +413,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "FINRA's calculator describes bond coupon accrual and instrument-dependent day-count rules.",
+        "limitationsAndOpenQuestions": "Exactly half a fictional coupon period implies half accrual only under that declared simplified basis; actual settlement varies.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -328,7 +438,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: A clean market quotation can exclude accrued interest that is included in settlement consideration. Add accrued interest in dollars to clean price for the same face amount. Worked fictional reasoning: Clean price $980 plus accrued interest $12 produces dirty price $992. Common misconception: Equating clean quote with settlement cash understates the invoice. Fees, trade terms and quote conventions can add other components. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Clean $1,024 and accrued $8: find dirty price. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://accruedinterest.nga.finra.org/calculator/"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -341,6 +451,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "FINRA explains accrued interest between scheduled bond coupon payments.",
+        "limitationsAndOpenQuestions": "Clean price plus accrued equals illustrated dirty price; no independent real bond settlement or accrued convention approved.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -356,7 +476,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Modified duration gives a first-order small-yield-change price approximation. Multiply negative modified duration by the yield change in decimal form. Worked fictional reasoning: Modified duration 5 and yield rise 0.002 imply approximate -1% price change. Common misconception: Treating duration approximation as an exact valuation for large yield shocks. Convexity, spread shifts and cash-flow changes are excluded. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Duration 4 and yield fall 0.005: estimate percent price effect. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -369,6 +489,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "FINRA defines modified duration as approximate bond price sensitivity to yield changes.",
+        "limitationsAndOpenQuestions": "Duration times yield change is a first-order estimate; it omits convexity and yield-curve shape changes.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -384,7 +514,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Portfolio maturity average must weight each holding by a defined value rather than count securities equally. Multiply each maturity in years by its portfolio value weight and add. Worked fictional reasoning: 70% allocated to a 2-year bond and 30% to an 8-year bond gives 3.8 years. Common misconception: Using 5 years as an equal-weight average ignores position sizes. Weighted maturity is not duration or a cash-flow risk estimate. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: 40% at 1 year and 60% at 6 years: compute weighted maturity. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://syndication.finra.org/content/taking-look-money-market-funds"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -397,6 +527,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "FINRA describes weighted-average portfolio time until debt maturity.",
+        "limitationsAndOpenQuestions": "Fictional weighted maturity is not Macaulay/modified duration or a claim about actual money-market regulatory limits.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -412,7 +552,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Cash conversion cycle combines inventory and collection days, net of supplier-payment days. Add days inventory outstanding and days sales outstanding; subtract days payable outstanding. Worked fictional reasoning: DIO 50 days + DSO 40 days - DPO 30 days = 60 days. Common misconception: Adding payable days instead of subtracting them reverses financing effects. Financial-statement averaging and business seasonality affect estimates. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: DIO 35, DSO 25, DPO 20: compute days. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/working-capital-and-liquidity"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -425,6 +565,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "CFA Institute covers cash conversion and working-capital liquidity.",
+        "limitationsAndOpenQuestions": "DIO + DSO - DPO uses matched periods and accounting assumptions, not a universal proxy for company liquidity.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -440,7 +590,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Operating margin differs from gross margin because other operating costs are deducted. Divide gross profit and operating income separately by same-period revenue. Worked fictional reasoning: Revenue $1,000; cost of sales $600; operating expenses $250: gross margin 40%, operating margin 15%. Common misconception: Treating gross profit as earnings after all operating expenses. Accounting classification and nonrecurring charges complicate cross-company comparisons. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Revenue $2,000, COGS $1,200, operating expenses $500: compare margins. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -453,6 +603,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "SEC investor education covers revenue, cost, and operating income financial statement reporting.",
+        "limitationsAndOpenQuestions": "Margin percentages require a common denominator and declared cost categories; real filings may differ.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -468,7 +628,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: An equity FCF yield relates a specifically defined cash-flow amount to a point-in-time equity market value. Divide selected equity-relevant annual free cash flow by same-date equity market capitalization. Worked fictional reasoning: Fictional equity FCF $5 million and market cap $100 million imply 5% yield. Common misconception: Mixing firm-level FCFF with equity market cap creates mismatched cash-flow and capital claims. Cash-flow sign, period and equity versus enterprise definitions must be consistent. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Equity FCF $3m and market cap $60m: compute yield. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/littlebook/cashflows.htm"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -481,6 +641,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Damodaran discusses free cash flow to equity after reinvestment and debt cash flows.",
+        "limitationsAndOpenQuestions": "Equity FCF must be paired with equity market cap, not enterprise value or FCFF, before interpreting yield.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -496,7 +666,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: Inventory turnover and days inventory outstanding are related only with matching inputs and period convention. Divide annual cost of goods sold by average inventory; divide assumed 365 days by turnover. Worked fictional reasoning: Cost of sales $1,200 and average inventory $300 imply turnover 4 and DIO 91.25 days. Common misconception: Dividing revenue by inventory instead of COGS changes the measure. Negative or zero inventories and incomplete periods require holds. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: COGS $900 and average inventory $150: find turnover and DIO. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://pages.stern.nyu.edu/adamodar/New_Home_Page/lectures/capstr.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -509,6 +679,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Damodaran defines inventory turnover as cost of goods sold over average inventory.",
+        "limitationsAndOpenQuestions": "365 divided by annual turnover assumes a 365-day convention, stable matching periods, and correct inventory basis.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -524,7 +704,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: A quoted annual borrowing rate requires principal, actual days and declared denominator. Under an explicit simple Actual/365 illustrative rule, multiply balance by annual decimal rate and days/365. Worked fictional reasoning: $10,000 loan at 7.3% for 10 days: $20 interest under Actual/365. Common misconception: Charging a full 7.3% for ten days confuses annual and period rates. Broker accrual, compounding, floating rates and debit changes affect actual charges. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: Loan $5,000 at 7.3% for 20 days using Actual/365: calculate interest. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-bulletin-interested-margin-understand-interest"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -537,6 +717,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "SEC investor education discusses margin interest charges and firm-specific accrual policies.",
+        "limitationsAndOpenQuestions": "The 10-day Actual/365 interest is a fictional simplified contract, not a rate guarantee or permission to borrow.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -552,7 +742,7 @@
       "reviewExplanation": "Ungraded first-principles coaching: A payout ratio compares dividends with matching-period earnings on a consistent per-share or aggregate basis. Divide ordinary dividends per share by earnings per share for matching units and period. Worked fictional reasoning: Dividend per share $1 and EPS $4 imply a 25% payout ratio. Common misconception: Using dividend yield against stock price as though it were the payout ratio. Negative or zero EPS makes conventional ratio misleading or undefined. Never use this result as a protected grade, official quote or forward-looking prediction.",
       "transferQuestion": "FICTIONAL transfer without an answer key: DPS $0.60 and EPS $3: find payout ratio. Explain the assumptions and when the calculation would become invalid.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dividend.html"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -565,6 +755,16 @@
         "result": "DRAFT_HOLD_CLAIM_LEVEL_SOURCE_AND_NUMERIC_REVIEW",
         "independentPublicationAccepted": false,
         "referenceCheckedDate": null
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "PUBLIC_CONCEPTUAL_REFERENCE_NOT_INDEPENDENT_FORMULA_ACCEPTANCE",
+        "supportedScope": "Damodaran defines payout as dividends divided by earnings.",
+        "limitationsAndOpenQuestions": "Dividend/share and EPS must cover matching periods/classes; zero or negative earnings require separate treatment.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]

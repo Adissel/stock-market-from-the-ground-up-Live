@@ -131,3 +131,34 @@ test('Remaining eleven Batch15 lessons have scoped research and mathematical hol
  const helper=readFileSync(new URL('../functions/_lib/original-competency-tutor-v014100.js',import.meta.url),'utf8');
  assert.match(helper,/\'www\.cfainstitute\.org\'/);
 });
+
+test('Batch16 source-specific mathematical and publication holds',()=>{
+ assert.equal(second.guides.length,20);
+ assert.equal(second.guides.filter(g=>g.sourceResearchTriage).length,20);
+ for(const g of second.guides){
+  assert.equal(g.previousGenericSourceUrl,'https://www.investor.gov/introduction-investing');
+  assert.equal(g.sourceUrls.length,1);
+  assert.ok(g.sourceUrls[0].startsWith('https://'));
+  assert.notEqual(g.sourceUrls[0],g.previousGenericSourceUrl);
+  assert.ok(g.sourceResearchTriage.supportedScope.length>45);
+  assert.ok(g.sourceResearchTriage.limitationsAndOpenQuestions.length>45);
+  assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
+  assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+  assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  assert.equal(g.independentEditorialApproved,false);
+  assert.equal(g.editorSourceReview.independentPublicationAccepted,false);
+ }
+ const near=(x,y)=>assert.ok(Math.abs(x-y)<1e-9,x+' != '+y);
+ near(1.1*1.1-1,.21);near(.01*Math.sqrt(252),.15874507866387544);
+ near(Math.log(110/100)+Math.log(121/110),Math.log(121/100));
+ near(4/Math.sqrt(4),2);near(8/3,2.6666666666666665);
+ near(8/(3-1),4);near((-1*1+0+1*-1)/2,-1);
+ near(2/1,2);near(5000*98.5/100,4925);near(1000*.06/2,30);
+ near(30*.5,15);near(980+12,992);near(-5*.002,-.01);
+ near(.7*2+.3*8,3.8);near(50+40-30,60);
+ near((1000-600)/1000,.4);near((1000-600-250)/1000,.15);
+ near(5/100,.05);near(365/(1200/300),91.25);
+ near(10000*.073*10/365,20);near(1/4,.25);
+ const validator=readFileSync(new URL('../functions/_lib/original-competency-tutor-v014100.js',import.meta.url),'utf8');
+ assert.ok(validator.includes("'accruedinterest.nga.finra.org'"));
+});

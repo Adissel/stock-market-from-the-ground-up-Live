@@ -77,3 +77,17 @@ The production Tutor source validator now recognizes the official `www.cfainstit
 | Version | Date | Change | Acceptance |
 |---|---|---|---|
 | 1.6 | 2026-11-03 | Eleven more scoped references, entire Batch 15 triaged, one additional trusted publication host, arithmetic and publication-hold tests | Independent editorial and license review HOLD |
+
+## Version 1.7 — Complete Batch 16 source-scope research
+
+All twenty Foundation Batch 16 lessons (positions 301–320) now have targeted public research references and explicit formula limitations. Their existing original fictional examples cover compounded/time-weighted returns, volatility frequency, log returns, NIST population/sample statistics, beta, bond coupons and prices, interest accrual, duration, weighted maturity, cash conversion, cash margins, FCF, inventory and margin interest.
+
+Sources include Investor.gov, NIST, CFA Institute, FINRA, StockCharts, QuantConnect and Damodaran. Each reference is contextual where necessary and does not independently endorse the precise calculation, its data assumptions, broker terms or publication rights. The accrued-interest tool `accruedinterest.nga.finra.org` is now in the Tutor's closed HTTPS research-host allowlist with existing no-credential/no-port validation. Existing notes preserve source limitation and formula-review holds.
+
+The associated 20-topic test checks formula arithmetic and requires an explicit source-research triage with independent math, rights and publication approvals all false. No payment, member data, official grade, market-data ingestion or third-party reproduction is introduced.
+
+Expected all-600 generic-link occurrences after this revision: **141** (down from the first audit's 187), subject to its exact GitHub Actions artifact. Editorial and licensed publication remain 0/600 approved; previous Batch 15 incomplete-round-trip mismatch remains open.
+
+| Version | Date | Change | Acceptance |
+|---|---|---|---|
+| 1.7 | 2026-11-03 | Batch 16 twenty-source scope triage, arithmetic and release-boundary tests, specific FINRA calculator host | Internal source review; independent publication HOLD |
