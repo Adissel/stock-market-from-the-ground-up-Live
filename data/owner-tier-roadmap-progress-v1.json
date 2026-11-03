@@ -1,0 +1,261 @@
+{
+  "schema": "smfgu.owner-tier-roadmap-progress.v1",
+  "documentId": "SMFGU-OWNER-TIERS-OVERALL-20261103-001",
+  "version": "1.0",
+  "prepared": "2026-11-03",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP / Crownlight",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "baselineCommit": "423253664e73dcefb0544a90f7e52553f47790fd",
+  "status": "RESEARCH_AND_SOURCE_VALIDATION_ONLY_NO_COMMERCIAL_OR_RELEASE_CERTIFICATION",
+  "dataClasses": [
+    "historical_roadmap_stage_snapshot",
+    "current_engine_feature_source",
+    "owner_membership_targets",
+    "planning_estimates"
+  ],
+  "driveLocation": null,
+  "driveDocumentId": null,
+  "roadmap": {
+    "primaryRequirements": 375,
+    "historicalTraceReferences": 1815,
+    "sourceReviewDates": "2026-10-17 to 2026-10-20",
+    "stageCounts": {
+      "deployed_verified": 22,
+      "source_implemented": 158,
+      "in_progress": 103,
+      "blocked": 30,
+      "backlog": 62
+    },
+    "planningWeight": {
+      "deployed_verified": 1,
+      "source_implemented": 0.5,
+      "in_progress": 0.25,
+      "blocked": 0,
+      "backlog": 0
+    },
+    "weightedPlanningPercent": 33.8,
+    "sourceImplementedOrVerifiedPercent": 48,
+    "narrowVerifiedPercent": 5.87,
+    "warning": "Not a current objectively measured sitewide completion percent; historical stage labels and arbitrary disclosed project-management weights; newer release evidence not backfilled."
+  },
+  "engineFeatures": {
+    "denominator": 64,
+    "integrated": 16,
+    "partial": 31,
+    "prototype": 11,
+    "notImplemented": 6,
+    "sourceTouched": 58,
+    "integratedPercent": 25,
+    "sourceTouchedPercent": 90.63,
+    "independentlyReleased": 0,
+    "perEdition": {
+      "learning_BASIC": {
+        "total": 8,
+        "integrated": 8,
+        "partial": 0,
+        "prototype": 0,
+        "notImplemented": 0,
+        "sourceTouched": 8,
+        "sourceTouchedPercent": 100,
+        "integratedPercent": 100,
+        "releasedFeatures": 0
+      },
+      "learning_ADVANCED": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 7,
+        "prototype": 0,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      },
+      "learning_PROFESSIONAL": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 7,
+        "prototype": 0,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      },
+      "learning_ENTERPRISE": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 1,
+        "prototype": 6,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      },
+      "lab_BASIC": {
+        "total": 8,
+        "integrated": 8,
+        "partial": 0,
+        "prototype": 0,
+        "notImplemented": 0,
+        "sourceTouched": 8,
+        "sourceTouchedPercent": 100,
+        "integratedPercent": 100,
+        "releasedFeatures": 0
+      },
+      "lab_ADVANCED": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 7,
+        "prototype": 0,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      },
+      "lab_PROFESSIONAL": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 7,
+        "prototype": 0,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      },
+      "lab_ENTERPRISE": {
+        "total": 8,
+        "integrated": 0,
+        "partial": 2,
+        "prototype": 5,
+        "notImplemented": 1,
+        "sourceTouched": 7,
+        "sourceTouchedPercent": 87.5,
+        "integratedPercent": 0,
+        "releasedFeatures": 0
+      }
+    }
+  },
+  "membershipTargets": [
+    {
+      "code": "FREE",
+      "name": "Free",
+      "target": {
+        "learning": "BASIC",
+        "lab": "BASIC",
+        "tutor": "FOUNDATION"
+      },
+      "scope": "basic_included"
+    },
+    {
+      "code": "FOUNDING_14",
+      "name": "Founding 14-Day",
+      "target": {
+        "learning": "BASIC",
+        "lab": "BASIC",
+        "tutor": "FOUNDATION"
+      },
+      "scope": "basic_included"
+    },
+    {
+      "code": "PICK_WHAT_YOU_WANT",
+      "name": "Pick What You Want",
+      "target": {
+        "learning": "BASIC",
+        "lab": "BASIC",
+        "tutor": "FOUNDATION"
+      },
+      "scope": "basic_included"
+    },
+    {
+      "code": "FOUNDING_30",
+      "name": "Founding 30-Day",
+      "target": {
+        "learning": "ADVANCED",
+        "lab": "ADVANCED",
+        "tutor": "ADVANCED"
+      },
+      "scope": "premium_target_not_released"
+    },
+    {
+      "code": "FOUNDING_60",
+      "name": "Founding 60-Day",
+      "target": {
+        "learning": "PROFESSIONAL",
+        "lab": "PROFESSIONAL",
+        "tutor": "PROFESSIONAL"
+      },
+      "scope": "premium_target_not_released"
+    },
+    {
+      "code": "FULL_MONTHLY",
+      "name": "Full Monthly",
+      "target": {
+        "learning": "PROFESSIONAL",
+        "lab": "PROFESSIONAL",
+        "tutor": "PROFESSIONAL"
+      },
+      "scope": "premium_target_not_released"
+    },
+    {
+      "code": "LIFETIME",
+      "name": "Full Lifetime",
+      "target": {
+        "learning": "ENTERPRISE",
+        "lab": "ENTERPRISE",
+        "tutor": "ENTERPRISE"
+      },
+      "scope": "premium_target_not_released"
+    },
+    {
+      "code": "ONDEMAND_MONTHLY",
+      "name": "On-Demand",
+      "target": {
+        "learning": "PRODUCT_DEPENDENT",
+        "lab": "PRODUCT_DEPENDENT",
+        "tutor": "PRODUCT_DEPENDENT"
+      },
+      "scope": "product_entitlement_required"
+    },
+    {
+      "code": "FULL_ANNUAL",
+      "name": "Full Annual",
+      "target": {
+        "learning": "UNASSIGNED",
+        "lab": "UNASSIGNED",
+        "tutor": "UNASSIGNED"
+      },
+      "scope": "owner_policy_unassigned"
+    }
+  ],
+  "basicOwnerSignoff": {
+    "integrated": 16,
+    "total": 16,
+    "percent": 100,
+    "requiresOwnerReapproval": false
+  },
+  "tutor": {
+    "supplementalFoundationDrafts": 600,
+    "authoringTarget": 600,
+    "authoringPercent": 100,
+    "independentPublishedApprovalsVerified": 0,
+    "advancedProfessionalEnterpriseEditionReleased": false,
+    "warning": "600 original source drafts do not imply independently accepted publication, paid AI or legal data rights."
+  },
+  "safety": {
+    "premiumFeaturesReleased": false,
+    "addOnCheckoutEnabled": false,
+    "officialGradingEnabledByThisBatch": false,
+    "membersModified": false,
+    "liveStripeWrites": false,
+    "newPaidServices": false
+  },
+  "denominators": {
+    "overallSitewide": "No reliable current universal completion denominator across product, owner acceptance, commerce, rights and technical release.",
+    "tierSource": "64 explicitly enumerated Learning/Lab edition features only; not all membership services.",
+    "tutor": "600 authoring goal not a count of approved learning outcomes."
+  }
+}
