@@ -21,7 +21,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A holding weight divides its current market value by total portfolio market value at the same timestamp. Worked fictional evidence: Holding $12,000 in a $60,000 portfolio has weight $12,000/$60,000=20%. Error correction: Dividing shares by total shares across different securities produces meaningless weights. Boundary: Cash, accrued items, and stale prices affect the denominator. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Holding $7,500 in $50,000 portfolio: compute weight and name a timestamp risk.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -32,6 +32,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC investment allocation, concentration and rebalancing publication is contextual research for \"Portfolio weight from market value\". Internal claim awaiting exact-source verification: A holding weight divides its current market value by total portfolio market value at the same timestamp. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Cash, accrued items, and stale prices affect the denominator. Additional common error to independently review: Trading misconception: Dividing shares by total shares across different securities produces meaningless weights. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -48,7 +60,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Single-period portfolio return sums beginning weights multiplied by component returns under a no-flow convention. Worked fictional evidence: Weights 60% and 40%, returns 5% and −2%: 0.6×5%+0.4×−2%=2.2%. Error correction: Averaging 5% and −2% equally ignores unequal capital weights. Boundary: Rebalancing and cash flows change multi-period calculations. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Weights 70/30 with returns 4%/−1%: compute portfolio return.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -59,6 +71,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected QuantConnect holdings and account equity metrics publication is contextual research for \"Weighted portfolio return\". Internal claim awaiting exact-source verification: Single-period portfolio return sums beginning weights multiplied by component returns under a no-flow convention. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Rebalancing and cash flows change multi-period calculations. Additional common error to independently review: Trading misconception: Averaging 5% and −2% equally ignores unequal capital weights. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -75,7 +99,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A rebalance compares target dollar value with current dollar value using one portfolio total. Worked fictional evidence: $100,000 portfolio, 30% target=$30,000; current holding $24,000 requires $6,000 purchase before costs. Error correction: Buying 6% of current holding instead of 6% of total portfolio understates the trade. Boundary: Prices, taxes, lots, and portfolio value can change during execution. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: $80,000 portfolio, 25% target, current $16,000: compute pre-cost adjustment.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -86,6 +110,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC investment allocation, concentration and rebalancing publication is contextual research for \"Rebalance trade amount\". Internal claim awaiting exact-source verification: A rebalance compares target dollar value with current dollar value using one portfolio total. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Prices, taxes, lots, and portfolio value can change during execution. Additional common error to independently review: Trading misconception: Buying 6% of current holding instead of 6% of total portfolio understates the trade. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -102,7 +138,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple concentration index sums squared portfolio weights expressed as decimals. Worked fictional evidence: Weights 50%,30%,20%: 0.25+0.09+0.04=0.38. Error correction: Summing weights instead of squared weights always yields one and measures nothing. Boundary: It ignores correlation and security-specific nonlinear risk. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Weights 40%,35%,25%: calculate the index.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -113,6 +149,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC investment allocation, concentration and rebalancing publication is contextual research for \"Herfindahl concentration index\". Internal claim awaiting exact-source verification: A simple concentration index sums squared portfolio weights expressed as decimals. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "A Herfindahl concentration index is not a guarantee of adequate portfolio diversification. Preserve the author's stated limitation: It ignores correlation and security-specific nonlinear risk. Additional common error to independently review: Trading misconception: Summing weights instead of squared weights always yields one and measures nothing. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -129,7 +177,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Equal weighting divides portfolio capital equally among the declared eligible holdings. Worked fictional evidence: $24,000 across 6 holdings gives $4,000 each, or 16.67% before rounding. Error correction: Dividing by candidates before eligibility exclusions misallocates capital. Boundary: Share indivisibility, prices, and costs prevent exact weights. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Allocate $15,000 equally across 4 eligible holdings and state rounding issue.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -140,6 +188,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC investment allocation, concentration and rebalancing publication is contextual research for \"Equal-weight allocation\". Internal claim awaiting exact-source verification: Equal weighting divides portfolio capital equally among the declared eligible holdings. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Share indivisibility, prices, and costs prevent exact weights. Additional common error to independently review: Trading misconception: Dividing by candidates before eligibility exclusions misallocates capital. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -148,15 +208,15 @@
       "concept": "A simplified independent-risk estimate multiplies weight by volatility but omits correlations and covariance.",
       "prerequisites": "Understand portfolio-value timestamps, percentage weights, security terms, units, and the difference between arithmetic exposure and executable advice.",
       "procedure": "Declare the valuation time, eligible holdings or contract terms, numerator, denominator, multiplier and formula; substitute fictional inputs; show intermediate units; stop when terms or prices are unavailable.",
-      "workedCase": "FICTIONAL: Weight 30% × volatility 20% gives 6 percentage-point weighted volatility exposure.",
+      "workedCase": "FICTIONAL: Weight 30% multiplied by standalone asset volatility 20% equals a six-percentage-point weighted-volatility exposure proxy. This is NOT actual portfolio volatility risk contribution, which depends on covariance among holdings.",
       "limit": "True portfolio risk contribution requires covariance structure.",
       "invalidation": "HOLD when valuation time, contract terms, units, source rights, denominator, or required price cannot be verified. True portfolio risk contribution requires covariance structure.",
       "commonError": "Trading misconception: Adding these products as exact portfolio volatility assumes independence without evidence. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
       "selfCheck": "Reproduce the fictional calculation, correct the misconception, and identify one term or market fact that invalidates a trading conclusion.",
-      "reviewExplanation": "Ungraded Talia walkthrough: A simplified independent-risk estimate multiplies weight by volatility but omits correlations and covariance. Worked fictional evidence: Weight 30% × volatility 20% gives 6 percentage-point weighted volatility exposure. Error correction: Adding these products as exact portfolio volatility assumes independence without evidence. Boundary: True portfolio risk contribution requires covariance structure. No protected assessment, personalized allocation, or order is created.",
+      "reviewExplanation": "Ungraded lesson: 0.30 multiplied by 0.20 equals 0.06, or six percentage points. It is a standalone weighted-volatility exposure proxy; real portfolio component or marginal risk contribution requires return covariance. No official grading or trading recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Weight 25% and volatility 16%: compute simplified exposure and name omission.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -167,6 +227,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC investment allocation, concentration and rebalancing publication is contextual research for \"Simple volatility risk contribution\". Internal claim awaiting exact-source verification: A simplified independent-risk estimate multiplies weight by volatility but omits correlations and covariance. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Weight times standalone asset volatility is not actual component portfolio risk without covariance. Preserve the author's stated limitation: True portfolio risk contribution requires covariance structure. Additional common error to independently review: Trading misconception: Adding these products as exact portfolio volatility assumes independence without evidence. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -183,7 +255,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Cash weight divides cash and declared cash equivalents by total portfolio value at the same time. Worked fictional evidence: $8,000 cash / $40,000 portfolio = 20%. Error correction: Treating unsettled sale proceeds as immediately withdrawable cash may misstate availability. Boundary: Settlement, restricted cash, and money-market classification matter. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Cash $6,000 in $30,000 portfolio: compute weight and name availability check.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/portfolio/key-concepts"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -194,6 +266,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected QuantConnect holdings and account equity metrics publication is contextual research for \"Cash weight\". Internal claim awaiting exact-source verification: Cash weight divides cash and declared cash equivalents by total portfolio value at the same time. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Settlement, restricted cash, and money-market classification matter. Additional common error to independently review: Trading misconception: Treating unsettled sale proceeds as immediately withdrawable cash may misstate availability. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -210,7 +294,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple turnover measure divides the lesser of purchases or sales by average portfolio assets for the period. Worked fictional evidence: Purchases $30,000, sales $25,000, average assets $100,000: turnover=25%. Error correction: Using the larger trading side exaggerates this declared lesser-side convention. Boundary: Industry definitions and flows require consistent treatment. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Purchases $18k, sales $22k, average assets $80k: compute simple turnover.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-investor-bulletin-how-read-mutual-fund-or-etf-shareholder-report"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -221,6 +305,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC fund turnover and associated transaction cost information publication is contextual research for \"Simple portfolio turnover\". Internal claim awaiting exact-source verification: A simple turnover measure divides the lesser of purchases or sales by average portfolio assets for the period. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Mutual-fund turnover disclosure rules differ from this simplified minimum-transactions calculation. Preserve the author's stated limitation: Industry definitions and flows require consistent treatment. Additional common error to independently review: Trading misconception: Using the larger trading side exaggerates this declared lesser-side convention. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -237,7 +333,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Indicated dividend yield divides declared annualized cash distribution by current share price. Worked fictional evidence: Quarterly dividend $0.25 implies $1 annualized; $1/$20=5%. Error correction: Calling 5% guaranteed total return ignores dividend changes and capital loss. Boundary: Dividends can change and taxes or price movement affect realized return. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Quarterly $0.15 at $12 price: compute indicated annualized yield.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -248,6 +344,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected Investor.gov stock ownership and distributions publication is contextual research for \"Indicated dividend yield\". Internal claim awaiting exact-source verification: Indicated dividend yield divides declared annualized cash distribution by current share price. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Dividends can change and taxes or price movement affect realized return. Additional common error to independently review: Trading misconception: Calling 5% guaranteed total return ignores dividend changes and capital loss. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -264,7 +372,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A simple payout ratio divides common dividends by common net income for a matching period. Worked fictional evidence: Dividends $4m / net income $10m = 40%. Error correction: Using revenue as denominator while calling it payout ratio changes meaning. Boundary: Negative earnings and cash-flow coverage require separate analysis. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Dividends $3m and net income $6m: compute payout ratio.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -275,6 +383,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC income and shareholders equity reporting categories publication is contextual research for \"Simple payout ratio\". Internal claim awaiting exact-source verification: A simple payout ratio divides common dividends by common net income for a matching period. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Negative earnings and cash-flow coverage require separate analysis. Additional common error to independently review: Trading misconception: Using revenue as denominator while calling it payout ratio changes meaning. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -291,7 +411,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: An ex-dividend reference may mechanically reduce by the cash distribution, though actual trading can differ. Worked fictional evidence: Prior close $30 and $0.40 dividend gives mechanical reference $29.60. Error correction: Calling the $0.40 adjustment a realized loss ignores the cash entitlement and trading. Boundary: Market movement, taxes, and auction dynamics affect actual price. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Prior close $18, dividend $0.25: compute mechanical reference.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -302,6 +422,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC ex-dividend date and distribution eligibility publication is contextual research for \"Ex-dividend reference adjustment\". Internal claim awaiting exact-source verification: An ex-dividend reference may mechanically reduce by the cash distribution, though actual trading can differ. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Market movement, taxes, and auction dynamics affect actual price. Additional common error to independently review: Trading misconception: Calling the $0.40 adjustment a realized loss ignores the cash entitlement and trading. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -318,7 +450,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A stock split changes share count and per-share reference inversely while preserving pre-market-value arithmetic. Worked fictional evidence: 200 shares at $50 under 2-for-1 become 400 at $25 reference; both equal $10,000. Error correction: Recording doubled shares without halving historical prices creates a false gain. Boundary: Fractional handling and live price changes may differ. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: 150 shares at $80 under 4-for-1: compute adjusted count and reference.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -329,6 +461,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC stock-split share quantity mechanics publication is contextual research for \"Split-adjusted share count\". Internal claim awaiting exact-source verification: A stock split changes share count and per-share reference inversely while preserving pre-market-value arithmetic. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Fractional handling and live price changes may differ. Additional common error to independently review: Trading misconception: Recording doubled shares without halving historical prices creates a false gain. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -345,7 +489,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A subscription ratio states how many rights are needed for each new share and determines potential quantity. Worked fictional evidence: One new share per 5 rights; holder of 500 rights can subscribe for 100 shares. Error correction: Dividing new shares by rights reverses the stated relationship. Boundary: Rights eligibility, expiration, price, and oversubscription terms matter. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: One share per 8 rights with 640 rights: compute subscription quantity.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/rights-offering"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -356,6 +500,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC rights offering classification publication is contextual research for \"Rights offering subscription ratio\". Internal claim awaiting exact-source verification: A subscription ratio states how many rights are needed for each new share and determines potential quantity. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Rights offering terms vary by exercise ratio, eligibility, expiration and potential proration. Preserve the author's stated limitation: Rights eligibility, expiration, price, and oversubscription terms matter. Additional common error to independently review: Trading misconception: Dividing new shares by rights reverses the stated relationship. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -372,7 +528,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Simplified warrant intrinsic value is max(stock price minus strike, zero) before ratio and other terms. Worked fictional evidence: Stock $12, strike $10, one warrant per share: intrinsic value=max($2,0)=$2. Error correction: Calling intrinsic value the guaranteed warrant price ignores time and market terms. Boundary: Time value, ratio, expiry, dilution, and exercise restrictions remain. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Stock $7, strike $9: compute intrinsic value and interpret zero cautiously.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/warrant"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -383,6 +539,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC warrant terminology publication is contextual research for \"Warrant intrinsic value\". Internal claim awaiting exact-source verification: Simplified warrant intrinsic value is max(stock price minus strike, zero) before ratio and other terms. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "A warrant may have different exercise features from a standard listed option. Preserve the author's stated limitation: Time value, ratio, expiry, dilution, and exercise restrictions remain. Additional common error to independently review: Trading misconception: Calling intrinsic value the guaranteed warrant price ignores time and market terms. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -399,7 +567,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Conversion shares divide convertible principal by conversion price under simplified fixed terms. Worked fictional evidence: $1,000 principal / $20 conversion price = 50 shares. Error correction: Using current stock price instead of contractual conversion price misstates shares. Boundary: Accrued interest, adjustments, caps, and issuer terms can alter quantity. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: $2,000 principal and $25 conversion price: compute simplified shares.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/convertible-securities"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -410,6 +578,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected SEC convertible financing rights and variable conversion terms publication is contextual research for \"Convertible conversion shares\". Internal claim awaiting exact-source verification: Conversion shares divide convertible principal by conversion price under simplified fixed terms. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Convertible principal divided by strike ignores variable conversion formulas and restrictive covenants. Preserve the author's stated limitation: Accrued interest, adjustments, caps, and issuer terms can alter quantity. Additional common error to independently review: Trading misconception: Using current stock price instead of contractual conversion price misstates shares. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -426,7 +606,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: A standard equity option’s share notional multiplies contracts, multiplier, and underlying reference price. Worked fictional evidence: 2 contracts ×100 shares×$30 = $6,000 underlying notional. Error correction: Calling $6,000 the option buyer’s maximum loss confuses notional with premium. Boundary: Adjusted contracts and option premium risk differ from stock notional. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: 3 contracts, multiplier 100, underlying $18: compute share and dollar notional.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.optionseducation.org/referencelibrary/faq/basics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -437,6 +617,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected OCC OIC standard equity option contracts and call/put mechanics publication is contextual research for \"Equity option contract notional\". Internal claim awaiting exact-source verification: A standard equity option’s share notional multiplies contracts, multiplier, and underlying reference price. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Adjusted equity option contracts can use multipliers other than one hundred shares. Preserve the author's stated limitation: Adjusted contracts and option premium risk differ from stock notional. Additional common error to independently review: Trading misconception: Calling $6,000 the option buyer’s maximum loss confuses notional with premium. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -453,7 +645,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Call intrinsic value is max(underlying price minus strike, zero) per share. Worked fictional evidence: Underlying $55, strike $50: max($5,0)=$5 per share, or $500 for multiplier 100. Error correction: Subtracting premium while labeling the result intrinsic value mixes payoff and profit. Boundary: Premium includes time value and exercise details. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Underlying $42, strike $45: compute call intrinsic value.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.optionseducation.org/optionsoverview/options-pricing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -464,6 +656,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected OCC OIC option premiums, intrinsic value and exercise prices publication is contextual research for \"Call intrinsic value\". Internal claim awaiting exact-source verification: Call intrinsic value is max(underlying price minus strike, zero) per share. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Premium includes time value and exercise details. Additional common error to independently review: Trading misconception: Subtracting premium while labeling the result intrinsic value mixes payoff and profit. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -480,7 +684,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Put intrinsic value is max(strike minus underlying price, zero) per share. Worked fictional evidence: Strike $40, underlying $36: max($4,0)=$4 per share, or $400 for multiplier 100. Error correction: Reversing the subtraction produces a negative intrinsic value instead of zero floor. Boundary: Premium, time value, and assignment remain separate. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Strike $25, underlying $28: compute put intrinsic value.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.optionseducation.org/optionsoverview/options-pricing"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -491,6 +695,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected OCC OIC option premiums, intrinsic value and exercise prices publication is contextual research for \"Put intrinsic value\". Internal claim awaiting exact-source verification: Put intrinsic value is max(strike minus underlying price, zero) per share. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Premium, time value, and assignment remain separate. Additional common error to independently review: Trading misconception: Reversing the subtraction produces a negative intrinsic value instead of zero floor. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -499,15 +715,15 @@
       "concept": "A long call’s simple expiration breakeven is strike plus premium paid, excluding fees.",
       "prerequisites": "Understand portfolio-value timestamps, percentage weights, security terms, units, and the difference between arithmetic exposure and executable advice.",
       "procedure": "Declare the valuation time, eligible holdings or contract terms, numerator, denominator, multiplier and formula; substitute fictional inputs; show intermediate units; stop when terms or prices are unavailable.",
-      "workedCase": "FICTIONAL: Strike $50 plus $3 premium gives $53 expiration breakeven.",
+      "workedCase": "FICTIONAL: A LONG CALL with $50 strike and $3 premium per underlying share breaks even at $53 at expiration, before transaction costs; this is not a put or short-call breakeven.",
       "limit": "Before expiration, option value depends on time and volatility; exercise is not advice.",
       "invalidation": "HOLD when valuation time, contract terms, units, source rights, denominator, or required price cannot be verified. Before expiration, option value depends on time and volatility; exercise is not advice.",
       "commonError": "Trading misconception: Calling $53 a guaranteed exit target confuses payoff arithmetic with prediction. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
       "selfCheck": "Reproduce the fictional calculation, correct the misconception, and identify one term or market fact that invalidates a trading conclusion.",
-      "reviewExplanation": "Ungraded Talia walkthrough: A long call’s simple expiration breakeven is strike plus premium paid, excluding fees. Worked fictional evidence: Strike $50 plus $3 premium gives $53 expiration breakeven. Error correction: Calling $53 a guaranteed exit target confuses payoff arithmetic with prediction. Boundary: Before expiration, option value depends on time and volatility; exercise is not advice. No protected assessment, personalized allocation, or order is created.",
+      "reviewExplanation": "Ungraded lesson: For a standard long call at expiration, strike plus paid premium per underlying share gives the break-even reference. Fictional $50+$3=$53 before costs. Written calls and puts require other formulas. No protected answer or individualized recommendation.",
       "transferQuestion": "FICTIONAL independent transfer: Call strike $30, premium $1.50: compute simple expiration breakeven.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.optionseducation.org/referencelibrary/faq/basics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -518,6 +734,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected OCC OIC standard equity option contracts and call/put mechanics publication is contextual research for \"Option breakeven at expiration\". Internal claim awaiting exact-source verification: A long call’s simple expiration breakeven is strike plus premium paid, excluding fees. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "Strike plus premium is a long-call expiration breakeven; different option positions use other formulas. Preserve the author's stated limitation: Before expiration, option value depends on time and volatility; exercise is not advice. Additional common error to independently review: Trading misconception: Calling $53 a guaranteed exit target confuses payoff arithmetic with prediction. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
@@ -534,7 +762,7 @@
       "reviewExplanation": "Ungraded Talia walkthrough: Quoted option premium is multiplied by contract multiplier and number of contracts. Worked fictional evidence: Premium $1.25 ×100×3 contracts=$375 before fees. Error correction: Paying $1.25 total for three contracts ignores quote units and multiplier. Boundary: Adjusted multipliers and commissions must be checked. No protected assessment, personalized allocation, or order is created.",
       "transferQuestion": "FICTIONAL independent transfer: Premium $0.80 for 5 standard contracts: compute pre-fee cost.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.optionseducation.org/referencelibrary/faq/basics"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -545,6 +773,18 @@
       "editorSourceReview": {
         "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrls": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SUBJECT_RELEVANT_METHOD_REFERENCE_INTERNAL_TRIAGE_ONLY",
+        "supportedScope": "The selected OCC OIC standard equity option contracts and call/put mechanics publication is contextual research for \"Option premium total cost\". Internal claim awaiting exact-source verification: Quoted option premium is multiplied by contract multiplier and number of contracts. This does not constitute an independent endorsement of the worked example.",
+        "limitationsAndOpenQuestions": "The cited methodology does not independently validate this original fictional formula or its particular input assumptions. Preserve the author's stated limitation: Adjusted multipliers and commissions must be checked. Additional common error to independently review: Trading misconception: Paying $1.25 total for three contracts ignores quote units and multiplier. Correct by restoring the declared formula, timestamp, security terms, multiplier, and units.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     }
   ]
