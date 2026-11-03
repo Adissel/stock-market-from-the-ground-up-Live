@@ -1,4 +1,4 @@
-# Owner-reviewed source release cut 2026-11-02: rerun source gates for same SHA;
+# Coordinated V1 source release cut after canonical signup and sign-in layout corrections, same SHA;
 # technical regression acceptance only; grading, awards and V2 gifting stay disabled.
 name: Crownlight Member Wallet, Progress and Gifting Safety V1
 on:

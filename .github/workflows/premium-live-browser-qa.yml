@@ -33,6 +33,7 @@ on:
       - 'assets/js/legal-platform.js'
       - 'assets/js/store-catalog-visuals-v1.js'
       - 'signin.html'
+      - 'create-account.html'
       - 'functions/_middleware.js'
       - 'assets/js/site.js'
       - 'assets/js/experience-redesign-v1.js'
