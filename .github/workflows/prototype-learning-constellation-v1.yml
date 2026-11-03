@@ -5,8 +5,6 @@ on:
     paths:
       - 'assets/js/prototype-learning-constellation-v1.js'
       - 'assets/js/prototype-constellation-galaxy-v2.js'
-      - 'tests/prototype-constellation-galaxy-v2.test.mjs'
-      - 'assets/js/prototype-constellation-galaxy-v2.js'
       - 'assets/css/prototype-learning-constellation-v1.css'
       - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
       - 'tests/prototype-constellation-galaxy-v2.test.mjs'
@@ -18,8 +16,10 @@ on:
       - 'prototype.html'
       - 'assets/js/prototype-experiences-boot-v1.js'
       - 'assets/js/prototype-learning-constellation-v1.js'
+      - 'assets/js/prototype-constellation-galaxy-v2.js'
       - 'assets/css/prototype-learning-constellation-v1.css'
       - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
+      - 'tests/prototype-constellation-galaxy-v2.test.mjs'
 permissions:
   contents: read
 jobs:
