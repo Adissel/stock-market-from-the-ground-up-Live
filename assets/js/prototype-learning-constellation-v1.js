@@ -176,6 +176,14 @@ export function mountLearningConstellation(host){
     b.style.left=n.x+'px';b.style.top=n.y+'px';
     const title=document.createElement('strong');title.textContent=n.title;
     const meta=document.createElement('small');meta.textContent=n.meta;b.append(title,meta);
+    // Capture on the actual node: canvas-level capture can otherwise turn
+    // a drag into background pan on transformed children.
+    b.addEventListener('pointerdown',e=>{
+      if(e.button!==0)return;
+      state.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:state.x,y:state.y,
+        n,btn:b,pos:{...getPos(n)},moved:false};
+      e.stopPropagation();try{b.setPointerCapture(e.pointerId)}catch{}
+    });
     b.addEventListener('click',()=>{if(b.dataset.dragged==='1'){b.dataset.dragged='0';return}choose(n.id)});
     points.append(b);
   });
