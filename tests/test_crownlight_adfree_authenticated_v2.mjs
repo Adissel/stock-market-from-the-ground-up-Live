@@ -50,6 +50,17 @@ globalThis.fetch=async (url,opts={})=>{
   debits.push({sku:b.p_sku,cost});
   return response({ok:true,spent:cost,expiresAt:expiry,balance:{available:balance}});
  }
+ if(p==='/rest/v1/rpc/my_platform_access'){
+  // Ad placements now authorize from this caller-bound canonical resolver.
+  // The pass fixture below remains separate, allowing independent expiry tests.
+  assert.equal(opts.method,'POST');
+  assert.equal(h.apikey,env.SUPABASE_PUBLISHABLE_KEY);
+  assert.equal(h.authorization,'Bearer fixture-member-session');
+  assert.deepEqual(JSON.parse(opts.body),{});
+  return response({authenticated:true,userId:member,planCode:plan,
+   staffRoles:[],adFree:plan==='LIFETIME',synthetic:false,
+   productionEntitlements:true});
+ }
  if(p.startsWith('/rest/v1/admin_user_roles'))return response([]);
  if(p.startsWith('/rest/v1/site_subscriptions'))return response(plan==='LIFETIME'?
   [{plan_code:'LIFETIME',status:'active',current_period_end:null}]:[]);

@@ -1,5 +1,12 @@
 name: Owner Store Acceptance v0.14.0.180
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "functions/api/ad-slot.js"
+      - "functions/api/member-sparks-adfree.js"
+      - "tests/test_crownlight_adfree_authenticated_v2.mjs"
+      - ".github/workflows/owner-store-acceptance-v014180.yml"
   push:
     branches: [main]
     paths:
