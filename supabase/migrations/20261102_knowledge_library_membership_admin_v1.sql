@@ -110,7 +110,7 @@ begin
    if jsonb_array_length(v_sources)>25 or exists (
      select 1 from jsonb_array_elements(v_sources) s
      where jsonb_typeof(s)<>'object'
-        or coalesce(s->>'url','') !~ '^https://[^[:space:]]{3,500}$'
+        or coalesce(s->>'url','') !~ '^https://[^[:space:]]{3,200}$'
    ) then raise exception 'Source references must use HTTPS URLs' using errcode='22023'; end if;
    if exists (select 1 from unnest(v_tags) x where length(x)>50 or x='') then
      raise exception 'Invalid article tag' using errcode='22023';
