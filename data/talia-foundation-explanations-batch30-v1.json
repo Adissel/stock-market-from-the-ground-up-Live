@@ -1,27 +1,764 @@
 {
-  "kind":"talia_foundation_supplemental_explanations_v1","version":"1.0","batch":30,"count":20,"goal":600,
-  "status":"original_source_authored_ungraded_pending_independent_editorial_review",
-  "notes":"Distinct fictional probability, performance, filing, and corporate-action concepts 581–600. Source/rights and independent numerical review pending.",
-  "guides":[
-    {"code":"TALIA_TOPIC_RISK_OF_RUIN_MODEL_LIMIT","title":"Risk-of-ruin model limits","concept":"Risk-of-ruin is a model output driven by uncertain assumptions, not a survival guarantee.","prerequisites":"Understand probability, payoff distributions, dependence, drawdown, and fixed-risk assumptions.","procedure":"Declare model, sample, risk fraction, distribution, and dependence assumptions; stress adverse alternatives.","workedCase":"FICTIONAL: Equal +1R/−1R outcomes yield +0.10R expectancy at 55% wins but −0.04R at 48%.","limit":"Real outcomes can be dependent, fat-tailed, nonstationary, and worse than planned.","invalidation":"HOLD when the formula, assumptions, sample, or loss cap is unsupported.","commonError":"Live-trading mistake: Reporting a tiny ruin probability to many decimals hides input uncertainty. Correct with ranges and stress cases.","selfCheck":"Which changed assumption turns fictional expectancy negative?","reviewExplanation":"Ungraded Talia walkthrough: the fictional expectancy changes sign when the win assumption changes. This demonstrates model sensitivity, not guaranteed survival.","transferQuestion":"FICTIONAL independent transfer: With +1R/−1R outcomes and 45% wins, compute expected R and name two model failures.","sourceUrls":["https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH","supportedScope":"Risk-of-ruin model limits: Historical backtest statistics do not establish risk-of-ruin probabilities. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Real outcomes can be dependent, fat-tailed, nonstationary, and worse than planned. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_EXPECTANCY_FROM_OUTCOME_DISTRIBUTION","title":"Expectancy from an outcome distribution","concept":"Trade expectancy is the probability-weighted mean of a defined outcome distribution.","prerequisites":"Understand probabilities, R-multiples, weighted averages, and sample uncertainty.","procedure":"List mutually exclusive outcomes, verify probabilities sum to one, multiply each probability by outcome, and sum.","workedCase":"FICTIONAL: 40% at +2R, 50% at −1R, and 10% at 0R gives 0.4×2−0.5=+0.3R.","limit":"Estimated probabilities and payoffs may change and do not predict the next trade.","invalidation":"HOLD when outcomes overlap, probabilities do not sum to one, or costs are inconsistent.","commonError":"Live-trading mistake: Averaging +2R and −1R without their frequencies overstates performance. Correct with probability weights.","selfCheck":"Why must outcome probabilities sum to one?","reviewExplanation":"Ungraded Talia walkthrough: fictional weighted expectancy is +0.3R. It is conditional on the stated distribution.","transferQuestion":"FICTIONAL independent transfer: 30% at +3R, 60% at −1R, 10% flat; compute expectancy and name one estimation risk.","sourceUrls":["https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Expectancy from an outcome distribution: QuantConnect glossary defines expectation from conditional outcomes. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Estimated probabilities and payoffs may change and do not predict the next trade. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_WIN_RATE_SAMPLE_SIZE","title":"Win rate and sample size","concept":"A sample win rate is wins divided by eligible completed observations and carries sampling uncertainty.","prerequisites":"Understand eligible samples, completed trades, proportions, exclusions, and confidence uncertainty.","procedure":"Freeze eligibility rules, count wins and total completed cases, divide once, and report sample size beside the rate.","workedCase":"FICTIONAL: 18 wins among 30 eligible completed cases produce 60%; three open cases are excluded.","limit":"Thirty observations do not establish a stable future probability.","invalidation":"HOLD when cases are cherry-picked, duplicated, open, or defined inconsistently.","commonError":"Live-trading mistake: Reporting 60% without n=30 hides uncertainty. Correct by showing numerator, denominator, and exclusions.","selfCheck":"Which observations belong in the denominator?","reviewExplanation":"Ungraded Talia walkthrough: fictional rate is 18/30=60%, explicitly tied to its sample.","transferQuestion":"FICTIONAL independent transfer: 22 wins from 40 eligible completed cases; compute rate and list one invalid exclusion.","sourceUrls":["https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Win rate and sample size: QuantConnect backtest statistics defines observed win rate, not future certainty. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Thirty observations do not establish a stable future probability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_PROFIT_FACTOR_DENOMINATOR","title":"Profit factor denominator","concept":"Profit factor divides gross profits by the absolute value of gross losses under one cost convention.","prerequisites":"Understand gross profit, gross loss, absolute values, costs, and zero denominators.","procedure":"Sum positive results, sum absolute negative results, verify consistent net-or-gross treatment, then divide.","workedCase":"FICTIONAL: Gross profits $900 and gross losses −$600 produce profit factor 900/600=1.5.","limit":"Profit factor omits sequence, sample size, capital, and tail risk.","invalidation":"HOLD when losses equal zero or trades and costs use inconsistent definitions.","commonError":"Live-trading mistake: Dividing by signed −$600 reports −1.5. Correct with absolute gross loss.","selfCheck":"Why is the loss denominator an absolute amount?","reviewExplanation":"Ungraded Talia walkthrough: fictional profit factor is 1.5; it is not a return percentage or guarantee.","transferQuestion":"FICTIONAL independent transfer: Gross profits $1,240 and losses −$800; calculate factor and state one limitation.","sourceUrls":["https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Profit factor denominator: QuantConnect backtest statistics identifies profit factor and its denominator. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Profit factor omits sequence, sample size, capital, and tail risk. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_MAXIMUM_DRAWDOWN_PATH","title":"Maximum drawdown from an equity path","concept":"Maximum drawdown is the largest peak-to-later-trough decline in an ordered equity path.","prerequisites":"Understand chronological equity, running peaks, troughs, deposits, and withdrawals.","procedure":"Order observations, adjust external cash flows consistently, track each running peak, and calculate later declines.","workedCase":"FICTIONAL: Equity peaks at $12,000 then reaches $10,800; drawdown is $1,200 or 10% of that peak.","limit":"Observation frequency can miss intraperiod drawdowns.","invalidation":"HOLD when timestamps, cash flows, currency, or equity definition is inconsistent.","commonError":"Live-trading mistake: Measuring from starting equity instead of the running peak can miss the true decline. Correct with chronological peaks.","selfCheck":"Which earlier value anchors each drawdown?","reviewExplanation":"Ungraded Talia walkthrough: fictional peak-to-trough decline is 10%; order matters.","transferQuestion":"FICTIONAL independent transfer: Equity peaks at $25,000 then falls to $22,250; compute drawdown dollars and percent.","sourceUrls":["https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Maximum drawdown from an equity path: QuantConnect glossary defines peak-to-trough drawdown. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Observation frequency can miss intraperiod drawdowns. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_RETURN_WITH_EXTERNAL_CASH_FLOW","title":"Return with external cash flow","concept":"Deposits and withdrawals must be separated from investment performance.","prerequisites":"Understand beginning value, ending value, cash flows, timing, and return conventions.","procedure":"Declare a return method and cash-flow timing; never treat contributed capital as profit.","workedCase":"FICTIONAL: Account starts $10,000, receives $2,000 immediately, and ends $12,600; simple return on $12,000 invested is 5%.","limit":"Midperiod cash flows require time-weighted or money-weighted methods rather than this immediate-flow simplification.","invalidation":"HOLD when cash-flow amount, direction, timing, or valuation times are missing.","commonError":"Live-trading mistake: Calling the $2,600 balance increase a 26% gain counts a deposit as performance. Correct by isolating cash flow.","selfCheck":"Which balance increase came from the owner rather than markets?","reviewExplanation":"Ungraded Talia walkthrough: after separating the immediate deposit, fictional gain is $600 on $12,000.","transferQuestion":"FICTIONAL independent transfer: Start $8,000, immediate deposit $1,000, end $9,450; compute simplified return.","sourceUrls":["https://www.investor.gov/introduction-investing/getting-started/understanding-fees"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH","supportedScope":"Return with external cash flow: SEC fees guide does not validate external-cash-flow performance math. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Midperiod cash flows require time-weighted or money-weighted methods rather than this immediate-flow simplification. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_ARITHMETIC_VERSUS_GEOMETRIC_RETURN","title":"Arithmetic versus geometric return","concept":"Arithmetic average describes mean period return, while geometric return preserves compounding across periods.","prerequisites":"Understand percentages, growth factors, products, and nonpositive wealth limits.","procedure":"For arithmetic mean add period returns and divide; for geometric mean multiply one-plus-return factors and take the appropriate root.","workedCase":"FICTIONAL: +50% then −50% has arithmetic mean 0%, but $100 becomes $75 and geometric return is about −13.4% per period.","limit":"Neither average alone describes risk, path, or future return.","invalidation":"HOLD when periods differ, cash flows intervene, or return conventions mix.","commonError":"Live-trading mistake: Calling +50% and −50% break-even ignores the smaller base after loss. Correct with compounded wealth.","selfCheck":"Why does a zero arithmetic mean still lose capital here?","reviewExplanation":"Ungraded Talia walkthrough: fictional growth factor is 1.5×0.5=0.75, not 1.0.","transferQuestion":"FICTIONAL independent transfer: +20% then −20% from $1,000; compute ending wealth and arithmetic mean.","sourceUrls":["https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Arithmetic versus geometric return: QuantConnect glossary explains compounding, not all geometric-return estimators. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Neither average alone describes risk, path, or future return. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_VOLATILITY_ANNUALIZATION_ASSUMPTION","title":"Volatility annualization assumption","concept":"Square-root-of-time annualization depends on interval, session count, and return-distribution assumptions.","prerequisites":"Understand standard deviation, daily returns, annual trading-day conventions, and serial dependence.","procedure":"State return type, sample convention, daily estimate, annualization factor, and why independence may fail.","workedCase":"FICTIONAL: Daily volatility 1.2% annualized with √252 is about 19.0% under the stated convention.","limit":"Volatility clustering, jumps, and changing regimes weaken square-root scaling.","invalidation":"HOLD when interval, sample, missing days, or annualization convention is undisclosed.","commonError":"Live-trading mistake: Multiplying 1.2% by 252 produces 302.4%. Correct by distinguishing volatility scaling from return addition.","selfCheck":"Which assumption supports square-root scaling?","reviewExplanation":"Ungraded Talia walkthrough: fictional annualized estimate is about 19%, conditional on the convention.","transferQuestion":"FICTIONAL independent transfer: Daily volatility 0.8%; estimate √252 annualized volatility and state one failure mode.","sourceUrls":["https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH","supportedScope":"Volatility annualization assumption: Algorithm statistics reference states day-count conventions; sqrt-time needs review. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Volatility clustering, jumps, and changing regimes weaken square-root scaling. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_SURVIVORSHIP_BIAS_SAMPLE","title":"Survivorship bias in a sample","concept":"A sample containing only securities still visible today can omit failures and overstate historical outcomes.","prerequisites":"Understand universe membership, delistings, mergers, selection dates, and point-in-time data.","procedure":"Freeze the eligible universe at each historical date and retain delisted or merged records with documented outcomes.","workedCase":"FICTIONAL: Ten stocks start; two delist after large losses. Measuring only eight survivors excludes 20% of the starting names.","limit":"Complete point-in-time constituent and delisting data may require licensed sources.","invalidation":"HOLD when historical membership or terminal outcomes cannot be reconstructed lawfully.","commonError":"Live-trading mistake: Backtesting today's winners across the past gives them knowledge of survival. Correct with point-in-time membership.","selfCheck":"Which missing records make the sample biased?","reviewExplanation":"Ungraded Talia walkthrough: fictional survivor-only set drops two failed names and cannot represent the starting universe.","transferQuestion":"FICTIONAL independent transfer: Fifteen names begin and three disappear; compute survivor share and explain the bias.","sourceUrls":["https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH","supportedScope":"Survivorship bias in a sample: QuantConnect research guide is context for survivorship risks, not licensed delisting data. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Complete point-in-time constituent and delisting data may require licensed sources. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_LOOKAHEAD_BIAS_FILING_DATE","title":"Lookahead bias and filing availability","concept":"A filing value becomes eligible only when the filing was publicly available, not at the period-end date it describes.","prerequisites":"Understand reporting periods, filing timestamps, amendments, and decision cutoffs.","procedure":"Record period end and public filing time separately; use the earliest verified public version available before the decision.","workedCase":"FICTIONAL: Quarter ends March 31, filing appears May 8; an April 15 screen cannot use the filed value.","limit":"Vendor ingestion may lag the official public filing timestamp.","invalidation":"HOLD when publication time, form version, amendment status, or time zone is unknown.","commonError":"Live-trading mistake: Backdating May information to March creates impossible foresight. Correct with availability timestamps.","selfCheck":"Which date controls use in an April 15 decision?","reviewExplanation":"Ungraded Talia walkthrough: fictional May 8 value is ineligible on April 15 despite its March period end.","transferQuestion":"FICTIONAL independent transfer: Period ends June 30 and filing appears August 7; classify availability on July 20.","sourceUrls":["https://www.sec.gov/search-filings"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Lookahead bias and filing availability: SEC filing search provides public filing access and timing metadata. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Vendor ingestion may lag the official public filing timestamp. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_REVENUE_GROWTH_COMPARABLE_PERIODS","title":"Revenue growth with comparable periods","concept":"Revenue growth requires comparable periods, currencies, and continuing-business definitions.","prerequisites":"Understand income statements, fiscal periods, percentage change, restatements, and acquisitions.","procedure":"Verify period lengths and scope, subtract prior revenue from current, divide by prior revenue, and disclose structural changes.","workedCase":"FICTIONAL: Comparable quarterly revenue rises from $40m to $46m; growth=(46−40)/40=15%.","limit":"Acquisitions, currency translation, and recognition changes can reduce comparability.","invalidation":"HOLD when prior revenue is zero, periods differ, or restated figures are unresolved.","commonError":"Live-trading mistake: Comparing a 14-week quarter with 13 weeks as pure organic growth misstates evidence. Correct for comparability.","selfCheck":"Which denominator produces the fictional 15%?","reviewExplanation":"Ungraded Talia walkthrough: fictional growth is 15% only under comparable scope and periods.","transferQuestion":"FICTIONAL independent transfer: Comparable revenue rises from $25m to $28m; compute growth and name one comparability defect.","sourceUrls":["https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Revenue growth with comparable periods: SEC financial-statement guide explains comparable revenue reporting. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Acquisitions, currency translation, and recognition changes can reduce comparability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_GROSS_MARGIN_UNITS","title":"Gross margin and consistent units","concept":"Gross margin divides revenue minus cost of revenue by revenue using the same period and units.","prerequisites":"Understand revenue, cost of revenue, percentages, units, and classification policies.","procedure":"Align period and units, compute gross profit, divide by nonzero revenue, and inspect classification changes.","workedCase":"FICTIONAL: Revenue $80m and cost of revenue $52m give gross profit $28m and margin 35%.","limit":"Gross margin excludes many operating, financing, and tax costs.","invalidation":"HOLD when revenue is zero, units differ, or cost classifications changed materially.","commonError":"Live-trading mistake: Dividing gross profit by cost produces 53.8%, not gross margin. Correct with revenue denominator.","selfCheck":"What is the correct gross-margin denominator?","reviewExplanation":"Ungraded Talia walkthrough: fictional margin is 28/80=35%; it is not net profitability.","transferQuestion":"FICTIONAL independent transfer: Revenue $50m and cost $32m; compute gross margin and one excluded expense class.","sourceUrls":["https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Gross margin and consistent units: SEC financial-statement guide identifies revenue and costs. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Gross margin excludes many operating, financing, and tax costs. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_OPERATING_CASH_FLOW_VERSUS_NET_INCOME","title":"Operating cash flow versus net income","concept":"Net income and operating cash flow measure different accounting effects and should be reconciled, not treated as interchangeable.","prerequisites":"Understand accrual accounting, noncash items, working capital, and cash-flow statements.","procedure":"Read both same-period figures, identify disclosed reconciliation items, and avoid labeling either alone as cash earnings.","workedCase":"FICTIONAL: Net income is $12m and operating cash flow $7m; the $5m difference requires reconciliation, not automatic fraud inference.","limit":"One period may reflect legitimate working-capital timing or noncash adjustments.","invalidation":"HOLD when periods, currencies, continuing operations, or cash-flow classification do not match.","commonError":"Live-trading mistake: Calling a difference proof of manipulation assigns motive without evidence. Correct by inspecting filed reconciliation.","selfCheck":"Why can the two measures differ legitimately?","reviewExplanation":"Ungraded Talia walkthrough: fictional $5m gap is an observation requiring causes, not a verdict.","transferQuestion":"FICTIONAL independent transfer: Net income $4m and operating cash flow $9m; calculate difference and list two possible reconciliation categories.","sourceUrls":["https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Operating cash flow versus net income: SEC financial-statement guide distinguishes operating cash flow and net income. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"One period may reflect legitimate working-capital timing or noncash adjustments. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_CURRENT_RATIO_CLASSIFICATION","title":"Current ratio and classification","concept":"Current ratio divides current assets by current liabilities at one balance-sheet date.","prerequisites":"Understand balance sheets, current classification, ratios, seasonal timing, and nonzero denominators.","procedure":"Use same-date filed amounts, verify classification, divide current assets by nonzero current liabilities, and disclose seasonality.","workedCase":"FICTIONAL: Current assets $30m and current liabilities $20m give a current ratio of 1.5.","limit":"The ratio does not reveal asset quality, cash timing, or covenant compliance.","invalidation":"HOLD when dates differ, liabilities are zero, or classifications are not comparable.","commonError":"Live-trading mistake: Calling 1.5 proof of liquidity ignores receivable and inventory quality. Correct with component review.","selfCheck":"Which same-date amounts form the ratio?","reviewExplanation":"Ungraded Talia walkthrough: fictional ratio is 30/20=1.5, with material qualitative limits.","transferQuestion":"FICTIONAL independent transfer: Current assets $18m and liabilities $24m; compute ratio and name one quality question.","sourceUrls":["https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Current ratio and classification: SEC financial-statement guide distinguishes current assets and liabilities. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"The ratio does not reveal asset quality, cash timing, or covenant compliance. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_DILUTED_EPS_SHARE_COUNT","title":"Diluted EPS and share count","concept":"Diluted EPS uses the issuer's applicable diluted weighted-average shares, not simply ending shares outstanding.","prerequisites":"Understand net income available to common shareholders, weighted shares, dilution, and loss-period rules.","procedure":"Use filed numerator and diluted weighted-average denominator for the same period and inspect anti-dilution treatment.","workedCase":"FICTIONAL: $10m available income divided by 5m diluted weighted-average shares gives $2.00 diluted EPS.","limit":"Potential shares and anti-dilutive treatment depend on accounting rules and period conditions.","invalidation":"HOLD when numerator, denominator, period, class, or restatement status differs.","commonError":"Live-trading mistake: Dividing by quarter-end shares can distort per-share results. Correct with the filed weighted-average denominator.","selfCheck":"Why is an ending share count not automatically valid?","reviewExplanation":"Ungraded Talia walkthrough: fictional diluted EPS is $2 under matched filed inputs.","transferQuestion":"FICTIONAL independent transfer: $7.2m available income and 4.8m diluted weighted shares; compute EPS and state one caveat.","sourceUrls":["https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Diluted EPS and share count: SEC financial-statement guide discusses earnings per share and share measures. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Potential shares and anti-dilutive treatment depend on accounting rules and period conditions. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_STOCK_SPLIT_PER_SHARE_COMPARABILITY","title":"Stock split and per-share comparability","concept":"A stock split changes share count and per-share price mechanically, so historical per-share comparisons need consistent adjustment.","prerequisites":"Understand split ratios, effective dates, raw versus adjusted values, and wealth invariance before costs.","procedure":"Verify official ratio and effective date, apply ratio consistently to shares and per-share values, and label raw or adjusted data.","workedCase":"FICTIONAL: Before a 3-for-1 split, 100 shares at $60 become 300 shares near $20; position value remains $6,000 before market movement.","limit":"Actual opening price can move and fractional-share handling may differ.","invalidation":"HOLD when ratio, effective date, security class, or adjustment state is missing.","commonError":"Live-trading mistake: Treating the raw drop from $60 to $20 as a 66.7% loss ignores tripled shares. Correct for the split.","selfCheck":"Which two quantities change inversely in the example?","reviewExplanation":"Ungraded Talia walkthrough: fictional shares triple while theoretical per-share price divides by three.","transferQuestion":"FICTIONAL independent transfer: 80 shares at $50 undergo 2-for-1 split; compute theoretical shares, price, and value.","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Stock split and per-share comparability: Investor.gov explains stock-split mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Actual opening price can move and fractional-share handling may differ. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_CASH_DIVIDEND_EX_DATE_ADJUSTMENT","title":"Cash dividend and ex-date interpretation","concept":"A cash dividend transfers value and can affect the ex-date price; raw price change alone is not total return.","prerequisites":"Understand declaration, record and ex-dates, dividend eligibility, taxes, and total return.","procedure":"Verify official dividend and ex-date, separate price return from cash distribution, and use a declared tax and reinvestment convention.","workedCase":"FICTIONAL: Price moves from $40 to $39.60 across a $0.50 dividend; raw price return is −1%, while pretax simple total return is +0.25%.","limit":"Market movement, taxes, currency, and reinvestment affect investor results.","invalidation":"HOLD when dividend amount, eligibility, prices, or corporate-action status is unverified.","commonError":"Live-trading mistake: Calling the 40-cent raw decline the entire loss omits the 50-cent distribution. Correct with total-return components.","selfCheck":"Which cash component changes the interpretation?","reviewExplanation":"Ungraded Talia walkthrough: fictional total change is +$0.10 on $40, or +0.25%, before taxes and costs.","transferQuestion":"FICTIONAL independent transfer: Price falls $25 to $24.70 across a $0.40 dividend; compute raw and pretax simple total return.","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Cash dividend and ex-date interpretation: Investor.gov ex-dividend resource describes dates and entitlements. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Market movement, taxes, currency, and reinvestment affect investor results. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_RIGHTS_OFFERING_DILUTION_CONTEXT","title":"Rights offering and dilution context","concept":"A rights offering changes financing and potential share count; a headline discount alone does not determine holder outcome.","prerequisites":"Understand subscription rights, record dates, exercise ratios, proceeds, dilution, and tradability.","procedure":"Read the official filing, identify eligible holders, ratio, price, dates, and potential shares; compare scenarios without assuming participation.","workedCase":"FICTIONAL: One new share per four old shares could add 2.5m shares to 10m outstanding if fully exercised, a 25% increase.","limit":"Proceeds, participation, expenses, and use of funds affect economic consequences.","invalidation":"HOLD when terms, class, exercise status, or final participation is unknown.","commonError":"Live-trading mistake: Calling a 25% share increase an automatic 25% value loss ignores proceeds and market response. Correct with full terms.","selfCheck":"What does the fictional 25% measure and not measure?","reviewExplanation":"Ungraded Talia walkthrough: fictional ratio describes potential share-count increase, not automatic price loss.","transferQuestion":"FICTIONAL independent transfer: One new share per five on 20m old shares; compute maximum new shares and percent increase.","sourceUrls":["https://www.sec.gov/search-filings"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH","supportedScope":"Rights offering and dilution context: SEC filing directory is context, not a dedicated rights-offering dilution formula. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Proceeds, participation, expenses, and use of funds affect economic consequences. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_REVERSE_SPLIT_MECHANICS","title":"Reverse-split mechanics","concept":"A reverse split reduces share count and raises theoretical per-share price inversely without creating economic value by itself.","prerequisites":"Understand split ratios, fractional shares, effective dates, listings, and raw versus adjusted series.","procedure":"Verify official ratio and date, divide shares and multiply theoretical price by the ratio, then reconcile fractional treatment.","workedCase":"FICTIONAL: A 1-for-10 reverse split turns 1,000 shares near $0.80 into 100 shares near $8, preserving $800 before movement.","limit":"Rounding, cash in lieu, fees, and subsequent price movement can change actual value.","invalidation":"HOLD when ratio, eligible class, effective time, or fractional-share policy is absent.","commonError":"Live-trading mistake: Calling $0.80 to $8 a tenfold gain ignores the tenfold share reduction. Correct with position value.","selfCheck":"Why is the price increase not automatically a profit?","reviewExplanation":"Ungraded Talia walkthrough: fictional share count and price move inversely; value is unchanged before other effects.","transferQuestion":"FICTIONAL independent transfer: 600 shares at $1.50 undergo 1-for-6 reverse split; compute theoretical shares, price, and value.","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Reverse-split mechanics: Investor.gov split reference describes inverse share/price mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"Rounding, cash in lieu, fees, and subsequent price movement can change actual value. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}},
-    {"code":"TALIA_TOPIC_FILING_AMENDMENT_VERSION_CONTROL","title":"Filing amendment and version control","concept":"An amended filing is a new dated source version and must not silently overwrite what was knowable earlier.","prerequisites":"Understand filing accession identifiers, amendments, timestamps, decision cutoffs, and audit trails.","procedure":"Store original and amended accession, public timestamps, changed fields, and which version was eligible for each decision.","workedCase":"FICTIONAL: Original filing May 1 reports 12 units; amendment May 10 reports 10. A May 5 decision must retain 12 as then-known.","limit":"An amendment may change only selected fields; full scope requires document comparison.","invalidation":"HOLD when accession, publication time, changed field, or decision cutoff is unverified.","commonError":"Live-trading mistake: Replacing May 1 data with May 10 data in a May 5 replay introduces lookahead. Correct with versioned evidence.","selfCheck":"Which value is eligible for a May 5 replay?","reviewExplanation":"Ungraded Talia walkthrough: fictional May 5 evidence remains the original 12-unit value; later correction is separately recorded.","transferQuestion":"FICTIONAL independent transfer: Original June 2 value 30, amendment June 8 value 27; classify evidence for June 5 and June 10 decisions.","sourceUrls":["https://www.sec.gov/search-filings"],"supplemental":true,"foundationTopic":true,"officialCompetency":false,"independentEditorialApproved":false,"status":"original_source_authored_ungraded_pending_independent_editorial_review","sourceRightsStatus":"research_candidate_not_verified_data_or_redistribution_license","editorSourceReview":{"result":"DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW","independentPublicationAccepted":false},"sourceResearchTriage":{"internalResearchDate":"2026-11-03","classification":"SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW","supportedScope":"Filing amendment and version control: SEC filing directory provides version access, not independent amendment reconciliation. This is a contextual reference for original fictional instruction, not endorsement of its example.","limitationsAndOpenQuestions":"An amendment may change only selected fields; full scope requires document comparison. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.","independentMathAccepted":false,"independentPublicationApproved":false,"sourceRedistributionRightsCleared":false}}
+  "kind": "talia_foundation_supplemental_explanations_v1",
+  "version": "1.0",
+  "batch": 30,
+  "count": 20,
+  "goal": 600,
+  "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+  "notes": "Distinct fictional probability, performance, filing, and corporate-action concepts 581–600. Source/rights and independent numerical review pending.",
+  "guides": [
+    {
+      "code": "TALIA_TOPIC_RISK_OF_RUIN_MODEL_LIMIT",
+      "title": "Risk-of-ruin model limits",
+      "concept": "Risk-of-ruin is a model output driven by uncertain assumptions, not a survival guarantee.",
+      "prerequisites": "Understand probability, payoff distributions, dependence, drawdown, and fixed-risk assumptions.",
+      "procedure": "Declare model, sample, risk fraction, distribution, and dependence assumptions; stress adverse alternatives.",
+      "workedCase": "FICTIONAL: Equal +1R/−1R outcomes yield +0.10R expectancy at 55% wins but −0.04R at 48%.",
+      "limit": "Real outcomes can be dependent, fat-tailed, nonstationary, and worse than planned.",
+      "invalidation": "HOLD when the formula, assumptions, sample, or loss cap is unsupported.",
+      "commonError": "Live-trading mistake: Reporting a tiny ruin probability to many decimals hides input uncertainty. Correct with ranges and stress cases.",
+      "selfCheck": "Which changed assumption turns fictional expectancy negative?",
+      "reviewExplanation": "Ungraded Talia walkthrough: the fictional expectancy changes sign when the win assumption changes. This demonstrates model sensitivity, not guaranteed survival.",
+      "transferQuestion": "FICTIONAL independent transfer: With +1R/−1R outcomes and 45% wins, compute expected R and name two model failures.",
+      "sourceUrls": [
+        "https://pillingerworks.com/academy/risk-of-ruin/",
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/the-2-percent-rule"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Risk-of-ruin models require explicit thresholds, risk size, payoff distribution, horizon and dependence assumptions; original +1R/-1R examples measure expectancy only.",
+        "limitationsAndOpenQuestions": "The 55% and 48% cases calculate expected R, not a numerical risk-of-ruin probability. Vendor research is illustrative; no calibrated risk-of-ruin conclusion is supported. Independently verify exact claim support, URL stability, arithmetic, publication and third-party rights before release.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false,
+        "priorContextOnlySourceUrls": [
+          "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+        ],
+        "researchSourceImprovementDate": "2026-11-03",
+        "sourceTextScopeChecked": true,
+        "sourceScopeIsNotEditorialApproval": true
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_EXPECTANCY_FROM_OUTCOME_DISTRIBUTION",
+      "title": "Expectancy from an outcome distribution",
+      "concept": "Trade expectancy is the probability-weighted mean of a defined outcome distribution.",
+      "prerequisites": "Understand probabilities, R-multiples, weighted averages, and sample uncertainty.",
+      "procedure": "List mutually exclusive outcomes, verify probabilities sum to one, multiply each probability by outcome, and sum.",
+      "workedCase": "FICTIONAL: 40% at +2R, 50% at −1R, and 10% at 0R gives 0.4×2−0.5=+0.3R.",
+      "limit": "Estimated probabilities and payoffs may change and do not predict the next trade.",
+      "invalidation": "HOLD when outcomes overlap, probabilities do not sum to one, or costs are inconsistent.",
+      "commonError": "Live-trading mistake: Averaging +2R and −1R without their frequencies overstates performance. Correct with probability weights.",
+      "selfCheck": "Why must outcome probabilities sum to one?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional weighted expectancy is +0.3R. It is conditional on the stated distribution.",
+      "transferQuestion": "FICTIONAL independent transfer: 30% at +3R, 60% at −1R, 10% flat; compute expectancy and name one estimation risk.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Expectancy from an outcome distribution: QuantConnect glossary defines expectation from conditional outcomes. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Estimated probabilities and payoffs may change and do not predict the next trade. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_WIN_RATE_SAMPLE_SIZE",
+      "title": "Win rate and sample size",
+      "concept": "A sample win rate is wins divided by eligible completed observations and carries sampling uncertainty.",
+      "prerequisites": "Understand eligible samples, completed trades, proportions, exclusions, and confidence uncertainty.",
+      "procedure": "Freeze eligibility rules, count wins and total completed cases, divide once, and report sample size beside the rate.",
+      "workedCase": "FICTIONAL: 18 wins among 30 eligible completed cases produce 60%; three open cases are excluded.",
+      "limit": "Thirty observations do not establish a stable future probability.",
+      "invalidation": "HOLD when cases are cherry-picked, duplicated, open, or defined inconsistently.",
+      "commonError": "Live-trading mistake: Reporting 60% without n=30 hides uncertainty. Correct by showing numerator, denominator, and exclusions.",
+      "selfCheck": "Which observations belong in the denominator?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional rate is 18/30=60%, explicitly tied to its sample.",
+      "transferQuestion": "FICTIONAL independent transfer: 22 wins from 40 eligible completed cases; compute rate and list one invalid exclusion.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Win rate and sample size: QuantConnect backtest statistics defines observed win rate, not future certainty. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Thirty observations do not establish a stable future probability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_PROFIT_FACTOR_DENOMINATOR",
+      "title": "Profit factor denominator",
+      "concept": "Profit factor divides gross profits by the absolute value of gross losses under one cost convention.",
+      "prerequisites": "Understand gross profit, gross loss, absolute values, costs, and zero denominators.",
+      "procedure": "Sum positive results, sum absolute negative results, verify consistent net-or-gross treatment, then divide.",
+      "workedCase": "FICTIONAL: Gross profits $900 and gross losses −$600 produce profit factor 900/600=1.5.",
+      "limit": "Profit factor omits sequence, sample size, capital, and tail risk.",
+      "invalidation": "HOLD when losses equal zero or trades and costs use inconsistent definitions.",
+      "commonError": "Live-trading mistake: Dividing by signed −$600 reports −1.5. Correct with absolute gross loss.",
+      "selfCheck": "Why is the loss denominator an absolute amount?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional profit factor is 1.5; it is not a return percentage or guarantee.",
+      "transferQuestion": "FICTIONAL independent transfer: Gross profits $1,240 and losses −$800; calculate factor and state one limitation.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Profit factor denominator: QuantConnect backtest statistics identifies profit factor and its denominator. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Profit factor omits sequence, sample size, capital, and tail risk. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_MAXIMUM_DRAWDOWN_PATH",
+      "title": "Maximum drawdown from an equity path",
+      "concept": "Maximum drawdown is the largest peak-to-later-trough decline in an ordered equity path.",
+      "prerequisites": "Understand chronological equity, running peaks, troughs, deposits, and withdrawals.",
+      "procedure": "Order observations, adjust external cash flows consistently, track each running peak, and calculate later declines.",
+      "workedCase": "FICTIONAL: Equity peaks at $12,000 then reaches $10,800; drawdown is $1,200 or 10% of that peak.",
+      "limit": "Observation frequency can miss intraperiod drawdowns.",
+      "invalidation": "HOLD when timestamps, cash flows, currency, or equity definition is inconsistent.",
+      "commonError": "Live-trading mistake: Measuring from starting equity instead of the running peak can miss the true decline. Correct with chronological peaks.",
+      "selfCheck": "Which earlier value anchors each drawdown?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional peak-to-trough decline is 10%; order matters.",
+      "transferQuestion": "FICTIONAL independent transfer: Equity peaks at $25,000 then falls to $22,250; compute drawdown dollars and percent.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Maximum drawdown from an equity path: QuantConnect glossary defines peak-to-trough drawdown. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Observation frequency can miss intraperiod drawdowns. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RETURN_WITH_EXTERNAL_CASH_FLOW",
+      "title": "Return with external cash flow",
+      "concept": "Deposits and withdrawals must be separated from investment performance.",
+      "prerequisites": "Understand beginning value, ending value, cash flows, timing, and return conventions.",
+      "procedure": "Declare a return method and cash-flow timing; never treat contributed capital as profit.",
+      "workedCase": "FICTIONAL: Account starts $10,000, receives $2,000 immediately, and ends $12,600; simple return on $12,000 invested is 5%.",
+      "limit": "Midperiod cash flows require time-weighted or money-weighted methods rather than this immediate-flow simplification.",
+      "invalidation": "HOLD when cash-flow amount, direction, timing, or valuation times are missing.",
+      "commonError": "Live-trading mistake: Calling the $2,600 balance increase a 26% gain counts a deposit as performance. Correct by isolating cash flow.",
+      "selfCheck": "Which balance increase came from the owner rather than markets?",
+      "reviewExplanation": "Ungraded Talia walkthrough: after separating the immediate deposit, fictional gain is $600 on $12,000.",
+      "transferQuestion": "FICTIONAL independent transfer: Start $8,000, immediate deposit $1,000, end $9,450; compute simplified return.",
+      "sourceUrls": [
+        "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/rates-and-returns"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "CFA Institute distinguishes time-weighted from money-weighted returns when external cash flows affect a portfolio; the fictional immediate-deposit shortcut is defined explicitly.",
+        "limitationsAndOpenQuestions": "A 5% simple return with an immediate contribution is a narrow scenario; midperiod external flows require dated cash-flow methods, often linked TWR or MWR/IRR. Independently verify exact claim support, URL stability, arithmetic, publication and third-party rights before release.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false,
+        "priorContextOnlySourceUrls": [
+          "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+        ],
+        "researchSourceImprovementDate": "2026-11-03",
+        "sourceTextScopeChecked": true,
+        "sourceScopeIsNotEditorialApproval": true
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_ARITHMETIC_VERSUS_GEOMETRIC_RETURN",
+      "title": "Arithmetic versus geometric return",
+      "concept": "Arithmetic average describes mean period return, while geometric return preserves compounding across periods.",
+      "prerequisites": "Understand percentages, growth factors, products, and nonpositive wealth limits.",
+      "procedure": "For arithmetic mean add period returns and divide; for geometric mean multiply one-plus-return factors and take the appropriate root.",
+      "workedCase": "FICTIONAL: +50% then −50% has arithmetic mean 0%, but $100 becomes $75 and geometric return is about −13.4% per period.",
+      "limit": "Neither average alone describes risk, path, or future return.",
+      "invalidation": "HOLD when periods differ, cash flows intervene, or return conventions mix.",
+      "commonError": "Live-trading mistake: Calling +50% and −50% break-even ignores the smaller base after loss. Correct with compounded wealth.",
+      "selfCheck": "Why does a zero arithmetic mean still lose capital here?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional growth factor is 1.5×0.5=0.75, not 1.0.",
+      "transferQuestion": "FICTIONAL independent transfer: +20% then −20% from $1,000; compute ending wealth and arithmetic mean.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Arithmetic versus geometric return: QuantConnect glossary explains compounding, not all geometric-return estimators. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Neither average alone describes risk, path, or future return. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_VOLATILITY_ANNUALIZATION_ASSUMPTION",
+      "title": "Volatility annualization assumption",
+      "concept": "Square-root-of-time annualization depends on interval, session count, and return-distribution assumptions.",
+      "prerequisites": "Understand standard deviation, daily returns, annual trading-day conventions, and serial dependence.",
+      "procedure": "State return type, sample convention, daily estimate, annualization factor, and why independence may fail.",
+      "workedCase": "FICTIONAL: Daily volatility 1.2% annualized with √252 is about 19.0% under the stated convention.",
+      "limit": "Volatility clustering, jumps, and changing regimes weaken square-root scaling.",
+      "invalidation": "HOLD when interval, sample, missing days, or annualization convention is undisclosed.",
+      "commonError": "Live-trading mistake: Multiplying 1.2% by 252 produces 302.4%. Correct by distinguishing volatility scaling from return addition.",
+      "selfCheck": "Which assumption supports square-root scaling?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional annualized estimate is about 19%, conditional on the convention.",
+      "transferQuestion": "FICTIONAL independent transfer: Daily volatility 0.8%; estimate √252 annualized volatility and state one failure mode.",
+      "sourceUrls": [
+        "https://rpc.cfainstitute.org/research/cfa-digest/2013/11/autocorrelation-effects-on-cta-and-equity-risk-measurement-digest-summary"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "CFA Institute notes that daily volatility × sqrt(number of business days) assumes uncorrelated daily returns; 1.2%×sqrt(252)≈19.0% is a conditional illustration.",
+        "limitationsAndOpenQuestions": "Serial correlation, volatility clustering, calendar conventions, sample degrees of freedom and nonstationarity can invalidate a naive scaling. Independently verify exact claim support, URL stability, arithmetic, publication and third-party rights before release.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false,
+        "priorContextOnlySourceUrls": [
+          "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+        ],
+        "researchSourceImprovementDate": "2026-11-03",
+        "sourceTextScopeChecked": true,
+        "sourceScopeIsNotEditorialApproval": true
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_SURVIVORSHIP_BIAS_SAMPLE",
+      "title": "Survivorship bias in a sample",
+      "concept": "A sample containing only securities still visible today can omit failures and overstate historical outcomes.",
+      "prerequisites": "Understand universe membership, delistings, mergers, selection dates, and point-in-time data.",
+      "procedure": "Freeze the eligible universe at each historical date and retain delisted or merged records with documented outcomes.",
+      "workedCase": "FICTIONAL: Ten stocks start; two delist after large losses. Measuring only eight survivors excludes 20% of the starting names.",
+      "limit": "Complete point-in-time constituent and delisting data may require licensed sources.",
+      "invalidation": "HOLD when historical membership or terminal outcomes cannot be reconstructed lawfully.",
+      "commonError": "Live-trading mistake: Backtesting today's winners across the past gives them knowledge of survival. Correct with point-in-time membership.",
+      "selfCheck": "Which missing records make the sample biased?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional survivor-only set drops two failed names and cannot represent the starting universe.",
+      "transferQuestion": "FICTIONAL independent transfer: Fifteen names begin and three disappear; compute survivor share and explain the bias.",
+      "sourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+        "https://github.com/QuantConnect/Documentation/blob/master/03%20Writing%20Algorithms/01%20Key%20Concepts/10%20Research%20Guide/08%20Survivorship%20Bias.html"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "QuantConnect's explicit survivorship-bias section describes the danger of excluding delisted historical constituents; fictional 2/10 omission=20%.",
+        "limitationsAndOpenQuestions": "Research guide and source documentation support the issue, but do not certify that any specific uploaded dataset is survivorship-bias free. Independently verify exact claim support, URL stability, arithmetic, publication and third-party rights before release.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false,
+        "priorContextOnlySourceUrls": [
+          "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+        ],
+        "researchSourceImprovementDate": "2026-11-03",
+        "sourceTextScopeChecked": true,
+        "sourceScopeIsNotEditorialApproval": true
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_LOOKAHEAD_BIAS_FILING_DATE",
+      "title": "Lookahead bias and filing availability",
+      "concept": "A filing value becomes eligible only when the filing was publicly available, not at the period-end date it describes.",
+      "prerequisites": "Understand reporting periods, filing timestamps, amendments, and decision cutoffs.",
+      "procedure": "Record period end and public filing time separately; use the earliest verified public version available before the decision.",
+      "workedCase": "FICTIONAL: Quarter ends March 31, filing appears May 8; an April 15 screen cannot use the filed value.",
+      "limit": "Vendor ingestion may lag the official public filing timestamp.",
+      "invalidation": "HOLD when publication time, form version, amendment status, or time zone is unknown.",
+      "commonError": "Live-trading mistake: Backdating May information to March creates impossible foresight. Correct with availability timestamps.",
+      "selfCheck": "Which date controls use in an April 15 decision?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional May 8 value is ineligible on April 15 despite its March period end.",
+      "transferQuestion": "FICTIONAL independent transfer: Period ends June 30 and filing appears August 7; classify availability on July 20.",
+      "sourceUrls": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Lookahead bias and filing availability: SEC filing search provides public filing access and timing metadata. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Vendor ingestion may lag the official public filing timestamp. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REVENUE_GROWTH_COMPARABLE_PERIODS",
+      "title": "Revenue growth with comparable periods",
+      "concept": "Revenue growth requires comparable periods, currencies, and continuing-business definitions.",
+      "prerequisites": "Understand income statements, fiscal periods, percentage change, restatements, and acquisitions.",
+      "procedure": "Verify period lengths and scope, subtract prior revenue from current, divide by prior revenue, and disclose structural changes.",
+      "workedCase": "FICTIONAL: Comparable quarterly revenue rises from $40m to $46m; growth=(46−40)/40=15%.",
+      "limit": "Acquisitions, currency translation, and recognition changes can reduce comparability.",
+      "invalidation": "HOLD when prior revenue is zero, periods differ, or restated figures are unresolved.",
+      "commonError": "Live-trading mistake: Comparing a 14-week quarter with 13 weeks as pure organic growth misstates evidence. Correct for comparability.",
+      "selfCheck": "Which denominator produces the fictional 15%?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional growth is 15% only under comparable scope and periods.",
+      "transferQuestion": "FICTIONAL independent transfer: Comparable revenue rises from $25m to $28m; compute growth and name one comparability defect.",
+      "sourceUrls": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Revenue growth with comparable periods: SEC financial-statement guide explains comparable revenue reporting. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Acquisitions, currency translation, and recognition changes can reduce comparability. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_GROSS_MARGIN_UNITS",
+      "title": "Gross margin and consistent units",
+      "concept": "Gross margin divides revenue minus cost of revenue by revenue using the same period and units.",
+      "prerequisites": "Understand revenue, cost of revenue, percentages, units, and classification policies.",
+      "procedure": "Align period and units, compute gross profit, divide by nonzero revenue, and inspect classification changes.",
+      "workedCase": "FICTIONAL: Revenue $80m and cost of revenue $52m give gross profit $28m and margin 35%.",
+      "limit": "Gross margin excludes many operating, financing, and tax costs.",
+      "invalidation": "HOLD when revenue is zero, units differ, or cost classifications changed materially.",
+      "commonError": "Live-trading mistake: Dividing gross profit by cost produces 53.8%, not gross margin. Correct with revenue denominator.",
+      "selfCheck": "What is the correct gross-margin denominator?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional margin is 28/80=35%; it is not net profitability.",
+      "transferQuestion": "FICTIONAL independent transfer: Revenue $50m and cost $32m; compute gross margin and one excluded expense class.",
+      "sourceUrls": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Gross margin and consistent units: SEC financial-statement guide identifies revenue and costs. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Gross margin excludes many operating, financing, and tax costs. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_OPERATING_CASH_FLOW_VERSUS_NET_INCOME",
+      "title": "Operating cash flow versus net income",
+      "concept": "Net income and operating cash flow measure different accounting effects and should be reconciled, not treated as interchangeable.",
+      "prerequisites": "Understand accrual accounting, noncash items, working capital, and cash-flow statements.",
+      "procedure": "Read both same-period figures, identify disclosed reconciliation items, and avoid labeling either alone as cash earnings.",
+      "workedCase": "FICTIONAL: Net income is $12m and operating cash flow $7m; the $5m difference requires reconciliation, not automatic fraud inference.",
+      "limit": "One period may reflect legitimate working-capital timing or noncash adjustments.",
+      "invalidation": "HOLD when periods, currencies, continuing operations, or cash-flow classification do not match.",
+      "commonError": "Live-trading mistake: Calling a difference proof of manipulation assigns motive without evidence. Correct by inspecting filed reconciliation.",
+      "selfCheck": "Why can the two measures differ legitimately?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional $5m gap is an observation requiring causes, not a verdict.",
+      "transferQuestion": "FICTIONAL independent transfer: Net income $4m and operating cash flow $9m; calculate difference and list two possible reconciliation categories.",
+      "sourceUrls": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Operating cash flow versus net income: SEC financial-statement guide distinguishes operating cash flow and net income. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "One period may reflect legitimate working-capital timing or noncash adjustments. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CURRENT_RATIO_CLASSIFICATION",
+      "title": "Current ratio and classification",
+      "concept": "Current ratio divides current assets by current liabilities at one balance-sheet date.",
+      "prerequisites": "Understand balance sheets, current classification, ratios, seasonal timing, and nonzero denominators.",
+      "procedure": "Use same-date filed amounts, verify classification, divide current assets by nonzero current liabilities, and disclose seasonality.",
+      "workedCase": "FICTIONAL: Current assets $30m and current liabilities $20m give a current ratio of 1.5.",
+      "limit": "The ratio does not reveal asset quality, cash timing, or covenant compliance.",
+      "invalidation": "HOLD when dates differ, liabilities are zero, or classifications are not comparable.",
+      "commonError": "Live-trading mistake: Calling 1.5 proof of liquidity ignores receivable and inventory quality. Correct with component review.",
+      "selfCheck": "Which same-date amounts form the ratio?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional ratio is 30/20=1.5, with material qualitative limits.",
+      "transferQuestion": "FICTIONAL independent transfer: Current assets $18m and liabilities $24m; compute ratio and name one quality question.",
+      "sourceUrls": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Current ratio and classification: SEC financial-statement guide distinguishes current assets and liabilities. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "The ratio does not reveal asset quality, cash timing, or covenant compliance. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_DILUTED_EPS_SHARE_COUNT",
+      "title": "Diluted EPS and share count",
+      "concept": "Diluted EPS uses the issuer's applicable diluted weighted-average shares, not simply ending shares outstanding.",
+      "prerequisites": "Understand net income available to common shareholders, weighted shares, dilution, and loss-period rules.",
+      "procedure": "Use filed numerator and diluted weighted-average denominator for the same period and inspect anti-dilution treatment.",
+      "workedCase": "FICTIONAL: $10m available income divided by 5m diluted weighted-average shares gives $2.00 diluted EPS.",
+      "limit": "Potential shares and anti-dilutive treatment depend on accounting rules and period conditions.",
+      "invalidation": "HOLD when numerator, denominator, period, class, or restatement status differs.",
+      "commonError": "Live-trading mistake: Dividing by quarter-end shares can distort per-share results. Correct with the filed weighted-average denominator.",
+      "selfCheck": "Why is an ending share count not automatically valid?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional diluted EPS is $2 under matched filed inputs.",
+      "transferQuestion": "FICTIONAL independent transfer: $7.2m available income and 4.8m diluted weighted shares; compute EPS and state one caveat.",
+      "sourceUrls": [
+        "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Diluted EPS and share count: SEC financial-statement guide discusses earnings per share and share measures. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Potential shares and anti-dilutive treatment depend on accounting rules and period conditions. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_STOCK_SPLIT_PER_SHARE_COMPARABILITY",
+      "title": "Stock split and per-share comparability",
+      "concept": "A stock split changes share count and per-share price mechanically, so historical per-share comparisons need consistent adjustment.",
+      "prerequisites": "Understand split ratios, effective dates, raw versus adjusted values, and wealth invariance before costs.",
+      "procedure": "Verify official ratio and effective date, apply ratio consistently to shares and per-share values, and label raw or adjusted data.",
+      "workedCase": "FICTIONAL: Before a 3-for-1 split, 100 shares at $60 become 300 shares near $20; position value remains $6,000 before market movement.",
+      "limit": "Actual opening price can move and fractional-share handling may differ.",
+      "invalidation": "HOLD when ratio, effective date, security class, or adjustment state is missing.",
+      "commonError": "Live-trading mistake: Treating the raw drop from $60 to $20 as a 66.7% loss ignores tripled shares. Correct for the split.",
+      "selfCheck": "Which two quantities change inversely in the example?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional shares triple while theoretical per-share price divides by three.",
+      "transferQuestion": "FICTIONAL independent transfer: 80 shares at $50 undergo 2-for-1 split; compute theoretical shares, price, and value.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Stock split and per-share comparability: Investor.gov explains stock-split mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Actual opening price can move and fractional-share handling may differ. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_CASH_DIVIDEND_EX_DATE_ADJUSTMENT",
+      "title": "Cash dividend and ex-date interpretation",
+      "concept": "A cash dividend transfers value and can affect the ex-date price; raw price change alone is not total return.",
+      "prerequisites": "Understand declaration, record and ex-dates, dividend eligibility, taxes, and total return.",
+      "procedure": "Verify official dividend and ex-date, separate price return from cash distribution, and use a declared tax and reinvestment convention.",
+      "workedCase": "FICTIONAL: Price moves from $40 to $39.60 across a $0.50 dividend; raw price return is −1%, while pretax simple total return is +0.25%.",
+      "limit": "Market movement, taxes, currency, and reinvestment affect investor results.",
+      "invalidation": "HOLD when dividend amount, eligibility, prices, or corporate-action status is unverified.",
+      "commonError": "Live-trading mistake: Calling the 40-cent raw decline the entire loss omits the 50-cent distribution. Correct with total-return components.",
+      "selfCheck": "Which cash component changes the interpretation?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional total change is +$0.10 on $40, or +0.25%, before taxes and costs.",
+      "transferQuestion": "FICTIONAL independent transfer: Price falls $25 to $24.70 across a $0.40 dividend; compute raw and pretax simple total return.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Cash dividend and ex-date interpretation: Investor.gov ex-dividend resource describes dates and entitlements. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Market movement, taxes, currency, and reinvestment affect investor results. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_RIGHTS_OFFERING_DILUTION_CONTEXT",
+      "title": "Rights offering and dilution context",
+      "concept": "A rights offering changes financing and potential share count; a headline discount alone does not determine holder outcome.",
+      "prerequisites": "Understand subscription rights, record dates, exercise ratios, proceeds, dilution, and tradability.",
+      "procedure": "Read the official filing, identify eligible holders, ratio, price, dates, and potential shares; compare scenarios without assuming participation.",
+      "workedCase": "FICTIONAL: One new share per four old shares could add 2.5m shares to 10m outstanding if fully exercised, a 25% increase.",
+      "limit": "Proceeds, participation, expenses, and use of funds affect economic consequences.",
+      "invalidation": "HOLD when terms, class, exercise status, or final participation is unknown.",
+      "commonError": "Live-trading mistake: Calling a 25% share increase an automatic 25% value loss ignores proceeds and market response. Correct with full terms.",
+      "selfCheck": "What does the fictional 25% measure and not measure?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional ratio describes potential share-count increase, not automatic price loss.",
+      "transferQuestion": "FICTIONAL independent transfer: One new share per five on 20m old shares; compute maximum new shares and percent increase.",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1774342/000199937126019690/nmco-497ad_082726.htm",
+        "https://www.sec.gov/Archives/edgar/data/1502292/000119312526041360/d63554d424b3.htm"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "SEC-hosted issuer materials provide concrete rights-offering ratios and dilution disclosures; fictional 1-for-4 on 10m shares adds 2.5m if fully exercised.",
+        "limitationsAndOpenQuestions": "Issuer filings are context-specific and not SEC endorsements. Rights ratios, subscription price, full subscription, percentage ownership and economic dilution must be distinguished; do not copy prospectus text. Independently verify exact claim support, URL stability, arithmetic, publication and third-party rights before release.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false,
+        "priorContextOnlySourceUrls": [
+          "https://www.sec.gov/search-filings"
+        ],
+        "researchSourceImprovementDate": "2026-11-03",
+        "sourceTextScopeChecked": true,
+        "sourceScopeIsNotEditorialApproval": true
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_REVERSE_SPLIT_MECHANICS",
+      "title": "Reverse-split mechanics",
+      "concept": "A reverse split reduces share count and raises theoretical per-share price inversely without creating economic value by itself.",
+      "prerequisites": "Understand split ratios, fractional shares, effective dates, listings, and raw versus adjusted series.",
+      "procedure": "Verify official ratio and date, divide shares and multiply theoretical price by the ratio, then reconcile fractional treatment.",
+      "workedCase": "FICTIONAL: A 1-for-10 reverse split turns 1,000 shares near $0.80 into 100 shares near $8, preserving $800 before movement.",
+      "limit": "Rounding, cash in lieu, fees, and subsequent price movement can change actual value.",
+      "invalidation": "HOLD when ratio, eligible class, effective time, or fractional-share policy is absent.",
+      "commonError": "Live-trading mistake: Calling $0.80 to $8 a tenfold gain ignores the tenfold share reduction. Correct with position value.",
+      "selfCheck": "Why is the price increase not automatically a profit?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional share count and price move inversely; value is unchanged before other effects.",
+      "transferQuestion": "FICTIONAL independent transfer: 600 shares at $1.50 undergo 1-for-6 reverse split; compute theoretical shares, price, and value.",
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Reverse-split mechanics: Investor.gov split reference describes inverse share/price mechanics. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "Rounding, cash in lieu, fees, and subsequent price movement can change actual value. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    },
+    {
+      "code": "TALIA_TOPIC_FILING_AMENDMENT_VERSION_CONTROL",
+      "title": "Filing amendment and version control",
+      "concept": "An amended filing is a new dated source version and must not silently overwrite what was knowable earlier.",
+      "prerequisites": "Understand filing accession identifiers, amendments, timestamps, decision cutoffs, and audit trails.",
+      "procedure": "Store original and amended accession, public timestamps, changed fields, and which version was eligible for each decision.",
+      "workedCase": "FICTIONAL: Original filing May 1 reports 12 units; amendment May 10 reports 10. A May 5 decision must retain 12 as then-known.",
+      "limit": "An amendment may change only selected fields; full scope requires document comparison.",
+      "invalidation": "HOLD when accession, publication time, changed field, or decision cutoff is unverified.",
+      "commonError": "Live-trading mistake: Replacing May 1 data with May 10 data in a May 5 replay introduces lookahead. Correct with versioned evidence.",
+      "selfCheck": "Which value is eligible for a May 5 replay?",
+      "reviewExplanation": "Ungraded Talia walkthrough: fictional May 5 evidence remains the original 12-unit value; later correction is separately recorded.",
+      "transferQuestion": "FICTIONAL independent transfer: Original June 2 value 30, amendment June 8 value 27; classify evidence for June 5 and June 10 decisions.",
+      "sourceUrls": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "supplemental": true,
+      "foundationTopic": true,
+      "officialCompetency": false,
+      "independentEditorialApproved": false,
+      "status": "original_source_authored_ungraded_pending_independent_editorial_review",
+      "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
+      "editorSourceReview": {
+        "result": "DRAFT_PENDING_CLAIM_AND_INDEPENDENT_MATH_REVIEW",
+        "independentPublicationAccepted": false
+      },
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
+        "supportedScope": "Filing amendment and version control: SEC filing directory provides version access, not independent amendment reconciliation. This is a contextual reference for original fictional instruction, not endorsement of its example.",
+        "limitationsAndOpenQuestions": "An amendment may change only selected fields; full scope requires document comparison. Verify actual source-to-claim match, formula conventions, broker/issuer context, data provenance, publication and redistribution rights with an independent reviewer.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
+      }
+    }
   ]
 }

@@ -1,0 +1,177 @@
+{
+  "documentId": "SMFGU-TALIA-11-RESEARCH-CANDIDATE-001",
+  "date": "2026-11-03",
+  "version": "1.0",
+  "status": "11_SOURCE_POINTERS_RESEARCHED__NOT_INDEPENDENT_EDITORIAL_ACCEPTANCE",
+  "project": "The Stock Market: From the Ground Up",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "scope": "Foundation lessons 565,566,570,577,578,580,581,586,588,589,598",
+  "items": [
+    {
+      "ordinal": 565,
+      "code": "TALIA_TOPIC_POSITION_SIZE_FROM_RISK_BUDGET",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "researchCandidateUrls": [
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size"
+      ],
+      "whyBetter": "CME describes risk-based size from planned stop distance and account risk; 160 shares is an independent whole-share fictional case.",
+      "limitations": "CME examples cover contracts and stop references; stock whole-share size, gaps, fees and broker rules require separate validation.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 566,
+      "code": "TALIA_TOPIC_PORTFOLIO_HEAT_OPEN_RISK",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "researchCandidateUrls": [
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size",
+        "https://www.pineconnector.com/blogs/pico-blog/correlated-exposure-portfolio-heat"
+      ],
+      "whyBetter": "Risk per position is stop distance × size; open portfolio heat is the sum of non-negative planned stop losses divided by equity.",
+      "limitations": "Portfolio-heat label is an educational convention; specify initial versus current stop and do not treat stop-based risk as maximum actual loss. Secondary source is practitioner context, not an independent professional certification.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 570,
+      "code": "TALIA_TOPIC_R_MULTIPLE_REALIZED_OUTCOME",
+      "previousSourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "researchCandidateUrls": [
+        "https://vantharp.com/wp-content/uploads/2018/06/A_Short_Lesson_on_R_and_R-multiple.pdf"
+      ],
+      "whyBetter": "The Van Tharp Institute explicitly defines R-multiple as realized gain/loss divided by initial planned risk; original 225/150=1.5R arithmetic.",
+      "limitations": "Record gross-versus-net gain convention and treatment of fees. Van Tharp teaching content is reference-only, not licensed for republishing.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 577,
+      "code": "TALIA_TOPIC_SHORT_POSITION_BORROW_COST",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "researchCandidateUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51",
+        "https://www.nasdaq.com/public-policy/resource-center/short-selling-resource-hub"
+      ],
+      "whyBetter": "SEC explains borrowed shares and financing costs; Nasdaq describes stock lending fees and borrow availability.",
+      "limitations": "The 18% rate, $5,000 basis and 3/360 convention are fictional; lender fee, rebate, marking and day-count conventions depend on broker agreements.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 578,
+      "code": "TALIA_TOPIC_SHORT_SQUEEZE_RISK_NOT_SIGNAL",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "researchCandidateUrls": [
+        "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51"
+      ],
+      "whyBetter": "FINRA distinguishes reported short positions from daily short-sale volume; short interest/dated float alone does not establish future covering demand.",
+      "limitations": "Short interest and float estimates have differing timestamps and definitions; a 20% ratio is not a predictable squeeze signal.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 580,
+      "code": "TALIA_TOPIC_DAILY_LOSS_LIMIT_STATE",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "researchCandidateUrls": [
+        "https://www.cmegroup.com/content/dam/cmegroup/education/courses/files/download-trade-plan.pdf"
+      ],
+      "whyBetter": "CME trade-plan self-evaluation explicitly includes a daily total-dollar loss limit; fictional realized loss plus fees reaches the declared threshold.",
+      "limitations": "A personal educational loss-state rule is not a broker-enforced shutoff, margin rule or exchange circuit breaker; account P&L inclusion rules must be defined.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 581,
+      "code": "TALIA_TOPIC_RISK_OF_RUIN_MODEL_LIMIT",
+      "previousSourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "researchCandidateUrls": [
+        "https://pillingerworks.com/academy/risk-of-ruin/",
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/the-2-percent-rule"
+      ],
+      "whyBetter": "Risk-of-ruin models require explicit thresholds, risk size, payoff distribution, horizon and dependence assumptions; original +1R/-1R examples measure expectancy only.",
+      "limitations": "The 55% and 48% cases calculate expected R, not a numerical risk-of-ruin probability. Vendor research is illustrative; no calibrated risk-of-ruin conclusion is supported.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 586,
+      "code": "TALIA_TOPIC_RETURN_WITH_EXTERNAL_CASH_FLOW",
+      "previousSourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+      ],
+      "researchCandidateUrls": [
+        "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/rates-and-returns"
+      ],
+      "whyBetter": "CFA Institute distinguishes time-weighted from money-weighted returns when external cash flows affect a portfolio; the fictional immediate-deposit shortcut is defined explicitly.",
+      "limitations": "A 5% simple return with an immediate contribution is a narrow scenario; midperiod external flows require dated cash-flow methods, often linked TWR or MWR/IRR.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 588,
+      "code": "TALIA_TOPIC_VOLATILITY_ANNUALIZATION_ASSUMPTION",
+      "previousSourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+      ],
+      "researchCandidateUrls": [
+        "https://rpc.cfainstitute.org/research/cfa-digest/2013/11/autocorrelation-effects-on-cta-and-equity-risk-measurement-digest-summary"
+      ],
+      "whyBetter": "CFA Institute notes that daily volatility × sqrt(number of business days) assumes uncorrelated daily returns; 1.2%×sqrt(252)≈19.0% is a conditional illustration.",
+      "limitations": "Serial correlation, volatility clustering, calendar conventions, sample degrees of freedom and nonstationarity can invalidate a naive scaling.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 589,
+      "code": "TALIA_TOPIC_SURVIVORSHIP_BIAS_SAMPLE",
+      "previousSourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "researchCandidateUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+        "https://github.com/QuantConnect/Documentation/blob/master/03%20Writing%20Algorithms/01%20Key%20Concepts/10%20Research%20Guide/08%20Survivorship%20Bias.html"
+      ],
+      "whyBetter": "QuantConnect's explicit survivorship-bias section describes the danger of excluding delisted historical constituents; fictional 2/10 omission=20%.",
+      "limitations": "Research guide and source documentation support the issue, but do not certify that any specific uploaded dataset is survivorship-bias free.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    },
+    {
+      "ordinal": 598,
+      "code": "TALIA_TOPIC_RIGHTS_OFFERING_DILUTION_CONTEXT",
+      "previousSourceUrls": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "researchCandidateUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1774342/000199937126019690/nmco-497ad_082726.htm",
+        "https://www.sec.gov/Archives/edgar/data/1502292/000119312526041360/d63554d424b3.htm"
+      ],
+      "whyBetter": "SEC-hosted issuer materials provide concrete rights-offering ratios and dilution disclosures; fictional 1-for-4 on 10m shares adds 2.5m if fully exercised.",
+      "limitations": "Issuer filings are context-specific and not SEC endorsements. Rights ratios, subscription price, full subscription, percentage ownership and economic dilution must be distinguished; do not copy prospectus text.",
+      "independentPublicationAccepted": false,
+      "sourceRightsCleared": false
+    }
+  ],
+  "notes": [
+    "SEC investor bulletins, FINRA public education, CFA Institute, CME, QuantConnect and private educational explanations were researched as source pointers only.",
+    "No third-party article/chart/code/media/data republication or license grant is assumed.",
+    "Owner draft-authoring snapshot remains accepted as historical milestone; two revised source batches require new independent source/content review.",
+    "The risk-of-ruin example is expectancy arithmetic, NOT a calculated probability of ruin."
+  ]
+}

@@ -1,0 +1,30 @@
+name: Talia 11 Research-Scoped Source Remediation - Unreleased
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/talia-foundation-explanations-batch29-v1.json'
+      - 'data/talia-foundation-explanations-batch30-v1.json'
+      - 'data/talia-foundation-batches25-30-review-evidence-v1.json'
+      - 'data/talia-11-research-source-remediation-v1.json'
+      - 'tests/talia-foundation-11-source-remediation-v1.test.mjs'
+      - '.github/workflows/talia-11-context-source-remediation-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ungraded-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run 11 source and 120 original lesson checks
+        run: |
+          node --test tests/talia-foundation-11-source-remediation-v1.test.mjs tests/talia-foundation-batches25-30-evidence-register-v1.test.mjs tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs tests/talia-foundation-batches25-30-gates-v1.test.mjs
+      - name: Validate all 600 source triage records
+        run: node scripts/qa/talia-foundation-source-quality-v1.mjs

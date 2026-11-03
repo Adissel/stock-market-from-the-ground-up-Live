@@ -2,7 +2,7 @@
   "schema": "smfgu.talia.foundation.batch25-30.internal-evidence.v1",
   "documentId": "SMFGU-TALIA-BATCH25-30-RESEARCH-EVIDENCE-001",
   "project": "THE STOCK MARKET: FROM THE GROUND UP",
-  "version": "1.0",
+  "version": "1.1",
   "date": "2026-11-03",
   "repository": "Adissel/stock-market-from-the-ground-up-Live",
   "branch": "main",
@@ -46,7 +46,8 @@
     "Source redistribution/licensing and intellectual-property permissions",
     "Authenticated real-member tier/entitlement/regression acceptance",
     "Exact-commit GitHub CI and Cloudflare production verification",
-    "Structured triage for Batches 29–30 is now present; claim-by-claim verification and independent publication approval remain open"
+    "Structured triage for Batches 29–30 is now present; claim-by-claim verification and independent publication approval remain open",
+    "All eleven source remaps remain pending independent link/claim, mathematical, licensing and editorial review."
   ],
   "records": [
     {
@@ -1231,13 +1232,18 @@
       "title": "Position size from risk budget",
       "fictionalWorkedCase": "FICTIONAL: $120 risk budget and $0.75 planned risk per share give floor(120/0.75)=160 shares before costs.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "sourceResearchScope": "CME describes risk-based size from planned stop distance and account risk; 160 shares is an independent whole-share fictional case.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 566,
@@ -1245,13 +1251,19 @@
       "title": "Portfolio heat from open planned risk",
       "fictionalWorkedCase": "FICTIONAL: Open risks of $90, $140, and $70 total $300; against $20,000 equity, planned heat is 1.5%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size",
+        "https://www.pineconnector.com/blogs/pico-blog/correlated-exposure-portfolio-heat"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "sourceResearchScope": "Risk per position is stop distance × size; open portfolio heat is the sum of non-negative planned stop losses divided by equity.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 567,
@@ -1301,13 +1313,18 @@
       "title": "R-multiple realized outcome",
       "fictionalWorkedCase": "FICTIONAL: Initial risk $150 and realized net profit $225 produce +1.5R.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+        "https://vantharp.com/wp-content/uploads/2018/06/A_Short_Lesson_on_R_and_R-multiple.pdf"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/glossary"
+      ],
+      "sourceResearchScope": "The Van Tharp Institute explicitly defines R-multiple as realized gain/loss divided by initial planned risk; original 225/150=1.5R arithmetic.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 571,
@@ -1399,13 +1416,19 @@
       "title": "Short-position borrow cost",
       "fictionalWorkedCase": "FICTIONAL: $5,000 borrowed-value basis at 18% annualized for 3/360 year estimates $7.50 borrow cost.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51",
+        "https://www.nasdaq.com/public-policy/resource-center/short-selling-resource-hub"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "sourceResearchScope": "SEC explains borrowed shares and financing costs; Nasdaq describes stock lending fees and borrow availability.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 578,
@@ -1413,13 +1436,19 @@
       "title": "Short-squeeze risk is not a signal",
       "fictionalWorkedCase": "FICTIONAL: Reported short interest 4 million and dated float estimate 20 million imply 20%, but no future covering demand is known.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+        "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/short-sales"
+      ],
+      "sourceResearchScope": "FINRA distinguishes reported short positions from daily short-sale volume; short interest/dated float alone does not establish future covering demand.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 579,
@@ -1441,13 +1470,18 @@
       "title": "Daily loss-limit state",
       "fictionalWorkedCase": "FICTIONAL: Realized −$180, declared included fees −$20, and limit −$200 place the account exactly at its limit.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+        "https://www.cmegroup.com/content/dam/cmegroup/education/courses/files/download-trade-plan.pdf"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/risk-tolerance"
+      ],
+      "sourceResearchScope": "CME trade-plan self-evaluation explicitly includes a daily total-dollar loss limit; fictional realized loss plus fees reaches the declared threshold.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 581,
@@ -1455,13 +1489,19 @@
       "title": "Risk-of-ruin model limits",
       "fictionalWorkedCase": "FICTIONAL: Equal +1R/−1R outcomes yield +0.10R expectancy at 55% wins but −0.04R at 48%.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+        "https://pillingerworks.com/academy/risk-of-ruin/",
+        "https://www.cmegroup.com/education/courses/trade-and-risk-management/the-2-percent-rule"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics"
+      ],
+      "sourceResearchScope": "Risk-of-ruin models require explicit thresholds, risk size, payoff distribution, horizon and dependence assumptions; original +1R/-1R examples measure expectancy only.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 582,
@@ -1525,13 +1565,18 @@
       "title": "Return with external cash flow",
       "fictionalWorkedCase": "FICTIONAL: Account starts $10,000, receives $2,000 immediately, and ends $12,600; simple return on $12,000 invested is 5%.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+        "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/rates-and-returns"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.investor.gov/introduction-investing/getting-started/understanding-fees"
+      ],
+      "sourceResearchScope": "CFA Institute distinguishes time-weighted from money-weighted returns when external cash flows affect a portfolio; the fictional immediate-deposit shortcut is defined explicitly.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 587,
@@ -1553,13 +1598,18 @@
       "title": "Volatility annualization assumption",
       "fictionalWorkedCase": "FICTIONAL: Daily volatility 1.2% annualized with √252 is about 19.0% under the stated convention.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+        "https://rpc.cfainstitute.org/research/cfa-digest/2013/11/autocorrelation-effects-on-cta-and-equity-risk-measurement-digest-summary"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/statistics/algorithm-statistics"
+      ],
+      "sourceResearchScope": "CFA Institute notes that daily volatility × sqrt(number of business days) assumes uncorrelated daily returns; 1.2%×sqrt(252)≈19.0% is a conditional illustration.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 589,
@@ -1567,13 +1617,19 @@
       "title": "Survivorship bias in a sample",
       "fictionalWorkedCase": "FICTIONAL: Ten stocks start; two delist after large losses. Measuring only eight survivors excludes 20% of the starting names.",
       "sourceUrls": [
-        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+        "https://github.com/QuantConnect/Documentation/blob/master/03%20Writing%20Algorithms/01%20Key%20Concepts/10%20Research%20Guide/08%20Survivorship%20Bias.html"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide"
+      ],
+      "sourceResearchScope": "QuantConnect's explicit survivorship-bias section describes the danger of excluding delisted historical constituents; fictional 2/10 omission=20%.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 590,
@@ -1693,13 +1749,19 @@
       "title": "Rights offering and dilution context",
       "fictionalWorkedCase": "FICTIONAL: One new share per four old shares could add 2.5m shares to 10m outstanding if fully exercised, a 25% increase.",
       "sourceUrls": [
-        "https://www.sec.gov/search-filings"
+        "https://www.sec.gov/Archives/edgar/data/1774342/000199937126019690/nmco-497ad_082726.htm",
+        "https://www.sec.gov/Archives/edgar/data/1502292/000119312526041360/d63554d424b3.htm"
       ],
       "sourceRightsStatus": "research_candidate_not_verified_data_or_redistribution_license",
-      "sourceResearchTriageStatus": "CONTEXT_ONLY_REFERENCE_REQUIRES_STRONGER_PRIMARY_MATCH",
+      "sourceResearchTriageStatus": "SCOPED_CANDIDATE_PENDING_CLAIM_REVIEW",
       "syntheticMathScenarioGuard": "tests/talia-foundation-batches29-30-scenario-math-v1.test.mjs",
       "editorialApproved": false,
-      "sourceRightsCleared": false
+      "sourceRightsCleared": false,
+      "priorContextOnlySourceUrls": [
+        "https://www.sec.gov/search-filings"
+      ],
+      "sourceResearchScope": "SEC-hosted issuer materials provide concrete rights-offering ratios and dilution disclosures; fictional 1-for-4 on 10m shares adds 2.5m if fully exercised.",
+      "independentPublicationApproved": false
     },
     {
       "ordinal": 599,
@@ -1730,5 +1792,13 @@
       "sourceRightsCleared": false
     }
   ],
-  "reconciledSourceHead": "8cec5e287541a21b551bc568b736db60e763d9db"
+  "reconciledSourceHead": "8cec5e287541a21b551bc568b736db60e763d9db",
+  "sourceResearchRemediation": {
+    "date": "2026-11-03",
+    "totalPreviouslyContextOnly": 11,
+    "remediatedCandidatePointers": 11,
+    "stillContextOnly": 0,
+    "releaseHold": true,
+    "scope": "External source-text research and link candidates only; no universal verified claim coverage, redistribution license, standalone publication or authenticated Tutor acceptance."
+  }
 }
