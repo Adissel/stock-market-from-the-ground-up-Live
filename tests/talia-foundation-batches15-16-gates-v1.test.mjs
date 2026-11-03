@@ -33,7 +33,7 @@ test('independent fictional arithmetic spot-checks',()=>{
  near((20.1+20.3)/2,20.2);
  near(((50.1-49.9)/50)*10000,40);
  near((25.08-25)*80,6.4);
- near((10.2-10)*100-4,16);
+ near((10.2-10)*40-2-2*40/100,5.2);
  near(Math.min(8000,6000)/40000,.15);
  near(.25*.08,.02);
  near((12400-10000-2000)/10000,.04);
@@ -161,4 +161,16 @@ test('Batch16 source-specific mathematical and publication holds',()=>{
  near(10000*.073*10/365,20);near(1/4,.25);
  const validator=readFileSync(new URL('../functions/_lib/original-competency-tutor-v014100.js',import.meta.url),'utf8');
  assert.ok(validator.includes("'accruedinterest.nga.finra.org'"));
+});
+
+test('Incomplete round-trip lesson uses an actual partial exit and segregated remaining basis',()=>{
+ const g=first.guides.find(x=>x.code==='TALIA_TOPIC_DOLLAR_COST_OF_AN_INCOMPLETE_ROUND_TRIP');
+ assert.ok(g);
+ assert.match(g.workedCase,/sell only 40 shares/i);
+ assert.match(g.workedCase,/remaining 60 shares/i);
+ assert.match(g.workedCase,/5\.20 net realized gain/);
+ assert.ok(Math.abs((10.20-10)*40-2-.8-5.2)<1e-9);
+ assert.ok(Math.abs(60*10+2*.6-601.2)<1e-9);
+ assert.equal(g.independentEditorialApproved,false);
+ assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
 });

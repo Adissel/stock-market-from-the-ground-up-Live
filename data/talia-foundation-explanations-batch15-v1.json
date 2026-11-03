@@ -124,15 +124,15 @@
     {
       "code": "TALIA_TOPIC_DOLLAR_COST_OF_AN_INCOMPLETE_ROUND_TRIP",
       "title": "Dollar cost of an incomplete round trip",
-      "concept": "A round trip must account for entry and exit fees separately.",
-      "procedure": "Prerequisites: identify the required quoted units, eligible observation window and matching denominators. Multiply entry shares and price; subtract exit proceeds from cost only after subtracting eligible charges. Use only completed information available at the decision boundary.",
-      "workedCase": "FICTIONAL: Buy 100 at $10, sell 100 at $10.20, pay $2 at each side: gross $20; net $16.",
-      "limit": "Partial exits and tax treatment require additional records.",
-      "invalidation": "HOLD the calculation if the timestamps, definitions, units or required input observations are missing. Partial exits and tax treatment require additional records.",
-      "commonError": "Live-trading error: Counting only entry fees inflates net performance. Correct by rebuilding the expression from recorded inputs.",
-      "selfCheck": "Which input, unit and chronological observation boundary must be checked before using this computation?",
-      "reviewExplanation": "Ungraded guided correction: A round trip must account for entry and exit fees separately. Multiply entry shares and price; subtract exit proceeds from cost only after subtracting eligible charges. Work the fictional example: Buy 100 at $10, sell 100 at $10.20, pay $2 at each side: gross $20; net $16. The misconception is: Counting only entry fees inflates net performance. Limitation: Partial exits and tax treatment require additional records. This is not a protected assessment or trading instruction.",
-      "transferQuestion": "FICTIONAL independent transfer: Buy 30 at $15, sell at $15.50; each side costs $1: compute net. State assumptions and a condition that invalidates the result.",
+      "concept": "An incomplete round trip can include a partial exit while shares remain open; realized gain must use only the sold shares and allocated charges.",
+      "procedure": "For a completed partial exit, calculate gross realized gain on sold shares. Deduct the exit fee and a disclosed proportional allocation of the entry fee to those shares. Preserve unsold shares and their remaining basis separately; do not treat net cash invested as a fully realized loss.",
+      "workedCase": "FICTIONAL: Buy 100 shares at $10 plus $2 entry fee; sell only 40 shares at $10.20 with $2 exit fee. Realized gross gain on the sold 40 is $8; allocate $0.80 entry fee and $2 exit fee, giving $5.20 net realized gain. The remaining 60 shares are still open, with $601.20 allocated original cost basis.",
+      "limit": "The remaining 60 shares are unsold. Current market value, borrow costs, taxes, actual execution, tax-lot selection and partial-fill accounting require separate evidence.",
+      "invalidation": "HOLD if sold share count, fee allocation, acquisition lot or exit fill is unknown. Never describe a partial exit as a completed 100-share round trip.",
+      "commonError": "Treating the sale proceeds for 40 shares as the result of a fully closed 100-share trade creates a false realized profit or loss; allocate fees to sold shares and keep the 60-share open position separate.",
+      "selfCheck": "Which 40 shares were sold, how much entry fee is allocated to them, and what original basis remains on the unsold 60 shares?",
+      "reviewExplanation": "Ungraded guided correction: a partial exit is not a completed round trip. Fictional buy 100 at $10 plus $2 entry fee and sell 40 at $10.20 with $2 exit fee: realized gross gain $8, proportional entry cost $0.80, exit cost $2, and net realized gain $5.20. The other 60 shares stay open with an allocated original cost basis of $601.20. This is not a protected assessment or a guarantee of actual fills, fees or tax treatment.",
+      "transferQuestion": "FICTIONAL independent transfer: Buy 30 shares at $15 with $1 entry fee, then sell only 10 at $15.50 with $1 exit fee. Allocate entry costs proportionally, calculate partial realized gain, and state the remaining 20-share cost basis and limitations.",
       "sourceUrls": [
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
       ],
@@ -153,10 +153,11 @@
         "internalResearchDate": "2026-11-03",
         "classification": "CLAIM_RELEVANT_PUBLIC_RESEARCH_POINTER_NOT_INDEPENDENT_ACCEPTANCE",
         "supportedScope": "The SEC fee bulletin distinguishes transaction fees charged when buying and selling, and their effect on net returns.",
-        "limitationsAndOpenQuestions": "The existing example describes a fully completed 100-share round trip despite the lesson title saying incomplete; terminology needs independent editorial correction. Neither fill nor final net return is guaranteed.",
+        "limitationsAndOpenQuestions": "Corrected the title-example contradiction: the sale now covers 40 of 100 shares, not an entire round trip. The proportional fee allocation is an explicit educational assumption; real tax-lot basis, brokerage charges and settlement require separate review.",
         "independentMathAccepted": false,
         "independentPublicationApproved": false,
-        "sourceRedistributionRightsCleared": false
+        "sourceRedistributionRightsCleared": false,
+        "editorialCorrection": "INTERNAL_PARTIAL_EXIT_EXAMPLE_REPAIRED_INDEPENDENT_REVIEW_PENDING"
       }
     },
     {
