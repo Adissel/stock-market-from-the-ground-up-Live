@@ -39,6 +39,7 @@ on:
       - 'tests/professional-learning-lab-source-closeout-v1.test.mjs'
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
+      - 'scripts/build-pages.sh'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
   pull_request:
     branches: [main]
@@ -77,6 +78,7 @@ on:
       - 'tests/professional-learning-lab-source-closeout-v1.test.mjs'
       - 'data/learning-lab-engine-feature-audit-v1.json'
       - 'supabase/migrations/20261102_learning_lab_edition_workspaces_v1.sql'
+      - 'scripts/build-pages.sh'
       - '.github/workflows/learning-lab-premium-editions-v1.yml'
   workflow_dispatch:
 permissions:
