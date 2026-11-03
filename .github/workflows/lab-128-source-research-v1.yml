@@ -1,0 +1,32 @@
+name: Learning Lab — 128 Source/Regulatory Research Integrity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/lab-128-source-regulatory-research-v1.json'
+      - 'docs/qa/2026-11-03_LAB_128_SOURCE_AND_REGULATORY_RESEARCH_V1.md'
+      - 'tests/lab-128-topic-source-integrity-v1.test.mjs'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab-128-source-research-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/lab-128-source-regulatory-research-v1.json'
+      - 'docs/qa/2026-11-03_LAB_128_SOURCE_AND_REGULATORY_RESEARCH_V1.md'
+      - 'tests/lab-128-topic-source-integrity-v1.test.mjs'
+      - 'docs/research/stockstotrade/canonical_419_lab_source_candidates_v2.csv'
+      - '.github/workflows/lab-128-source-research-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate original canonical 419 and Wave 2 128-source holds
+        run: node --test tests/lab-128-topic-source-integrity-v1.test.mjs
