@@ -142,8 +142,8 @@
   return element;
  }
  function clean(){
-  globalThis.CrownlightAcademyEnterpriseResearchV1?.scrub?.();
   academySupplementChart?.dispose?.();academySupplementChart=null;
+  globalThis.CrownlightAcademyEnterpriseResearchV1?.scrub?.();
   globalThis.CrownlightMemberLayoutsV1?.resetAcademy?.();
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
   const assessmentNode=get('academy-official-assessment');if(assessmentNode){assessmentNode.replaceChildren();assessmentNode.hidden=true;}
