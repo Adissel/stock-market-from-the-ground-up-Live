@@ -55,7 +55,7 @@
       "reviewExplanation": "Correct reasoning tracks cash and price separately; no inference that the dividend offsets all volatility or execution costs is justified.",
       "transferQuestion": "FICTIONAL TRANSFER: Entry $25, exit $24, eligible dividend $0.20. Compute price-only and cash-inclusive returns separately.",
       "sourceUrls": [
-        "https://www.investor.gov/introduction-investing"
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
       ],
       "supplemental": true,
       "foundationTopic": true,
@@ -75,12 +75,22 @@
       },
       "sourceScopeReview": {
         "date": "2026-11-01",
-        "claimSpecificScope": "Scope: Investor.gov confirms returns may arise from price changes and cash distributions, but ex-dividend eligibility alone does not measure total return.",
-        "sourceCandidate": "https://www.investor.gov/introduction-investing",
-        "primaryPageScopeChecked": true,
+        "claimSpecificScope": "Investor.gov's stock investment-product material distinguishes capital appreciation and dividend income and warns that share prices can decline. The formula (exit−entry+eligible cash distribution)/entry is an independently authored fictional holding-period illustration, not a calculation approved by the SEC.",
+        "sourceCandidate": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+        "primaryPageScopeChecked": false,
         "editorialStatus": "ON_HOLD",
         "mathIndependentlyAccepted": false,
         "independentPublicationAccepted": false
+      },
+      "previousGenericSourceUrl": "https://www.investor.gov/introduction-investing",
+      "sourceResearchTriage": {
+        "internalResearchDate": "2026-11-03",
+        "classification": "DIVIDEND_AND_CAPITAL_RETURN_SOURCE_TRIAGE_ONLY",
+        "supportedScope": "Investor.gov's stocks information explains investment return may involve capital appreciation and dividend distributions. This is conceptual context for a fictional return calculation, not independent endorsement of its exact denominators or entitlement timing.",
+        "limitationsAndOpenQuestions": "Stock ownership on the relevant ex-dividend/record date, actual cash entitlement, adjusted/unadjusted prices, fees, taxes and currency must be established separately. Independent calculation and actual public reference URL review remain pending.",
+        "independentMathAccepted": false,
+        "independentPublicationApproved": false,
+        "sourceRedistributionRightsCleared": false
       }
     },
     {
