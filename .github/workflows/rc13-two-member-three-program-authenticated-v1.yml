@@ -1,0 +1,32 @@
+# Targeted genuine GoTrue QA two-member ungraded Academy API acceptance.
+# This workflow neither grants rights nor creates official assessments.
+name: RC13 Two-Member Three-Program Authentic Academy API
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live-academy-two-member-three-programs-qa-v1.mjs'
+      - '.github/workflows/rc13-two-member-three-program-authenticated-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  two-member-trio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse the dedicated production QA script
+        run: node --check tests/live-academy-two-member-three-programs-qa-v1.mjs
+      - name: Six new genuine signed two-user beta Academy API save/reload paths
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-academy-two-member-three-programs-qa-v1.mjs
