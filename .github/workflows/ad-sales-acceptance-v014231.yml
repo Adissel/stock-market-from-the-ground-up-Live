@@ -1,6 +1,12 @@
 name: Advertising Sales Security & Readiness
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functions/api/ad-slot.js'
+      - 'tests/test_ad_placement_delivery_v014235.mjs'
+      - '.github/workflows/ad-sales-acceptance-v014231.yml'
   push:
     branches: [main]
     paths:

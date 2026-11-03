@@ -4,18 +4,27 @@ import {onRequest as adSlot} from '../functions/api/ad-slot.js';
 import fs from 'node:fs';
 const root='https://training.example',session='11111111-1111-4111-8111-111111110355';
 const env={SUPABASE_URL:'https://oxihglyfgzywsupnyicb.supabase.co',SUPABASE_PUBLISHABLE_KEY:'pub_ci',SUPABASE_SECRET_KEY:'sb_secret_ci'};
-function server({lifetime=false,owner=false,limit=false,delivery=true,carousel=false,affiliate=false}={}){
+function server({lifetime=false,owner=false,limit=false,delivery=true,carousel=false,affiliate=false,canonicalPlan=null,staleLifetimeGrant=false,staleNullSubscription=false,rpcFailure=false,synthetic=false,adFreePass=false}={}){
  const old=globalThis.fetch,calls=[];
  globalThis.fetch=async(input,opts={})=>{
   const url=new URL(String(input)),p=url.pathname;calls.push({path:p,url:url.toString(),method:opts.method||'GET'});
   let rows=[];
   if(p==='/auth/v1/user')rows={id:'11111111-1111-4111-8111-111111110006'};
+  else if(p==='/rest/v1/rpc/my_platform_access'){
+   if(rpcFailure)return new Response(JSON.stringify({message:'temporary RPC unavailable'}),{status:503});
+   rows={authenticated:true,planCode:canonicalPlan||(lifetime||owner?'LIFETIME':'FREE'),
+    adFree:lifetime||owner,staffRoles:owner?['OWNER']:[],
+    synthetic,productionEntitlements:!synthetic};
+  }
   else if(p.endsWith('/admin_user_roles'))rows=owner?[{role_code:'OWNER',expires_at:null}]:[];
   else if(p.endsWith('/gu_ad_sales_settings_v014226'))rows=[{ad_delivery_enabled:delivery,accepting_payments:delivery}];
   else if(p.endsWith('/ad_placements'))rows=[{placement_code:'HOME_INLINE',active:true,metadata:{carousel_enabled:carousel,...(affiliate?{affiliate:true,provider:'TradingView',affiliate_campaign_id:3,affiliate_creative_id:4}:{})}}];
   else if(p.endsWith('/plan_ad_policies'))rows=[{ads_enabled:true,allowed_slots:['HOME_INLINE'],
    max_impressions_per_session:3,max_impressions_per_24h:6,minimum_minutes_between_ads:10}];
-  else if(p.endsWith('/user_plan_grants'))rows=lifetime?[{plan_code:'LIFETIME',status:'active',ends_at:null}]:[];
+  else if(p.endsWith('/user_plan_grants'))rows=lifetime||staleLifetimeGrant?[{plan_code:'LIFETIME',status:'active',ends_at:null}]:[];
+  else if(p.endsWith('/site_subscriptions'))rows=staleNullSubscription?
+   [{plan_code:'FULL_MONTHLY',status:'active',current_period_end:null}]:[];
+  else if(p.endsWith('/gu_sparks_adfree_passes_v1'))rows=adFreePass?[{expires_at:'2099-01-01T00:00:00Z'}]:[];
   else if(p.endsWith('/advertisers'))rows=[{id:3,name:'TradingView',status:'active'}];
   else if(p.endsWith('/ad_campaigns')&&affiliate&&url.searchParams.get('id')==='eq.3')rows=[{id:3,advertiser_id:3,amount_cents:0}];
   else if(p.endsWith('/ad_campaigns'))rows=[{id:7,last_verified_invoice:'in_abc123ABC',
@@ -231,4 +240,50 @@ test('carousel UI and administrator state originate in first-party source',()=>{
  assert.match(admin,/set_placement_carousel/);
  assert.match(api,/await owner\(c,request\)/);
  assert.match(api,/action==='set_placement_carousel'/);
+});
+
+test('expired/inactive paid source must not override current Free canonical plan',async()=>{
+ const m=server({staleLifetimeGrant:true,staleNullSubscription:true,delivery:false});
+ try{
+  const req=new Request(root+url,{headers:{authorization:'Bearer QA_MEMBER'}});
+  const d=await (await adSlot({request:req,env})).json();
+  assert.equal(d.placeholderAvailable,true,'Free account should not inherit stale Lifetime ad-free claims');
+  assert(m.calls.some(x=>x.path.endsWith('/rpc/my_platform_access')),
+   'Advertising must request authenticated canonical account membership');
+  assert(m.calls.some(x=>x.url.includes('access_code=eq.FREE')),
+   'Ad policy must follow effective Free plan, not stale subscription/grant');
+  assert(!m.calls.some(x=>/user_plan_grants|site_subscriptions/.test(x.path)),
+   'Advertising must not recalculate effective membership from raw grants');
+ }finally{m.restore()}
+});
+test('canonical Full Monthly membership selects its own advertising policy',async()=>{
+ const m=server({canonicalPlan:'FULL_MONTHLY',delivery:false});
+ try{
+  const d=await (await adSlot({request:new Request(root+url,{headers:{authorization:'Bearer QA_PAID'}}),env})).json();
+  assert.equal(d.placeholderAvailable,true);
+  assert(m.calls.some(x=>x.url.includes('access_code=eq.FULL_MONTHLY')));
+ }finally{m.restore()}
+});
+test('unavailable canonical RPC fails closed without treating verified JWT as Free',async()=>{
+ const m=server({rpcFailure:true,delivery:false});
+ try{
+  const d=await (await adSlot({request:new Request(root+url,{headers:{authorization:'Bearer QA_MEMBER'}}),env})).json();
+  assert.equal(d.placeholderAvailable,false);
+  assert(!m.calls.some(x=>x.path.endsWith('/plan_ad_policies')),
+   'RPC outage must not trigger a fallback to the Free advertising policy');
+ }finally{m.restore()}
+});
+test('synthetic/showcase access never inherits ordinary Free ad inventory',async()=>{
+ const m=server({synthetic:true,delivery:false});
+ try{
+  const d=await (await adSlot({request:new Request(root+url,{headers:{authorization:'Bearer QA_SHOWCASE'}}),env})).json();
+  assert.equal(d.placeholderAvailable,false);
+ }finally{m.restore()}
+});
+test('non-expired purchased ad-free pass overrides canonical Free status',async()=>{
+ const m=server({adFreePass:true,delivery:false});
+ try{
+  const d=await (await adSlot({request:new Request(root+url,{headers:{authorization:'Bearer QA_PASS'}}),env})).json();
+  assert.equal(d.placeholderAvailable,false);
+ }finally{m.restore()}
 });

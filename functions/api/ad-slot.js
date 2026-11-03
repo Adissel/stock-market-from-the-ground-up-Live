@@ -44,29 +44,38 @@ async function planCode(c,request){
  const authorization=request.headers.get('authorization')||'';
  const jwt=/^Bearer\s+([^\s]+)$/i.exec(authorization)?.[1];
  if(!jwt)return 'SIGNED_OUT';
+ // Validate the genuine caller first. Invalid tokens never inherit anonymous ads.
  const userResponse=await fetch(c.base+'/auth/v1/user',{
- headers:{apikey:c.pub,authorization:'Bearer '+jwt},cache:'no-store'});
- if(!userResponse.ok)return null; // invalid JWT never gets signed-out ads
- const user=await userResponse.json();if(!/^[a-f0-9-]{36}$/i.test(user?.id||''))return null;
- const roles=await query(c,'admin_user_roles?select=role_code,expires_at&user_id=eq.'+encodeURIComponent(user.id));
- if(roles?.some(r=>r.role_code==='OWNER'&&(!r.expires_at||Date.parse(r.expires_at)>Date.now())))return 'OWNER';
- const [membership,grants]=await Promise.all([
-  query(c,'site_subscriptions?select=plan_code,status,current_period_end&user_id=eq.'+encodeURIComponent(user.id)+'&status=in.(active,trialing)&order=created_at.desc&limit=30'),
-  query(c,'user_plan_grants?select=plan_code,status,ends_at&user_id=eq.'+encodeURIComponent(user.id)+'&status=in.(active,trialing)&limit=40')
- ]);
- const active=new Set([
-  ...(membership||[]).filter(x=>!x.current_period_end||Date.parse(x.current_period_end)>Date.now()).map(x=>x.plan_code),
-  ...(grants||[]).filter(x=>!x.ends_at||Date.parse(x.ends_at)>Date.now()).map(x=>x.plan_code)
- ]);
- if(active.has('LIFETIME'))return 'LIFETIME';
- // Active Sparks passes suppress sponsor delivery and impressions on all devices.
+  headers:{apikey:c.pub,authorization:'Bearer '+jwt},cache:'no-store'});
+ if(!userResponse.ok)return null;
+ const user=await userResponse.json().catch(()=>null);
+ if(!/^[a-f0-9-]{36}$/i.test(user?.id||''))return null;
+
+ // This endpoint must use the exact member-bound account resolver used by
+ // Dashboard/Profile. Raw subscriptions/grants can include inactive plans,
+ // expired periods or a recurring subscription with no valid end date.
+ const memberResponse=await fetch(c.base+'/rest/v1/rpc/my_platform_access',{
+  method:'POST',cache:'no-store',
+  headers:{apikey:c.pub,authorization:'Bearer '+jwt,
+   accept:'application/json','content-type':'application/json'},
+  body:'{}'});
+ if(!memberResponse.ok)return null;
+ const resolved=await memberResponse.json().catch(()=>null);
+ const member=Array.isArray(resolved)?resolved[0]:resolved;
+ if(member?.authenticated!==true||member?.synthetic===true||
+    member?.productionEntitlements===false||typeof member?.adFree!=='boolean')return null;
+ const code=String(member.planCode||'').trim();
+ if(!/^[A-Z][A-Z0-9_]{1,70}$/.test(code))return null;
+ if(Array.isArray(member.staffRoles)&&member.staffRoles.includes('OWNER'))return 'OWNER';
+ // Any plan with an effective ad-free entitlement must suppress placeholders
+ // and delivery, regardless of its marketing plan label.
+ if(member.adFree===true)return 'LIFETIME';
+ // Keep independent purchased ad-free passes effective until their own expiry.
  const pass=await query(c,'gu_sparks_adfree_passes_v1?select=expires_at&user_id=eq.'+
-  encodeURIComponent(user.id)+'&expires_at=gt.'+encodeURIComponent(new Date().toISOString())+'&limit=1');
+  encodeURIComponent(user.id)+'&expires_at=gt.'+
+  encodeURIComponent(new Date().toISOString())+'&limit=1');
  if(pass?.length)return 'SPARKS_ADFREE';
- if(active.has('FULL_ANNUAL'))return 'FULL_ANNUAL';
- if(active.has('FULL_MONTHLY'))return 'FULL_MONTHLY';
- if(active.has('A_LA_CARTE')||active.has('PICK_WHAT_YOU_WANT'))return 'A_LA_CARTE';
- return 'FREE';
+ return code;
 }
 async function placeholderEligibility(c,slot,path,request){
  // Placeholder inventory is independent from the LIVE advertising release switch.
