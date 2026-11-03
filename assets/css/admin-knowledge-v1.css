@@ -25,3 +25,10 @@ body{background:#081725;color:#e8f1f8} .ak-shell{max-width:1500px;margin:0 auto;
 .ak-shell :focus-visible{outline:3px solid #e2cf8e;outline-offset:3px}
 @media(max-width:1050px){.ak-columns{grid-template-columns:1fr}.ak-list{position:static;max-height:370px}.ak-plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.ak-grid,.ak-list-filters,.ak-plans{grid-template-columns:1fr}}
+
+.ak-list-row{display:flex;align-items:flex-start;gap:9px}
+.ak-list-row>input[type=checkbox]{width:18px;height:18px;margin-top:16px;accent-color:#80d6d6;flex-shrink:0}
+.ak-list-row>.ak-list-item{min-width:0;flex:1}
+.ak-bulk{display:grid;gap:10px;background:#091b2c;border:1px solid #3f7188;border-radius:9px;padding:12px;margin:14px 0}
+.ak-bulk label{margin:0}
+.ak-bulk .btn{width:100%}
