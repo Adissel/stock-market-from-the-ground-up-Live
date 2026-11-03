@@ -1,0 +1,75 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SEC-SCANNER-20261103",
+    "version": "1.0",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "date": "2026-11-03",
+    "status": "RESEARCH ONLY, NO PRODUCTION LIVE APPROVAL",
+    "googleDriveLocation": "Not created",
+    "googleDriveId": null,
+    "githubPath": "data/crownlight-scanner-sec-catalyst-research-v1.json"
+  },
+  "featureMapping": [
+    {
+      "code": "SEC_IDENTITY",
+      "source": "SEC_EDGAR_PRIMARY",
+      "field": "ticker+CIK",
+      "prerequisite": "Unique ticker identity",
+      "level": "Basic proposed",
+      "readOnly": true
+    },
+    {
+      "code": "FILING_ACCEPTED_24H",
+      "source": "SEC_EDGAR_PRIMARY",
+      "field": "acceptance timestamp",
+      "prerequisite": "Entitled original SEC API + complete SEC issuer record",
+      "level": "Plus proposed",
+      "readOnly": true
+    },
+    {
+      "code": "FILING_ACCEPTED_72H",
+      "source": "SEC_EDGAR_PRIMARY",
+      "field": "acceptance timestamp",
+      "prerequisite": "Entitled original SEC API + complete SEC issuer record",
+      "level": "Plus proposed",
+      "readOnly": true
+    },
+    {
+      "code": "FILING_FORM",
+      "source": "SEC_EDGAR_PRIMARY",
+      "field": "form number",
+      "prerequisite": "Unique accession and verified archive link",
+      "level": "Plus proposed",
+      "readOnly": true
+    }
+  ],
+  "education": {
+    "academy": "SEC Filings 7-Day Boot Camp, 13 advanced original filing cases",
+    "crosswalk": [
+      "DT-C21-L02",
+      "DT-C22-L02",
+      "DT-C23-L01",
+      "DT-C23-L02",
+      "DT-C23-L03",
+      "DT-C24-L01",
+      "DT-C24-L02",
+      "DT-C24-L03"
+    ],
+    "editorialAcceptance": "NOT VERIFIED"
+  },
+  "constraints": {
+    "noRealtimeSectorScan": true,
+    "noUngatedSecApi": true,
+    "noHistoricalEntrySignal": true,
+    "secAcceptanceNotFirstPublicTime": true,
+    "windowHours": [
+      24,
+      72
+    ],
+    "globalBudgetPreserved": true,
+    "noPublicMarketDataRedistribution": true,
+    "championsUntouched": true,
+    "challengersUnpromoted": true,
+    "nonapprovedPricingUnaffected": true
+  }
+}
