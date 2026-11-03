@@ -15,8 +15,13 @@ for(let i=0;i<20;i++){
  assert.equal(d.sourceDay,i+6,'Canonical 30-source mapping');
  assert.equal(d.programCode,'practicum90');
  assert.equal(d.phase,'learn');
- assert.strictEqual(d.lesson,s,'Engine must expose exact original teaching source');
- assert.equal(d.sourceStatus,'original_practicum90_learning_batch02_ungraded_editorial_review_pending');
+ for(const [key,value] of Object.entries(s))
+  assert.strictEqual(d.lesson[key],value,'Engine must preserve original teaching field '+key);
+ if(i<15)assert.equal(d.lesson.supplementarySourceStatus,
+  'ORIGINAL_PRACTICUM90_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
+ else assert.strictEqual(d.lesson,s,'Unchanged D21-D25 must retain exact original teaching source');
+ assert.equal(d.sourceStatus,i<15?'original_practicum90_advanced_source_authored_technical_acceptance_pending':
+  'original_practicum90_learning_batch02_ungraded_editorial_review_pending');
  assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
  assert.equal(s.day,i+6);assert.equal(s.topicSourceDay,i+6);
  assert.equal(s.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');

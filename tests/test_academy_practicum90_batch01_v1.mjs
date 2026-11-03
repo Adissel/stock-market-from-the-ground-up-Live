@@ -10,8 +10,10 @@ const uniqueExamples=new Set(),uniqueTransfers=new Set();
 for(let i=0;i<5;i++){
  const d=p.curriculum[i],c=cases[i];
  assert.equal(d.day,i+1);assert.equal(d.sourceDay,i+1);
- assert.equal(d.phase,'learn');assert.strictEqual(d.lesson,c);
- assert.equal(d.sourceStatus,'original_practicum90_learning_day_specific_ungraded_editorial_review_pending');
+ assert.equal(d.phase,'learn');
+ for(const [key,value] of Object.entries(c))assert.strictEqual(d.lesson[key],value,'Frozen field '+key+' D'+(i+1));
+ assert.equal(d.lesson.supplementarySourceStatus,'ORIGINAL_PRACTICUM90_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING');
+ assert.equal(d.sourceStatus,'original_practicum90_advanced_source_authored_technical_acceptance_pending');
  assert.equal(d.officiallyGraded,false);assert.equal(d.masteryAwarded,false);
  assert.equal(c.day,i+1);assert.equal(c.topicSourceDay,i+1);
  assert.equal(c.status,'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING');
