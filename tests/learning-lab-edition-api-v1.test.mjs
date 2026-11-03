@@ -8,7 +8,9 @@ const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_SECRET_KEY:'sb_secre
  ENGINE_LAB_PROFESSIONAL_RELEASED:'true',ENGINE_LEARNING_ENTERPRISE_RELEASED:'true'};
 const until='2099-01-01T00:00:00.000Z';
 function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',edition='ADVANCED',
- family='learning',expiresAt=until,revoked=false,grant=true}={}){
+ family='learning',expiresAt=until,revoked=false,grant=true,
+ store='site_subscriptions',startsAt='2026-01-01T00:00:00Z',
+ endsAt=until}={}){
  const original=globalThis.fetch,calls=[];
  const res=x=>new Response(JSON.stringify(x),{status:200,headers:{'content-type':'application/json'}});
  globalThis.fetch=async(url,options={})=>{
@@ -18,12 +20,16 @@ function fixture({memberId=actor,active=true,tool=true,plan='FOUNDING_30',editio
   if(u.pathname==='/rest/v1/admin_user_flags'||u.pathname==='/rest/v1/admin_user_roles')return res([]);
   if(u.pathname==='/rest/v1/rpc/user_has_tool_access')return res(tool);
   if(u.pathname==='/rest/v1/gu_product_access_config_v1')return res([]);
-  if(u.pathname==='/rest/v1/site_subscriptions')return res([{
-   plan_code:plan,status:active?'active':'canceled',current_period_end:until,
+  const row={plan_code:plan,status:active?'active':'canceled',
    metadata:{engine_edition_grants_v1:grant?{
      [family]:{active:true,edition,expiresAt,revoked}
-   }:{}}
-  }]);
+   }:{}}};
+  if(u.pathname==='/rest/v1/site_subscriptions')
+   return res(store==='site_subscriptions'?[{...row,
+    current_period_start:startsAt,current_period_end:endsAt}]:[]);
+  if(u.pathname==='/rest/v1/user_plan_grants')
+   return res(store==='user_plan_grants'?[{...row,
+    starts_at:startsAt,ends_at:endsAt}]:[]);
   if(u.pathname==='/rest/v1/competency_definitions')return res([
    {competency_code:'EMA_CONTEXT',metadata:{prerequisites:['CANDLE_READING']}},
    {competency_code:'CANDLE_READING',metadata:{prerequisites:[]}}
@@ -131,5 +137,40 @@ test('Malformed body and GET are rejected without membership service calls',asyn
  assert.equal(bad.status,400);
  const get=await onRequest({request:new Request('https://local.test/api/learning-lab-edition-exercise'),env});
  assert.equal(get.status,405);assert.equal(f.calls.length,0);
+ }finally{f.restore()}
+});
+
+test('Authoritative active user_plan_grants metadata works without site subscriptions',async()=>{
+ const f=fixture({store:'user_plan_grants',plan:'FOUNDING_60',edition:'PROFESSIONAL',family:'lab'});
+ try{
+  const r=await onRequest({request:request(form('PROFESSIONAL','lab')),env});
+  assert.equal(r.status,200);assert.equal((await r.json()).result.edition,'PROFESSIONAL');
+  assert(f.calls.some(x=>x.pathname==='/rest/v1/user_plan_grants'));
+  assert(f.calls.some(x=>x.pathname==='/rest/v1/site_subscriptions'));
+  assert(f.calls.find(x=>x.pathname==='/rest/v1/user_plan_grants').search.includes('user_id=eq.'));
+ }finally{f.restore()}
+});
+test('User-plan grants remain fail closed for revoked, expired, future or missing grants',async()=>{
+ const variants=[
+  {revoked:true},{expiresAt:'2020-01-01T00:00:00Z'},
+  {endsAt:'2020-01-01T00:00:00Z'},
+  {startsAt:'2099-01-01T00:00:00Z'},{active:false},{grant:false},
+  {plan:'FOUNDING_14'}
+ ];
+ for(const variant of variants){
+  const f=fixture({store:'user_plan_grants',plan:'FOUNDING_60',
+   edition:'PROFESSIONAL',family:'lab',...variant});
+  try{
+   const r=await onRequest({request:request(form('PROFESSIONAL','lab')),env});
+   assert.equal(r.status,403,JSON.stringify(variant));
+  }finally{f.restore()}
+ }
+});
+test('Lifetime user-plan grant requires explicit unexpired engine grant even with no plan end',async()=>{
+ const f=fixture({store:'user_plan_grants',plan:'LIFETIME',family:'learning',
+  edition:'ENTERPRISE',endsAt:null});
+ try{
+  const r=await onRequest({request:request(form('ENTERPRISE','learning')),env});
+  assert.equal(r.status,200);
  }finally{f.restore()}
 });
