@@ -11,7 +11,7 @@ BEGIN
    RAISE EXCEPTION 'Article input must be an object' USING ERRCODE='22023';
  END IF;
  IF EXISTS (
-  SELECT 1 FROM unnest(ARRAY['slug','title','summary','subject','learning_level',
+  SELECT 1 FROM unnest(ARRAY['slug','title','summary','subject',
    'definition','procedure','exercise','solution','counterexample','limitations','application']) field
   WHERE length(trim(coalesce(d->>field,'')))<24
  ) THEN RAISE EXCEPTION 'Missing or unusually short article-specific input' USING ERRCODE='23514'; END IF;
