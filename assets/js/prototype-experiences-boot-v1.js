@@ -7,7 +7,7 @@
  const params=new URLSearchParams(location.search);
  const requested=params.get('experience');
  // Default to the production-style chart prototype; keep explicit classic access.
- const page=params.get('view')==='classic'?null:['a','b','c'].includes(requested)?requested:'a';
+ const page=params.get('view')==='classic'?null:requested==='map'?'map':['a','b','c'].includes(requested)?requested:'a';
  if(!page)return;
  const protectedApp=document.getElementById('pt-app');
  const host=document.getElementById('pt-experiences-root');
@@ -19,10 +19,17 @@
   if(stopped||protectedApp.hidden||loading||disposed)return;
   loading=true;
   try{
-   const module=await import('/assets/js/prototype-experiences-v1.bundle.js');
-   if(stopped||protectedApp.hidden)return;
-   if(typeof module.mountExperienceSuite!=='function')throw Error('React experience mount export missing');
-   disposed=module.mountExperienceSuite(host,page);
+   if(page==='map'){
+    const module=await import('/assets/js/prototype-learning-constellation-v1.js');
+    if(stopped||protectedApp.hidden)return;
+    if(typeof module.mountLearningConstellation!=='function')throw Error('Learning constellation mount export missing');
+    disposed=module.mountLearningConstellation(host);
+   }else{
+    const module=await import('/assets/js/prototype-experiences-v1.bundle.js');
+    if(stopped||protectedApp.hidden)return;
+    if(typeof module.mountExperienceSuite!=='function')throw Error('React experience mount export missing');
+    disposed=module.mountExperienceSuite(host,page);
+   }
    host.hidden=false;parent.dataset.experienceView='true';
   }catch(error){
    host.hidden=false;parent.dataset.experienceView='true';
