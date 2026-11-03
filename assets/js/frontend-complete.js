@@ -220,64 +220,27 @@ function inventoryAdvanced(){const host=qs('#v12-inventory');if(!host||host.data
  qsa('.admin-card',host).forEach(card=>{let drag=null;qsa('.admin-list-row',card).forEach(row=>{if(!row.dataset.feInvId)return;row.addEventListener('dragstart',()=>{drag=row;row.classList.add('fe-dragging')});row.addEventListener('dragend',()=>{row.classList.remove('fe-dragging');qsa('.fe-drop-target',card).forEach(x=>x.classList.remove('fe-drop-target'))});row.addEventListener('dragover',e=>{e.preventDefault();if(row!==drag)row.classList.add('fe-drop-target')});row.addEventListener('dragleave',()=>row.classList.remove('fe-drop-target'));row.addEventListener('drop',async e=>{e.preventDefault();row.classList.remove('fe-drop-target');if(!drag||drag===row)return;const rect=row.getBoundingClientRect();row.parentNode.insertBefore(drag,e.clientY<rect.top+rect.height/2?row:row.nextSibling);const rows=qsa('.admin-list-row',card).filter(x=>x.dataset.feInvId);const type=rows[0]?.dataset.feInvType;if(type){try{await adminApi('inventory_reorder',{entity_type:type,ids:rows.map(x=>x.dataset.feInvId)});toast('Display order saved.','ok')}catch(err){toast(err.message,'bad')}}})})})}
 function adminPreviewButton(d){const actions=qs('.admin-dialog-actions',d);if(!actions||qs('[data-fe-preview]',actions))return;const b=document.createElement('button');b.type='button';b.className='btn secondary';b.dataset.fePreview='1';b.textContent='Preview';b.onclick=()=>{const grid=qs('.v11-form-grid,#admin-dialog-body',d);const vals={};qsa('[data-k]',grid).forEach(el=>vals[el.dataset.k]=el.type==='checkbox'?el.checked:el.value);let p=qs('#fe-admin-preview');if(!p){p=document.createElement('dialog');p.id='fe-admin-preview';p.className='fe-dialog';document.body.appendChild(p)}p.innerHTML=`<div class="fe-dialog-head"><h2>Preview</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><div class="eyebrow">${esc(vals.publication_status||vals.status||'Preview')}</div><h1>${esc(vals.title||vals.name||vals.short_title||'Untitled')}</h1><p>${esc(vals.description||vals.summary||vals.body||'No description entered.')}</p><div class="fe-product-meta-list"><div><strong>Active</strong><br>${vals.active===false?'No':'Yes'}</div><div><strong>Public</strong><br>${vals.public_visible===false?'No':'Yes'}</div></div></div>`;qs('.fe-dialog-close',p).onclick=()=>p.close();p.showModal()};actions.insertBefore(b,actions.firstChild)}
 function simulatorEnhance(){
- if(!/\/simulator(\.html)?$/.test(path))return;
+ if(!/\\/simulator(\\.html)?$/.test(path))return;
  const main=qs('main .wrap,main');if(!main||qs('#fe-sim-workspace'))return;
  const h=qs('h1',main),bar=document.createElement('section');bar.id='fe-sim-workspace';bar.className='v13-card';
- bar.innerHTML='<div class="v13-section-head"><div><div class="eyebrow">Workspace</div><h3>Simulator Layout & Presets</h3><p>Save a preferred learning/replay workspace without changing historical data.</p></div><div class="actions"><label>Preset <select id="fe-sim-preset"><option value="learning">Learning</option><option value="replay">Replay</option><option value="tape">Tape Study</option><option value="multi">Multi-Timeframe</option><option value="review">Review</option><option value="mobile">Mobile</option></select></label><button class="btn secondary" type="button" id="fe-sim-layout">Edit layout</button></div></div>';
+ bar.innerHTML='<div class="v13-section-head"><div><div class="eyebrow">Workspace</div><h3>Simulator Display Presets</h3><p>Change the viewing preset without changing the instructional sequence or historical data.</p></div><div class="actions"><label>Preset <select id="fe-sim-preset"><option value="learning">Learning</option><option value="replay">Replay</option><option value="tape">Tape Study</option><option value="multi">Multi-Timeframe</option><option value="review">Review</option><option value="mobile">Mobile</option></select></label></div></div>';
  h?.parentNode?.insertBefore(bar,h.nextSibling);
- const sel=qs('#fe-sim-preset',bar),saved=local.get('sim-preset','learning');
+ const sel=qs('#fe-sim-preset',bar),stored=local.get('sim-preset','learning');
+ const allowed=['learning','replay','tape','multi','review','mobile'];
+ const saved=allowed.includes(stored)?stored:'learning';
  sel.value=saved;document.body.dataset.feSimPreset=saved;
- sel.onchange=()=>{local.set('sim-preset',sel.value);document.body.dataset.feSimPreset=sel.value;savePref('simulator',{preset:sel.value});toast(sel.options[sel.selectedIndex].text+' workspace selected.','ok')};
- const layout=qs('.sim-layout'),toggle=qs('#fe-sim-layout',bar);
- if(!layout){toggle.onclick=()=>toast('Simulator panels are not loaded yet.','warn');return}
- const panels=()=>qsa(':scope > *',layout);
- const saveOrder=()=>local.set('sim-layout-order',panels().map(p=>p.className));
- let dragged=null;
- const setEditing=enabled=>{
-  layout.classList.toggle('fe-sortable',enabled);
-  for(const panel of panels()){
-   // Make the HANDLE draggable, never the chart or whole interactive panel.
+ sel.onchange=()=>{if(!allowed.includes(sel.value))return;local.set('sim-preset',sel.value);document.body.dataset.feSimPreset=sel.value;savePref('simulator',{preset:sel.value});toast(sel.options[sel.selectedIndex].text+' workspace selected.','ok')};
+ // Required instructional order is canonical. Do not enable arbitrary DOM
+ // reordering, including old cached orders or drag events from legacy controls.
+ const layout=qs('.sim-layout');
+ if(layout){
+  layout.classList.remove('fe-sortable');
+  qsa(':scope > *',layout).forEach(panel=>{
    panel.draggable=false;
-   let controls=qs(':scope > .fe-sim-move-controls',panel);
-   if(!controls){
-    controls=document.createElement('div');controls.className='fe-sim-move-controls';
-    controls.innerHTML='<button type="button" class="fe-sim-move-handle" draggable="true" aria-label="Drag to reorder simulator panel">Move</button><button type="button" data-shift="-1" aria-label="Move simulator panel earlier">Up</button><button type="button" data-shift="1" aria-label="Move simulator panel later">Down</button>';
-    panel.prepend(controls);
-    const handle=qs('.fe-sim-move-handle',controls);
-    handle.addEventListener('dragstart',event=>{
-     if(!layout.classList.contains('fe-sortable')){event.preventDefault();return}
-     dragged=panel;event.dataTransfer?.setData('text/plain','simulator-panel');
-    });
-    handle.addEventListener('dragend',()=>{dragged=null});
-    qsa('[data-shift]',controls).forEach(button=>button.onclick=()=>{
-     const siblings=panels(),index=siblings.indexOf(panel),next=siblings[index+Number(button.dataset.shift)];
-     if(!next)return;
-     layout.insertBefore(panel,Number(button.dataset.shift)<0?next:next.nextSibling);
-     saveOrder();
-    });
-   }
-   controls.hidden=!enabled;
-   const handle=qs('.fe-sim-move-handle',controls);if(handle)handle.draggable=enabled;
-  }
- };
- layout.addEventListener('dragover',event=>{
-  if(dragged&&layout.classList.contains('fe-sortable'))event.preventDefault();
- });
- layout.addEventListener('drop',event=>{
-  if(!dragged||!layout.classList.contains('fe-sortable'))return;
-  const panel=event.target?.closest?.('.sim-layout > *');
-  if(!panel||panel.parentElement!==layout||panel===dragged)return;
-  event.preventDefault();
-  const rect=panel.getBoundingClientRect();
-  layout.insertBefore(dragged,event.clientY<rect.top+rect.height/2?panel:panel.nextSibling);
-  dragged=null;saveOrder();
- });
- toggle.onclick=()=>{
-  const enabled=!layout.classList.contains('fe-sortable');
-  setEditing(enabled);
-  toggle.setAttribute('aria-pressed',String(enabled));
-  toast(enabled?'Layout edit enabled. Use Move handles or Up/Down buttons.':'Layout edit closed.','info');
- };
+   qs(':scope > .fe-sim-move-controls',panel)?.remove();
+  });
+ }
+ local.del('sim-layout-order');
 }
 function membershipCompare(){if(!/\/membership(\.html)?$/.test(path))return;const plans=qs('#membership-plans');if(!plans)return;const apply=()=>qsa('.v11-plan',plans).forEach(card=>{if(qs('[data-fe-compare]',card))return;const b=document.createElement('button');b.type='button';b.className='btn secondary';b.dataset.feCompare='1';b.textContent='Compare impact';b.onclick=()=>{const name=qs('.eyebrow',card)?.textContent||'Membership',price=qs('.v11-price',card)?.textContent||'';let d=qs('#fe-plan-compare');if(!d){d=document.createElement('dialog');d.id='fe-plan-compare';d.className='fe-dialog';document.body.appendChild(d)}d.innerHTML=`<div class="fe-dialog-head"><h2>${esc(name)}</h2><button class="fe-dialog-close">×</button></div><div class="fe-dialog-body"><p class="v13-price">${esc(price)}</p><p>Before checkout, the platform will show the exact features you gain or lose, renewal timing, cancellation state, and any payment-provider calculated proration or credit.</p><div class="fe-state"><strong>No membership change is applied from this preview.</strong></div></div>`;qs('.fe-dialog-close',d).onclick=()=>d.close();d.showModal()};card.appendChild(b)});apply();new MutationObserver(apply).observe(plans,{childList:true,subtree:true})}
 function shareExport(){const main=qs('main .wrap,main');if(!main||/\/(signin|create-account|checkout|admin)(\.html)?$/.test(path))return;const head=qs('.fe-page-actions',main);if(!head)return;if(!qs('[data-fe-share]',head)){const s=document.createElement('button');s.className='btn secondary';s.type='button';s.dataset.feShare='1';s.textContent='Share';s.onclick=async()=>{const data={title:document.title,url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);toast('Link copied.','ok')}}catch{}};head.appendChild(s)}if(/\/(journal|lab-player|dashboard)(\.html)?$/.test(path)&&!qs('[data-fe-print]',head)){const p=document.createElement('button');p.className='btn secondary';p.type='button';p.dataset.fePrint='1';p.textContent='Print / PDF';p.onclick=()=>window.print();head.appendChild(p)}}
