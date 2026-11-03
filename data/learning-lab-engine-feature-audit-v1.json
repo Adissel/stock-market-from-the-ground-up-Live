@@ -3,7 +3,7 @@
   "documentId": "SMFGU-LEARNING-LAB-FEATURE-AUDIT-001",
   "project": "THE STOCK MARKET: FROM THE GROUND UP",
   "date": "2026-11-03",
-  "version": "1.1",
+  "version": "1.2",
   "sourceRepository": "Adissel/stock-market-from-the-ground-up-Live",
   "branch": "main",
   "status": "SOURCE_EVIDENCE_ONLY_NO_PREMIUM_RELEASE",
@@ -90,12 +90,12 @@
     "lab_ENTERPRISE": {
       "total": 8,
       "integrated": 0,
-      "partial": 0,
-      "prototype": 6,
+      "partial": 1,
+      "prototype": 5,
       "not_implemented": 2,
       "integrated_percent": 0,
       "released_features": 0,
-      "automation_file_references": 6
+      "automation_file_references": 7
     }
   },
   "features": [
@@ -956,11 +956,11 @@
       "engine": "lab",
       "edition": "ENTERPRISE",
       "title": "Enterprise cross-course research stage journey",
-      "source_status": "prototype",
-      "evidence_file": "functions/_lib/learning-lab-enterprise-journey-v1.js",
-      "existing_test_file": "tests/learning-lab-enterprise-journey-v1.test.mjs",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/enterprise-learning-lab-journey-browser-v1.mjs",
       "acceptance_criterion": "Map actual entitled research lessons into progression.",
-      "unresolved": "Owner-approved original source candidate composing seven canonical Academy program/day references, separately verified training and Lab visibility, and no inferred book entitlement. Read-only source only; genuine member, independent research rights, accessibility and production release acceptance are open.",
+      "unresolved": "Source member UI is wired to the independently gated Enterprise Lab API and now renders seven actual Academy stages, separately locked course links, published optional Labs and explicit book-entitlement warnings. Exact-SHA source/auth/API and mocked mobile Chromium passed on 1048e22620bc2c8b22420f25a5bad0b4775e2e9d. Genuine two-account Enterprise Lab, screen reader, content rights, exact-current-SHA sitewide deployment and independent release acceptance remain OPEN. No public Enterprise release.",
       "real_member_accepted": false,
       "independent_release_accepted": false
     },

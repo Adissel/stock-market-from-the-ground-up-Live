@@ -20,6 +20,7 @@ on:
       - 'functions/api/learning-lab-enterprise-journey.js'
       - 'tests/learning-lab-enterprise-journey-api-v1.test.mjs'
       - 'tests/enterprise-learning-lab-journey-browser-v1.mjs'
+      - 'tests/enterprise-learning-lab-source-closeout-v1.test.mjs'
       - 'tests/learning-lab-enterprise-journey-v1.test.mjs'
       - 'tests/learning-lab-edition-two-account-contract-v1.test.mjs'
       - 'tests/advanced-learning-lab-source-closeout-v1.test.mjs'
@@ -65,6 +66,8 @@ jobs:
         run: node --test tests/learning-lab-enterprise-journey-v1.test.mjs
       - name: Verify Enterprise server authorizations and fail-closed Lab registry
         run: node --test tests/learning-lab-enterprise-journey-api-v1.test.mjs
+      - name: Verify Enterprise Learning and Lab source closeout without release
+        run: node --test tests/enterprise-learning-lab-source-closeout-v1.test.mjs
       - name: Verify member UI source integration and accessibility fallbacks
         run: node --test tests/learning-lab-edition-member-surface-v1.test.mjs
       - name: Install pinned Chromium test runtime
