@@ -54,6 +54,16 @@ for(const a of actors){
  assert.equal(r.status,200);assert.equal(r.body.authorized,true,'BLOCKED: valid temporary training grant missing');
  console.log('PASS '+a.name+' genuine signed member and positive expiring training access');
 }
+// Current-sha Pages deployment may follow the queued CI job.
+let qaRouteReady=false;
+for(let trial=1;trial<=24;trial++){
+ const probe=await get(actors[0],'tape10');
+ if(probe.status===200){qaRouteReady=true;break;}
+ if(probe.status!==404)throw Error('Unexpected prerelease QA beta response HTTP '+probe.status);
+ if(trial<24)await new Promise(resolve=>setTimeout(resolve,10000));
+}
+assert(qaRouteReady,'RC13 QA scope not deployed before bounded 4-minute deadline');
+console.log('PASS expiring production QA beta course route became available without general release');
 const guest=await req(origin+'/api/bootcamp-academy?program=tape10');
 assert([401,403,404].includes(guest.status),'Guest beta course denial required');
 for(const a of actors){

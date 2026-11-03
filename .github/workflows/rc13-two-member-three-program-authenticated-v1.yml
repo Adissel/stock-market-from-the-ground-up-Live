@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'tests/live-academy-two-member-three-programs-qa-v1.mjs'
+      - 'functions/api/bootcamp-academy.js'
+      - 'tests/test_rc13_expiring_qa_beta_source_v1.mjs'
       - '.github/workflows/rc13-two-member-three-program-authenticated-v1.yml'
   workflow_dispatch:
 permissions:
@@ -21,6 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate expiring QA beta source gates
+        run: node tests/test_rc13_expiring_qa_beta_source_v1.mjs
       - name: Parse the dedicated production QA script
         run: node --check tests/live-academy-two-member-three-programs-qa-v1.mjs
       - name: Six new genuine signed two-user beta Academy API save/reload paths

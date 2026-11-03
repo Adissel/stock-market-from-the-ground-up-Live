@@ -10,6 +10,19 @@ const HEADERS={'content-type':'application/json; charset=utf-8','cache-control':
 const respond=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:HEADERS});
 const fault=(reason,status=400)=>Object.assign(new Error(reason),{status});
 const newCourses=new Set(['tape10','indicators10','filings7']);
+// RC13 temporary Owner-delegated QA-only beta scope. The member's normal
+// server-validated ONDEMAND_TRAINING entitlement MUST also be active. The
+// source deadline is no later than the audited 90-minute grant expiry.
+const RC13_QA_EXPIRES_AT=Date.parse('2026-11-03T07:05:09Z');
+const RC13_QA_USERS=new Set([
+ 'f42f9301-18e6-43a3-8531-32d371fd22c1',
+ 'bf3d5823-946d-4478-8d0f-cbea33495e5b'
+]);
+const rc13QaBeta=(env,code,id,authorized)=>newCourses.has(code)&&
+ env?.ACADEMY_THREE_CAMPS_BETA_ENABLED==='true'&&
+ env?.ACADEMY_THREE_CAMPS_ENABLED!=='true'&&authorized===true&&
+ typeof id==='string'&&RC13_QA_USERS.has(id.toLowerCase())&&
+ Date.now()<RC13_QA_EXPIRES_AT;
 const released=env=>env?.ACADEMY_THREE_CAMPS_ENABLED==='true';
 const allowed=(code,env,userId)=>Object.hasOwn(academyByCode,code)&&
  (!newCourses.has(code)||released(env)||academyBetaCourse(env,code,userId));
@@ -39,7 +52,7 @@ function sameOrigin(request){
  const site=request.headers.get('sec-fetch-site');
  if(site&&!['same-origin','none'].includes(site))throw fault('Cross-site changes are denied.',403);
 }
-async function readInput(request,env,userId){
+async function readInput(request,env,userId,trainingAuthorized){
  const declared=Number(request.headers.get('content-length')||0);
  if(declared>5000)throw fault('Request is too large.',413);
  const body=await request.text();
@@ -47,7 +60,7 @@ async function readInput(request,env,userId){
  let data;
  try{data=JSON.parse(body)}catch{throw fault('Invalid JSON request.')}
  if(!data||typeof data!=='object'||Array.isArray(data))throw fault('Invalid Academy request.');
- if(!allowed(data.program,env,userId))throw fault('Unknown Academy program. The existing 30-day course has a separate route.');
+ if(!allowed(data.program,env,userId)&&!rc13QaBeta(env,data.program,userId,trainingAuthorized))throw fault('Unknown Academy program. The existing 30-day course has a separate route.');
  const plan=academyByCode[data.program];
  if(!['enroll','start','save_reflection'].includes(data.action))throw fault('Unknown progress action.');
  if(data.program==='foundations30'&&data.action!=='enroll')throw fault('The existing 30-day learning service owns all day-progress updates.');
@@ -79,21 +92,22 @@ export async function onRequest({request,env}){
   const auth=await toolAccess(env,request,'ONDEMAND_TRAINING');
   let form=null;
   if(request.method==='POST'){
-   form=await readInput(request,env,auth.userId);
+   form=await readInput(request,env,auth.userId,auth.authorized);
   }
   const requestedCode=request.method==='GET'?url.searchParams.get('program'):form.program;
+  const rc13Beta=rc13QaBeta(env,requestedCode,auth.userId,auth.authorized);
   // Keep unpublished course codes undiscoverable to non-testers, including
   // otherwise valid paid members, until the general-release switch is on.
-  if(newCourses.has(requestedCode)&&!allowed(requestedCode,env,auth.userId))
+  if(newCourses.has(requestedCode)&&!allowed(requestedCode,env,auth.userId)&&!rc13Beta)
    throw fault('Unknown Academy program.',404);
   const eligibleFree=requestedCode==='free5'&&
    auth.freeEligible===true;
-  const eligibleBeta=academyBetaCourse(env,requestedCode,auth.userId)&&auth.freeEligible===true;
+  const eligibleBeta=(academyBetaCourse(env,requestedCode,auth.userId)||rc13Beta)&&auth.freeEligible===true;
   if(!auth.userId||(!auth.authorized&&!eligibleFree&&!eligibleBeta))
    throw fault(auth.reason||'Authorized member training access required.',403);
   if(request.method==='GET'){
    const code=url.searchParams.get('program');
-   if(!allowed(code,env,auth.userId))throw fault('Unknown Academy program.',404);
+   if(!allowed(code,env,auth.userId)&&!rc13Beta)throw fault('Unknown Academy program.',404);
    if(code==='foundations30'){
     const rows=await db(env,'gu_bootcamp_academy_enrollments_v014168?select=status,program_version&user_id=eq.'+
      encodeURIComponent(auth.userId)+'&program_code=eq.foundations30&limit=1');
