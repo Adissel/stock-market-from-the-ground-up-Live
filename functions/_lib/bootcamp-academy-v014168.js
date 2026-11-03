@@ -32,6 +32,7 @@ import {practicum90DepthDays41to60} from './academy-practicum90-depth-days41-60-
 import {practicum90DepthDays61to80} from './academy-practicum90-depth-days61-80-v1.js';
 import {practicum90DepthDays81to90} from './academy-practicum90-depth-days81-90-v1.js';
 import {truth5Depth} from './academy-truth5-depth-v1.js';
+import {watchlist7Depth} from './academy-watchlist7-depth-v1.js';
 import {risk60LearnBatch01,risk60SourceDays} from './academy-risk60-learning-batch01-v1.js';
 import {risk60DepthInitialV1} from './academy-risk60-depth-initial-v1.js';
 import {risk60DepthFollowupV1} from './academy-risk60-depth-followup-v1.js';
@@ -421,6 +422,10 @@ function dayFor(d,i){
    method:[...truth5Lessons[i].sourceProcedure],
    limitation:source.caution+' '+truth5Lessons[i].error+' No independent graded mastery or verified historical feed is inferred.',
    remediation:truth5Lessons[i].reviewGuide
+  }:{}),
+  ...(d.code==='watchlist7'?{
+   lesson:Object.freeze({...first22DayLessons.watchlist7[i],...watchlist7Depth(first22DayLessons.watchlist7[i],i+1)}),
+   sourceStatus:'original_watchlist7_advanced_source_authored_technical_acceptance_pending'
   }:{})
  });
 }
