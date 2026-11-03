@@ -154,6 +154,33 @@ async function exportJson(){
   setTimeout(()=>URL.revokeObjectURL(url),2000);msg(items.length+' article(s) exported, including drafts for administrative backup.');
  }catch(err){msg(err.message,true)}
 }
+function parseCsv(content){
+ const rows=[];let row=[],cell='',quoted=false;
+ const source=content.replace(/^\uFEFF/,'');
+ for(let i=0;i<source.length;i++){
+  const char=source[i],next=source[i+1];
+  if(char==='"'){if(quoted&&next==='"'){cell+='"';i++}else quoted=!quoted}
+  else if(char===','&&!quoted){row.push(cell);cell=''}
+  else if((char==='\n'||char==='\r')&&!quoted){
+   if(char==='\r'&&next==='\n')i++;
+   row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell='';
+  }else cell+=char;
+ }
+ if(quoted)throw new Error('CSV has an unclosed quoted field.');
+ row.push(cell);if(row.some(x=>x.trim()))rows.push(row);
+ if(rows.length<2)throw new Error('CSV requires a header and at least one article.');
+ const headers=rows.shift().map(x=>x.trim().toLowerCase());
+ if(!headers.includes('title'))throw new Error('CSV header must include title.');
+ return rows.map(r=>{
+  const item={};headers.forEach((h,i)=>item[h]=r[i]||'');
+  item.tags=asText(item.tags).split('|').map(x=>x.trim()).filter(Boolean);
+  item.access_plans=asText(item.access_plans).split('|').filter(Boolean);
+  const urls=asText(item.source_urls).split('|').map(x=>x.trim()).filter(Boolean);
+  item.sources=urls.map((url,i)=>({title:'Imported source '+(i+1),url}));
+  item.sort_order=Number(item.sort_order)||100;
+  return item;
+ });
+}
 async function upload(ev){
  const file=ev.target.files?.[0];if(!file)return;
  ev.target.value='';
@@ -163,6 +190,8 @@ async function upload(ev){
   if(file.name.toLowerCase().endsWith('.json')){
    const parsed=JSON.parse(content);
    items=Array.isArray(parsed)?parsed:Array.isArray(parsed.articles)?parsed.articles:[parsed];
+  }else if(file.name.toLowerCase().endsWith('.csv')){
+   items=parseCsv(content);
   }else{
    items=[{title:file.name.replace(/\.(md|txt)$/i,'').replace(/[-_]/g,' ').trim(),
     subject:'Uncategorized',learning_level:'beginner',body_markdown:content,summary:'Imported research draft.'}];
@@ -221,6 +250,7 @@ $('ak-select-visible').addEventListener('click',()=>{
  drawList();
 });
 $('ak-bulk-apply').addEventListener('click',bulkAssign);
+$('ak-clear-selection').addEventListener('click',()=>{state.selected.clear();drawList()});
 $('ak-new').addEventListener('click',newDoc);
 $('ak-reload').addEventListener('click',()=>load());
 $('ak-export').addEventListener('click',exportJson);
