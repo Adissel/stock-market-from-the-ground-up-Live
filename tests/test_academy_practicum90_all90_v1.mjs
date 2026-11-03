@@ -21,7 +21,7 @@ for(let i=0;i<90;i++){
  assert.equal(day.day,i+1,'Canonical day identifier');
  assert.equal(day.sourceDay,source,'Canonical thirty-source mapping');
  assert.equal(day.phase,phase,'Correct learning phase');
- if(i<60){
+ if(i<80){
   for(const [key,value] of Object.entries(lesson))
    assert.strictEqual(day.lesson[key],value,'Frozen original Practicum90 field '+key+' day '+day.day);
   assert.equal(day.lesson.supplementarySourceStatus,
