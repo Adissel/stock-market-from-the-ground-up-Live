@@ -25,7 +25,8 @@ assert.throws(()=>E.validate(r('price','EQ','Infinity')),/Finite/);
 assert.throws(()=>E.validate({type:'rule',field:'price',op:'BETWEEN',value:8,maxValue:2}),/BETWEEN/);
 assert.throws(()=>E.validate(g('AND')),/1–12/);
 assert.throws(()=>E.validate(g('AND',...Array.from({length:13},()=>r('price','GTE',0)))),/1–12/);
-assert.throws(()=>E.validate(g('AND',...Array.from({length:12},()=>g('AND',...Array.from({length:4},()=>r('price','GTE',0))))),/Maximum 40/);
+const tooMany=g('AND',...Array.from({length:12},()=>g('AND',...Array.from({length:4},()=>r('price','GTE',0)))));
+assert.throws(()=>E.validate(tooMany),/Maximum 40/);
 const rows=[a,{...a,symbol:'BBB',change_5m_pct:12},{...a,symbol:'CCC',change_5m_pct:''},
  {...a,symbol:'DDD',change_5m_pct:5},{...a,symbol:'AAA'},
  {...a,symbol:'INVALID',price:''},{...a,symbol:'LOW',change_5m_pct:-3}];
