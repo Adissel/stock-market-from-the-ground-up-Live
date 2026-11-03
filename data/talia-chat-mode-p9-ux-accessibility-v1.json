@@ -1,0 +1,178 @@
+{
+  "schema": "smfgu.talia.chatmode.p9-ux-a11y-contract.v1",
+  "documentId": "SMFGU-TALIA-CHAT-P9-UX-A11Y-001",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "repo": "Adissel/stock-market-from-the-ground-up-Live",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "status": "CHAT_MODE_UI_COPY_AND_ACCESSIBILITY_SPECIFICATION_COMPLETE_REAL_ASSISTIVE_TECH_APPROVAL_HOLD",
+  "source": "src/tutor/TaliaClassroom.tsx",
+  "css": "assets/css/talia-classroom.css (validate exact current path before editing)",
+  "target": "WCAG 2.2 AA design target, not certified",
+  "copy": {
+    "Header": "Talia Market Tutor — Your market learning instructor",
+    "Intro": "Ask a question, examine completed fictional market data, and practice your reasoning. Tutor lessons are educational and ungraded.",
+    "Source label": "Source-grounded instruction · Reference and as-of date shown where verified",
+    "Fictional label": "FICTIONAL TRAINING DATA — Not a live security, executed trade or forecast",
+    "VWAP proxy": "OHLCV HLC3-based VWAP proxy. Not exact transaction-price VWAP.",
+    "Save off": "Save Tutor responses to your private history (off by default)",
+    "Progress": "This practice does not record an official grade or award mastery.",
+    "Assess safe": "I can explain the method, but protected assessment answers and private rubrics remain unavailable.",
+    "Membership": "Your current verified membership determines which advanced tools are available. Ordinary explanations remain available for your accessible lessons.",
+    "AI cost": "Source-grounded teaching does not require an external AI key or payment for an explanation."
+  },
+  "errorStates": [
+    {
+      "code": "ERR_AUTH",
+      "memberText": "Your session has expired. Sign in again to continue your private lesson.",
+      "state": "FAIL_CLOSED",
+      "mustNot": "Render private transcript or retry with expired token"
+    },
+    {
+      "code": "ERR_ACCESS",
+      "memberText": "This learning feature is not included in your current authorized access.",
+      "state": "FAIL_CLOSED",
+      "mustNot": "Unlock the requested premium feature from a client flag"
+    },
+    {
+      "code": "ERR_SOURCE",
+      "memberText": "Talia cannot verify that source or observation for this example. You can continue with an original fictional case.",
+      "state": "DEGRADED_SOURCE_ONLY",
+      "mustNot": "Invent a supporting quotation, chart print, grade or trade"
+    },
+    {
+      "code": "ERR_CHART_CUTOFF",
+      "memberText": "The selected candle was not complete at this decision point. Choose an earlier completed candle.",
+      "state": "SAFE_RETRY",
+      "mustNot": "Show later high, low, close or volume"
+    },
+    {
+      "code": "ERR_MODEL_LIMIT",
+      "memberText": "Optional AI assistance is unavailable. Source-grounded explanations and ordinary practice remain available.",
+      "state": "SOURCE_ONLY",
+      "mustNot": "Charge member, prompt for API key or enable paid calls"
+    },
+    {
+      "code": "ERR_SAVE",
+      "memberText": "The conversation could not be saved. Your current unsaved explanation remains available in this session.",
+      "state": "NON_DECEPTIVE",
+      "mustNot": "Claim a persisted record exists"
+    },
+    {
+      "code": "ERR_HISTORY",
+      "memberText": "Your saved history cannot be loaded. Check your sign-in and try again.",
+      "state": "SAFE_RETRY",
+      "mustNot": "Show another account's exchanges or cached private data"
+    },
+    {
+      "code": "ERR_ASSESS",
+      "memberText": "I can explain the method and what evidence to examine, but I cannot reveal a protected assessment answer.",
+      "state": "FORMATIVE_GENERAL",
+      "mustNot": "Reveal key, hidden grade or unrevealed case"
+    }
+  ],
+  "acceptanceChecklist": [
+    {
+      "id": "UX-01",
+      "area": "Semantic conversation",
+      "requirement": "Transcript is a named chronological list with stable speaker identity and language; updates announced without repetitive full-log live region",
+      "evidence": "Keyboard and screen-reader reads two sequential turns correctly"
+    },
+    {
+      "id": "UX-02",
+      "area": "Input focus",
+      "requirement": "On send, focus stays predictable; errors announced in status region, not only by color; stop cancels without showing late answer",
+      "evidence": "Tab, Shift+Tab, Enter and screen-reader status verification"
+    },
+    {
+      "id": "UX-03",
+      "area": "Voice/reading",
+      "requirement": "No autonomous audio; meaning and OHLC evidence available as readable text; label time zone, units and chart source",
+      "evidence": "Nonvisual Tutor/chart learning journey complete"
+    },
+    {
+      "id": "UX-04",
+      "area": "Candle alternative",
+      "requirement": "Completed candle high/low/open/close/volume, numerical value, source, timestamp, timeframe and reveal cutoff accessible via a keyboard-operable ledger; no blind start",
+      "evidence": "Keyboard selects 1/3/5m data and names selected candle exactly"
+    },
+    {
+      "id": "UX-05",
+      "area": "Chart interaction",
+      "requirement": "Mouse wheel zoom, drag pan, pointer release, one-candle reveal, keyboard equivalent and right buffer; no sticky dragging or future data",
+      "evidence": "Real browser with mouse/pointer touch keyboard at each supported screen width"
+    },
+    {
+      "id": "UX-06",
+      "area": "Responsive layout",
+      "requirement": "Prefer stacked mobile layout and minimum readable candle/text sizing; split/chart/tutor focus controls must remain reachable without horizontal overflow",
+      "evidence": "390px mobile, tablet and 1440px desktop, 200% zoom and reduced width"
+    },
+    {
+      "id": "UX-07",
+      "area": "Color and theme",
+      "requirement": "Preserve approved dark Neon/Quantum or green/black identity, with contrast, non-color distinction and reduced motion; never force white default",
+      "evidence": "Contrast measured against actual rendered theme and color-blind interpretation"
+    },
+    {
+      "id": "UX-08",
+      "area": "Accessibility motions",
+      "requirement": "Disable nonessential motion and flashing when prefers-reduced-motion; use focus-visible indicators and logical region order",
+      "evidence": "Reduced-motion and accessibility browser checks; independent assistive-technology reviewer"
+    },
+    {
+      "id": "UX-09",
+      "area": "Learning states",
+      "requirement": "Distinguish source-only, original fictional, historical authorized, unavailable and protected Assess; uncertainty in output is text-labeled",
+      "evidence": "Snapshot and screen reader states across all modes and sources"
+    },
+    {
+      "id": "UX-10",
+      "area": "Consent controls",
+      "requirement": "Save-history checkbox unselected by default, explicit before saving; labeling explains unsaved vs saved and new topic not deletion",
+      "evidence": "Two-account consent/history persistence and deletion path review"
+    },
+    {
+      "id": "UX-11",
+      "area": "Entitlement locks",
+      "requirement": "Unavailable premium action visibly locked and keyboard discoverable with reason, do not remove Foundation free explanation",
+      "evidence": "Foundation/paid/downgrade browser tests and API 403 matches UI"
+    },
+    {
+      "id": "UX-12",
+      "area": "Protected Assess",
+      "requirement": "During Assess the Tutor can teach general method but cannot display expected response or hidden rubric; 'Reveal/Skip' governed by Lab engine",
+      "evidence": "Adversarial prompt tests and independent curricular review"
+    },
+    {
+      "id": "UX-13",
+      "area": "Chart-Tutor sync",
+      "requirement": "Selected candle and Tutor answer describe identical completed evidence cutoff and disclose proxy vs print VWAP",
+      "evidence": "Timestamp/volume/indicator parity on 1/3/5m and late-print negative"
+    },
+    {
+      "id": "UX-14",
+      "area": "Recovery and offline",
+      "requirement": "Network errors preserve non-sensitive composer text locally for session only; do not imply save or send; source-only bounded fallback when allowed",
+      "evidence": "Simulated API 401/403/429/503 with no private leaks"
+    },
+    {
+      "id": "UX-15",
+      "area": "Screen reader",
+      "requirement": "Independent NVDA/JAWS/VoiceOver read/review on member flow; role, live announcements, modal/menus, chart data, focus changes verified",
+      "evidence": "Recorded real assistive-tech review, no fabricated certification"
+    }
+  ],
+  "previousV4Evidence": {
+    "browserChecks": "20 PASS 1 BLOCKED on pinned original build (not current SHA)",
+    "existingSkipLink": "18/18 built-static runs; not independent screen-reader pass",
+    "positiveStaff": "BLOCKED",
+    "releaseGate": "V4 2/5 accepted = 40% unchanged"
+  },
+  "observations": [
+    "Current classroom has source-only saved opt-in, 1/3/5 minute fictional OHLC chart and keyboard OHLC ledger in original pinned-browser report.",
+    "Actual current merged source still requires exact-head mobile, focus and screen reader QA.",
+    "Source-only string assertions and unit tests cannot substitute for genuine assistive technology."
+  ],
+  "openIndependentA11yReview": true
+}

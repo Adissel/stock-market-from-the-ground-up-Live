@@ -1,0 +1,201 @@
+{
+  "schema": "smfgu.talia.chatmode.p8-privacy-rights-cost-register.v1",
+  "documentId": "SMFGU-TALIA-CHAT-P8-GOVERNANCE-001",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "repo": "Adissel/stock-market-from-the-ground-up-Live",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "status": "CHAT_MODE_SOURCE_USE_PRIVACY_COST_DECISIONS_SPECIFIED_SEPARATE_LEGAL_AND_LIVE_SECURITY_ACCEPTANCE_OPEN",
+  "classificationLegend": {
+    "FROZEN_SCOPE": "Previously controlling Owner decision",
+    "RELEASE_GATED": "Specified acceptance, actual member security test outstanding",
+    "OPEN_LEGAL_PRODUCT_REVIEW": "Not settled by an internal decision record",
+    "SOURCE_TERMS_REVIEW_HOLD": "Provider terms need separate approval",
+    "LEGAL_REVIEW_HOLD": "Independent intellectual property/commercial legal review",
+    "SOURCE_USAGE_CONTRACT": "Specific upstream access constraints must be met"
+  },
+  "decisions": [
+    {
+      "id": "SEC-01",
+      "area": "Identity",
+      "decision": "Tutor interactive endpoints require current authenticated eligible member, server-issued identity and tool access; deny anonymous, suspended, deleted, showcase and stale session.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "functions/api/member-tool-access.js",
+        "functions/api/market-tutor-v01492.js"
+      ],
+      "release": "Authenticated real member and negative-role tests"
+    },
+    {
+      "id": "SEC-02",
+      "area": "Entitlement",
+      "decision": "Resolve Foundation, Advanced, Professional, Enterprise effective edition server-side using entitlement, add-on, release flag, and versioned audit; visual dropdown never grants privilege.",
+      "classification": "FROZEN_SCOPE_RUNTIME_HOLD",
+      "proof": [
+        "data/talia-four-edition-evidence-audit-v1.json",
+        "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md"
+      ],
+      "release": "Two member paid/free upgrade/downgrade and forged tier requests"
+    },
+    {
+      "id": "PRIV-01",
+      "area": "Saving consent",
+      "decision": "Saving Tutor conversation exchanges is strictly affirmative opt-in, default off. A new unsaved topic must not be represented as deletion of historical saved exchanges.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "src/tutor/TaliaClassroom.tsx"
+      ],
+      "release": "Consent-off no persisted body, consent-on saved and reloaded"
+    },
+    {
+      "id": "PRIV-02",
+      "area": "Isolation",
+      "decision": "Every conversation/history/feedback/export read or write is filtered by server-validated user ID, and RLS & API authorization enforced; client-submitted user_id ignored or denied.",
+      "classification": "RELEASE_GATED",
+      "proof": [
+        "functions/api/member-tutor-conversations.js",
+        "functions/api/member-tutor-history-v014102.js"
+      ],
+      "release": "Real two independent accounts, forged query/path/body ID and role boundaries"
+    },
+    {
+      "id": "PRIV-03",
+      "area": "Switch/revocation",
+      "decision": "On account switch, signout, session expiry or revoked membership, abort pending requests, clear transient transcript/chart/private cached data, reauthorize new token.",
+      "classification": "RELEASE_GATED",
+      "proof": [
+        "src/tutor/TaliaClassroom.tsx"
+      ],
+      "release": "Race injection and stale in-flight response browser QA"
+    },
+    {
+      "id": "PRIV-04",
+      "area": "Retention/export/deletion",
+      "decision": "Provide user-visible access to consent scope and documented records retention, export and deletion; don't assert deletion before verified DB and backup retention policy is reviewed.",
+      "classification": "OPEN_LEGAL_PRODUCT_REVIEW",
+      "proof": [],
+      "release": "Document retention schedule, GDPR/US-state implications by served jurisdiction, RLS export/delete, audit log and backup caveat"
+    },
+    {
+      "id": "COST-01",
+      "area": "Basic cost",
+      "decision": "Ordinary source-only Explain/Teach Deeper, correction and ungraded retries are always free; no Lumen debit and no member AI credentials.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "docs/learning/SMFGU-TALIA-MEMBERSHIP-ACCESS-001-v1-20261101.md"
+      ],
+      "release": "All eligible membership levels source-only free response and ledger unchanged"
+    },
+    {
+      "id": "COST-02",
+      "area": "Optional inference",
+      "decision": "No new billable provider or site-controlled inference without independent Owner budget approval, explicit optional member consent, finite server quota and safe deterministic fallback.",
+      "classification": "FROZEN_SCOPE_NO_SPEND",
+      "proof": [
+        "assets/js/academy-tutor-bridge-v1.js"
+      ],
+      "release": "Model denied by default with zero paid calls; consent/zero quota negative checks"
+    },
+    {
+      "id": "DATA-01",
+      "area": "Fictional",
+      "decision": "Use original fictional OHLCV, original trade prints and separately labeled bar proxies for no-cost Tutor examples; chronological cutoff and source provenance required.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "data/learning-lab-indicator-methods-research-v1.json"
+      ],
+      "release": "No-future synthetic/bar-to-trade distinction in real browser"
+    },
+    {
+      "id": "DATA-02",
+      "area": "Member market feeds",
+      "decision": "Preserve existing BYO Alpaca/Tiingo feeds for separately entitled member-owned market data without granting central republication or additional Tutor AI-key policy.",
+      "classification": "FROZEN_SCOPE_WITH_LICENSE_HOLD",
+      "proof": [
+        "docs/learning/SMFGU-TALIA-MEMBERSHIP-ACCESS-001-v1-20261101.md"
+      ],
+      "release": "Feed plan/redistribution rights by provider/account; no cross-member data caching"
+    },
+    {
+      "id": "RIGHTS-01",
+      "area": "Source reference vs reproduction",
+      "decision": "A free public URL is only a research citation. Do not copy vendor course prose, chart graphics, methods code, sample feeds or protected indices until individually licensed or independently rewritten where legally allowed.",
+      "classification": "LEGAL_REVIEW_HOLD",
+      "proof": [
+        "docs/qa/2026-11-01_TALIA_SCTR_VIX_METHOD_HOLDS_v1.md"
+      ],
+      "release": "Rights matrix per source, copyright, quote, automated processing, display and trademark"
+    },
+    {
+      "id": "RIGHTS-02",
+      "area": "FRED terms",
+      "decision": "FRED API terms and broader FRED service terms require series-specific rights review and restrict AI/ML applications, storage/caching and redistribution in relevant contexts. Disable automated model ingestion and redistribution by default.",
+      "classification": "SOURCE_TERMS_REVIEW_HOLD",
+      "proof": [
+        "https://fred.stlouisfed.org/docs/api/terms_of_use.html",
+        "https://fred.stlouisfed.org/legal/fraud-awareness"
+      ],
+      "release": "Counsel/owner inspect live specific legal terms and relevant series; no FRED ingestion in V1"
+    },
+    {
+      "id": "RIGHTS-03",
+      "area": "SEC access",
+      "decision": "Use SEC EDGAR/XBRL primary official references for fact checking; if automated retrieval is subsequently enabled, comply with SEC declaration, fair-access, rate and source-use policies; never infer filing as-of before public acceptance.",
+      "classification": "SOURCE_USAGE_CONTRACT",
+      "proof": [
+        "https://www.sec.gov/about/developer-resources",
+        "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+      ],
+      "release": "No uncontrolled SEC scraping, event as-of audit and attribution"
+    },
+    {
+      "id": "RIGHTS-04",
+      "area": "Official index",
+      "decision": "SCTR and official VIX remain conceptual education only; do not claim exact official numeric reproduction or authorized brand and feed usage.",
+      "classification": "FROZEN_HOLD",
+      "proof": [
+        "docs/qa/2026-11-01_TALIA_SCTR_VIX_METHOD_HOLDS_v1.md"
+      ],
+      "release": "Separate complete official formula/input/reference parity and license review"
+    },
+    {
+      "id": "TRUST-01",
+      "area": "No regulated trading",
+      "decision": "Instructional, not personalized securities advice; no live broker execution, order placement or automatic trade signal from Tutor.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md"
+      ],
+      "release": "Unsafe prompt, order tool and risk-guarantee negative tests"
+    },
+    {
+      "id": "TRUST-02",
+      "area": "Protected assessments",
+      "decision": "Never make real Assess answers, private rubrics, future replay, official grade or mastery award accessible via prompt, chat history, context or higher editions.",
+      "classification": "FROZEN_SCOPE",
+      "proof": [
+        "functions/_lib/tutor-academy-context-v1.js"
+      ],
+      "release": "Adversarial Assess, replay and authorization tests"
+    },
+    {
+      "id": "TRUST-03",
+      "area": "Security logging",
+      "decision": "No secrets, raw member responses or provider tokens in GitHub Actions artifacts, analytics, public app cache or support logs. Keep auditable decision IDs and sanitized QA metadata.",
+      "classification": "RELEASE_GATED",
+      "proof": [
+        "AGENTS.md"
+      ],
+      "release": "Observe errors/logs/traces for PII leakage and verify audit integrity"
+    }
+  ],
+  "counts": {
+    "recorded": 17,
+    "externalIndependentLegalApprovals": 0,
+    "paidAICallsAuthorized": 0,
+    "sourceRemediationRequiredForAll600": true
+  },
+  "newV1ExternalFeedIngestion": false,
+  "retentionNote": "Retention/export/deletion and legal jurisdiction questions are unresolved, must be recorded separately and not represented as compliant.",
+  "sourceScopeNote": "Financial and source-use policy is an internal implementation instruction, not legal advice or professional signoff."
+}
