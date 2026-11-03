@@ -22,10 +22,11 @@ function create({client,userId,day,isCurrent}={}){
    !/^[a-z0-9]{3,24}$/.test(String(day.programCode||''))||!Number.isSafeInteger(day.day)||day.day<1||day.day>999)return null;
  const topic=topicFor(day);
  return async ({signal,stage='Learn',reason='explanation'}={})=>{
-  const validStages=new Set(['Start','Learn','Calculate / Analyze','Experiment','Predict',
-   'Replay / Practice','Assess','Review & Retry','Transfer Challenge','Results',
-   'Practice','Review','Transfer']);
-  const safeStage=validStages.has(stage)?stage:'Learn';
+  const stageMap=new Map([['Start','Start'],['Learn','Learn'],['Calculate / Analyze','Experiment'],
+   ['Experiment','Experiment'],['Predict','Predict'],['Replay / Practice','Practice'],
+   ['Practice','Practice'],['Assess','Assess'],['Review & Retry','Review'],['Review','Review'],
+   ['Transfer Challenge','Transfer'],['Transfer','Transfer'],['Results','Results']]);
+  const safeStage=stageMap.get(stage)||'Learn';
   const safeReason=['explanation','misconception','new-example','prerequisite'].includes(reason)?reason:'explanation';
   if(!isCurrent())throw Error('The learning session changed. Open the current lesson again.');
   const session=(await client.auth.getSession())?.data?.session;

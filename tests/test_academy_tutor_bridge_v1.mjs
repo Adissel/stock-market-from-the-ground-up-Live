@@ -25,11 +25,12 @@ const request=api.create({client,userId:'learner-one',day,isCurrent:()=>current}
 assert.equal((await request()).answer,'Fictional practice and a source limitation.');
 assert.equal(sent[0].allowModel,false);
 assert.match(sent[0].question,/^Academy program: risk60\. Study day: 12\. Instructional stage: Learn\./);
-optIn=true;await request();assert.equal(sent[1].allowModel,true);
+await request({stage:'Review & Retry'});assert.match(sent[1].question,/Instructional stage: Review\./);
+optIn=true;await request();assert.equal(sent[2].allowModel,true);
 account='learner-two';await assert.rejects(request(),/current member account/);
-assert.equal(sent.length,2);
+assert.equal(sent.length,3);
 current=false;await assert.rejects(request(),/learning session changed/);
-assert.equal(sent.length,2);
+assert.equal(sent.length,3);
 for(const page of ['bootcamp.html','bootcamp-academy.html']){
  const html=read(page);
  assert(html.includes('academy-tutor-bridge-v1.js'));

@@ -66,7 +66,7 @@ test('Talia stage prompts accept only allowlisted pedagogical metadata, not user
   return {ok:true,status:200,json:async()=>({ok:true,answer:'Original fictional teaching.'})};
  }};
  runInNewContext(tutor,env,{filename:'academy-tutor-bridge-v1.js'});
- const day={title:'Reading Candlesticks',objective:'Identify a finished candle'};
+ const day={programCode:'charts45',day:7,title:'Reading Candlesticks',objective:'Identify a finished candle'};
  const adapter=env.GroundUpAcademyTutorBridgeV1.create({
   client:{auth:{getSession:async()=>({data:{session:{access_token:'test-access',
    user:{id:'tester',user_metadata:{market_tutor_ai_enabled:false}}}}})}},
@@ -76,7 +76,7 @@ test('Talia stage prompts accept only allowlisted pedagogical metadata, not user
  assert.equal(result.answer,'Original fictional teaching.');
  assert.equal(calls.length,1);
  const body=JSON.parse(calls[0].init.body);
- assert.match(body.question,/Review & Retry/);
+ assert.match(body.question,/Academy program: charts45\. Study day: 7\. Instructional stage: Review\./);
  assert.match(body.question,/misconception/);
  assert.equal(body.allowModel,false);
  assert.equal(body.saveHistory,false);
