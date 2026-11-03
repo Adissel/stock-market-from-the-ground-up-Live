@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {coachFoundationReflection} from '../functions/_lib/talia-foundation-reflection-coach-v1.js';
+import {coachFoundationReflection,diagnoseFoundationReflection} from '../functions/_lib/talia-foundation-reflection-coach-v1.js';
 import {answerFromGuide} from '../functions/_lib/original-competency-tutor-v014100.js';
 const guides=[...['06','07','13','14'].flatMap(n=>JSON.parse(
  readFileSync('data/talia-foundation-explanations-batch'+n+'-v1.json','utf8')).guides)]
@@ -28,6 +28,27 @@ test('45 individual lessons give different topic-specific coaching under four ob
    assert.doesNotMatch(r,/mastery awarded|your grade is|i diagnosed you as|guaranteed profit/i);
   }
  }
+});
+test('four formative categories are evidence-bounded and never become grades or correctness claims',()=>{
+ const g=guides[0];
+ const cases=[
+  ['conceptual',sample[0],'expressed_uncertainty'],
+  ['interpretive',sample[1],'certainty_language'],
+  ['calculation',sample[2],'numeric_or_arithmetic_text'],
+  ['process',sample[3],'reasoning_text_without_verifiable_result']
+ ];
+ for(const [category,answer,basis] of cases){
+  const result=diagnoseFoundationReflection(g,answer);
+  assert.equal(result.category,category);
+  assert.equal(result.status,'observed_writing_signal');
+  assert.equal(result.evidenceBasis,basis);
+  assert.equal('officialGrade' in result,false);
+  assert.doesNotMatch(JSON.stringify(result),/correct|mastery|score/i);
+ }
+ const missing=diagnoseFoundationReflection(g,'');
+ assert.equal(missing.category,'process');
+ assert.equal(missing.status,'insufficient_evidence');
+ assert.equal(diagnoseFoundationReflection({...g,foundationTopic:false},sample[0]),null);
 });
 test('actual Tutor source review composes authored correction with generic ungraded writing structure',()=>{
  const g=guides.find(x=>x.code==='TALIA_TOPIC_BUY_LIMIT_CANNOT_ASSUME_EXECUTION');

@@ -180,6 +180,7 @@ on:
       - 'tests/talia-training40-server-authorization-v1.test.mjs'
       - 'tests/talia-training-synthetic-followup-privacy-v1.test.mjs'
       - 'tests/talia-foundation-adaptive-reflection-v1.test.mjs'
+      - 'tests/talia-formative-diagnostic-route-v1.test.mjs'
       - 'functions/_lib/talia-foundation-reflection-coach-v1.js'
       - 'data/talia-training-editorial45-v1.json'
       - 'data/talia-tutor-evaluation40-v1.json'

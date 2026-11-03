@@ -21,6 +21,7 @@ import {recordTutorGap} from '../_lib/tutor-gaps-v014149.js';
 import {getApprovedLabContext,labGuidance} from '../_lib/tutor-lab-context-v014149.js';
 import {isContextualTutorFollowup,getVerifiedPriorTutorQuestion} from '../_lib/tutor-conversation-context-v014159.js';
 import {parseAcademyTutorRequest,resolveAcademyTutorContext} from '../_lib/tutor-academy-context-v1.js';
+import {diagnoseFoundationReflection} from '../_lib/talia-foundation-reflection-coach-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const reply=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
@@ -270,6 +271,8 @@ export async function onRequest({request,env}){
   if(!guideMatches.length&&!source.length)await recordTutorGap(env,q);
   if(guideMatches.length){
    const guide=guideMatches[0];
+   const formativeDiagnostic=mode==='review'&&guide.foundationTopic===true
+    ?diagnoseFoundationReflection(guide,answer):null;
    const selectedGuides=guideMatches.slice(0,2);
    const reference=[...selectedGuides.map(g=>({title:g.title,
     summary:[g.concept,g.procedure,'Limitation: '+g.limit,'Invalidation: '+g.invalidation]
@@ -282,6 +285,9 @@ export async function onRequest({request,env}){
     auth.authorized===true?await paidLearningDraft(env,body,auth.userId,contextualQuestion,mode,reference,answer,auth.aiOptedIn):{text:null,reason:'foundation_source_only'};
    return finish({ok:true,generation:model.text?'grounded-model-draft':'original-competency-guide',
     answer:model.text||answerFromGuide(guide,mode,answer,q),aiReason:model.reason,
+    ...(formativeDiagnostic?{formativeDiagnostic:{...formativeDiagnostic,
+     officialGrade:false,masteryAwarded:false,memberRecordWritten:false,
+     limitation:'This classifies an observed writing signal only. It does not verify answer correctness or diagnose the learner.'}}:{}),
     remainingAiToday:model.remainingMemberToday??null,
     sources:[...selectedGuides.map((g,i)=>({id:g.code,title:g.title,summary:g.concept,
      sourceLabel:g.foundationTopic===true?'Original supplementary Foundation topic (ungraded)':
