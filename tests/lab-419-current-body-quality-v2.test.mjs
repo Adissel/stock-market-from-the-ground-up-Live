@@ -22,7 +22,7 @@ for(const [i,row] of originals.entries()){
   assert.equal(q.transferPromptLength,t.prompt?.length||0);
   assert.equal(q.transferPresent,typeof t.prompt==='string'&&t.prompt.trim().length>0);
   assert.equal(q.transferNoLookahead,t.noLookahead===true);
-  assert.equal(q.transferRequiresNewEvidence,t.requiresNewEvidence===true);
+  assert.equal(q.transferNewEvidence,t.requiresNewEvidence===true);
   assert.equal(q.transferUngraded,t.graded===false);
   assert.equal(q.legacyBoilerplateRetained,paragraphs.some(x=>x.includes(boiler)));
   assert.equal(q.numericSignalDetected,paragraphs.some(x=>heuristic.test(x)));
@@ -32,7 +32,7 @@ for(const [i,row] of originals.entries()){
 }
 test('Summary and older snapshot differences are computed rather than invented',()=>{
  const q=data.records;
- for(const [field,fn] of Object.entries({completeTabs:x=>x.tabsComplete,transferPresent:x=>x.transferPresent,transferPromptOver45:x=>x.transferPromptLength>45,transferRequiresNew:x=>x.transferRequiresNewEvidence,transferNoLookahead:x=>x.transferNoLookahead,transferUngraded:x=>x.transferUngraded,previousTemplateSentence:x=>x.legacyBoilerplateRetained,numericalSignal:x=>x.numericSignalDetected})){
+ for(const [field,fn] of Object.entries({completeTabs:x=>x.tabsComplete,transferPresent:x=>x.transferPresent,transferPromptOver45:x=>x.transferPromptLength>45,transferRequiresNew:x=>x.transferNewEvidence,transferNoLookahead:x=>x.transferNoLookahead,transferUngraded:x=>x.transferUngraded,previousTemplateSentence:x=>x.legacyBoilerplateRetained,numericalSignal:x=>x.numericSignalDetected})){
   assert.equal(data.summary[field],q.filter(fn).length,field);
  }
  assert.equal(data.summary.sourceClaimAccepted,0);
