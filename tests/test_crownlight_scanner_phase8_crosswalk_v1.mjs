@@ -17,7 +17,9 @@ for(const [tier,value] of Object.entries(tiers.tiers)){
  assert.equal(value.passed,value.technicalSourceGates.filter(x=>x.passed===true).length,tier);
  assert.equal(value.percentage,100*value.passed/8,tier);
 }
-assert.equal(tiers.overall.passed,7);
+const tierPassed=Object.values(tiers.tiers).reduce((sum,tier)=>sum+tier.passed,0);
+assert.equal(tiers.overall.passed,tierPassed,'Overall must reconcile exactly to tier source gates.');
+assert.equal(tiers.overall.percentage,100*tierPassed/tiers.overall.total);
 assert.equal(tiers.overall.total,32);
 assert.equal(tiers.livePaidTierReleaseAcceptancePercent,0);
 const visual=readFileSync('assets/js/crownlight-scanner-visual-v1.js','utf8');
