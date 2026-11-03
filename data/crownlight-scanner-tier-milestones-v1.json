@@ -1,0 +1,207 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-TIER-SCORECARD-001",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "status": "SOURCE-LEVEL ENGINEERING SCORECARD; NOT MEMBER-READY",
+    "githubPath": "data/crownlight-scanner-tier-milestones-v1.json",
+    "googleDriveLocation": "Not created"
+  },
+  "scoringRule": "Eight explicitly named engineering milestones per tier. Only existing tested code or the dedicated Wave 1 CI-covered sources count. A source-pass is not a live entitlement, browser acceptance or commercial release.",
+  "tiers": {
+    "Basic": {
+      "technicalSourceGates": [
+        {
+          "id": "B-01",
+          "description": "Core numerical price/change screening",
+          "passed": true
+        },
+        {
+          "id": "B-02",
+          "description": "Timestamp-labeled manual snapshot filtering",
+          "passed": true
+        },
+        {
+          "id": "B-03",
+          "description": "Free-account accessible visual scanner",
+          "passed": false
+        },
+        {
+          "id": "B-04",
+          "description": "Free SEC issuer filings search",
+          "passed": false
+        },
+        {
+          "id": "B-05",
+          "description": "Free-account saved scanner persistence",
+          "passed": false
+        },
+        {
+          "id": "B-06",
+          "description": "Foundation/Talia scanner lesson handoff",
+          "passed": false
+        },
+        {
+          "id": "B-07",
+          "description": "Two-account authentication and accessibility acceptance",
+          "passed": false
+        },
+        {
+          "id": "B-08",
+          "description": "Exact-SHA deployed Basic release signoff",
+          "passed": false
+        }
+      ],
+      "passed": 2,
+      "total": 8,
+      "percentage": 25
+    },
+    "Plus": {
+      "technicalSourceGates": [
+        {
+          "id": "P-01",
+          "description": "Original visual scanner editor source integrated",
+          "passed": true
+        },
+        {
+          "id": "P-02",
+          "description": "Rules-only JSON import/export with validation",
+          "passed": true
+        },
+        {
+          "id": "P-03",
+          "description": "Authenticated saved-rule reload acceptance",
+          "passed": false
+        },
+        {
+          "id": "P-04",
+          "description": "SEC catalyst and source-time integration",
+          "passed": false
+        },
+        {
+          "id": "P-05",
+          "description": "Plus entitlement assignment and billing TEST",
+          "passed": false
+        },
+        {
+          "id": "P-06",
+          "description": "Watchlist member workflow",
+          "passed": false
+        },
+        {
+          "id": "P-07",
+          "description": "Two-account and keyboard/reader acceptance",
+          "passed": false
+        },
+        {
+          "id": "P-08",
+          "description": "Exact-SHA Plus release signoff",
+          "passed": false
+        }
+      ],
+      "passed": 2,
+      "total": 8,
+      "percentage": 25
+    },
+    "Advanced": {
+      "technicalSourceGates": [
+        {
+          "id": "A-01",
+          "description": "Nested AND/OR/NOT tri-state evaluator",
+          "passed": true
+        },
+        {
+          "id": "A-02",
+          "description": "Inclusive ranges and field-to-field comparisons",
+          "passed": true
+        },
+        {
+          "id": "A-03",
+          "description": "Verified historical and 5m/2d measurements",
+          "passed": false
+        },
+        {
+          "id": "A-04",
+          "description": "Indicator calculation/source acceptance",
+          "passed": false
+        },
+        {
+          "id": "A-05",
+          "description": "Configurable results columns with persisted sorting",
+          "passed": false
+        },
+        {
+          "id": "A-06",
+          "description": "No-lookahead historical scanner replay",
+          "passed": false
+        },
+        {
+          "id": "A-07",
+          "description": "Advanced entitlement, isolation and member QA",
+          "passed": false
+        },
+        {
+          "id": "A-08",
+          "description": "Exact-SHA Advanced release signoff",
+          "passed": false
+        }
+      ],
+      "passed": 2,
+      "total": 8,
+      "percentage": 25
+    },
+    "Professional": {
+      "technicalSourceGates": [
+        {
+          "id": "R-01",
+          "description": "Reviewed advanced indicator families in scanner",
+          "passed": false
+        },
+        {
+          "id": "R-02",
+          "description": "Research-grade historical strategy comparison",
+          "passed": false
+        },
+        {
+          "id": "R-03",
+          "description": "SEC comparative research reports",
+          "passed": false
+        },
+        {
+          "id": "R-04",
+          "description": "Licensed Level II ingestion and rights",
+          "passed": false
+        },
+        {
+          "id": "R-05",
+          "description": "Continuous monitoring and alert governance",
+          "passed": false
+        },
+        {
+          "id": "R-06",
+          "description": "Talia Professional evidence-linked explanations",
+          "passed": false
+        },
+        {
+          "id": "R-07",
+          "description": "Professional entitlement, security and billing TEST",
+          "passed": false
+        },
+        {
+          "id": "R-08",
+          "description": "Exact-SHA Professional release signoff",
+          "passed": false
+        }
+      ],
+      "passed": 0,
+      "total": 8,
+      "percentage": 0
+    }
+  },
+  "overall": {
+    "passed": 6,
+    "total": 32,
+    "percentage": 18.75
+  },
+  "livePaidTierReleaseAcceptancePercent": 0
+}

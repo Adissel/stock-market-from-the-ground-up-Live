@@ -236,6 +236,17 @@
     status('Private criteria and provenance note saved; market observations NOT saved or certified.','success');
    }catch(e){status(e.message,'error')}
   };
+
+  if(scannerOnly&&globalThis.CrownlightScannerVisualV1){
+   const host=document.createElement('div');
+   host.id='crownlight-visual-scanner';
+   document.getElementById('tool-workbench').append(host);
+   globalThis.CrownlightScannerVisualV1.mount({
+    host,getRows:()=>rows,provenance,
+    savePreset:payload=>saveRecord('filter_set','Crownlight Visual Scanner',payload),
+    loadPresets:()=>latestRecords('filter_set')
+   });
+  }
  }
 
  async function renderWatchlist(){

@@ -1,0 +1,128 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-RECON-20261103",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "status": "SOURCE INVENTORY — NOT PRODUCT ACCEPTANCE",
+    "githubPath": "data/crownlight-scanner-research-catalog-v1.json",
+    "googleDriveLocation": "Not created",
+    "googleDriveId": null
+  },
+  "sources": {
+    "phase8": {
+      "features": 44,
+      "strategies": 50,
+      "discoverySpecs": 9,
+      "challengersResearchOnly": 16,
+      "championsPreserved": 98
+    },
+    "screenshots": {
+      "provided": 98,
+      "byteDistinct": 83,
+      "exactDuplicates": 15
+    },
+    "masterSourceCandidates": 73,
+    "stockstotradeResearchFiles": 82,
+    "sourceRights": "Research only; no third-party licensed text or scan settings"
+  },
+  "families": [
+    {
+      "id": "price",
+      "fields": [
+        "price",
+        "prev_close",
+        "day_high",
+        "day_low",
+        "price_below_high_pct"
+      ],
+      "source": "Supplied snapshot",
+      "tier": "BASIC_PLUS_ADVANCED"
+    },
+    {
+      "id": "momentum",
+      "fields": [
+        "change_pct",
+        "change_5m_pct",
+        "change_2d_pct"
+      ],
+      "source": "Supplied snapshot",
+      "tier": "BASIC_ADVANCED"
+    },
+    {
+      "id": "participation",
+      "fields": [
+        "volume",
+        "trades",
+        "yesterday_volume",
+        "rvol",
+        "dollar_volume_proxy"
+      ],
+      "source": "Supplied snapshot",
+      "tier": "PLUS_ADVANCED"
+    },
+    {
+      "id": "liquidity",
+      "fields": [
+        "float",
+        "spread_pct",
+        "market_cap",
+        "gap_pct"
+      ],
+      "source": "Supplied snapshot",
+      "tier": "PLUS_ADVANCED"
+    },
+    {
+      "id": "technical",
+      "fields": [
+        "vwap",
+        "vwap_distance_pct"
+      ],
+      "source": "Supplied snapshot; VWAP method unverified",
+      "tier": "ADVANCED"
+    },
+    {
+      "id": "logic",
+      "fields": [
+        "AND",
+        "OR",
+        "NOT",
+        "BETWEEN",
+        "COMPARE_FIELD"
+      ],
+      "source": "Original deterministic calculation",
+      "tier": "ADVANCED"
+    },
+    {
+      "id": "filings",
+      "fields": [
+        "CIK",
+        "10-K",
+        "10-Q",
+        "8-K"
+      ],
+      "source": "SEC official; exact time/rights required",
+      "tier": "BASIC_PLUS",
+      "state": "Existing issuer research gated; no free-tier acceptance"
+    },
+    {
+      "id": "market_depth",
+      "fields": [
+        "L2",
+        "NOI"
+      ],
+      "source": "Licensed provider required",
+      "tier": "PROFESSIONAL",
+      "state": "Not implemented"
+    }
+  ],
+  "controls": {
+    "championSignaturesUnchanged": true,
+    "challengersPromoted": 0,
+    "statisticallyValidatedStrategies": 0,
+    "liveFeedsLicensed": false,
+    "stripeLivePriceChanges": false,
+    "gradedAwardsEnabledByThisRelease": false,
+    "founderBetaAccessUnchanged": true
+  }
+}
