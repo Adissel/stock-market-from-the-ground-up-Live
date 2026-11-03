@@ -18,7 +18,9 @@ test('all Talia route aliases enter the modern runtime ownership branch',()=>{
   const guard=middleware.indexOf('if(STANDALONE_VISUAL_ROUTES.has(path))');
   const legacy=middleware.indexOf("'dashboard-ui-legacy.js'",guard);
   assert.ok(guard>0 && legacy>guard,'Modern isolation must run before legacy script injection');
-  const branch=middleware.slice(guard,legacy);
+  const endOfGuard=middleware.indexOf(`el.append('<meta name="application-version"'`,guard);
+  assert.ok(endOfGuard>guard && endOfGuard<legacy,'Isolated branch must end before sitewide enhancers');
+  const branch=middleware.slice(guard,endOfGuard);
   assert.match(branch,/auth-boundary\.js/,'auth guard must remain active');
   assert.match(branch,/service-worker\.js/,'service-worker migration must remain active');
   assert.match(branch,/return;/,'new page must exit the legacy enhancer branch');
