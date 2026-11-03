@@ -28,13 +28,31 @@ function config(env){
 }
 async function records(env,memberId){
  const c=config(env);
- const url=c.base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_end,metadata'+
-  '&user_id=eq.'+encodeURIComponent(memberId)+'&order=updated_at.desc&limit=20';
- const r=await fetch(url,{headers:c.headers,cache:'no-store'});
- if(!r.ok)throw err('Member subscription verification unavailable.',503);
- const rows=await r.json().catch(()=>null);
- if(!Array.isArray(rows)||rows.length>20)throw err('Member subscription records invalid.',503);
- return rows;
+ const actor=encodeURIComponent(memberId);
+ // Memberships can be represented by either current site subscriptions or
+ // independently issued user-plan grants. Both are server-owned sources.
+ // A plan target alone NEVER grants premium access: each row must contain an
+ // explicit edition grant checked for revocation, expiry and release enablement.
+ const siteUrl=c.base+'/rest/v1/site_subscriptions?select=plan_code,status,current_period_start,current_period_end,metadata'+
+  '&user_id=eq.'+actor+'&order=updated_at.desc&limit=20';
+ const grantUrl=c.base+'/rest/v1/user_plan_grants?select=plan_code,status,starts_at,ends_at,metadata'+
+  '&user_id=eq.'+actor+'&order=updated_at.desc&limit=20';
+ const [siteResponse,grantResponse]=await Promise.all([
+  fetch(siteUrl,{headers:c.headers,cache:'no-store'}),
+  fetch(grantUrl,{headers:c.headers,cache:'no-store'})
+ ]);
+ if(!siteResponse.ok||!grantResponse.ok)
+  throw err('Member subscription verification unavailable.',503);
+ const [sites,grants]=await Promise.all([
+  siteResponse.json().catch(()=>null),grantResponse.json().catch(()=>null)
+ ]);
+ if(!Array.isArray(sites)||sites.length>20||!Array.isArray(grants)||grants.length>20)
+  throw err('Member subscription records invalid.',503);
+ return [
+  ...grants.map(row=>({...row,source:'user_plan_grants',
+   current_period_start:row.starts_at,current_period_end:row.ends_at})),
+  ...sites.map(row=>({...row,source:'site_subscriptions'}))
+ ];
 }
 async function reviewedRoute(env,memberId){
  const c=config(env),encode=encodeURIComponent;
@@ -80,12 +98,18 @@ function entitlement(rows,actorId,family,edition,env){
  // can implicitly unlock a new engine.
  for(const row of rows){
   if(!row||row.status!=='active'||typeof row.plan_code!=='string')continue;
-  const period=Date.parse(row.current_period_end||'');
-  if(!Number.isFinite(period)||period<=now)continue;
+  const start=row.current_period_start==null?null:Date.parse(row.current_period_start);
+  if(start!==null&&(!Number.isFinite(start)||start>now))continue;
   const target=enginePolicyForPlan(row.plan_code).target[family];
   const saved=row.metadata?.engine_edition_grants_v1?.[family];
   if(!saved||saved.active!==true||typeof saved.expiresAt!=='string')continue;
   const expiration=Date.parse(saved.expiresAt);
+  if(!Number.isFinite(expiration)||expiration<=now)continue;
+  // A lifetime plan grant may have no ends_at, but its specific engine grant
+  // must always have a finite expiration and remain independently revocable.
+  const period=row.current_period_end==null&&row.source==='user_plan_grants'?
+   expiration:Date.parse(row.current_period_end||'');
+  if(!Number.isFinite(period)||period<=now)continue;
   const auth=verifyEditionAuthorization({actorId,family,requested:edition,
    planTarget:target,grant:{serverVerified:true,memberId:actorId,family,
     edition:saved.edition,revoked:saved.revoked===true,expiresAt:Math.min(expiration,period)},
