@@ -17,7 +17,7 @@ for(const [tier,value] of Object.entries(tiers.tiers)){
  assert.equal(value.passed,value.technicalSourceGates.filter(x=>x.passed===true).length,tier);
  assert.equal(value.percentage,100*value.passed/8,tier);
 }
-assert.equal(tiers.overall.passed,6);
+assert.equal(tiers.overall.passed,7);
 assert.equal(tiers.overall.total,32);
 assert.equal(tiers.livePaidTierReleaseAcceptancePercent,0);
 const visual=readFileSync('assets/js/crownlight-scanner-visual-v1.js','utf8');
