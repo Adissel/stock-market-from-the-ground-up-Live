@@ -17,6 +17,20 @@ export async function parseTutorRequest(request){
  const raw=await request.text();
  if(new TextEncoder().encode(raw).length>8000)throw fail('Request too large.',413);
  let body;try{body=JSON.parse(raw)}catch{throw fail('Invalid JSON.')}
+ // A browser cannot assert staff authority, effective editions, grades, source
+ // provenance or hidden case data. Retain legacy priorTurns compatibility, but
+ // never trust those turns as context (see priorTurnsSupplied below).
+ const forbiddenClientClaims=new Set([
+  'userId','memberId','accountKind','role','roles','isAdmin','staffOverride',
+  'tier','edition','targetEdition','effectiveEdition','membership','entitlement',
+  'entitlements','permissions','officialGrade','grade','score','masteryAwarded',
+  'progressVerified','completedPrerequisite','answerKey','rubric','privateRubric',
+  'assessmentAnswer','futureBars','replayBars','replayCandles','verifiedContext',
+  'labTitle','academyTitle','sourceUrls','licensedData','dataRightsApproved'
+ ]);
+ if(body&&typeof body==='object'&&!Array.isArray(body)&&
+    Object.keys(body).some(key=>forbiddenClientClaims.has(key)))
+  throw fail('Client authority or protected evidence fields are not permitted.');
  if(!body||typeof body!=='object'||Array.isArray(body)||
     typeof body.question!=='string'||
     (body.mode!==undefined&&typeof body.mode!=='string')||
