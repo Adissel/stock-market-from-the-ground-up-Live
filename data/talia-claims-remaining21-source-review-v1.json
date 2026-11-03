@@ -1,6 +1,6 @@
 {
   "documentId": "SMFGU-TALIA-CLAIMS-REMAINING21-017",
-  "version": "1.1",
+  "version": "1.2",
   "reviewDate": "2026-11-03",
   "count": 21,
   "status": "RECONCILED_SOURCE_SCOPE_RELEASE_HOLD",
@@ -26,10 +26,11 @@
     {
       "number": 104,
       "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
-      "review": "CORRECTION_REQUIRED",
-      "scope": "SEC 2023 repurchase disclosure rule vacated; citation cannot establish current rule",
+      "review": "REGULATORY_HISTORICAL_HOLD",
+      "scope": "SEC May 2023 share-repurchase reporting amendments vacated effective December 19, 2023; historical speaker statement is not current regulation.",
       "source": "https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
-      "independentPublicationAccepted": false
+      "independentPublicationAccepted": false,
+      "reviewedOn": "2026-11-03"
     },
     {
       "number": 106,
@@ -116,10 +117,11 @@
     {
       "number": 129,
       "code": "TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION",
-      "review": "SOURCE_MISMATCH",
-      "scope": "portfolio diversification guidance does not prove squared-weight HHI formula",
-      "source": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
-      "independentPublicationAccepted": false
+      "review": "SOURCE_MATCH_CORRECTED_RELEASE_HOLD",
+      "scope": "State Street source directly defines portfolio squared-weight HHI; not a covariance or regulatory threshold.",
+      "source": "https://www.ssga.com/us/en/intermediary/insights/concentration-is-up-diversification-isnt-gone",
+      "independentPublicationAccepted": false,
+      "reviewedOn": "2026-11-03"
     },
     {
       "number": 131,
@@ -140,10 +142,11 @@
     {
       "number": 133,
       "code": "TALIA_TOPIC_FISCAL_YEAR_END_VS_KNOWN_DATE",
-      "review": "CORRECTION_REQUIRED",
-      "scope": "SEC acceptance timestamp differs from first public availability",
+      "review": "POINT_IN_TIME_ACCEPTANCE_HOLD",
+      "scope": "SEC explicitly says EDGAR acceptance is not first public visibility; real public retrieval time must be verified separately.",
       "source": "https://www.sec.gov/about/webmaster-frequently-asked-questions",
-      "independentPublicationAccepted": false
+      "independentPublicationAccepted": false,
+      "reviewedOn": "2026-11-03"
     },
     {
       "number": 135,

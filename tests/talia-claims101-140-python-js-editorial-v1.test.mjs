@@ -46,9 +46,9 @@ test('all 40 have distinct math or qualitative dispositions and retain release h
   assert.equal(review.code,guides[n-101].code);
   assert.equal(review.independentPublicationAccepted,false);
  }
- assert.equal(reviewed.get(104).review,'CORRECTION_REQUIRED');
- assert.equal(reviewed.get(133).review,'CORRECTION_REQUIRED');
- assert.equal(reviewed.get(129).review,'SOURCE_MISMATCH');
+ assert.equal(reviewed.get(104).review,'REGULATORY_HISTORICAL_HOLD');
+ assert.equal(reviewed.get(133).review,'POINT_IN_TIME_ACCEPTANCE_HOLD');
+ assert.equal(reviewed.get(129).review,'SOURCE_MATCH_CORRECTED_RELEASE_HOLD');
  for(const [id,phrase] of [[105,'noncumulative'],[119,'Macaulay'],
   [131,'unaudited'],[132,'conditional'],[133,'February 20']]){
   assert.match(guides[id-101].workedCase,new RegExp(phrase,'i'));

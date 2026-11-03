@@ -127,9 +127,9 @@
       "code": "TALIA_TOPIC_CASH_DIVIDEND_VS_BUYBACK",
       "title": "A share repurchase and a cash dividend distribute value through different mechanisms",
       "concept": "A cash dividend pays eligible holders directly, while a repurchase trades issuer cash for outstanding shares; effects depend on price, treasury treatment and later share count.",
-      "procedure": "Record dividend dollars or actual shares repurchased, price paid and any new issuance. Distinguish per-share cash received from indirect proportional ownership changes. Talia diagnostic: If 100 of 1,000 issuer shares are retired, does an unchanged 90-share holder receive cash? Verified supporting editorial reference (not licensed to reproduce): https://www.sec.gov/rules-regulations/2024/03/s7-21-21",
+      "procedure": "Distinguish dividend cash distributed to eligible holders from issuer repurchase proceeds paid to holders who actually sell. Confirm share retirement, later issuance and the outstanding share denominator before computing ownership. The SEC's May 2023 repurchase disclosure amendments were vacated effective December 19, 2023: https://www.sec.gov/rules-regulations/2024/03/s7-21-21. This legal status is separate from the fictional ownership calculation.",
       "workedCase": "FICTIONAL: A company has 1,000 shares and buys back 100 at $10 each for $1,000. If retired with no new shares, outstanding shares become 900; an unchanged holder with 90 shares moves from 9.00% to 10.00% ownership, but receives no dividend cash from that repurchase.",
-      "limit": "Accounting, dilution, retained shares, price paid and company value can alter the economic outcome; ownership percentage alone is not shareholder wealth.",
+      "limit": "Non-selling shareholders receive no direct repurchase cash. Retired shares, treasury treatment, dilution, issuer value, taxes and repurchase price affect outcomes. Do not present the vacated 2023 disclosure rule as currently binding.",
       "invalidation": "If retirement or actual share-count change is unverified, do not claim an ownership increase or EPS benefit.",
       "commonError": "Calling buyback spending a dividend paid to all shareholders or presuming a buyback always raises market price.",
       "selfCheck": "Explain the cash recipients in a dividend versus an issuer repurchase and whether ownership changes without transactions by the holder.",
@@ -147,18 +147,18 @@
       "researchReferenceVerifiedOn": "2026-11-01",
       "sourceRightsStatus": "reference_and_independent_original_teaching_only_not_third_party_content_republication",
       "editorSourceReview": {
-        "reviewedAt": "2026-11-01",
+        "reviewedAt": "2026-11-03",
         "reviewer": "owner-delegated internal editorial reviewer",
         "result": "development_reference_checked_claim_level_crosscheck_pending",
         "rights": "original_explanations_only_no_third_party_republication",
         "independentPublicationAccepted": false,
-        "referenceAction": "replaced_broad_reference_with_more_relevant_public_authority"
+        "referenceAction": "separate_historical_policy_source_from_current_vacatur_notice"
       },
       "sourceScopeReview": {
-        "date": "2026-11-01",
+        "date": "2026-11-03",
         "sourcePage": "https://www.sec.gov/newsroom/speeches-statements/lizarraga-statement-share-repurchase-disclosure-modernization-050323",
-        "claimSpecificScope": "SEC Commissioner statement concerns issuer share repurchases, motivations and disclosures, not a complete comparison to per-share declared cash dividends. Do not claim repurchases pay each holder cash or mechanically cause appreciation; document distinct transaction mechanics separately.",
-        "decision": "HOLD_EXACT_COMPARISON",
+        "claimSpecificScope": "The SEC's archived 2023 Commissioner speech supplies historical policy discussion, not current regulation. The SEC March 2024 notice confirms the rule amendments were vacated effective December 19, 2023. Original 90/1000 to 90/900 math is conditional on actual cancellation and no issuance.",
+        "decision": "HISTORICAL_DISCUSSION_AND_SEC_VACATUR_SEPARATELY_CONFIRMED_PUBLICATION_HOLD",
         "formulaAndNumericReleaseAccepted": false,
         "independentPublicationAccepted": false
       },

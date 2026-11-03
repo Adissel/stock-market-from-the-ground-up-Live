@@ -102,3 +102,15 @@ test('P7 twenty 261-280 source lessons remain original and unapproved',()=>{
  assert.equal(batch.length,20);assert.equal(new Set(batch.map(x=>x.code)).size,20);
  for(const g of batch){assert.equal(g.independentEditorialApproved,false);assert.equal(g.editorSourceReview?.independentPublicationAccepted,false);}
 });
+
+test('P2 corrected regulatory, concentration and EDGAR source identities remain on editorial hold',()=>{
+ const v104=sources.rows[3],v129=sources.rows[28],v133=sources.rows[32];
+ assert.equal(v104.regulatoryCrossCheck,'https://www.sec.gov/rules-regulations/2024/03/s7-21-21');
+ assert.match(v104.sourceFactScope,/December 19, 2023/);
+ assert.match(v129.source,/ssga\.com\/us\/en\/intermediary/);
+ assert.match(v129.sourceFactScope,/sum of squared weights/);
+ assert.equal(v133.source,'https://www.sec.gov/about/webmaster-frequently-asked-questions');
+ assert.match(v133.originalWorkedCase,/14:03/);
+ assert.match(v133.sourceFactScope,/no guaranteed maximum/);
+ for(const n of [104,129,133])assert.equal(sources.rows[n-101].independentPublicationApproved,false);
+});

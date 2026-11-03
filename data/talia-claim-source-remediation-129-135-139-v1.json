@@ -1,18 +1,20 @@
 {
   "id": "SMFGU-TALIA-SOURCE-REMEDIATION-129-135-139-020",
-  "version": "1.0",
-  "date": "2026-11-01",
+  "version": "1.1",
+  "date": "2026-11-03",
   "status": "SUPPLEMENTAL_SOURCE_DISPOSITION_NOT_PUBLICATION_ACCEPTANCE",
   "items": [
     {
       "claim": 129,
       "code": "TALIA_TOPIC_SQUARED_WEIGHT_CONCENTRATION",
       "originalSupport": "General Investor.gov asset-allocation overview supports diversification as concept but not sum-of-squared weights.",
-      "correctiveSource": "https://www.ssga.com/us/en/individual/insights/concentration-is-up-diversification-isnt-gone",
+      "correctiveSource": "https://www.ssga.com/us/en/intermediary/insights/concentration-is-up-diversification-isnt-gone",
       "secondary": "https://www.justice.gov/atr/herfindahl-hirschman-index",
       "specificFormula": "portfolio concentration H=sum_i(weight_i^2), with decimal weights; fictional 0.5^2+0.3^2+0.2^2=0.38; effective number holdings 1/H approx 2.63",
-      "disposition": "CORRECTIVE_PRIMARY_FORMULA_REFERENCE_FOUND",
-      "boundary": "The DOJ HHI is market shares in percent squared and can be on a 0-10,000 scale; portfolio decimal-weight 0-1 version is analogous, not legal merger concentration threshold. Neither source certifies covariance/risk reduction. No third party chart or text redistribution approved."
+      "disposition": "DIRECT_PORTFOLIO_FORMULA_SOURCE_RECONCILED_RELEASE_HOLD",
+      "boundary": "The DOJ HHI is market shares in percent squared and can be on a 0-10,000 scale; portfolio decimal-weight 0-1 version is analogous, not legal merger concentration threshold. Neither source certifies covariance/risk reduction. No third party chart or text redistribution approved.",
+      "priorCorrectiveSource": "https://www.ssga.com/us/en/individual/insights/concentration-is-up-diversification-isnt-gone",
+      "reviewedOn": "2026-11-03"
     },
     {
       "claim": 135,
