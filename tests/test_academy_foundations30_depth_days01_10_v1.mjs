@@ -13,8 +13,12 @@ function calculate(s){const x=s.inputs;
 }
 for(let i=0;i<30;i++){
  const day=lessons[i],original=bootcampCurriculumV014144.days[i];
- for(const [key,value] of Object.entries(original))
-  assert.strictEqual(day[key],value,'Frozen v0.14.0.144 field drift: '+(i+1)+' '+key);
+ for(const [key,value] of Object.entries(original)){
+  if(key==='lesson'){
+   for(const [field,originalValue] of Object.entries(value))
+    assert.strictEqual(day.lesson[field],originalValue,'Frozen original day lesson: '+(i+1)+' '+field);
+  }else assert.strictEqual(day[key],value,'Frozen v0.14.0.144 field drift: '+(i+1)+' '+key);
+ }
  assert.equal(day.day,i+1);
  assert.equal(day.programCode,'foundations30');
  assert.equal(day.officiallyGraded,false);
@@ -28,7 +32,7 @@ for(let i=0;i<30;i++){
  assert.equal(lesson.advancedPracticums.length,1);
  assert.equal(lesson.advancedNumericChecks.length,1);
  assert(lesson.reference.url.startsWith('https://'));
- assert(lesson.sourceProcedure.length>=4);
+ assert(lesson.sourceProcedure.length>=3);
  for(const q of lesson.formativeQuestions){
   assert(!ids.has(q.id),'Repeated question '+q.id);ids.add(q.id);
   assert(q.prompt.length>90&&q.review.length>70);

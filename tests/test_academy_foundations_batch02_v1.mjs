@@ -19,7 +19,8 @@ for(let i=0;i<30;i++){
  if(i>=20)continue;
  const lesson=original.lesson;
  assert(lesson&&academy.lesson,'Original and Academy routes must both carry new instruction');
- assert.equal(lesson,academy.lesson,'Shared original day instructions must not diverge');
+ for(const [field,value] of Object.entries(lesson))
+  assert.strictEqual(academy.lesson[field],value,'Original frozen lesson field changed '+(i+1)+' '+field);
  for(const k of ['explanation','workedExample','error','reviewGuide','transfer','investigation','selfCheck','whenNot'])
   assert(typeof lesson[k]==='string'&&lesson[k].length>40,'Missing '+k+' on '+(i+1));
  assert(lesson.sourceProcedure.length>=3,'Missing day-specific sequence '+(i+1));

@@ -144,7 +144,7 @@ export function foundations30DepthDays01to10(base,day) {
  if(!spec||day<1||day>10||base.day!==day)throw Error('Foundations30 day identity mismatch: '+day);
  const prefix='FOUNDATIONS30-D'+String(day).padStart(2,'0')+'-ADV-';
  const example=spec.formula+' = '+spec.expected+'. '+spec.evidence+' '+spec.pitfall;
- return Object.freeze({
+ const advanced=Object.freeze({
   title:base.title,
   explanation:base.objective+' '+base.observe+' '+spec.evidence+' '+spec.pitfall,
   workedExample:'FICTIONAL TRAINING CASE — '+example,
@@ -187,5 +187,12 @@ export function foundations30DepthDays01to10(base,day) {
   })]),
   status:'ORIGINAL_UNGRADED_EDITORIAL_AND_PROTECTED_REVIEW_PENDING',
   supplementarySourceStatus:'ORIGINAL_FOUNDATIONS30_ADVANCED_UNGRADED_SOURCE_READY_ACCEPTANCE_PENDING'
+ });
+ return Object.freeze({...base.lesson,
+  formativeQuestions:advanced.formativeQuestions,
+  advancedPracticums:advanced.advancedPracticums,
+  advancedNumericChecks:advanced.advancedNumericChecks,
+  supplementarySourceStatus:advanced.supplementarySourceStatus,
+  advancedSupplementalCoaching:advanced
  });
 }
