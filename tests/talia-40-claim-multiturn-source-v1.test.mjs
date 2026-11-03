@@ -9,13 +9,20 @@ const read=name=>JSON.parse(readFileSync('data/'+name,'utf8'));
 const claims=read('talia-claims-101-140-evidence-batch-v1.json');
 const guides=[...read('talia-foundation-explanations-batch06-v1.json').guides,...read('talia-foundation-explanations-batch07-v1.json').guides];
 const near=(got,expected)=>assert.ok(Math.abs(got-expected)<1e-9,got+' != '+expected);
-test('40/40 canonical topic codes matched, one source reference each, full ungraded teaching and explicit release holds',()=>{
+test('40/40 canonical topics retained, scoped source replacements traceable, ungraded holds intact',()=>{
  assert.equal(claims.rows.length,40);assert.equal(claims.sourcePagesIndividuallyRead,6);
  assert.equal(new Set(claims.rows.map(x=>x.code)).size,40);
  for(let i=0;i<40;i++){
   const x=claims.rows[i],g=guides[i];
   assert.equal(x.number,i+101);assert.equal(x.code,g.code);
-  assert.equal(x.source,g.sourceUrls[0]);assert.equal(g.sourceUrls.length,1);
+  if(x.source!==g.sourceUrls[0]){
+   assert.equal(g.previousGenericSourceUrl,x.source,'Original recorded source remains traceable');
+   assert.ok(g.sourceUrls.length>=1&&g.sourceUrls.length<=2);
+   assert.ok(g.sourceUrls.every(url=>url.startsWith('https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks')||url.startsWith('https://www.quantconnect.com/docs/')));
+   assert.equal(g.sourceResearchTriage.independentMathAccepted,false);
+   assert.equal(g.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(g.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }else {assert.equal(x.source,g.sourceUrls[0]);assert.equal(g.sourceUrls.length,1);}
   assert.ok(x.originalWorkedCase.startsWith('FICTIONAL:'));
   assert.ok(x.originalReviewCaveat.length>=35);
   assert.equal(x.structureValid,true);assert.equal(x.independentPublicationApproved,false);
