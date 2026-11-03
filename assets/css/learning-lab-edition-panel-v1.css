@@ -37,3 +37,10 @@
 .gu-enterprise-case-workbench button:disabled{opacity:.65;cursor:default}
 .gu-enterprise-case-workbench button:focus-visible{outline:3px solid #f2cf87;outline-offset:4px}
 @media(max-width:620px){.gu-enterprise-case-workbench{padding:12px}.gu-enterprise-case-workbench button{width:100%}}
+
+/* The seven-column research evidence table must scroll inside its own panel
+ * without moving the full mobile lesson viewport horizontally. */
+.gu-enterprise-case-workbench{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.gu-enterprise-case-workbench .gu-edition-exercise-output{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain}
+.gu-enterprise-case-workbench table{width:max-content;min-width:100%;max-width:none}
+.gu-enterprise-case-workbench th,.gu-enterprise-case-workbench td{white-space:nowrap}

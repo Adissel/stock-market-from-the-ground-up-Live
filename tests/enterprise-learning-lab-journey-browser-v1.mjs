@@ -54,6 +54,7 @@ try{
    throw Error('Unexpected mock route '+u.pathname);
   };
  });
+ await page.addStyleTag({path:'assets/css/learning-lab-edition-panel-v1.css'});
  await page.addScriptTag({path:'assets/js/learning-lab-edition-panel-v1.js'});
  const host=page.locator('#player-edition-exercise');
  const mount=()=>page.evaluate(()=>globalThis.CrownlightEditionExercisePanelV1.mount({
