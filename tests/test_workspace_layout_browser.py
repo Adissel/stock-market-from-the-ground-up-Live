@@ -47,20 +47,26 @@ with sync_playwright() as p:
     assert page.locator('#gu-workspace-sidebar').count()==0,'Public page must not have a member panel'
     assert page.locator('#gu-workspace-toggle').count()==0,'Public page must not show a member-menu control'
    if route in ['dashboard.html','admin.html']:
-    toggle=page.locator('#gu-workspace-toggle');toggle.wait_for()
+    toggle=page.locator('#gu-workspace-toggle');toggle.wait_for(state='attached')
     target='#'+toggle.get_attribute('aria-controls')
     if route=='dashboard.html':
-     # Owner-approved Dashboard has exactly one permanent member sidebar.
-     # The header menu toggles that SAME sidebar; it must not inject a duplicate.
+     # Owner-approved desktop: one permanent member sidebar with no redundant
+     # header toggle. Mobile: the same sidebar is controlled by the menu toggle.
      assert page.locator('.gu-member-dashboard-shell>.gu-member-side-menu').count()==1,'Dashboard lost its canonical member sidebar'
      assert page.locator('#gu-workspace-sidebar').count()==0,'Duplicate legacy workspace sidebar was inserted'
      assert target=='#gu-member-sidebar','Header toggle must control the canonical member sidebar'
      assert page.locator(target).is_visible()==(width>900),'Dashboard sidebar initial responsive state'
-     toggle.click()
-     assert page.locator(target).is_visible()==(width<=900),'Dashboard toggle must reverse member sidebar visibility'
-     toggle.click()
-     assert page.locator(target).is_visible()==(width>900),'Dashboard toggle must restore original state'
+     if width>900:
+      assert toggle.is_hidden(),'Desktop must not expose a redundant member-menu toggle'
+      assert page.locator(target).is_visible(),'Desktop permanent sidebar must remain available'
+     else:
+      assert toggle.is_visible(),'Mobile must expose its member-menu toggle'
+      toggle.click()
+      assert page.locator(target).is_visible(),'Mobile toggle must open canonical member sidebar'
+      toggle.click()
+      assert page.locator(target).is_hidden(),'Mobile toggle must close canonical member sidebar'
     else:
+     assert toggle.is_visible(),'Admin workspace must expose its menu control'
      assert page.locator(target).is_visible()==(width>900)
      toggle.click();assert page.locator(target).is_visible()==(width<=900)
      toggle.click()
