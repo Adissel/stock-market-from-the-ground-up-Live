@@ -37,7 +37,8 @@
     },
     "IEX": {
       "label": "Original private GRML IEX venue-replay QA draft",
-      "url": "/docs/research/IEX_GRML_20260921_PILOT_REVIEW_V1.md"
+      "url": null,
+      "internalReviewPath": "docs/research/IEX_GRML_20260921_PILOT_REVIEW_V1.md"
     }
   },
   "warnings": {

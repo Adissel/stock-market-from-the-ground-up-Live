@@ -76,5 +76,6 @@ test('FINRA transition is date-scoped and GRML is private single-venue only',()=
  assert.match(data.warnings['DT-C04-L01'],/October 20, 2027/);
  for(const id of ['DT-C50-L01','DT-C50-L02'])assert.match(data.warnings[id],/IEX/i);
  assert.ok(data.sourceReferences.FINRA.url.startsWith('https://syndication.finra.org/'));
- assert.equal(data.sourceReferences.IEX.url.startsWith('/docs/research/'),true);
+ assert.equal(data.sourceReferences.IEX.url,null);
+ assert.match(data.sourceReferences.IEX.internalReviewPath,/^docs\/research\//);
 });
