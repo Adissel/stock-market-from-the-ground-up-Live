@@ -39,7 +39,14 @@ test('P2 forty claim dispositions and two source registers are aligned without p
  for(const row of sources.rows){
   const lesson=all[row.number-1];
   assert.equal(lesson.code,row.code);
-  assert.equal(lesson.sourceUrls[0],row.source);
+  if(lesson.sourceUrls[0]!==row.source){
+   assert.equal(lesson.previousGenericSourceUrl,row.source,'Original P2 citation must remain auditable');
+   assert.ok(lesson.sourceUrls.every(url=>url.startsWith('https://')));
+   assert.ok(lesson.sourceResearchTriage?.supportedScope?.length>100);
+   assert.equal(lesson.sourceResearchTriage.independentMathAccepted,false);
+   assert.equal(lesson.sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(lesson.sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }else assert.equal(lesson.sourceUrls[0],row.source);
   assert.equal(row.independentPublicationApproved,false);
  }
  for(const n of [103,122]){
