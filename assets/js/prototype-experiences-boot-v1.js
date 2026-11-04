@@ -20,12 +20,12 @@
   loading=true;
   try{
    if(page==='map'){
-    const module=await import('/assets/js/prototype-learning-constellation-v1.js');
+    const module=await import('/assets/js/prototype-learning-constellation-v1.js?v=20261104-showcase1');
     if(stopped||protectedApp.hidden)return;
     if(typeof module.mountLearningConstellation!=='function')throw Error('Learning constellation mount export missing');
     disposed=module.mountLearningConstellation(host);
    }else{
-    const module=await import('/assets/js/prototype-experiences-v1.bundle.js');
+    const module=await import('/assets/js/prototype-experiences-v1.bundle.js?v=20261104-realism1');
     if(stopped||protectedApp.hidden)return;
     if(typeof module.mountExperienceSuite!=='function')throw Error('React experience mount export missing');
     disposed=module.mountExperienceSuite(host,page);
