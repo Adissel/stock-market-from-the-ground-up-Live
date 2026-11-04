@@ -278,6 +278,14 @@ function draw(){
 function select(id,focus=false){if(!workspace.has(id))return;state.id=id;const x=workspace.get(id);$('pt-title').textContent=x.name;$('pt-group').textContent=x.g;$('pt-desc').textContent=descriptions[id];nav($('pt-search').value);draw();window.dispatchEvent(new CustomEvent('crownlight:prototype-workspace',{detail:{id}}));if(focus)$('pt-title').focus();}
 function candles(){const secured=window.CrownlightPrototypeTeaching?.getChartCandles?.();if(Array.isArray(secured)&&secured.length)return secured;let v=100;const result=[];for(let i=0;i<24;i++){const open=v;v=Math.max(12,v+2.4*Math.sin(i*.71)+1.2*Math.cos(i*.39));result.push({t:'T'+String(i+1).padStart(2,'0'),open:+open.toFixed(2),close:+v.toFixed(2),high:+(Math.max(open,v)+1.6).toFixed(2),low:+(Math.min(open,v)-1.4).toFixed(2),volume:500+((i*97)%700)});}return state.id==='replay'?result.slice(0,state.revealed):result;}
 const chartView={volume:true,proxy:false,grid:true,mode:'analysis'};
+let prototypeHomeChart=null,prototypeHomeContext=null;
+function disposePrototypeHomeChart(){
+ if(prototypeHomeChart){prototypeHomeChart.dispose();prototypeHomeChart=null;prototypeHomeContext=null}
+}
+function mountedPrototypeHomeChart(){
+ return state.user&&['labs','bootcamps'].includes(state.id)&&state.kind==='candlestick'&&
+  typeof window.CrownlightHomeMarketTerminal?.mountInto==='function';
+}
 function applyChartMetrics(data){
  const last=data[data.length-1],first=data[0];
  if(!last||!first)return;
@@ -302,8 +310,24 @@ function proxySeries(data){
 }
 async function plot(){
  try{
-  const E=await window.CrownlightECharts.load();if($('pt-app').hidden)return;
+  if($('pt-app').hidden||!state.user)return;
   const chartHost=$('pt-chart');
+  if(mountedPrototypeHomeChart()){
+   if(state.chart){state.resize?.disconnect();state.resize=null;state.chart.dispose();state.chart=null;chartHost.replaceChildren();}
+   if(!prototypeHomeChart||prototypeHomeContext!==state.id){
+    disposePrototypeHomeChart();
+    prototypeHomeChart=window.CrownlightHomeMarketTerminal.mountInto(chartHost,{context:state.id==='bootcamps'?'bootcamp':'lab',startPaused:false});
+    prototypeHomeContext=state.id;
+   }
+   $('pt-chart-status').textContent='Actual homepage animated React chart: one fictional candle at start; Play/Pause, Replay, speed, timeframe, volume, pan and zoom.';
+   $('pt-chart-mode').textContent='SINGLE-CANDLE FICTIONAL REPLAY';
+   const top=$('pt-chart-controls');if(top)top.dataset.sharedReplay='true';
+   for(const k of ['pt-metric-close','pt-metric-change','pt-metric-range','pt-metric-count'])$(k).textContent='SHARED CHART';
+   return;
+  }
+  disposePrototypeHomeChart();
+  const top=$('pt-chart-controls');if(top)delete top.dataset.sharedReplay;
+  const E=await window.CrownlightECharts.load();if($('pt-app').hidden||!state.user||mountedPrototypeHomeChart())return;
   if(!state.chart){state.chart=E.init(chartHost,null,{renderer:'canvas'});state.resize=new ResizeObserver(()=>state.chart?.resize());state.resize.observe(chartHost);}
   const data=candles(),labels=data.map(x=>x.t),member=window.CrownlightClassroomMemberships;
   const appearance=member?.chartOptions?.(data);
@@ -394,7 +418,7 @@ async function recheckStaffAccess(){
   // A successful focus/visibility recheck must not remount or jump the page.
   if($('pt-app').hidden){$('pt-app').hidden=false;state.chart?.resize();}
  }catch(error){
-  state.resize?.disconnect();state.chart?.dispose();state.chart=null;teardownThree();teardownDeck();
+  disposePrototypeHomeChart();state.resize?.disconnect();state.chart?.dispose();state.chart=null;teardownThree();teardownDeck();
   window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();state.user=null;
   $('pt-app').hidden=true;$('pt-gate').hidden=false;
   $('pt-gate').textContent=error?.message||'Staff authorization unavailable.';
@@ -419,6 +443,7 @@ function controls(){
   void plot();
  });
  $('pt-chart-reset').addEventListener('click',()=>{
+  if(prototypeHomeChart){disposePrototypeHomeChart();void plot();return}
   state.chart?.dispatchAction({type:'dataZoom',start:0,end:100});
   $('pt-chart-status').textContent='Interactive '+state.kind+' · zoom reset to the visible fictional dataset.';
  });
@@ -433,7 +458,7 @@ function controls(){
  $('pt-reset').addEventListener('click',()=>{window.CrownlightClassroomMemberships?.reset?.();state.mode='Lab';state.device='desktop';state.kind='candlestick';state.stage=0;state.tier='Standard';state.layout='Balanced';state.density='Comfortable';state.tutor='Right';state.revealed=8;$('pt-device').value=state.device;$('pt-kind').value=state.kind;draw();note('Reset local controls only.');});
  window.addEventListener('hashchange',()=>select(location.hash.slice(1)||state.id));
  window.addEventListener('crownlight:prototype-case-change',()=>{void plot()});
- window.addEventListener('pagehide',()=>{teardownDeck();teardownThree();state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();});
+ window.addEventListener('pagehide',()=>{disposePrototypeHomeChart();teardownDeck();teardownThree();state.resize?.disconnect();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();});
 }
 async function start(){try{
  const sb=await window.getSupabaseClient?.();if(!sb)throw Error('Authentication service unavailable.');
@@ -453,7 +478,7 @@ async function start(){try{
  window.CrownlightClassroomPresetSync?.start?.(state.user);
  $('pt-device').value=state.device;$('pt-kind').value=state.kind;select(workspace.has(location.hash.slice(1))?location.hash.slice(1):state.id);
  if(state.saved)note('Restored local draft saved '+state.saved+'. Drafts are not synchronized across devices.');
- sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){teardownDeck();teardownThree();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
+ sb.auth.onAuthStateChange((event,s)=>{if(event==='SIGNED_OUT'||(s?.user?.id&&s.user.id!==state.user)){disposePrototypeHomeChart();teardownDeck();teardownThree();state.chart?.dispose();state.chart=null;window.CrownlightPrototypeTeaching?.reset?.();window.CrownlightClassroomMemberships?.clear?.();window.CrownlightClassroomPresetSync?.clear?.();$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent='Session ended; sign in again.';state.user=null;}});
  }catch(e){$('pt-app').hidden=true;$('pt-gate').hidden=false;$('pt-gate').textContent=e?.message||'Access denied.';}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else void start();
 })();
