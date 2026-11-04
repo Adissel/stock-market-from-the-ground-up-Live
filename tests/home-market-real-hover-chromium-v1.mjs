@@ -55,7 +55,8 @@ try{
  await plot.focus();await page.keyboard.press('Home');
  await page.waitForFunction(()=>document.querySelector('.cl-react-bottom [role="status"]')?.textContent?.includes('Fictional B01'));
  await page.keyboard.press('ArrowRight');
- assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Fictional B02'));
+ assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Fictional B01'),
+  'Keyboard must never inspect B02 before the second completed or forming candle is revealed');
 
  // Verify real browser movement, pause isolation and correct aggregated timeframe controls.
  const progress=page.locator('.cl-react-progress');
@@ -68,9 +69,9 @@ try{
  await page.getByRole('button',{name:'Resume fictional candle formation'}).click();
  await page.waitForFunction(previous=>document.querySelector('.cl-react-progress')?.textContent!==previous,frozen,{timeout:5500});
  await page.locator('.cl-react-toolbar select').nth(3).selectOption('5');
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B21'),{timeout:5500});
+ await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'),{timeout:5500});
  await page.getByRole('button',{name:'Replay',exact:true}).click();
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B21'));
+ await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'));
  await page.setViewportSize({width:390,height:800});
  const selects=page.locator('.cl-react-toolbar select');
  assert.equal(await selects.count(),5);
