@@ -77,6 +77,17 @@ try{
   throw error;
  });
  const wNode=page.locator('#member-sparks-wallet');
+ // Balance content can arrive before the Dashboard's asynchronous auth layout
+ // becomes visible. Demand actual visible UI, not detached/hidden DOM content.
+ await wNode.waitFor({state:'visible',timeout:30000}).catch(async error=>{
+  const ui=await wNode.evaluate(el=>({
+   display:getComputedStyle(el).display,visibility:getComputedStyle(el).visibility,
+   parentDisplay:getComputedStyle(el.parentElement).display,
+   contentReady:/verified/i.test(el.querySelector('#sparks-wallet-status')?.textContent||'')
+  })).catch(()=>({nodeUnavailable:true}));
+  console.error('Wallet panel never became visible: '+JSON.stringify(ui));
+  throw error;
+ });
  const diagnostic=await wNode.evaluate(el=>({
   clientRectCount:el.getClientRects().length,
   isVisible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),
