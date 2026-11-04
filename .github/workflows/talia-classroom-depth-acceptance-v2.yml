@@ -44,8 +44,10 @@ jobs:
     env:
       LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
       LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
-      TALIA_QA_EXPECTED_SHA: ${{ github.sha }}
-      TALIA_QA_ORIGIN: https://stock-market-from-the-ground-up-d1r.pages.dev
+      # Immutable successful production Pages deployment (Talia curriculum source).
+      # Runner SHA may be newer; only the exact pinned deployed Talia revision is accepted.
+      TALIA_QA_EXPECTED_SHA: '70bbd81701139bde1898f1b18abc35d8a5cfb09c'
+      TALIA_QA_ORIGIN: https://0ef155c3.stock-market-from-the-ground-up-d1r.pages.dev
     steps:
       - uses: actions/checkout@v4
         with:
