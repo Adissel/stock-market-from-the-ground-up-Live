@@ -124,7 +124,11 @@ test('D01–D12: preserve approved eight safe states and source-only frontend co
  assert.equal(p4.methods.length,5);
  const classic=readFileSync(new URL('../assets/js/market-tutor.js',import.meta.url),'utf8');
  const react=readFileSync(new URL('../src/tutor/TaliaClassroom.tsx',import.meta.url),'utf8');
- assert.match(classic,/allowModel:\$\('tutor-ai-consent'\)\?\.checked===true/);
+ assert.match(classic,/const submittedPreferences=\{allowModel:!sourceOnly&&\$\('tutor-ai-consent'\)\?\.checked===true/);
+ assert.match(classic,/allowModel:preferences.allowModel===true/);
+ const html=readFileSync(new URL('../market-tutor.html',import.meta.url),'utf8');
+ assert.match(html,/id="tutor-save-history" type="checkbox">/);
+ assert.match(classic,/void ask\(\{sourceOnly:true\}\)/);
  assert.match(classic,/token\(expectedUserId/);
  assert.match(react,/allowModel:false,saveHistory:currentSave/);
  assert.match(react,/pending\.current\?\.abort\(\)/);

@@ -572,13 +572,13 @@ function summarizePractice(data){
  }
  return parts.filter(Boolean).join('\n\n');
 }
-async function memberExplanation(q,mode,learnerAnswer,conversationId,signal,expectedUserId,expectedEpoch,requestId){
+async function memberExplanation(q,mode,learnerAnswer,conversationId,signal,expectedUserId,expectedEpoch,requestId,preferences={}){
  const access=await token(expectedUserId);
  if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId||signal?.aborted)
   throw Object.assign(new Error('Member session changed; no Tutor request was submitted.'),{status:401});
  const response=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',signal,
   headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-  body:JSON.stringify({question:q,mode,learnerAnswer,requestId,allowModel:$('tutor-ai-consent')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
+  body:JSON.stringify({question:q,mode,learnerAnswer,requestId,allowModel:preferences.allowModel===true,saveHistory:preferences.saveHistory===true,conversationId})});
  const data=await response.json().catch(()=>null);
  if(!response.ok||data?.ok!==true){
   throw Object.assign(new Error(response.status===403?'Market Tutor access is not included with the current account. Review memberships or individual Tutor access.':
@@ -590,7 +590,8 @@ async function memberExplanation(q,mode,learnerAnswer,conversationId,signal,expe
   sources:Array.isArray(data.sources)?data.sources:[],aiReason:data.aiReason||null,remainingAiToday:data.remainingAiToday,historySaved:data.historySaved===true,historyId:data.historyId||null,
   conversationLinked:data.conversationLinked===true};
 }
-async function ask(){
+async function ask(options={}){
+ const sourceOnly=options?.sourceOnly===true;
  if(!TUTOR.ready){status('Market Tutor is preparing your verified learning session. Submit after the Tutor becomes ready.');return}
  if(TUTOR.busy)return;
  const q=$('tutor-question').value.trim(),learnerAnswer=$('tutor-reflection').value.trim(),chosen=$('tutor-mode').value;
@@ -602,6 +603,8 @@ async function ask(){
  if(!TUTOR.user){status('Sign in with an eligible membership to use Talia Market Tutor. No API key is required.','error');return}
  const submittingUser=TUTOR.user?.id||null,submittingEpoch=TUTOR.identityEpoch;
  const submittedConversationId=TUTOR.currentConversationId;
+ const submittedPreferences={allowModel:!sourceOnly&&$('tutor-ai-consent')?.checked===true,
+  saveHistory:$('tutor-save-history')?.checked===true};
  const requestId=crypto.randomUUID(),controller=new AbortController();
  TUTOR.activeRequestId=requestId;
  TUTOR.lastDraft={question:q,learnerAnswer,mode:chosen};
@@ -611,7 +614,7 @@ async function ask(){
  status('Preparing a source-grounded educational response…');
  try{
   const data=await memberExplanation(q,mode,learnerAnswer,submittedConversationId,controller.signal,
-   submittingUser,submittingEpoch,requestId);
+   submittingUser,submittingEpoch,requestId,submittedPreferences);
   if(controller.signal.aborted)throw Error('The browser stopped waiting for this response.');
   if(!data){throw Error('No approved teaching response was returned.')}
   if(TUTOR.user?.id!==submittingUser||TUTOR.identityEpoch!==submittingEpoch)
@@ -632,8 +635,8 @@ async function ask(){
   data.aiReason==='provider_failed'?'The model provider could not return a validated cited explanation.':
   data.aiReason==='duplicate_request'?'This AI request was already processed.':'';
   status('Response displayed. '+(data.generation==='grounded-model-draft'?'First-party AI educational draft; verify its original sources.':'No paid provider result was used. ')+why,'success');
-  if(TUTOR.user&&$('tutor-ai-consent')?.checked)void refreshAiServiceStatus();
-  if(TUTOR.user&&$('tutor-save-history')?.checked===true){
+  if(TUTOR.user&&submittedPreferences.allowModel)void refreshAiServiceStatus();
+  if(TUTOR.user&&submittedPreferences.saveHistory){
    historyStatus(data.historySaved&&submittedConversationId&&!data.conversationLinked?
     'Response saved, but its selected conversation was not confirmed; it will remain Unfiled after refreshing history.':
     data.historySaved?'Tutor response was generated and saved by the authenticated service (ungraded).':
@@ -702,7 +705,7 @@ async function initTutor(){
   $('tutor-question').value=TUTOR.lastDraft.question;
   $('tutor-reflection').value=TUTOR.lastDraft.learnerAnswer;
   $('tutor-mode').value=TUTOR.lastDraft.mode;
-  updateCount();void ask();
+  updateCount();void ask({sourceOnly:true});
  });
  $('tutor-calc-submit').addEventListener('click',()=>void calculateHypotheticalPosition());
  $('tutor-candle-submit').addEventListener('click',()=>void calculateHypotheticalCandle());
@@ -750,6 +753,7 @@ async function initTutor(){
    if(event==='SIGNED_OUT'||(oldId&&newId&&oldId!==newId)){
     TUTOR.abortController?.abort();TUTOR.abortController=null;TUTOR.lastDraft=null;
     TUTOR.busy=false;$('tutor-ask').disabled=true;$('tutor-stop').disabled=true;$('tutor-retry').disabled=true;
+    $('tutor-save-history').checked=false;
     TUTOR.identityEpoch++;TUTOR.entries=[];TUTOR.user=null;TUTOR.serverHistory=false;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
     renderConversation();void refreshAiServiceStatus();historyStatus('Your account changed; private notes were cleared from this page.');
@@ -757,6 +761,7 @@ async function initTutor(){
    }
    if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();}
    if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){
+    $('tutor-save-history').checked=false;
     TUTOR.identityEpoch++;TUTOR.user=session.user;
     $('tutor-ask').disabled=!TUTOR.ready;$('tutor-stop').disabled=true;$('tutor-retry').disabled=true;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();

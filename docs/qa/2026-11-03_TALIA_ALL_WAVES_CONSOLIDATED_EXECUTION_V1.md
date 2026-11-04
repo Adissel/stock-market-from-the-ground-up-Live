@@ -167,3 +167,4 @@ The owner has delegated **internal product and engineering acceptance**; this is
 | Version | Date | Description | Decision |
 |---|---|---|---|
 | 1.0.0 | 2026-11-03 | Consolidate all 60 tasks and 12 release gates; add no-charge fictional mathematics, ownership and source QA | Source engineering in review; not publication-approved |
+| 1.0.1 | 2026-11-03 | Correct classic Tutor saving to opt-in by default; enforce genuinely source-only Retry while keeping the member's saved AI preference | Source and independent a11y QA pending |

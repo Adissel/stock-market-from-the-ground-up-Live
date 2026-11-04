@@ -152,6 +152,8 @@ test('A09 — a delayed token lookup cannot send an old question with a new memb
  assert.equal(outbound[0].opts.headers.authorization,'Bearer A-TOKEN');
  assert.equal(JSON.parse(outbound[0].opts.body).requestId,requestId);
  assert.equal(JSON.parse(outbound[0].opts.body).allowModel,false);
+ assert.match(source,/void ask\(\{sourceOnly:true\}\)/,'Retry button must enforce source-only request');
+ assert.match(source,/submittedPreferences=\{allowModel:!sourceOnly&&/,'Paid AI preference must be captured per request');
  // Destructive history operations must be bound to their initiating identity
  // BEFORE awaiting the asynchronous session lookup. No second-account DELETE.
  globals.confirm=()=>true;
