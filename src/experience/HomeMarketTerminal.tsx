@@ -1,4 +1,4 @@
-/** Public fictional OHLCV chart only; member chart data and private state never enter this component. */
+/** Public simulated OHLCV chart only; member chart data and private state never enter this component. */
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 type Study='all'|'ema9'|'ema20'|'vwap'|'sma20'|'none';
@@ -10,7 +10,7 @@ declare global{interface Window{
  CrownlightECharts?:{load:()=>Promise<{init:(node:HTMLElement)=>Chart}>};
  CrownlightHomeMarketTerminal?:{mountInto:(target:HTMLElement,options?:{context?:'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean})=>EmbeddedTerminalSession|null};
 }}
-/** Original, deterministic 1-minute fictional tape. Volatility clusters, thin
+/** Original, deterministic 1-minute simulated tape. Volatility clusters, thin
  * consolidations, gaps, breakout spikes, retraces and uneven volume deliberately
  * resemble the shape (not prices or provenance) of educational market examples.
  * Never reverse-engineered from uploaded screenshots or licensed price feeds.
@@ -66,11 +66,11 @@ function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (nu
  const observed=indicator[index];
  const indicatorRow=study!=='none'&&observed!==null&&Number.isFinite(observed)?
   `<div class="cl-market-tooltip-row cl-market-tooltip-study"><span>${study==='sma20'?'SMA 20':study==='ema20'?'EMA 20':study==='vwap'?'VWAP proxy':'EMA 9'}</span><strong>${price(observed)}</strong></div>`:'';
- return `<div class="cl-market-tooltip"><div class="cl-market-tooltip-heading"><span>Candle B${String(index+1).padStart(2,'0')}</span><span style="color:${color}">Fictional</span></div>${cells}<div class="cl-market-tooltip-row"><span>Volume</span><strong>${Math.round(bar.volume).toLocaleString('en-US')}</strong></div>${indicatorRow}</div>`;
+ return `<div class="cl-market-tooltip"><div class="cl-market-tooltip-heading"><span>Candle B${String(index+1).padStart(2,'0')}</span><span style="color:${color}">Simulated</span></div>${cells}<div class="cl-market-tooltip-row"><span>Volume</span><strong>${Math.round(bar.volume).toLocaleString('en-US')}</strong></div>${indicatorRow}</div>`;
 }
 
 /** Intracandle simulation: every observation is exposed only when its playback tick occurs.
- * The fictional finished OHLCV is a private input to this generator, never passed to the
+ * The simulated finished OHLCV is a private input to this generator, never passed to the
  * chart, indicator, tooltip, or keyboard inspector before the candle actually forms.
  */
 type Frame=1|3|5;
@@ -123,8 +123,8 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
  const homeSpeed=useRef(0.1);
  const [displaySpeed,setDisplaySpeed]=useState(0.1);
  const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
- const [note,setNote]=useState('Fictional simulation · Not real-time market data');
- const [progress,setProgress]=useState('Preparing fictional candle replay…');
+ const [note,setNote]=useState('Simulated simulation · Not real-time market data');
+ const [progress,setProgress]=useState('Preparing simulated candle replay…');
  const chartInstance=useRef<Chart|null>(null);
  const playhead=useRef(1);
  const isPublicHome=context==='home';
@@ -148,7 +148,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   focusIndex.current=next;
   const bar=bars[next];
   chartInstance.current?.dispatchAction({type:'showTip',seriesIndex:0,dataIndex:next});
-  setNote('Fictional B'+String(next+1).padStart(2,'0')+' · Open '+bar.open.toFixed(2)+' · High '+bar.high.toFixed(2)+' · Low '+bar.low.toFixed(2)+' · Close '+bar.close.toFixed(2));
+  setNote('Simulated B'+String(next+1).padStart(2,'0')+' · Open '+bar.open.toFixed(2)+' · High '+bar.high.toFixed(2)+' · Low '+bar.low.toFixed(2)+' · Close '+bar.close.toFixed(2));
   return true;
  };
  function paint(initial=false){
@@ -164,7 +164,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const indicator=cfg.study==='sma20'?sma20:cfg.study==='ema20'?ema20:cfg.study==='vwap'?vwap:ema9;
   const show=(id:Study)=>cfg.study==='all'||cfg.study===id;
   const series=[
-   {type:cfg.view==='candles'?'candlestick':'line',name:'Fictional market',
+   {type:cfg.view==='candles'?'candlestick':'line',name:'Simulated market',
     data:bars.map(b=>cfg.view==='candles'?[b.open,b.close,b.low,b.high]:+b.close.toFixed(3)).concat(padding as never[]),
     barMaxWidth:9,barMinWidth:2,smooth:false,showSymbol:false,lineStyle:{color:'#10cdaa',width:1.7},
     itemStyle:{color:'#08c69d',color0:'#e32d55',borderColor:'#08c69d',borderColor0:'#e32d55'}},
@@ -176,7 +176,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     showSymbol:false,connectNulls:false,lineStyle:{color:'#efd074',width:1.4},z:3}]:[]),
    ...(show('vwap')?[{type:'line',name:'Bar-based VWAP proxy',data:vwap.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#ffbd25',width:1.4},z:3}]:[]),
-   {type:'bar',name:'Fictional volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:9,
+   {type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:9,
     data:bars.map(bar=>({value:bar.volume,itemStyle:{color:bar.close>=bar.open?'#18a584':'#d94c6a'}}))
      .concat(padding.map(()=>({value:0,itemStyle:{color:'transparent'}})))}
   ];
@@ -219,7 +219,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     chart=api.init(host.current);chartInstance.current=chart;
     paint(true);
     observer=new ResizeObserver(()=>chart?.resize());observer.observe(host.current);
-    setNote('Interactive fictional OHLCV · Forming candles · Wheel to zoom · Drag to pan');
+    setNote('Interactive simulated OHLCV · Forming candles · Wheel to zoom · Drag to pan');
    }catch{if(!disposed)setNote('Interactive library unavailable. Open Chart Studio for practice.')}
   };
   void start();
@@ -241,12 +241,12 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
    const end=(DATA.length-first)*TICKS_PER_MINUTE;
    playhead.current=Math.min(end,playhead.current+steps);
    paint();
-   if(playhead.current>=end){setPlaying(false);setNote('Fictional replay completed. Choose Replay to start again.')}
+   if(playhead.current>=end){setPlaying(false);setNote('Simulated replay completed. Choose Replay to start again.')}
   },60);
   return()=>window.clearInterval(timer);
  },[playing,speed,frame,isPublicHome]);
- const changeFrame=(value:Frame)=>{if(checkpointLocked)return;playhead.current=1;setFrame(value);setPlaying(true);setNote('Fictional '+value+'-minute replay · Intracandle movement is compressed for demonstration.')};
- const restart=()=>{if(checkpointLocked)return;playhead.current=1;paint();setPlaying(true);setNote('Fictional replay restarted. No live market feed.')};
+ const changeFrame=(value:Frame)=>{if(checkpointLocked)return;playhead.current=1;setFrame(value);setPlaying(true);setNote('Simulated '+value+'-minute replay · Intracandle movement is compressed for demonstration.')};
+ const restart=()=>{if(checkpointLocked)return;playhead.current=1;paint();setPlaying(true);setNote('Simulated replay restarted. No live market feed.')};
  return <div className="cl-react-terminal">
   <div className="cl-react-toolbar">
    <span className="cl-react-title">CROWNLIGHT <small>{context==='home'?'TRAINING TERMINAL':'LAB & BOOT CAMP MARKET REPLAY'}</small></span>
@@ -263,13 +263,13 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
    <option value={0.1}>0.1×</option><option value={0.5}>0.5×</option>
    <option value={1}>1×</option><option value={3}>3×</option></select></label>}
    <div className="cl-react-playback"><button type="button" disabled={checkpointLocked} onClick={()=>setPlaying(x=>!x)}
-    aria-label={playing?'Pause fictional candle formation':'Resume fictional candle formation'}>{playing?'Pause':'Resume'}</button>
+    aria-label={playing?'Pause simulated candle formation':'Resume simulated candle formation'}>{playing?'Pause':'Resume'}</button>
     <button type="button" disabled={checkpointLocked} onClick={restart}>Replay</button></div>
   </div>
   <div ref={host} className="cl-react-plot" role="region" tabIndex={0} onKeyDown={event=>{if(inspect(event.key))event.preventDefault()}}
-   aria-label="Interactive fictional OHLCV training chart. Press Left or Right arrow to inspect a candle, Home for first candle, End for last candle; mouse wheel to zoom."/>
+   aria-label="Interactive simulated OHLCV training chart. Press Left or Right arrow to inspect a candle, Home for first candle, End for last candle; mouse wheel to zoom."/>
   <div className="cl-react-progress" aria-live="off"><span>{checkpointLocked?'Playback paused for the Lab calculation checkpoint. Finish the ungraded method check to continue.':progress}</span>
-   <small>Fictional one-minute OHLCV; every replay starts with one forming candle. EMA 9 (green), EMA 20 (red), bar-based VWAP proxy (gold, not trade-print VWAP). No live or licensed market feed.</small></div>
+   <small>Simulated one-minute OHLCV; every replay starts with one forming candle. EMA 9 (green), EMA 20 (red), bar-based VWAP proxy (gold, not trade-print VWAP). No live or licensed market feed.</small><a href="/practice-data-policy.html" className="cl-market-source-policy">How practice data is sourced</a></div>
   <div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
  </div>;
 }
@@ -286,13 +286,13 @@ function resolveHomeChartHost():HTMLElement|null{
  const host=document.createElement('div');
  host.className='gu-home-terminal sm-v5-chart';
  host.setAttribute('role','group');
- host.setAttribute('aria-label','Interactive fictional OHLCV training workstation');
+ host.setAttribute('aria-label','Interactive simulated OHLCV training workstation');
  linked.replaceWith(host);
  return host;
 }
 // The exact homepage ECharts experience is embedded only by an authorized
 // Lab or Academy lesson host. It never reads membership, progress or hidden
-// historical bars; it uses the existing public fictional dataset.
+// historical bars; it uses the existing public simulated dataset.
 const embeddedRoots=new WeakMap<HTMLElement,EmbeddedTerminalSession>();
 function mountInto(target:HTMLElement,options?:{context?:'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean}):EmbeddedTerminalSession|null{
  if(!target||typeof target.replaceChildren!=='function'||!target.isConnected)return null;

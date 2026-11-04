@@ -34,7 +34,7 @@
     animation:!quiet,animationDuration:650,backgroundColor:'transparent',
     aria:{enabled:true,description:host.getAttribute('aria-label')},
     tooltip:{show:false},
-    title:{text:share+'%',subtext:example?'EXAMPLE DATA':'LAST 60 MIN',left:'center',top:'34%',
+    title:{text:share+'%',subtext:example?'ILLUSTRATIVE':'LAST 60 MIN',left:'center',top:'34%',
      textStyle:{fontSize:32,fontWeight:800,color:'#f6fbff',textShadowBlur:12,textShadowColor:'#4cd9c866'},
      subtextStyle:{fontSize:9,fontWeight:700,color:'#9ec7da'}},
     series:[
@@ -85,8 +85,8 @@
   panel.setAttribute('role','region');
   panel.innerHTML='<div class="gu-home-stats-layout"><div class="gu-stats-hero"><div class="v1353-stats-graph" data-stats-chart role="img" aria-label="Member activity"></div></div>'+
    '<div class="gu-stats-content"><div class="gu-stats-head"><div><span class="eyebrow">OUR LEARNING COMMUNITY</span><h2>Member Status</h2></div><div class="gu-stat-status"><span class="gu-stat-mode" data-mode>LIVE DATA</span></div></div>'+
-   '<dl class="gu-stats-metrics"><div class="v1353-stat-row"><dt data-online-label aria-label="Members active within the last 60 minutes">Active members</dt><dd data-online>—</dd></div>'+
-   '<div class="v1353-stat-row"><dt data-registered-label>Member accounts</dt><dd data-registered>—</dd></div></dl></div></div>'+
+   '<dl class="gu-stats-metrics"><div class="v1353-stat-row"><dt data-online-label aria-label="Members active within the last 60 minutes">Online members</dt><dd data-online>—</dd></div>'+
+   '<div class="v1353-stat-row"><dt data-registered-label>Registered members</dt><dd data-registered>—</dd></div></dl></div></div>'+
    '<div class="gu-home-future-modules" data-future-modules hidden></div>'+
    '<p data-caption class="small" hidden></p>';
   if(premium){
@@ -122,11 +122,11 @@
    const badge=panel.querySelector('[data-mode]');
    const example=d.mode==='custom'||d.mode==='range';
    badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE';
-   badge.setAttribute('aria-label',valid?(example?'EXAMPLE DATA; illustrative Owner-configured counts, not real members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
+   badge.setAttribute('aria-label',valid?(example?'Illustrative Owner-configured counts, not verified registered or online members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
    panel.querySelector('[data-online]').textContent=valid?Number(d.online).toLocaleString():'—';
    panel.querySelector('[data-registered]').textContent=valid?Number(d.registered).toLocaleString():'—';
-   panel.querySelector('[data-online-label]').textContent=example?'Example online members':'Active members';
-   panel.querySelector('[data-registered-label]').textContent=example?'Example registered members':'Member accounts';
+   panel.querySelector('[data-online-label]').textContent='Online members';
+   panel.querySelector('[data-registered-label]').textContent='Registered members';
    const caption=panel.querySelector('[data-caption]');caption.textContent=example?'Illustrative Owner-configured values only. These are not actual membership counts.':'';
    caption.hidden=!example;
    renderFuture(panel,d.extras);

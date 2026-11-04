@@ -1,4 +1,4 @@
-/* Crownlight interactive evidence · fictional, ungraded, authorized Lab stage only.
+/* Crownlight interactive evidence · simulated, ungraded, authorized Lab stage only.
  * This component reads no member state and creates no new progress or grade system.
  */
 (function(root){'use strict';
@@ -27,10 +27,10 @@
   const doc=target.ownerDocument||root.document;
   const node=(tag,label)=>{const n=doc.createElement(tag);if(label!==undefined)n.textContent=label;return n;};
   const btn=(label,onClick)=>{const n=node('button',label);n.type='button';n.addEventListener('click',onClick);return n;};
-  const shell=node('details');shell.className='cl-evidence';shell.setAttribute('aria-label','Optional interactive fictional investigation');
+  const shell=node('details');shell.className='cl-evidence';shell.setAttribute('aria-label','Optional interactive simulated investigation');
   shell.append(node('summary','Open the Evidence Investigation Toolkit — optional, ungraded'));
   const content=node('div');content.className='cl-evidence-body';
-  content.append(node('p','Illustrative fictional observations. No live prices, trade execution, future historical bars, official grade, mastery points or member record writes.'));
+  content.append(node('p','Illustrative simulated observations. No live prices, trade execution, future historical bars, official grade, mastery points or member record writes.'));
   const chooser=node('label','Choose an investigation');
   const select=node('select');const available=kind==='candle'?
    [['anatomy','Candle Anatomy Explorer'],['timeline','Candle-by-candle and Multi-timeframe Microscope'],['structure','Market Structure Builder'],['patterns','Pattern Comparison Lab'],['wicks','Wick and Rejection Investigator']]:
@@ -73,7 +73,7 @@
     yAxis:[{scale:true,axisLabel:{color:'#c8dce9'},splitLine:{lineStyle:{color:'rgba(154,187,204,.2)'}}},
      {gridIndex:1,axisLabel:{show:false}}],
     dataZoom:[{type:'inside',xAxisIndex:[0,1],start:0,end:100}],
-    series:[{type:'candlestick',name:'Revealed fictional bars',
+    series:[{type:'candlestick',name:'Revealed simulated bars',
      data:bars.map(b=>[b.open,b.close,b.low,b.high]),
      itemStyle:{color:'#46d9b0',color0:'#fa8893',borderColor:'#46d9b0',borderColor0:'#fa8893'}},
      {type:'bar',name:'Revealed volume',xAxisIndex:1,yAxisIndex:1,data:bars.map(b=>b.volume),
@@ -94,7 +94,7 @@
   }
   function anatomy(){
    const state={open:31,high:32.5,low:30.5,close:32},fields={};
-   viewport.append(node('h3','Drag fictional OHLC prices and inspect the candle'));
+   viewport.append(node('h3','Drag simulated OHLC prices and inspect the candle'));
    viewport.append(node('p','The body measures |Close − Open|. The full range measures High − Low. A wick identifies extremes, not their chronological order.'));
    const controls=node('div');controls.className='cl-evidence-controls';
    const svg=doc.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -103,7 +103,7 @@
    const comparison=node('p');
    for(const key of ['open','high','low','close']){
     const label=node('label',key[0].toUpperCase()+key.slice(1)+' · '),r=node('input');
-    r.type='range';r.min='29';r.max='34';r.step='0.05';r.value=String(state[key]);r.setAttribute('aria-label','Adjust fictional candle '+key);
+    r.type='range';r.min='29';r.max='34';r.step='0.05';r.value=String(state[key]);r.setAttribute('aria-label','Adjust simulated candle '+key);
     const value=node('output');fields[key]={r,value};label.append(r,value);controls.append(label);
     r.addEventListener('input',()=>{
      state[key]=Number(r.value);
@@ -128,14 +128,14 @@
     }
     status.textContent='Body '+money(result.body)+' · Range '+money(result.range)+' · Body '+result.bodyPercent.toFixed(1)+'% · Upper wick '+money(result.upperWick)+' · Lower wick '+money(result.lowerWick);
     const wider=core.candleContrast(state,{open:state.open,close:state.close,high:34,low:29});
-    comparison.textContent=wider?'Counterexample: identical open and close with a wider fictional range changes body share to '+wider.second.bodyPercent.toFixed(1)+'%. Neither candle establishes what happens next.':'';
+    comparison.textContent=wider?'Counterexample: identical open and close with a wider simulated range changes body share to '+wider.second.bodyPercent.toFixed(1)+'%. Neither candle establishes what happens next.':'';
    }
    viewport.append(controls,svg,status,comparison);update();
    reflection(viewport,'Which observed prices establish the wick, and what remains unknown?');
   }
   function timeline(){
    let count=0,frame=1,plot=null;
-   viewport.append(node('h3','Reveal chronological fictional price observations'));
+   viewport.append(node('h3','Reveal chronological simulated price observations'));
    viewport.append(node('p','One new observation at a time. A swing high/low is confirmed only after a subsequent completed observation. Changing timeframe does not invent missing trades.'));
    const controls=node('div');controls.className='cl-evidence-actions';
    const label=node('label','Timeframe '),selectFrame=node('select');
@@ -143,15 +143,15 @@
    label.append(selectFrame);
    const status=node('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
    const plotHost=node('div');plotHost.className='cl-evidence-chart';plotHost.setAttribute('role','img');
-   plotHost.setAttribute('aria-label','Fictional OHLCV chart showing only revealed observations; full numerical table follows.');
+   plotHost.setAttribute('aria-label','Simulated OHLCV chart showing only revealed observations; full numerical table follows.');
    const evidence=node('div');const pivots=node('p');
-   const reveal=btn('Reveal next fictional observation',()=>{count=Math.min(sequence.length,count+1);sync()});
+   const reveal=btn('Reveal next simulated observation',()=>{count=Math.min(sequence.length,count+1);sync()});
    const reset=btn('Reset observations',()=>{count=0;sync()});
    selectFrame.addEventListener('change',()=>{frame=Number(selectFrame.value);sync()});
    controls.append(label,reveal,reset);viewport.append(controls,status,plotHost,evidence,pivots);
    function sync(){
     const bars=core.aggregate(sequence,count,frame)||[];
-    status.textContent='Revealed '+count+' / '+sequence.length+' fictional trades · '+frame+'-minute aggregation';
+    status.textContent='Revealed '+count+' / '+sequence.length+' simulated trades · '+frame+'-minute aggregation';
     reveal.disabled=count>=sequence.length;
     const completed=bars.length>1?bars.slice(0,-1):[];
     const swing=core.structure(completed)||[];
@@ -170,7 +170,7 @@
   function transactions(){
    let count=4,plot=null;
    viewport.append(node('h3','VWAP Transaction Explorer · exact trade-print method'));
-   viewport.append(node('p','VWAP = sum of (trade price × shares) ÷ sum of shares. This is trade-print VWAP, not the HLC3 bar approximation. The fictional fifth transaction remains concealed until revealed.'));
+   viewport.append(node('p','VWAP = sum of (trade price × shares) ÷ sum of shares. This is trade-print VWAP, not the HLC3 bar approximation. The simulated fifth transaction remains concealed until revealed.'));
    const actions=node('div');actions.className='cl-evidence-actions';
    const reveal=btn('Reveal next transaction',()=>{count=Math.min(prints.length,count+1);sync()});
    const reset=btn('Reset to zero transactions',()=>{count=0;sync()});
@@ -178,7 +178,7 @@
    actions.append(reveal,reset,first);
    const status=node('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
    const plotHost=node('div');plotHost.className='cl-evidence-chart';plotHost.setAttribute('role','img');
-   plotHost.setAttribute('aria-label','Revealed fictional trade prices and calculated VWAP, also provided in the following numerical table.');
+   plotHost.setAttribute('aria-label','Revealed simulated trade prices and calculated VWAP, also provided in the following numerical table.');
    const tableHost=node('div');
    viewport.append(actions,status,plotHost,tableHost);
    function sync(){
@@ -189,7 +189,7 @@
      ' · VWAP '+(state.value===null?'not available':money(state.value));
     tableHost.replaceChildren(table(['Trade','Price','Shares','Price × shares','Cumulative VWAP'],state.steps.map((s,i)=>[
      String(i+1),money(s.price),String(s.shares),money(s.notional),money(s.vwap)
-    ]),'Revealed fictional transactions only'));
+    ]),'Revealed simulated transactions only'));
     const option={animation:false,backgroundColor:'transparent',tooltip:{trigger:'axis'},
      grid:{left:52,right:18,top:20,bottom:42},
      xAxis:{type:'category',data:state.steps.map((_,i)=>'Trade '+(i+1)),axisLabel:{color:'#c8dce9'}},
@@ -206,7 +206,7 @@
    let count=0,frame=1,plot=null;
    const accepted=new Map();
    viewport.append(node('h3','Market Structure Builder · confirm swings'));
-   viewport.append(node('p','Identify and connect swing highs and lows using completed adjacent fictional candles only. HH, HL, LH and LL compare confirmed swings of the same type. Do not infer future prices.'));
+   viewport.append(node('p','Identify and connect swing highs and lows using completed adjacent simulated candles only. HH, HL, LH and LL compare confirmed swings of the same type. Do not infer future prices.'));
    const controls=node('div');controls.className='cl-evidence-actions';
    const frameLabel=node('label','Candle grouping '),framePick=node('select');
    for(const size of [1,3,5]){const opt=node('option',size+' minute');opt.value=String(size);framePick.append(opt)}
@@ -217,7 +217,7 @@
    framePick.addEventListener('change',()=>{frame=Number(framePick.value);accepted.clear();paint()});
    const status=node('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
    const chartHost=node('div');chartHost.className='cl-evidence-chart';chartHost.setAttribute('role','img');
-   chartHost.setAttribute('aria-label','Chronological fictional candles from revealed observations only; completed values follow.');
+   chartHost.setAttribute('aria-label','Chronological simulated candles from revealed observations only; completed values follow.');
    const observations=node('div');
    const controls2=node('div');controls2.className='cl-evidence-actions';
    const barLabel=node('label','Select completed candle '),barPick=node('select');
@@ -242,14 +242,14 @@
     const bars=core.aggregate(sequence,count,frame)||[],completed=bars.slice(0,-1);
     // Do not disclose the pivots before a member identifies them.
     const confirmed=core.structure(completed)||[];
-    status.textContent=count+' / '+sequence.length+' fictional prints revealed · '+frame+'-minute grouping.';
+    status.textContent=count+' / '+sequence.length+' simulated prints revealed · '+frame+'-minute grouping.';
     reveal.disabled=count===sequence.length;
     barPick.replaceChildren();
     for(let i=1;i<completed.length-1;i++){const option=node('option','Candle '+(i+1)+' · minute '+completed[i].minute);option.value=String(i);barPick.append(option)}
     identify.disabled=barPick.options.length===0;
     observations.replaceChildren(table(['Completed minute','Open','High','Low','Close','Shares'],completed.map(b=>[
       b.minute,money(b.open),money(b.high),money(b.low),money(b.close),b.volume
-    ]),'Completed fictional candle observations, excluding the forming candle'));
+    ]),'Completed simulated candle observations, excluding the forming candle'));
     if(plot)plot.update(optionsFor(bars));else if(bars.length)plot=chart(chartHost,optionsFor(bars));
     illustration.replaceChildren();
     const points=[...accepted.values()].filter(v=>confirmed.some(c=>c.type===v.type&&c.index===v.index)).sort((a,b)=>a.index-b.index);
@@ -272,7 +272,7 @@
    if(!cases){viewport.append(node('p','Pattern evidence unavailable.'));return}
    let expanded=false;
    viewport.append(node('h3','Pattern Comparison Lab · context changes interpretation'));
-   viewport.append(node('p','These two fictional candles have identical final OHLC but different preceding observations and final volume. Compare evidence without treating a pattern as an entry signal.'));
+   viewport.append(node('p','These two simulated candles have identical final OHLC but different preceding observations and final volume. Compare evidence without treating a pattern as an entry signal.'));
    const controls=node('div');controls.className='cl-evidence-actions';
    const label=node('label','Choose a case '),pick=node('select');
    for(const [value,caption] of [['rising','Prior prices rising'],['falling','Prior prices declining']]){
@@ -290,11 +290,11 @@
     if(!expanded){
      status.textContent='Only the current candle is visible; its shape alone cannot establish trend or future price.';
      evidence.append(table(['Open','High','Low','Close'],[[money(last.open),money(last.high),money(last.low),money(last.close)]],
-      'Current fictional candle shape (identical in both cases)'));return}
+      'Current simulated candle shape (identical in both cases)'));return}
     status.textContent='Prior price change '+entry.summary.priorChange.toFixed(2)+' · Current volume '+entry.summary.lastVolume+' shares. Neither is a predictive guarantee.';
     evidence.append(table(['Candle','Open','High','Low','Close','Shares'],entry.bars.map((b,i)=>[
      i+1,money(b.open),money(b.high),money(b.low),money(b.close),b.volume
-    ]),'All authored fictional context observations'));
+    ]),'All authored simulated context observations'));
    }
    paint();
    reflection(viewport,'Which preceding observations and volume figures change the interpretation of the identical last candle?');
@@ -304,13 +304,13 @@
    if(!cases){viewport.append(node('p','Wick chronology unavailable.'));return}
    let count=0;
    viewport.append(node('h3','Wick and Rejection Investigator · price ordering'));
-   viewport.append(node('p','Two fictional four-print sequences produce the same completed OHLCV but reach high and low in opposite orders. A long wick does not establish buyer or seller intent.'));
+   viewport.append(node('p','Two simulated four-print sequences produce the same completed OHLCV but reach high and low in opposite orders. A long wick does not establish buyer or seller intent.'));
    const actions=node('div');actions.className='cl-evidence-actions';
    const label=node('label','Illustrative path '),choice=node('select');
    for(const [value,caption] of [['highFirst','High observed before low'],['lowFirst','Low observed before high']]){
     const option=node('option',caption);option.value=value;choice.append(option)}
    label.append(choice);actions.append(label);
-   const next=btn('Reveal next fictional print',()=>{count=Math.min(count+1,4);paint()});
+   const next=btn('Reveal next simulated print',()=>{count=Math.min(count+1,4);paint()});
    const reset=btn('Reset wick investigation',()=>{count=0;paint()});
    choice.addEventListener('change',()=>{count=0;paint()});
    actions.append(next,reset);

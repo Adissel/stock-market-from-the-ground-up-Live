@@ -1,5 +1,5 @@
 /* Public Candlestick Learning Journey V3.1 — ten-stage original teaching.
- * Fictional examples; no market feed, account writes, Lumens, or public mastery grades.
+ * Simulated examples; no market feed, account writes, Lumens, or public mastery grades.
  * Protected/official assessments remain in authenticated Labs.
  */
 (()=>{'use strict';
@@ -16,7 +16,7 @@ const replayBars=[fx(10,10.2,9.9,10.12,100),fx(10.12,10.33,10.02,10.27,125),fx(1
 const lessons=[
 {title:'Welcome to candlestick evidence',teach:[
  'A candlestick summarizes prices recorded during one defined interval. Each candle has an open (first price), high (greatest price), low (smallest price), and close (last price).',
- 'This course uses fictional five-minute candles. They are useful for learning calculations but do not provide a real quotation or forecast.',
+ 'This course uses simulated five-minute candles. They are useful for learning calculations but do not provide a real quotation or forecast.',
  'By the end of this experience you should be able to measure a real body and full range, recognize unsupported claims, replay unseen candles, and transfer the method to new numbers.'
 ],question:{title:'Which four prices does one candle summarize?',options:['Open, high, low and close','Bid, ask, fee and profit','Yesterday, tomorrow, volume and target'],correct:0,
 hint:'OHLC is the first price, greatest price, smallest price and last price of a completed interval.'}},
@@ -44,7 +44,7 @@ hint:'The body is the span between Open $31.00 and Close $32.00; the full high-t
 ],question:{title:'Which conclusion is justified by a candle high of $32.50?',options:['The next candle must close above $32.50','At least one recorded price reached $32.50 in that interval','The candle must have closed at its high'],correct:1,hint:'High is a past observation, not a guaranteed next price or necessarily the closing price.'}},
 {title:'Replay completed candles without future bars',teach:[],question:null},
 {title:'Independent assessment — first submission',teach:[
- 'Use the unfamiliar fictional candle on the left. Calculate the body, range and body percentage without looking at a worked solution.',
+ 'Use the unfamiliar simulated candle on the left. Calculate the body, range and body percentage without looking at a worked solution.',
  'This public exercise preserves your FIRST submitted answers for the Review stage. It does not award official mastery: authenticated Labs use protected server-side grading.'
 ],question:{title:'Calculate from a new candle (unassisted first submission)',inputs:[['body','Real body (USD)',.3],['range','Full range (USD)',1.2],['percent','Body / range (%)',25]],assessment:true}},
 {title:'Review your independent assessment',teach:[],question:{title:'What does a body percentage describe?',options:['The probability of tomorrow’s rally','How much of the candle range lies between open and close','A brokerage profit estimate'],correct:1,hint:'The body percentage is the real body divided by the high-to-low range, multiplied by 100.'}},
@@ -91,7 +91,7 @@ function chartDraw(){
   const price=chartMode!=='Volume Only',volume=chartMode!=='Price Only',latest=raw[raw.length-1];
   chartObject=e.init(host,null,{renderer:'svg'});
   const series=[];
-  if(price)series.push({type:'candlestick',name:'Fictional OHLC',data:display,
+  if(price)series.push({type:'candlestick',name:'Simulated OHLC',data:display,
    itemStyle:{color:'#51d5b0',color0:'#e57f95',borderColor:'#51d5b0',borderColor0:'#e57f95'},
    barMaxWidth:38,
    markLine:{silent:true,symbol:'none',lineStyle:{color:'#9bbed0',type:'dashed',width:1},
@@ -100,13 +100,13 @@ function chartDraw(){
           {yAxis:latest[3],label:{formatter:'C '+money(latest[3]),color:'#7ceecb'}},
           {yAxis:latest[0],label:{formatter:'O '+money(latest[0])}},
           {yAxis:latest[2],label:{formatter:'L '+money(latest[2])}}]}});
-  if(volume)series.push({type:'bar',name:'Fictional volume',xAxisIndex:1,yAxisIndex:1,
+  if(volume)series.push({type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,
    data:raw.map(b=>({value:b[4],itemStyle:{color:b[3]>=b[0]?'#4bb9aa':'#bf6886'}})),barMaxWidth:32});
   const labels=raw.map((_,i)=>'Bar '+(i+1));
   chartObject.setOption({animation:false,backgroundColor:'#081e2e',
    legend:{top:3,textStyle:{color:'#c9dae7'}},
    tooltip:{trigger:'axis',backgroundColor:'#143346',borderColor:'#45687b',textStyle:{color:'#fff'},formatter:params=>{
-    const i=params[0]?.dataIndex||0,b=raw[i];return 'Fictional '+labels[i]+'<br>O '+money(b[0])+' · H '+money(b[1])+'<br>L '+money(b[2])+' · C '+money(b[3])+'<br>Volume '+b[4];
+    const i=params[0]?.dataIndex||0,b=raw[i];return 'Simulated '+labels[i]+'<br>O '+money(b[0])+' · H '+money(b[1])+'<br>L '+money(b[2])+' · C '+money(b[3])+'<br>Volume '+b[4];
    }},
    grid:[{left:60,right:112,top:42,height:volume&&price?'58%':'68%'},{left:60,right:112,top:'79%',height:'13%'}],
    xAxis:[{type:'category',gridIndex:0,data:labels,axisLabel:{color:'#c8d9e6'},axisLine:{lineStyle:{color:'#486479'}}},
@@ -135,13 +135,13 @@ function experiment(){
 function replay(){
  const panel=el('gu-practice-replay');panel.hidden=stage!==5;
  if(stage!==5)return;
- el('gu-practice-replay-status').textContent='Revealed '+replayCount+' of '+replayBars.length+' fictional candles. Future bars remain concealed.';
+ el('gu-practice-replay-status').textContent='Revealed '+replayCount+' of '+replayBars.length+' simulated candles. Future bars remain concealed.';
 }
 function learningLines(){
  if(stage===5){
   const b=values(),last=b[b.length-1],prev=b[b.length-2],above=last[3]>prev[3];
   return [
-   'Market replay means seeing only the candles already completed. You have '+replayCount+' of '+replayBars.length+' fictional candles; later candles must stay hidden until you submit a decision.',
+   'Market replay means seeing only the candles already completed. You have '+replayCount+' of '+replayBars.length+' simulated candles; later candles must stay hidden until you submit a decision.',
    'The previous completed close was '+money(prev[3])+'. The latest completed close is '+money(last[3])+'. Use these known numbers to classify the change. Volume on the latest candle was '+last[4]+' shares.',
    'An observed close '+(above?'above':'below')+' the prior close is not a promise of continuation. Record only the evidence available now; after a correct checkpoint you can reveal one additional candle.'
   ];
@@ -199,7 +199,7 @@ function questionDraw(){
 function showResults(){
  if(stage!==9)return;
  const elr=el('gu-practice-results');elr.hidden=false;elr.replaceChildren();
- const intro=make('p','You completed the ten-stage public learning journey. This was fictional study and practice, not a protected grade or trading recommendation.');
+ const intro=make('p','You completed the ten-stage public learning journey. This was simulated study and practice, not a protected grade or trading recommendation.');
  const row=make('div',undefined,'gu-learning-report');
  const metrics=[
   ['Stages completed',completed.size+' of 10'],

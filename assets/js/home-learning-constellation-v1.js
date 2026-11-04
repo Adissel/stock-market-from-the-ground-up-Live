@@ -3,14 +3,14 @@
  */
 (()=>{'use strict';
  const stages=[
-  ['Start with the evidence','Name the market-learning concept, data scope and investigable question.','Choose a completed fictional candle and identify what its Open, High, Low and Close represent.'],
+  ['Start with the evidence','Name the market-learning concept, data scope and investigable question.','Choose a completed simulated candle and identify what its Open, High, Low and Close represent.'],
   ['Learn before predicting','Explore definitions, formulas, counterexamples and the limits of observable evidence.','Use Talia’s free explanation to separate candle anatomy from a prediction.'],
-  ['Experiment with the chart','Inspect only currently revealed observations and compare how fictional price changes affect a developing candle.','Pause the simulated one-minute replay, inspect its real body and wicks, then advance.'],
-  ['Predict as a hypothesis','Make a falsifiable expectation before revealing later fictional evidence; it is not a trade recommendation.','Write what observation would invalidate your interpretation.'],
-  ['Practice with feedback','Attempt a new instructional case and use free corrective teaching without losing progress.','Calculate a candle range or apply VWAP arithmetic using a separate fictional example.'],
+  ['Experiment with the chart','Inspect only currently revealed observations and compare how simulated price changes affect a developing candle.','Pause the simulated one-minute replay, inspect its real body and wicks, then advance.'],
+  ['Predict as a hypothesis','Make a falsifiable expectation before revealing later simulated evidence; it is not a trade recommendation.','Write what observation would invalidate your interpretation.'],
+  ['Practice with feedback','Attempt a new instructional case and use free corrective teaching without losing progress.','Calculate a candle range or apply VWAP arithmetic using a separate simulated example.'],
   ['Assess under safeguards','Formal assessments use protected, reviewed questions in authenticated courses—not this public demonstration.','See how independent reasoning differs from copying an explanation.'],
   ['Review and correct','Compare original observations with outcomes, identify a misconception and retry guided exercises.','Explain why a completed candle alone cannot establish the next candle.'],
-  ['Transfer to a new situation','Apply the same concept to different fictional prices or a different timeframe without lookahead.','Evaluate what changes when one-minute observations are grouped into five-minute candles.'],
+  ['Transfer to a new situation','Apply the same concept to different simulated prices or a different timeframe without lookahead.','Evaluate what changes when one-minute observations are grouped into five-minute candles.'],
   ['Results document learning','Use verified course records to track studied competencies and helpful next steps, not trading guarantees.','Return to your learning path to see what concept to investigate next.']
  ];
  const run=()=>{

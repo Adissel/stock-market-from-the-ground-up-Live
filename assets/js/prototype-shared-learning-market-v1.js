@@ -27,8 +27,8 @@
    title.textContent=isLab?'Interactive Lab · Learn and Experiment':'Boot Camp · Day Classroom';
    lesson.textContent=isLab?'Lab · Understanding completed candles':'Boot Camp · Evidence-led market reading';
    copy.textContent=isLab?
-     'This is the actual homepage chart mounted in the Lab experience. Watch fictional prices form and change OHLC/Volume, then pause to explain what a completed candle can and cannot prove.':
-     'This is the same homepage chart shown on an authenticated Boot Camp study day. Its fictional simulation illustrates a concept, but never replaces day-specific historical evidence or an assessment.';
+     'This is the actual homepage chart mounted in the Lab experience. Watch simulated prices form and change OHLC/Volume, then pause to explain what a completed candle can and cannot prove.':
+     'This is the same homepage chart shown on an authenticated Boot Camp study day. Its simulated simulation illustrates a concept, but never replaces day-specific historical evidence or an assessment.';
    feedback.textContent='Select an observation, then check your reasoning. No formal grade or Lumens are used.';
    question.reset();
   };
@@ -44,7 +44,7 @@
    status.textContent=controller?
      (selected==='lab'?'Live component preview: Lab Learn/Experiment':
      'Live component preview: Boot Camp study day')+
-      ' · Original fictional candles · Play/Pause/Replay, 1/3/5m, speed, zoom, pan, indicator and volume':
+      ' · Original simulated candles · Play/Pause/Replay, 1/3/5m, speed, zoom, pan, indicator and volume':
      'Unable to mount the chart safely; reopen the preview to retry.';
   };
   function select(mode){
@@ -68,7 +68,7 @@
   get('pt-shared-resume')?.addEventListener('click',()=>{
    if(!authorized()||!details.open||!controller)return;
    checkpoint=false;controller.resume();
-   status.textContent='Fictional candle formation resumed in '+(selected==='lab'?'Lab':'Boot Camp')+' preview.';
+   status.textContent='Simulated candle formation resumed in '+(selected==='lab'?'Lab':'Boot Camp')+' preview.';
   });
   get('pt-shared-replay')?.addEventListener('click',()=>{
    if(authorized()&&details.open)mount();
@@ -86,7 +86,7 @@
    }
    feedback.textContent='Correct. Open, High, Low and Close describe observed prices for the completed candle. They cannot predict the next candle or reveal transaction order. Explanation and retries are always free.';
    checkpoint=false;controller.resume();
-   status.textContent='Correct fictional checkpoint · classroom playback resumed.';
+   status.textContent='Correct simulated checkpoint · classroom playback resumed.';
   });
   // Never mount any chart until the existing authenticated Owner/Admin gate
   // has succeeded. Immediately release the React root when the gate hides.

@@ -205,7 +205,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   code:codes[0]||'ACADEMY_STUDY_ONLY',title:String(academyLesson.title||'Boot Camp learning'),
   concept:String(lab.teaching.what||''),procedure:String(lab.teaching.why||academyLesson.objective||''),
   commonError:String(lab.teaching.commonError||'Check source and time before interpreting evidence.'),
-  limit:String(lab.teaching.limitation||'A fictional example cannot prove future outcomes.'),
+  limit:String(lab.teaching.limitation||'A simulated example cannot prove future outcomes.'),
   invalidation:String(lab.teaching.when||'Record missing evidence and WAIT when needed.'),
   selfCheck:(lab.teaching.questions||[])[0]||String(academyLesson.objective||'Explain this example.')
  }:map.guides.get(codes[0]);
@@ -302,17 +302,17 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   },400);
  }
  const echartsControllers=[];
- // The homepage's original fictional ECharts/React terminal is shared with
+ // The homepage's original simulated ECharts/React terminal is shared with
  // the authorized Lab, never with a protected grader or private replay feed.
  function mountHomeMarketReplay(parent,checkpointLocked=false){
   if(academyScope||!['guided','practice'].includes(mode)||
     typeof root.CrownlightHomeMarketTerminal?.mountInto!=='function')return null;
   const panel=el('section');panel.className='gu-learning-market-replay';
-  panel.setAttribute('aria-label','Interactive fictional market replay — same chart as homepage');
-  const title=el('h3','Watch fictional candles form — homepage chart controls');
+  panel.setAttribute('aria-label','Interactive simulated market replay — same chart as homepage');
+  const title=el('h3','Watch simulated candles form — homepage chart controls');
   const explanation=el('p',checkpointLocked?
-   'This market animation is paused while you complete Talia’s ungraded calculation checkpoint. The fictional moving prices are separate from the fixed worked example below.':
-   'The homepage fictional candle-formation terminal: pause, resume, replay, timeframe, speed, pan, zoom and exact OHLCV inspection. This synthetic scenario is separate from the Lab’s authored evidence.');
+   'This market animation is paused while you complete Talia’s ungraded calculation checkpoint. The simulated moving prices are separate from the fixed worked example below.':
+   'The homepage simulated candle-formation terminal: pause, resume, replay, timeframe, speed, pan, zoom and exact OHLCV inspection. This synthetic scenario is separate from the Lab’s authored evidence.');
   explanation.className='gu-learning-market-context';
   const host=el('div');host.className='gu-learning-market-host';
   panel.append(title,explanation,host);
@@ -457,7 +457,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   return{accepted:true};
  }
 
- // Structured Learning -> Lab evidence contract: display only fictional
+ // Structured Learning -> Lab evidence contract: display only simulated
  // authored practice, never private grading or unrevealed historical bars.
  function analyzePracticeEvidence(submitted,expected,caseCode='authored_subquestion'){
   const api=root.GroundUpLearningEvidenceV1;
@@ -490,7 +490,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   const group=el('section');group.className='gu-v33-method-steps';
   group.setAttribute('aria-label','Optional ungraded calculation method check');
   group.append(el('h3','Show the steps behind your calculation'));
-  appendParagraph(group,'Enter your three intermediate values. This fictional method check is free and does not change official grades or mastery.');
+  appendParagraph(group,'Enter your three intermediate values. This simulated method check is free and does not change official grades or mastery.');
   const inputs=[],layout=el('div');layout.className='gu-v33-method-grid';
   for(const name of names){
    const fieldInput=field(layout,name,'','input');fieldInput.setAttribute('aria-label',name);inputs.push(fieldInput);
@@ -505,7 +505,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    response.replaceChildren();
    if(finding.status==='insufficient_evidence'){response.append(el('p',finding.reason));return;}
    response.append(el('h4',finding.mismatchedStepCount?
-    finding.mismatchedStepCount+' intermediate calculation(s) to review':'All three fictional calculations matched'));
+    finding.mismatchedStepCount+' intermediate calculation(s) to review':'All three simulated calculations matched'));
    const list=el('ol');
    for(const step of finding.steps){const li=el('li');
     li.append(el('strong',step.label+': '),
@@ -522,7 +522,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     response.append(links);
    }
    if(finding.followUp?.source==='fictional_constructed_no_feed'){
-    response.append(el('h4','New independent fictional case'),el('p',finding.followUp.prompt));
+    response.append(el('h4','New independent simulated case'),el('p',finding.followUp.prompt));
     const next=field(response,'My new-case answer ('+finding.followUp.units+')','','input');
     const notice=el('p');notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');
     response.append(button('Check new case',()=>{
@@ -537,13 +537,13 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   if(!r||!api?.checkFollowUp||!['guided','practice'].includes(mode))return;
   const panel=el('section');panel.className='gu-v33-evidence-card';
   panel.setAttribute('aria-label','Evidence-based correction and independent practice');
-  panel.append(el('h3','Learning diagnosis · fictional numerical practice'));
+  panel.append(el('h3','Learning diagnosis · simulated numerical practice'));
   const items=[
    ['Observed finding',r.verifiedCause?'Verified calculation pattern: '+r.code.replaceAll('_',' '):
-      r.status==='method_correct'?'The submitted numerical result matched the authored fictional calculation.':
+      r.status==='method_correct'?'The submitted numerical result matched the authored simulated calculation.':
        'The submitted result differs, but the cause is not established.'],
    ['Prerequisite',r.prerequisite],['Correction',r.correction],
-   ['Approved fictional method',r.sourceExcerpt],['Next study step',r.nextAction]
+   ['Approved simulated method',r.sourceExcerpt],['Next study step',r.nextAction]
   ];
   for(const [label,value] of items){
    const p=el('p'),strong=el('strong',label+': ');p.append(strong,document.createTextNode(value));panel.append(p);
@@ -560,7 +560,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    panel.append(list);
   }
   if(r.followUp?.source==='fictional_constructed_no_feed'){
-   panel.append(el('h4','Try a new independent fictional case'));
+   panel.append(el('h4','Try a new independent simulated case'));
    panel.append(el('p',r.followUp.prompt));
    const entry=field(panel,'My independent calculation ('+r.followUp.units+')','','input');
    const status=el('p');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
@@ -643,7 +643,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
  }
  function stepList(steps){const ol=el('ol');for(const s of steps)ol.append(el('li',s));body.append(ol)}
  function showVisual(step,variant='default'){
-  // Shared fictional ECharts practice is available throughout the 419-Lab
+  // Shared simulated ECharts practice is available throughout the 419-Lab
   // curriculum. General-subject examples are explicitly optional, not a
   // substitute for the Lab's independently authored topic-specific evidence.
   let optionalChart=null;
@@ -659,7 +659,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     const summary=el('summary');
     const title=el('span','Optional chart skills: measure a candlestick');
     title.className='gu-v35-chart-skills-title';
-    const subtitle=el('small','Fictional · ungraded · independent of this lesson');
+    const subtitle=el('small','Simulated · ungraded · independent of this lesson');
     summary.append(title,subtitle);
     const caution=el('p','A completed candle shows prices, not who traded, why they traded, or what happens next. This separate practice does not affect your Lab grade.');
     caution.className='gu-v35-chart-skills-note';
@@ -794,7 +794,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    if(mounted)echartsControllers.push(mounted);
   }else{
    // For qualitative topics, never invent prices, a numerical answer key or
-   // claim an unrelated fictional candle represents this Lab's evidence.
+   // claim an unrelated simulated candle represents this Lab's evidence.
    visualHost.append(el('p',authorizedTeaching.what||subject?.definition||guide.concept||
     'Examine the named evidence and determine which measurements or observations are justified.'));
    if(ownHow.length){const points=el('ol');for(const line of ownHow.slice(0,5))points.append(el('li',line));visualHost.append(points);}
@@ -813,7 +813,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    'That average is closer to $8 because twice as many shares traded there. The result is not a guaranteed trading entry or prediction.'
   ]:visualType==='candle'?[
    'Every candle has an open, high, low and close for a defined interval. Real body is the absolute difference between close and open; full range is high minus low.',
-   'For a fictional candle opening at $31.00 and closing at $32.00, the body is |32 − 31| = $1.00. With high $32.50 and low $30.50, the complete range is $2.00.',
+   'For a simulated candle opening at $31.00 and closing at $32.00, the body is |32 − 31| = $1.00. With high $32.50 and low $30.50, the complete range is $2.00.',
    'Body percentage compares the $1.00 part with the $2.00 whole: 1 ÷ 2 × 100 = 50%. It describes proportional candle size, not future price direction.'
   ]:[
    'Your task is to identify the evidence needed for '+topic+'. Start by defining the terms, source, measurement units and time interval before deciding what the evidence shows.',
@@ -855,7 +855,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   });
   proceed.className='btn gu-v44-calc-next';proceed.disabled=!passed;coach.append(proceed);
   wrap.append(visual,coach);body.append(wrap);
-  // A separate optional fictional-only investigation. The canonical stage,
+  // A separate optional simulated-only investigation. The canonical stage,
   // access check, active lesson, calculation gate and persisted progress own this view.
   if(!academyScope&&['candle','vwap'].includes(visualType)&&['guided','practice'].includes(mode)){
    const evidenceHost=el('section');evidenceHost.className='gu-v44-evidence-investigation';body.append(evidenceHost);
@@ -1402,7 +1402,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
       if(selected>=0&&selected<steps.length)
        instructorInstance?.teachSupplement?.('Worked example · Step '+(selected+1)+' of '+steps.length,[
         steps[selected],
-        'This fictional example describes only the stated observation. It is not a brokerage order or verified market history.'
+        'This simulated example describes only the stated observation. It is not a brokerage order or verified market history.'
        ]);
       return; // Never read raw case-0 identifiers aloud as instruction.
      }
