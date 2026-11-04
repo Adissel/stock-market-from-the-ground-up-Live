@@ -32,7 +32,7 @@
   {id:'vwap',type:'VWAP',period:1,color:'#f7c76a',width:2}
  ];
  let prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
- const state={mounted:false,chart:null,candles:null,volume:null,series:[],lines:[],source:'',count:-1,
+ const state={mounted:false,chart:null,candles:null,volume:null,volumeVisible:true,series:[],lines:[],source:'',count:-1,
   hover:null,inspectIndex:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null,contextMenu:null};
  const $=id=>document.getElementById(id);
   const contextCatalog=()=>root.CrownlightChartContextMenuV1;
@@ -112,6 +112,7 @@
   });
   state.volume=chart.addSeries(lib.HistogramSeries,{priceFormat:{type:'volume'},priceLineVisible:false,lastValueVisible:false},1);
   state.chart=chart;state.shell=shell;state.mounted=true;applyAppearance();
+  state.volume?.applyOptions?.({visible:state.volumeVisible});
    state.contextMenu=contextCatalog()?.mount({
     shell,plot:chartBox,
     trigger:shell.querySelector('[data-cl="context-menu"]'),
@@ -120,6 +121,8 @@
     onAdd:(type,period)=>addContextStudy(type,period,false),
     onCustom:type=>addContextStudy(type,null,true),
     onManage:()=>openStudies(),onAppearance:openAppearance,onLevel:addLevel,
+    getVolumeVisible:()=>state.volumeVisible,
+    onToggleVolume:()=>{state.volumeVisible=!state.volumeVisible;state.volume?.applyOptions?.({visible:state.volumeVisible});return state.volumeVisible;},
     onDrawing:tool=>{
      const t=tierStatus();
      if(!t?.verified||!t.allowed?.includes('ADVANCED')||
