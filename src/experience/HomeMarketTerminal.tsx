@@ -308,6 +308,12 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
    const first=Math.floor(FIRST_REPLAY_MINUTE/frame)*frame;
    const end=(DATA.length-first)*TICKS_PER_MINUTE;
    playhead.current=Math.min(end,playhead.current+steps);
+   if(playhead.current>=end&&isPublicHome){
+    // The ambient homepage has no replay button: begin another strictly
+    // simulated market sequence without affecting lesson or assessment replays.
+    playhead.current=HOME_INITIAL_COMPLETED_CANDLES*TICKS_PER_MINUTE+1;
+    focusIndex.current=0;
+   }
    paint();
    if(playhead.current>=end){setPlaying(false);setNote('Simulated replay completed. Choose Replay to start again.')}
   },60);
