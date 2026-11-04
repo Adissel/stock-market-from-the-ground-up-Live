@@ -28,6 +28,8 @@ node --test tests/watchlist-offline-credential-boundary-v1.test.mjs
 node --test tests/home-stable-first-paint-v1.test.mjs
 # Dedicated React chart classrooms must not load legacy global DOM/CSS enhancers.
 node --test tests/runtime-owned-talia-v1.test.mjs
+# Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
+node --test tests/talia-student-desk-v1.test.mjs
 # Block stale async chart libraries from overriding the active Studio tier.
 node --test tests/chart-studio-runtime-ownership-v1.test.mjs
 node --test tests/crownlight-chart-context-menu-v1.test.mjs
