@@ -422,7 +422,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   ];
   if(current===7)return [
    'Identify what is different in the new case and which evidence you can use without seeing future results.',
-   special?'Enter the numerical result for this new case ('+special.transfer.units+'). '+special.transfer.prompt:
+   special?'Enter the numerical result for this new case ('+special.units+'). '+special.transfer.prompt:
     'Provide the new-case decision from its own evidence and identify what remains uncertain.'
   ];
   return ['What is one practical lesson you can transfer to your next independent exercise, and what remains uncertain?'];
