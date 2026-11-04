@@ -144,6 +144,13 @@ export async function onRequest({request,env}){
    summary=result.result;
   }
   if(!summary||JSON.stringify(summary).length>15000)throw fail('Study evidence too large.',400);
+  // Recheck server-owned permission after calculation: grants and member
+  // sessions may change before persistence. This narrows, but cannot remove,
+  // the authorize-to-write race without a database transaction.
+  const fresh=await authorizeEditionRequest({request,env,family:body.family,edition:body.edition});
+  if(fresh.memberId!==rights.memberId||fresh.family!==rights.family||
+     fresh.edition!==rights.edition)
+   throw fail('Member session changed during private study save.',403);
   let write,expected=body.expectedRevision;
   if(expected===0){
    write=await fetch(config.base+'/rest/v1/gu_learning_lab_edition_workspaces_v1?'+
