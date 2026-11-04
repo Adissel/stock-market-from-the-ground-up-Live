@@ -42,3 +42,6 @@ Retain scorecard 7/32 (21.875%) until a named milestone is independently accepte
 | 1.0 | 2026-11-04 | Opt-in source-only sparse input, existing rule compatibility, evidence counts and release contract |
 
 Footer: Technical implementation is not a licensed market-data feed, legal opinion, verified investment signal or completed LIVE launch.
+
+## Existing sitewide CI drift repair — November 4
+The source-acceptance workflow expected old homepage Member Status cache-version strings and the old visible LIVE DATA badge. Current main already loads `home-community.js?v=20261104-verified-live1` and `home-member-stats.css?v=20261104-live-compact1`, displays the compact LIVE label and retains a full accessible LIVE DATA source description. The updated test checks the exact implemented versions and accessible provenance, EXAMPLE and UNAVAILABLE handling; no member counts or homepage functionality are modified. This cross-workstream CI repair does not receive scanner milestone credit.
