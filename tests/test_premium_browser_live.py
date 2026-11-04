@@ -78,6 +78,21 @@ with sync_playwright() as pw:
                     assert final.path.rstrip('/') in ['/'+route,'/'+route.removesuffix('.html')],(
                         'Protected route redirected to an unauthorized destination',route,final.path)
                 if route=='':
+                    # Validate LIVE production render AFTER async auth/style resolution,
+                    # including the four-second fail-open availability guarantee.
+                    page.wait_for_function("""() =>
+                        !document.documentElement.classList.contains('cl-home-initializing')
+                        && !!document.querySelector('main.gu-premium-home')
+                        && getComputedStyle(document.querySelector('main.gu-premium-home')).visibility === 'visible'
+                    """, timeout=6000)
+                    assert page.locator('.site-header .sm-shell-menu').count()==0,(
+                        'Legacy site-shell inserted a competing Home navigation controller')
+                    assert page.locator('#v1341-mobile-menu').count()<=1,(
+                        'Duplicate canonical mobile menu controllers')
+                    assert page.locator('.navlinks .gu-nav-search').count()<=1,(
+                        'Duplicate canonical search inputs')
+                    assert page.locator('.cl-page-style-livebar').count()<=1,(
+                        'Duplicate Owner page-style controllers')
                     main=page.locator('main.gu-premium-home')
                     assert main.count()==1,'Premium home overwritten by legacy renderer'
                     assert page.locator('.gu-home-terminal').count()==1,'Missing chart workstation'
