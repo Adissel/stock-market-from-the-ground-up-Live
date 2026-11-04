@@ -95,8 +95,9 @@ try{
   assert(sql.includes(token),'Private AI budget invariant missing: '+token);
  }
  const ui=readFileSync(new URL('../assets/js/market-tutor.js',import.meta.url),'utf8');
- assert(ui.includes("allowModel:$('tutor-ai-consent')?.checked===true"),
-  'Paid AI calls require an explicitly enabled member preference on each request');
+ assert(ui.includes("const submittedPreferences={allowModel:!sourceOnly&&$('tutor-ai-consent')?.checked===true")&&
+  ui.includes('allowModel:preferences.allowModel===true'),
+  'Paid AI requests must preserve the member-selected preference, while explicit source-only retries cannot charge');
  assert(ui.includes("Keep the member's Profile preference after each Tutor request."),
   'Preserve the Owner-approved persistent Tutor preference instead of clearing it after each answer');
  assert(!ui.includes("if($('tutor-ai-consent'))$('tutor-ai-consent').checked=false"),

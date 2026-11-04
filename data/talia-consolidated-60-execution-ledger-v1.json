@@ -1,0 +1,1728 @@
+{
+  "schema": "crownlight.talia.all-waves-controlled-batch.v1",
+  "documentId": "SMFGU-TALIA-ALLWAVES-EXEC-001",
+  "version": "1.0.0",
+  "date": "2026-11-03",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "status": "CONTROLLED_MEGA_BATCH_SOURCE_INTEGRATION_NOT_PRODUCTION_RELEASE",
+  "sourceBacklogPath": "data/talia-chat-mode-p10-codex-backlog-release-gates-v1.json",
+  "sourceBacklogDocumentId": "SMFGU-TALIA-CHAT-P10-HANDOFF-001",
+  "githubRepository": "Adissel/stock-market-from-the-ground-up-Live",
+  "githubPullRequest": 59,
+  "googleDriveLocation": "Not created / unassigned",
+  "ownerDecision": "Owner delegated internal acceptance; cannot substitute independent rights, accessibility, legal or actual authenticated QA",
+  "counts": {
+    "waves": 5,
+    "engineeringTasks": 60,
+    "releaseGates": 12,
+    "masterClassifiedRequirements": 229,
+    "sourcePackages": 10,
+    "premiumCapabilities": 9,
+    "indicators": 73,
+    "foundationDrafts": 600,
+    "sourceEvaluationCases": 40,
+    "historicalV4Accepted": 2,
+    "historicalV4Total": 5
+  },
+  "baselineFrozen": {
+    "learningEngine": "v3.3 Basic",
+    "labEngine": "v3.2 Basic",
+    "tutorBasic": "v0.14.0.149 Foundation",
+    "labs": 419,
+    "academyDays": 274,
+    "competencies": 30,
+    "freeTeaching": true,
+    "paidAiEnabledByThisBatch": false,
+    "officialGradeWrittenByThisBatch": false,
+    "paidStripeChangedByThisBatch": false,
+    "memberDataChangedByThisBatch": false
+  },
+  "tasks": [
+    {
+      "id": "A01",
+      "wave": "A",
+      "order": 1,
+      "title": "Selective PR17 duplicate/conflict review",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Only unique changes to latest main identified; no stale source links restored",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "docs/qa/2026-11-03_TALIA_WAVE_A_CORE_SOURCE_EXECUTION_v1.md"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A02",
+      "wave": "A",
+      "order": 2,
+      "title": "Typed Tutor input and server context validation",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Spoofed grades, roles, entitlements and source titles rejected",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "functions/_lib/tutor-request-boundary-v014147.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A03",
+      "wave": "A",
+      "order": 3,
+      "title": "419 canonical Lab ID resolver",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "419 IDs resolve uniquely; forged Lab ID denied",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "functions/_lib/tutor-lab-context-v014149.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A04",
+      "wave": "A",
+      "order": 4,
+      "title": "274 Academy program/day resolver",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Ten programs and 274 day keys resolve; five free separate",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "functions/_lib/tutor-academy-context-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A05",
+      "wave": "A",
+      "order": 5,
+      "title": "Nine-stage Learning Journey router",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "All nine valid stages accepted, unknown stage rejected",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "functions/_lib/tutor-lab-context-v014149.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A06",
+      "wave": "A",
+      "order": 6,
+      "title": "Assess answer-key isolation",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Protected rubric, unseen cases and direct answer hints unavailable",
+      "implementationDisposition": "HISTORICAL_SOURCE_EVIDENCE_RECHECK_REQUIRED",
+      "sourceReferences": [
+        "functions/api/market-tutor-v01492.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A07",
+      "wave": "A",
+      "order": 7,
+      "title": "Authenticated member tool authorization",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Guest/suspended/revoked/showcase requests denied server-side",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "functions/api/member-tool-access.js",
+        "tests/talia-wave-a-a07-a12-adversarial-v1.test.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A08",
+      "wave": "A",
+      "order": 8,
+      "title": "Consented member-owned conversation persistence",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Consent off no save; on reload only same-member data",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "functions/api/member-tutor-history-v014102.js",
+        "tests/talia-wave-a-a07-a12-adversarial-v1.test.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A09",
+      "wave": "A",
+      "order": 9,
+      "title": "Account switch and request abort",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Stale request never renders under second identity",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "assets/js/market-tutor.js",
+        "tests/talia-wave-a-a07-a12-adversarial-v1.test.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A10",
+      "wave": "A",
+      "order": 10,
+      "title": "Progress record authority separation",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Tutor cannot award grade/Lumens or assert prerequisite completed",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "functions/api/market-tutor-v01492.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A11",
+      "wave": "A",
+      "order": 11,
+      "title": "30-competency safe context mapping",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "All 30 IDs and four dimensions retained without fake mastery",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "data/competency-study-guides-v01499.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "A12",
+      "wave": "A",
+      "order": 12,
+      "title": "Free source-only fallback",
+      "depends": "Frozen Packages 1–9",
+      "acceptance": "Basic/deeper explanations and retries produce no paid provider call",
+      "implementationDisposition": "IMPLEMENTATION_PATCH_IN_CI_NOT_OPERATIONALLY_ACCEPTED",
+      "sourceReferences": [
+        "functions/api/market-tutor-v01492.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B01",
+      "wave": "B",
+      "order": 13,
+      "title": "A01 verified prerequisite diagnostics",
+      "depends": "Wave A",
+      "acceptance": "Two genuine member histories give distinct authorized paths",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-tier-research-contracts-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B02",
+      "wave": "B",
+      "order": 14,
+      "title": "Four-dimensional misconception classification",
+      "depends": "Wave A",
+      "acceptance": "Mathematical, conceptual, interpretive, process corrections differ",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-instructional-evaluation-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B03",
+      "wave": "B",
+      "order": 15,
+      "title": "A02 source-grounded adaptive teaching",
+      "depends": "Wave A",
+      "acceptance": "Corrects identified misconception with fresh fictional inputs",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-tier-research-contracts-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B04",
+      "wave": "B",
+      "order": 16,
+      "title": "A03 entitled study recommendations",
+      "depends": "Wave A",
+      "acceptance": "Only enrolled/entitled registered Lab/day routes offered",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/tutor-lab-context-v014149.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B05",
+      "wave": "B",
+      "order": 17,
+      "title": "Advanced effective edition controls",
+      "depends": "Wave A",
+      "acceptance": "Founding30 target not active without authorized effective tier",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "supabase/migrations/20261101_talia_membership_editions_v1.sql"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B06",
+      "wave": "B",
+      "order": 18,
+      "title": "Owner edition editor concurrency and audit",
+      "depends": "Wave A",
+      "acceptance": "Save/reload passes; stale revision rejected and audited",
+      "implementationDisposition": "PREEXISTING_SOURCE_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "docs/learning/SMFGU-TALIA-FOUR-EDITION-MATRIX-001-v1-20261101.md"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B07",
+      "wave": "B",
+      "order": 19,
+      "title": "P01 completed-candle chart context",
+      "depends": "Wave A",
+      "acceptance": "Tutor and ECharts share identical completed cutoff",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "assets/js/crownlight-talia-echarts-bridge-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B08",
+      "wave": "B",
+      "order": 20,
+      "title": "1/3/5 minute OHLCV aggregation",
+      "depends": "Wave A",
+      "acceptance": "200 underlying one-minute bars yield 200/66/40 completed groups",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B09",
+      "wave": "B",
+      "order": 21,
+      "title": "EMA9/20/200 source warmup",
+      "depends": "Wave A",
+      "acceptance": "EMA200 suppressed with less than 200 comparable completed bars",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B10",
+      "wave": "B",
+      "order": 22,
+      "title": "VWAP exact trade vs HLC3 proxy",
+      "depends": "Wave A",
+      "acceptance": "Original fictional 11.50 exact and 11.333333 proxy labeled separately",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B11",
+      "wave": "B",
+      "order": 23,
+      "title": "P02 server replay cutoff",
+      "depends": "Wave A",
+      "acceptance": "Future candles and late prints denied to earlier decision",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "B12",
+      "wave": "B",
+      "order": 24,
+      "title": "P03 point-in-time decision debrief",
+      "depends": "Wave A",
+      "acceptance": "Separates prior evidence and later result without advice or grade",
+      "implementationDisposition": "NEW_DETERMINISTIC_SOURCE_KERNEL_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C01",
+      "wave": "C",
+      "order": 25,
+      "title": "E01 cross-course source orchestration",
+      "depends": "Waves A–B",
+      "acceptance": "Only mutually authorized course contexts used",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-tier-research-contracts-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C02",
+      "wave": "C",
+      "order": 26,
+      "title": "Cross-course as-of provenance",
+      "depends": "Waves A–B",
+      "acceptance": "Later published evidence not represented as then-known",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C03",
+      "wave": "C",
+      "order": 27,
+      "title": "E02 source/method comparison",
+      "depends": "Waves A–B",
+      "acceptance": "Differences in period, seed, denominator and rights explained",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C04",
+      "wave": "C",
+      "order": 28,
+      "title": "E02 restricted material exclusion",
+      "depends": "Waves A–B",
+      "acceptance": "No vendor chart/code, licensed quote or raw feed in export",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-evidence-kernel-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C05",
+      "wave": "C",
+      "order": 29,
+      "title": "E03 own-learning reporting",
+      "depends": "Waves A–B",
+      "acceptance": "Aggregate only same-member authorized progress",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/_lib/talia-tier-research-contracts-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C06",
+      "wave": "C",
+      "order": 30,
+      "title": "E03 retention/export/deletion controls",
+      "depends": "Waves A–B",
+      "acceptance": "Explicit lawful retention and backup caveat; no false deletion",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "functions/api/member-tutor-data-export.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C07",
+      "wave": "C",
+      "order": 31,
+      "title": "All 73 indicator method convention mapping",
+      "depends": "Waves A–B",
+      "acceptance": "Each study has defined source, warmup, missing data and rights status",
+      "implementationDisposition": "73_STUDY_METHOD_SPEC_INDEPENDENT_NUMERICAL_RIGHTS_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p3-indicator73-standards-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C08",
+      "wave": "C",
+      "order": 32,
+      "title": "Python/JS indicator numerical regression",
+      "depends": "Waves A–B",
+      "acceptance": "Independent fictional arithmetic and edge-case parity",
+      "implementationDisposition": "73_STUDY_METHOD_SPEC_INDEPENDENT_NUMERICAL_RIGHTS_HOLD",
+      "sourceReferences": [
+        "tests/talia-indicators61-73-python-js-v1.test.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C09",
+      "wave": "C",
+      "order": 33,
+      "title": "StockCharts SCTR numerical hold",
+      "depends": "Waves A–B",
+      "acceptance": "No fabricated vendor rank, only conceptual teaching",
+      "implementationDisposition": "73_STUDY_METHOD_SPEC_INDEPENDENT_NUMERICAL_RIGHTS_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p3-indicator73-standards-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C10",
+      "wave": "C",
+      "order": 34,
+      "title": "Cboe VIX official reconstruction hold",
+      "depends": "Waves A–B",
+      "acceptance": "No close-volatility proxy represented as official VIX",
+      "implementationDisposition": "73_STUDY_METHOD_SPEC_INDEPENDENT_NUMERICAL_RIGHTS_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p3-indicator73-standards-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C11",
+      "wave": "C",
+      "order": 35,
+      "title": "Source provider and commercial-rights gates",
+      "depends": "Waves A–B",
+      "acceptance": "FRED AI ingestion blocked; SEC fair access and per-data rights checked",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "data/talia-chat-mode-p8-governance-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "C12",
+      "wave": "C",
+      "order": 36,
+      "title": "600-lesson editorial packet traceability",
+      "depends": "Waves A–B",
+      "acceptance": "Reviewer results must be documented before publication flag changes",
+      "implementationDisposition": "ENTERPRISE_SOURCE_GUARD_PROTOTYPE_NOT_AUTHORIZED_RUNTIME",
+      "sourceReferences": [
+        "data/talia-chat-mode-p2-foundation600-review-register-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D01",
+      "wave": "D",
+      "order": 37,
+      "title": "Classic and React Tutor backend parity",
+      "depends": "Waves A–C",
+      "acceptance": "Same effective entitlement and member-owned source context",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "src/tutor/TaliaClassroom.tsx",
+        "assets/js/market-tutor.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D02",
+      "wave": "D",
+      "order": 38,
+      "title": "Eight safe error states and copy",
+      "depends": "Waves A–C",
+      "acceptance": "Auth/access/source/cutoff/model/save/history/Assess errors truthful",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p9-ux-accessibility-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D03",
+      "wave": "D",
+      "order": 39,
+      "title": "Transcript live-region and speaker identity",
+      "depends": "Waves A–C",
+      "acceptance": "Screen reader announces correct speaker and turn once",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "src/tutor/TaliaClassroom.tsx"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D04",
+      "wave": "D",
+      "order": 40,
+      "title": "Keyboard focus/stop/cancel behavior",
+      "depends": "Waves A–C",
+      "acceptance": "All controls operable; aborted answer not rendered",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "src/tutor/TaliaClassroom.tsx"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D05",
+      "wave": "D",
+      "order": 41,
+      "title": "Chart OHLC alternative table",
+      "depends": "Waves A–C",
+      "acceptance": "Selected completed candle nonvisually readable, time and units clear",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/js/crownlight-talia-echarts-bridge-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D06",
+      "wave": "D",
+      "order": 42,
+      "title": "Pan/zoom/drag-release regression",
+      "depends": "Waves A–C",
+      "acceptance": "No sticky pan or unintended wheel/layout reload",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/js/crownlight-talia-echarts-bridge-v1.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D07",
+      "wave": "D",
+      "order": 43,
+      "title": "Approved dark theme and contrast",
+      "depends": "Waves A–C",
+      "acceptance": "Noncolor cues and adequate actual rendered text/indicator contrast",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/css/talia-terminal-v4.css"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D08",
+      "wave": "D",
+      "order": 44,
+      "title": "Mobile stacking and responsive dock",
+      "depends": "Waves A–C",
+      "acceptance": "390px/mobile/tablet/desktop no clipped focusable controls",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/css/talia-terminal-v4.css"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D09",
+      "wave": "D",
+      "order": 45,
+      "title": "Reduced-motion and animation fallback",
+      "depends": "Waves A–C",
+      "acceptance": "No essential instruction depends on motion",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/css/talia-terminal-v4.css"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D10",
+      "wave": "D",
+      "order": 46,
+      "title": "Fictional/proxy/provenance badges in text",
+      "depends": "Waves A–C",
+      "acceptance": "Source category, HLC3 proxy, no future and assessment labels correct",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p9-ux-accessibility-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D11",
+      "wave": "D",
+      "order": 47,
+      "title": "Private conversation opt-in messaging",
+      "depends": "Waves A–C",
+      "acceptance": "Save disabled default, new unsaved topic not falsely deletion",
+      "implementationDisposition": "UX_SOURCE_SPEC_REVIEW_AND_REAL_A11Y_HOLD",
+      "sourceReferences": [
+        "assets/js/market-tutor.js"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "D12",
+      "wave": "D",
+      "order": 48,
+      "title": "Independent screen reader and sign-in accessibility acceptance",
+      "depends": "Waves A–C",
+      "acceptance": "Real assistive-technology evidence and first keyboard stop accepted",
+      "implementationDisposition": "INDEPENDENT_SCREEN_READER_AUTH_ACCEPTANCE_HOLD",
+      "sourceReferences": [
+        "tests/talia-v4-authenticated-release-qa.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E01",
+      "wave": "E",
+      "order": 49,
+      "title": "Freeze target main revision",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Single immutable commit and artifact manifest for all downstream tests",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p10-codex-backlog-release-gates-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E02",
+      "wave": "E",
+      "order": 50,
+      "title": "All required exact-SHA CI successful",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "No required failed/cancelled checks; reruns on same revision",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        ".github/workflows/market-tutor-v014147.yml"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E03",
+      "wave": "E",
+      "order": 51,
+      "title": "Canonical Cloudflare manifest parity",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Before and after browser tests deployed SHA matches target",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "docs/qa/SMFGU-TALIA-V4-OAT-001-v1-20261102.md"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E04",
+      "wave": "E",
+      "order": 52,
+      "title": "Genuine authorized Owner/Admin positive browser",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "No test-member privilege elevation; revocation checked",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "tests/talia-v4-authenticated-release-qa.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E05",
+      "wave": "E",
+      "order": 53,
+      "title": "Two-account Tutor privacy and RLS",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Both separate member accounts isolated and forged IDs fail",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "tests/talia-v4-authenticated-release-qa.mjs"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E06",
+      "wave": "E",
+      "order": 54,
+      "title": "Membership/tier/downgrade OAT",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Free/Founder30/60/Lifetime/OnDemand effective server policy honored",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p7-premium-nine-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E07",
+      "wave": "E",
+      "order": 55,
+      "title": "Full Annual/historical terms reconciliation",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Original contracts cited; unassigned plans remain blocked until decided",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p7-premium-nine-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E08",
+      "wave": "E",
+      "order": 56,
+      "title": "20 partial EVAL40 real follow-up tests",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Ten real auth and ten time-cutoff cases only PASS with evidence",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p5-eval40-acceptance-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E09",
+      "wave": "E",
+      "order": 57,
+      "title": "Independent 600/73 editorial and source-rights review",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "No unreviewed lesson/official method published as approved",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p3-indicator73-standards-v1.json",
+        "data/talia-chat-mode-p2-foundation600-review-register-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E10",
+      "wave": "E",
+      "order": 58,
+      "title": "Privacy legal and independent accessibility review",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "Retention/export/deletion and actual screen reader review complete",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p8-governance-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E11",
+      "wave": "E",
+      "order": 59,
+      "title": "Noncharging Stripe TEST and zero-cost Tutor regression",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "No live payments, Lumen basic teaching charge or paid inference",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        ".github/workflows/market-tutor-v014147.yml"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    },
+    {
+      "id": "E12",
+      "wave": "E",
+      "order": 60,
+      "title": "Final V4 sitewide signoff or explicit HOLD",
+      "depends": "Waves A–D and independent reviewers",
+      "acceptance": "All five V4 gates and exact SHA evidence support release; else HOLD",
+      "implementationDisposition": "PRODUCTION_EXACT_SHA_AND_INDEPENDENT_REVIEW_HOLD",
+      "sourceReferences": [
+        "data/talia-chat-mode-p10-codex-backlog-release-gates-v1.json"
+      ],
+      "sourceTestEvidence": "PENDING_NEW_EXACT_SHA_CI",
+      "genuineMemberBrowserEvidence": "NOT_ACCEPTED_THIS_BATCH",
+      "independentPublicationOrLicensingReview": "NOT_ACCEPTED",
+      "securityOwnerApproval": "DELEGATED_INTERNAL_ONLY",
+      "releaseAccepted": false,
+      "requiredEvidence": [
+        "exact source commit",
+        "machine test and negative test",
+        "authorized browser evidence if member-facing",
+        "no cost, grading or source rights regression",
+        "reviewer/date/defect reference"
+      ],
+      "outstandingGate": "Source CI, genuine authorized member QA, independent review if applicable, exact deployed SHA and no-charge regression",
+      "rollback": "Revert changed feature or flag to previous exact SHA; preserve member learning data, RLS, grades and payment ledger"
+    }
+  ],
+  "releaseGates": [
+    {
+      "id": "G01",
+      "name": "V4 original CI consolidation",
+      "status": "ACCEPTED_HISTORICAL_PINNED",
+      "evidence": "Original 22/22 pass only on historical V4 SHA",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G02",
+      "name": "Genuine member and positive Owner/Admin browser",
+      "status": "PARTIAL_HOLD",
+      "evidence": "Historical 20 pass / 1 blocked; positive staff identity missing",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G03",
+      "name": "V4 chart gesture/indicator browser",
+      "status": "ACCEPTED_HISTORICAL_PINNED",
+      "evidence": "Completed-bar pinned-build chart evidence, not current release",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G04",
+      "name": "Tutor privacy and independent screen reader",
+      "status": "PARTIAL_HOLD",
+      "evidence": "Two-account evidence historical; screen reader still open",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G05",
+      "name": "Current exact-SHA production decision",
+      "status": "HOLD",
+      "evidence": "Current matching Cloudflare plus full suite not approved",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G06",
+      "name": "229 requirement-by-requirement operating evidence",
+      "status": "UNMEASURED",
+      "evidence": "229 classified; runtime percentage not independently measured",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G07",
+      "name": "600 Foundation independent claim/math/right review",
+      "status": "HOLD",
+      "evidence": "600 owner-authored and prepared, 0 independent approvals confirmed",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G08",
+      "name": "73 indicator math/right approval",
+      "status": "HOLD",
+      "evidence": "73 methodology records and official SCTR/VIX exceptions",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G09",
+      "name": "EVAL40 live external evidence",
+      "status": "PARTIAL_HOLD",
+      "evidence": "20 source PASS and 20 authenticated/chart PARTIAL",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G10",
+      "name": "Nine premium tier authenticated acceptance",
+      "status": "HOLD",
+      "evidence": "15/15 code/prototype evidence, 0/9 premium release",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G11",
+      "name": "Privacy/source/AI spend and legal signoff",
+      "status": "HOLD",
+      "evidence": "17 policies; independent retention/rights/legal review required",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    },
+    {
+      "id": "G12",
+      "name": "Sitewide noncancelled CI, accessibility, Cloudflare and OAT",
+      "status": "HOLD",
+      "evidence": "Newest governance SHA 30 workflow runs nonterminal at scan",
+      "releaseAcceptance": false,
+      "currentBatchEvidence": "PENDING_OR_INDEPENDENT_REVIEW_HOLD"
+    }
+  ],
+  "externalHoldRegister": [
+    "EVAL40: 20 source cases passed historically; 20 authenticated/chart cases still partial",
+    "Nine premium capabilities remain source-prototype only until genuine tier and membership testing",
+    "600 owner-authored Foundation lessons: zero confirmed independent publication approvals",
+    "73 indicator method standards: zero confirmed independent publication/runtime approvals",
+    "SCTR and official Cboe VIX computation not licensed/independently reconstructed; concept teaching only",
+    "Full Annual and historical membership terms must not be guessed",
+    "No genuine positive privileged Owner/Admin browser acceptance proved",
+    "Second-account current exact-SHA privacy and identity-switch evidence required",
+    "Independent screen reader, data rights and legal/privacy retention review required",
+    "No live charges, paid inference or grading unless separately approved",
+    "Cloudflare exact commit parity and all required noncancelled workflows required after merger"
+  ],
+  "executionSequence": [
+    "A01-A12",
+    "B01-B12",
+    "C01-C12",
+    "D01-D12",
+    "E01-E12",
+    "G01-G12 then release HOLD unless independently verified"
+  ],
+  "releaseDecision": "HOLD_UNTIL_ALL_REQUIRED_EVIDENCE_ACCEPTED",
+  "rollbackContract": "All changes versioned, test and revert independently, preserve frozen v3.3/v3.2, members' progress, protected official grade, data rights, source-only no-charge tutor and existing payment state."
+}
