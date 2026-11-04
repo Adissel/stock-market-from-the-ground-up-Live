@@ -36,6 +36,8 @@ test('owner panel is gated on successful server owner response and versioned mut
  assert.match(ui,/await requestJson\('\/api\/owner-sec-scanner-tier-v1'\)/);
  assert.match(ui,/if\(!check\?\.owner\)return/);
  assert.match(ui,/expectedVersion/);
+ assert.match(ui,/loadedTarget/);
+ assert.match(ui,/target\.value\.trim\(\)\.toLowerCase\(\)!==loadedTarget\.toLowerCase\(\)/);
  assert.match(ui,/reason:reason\.value\.trim\(\)/);
  assert.match(ui,/Reload the member grant before saving/);
  assert.match(ui,/SEC grant updated and audited/);

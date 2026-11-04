@@ -6,7 +6,7 @@ import {onRequest as ownerRequest} from '../functions/api/owner-sec-scanner-tier
 import {onRequest as originalRequest} from '../functions/api/sec-issuer-research-v1.js';
 const A='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',B='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_PUBLISHABLE_KEY:'publish',
- SUPABASE_SECRET_KEY:'private',SEC_EDGAR_USER_AGENT:'Crownlight SEC Research research@example.org',SEC_EDGAR_BETA_ENABLED:'true'};
+ SUPABASE_SECRET_KEY:'private',SEC_EDGAR_USER_AGENT:'Crownlight SEC Research research@example.org',SEC_EDGAR_BETA_ENABLED:'true',SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'};
 const T='2026-11-03T18:00:00Z';
 const idx={0:{cik_str:789019,title:'Gusim Original Inc',ticker:'GUSIM'}};
 const sample={cik:789019,name:'Gusim Original Inc',tickers:['GUSIM'],exchanges:['Nasdaq'],
@@ -204,5 +204,48 @@ try{
   ownerRole=false;
   assert.equal((await ownerRequest({request:req('/api/owner-sec-scanner-tier-v1','POST',template),env})).status,403);
   assert.equal(rpcCalls,0);
+ });
+ await test('QA-only rollout denies ungranted users on BOTH existing Watchlist and new SEC Scanner endpoints',async()=>{
+  reset();
+  const qa={...env,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'false'};
+  let r=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,403);
+  r=await originalRequest({request:req('/api/sec-issuer-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,403);
+  assert.equal(secCalls,0);assert.equal(budgetCalls,0);
+ });
+ await test('QA-only rollout permits a currently audited account without granting a second member access',async()=>{
+  reset();grant=g;
+  const qa={...env,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'false'};
+  let r=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM&include=fundamentals'),env:qa});
+  assert.equal(r.status,200);
+  assert.equal((await r.json()).tier,'ADVANCED');
+  activeUser=B;secCalls=0;budgetCalls=0;
+  r=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,403);assert.equal(secCalls,0);assert.equal(budgetCalls,0);
+ });
+ await test('Original Watchlist SEC service honors same valid QA grant and preserves original response',async()=>{
+  reset();grant=g;
+  const qa={...env,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'false'};
+  const r=await originalRequest({request:req('/api/sec-issuer-research-v1?symbol=GUSIM&include=fundamentals'),env:qa});
+  assert.equal(r.status,200);
+  const data=await r.json();assert.ok(Array.isArray(data.fundamentals));
+  assert.equal(data.filings[0].acceptedAt,new Date(T).toISOString());
+ });
+ await test('Revoked or expired QA grants block source access before EDGAR fair-access budget',async()=>{
+  reset();grant={...g,status:'revoked'};
+  const qa={...env,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'false'};
+  let r=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,403);
+  grant={...g,expires_at:'2026-01-01T00:00:00Z',status:'active'};
+  r=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,403);
+  assert.equal(secCalls,0);assert.equal(budgetCalls,0);
+ });
+ await test('Unverified SEC QA grant storage cannot result in upstream requests',async()=>{
+  reset();serviceFailure=true;
+  const qa={...env,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'false'};
+  const r=await originalRequest({request:req('/api/sec-issuer-research-v1?symbol=GUSIM'),env:qa});
+  assert.equal(r.status,503);assert.equal(secCalls,0);assert.equal(budgetCalls,0);
  });
 }finally{globalThis.fetch=old}

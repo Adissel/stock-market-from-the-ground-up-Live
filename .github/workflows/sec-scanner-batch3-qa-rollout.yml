@@ -1,0 +1,50 @@
+name: SEC Scanner Batch 3 - Audited QA Source Rollout
+on:
+  pull_request:
+    paths:
+      - 'functions/_lib/sec-edgar-qa-gate-v1.js'
+      - 'functions/api/sec-issuer-research-v1.js'
+      - 'functions/api/sec-scanner-tier-v1.js'
+      - 'assets/js/crownlight-sec-scanner-tier-ui-v1.js'
+      - 'tests/test_sec_edgar_qa_gate_v1.mjs'
+      - 'tests/test_sec_scanner_dom_runtime_v1.mjs'
+      - 'tests/test_sec_issuer_research_v1.mjs'
+      - 'tests/test_crownlight_sec_tier_endpoints_v1.mjs'
+      - '.github/workflows/sec-scanner-batch3-qa-rollout.yml'
+  push:
+    branches:
+      - feature/sec-scanner-batch3-qa-controlled-release-20261103
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa-source-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax, hostile QA grants, two-account isolation and legacy SEC source
+        run: |
+          node --check functions/_lib/sec-edgar-qa-gate-v1.js
+          node --check functions/api/sec-scanner-tier-v1.js
+          node --check functions/api/sec-issuer-research-v1.js
+          node --check assets/js/crownlight-sec-scanner-tier-ui-v1.js
+          node --test tests/test_sec_scanner_dom_runtime_v1.mjs
+          node --test tests/test_sec_edgar_qa_gate_v1.mjs tests/test_crownlight_sec_tier_endpoints_v1.mjs tests/test_crownlight_sec_tier_grants_v1.mjs tests/test_crownlight_sec_tier_ui_source_v1.mjs
+          node tests/test_sec_issuer_research_v1.mjs
+          node tests/test_crownlight_scanner_sec_evidence_v1.mjs
+          node tests/test_crownlight_scanner_sec_brief_v4.mjs
+          node tests/test_crownlight_scanner_integration_v4.mjs
+      - name: Preserve private access checks and migration exclusions in published site
+        run: |
+          bash scripts/build-pages.sh
+          test -s public/assets/js/crownlight-sec-scanner-tier-ui-v1.js
+          test ! -e public/functions/_lib/sec-edgar-qa-gate-v1.js
+          test ! -d public/functions
+          test ! -d public/supabase
+          test ! -e public/data/crownlight-sec-scanner-tiers-v1.json

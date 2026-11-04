@@ -4,9 +4,9 @@
     "project": "THE STOCK MARKET: FROM THE GROUND UP",
     "filename": "data/crownlight-sec-scanner-tiers-v1.json",
     "fileType": "JSON",
-    "version": "1.0",
+    "version": "1.1",
     "date": "2026-11-03",
-    "status": "SOURCE-LEVEL CANDIDATE — NOT TIER RELEASE",
+    "status": "SOURCE EVIDENCE RECONCILED TO 11/32 — LIVE TIERS NOT APPROVED",
     "googleDriveLocation": "Not created",
     "googleDriveDocumentId": null,
     "purpose": "Source-verified and acceptance-gated standalone SEC scanner tier catalog",
@@ -143,12 +143,12 @@
         {
           "id": "P3",
           "description": "Filing-form UI and case tests pass exact-commit CI",
-          "sourceEvidencePresent": false
+          "sourceEvidencePresent": true
         },
         {
           "id": "P4",
           "description": "Plus entitlement enforced on the server",
-          "sourceEvidencePresent": false
+          "sourceEvidencePresent": true
         },
         {
           "id": "P5",
@@ -171,8 +171,8 @@
           "sourceEvidencePresent": false
         }
       ],
-      "sourceMilestones": 2,
-      "sourcePercent": 25,
+      "sourceMilestones": 4,
+      "sourcePercent": 50,
       "productionAccepted": false,
       "memberEntitlementAssigned": false
     },
@@ -216,7 +216,7 @@
         {
           "id": "A4",
           "description": "Advanced entitlement enforced by server",
-          "sourceEvidencePresent": false
+          "sourceEvidencePresent": true
         },
         {
           "id": "A5",
@@ -239,8 +239,8 @@
           "sourceEvidencePresent": false
         }
       ],
-      "sourceMilestones": 2,
-      "sourcePercent": 25,
+      "sourceMilestones": 3,
+      "sourcePercent": 37.5,
       "productionAccepted": false,
       "memberEntitlementAssigned": false
     },
@@ -314,11 +314,11 @@
     }
   ],
   "sourceScorecard": {
-    "sourceMilestones": 8,
+    "sourceMilestones": 11,
     "totalMilestones": 32,
-    "sourcePercent": 25,
+    "sourcePercent": 34.375,
     "releaseAcceptedPercent": 0,
-    "warning": "Source presence is not evidence of independent executed QA, SEC tier grants, billing acceptance, or commercial release"
+    "warning": "11/32 source-evidenced technical milestones only; GitHub CI is not genuine authenticated two-account or production commercial release acceptance."
   },
   "controls": {
     "noClientSuppliedTierAuthorization": true,

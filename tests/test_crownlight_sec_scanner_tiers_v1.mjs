@@ -67,6 +67,8 @@ test('browser filtering remains local-only and existing server SEC gateway remai
  assert.doesNotMatch(ui,/\bfetch\s*\(|localStorage|sessionStorage|innerHTML/);
  assert.match(api,/advancedToolContext\(env,request,'WATCHLIST_WORKBENCH'\)/);
  assert.match(api,/gu_sec_edgar_take_budget_v1/);
- assert.match(api,/SEC_EDGAR_BETA_ENABLED/);
+ const qaGuard=readFileSync('functions/_lib/sec-edgar-qa-gate-v1.js','utf8');
+ assert.match(qaGuard,/SEC_EDGAR_BETA_ENABLED/);
+ assert.match(api,/requireSecSourceRelease/);
  assert.equal(E.TYPES.includes('S-1'),true);
 });
