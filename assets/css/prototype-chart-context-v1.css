@@ -26,3 +26,17 @@
 .cx-context-foot{margin:12px 0 0;padding-top:8px;border-top:1px solid #415a79;color:#c1d3e9;font-size:11px}
 @media(max-width:620px){.cx-context-menu{max-height:84vh}.cx-context-columns{grid-template-columns:1fr}.cx-context-indicator-list{max-height:180px}.cx-context-detail{max-height:250px}.cx-context-editor{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.cx-context-menu *{transition:none!important;animation:none!important}}
+
+/* V1.1: compact shared menus for all non-homepage teaching charts. */
+.cx-context-menu{width:min(620px,calc(100vw - 16px));padding:10px;max-height:min(82vh,640px);font-size:12px}
+.cx-context-menu .cx-context-columns{grid-template-columns:minmax(170px,245px) minmax(195px,1fr);gap:10px}
+.cx-context-menu .cx-context-indicator-list{gap:3px;max-height:360px}
+.cx-context-menu .cx-context-indicator-list button{min-height:32px;padding:4px 8px;gap:5px}
+.cx-context-menu .cx-context-detail{min-height:0;max-height:360px;gap:7px}
+.cx-context-menu .cx-context-detail>button,.cx-context-menu .cx-context-presets button{width:auto;align-self:flex-start;min-height:32px;padding:5px 10px}
+.cx-context-menu .cx-context-detail>strong{font-size:14px}
+.cx-context-menu .cx-context-editor{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.cx-context-menu .cx-context-head{margin-bottom:6px}
+.cx-context-menu .cx-context-tabs{margin-bottom:7px}
+.cx-context-menu .cx-context-foot{margin-top:8px;padding-top:6px}
+@media(max-width:520px){.cx-context-menu .cx-context-columns{grid-template-columns:1fr}.cx-context-menu .cx-context-indicator-list{max-height:220px}.cx-context-menu .cx-context-detail{max-height:240px}.cx-context-menu .cx-context-indicator-list button{min-height:40px}}
