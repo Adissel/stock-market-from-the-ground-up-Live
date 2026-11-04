@@ -80,7 +80,7 @@ export function authenticReplayEvidence({session,bars,dataset}={}){
  for(const row of bars){
   const index=Number(row?.bar_index),at=Date.parse(row?.bar_at);
   const open=num(row?.open),high=num(row?.high),low=num(row?.low),close=num(row?.close),vol=num(row?.volume);
-  if(!int(index)||index>session.current_index||index<=previousIndex||!Number.isFinite(at)||at<=previousTime||
+  if(!int(index)||index>session.current_index||index<=previousIndex||(view.length>0&&index!==previousIndex+1)||!Number.isFinite(at)||at<=previousTime||
     ![open,high,low,close,vol].every(Number.isFinite)||low<=0||
     high<Math.max(open,close)||low>Math.min(open,close)||vol<0)
     throw Error('Replay evidence failed completed-bar validation.');
