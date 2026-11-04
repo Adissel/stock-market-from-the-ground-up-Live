@@ -98,7 +98,7 @@ test('homepage replay provides functional accessible playback controls and updat
  const status=readFileSync('assets/js/home-community.js','utf8');
  assert.match(status,/<h2>Member Status<\/h2>/);
  assert.match(status,/fetch\('\/api\/home-member-stats-v01353\?action=public'/,'Existing public aggregate API is used');
- assert.match(status,/example\?'EXAMPLE':'LIVE DATA'/,'Demo counts are distinguished from verified aggregates');
+ assert.match(status,/example\?'EXAMPLE':'LIVE'/,'Demo counts are distinguished from verified aggregates');
  assert.doesNotMatch(status,/access_token|service_role|auth\.getSession/,'Public status never accesses private tokens');
 });
 
