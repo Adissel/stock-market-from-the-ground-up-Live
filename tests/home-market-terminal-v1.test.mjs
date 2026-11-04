@@ -52,7 +52,7 @@ test('canonical homepage linked illustration upgrades to the original interactiv
 });
 
 test('intracandle simulation reveals only current fictional ticks; no future high, low or volume',()=>{
- const begin=tsx.indexOf('const TICKS_PER_MINUTE=20;'),end=tsx.indexOf('function Terminal(){',begin);
+ const begin=tsx.indexOf('const TICKS_PER_MINUTE=20;'),end=tsx.indexOf('function Terminal(',begin);
  assert.ok(begin>0&&end>begin,'Actual intrabar simulator source must be testable');
  let pure=tsx.slice(begin,end);
  for(const [before,after] of [
