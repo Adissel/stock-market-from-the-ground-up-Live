@@ -856,6 +856,7 @@ function Classroom(){
       <div className="tc-row tc-actions">
         <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);
           setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+          setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
           setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
