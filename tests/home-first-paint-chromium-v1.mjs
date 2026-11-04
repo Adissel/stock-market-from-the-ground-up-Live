@@ -48,7 +48,7 @@ try{
  await page.waitForLoadState('load');
  const cols=await page.locator('.gu-home-stage-grid').evaluate(el=>{
   const style=getComputedStyle(el);
-  const [left,right]=style.gridTemplateColumns.trim().split(/\\s+/).map(parseFloat);
+  const [left,right]=style.gridTemplateColumns.trim().split(/\s+/).map(parseFloat);
   return {left,right,display:style.display,columns:style.gridTemplateColumns};
  });
  assert(cols.display==='grid' && Number.isFinite(cols.left) && Number.isFinite(cols.right)
