@@ -711,7 +711,7 @@ function Classroom(){
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
         {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
-          <p>{m.id===typingId?m.text.slice(0,typedCount):m.text}{m.id===typingId&&typedCount<m.text.length&&<span aria-hidden="true" className="tc-typing-caret">▌</span>}</p>
+          <p>{m.id===typingId?<><span className="tc-screen-reader-only">{m.text}</span><span aria-hidden="true">{m.text.slice(0,typedCount)}{typedCount<m.text.length&&<span className="tc-typing-caret">▌</span>}</span></>:m.text}</p>
           {m.label&&<small>{m.label}</small>}</li>)}
       </ol>
       <div className="tc-typing-controls"><label>Text display speed <select aria-label="Talia typing speed" value={typingSpeed} onChange={e=>setTypingSpeed(Number(e.target.value))}>
