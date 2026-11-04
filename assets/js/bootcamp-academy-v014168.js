@@ -141,6 +141,24 @@
   if(value!==undefined)element.textContent=String(value);
   return element;
  }
+ // Formative, ungraded evidence method selection. Numeric tasks and protected
+ // independent assessments are unchanged. No free-text length gate.
+ function evidenceDecision(question,topic,seed){
+  const api=globalThis.GroundUpLearningResponseChoiceV1;
+  const spec=api?.build?.({prompt:question,topic,seed})||null;
+  const group=node('fieldset');group.className='academy-day-evidence-check';
+  group.append(node('legend','Choose an evidence-based approach (ungraded)'));
+  let selected='';
+  if(spec)for(const option of spec.options){
+   const label=node('label'),radio=node('input');radio.type='radio';
+   radio.name='academy-day-method-'+seed;radio.value=option.code;
+   radio.addEventListener('change',()=>{selected=option.code});
+   label.append(radio,document.createTextNode(option.label));group.append(label);
+  }
+  else group.append(node('p','This method check is temporarily unavailable; no grade is affected.'));
+  return {element:group,check:()=>api?.evaluate?.(spec,selected)||{
+   accepted:false,reason:'This evidence check is temporarily unavailable. No assessment has been recorded.'}};
+ }
  function clean(){
   academySupplementChart?.dispose?.();academySupplementChart=null;
   academyHomeMarketReplay?.dispose?.();academyHomeMarketReplay=null;
@@ -426,7 +444,14 @@
     node('h4','Recognize invalid or missing evidence'),
     node('p',d.limitation||'If an observation is not supported by a dated, verified source, withhold the claim and record uncertainty.'),
     node('h4','Unassisted self-check — educational beta'));
-   const prompt=node('p','What evidence is observable for '+d.title+'? Give an alternative explanation, identify one missing fact, and state the condition that would invalidate your conclusion.');
+   const prompt=node('p','What evidence is observable for '+d.title+'? Choose the appropriate method before comparing the source, alternative explanation and invalidation condition.');
+   const decision=evidenceDecision(prompt.textContent,d.title,d.day+100);
+   const check=node('button','Check my evidence decision');check.type='button';check.className='btn secondary';
+   const decisionStatus=node('p');decisionStatus.setAttribute('role','status');
+   check.addEventListener('click',()=>{
+    const checked=decision.check();decisionStatus.textContent=checked.accepted?
+     'Ungraded method check complete. '+checked.feedback:checked.reason;
+   });
    const response=node('textarea');response.className='academy-beta-answer';
    response.rows=4;response.maxLength=1200;response.setAttribute('aria-label','Your own ungraded reasoning for this study day');
    const key=d.programCode+':'+d.day;response.value=selfCheckDrafts.get(key)||'';
@@ -448,7 +473,8 @@
    const feedback=node('a','Report a lesson issue to member Support');
    feedback.href='dashboard.html?tab=support&context='+encodeURIComponent('Boot Camp '+d.programCode+' Day '+d.day);
    feedback.className='text-link';
-   section.append(prompt,response,help,copy,notice,feedback);
+   const optional=node('details');optional.append(node('summary','Optional personal reasoning notes — not required'),response,copy,notice);
+   section.append(prompt,decision.element,check,decisionStatus,help,optional,feedback);
    mount.append(section);return;
   }
   const lesson=d.lesson;
@@ -541,16 +567,17 @@
   mount.append(node('h4','Common research error'),node('p',lesson.error),
    node('h4','Transfer to a new case'),node('p',lesson.transfer),
    node('h4','Check your understanding — ungraded'),node('p',lesson.selfCheck));
-  const label=node('label','Write your independent reasoning before comparing it with a model explanation.');
+  const decision=evidenceDecision(lesson.selfCheck||d.objective,d.title,d.day+200);
+  const label=node('label','Optional written reasoning — not required for feedback.');
   label.htmlFor='academy-self-check-answer';
   const answer=node('textarea');answer.id='academy-self-check-answer';
-  answer.rows=3;answer.minLength=40;answer.maxLength=1200;
+  answer.rows=3;answer.maxLength=1200;
   answer.setAttribute('autocomplete','off');
   // Draft answers stay only in memory, scoped by member/session and day.
   // Server-side progress remains the existing explicit Save Reflection action.
   answer.value=selfCheckDrafts.get(dayIndex)||'';
   const compare=node('button','Compare my reasoning');compare.type='button';
-  compare.className='btn secondary';compare.disabled=answer.value.trim().length<40;
+  compare.className='btn secondary';
   const result=node('div');result.setAttribute('role','status');
   result.setAttribute('aria-live','polite');
   const use=node('button','Add reasoning to my private reflection');
@@ -559,8 +586,7 @@
    const value=answer.value;
    if(value.trim())selfCheckDrafts.set(dayIndex,value);
    else selfCheckDrafts.delete(dayIndex);
-   const short=value.trim().length<40;
-   compare.disabled=short;use.disabled=value.trim().length<80;result.replaceChildren();
+   use.disabled=value.trim().length<80;result.replaceChildren();
    updateDays();
   });
   use.addEventListener('click',()=>{
@@ -583,7 +609,8 @@
    reflection.focus();
   });
   compare.addEventListener('click',()=>{
-   if(answer.value.trim().length<40)return;
+   const checked=decision.check();
+   if(!checked.accepted){result.replaceChildren(node('p',checked.reason));return;}
    const coaching=node('section');coaching.className='academy-formative-criteria';
    coaching.setAttribute('aria-label','Talia lesson-specific formative review');
    coaching.append(node('h5','Talia’s reasoning review — check your own evidence'));
@@ -615,7 +642,9 @@
     node('p','If part of your answer is missing, revise and compare again. These teaching prompts are NOT a protected grading rubric, automated score or proof of mastery.'));
    result.replaceChildren(coaching);
   });
-  mount.append(label,answer,compare,use,node('p','At least 40 characters to compare coaching; 80 characters to copy reasoning into a private reflection draft. Unsaved answers survive changing lessons in this tab only and are erased on account switch or reload. Save Reflection preserves study notes; this is not graded mastery.'),result);
+  const optional=node('details');optional.append(node('summary','Optional written reasoning and private reflection'),label,answer,use,
+   node('p','Written reflection is optional. To copy notes into your private reflection, write at least 80 characters. Unsaved notes are erased on reload. Formative method checks are not graded mastery.'));
+  mount.append(decision.element,compare,result,optional);
   if(d.programCode==='free5')mountFreeLessonStages(mount,d);
  }
 
@@ -656,12 +685,13 @@
   const feedback=node('p');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
   field.addEventListener('input',()=>{selfCheckDrafts.set(key,field.value);feedback.textContent=''});
   ask.addEventListener('click',()=>{
-   if(field.value.trim().length<25){feedback.textContent='Write the observed facts in your own words before asking for guidance.';return}
    feedback.textContent=(d.lesson?.reviewPrompts?.[0]||
     'Which facts support your answer, and what remains unknown?')+
     ' This is an instructional hint, not an automated correctness grade.';
   });
-  panels[4].append(node('label','Your turn — explain what you observed and what is still unknown'),field,ask,feedback);
+  const freeDecision=evidenceDecision('Which evidence should you rely on before drawing a conclusion?',d.title,d.day+300);
+  const optionalFree=node('details');optionalFree.append(node('summary','Optional observation notes'),field);
+  panels[4].append(freeDecision.element,ask,feedback,optionalFree);
   // Full Lab-inspired teaching sequence, with original simulated Free-only
   // exercises. This preview never overrides book/assessment authorization.
   const studio=globalThis.GroundUpFreeStudioV3;
