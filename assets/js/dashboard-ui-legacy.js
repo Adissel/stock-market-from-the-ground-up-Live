@@ -41,6 +41,7 @@
 
   let legacySnapshot={text:'',bars:[]};
   let freeMemberLaunchpad=null;
+  let preservedWalletPanel=null,preservedLumenWidgets=null;
   function captureLegacyProgress(root){
     const snap={text:String(root?.innerText||''),bars:[]};
     if(!root)return snap;
@@ -400,7 +401,26 @@
   function download(name,type,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
   async function renderActivity(host){host.innerHTML='<div class="fe-state">Loading activity…</div>';try{const j=await uiApi('activity'),rows=j.activity||[];host.innerHTML=`<div class="v1321-section-head"><div><div class="eyebrow">Activity</div><h1>Account Activity</h1><p>Your recent learning and account activity.</p></div><div class="actions"><button class="btn secondary" data-csv>Export CSV</button><button class="btn secondary" data-json>Export JSON</button></div></div><div class="v13-card">${rows.length?rows.slice(0,50).map(r=>`<div class="v1321-line"><span><strong>${esc(r.title||r.activity_type||'Activity')}</strong>${r.href?`<small><a href="${esc(safeLocalHref(r.href))}">Open</a></small>`:''}</span><time>${new Date(r.created_at||r.at).toLocaleString()}</time></div>`).join(''):'<p>Activity will appear as you use the platform.</p>'}</div>`;q('[data-json]',host).onclick=()=>download('account-activity.json','application/json',JSON.stringify(rows,null,2));q('[data-csv]',host).onclick=()=>{const cells=[['title','type','created_at','href'],...rows.map(r=>[r.title||'',r.activity_type||'',r.created_at||r.at||'',r.href||''])];download('account-activity.csv','text/csv',cells.map(row=>row.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n'))}}catch(e){host.innerHTML=`<div class="fe-state error">${esc(e.message)}</div>`}}
 
-  const renderers={overview:renderOverview,access:renderAccess,skills:renderSkills,books:renderBooks,settings:settingsPanel,help:renderHelp,support:renderSupport,billing:renderBilling,activity:renderActivity};
+  async function renderWallet(host){
+    const session=await getSession();
+    if(!session?.user?.id){
+      host.replaceChildren();
+      const status=document.createElement('p');
+      status.textContent='Sign in to view your private Crownlight Lumens wallet.';
+      host.appendChild(status);
+      return;
+    }
+    host.replaceChildren();
+    // Existing private API owns all amounts; do not reconstruct or grant credits.
+    if(preservedWalletPanel)host.appendChild(preservedWalletPanel);
+    if(preservedLumenWidgets)host.appendChild(preservedLumenWidgets);
+    if(!preservedWalletPanel&&!preservedLumenWidgets){
+      const note=document.createElement('p');
+      note.textContent='Member wallet is temporarily unavailable. No balance is assumed.';
+      host.appendChild(note);
+    }
+  }
+  const renderers={wallet:renderWallet,overview:renderOverview,access:renderAccess,skills:renderSkills,books:renderBooks,settings:settingsPanel,help:renderHelp,support:renderSupport,billing:renderBilling,activity:renderActivity};
   let hub,panels={};
   async function activate(code,opts={history:true}){
     if(!renderers[code])code='overview';
@@ -424,6 +444,9 @@
     // Preserve the approved Free learning form while the legacy overview shell is rebuilt.
     // All existing private services and member authorization remain authoritative.
     freeMemberLaunchpad=q('#free-learning-launchpad',main);
+    // Retain the actual member Wallet nodes before the legacy shell is replaced.
+    preservedWalletPanel=q('#member-sparks-wallet',main);
+    preservedLumenWidgets=q('.gu-member-lumen-widgets',main);
     // This release owns the dashboard DOM outright. Legacy dashboard controllers are disabled.
     legacySnapshot=captureLegacyProgress(main);
     main.innerHTML='';
@@ -438,7 +461,7 @@
     // can bind after DOMContentLoaded. Overview then adopts the same node, not a copy.
     if(freeMemberLaunchpad)hub.appendChild(freeMemberLaunchpad);
     document.body.dataset.build=BUILD;
-    const defs=[['overview','Overview'],['access','Membership & Access'],['skills','Skill Development'],['books','My Books'],['settings','Settings'],['help','Help & Documentation'],['support','Support'],['billing','Purchases & Billing'],['activity','Activity']];
+    const defs=[['overview','Overview'],['wallet','Crownlight Lumens Wallet'],['access','Membership & Access'],['skills','Skill Development'],['books','My Books'],['settings','Settings'],['help','Help & Documentation'],['support','Support'],['billing','Purchases & Billing'],['activity','Activity']];
     const nav=document.createElement('nav');
     nav.className='v13-member-tabs v1321-member-tabs v1322-member-tabs';
     nav.setAttribute('aria-label','Member dashboard sections');
