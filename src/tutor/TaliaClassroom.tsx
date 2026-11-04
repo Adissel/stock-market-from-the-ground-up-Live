@@ -273,6 +273,71 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
     </div>
   </section>;
 }
+/** Original fictional ungraded teaching questions: never protected answer keys.
+ * The checkpoint's local checks pause the chart and produce personalized
+ * corrective feedback. Nothing is persisted as a formal grade or mastery.
+ */
+function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
+ checkpoint:LessonQuestion;bar:number[];
+ onComplete:(reply:string,feedback:string)=>void;onFeedback:(feedback:string)=>void;onSkip:()=>void
+}){
+ const [choice,setChoice]=useState<number|null>(null);
+ const [fields,setFields]=useState(['','','']);
+ const [feedback,setFeedback]=useState('');
+ const [tries,setTries]=useState(0);
+ const [showExplanation,setShowExplanation]=useState(false);
+ const numerical=checkpoint.kind==='numeric'||checkpoint.kind==='vwap';
+ const names=checkpoint.kind==='vwap'?['Total traded dollars ($)','Total shares','VWAP ($ per share)']:
+   ['Real body ($)','Full candle range ($)','Body as percentage of range (%)'];
+ const expected=checkpoint.kind==='vwap'?[2600,300,2600/300]:
+  [Math.abs(bar[1]-bar[0]),bar[3]-bar[2],
+    bar[3]===bar[2]?0:Math.abs(bar[1]-bar[0])/(bar[3]-bar[2])*100];
+ const explanation=checkpoint.kind==='vwap'?'200 × $8 = $1,600; 100 × $10 = $1,000. The traded-dollar total is $2,600 and there are 300 shares. VWAP = $2,600 ÷ 300 = $8.6667 per share. This example uses fictional transactions, not a bar-based proxy.':
+ checkpoint.kind==='numeric'?'Body is the absolute close-minus-open difference. Range is high minus low. Divide body by range and multiply by 100 for the percentage; never use close/open as the denominator.':
+ 'A completed OHLC candle describes observed prices in its interval. It cannot prove the next candle, the order of intra-bar transactions, or any trading outcome.';
+ const check=(e:React.FormEvent)=>{
+  e.preventDefault();setTries(n=>n+1);
+  let correct=false;let reply='';let diagnostic='';
+  if(checkpoint.kind==='choice'){
+   if(choice===null){setFeedback('Choose an answer before continuing.');return}
+   correct=choice===checkpoint.correct;reply=checkpoint.options?.[choice]||'';
+   diagnostic=correct?'Correct observation: OHLC is evidence about a completed period, not a prediction.':
+    'Not quite. A finished candle tells you its prices, but not the next direction or exact intrabar order. Review the other options and try again.';
+  }else{
+   const values=fields.map(cleanNumber);
+   const matches=expected.map((v,i)=>closeNumber(values[i],v,i===2&&checkpoint.kind==='vwap'?.02:.011));
+   correct=matches.every(Boolean);
+   reply=names.map((k,i)=>k+': '+fields[i]).join('; ');
+   diagnostic=correct?'Each of the three calculations is correct for this original fictional case.':
+    matches.map((valid,i)=>valid?names[i]+': correct.':names[i]+': check your arithmetic and units.').join(' ');
+  }
+  if(correct){setFeedback(diagnostic);onComplete(reply,diagnostic+' '+explanation)}
+  else{setFeedback(diagnostic);onFeedback(diagnostic)}
+ };
+ return <section className="tc-checkpoint" aria-labelledby="tc-checkpoint-heading">
+  <div className="tc-row tc-row-between"><h3 id="tc-checkpoint-heading">Talia's teaching checkpoint</h3><span className="tc-pill">Playback paused · ungraded</span></div>
+  <p><strong>{checkpoint.title}</strong></p><p>{checkpoint.prompt}</p>
+  <form onSubmit={check} className="tc-checkpoint-form">
+   {checkpoint.kind==='choice'?<fieldset><legend>Choose the supported observation</legend>
+     {(checkpoint.options||[]).map((option,i)=><label className="tc-checkpoint-option" key={i}>
+       <input type="radio" name={checkpoint.id} checked={choice===i} onChange={()=>setChoice(i)}/>
+       <span>{option}</span>
+     </label>)}</fieldset>:
+     <fieldset><legend>Work through the three calculations separately</legend>
+       {names.map((name,i)=><label key={name} className="tc-equation-field">{name}
+         <input value={fields[i]} onChange={e=>setFields(old=>old.map((x,j)=>i===j?e.target.value.slice(0,22):x))}
+           inputMode="decimal" placeholder={i===2?'Calculate last':'Enter your result'} aria-label={name}/>
+       </label>)}
+     </fieldset>}
+   <div className="tc-row"><button type="submit">Check my answer</button>
+    <button className="tc-secondary" type="button" onClick={()=>setShowExplanation(v=>!v)}>{showExplanation?'Hide explanation':'Explain this concept — Free'}</button>
+    <button className="tc-secondary" type="button" onClick={onSkip}>Skip this ungraded checkpoint</button></div>
+  </form>
+  {feedback&&<p role="status" className="tc-checkpoint-feedback">{feedback} {tries>1?'You can retry without losing credit.':''}</p>}
+  {showExplanation&&<div className="tc-worked-lesson" role="note"><strong>Worked explanation</strong>
+     <p>{checkpoint.hint}</p><p>{explanation}</p><p>No Lumens are required for explanations or retries.</p></div>}
+ </section>;
+}
 function Classroom(){
   const advancedExperience=isTaliaAdvancedRoute();
   const [member,setMember]=useState<Member|null>(null);
