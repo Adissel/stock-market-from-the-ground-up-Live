@@ -78,6 +78,22 @@ html body.tc-body .tp-candle-audit summary{font-size:12px;line-height:1.45;color
 html body.tc-body .tc-chart-panel>.tc-row:last-child{gap:5px;margin-top:8px}
 html body.tc-body .tc-chart-panel>.tc-row:last-child button{width:auto;padding:6px 8px;min-height:34px;font-size:12px}
 html body.tc-body .tc-chart-panel>.tc-row:last-child label{font-size:12px}
+/* On short laptop windows, the evidence chart and transcript remain in view
+   without a full-height banner obscuring their first instructional lines. */
+@media(min-width:971px) and (max-height:680px){
+ html body.tc-body .tc-top{margin:2px 0 5px;padding:6px 12px}
+ html body.tc-body .tc-top h1{font-size:20px;margin:0}
+ html body.tc-body .tc-top .tc-eyebrow,
+ html body.tc-body .tc-top>div:first-child>p:not(.tc-eyebrow){display:none}
+ html body.tc-body .tc-terminal-controls{padding:5px 8px;margin-bottom:5px}
+ html body.tc-body .tc-terminal-identity span{display:none}
+ html body.tc-body .tc-terminal-grid .tc-chart-panel>.tc-row:first-child{margin:0;padding:0 0 5px}
+ html body.tc-body .tc-chart-boundary{margin:3px 0!important;font-size:11px!important}
+ html body.tc-body .tc-unified-chart .cx-classic-chart-top p{display:none}
+ html body.tc-body .tc-unified-chart .cx-classic-chart-controls{margin:2px 0}
+ html body.tc-body .tc-unified-chart .cx-classic-shared-chart>details{margin:3px 0}
+ html body.tc-body .tc-terminal-split>.tc-chart-panel{top:86px;max-height:calc(100dvh - 94px)}
+}
 @media(max-width:970px){
  html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1fr)}
  html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1;position:sticky;top:88px;z-index:2;max-height:min(43dvh,350px);overflow:auto}
