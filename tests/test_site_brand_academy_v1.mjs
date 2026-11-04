@@ -8,6 +8,8 @@ const root=mkdtempSync(join(tmpdir(),'gu-academy-brand-'));
 try{
  mkdirSync(join(root,'assets','css'),{recursive:true});
  writeFileSync(join(root,'assets','css','site-brand-academy-v1.css'),'/* fixture */');
+ mkdirSync(join(root,'assets','js'),{recursive:true});
+ writeFileSync(join(root,'assets','js','site-brand-academy-sync-v1.js'),'/* fixture */');
  const header='<header class="site-header"><a class="brand" href="index.html">THE STOCK MARKET: <span>FROM THE GROUND UP</span></a></header>';
  const html=body=>'<!doctype html><html lang="en"><head><title>Books unchanged</title></head><body>'+body+'</body></html>';
  writeFileSync(join(root,'index.html'),html(header+'<main><p>Book series: THE STOCK MARKET: FROM THE GROUND UP.</p></main>'));
@@ -26,6 +28,10 @@ try{
  assert.ok(readFileSync(join(root,'legacy.html'),'utf8').includes('gu-academy-brand-subtitle">LEARNING ACADEMY</span>'));
  assert.ok(!readFileSync(join(root,'legacy.html'),'utf8').includes('Training Academy'));
  assert.equal((first.match(/site-brand-academy-v1\.css/g)||[]).length,1);
+ assert.equal((first.match(/site-brand-academy-sync-v1\.js/g)||[]).length,1,
+  'Exactly one shared runtime header safeguard');
+ assert.equal((member.match(/site-brand-academy-sync-v1\.js/g)||[]).length,1,
+  'Member website headers must load shared runtime safeguard');
  assert.equal((first.match(/gu-academy-brand-subtitle/g)||[]).length,1);
  assert.match(first,/Book series: THE STOCK MARKET: FROM THE GROUND UP/);
  assert.match(first,/href="index.html"/);
@@ -35,6 +41,12 @@ try{
  assert.match(readFileSync(join(root,'legacy.html'),'utf8'),/gu-academy-brand-title">THE STOCK MARKET <span>FROM THE GROUND UP<\/span>/);
  assert.equal((member.match(/gu-academy-brand-subtitle/g)||[]).length,1,'Exactly one subtitle per member header');
  assert.match(readFileSync('assets/css/site-brand-academy-v1.css','utf8'),/color:#5be7aa/,'Approved emerald text color');
+ assert.match(readFileSync('assets/css/site-brand-academy-v1.css','utf8'),/color:#f4f7ff!important/,'White title immune to owner theme');
+ assert.match(readFileSync('assets/css/site-brand-academy-v1.css','utf8'),/color:#e3b64b!important/,'Gold title immune to owner theme');
+ const runtime=readFileSync('assets/js/site-brand-academy-sync-v1.js','utf8');
+ assert.match(runtime,/MutationObserver\(schedule\)/,'React, owner and signed-in header changes remain normalized');
+ assert.match(runtime,/anchor\.replaceChildren\(heading,tagline\)/,'Only brand children should change');
+ assert.doesNotMatch(runtime,/fetch\(|localStorage|sessionStorage|setAttribute\('href'|innerHTML/,'No entitlement, navigation or account mutations');
  assert.match(readFileSync('assets/css/site-brand-academy-v1.css','utf8'),/var\(--gold/,'Keep approved gold title contrast');
  assert.equal(invoke().status,0,'Rebuild must remain idempotent');
  assert.equal(readFileSync(join(root,'index.html'),'utf8'),first);
