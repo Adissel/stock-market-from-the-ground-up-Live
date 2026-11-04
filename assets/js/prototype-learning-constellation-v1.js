@@ -28,9 +28,9 @@ export function mountLearningConstellation(host){
  if(!host)throw Error('Owner/Admin prototype host required');
  const root=document.createElement('section');root.className='lc-app';
  root.innerHTML='<div class="lc-head"><div><span class="lc-eyebrow">CROWNLIGHT · VOLUMETRIC LEARNING GALAXY / PROTOTYPE V4</span>'+
- '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Stop looking at lists. Orbit a dimensional learning galaxy: nine stages, 419 Labs, ten Boot Camps and source-backed Tutor guides.</p></div>'+
+ '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Explore the full nine-stage learning journey, source-linked 419 Labs, ten Boot Camp paths and Talia teaching guides. The public homepage presents a limited educational showcase; this dimensional map stays protected.</p></div>'+
  '<div class="lc-head-side"><strong class="lc-live"><i></i>INTERACTIVE / OWNER PREVIEW</strong>'+
- '<a href="/prototype.html?view=classic">Open Classic Builder</a><a href="/prototype.html?experience=a">Return to Chart Studio</a></div></div>'+
+ '<a href="/prototype.html?view=classic">Open Classic Builder</a><a href="/prototype.html?experience=a&layout=foundations">Inspect animated classroom</a><a href="/index.html#learning-constellation">Review public teaching-style showcase</a></div></div>'+
  '<div class="lc-metrics"><div><strong data-lc="labs-num">419</strong><span>CANONICAL LABS</span></div>'+
  '<div><strong>10</strong><span>BOOT CAMP PATHS</span></div><div><strong>9</strong><span>LEARNING STAGES</span></div>'+
  '<div><strong data-lc="tutor-num">73</strong><span>INDICATOR GUIDES</span></div></div>'+
