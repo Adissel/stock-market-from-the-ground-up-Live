@@ -83,7 +83,7 @@ try{
   'Standard design preview cannot silently unlock EMA 200');
  assert.match(await prototypeMenu.locator('.cx-context-locked').first().innerText(),/Advanced or Professional/);
  await prototypeMenu.locator('[data-prototype-indicator="EMA_FAST"]').hover();
- await prototypeMenu.getByRole('button',{name:'Custom settings · calculation and appearance'}).click();
+ await prototypeMenu.getByRole('button',{name:'Customize'}).click();
  const periodControl=prototypeMenu.locator('.cx-context-setting input').first();
  await periodControl.fill('12');
  await periodControl.press('Tab');
