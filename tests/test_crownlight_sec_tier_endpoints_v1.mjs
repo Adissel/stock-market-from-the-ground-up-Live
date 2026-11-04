@@ -101,7 +101,7 @@ try{
   reset();grant={...g,tier:'PLUS'};
   const res=await scannerRequest({request:req('/api/sec-scanner-research-v1?symbol=GUSIM'),env});
   const body=await res.json();assert.equal(res.status,200);assert.equal(body.tier,'PLUS');
-  assert.equal(body.filings[0].acceptedAt,T);assert.equal(body.filings[1].acceptedAt,null);
+  assert.equal(body.filings[0].acceptedAt,new Date(T).toISOString());assert.equal(body.filings[1].acceptedAt,null);
   assert.equal(body.capabilities.acceptedTimeWindows,true);
   assert.equal(body.capabilities.fundamentals,false);
  });
@@ -161,7 +161,7 @@ try{
   reset();
   const res=await originalRequest({request:req('/api/sec-issuer-research-v1?symbol=GUSIM&include=fundamentals'),env});
   assert.equal(res.status,200);const data=await res.json();
-  assert.equal(data.filings[0].acceptedAt,T);
+  assert.equal(data.filings[0].acceptedAt,new Date(T).toISOString());
   assert.equal(data.fundamentals.find(x=>x.metric==='Revenue').observations[0].value,500000);
   assert.equal(grantLookup,0,'Original Watchlist must not be affected by SEC Scanner grants');
  });
