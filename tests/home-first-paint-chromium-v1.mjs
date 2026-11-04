@@ -47,7 +47,8 @@ try{
   const [left,right]=getComputedStyle(el).gridTemplateColumns.split(' ').map(parseFloat);
   return {left,right};
  });
- assert(cols.left>cols.right*1.8,'Published Continuous Desk must retain its saved asymmetric chart layout: '+JSON.stringify(cols));
+ assert(cols.right>=cols.left*.95&&cols.right<=cols.left*1.35,
+  'Published Home must retain the revised chart-first, balanced Learning Academy columns: '+JSON.stringify(cols));
  console.log('PASS Chromium: Home never flashes public/Classic markup before settled Owner navigation and published Continuous Desk');
 
  await page.reload({waitUntil:'domcontentloaded'});
