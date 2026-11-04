@@ -10,6 +10,24 @@ const STANDARD_MINUTES=Object.freeze([2,5,6,3,3,4,3,3,4,2]);
 const REFERENCE_MINUTES=Object.freeze([2,4,5,3,3,4,14,3,5,2]);
 const el=(tag,content,cl)=>{const x=document.createElement(tag);if(content!==undefined)x.textContent=String(content);if(cl)x.className=cl;return x};
 const clean=s=>String(s||'').slice(0,1400);
+// This check measures an evidence-handling decision, not answer-key mastery.
+function methodDecision({question,topic,kind,seed=0,initial='',onSelect=()=>{}}={}){
+ const api=root.GroundUpLearningResponseChoiceV1;
+ const spec=api?.build?.({prompt:question,topic,kind,seed})||null;
+ const group=el('fieldset',undefined,'academy-guided-method-check');
+ group.append(el('legend','Choose the defensible evidence-handling method'));
+ let selected=initial;
+ if(spec){
+  for(const option of spec.options){
+   const label=el('label',undefined,'academy-guided-choice'),input=el('input');
+   input.type='radio';input.name='academy-guided-method-'+String(seed)+'-'+String(topic).slice(0,20);
+   input.value=option.code;input.checked=selected===option.code;
+   input.addEventListener('change',()=>{selected=option.code;onSelect(selected)});
+   label.append(input,document.createTextNode(option.label));group.append(label);
+  }
+ }else group.append(el('p','Interactive evidence check is unavailable. No grading or progress has been recorded.'));
+ return {element:group,check:()=>api?.evaluate?.(spec,selected)||{accepted:false,reason:'Interactive evidence check unavailable.'}};
+}
 function classify(d){
  const s=(d.title+' '+d.objective).toLowerCase();
  return /vwap|volume.weighted/.test(s)?'vwap':/candle|chart|volume|indicator|ema|price action|breakout|level|pattern|pullback|scanner|timeframe/.test(s)?'candle':/risk|sizing|spread|percent|quantity/.test(s)?'risk':'research';
@@ -116,6 +134,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
  let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
    answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
  const formativeDrafts=new Map(),reviewedFormative=new Set(),advancedDrafts=new Map(),reviewedAdvanced=new Set();
+ const formativeSelections=new Map(),advancedSelections=new Map();
  const firstName=String(memberFirstName||'').trim().replace(/[^\p{L}\p{M}\s'\-]/gu,'').slice(0,32);
  const shell=el('section',undefined,'academy-guided-ten'),head=el('div',undefined,'academy-guided-head'),
    nav=el('ol',undefined,'academy-guided-nav'),meter=el('progress'),play=el('button','Play guided teaching','btn secondary'),
@@ -199,57 +218,75 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    practicum.append(el('h5','Advanced application · '+advanced.id+(transferOnly?' · independent transfer':'')));
    practicum.append(el('p','Simulated evidence: '+clean(advanced.scenario)));
    practicum.append(el('p','Your task: '+clean(transferOnly?advanced.transfer:advanced.task)));
-   const response=el('textarea');response.rows=4;
-   response.setAttribute('aria-label','Reason through '+advanced.id+(transferOnly?' independent transfer':''));
-   response.placeholder='Show calculations, evidence scope, limitations and the NO TRADE alternative';
-   response.value=advancedDrafts.get(exerciseId)||'';
-   const reveal=el('button','Review advanced reasoning','btn secondary');
-   reveal.type='button';reveal.disabled=response.value.trim().length<20;
    const teaching=el('p');teaching.setAttribute('role','status');teaching.setAttribute('aria-live','polite');
+   const choice=methodDecision({question:clean(transferOnly?advanced.transfer:advanced.task),
+    topic:day.title,kind:cfg.kind,seed:day.day*13+stage,
+    initial:advancedSelections.get(exerciseId)||'',
+    onSelect:code=>{
+     advancedSelections.set(exerciseId,code);
+     if(reviewedAdvanced.delete(exerciseId))teaching.textContent='The selection changed; review this case again.';
+    }});
+   const reveal=el('button','Check my decision and review the worked case','btn secondary');
+   reveal.type='button';
    if(reviewedAdvanced.has(exerciseId)){
     teaching.textContent='Worked analysis: '+clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
      ' Independent transfer: '+clean(advanced.transfer);
    }
-   response.addEventListener('input',()=>{
-    advancedDrafts.set(exerciseId,response.value);
-    reveal.disabled=response.value.trim().length<20;
-    if(reviewedAdvanced.has(exerciseId)){reviewedAdvanced.delete(exerciseId);teaching.textContent='Review your revised reasoning again before continuing.';}
-   });
    reveal.addEventListener('click',()=>{
+    const checked=choice.check();
+    if(!checked.accepted){teaching.textContent=checked.reason;return;}
     reviewedAdvanced.add(exerciseId);
-    teaching.textContent='Worked analysis: '+clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
+    teaching.textContent='Evidence-method check complete (ungraded). '+checked.feedback+' Worked analysis: '+
+     clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
      ' Independent transfer: '+clean(advanced.transfer);
    });
-   practicum.append(response,reveal,teaching);
+   const optional=el('details');optional.append(el('summary','Optional written reasoning — not required'));
+   const response=el('textarea');response.rows=3;response.maxLength=1200;
+   response.setAttribute('aria-label','Optional advanced case reasoning');
+   response.value=advancedDrafts.get(exerciseId)||'';
+   response.addEventListener('input',()=>advancedDrafts.set(exerciseId,response.value));
+   optional.append(response);
+   practicum.append(choice.element,reveal,teaching,optional);
    content.append(practicum);
   }
   if(stage===6&&hasAdvancedPackage){
    const quiz=el('section');quiz.className='academy-formative-reference';
    if(authoredFormative){
     quiz.append(el('h5','Talia’s 12 authored formative practice questions'));
-    quiz.append(el('p','Write your own reasoning before revealing each corrective explanation. Responses are local to this screen only. Copy anything worth preserving into Save Reflection. No grade or Lumens.'));
-    const progress=el('p',reviewedFormative.size+' of 12 formative explanations reviewed');
+    quiz.append(el('p','For each authored prompt, choose an evidence-handling method, then review Talia’s day-specific correction. Numeric and case-specific graded assessments remain separate. Optional written notes are never required for progression.'));
+    const progress=el('p',reviewedFormative.size+' of 12 formative method checks reviewed');
     progress.setAttribute('role','status');progress.className='academy-formative-progress';quiz.append(progress);
     day.lesson.formativeQuestions.forEach((item,index)=>{
      const block=el('details');block.className='academy-formative-question';
      block.append(el('summary',(index+1)+'. '+clean(item.prompt)));
-     const response=el('textarea');response.rows=3;
-     response.setAttribute('aria-label','Practice answer '+(index+1)+': '+clean(item.prompt));
-     response.placeholder='Type your observation, computation, or no-conclusion rule before review';
-     response.value=formativeDrafts.get(item.id)||'';
-     const reveal=el('button','Review my reasoning','btn secondary');reveal.type='button';reveal.disabled=response.value.trim().length<20;
      const correction=el('p');correction.setAttribute('role','status');correction.hidden=true;
-     if(reviewedFormative.has(item.id)){correction.textContent='Teaching feedback: '+clean(item.review);correction.hidden=false}
-     response.addEventListener('input',()=>{
-      formativeDrafts.set(item.id,response.value);reveal.disabled=response.value.trim().length<20;
-      if(reviewedFormative.has(item.id)){reviewedFormative.delete(item.id);correction.hidden=true;progress.textContent=reviewedFormative.size+' of 12 formative explanations reviewed';}
-     });
+     const choice=methodDecision({question:item.prompt,topic:day.title,kind:cfg.kind,
+      seed:day.day*17+index,initial:formativeSelections.get(item.id)||'',
+      onSelect:code=>{
+       formativeSelections.set(item.id,code);
+       if(reviewedFormative.delete(item.id))correction.hidden=true;
+       progress.textContent=reviewedFormative.size+' of 12 formative method checks reviewed';
+      }});
+     const reveal=el('button','Check method and review Talia’s explanation','btn secondary');reveal.type='button';
+     if(reviewedFormative.has(item.id)){
+      correction.textContent='Teaching feedback: '+clean(item.review);correction.hidden=false;
+     }
      reveal.addEventListener('click',()=>{
-      if(response.value.trim().length<20)return;
-      reviewedFormative.add(item.id);correction.textContent='Teaching feedback: '+clean(item.review);
-      correction.hidden=false;progress.textContent=reviewedFormative.size+' of 12 formative explanations reviewed';
+      const checked=choice.check();
+      if(!checked.accepted){correction.textContent=checked.reason;correction.hidden=false;return;}
+      reviewedFormative.add(item.id);
+      correction.textContent='Evidence-method check complete, ungraded. '+checked.feedback+
+       ' Day-specific teaching feedback: '+clean(item.review);
+      correction.hidden=false;
+      progress.textContent=reviewedFormative.size+' of 12 formative method checks reviewed';
      });
-     block.append(response,reveal,correction);quiz.append(block);
+     const optional=el('details');optional.append(el('summary','Optional written reasoning'));
+     const response=el('textarea');response.rows=2;response.maxLength=1200;
+     response.setAttribute('aria-label','Optional formative notes for question '+(index+1));
+     response.value=formativeDrafts.get(item.id)||'';
+     response.addEventListener('input',()=>formativeDrafts.set(item.id,response.value));
+     optional.append(response);
+     block.append(choice.element,reveal,correction,optional);quiz.append(block);
     });
    }else{
     quiz.append(el('p','Full 12-question individual authorship and editorial review remain pending for this study day. Existing guided checkpoints are provisional.'));
@@ -293,12 +330,12 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    const practice=stage===2?advancedCases[0]:advancedCases[advancedCases.length>1?1:0];
    const id=practice.id+(stage===8&&advancedCases.length===1?'-transfer':'');
    if(!reviewedAdvanced.has(id)){
-    feedback.textContent='Complete the advanced case reasoning and reveal the worked explanation before continuing.';
+    feedback.textContent='Choose an evidence-handling decision and review the worked case before continuing. No written response is required.';
     return;
    }
   }
   if(hasAdvancedPackage&&stage===6&&authoredFormative&&reviewedFormative.size!==12){
-   feedback.textContent='Complete and review all twelve day-specific formative questions before proceeding ('+
+   feedback.textContent='Review all twelve evidence-method checks before proceeding ('+
     reviewedFormative.size+' of 12 reviewed). Your answers are local; save a reflection separately.';
    return;
   }
