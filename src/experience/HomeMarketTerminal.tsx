@@ -1,7 +1,7 @@
 /** Public fictional OHLCV chart only; member chart data and private state never enter this component. */
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-type Study='ema9'|'sma20'|'none';
+type Study='all'|'ema9'|'ema20'|'vwap'|'sma20'|'none';
 type Bar={open:number;close:number;low:number;high:number;volume:number};
 type Chart={setOption:(v:unknown,replace?:boolean)=>void;resize:()=>void;dispose:()=>void;dispatchAction:(v:unknown)=>void};
 type EmbeddedTerminalControl={pause?:()=>void;resume?:()=>void};
@@ -10,7 +10,39 @@ declare global{interface Window{
  CrownlightECharts?:{load:()=>Promise<{init:(node:HTMLElement)=>Chart}>};
  CrownlightHomeMarketTerminal?:{mountInto:(target:HTMLElement,options?:{context?:'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean})=>EmbeddedTerminalSession|null};
 }}
-const DATA:Bar[]=Array.from({length:150},(_,i)=>{const trend=85+0.15*i+3*Math.sin(i*.22)+Math.cos(i*.68);const open=trend-.8*Math.sin(i*1.1),close=trend+.9*Math.cos(i*.9);return {open,close,low:Math.min(open,close)-.4-(i%4)*.16,high:Math.max(open,close)+.55+(i%3)*.18,volume:120+(i*31)%285}});
+/** Original, deterministic 1-minute fictional tape. Volatility clusters, thin
+ * consolidations, gaps, breakout spikes, retraces and uneven volume deliberately
+ * resemble the shape (not prices or provenance) of educational market examples.
+ * Never reverse-engineered from uploaded screenshots or licensed price feeds.
+ */
+const DATA:Bar[]=(()=>{
+ const bars:Bar[]=[];let prior=48.26,seed=773217;
+ const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
+ const regimes=[
+  {end:19,drift:0.025,vol:0.075},{end:38,drift:0.009,vol:0.042},
+  {end:58,drift:-0.035,vol:0.096},{end:76,drift:-0.008,vol:0.049},
+  {end:91,drift:0.049,vol:0.112},{end:110,drift:0.004,vol:0.041},
+  {end:130,drift:-0.052,vol:0.105},{end:150,drift:0.031,vol:0.064}
+ ];
+ for(let i=0;i<150;i++){
+  const r=regimes.find(x=>i<x.end)||regimes[regimes.length-1];
+  const open=Math.max(0.1,prior+(random()-.5)*r.vol*0.48);
+  const surprise=(random()+random()+random()-1.5)*r.vol*2.8;
+  const spike=i===17?0.52:i===60?-0.41:i===88?0.73:i===112?-0.69:i===137?0.35:0;
+  const close=Math.max(0.1,open+r.drift+surprise+spike);
+  const upper=(0.014+random()*.065+r.vol*random()*.85)*(i===88?1.8:1);
+  const lower=(0.012+random()*.058+r.vol*random()*.85)*(i===112?1.8:1);
+  const high=Math.max(open,close)+upper;
+  const low=Math.max(.01,Math.min(open,close)-lower);
+  const activity=(i<19?1.4:i>=85&&i<98?1.9:i>=110&&i<135?1.6:1);
+  const volume=Math.max(20,Math.round((110+random()*700+Math.abs(close-open)*2600+
+   (Math.abs(spike)>0?3200:0))*activity));
+  bars.push({open:+open.toFixed(4),close:+close.toFixed(4),
+   high:+high.toFixed(4),low:+low.toFixed(4),volume});
+  prior=close;
+ }
+ return bars;
+})();
 function moving(bars:Bar[],period:number,method:'ema'|'sma'){let state=0;return bars.map((b,i)=>{if(i<period-1)return null;if(i===period-1)state=bars.slice(0,period).reduce((sum,x)=>sum+x.close,0)/period;else if(method==='ema')state=(2/(period+1))*b.close+(1-2/(period+1))*state;else state=bars.slice(i-period+1,i+1).reduce((sum,x)=>sum+x.close,0)/period;return +state.toFixed(3)})}
 /** Exact-bar public tooltip. No HTML from members or market-data providers is used. */
 function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (number|null)[],study:Study):string{
@@ -37,8 +69,8 @@ function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (nu
  */
 type Frame=1|3|5;
 const TICKS_PER_MINUTE=20;
-const FIRST_REPLAY_MINUTE=100;
-const TICK_MS=240; // Demonstration playback is deliberately compressed, not wall-clock exchange time.
+const FIRST_REPLAY_MINUTE=0; // The initial frame contains exactly one forming candle, no historical pre-roll.
+const TICK_MS=160; // Demonstration playback is deliberately compressed, not wall-clock exchange time.
 function partialMinute(index:number,ticks:number):Bar{
  const b=DATA[index],n=Math.max(0,Math.min(TICKS_PER_MINUTE,Math.floor(ticks)));
  const first=index%2===0?b.low:b.high,second=index%2===0?b.high:b.low;
@@ -52,6 +84,12 @@ function partialMinute(index:number,ticks:number):Bar{
   high=Math.max(high,close);low=Math.min(low,close);
  }
  return {open:b.open,high,low,close,volume:n===TICKS_PER_MINUTE?b.volume:Math.floor(b.volume*n/TICKS_PER_MINUTE)};
+}
+function barProxyVWAP(bars:readonly Bar[]):(number|null)[]{
+ let amount=0,quantity=0;
+ return bars.map(b=>{if(b.volume<=0)return quantity?+(amount/quantity).toFixed(3):null;
+  amount+=((b.high+b.low+b.close)/3)*b.volume;
+  quantity+=b.volume;return +(amount/quantity).toFixed(3)});
 }
 function groupMinutes(minutes:readonly Bar[],frame:Frame):Bar[]{
  const result:Bar[]=[];
@@ -77,16 +115,19 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
  context?:'home'|'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean;embedded?:EmbeddedTerminalControl
 }){
  const host=useRef<HTMLDivElement>(null);
- const [study,setStudy]=useState<Study>('ema9');
+ const [study,setStudy]=useState<Study>('all');
  const [windowSize,setWindowSize]=useState(60);
  const [view,setView]=useState<'candles'|'line'>('candles');
  const [frame,setFrame]=useState<Frame>(1);
- const [speed,setSpeed]=useState(1);
+ const [speed,setSpeed]=useState(context==='home'?0.1:1);
+ const homeSpeed=useRef(0.1);
+ const [displaySpeed,setDisplaySpeed]=useState(0.1);
  const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
  const [note,setNote]=useState('Fictional simulation · Not real-time market data');
  const [progress,setProgress]=useState('Preparing fictional candle replay…');
  const chartInstance=useRef<Chart|null>(null);
  const playhead=useRef(0);
+ const isPublicHome=context==='home';
  useEffect(()=>{
   if(!embedded)return;
   embedded.pause=()=>setPlaying(false);
