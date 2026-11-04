@@ -1,0 +1,16 @@
+/* SEC research uses existing Crownlight controls. Readable on mobile and keyboard. */
+.cl-sec-tier{margin-top:1.35rem}
+.cl-sec-tier-controls{display:flex;align-items:end;gap:.9rem;flex-wrap:wrap;margin:1rem 0}
+.cl-sec-tier-controls label,.cl-sec-tier-owner label{display:flex;flex-direction:column;gap:.35rem;flex:1 1 195px;min-width:0}
+.cl-sec-tier-controls input,.cl-sec-tier-controls select,.cl-sec-tier-owner input,.cl-sec-tier-owner select{width:100%;min-height:44px;padding:.55rem .7rem;background:#121c29;color:#f2f8ff;border:1px solid #66829e;border-radius:6px}
+.cl-sec-tier button{min-height:44px;padding:.55rem .85rem}
+.cl-sec-tier input:focus-visible,.cl-sec-tier select:focus-visible,.cl-sec-tier button:focus-visible{outline:3px solid #58dfff;outline-offset:3px}
+.cl-sec-tier-results{overflow-x:auto}
+.cl-sec-tier-results table{width:100%;border-collapse:collapse;margin:.8rem 0 1.25rem}
+.cl-sec-tier-results td,.cl-sec-tier-results th{border-bottom:1px solid #344c63;padding:.55rem;text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.cl-sec-tier-results a{color:#8ee7ff;text-decoration:underline}
+.cl-sec-tier-owner{margin-top:1.8rem;border-top:2px solid #45607e;padding-top:1rem;display:flex;flex-wrap:wrap;align-items:end;gap:.8rem}
+.cl-sec-tier-owner h3,.cl-sec-tier-owner p{flex-basis:100%}
+.cl-sec-tier-chart{height:340px;min-height:340px;width:100%}
+@media(max-width:640px){.cl-sec-tier-controls,.cl-sec-tier-owner{display:block}.cl-sec-tier-controls label,.cl-sec-tier-owner label,.cl-sec-tier-controls button,.cl-sec-tier-owner button{display:block;margin:.7rem 0;width:100%}}
+@media(prefers-reduced-motion:reduce){.cl-sec-tier *{scroll-behavior:auto!important;transition:none!important}}
