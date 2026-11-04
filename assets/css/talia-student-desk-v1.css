@@ -12,8 +12,8 @@ html body.tc-body .tc-terminal-switches button{font-size:12px;min-height:32px;pa
 html body.tc-body .tc-terminal-size{font-size:11px;gap:6px}
 html body.tc-body .tc-terminal-size input{width:88px}
 html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1.55fr) minmax(355px,.95fr);gap:10px;align-items:start}
-html body.tc-body .tc-terminal-grid>.tc-chart-panel{grid-column:1;grid-row:1}
-html body.tc-body .tc-terminal-grid>.tc-chat{grid-column:2;grid-row:1}
+html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1}
+html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chat{grid-column:2;grid-row:1}
 html body.tc-body .tc-terminal-grid>.tc-chart-panel,
 html body.tc-body .tc-terminal-grid>.tc-chat{padding:10px 12px;border-radius:12px;min-width:0}
 html body.tc-body .tc-terminal-split>.tc-chart-panel{position:sticky;top:92px;max-height:calc(100dvh - 106px);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#52738a #0c2032;scrollbar-width:thin}
