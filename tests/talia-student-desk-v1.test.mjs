@@ -14,6 +14,7 @@ test('student split workspace places price chart and readable live Tutor instruc
  assert.match(css,/\.tc-terminal-split>\.tc-chart-panel\{position:sticky/);
  assert.match(css,/\.tc-terminal-grid \.tc-message p\{font-size:clamp\(15px,1vw,16px\)!important/);
  assert.match(css,/max-width:100%;line-height:1\.58/);
+ assert.match(css,/@media\(min-width:971px\) and \(max-height:680px\)/);
  assert.match(css,/@media\(max-width:970px\)/);
  assert.match(css,/@media\(max-width:620px\)/);
  assert.doesNotMatch(css,/display:none!important.*tc-transcript/);
