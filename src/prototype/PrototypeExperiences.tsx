@@ -339,7 +339,7 @@ function completedTimeframe(bars:Bar[],minutes:ChartTimeframe):Bar[]{
  return result;
 }
 
-function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320,syncGroup,chartRole,forming}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number;syncGroup?:string;chartRole?:'technical'|'reference';forming?:Bar|null}){
+function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,design,height=320,syncGroup,chartRole,forming,sourceBars}:{kind:ChartKind;reveal:number;showVolume:boolean;showEma:boolean;showProxy:boolean;focusBar:number;onSelect?:(index:number)=>void;design:Design;height?:number;syncGroup?:string;chartRole?:'technical'|'reference';forming?:Bar|null;sourceBars?:Bar[]}){
  const ref=useRef<HTMLDivElement>(null),inst=useRef<any>(null),viewport=useRef({start:Math.max(0,100-40/Math.max(1,reveal)*100),end:100});
  const [viewportLabel,setViewportLabel]=useState('Full session or revealed chart window');
  const activePointer=useRef<{id:number;x:number;start:number;end:number;width:number}|null>(null);
@@ -370,7 +370,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const accent=cv('--cx-accent','#72e0d1'),good=appearance.bullish,bad=appearance.bearish,muted=cv('--cx-muted','#99aebe'),grid=appearance.grid;
     const luminous=(base:string,light:string)=>({type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:light},{offset:.32,color:base},{offset:1,color:base}]});
    const paintBar=(up:boolean)=>barVisual(barLook,up,good,bad);
-   const bars=completedTimeframe(dataFor(reveal),appearance.timeframe);
+   const bars=completedTimeframe(sourceBars?sourceBars.slice(0,reveal):dataFor(reveal),appearance.timeframe);
    const earlier=completedTimeframe(contextBars,appearance.timeframe);
    const context:Bar[]=[],offset=context.length; // Every prototype chart starts with a single observed fictional candle.
    const plotted=[...context,...bars,...(kind==='price'&&forming?[forming]:[])];
@@ -388,7 +388,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    let option:any={animation:false,backgroundColor:'transparent',textStyle:{color:muted,fontFamily:'Inter,system-ui'},tooltip:{trigger:'axis',confine:true,backgroundColor:'#0b1929',borderWidth:1,padding:[12,16],extraCssText:'box-shadow:0 18px 50px #0009;border-radius:10px;backdrop-filter:blur(16px);',borderColor:grid,textStyle:{color:'#eaf6fd',fontSize:12},axisPointer:{type:'cross',label:{backgroundColor:'#18364c'}}},grid:{left:46,right:12,top:20,bottom:34},xAxis:{type:'category',data:names,...axis,axisLabel:{color:muted,fontSize:9,interval:Math.max(0,Math.floor(reveal/8)),formatter:(value:string)=>value.startsWith('PADDING ')?'':value}},yAxis:{type:'value',scale:true,...axis},series:[]};
    if(kind==='price'){
     const math=(window as any).CrownlightPrototypeIndicators;
-    const calculated=math?.compute?.(bars,settings||defaults,{...currentEnabled,EMA_200:false,STRUCTURE:appearance.showStructure&&studyAllowed(prefs?.studio||'Standard','STRUCTURE')});
+    const calculated=math?.compute?.(bars,settings||defaults,{...currentEnabled,EMA_200:!!currentEnabled.EMA_200&&bars.length>=(settings?.ema200||200),STRUCTURE:appearance.showStructure&&studyAllowed(prefs?.studio||'Standard','STRUCTURE')});
     if(!calculated)throw Error('Shared math library unavailable');
     const volumePane=calculated.volume.length>0;
     const panes:string[]=calculated.panes;
@@ -1242,6 +1242,85 @@ function Suite({page}:{page:Page}){
   <footer className="cx-footer"><span>CROWN & LANTERN PRESS / INTERNAL DESIGN STUDY</span><span>REACT · TYPESCRIPT · JAVASCRIPT · HTML5 · CSS3 · ECHARTS 6.1 · PYTHON PROPOSED</span><span>Demo only. Server membership rules unchanged.</span></footer>
  </div></IndicatorContext.Provider></BarLookContext.Provider></ChartAppearanceContext.Provider>;
 }
+
+/** The Classic Owner classroom uses the SAME technical EChart, indicator
+ * context menu and appearance components as Experience B. The caller supplies
+ * only already-disclosed fictional teaching bars; member lessons never use
+ * this staff-only entry point. */
+type ClassicChartInput={mode:'lab'|'bootcamp';caseBars?:Bar[]};
+function ClassicClassroomChart({mode,caseBars=[]}:ClassicChartInput){
+ const [source,setSource]=useState<'demo'|'case'>('demo');
+ const [reveal,setReveal]=useState(54);
+ const [focus,setFocus]=useState(0);
+ const [studio,setStudio]=useState<Studio>('Advanced');
+ const [barLook,setBarLook]=useState<BarLook>('quantum');
+ const [appearance,setAppearance]=useState<ChartAppearance>({...defaultChartAppearance});
+ const [settings,setSettings]=useState<Record<string,number>>({...defaults});
+ const [enabled,setEnabled]=useState<Record<string,boolean>>({...defaultVisible});
+ const [menu,setMenu]=useState<PrototypeMenu|null>(null);
+ const close=useCallback(()=>setMenu(null),[]);
+ const open=useCallback((x:number,y:number,view:'indicators'|'drawings'='indicators')=>setMenu({x,y,view,selected:null,custom:false}),[]);
+ useEffect(()=>{
+  const onCommand=(e:Event)=>{
+   const v=(e as CustomEvent<{x:number;y:number;view:'indicators'|'drawings'}>).detail;
+   if(v&&Number.isFinite(v.x)&&Number.isFinite(v.y))open(v.x,v.y,v.view);
+  };
+  window.addEventListener('crownlight:prototype-chart-menu',onCommand);
+  return()=>window.removeEventListener('crownlight:prototype-chart-menu',onCommand);
+ },[open]);
+ const available=source==='case'&&caseBars.length>0?caseBars:series;
+ const count=Math.max(1,Math.min(reveal,available.length));
+ const focused=Math.min(focus,count-1);
+ const prefs:IndicatorPrefs={settings,enabled,studio,
+  setSettings:(name,value)=>setSettings(p=>({...p,[name]:value})),
+  setEnabled:(name,value)=>setEnabled(p=>({...p,[name]:value})),
+  reset:()=>{setSettings({...defaults});setEnabled({...defaultVisible})},
+  enableAll:()=>setEnabled(Object.fromEntries(specs.map(item=>[item.id,studyAllowed(studio,item.id)])))};
+ const selectSource=(next:'case'|'demo')=>{setSource(next);setReveal(next==='case'?Math.max(1,caseBars.length):54);setFocus(0)};
+ const revealTo=(next:number)=>{setReveal(Math.max(1,Math.min(next,available.length)));setFocus(Math.min(focus,next-1))};
+ return <ChartAppearanceContext.Provider value={{style:appearance,setStyle:setAppearance}}>
+  <BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={prefs}>
+  <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
+   onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
+   <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
+    <p>Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.</p></div>
+    <span>SIMULATED · UNGRADED</span></div>
+   <div className="cx-classic-chart-controls">
+    <label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
+     <option value="demo">Fictional chart design fixture</option>
+     {caseBars.length>0&&<option value="case">Only revealed current case bars ({caseBars.length})</option>}
+    </select></label>
+    <label>Chart Studio design preview <select aria-label="Classic chart edition design preview" value={studio} onChange={e=>setStudio(e.target.value as Studio)}>
+     {(['Standard','Advanced','Professional'] as Studio[]).map(s=><option key={s}>{s}</option>)}
+    </select></label>
+    <label>Bar appearance <select aria-label="Classic chart bar appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>
+     {barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}
+    </select></label>
+    <label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>
+    <button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>
+    <button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>
+   </div>
+   <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
+    sourceBars={available} focusBar={focused} onSelect={setFocus} design="quantum" height={460}/>
+   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · All calculations use revealed fictional bars only. The design fixture is NOT the protected Lab or Boot Camp case and never supplies assessment answers.</div>
+   <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
+   <IndicatorDock/>
+   <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={studio}
+    prefs={prefs} appearance={appearance} setAppearance={setAppearance}/>
+  </section>
+  </IndicatorContext.Provider></BarLookContext.Provider>
+ </ChartAppearanceContext.Provider>;
+}
+export function mountClassicClassroomChart(target:HTMLElement,input:ClassicChartInput):{
+ update:(next:ClassicChartInput)=>void;dispose:()=>void
+}{
+ const root:Root=createRoot(target);
+ let disposed=false;
+ const render=(value:ClassicChartInput)=>{if(!disposed)root.render(<ClassicClassroomChart {...value}/>)};
+ render(input);
+ return {update:render,dispose:()=>{if(disposed)return;disposed=true;root.unmount();target.replaceChildren()}};
+}
+
 export function mountExperienceSuite(element:HTMLElement,page:Page):()=>void{
  const root:Root=createRoot(element);root.render(<Suite page={page}/>);return()=>root.unmount();
 }
