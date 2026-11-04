@@ -1247,7 +1247,7 @@ function Suite({page}:{page:Page}){
  * already-disclosed case bars; ordinary members use the same calculation and
  * UI components with immutable Standard-only supplemental simulation. The
  * member caller provides no private lesson data or entitlement overrides. */
-export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number)=>void};
+export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void};
 export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar}:ClassicChartInput){
  const [source,setSource]=useState<'demo'|'case'>(mode==='talia'?'case':'demo');
  const [reveal,setReveal]=useState(54);
@@ -1302,7 +1302,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
    </div>
    <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
-    sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(index)}} design="quantum" height={460}/>
+    sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(index,appearance.timeframe)}} design="quantum" height={460}/>
    <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · {mode==='talia'?'Synchronized with Talia’s revealed instructional prefix; the chart cannot disclose a later candle.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
    <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
    <IndicatorDock/>
