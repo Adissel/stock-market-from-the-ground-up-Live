@@ -283,8 +283,10 @@ function normalizeSaved(x){
  conversationId:typeof x.conversation_id==='string'?x.conversation_id:null,
  createdAt:x.created_at||new Date().toISOString()};
 }
-async function privateApi(path,method='GET',body,headers={}){
- const access=await token();if(!access)throw Object.assign(new Error('Sign in to manage saved Tutor exchanges.'),{status:401});
+async function privateApi(path,method='GET',body,headers={},expectedUserId=TUTOR.user?.id||null,expectedEpoch=TUTOR.identityEpoch){
+ const access=await token(expectedUserId);
+ if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId)
+  throw Object.assign(new Error('Member session changed; private history request denied.'),{status:401});
  const init={method,cache:'no-store',headers:{authorization:'Bearer '+access,...headers}};
  if(body!==undefined){init.headers['content-type']='application/json';init.body=JSON.stringify(body)}
  const response=await fetch('/api/member-tutor-history'+path,init);
@@ -314,26 +316,32 @@ async function loadHistory(){
 }
 async function sendTutorFeedback(rec,choice,note=''){
  if(!rec.id){historyStatus('Save this response privately before submitting feedback.');return}
+ const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  try{
-  await privateApi('', 'PATCH',{id:rec.id,feedback:choice,note:note.slice(0,500)});
+  await privateApi('', 'PATCH',{id:rec.id,feedback:choice,note:note.slice(0,500)}, {},uid,epoch);
+  if(epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)return;
   rec.feedback=choice;rec.feedbackNote=note.slice(0,500);
   renderConversation();historyStatus('Your private Tutor feedback was submitted; it does not award or change grades.');
- }catch(e){historyStatus('Feedback could not be stored: '+e.message)}
+ }catch(e){if(epoch===TUTOR.identityEpoch&&uid===TUTOR.user?.id)historyStatus('Feedback could not be stored: '+e.message)}
 }
 async function deleteOne(rec){
  if(!rec.id){TUTOR.entries=TUTOR.entries.filter(x=>x!==rec);renderConversation();return}
  if(!confirm('Permanently delete this saved Tutor exchange? This cannot be undone.'))return;
+ const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  try{
-  await privateApi('?id='+encodeURIComponent(rec.id),'DELETE');
+  await privateApi('?id='+encodeURIComponent(rec.id),'DELETE',undefined,{},uid,epoch);
+  if(epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)return;
   TUTOR.entries=TUTOR.entries.filter(x=>x!==rec);renderConversation();historyStatus('Saved Tutor exchange deleted.');
- }catch(e){historyStatus('The saved exchange was not deleted: '+e.message)}
+ }catch(e){if(epoch===TUTOR.identityEpoch&&uid===TUTOR.user?.id)historyStatus('The saved exchange was not deleted: '+e.message)}
 }
 async function deleteAll(){
  if(!TUTOR.user){historyStatus('Sign in to delete your own saved Tutor notes.');return}
  if(!confirm('Permanently delete ALL saved Tutor exchanges AND named conversations on the server? This cannot be undone. Your Labs and Journal are unaffected.'))return;
  const epoch=TUTOR.identityEpoch,user=TUTOR.user.id;
  try{
-  const access=await token();if(!access)throw Error('Your session expired.');
+  const access=await token(user);
+  if(!access||epoch!==TUTOR.identityEpoch||user!==TUTOR.user?.id)
+   throw Error('Member session changed; bulk deletion was not submitted.');
   const response=await fetch('/api/member-tutor-data-delete',{method:'DELETE',cache:'no-store',
    headers:{authorization:'Bearer '+access,'x-confirm-delete':'DELETE_MY_TUTOR_HISTORY'}});
   const data=await response.json().catch(()=>null);
@@ -359,9 +367,10 @@ function exportConversation(){
  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='market-tutor-ungraded-exchanges.json';a.click();
  setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-async function conversationApi(query='',method='GET',body,extra={}){
- const access=await token();
- if(!access)throw new Error('Sign in to manage private Tutor conversations.');
+async function conversationApi(query='',method='GET',body,extra={},expectedUserId=TUTOR.user?.id||null,expectedEpoch=TUTOR.identityEpoch){
+ const access=await token(expectedUserId);
+ if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId)
+  throw new Error('Member session changed; private conversation request denied.');
  const opts={method,cache:'no-store',headers:{authorization:'Bearer '+access,...extra}};
  if(body!==undefined){opts.headers['content-type']='application/json';opts.body=JSON.stringify(body)}
  const res=await fetch('/api/member-tutor-conversations'+query,opts);
@@ -467,7 +476,9 @@ async function calculateHypotheticalPosition(){
  if(rawTarget&&!Number.isFinite(target)){show.textContent='Enter a valid optional target.';return}
  const epoch=TUTOR.identityEpoch,uid=TUTOR.user.id;
  try{
-  const access=await token();if(!access)throw Error('Session expired.');
+  const access=await token(uid);
+  if(!access||epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)
+   throw Error('Member session changed; calculator request was not submitted.');
   const res=await fetch('/api/tutor-calculator',{method:'POST',cache:'no-store',
    headers:{authorization:'Bearer '+access,'content-type':'application/json'},
    body:JSON.stringify({action:'position',accountEquity:values[0],riskPercent:values[1],
@@ -517,7 +528,9 @@ async function exportAllTutorData(){
  const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  if(!uid){historyStatus('Sign in to download your private Tutor notes.');return}
  try{
-  const access=await token();if(!access)throw Error('Session unavailable.');
+  const access=await token(uid);
+  if(!access||epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)
+   throw Error('Member session changed; export was not submitted.');
   const response=await fetch('/api/member-tutor-data-export',{
    method:'GET',cache:'no-store',headers:{authorization:'Bearer '+access}});
   if(!response.ok)throw Error('Private export endpoint unavailable.');
