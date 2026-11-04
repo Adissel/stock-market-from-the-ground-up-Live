@@ -17,7 +17,7 @@ for(const slug of slugs){
  assert.equal((html.match(/<h1\b/gi)||[]).length,1,'One heading for '+file);
  assert(!/name="robots"[^>]*noindex/i.test(html),'Public guide must not be noindexed: '+file);
  assert(/By the end of this guide/i.test(html),'Instruction objective required: '+file);
- assert(/fictional/i.test(html),'Training examples must be explicitly fictional: '+file);
+ assert(/simulated/i.test(html),'Training examples must be identified as simulated: '+file);
  assert(/risk of loss/i.test(html),'Financial educational disclaimer missing: '+file);
  assert(html.includes('href="lab-samples.html"')&&html.includes('href="books.html"'),'Guided destination links: '+file);
  assert(html.includes('bootcamp-academy.html?program=free5'),'Respect existing Free Foundations gateway: '+file);
