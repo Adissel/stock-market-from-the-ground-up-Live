@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      GH_TOKEN: \${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Archive unique commits and delete non-main branches
         shell: bash
@@ -103,4 +103,4 @@ jobs:
           summary("Remaining branch names: "+", ".join(sorted(remaining)))
           if set(remaining)!={"main"}:raise RuntimeError("One-branch verification failed; see job summary.")
           summary("**PASS: Only main remains.** Unique branch history remains reachable through archive tags, not merged into main.")
-                    PY
+          PY
