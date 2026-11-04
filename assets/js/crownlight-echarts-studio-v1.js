@@ -8,18 +8,18 @@
  const colors={ema9:'#69e4e0',ema20:'#f4d17c',ema200:'#ad9af3',sma20:'#e8a4e0',
   vwap:'#88a9ff',bb20:'#cfb0f7',hod:'#fabd93',lod:'#ed99a4',volma20:'#edcc80',
   rsi14:'#cba7f6',macd:'#71d5f4',macdSignal:'#f0b980',macdHistogram:'#61d7b2',atr14:'#e2a3d3'};
- let stroke='solid';
+ let stroke='solid',showBarVolume=true;
  const factoryColors={...colors},lineStyles={};
  function resetMemberPresentation(){
   for(const k of Object.keys(factoryColors))colors[k]=factoryColors[k];
   for(const k of Object.keys(lineStyles))delete lineStyles[k];
-  stroke='solid';
+  stroke='solid';showBarVolume=true;
   for(const k of Object.keys(enabled))enabled[k]=['ema9','ema20','vwap','volma20'].includes(k);
  }
  const paneSizes={rsi14:155,macd:185,atr14:155};
  const defaultPaneSizes={...paneSizes};
  const getPreferences=()=>({enabled:{...enabled},colors:{...colors},
-  lineStyles:{...lineStyles},paneSizes:{...paneSizes},stroke});
+  lineStyles:{...lineStyles},paneSizes:{...paneSizes},stroke,showBarVolume});
  function restorePreferences(prefs){
   if(!prefs||typeof prefs!=='object'||Array.isArray(prefs))return false;
   for(const [key,value] of Object.entries(prefs.enabled||{}))
@@ -32,6 +32,7 @@
   for(const [key,value] of Object.entries(prefs.paneSizes||{}))
    if(Object.hasOwn(paneSizes,key)&&Number.isInteger(value)&&value>=110&&value<=285)paneSizes[key]=value;
   if(['solid','dashed','dotted'].includes(prefs.stroke))stroke=prefs.stroke;
+  if(typeof prefs.showBarVolume==='boolean')showBarVolume=prefs.showBarVolume;
   if(view){
    for(const el of view.querySelectorAll('[data-study]'))el.checked=enabled[el.dataset.study];
    for(const el of view.querySelectorAll('[data-indicator-color]'))el.value=colors[el.dataset.indicatorColor];
@@ -183,7 +184,7 @@
    series:[
     {name:'Revealed OHLC',type:'candlestick',data:last.map(b=>[b.o,b.c,b.l,b.h]),
      itemStyle:{color:'#36d5ae',color0:'#ff648b',borderColor:'#36d5ae',borderColor0:'#ff648b'},xAxisIndex:0,yAxisIndex:0,markPoint:{symbol:'pin',symbolSize:36,data:marks}},
-    {name:'Observed volume',type:'bar',data:last.map(b=>({value:b.v,itemStyle:{color:b.c>b.o?'#36d5ae':b.c<b.o?'#ff648b':'#b2bbce'}})),xAxisIndex:1,yAxisIndex:1},...overlays,...lower
+    {name:'Observed volume',type:'bar',data:showBarVolume?last.map(b=>({value:b.v,itemStyle:{color:b.c>b.o?'#36d5ae':b.c<b.o?'#ff648b':'#b2bbce'}})):[],xAxisIndex:1,yAxisIndex:1},...overlays,...lower
    ],
    dataZoom:[
     {type:'inside',xAxisIndex:grids.map((_,i)=>i),filterMode:'none'},
@@ -228,6 +229,10 @@
    input.addEventListener('change',()=>{enabled[key]=input.checked;render()});
    label.append(input,document.createTextNode(title));controls.append(label);
   }
+  const volumeToggle=document.createElement('button');volumeToggle.type='button';volumeToggle.className='cl-echarts-volume-toggle';
+  const volumeState=()=>{volumeToggle.textContent=showBarVolume?'Hide bar volume':'Show bar volume';volumeToggle.setAttribute('aria-pressed',String(showBarVolume))};
+  volumeState();volumeToggle.addEventListener('click',()=>{showBarVolume=!showBarVolume;volumeState();render()});
+  controls.append(volumeToggle);
   const paneControls=document.createElement('div');paneControls.className='cl-echarts-pane-controls';
   paneControls.setAttribute('role','group');
   paneControls.setAttribute('aria-label','Resize independent indicator panels');
