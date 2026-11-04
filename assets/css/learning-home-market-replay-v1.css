@@ -1,0 +1,42 @@
+/* Shared production homepage chart in authorized Lab and Boot Camp teaching.
+ * Original fictional market playback is independent from authored Lab cases,
+ * historical replay, learner progress and protected assessment questions.
+ */
+.gu-learning-market-replay{
+  width:100%;min-width:0;margin:18px 0 24px;padding:16px;
+  border:1px solid #3d7182;border-radius:15px;
+  background:linear-gradient(155deg,#081d2b 0%,#10283a 100%);
+  color:#e5f5fa;box-sizing:border-box;overflow:hidden;
+}
+.gu-learning-market-replay h3{
+  margin:0 0 8px;font-size:clamp(1rem,1.6vw,1.25rem);
+  font-weight:750;line-height:1.4;color:#d6fff2;
+}
+.gu-learning-market-replay .gu-learning-market-context{
+  margin:0 0 14px;font-size:.9rem;line-height:1.65;color:#b6d4e0;
+}
+.gu-learning-market-replay .gu-learning-market-host{width:100%;min-width:0;min-height:350px}
+.gu-learning-market-replay .cl-react-terminal{border:1px solid #365c72;border-radius:11px;overflow:hidden}
+.gu-learning-market-replay .cl-react-toolbar{justify-content:space-between}
+.gu-learning-market-replay .cl-react-title{min-width:120px}
+.gu-learning-market-replay .cl-react-plot{min-height:290px;height:390px;max-height:520px}
+.gu-learning-market-replay .cl-react-progress{font-size:.79rem}
+.gu-learning-market-replay .cl-react-bottom{font-size:.8rem}
+.gu-learning-market-replay .cl-react-playback button[disabled]{
+  opacity:.55;cursor:not-allowed;background:#163244;
+}
+.gu-learning-market-replay .gu-learning-market-status{
+  padding:8px 0;color:#bdece2;font-size:.78rem;line-height:1.5;
+}
+.gu-learning-market-replay .cl-react-toolbar button:focus-visible,
+.gu-learning-market-replay .cl-react-toolbar select:focus-visible{
+  outline:3px solid #ffdf88;outline-offset:2px;
+}
+@media(max-width:690px){
+  .gu-learning-market-replay{padding:11px;margin:12px 0 18px}
+  .gu-learning-market-replay .cl-react-toolbar{padding:10px;gap:8px}
+  .gu-learning-market-replay .cl-react-plot{min-height:290px;height:320px}
+}
+@media(prefers-reduced-motion:reduce){
+  .gu-learning-market-replay .cl-react-terminal *{scroll-behavior:auto!important;transition:none!important}
+}
