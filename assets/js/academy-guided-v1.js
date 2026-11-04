@@ -151,7 +151,7 @@ function plan(d){
   if(d.programCode==='scanners10'&&d.day===3)
    checks[2]={numeric:true,question:'Calculate relative volume for matched simulated 5-minute intervals: current 6,000 shares; comparable baseline 3,000.',labels:['Volume difference (shares)','Relative volume (multiple)'],expected:[3000,2],hints:['Subtract the comparable 3,000-share baseline from the 6,000-share observation.','Divide the 6,000 current shares by the matched 3,000 baseline.']};
   if(d.programCode==='scanners10'&&d.day===6)
-   checks[2]={numeric:true,question:'Calculate a displayed spread for a fictional bid of $10.00 and ask of $10.06.',labels:['Displayed spread ($)','Spread as percent of bid (%)'],expected:[.06,.6],hints:['Ask minus bid is the displayed spread.','Divide displayed spread by the $10.00 bid and multiply by 100. No fill is guaranteed.']};
+   checks[2]={numeric:true,question:'Calculate a displayed spread for a simulated bid of $10.00 and ask of $10.06.',labels:['Displayed spread ($)','Spread as percent of bid (%)'],expected:[.06,.6],hints:['Ask minus bid is the displayed spread.','Divide displayed spread by the $10.00 bid and multiply by 100. No fill is guaranteed.']};
  }
  if(kind==='risk')checks[2]={numeric:true,question:'Calculate simulated risk per share and share quantity.',labels:['Risk per share ($)','Whole shares for $40 planned risk'],expected:[.4,100],hints:['Use $20 entry − $19.60 planned stop.','Divide $40 by $0.40/share. Actual loss can exceed planned loss.']};
  return {kind,stages,checks,limitation};
