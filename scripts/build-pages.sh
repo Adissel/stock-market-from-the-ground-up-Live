@@ -64,6 +64,8 @@ node --test tests/crownlight-member-acceptance-phase2-40.test.mjs
 # Member-facing founding matrix must distinguish unknown entitlements from exclusions.
 node tests/test_founding_members_public_names.mjs
 node --test tests/home-market-terminal-v1.test.mjs
+node --check assets/js/prototype-shared-learning-market-v1.js
+node --test tests/prototype-shared-learning-market-v1.test.mjs
 node --test tests/shared-home-market-learning-replay-v1.test.mjs
 # Public fictional candle inspector: 24 runtime accuracy/privacy regressions.
 node --test tests/home-market-tooltip-20-behavior-v1.test.mjs
