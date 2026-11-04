@@ -29,7 +29,7 @@ with sync_playwright() as pw:
         except Exception as exc:
             failures.append(f'Production API {endpoint}: {exc}')
     api.dispose()
-    for width in [1440,900,390]:
+    for width in [1440,940,900,390]:
         for route in ROUTES:
             page=browser.new_page(viewport={'width':width,'height':900},device_scale_factor=1)
             url=f'{BASE}/{route}'
@@ -85,6 +85,9 @@ with sync_playwright() as pw:
                         && !!document.querySelector('main.gu-premium-home')
                         && getComputedStyle(document.querySelector('main.gu-premium-home')).visibility === 'visible'
                     """, timeout=6000)
+                    if width==940:
+                        assert page.locator('.site-header .navlinks').is_visible(),(
+                            'Legacy 980px breakpoint hid canonical desktop navigation at 940px')
                     assert page.locator('.site-header .sm-shell-menu').count()==0,(
                         'Legacy site-shell inserted a competing Home navigation controller')
                     assert page.locator('#v1341-mobile-menu').count()<=1,(
