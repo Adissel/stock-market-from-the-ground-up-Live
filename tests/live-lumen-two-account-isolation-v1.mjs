@@ -43,7 +43,7 @@ for(const [user,other] of [[a,b],[b,a]]){
 }
 for(const path of ['/api/member-lumen-integrity','/api/member-lumen-activity','/api/member-lumen-gifts']){
  const r=await fetch(origin+path,{cache:'no-store',signal:AbortSignal.timeout(25000)});
- assert([401,403].includes(r.status()),'Anonymous private API must deny requests');
+ assert([401,403].includes(r.status),'Anonymous private API must deny requests');
 }
 console.log('PASS: two real separate authenticated members and read-only wallet privacy.');
 console.log('Verified ID-spoof rejection, balance integrity, history privacy and V2 gift deferral.');
