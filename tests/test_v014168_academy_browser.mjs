@@ -202,10 +202,10 @@ try{
     // The same-session Day 1 draft was deliberately retained across navigation.
     assert.equal(await answer.inputValue(),originalReasoning,
      'The original unsaved reasoning must survive a day switch');
-    assert.equal(await copy.isEnabled(),true,
-     'A restored sufficiently long draft must remain copyable');
     const notes=page.locator('#academy-original-instruction details:has(#academy-self-check-answer)');
     if(!(await notes.evaluate(el=>el.open)))await notes.locator('summary').click();
+    assert.equal(await copy.isEnabled(),true,
+     'A restored sufficiently long draft must remain copyable');
     await copy.click();
     storedReflection=await page.locator('#academy-reflection').inputValue();
     assert.match(storedReflection,/Independent self-check \(ungraded\)/);
