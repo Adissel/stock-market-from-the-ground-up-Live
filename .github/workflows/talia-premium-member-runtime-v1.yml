@@ -1,0 +1,40 @@
+name: Talia Premium Member Runtime — Authenticated Source Wave 1
+on:
+  push:
+    paths:
+      - 'functions/api/talia-premium-member-v1.js'
+      - 'functions/_lib/talia-member-evidence-v1.js'
+      - 'assets/js/talia-premium-member-v1.js'
+      - 'assets/css/talia-premium-member-v1.css'
+      - 'talia-classroom.html'
+      - 'tests/talia-premium-member-runtime-v1.test.mjs'
+      - '.github/workflows/talia-premium-member-runtime-v1.yml'
+  pull_request:
+    paths:
+      - 'functions/api/talia-premium-member-v1.js'
+      - 'functions/_lib/talia-member-evidence-v1.js'
+      - 'assets/js/talia-premium-member-v1.js'
+      - 'assets/css/talia-premium-member-v1.css'
+      - 'talia-classroom.html'
+      - 'tests/talia-premium-member-runtime-v1.test.mjs'
+      - '.github/workflows/talia-premium-member-runtime-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  member-runtime-source-and-denial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate syntax and private no-lookahead boundaries
+        run: |
+          node --check functions/_lib/talia-member-evidence-v1.js
+          node --check functions/api/talia-premium-member-v1.js
+          node --check assets/js/talia-premium-member-v1.js
+          node --test tests/talia-premium-member-runtime-v1.test.mjs tests/talia-four-tier-staff-qa-v1.test.mjs tests/talia-tier-research-contracts-v1.test.mjs tests/talia-tier-remaining3-source-v1.test.mjs tests/talia-membership-editions-v1.test.mjs
