@@ -40,3 +40,9 @@
 .cx-context-menu .cx-context-tabs{margin-bottom:7px}
 .cx-context-menu .cx-context-foot{margin-top:8px;padding-top:6px}
 @media(max-width:520px){.cx-context-menu .cx-context-columns{grid-template-columns:1fr}.cx-context-menu .cx-context-indicator-list{max-height:220px}.cx-context-menu .cx-context-detail{max-height:240px}.cx-context-menu .cx-context-indicator-list button{min-height:40px}}
+
+/* A chart menu with no selected study must not waste half its width. */
+.cx-context-menu[data-selected="false"]{width:min(340px,calc(100vw - 16px))}
+.cx-context-menu[data-selected="false"] .cx-context-columns{display:block}
+.cx-context-menu[data-selected="false"] .cx-context-detail{display:none}
+.cx-context-menu[data-selected="false"] .cx-context-indicator-list{max-height:min(52vh,440px)}
