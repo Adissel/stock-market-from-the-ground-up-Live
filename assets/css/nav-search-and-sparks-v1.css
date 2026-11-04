@@ -27,3 +27,13 @@
 .site-header .v11-profile-group.open~.gu-nav-sparks .gu-nav-sparks-popup{display:none!important}
 @media(max-width:920px){.site-header .navlinks .gu-nav-search{flex:0 0 150px;max-width:150px}}
 @media(max-width:650px){.site-header .navlinks .gu-nav-search{min-width:118px;max-width:140px}.gu-global-search-panel{padding:14px}}
+
+
+/* Canonical desktop search is the sole search entrypoint when active.
+ * Keep the old header command as fallback until the canonical field mounts.
+ * Alerts and small-screen legacy command access are not hidden. */
+@media(min-width:1101px){
+ .site-header:has(.navlinks[data-v11-owned="1"] .gu-nav-search) .fe-header-tools>.fe-command-button{
+  display:none!important
+ }
+}

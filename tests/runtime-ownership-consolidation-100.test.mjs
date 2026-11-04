@@ -215,3 +215,18 @@ test('Mobile instructional shells retain chart popup and overlay access',()=>{
  assert.match(after,/overflow-y:visible!important/);
  assert.doesNotMatch(after,/overflow-x:hidden/);
 });
+
+
+test('one desktop search controller: canonical input wins without suppressing Alerts or mobile fallback',()=>{
+ const canonicalSearchCss=read('assets/css/nav-search-and-sparks-v1.css');
+ const marker='.site-header:has(.navlinks[data-v11-owned="1"] .gu-nav-search) .fe-header-tools>.fe-command-button';
+ assert(canonicalSearchCss.includes(marker),'Old search is hidden only when verified navigation has a canonical search');
+ const cssBlock=canonicalSearchCss.slice(canonicalSearchCss.indexOf(marker),
+   canonicalSearchCss.indexOf('}',canonicalSearchCss.indexOf(marker))+1);
+ assert.match(cssBlock,/display:none!important/);
+ assert.doesNotMatch(cssBlock,/fe-notify-button/);
+ assert(canonicalSearchCss.includes('@media(min-width:1101px)'), 'Mobile legacy search remains available');
+ const search=read('assets/js/nav-search-and-sparks-v1.js');
+ assert.match(search,/input\.type='search'/);
+ assert.match(search,/if\(!nav\|\|nav\.dataset\.v11Owned!=='1'\)return/);
+});
