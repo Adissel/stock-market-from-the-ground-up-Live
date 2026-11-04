@@ -47,6 +47,7 @@ node --check assets/js/prototype-indicator-workbench-v2.js
 node tests/test_section_c_indicator_edge_crosslanguage_v1.mjs
 node tests/prototype-indicator-workbench-v2.test.mjs
 node --test tests/prototype-chart-context-v1.test.mjs
+node --check assets/js/site-brand-academy-sync-v1.js
 node tests/test_crownlight_chart_workspace_v2.mjs
 # Independent real chart engine arithmetic, private workspace, and source-only Python parity.
 node --test tests/test_crownlight_workspace_projection_20_v1.mjs
