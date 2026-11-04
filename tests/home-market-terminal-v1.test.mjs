@@ -93,11 +93,20 @@ test('intracandle simulation reveals only current fictional ticks; no future hig
 test('homepage replay provides functional accessible playback controls and updates the chart incrementally',()=>{
  for(const required of ['revealedBars(cfg.frame,playhead.current)','setPlaying(x=>!x)','onClick={restart}','0.1×','0.5×','3×','Pause','Resume','Replay','Timeframe','1m','3m','5m','aria-live="off"','prefers-reduced-motion'])assert.ok(tsx.includes(required),'Missing replay contract '+required);
  assert.match(tsx,/chart\.setOption\(\{tooltip,xAxis:\[\{data:labels\},\{data:labels\}\],series\},false\)/,'Each tick merges ECharts data without resetting user zoom');
- assert.match(html,/home-community\.js\?v=20261104-member-labels-v2/,'Restored public Member Status is loaded');
- assert.match(html,/home-member-stats\.css\?v=20261103-restore1/);
+ assert.match(html,/home-community\.js\?v=20261104-verified-live1/,'Restored public Member Status is loaded');
+ assert.match(html,/home-member-stats\.css\?v=20261104-live-compact1/);
  const status=readFileSync('assets/js/home-community.js','utf8');
  assert.match(status,/<h2>Member Status<\/h2>/);
  assert.match(status,/fetch\('\/api\/home-member-stats-v01353\?action=public'/,'Existing public aggregate API is used');
  assert.match(status,/example\?'EXAMPLE':'LIVE DATA'/,'Demo counts are distinguished from verified aggregates');
  assert.doesNotMatch(status,/access_token|service_role|auth\.getSession/,'Public status never accesses private tokens');
+});
+
+test('Member Status stays compact while the homepage market chart remains wide',()=>{
+ const css=readFileSync('assets/css/home-member-stats.css','utf8');
+ assert.match(css,/\.gu-home-stage-grid>\.gu-home-right-rail>#v1353-member-stats\{/);
+ assert.match(css,/max-width:560px!important/);
+ assert.match(css,/margin-inline:auto!important/);
+ const chartCSS=readFileSync('assets/css/home-academy-wide-chart-galaxy-v1.css','utf8');
+ assert.match(chartCSS,/\.cl-react-plot\{height:490px!important/);
 });
