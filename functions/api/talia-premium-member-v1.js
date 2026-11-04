@@ -111,7 +111,7 @@ async function originalGuides(env,request){
  if(!r.ok)throw fail('First-party source catalogue unavailable.',503);
  const x=await r.json().catch(()=>null);
  if(x?.count!==61||!Array.isArray(x.guides)||x.guides.length!==61)return [];
- return x.guides.filter(g=>['STUDY_VWAP','STUDY_EMA'].includes(g.code)||
+ return x.guides.filter(g=>['STUDY_ANCHORED_VWAP','STUDY_EMA'].includes(g.code)||
   /^(Volume.Weighted Average Price|Exponential Moving Average)$/.test(g.title||'')).slice(0,2);
 }
 export async function onRequest({request,env}){
