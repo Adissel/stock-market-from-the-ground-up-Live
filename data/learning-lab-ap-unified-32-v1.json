@@ -1,0 +1,568 @@
+{
+  "schema": "smfgu.learning-lab.ap.unified-32.v1",
+  "document_id": "SMFGU-LELAB-AP-32-20261103",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP / Crownlight",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "filename": "data/learning-lab-ap-unified-32-v1.json",
+  "version": "1.0",
+  "date": "2026-11-03",
+  "google_drive_location": null,
+  "google_drive_id": null,
+  "status": "SOURCE_QA; PREMIUM_RELEASE_HOLD",
+  "controls": {
+    "learningBasic": "v3.3",
+    "labBasic": "v3.2",
+    "labs": 419,
+    "competencies": 30,
+    "premiumReleased": false,
+    "addonCheckout": false,
+    "officialGradingUnchanged": true
+  },
+  "gate_definitions": [
+    {
+      "id": "G01",
+      "title": "Independent arithmetic, method and no-lookahead",
+      "category": "quant",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G02",
+      "title": "HLC3 candle proxy versus exact trade-print VWAP",
+      "category": "methodology",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G03",
+      "title": "419 Labs, 30 competencies and frozen Basic continuity",
+      "category": "source",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G04",
+      "title": "Genuine signed-in member and explicit active edition grants",
+      "category": "identity",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G05",
+      "title": "Two real members and cross-account privacy/RLS",
+      "category": "privacy",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G06",
+      "title": "Cancellation, downgrade, renewal, expiry, revocation and regrant",
+      "category": "entitlement",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G07",
+      "title": "Session expiry, sign-out, account switching and CAS restore",
+      "category": "security",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G08",
+      "title": "Protected first grade, assessment keys and ungraded supplements",
+      "category": "assessment",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G09",
+      "title": "390px/900px/1280px real layout and chart/table parity",
+      "category": "responsive",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G10",
+      "title": "Keyboard navigation, labels and focus",
+      "category": "accessibility",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G11",
+      "title": "Actual screen-reader and assistive-technology review",
+      "category": "accessibility",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G12",
+      "title": "Independent instructional and editorial correctness",
+      "category": "editorial",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G13",
+      "title": "Source provenance, licensing and redistribution rights",
+      "category": "rights",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G14",
+      "title": "Historical-provider replay permission and no-lookahead",
+      "category": "rights",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G15",
+      "title": "Tier/product mapping, Stripe TEST renewal/refund/recovery",
+      "category": "commerce",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G16",
+      "title": "Owner version editor, audit history and stale save rejection",
+      "category": "admin",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G17",
+      "title": "All exact-SHA CI and browser checks green, none cancelled",
+      "category": "ci",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G18",
+      "title": "Matching Cloudflare preview/main deployment, premium flags false",
+      "category": "deployment",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G19",
+      "title": "Real eligible/restricted accounts and staff separation",
+      "category": "security",
+      "acceptance_state": "pending_independent_evidence"
+    },
+    {
+      "id": "G20",
+      "title": "Four independent final member-release signoffs",
+      "category": "release",
+      "acceptance_state": "pending_independent_evidence"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "LE-ADV-01",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Reviewed-signal prerequisite routing",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Serve a personalized route only with verified Advanced Learning grant.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-02",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Targeted adaptive remediation",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Verify multi-step diagnosis using authorized learner records.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-03",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Multi-indicator contextual explanation",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Compare independently validated indicators in an Advanced lesson.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-04",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Advanced entitlement grant and revocation",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Enforce product grant, downgrade and denial server-side.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-05",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Personalized multi-lesson course sequencing",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Prove adaptive transitions retain approved course prerequisites.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-06",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Advanced learner-history isolation",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Member A cannot read or influence member B diagnostic decisions.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-07",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Accessible Advanced learning controls",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-member-surface-v1.test.mjs",
+      "criterion": "Work on keyboard, touch and screen reader with server edition checks.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-ADV-08",
+      "engine": "learning",
+      "edition": "ADVANCED",
+      "title": "Independent Advanced Learning production acceptance",
+      "source_status": "not_implemented",
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/advanced-learning-lab-source-closeout-v1.test.mjs",
+      "criterion": "Pass exact SHA, QA, rights, accessibility, member security signoff.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-01",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Linked completed-bar ECharts studies",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-member-surface-v1.test.mjs",
+      "criterion": "Member-bound dual chart reflects only authorized completed evidence.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-02",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Advanced multi-study evidence comparisons",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Compare bounded, independently checked methods for real entitled account.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-03",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Prerequisite-focused remediation within a Lab",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Check reviewed prerequisite then route to correct Lab practice.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-04",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Indicator calculations with explicit variant controls",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Configure and validate sanctioned studies by input and warmup.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-05",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Server-controlled Advanced Lab grants",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Prove member plan cannot be forged and expired grant is denied.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-06",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Protected Advanced assessment and mastery isolation",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Extra features never reveal keys or change authoritative grading.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-07",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Advanced saved stage and downgrade continuity",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-workspace.js",
+      "existing_test_file": "tests/learning-lab-edition-workspace-v1.test.mjs",
+      "criterion": "Maintain authorized past progress without retaining premium access.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-ADV-08",
+      "engine": "lab",
+      "edition": "ADVANCED",
+      "title": "Genuine Advanced mobile and assistive acceptance",
+      "source_status": "not_implemented",
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/advanced-learning-lab-member-surface-browser-v1.mjs",
+      "criterion": "Test real eligible/restricted members, responsive layouts and CI.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-01",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Comparative decision reasoning",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Give grounded debriefs limited to observable completed bars.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-02",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "No-lookahead replay instruction",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Use server-authenticated as-of cutoff at every learning decision.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-03",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Original risk scenario comparisons",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Validate whole-share risk calculations, slippage cautions and transfer.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-04",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Linked multi-indicator chart instruction",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/professional-learning-lab-member-surface-browser-v1.mjs",
+      "criterion": "Synchronize selected chart studies to Professional learner instruction.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-05",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Persistent professional decision debrief",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-workspace.js",
+      "existing_test_file": "tests/learning-lab-edition-workspace-v1.test.mjs",
+      "criterion": "Save, isolate and restore authorized decision evidence.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-06",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Multi-timeframe prerequisite-aware learning workflow",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Verify time-aligned completed frames and contextual teaching.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-07",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Professional entitlement, downgrade and expiry",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Enforce each request against server-owned professional rights.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LE-PRO-08",
+      "engine": "learning",
+      "edition": "PROFESSIONAL",
+      "title": "Independent Professional Learning acceptance",
+      "source_status": "not_implemented",
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/professional-learning-lab-source-closeout-v1.test.mjs",
+      "criterion": "Pass genuine member, no-lookahead, browser, accessibility and CI.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-01",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Professional linked chart panels",
+      "source_status": "partial",
+      "evidence_file": "assets/js/learning-lab-edition-panel-v1.js",
+      "existing_test_file": "tests/professional-learning-lab-member-surface-browser-v1.mjs",
+      "criterion": "Expose two synchronized chart panels only to entitled member.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-02",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Bounded historical Lab replay",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Authorize dataset and only completed observations for each step.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-03",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Fictional scenario and risk case analysis",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-formative-editions-v1.js",
+      "existing_test_file": "tests/learning-lab-formative-editions-v1.test.mjs",
+      "criterion": "Deliver reviewed ungraded scenarios with measured outcomes.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-04",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Explicit uncertainty evidence review",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Teach missing-information boundaries without invented mastery.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-05",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Versioned professional Lab workspace persistence",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-workspace.js",
+      "existing_test_file": "tests/learning-lab-edition-workspace-v1.test.mjs",
+      "criterion": "Save and restore per-user view without cross-account disclosure.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-06",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Professional protected assessment compatibility",
+      "source_status": "partial",
+      "evidence_file": "functions/_lib/learning-lab-edition-exercises-v1.js",
+      "existing_test_file": "tests/learning-lab-edition-exercises-v1.test.mjs",
+      "criterion": "Prove stable grading, no answer leakage and downgrade integrity.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-07",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Professional Lab entitlement gate",
+      "source_status": "partial",
+      "evidence_file": "functions/api/learning-lab-edition-exercise.js",
+      "existing_test_file": "tests/learning-lab-edition-api-v1.test.mjs",
+      "criterion": "Deny Basic/expired/forged premium permission server-side.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    },
+    {
+      "id": "LA-PRO-08",
+      "engine": "lab",
+      "edition": "PROFESSIONAL",
+      "title": "Independent Professional Lab acceptance",
+      "source_status": "not_implemented",
+      "evidence_file": ".github/workflows/learning-lab-premium-editions-v1.yml",
+      "existing_test_file": "tests/professional-learning-lab-member-surface-browser-v1.mjs",
+      "criterion": "Pass real account, accessibility and deployment verification.",
+      "gates": "G01-G20",
+      "genuine_member_accepted": false,
+      "independent_release_accepted": false
+    }
+  ],
+  "counts": {
+    "scope": 32,
+    "source_partial": 28,
+    "independent_acceptance_open": 4
+  },
+  "release_decision": "HOLD",
+  "independent_approval_uri": null
+}
