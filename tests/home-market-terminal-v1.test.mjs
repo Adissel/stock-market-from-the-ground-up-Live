@@ -1,3 +1,4 @@
+import vm from 'node:vm';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
 const tsx=readFileSync('src/experience/HomeMarketTerminal.tsx','utf8'),build=readFileSync('scripts/build-pages.sh','utf8'),html=readFileSync('index.html','utf8');
 test('home live JSX entry built with React/TypeScript',()=>{assert.match(build,/HomeMarketTerminal\.tsx/);assert.match(build,/typescript\/bin\/tsc/);assert.match(build,/home-market-terminal-v1\.bundle\.js/);assert.match(html,/type="module" src="\/assets\/js\/home-market-terminal-v1\.bundle\.js/);});
@@ -48,4 +49,55 @@ test('canonical homepage linked illustration upgrades to the original interactiv
  assert.match(tsx,/host\.className='gu-home-terminal sm-v5-chart'/,'Existing dark styles and React host styles are retained');
  assert.match(tsx,/if\(existing\)return existing/,'Original V5 React chart location still works');
  assert.doesNotMatch(tsx,/removeChild\(main\)|main\.replaceWith/,'No whole-page replacement from the React mount');
+});
+
+test('intracandle simulation reveals only current fictional ticks; no future high, low or volume',()=>{
+ const begin=tsx.indexOf('const TICKS_PER_MINUTE=20;'),end=tsx.indexOf('function Terminal(){',begin);
+ assert.ok(begin>0&&end>begin,'Actual intrabar simulator source must be testable');
+ let pure=tsx.slice(begin,end);
+ for(const [before,after] of [
+  ['function partialMinute(index:number,ticks:number):Bar{','function partialMinute(index,ticks){'],
+  ['function groupMinutes(minutes:readonly Bar[],frame:Frame):Bar[]{','function groupMinutes(minutes,frame){'],
+  ['function revealedBars(frame:Frame,position:number):Bar[]{','function revealedBars(frame,position){'],
+  ['const result:Bar[]=[];','const result=[];']
+ ]){assert.ok(pure.includes(before),'Unrecognized simulator contract '+before);pure=pure.replace(before,after)}
+ const fixture=Array.from({length:150},(_,i)=>{
+  const open=100+i*.1,close=open+(i%2?.7:-.6);
+  return {open,close,high:Math.max(open,close)+.8,low:Math.min(open,close)-.9,volume:100+i};
+ });
+ const api=vm.runInNewContext(pure+';({partialMinute,groupMinutes,revealedBars})',{DATA:fixture,Number,Math});
+ const b=fixture[100],start=api.partialMinute(100,0);
+ for(const k of ['open','close','high','low'])assert.equal(start[k],b.open,'No future prices at candle open: '+k);
+ assert.equal(start.volume,0,'Volume starts at zero, not the finished value');
+ let prior=start;
+ for(let tick=1;tick<=20;tick++){
+  const now=api.partialMinute(100,tick);
+  assert.ok(now.high>=prior.high&&now.low<=prior.low&&now.volume>=prior.volume,'OHLCV is causal and volume monotonic');
+  assert.ok(now.high<=b.high&&now.low>=b.low,'No observation exceeds completed fictional envelope');
+  prior=now;
+ }
+ for(const k of ['open','close','high','low','volume'])assert.ok(Math.abs(prior[k]-b[k])<1e-8,'Final fictional candle reconciles: '+k);
+ const one=api.revealedBars(1,0),after=api.revealedBars(1,1);
+ assert.equal(one.length,101);assert.equal(one[100].volume,0);
+ assert.ok(after[100].volume>0&&after[100].volume<b.volume,'Only observed volume becomes visible');
+ const five=api.revealedBars(5,0);
+ assert.equal(five.length,21,'Five-minute aggregation starts at a completed boundary');
+ assert.equal(five[20].open,b.open);assert.equal(five[20].volume,0);
+ const three=api.revealedBars(3,0);
+ assert.equal(three.length,34,'Three-minute aggregation includes one forming group, without future data');
+ assert.equal(three[33].volume,0);
+ const final=api.revealedBars(5,1000);
+ assert.equal(final.length,30,'Replay finishes with 30 complete five-minute candles');
+ assert.equal(final[29].volume,fixture.slice(145,150).reduce((n,x)=>n+x.volume,0));
+});
+test('homepage replay provides functional accessible playback controls and updates the chart incrementally',()=>{
+ for(const required of ['revealedBars(cfg.frame,playhead.current)','setPlaying(x=>!x)','onClick={restart}','0.1×','0.5×','3×','Pause','Resume','Replay','Timeframe','1m','3m','5m','aria-live="off"','prefers-reduced-motion'])assert.ok(tsx.includes(required),'Missing replay contract '+required);
+ assert.match(tsx,/chart\.setOption\(\{tooltip,xAxis:\[\{data:labels\},\{data:labels\}\],series\},false\)/,'Each tick merges ECharts data without resetting user zoom');
+ assert.match(html,/home-community\.js\?v=20261103-restore1/,'Restored public Member Status is loaded');
+ assert.match(html,/home-member-stats\.css\?v=20261103-restore1/);
+ const status=readFileSync('assets/js/home-community.js','utf8');
+ assert.match(status,/<h2>Member Status<\/h2>/);
+ assert.match(status,/fetch\('\/api\/home-member-stats-v01353\?action=public'/,'Existing public aggregate API is used');
+ assert.match(status,/example\?'EXAMPLE':'LIVE DATA'/,'Demo counts are distinguished from verified aggregates');
+ assert.doesNotMatch(status,/access_token|service_role|auth\.getSession/,'Public status never accesses private tokens');
 });

@@ -9,7 +9,7 @@ import vm from 'node:vm';
  */
 const source=readFileSync('src/experience/HomeMarketTerminal.tsx','utf8');
 const start=source.indexOf('function marketTooltip(');
-const end=source.indexOf('\nfunction Terminal(){',start);
+const end=source.indexOf('\n/** Intracandle simulation',start);
 assert.ok(start>=0&&end>start,'The production tooltip formatter is present');
 let fn=source.slice(start,end);
 const changes=[
@@ -57,9 +57,9 @@ test('24 untrusted chart pointer text is never rendered',()=>assert.doesNotMatch
 
 test('25 homepage deploy uses updated OHLCV chart bundle URL',()=>{
  const html=readFileSync('index.html','utf8');
- assert.ok(html.includes('home-market-terminal-v1.bundle.js?v=20261102-ohlcv2'));
+ assert.ok(html.includes('home-market-terminal-v1.bundle.js?v=20261103-intrabar1'));
 });
 test('26 homepage deploy uses updated OHLCV chart stylesheet URL',()=>{
  const html=readFileSync('index.html','utf8');
- assert.ok(html.includes('home-market-terminal-v1.css?v=20261102-ohlcv2'));
+ assert.ok(html.includes('home-market-terminal-v1.css?v=20261103-intrabar1'));
 });
