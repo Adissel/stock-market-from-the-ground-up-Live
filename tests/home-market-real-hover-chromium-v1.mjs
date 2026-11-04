@@ -44,7 +44,7 @@ try{
  assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Fictional B02'));
  await page.setViewportSize({width:390,height:800});
  const selects=page.locator('.cl-react-toolbar select');
- assert.equal(await selects.count(),3);
+ assert.equal(await selects.count(),5);
  for(let i=0;i<3;i++){const b=await selects.nth(i).boundingBox();assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile control remains inside viewport');}
  assert.equal(errors.length,0,'No unexpected runtime errors');
  console.log('PASS real Chromium: mouse hover, rounded OHLCV, keyboard candle inspection, mobile chart control bounds');
