@@ -638,6 +638,11 @@ function Classroom(){
     ' fictional completed candles. Explain one observation, one calculation and one limitation before asking me a question.').slice(0,450),'explain','');
   const selectEdition=async(target:string)=>{
     if(!member||busy)return;
+    if(target==='FOUNDATION'){
+      setActiveEdition('FOUNDATION');setPremiumEvidence(null);
+      appendInstructor('Foundation teaching is available to every eligible signed-in member. You can ask questions, practice fictional calculations and follow the guided chart lesson without purchasing explanations.','Foundation instruction');
+      setStatus('Foundation teaching selected. No premium beta grant required.');return;
+    }
     const uid=member.id,version=epoch.current;
     try{
       const token=await getToken();if(!token)throw Error('Your member session expired.');
