@@ -1,0 +1,70 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-PRESET-CLASSIFICATION-003",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "status": "DEVELOPMENT CLASSIFICATION — INTEGRATION NOT ACCEPTED",
+    "filename": "data/crownlight-stock-preset-classification-v1.json",
+    "fileType": "JSON",
+    "googleDriveLocation": "Not created",
+    "googleDriveDocumentId": null,
+    "purpose": "Separate executable stock screening preset definitions from SEC filing research and preserve owner correction."
+  },
+  "classificationDecision": {
+    "ownerCorrection": "Presets shown in prior pictures refer to stocks, not SEC filings.",
+    "screenshotReviewStatus": "Not independently inspected in this change; individual screenshot-to-preset matches remain unverified",
+    "stockPresetProduct": "Crownlight Stock Scanner",
+    "secResearchProduct": "SEC Filing and Fundamental Research",
+    "noAutomaticReclassificationOfSECResearch": true
+  },
+  "stockScanner": {
+    "source": "assets/js/crownlight-scanner-presets-v2.js",
+    "legacySource": "assets/js/crownlight-scanner-templates-v1.js",
+    "evaluator": "assets/js/crownlight-scanner-rules-v1.js",
+    "expectedPresets": 48,
+    "expectedLegacy": 5,
+    "expectedAdditional": 43,
+    "executableInputContract": "Only fields registered in CrownlightScannerRulesV1.FIELDS from member-provided snapshots",
+    "families": [
+      "Foundations",
+      "Momentum",
+      "Participation",
+      "Liquidity",
+      "VWAP & levels",
+      "Combined"
+    ],
+    "rightsStatus": "Member-supplied snapshot only; accuracy and data rights not independently established"
+  },
+  "secResearch": {
+    "source": "data/crownlight-scanner-sec-catalyst-research-v1.json",
+    "status": "RESEARCH ONLY",
+    "secCodes": [
+      "SEC_IDENTITY",
+      "FILING_ACCEPTED_24H",
+      "FILING_ACCEPTED_72H",
+      "FILING_FORM"
+    ],
+    "sourceSystem": "SEC EDGAR",
+    "requireProvenanceAndAccession": true,
+    "notExecutableStockPresetInputs": true
+  },
+  "guards": {
+    "preserveChampionSignatures": true,
+    "preserveOriginalFivePresets": true,
+    "preserveMemberEntitlements": true,
+    "noLiveFeeds": true,
+    "noTradingRecommendations": true,
+    "noGradedAwardChanges": true,
+    "noBillingChanges": true,
+    "missingDataMustNotBeTreatedAsMatch": true
+  },
+  "verification": {
+    "unitTests": "tests/test_crownlight_stock_preset_classification_v1.mjs",
+    "screenshotsMatched": 0,
+    "authenticatedTwoAccountQA": "PENDING",
+    "ci": "PENDING",
+    "merge": "PENDING",
+    "cloudflareDeployment": "PENDING"
+  }
+}
