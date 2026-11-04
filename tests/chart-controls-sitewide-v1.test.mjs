@@ -34,6 +34,8 @@ test('all shared chart menus have compact controls, no instructional placeholder
  const tutor=read('src/tutor/TaliaClassroom.tsx');
  const css=read('assets/css/crownlight-unified-chart-controls-v1.css');
  const studio=read('assets/js/crownlight-echarts-studio-v1.js');
+ const menu=read('assets/js/crownlight-chart-context-menu-v1.js');
+ const lightweight=read('assets/js/crownlight-chart-studio-v2.js');
  assert(!src.includes('Hover, focus or select any supported indicator to inspect presets, settings and tier requirements.'));
  assert.match(src,/item\.id==='VOLUME'&&studyAllowed\(studio,item\.id\)/);
  assert.match(src,/prefs\.setEnabled\(item\.id,!prefs\.enabled\[item\.id\]\)/);
@@ -45,6 +47,8 @@ test('all shared chart menus have compact controls, no instructional placeholder
  assert.match(tutor,/mode="talia" memberSafe=\{true\}/);
  assert.match(tutor,/if\(group\.length!==interval\)return/);
  assert.match(studio,/showBarVolume=!showBarVolume;volumeState\(\);render\(\)/);
+ assert.match(menu,/onToggleVolume\(\);close\(\)/);
+ assert.match(lightweight,/state\.volume\?\.applyOptions\?\.\(\{visible:state\.volumeVisible\}\)/);
  assert.match(css,/\.cl-context-menu/);
  assert.match(css,/\.cx-context-menu/);
  assert.match(css,/\.tc-body \.tc-transcript/);
