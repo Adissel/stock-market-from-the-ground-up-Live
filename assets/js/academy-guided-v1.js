@@ -10,6 +10,27 @@ const STANDARD_MINUTES=Object.freeze([2,5,6,3,3,4,3,3,4,2]);
 const REFERENCE_MINUTES=Object.freeze([2,4,5,3,3,4,14,3,5,2]);
 const el=(tag,content,cl)=>{const x=document.createElement(tag);if(content!==undefined)x.textContent=String(content);if(cl)x.className=cl;return x};
 const clean=s=>String(s||'').slice(0,1400);
+// Pure reporting helper: observations are not credits, mastery, or assessments.
+function summarizeEvidence(records,interactions=0){
+ const valid=[...records.values()].filter(row=>row?.correct===true);
+ const dimensions=[['Knowledge',2],['Recognition',4],['Decision-making',6],['Process and transfer',8]].map(([name,index])=>{
+  const row=records.get(index);
+  const status=!row?.correct?'Not yet demonstrated in this session':
+    row.assisted?'Observed with teaching assistance':
+    row.attempts>1?'Observed after corrective retry':'Observed on first unassisted method check';
+  return {name,status};
+ });
+ return Object.freeze({
+  checked:valid.length,
+  firstTry:valid.filter(row=>row.attempts===1&&!row.assisted).length,
+  corrected:valid.filter(row=>row.attempts>1).length,
+  assisted:valid.filter(row=>row.assisted).length,
+  numeric:valid.filter(row=>row.numeric).length,
+  interactions:Number.isSafeInteger(interactions)&&interactions>=0?interactions:0,
+  dimensions
+ });
+}
+
 // This check measures an evidence-handling decision, not answer-key mastery.
 function methodDecision({question,topic,kind,seed=0,initial='',onSelect=()=>{}}={}){
  const api=root.GroundUpLearningResponseChoiceV1;
@@ -353,31 +374,23 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   if(stage===6)content.append(el('p','First formative selection is preserved until submitted. No official grade, competency or independent mastery is awarded.'));
   if(stage===9){
    content.append(el('p','Formative stages completed: '+completed.size+' of 9. Save your own notes using the existing course reflection controls. Official competency remains Not Yet Assessed.'));
-   const results=[...checkEvidence.values()].filter(row=>row.correct);
-   const firstTry=results.filter(row=>row.attempts===1&&!row.assisted).length;
-   const corrected=results.filter(row=>row.attempts>1).length;
-   const assisted=results.filter(row=>row.assisted).length;
-   const numeric=results.filter(row=>row.numeric).length;
+   const mastery=summarizeEvidence(checkEvidence,interactionStages.size);
    const report=el('section');report.className='academy-guided-evidence-report';
    report.append(el('h5','What your practice demonstrated — this session'));
    const facts=el('dl');for(const [label,value] of [
-    ['Completed, checked method/numeric decisions',results.length],
-    ['Correct first attempt without stage-specific help',firstTry],
-    ['Corrected after feedback',corrected],
-    ['Correct with stage-specific teaching assistance',assisted],
-    ['Completed numeric/equation checkpoints',numeric],
-    ['Stages with recorded simulated visual interactions',interactionStages.size]
+    ['Completed, checked method/numeric decisions',mastery.checked],
+    ['Correct first attempt without stage-specific help',mastery.firstTry],
+    ['Corrected after feedback',mastery.corrected],
+    ['Correct with stage-specific teaching assistance',mastery.assisted],
+    ['Completed numeric/equation checkpoints',mastery.numeric],
+    ['Stages with recorded simulated visual interactions',mastery.interactions]
    ]){
     const row=el('div');row.append(el('dt',label),el('dd',value));facts.append(row);
    }
    report.append(facts);
    const dimensions=el('dl');dimensions.className='academy-guided-mastery-dimensions';
-   for(const [name,index] of [['Knowledge',2],['Recognition',4],['Decision-making',6],['Process and transfer',8]]){
-    const checkpoint=checkEvidence.get(index);
-    const observation=!checkpoint?.correct?'Not yet demonstrated in this session':
-      checkpoint.assisted?'Observed with teaching assistance':
-      checkpoint.attempts>1?'Observed after corrective retry':'Observed on first unassisted method check';
-    const row=el('div');row.append(el('dt',name),el('dd',observation));dimensions.append(row);
+   for(const {name,status} of mastery.dimensions){
+    const row=el('div');row.append(el('dt',name),el('dd',status));dimensions.append(row);
    }
    report.append(el('h5','Four competency dimensions · observational evidence only'),dimensions,
      el('p','Method-choice checks are not independent competency validation. Confirm transfer on a genuinely unfamiliar case and retention in a later review. No member grades are written.'));
@@ -451,5 +464,5 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   if(autoplay)narration();else{stop();status.textContent='Automatic teaching paused.'}};
  render();const session={dispose(){disposed=true;stop();cancelTutor();chart?.dispose?.();if(active.get(host)===session)active.delete(host);host.replaceChildren()}};active.set(host,session);return session;
 }
-root.GroundUpAcademyGuidedV1=Object.freeze({mount,plan,STEPS});
+root.GroundUpAcademyGuidedV1=Object.freeze({mount,plan,STEPS,summarizeEvidence});
 })(typeof window!=='undefined'?window:globalThis);
