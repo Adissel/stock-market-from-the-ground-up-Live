@@ -736,7 +736,11 @@ function Classroom(){
   return <main className="tc-main">
     <header className="tc-top tc-student-page-intro"><h1>Talia Classroom</h1><p>Study the chart with Talia. Only completed simulated candles are shown.</p></header>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
-    <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace"><section className="tc-chat" aria-labelledby="tc-chat-title">
+    <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace">
+      <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
+      playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
+      onPauseForQuestion={()=>pauseForQuestion()}/>
+      <section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer · Your Instructor</h2>{conversationLabel&&<p className="tc-muted">{conversationLabel}</p>}</div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
         {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
@@ -893,9 +897,7 @@ function Classroom(){
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
       <p className="tc-muted">This classroom uses the existing authenticated Tutor API and approved source materials. It does not use paid model inference, award grades, access protected answer keys, or send future market bars. Saved follow-up context is verified only when the server confirms the member-owned conversation.</p>
-    </section><FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
-      playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
-      onPauseForQuestion={()=>pauseForQuestion()}/></div>
+    </section></div>
   </main>;
 }
 const host=document.getElementById('talia-classroom-root');if(host)createRoot(host).render(<Classroom/>);
