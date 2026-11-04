@@ -12,14 +12,15 @@ for(const [path,kind] of paths){
  let last;
  for(let attempt=1;attempt<=3;attempt++){
   try{
-   const response=await fetch(host+path,{redirect:'manual',
+   const response=await fetch(host+path,{redirect:'follow',
     headers:{'cache-control':'no-cache'},
     signal:AbortSignal.timeout(12000)});
    const body=(await response.text()).slice(0,50000);
    const hit1102=/Error 1102|Worker exceeded resource limits/i.test(body);
+   const sameOrigin=new URL(response.url).origin===host;
    const valid=kind==='html'?/<html[\s>]/i.test(body)&&/stock market/i.test(body):
     kind==='json'?body.trim().startsWith('{'):body.includes('GroundUpRoutePolicy');
-   last={path,attempt,http:response.status,pass:response.ok&&valid&&!hit1102,
+   last={path,attempt,http:response.status,pass:response.ok&&valid&&!hit1102&&sameOrigin,
     error1102:hit1102,ray:response.headers.get('cf-ray')||'—',
     errorType:response.headers.get('cf-error-type')||'—'};
   }catch(e){
