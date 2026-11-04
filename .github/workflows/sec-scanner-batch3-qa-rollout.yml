@@ -7,6 +7,7 @@ on:
       - 'functions/api/sec-scanner-tier-v1.js'
       - 'assets/js/crownlight-sec-scanner-tier-ui-v1.js'
       - 'tests/test_sec_edgar_qa_gate_v1.mjs'
+      - 'tests/test_sec_scanner_dom_runtime_v1.mjs'
       - 'tests/test_sec_issuer_research_v1.mjs'
       - 'tests/test_crownlight_sec_tier_endpoints_v1.mjs'
       - '.github/workflows/sec-scanner-batch3-qa-rollout.yml'
@@ -33,6 +34,7 @@ jobs:
           node --check functions/api/sec-scanner-tier-v1.js
           node --check functions/api/sec-issuer-research-v1.js
           node --check assets/js/crownlight-sec-scanner-tier-ui-v1.js
+          node --test tests/test_sec_scanner_dom_runtime_v1.mjs
           node --test tests/test_sec_edgar_qa_gate_v1.mjs tests/test_crownlight_sec_tier_endpoints_v1.mjs tests/test_crownlight_sec_tier_grants_v1.mjs tests/test_crownlight_sec_tier_ui_source_v1.mjs
           node tests/test_sec_issuer_research_v1.mjs
           node tests/test_crownlight_scanner_sec_evidence_v1.mjs
