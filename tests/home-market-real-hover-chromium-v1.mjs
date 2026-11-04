@@ -74,7 +74,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'));
  await page.setViewportSize({width:390,height:800});
  const selects=page.locator('.cl-react-toolbar select');
- assert.equal(await selects.count(),5);
+ assert.equal(await selects.count(),4,'The public homepage exposes four selectors and automatic candle-speed alternation');
  for(let i=0;i<3;i++){const b=await selects.nth(i).boundingBox();assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile control remains inside viewport');}
  assert.equal(errors.length,0,'No unexpected runtime errors');
  console.log('PASS real Chromium: mouse hover, rounded OHLCV, keyboard candle inspection, mobile chart control bounds');
