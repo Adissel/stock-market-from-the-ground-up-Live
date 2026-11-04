@@ -9,6 +9,11 @@ on:
       - 'bootcamp-academy.html'
       - 'assets/css/teaching-full-width-v1.css'
       - 'assets/js/lab-v33-instructor.js'
+      - 'assets/js/academy-guided-v1.js'
+      - 'assets/js/lab-engine-v32-universal.js'
+      - 'data/lab-teaching-bridges-v014168.json'
+      - 'data/mastery-source-audit-wave1-v1.json'
+      - 'tests/evidence-based-mastery-learning-v1.test.mjs'
       - 'signin.html'
 permissions: {contents: read}
 concurrency:
