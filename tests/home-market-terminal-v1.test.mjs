@@ -58,7 +58,8 @@ test('intracandle simulation reveals only current fictional ticks; no future hig
  for(const [before,after] of [
   ['function partialMinute(index:number,ticks:number):Bar{','function partialMinute(index,ticks){'],
   ['function groupMinutes(minutes:readonly Bar[],frame:Frame):Bar[]{','function groupMinutes(minutes,frame){'],
-  ['function revealedBars(frame:Frame,position:number):Bar[]{','function revealedBars(frame,position){']
+  ['function revealedBars(frame:Frame,position:number):Bar[]{','function revealedBars(frame,position){'],
+  ['const result:Bar[]=[];','const result=[];']
  ]){assert.ok(pure.includes(before),'Unrecognized simulator contract '+before);pure=pure.replace(before,after)}
  const fixture=Array.from({length:150},(_,i)=>{
   const open=100+i*.1,close=open+(i%2?.7:-.6);
