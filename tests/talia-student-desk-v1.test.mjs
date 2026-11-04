@@ -8,11 +8,20 @@ const css=read('assets/css/talia-student-desk-v1.css');
 
 test('student split workspace places price chart and readable live Tutor instructions together',()=>{
  assert.match(tutor,/tc-grid tc-terminal-grid tc-terminal-/);
- assert.match(tutor,/tc-student-read-hint/);
+ assert.match(tutor,/tc-student-page-intro/);
+ assert.match(tutor,/tc-student-workspace/);
+ assert.doesNotMatch(tutor,/Instructor width|setDockWidth|setDock\(/,'Student classroom must not expose nonfunctional width/layout controls');
+ assert.doesNotMatch(tutor,/Market analysis workspace|CROWNLIGHT \/ MARKET LEARNING TERMINAL/,'Do not repeat workspace branding');
+ assert.match(tutor,/tc-playback-primary/);
+ assert.match(tutor,/tc-replay-options/);
+ assert.match(tutor,/tc-guided-lesson/);
+ assert.match(tutor,/tc-advanced-tutor-options/);
  assert.match(tutor,/tc-transcript.*role="log"/);
  assert.match(css,/\.tc-terminal-grid\.tc-terminal-split\{grid-template-columns:/);
  assert.match(css,/\.tc-terminal-split>\.tc-chart-panel\{position:sticky/);
  assert.match(css,/\.tc-terminal-grid \.tc-message p\{font-size:clamp\(15px,1vw,16px\)!important/);
+ assert.match(css,/\.tc-student-workspace\{grid-template-columns:minmax\(0,1\.34fr\) minmax\(355px,1fr\)/);
+ assert.match(css,/@media\(max-width:820px\)/);
  assert.match(css,/max-width:100%;line-height:1\.58/);
  assert.match(css,/@media\(min-width:971px\) and \(max-height:680px\)/);
  assert.match(css,/@media\(max-width:970px\)/);
@@ -32,7 +41,7 @@ test('OHLC prices appear inside chart region, not as an always-open unrelated ta
  assert.match(shared,/activeMeasurement\.low\.toFixed\(2\)/);
  assert.match(shared,/Math\.abs\(activeMeasurement\.close-activeMeasurement\.open\)/);
  assert.match(tutor,/measurement=\{\{index:visible,open:latest\[0\],high:latest\[3\],low:latest\[2\],close:latest\[1\],interval:'1-minute source'\}\}/);
- assert.match(tutor,/<details className="tc-current-candle-ledger">/);
+ assert.match(tutor,/\{!prototype&&<details className="tc-current-candle-ledger">/);
  assert.match(tutor,/<table className="tc-candle-table"><caption>Latest visible completed candle/);
  assert.match(css,/\.cx-classic-visual-region\{display:grid;grid-template-columns/);
 });
@@ -59,9 +68,9 @@ test('Talia chart consumes only its revealed bar prefix for full plotted data an
 
 test('member and staff Tutor routes reuse one stylesheet and versioned build without changing homepage',()=>{
  const member=read('talia-classroom.html'),staff=read('talia-tutor-prototype.html'),gate=read('assets/js/talia-prototype-gate-v1.js');
- for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261104-student-desk1/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk1/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk1/);
+ for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261104-student-desk2/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.doesNotMatch(read('index.html'),/talia-student-desk-v1\.css/);
