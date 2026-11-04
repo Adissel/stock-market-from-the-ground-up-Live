@@ -57,9 +57,9 @@ test('24 untrusted chart pointer text is never rendered',()=>assert.doesNotMatch
 
 test('25 homepage deploy uses updated OHLCV chart bundle URL',()=>{
  const html=readFileSync('index.html','utf8');
- assert.ok(html.includes('home-market-terminal-v1.bundle.js?v=20261103-intrabar1'));
+ assert.ok(html.includes('home-market-terminal-v1.bundle.js?v=20261104-realism1'));
 });
 test('26 homepage deploy uses updated OHLCV chart stylesheet URL',()=>{
  const html=readFileSync('index.html','utf8');
- assert.ok(html.includes('home-market-terminal-v1.css?v=20261103-intrabar1'));
+ assert.ok(html.includes('home-market-terminal-v1.css?v=20261104-realism1'));
 });
