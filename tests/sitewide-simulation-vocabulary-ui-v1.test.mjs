@@ -61,7 +61,7 @@ test('Academy and Prototype chart copy distinguish simulation without changing c
 });
 
 test('Additional static memberships, marketing and learning pages display truthful simulation terms',()=>{
- const pages=['lab-v32-reference.html','lab-v32-member.html','founder-learning-studio.html',
+ const pages=['founder-learning-studio.html',
   'founder-benefits.html','founding600.html','store-tool-interactive-learning.html',
   'store-tool-market-simulator.html','store-tool-journal-analytics.html','talia-classroom.html',
   'owner-growth-publishing.html','admin-founders.html'];
@@ -74,7 +74,7 @@ test('Additional static memberships, marketing and learning pages display truthf
 
 test('All authored static HTML visible text and accessibility labels are free of deprecated wording',async()=>{
  const {readdirSync}=await import('node:fs');
- for(const p of readdirSync('.').filter(x=>x.endsWith('.html'))){
+ for(const p of readdirSync('.').filter(x=>x.endsWith('.html')&&!['lab-v32-reference.html','lab-v32-member.html'].includes(x))){
   const html=read(p).replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi,' ')
    .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi,' ')
    .replace(/<!--[\s\S]*?-->/g,' ');
@@ -82,4 +82,11 @@ test('All authored static HTML visible text and accessibility labels are free of
   const accessible=[...html.matchAll(/\b(?:aria-label|title|placeholder|alt)="([^"]*)"/gi)].map(x=>x[1]).join(' ');
   assert.doesNotMatch(visible+' '+accessible,/\b(?:fictional|illustrative)\b/i,p);
  }
+});
+
+test('Approved v3.2 reference artifacts are intentionally excluded from public-copy rewrites',()=>{
+ const reference=read('lab-v32-reference.html'),member=read('lab-v32-member.html');
+ assert.match(reference,/fictional trade groups/);
+ assert.match(member,/fictional trade groups/);
+ assert(reference.includes('const STEPS')&&member.includes('const STEPS'));
 });

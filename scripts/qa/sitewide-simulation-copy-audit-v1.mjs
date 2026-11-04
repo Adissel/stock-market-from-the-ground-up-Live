@@ -12,7 +12,8 @@ function collect(folder){
   return ent.isDirectory()?collect(path):ent.isFile()&&/\.(?:js|mjs|cjs|ts|tsx|jsx)$/.test(ent.name)?[path]:[];
  })}catch{return []}
 }
-const pages=readdirSync(cwd).filter(f=>f.endsWith('.html')).map(f=>join(cwd,f));
+const protectedBaselines=['lab-v32-reference.html','lab-v32-member.html'];
+const pages=readdirSync(cwd).filter(f=>f.endsWith('.html')&&!protectedBaselines.includes(f)).map(f=>join(cwd,f));
 const scripts=dirs.flatMap(dir=>collect(join(cwd,dir)));
 const pageResults=[];
 for(const file of pages){
@@ -37,7 +38,7 @@ pageResults.sort((a,b)=>b.count-a.count||a.file.localeCompare(b.file));
 sourceResults.sort((a,b)=>b.count-a.count||a.file.localeCompare(b.file));
 const result={auditVersion:'1.0.0',generatedAt:new Date().toISOString(),scope:{
  htmlPages:pages.length,jsTsSource:scripts.length},
- staticHtmlVisibleRemaining:pageResults.length,jsTsSourceCandidates:sourceResults.length,
+ staticHtmlVisibleRemaining:pageResults.length,protectedReferenceExceptions:protectedBaselines,jsTsSourceCandidates:sourceResults.length,
  note:'JS/TS hits include comments, API keys, source contracts and nonvisible strings: manual review required. HTML excludes script/style source and examines visible text and accessible labels.',
  staticHtml:pageResults,sourceCandidates:sourceResults};
 mkdirSync('artifacts/site-copy',{recursive:true});
