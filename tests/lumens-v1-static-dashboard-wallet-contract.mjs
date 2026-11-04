@@ -6,6 +6,7 @@ import {readFileSync} from 'node:fs';
 const html=readFileSync('dashboard.html','utf8');
 const js=readFileSync('assets/js/member-lumen-wallet-widget-v1.js','utf8');
 const test=readFileSync('tests/live-member-lumen-dashboard-browser-v1.mjs','utf8');
+const legacy=readFileSync('assets/js/dashboard-ui-legacy.js','utf8');
 for(const id of ['member-sparks-wallet','sparks-wallet-total','sparks-wallet-included',
  'sparks-wallet-purchased','sparks-wallet-manual','sparks-wallet-expiry','sparks-wallet-status'])
  assert(html.includes('id="'+id+'"'),'Dashboard missing static wallet '+id);
@@ -15,6 +16,11 @@ assert.match(js,/w\.included\+w\.purchased\+w\.manual!==w\.available/);
 assert.match(js,/if\(generation!==epoch\)return/);
 assert.match(js,/SIGNED_OUT/);
 assert.match(js,/No balance is assumed/);
+assert.match(legacy,/preservedWalletPanel=q\('#member-sparks-wallet',main\)/);
+assert.match(legacy,/preservedLumenWidgets=q\('\.gu-member-lumen-widgets',main\)/);
+assert.match(legacy,/wallet:renderWallet/);
+assert.match(legacy,/\['wallet','Crownlight Lumens Wallet'\]/);
+assert.match(legacy,/if\(preservedWalletPanel\)host\.appendChild\(preservedWalletPanel\)/);
 assert.match(test,/#member-sparks-wallet/);
 assert.match(test,/sparks-wallet-total/);
 assert.doesNotMatch(html,/<small>never expires<\/small>/,
