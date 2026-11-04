@@ -1,0 +1,60 @@
+/* Interactive teaching checks in the shared 419-Lab and 274-day Academy flows.
+   No typed essay required for formative progress. Numeric answers remain numeric.
+   Scoped to classroom controls; private graded assessment styling remains intact. */
+.gu-v33-evidence-check,.gu-v33-evidence-decision,.gu-v33-prediction-choice,
+.academy-guided-method-check,.academy-day-evidence-check{
+ min-width:0;display:grid;gap:10px;padding:16px;margin:12px 0 16px;
+ border:1px solid #3b5b68;border-radius:12px;
+ background:#101d28;color:#e6f7f5;
+}
+.gu-v33-evidence-check legend,.gu-v33-evidence-decision legend,.gu-v33-prediction-choice legend,
+.academy-guided-method-check legend,.academy-day-evidence-check legend{
+ padding:0 7px;font-size:clamp(.89rem,1vw,1rem);font-weight:700;color:#d8f9f1;
+}
+.gu-v33-evidence-check label,.gu-v33-evidence-decision label,.gu-v33-prediction-choice label,
+.academy-guided-method-check label,.academy-day-evidence-check label{
+ display:flex;align-items:flex-start;gap:12px;min-width:0;
+ padding:13px 14px;border:1px solid #375464;border-radius:9px;
+ background:#152936;color:#e4eef3;line-height:1.45;
+ cursor:pointer;font-size:clamp(.9rem,1vw,1rem);
+}
+.gu-v33-evidence-check label:has(input:checked),
+.gu-v33-evidence-decision label:has(input:checked),
+.gu-v33-prediction-choice label:has(input:checked),
+.academy-guided-method-check label:has(input:checked),
+.academy-day-evidence-check label:has(input:checked){
+ border-color:#64e9c7;background:#184139;color:#f7fffd;
+}
+.gu-v33-evidence-check input[type=radio],.gu-v33-evidence-decision input[type=radio],
+.gu-v33-prediction-choice input[type=radio],.academy-guided-method-check input[type=radio],
+.academy-day-evidence-check input[type=radio]{
+ flex:none;accent-color:#52dbb1;width:20px;height:20px;margin:1px 0 0;
+}
+.gu-v33-evidence-check input:focus-visible,.gu-v33-evidence-decision input:focus-visible,
+.gu-v33-prediction-choice input:focus-visible,.academy-guided-method-check input:focus-visible,
+.academy-day-evidence-check input:focus-visible{outline:3px solid #ffe39a;outline-offset:4px}
+.gu-v33-instructor-dialogue .gu-v33-numeric-answer{
+ width:min(100%,330px);padding:12px;background:#15232f;border:1px solid #517481;
+ color:#fff;border-radius:9px;font-size:1.15rem;
+}
+.gu-v33-optional-reasoning,.academy-guided-content details:has(textarea),
+.academy-beta-daily-coach details:has(textarea){
+ padding:10px 12px;border:1px solid #2d4651;border-radius:9px;background:#111c25;
+}
+.gu-v33-optional-reasoning summary,.academy-guided-content details:has(textarea) summary{
+ cursor:pointer;min-height:36px;padding:6px;color:#addccc;
+}
+.gu-v33-optional-reasoning textarea,.academy-guided-content details textarea,
+.academy-beta-daily-coach details textarea{width:100%;min-height:74px;box-sizing:border-box}
+.gu-v33-instructor-dialogue textarea[hidden],.gu-v33-instructor-dialogue input[hidden],
+.gu-v33-instructor-dialogue fieldset[hidden]{display:none!important}
+@media(max-width:650px){
+ .gu-v33-evidence-check,.gu-v33-evidence-decision,.gu-v33-prediction-choice,
+ .academy-guided-method-check,.academy-day-evidence-check{padding:12px;gap:8px}
+ .gu-v33-evidence-check label,.gu-v33-evidence-decision label,.gu-v33-prediction-choice label,
+ .academy-guided-method-check label,.academy-day-evidence-check label{padding:12px;gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .gu-v33-evidence-check *,.gu-v33-evidence-decision *,.gu-v33-prediction-choice *,
+ .academy-guided-method-check *,.academy-day-evidence-check *{animation:none!important;transition:none!important}
+}
