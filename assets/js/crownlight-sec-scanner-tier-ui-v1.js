@@ -171,7 +171,7 @@ function mount({host,SB,USER}){
   };
   save.onclick=async()=>{
    if(expectedVersion===null||!loadedTarget||target.value.trim().toLowerCase()!==loadedTarget.toLowerCase()){
-    adminStatus.textContent='Reload the selected member grant before saving; the account or revision has changed.';return;
+    adminStatus.textContent='Reload the member grant before saving; the account or revision has changed.';return;
    }
    save.disabled=true;
    try{
