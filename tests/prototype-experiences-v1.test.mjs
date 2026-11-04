@@ -11,7 +11,7 @@ assert.match(boot,/mountExperienceSuite/);
 for(const code of ['FREE','PICK_WHAT_YOU_WANT','FOUNDING_14','FOUNDING_30','FOUNDING_60','FULL_MONTHLY','FULL_ANNUAL','LIFETIME','ONDEMAND_MONTHLY'])assert.ok(src.includes("code:'"+code+"'"),'Missing existing product identity '+code);
 for(const theme of ['quantum','neon','green','ember','aurora','onyx'])assert.ok(css.includes('.cx-theme-'+theme),'Missing design theme '+theme);
 for(const label of ['Build & Understand a Candlestick','VWAP','EXACT TRADE-PRINT VWAP','OHLCV VWAP proxy'])assert.ok(src.toLowerCase().includes(label.toLowerCase()),'Missing precision teaching '+label);
-assert.match(src,/no future bars beyond the replay boundary/);
+assert.match(src,/no future observations are used for grading/);
 assert.match(src,/function dataFor\(reveal:number\)/);
 assert.match(src,/setReveal\(Math\.max/);
 assert.match(src,/onDragStart/);
