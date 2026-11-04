@@ -175,7 +175,7 @@ try{
   await page.locator('.academy-free-stage-button').nth(4).click();
   await page.locator('.academy-free-stage textarea').filter({visible:true}).first().fill('I can describe the observed candle but I still cannot know what happens in the next interval.');
   await page.locator('.academy-free-stage button').filter({hasText:'Ask Talia for a hint'}).click();
-  assert.match(await page.locator('.academy-free-figure figcaption').innerText(),/FICTIONAL/);
+  assert.match(await page.locator('.academy-free-figure figcaption').innerText(),/SIMULATED/);
   await page.locator('#academy-days .gu-bc-day').first().click();
   await page.locator('.academy-free-stage-button').nth(5).click();
   await page.locator('#academy-self-check-answer').fill(

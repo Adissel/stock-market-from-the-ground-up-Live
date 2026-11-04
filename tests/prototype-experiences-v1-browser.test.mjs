@@ -242,8 +242,8 @@ try{
  const gestureChart=marketPlot.locator('canvas').first();
  await gestureChart.waitFor({state:'visible',timeout:20000});
  assert.ok((await gestureChart.boundingBox())?.width>200,'Shared homepage ECharts plot must render before wheel and pan');
- await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Pause fictional candle formation"]').first().click();
- assert.equal(await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Resume fictional candle formation"]').count()>=1,true);
+ await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Pause simulated candle formation"]').first().click();
+ assert.equal(await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Resume simulated candle formation"]').count()>=1,true);
  await marketPlot.focus();await marketPlot.press('Home');
  assert.match(await a.page.locator('.cx-live-workspace .cl-react-bottom').first().textContent(),/Fictional B\d+/,'Keyboard inspection must use revealed candle values');
  const rect=await gestureChart.boundingBox();

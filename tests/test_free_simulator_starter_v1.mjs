@@ -12,7 +12,7 @@ const box={};box.globalThis=box;box.Date=Date;box.Math=Math;
 runInNewContext(starter,box);
 const dataset=box.GroundUpFictionalSimulatorStarterV1;
 assert.equal(typeof dataset.generate,'function');
-assert.match(dataset.note,/FICTIONAL/);
+assert.match(dataset.note,/SIMULATED/);
 assert.match(dataset.note,/not actual market history/i);
 assert.equal(dataset.symbol,'GUSIM');
 const bars=dataset.generate();
