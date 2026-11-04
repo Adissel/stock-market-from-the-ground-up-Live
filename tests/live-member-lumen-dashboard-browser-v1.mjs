@@ -85,8 +85,10 @@ try{
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-gifting]'),null,{timeout:22000});
  const gifting=page.locator('[data-member-lumen-gifting]');
  assert(await gifting.isVisible(),'Gifting widget must be visible after Dashboard DOM ready');
- assert.match(await gifting.innerText(),/Transfers are not yet enabled/);
- assert.equal(await gifting.locator('button[type=submit]').isDisabled(),true);
+ assert.match(await gifting.innerText(),/Member gifting.{0,8}future release/i,
+  'V1 must disclose that member-to-member transfers are deferred');
+ assert.equal(await gifting.locator('form,button,input').count(),0,
+  'V1 must not mount recipient lookup, consent, or a gift-transfer form');
  const guest=await context.newPage();
  await guest.goto(origin+'/index.html',{waitUntil:'domcontentloaded'});
  const res=await guest.request.get(origin+'/api/member-lumen-activity');

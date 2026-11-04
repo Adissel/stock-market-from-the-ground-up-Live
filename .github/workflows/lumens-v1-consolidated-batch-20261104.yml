@@ -48,3 +48,26 @@ jobs:
           node tests/test_lumen_fully_paid_tool_v1.mjs
           node tests/test_lumen_bundle_stripe_test_shadow_v1.mjs
           node tests/test_lu301_live_lumen_webhook.mjs
+
+  james-wallet-browser-live-smoke:
+    # Genuine LAB_QA Supabase sign-in. Not final same-SHA deployment acceptance.
+    # Read-only; no Stripe checkout, wallet changes, awards or member gifts.
+    runs-on: ubuntu-latest
+    needs: consolidated-no-money-regression
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium for authenticated member verification
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Genuine James_Test production Dashboard wallet smoke (read only)
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: node tests/live-member-lumen-dashboard-browser-v1.mjs
