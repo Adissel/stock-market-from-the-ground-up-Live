@@ -443,6 +443,8 @@ PYBUILD
 node --test tests/learning-lab-engine-feature-audit-v1.test.mjs
 node scripts/build-site-accessibility.mjs
 node scripts/build-site-brand-academy-v1.mjs
+node scripts/build-chart-controls-sitewide-v1.mjs
+node --test tests/chart-controls-sitewide-v1.test.mjs
 node tests/test_site_brand_academy_v1.mjs
 node scripts/build-public-seo.mjs
 # Deployment-blocking, zero-network SEO artifact gate: verify published output,
