@@ -40,14 +40,22 @@ test('all registered Lab and Boot Camp classrooms share visual shell without rep
  assert.match(css,/max-width:750px/);
 });
 test('supplemental chart does not accept grades, billing, private data or entitlements',()=>{
- assert.match(bridge,/window\.CrownlightHomeMarketTerminal\?\.mountInto/);
- assert.match(bridge,/startPaused:true/);
+ assert.match(bridge,/import\('\/assets\/js\/prototype-experiences-v1\.bundle\.js'\)/);
+ assert.match(bridge,/memberSafe:true/);
+ assert.match(source,/memberSafe\?'Standard':studio/,'Cannot elevate Standard member studio from UI');
+ assert.match(source,/!memberSafe&&<label>Chart Studio design preview/,'Member tier override is removed');
+ assert.match(source,/showVolume=\{true\} showEma=\{true\} showProxy=\{true\}/);
+ for(const html of [lab,boot]){
+  assert.match(html,/prototype-indicator-workbench-v2\.js/);
+  assert.match(html,/crownlight-indicator-math-v2\.js/);
+  assert.match(html,/prototype-chart-context-v1\.css/);
+ }
  assert.match(bridge,/\['blind','assessment'\]/);
  assert.match(bridge,/assessment&&!assessment\.hidden/);
  assert.match(bridge,/gate\.hidden/);
  assert.doesNotMatch(bridge,/fetch\(|supabase|localStorage|sessionStorage|service_role|\.innerHTML|POST|PATCH|grade.*save|membership.*update/i);
 });
-function simulate(kind){
+async function simulate(kind){
  const events={};let mounts=0,disposals=0;
  const make=(id)=>({
   id,isConnected:true,hidden:false,open:false,value:'guided',textContent:'',
@@ -65,25 +73,34 @@ function simulate(kind){
  const target=kind==='lab'?'cl-lab-classroom-chart':'cl-bootcamp-classroom-chart';
  const gate=kind==='lab'?'lab-player-content':'academy-workspace';
  class Watch{constructor(fn){events.observe=fn}observe(){}disconnect(){}}
+ // Replace only the module loader in a synthetic VM; never call a live backend.
+ const mockBridge=bridge.replace("import('/assets/js/prototype-experiences-v1.bundle.js')",
+   "Promise.resolve({mountClassicClassroomChart:(target,options)=>window.__testMount(target,options)})");
+ assert.notEqual(mockBridge,bridge,'Must test same real lazy import path');
  const context={
-  window:{CrownlightHomeMarketTerminal:{mountInto(){mounts++;return {dispose(){disposals++}}}},addEventListener(){}},
+  window:{__testMount(_target,options){
+   assert.equal(options.memberSafe,true,'No member tier override');
+   assert.equal(options.mode,kind);
+   mounts++;return {dispose(){disposals++}}
+  },addEventListener(){}},
   document:{readyState:'complete',getElementById(id){return ids[id]||null}},
   MutationObserver:Watch
  };
- vm.runInNewContext(bridge,context,{timeout:1000});
+ vm.runInNewContext(mockBridge,context,{timeout:1000});
+ const flush=()=>new Promise(resolve=>setImmediate(resolve));
  const details=ids[target];
  details.open=true;details.dispatch('toggle');
  assert.equal(mounts,0,'Never mount before authorized learning workspace visible');
  assert.equal(details.open,false,'Unauthorized open must close');
  ids[gate].hidden=false;
- details.open=true;details.dispatch('toggle');
- assert.equal(mounts,1,'One authenticated optional chart mount');
- details.dispatch('toggle');
- assert.equal(mounts,1,'No duplicate chart root on repeat toggle');
+ details.open=true;details.dispatch('toggle');await flush();
+ assert.equal(mounts,1,'One authorized, member-safe full chart mount');
+ details.dispatch('toggle');await flush();
+ assert.equal(mounts,1,'No duplicate React root');
  if(kind==='lab'){ids['player-mode-select'].value='assessment';ids['player-mode-select'].dispatch('change')}
  else{ids['academy-official-assessment'].hidden=false;events.observe()}
- assert.equal(disposals,1,'Assessment boundary disposes supplemental chart');
+ assert.equal(disposals,1,'Assessment boundary disposes shared chart');
  assert.equal(details.open,false,'Assessment cannot leave chart open');
 }
-test('Lab bridge fails closed on unauthorized sessions and graded modes',()=>simulate('lab'));
-test('Boot Camp bridge fails closed on assessment visibility',()=>simulate('bootcamp'));
+test('Lab bridge fails closed on unauthorized sessions and graded modes',async()=>simulate('lab'));
+test('Boot Camp bridge fails closed on assessment visibility',async()=>simulate('bootcamp'));
