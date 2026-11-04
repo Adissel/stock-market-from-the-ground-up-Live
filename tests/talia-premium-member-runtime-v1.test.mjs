@@ -91,6 +91,7 @@ test('Professional chart and debrief include ONLY server-revealed completed cand
 test('Professional rejects a future bar, nonchronological bars and fabricated cursor',()=>{
  assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:candles}),/validation/);
  assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:[candles[1],candles[0]]}),/validation/);
+ assert.throws(()=>authenticReplayEvidence({dataset:src,session:{...session,current_index:2},bars:[candles[0],candles[2]]}),/validation/);
  assert.throws(()=>authenticReplayEvidence({dataset:src,session:{...session,dataset_code:'OTHER'},bars:candles.slice(0,2)}),/mismatch/);
  assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:[candles[0]]}),/Current/i);
 });
