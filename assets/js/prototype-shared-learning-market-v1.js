@@ -56,7 +56,7 @@
   }
   details.addEventListener('toggle',()=>{
    if(!authorized()||!details.open){dispose();return;}
-   mount();
+   if(!controller)mount();
   });
   lab.addEventListener('click',()=>select('lab'));
   boot.addEventListener('click',()=>select('bootcamp'));
