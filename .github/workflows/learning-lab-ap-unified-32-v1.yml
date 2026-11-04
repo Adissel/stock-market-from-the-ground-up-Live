@@ -54,6 +54,12 @@ jobs:
           node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
           node --test tests/learning-lab-premium-lifecycle-64-v2.test.mjs
           node --test tests/learning-lab-midflight-96-wave3.test.mjs
+      - name: Validate owner edition editor, member version selection and Talia tier segregation
+        run: |
+          node --test tests/learning-engine-member-versions-api-v1.test.mjs
+          node --test tests/learning-engine-member-versions-v1.test.mjs
+          node --test tests/talia-membership-editions-v1.test.mjs
+          node --test tests/lab-419-current-body-quality-v2.test.mjs
       - name: Preserve Basic inventory, revision controls and release holds
         run: |
           node --test tests/learning-lab-feature-evidence-64.test.mjs
