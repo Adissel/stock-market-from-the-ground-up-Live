@@ -393,7 +393,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
     const row=el('div');row.append(el('dt',name),el('dd',status));dimensions.append(row);
    }
    report.append(el('h5','Four competency dimensions · observational evidence only'),dimensions,
-     el('p','Method-choice checks are not independent competency validation. Confirm transfer on a genuinely unfamiliar case and retention in a later review. No member grades are written.'));
+     el('p','Method-choice checks are not independent competency validation. Confirm transfer on a genuinely unfamiliar case and retention in a later review. Results are not saved by this guided widget. No member grades are written.'));
    report.append(el('p','This is practice evidence only, not a grade or a declaration of skill mastery. A correct method choice alone does not prove concept understanding. Protected independent assessment and source-reviewed case acceptance remain separate.'));
    content.append(report);
   }
