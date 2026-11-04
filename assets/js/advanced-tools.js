@@ -471,6 +471,7 @@
     status('Private source note recorded, without claiming independent causality or price verification.','success');
    }catch(e){status(e.message,'error')}
   };
+  globalThis.CrownlightSecScannerTierUIV1?.mount?.({host:document.getElementById('tool-workbench'),SB,USER});
  }
  function aggregate(bars,min){const out=[];let bucket=null;for(const b of bars){const t=new Date(b.time),key=Math.floor(t.getTime()/(min*60000));if(!bucket||bucket.key!==key){bucket={key,time:new Date(t),open:b.open,high:b.high,low:b.low,close:b.close,volume:b.volume};out.push(bucket)}else{bucket.high=Math.max(bucket.high,b.high);bucket.low=Math.min(bucket.low,b.low);bucket.close=b.close;bucket.volume+=b.volume}}return out}
  function structureSummary(b){if(b.length<5)return'Not enough bars';const x=b.slice(-5),last=x[x.length-1],prev=x[x.length-3];if(last.high>prev.high&&last.low>prev.low)return'Higher-high / higher-low tendency';if(last.high<prev.high&&last.low<prev.low)return'Lower-high / lower-low tendency';return'Range / mixed structure'}
