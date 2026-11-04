@@ -4,19 +4,14 @@
  */
 import {advancedToolContext,privateJson} from '../_lib/advanced-tool-access-v014110.js';
 import {VALID_SYMBOL,resolveTicker,normalizeSubmissions,normalizeFacts} from '../_lib/sec-issuer-normalize-v1.js';
-import {requireSecSourceRelease} from '../_lib/sec-edgar-qa-gate-v1.js';
+import {requireSecSourceRelease,secSourceContact} from '../_lib/sec-edgar-qa-gate-v1.js';
 const HEAD={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'x-content-type-options':'nosniff'};
 const send=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:HEAD});
 const failure=(message,status)=>Object.assign(new Error(message),{status});
 const URL_INDEX='https://www.sec.gov/files/company_tickers.json';
 const SEC_BASE='https://data.sec.gov/';
-function userAgent(env){
- const agent=String(env.SEC_EDGAR_USER_AGENT||'').trim();
- if(agent.length<12||agent.length>160||/[\r\n]/.test(agent)||!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(agent))
-  throw failure('SEC research requires a configured contact-identifying SEC_EDGAR_USER_AGENT.',503);
- return agent;
-}
+function userAgent(env){return secSourceContact(env);}
 async function secJson(url,env,ttl,cap,actor){
  const cache=globalThis.caches?.default;
  const cacheKey=new Request(url,{method:'GET'});
