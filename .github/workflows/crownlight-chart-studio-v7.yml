@@ -109,4 +109,13 @@ jobs:
             echo "Coverage: Advanced downshift workspace restore, reload, locked Professional layout and preserved saved studies, plus existing studio browser regressions."
             echo "Classification: **MOCKED Chromium**, not an authenticated production browser. No payment, wallet or member workspace writes."
           } > /tmp/chart-fixture-qa.md
-          gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-fixture-qa.md
+          # The Actions step summary is the durable report. The historical
+          # tracking issue may not exist in this repository, so comments
+          # are optional and must not turn passing tests into a failed job.
+          cat /tmp/chart-fixture-qa.md >> "$GITHUB_STEP_SUMMARY"
+          if gh issue view 154 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh issue comment 154 --repo "$GITHUB_REPOSITORY" --body-file /tmp/chart-fixture-qa.md ||
+              echo "::warning::Fixture-only summary recorded, optional issue comment failed."
+          else
+            echo "::notice::Fixture-only summary recorded; historical issue #154 is absent."
+          fi
