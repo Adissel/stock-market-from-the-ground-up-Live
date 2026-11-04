@@ -416,7 +416,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    content.append(fieldset);
    }
   }
-  if(stage===6)content.append(el('p','First formative selection is preserved until submitted. No official grade, competency or independent mastery is awarded.'));
+  if(stage===6)content.append(el('p','First formative selection is preserved until submitted. No grade or Lumens are awarded. No official competency or independent mastery is awarded.'));
   if(stage===9){
    content.append(el('p','Formative stages completed: '+completed.size+' of 9. Save your own notes using the existing course reflection controls. Official competency remains Not Yet Assessed.'));
    const mastery=summarizeEvidence(checkEvidence,interactionStages.size);
