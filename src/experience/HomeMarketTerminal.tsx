@@ -2,6 +2,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 type Study='all'|'ema9'|'ema20'|'vwap'|'sma20'|'none';
+type View='candles'|'hollow'|'heikin'|'ohlc'|'hlc'|'line'|'area'|'baseline'|'step'|'columns'|'dots'|'range';
 type Bar={open:number;close:number;low:number;high:number;volume:number};
 type Chart={setOption:(v:unknown,replace?:boolean)=>void;resize:()=>void;dispose:()=>void;dispatchAction:(v:unknown)=>void};
 type EmbeddedTerminalControl={pause?:()=>void;resume?:()=>void};
@@ -75,7 +76,8 @@ function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (nu
  */
 type Frame=1|3|5;
 const TICKS_PER_MINUTE=20;
-const FIRST_REPLAY_MINUTE=0; // The initial frame contains exactly one forming candle, no historical pre-roll.
+const FIRST_REPLAY_MINUTE=0; // Protected Lab and Academy teaching replays still begin at one forming candle.
+const HOME_INITIAL_COMPLETED_CANDLES=105; // Homepage-only public simulated context, not a live or historical data feed.
 const TICK_MS=160; // Demonstration playback is deliberately compressed, not wall-clock exchange time.
 function partialMinute(index:number,ticks:number):Bar{
  const b=DATA[index],n=Math.max(0,Math.min(TICKS_PER_MINUTE,Math.floor(ticks)));
@@ -111,22 +113,46 @@ function revealedBars(frame:Frame,position:number):Bar[]{
  if(next<DATA.length)minutes.push(partialMinute(next,safe%TICKS_PER_MINUTE));
  return groupMinutes(minutes,frame);
 }
+/** Derive Heikin-Ashi from revealed candles only. This never inspects later market observations. */
+function heikinAshi(observed:readonly Bar[]):Bar[]{
+ const result:Bar[]=[];let previousOpen=0,previousClose=0;
+ for(const [i,b] of observed.entries()){
+  const close=(b.open+b.high+b.low+b.close)/4;
+  const open=i===0?(b.open+b.close)/2:(previousOpen+previousClose)/2;
+  result.push({open,close,high:Math.max(b.high,open,close),low:Math.min(b.low,open,close),volume:b.volume});
+  previousOpen=open;previousClose=close;
+ }
+ return result;
+}
+const HOME_CHART_OPTIONS:readonly {value:View;label:string}[]=[
+ {value:'candles',label:'Candlesticks'},
+ {value:'hollow',label:'Hollow Candlesticks'},
+ {value:'heikin',label:'Heikin-Ashi'},
+ {value:'ohlc',label:'OHLC Bars'},
+ {value:'hlc',label:'HLC Bars'},
+ {value:'line',label:'Line'},
+ {value:'area',label:'Area / Mountain'},
+ {value:'baseline',label:'Baseline'},
+ {value:'step',label:'Step Line'},
+ {value:'columns',label:'Close Columns'},
+ {value:'dots',label:'Close Dots'},
+ {value:'range',label:'High-Low Range'}
+];
 function Terminal({context='home',startPaused=false,checkpointLocked=false,embedded}:{
  context?:'home'|'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean;embedded?:EmbeddedTerminalControl
 }){
  const host=useRef<HTMLDivElement>(null);
  const [study,setStudy]=useState<Study>('all');
- const [windowSize,setWindowSize]=useState(60);
- const [view,setView]=useState<'candles'|'line'>('candles');
+ const [windowSize,setWindowSize]=useState(context==='home'?100:60);
+ const [view,setView]=useState<View>('candles');
  const [frame,setFrame]=useState<Frame>(1);
  const [speed,setSpeed]=useState(context==='home'?0.1:1);
- const homeSpeed=useRef(0.1);
- const [displaySpeed,setDisplaySpeed]=useState(0.1);
+ // Homepage speed is a deterministic, automatic 0.1x–0.4x cadence; no speed control.
  const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
  const [note,setNote]=useState('Simulated candles · Not real-time market data');
  const [progress,setProgress]=useState('Preparing simulated candle replay…');
  const chartInstance=useRef<Chart|null>(null);
- const playhead=useRef(1);
+ const playhead=useRef(context==='home'?HOME_INITIAL_COMPLETED_CANDLES*TICKS_PER_MINUTE+1:1);
  const isPublicHome=context==='home';
  useEffect(()=>{
   if(!embedded)return;
