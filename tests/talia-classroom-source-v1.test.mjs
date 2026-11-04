@@ -27,7 +27,7 @@ test('fictional replay supplies only the revealed candles to the renderer',()=>{
  assert.match(source,/FICTIONAL \/ REVEALED PREFIX/);
  assert.match(source,/REPLAY\.slice\(0,visible\)/);
  assert.match(source,/const r=shown\[x\.dataIndex\]/);
- assert.match(source,/not a secure historical replay/);
+ assert.match(source,/No future bars, historical market feed, or graded assessment data/);
  assert.match(source,/visible===REPLAY\.length/);
  assert.match(source,/Latest visible completed candle/);
  assert.match(source,/Fictional completed-bar teaching example/);
