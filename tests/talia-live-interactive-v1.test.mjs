@@ -9,8 +9,8 @@ const gate=readFileSync('assets/js/talia-prototype-gate-v1.js','utf8');
 
 test('One protected React classroom owns both member and staff learning runtime',()=>{
  for(const html of [member,staff])assert.match(html,/talia-live-lesson-v1\.css/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk1/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk1/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.match(src,/const advancedExperience=isTaliaAdvancedRoute\(\)/);
@@ -24,7 +24,7 @@ test('Talia replies appear progressively, offer full reveal and honor reduced mo
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
 });
 test('Autoplay has pause/resume and three speeds, bounded completed bars and automatic checkpoint',()=>{
- for(const fragment of ['Auto Play','Pause','Playback speed','Slow','Normal','Fast','setPlaying(false)','setVisible(next)','if(next===8||next%5===0)','setCheckpoint(q)','setPlaying(true)'])
+ for(const fragment of ['Auto Play','Pause','aria-label="Fictional playback speed"','Slow','Normal','Fast','setPlaying(false)','setVisible(next)','if(next===8||next%5===0)','setCheckpoint(q)','setPlaying(true)'])
   assert.ok(src.includes(fragment),fragment);
  assert.match(src,/REPLAY\.slice\(0,visible\)/);
  assert.match(src,/aggregateCompleted\(revealed,timeframe\)/);
