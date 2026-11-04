@@ -11,7 +11,7 @@ const css=read('assets/css/crownlight-shared-classroom-v1.css');
 test('Classic Prototype Lab and Boot Camp views mount exact Experience B technical chart',()=>{
  assert.match(source,/export function mountClassicClassroomChart\(/);
  assert.match(source,/sourceBars=\{completedBars\}/);
- assert.match(source,/mode==='talia'\?available\.slice\(0,Math\.floor/,'Talia timeframes do not render forming bars');
+ assert.match(source,/available\.slice\(0,Math\.floor\(available\.length\/appearance\.timeframe\)/,'Talia timeframes do not render forming bars');
  assert.match(source,/mode==='talia'\?completedBars\.length:count/,'Other Lab and Boot Camp case evidence remains unchanged');
  assert.match(source,/function PrototypeChartContextMenu\(/);
  assert.match(source,/function IndicatorDock\(/);
