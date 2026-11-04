@@ -15,11 +15,13 @@ assert(js.includes("textContent='Online members'")&&js.includes("textContent='Re
  'Owner-approved public metric names are displayed consistently');
 assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),
  'Illustrative figures retain an explicit EXAMPLE badge');
-assert(js.includes('Illustrative Owner-configured values only. These are not actual membership counts.'),
+assert(js.includes('Owner-configured demonstration values only. These are not actual membership counts.'),
  'Renamed fields may never imply that example values are verified accounts');
 assert(js.includes('not verified registered or online members'),
  'The screen-reader label independently discloses illustrative provenance');
 assert(!js.includes("'DEMO DATA'"),'No demo badge on homepage');
+assert(js.includes("subtext:example?'':'LAST 60 MIN'"),'Example gauge does not display a secondary caption');
+assert(!/\bILLUSTRATIVE\b/i.test(js),'Replaced obsolete simulation terminology in home member status');
 assert(js.includes('>Online members</dt>'),'Public metric label is Online members');
 assert(js.includes('aria-label="Members active within the last 60 minutes"'),'Accessible label preserves the measurement window');
 assert(js.includes('>Registered members</dt>'),'Account label remains clear');
