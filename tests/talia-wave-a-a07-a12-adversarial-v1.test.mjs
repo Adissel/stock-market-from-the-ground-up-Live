@@ -126,7 +126,7 @@ test('A09 — a delayed token lookup cannot send an old question with a new memb
  const source=readFileSync(new URL('../assets/js/market-tutor.js',import.meta.url),'utf8');
  const outbound=[];
  const globals={
-  document:{readyState:'loading',addEventListener(){}},window:{},URL,URLSearchParams,
+  document:{readyState:'loading',addEventListener(){},getElementById(){return null}},window:{},URL,URLSearchParams,
   AbortController,Request,Response,TextEncoder,crypto,
   console,setTimeout,clearTimeout,
   fetch:async(url,opts)=>{outbound.push({url:String(url),opts});return json({
