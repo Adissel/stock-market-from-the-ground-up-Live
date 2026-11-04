@@ -1,0 +1,57 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SCANNER-V6-GAP-20261104",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "filename": "data/crownlight-scanner-gap-batch-v6.json",
+    "fileType": "JSON",
+    "version": "1.0",
+    "date": "2026-11-04",
+    "status": "CODE UPLOADED; CI AND AUTHENTICATED ACCEPTANCE PENDING",
+    "googleDriveLocation": "Not created",
+    "googleDriveDocumentId": null,
+    "owner": "Delegated acting project owner — technical source work only"
+  },
+  "baseline": {
+    "githubMainAtAnalysis": "9488f19fb1bd3d83f1a3acc24dd5618840c81a69",
+    "trackedFileCount": 4476,
+    "legacyPresetCount": 5,
+    "totalOriginalPresets": 48,
+    "sourceEngineeringMilestonesPassed": 7,
+    "totalMilestones": 32,
+    "percentage": 21.875,
+    "commercialReleaseAcceptancePercent": 0
+  },
+  "observedGap": {
+    "id": "V6-SPARSE-CSV",
+    "description": "All 48 presets require the same seven CSV fields on the shared importer, and the original rule evaluator rejects rows with omitted optional float/RVOL/spread regardless of selected preset.",
+    "paths": [
+      "assets/js/market-research-engine-v014145.js",
+      "assets/js/crownlight-scanner-rules-v1.js",
+      "assets/js/advanced-tools.js"
+    ]
+  },
+  "delivered": [
+    "Opt-in 3-column schema in existing CSV parser for Scanner Builder only",
+    "Original Market Discovery seven-column contract preserved",
+    "Sparse-aware rule evaluation; missing optional metrics UNKNOWN",
+    "Present-but-invalid numbers fail closed",
+    "Rule-derived field coverage table with accessible status",
+    "48-presets, strict legacy and backend static-regression coverage"
+  ],
+  "notCounted": [
+    "No new milestone score credit prior to final acceptance",
+    "No source pictures reviewed",
+    "No new SEC market feed",
+    "No RLS or Stripe change",
+    "No historical provider rights accepted",
+    "No authenticated two-account test yet",
+    "No LIVE subscription activation"
+  ],
+  "nextExecution": [
+    "Green dedicated source CI",
+    "Green sitewide browser CI",
+    "Merge exact head with no conflicts",
+    "Actual authenticated member QA",
+    "Exact Cloudflare SHA and source rights review"
+  ]
+}

@@ -12,7 +12,8 @@ assert(visual.includes('view:activeView()'));
 assert(visual.includes('const restored=found.payload.view?C.validateView(found.payload.view):null'));
 assert(visual.includes('const nextView=input.view?C.validateView(input.view):null'));
 assert(visual.includes('C.analyze(getRows(),current,'));
-assert(visual.includes('activeView());'));
+assert.match(visual,/C\.analyze\(getRows\(\),current,\s*\{\.\.\.activeView\(\),allowSparse:true\}\)/);
+// Persisted source views still drive the original scan; sparse is strictly opt-in.
 assert(visual.includes("templateLibrary.lookup(templateSelect.value)"));
 assert(visual.includes("value.columns.map(key=>[key,C.FIELDS[key]])"));
 assert(visual.includes('record.ruleTrail.details'));

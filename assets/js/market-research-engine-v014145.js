@@ -13,7 +13,14 @@
   const n=Number(v);return Number.isFinite(n)?n:null;
  };
  const fail=message=>Object.assign(new Error(message),{code:'SCANNER_INVALID_INPUT'});
- function csv(text){
+ function csv(text,options={}){
+  // Backward-compatible sparse mode is restricted to the authenticated visual
+  // scanner; Market Discovery retains the original seven required fields.
+  if(!options||typeof options!=='object'||Array.isArray(options)||
+     Object.keys(options).some(k=>k!=='mode')||
+     (options.mode!==undefined&&options.mode!=='SCANNER_PRESET_V2'))
+   throw fail('Unsupported CSV schema mode.');
+  const sparse=options.mode==='SCANNER_PRESET_V2';
   if(typeof text!=='string'||new TextEncoder().encode(text).length>MAX_BYTES)
    throw fail('CSV exceeds 2 MB; use a smaller personally authorized snapshot.');
   const rows=[];let col='',record=[],quoted=false,closed=false;
@@ -37,7 +44,8 @@
   if(rows.length<2)throw fail('CSV requires a header and at least one security.');
   const headers=rows.shift().map(s=>s.replace(/^\uFEFF/,'').trim().toLowerCase());
   if(new Set(headers).size!==headers.length)throw fail('Duplicate CSV headers are not supported.');
-  const required=['symbol','price','change_pct','volume','rvol','float','spread_pct'];
+  const required=sparse?['symbol','price','volume']:
+   ['symbol','price','change_pct','volume','rvol','float','spread_pct'];
   if(required.some(h=>!headers.includes(h)))throw fail('Required CSV headers: '+required.join(', ')+'.');
   if(headers.some(x=>!/^[a-z][a-z0-9_]{0,39}$/.test(x)))throw fail('Invalid CSV header.');
   return rows.map((values,i)=>{

@@ -145,7 +145,7 @@
   if(!engine)throw Error('Research scanner validation engine unavailable.');
   document.getElementById('tool-workbench').innerHTML=
    panel(scannerOnly?'Research Scanner Builder':'Market Discovery Lab',
-    '<p>Use a small, lawful, <strong>personally sourced</strong> dated CSV snapshot. This workbench does NOT provide live market data, genuine trade alerts, or rights-cleared history. Required columns: <code>symbol,price,change_pct,volume,rvol,float,spread_pct</code>. Optional: <code>gap_pct,market_cap,vwap</code>. VWAP is a supplied snapshot value, not calculated or verified here. Unknown and invalid metrics are excluded, never converted to zero.</p>'+
+    '<p>Use a small, lawful, <strong>personally sourced</strong> dated CSV snapshot. This workbench does NOT provide live market data, genuine trade alerts, or rights-cleared history. '+(scannerOnly?'Preset research required columns: <code>symbol,price,volume</code>. All other metrics are optional and remain UNKNOWN if omitted. ':'Required columns: <code>symbol,price,change_pct,volume,rvol,float,spread_pct</code>. Optional: <code>gap_pct,market_cap,vwap</code>. ')+'VWAP is a supplied snapshot value, not calculated or verified here. Unknown and invalid metrics are excluded, never converted to zero.</p>'+
     '<p class="v11-lock-note">Source provenance and capture timestamp are supplied by the researcher; this tool cannot authenticate either. Do not share third-party market data in course materials without permission.</p>'+
     '<div><label for="u-file">Candidate universe CSV (2 MB / 2,000 securities maximum)</label><input id="u-file" type="file" accept=".csv,text/csv"></div>'+
     '<div class="v11-form-grid">'+
@@ -172,7 +172,8 @@
    try{
     const file=event.target.files?.[0];
     if(!file||file.size>engine.MAX_BYTES)throw Error('Choose a locally authorized CSV smaller than 2 MB.');
-    rows=engine.csv(await file.text());
+    const raw=await file.text();
+    rows=scannerOnly?engine.csv(raw,{mode:'SCANNER_PRESET_V2'}):engine.csv(raw);
     status(rows.length+' snapshot records parsed locally. Provider rights and timestamps have NOT been authenticated.','success');
    }catch(e){rows=[];document.getElementById('u-results').replaceChildren();status(e.message,'error')}
   };

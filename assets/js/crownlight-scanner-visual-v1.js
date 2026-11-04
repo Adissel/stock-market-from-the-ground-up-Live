@@ -36,6 +36,7 @@
   const intro=mk('p','', 'Build and compare original research rules. Requires the dated member-supplied CSV in the existing form above. Values are not independently verified.');
   const toolbar=mk('div','cl-scr-toolbar'),editor=mk('div','cl-scr-editor'),results=mk('div','cl-scr-results');
   const viewHost=mk('div','cl-scr-view-host');
+  const coverageHost=mk('div','cl-scr-evidence-host');
   const V=root.CrownlightScannerViewV2;
   if(!V)throw Error('Source-aware result view unavailable.');
   const templateLibrary=root.CrownlightScannerPresetsV2||root.CrownlightScannerTemplatesV1;
@@ -101,6 +102,30 @@
    box.append(list);return box;
   }
   function draw(){editor.replaceChildren(groupEditor(current,null,0));}
+  function fieldEvidence(){
+   coverageHost.replaceChildren();
+   const engine=root.CrownlightScannerEvidenceV6;
+   if(!engine)return;
+   const rows=getRows();
+   if(!rows.length)return;
+   const audit=engine.audit(rows,current,C);
+   const heading=mk('h3','','Imported evidence coverage · research only');
+   const explanation=mk('p','',audit.inspected+' supplied observations. Missing fields stay UNKNOWN and are never inferred, even when another OR branch matches.');
+   const table=mk('table','cl-scr-evidence-table'),cap=mk('caption','','Input availability for this rule · source verification NOT performed');
+   const header=mk('tr');
+   for(const name of ['Metric','Supplied','Valid numeric','Missing / invalid']){
+    const th=mk('th','',name);th.scope='col';header.append(th);
+   }
+   const thead=mk('thead');thead.append(header);table.append(cap,thead);
+   const body=mk('tbody');
+   for(const f of audit.fields){
+    const tr=mk('tr');
+    for(const cell of [C.FIELDS[f.field],String(f.supplied),String(f.valid),String(f.missingOrInvalid)])
+     tr.append(mk('td','',cell));
+    body.append(tr);
+   }
+   table.append(body);coverageHost.append(heading,explanation,table);
+  }
   function renderResults(value){
    results.replaceChildren();
    const summary=mk('p','','Matched '+value.matched+' of '+value.inspected+
@@ -173,7 +198,7 @@
    try{
     const template=templateLibrary.lookup(templateSelect.value);
     if(!template)throw Error('Select a preset first.');
-    current=C.validate(template.rules);draw();results.replaceChildren();
+    current=C.validate(template.rules);draw();results.replaceChildren();fieldEvidence();
     const sourcePaths=template.sourceFiles?.length?template.sourceFiles.slice(0,2).join(' · '):'Original scanner research files';
     report(template.name+': '+template.description+' Required supplied CSV fields: '+
       template.requiredFields.join(', ')+'. Source basis: '+sourcePaths+
@@ -185,7 +210,8 @@
    try{
     if(!getRows().length)throw Error('Import an authorized dated snapshot above first.');
     const p=provenance(),result=C.analyze(getRows(),current,
-      activeView());
+      {...activeView(),allowSparse:true});
+    fieldEvidence();
     renderResults(result);
     report('Calculated locally on unverified snapshot '+p.sourceNote+' at '+p.asOf+'. No quote freshness or provider permissions verified.');
    }catch(e){results.replaceChildren();report(e.message);}
@@ -231,7 +257,7 @@
     report('Rules imported locally. Verify their values and snapshot rights.');
    }catch(e){report(e.message);}finally{file.value='';}
   };
-  area.append(title,intro,toolbar,viewHost,file,editor,status,results);
+  area.append(title,intro,toolbar,viewHost,file,editor,coverageHost,status,results);
   host.append(area);draw();
  }
  root.CrownlightScannerVisualV1=Object.freeze({mount});
