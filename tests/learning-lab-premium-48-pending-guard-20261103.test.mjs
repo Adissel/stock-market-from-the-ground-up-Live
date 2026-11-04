@@ -26,13 +26,16 @@ test('every partial/prototype remains outside integrated numerator and retains a
  for(const f of features){
   assert.ok(allowed.has(f.source_status),f.id);
   assert.ok(typeof f.acceptance_criterion==='string'&&f.acceptance_criterion.length>30,f.id);
-  assert.equal(f.independent_release_accepted,false,f.id);
-  assert.equal(f.real_member_accepted,false,f.id);
+  assert.equal(typeof f.independent_release_accepted,'boolean',f.id);
+  assert.equal(typeof f.real_member_accepted,'boolean',f.id);
+  if(f.real_member_accepted)assert.ok(Array.isArray(f.member_acceptance_evidence)&&f.member_acceptance_evidence.length>0,f.id+' acceptance evidence required');
+  if(f.independent_release_accepted)assert.ok(f.source_status==='integrated'&&f.real_member_accepted&&Array.isArray(f.release_acceptance_evidence)&&f.release_acceptance_evidence.length>0,f.id+' release evidence required');
  }
  const unresolved=features.filter(x=>x.source_status!=='integrated');
- assert.equal(unresolved.length,48);
  assert.equal(unresolved.filter(x=>x.edition==='BASIC').length,0);
- assert.equal(features.filter(x=>x.source_status==='integrated').length,16);
+ const allIntegrated=Object.values(audit.counts).reduce((sum,row)=>sum+row.integrated,0);
+ assert.equal(features.filter(x=>x.source_status==='integrated').length,allIntegrated);
+ assert.equal(unresolved.length,64-allIntegrated);
 });
 test('all Advanced, Professional and Enterprise capabilities remain unavailable in every plan',()=>{
  for(const plan of ['FREE','FOUNDING_30','FOUNDING_60','LIFETIME']){

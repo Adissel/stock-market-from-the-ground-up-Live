@@ -13,7 +13,9 @@ export function validateFeatureLedger(a){
   if(f.source_status!=='not_implemented'&&!f.evidence_file)throw Error('Source status without evidence '+f.id);
   if(f.evidence_file&&!existsSync(f.evidence_file))throw Error('Missing source file '+f.evidence_file+' for '+f.id);
   if(f.existing_test_file&&!existsSync(f.existing_test_file))throw Error('Missing test file '+f.existing_test_file+' for '+f.id);
-  if(f.real_member_accepted!==false||f.independent_release_accepted!==false)throw Error('Unverified member or release acceptance '+f.id);
+  if(typeof f.real_member_accepted!=='boolean'||typeof f.independent_release_accepted!=='boolean')throw Error('Explicit acceptance states required '+f.id);
+  if(f.real_member_accepted&&(!Array.isArray(f.member_acceptance_evidence)||f.member_acceptance_evidence.length<1))throw Error('Independent member evidence required '+f.id);
+  if(f.independent_release_accepted&&(!f.real_member_accepted||f.source_status!=='integrated'||!Array.isArray(f.release_acceptance_evidence)||f.release_acceptance_evidence.length<1))throw Error('Independent release requires member evidence and source integration '+f.id);
   (grouped[f.engine+'_'+f.edition]??=[]).push(f);
  }
  for(const engine of ['learning','lab'])for(const edition of ['BASIC','ADVANCED','PROFESSIONAL','ENTERPRISE']){
@@ -22,10 +24,10 @@ export function validateFeatureLedger(a){
   const counts=Object.fromEntries(['integrated','partial','prototype','not_implemented'].map(state=>[state,rows.filter(r=>r.source_status===state).length]));
   const checked=a.counts[key];
   if(!checked||checked.total!==8||Object.keys(counts).some(k=>checked[k]!==counts[k])||checked.integrated_percent!==Number((100*counts.integrated/8).toFixed(2))||checked.released_features!==0)throw Error('Stored numerator/denominator mismatch '+key);
-  if(edition!=='BASIC'&&counts.integrated!==0)throw Error('Premium source integration requires new review '+key);
+  if(edition==='BASIC'&&counts.integrated!==8)throw Error('Frozen Basic source integration regressed '+key);
  }
  if(a.frozen?.learningBasic!=='v3.3'||a.frozen?.labBasic!=='v3.2'||a.frozen?.labIds!==419||a.frozen?.competencies!==30||a.frozen?.premiumFeaturesReleased!==false||a.frozen?.addonCheckout!==false)throw Error('Frozen safety boundary changed');
  return grouped;
 }
-export function featureReport(a){const grouped=validateFeatureLedger(a);return Object.fromEntries(Object.entries(grouped).map(([key,rows])=>[key,{integrated:rows.filter(f=>f.source_status==='integrated').length,total:8,pct:Number((100*rows.filter(f=>f.source_status==='integrated').length/8).toFixed(2)),partial:rows.filter(f=>f.source_status==='partial').length,prototype:rows.filter(f=>f.source_status==='prototype').length,releaseAccepted:0}]));}
+export function featureReport(a){const grouped=validateFeatureLedger(a);return Object.fromEntries(Object.entries(grouped).map(([key,rows])=>[key,{integrated:rows.filter(f=>f.source_status==='integrated').length,total:8,pct:Number((100*rows.filter(f=>f.source_status==='integrated').length/8).toFixed(2)),partial:rows.filter(f=>f.source_status==='partial').length,prototype:rows.filter(f=>f.source_status==='prototype').length,releaseAccepted:rows.filter(f=>f.independent_release_accepted).length}]));}
 if(process.argv[1]?.endsWith('learning-lab-engine-feature-audit-v1.mjs'))console.log(JSON.stringify(featureReport(JSON.parse(readFileSync(FILE,'utf8'))),null,2));

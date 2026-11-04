@@ -11,6 +11,11 @@ on:
       - 'functions/_lib/learning-lab-edition-exercises-v1.js'
       - 'functions/_lib/learning-engine-tier-policy-v1.js'
       - 'data/learning-lab-engine-feature-audit-v1.json'
+      - 'scripts/qa/learning-lab-engine-feature-audit-v1.mjs'
+      - 'tests/learning-lab-engine-feature-audit-v1.test.mjs'
+      - 'tests/learning-lab-feature-evidence-64.test.mjs'
+      - 'tests/owner-tier-roadmap-progress-v1.test.mjs'
+      - 'tests/learning-lab-premium-48-pending-guard-20261103.test.mjs'
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -39,6 +44,7 @@ jobs:
       - name: Guard existing edition contracts and frozen Basic
         run: |
           node --test tests/learning-lab-edition-api-v1.test.mjs tests/learning-lab-edition-workspace-v1.test.mjs
-          node --test tests/learning-lab-feature-evidence-64.test.mjs
+          node --test tests/learning-lab-feature-evidence-64.test.mjs tests/learning-lab-engine-feature-audit-v1.test.mjs tests/learning-lab-premium-48-pending-guard-20261103.test.mjs
+          node --test tests/owner-tier-roadmap-progress-v1.test.mjs
       - name: Print evidence-limited scorecard
         run: node scripts/learning-lab-progress-scorecard-v2.mjs
