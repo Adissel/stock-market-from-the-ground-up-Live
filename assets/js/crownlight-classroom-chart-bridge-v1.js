@@ -10,7 +10,8 @@
   const target=document.getElementById(lab?'cl-lab-classroom-chart-host':'cl-bootcamp-classroom-chart-host');
   const status=document.getElementById(lab?'cl-lab-classroom-chart-status':'cl-bootcamp-classroom-chart-status');
   if(!details||!target||!status)return;
-  const gate=document.getElementById(lab?'lab-player-content':'academy-workspace');
+  const gate=lab?document.getElementById('lab-player-content'):
+   (document.getElementById('academy-workspace')||document.getElementById('gu-bc-shell'));
   const assessment=document.getElementById('academy-official-assessment');
   const modes=document.getElementById('player-mode-select');
   let session=null,disposed=false,mounting=false,epoch=0;
@@ -52,7 +53,8 @@
   const watch=new MutationObserver(()=>{if((session||mounting)&&!permitted())sync()});
   if(gate)watch.observe(gate,{attributes:true,attributeFilter:['hidden']});
   if(assessment)watch.observe(assessment,{attributes:true,attributeFilter:['hidden']});
-  const root=document.getElementById(lab?'lab-player-gate':'academy-workspace');
+  const root=lab?document.getElementById('lab-player-gate'):
+   (document.getElementById('academy-workspace')||document.getElementById('gu-bc-shell'));
   if(root&&root!==gate)watch.observe(root,{attributes:true,attributeFilter:['hidden']});
   window.addEventListener('pagehide',()=>{disposed=true;watch.disconnect();dispose()},{once:true});
  };
