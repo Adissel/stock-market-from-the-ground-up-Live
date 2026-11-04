@@ -51,6 +51,10 @@ test('Home loads first-paint guard before all sitewide navigation and presentati
  assert.match(home,/class="gu-home-terminal"/);
  assert.match(home,/id="cl-home-initial-loading" role="status" aria-live="polite"/);
  assert.match(code,/#cl-home-initial-loading/);
+ for(const asset of ['crownlight-page-workspace-v2.css','crownlight-page-style-visibility-v3.css','crownlight-cardless-layout-v1.css']){
+  assert(home.includes(asset),'The published layout must have its CSS before first paint: '+asset);
+  assert(home.indexOf(asset)<home.indexOf('</head>'),'Critical style must be an initial head link');
+ }
 });
 test('Initial public/Classic shell cannot appear before verified state',()=>{
  const h=browser();
