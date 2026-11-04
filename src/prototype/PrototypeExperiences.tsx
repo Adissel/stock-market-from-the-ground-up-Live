@@ -42,6 +42,11 @@ function HomeMarketEmbed({context='lab'}:{context?:'lab'|'bootcamp'}){
   return()=>session?.dispose();
  },[context]);
  return <div className="cx-home-shared-market" aria-label="Exact homepage animated fictional market chart">
+   <div className="cx-pan-controls cx-home-context-toolbar" role="toolbar" aria-label="Prototype homepage chart tools">
+    <button type="button" aria-label="Open chart indicator context menu" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();window.dispatchEvent(new CustomEvent('crownlight:prototype-chart-menu',{detail:{x:r.left,y:r.bottom+6,view:'indicators'}}))}}>Indicators menu</button>
+    <button type="button" aria-label="Open chart drawing controls" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();window.dispatchEvent(new CustomEvent('crownlight:prototype-chart-menu',{detail:{x:r.left,y:r.bottom+6,view:'drawings'}}))}}>Drawings</button>
+    <span>Right-click the chart for all computed studies and Custom settings</span>
+   </div>
    <div ref={ref} className="cx-home-shared-market-host"/>
    {error&&<p role="status">{error}</p>}
    <p className="cx-home-shared-market-source">The same React ECharts candle-formation engine as the homepage.
