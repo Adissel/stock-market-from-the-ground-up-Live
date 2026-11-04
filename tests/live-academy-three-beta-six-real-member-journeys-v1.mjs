@@ -8,22 +8,21 @@
  */
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {createHmac} from 'node:crypto';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const c=readFileSync('config.js','utf8');
 const url=c.match(/SUPABASE_URL:\s*'([^']+)'/)?.[1];
 const key=c.match(/SUPABASE_ANON_KEY:\s*'([^']+)'/)?.[1];
 if(!url||!key)throw Error('BLOCKED: verified public configuration absent');
-const explicit=!!(process.env.LAB_QA_SECOND_EMAIL&&process.env.LAB_QA_SECOND_PASSWORD);
-const secondPass=explicit?process.env.LAB_QA_SECOND_PASSWORD:process.env.LAB_QA_PASSWORD?
- createHmac('sha256',process.env.LAB_QA_PASSWORD).update('smfgu:isolated-second-qa:2026-10-31:v1').digest('hex')+'Qa2!':'';
+// Both member identities must be independently configured as encrypted
+// GitHub Actions secrets. Never derive a fallback password or reuse QA A.
 const accounts=[
  {label:'A',email:process.env.LAB_QA_EMAIL,password:process.env.LAB_QA_PASSWORD},
- {label:'B',email:explicit?process.env.LAB_QA_SECOND_EMAIL:
-  'stockmarketfromthegroundup+smfgu-qa2v1@gmail.com',password:secondPass}
+ {label:'B',email:process.env.LAB_QA_SECOND_EMAIL,password:process.env.LAB_QA_SECOND_PASSWORD}
 ];
-if(accounts.some(x=>!x.email||!x.password))
- throw Error('BLOCKED: two genuine independent noncommercial QA accounts are required');
+if(accounts.some(x=>!x.email?.trim()||!x.password))
+ throw Error('BLOCKED: two explicitly configured noncommercial QA identities are required');
+assert.notEqual(accounts[0].email.trim().toLowerCase(),accounts[1].email.trim().toLowerCase(),
+ 'BLOCKED: two different configured QA email identities are required');
 const request=async(path,options={})=>{
  const reply=await fetch(path,{...options,cache:'no-store',signal:AbortSignal.timeout(30000)});
  return {status:reply.status,data:await reply.json().catch(()=>({}))};
