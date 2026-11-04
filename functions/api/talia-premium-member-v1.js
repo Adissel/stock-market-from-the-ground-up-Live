@@ -41,6 +41,20 @@ export function betaTesterAllowed(env,userId){
   .map(x=>x.trim().toLowerCase()).filter(x=>UUID.test(x));
  return ids.length>0&&ids.length<=8&&new Set(ids).size===ids.length&&ids.includes(userId.toLowerCase());
 }
+export function ownerApprovedTesterGrant(grants,planCode,now=Date.now()){
+ if(!Array.isArray(grants)||!Number.isFinite(now))return null;
+ const active=grants.find(g=>g?.plan_code===planCode&&
+  ['active','trialing'].includes(String(g.status||'').toLowerCase())&&
+  Number.isFinite(Date.parse(g.starts_at||''))&&Date.parse(g.starts_at)<=now&&
+  (g.ends_at==null||Number.isFinite(Date.parse(g.ends_at))&&Date.parse(g.ends_at)>now));
+ const qa=active?.metadata?.talia_member_runtime_beta_v1;
+ if(!qa||qa.status!=='owner_approved_qa_only'||qa.version!==1||
+   qa.noBillingChanges!==true||qa.scope!=='OWN_MEMBER_RECORDS'||
+   typeof qa.expiresAt!=='string'||!Number.isFinite(Date.parse(qa.expiresAt))||
+   Date.parse(qa.expiresAt)<=now||Date.parse(qa.expiresAt)>now+14*86400000)return null;
+ return {allowed:true,allTiers:qa.allTiers===true};
+}
+
 function currentPlan(grants,subscriptions,now){
  const active=g=>['active','trialing'].includes(String(g.status||'').toLowerCase());
  const grant=grants.find(g=>active(g)&&Date.parse(g.starts_at||'')<=now&&Number.isFinite(Date.parse(g.starts_at||''))&&
@@ -53,7 +67,7 @@ function currentPlan(grants,subscriptions,now){
 async function memberTier(env,userId,requested){
  const id=enc(userId);
  const [grants,subscriptions]=await Promise.all([
-  rest(env,'user_plan_grants?select=plan_code,status,starts_at,ends_at,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30'),
+  rest(env,'user_plan_grants?select=plan_code,status,starts_at,ends_at,updated_at,metadata&user_id=eq.'+id+'&order=updated_at.desc&limit=30'),
   rest(env,'site_subscriptions?select=plan_code,status,current_period_end,updated_at&user_id=eq.'+id+'&order=updated_at.desc&limit=30')
  ]);
  if(grants.length>30||subscriptions.length>30)throw fail('Cannot verify all active membership grants.',503);
@@ -61,10 +75,12 @@ async function memberTier(env,userId,requested){
  const plans=await rest(env,'platform_plans?select=plan_code,metadata&plan_code=eq.'+enc(code)+'&limit=1');
  if(plans.length!==1||plans[0].plan_code!==code)throw fail('Membership policy could not be verified.',403);
  const saved=plans[0]?.metadata?.talia_market_tutor_v1?.tier;
- const allowed=betaTesterAllowed(env,userId);
+ const explicitQa=ownerApprovedTesterGrant(grants,code);
+ const environmentQa=betaTesterAllowed(env,userId);
+ const allowed=!!explicitQa||environmentQa;
  return {...betaTier({planCode:code,configured:saved,requested,allowlisted:allowed,
-   enabled:env.TALIA_PREMIUM_BETA_ENABLED==='true',
-   allTiers:env.TALIA_PREMIUM_BETA_ALL_TIERS==='true'}),planCode:code};
+   enabled:allowed,
+   allTiers:explicitQa?.allTiers===true||environmentQa&&env.TALIA_PREMIUM_BETA_ALL_TIERS==='true'}),planCode:code};
 }
 async function readOwnLearning(env,userId){
  const id=enc(userId);
