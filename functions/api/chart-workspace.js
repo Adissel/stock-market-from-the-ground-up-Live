@@ -29,11 +29,26 @@ function chartStudyPrefs(raw){
  const result=[];
  for(const s of raw.slice(0,18)){
   if(!s||typeof s!=='object'||!SAFE_CHART_STUDIES.has(s.type))continue;
-  result.push({id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+result.length,
+  const item={id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+result.length,
    type:s.type,period:Number.isInteger(s.period)&&s.period>=1&&s.period<=200?s.period:14,
    color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color.toLowerCase():'#a78bfa',
    width:Number.isInteger(s.width)&&s.width>=1&&s.width<=4?s.width:2,
-   lineStyle:SAFE_LINES.has(s.lineStyle)?s.lineStyle:'solid'});
+   lineStyle:SAFE_LINES.has(s.lineStyle)?s.lineStyle:'solid'};
+  // Preserve validated custom parameters without permitting member-supplied
+  // scripts, URLs, raw market bars, tokens or unbounded configuration.
+  const priceStudies=['EMA','SMA','RSI','MACD','BB','VWAP'];
+  const sources=s.type==='VWAP'?['hlc3','close','hl2','ohlc4']:
+   ['close','open','high','low','hl2','hlc3','ohlc4'];
+  if(priceStudies.includes(s.type)&&sources.includes(s.priceSource))item.priceSource=s.priceSource;
+  if(s.type==='BB'&&validNumber(s.multiplier)&&s.multiplier>=.5&&s.multiplier<=5)
+   item.multiplier=s.multiplier;
+  if(s.type==='MACD'){
+   const fast=s.fast,slow=s.slow,signal=s.signal;
+   if(Number.isInteger(fast)&&fast>=2&&fast<=99&&Number.isInteger(slow)&&
+    slow>fast&&slow<=200){item.fast=fast;item.slow=slow}
+   if(Number.isInteger(signal)&&signal>=2&&signal<=100)item.signal=signal;
+  }
+  result.push(item);
  }
  return result;
 }

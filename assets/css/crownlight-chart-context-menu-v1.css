@@ -1,0 +1,16 @@
+
+/* Crownlight V1 full-catalog contextual chart interaction.
+   One fixed viewport-clamped menu; hover is only an enhancement to clicks/keyboard. */
+.cl-context-menu[hidden],.cl-context-column[hidden]{display:none!important}
+.cl-context-menu{position:fixed;z-index:5000;width:min(94vw,750px);max-height:min(72vh,650px);display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;padding:10px;background:#09172b;color:#edf8ff;border:1px solid #667fb0;border-radius:12px;box-shadow:0 20px 48px rgba(0,0,0,.74)}
+.cl-context-column{display:flex;flex-direction:column;flex:1 1 170px;min-width:0;max-height:min(60vh,560px);overflow-x:hidden;overflow-y:auto;gap:4px;padding:5px}
+.cl-context-title{font-size:.83rem;color:#f6d68f;letter-spacing:.02em;padding:7px 6px}
+.cl-context-column button{display:block;min-height:44px;width:100%;text-align:left;padding:8px 10px;color:#eff7ff;font:inherit;font-size:.84rem;border:1px solid #2f4969;border-radius:7px;background:#172c47;cursor:pointer;white-space:normal;overflow-wrap:anywhere}
+.cl-context-column button:hover,.cl-context-column button:focus-visible{background:#32416f;border-color:#a78bfa;outline:2px solid #d3bbff;outline-offset:1px}
+.cl-context-column button[aria-disabled="true"]{color:#e6bd82;background:#2d2942;border-color:#634d68}
+.cl-context-locked{font-size:.82rem;color:#f6c89d;padding:8px;line-height:1.45}
+.cl-context-note{font-size:.78rem;color:#b0cadb;padding:6px;line-height:1.5}
+.cl-context-feedback{order:5;width:100%;margin:0;padding:7px 9px;color:#f8d79c;font-size:.82rem;border-top:1px solid #425b78}
+.crownlight-toolbar-actions button[data-cl="context-menu"],.crownlight-toolbar-actions button[data-cl="drawings"]{min-height:44px;border-color:#8272be;background:#29325f}
+@media(max-width:630px){.cl-context-menu{width:calc(100vw - 16px);max-height:85vh;overflow-y:auto;flex-direction:column}.cl-context-column{flex:0 0 auto;max-height:22vh}.cl-context-column:first-child{max-height:23vh}.cl-context-feedback{font-size:.78rem}}
+@media(prefers-reduced-motion:reduce){.cl-context-menu *{transition:none!important;animation:none!important}}

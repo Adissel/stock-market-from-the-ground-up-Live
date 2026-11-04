@@ -33,8 +33,12 @@
  ];
  let prefs={studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};
  const state={mounted:false,chart:null,candles:null,volume:null,series:[],lines:[],source:'',count:-1,
-  hover:null,inspectIndex:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null};
+  hover:null,inspectIndex:null,sim:null,follow:true,fullscreen:false,inspectOpen:false,modal:null,observer:null,markerApi:null,userId:null,tempPlan:null,contextMenu:null};
  const $=id=>document.getElementById(id);
+  const contextCatalog=()=>root.CrownlightChartContextMenuV1;
+  const tierStatus=()=>root.CrownlightChartTiers?.getStatus?.()||null;
+  const isStudyAllowed=type=>contextCatalog()?.allowed(type,tierStatus())??['EMA','VWAP'].includes(type);
+  const normalizeStudy=s=>contextCatalog()?.normalize(s)||s;
  const h=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
  const money=n=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'—';
  const num=n=>Number.isFinite(n)?n.toLocaleString('en-US',{maximumFractionDigits:3}):'—';
@@ -45,7 +49,7 @@
   state.userId=userId;state.tempPlan=null;let stored=null;
   try{stored=JSON.parse(localStorage.getItem(KEY+':'+userId)||'null')}catch{}
   prefs=stored&&Array.isArray(stored.studies)?stored:{studies:defaults.map(x=>({...x})),levels:[],follow:true,appearance:{...APPEARANCE_DEFAULTS}};prefs.appearance=safeAppearance(prefs.appearance);
-  prefs.studies=prefs.studies.filter(x=>LABELS[x?.type]&&typeof x.color==='string').slice(0,18);
+  prefs.studies=prefs.studies.filter(x=>LABELS[x?.type]&&typeof x.color==='string').slice(0,18).map(normalizeStudy);
   if(!Array.isArray(prefs.levels))prefs.levels=[];
   state.follow=prefs.follow!==false;state.source='';state.count=-1;state.hover=null;state.inspectIndex=null;
   const reader=state.shell?.querySelector('[data-cl="candle-reader"]');if(reader)reader.textContent='';
@@ -73,6 +77,8 @@
    '<button type="button" data-cl="reset" title="Fit all currently revealed candles" aria-label="Fit revealed candles">Fit</button>'+
    '<button type="button" data-cl="follow" title="Follow the latest revealed candle" aria-label="Follow latest revealed candle">Follow</button>'+
    '<button type="button" data-cl="studies" aria-label="Configure chart indicators">Indicators <span class="cl-dot">●</span></button>'+
+    '<button type="button" data-cl="context-menu" aria-haspopup="menu" aria-label="Open complete chart menu; right-click on the plot also opens it">Chart menu</button>'+
+    '<button type="button" data-cl="drawings" aria-haspopup="menu" aria-label="Open chart drawing controls">Drawings</button>'+
    '<button type="button" data-cl="appearance" aria-label="Configure candle colors and spacing">Colors & spacing</button>'+
    '<button type="button" data-cl="level">＋ Level</button>'+
    '<button type="button" data-cl="source" aria-label="View current chart data source">Source</button>'+ 
@@ -106,6 +112,23 @@
   });
   state.volume=chart.addSeries(lib.HistogramSeries,{priceFormat:{type:'volume'},priceLineVisible:false,lastValueVisible:false},1);
   state.chart=chart;state.shell=shell;state.mounted=true;applyAppearance();
+   state.contextMenu=contextCatalog()?.mount({
+    shell,plot:chartBox,
+    trigger:shell.querySelector('[data-cl="context-menu"]'),
+    drawingTrigger:shell.querySelector('[data-cl="drawings"]'),
+    getStatus:tierStatus,
+    onAdd:(type,period)=>addContextStudy(type,period,false),
+    onCustom:type=>addContextStudy(type,null,true),
+    onManage:()=>openStudies(),onAppearance:openAppearance,onLevel:addLevel,
+    onDrawing:tool=>{
+     const t=tierStatus();
+     if(!t?.verified||!t.allowed?.includes('ADVANCED')||
+      !['ADVANCED','PROFESSIONAL'].includes(t.selected))return false;
+     const entry=root.CrownlightChartTiers?.getInstances?.()?.[0];
+     if(!entry?.chart?.createOverlay||!['segment','horizontalStraightLine','fibonacciLine'].includes(tool))return false;
+     try{return !!entry.chart.createOverlay(tool)}catch{return false}
+    }
+   })||null;
   chart.subscribeCrosshairMove(param=>{
    if(!state.sim||param?.time===undefined||!param.time){return}
    const ms=Number(param.time)*1000;
@@ -202,9 +225,9 @@
   if(!state.shell)return;
   const panel=state.shell.querySelector('.crownlight-legend');panel.replaceChildren();
   prefs.studies.forEach(study=>{
-   const chip=h('button','crownlight-study-chip');chip.type='button';chip.title='Configure '+LABELS[study.type];
+   const chip=h('button','crownlight-study-chip');chip.type='button';chip.title=isStudyAllowed(study.type)?'Configure '+LABELS[study.type]:'Locked · Advanced Studio required';
    const dot=h('span','cl-color');dot.style.background=study.color;
-   chip.append(dot,h('span','',study.type+(study.period>1?' '+study.period:'')));
+   chip.append(dot,h('span','',study.type+(study.period>1?' '+study.period:'')+(isStudyAllowed(study.type)?'':' · Locked')));
    chip.onclick=openStudies;panel.append(chip);
   });
   if(!prefs.studies.length)panel.append(h('span','cl-empty','Indicators off · use Indicators to add studies'));
@@ -221,20 +244,47 @@
    crosshairMarkerVisible:true},pane||0);
   series.setData(points);state.series.push(series);
  }
+ function addContextStudy(type,period,custom){
+  if(!state.userId||!state.sim||!LABELS[type]||!isStudyAllowed(type)||prefs.studies.length>=18)return false;
+  const item=contextCatalog()?.normalize({id:'ctx_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6),
+   type,period:period??undefined,color:COLORS[prefs.studies.length%COLORS.length],width:2});
+  if(!item)return false;
+  prefs.studies.push({...item});save();redraw(state.sim);
+  if(custom)openStudies(item.id);
+  return true;
+ }
+ function studyPrice(bar,source){
+  if(['open','high','low','close'].includes(source))return bar[source];
+  if(source==='hl2')return (bar.high+bar.low)/2;
+  if(source==='hlc3')return (bar.high+bar.low+bar.close)/3;
+  if(source==='ohlc4')return (bar.open+bar.high+bar.low+bar.close)/4;
+  return bar.close;
+ }
  function makeStudy(study,bars){
-  const m=MathLib(),c=bars.map(b=>b.close),p=study.period||9;
+  if(!isStudyAllowed(study.type))return;
+  const m=MathLib(),c=bars.map(b=>studyPrice(b,study.priceSource||'close')),
+   sourced=bars.map((b,i)=>({...b,close:c[i]})),p=study.period||9;
   const add=(vals,col=study.color,pane=0,label=study.type)=>createLine(linesToPoints(vals,bars),col,study.width,pane,label,study.lineStyle);
-  if(study.type==='EMA')add(m.ema(c,p));
-  else if(study.type==='SMA')add(m.sma(c,p));
-  else if(study.type==='VWAP')add(m.vwapProxy(bars),study.color,0,'HLC3 VWAP proxy');
-  else if(study.type==='BB'){
-   const v=m.bollinger(bars,p,Number(study.multiplier)||2);
-   add(v.middle,study.color,0,'BB mid');add(v.upper,'#8de6fb',0,'BB upper');add(v.lower,'#8de6fb',0,'BB lower');
+  if(study.type==='EMA')add(m.ema(c,p),study.color,0,'EMA '+p+' ('+(study.priceSource||'close')+')');
+  else if(study.type==='SMA')add(m.sma(c,p),study.color,0,'SMA '+p+' ('+(study.priceSource||'close')+')');
+  else if(study.type==='VWAP'){
+   const source=study.priceSource||'hlc3';
+   const sourceBars=source==='hlc3'?bars:bars.map(b=>{
+    const value=studyPrice(b,source);return {...b,high:value,low:value,close:value};
+   });
+   add(m.vwapProxy(sourceBars),study.color,0,source.toUpperCase()+' bar-volume VWAP proxy');
   }
-  else if(study.type==='RSI')add(m.rsi(bars,p),study.color,2,'RSI '+p);
+  else if(study.type==='BB'){
+   const v=m.bollinger(sourced,p,Number(study.multiplier)||2);
+   add(v.middle,study.color,0,'BB mid');add(v.upper,study.color,0,'BB upper');add(v.lower,study.color,0,'BB lower');
+  }
+  else if(study.type==='RSI')add(m.rsi(sourced,p),study.color,2,'RSI '+p);
   else if(study.type==='ATR')add(m.atr(bars,p),study.color,2,'ATR '+p);
   else if(study.type==='MACD'){
-   const v=m.macd(bars,12,26,9);add(v.line,study.color,2,'MACD');add(v.signal,'#ffd074',2,'MACD signal');
+   const f=Number(study.fast)||12,slow=Number(study.slow)||26,signal=Number(study.signal)||9;
+   const v=m.macd(sourced,f,slow,signal);
+   add(v.line,study.color,2,'MACD '+f+'/'+slow+'/'+signal);
+   add(v.signal,study.color,2,'MACD signal');add(v.histogram,study.color,2,'MACD histogram');
   }
   else if(study.type==='VOL_SMA')add(m.sma(bars.map(b=>b.volume),p),study.color,1,'Volume MA '+p);
   else if(study.type==='ORH'||study.type==='ORL'){
@@ -262,9 +312,9 @@
   state.volume.setData(data.map(b=>({time:Math.floor(b.time.getTime()/1000),value:b.volume,color:doji(b)?a.doji:b.close>=b.open?a.bullish:a.bearish})));
   // Never compute a study using bars after sim.index.
   state.series.forEach(series=>{try{state.chart.removeSeries(series)}catch{}});state.series=[];
-  prefs.studies.forEach(study=>{try{makeStudy(study,data)}catch(error){console.warn('Chart indicator unavailable',study.type,error?.message)}});
+  prefs.studies.filter(study=>isStudyAllowed(study.type)).forEach(study=>{try{makeStudy(study,data)}catch(error){console.warn('Chart indicator unavailable',study.type,error?.message)}});
   // Swing classifications appear only after their right-side confirmation bars have been revealed.
-  const structure=prefs.studies.find(study=>study.type==='STRUCTURE');
+  const structure=prefs.studies.find(study=>study.type==='STRUCTURE'&&isStudyAllowed(study.type));
   if(typeof root.LightweightCharts.createSeriesMarkers==='function'){
    const markers=structure?MathLib().confirmedStructure(data,structure.period||2).map(p=>({
     time:Math.floor(data[p.index].time.getTime()/1000),
@@ -425,13 +475,14 @@
   try{await navigator.clipboard.writeText(message);if(feedback)feedback.textContent='Copied for your Trading Journal.'}
   catch{if(feedback)feedback.textContent='Browser clipboard access unavailable; select and copy your observation manually.'}
  }
- function openStudies(){
+ function openStudies(focusId){
   if(!state.shell)return;state.modal?.remove();
   const dialog=h('dialog','crownlight-dialog');state.modal=dialog;
   dialog.innerHTML='<header><span class="crownlight-eyebrow">CHART INTELLIGENCE</span><h2>Indicator Studio</h2>'+
    '<p>Customize calculations and overlays. Values use only revealed candles; insufficient warmup remains missing.</p></header>'+
    '<div class="crownlight-dialog-toolbar"><label for="cl-new-study">Add a study</label><select id="cl-new-study">'+
-   Object.keys(LABELS).map(k=>'<option value="'+k+'">'+LABELS[k]+'</option>').join('')+'</select>'+
+   Object.keys(LABELS).map(k=>'<option value="'+k+'"'+(isStudyAllowed(k)?'':' disabled')+'>'+
+    LABELS[k]+(isStudyAllowed(k)?'':' · Locked · Advanced')+'</option>').join('')+'</select>'+
    '<button type="button" data-add>＋ Add indicator</button></div>'+
    '<div class="crownlight-study-list"></div>'+
    '<footer><p>VWAP is an HLC3 approximation. HOD / PMH / PDH levels reflect only observed history, not a guaranteed full-session market high.</p>'+
@@ -441,26 +492,64 @@
    const list=dialog.querySelector('.crownlight-study-list');list.replaceChildren();
    if(!prefs.studies.length)list.append(h('p','cl-empty','No indicators selected.'));
    prefs.studies.forEach((study,i)=>{
-    const row=h('div','crownlight-study-row');
-    const header=h('div','crownlight-study-heading',LABELS[study.type]);
+    const row=h('div','crownlight-study-row');row.dataset.studyId=study.id;
+    const locked=!isStudyAllowed(study.type);
+    const header=h('div','crownlight-study-heading',LABELS[study.type]+(locked?' · Locked · Advanced required':''));
+    if(locked)row.append(h('p','crownlight-locked-note',
+     'Saved but not plotted. Verified Advanced Studio access is required; this editor does not grant entitlements.'));
     row.append(header);
     const controls=h('div','crownlight-study-settings');
     if(['EMA','SMA','RSI','ATR','BB','VOL_SMA','STRUCTURE','ORH','ORL'].includes(study.type)){
      const label=h('label','','Period');const input=h('input');input.type='number';input.min=study.type==='STRUCTURE'||study.type==='ORH'||study.type==='ORL'?'1':'2';input.max=study.type==='STRUCTURE'?'5':study.type==='ORH'||study.type==='ORL'?'60':'200';input.value=String(study.period||14);
      input.setAttribute('aria-label',LABELS[study.type]+' period');input.addEventListener('change',()=>{
-      const next=Math.round(Number(input.value));const min=study.type==='STRUCTURE'||study.type==='ORH'||study.type==='ORL'?1:2;const max=study.type==='STRUCTURE'?5:study.type==='ORH'||study.type==='ORL'?60:200;study.period=Number.isFinite(next)?Math.max(min,Math.min(max,next)):14;input.value=String(study.period);save();redraw(state.sim)});
+      const next=Math.round(Number(input.value));const min=study.type==='STRUCTURE'||study.type==='ORH'||study.type==='ORL'?1:2;const max=study.type==='STRUCTURE'?5:study.type==='ORH'||study.type==='ORL'?60:200;study.period=Number.isFinite(next)?Math.max(min,Math.min(max,next)):14;input.value=String(study.period);save();if(!locked)redraw(state.sim)});
      label.append(input);controls.append(label);
     }
     const colorLabel=h('label','','Color');const color=h('input');color.type='color';color.value=/^#[0-9a-f]{6}$/i.test(study.color)?study.color:'#a78bfa';
-    color.setAttribute('aria-label',LABELS[study.type]+' color');color.oninput=()=>{study.color=color.value;save();redraw(state.sim)};
+    color.setAttribute('aria-label',LABELS[study.type]+' color');color.oninput=()=>{study.color=color.value;save();if(!locked)redraw(state.sim)};
     colorLabel.append(color);controls.append(colorLabel);
+    if(['EMA','SMA','RSI','MACD','BB','VWAP'].includes(study.type)){
+     const sourceLabel=h('label','','Price source'),sourceSelect=h('select');
+     const sources=study.type==='VWAP'?['hlc3','close','hl2','ohlc4']:
+      ['close','open','high','low','hl2','hlc3','ohlc4'];
+     for(const name of sources){const o=h('option','',name.toUpperCase());o.value=name;sourceSelect.append(o)}
+     sourceSelect.value=sources.includes(study.priceSource)?study.priceSource:study.type==='VWAP'?'hlc3':'close';
+     sourceSelect.setAttribute('aria-label',LABELS[study.type]+' price source');
+     sourceSelect.addEventListener('change',()=>{study.priceSource=sourceSelect.value;save();if(!locked)redraw(state.sim)});
+     sourceLabel.append(sourceSelect);controls.append(sourceLabel);
+    }
+    if(study.type==='BB'){
+     const label=h('label','','Standard deviation multiplier'),field=h('input');field.type='number';
+     field.min='.5';field.max='5';field.step='.1';field.value=String(study.multiplier||2);
+     field.setAttribute('aria-label','Bollinger standard deviation multiplier');
+     field.addEventListener('change',()=>{const next=Number(field.value);
+      if(!Number.isFinite(next)||next<.5||next>5){field.value=String(study.multiplier||2);return}
+      study.multiplier=next;save();if(!locked)redraw(state.sim)});
+     label.append(field);controls.append(label);
+    }
+    if(study.type==='MACD'){
+     const defaults={fast:12,slow:26,signal:9};
+     for(const key of ['fast','slow','signal']){
+      const label=h('label','',key+' EMA period'),field=h('input');field.type='number';field.step='1';
+      field.min=key==='slow'?'3':'2';field.max=key==='slow'?'200':'100';
+      field.value=String(study[key]||defaults[key]);field.setAttribute('aria-label','MACD '+key+' period');
+      field.addEventListener('change',()=>{
+       const next=Number(field.value),min=Number(field.min),max=Number(field.max);
+       if(!Number.isInteger(next)||next<min||next>max||
+        key==='fast'&&next>=Number(study.slow||26)||
+        key==='slow'&&next<=Number(study.fast||12)){
+        field.value=String(study[key]||defaults[key]);return}
+       study[key]=next;save();if(!locked)redraw(state.sim);
+      });label.append(field);controls.append(label);
+     }
+    }
     const widthLabel=h('label','','Thickness');const width=h('select');
     for(let n=1;n<=4;n++){const o=h('option','',n+' px');o.value=String(n);if(n===(study.width||2))o.selected=true;width.append(o)}
-    width.setAttribute('aria-label',LABELS[study.type]+' line thickness');width.onchange=()=>{study.width=Number(width.value);save();redraw(state.sim)};
+    width.setAttribute('aria-label',LABELS[study.type]+' line thickness');width.onchange=()=>{study.width=Number(width.value);save();if(!locked)redraw(state.sim)};
     widthLabel.append(width);controls.append(widthLabel);
     const styleLabel=h('label','','Line style'),styleSelect=h('select');styleSelect.setAttribute('aria-label',LABELS[study.type]+' line style');
     for(const [value,title] of [['solid','Solid'],['dashed','Dashed'],['dotted','Dotted']]){const o=h('option','',title);o.value=value;o.selected=(study.lineStyle||'solid')===value;styleSelect.append(o)}
-    styleSelect.onchange=()=>{study.lineStyle=STYLES.has(styleSelect.value)?styleSelect.value:'solid';save();redraw(state.sim)};
+    styleSelect.onchange=()=>{study.lineStyle=STYLES.has(styleSelect.value)?styleSelect.value:'solid';save();if(!locked)redraw(state.sim)};
     styleLabel.append(styleSelect);controls.append(styleLabel);
     const remove=h('button','crownlight-remove','Remove');remove.type='button';remove.onclick=()=>{prefs.studies.splice(i,1);save();redraw(state.sim);populate()};
     controls.append(remove);row.append(controls);list.append(row);
@@ -469,13 +558,22 @@
   dialog.querySelector('[data-add]').onclick=()=>{
    if(prefs.studies.length>=18)return;
    const type=dialog.querySelector('#cl-new-study').value;
-   prefs.studies.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),type,period:['BB','EMA','SMA'].includes(type)?20:['ORH','ORL'].includes(type)?5:type==='STRUCTURE'?2:14,color:COLORS[prefs.studies.length%COLORS.length],width:2});
+   if(!isStudyAllowed(type))return;
+   const config=contextCatalog()?.normalize({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),
+    type,period:['BB','EMA','SMA'].includes(type)?20:['ORH','ORL'].includes(type)?5:type==='STRUCTURE'?2:14,
+    color:COLORS[prefs.studies.length%COLORS.length],width:2});
+   if(!config)return;
+   prefs.studies.push({...config});
    save();redraw(state.sim);populate();
   };
   dialog.querySelector('[data-preset]').onclick=()=>{prefs.studies=defaults.map(x=>({...x}));save();redraw(state.sim);populate()};
   dialog.querySelector('[data-close]').onclick=()=>dialog.close();
   dialog.addEventListener('close',()=>{dialog.remove();state.modal=null},{once:true});
   populate();dialog.showModal();
+  if(typeof focusId==='string'){
+   const row=[...dialog.querySelectorAll('[data-study-id]')].find(x=>x.dataset.studyId===focusId);
+   row?.scrollIntoView?.({block:'nearest'});row?.querySelector('input,select,button')?.focus?.();
+  }
  }
  function openAppearance(){
   if(!state.shell)return;state.modal?.remove();
@@ -500,7 +598,12 @@
    id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+i,type:s.type,
    period:Number.isInteger(s.period)?Math.max(1,Math.min(200,s.period)):14,
    color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color:'#a78bfa',
-   width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid'}))};
+   width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid',
+   priceSource:['close','open','high','low','hl2','hlc3','ohlc4'].includes(s.priceSource)?s.priceSource:s.type==='VWAP'?'hlc3':'close',
+   multiplier:Number.isFinite(s.multiplier)&&s.multiplier>=.5&&s.multiplier<=5?s.multiplier:2,
+   fast:Number.isInteger(s.fast)&&s.fast>=2&&s.fast<=99?s.fast:12,
+   slow:Number.isInteger(s.slow)&&s.slow>=3&&s.slow<=200?s.slow:26,
+   signal:Number.isInteger(s.signal)&&s.signal>=2&&s.signal<=100?s.signal:9}))};
  }
  function restoreWorkspacePreferences(doc){
   if(!state.userId||!doc||typeof doc!=='object')return false;
@@ -511,7 +614,13 @@
     id:typeof s.id==='string'&&/^[\w-]{1,32}$/.test(s.id)?s.id:'study_'+i,
     type:s.type,period:Number.isInteger(s.period)?Math.max(1,Math.min(200,s.period)):14,
     color:typeof s.color==='string'&&/^#[0-9a-f]{6}$/i.test(s.color)?s.color:'#a78bfa',
-    width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid'}));
+    width:Number.isInteger(s.width)?Math.max(1,Math.min(4,s.width)):2,
+    lineStyle:STYLES.has(s.lineStyle)?s.lineStyle:'solid',
+    priceSource:['close','open','high','low','hl2','hlc3','ohlc4'].includes(s.priceSource)?s.priceSource:s.type==='VWAP'?'hlc3':'close',
+    multiplier:Number.isFinite(s.multiplier)&&s.multiplier>=.5&&s.multiplier<=5?s.multiplier:2,
+    fast:Number.isInteger(s.fast)&&s.fast>=2&&s.fast<=99?s.fast:12,
+    slow:Number.isInteger(s.slow)&&s.slow>=3&&s.slow<=200?s.slow:26,
+    signal:Number.isInteger(s.signal)&&s.signal>=2&&s.signal<=100?s.signal:9}));
   }
   save();applyAppearance();if(state.sim)redraw(state.sim);return true;
  }
@@ -544,6 +653,7 @@
    state.lines.forEach(line=>{try{state.candles.removePriceLine(line)}catch{}});state.lines=[];
    try{state.markerApi?.setMarkers([])}catch{}
   }
+  state.contextMenu?.close?.();
   if(state.modal){state.modal.remove();state.modal=null}
   if(state.shell){
    const title=state.shell.querySelector('[data-cl="hover-title"]');
@@ -587,5 +697,12 @@
   state.tempPlan=null;
   if(state.mounted&&state.sim)redraw(state.sim);
  }
+ root.addEventListener?.('crownlight:tier-permission',()=>{
+  // Reconcile saved study visibility at every verified entitlement update or
+  // expiry. A cached paid overlay cannot remain on a downgraded chart.
+  state.contextMenu?.refresh?.();
+  if(state.mounted&&state.sim&&state.userId&&state.sim.user?.id===state.userId)
+   redraw(state.sim);
+ });
  root.CrownlightStudio={render:redraw,clearMemberState,setTemporaryPlanLevels,clearTemporaryPlanLevels,getWorkspacePreferences,restoreWorkspacePreferences,getStatus:()=>({mounted:state.mounted,library:!!root.LightweightCharts,studies:prefs.studies.map(s=>s.type),revealed:state.count,spacing:state.chart?.timeScale().options().barSpacing??null,visibleLogicalRange:state.chart?.timeScale().getVisibleLogicalRange()??null})};
 })(window);

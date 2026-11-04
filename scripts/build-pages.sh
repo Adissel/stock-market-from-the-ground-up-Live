@@ -30,6 +30,7 @@ node --test tests/home-stable-first-paint-v1.test.mjs
 node --test tests/runtime-owned-talia-v1.test.mjs
 # Block stale async chart libraries from overriding the active Studio tier.
 node --test tests/chart-studio-runtime-ownership-v1.test.mjs
+node --test tests/crownlight-chart-context-menu-v1.test.mjs
 # Legacy copy fixes must not delete learning workspaces or parent containers.
 node --test tests/legacy-copy-runtime-ownership-v1.test.mjs
 # Preserve member verification links and future catalog links against legacy DOM removers.
