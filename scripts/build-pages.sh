@@ -65,6 +65,7 @@ node --test tests/crownlight-workspace-phase2-behavior-20.test.mjs
 node tests/lumens-v1-consolidated-20261104.mjs
 node tests/lumens-v1-batch-readiness-20261104.mjs
 node tests/lumens-v1-static-dashboard-wallet-contract.mjs
+node tests/lumens-v1-release-eight-batch-source-20261104.mjs
 # Verify Chart Pass requests before privileged atomic wallet redemption.
 node --test tests/crownlight-sparks-pass-20-behavior-v1.test.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.

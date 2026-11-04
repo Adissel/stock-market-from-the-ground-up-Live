@@ -121,6 +121,15 @@ try{
  const menu=page.locator('.gu-nav-sparks-popup');
  assert(await menu.isVisible(),'Wallet popup must be displayed after member opens summary');
  assert.match(await menu.innerText(),/Closest study progress/);
+ // A true signed-in keyboard interaction, no mocked credentials or balance output.
+ await walletSummary.focus();
+ assert(await walletSummary.evaluate(el=>document.activeElement===el),
+  'Lumens summary must receive keyboard focus');
+ await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.querySelector('details.gu-nav-sparks')?.open===false,null,{timeout:10000});
+ await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.querySelector('details.gu-nav-sparks')?.open===true,null,{timeout:10000});
+ assert(await menu.isVisible(),'Lumens disclosure must reopen by Enter key');
  const details=menu.getByRole('link',{name:/How to use.*wallet details/i});
  assert.equal(await details.getAttribute('href'),'/dashboard.html?tab=wallet');
  assert.equal(await page.locator('script[data-gu-member-gifting-script]').count(),1,'Dashboard must load versioned gifting controls directly');

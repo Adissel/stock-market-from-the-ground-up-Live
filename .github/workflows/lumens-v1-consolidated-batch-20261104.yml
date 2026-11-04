@@ -8,6 +8,9 @@ on:
       - 'tests/lumens-v1-consolidated-20261104.mjs'
       - 'tests/lumens-v1-batch-readiness-20261104.mjs'
       - 'tests/lumens-v1-static-dashboard-wallet-contract.mjs'
+      - 'tests/lumens-v1-release-eight-batch-source-20261104.mjs'
+      - 'docs/qa/2026-11-04_LUMENS_V1_ROLLBACK_RUNBOOK.md'
+      - 'supabase/qa/20261104_lumens_v1_release_eight_batch_audit.sql'
       - 'tests/live-member-lumen-dashboard-browser-v1.mjs'
       - 'assets/js/dashboard-ui-legacy.js'
       - 'scripts/build-pages.sh'
@@ -54,6 +57,8 @@ jobs:
         run: node tests/lumens-v1-batch-readiness-20261104.mjs
       - name: Static Dashboard balance, session isolation and rollover disclosure
         run: node tests/lumens-v1-static-dashboard-wallet-contract.mjs
+      - name: Eight batches of 48 noncharging production source invariants
+        run: node tests/lumens-v1-release-eight-batch-source-20261104.mjs
       - name: Existing dedicated protected-grade, mixed-order and wallet tests
         run: |
           node tests/test_lumen_learning_gifts_and_academy_progress_v1.mjs
