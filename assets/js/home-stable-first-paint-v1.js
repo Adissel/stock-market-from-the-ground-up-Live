@@ -18,8 +18,8 @@
   html.cl-home-initializing .site-header,
   html.cl-home-initializing main.gu-premium-home,
   html.cl-home-initializing .cl-page-style-livebar{visibility:hidden!important}
-  html.cl-home-initializing body::after{
-   content:"Preparing your learning workspace…";
+  html.cl-home-initializing #cl-home-initial-loading{
+   display:flex!important;align-items:center;justify-content:center;
    position:fixed;left:50%;top:46%;transform:translate(-50%,-50%);
    z-index:1000;padding:14px 22px;border:1px solid #47617e;
    border-radius:10px;background:#101c32;color:#e0ecfb;
