@@ -4,7 +4,8 @@
 
 ## Owner release workflow (2026-10-24)
 
-- Apply authorized website source changes directly to `main` in the existing `cybernexuspublishing/stock-market-from-the-ground-up` repository; do not create additional feature/release branches unless the Owner explicitly reverses this instruction.
+- **Canonical LIVE repository:** `Adissel/stock-market-from-the-ground-up-Live`. Apply all authorized website source changes directly to `main`. **Only `main` may exist as a branch.** Do not create or push `feature/`, `fix/`, `batch/`, `qa/`, `release/`, `recovery/`, integration, or other branches; do not open new branch-based pull requests unless the Owner explicitly changes the single-branch policy. This 2026-11-04 reaffirmation supersedes the earlier repository target in this document.
+- Work already preserved under `archive/one-branch-20261104/` tags is **not automatically merged into `main`**. Review and integrate required archived commits directly on `main`, with existing test, security, and release-acceptance gates. Never report archived work as deployed merely because its previous branch was deleted.
 - The default destination for authorized website changes is production, but acceptance requires successful build, permission, regression, and deployed-behavior verification. Report source commits separately from deploy acceptance.
 - Stripe products, prices, subscriptions, billing configuration, live charges, and refunds are excluded from automatic changes; obtain separate authorization for payment writes and owner-controlled live checkout testing.
 - Do not report the 419 Labs, Boot Camps, navigation or Talia redesign as complete merely because theme infrastructure was deployed.
