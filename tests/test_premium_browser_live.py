@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 BASE=os.getenv('GU_PRODUCTION_URL','https://stock-market-from-the-ground-up-d1r.pages.dev').rstrip('/')
 OUT=Path('artifacts/premium-browser')
 OUT.mkdir(parents=True,exist_ok=True)
-ROUTES=['','learn.html','labs.html','bootcamp-academy.html','store.html','dashboard.html','market-commons.html','simulator.html','journal.html','admin.html']
+ROUTES=['','books.html','membership.html','tools.html','learn.html','labs.html','bootcamp-academy.html','store.html','dashboard.html','market-commons.html','simulator.html','journal.html','admin.html']
 with sync_playwright() as pw:
     browser=pw.chromium.launch(headless=True)
     failures=[]
@@ -99,6 +99,22 @@ with sync_playwright() as pw:
                     assert page.locator('#v132-home').count()==0,'Legacy homepage replaced premium design'
                     css=page.locator('.gu-home-stage').evaluate('(e)=>getComputedStyle(e).backgroundImage')
                     assert 'gradient' in css,'Premium hero background not painted'
+                if route=='tools.html':
+                    # The public registry must never remain an empty panel while
+                    # a private entitlement RPC or catalog provider is pending.
+                    assert page.locator('#tools-hub').count()==1,'Missing public Tools catalog host'
+                    page.wait_for_function("""() => {
+                        const host=document.querySelector('#tools-hub');
+                        return !!host && host.getAttribute('aria-busy')!=='true'
+                            && host.children.length>0 && (host.innerText||'').trim().length>12;
+                    }""",timeout=12000)
+                    assert page.locator('#tools-hub').is_visible(),'Tools catalog is hidden'
+                    print(f'PASS production Tools catalog loaded or explicit unavailable state at {width}px')
+                if route in ['books.html','membership.html','tools.html']:
+                    assert page.locator('main').count()==1,'Missing primary public content landmark'
+                    assert page.locator('main h1').count()>=1,'Missing main content heading'
+                    assert page.locator('.site-header .navlinks a[href]').count()>=3,(
+                        'Public navigation links missing after page initialization')
                 if route in ['learn.html','labs.html','bootcamp-academy.html','store.html','dashboard.html','market-commons.html','simulator.html','journal.html','admin.html']:
                     route_name=route.removesuffix('.html')
                     current=page.locator('body').get_attribute('data-gu-layout-route')
