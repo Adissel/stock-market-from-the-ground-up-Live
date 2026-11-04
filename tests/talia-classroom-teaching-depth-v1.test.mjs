@@ -54,13 +54,13 @@ test('all six original classroom topics and five pedagogical steps teach at diff
 });
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}});
 const UID='11111111-1111-4111-8111-111111111111';
-function mockFetch({code='FOUNDING_30',tier='ADVANCED',addon=null,denied=false}={}){
+function mockFetch({code='FOUNDING_30',tier='ADVANCED',addon=null,denied=false,accountKind='member',flagged=false,showcase=false,expired=false}={}){
  return async(url)=>{
   const path=String(url);
   if(path.includes('/auth/v1/user'))return json({id:UID});
-  if(path.includes('/rest/v1/profiles?'))return json([{account_kind:'member',deleted_at:null}]);
-  if(path.includes('/rest/v1/admin_user_flags?'))return json([]);
-  if(path.includes('/rest/v1/admin_user_roles?'))return json([]);
+  if(path.includes('/rest/v1/profiles?'))return json([{account_kind:accountKind,deleted_at:expired?'2026-11-02T00:00:00Z':null}]);
+  if(path.includes('/rest/v1/admin_user_flags?'))return json(flagged?[{status:'restricted'}]:[]);
+  if(path.includes('/rest/v1/admin_user_roles?'))return json(showcase?[{role_code:'SHOWCASE_VIEWER',expires_at:null}]:[]);
   if(path.includes('/rest/v1/rpc/user_has_tool_access'))return json(!denied);
   if(path.includes('/rest/v1/gu_product_access_config_v1?'))return json([]);
   if(path.includes('/rest/v1/user_plan_grants?'))return json(grants(code));
@@ -117,4 +117,92 @@ test('student page has topic, depth, teaching action and no Pack card presentati
  assert.match(html,/talia-curriculum-v1\.css/);
  assert.match(css,/#talia-member-beta,\.tc-body \.tc-premium-bridge/);
  assert.doesNotMatch(readFileSync('index.html','utf8'),/talia-curriculum-v1\.css/);
+});
+
+test('all seven actual membership policies enforce hierarchical teaching-depth inheritance across six topics and five steps',async()=>{
+ const matrix=[
+  ['FREE','FOUNDATION'],['FOUNDING_14','FOUNDATION'],
+  ['PICK_WHAT_YOU_WANT','FOUNDATION'],['FOUNDING_30','ADVANCED'],
+  ['FOUNDING_60','PROFESSIONAL'],['FULL_MONTHLY','PROFESSIONAL'],
+  ['LIFETIME','ENTERPRISE']
+ ];
+ const order=['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'];
+ const phases=['explain','demonstrate','practice','correct','transfer'];
+ const saved=globalThis.fetch;
+ try{
+  for(const [code,tier] of matrix){
+   globalThis.fetch=mockFetch({code,tier});
+   const response=await onRequest({request:request('GET'),env});
+   assert.equal(response.status,200,code+' catalog failed');
+   const catalog=await response.json();
+   assert.deepEqual(catalog.allowedDepths,order.slice(0,order.indexOf(tier)+1),code+' inherited depths');
+   assert.equal(catalog.maximumDepth,tier,code+' configured maximum');
+   assert.equal(catalog.premiumFeaturesReleased,false,code+' must not release premium analytics');
+   for(const depth of catalog.allowedDepths){
+    for(const topic of TUTOR_LESSONS){
+     for(const phase of phases){
+      const r=await onRequest({request:request('POST',{topic:topic.id,depth,phase}),env});
+      assert.equal(r.status,200,code+': '+topic.id+' '+depth+' '+phase);
+      const lesson=await r.json();
+      assert.equal(lesson.ok,true);
+      assert.equal(lesson.depth,depth);
+      assert.equal(lesson.topic,topic.id);
+      assert.equal(lesson.phase,phase);
+      assert.equal(lesson.graded,false);
+      assert.equal(lesson.masteryAwarded,false);
+      assert.equal(lesson.hasFutureBars,false);
+      assert.equal(lesson.memberRecordWritten,false);
+      assert.equal(lesson.historySaved,false);
+      assert.equal(lesson.aiReason,'original_source_only');
+     }
+    }
+   }
+   for(const forbidden of order.slice(order.indexOf(tier)+1)){
+    const r=await onRequest({request:request('POST',{
+      topic:'vwap',depth:forbidden,phase:'explain'}),env});
+    assert.equal(r.status,403,code+' must deny '+forbidden);
+    assert.equal((await r.json()).maximumDepth,tier);
+   }
+  }
+ }finally{globalThis.fetch=saved}
+});
+test('deleted, restricted, showcase and anonymous accounts cannot call classroom or select Foundation',async()=>{
+ const saved=globalThis.fetch;
+ try{
+  for(const kind of [
+   {accountKind:'showcase'},{expired:true},{flagged:true},{showcase:true}
+  ]){
+   globalThis.fetch=mockFetch(kind);
+   const r=await onRequest({request:request('GET'),env});
+   assert.equal(r.status,403,'Not eligible: '+JSON.stringify(kind));
+  }
+  const r=await onRequest({request:new Request('https://example.test/api/talia-classroom-curriculum-v1'),env});
+  assert.equal(r.status,401,'Anonymous classroom API must reject');
+ }finally{globalThis.fetch=saved}
+});
+test('unknown or expired plan grants, invalid add-on states and forged client fields remain fail-closed',async()=>{
+ const now=NOW;
+ const configured=plan('LIFETIME','ENTERPRISE');
+ const notActive=teachingDepthFromVerifiedRows({
+  grants:[{...ACTIVE,plan_code:'LIFETIME',status:'suspended'}],plans:[configured],now});
+ assert.equal(notActive.maximumDepth,'FOUNDATION');
+ const addOnOnly=teachingDepthFromVerifiedRows({
+  products:[{...ACTIVE,product_key:'TALIA_TUTOR_ADVANCED',status:'active'}],now});
+ assert.equal(addOnOnly.maximumDepth,'ADVANCED','Verified independent add-on may grant teaching depth');
+ const revoked=teachingDepthFromVerifiedRows({
+  products:[{...ACTIVE,product_key:'TALIA_TUTOR_ENTERPRISE',status:'revoked'}],now});
+ assert.equal(revoked.maximumDepth,'FOUNDATION');
+ const stale=teachingDepthFromVerifiedRows({grants:[{...ACTIVE,plan_code:'LIFETIME',ends_at:'2026-11-02T00:00:00Z'}],plans:[configured],now});
+ assert.equal(stale.maximumDepth,'FOUNDATION');
+ const saved=globalThis.fetch;globalThis.fetch=mockFetch({code:'FREE',tier:'FOUNDATION'});
+ try{
+  for(const fields of [
+   {topic:'vwap',depth:'ENTERPRISE',phase:'explain',premiumFeaturesReleased:true},
+   {topic:'vwap',depth:'FOUNDATION',phase:'explain',userId:'11111111-1111-4111-8111-111111111111'},
+   {topic:'vwap',depth:'FOUNDATION',phase:'explain',historySaved:true}
+  ]){
+   const r=await onRequest({request:request('POST',fields),env});
+   assert.equal(r.status,400,'Client-forged grant/output must fail');
+  }
+ }finally{globalThis.fetch=saved}
 });
