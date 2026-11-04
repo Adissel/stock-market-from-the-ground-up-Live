@@ -83,9 +83,17 @@ function sourceOnlyTeachingPrompt(record){
  window.scrollTo({top:0,behavior:'smooth'});
 }
 function sessionMessage(){return TUTOR.user?'Current-page exchanges are available now; cross-device history requires approved private storage.':'Public glossary mode: sign in for member teaching and saved private exchanges.';}
-async function token(){
- if(!TUTOR.sb)return null;
- try{return (await TUTOR.sb.auth.getSession()).data?.session?.access_token||null}catch{return null}
+async function token(expectedUserId=TUTOR.user?.id||null){
+ // Bind the token to the identity that initiated this asynchronous operation.
+ // Never use a subsequent account's access token for an earlier member action.
+ if(!TUTOR.sb||!expectedUserId||TUTOR.user?.id!==expectedUserId)return null;
+ const epoch=TUTOR.identityEpoch;
+ try{
+  const session=(await TUTOR.sb.auth.getSession()).data?.session;
+  if(epoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId||
+     session?.user?.id!==expectedUserId)return null;
+  return session.access_token||null;
+ }catch{return null}
 }
 function safeUrl(x){
  const href=String(x?.practiceUrl||'');
@@ -275,8 +283,10 @@ function normalizeSaved(x){
  conversationId:typeof x.conversation_id==='string'?x.conversation_id:null,
  createdAt:x.created_at||new Date().toISOString()};
 }
-async function privateApi(path,method='GET',body,headers={}){
- const access=await token();if(!access)throw Object.assign(new Error('Sign in to manage saved Tutor exchanges.'),{status:401});
+async function privateApi(path,method='GET',body,headers={},expectedUserId=TUTOR.user?.id||null,expectedEpoch=TUTOR.identityEpoch){
+ const access=await token(expectedUserId);
+ if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId)
+  throw Object.assign(new Error('Member session changed; private history request denied.'),{status:401});
  const init={method,cache:'no-store',headers:{authorization:'Bearer '+access,...headers}};
  if(body!==undefined){init.headers['content-type']='application/json';init.body=JSON.stringify(body)}
  const response=await fetch('/api/member-tutor-history'+path,init);
@@ -306,26 +316,32 @@ async function loadHistory(){
 }
 async function sendTutorFeedback(rec,choice,note=''){
  if(!rec.id){historyStatus('Save this response privately before submitting feedback.');return}
+ const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  try{
-  await privateApi('', 'PATCH',{id:rec.id,feedback:choice,note:note.slice(0,500)});
+  await privateApi('', 'PATCH',{id:rec.id,feedback:choice,note:note.slice(0,500)}, {},uid,epoch);
+  if(epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)return;
   rec.feedback=choice;rec.feedbackNote=note.slice(0,500);
   renderConversation();historyStatus('Your private Tutor feedback was submitted; it does not award or change grades.');
- }catch(e){historyStatus('Feedback could not be stored: '+e.message)}
+ }catch(e){if(epoch===TUTOR.identityEpoch&&uid===TUTOR.user?.id)historyStatus('Feedback could not be stored: '+e.message)}
 }
 async function deleteOne(rec){
  if(!rec.id){TUTOR.entries=TUTOR.entries.filter(x=>x!==rec);renderConversation();return}
  if(!confirm('Permanently delete this saved Tutor exchange? This cannot be undone.'))return;
+ const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  try{
-  await privateApi('?id='+encodeURIComponent(rec.id),'DELETE');
+  await privateApi('?id='+encodeURIComponent(rec.id),'DELETE',undefined,{},uid,epoch);
+  if(epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)return;
   TUTOR.entries=TUTOR.entries.filter(x=>x!==rec);renderConversation();historyStatus('Saved Tutor exchange deleted.');
- }catch(e){historyStatus('The saved exchange was not deleted: '+e.message)}
+ }catch(e){if(epoch===TUTOR.identityEpoch&&uid===TUTOR.user?.id)historyStatus('The saved exchange was not deleted: '+e.message)}
 }
 async function deleteAll(){
  if(!TUTOR.user){historyStatus('Sign in to delete your own saved Tutor notes.');return}
  if(!confirm('Permanently delete ALL saved Tutor exchanges AND named conversations on the server? This cannot be undone. Your Labs and Journal are unaffected.'))return;
  const epoch=TUTOR.identityEpoch,user=TUTOR.user.id;
  try{
-  const access=await token();if(!access)throw Error('Your session expired.');
+  const access=await token(user);
+  if(!access||epoch!==TUTOR.identityEpoch||user!==TUTOR.user?.id)
+   throw Error('Member session changed; bulk deletion was not submitted.');
   const response=await fetch('/api/member-tutor-data-delete',{method:'DELETE',cache:'no-store',
    headers:{authorization:'Bearer '+access,'x-confirm-delete':'DELETE_MY_TUTOR_HISTORY'}});
   const data=await response.json().catch(()=>null);
@@ -351,9 +367,10 @@ function exportConversation(){
  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='market-tutor-ungraded-exchanges.json';a.click();
  setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-async function conversationApi(query='',method='GET',body,extra={}){
- const access=await token();
- if(!access)throw new Error('Sign in to manage private Tutor conversations.');
+async function conversationApi(query='',method='GET',body,extra={},expectedUserId=TUTOR.user?.id||null,expectedEpoch=TUTOR.identityEpoch){
+ const access=await token(expectedUserId);
+ if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId)
+  throw new Error('Member session changed; private conversation request denied.');
  const opts={method,cache:'no-store',headers:{authorization:'Bearer '+access,...extra}};
  if(body!==undefined){opts.headers['content-type']='application/json';opts.body=JSON.stringify(body)}
  const res=await fetch('/api/member-tutor-conversations'+query,opts);
@@ -459,7 +476,9 @@ async function calculateHypotheticalPosition(){
  if(rawTarget&&!Number.isFinite(target)){show.textContent='Enter a valid optional target.';return}
  const epoch=TUTOR.identityEpoch,uid=TUTOR.user.id;
  try{
-  const access=await token();if(!access)throw Error('Session expired.');
+  const access=await token(uid);
+  if(!access||epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)
+   throw Error('Member session changed; calculator request was not submitted.');
   const res=await fetch('/api/tutor-calculator',{method:'POST',cache:'no-store',
    headers:{authorization:'Bearer '+access,'content-type':'application/json'},
    body:JSON.stringify({action:'position',accountEquity:values[0],riskPercent:values[1],
@@ -509,7 +528,9 @@ async function exportAllTutorData(){
  const epoch=TUTOR.identityEpoch,uid=TUTOR.user?.id;
  if(!uid){historyStatus('Sign in to download your private Tutor notes.');return}
  try{
-  const access=await token();if(!access)throw Error('Session unavailable.');
+  const access=await token(uid);
+  if(!access||epoch!==TUTOR.identityEpoch||uid!==TUTOR.user?.id)
+   throw Error('Member session changed; export was not submitted.');
   const response=await fetch('/api/member-tutor-data-export',{
    method:'GET',cache:'no-store',headers:{authorization:'Bearer '+access}});
   if(!response.ok)throw Error('Private export endpoint unavailable.');
@@ -551,12 +572,13 @@ function summarizePractice(data){
  }
  return parts.filter(Boolean).join('\n\n');
 }
-async function memberExplanation(q,mode,learnerAnswer,conversationId,signal){
- const access=await token();
- if(!access)throw Object.assign(new Error('Your member session expired. Please sign in again.'),{status:401});
+async function memberExplanation(q,mode,learnerAnswer,conversationId,signal,expectedUserId,expectedEpoch,requestId,preferences={}){
+ const access=await token(expectedUserId);
+ if(!access||expectedEpoch!==TUTOR.identityEpoch||TUTOR.user?.id!==expectedUserId||signal?.aborted)
+  throw Object.assign(new Error('Member session changed; no Tutor request was submitted.'),{status:401});
  const response=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',signal,
   headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-  body:JSON.stringify({question:q,mode,learnerAnswer,requestId:TUTOR.activeRequestId,allowModel:$('tutor-ai-consent')?.checked===true,saveHistory:$('tutor-save-history')?.checked===true,conversationId})});
+  body:JSON.stringify({question:q,mode,learnerAnswer,requestId,allowModel:preferences.allowModel===true,saveHistory:preferences.saveHistory===true,conversationId})});
  const data=await response.json().catch(()=>null);
  if(!response.ok||data?.ok!==true){
   throw Object.assign(new Error(response.status===403?'Market Tutor access is not included with the current account. Review memberships or individual Tutor access.':
@@ -568,7 +590,8 @@ async function memberExplanation(q,mode,learnerAnswer,conversationId,signal){
   sources:Array.isArray(data.sources)?data.sources:[],aiReason:data.aiReason||null,remainingAiToday:data.remainingAiToday,historySaved:data.historySaved===true,historyId:data.historyId||null,
   conversationLinked:data.conversationLinked===true};
 }
-async function ask(){
+async function ask(options={}){
+ const sourceOnly=options?.sourceOnly===true;
  if(!TUTOR.ready){status('Market Tutor is preparing your verified learning session. Submit after the Tutor becomes ready.');return}
  if(TUTOR.busy)return;
  const q=$('tutor-question').value.trim(),learnerAnswer=$('tutor-reflection').value.trim(),chosen=$('tutor-mode').value;
@@ -580,15 +603,19 @@ async function ask(){
  if(!TUTOR.user){status('Sign in with an eligible membership to use Talia Market Tutor. No API key is required.','error');return}
  const submittingUser=TUTOR.user?.id||null,submittingEpoch=TUTOR.identityEpoch;
  const submittedConversationId=TUTOR.currentConversationId;
- TUTOR.activeRequestId=crypto.randomUUID();
+ const submittedPreferences={allowModel:!sourceOnly&&$('tutor-ai-consent')?.checked===true,
+  saveHistory:$('tutor-save-history')?.checked===true};
+ const requestId=crypto.randomUUID(),controller=new AbortController();
+ TUTOR.activeRequestId=requestId;
  TUTOR.lastDraft={question:q,learnerAnswer,mode:chosen};
- TUTOR.abortController=new AbortController();
+ TUTOR.abortController=controller;
  TUTOR.busy=true;$('tutor-ask').disabled=true;
  $('tutor-stop').disabled=false;$('tutor-retry').disabled=true;
  status('Preparing a source-grounded educational response…');
  try{
-  const data=await memberExplanation(q,mode,learnerAnswer,submittedConversationId,TUTOR.abortController.signal);
-  if(TUTOR.abortController?.signal.aborted)throw Error('The browser stopped waiting for this response.');
+  const data=await memberExplanation(q,mode,learnerAnswer,submittedConversationId,controller.signal,
+   submittingUser,submittingEpoch,requestId,submittedPreferences);
+  if(controller.signal.aborted)throw Error('The browser stopped waiting for this response.');
   if(!data){throw Error('No approved teaching response was returned.')}
   if(TUTOR.user?.id!==submittingUser||TUTOR.identityEpoch!==submittingEpoch)
    throw Error('Your signed-in session changed; the prior response was discarded to protect privacy.');
@@ -608,21 +635,26 @@ async function ask(){
   data.aiReason==='provider_failed'?'The model provider could not return a validated cited explanation.':
   data.aiReason==='duplicate_request'?'This AI request was already processed.':'';
   status('Response displayed. '+(data.generation==='grounded-model-draft'?'First-party AI educational draft; verify its original sources.':'No paid provider result was used. ')+why,'success');
-  if(TUTOR.user&&$('tutor-ai-consent')?.checked)void refreshAiServiceStatus();
-  if(TUTOR.user&&$('tutor-save-history')?.checked===true){
+  if(TUTOR.user&&submittedPreferences.allowModel)void refreshAiServiceStatus();
+  if(TUTOR.user&&submittedPreferences.saveHistory){
    historyStatus(data.historySaved&&submittedConversationId&&!data.conversationLinked?
     'Response saved, but its selected conversation was not confirmed; it will remain Unfiled after refreshing history.':
     data.historySaved?'Tutor response was generated and saved by the authenticated service (ungraded).':
     'The reply is visible here, but private history could not be confirmed; no server save was claimed.');
   }else historyStatus('This response stays on the current page only; account history was not updated.');
  }catch(e){
-  status(TUTOR.abortController?.signal.aborted?
-   'Stopped waiting in this browser. The server might already have reserved AI capacity; no retry will use a paid provider automatically.':
-   e.message+(e.status===403?' Visit the Membership page to review access.':''),'error');
+  if(TUTOR.identityEpoch===submittingEpoch&&TUTOR.user?.id===submittingUser)
+   status(controller.signal.aborted?
+    'Stopped waiting in this browser. The server might already have reserved AI capacity; no retry will use a paid provider automatically.':
+    e.message+(e.status===403?' Visit the Membership page to review access.':''),'error');
  }finally{
   // Keep the member's Profile preference after each Tutor request.
-  TUTOR.abortController=null;TUTOR.busy=false;$('tutor-ask').disabled=false;
-  $('tutor-stop').disabled=true;$('tutor-retry').disabled=!TUTOR.lastDraft;
+  // A stale member request may never clear or re-enable the new member's UI.
+  if(TUTOR.identityEpoch===submittingEpoch&&TUTOR.user?.id===submittingUser&&
+     TUTOR.abortController===controller){
+   TUTOR.abortController=null;TUTOR.busy=false;$('tutor-ask').disabled=false;
+   $('tutor-stop').disabled=true;$('tutor-retry').disabled=!TUTOR.lastDraft;
+  }
  }
 }
 async function refreshAiServiceStatus(){
@@ -673,7 +705,7 @@ async function initTutor(){
   $('tutor-question').value=TUTOR.lastDraft.question;
   $('tutor-reflection').value=TUTOR.lastDraft.learnerAnswer;
   $('tutor-mode').value=TUTOR.lastDraft.mode;
-  updateCount();void ask();
+  updateCount();void ask({sourceOnly:true});
  });
  $('tutor-calc-submit').addEventListener('click',()=>void calculateHypotheticalPosition());
  $('tutor-candle-submit').addEventListener('click',()=>void calculateHypotheticalCandle());
@@ -719,7 +751,9 @@ async function initTutor(){
   TUTOR.sb.auth.onAuthStateChange((event,session)=>{
    const oldId=TUTOR.user?.id||null,newId=session?.user?.id||null;
    if(event==='SIGNED_OUT'||(oldId&&newId&&oldId!==newId)){
-    TUTOR.abortController?.abort();TUTOR.lastDraft=null;
+    TUTOR.abortController?.abort();TUTOR.abortController=null;TUTOR.lastDraft=null;
+    TUTOR.busy=false;$('tutor-ask').disabled=true;$('tutor-stop').disabled=true;$('tutor-retry').disabled=true;
+    $('tutor-save-history').checked=false;
     TUTOR.identityEpoch++;TUTOR.entries=[];TUTOR.user=null;TUTOR.serverHistory=false;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
     renderConversation();void refreshAiServiceStatus();historyStatus('Your account changed; private notes were cleared from this page.');
@@ -727,7 +761,9 @@ async function initTutor(){
    }
    if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();}
    if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){
+    // Keep the initial Version 1 history-choice default; account-switch/sign-out already clear it.
     TUTOR.identityEpoch++;TUTOR.user=session.user;
+    $('tutor-ask').disabled=!TUTOR.ready;$('tutor-stop').disabled=true;$('tutor-retry').disabled=true;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
     void loadHistory();void refreshConversations();void refreshAiServiceStatus();
    }
