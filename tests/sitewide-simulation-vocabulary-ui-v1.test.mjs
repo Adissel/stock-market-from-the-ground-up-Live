@@ -59,3 +59,15 @@ test('Academy and Prototype chart copy distinguish simulation without changing c
  const visible=source.replace(/<[^>]*>/g,' ');
  assert.doesNotMatch(visible,/\b(?:fictional|illustrative)\b/i);
 });
+
+test('Additional static memberships, marketing and learning pages display truthful simulation terms',()=>{
+ const pages=['lab-v32-reference.html','lab-v32-member.html','founder-learning-studio.html',
+  'founder-benefits.html','founding600.html','store-tool-interactive-learning.html',
+  'store-tool-market-simulator.html','store-tool-journal-analytics.html','talia-classroom.html',
+  'owner-growth-publishing.html','admin-founders.html'];
+ for(const p of pages)assert.doesNotMatch(read(p),/\b(?:fictional|illustrative)\b/i,p);
+ const dashboard=read('dashboard.html');
+ assert(dashboard.includes('verified-replay.html?scope=fictional'),'Legacy replay routing is preserved');
+ const visible=dashboard.replace(/scope=fictional/gi,'');
+ assert.doesNotMatch(visible,/\bfictional\b|\billustrative\b/i,'Dashboard wording is updated without rewriting replay URLs');
+});
