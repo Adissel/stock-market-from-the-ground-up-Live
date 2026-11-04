@@ -106,8 +106,8 @@ try{
    await page.locator('#tc-teaching-depth').selectOption('FOUNDATION');
    const before=await page.locator('.tc-transcript li').count();
    await page.getByRole('button',{name:'Start teaching'}).click();
-   await page.waitForFunction(expected=>document.querySelectorAll('.tc-transcript li').length>=expected,null,before+2,{timeout:25000});
-   const text=await page.locator('.tc-transcript li').last().innerText();
+   await page.waitForFunction(expected=>document.querySelectorAll('.tc-transcript li').length>=expected,before+2,{timeout:25000});
+   const text=await page.locator('.tc-transcript li').last().textContent();
    assert(text.length>80,topic+' rendered lesson too short');
   }
   mark('Six genuine interactive browser lesson selections and rendered Talia responses');
