@@ -54,32 +54,36 @@ test('actual Prototype Center workspaces and all eight experiences replace stati
  for(const id of ['foundations','indicator','replay','tape','scanner','risk','filings','academy'])
   assert.ok(proto.includes("id:'"+id+"'"),id);
 });
-test('public constellation shows nine stages without opening protected owner metadata',()=>{
+test('homepage mounts the same dimensional map as protected prototype without exposing staff navigation',()=>{
  assert.match(index,/id="learning-constellation"/);
- assert.equal((index.match(/data-home-stage="/g)||[]).length,9);
- assert.match(index,/OUR TEACHING STYLE/);
- assert.match(index,/home-learning-constellation-v1\.js\?v=20261104-showcase1/);
- assert.match(css,/@media\(max-width:450px\)/);
- assert.match(owner,/\/index\.html#learning-constellation/);
- assert.match(owner,/\/prototype\.html\?experience=a&layout=foundations/);
- for(const word of ['supabase','getSession','service_role','Bearer ','assessmentKey','stripe','memberProgress'])
+ assert.match(index,/id="pt-experiences-root"/);
+ assert.match(index,/prototype-learning-constellation-v1\.css\?v=20261104-homegalaxy1/);
+ assert.match(index,/home-academy-wide-chart-galaxy-v1\.css\?v=20261104-homegalaxy1/);
+ assert.match(index,/home-learning-constellation-v1\.js\?v=20261104-homegalaxy1/);
+ assert.doesNotMatch(index,/data-home-stage="/,'Replace old nine-button teaser, not keep a second map');
+ assert.match(constellation,/mountLearningConstellation\(host,\{publicPreview:true\}\)/);
+ assert.match(constellation,/prototype-learning-constellation-v1\.js/);
+ assert.match(owner,/export function mountLearningConstellation\(host,options=\{\}\)/);
+ assert.match(owner,/if\(publicPreview\)/);
+ assert.match(owner,/side\.replaceChildren\(\)/,'Hide Owner-only navigation on public site');
+ for(const word of ['getSession','service_role','Bearer ','assessmentKey','stripe','memberProgress'])
   assert.ok(!constellation.includes(word),word);
- assert.match(index,/419<\/b> catalogued Labs/);
- assert.match(index,/10<\/b> Boot Camp paths/);
+ assert.match(owner,/\/prototype\.html\?experience=a&layout=foundations/,'Prototype still supports owner-only preview on protected route');
 });
-test('constellation public buttons change teaching description and do not generate grades',()=>{
- const nodes=new Map();
- function el(id){return {id,textContent:'',attributes:{},dataset:{},handlers:{},
-  setAttribute(k,v){this.attributes[k]=v},addEventListener(k,fn){this.handlers[k]=fn},
-  click(){this.handlers.click?.()}}}
- const root=el('learning-constellation'),buttons=Array.from({length:9},(_,i)=>{const b=el('b'+i);b.dataset.homeStage=String(i);return b});
- const kicker=el('kicker');root.querySelectorAll=()=>buttons;root.querySelector=()=>kicker;
- nodes.set('learning-constellation',root);
- for(const id of ['gu-lc-public-selected','gu-lc-public-explain','gu-lc-public-action'])nodes.set(id,el(id));
- const document={readyState:'complete',getElementById:id=>nodes.get(id)};
- vm.runInNewContext(constellation,{document,console},{timeout:1000});
- buttons[2].click();assert.equal(buttons[2].attributes['aria-pressed'],'true');
- assert.equal(buttons[0].attributes['aria-pressed'],'false');
- assert.match(nodes.get('gu-lc-public-selected').textContent,/Experiment/);
- buttons[5].click();assert.match(nodes.get('gu-lc-public-explain').textContent,/protected/);
+test('public map retains the actual galaxy canvas, four modes, and safe chart/marketing presentation',()=>{
+ const galaxy=read('assets/js/prototype-constellation-galaxy-v2.js');
+ const prototypeCSS=read('assets/css/prototype-learning-constellation-v1.css');
+ const wide=read('assets/css/home-academy-wide-chart-galaxy-v1.css');
+ for(const mode of ['journey','labs','academy','tutor'])
+  assert.ok(owner.includes('data-mode="'+mode+'"'),'Missing real prototype mode '+mode);
+ assert.match(owner,/mountConstellationGalaxy\(galaxyCanvas,\(\)=>state\)/);
+ assert.match(galaxy,/webgl/);
+ assert.match(prototypeCSS,/#pt-experiences-root \.lc-app/);
+ assert.match(wide,/\.gu-premium-home \.gu-home-stage \.wrap\.gu-home-stage-grid/);
+ assert.match(wide,/grid-template-columns:minmax\(0,1\.02fr\) minmax\(0,1\.08fr\)/);
+ assert.match(wide,/\.cl-react-plot\{height:490px!important/);
+ assert.match(index,/id="learning-constellation"/);
+ assert.doesNotMatch(index,/No purchase is required to start\. Registration requires age 18\+ and email verification/);
+ assert.match(index,/Try Free Chart Practice/);
+ assert.match(read('assets/css/home-market-terminal-v1.css'),/cl-react-terminal--home \.cl-react-progress/);
 });
