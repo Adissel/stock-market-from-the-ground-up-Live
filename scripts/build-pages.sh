@@ -64,6 +64,8 @@ node --test tests/crownlight-member-acceptance-phase2-40.test.mjs
 # Member-facing founding matrix must distinguish unknown entitlements from exclusions.
 node tests/test_founding_members_public_names.mjs
 node --test tests/home-market-terminal-v1.test.mjs
+node --check assets/js/home-learning-constellation-v1.js
+node --test tests/home-realistic-prototype-constellation-v1.test.mjs
 node --check assets/js/prototype-shared-learning-market-v1.js
 node --test tests/prototype-shared-learning-market-v1.test.mjs
 node --test tests/crownlight-evidence-core-v1.test.mjs
