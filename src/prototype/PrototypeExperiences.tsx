@@ -1299,10 +1299,10 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
   <BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={prefs}>
   <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
    onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
-   <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='talia'?'Talia':mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
+   {mode!=='talia'&&<div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
     <p>{mode==='talia'?'Observe each revealed candle while reading Talia’s explanation. Use the chart controls to zoom, inspect, and compare completed evidence.':memberSafe?'Simulated price chart · pan, zoom, studies, and timeframes. Advanced tools remain locked.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
-    <span>SIMULATED · UNGRADED</span></div>
-   <div className="cx-classic-chart-controls">
+    <span>SIMULATED · UNGRADED</span></div>}
+   {mode!=='talia'&&<div className="cx-classic-chart-controls">
     {!memberSafe&&<label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
      <option value="demo">Simulated chart design fixture</option>
      {caseBars.length>0&&<option value="case">Only revealed current case bars ({caseBars.length})</option>}
@@ -1316,10 +1316,10 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
     {mode!=='talia'&&<label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>}
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>}
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
-   </div>
+   </div>}
    <div className={activeMeasurement?'cx-classic-visual-region cx-classic-has-measurements':'cx-classic-visual-region'}>
     <EChart kind="price" reveal={chartCount} showVolume={true} showEma={true} showProxy={true}
-     sourceBars={completedBars} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(Math.floor(index/appearance.timeframe),appearance.timeframe)}} design="quantum" height={mode==='talia'?365:460}/>
+     sourceBars={completedBars} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(Math.floor(index/appearance.timeframe),appearance.timeframe)}} design="quantum" height={mode==='talia'?300:460}/>
     {activeMeasurement&&<aside className="cx-classic-measurements" aria-label="Latest revealed candle price measurements">
      <div className="cx-measure-heading"><strong>Price measurements</strong><small>Bar {activeMeasurement.index} · {activeMeasurement.interval}</small></div>
      <dl>
@@ -1333,9 +1333,11 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
      <small>Simulated completed candle. No future bars.</small>
     </aside>}
    </div>
-   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {chartCount} · {mode==='talia'?chartCount+' of '+available.length+' revealed one-minute bars form fully completed '+appearance.timeframe+'-minute intervals; incomplete interval bars are withheld from chart calculations.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
-   <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
-   <IndicatorDock/>
+   <div className="cx-classic-chart-note" role="status">{mode==='talia'?'Timeframe: '+appearance.timeframe+' min · '+chartCount+' of '+available.length+' revealed bars complete.': 'Selected observed candle '+(focused+1)+' of '+chartCount+' · All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
+   {mode==='talia'?<details className="cx-optional-chart-settings"><summary>Chart settings &amp; studies</summary>
+    <label className="cx-compact-look">Candle appearance <select aria-label="Talia chart candle appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>{barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}</select></label>
+    <ChartCustomizer/><IndicatorDock/>
+   </details>:<><details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details><IndicatorDock/></>}
    <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={effectiveStudio}
     prefs={prefs} appearance={appearance} setAppearance={setAppearance}/>
   </section>
