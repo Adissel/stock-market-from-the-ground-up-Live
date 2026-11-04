@@ -147,3 +147,21 @@ test('Mastery V1 retains accessible optional interactions while reserving genuin
  assert.match(boot,/No member grades are written/);
  assert.match(lab,/Not Yet Assessed/);
 });
+
+test('scanner lessons use scanner-specific interactions rather than unrelated candlestick worksheets',()=>{
+ const ctx={};vm.runInNewContext(guided,ctx,{timeout:1000});
+ const p=ctx.GroundUpAcademyGuidedV1.plan;
+ for(let day=1;day<=10;day++){
+  const d={programCode:'scanners10',day,title:'Mastering Stock Scanners — Day '+day,
+   objective:'Build a repeatable scanner with verified source fields',observe:'Review scan evidence',
+   practice:'Test filters and source quality',limitation:'Scanner hits are not trading signals'};
+  const plan=p(d);
+  assert.equal(plan.kind,'scanner','Scanner day '+day+' must not receive candle instruction');
+  if([2,3,6].includes(day)){
+   assert.equal(plan.checks[2].numeric,true,'Relevant numeric task missing on day '+day);
+   assert.equal(plan.checks[2].expected.length,2);
+  }else assert.ok(!plan.checks[2].numeric,'Irrelevant typed calculation on day '+day);
+ }
+ for(const token of ['Interactive scanner-filter experiment','Simulated $4.00 baseline','relative volume','Displayed bid $10.00','Compare two scanner source conditions'])
+  assert.ok(guided.includes(token),'Missing scanner-specific teaching: '+token);
+});
