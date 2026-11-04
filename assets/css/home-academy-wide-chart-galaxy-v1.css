@@ -1,0 +1,68 @@
+/* Homepage 2026-11-04: broader shared market chart plus the original
+   interactive Learning Constellation map in its public, source-only mode.
+   This file intentionally does not style the protected Prototype Center. */
+@media (min-width:1250px){
+ .gu-premium-home .gu-home-stage .wrap.gu-home-stage-grid{
+  max-width:1850px!important;width:calc(100% - clamp(32px,5vw,110px))!important;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,1.08fr)!important;
+  gap:clamp(18px,2.2vw,40px)!important;
+ }
+ .gu-premium-home .gu-home-stage-grid>.gu-home-right-rail{
+  grid-column:2!important;max-width:none!important;min-width:0!important;
+  width:100%!important;
+ }
+ .gu-premium-home .gu-home-stage-grid>.gu-home-message{min-width:0!important}
+ .gu-premium-home .gu-home-message h1{
+  max-width:100%!important;font-size:clamp(2.25rem,2.85vw,3.5rem)!important;
+  line-height:1.12!important;overflow-wrap:normal!important;
+ }
+ .gu-premium-home .gu-home-right-rail .gu-home-terminal,
+ .gu-premium-home .gu-home-right-rail .sm-v5-chart{max-width:none!important;width:100%!important}
+ .gu-premium-home .cl-react-terminal--home .cl-react-plot{height:490px!important;min-height:430px!important}
+}
+@media (min-width:851px) and (max-width:1249px){
+ .gu-premium-home .gu-home-stage .wrap.gu-home-stage-grid{
+  grid-template-columns:1fr!important;max-width:100%!important;
+ }
+ .gu-premium-home .gu-home-stage-grid>.gu-home-right-rail{
+  grid-column:1!important;max-width:100%!important;width:100%!important;
+ }
+ .gu-premium-home .cl-react-terminal--home .cl-react-plot{height:430px!important;min-height:360px!important}
+}
+@media (max-width:850px){
+ .gu-premium-home .gu-home-stage-grid>.gu-home-right-rail{
+  grid-column:1!important;max-width:100%!important;width:100%!important;
+ }
+}
+.gu-home-galaxy-section{padding:clamp(16px,2vw,36px) 0 42px;background:#030a13;min-width:0}
+.gu-home-galaxy-section .gu-home-galaxy-host{width:100%;min-width:0}
+.gu-home-galaxy-section .gu-home-galaxy-loading{
+ margin:0 auto;max-width:1000px;padding:24px;color:#a9cad5;
+}
+#learning-constellation #pt-experiences-root .lc-app{
+ min-height:auto;width:100%;max-width:1900px;margin:0 auto;
+ padding:clamp(14px,2vw,35px);border:0;border-radius:0;
+}
+#learning-constellation #pt-experiences-root .lc-head h2{
+ font-size:clamp(27px,3.5vw,58px);line-height:1.1;
+ letter-spacing:-.045em;margin:12px 0 6px;font-weight:900;color:#f2f9ff;
+}
+#learning-constellation #pt-experiences-root .lc-head h2 em{
+ font-style:normal;color:#54ffe3;text-shadow:0 0 33px #3ffffd65;
+}
+#learning-constellation #pt-experiences-root .lc-head-side{align-items:flex-end}
+#learning-constellation #pt-experiences-root .lc-live{
+ color:#9dffe3!important;background:#0b2b30;border:1px solid #2b786d;
+ border-radius:999px;padding:8px 12px;
+}
+#learning-constellation #pt-experiences-root .lc-canvas{min-height:600px}
+#learning-constellation #pt-experiences-root .lc-map-tip{pointer-events:none}
+@media(max-width:850px){
+ #learning-constellation #pt-experiences-root .lc-head h2{font-size:clamp(28px,6vw,44px)}
+ #learning-constellation #pt-experiences-root .lc-canvas{min-height:480px}
+ #learning-constellation #pt-experiences-root .lc-head-side{align-items:flex-start}
+}
+@media(max-width:600px){
+ #learning-constellation #pt-experiences-root .lc-app{padding:12px}
+ #learning-constellation #pt-experiences-root .lc-canvas{min-height:390px}
+}
