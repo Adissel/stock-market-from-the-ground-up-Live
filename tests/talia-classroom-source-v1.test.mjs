@@ -24,10 +24,12 @@ test('classroom uses existing service authority and never initiates paid AI infe
  assert.doesNotMatch(source,/readPrivateRubric|fetchProtectedAnswerKey|brokerOrder|placeOrder/i);
 });
 test('fictional replay supplies only the revealed candles to the renderer',()=>{
- assert.match(source,/FICTIONAL \/ REVEALED PREFIX/);
+ assert.match(source,/SIMULATED · UNGRADED/);
+ assert.match(source,/tc-chart-heading/);
  assert.match(source,/REPLAY\.slice\(0,visible\)/);
  assert.match(source,/const r=shown\[x\.dataIndex\]/);
- assert.match(source,/No future bars, historical market feed, or graded assessment data/);
+ assert.match(source,/Only completed simulated candles are shown/);
+ assert.match(source,/if\(group\.length!==interval\)return/);
  assert.match(source,/visible===REPLAY\.length/);
  assert.match(source,/Latest visible completed candle/);
  assert.match(source,/Fictional completed-bar teaching example/);
