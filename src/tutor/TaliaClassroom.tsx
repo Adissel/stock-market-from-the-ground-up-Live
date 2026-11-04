@@ -343,6 +343,17 @@ function Classroom(){
   const [member,setMember]=useState<Member|null>(null);
   const [ready,setReady]=useState(false);
   const [chat,setChat]=useState<ChatLine[]>(DEFAULT);
+  const [visible,setVisible]=useState(7);
+  const [playing,setPlaying]=useState(false);
+  const [playSpeed,setPlaySpeed]=useState(1600);
+  const [lessonKind,setLessonKind]=useState<LessonKind|null>(null);
+  const [checkpoint,setCheckpoint]=useState<LessonQuestion|null>(null);
+  const [stageIndex,setStageIndex]=useState(0);
+  const [typingSpeed,setTypingSpeed]=useState(28);
+  const [typingId,setTypingId]=useState<string|null>(null);
+  const [typedCount,setTypedCount]=useState(0);
+  const [activeEdition,setActiveEdition]=useState('FOUNDATION');
+  const [premiumEvidence,setPremiumEvidence]=useState<Record<string,Record<string,unknown>>|null>(null);
   const [dock,setDock]=useState<'split'|'chart'|'tutor'>('split');
   const [dockWidth,setDockWidth]=useState(400);
   const [question,setQuestion]=useState(initialQuestion);
@@ -410,6 +421,8 @@ function Classroom(){
   const reset=useCallback((id:string|null)=>{
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
+    setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+    setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
     setConversationId(null);setConversationLabel('');setSave(false);
     setQuestion('');setReasoning('');setMode('explain');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');
     setMisconception('observation');setConfidence('unsure');setDimension('Recognition');setPerspective('Understand');setMethod('I DO');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
@@ -461,17 +474,71 @@ function Classroom(){
     void init();
     return ()=>{live=false;epoch.current++;pending.current?.abort();unsubscribe?.()};
   },[reset]);
-  useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[chat,busy]);
+  useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[chat,busy,typedCount]);
+  useEffect(()=>{
+    const latest=chat[chat.length-1];
+    if(latest?.who!=='talia'||latest.id===typingId)return;
+    setTypingId(latest.id);
+    setTypedCount(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?latest.text.length:0);
+  },[chat,typingId]);
+  useEffect(()=>{
+    const latest=chat[chat.length-1];
+    if(!latest||latest.who!=='talia'||latest.id!==typingId||typedCount>=latest.text.length)return;
+    const step=typingSpeed===0?latest.text.length:typingSpeed===12?5:typingSpeed===28?3:1;
+    const timer=window.setTimeout(()=>setTypedCount(v=>Math.min(latest.text.length,v+step)),typingSpeed===0?0:typingSpeed);
+    return()=>window.clearTimeout(timer);
+  },[chat,typingId,typedCount,typingSpeed]);
+  const appendInstructor=useCallback((message:string,label='Original fictional teaching')=>{
+    setChat(prev=>[...prev,{id:crypto.randomUUID(),who:'talia',text:message,label}]);
+  },[]);
+  const pauseForQuestion=useCallback((kind:LessonKind|null=lessonKind,at=visible)=>{
+    const selected=kind||'candles';
+    setPlaying(false);setCheckpoint(originalQuestion(selected,REPLAY[at-1],at));
+    setChat(x=>[...x,{id:crypto.randomUUID(),who:'talia',text:'Playback paused at completed fictional candle '+at+'. '+originalQuestion(selected,REPLAY[at-1],at).prompt,label:'Ungraded learner checkpoint'}]);
+  },[lessonKind,visible]);
+  const startLesson=(kind:LessonKind)=>{
+    setLessonKind(kind);setPlaying(false);setVisible(7);setCheckpoint(null);setStageIndex(0);
+    const intro=kind==='vwap'?'We will build fictional trade-print VWAP by multiplying price and volume, adding totals, then dividing. Watch the completed candles separately; their volume proxy is not a real trade-print VWAP.':
+      kind==='body-range'?'We will identify open, high, low and close, then calculate body, range and body percentage as three separate steps. The chart will pause for your arithmetic.':
+      'We will watch completed fictional candles. I will ask what you can observe and what cannot be predicted. The chart pauses while you answer.';
+    appendInstructor(intro);setStatus('Interactive teaching started. Playback is controlled by Talia’s checkpoints.');setPlaying(true);
+  };
+  useEffect(()=>{
+    if(!playing||!member||busy||checkpoint)return;
+    if(document.hidden){setPlaying(false);return;}
+    const timer=window.setTimeout(()=>{
+      const next=Math.min(REPLAY.length,visible+1);
+      setVisible(next);
+      if(next>=REPLAY.length){setPlaying(false);appendInstructor('The fictional replay is complete. Review one new transfer case or restart the lesson.');return;}
+      if(next===8||next%5===0){
+        setPlaying(false);setStageIndex(i=>Math.min(9,i+1));
+        const kind=lessonKind||'candles',q=originalQuestion(kind,REPLAY[next-1],next);
+        setCheckpoint(q);
+        appendInstructor('Playback paused at candle '+next+'. '+q.prompt,'Ungraded learner checkpoint');
+      }
+    },playSpeed);
+    return()=>window.clearTimeout(timer);
+  },[playing,member,busy,checkpoint,visible,playSpeed,lessonKind,appendInstructor]);
+  useEffect(()=>{const hidden=()=>{if(document.hidden)setPlaying(false)};document.addEventListener('visibilitychange',hidden);return()=>document.removeEventListener('visibilitychange',hidden)},[]);
+  const checkpointCompleted=(answer:string,feedback:string)=>{
+    setChat(lines=>[...lines,{id:crypto.randomUUID(),who:'member',text:answer,label:'Ungraded practice'},
+      {id:crypto.randomUUID(),who:'talia',text:feedback+' Playback will resume with the next revealed fictional candle.',label:'Original fictional corrective explanation'}]);
+    setCheckpoint(null);setStageIndex(i=>Math.min(9,i+1));setPlaying(true);
+  };
+  const checkpointFeedback=(feedback:string)=>appendInstructor(feedback+' Try again, request a free explanation, or skip this ungraded practice.');
+  const checkpointSkipped=()=>{
+    appendInstructor('This ungraded question was skipped. Skipping does not prove proficiency or award credits. We will resume on the next fictional candle.');
+    setCheckpoint(null);setPlaying(true);
+  };
   const getToken=useCallback(async()=>{
     if(!client.current||!identity.current)return null;
     const result=(await client.current.auth.getSession()).data.session;
     return result?.user.id===identity.current?result.access_token:null;
   },[]);
-  const send=async(e:React.FormEvent)=>{
-    e.preventDefault();const q=question.trim();
+  const submitTutor=async(q:string,selectedMode:Mode,learnerInput:string)=>{
     if(busy||!member||!ready)return;
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
-    if(mode==='review'&&!reasoning.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
+    if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
     if(practiceCase!=='none'&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
       setStatus('Enter one finite decimal result for the selected fictional calculation.');return;
     }
@@ -484,7 +551,7 @@ function Classroom(){
       const access=await getToken();if(!access)throw Error('Member session expired. Please sign in.');
       const res=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-        body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode,learnerAnswer:reasoning.trim().slice(0,1800),
+        body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode:selectedMode,learnerAnswer:learnerInput.trim().slice(0,1800),
           requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread,
           ...(practiceCase!=='none'?{formativePractice:{caseId:practiceCase,submitted:practiceValue.trim(),labId:labHandoff?.id||'TALIA_CLASSROOM'}}:{})})});
       const result=await res.json().catch(()=>null);
@@ -505,6 +572,7 @@ function Classroom(){
       if(version===epoch.current&&identity.current===targetId){setBusy(false);pending.current=null}
     }
   };
+  const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())};
   const newConversation=async()=>{
     if(!member||busy)return;
     const title=window.prompt('Private conversation title (maximum 80 characters):','Learning session');
@@ -543,6 +611,25 @@ function Classroom(){
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to load history.')}
   };
   const safeSuggest=useCallback((q:string)=>{setQuestion(q.slice(0,450));setStatus('Review the suggested question, then send it to Talia.');},[]);
+  const teachFocus=()=>void submitTutor(('Teach '+sessionTopic+' using only the visible '+visible+
+    ' fictional completed candles. Explain one observation, one calculation and one limitation before asking me a question.').slice(0,450),'explain','');
+  const selectEdition=async(target:string)=>{
+    if(!member||busy)return;
+    const uid=member.id,version=epoch.current;
+    try{
+      const token=await getToken();if(!token)throw Error('Your member session expired.');
+      const res=await fetch('/api/talia-premium-member-v1?tier='+encodeURIComponent(target),{
+        headers:{authorization:'Bearer '+token,accept:'application/json'},cache:'no-store'});
+      const data=await res.json().catch(()=>null);
+      if(version!==epoch.current||identity.current!==uid)return;
+      const verified=await getToken();if(verified!==token)return;
+      if(!res.ok||data?.ok!==true||data.scope!=='AUTHENTICATED_MEMBER_BETA'||data.tier!==target)
+        throw Error('This edition is not authorized for the current member beta account.');
+      setActiveEdition(target);setPremiumEvidence(data.features||{});
+      appendInstructor('Your authenticated '+target+' educational evidence is available for this session. Select a documented teaching topic below. No private grades or cross-member progress are disclosed.','Verified private edition context');
+      setStatus('Authenticated '+target+' member beta. The server has verified this edition.');
+    }catch(e){setPremiumEvidence(null);setActiveEdition('FOUNDATION');setStatus(e instanceof Error?e.message:'Member tier validation failed.')}
+  };
   const latestExchange=chat.length>=3&&chat[chat.length-1]?.who==='talia'?
     [...chat].reverse().find(line=>line.who==='member')?.text||'the current topic':'the current topic';
   const continueLesson=(kind:'clarify'|'challenge'|'transfer')=>{
