@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   for(const meta of document.querySelectorAll('meta[name="application-version"]'))meta.content=declaredRelease;
   document.body.dataset.build=declaredRelease;
   if(!document.querySelector('link[data-gu-sitewide-acceptance]')){const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/css/sitewide-acceptance.css';css.dataset.guSitewideAcceptance='1';document.head.append(css)}
-  if(!document.querySelector('link[data-gu-premium-design]')){const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/css/premium-design-v014168.css';l.dataset.guPremiumDesign='1';document.head.append(l)}
+  if(!document.querySelector('link[data-gu-premium-design],link[href^="/assets/css/premium-design-v014168.css"],link[href^="assets/css/premium-design-v014168.css"]')){const l=document.createElement('link');l.rel='stylesheet';l.href='/assets/css/premium-design-v014168.css';l.dataset.guPremiumDesign='1';document.head.append(l)}
   loadOnce('/assets/js/premium-design-v014168.js','premiumDesignV014168');
   // Compact the entire existing focused-learning header, including the
   // dynamically inserted member-menu button and account utilities.
